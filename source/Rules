@@ -15,8 +15,21 @@ compile '/stylesheet/' do
 end
 
 compile '*' do
-  filter :erb
+  ext = item[:extension].nil? ? nil : item[:extension].split('.').last
+
+  if ext == 'erb'
+    filter :erb
+  elsif ext == 'markdown'
+    filter :erb
+    filter :kramdown
+  elsif ext == 'html'
+    filter :kramdown
+  else
+    raise "Filter is not configured for #{item.identifier} in Rules file."
+  end
+
   layout 'default'
+
 end
 
 route '/stylesheet/' do
