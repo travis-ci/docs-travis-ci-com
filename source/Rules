@@ -17,12 +17,13 @@ end
 compile '*' do
   ext = item[:extension].nil? ? nil : item[:extension].split('.').last
 
-  if ext == 'erb'
+  case ext
+  when 'erb'
     filter :erb
-  elsif ext == 'markdown'
+  when 'markdown', 'md'
     filter :erb
     filter :kramdown
-  elsif ext == 'html'
+  when 'html'
     filter :kramdown
   else
     raise "Filter is not configured for #{item.identifier} in Rules file."
