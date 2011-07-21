@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - Welcome to Travis CI</title>
+    <title>Travis CI: About - Getting started</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -11,7 +11,7 @@
         <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
         <ul>
           <li><a href="/">Blog</a></li>
-          <li><a href="/docs">Docs</a></li>
+          <li><a href="/docs/">Docs</a></li>
           <li class="right"><a href="http://travis-ci.org">go to travis-ci.org &rarr;</a></li>
         </ul>
       </div>
@@ -29,14 +29,40 @@
         <div class="pad">
           <div id="main">
             
-              <h2>Welcome to Travis CI</h2>
+              <h2>Getting started</h2>
             
 
-            <p>Travis CI is an open-source, distributed build system for the Ruby community.</p>
+            <h3>Sign in</h3>
 
-<p>We are going to blog more about it later but for now you can read up on the <em>initial ideas</em> on <a href="http://svenfuchs.com/2011/2/5/travis-a-distributed-build-server-tool-for-the-ruby-community">Sven’s blog</a> and flip through <a href="http://talk-2011-lyon.heroku.com">a presentation</a> that we gave at 3 conferences and 2 Ruby user groups this summer.</p>
+<p>To get started with Travis CI simply sign in through Github oauth (i.e. go to <a href="http://travis-ci.org">Travis CI</a> and click the link on the top right).</p>
 
-<p>If you feel like this is a great project then jump into <a href="irc://travis#irc.freenode.net">#travis on irc.freenode.net</a> and say hi!</p>
+<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won’t touch anything else.</p>
+
+<h3>Add service hooks</h3>
+
+<p>Once you’re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You’ll see a list of your repositories. Simply click the on/off switch for each repository that you want to hook up on Travis CI.</p>
+
+<p>You can then click on the small wrench icon next to the on/off switch to get to your service hooks page.</p>
+
+<h3>Prepare your build</h3>
+
+<p>In order to build on Travis CI your repository needs to have a Gemfile (unless you do not have <em>any</em> dependencies to install) and a Rakefile with a default test task (unless you specify a different build script in your configuration, see below).</p>
+
+<p>That’s it. Travis CI will run <code>bundle install</code> (if you have a Gemfile) and then <code>rake</code> for you by default.</p>
+
+<h3>Start your build</h3>
+
+<p>To start a build you can either commit and push something to your repository. Or you can go to your service hooks page and click the “Test Hook” button.</p>
+
+<p>That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.</p>
+
+<h3>Tweaking your build configuration</h3>
+
+<p>You can configure your build by adding a file <code>.travis.yml</code> to your repository. See <a href="/docs/build-configuration/">Build Configuration</a> for details.</p>
+
+<h3>Need help?</h3>
+
+<p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We’re there to help :)</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
@@ -44,13 +70,13 @@
             <ul>
               <li><a href="http://github.com/travis-ci">Github</a></li>
               <li><a href="http://twitter.com/travisci">Twitter</a></li>
-              <li><a href="irc://travis#irc.freenode.net">IRC</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
               <li><a href="http://groups.google.com/group/travis-ci">Mailinglist</a></li>
             </ul>
             <h2>Documentation</h2>
             <ul>
-              <li><a href="/docs/getting-started">Getting started</a></li>
-              <li><a href="/docs/build-configuration">Build configuration</a></li>
+              <li><a href="/docs/getting-started/">Getting started</a></li>
+              <li><a href="/docs/build-configuration/">Build configuration</a></li>
             </ul>
             <h2>Under construction</h2>
             <ul>

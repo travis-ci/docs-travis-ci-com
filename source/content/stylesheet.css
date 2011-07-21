@@ -358,21 +358,16 @@ h2 {
 }
 
 h3 {
-  font-size: 1.35em;
+  font-size: 1.15em;
   line-height: 1em;
   margin-bottom: 0.5em;
 }
 
 h4 {
-  font-size: 1.15em;
+  font-size: 0.95em;
   line-height: 1.25;
   margin-bottom: 1.25em;
   height: 1.25em;
-}
-
-h6 {
-  font-size: 0.95em;
-  font-weight: normal;
 }
 
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
