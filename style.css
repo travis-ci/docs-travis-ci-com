@@ -109,7 +109,7 @@ strong {
 em {
   font-style: italic;
 }
-em.help {
+span.help {
   font-style: italic;
   background-color: #ffff99;
   font-family: Georgia, Times, Serif;

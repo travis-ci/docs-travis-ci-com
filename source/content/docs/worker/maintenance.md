@@ -2,7 +2,7 @@
 
 ### Setting up a new worker box
 
-Currently needs to be done manually. _Automate this if you'd like to help!_
+Currently needs to be done manually. <span class="help">Automate this if you'd like to help!<span>
 
 The box should have a user `travis` and the following things installed.
 
@@ -109,7 +109,7 @@ to provision cookbook changes to the worker VMs:
 * Simply provision the worker VMs
 * Provision the base VM, re-export it to base.box, remove all worker base boxes,
   re-add base.box as new worker base boxes, destroy all VMs, start new worker
-  VMs. <em class="help">Automate this if you'd like to help!<em>
+  VMs. <span class="help">Automate this if you'd like to help!<span>
 
 The first approach provisions on each of your VMs, so if you have 5 VMs it will
 provision 5 times. The second approach only provisions on the base VM and then
