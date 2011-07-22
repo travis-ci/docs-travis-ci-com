@@ -107,12 +107,36 @@ strong {
 }
 
 em {
-  font-weight: bold;
   font-style: italic;
 }
+em.help {
+  font-style: italic;
+  background-color: #ffff99;
+  font-family: Georgia, Times, Serif;
+}
 
-code {
-  font-family: 'Bitstream Vera Sans Mono', 'Courier', monospace;
+pre {
+  margin-top: 1em;
+  padding: 1em 1.5em;
+  line-height: 1.5em;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  border-bottom-left-radius: 8px 8px;
+  border-bottom-right-radius: 8px 8px;
+  border-top-left-radius: 8px 8px;
+  border-top-right-radius: 8px 8px;
+  font-family: monospace;
+  font-size: 13px;
+  overflow-x: scroll;
+}
+
+p > code, div > code {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  padding: 0px 0.2em;
+  font-family: monospace;
+  font-size: 13.3px;
 }
 
 .wrapper {
