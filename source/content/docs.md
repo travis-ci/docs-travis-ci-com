@@ -1,13 +1,13 @@
 ---
-title: Documentation
+title: 
 kind: article
 layout: article
 ---
+### User documentation
 
-* <a href="/docs/getting-started/">Getting started</a>
-* <a href="/docs/build-configuration/">Build Configuration</a>
+* <a href="/docs/user/getting-started/">Getting started</a>
+* <a href="/docs/user/build-configuration/">Build Configuration</a>
 
-## The worker
+### Developer documentation
 
-* <a href="/docs/worker/overview/">Overview</a>
-* <a href="/docs/worker/maintenance/">Maintenance</a>
+* <a href="/docs/dev/worker/">The Worker</a>

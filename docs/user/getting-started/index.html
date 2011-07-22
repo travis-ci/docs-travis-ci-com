@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - <%= @item[:title] %></title>
+    <title>Travis CI: About - Getting started</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -28,11 +28,42 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-            <% if item[:title] %>
-              <h2><%= item[:title] %></h2>
-            <% end %>
+            
+              <h2>Getting started</h2>
+            
 
-            <%= yield %>
+            <h3>Sign in</h3>
+
+<p>To get started with Travis CI simply sign in through Github oauth (i.e. go to <a href="http://travis-ci.org">Travis CI</a> and click the link on the top right).</p>
+
+<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won’t touch anything else.</p>
+
+<h3>Add service hooks</h3>
+
+<p>Once you’re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You’ll see a list of your repositories. Simply click the on/off switch for each repository that you want to hook up on Travis CI.</p>
+
+<p>You can then click on the small wrench icon next to the on/off switch to get to your service hooks page.</p>
+
+<h3>Prepare your build</h3>
+
+<p>In order to build on Travis CI your repository needs to have a Gemfile (unless you do not have <em>any</em> dependencies to install) and a Rakefile with a default test task (unless you specify a different build script in your configuration, see below).</p>
+
+<p>That’s it. Travis CI will run <code>bundle install</code> (if you have a Gemfile) and then <code>rake</code> for you by default.</p>
+
+<h3>Start your build</h3>
+
+<p>To start a build you can either commit and push something to your repository. Or you can go to your service hooks page and click the “Test Hook” button.</p>
+
+<p>That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.</p>
+
+<h3>Tweaking your build configuration</h3>
+
+<p>You can configure your build by adding a file <code>.travis.yml</code> to your repository. See <a href="/docs/build-configuration/">Build Configuration</a> for details.</p>
+
+<h3>Need help?</h3>
+
+<p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We’re there to help :)</p>
+
           </div><!-- /#main -->
           <div id="sidebar">
             <h2>Contact</h2>
