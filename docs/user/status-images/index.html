@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - <%= @item[:title] %></title>
+    <title>Travis CI: About - Status Images</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -28,11 +28,47 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-            <% if item[:title] %>
-              <h2><%= item[:title] %></h2>
-            <% end %>
+            
+              <h2>Status Images</h2>
+            
 
-            <%= yield %>
+            <p>After adding your project to Travis, you can use the status buttons to show the current status of your projects in your <code>README</code> file on Github or your project website.</p>
+
+<p>Your status button is available at the following URL:</p>
+
+<pre><code>http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+</code></pre>
+
+<p>So, when using textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your <code>README</code>:</p>
+
+<pre><code>"!http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
+</code></pre>
+
+<p>Or if you’re using markdown:</p>
+
+<pre><code>[![Build Status](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+</code></pre>
+
+<p>Travis CI’s own status button looks like this: “!https://secure.travis-ci.org/travis-ci/travis-ci.png!”:http://travis-ci.org/travis-ci/travis-ci</p>
+
+<h3 id="specifying-branches">Specifying branches</h3>
+
+<p>You can limit the impact of this button to certain branches only. For example, you might not want to include feature branches, which might fail but don’t mean the project itself fails.</p>
+
+<p>Specify a <code>?branch=</code> parameter in the URI. Split branches with a comma if you want to specify several.</p>
+
+<pre><code>http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
+</code></pre>
+
+<h3 id="using-ssl-enabled-status-images-on-github">Using SSL enabled status images on Github</h3>
+
+<p><strong>Please note :</strong> If you are placing this image on a GitHub project status page we recommend you use the SSL enabled url for the image so that GitHub does not proxy and cache it.</p>
+
+<p>The SSL url is:</p>
+
+<pre><code>https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+</code></pre>
+
           </div><!-- /#main -->
           <div id="sidebar">
             <h2>Contact</h2>
