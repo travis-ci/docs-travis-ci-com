@@ -30,7 +30,7 @@ That should put a build job into the job queue on <a href="http://travis-ci.org"
 
 <h3>Tweaking your build configuration</h3>
 
-You can configure your build by adding a file `.travis.yml` to your repository. See <a href="/docs/build-configuration/">Build Configuration</a> for details.
+You can configure your build by adding a file `.travis.yml` to your repository. See <a href="/docs/user/build-configuration/">Build Configuration</a> for details.
 
 <h3>Need help?</h3>
 
