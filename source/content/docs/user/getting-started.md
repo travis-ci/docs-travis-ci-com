@@ -4,21 +4,23 @@ kind: article
 layout: article
 ---
 
-<h3>Make sure your project is ready to build</h3>
+<h3>Make sure your project can build</h3>
 
-In order to build on Travis CI your repository should have a Rakefile with the default task being a test task. That's it. Travis CI will first run `bundle install` if you have a Gemfile, and then `rake` for you by default.
+In order to build on Travis CI, your repository should have a Rakefile with the default task being a test task. That's it. Travis CI will first run `bundle install` if you have a Gemfile, and then `rake` by default. The build success is determined by the response code of that command.
 
-More on configuring this below.
+You can <a href="/docs/user/build-configuration/">configure</a> all aspects of this, including the <a href="/docs/user/database-setup/">database connection</a> if you need one.
 
 <h3>Sign in</h3>
 
-To get started with Travis CI simply sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.
+To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.
 
 Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
 
 <h3>Add service hooks</h3>
 
 Once you're signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.
+
+Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service.
 
 <h3>What triggers the build process?</h3>
 
