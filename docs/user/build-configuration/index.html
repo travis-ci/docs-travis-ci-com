@@ -78,7 +78,7 @@ $ bundle exec rake
 <pre><code>env: DB=postgres
 </code></pre>
 
-<p>Environment variables are useful for configuring build scripts. One variable is always present during your builds, <code>TRAVIS</code>:</p>
+<p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, <code>TRAVIS</code>:</p>
 
 <pre><code>if ENV['TRAVIS']
   # do something specific to continuous integration
@@ -132,6 +132,8 @@ after_script:  another_command
 </code></pre>
 
 <p>Both settings support multiple scripts, too.</p>
+
+<p>These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
 <h3>Recipients of email &amp; IRC notification</h3>
 
@@ -193,8 +195,9 @@ branches:
             <h2>User Docs</h2>
             <ul>
               <li><a href="/docs/user/getting-started/">Getting started</a></li>
-              <li><a href="/docs/user/build-configuration/">Build Configuration</a></li>
-              <li><a href="/docs/user/status-images/">Status Images</a></li>
+              <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
+              <li><a href="/docs/user/database-setup/">Database setup</a></li>
+              <li><a href="/docs/user/status-images/">Status images</a></li>
             </ul>
             <h2>Developer Docs</h2>
             <ul>

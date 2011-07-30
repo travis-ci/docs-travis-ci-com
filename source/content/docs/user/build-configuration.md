@@ -45,7 +45,7 @@ To specify an environment variable:
 
     env: DB=postgres
 
-Environment variables are useful for configuring build scripts. One variable is always present during your builds, `TRAVIS`:
+Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, `TRAVIS`:
 
     if ENV['TRAVIS']
       # do something specific to continuous integration
@@ -93,6 +93,8 @@ You can also define scripts to be run before and after the main script:
     after_script:  another_command
 
 Both settings support multiple scripts, too.
+
+These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.
 
 <h3>Recipients of email & IRC notification</h3>
 

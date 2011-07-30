@@ -30,6 +30,12 @@ That should put a build job into the job queue on <a href="http://travis-ci.org"
 
 You can configure your build by adding a `.travis.yml` file to the root of your repository. See <a href="/docs/user/build-configuration/">Build Configuration</a> for details.
 
+<h3>Databases, available infrastructure and more</h3>
+
+A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, memcached and others.
+
+See <a href="/docs/user/database-setup/">Database setup</a> to learn how to configure a database connection for your test suite.
+
 <h3>Need help?</h3>
 
 For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We're there to help :)
