@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - <%= @item[:title] %></title>
+    <title>Travis CI: About - The Travis API</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -28,11 +28,54 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-            <% if item[:title] %>
-              <h2><%= item[:title] %></h2>
-            <% end %>
+            
+              <h2>The Travis API</h2>
+            
 
-            <%= yield %>
+            <h3 id="repositories">Repositories</h3>
+
+<h4 id="index">Index</h4>
+<pre><code>http://travis-ci.org/repositories.json
+</code></pre>
+
+<h4 id="response-httptravis-ciorgrepositoriesjson">Response (http://travis-ci.org/repositories.json)</h4>
+
+<pre><code>[
+  {
+    "slug": "sstephenson/execjs",
+    "last_build_id": 62016,
+    "last_build_started_at": "2011-08-01T17:37:44Z",
+    "last_build_status": null,
+    "last_build_number": "15",
+    "id": 389,
+    "last_build_finished_at": null
+  },
+  ...
+]
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/919a2b3a2ac6dd60239c2548b183fc0a7ba49890/863c0ad50ec63156ec169be3a542d4408fe02d42">Hurl</a></p>
+
+<h4 id="show">Show</h4>
+
+<pre><code>http://travis-ci.org/:owner_name/:name.json
+</code></pre>
+
+<h4 id="response-httptravis-ciorgtravis-citravis-cijson">Response (http://travis-ci.org/travis-ci/travis-ci.json)</h4>
+<pre><code>{
+  "slug": "travis-ci/travis-ci",
+  "last_build_id": 61817,
+  "last_build_started_at": "2011-08-01T14:50:07Z",
+  "last_build_status": 0,
+  "last_build_number": "721",
+  "id": 59,
+  "status": "stable",
+  "last_build_finished_at": "2011-08-01T14:56:44Z"
+}
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/1a475b8b354d98647764c8f7d863f5732c2dbc18/33e7c4e5c62612cdbeac17917c6ebd9f8d3d6344">Hurl</a></p>
+
           </div><!-- /#main -->
           <div id="sidebar">
             <h2>Contact</h2>
