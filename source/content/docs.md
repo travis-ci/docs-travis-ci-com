@@ -9,6 +9,7 @@ layout: article
 * <a href="/docs/user/build-configuration/">Build configuration</a>
 * <a href="/docs/user/database-setup/">Database setup</a>
 * <a href="/docs/user/status-images/">Status images</a>
+* <a href="/docs/user/resources/">Resources</a>
 
 ### Developer documentation
 
