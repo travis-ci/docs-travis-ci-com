@@ -14,7 +14,7 @@ layout: article
 ### Specific Language Help
 
 * <a href="/docs/user/languages/ruby/">Ruby</a>
-* <a href="/docs/user/languages/nodejs/">Node.js</a>
+* <a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a>
 
 ### Developer documentation
 
