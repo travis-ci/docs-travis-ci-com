@@ -32,13 +32,30 @@
               <h2>Building a Clojure project</h2>
             
 
-            <p>Travis VMs includes Leinigen 1.6.x. You can use it to build and test your Clojure project. Add the following line to .travis.yml:</p>
+            <h2 id="provided-tools">Provided tools</h2>
+
+<p>Travis VMs provide</p>
+
+<ul>
+  <li>32-bit OpenJDK 6</li>
+  <li><a href="https://github.com/technomancy/leiningen">Leiningen</a> 1.6.x.</li>
+</ul>
+
+<h2 id="setting-up-a-clojure-project-on-travis-ciorg">Setting up a Clojure project on travis-ci.org</h2>
+
+<p>Clojure projects on travis-ci.org are managed with <a href="https://github.com/technomancy/leiningen">Leiningen</a>, so add the following line to .travis.yml:</p>
 
 <pre><code>before_script: "lein deps"
 script: "lein test"
 </code></pre>
 
-<p>The first command installs the project&rsquo;s dependencies as listed in the project.clj file). The second command runs the test suite.</p>
+<p>The first command installs the project&rsquo;s <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>. The second command runs the test suite.</p>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">michaelklishin/langohr</a></li>
+</ul>
 
           </div><!-- /#main -->
           <div id="sidebar">
