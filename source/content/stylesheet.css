@@ -491,3 +491,17 @@ div#content div.pad {
   margin-left: 0;
   margin-right: 0;
 }
+
+div.language-switcher {
+  text-align: right;
+}
+
+div.language-switcher span {
+  display: block;
+  float: left;
+}
+
+div.language-switcher ul li {
+  display: inline;
+  margin-left: 20px;
+}
