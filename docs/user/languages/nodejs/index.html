@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - </title>
+    <title>Travis CI: About - Building a Node.js project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -29,8 +29,33 @@
         <div class="pad">
           <div id="main">
             
-
+              <h2>Building a Node.js project</h2>
             
+
+            <p>Travis VMs includes Node 0.4.x and NPM 1.0.x. You can use these to build and test your Node.js project. Add the following line to .travis.yml:</p>
+
+<pre><code>before_script: "npm install --dev"
+script: "npm test"
+</code></pre>
+
+<p>The first command installs the project&rsquo;s runtime and development dependencies (listed as devDependencies in the project&rsquo;s package.json file). The second command runs the test script specified in package.json.</p>
+
+<p>You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:</p>
+
+<pre><code>scripts: {
+  test: "vows --spec"
+},
+</code></pre>
+
+<p>To setup the database and test using Expresso:</p>
+
+<pre><code>scripts: {
+  pretest: "NODE_ENV=test node setup_db",
+  test: "expresso test/*"
+},
+</code></pre>
+
+<p>Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember are the npm install and npm test conventions.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
