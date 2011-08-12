@@ -3,12 +3,12 @@ title:
 kind: article
 layout: article
 ---
-### Document utilisateur
+### Documentation utilisateur
 
 * <a href="/docs/user/getting-started/">Démarrer</a>
 * <a href="/docs/user/build-configuration/">Configurer une build</a>
 * <a href="/docs/user/database-setup/">Configurer une base de données</a>
-* <a href="/docs/user/status-images/">Images de statuts</a>
+* <a href="/docs/user/status-images/">Images de status</a>
 * <a href="/docs/user/resources/">Ressources</a>
 
 ### Aide spécifique sur les langages supportés
