@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - </title>
+    <title>Travis CI: About - Building a Clojure project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -29,30 +29,16 @@
         <div class="pad">
           <div id="main">
             
+              <h2>Building a Clojure project</h2>
+            
 
-            <h3 id="user-documentation">User documentation</h3>
+            <p>Travis VMs includes Leinigen 1.6.x. You can use it to build and test your Clojure project. Add the following line to .travis.yml:</p>
 
-<ul>
-  <li><a href="/docs/user/getting-started/">Getting started</a></li>
-  <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
-  <li><a href="/docs/user/database-setup/">Database setup</a></li>
-  <li><a href="/docs/user/status-images/">Status images</a></li>
-  <li><a href="/docs/user/resources/">Resources</a></li>
-</ul>
+<pre><code>before_script: "lein deps"
+script: "lein test"
+</code></pre>
 
-<h3 id="specific-language-help">Specific Language Help</h3>
-
-<ul>
-  <li><a href="/docs/user/languages/ruby">Ruby</a></li>
-  <li><a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a></li>
-  <li><a href="/docs/user/languages/clojure">Clojure</a></li>
-</ul>
-
-<h3 id="developer-documentation">Developer documentation</h3>
-
-<ul>
-  <li><a href="/docs/dev/worker/">The Worker</a></li>
-</ul>
+<p>The first command installs the project&rsquo;s dependencies as listed in the project.clj file). The second command runs the test suite.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
