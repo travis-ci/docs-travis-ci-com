@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - Travis CI Environment</title>
+    <title>Travis CI: About - About Travis CI Environment</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -29,14 +29,14 @@
         <div class="pad">
           <div id="main">
             
-              <h2>Travis CI Environment</h2>
+              <h2>About Travis CI Environment</h2>
             
 
             <h2 id="purpose-of-this-page">Purpose of this page</h2>
 
 <p>To explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;<a href="http://vagrantup.com/">Vagrant</a> base&rdquo; or &ldquo;CI environment&rdquo;).</p>
 
-<h2 id="the-travis-ci-environment">The Travis CI environment</h2>
+<h2 id="overview">Overview</h2>
 
 <p>Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it.
 This offers a number of benefits:</p>
@@ -53,6 +53,9 @@ the worker environment that runs one or more instances of the Travis worker appl
 
 <p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">cookbooks used by travis-ci.org</a> are open source and
 can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 10.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is a relatively small undertaking.</p>
+
+<p>Chef cookbooks are developed using <a href="http://vagrantup.com/">Vagrant</a> and <a href="https://github.com/michaelklishin/sous-chef">Sous Chef</a> so
+cookbook contributors are encouraged to use them.</p>
 
 <h2 id="cookbooks">Cookbooks</h2>
 
