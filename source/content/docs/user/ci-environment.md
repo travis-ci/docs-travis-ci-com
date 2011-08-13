@@ -9,6 +9,8 @@ layout: article
 To explain what packages, tools and settings are available in the Travis CI environment (often referred to as "[Vagrant](http://vagrantup.com/) base" or "CI environment").
 
 
+## The Travis CI environment
+
 Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it.
 This offers a number of benefits:
 
@@ -21,7 +23,8 @@ The environment available to test suites is known as the *Travis CI environment*
 the worker environment that runs one or more instances of the Travis worker application).
 
 The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base) are open source and
-can be found on GitHub.
+can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 10.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is a relatively small undertaking.
+
 
 ## Cookbooks
 
