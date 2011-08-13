@@ -14,13 +14,22 @@ Travis VMs provide
 
 ## Setting up a Clojure project on travis-ci.org
 
-Clojure projects on travis-ci.org are managed with [Leiningen](https://github.com/technomancy/leiningen), so add the following line to .travis.yml:
+Clojure projects on travis-ci.org are managed with [Leiningen](https://github.com/technomancy/leiningen). Typical build then has two operations:
 
-    before_script: "lein deps"
-    script: "lein test"
-
+ * lein deps
+ * lein test
 
 The first command installs the project's [dependencies as listed in the project.clj file](https://github.com/technomancy/leiningen/blob/master/sample.project.clj). The second command runs the test suite.
+Projects that find this sufficient can use a very minimalistic .travis.yml file:
+
+    language: clojure
+
+If you need more fine-grained setup, specify operations to use in your .travis.yml like this:
+
+    language: clojure
+    before_script: "lein deps && lein build-jni-extensions"
+    script: "lein test && lein integration-test"
+
 
 
 ## Examples
