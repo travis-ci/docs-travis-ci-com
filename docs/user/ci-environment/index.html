@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: About - Travis CI Environment</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li><a href="/docs/">Docs</a></li>
+          <li class="right"><a href="http://travis-ci.org">go to travis-ci.org &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>An open-source, distributed build system for the open source community.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+              <h2>Travis CI Environment</h2>
+            
+
+            <h2 id="purpose-of-this-page">Purpose of this page</h2>
+
+<p>To explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;<a href="http://vagrantup.com/">Vagrant</a> base&rdquo; or &ldquo;CI environment&rdquo;).</p>
+
+<p>Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it.
+This offers a number of benefits:</p>
+
+<ul>
+  <li>Host OS is not affected by test suites</li>
+  <li>No state persists between runs</li>
+  <li>Passwordless sudo is available</li>
+  <li>It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on</li>
+</ul>
+
+<p>The environment available to test suites is known as the <em>Travis CI environment</em> or <em>Vagrant base</em> (not to be confused with
+the worker environment that runs one or more instances of the Travis worker application).</p>
+
+<p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">cookbooks used by travis-ci.org</a> are open source and
+can be found on GitHub.</p>
+
+<h2 id="cookbooks">Cookbooks</h2>
+
+<p>Many cookbooks Travis CI environment uses are taken from the <a href="https://github.com/opscode/cookbooks">official OpsCode cookbooks repository</a>.
+We modify some of them for continuous integration needs and sync them periodically or as the need arises.</p>
+
+<ul>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential">Build essentials</a>: gcc,autotools, make, bison and so on</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics">Networking essentials</a> (curl, wget, lsof, iptables and so on)</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt">apt</a></li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git">git</a> 1.7.5.x with GitHub patches</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rvm">rvm</a>. We customized this cookbook to install multiple Ruby versions/implementations with the same default gem set.</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/openssl">openssl</a></li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/java">OpenJDK 6</a></li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mysql">mysql</a> 5.1.41. We customized this cookbook to provide <a href="http://bit.ly/mysql-on-ramfs">mysql::server_on_ramfs recipe</a> I/O-heavy test suites (like the Ruby on Rails one) use.</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql">postgresql</a> 8.4.4</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/redis">redis</a> 2.2.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached">memcached</a></li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak">riak</a> 0.14.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb">mongodb</a> 1.8.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang">erlang</a> R13B03</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.5.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> 0.4.x and NPM 1.0.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen">leiningen</a> 1.6.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt">sbt (simple build tool)</a> 0.10.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick">imagemagick</a>.</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sphinx">sphinx</a> 0.9.9, 1.10 and 2.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/emacs">emacs</a> (for debugging)</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/vim">vim</a> (for debugging)</li>
+</ul>
+
+<h2 id="ruby-versionsimplementations">Ruby versions/implementations</h2>
+
+<ul>
+  <li>1.8.7 (default)</li>
+  <li>1.9.2</li>
+  <li>1.9.3[-preview1]</li>
+  <li>jruby 1.6.3</li>
+  <li>rbx</li>
+  <li>rbx-2.0 (2.0.0 developer preview)</li>
+  <li>ree 2011.03</li>
+  <li>ruby-head</li>
+  <li>1.8.7-p249</li>
+  <li>1.8.6</li>
+</ul>
+
+<h2 id="gems-in-the-global-gem-set">Gems in the global gem set</h2>
+
+<ul>
+  <li>chef</li>
+  <li>bundler</li>
+  <li>rake</li>
+</ul>
+
+<h2 id="environment-variables">Environment variables</h2>
+
+<ul>
+  <li>CI=true</li>
+  <li>TRAVIS=true</li>
+  <li>HAS_JOSH_K_SEAL_OF_APPROVAL=true</li>
+  <li>USER=vagrant</li>
+  <li>LANG=en_US.UTF-8</li>
+  <li>LC_ALL=en_US.UTF-8</li>
+  <li>RAILS_ENV=test</li>
+  <li>RACK_ENV=test</li>
+  <li>MERB_ENV=test</li>
+  <li>JRUBY_OPTS=&rdquo;&ndash;server&rdquo;</li>
+</ul>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailinglist</a></li>
+            </ul>
+            <h2>User Docs</h2>
+            <ul>
+              <li><a href="/docs/user/getting-started/">Getting started</a></li>
+              <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
+              <li><a href="/docs/user/database-setup/">Database setup</a></li>
+              <li><a href="/docs/user/status-images/">Status images</a></li>
+              <li><a href="/docs/user/resources/">Resources</a></li>
+              <li><a href="/docs/user/ci-environment/">CI environment</a></li>              
+            </ul>
+            <h2>Languages</h2>
+            <ul>
+              <li><a href="/docs/user/languages/ruby">Ruby</a></li>
+              <li><a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a></li>
+              <li><a href="/docs/user/languages/clojure">Clojure</a></li>              
+            </ul>
+            <h2>Developer Docs</h2>
+            <ul>
+              <li><a href="/docs/dev/worker/">The worker</a></li>
+              <li><a href="/docs/dev/api/">The API</a></li>
+            </ul>
+            <h2>Under construction</h2>
+            <ul>
+              <li><p>Our site is still under construction. You can help us in: travis#irc.freenode.net</p></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        </div>
+        <div class="box">
+          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="http://github.com/travis-ci/travis-ci" title="">View the Source</a></li>
+            <li><a href="http://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
