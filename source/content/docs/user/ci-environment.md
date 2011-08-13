@@ -37,6 +37,7 @@ We modify some of them for continuous integration needs and sync them periodical
 * [OpenJDK 6](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/java)
 * [mysql](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mysql) 5.1.41. We customized this cookbook to provide [mysql::server_on_ramfs recipe](http://bit.ly/mysql-on-ramfs) I/O-heavy test suites (like the Ruby on Rails one) use.
 * [postgresql](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql) 8.4.4
+* [sqlite](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sqlite)
 * [redis](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/redis) 2.2.x
 * [memcached](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached)
 * [riak](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak) 0.14.x
