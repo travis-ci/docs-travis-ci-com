@@ -496,12 +496,38 @@ div.language-switcher {
   text-align: right;
 }
 
-div.language-switcher span {
+div.language-switcher nav {
+  text-align: right;
   display: block;
+}
+
+div.language-switcher span {
   float: left;
+  text-align: right;
+}
+
+div.language-switcher ul {
+  text-align: right;
 }
 
 div.language-switcher ul li {
   display: inline;
   margin-left: 20px;
+}
+
+div.language-switcher ul li a {
+  text-decoration: none;
+  text-color: blue;
+  padding: 0.5em;
+}
+
+div.language-switcher ul li a:hover {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#888));
+  border-radius: 0.25em;
+  color: #EFEFEF;
+}
+
+div.language-switcher ul li a.selected {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#888));
+  border-radius: 0.25em;
 }
