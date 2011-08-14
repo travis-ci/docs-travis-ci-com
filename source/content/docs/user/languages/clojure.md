@@ -24,7 +24,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: clojure
 
-If you need more fine-grained setup, specify operations to use in your .travis.yml like this:
+If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
 
     language: clojure
     before_script: "lein deps && lein build-jni-extensions"
