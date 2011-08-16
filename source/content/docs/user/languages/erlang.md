@@ -14,10 +14,15 @@ Travis VMs provide
 
 Erlang projects on travis-ci.org are managed with [Rebar](https://github.com/basho/rebar). Please make sure the rebar script is included in your project root, as travis doesn't provide Rebar by default. Typical build then has two operations:
 
- * rebar get-deps
- * rebar eunit
+    rebar get-deps
+    rebar eunit
 
 The first command installs the project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config). The second command runs the test suite. 
+
+Travis will do a Rebar build if a rebar.config is present in the root of the project. If no rebar.config is found, the following operation will be triggered instead:
+
+    make tests
+
 Projects that find this sufficient can use a very minimalistic .travis.yml file: 
 
     language: erlang

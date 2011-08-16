@@ -44,13 +44,18 @@
 
 <p>Erlang projects on travis-ci.org are managed with <a href="https://github.com/basho/rebar">Rebar</a>. Please make sure the rebar script is included in your project root, as travis doesn&rsquo;t provide Rebar by default. Typical build then has two operations:</p>
 
-<ul>
-  <li>rebar get-deps</li>
-  <li>rebar eunit</li>
-</ul>
+<pre><code>rebar get-deps
+rebar eunit
+</code></pre>
 
-<p>The first command installs the project&rsquo;s <a href="https://github.com/basho/riak/blob/master/rebar.config">dependencies as listed in the rebar.config file</a>. The second command runs the test suite. 
-Projects that find this sufficient can use a very minimalistic .travis.yml file: </p>
+<p>The first command installs the project&rsquo;s <a href="https://github.com/basho/riak/blob/master/rebar.config">dependencies as listed in the rebar.config file</a>. The second command runs the test suite. </p>
+
+<p>Travis will do a Rebar build if a rebar.config is present in the root of the project. If no rebar.config is found, the following operation will be triggered instead:</p>
+
+<pre><code>make tests
+</code></pre>
+
+<p>Projects that find this sufficient can use a very minimalistic .travis.yml file: </p>
 
 <pre><code>language: erlang
 otp_release:
