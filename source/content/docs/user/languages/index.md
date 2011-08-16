@@ -9,3 +9,4 @@ languages:
 
 * [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
 * [Clojure](/docs/user/languages/clojure)
+* [Erlang](/docs/user/languages/erlang)
