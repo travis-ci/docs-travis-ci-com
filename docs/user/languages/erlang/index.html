@@ -44,8 +44,8 @@
 
 <p>Erlang projects on travis-ci.org are managed with <a href="https://github.com/basho/rebar">Rebar</a>. Please make sure the rebar script is included in your project root, as travis doesn&rsquo;t provide Rebar by default. Typical build then has two operations:</p>
 
-<pre><code>rebar get-deps
-rebar eunit
+<pre><code>./rebar get-deps
+./rebar skip_deps=true eunit
 </code></pre>
 
 <p>The first command installs the project&rsquo;s <a href="https://github.com/basho/riak/blob/master/rebar.config">dependencies as listed in the rebar.config file</a>. The second command runs the test suite. </p>
