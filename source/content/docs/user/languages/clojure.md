@@ -4,7 +4,7 @@ kind: article
 layout: article
 ---
 
-## Provided tools
+### Provided tools
 
 Travis VMs provide
 
@@ -12,7 +12,7 @@ Travis VMs provide
 * [Leiningen](https://github.com/technomancy/leiningen) 1.6.x.
 
 
-## Setting up a Clojure project on travis-ci.org
+### Setting up a Clojure project on travis-ci.org
 
 Clojure projects on travis-ci.org are managed with [Leiningen](https://github.com/technomancy/leiningen). Typical build then has two operations:
 
@@ -32,6 +32,6 @@ If you need a more fine-grained setup, specify operations to use in your .travis
 
 
 
-## Examples
+### Examples
 
  * [michaelklishin/langohr](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
