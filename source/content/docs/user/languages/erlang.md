@@ -9,13 +9,14 @@ layout: article
 Travis VMs provide
 
 * 32-bit [Erlang OTP](http://www.erlang.org/download.html) R14B0X.
+* A recent version of  [Rebar](https://github.com/basho/rebar).
 
 ## Setting up a Erlang project on travis-ci.org
 
-Erlang projects on travis-ci.org are managed with [Rebar](https://github.com/basho/rebar). Please make sure the rebar script is included in your project root, as travis doesn't provide Rebar by default. Typical build then has two operations:
+Erlang projects on travis-ci.org are managed with [Rebar](https://github.com/basho/rebar).. Typical build then has two operations:
 
-    ./rebar get-deps
-    ./rebar skip_deps=true eunit
+    rebar get-deps
+    rebar compile && rebar skip_deps=true eunit
 
 The first command installs the project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config). The second command runs the test suite. 
 
@@ -34,9 +35,9 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
 
     language: erlang
-    before_script: "./rebar get-deps"
-    script: "./rebar compile eunit"
-
+    before_script: "rebar get-deps"
+    script: "rebar compile eunit"
+    
 ## Examples
 
  * [wardbekker/elixer](https://github.com/wardbekker/elixir/blob/master/.travis.yml)
