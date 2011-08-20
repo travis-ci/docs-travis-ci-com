@@ -1,7 +1,6 @@
 ---
 title: L'API Travis
-kind: article
-layout: article
+kind: content
 ---
 
 ### Repositories

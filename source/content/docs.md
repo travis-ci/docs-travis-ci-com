@@ -1,7 +1,6 @@
 ---
 title:
-kind: article
-layout: article
+kind: content
 ---
 ### User documentation
 

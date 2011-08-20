@@ -1,7 +1,6 @@
 ---
 title: The worker
-kind: article
-layout: article
+kind: content
 ---
 
 Workers consist of the following elements:

@@ -1,7 +1,6 @@
 ---
 title: Build Configuration
-kind: article
-layout: article
+kind: content
 ---
 
 The `.travis.yml` file in the root of your repo allows you configure your builds. Travis CI will always look for the `.travis.yml` file that is contained in the tree specified by the git commit that Github has passed.

@@ -1,7 +1,6 @@
 ---
 title: Getting started
-kind: article
-layout: article
+kind: content
 ---
 
 <h3>Make sure your project can build</h3>

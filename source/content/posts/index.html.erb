@@ -1,0 +1,11 @@
+---
+title: The Travis Blog
+---
+
+<% sorted_articles[0, 10].each do |post| %>
+  <h3><a href="<%= post.path %>"><%= post[:title] %></a></h3>
+  <p><%= excerptize(strip_html(post.compiled_content), :length => 420, :omission => '...') %></p>
+  <p><a href="<%= post.path %>">Read More</a></p>
+  <hr />
+<% end %>
+

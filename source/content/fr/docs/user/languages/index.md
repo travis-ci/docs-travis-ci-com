@@ -1,7 +1,6 @@
 ---
 title: Lanugages
-kind: article
-layout: article
+kind: content
 ---
 
 Here's a list of tutorials for using Travis with different programming

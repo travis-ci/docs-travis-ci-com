@@ -1,7 +1,6 @@
 ---
 title: Resources
-kind: article
-layout: article
+kind: content
 ---
 
 <h3>Blog posts</h3>

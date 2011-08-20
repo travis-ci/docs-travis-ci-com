@@ -1,7 +1,6 @@
 ---
 title: Building a Ruby Project
-kind: article
-layout: article
+kind: content
 ---
 
 Travis was originally intended for just Ruby, so thinks should Just

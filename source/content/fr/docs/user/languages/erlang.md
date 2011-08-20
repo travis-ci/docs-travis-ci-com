@@ -1,7 +1,6 @@
 ---
 title: Building a Erlang project
-kind: article
-layout: article
+kind: content
 ---
 
 ### Provided tools

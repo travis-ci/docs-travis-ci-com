@@ -1,7 +1,6 @@
 ---
 title: Getting started
-kind: article
-layout: article
+kind: content
 ---
 
 ### Make sure your project can build

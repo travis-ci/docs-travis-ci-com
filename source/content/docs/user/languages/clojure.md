@@ -1,7 +1,6 @@
 ---
 title: Building a Clojure project
-kind: article
-layout: article
+kind: content
 ---
 
 ### Provided tools
