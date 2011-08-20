@@ -31,6 +31,10 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
        - R14B03
        - R14B02
        - R14B01
+       - R14B
+       - R14A
+       - R13B04
+       - R13B03
 
 If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
 
