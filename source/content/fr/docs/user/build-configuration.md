@@ -1,70 +1,70 @@
 ---
-title: Build Configuration
+title: Configurer une build
 kind: content
 ---
 
-The `.travis.yml` file in the root of your repo allows you configure your builds. Travis CI will always look for the `.travis.yml` file that is contained in the tree specified by the git commit that Github has passed.
+Le fichier `.travis.yml` vous permet de configurer vos builds. Travis CI va chercher le fichier `.travis.yml` dans le tree git pointé par le commit donné par Github.
 
-This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project, regardless of the branch and whether it has the configuration file or not. You can limit this behavior with configuration options.
+Une configuration donnée dans une branche ne va pas affecter la configuration du build d'une autre branche distincte. Notez que Travis CI va builder après <em>chaque</em> git push vers votre projet Github, quelque soit la branch, et même si le fichier `.travis.yml` n'est pas présent. Vous pouvez changer ce comportement avec des options de configuration.
 
-By default, the worker performs the build as following:
+Par défaut, le worker utilise les commandes suivantes pour builder un projet :
 
     $ rvm use 1.8.7
     $ git clone git://github.com/YOUR/PROJECT.git
     $ bundle install --path vendor/bundle
     $ bundle exec rake
 
-If your project is not using Bundler (no Gemfile), it will only run `rake`.
+Si votre projet n'utilise pas Bundler (pas de Gemfile présent), le worker va seulement appeler `rake`.
 
-The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of "0" means it passed; everything else is treated as failure.
+Le résultat de cette dernière commande – le script de build – indique si la build a passé ou non. Le code de sortie standard de "0" indique qu'il a passé, dans n'importe quel autre cas, c'est un échec.
 
-With the exception of `git clone` command, all of the above steps can be tweaked with `.travis.yml`.
+À l'exception du `git clone`, chacune des commandes peut voir son comportement modifié grâce au fichier `.travis.yml`.
 
-<h3>Choose a Ruby version</h3>
+<h3>Choisir une version différente de Ruby</h3>
 
-To specify the Ruby version to test against, use the `rvm` option:
+Pour spécifier la version de Ruby à utiliser, définissez l'option `rvm` :
 
     rvm: 1.9.2
 
-<h3>Specify a Gemfile</h3>
+<h3>Utiliser un Gemfile spécifique</h3>
 
-You can specify a custom Gemfile name:
+Vous pouvez spécifier un Gemfile différent à utiliser :
 
     gemfile: gemfiles/Gemfile.ci
 
-Unless specified, the worker will look for a file named "Gemfile" in the root of your project.
+Si cette option n'est pas présente, le worker cherchera un fichier Gemfile à la racine du projet.
 
-You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to `bundle install`:
+Vous pouvez aussi indiquer des <a href="http://gembundler.com/man/bundle-install.1.html">arguments</a> qui seront passés à `bundle install` :
 
     bundler_args: --binstubs
 
-<h3>Set environment variables</h3>
+<h3>Définir des variables d'environnement</h3>
 
-To specify an environment variable:
+Pour définir une variable d'environnement, spécifiez :
 
     env: DB=postgres
 
-Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, `TRAVIS`:
+Les variables d'environnement sont souvent utilisés pour configurer les scripts de build. Voyez un exemple de <a href="/fr/docs/user/database-setup/#multiple-database-systems">configuration avec plusieurs SGBD</a>. La variable `TRAVIS` est toujours présente lors du build :
 
     if ENV['TRAVIS']
-      # do something specific to continuous integration
+      # cas particulier pour l'intégration continue
     end
+    
+<h3>La matrice de builds</h3>
 
-<h3>The build matrix</h3>
+Si vous combinez ces trois options de configuration, Travis CI va exécuter vos tests en croisant toutes les combinaisons selon une matrice à trois dimensions :
 
-When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. The 3 matrix dimensions are:
+* `rvm` - les différentes versions de Ruby
+* `gemfile` - les différents jeux de dépendances
+* `env` - les variables d'environnement avec lesquelles vous pouvez configurer vos scripts
 
-* `rvm` - Ruby interpreters to test against
-* `gemfile` - different sets of dependencies to test against
-* `env` - environment variables with which you can configure your build scripts
+Voyez ci-dessous un exemple de configuration pour un projet qui va jusqu'à 32 builds différents.
 
-Below is an example configuration for a rather big build matrix that expands to <strong>32&nbsp;individual</strong> builds.
-
-Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.
+Veuillez bien noter que Travis CI est un service open-source dont les ressources sont fournies par la communauté. Veuillez seulement spécifier les options dont vous avez <em>réellement besoin</em>.
 
     rvm:
       - 1.8.6
-      - 1.8.7 # (current default)
+      - 1.8.7 # (par défaut)
       - 1.9.2
       - rbx
       - rbx-2.0
@@ -78,50 +78,50 @@ Please take into account that Travis CI is an open source service and we rely on
       - ISOLATED=true
       - ISOLATED=false
 
-<h3>Define a custom build script</h3>
+<h3>Définir un script de build spécifique</h3>
 
-You can specify the main build command to run instead of just `rake`:
+Vous pouvez spécifier la commande a exécuter à la place de `rake` :
 
     script: "bundle exec rake db:drop db:create db:migrate test"
 
-The script can be any executable; it doesn't have to be `rake`, and it doesn't even have to start with `bundle exec` (it can bootstrap the bundle internally).
+Ce script peut être n'importe quel fichier exécutable, il n'a pas besoin de commencer par `bundle exec` (qui sert à inclure le bundle).
 
-You can also define scripts to be run before and after the main script:
+Vous pouvez aussi définir des scripts à exécuter avant et après le script principal :
 
     before_script: some_command
     after_script:  another_command
 
-Both settings support multiple scripts, too.
+Vous pouvez également spécifier plusieurs scripts avec ces deux commandes.
 
-These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.
+Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d'informations, <a href="/fr/docs/user/database-setup/">voyez la page Configurer une base de données</a>
 
-<h3>Recipients of email & IRC notification</h3>
+<h3>Destinataires des notifications email et IRC</h3>
 
-You can specify recipients that will be notified about build results.
+Vous pouvez modifier qui va recevoir les notifications de passage ou échec de build.
 
     notifications:
       recipients:
         - one@example.com
         - other@example.com
 
-You can also entirely turn off notifications like this:
+Vous pouvez aussi désactiver entièrement les notifications :
 
     notifications:
       disabled: true
 
-If you do not configure this then Travis CI will notify:
+Travis CI notifie par défaut :
 
-* for user repos: the commit author and the repository owner
-* for repos owned by an organization: the commit author and <em>all</em> organization members
+* pour les repos d'un utilisateur : l'auteur du commit et le propriétaire de la repo
+* pour les repos d'une organisation : l'auteur du commit et <em>tous</em> les membres de l'organisation
 
-You can also specify notifications in an IRC channel:
+Vous pouvez aussi spécifier un channel IRC à notifier :
 
     notifications:
       irc: "irc.freenode.org#travis"
 
-<h3>Specify branches to build</h3>
+<h3>Build seulement certaines branches</h3>
 
-You can either white- or blacklist branches that you want to be built:
+Vous pouvez whitelister ou blacklister des branches :
 
     # blacklist
     branches:
@@ -135,4 +135,4 @@ You can either white- or blacklist branches that you want to be built:
         - master
         - stable
 
-If you specify both, "except" will be ignored.
+Si vous spécifier les deux, "except" sera ignoré.
