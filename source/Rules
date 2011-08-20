@@ -14,6 +14,14 @@ compile '/stylesheet/' do
   # don't filter or layout
 end
 
+compile '/posts/feed/' do
+  filter :erb
+end
+
+route '/posts/feed/' do
+  '/posts.xml'
+end
+
 compile '/fr/*' do
   ext = item[:extension].nil? ? nil : item[:extension].split('.').last
 

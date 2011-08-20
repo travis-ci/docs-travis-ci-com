@@ -1,6 +1,7 @@
 ---
 title: Hello, World
 kind: article
+created_at: Sat Aug 20 18:52:26 EDT 2011
 ---
 
     puts "Hello, world!"
