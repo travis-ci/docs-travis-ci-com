@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: À propos - L'API Travis</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li><a href="/fr/docs/">Documentations</a></li>
+          <li class="right"><a href="http://travis-ci.org">aller sur travis-ci.org &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <!--
+        <div class="language-switcher">
+          <nav>
+          <span>Langues:</span>
+          <ul>
+            <li><a href="/">Anglais</a></li>
+            <li><a href="/fr/" class="selected">Français</a></li>
+          </ul>
+          </nav>
+        </div>
+        -->
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>Un système open-source d'intégration continue pour la
+        communauté open-source.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+              <h2>L'API Travis</h2>
+            
+
+            <h3 id="repositories">Repositories</h3>
+
+<h4 id="index">Index</h4>
+<pre><code>http://travis-ci.org/repositories.json
+</code></pre>
+
+<h4 id="rponse-httptravis-ciorgrepositoriesjson">Réponse (http://travis-ci.org/repositories.json)</h4>
+
+<pre><code>[
+  {
+    "slug": "sstephenson/execjs",
+    "last_build_id": 62016,
+    "last_build_started_at": "2011-08-01T17:37:44Z",
+    "last_build_status": null,
+    "last_build_number": "15",
+    "id": 389,
+    "last_build_finished_at": null
+  },
+  ...
+]
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/919a2b3a2ac6dd60239c2548b183fc0a7ba49890/863c0ad50ec63156ec169be3a542d4408fe02d42">Hurl</a></p>
+
+<h4 id="show">Show</h4>
+
+<pre><code>http://travis-ci.org/:owner_name/:name.json
+</code></pre>
+
+<h4 id="rponse-httptravis-ciorgtravis-citravis-cijson">Réponse (http://travis-ci.org/travis-ci/travis-ci.json)</h4>
+<pre><code>{
+  "slug": "travis-ci/travis-ci",
+  "last_build_id": 61817,
+  "last_build_started_at": "2011-08-01T14:50:07Z",
+  "last_build_status": 0,
+  "last_build_number": "721",
+  "id": 59,
+  "status": "stable",
+  "last_build_finished_at": "2011-08-01T14:56:44Z"
+}
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/1a475b8b354d98647764c8f7d863f5732c2dbc18/33e7c4e5c62612cdbeac17917c6ebd9f8d3d6344">Hurl</a></p>
+
+<h3 id="builds">Builds</h3>
+
+<h4 id="index-1">Index</h4>
+
+<pre><code>http://travis-ci.org/:owner_name/:name/builds.json
+</code></pre>
+
+<h4 id="rponse-httptravis-ciorgtravis-citravis-cibuildsjson">Réponse (http://travis-ci.org/travis-ci/travis-ci/builds.json)</h4>
+
+<pre><code>[
+  {
+    "number": "731",
+    "committed_at": "2011-08-02T23:16:51Z",
+    "commit": "9b5786d7164ef5a960e0d7b87764b9cbc0fb95e3",
+    "finished_at": "2011-08-02T23:27:17Z",
+    "config": {
+      "script": "bundle exec rake test:ci",
+      ".configured": "true",
+      "bundler_args": "--without development",
+      "notifications": {
+        "irc": "irc.freenode.org#travis"
+      },
+      "rvm": [
+        "1.8.7",
+        "1.9.2",
+        "1.9.3",
+        "ree"
+      ]
+    },
+    "author_name": "Josh Kalderimis",
+    "matrix": [
+      {
+        "number": "731.1",
+        "committed_at": "2011-08-02T23:16:51Z",
+        "commit": "9b5786d7164ef5a960e0d7b87764b9cbc0fb95e3",
+        "finished_at": "2011-08-02T23:24:06Z",
+        "config": {
+          "script": "bundle exec rake test:ci",
+          ".configured": "true",
+          "bundler_args": "--without development",
+          "notifications": {
+            "irc": "irc.freenode.org#travis"
+          },
+          "rvm": "1.8.7"
+        },
+        "author_name": "Josh Kalderimis",
+        "log": "Using worker: main.railshoster:worker-3\n\n$ git clone --depth=1000 --quiet git://github.com/travis-ci/travis-ci.git ... ",
+        "branch": "master",
+        "id": 63812,
+        "parent_id": 63811,
+        "started_at": "2011-08-02T23:20:13Z",
+        "author_email": "josh.kalderimis@gmail.com",
+        "status": 0,
+        "repository_id": 59,
+        "message": "Merge branch 'staging'",
+        "compare_url": "https://github.com/travis-ci/travis-ci/compare/ca5b190...9b5786d"
+      },
+     ...
+    ],
+    "log": "",
+    "branch": "master",
+    "id": 63811,
+    "started_at": "2011-08-02T23:23:05Z",
+    "author_email": "josh.kalderimis@gmail.com",
+    "status": 0,
+    "repository_id": 59,
+    "message": "Merge branch 'staging'",
+    "compare_url": "https://github.com/travis-ci/travis-ci/compare/ca5b190...9b5786d"
+  },
+  ...
+]
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/7f51dc1660a6b915159498c19e493637c6395443/ef84212b3be1a146ff07804ec93c689afb81ef72">Hurl</a></p>
+
+<h4 id="show-1">Show</h4>
+
+<pre><code>http://travis-ci.org/:owner_name/:name/builds/:id.json
+</code></pre>
+
+<h4 id="rponse-httptravis-ciorgtravis-citravis-cibuilds63812json">Réponse (http://travis-ci.org/travis-ci/travis-ci/builds/63812.json)</h4>
+
+<pre><code>{
+  "number": "731.1",
+  "committed_at": "2011-08-02T23:16:51Z",
+  "commit": "9b5786d7164ef5a960e0d7b87764b9cbc0fb95e3",
+  "finished_at": "2011-08-02T23:24:06Z",
+  "config": {
+    "script": "bundle exec rake test:ci",
+    ".configured": "true",
+    "bundler_args": "--without development",
+    "notifications": {
+      "irc": "irc.freenode.org#travis"
+    },
+    "rvm": "1.8.7"
+  },
+  "author_name": "Josh Kalderimis",
+  "log": "Using worker: main.railshoster:worker-3\n\n$ git clone --depth=1000 --quiet git://github.com/travis-ci/travis-ci.git ... ",
+  "branch": "master",
+  "id": 63812,
+  "parent_id": 63811,
+  "started_at": "2011-08-02T23:20:13Z",
+  "author_email": "josh.kalderimis@gmail.com",
+  "status": 0,
+  "repository_id": 59,
+  "message": "Merge branch 'staging'",
+  "compare_url": "https://github.com/travis-ci/travis-ci/compare/ca5b190...9b5786d"
+}
+</code></pre>
+
+<p><a href="http://hurl.it/hurls/e69fc3c78fe69ed27e4ef772af5ac6bf005bffce/af2ecf26f637b4cf16b112a35179f9c4277d5b0c">Hurl</a></p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Liste de diffusion</a></li>
+            </ul>
+            <h2>Documentation utilisateur</h2>
+            <ul>
+              <li><a href="/fr/docs/user/getting-started/">Démarrer</a></li>
+              <li><a href="/fr/docs/user/build-configuration/">Configurer une build</a></li>
+              <li><a href="/fr/docs/user/database-setup/">Configurer une base de données</a></li>
+              <li><a href="/fr/docs/user/status-images/">Images de statuts</a></li>
+              <li><a href="/fr/docs/user/resources/">Ressources</a></li>
+            </ul>
+            <h2>Langages</h2>
+            <ul>
+              <li><a href="/fr/docs/user/languages/ruby">Ruby</a></li>
+              <li><a href="/fr/docs/user/languages/javascript-with-nodejs">JavaScript (avec Node.js)</a></li>
+            </ul>
+            <h2>Documentation développeur</h2>
+            <ul>
+              <li><a href="/fr/docs/dev/worker/">Le worker</a></li>
+              <li><a href="/fr/docs/dev/api/">L'API</a></li>
+            </ul>
+            <h2>En construction</h2>
+            <ul>
+              <li><p>Notre site est toujours en cours de construction.
+              Vous pouvez nous aider et nous retrouver sur: travis#irc.freenode.net</p></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>Ce site est maintenu par la <a
+            href="http://github.com/travis-ci">communauté Travis CI</a>.
+          Aidez-nous en <a
+            href="http://github.com/travis-ci/travis-ci.github.com">contribuant</a>!</p>
+        </div>
+        <div class="box">
+          <p>Ce design a été gentillement fourni par le talentueux Ben
+          Webster de <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="http://github.com/travis-ci/travis-ci"
+              title="">Voir les sources</a></li>
+            <li><a href="http://twitter.com/travisci" title="">Travis CI
+              sur Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>

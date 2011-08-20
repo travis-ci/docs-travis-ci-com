@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: À propos - Getting started</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li><a href="/fr/docs/">Documentations</a></li>
+          <li class="right"><a href="http://travis-ci.org">aller sur travis-ci.org &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <!--
+        <div class="language-switcher">
+          <nav>
+          <span>Langues:</span>
+          <ul>
+            <li><a href="/">Anglais</a></li>
+            <li><a href="/fr/" class="selected">Français</a></li>
+          </ul>
+          </nav>
+        </div>
+        -->
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>Un système open-source d'intégration continue pour la
+        communauté open-source.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+              <h2>Getting started</h2>
+            
+
+            <h3>Make sure your project can build</h3>
+
+<p>In order to build on Travis CI, your repository should have a Rakefile with the default task being a test task. That&rsquo;s it. Travis CI will first run <code>bundle install</code> if you have a Gemfile, and then <code>rake</code> by default. The build success is determined by the response code of that command.</p>
+
+<p>You can <a href="/docs/user/build-configuration/">configure</a> all aspects of this, including the <a href="/docs/user/database-setup/">database connection</a> if you need one.</p>
+
+<h3>Sign in</h3>
+
+<p>To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.</p>
+
+<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won&rsquo;t touch anything else.</p>
+
+<h3>Add service hooks</h3>
+
+<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.</p>
+
+<p>Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service.</p>
+
+<h3>What triggers the build process?</h3>
+
+<p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the &ldquo;Test Hook&rdquo; button for Travis.</p>
+
+<p>That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.</p>
+
+<h3>Tweaking your build configuration</h3>
+
+<p>You can configure your build by adding a <code>.travis.yml</code> file to the root of your repository. See <a href="/docs/user/build-configuration/">Build Configuration</a> for details.</p>
+
+<h3>Databases, available infrastructure and more</h3>
+
+<p>A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, memcached and others.</p>
+
+<p>See <a href="/docs/user/database-setup/">Database setup</a> to learn how to configure a database connection for your test suite.</p>
+
+<h3>Need help?</h3>
+
+<p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We&rsquo;re there to help :)</p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Liste de diffusion</a></li>
+            </ul>
+            <h2>Documentation utilisateur</h2>
+            <ul>
+              <li><a href="/fr/docs/user/getting-started/">Démarrer</a></li>
+              <li><a href="/fr/docs/user/build-configuration/">Configurer une build</a></li>
+              <li><a href="/fr/docs/user/database-setup/">Configurer une base de données</a></li>
+              <li><a href="/fr/docs/user/status-images/">Images de statuts</a></li>
+              <li><a href="/fr/docs/user/resources/">Ressources</a></li>
+            </ul>
+            <h2>Langages</h2>
+            <ul>
+              <li><a href="/fr/docs/user/languages/ruby">Ruby</a></li>
+              <li><a href="/fr/docs/user/languages/javascript-with-nodejs">JavaScript (avec Node.js)</a></li>
+            </ul>
+            <h2>Documentation développeur</h2>
+            <ul>
+              <li><a href="/fr/docs/dev/worker/">Le worker</a></li>
+              <li><a href="/fr/docs/dev/api/">L'API</a></li>
+            </ul>
+            <h2>En construction</h2>
+            <ul>
+              <li><p>Notre site est toujours en cours de construction.
+              Vous pouvez nous aider et nous retrouver sur: travis#irc.freenode.net</p></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>Ce site est maintenu par la <a
+            href="http://github.com/travis-ci">communauté Travis CI</a>.
+          Aidez-nous en <a
+            href="http://github.com/travis-ci/travis-ci.github.com">contribuant</a>!</p>
+        </div>
+        <div class="box">
+          <p>Ce design a été gentillement fourni par le talentueux Ben
+          Webster de <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="http://github.com/travis-ci/travis-ci"
+              title="">Voir les sources</a></li>
+            <li><a href="http://twitter.com/travisci" title="">Travis CI
+              sur Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>

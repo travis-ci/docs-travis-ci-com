@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: À propos - Build Configuration</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li><a href="/fr/docs/">Documentations</a></li>
+          <li class="right"><a href="http://travis-ci.org">aller sur travis-ci.org &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <!--
+        <div class="language-switcher">
+          <nav>
+          <span>Langues:</span>
+          <ul>
+            <li><a href="/">Anglais</a></li>
+            <li><a href="/fr/" class="selected">Français</a></li>
+          </ul>
+          </nav>
+        </div>
+        -->
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>Un système open-source d'intégration continue pour la
+        communauté open-source.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+              <h2>Build Configuration</h2>
+            
+
+            <p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
+
+<p>This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project, regardless of the branch and whether it has the configuration file or not. You can limit this behavior with configuration options.</p>
+
+<p>By default, the worker performs the build as following:</p>
+
+<pre><code>$ rvm use 1.8.7
+$ git clone git://github.com/YOUR/PROJECT.git
+$ bundle install --path vendor/bundle
+$ bundle exec rake
+</code></pre>
+
+<p>If your project is not using Bundler (no Gemfile), it will only run <code>rake</code>.</p>
+
+<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of &ldquo;0&rdquo; means it passed; everything else is treated as failure.</p>
+
+<p>With the exception of <code>git clone</code> command, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
+
+<h3>Choose a Ruby version</h3>
+
+<p>To specify the Ruby version to test against, use the <code>rvm</code> option:</p>
+
+<pre><code>rvm: 1.9.2
+</code></pre>
+
+<h3>Specify a Gemfile</h3>
+
+<p>You can specify a custom Gemfile name:</p>
+
+<pre><code>gemfile: gemfiles/Gemfile.ci
+</code></pre>
+
+<p>Unless specified, the worker will look for a file named &ldquo;Gemfile&rdquo; in the root of your project.</p>
+
+<p>You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to <code>bundle install</code>:</p>
+
+<pre><code>bundler_args: --binstubs
+</code></pre>
+
+<h3>Set environment variables</h3>
+
+<p>To specify an environment variable:</p>
+
+<pre><code>env: DB=postgres
+</code></pre>
+
+<p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, <code>TRAVIS</code>:</p>
+
+<pre><code>if ENV['TRAVIS']
+  # do something specific to continuous integration
+end
+</code></pre>
+
+<h3>The build matrix</h3>
+
+<p>When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. The 3 matrix dimensions are:</p>
+
+<ul>
+  <li><code>rvm</code> - Ruby interpreters to test against</li>
+  <li><code>gemfile</code> - different sets of dependencies to test against</li>
+  <li><code>env</code> - environment variables with which you can configure your build scripts</li>
+</ul>
+
+<p>Below is an example configuration for a rather big build matrix that expands to <strong>32&nbsp;individual</strong> builds.</p>
+
+<p>Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.</p>
+
+<pre><code>rvm:
+  - 1.8.6
+  - 1.8.7 # (current default)
+  - 1.9.2
+  - rbx
+  - rbx-2.0
+  - ree
+  - jruby
+  - ruby-head
+gemfile:
+  - gemfiles/Gemfile.rails-2.3.x
+  - gemfiles/Gemfile.rails-3.0.x
+env:
+  - ISOLATED=true
+  - ISOLATED=false
+</code></pre>
+
+<h3>Define a custom build script</h3>
+
+<p>You can specify the main build command to run instead of just <code>rake</code>:</p>
+
+<pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
+</code></pre>
+
+<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).</p>
+
+<p>You can also define scripts to be run before and after the main script:</p>
+
+<pre><code>before_script: some_command
+after_script:  another_command
+</code></pre>
+
+<p>Both settings support multiple scripts, too.</p>
+
+<p>These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.</p>
+
+<h3>Recipients of email &amp; IRC notification</h3>
+
+<p>You can specify recipients that will be notified about build results.</p>
+
+<pre><code>notifications:
+  recipients:
+    - one@example.com
+    - other@example.com
+</code></pre>
+
+<p>You can also entirely turn off notifications like this:</p>
+
+<pre><code>notifications:
+  disabled: true
+</code></pre>
+
+<p>If you do not configure this then Travis CI will notify:</p>
+
+<ul>
+  <li>for user repos: the commit author and the repository owner</li>
+  <li>for repos owned by an organization: the commit author and <em>all</em> organization members</li>
+</ul>
+
+<p>You can also specify notifications in an IRC channel:</p>
+
+<pre><code>notifications:
+  irc: "irc.freenode.org#travis"
+</code></pre>
+
+<h3>Specify branches to build</h3>
+
+<p>You can either white- or blacklist branches that you want to be built:</p>
+
+<pre><code># blacklist
+branches:
+  except:
+    - legacy
+    - experimental
+
+# whitelist
+branches:
+  only:
+    - master
+    - stable
+</code></pre>
+
+<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Liste de diffusion</a></li>
+            </ul>
+            <h2>Documentation utilisateur</h2>
+            <ul>
+              <li><a href="/fr/docs/user/getting-started/">Démarrer</a></li>
+              <li><a href="/fr/docs/user/build-configuration/">Configurer une build</a></li>
+              <li><a href="/fr/docs/user/database-setup/">Configurer une base de données</a></li>
+              <li><a href="/fr/docs/user/status-images/">Images de statuts</a></li>
+              <li><a href="/fr/docs/user/resources/">Ressources</a></li>
+            </ul>
+            <h2>Langages</h2>
+            <ul>
+              <li><a href="/fr/docs/user/languages/ruby">Ruby</a></li>
+              <li><a href="/fr/docs/user/languages/javascript-with-nodejs">JavaScript (avec Node.js)</a></li>
+            </ul>
+            <h2>Documentation développeur</h2>
+            <ul>
+              <li><a href="/fr/docs/dev/worker/">Le worker</a></li>
+              <li><a href="/fr/docs/dev/api/">L'API</a></li>
+            </ul>
+            <h2>En construction</h2>
+            <ul>
+              <li><p>Notre site est toujours en cours de construction.
+              Vous pouvez nous aider et nous retrouver sur: travis#irc.freenode.net</p></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>Ce site est maintenu par la <a
+            href="http://github.com/travis-ci">communauté Travis CI</a>.
+          Aidez-nous en <a
+            href="http://github.com/travis-ci/travis-ci.github.com">contribuant</a>!</p>
+        </div>
+        <div class="box">
+          <p>Ce design a été gentillement fourni par le talentueux Ben
+          Webster de <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="http://github.com/travis-ci/travis-ci"
+              title="">Voir les sources</a></li>
+            <li><a href="http://twitter.com/travisci" title="">Travis CI
+              sur Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>

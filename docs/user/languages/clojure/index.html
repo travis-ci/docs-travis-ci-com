@@ -19,8 +19,19 @@
 
     <div id="header">
       <div class="wrapper">
+        <!--
+        <div class="language-switcher">
+          <nav>
+          <span>Languages:</span>
+          <ul>
+            <li><a href="/" class="selected">English</a></li>
+            <li><a href="/fr/">French</a></li>
+          </ul>
+          </nav>
+        </div>
+        -->
         <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
-        <p>An open-source, distributed build system for the open source community.</p>
+        <p>A distributed build system for the open source community.</p>
       </div><!-- /.wrapper -->
     </div><!-- /#header -->
 
@@ -32,7 +43,7 @@
               <h2>Building a Clojure project</h2>
             
 
-            <h2 id="provided-tools">Provided tools</h2>
+            <h3 id="provided-tools">Provided tools</h3>
 
 <p>Travis VMs provide</p>
 
@@ -41,7 +52,7 @@
   <li><a href="https://github.com/technomancy/leiningen">Leiningen</a> 1.6.x.</li>
 </ul>
 
-<h2 id="setting-up-a-clojure-project-on-travis-ciorg">Setting up a Clojure project on travis-ci.org</h2>
+<h3 id="setting-up-a-clojure-project-on-travis-ciorg">Setting up a Clojure project on travis-ci.org</h3>
 
 <p>Clojure projects on travis-ci.org are managed with <a href="https://github.com/technomancy/leiningen">Leiningen</a>. Typical build then has two operations:</p>
 
@@ -50,7 +61,7 @@
   <li>lein test</li>
 </ul>
 
-<p>The first command installs the project&rsquo;s <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>. The second command runs the test suite.
+<p>The first command installs the project’s <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>. The second command runs the test suite.
 Projects that find this sufficient can use a very minimalistic .travis.yml file:</p>
 
 <pre><code>language: clojure
@@ -63,7 +74,7 @@ before_script: "lein deps &amp;&amp; lein build-jni-extensions"
 script: "lein test &amp;&amp; lein integration-test"
 </code></pre>
 
-<h2 id="examples">Examples</h2>
+<h3 id="examples">Examples</h3>
 
 <ul>
   <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">michaelklishin/langohr</a></li>
