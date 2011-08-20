@@ -29,3 +29,6 @@ I'll _also_ be trying to make posts roughly once a week letting you know
 what's new in the world of Travis. We've got a bunch of contributors,
 and lots of exciting stuff going on, so it's hard to keep up! Just check
 out this blog, it's much easier than reading the commit list. ;)
+
+Oh, and if you want to subscribe via RSS, grab the [Travis blog feed
+here](/blog.xml)
