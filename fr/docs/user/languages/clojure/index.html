@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: À propos - Building a Ruby Project</title>
+    <title>Travis CI: À propos - Building a Clojure project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -41,13 +41,45 @@
         <div class="pad">
           <div id="main">
             
-              <h2>Building a Ruby Project</h2>
+              <h2>Building a Clojure project</h2>
             
 
-            <p>Travis was originally intended for just Ruby, so thinks should Just
-Work! By default, Travis runs <code>rake</code> to run your tests.</p>
+            <h3 id="provided-tools">Provided tools</h3>
 
-<p>A more advanced tutorial will appear here soon.</p>
+<p>Travis VMs provide</p>
+
+<ul>
+  <li>32-bit OpenJDK 6</li>
+  <li><a href="https://github.com/technomancy/leiningen">Leiningen</a> 1.6.x.</li>
+</ul>
+
+<h3 id="setting-up-a-clojure-project-on-travis-ciorg">Setting up a Clojure project on travis-ci.org</h3>
+
+<p>Clojure projects on travis-ci.org are managed with <a href="https://github.com/technomancy/leiningen">Leiningen</a>. Typical build then has two operations:</p>
+
+<ul>
+  <li>lein deps</li>
+  <li>lein test</li>
+</ul>
+
+<p>The first command installs the project&rsquo;s <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>. The second command runs the test suite.
+Projects that find this sufficient can use a very minimalistic .travis.yml file:</p>
+
+<pre><code>language: clojure
+</code></pre>
+
+<p>If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:</p>
+
+<pre><code>language: clojure
+before_script: "lein deps &amp;&amp; lein build-jni-extensions"
+script: "lein test &amp;&amp; lein integration-test"
+</code></pre>
+
+<h3 id="examples">Examples</h3>
+
+<ul>
+  <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">michaelklishin/langohr</a></li>
+</ul>
 
           </div><!-- /#main -->
           <div id="sidebar">
