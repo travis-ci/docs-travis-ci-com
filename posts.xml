@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://about.travis-ci.org//</id>
+  <title>The Travis Blog</title>
+  <updated>2011-08-20T22:52:26Z</updated>
+  <link rel="alternate" href="http://about.travis-ci.org//"/>
+  <link rel="self" href="http://about.travis-ci.org//posts.xml"/>
+  <author>
+    <name>Team Travis</name>
+    <uri>https://github.com/travis-ci</uri>
+  </author>
+  <entry>
+    <id>tag:about.travis-ci.org,2011-08-20://posts/hello_world/</id>
+    <title type="html">Hello, World</title>
+    <published>2011-08-20T22:52:26Z</published>
+    <updated>2011-08-20T22:52:26Z</updated>
+    <link rel="alternate" href="http://about.travis-ci.org//posts/hello_world/"/>
+    <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
+
+&lt;h2 id="now-that-thats-out-of-the-way"&gt;Now that that&amp;rsquo;s out of the way&lt;/h2&gt;
+
+&lt;p&gt;Welcome to the first post on the Travis blog! Hopefully we&amp;rsquo;ll end up having a
+bunch of great content for you here.&lt;/p&gt;
+
+&lt;h2 id="we-whos-this-we"&gt;We? Who&amp;rsquo;s this &amp;lsquo;we&amp;rsquo;?&lt;/h2&gt;
+
+&lt;p&gt;Me, of course. Duh. Specifically? I&amp;rsquo;m &lt;a href="https://github.com/steveklabnik"&gt;Steve Klabnik&lt;/a&gt;.
+I&amp;rsquo;m heading up the Travis documentation. But &lt;a href="https://github.com/travis-ci/travis-ci.github.com/"&gt;this entire website is on
+GitHub&lt;/a&gt;, so if you
+were so inclined, &amp;lsquo;we&amp;rsquo; could also mean &amp;lsquo;you!&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;Got a new fun project on Travis? Have you recently added some fun code,
+or found a new feature useful? Write a post! It&amp;rsquo;s good for you!&lt;/p&gt;
+
+&lt;h2 id="why-you-should-read-this-blog"&gt;Why you should read this blog&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ll &lt;em&gt;also&lt;/em&gt; be trying to make posts roughly once a week letting you know
+what&amp;rsquo;s new in the world of Travis. We&amp;rsquo;ve got a bunch of contributors,
+and lots of exciting stuff going on, so it&amp;rsquo;s hard to keep up! Just check
+out this blog, it&amp;rsquo;s much easier than reading the commit list. ;)&lt;/p&gt;
+</content>
+  </entry>
+</feed>

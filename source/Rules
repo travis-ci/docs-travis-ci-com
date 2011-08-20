@@ -14,12 +14,12 @@ compile '/stylesheet/' do
   # don't filter or layout
 end
 
-compile '/posts/feed/' do
+compile '/blog/feed/' do
   filter :erb
 end
 
-route '/posts/feed/' do
-  '/posts.xml'
+route '/blog/feed/' do
+  '/blog.xml'
 end
 
 compile '/fr/*' do
