@@ -494,6 +494,10 @@ div#content div.pad {
 
 div.language-switcher {
   text-align: right;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 150px;
 }
 
 div.language-switcher nav {
@@ -502,6 +506,7 @@ div.language-switcher nav {
 }
 
 div.language-switcher span {
+  color: #aaa;
   float: left;
   text-align: right;
 }
@@ -512,22 +517,30 @@ div.language-switcher ul {
 
 div.language-switcher ul li {
   display: inline;
-  margin-left: 20px;
+  margin-left: 3px;
+}
+
+div.language-switcher ul li:after {
+  content: "  |";
+}
+
+div.language-switcher ul li:last-child:after {
+  content: "";
 }
 
 div.language-switcher ul li a {
+  width: 20px;
   text-decoration: none;
   text-color: blue;
   padding: 0.5em;
 }
 
 div.language-switcher ul li a:hover {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#888));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#eee));
   border-radius: 0.25em;
-  color: #EFEFEF;
 }
 
 div.language-switcher ul li a.selected {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#888));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#eee));
   border-radius: 0.25em;
 }
