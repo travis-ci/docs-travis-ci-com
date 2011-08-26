@@ -6,7 +6,7 @@ kind: content
 <h3>Assurez-vous que votre projet compile</h3>
 
 Pour compiler sur Travis CI, votre dépôt Git doit contenir un fichier
-Rakefile dont la tache par défault doit être le lancement des tests.
+Rakefile dont la tâche par défault doit être le lancement des tests.
 Rien de plus. Travis CI lancera tout d'abord `bundle install` si vous
 avez un Gemfile, et ensuite `rake` par défaut. Le succès de la
 compilation est déterminé par le code réponse de cette commande.
@@ -22,7 +22,7 @@ Github vous demandera d'accorder les droits de lecture et écriture. Travis CI r
 
 <h3>Activez les service hooks</h3>
 
-Une fois authentifié allez sur votre <a href="http://travis-ci.org/profile">page profile</a>. Vous retrouverez la liste de vot dépôt Github. Basculez sur on les dépôts que vous souhaitez lier à Travis CI.
+Une fois authentifié allez sur votre <a href="http://travis-ci.org/profile">page profile</a>. Vous retrouverez la liste de vos dépôt Github. Basculez sur on les dépôts que vous souhaitez lier à Travis CI.
 
 Allez ensuite sur la page service hooks Github de ce projet et collez
 votre username Github et votre token travis dans les paramètres du
@@ -34,9 +34,9 @@ Pour démarrer une compilation vous pouvez soit faire un commit git et le pusher
 
 Ceci ajoutera une tâche de compilation à la liste des tâches sur <a href="http://travis-ci.org">Travis CI</a>. Elle commencera dès qu'un worker sera disponible.
 
-<h3>Paramétrer vos options de compilations</h3>
+<h3>Paramétrer les options de compilations</h3>
 
- pouvez configurer vos options de compilations en ajoutant un fichier `.travis.yml` à la racine de votre dépôt. Plus de détails sur la page <a href="/docs/user/build-configuration/">Paramètres de compilation</a>.
+Vous pouvez configurer vos options de compilations en ajoutant un fichier `.travis.yml` à la racine de votre dépôt. Plus de détails sur la page <a href="/docs/user/build-configuration/">Paramètres de compilation</a>.
 
 <h3>Base de données, infrastructure disponible et plus</h3>
 

@@ -46,7 +46,7 @@
 
             <h3>Assurez-vous que votre projet compile</h3>
 
-<p>Pour compiler sur Travis CI, votre dépot Git doit contenir un fichier
+<p>Pour compiler sur Travis CI, votre dépôt Git doit contenir un fichier
 Rakefile dont la tache par défault doit être le lancement des tests.
 Rien de plus. Travis CI lancera tout d’abord <code>bundle install</code> si vous
 avez un Gemfile, et ensuite <code>rake</code> par défaut. Le succès de la
@@ -56,13 +56,13 @@ compilation est déterminé par le code réponse de cette commande.</p>
 
 <h3>Authentifiez-vous</h3>
 
-<p>Pour commencer à utiliser Travis CI, Inscrivez-vous en utilisant Github OAuth. Allez sur <a href="http://travis-ci.org">Travis CI</a> et suivez le lien.</p>
+<p>Pour commencer à utiliser Travis CI, inscrivez-vous en utilisant Github OAuth. Allez sur <a href="http://travis-ci.org">Travis CI</a> et suivez le lien.</p>
 
-<p>Github vous demandera accorder les droits de lecture et écriture. Travis CI requière les droits d’écriture pour metre en place les services hooks pour votre dépot, mais n’affectera aucune autre partie</p>
+<p>Github vous demandera d’accorder les droits de lecture et écriture. Travis CI requière les droits d’écriture pour mettre en place les services hooks pour votre dépôt, mais n’affectera aucune autre partie</p>
 
 <h3>Activez les service hooks</h3>
 
-<p>Une fois authentifié allez sur votre <a href="http://travis-ci.org/profile">page profile</a>. Vous retrouverez la liste de vot dépot Github. Basculez sur on les dépots que vous souhaitez lier à Travis CI.</p>
+<p>Une fois authentifié allez sur votre <a href="http://travis-ci.org/profile">page profile</a>. Vous retrouverez la liste de vot dépôt Github. Basculez sur on les dépôts que vous souhaitez lier à Travis CI.</p>
 
 <p>Allez ensuite sur la page service hooks Github de ce projet et collez
 votre username Github et votre token travis dans les paramètres du
@@ -70,13 +70,13 @@ service Travis.</p>
 
 <h3>Comment déclencher une compilation?</h3>
 
-<p>Pour démarrer une compilation vous pouvez soit faire un commit git et le pusher vers votre dépot Github, soit aller sur la page GitHub des service hooks page et utiliser le bouton Travis “Test Hook”.</p>
+<p>Pour démarrer une compilation vous pouvez soit faire un commit git et le pusher vers votre dépôt Github, soit aller sur la page GitHub des service hooks page et utiliser le bouton Travis “Test Hook”.</p>
 
 <p>Ceci ajoutera une tâche de compilation à la liste des tâches sur <a href="http://travis-ci.org">Travis CI</a>. Elle commencera dès qu’un worker sera disponible.</p>
 
 <h3>Paramétrer vos options de compilations</h3>
 
-<p>pouvez configurer vos options de compilations en ajoutant un fichier <code>.travis.yml</code> à la racine de votre dépot. Plus de détails sur la page <a href="/docs/user/build-configuration/">Paramètres de compilation</a>.</p>
+<p>pouvez configurer vos options de compilations en ajoutant un fichier <code>.travis.yml</code> à la racine de votre dépôt. Plus de détails sur la page <a href="/docs/user/build-configuration/">Paramètres de compilation</a>.</p>
 
 <h3>Base de données, infrastructure disponible et plus</h3>
 
