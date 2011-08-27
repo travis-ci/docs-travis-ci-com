@@ -45,19 +45,19 @@
 
             <p>After adding your project to Travis, you can use the status buttons to show the current status of your projects in your <code>README</code> file on Github or your project website.</p>
 
-<p>Your status button is available at the following URL:</p>
-
-<pre><code>http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+<pre><code>https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
 </code></pre>
+
+<p>SSL is used so that GitHub does not cache the image.</p>
 
 <p>So, when using textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your <code>README</code>:</p>
 
-<pre><code>"!http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
+<pre><code>"!https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
 </code></pre>
 
 <p>Or if you&rsquo;re using markdown:</p>
 
-<pre><code>[![Build Status](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+<pre><code>[![Build Status](https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 </code></pre>
 
 <p>Travis CI&rsquo;s own status button looks like this: &ldquo;!https://secure.travis-ci.org/travis-ci/travis-ci.png!&rdquo;:http://travis-ci.org/travis-ci/travis-ci</p>
@@ -68,16 +68,7 @@
 
 <p>Specify a <code>?branch=</code> parameter in the URI. Split branches with a comma if you want to specify several.</p>
 
-<pre><code>http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
-</code></pre>
-
-<h3 id="using-ssl-enabled-status-images-on-github">Using SSL enabled status images on Github</h3>
-
-<p><strong>Please note :</strong> If you are placing this image on a GitHub project status page we recommend you use the SSL enabled url for the image so that GitHub does not proxy and cache it.</p>
-
-<p>The SSL url is:</p>
-
-<pre><code>https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+<pre><code>https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
 </code></pre>
 
           </div><!-- /#main -->
