@@ -3,8 +3,8 @@
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
   <updated>2011-08-20T22:52:26Z</updated>
-  <link href="http://about.travis-ci.org//" rel="alternate"/>
-  <link href="http://about.travis-ci.org//blog.xml" rel="self"/>
+  <link rel="alternate" href="http://about.travis-ci.org//"/>
+  <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
@@ -14,7 +14,7 @@
     <title type="html">Hello, World</title>
     <published>2011-08-20T22:52:26Z</published>
     <updated>2011-08-20T22:52:26Z</updated>
-    <link href="http://about.travis-ci.org//blog/hello_world/" rel="alternate"/>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/hello_world/"/>
     <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
