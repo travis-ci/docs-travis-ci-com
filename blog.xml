@@ -2,13 +2,94 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
-  <updated>2011-08-20T22:52:26Z</updated>
+  <updated>2011-08-29T16:29:26Z</updated>
   <link href="http://about.travis-ci.org//" rel="alternate"/>
   <link href="http://about.travis-ci.org//blog.xml" rel="self"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
+  <entry>
+    <id>tag:about.travis-ci.org,2011-08-29://blog/big_refactoring/</id>
+    <title type="html">A Big Refactoring!</title>
+    <published>2011-08-29T16:29:26Z</published>
+    <updated>2011-08-29T16:29:26Z</updated>
+    <link href="http://about.travis-ci.org//blog/big_refactoring/" rel="alternate"/>
+    <content type="html">&lt;p&gt;We&amp;rsquo;ve just rolled out a big refactoring to the Travis CI &lt;a href="https://github.com/travis-ci/travis-ci"&gt;application&lt;/a&gt;
+(i.e. the server app which runs on Heroku) that we&amp;rsquo;ve been working on over the
+last four weeks.&lt;/p&gt;
+
+&lt;p&gt;This refactoring was quite far-reaching and even though we&amp;rsquo;ve tried hard to
+make sure everything works fine there may be glitches and bugs that we&amp;rsquo;ve
+overlooked.&lt;/p&gt;
+
+&lt;h2 id="why"&gt;Why?&lt;/h2&gt;
+
+&lt;p&gt;The motivation behind all of this work was quite manifold. Maybe the best
+summary is that our previous domain model still had the very basic design from
+its original spike. But here are some more details. We wanted to achieve the
+following things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Split up the monster Build model into more finegrained classes for more
+clarity&lt;/li&gt;
+  &lt;li&gt;Move to a statemachine-like pattern for more explicitely reflecting
+various state changes that happen across various models&lt;/li&gt;
+  &lt;li&gt;Lay better grounds for the long planned move to &lt;a href="https://github.com/ruby-amqp/amqp"&gt;AMQP&lt;/a&gt;
+(communication with the workers)&lt;/li&gt;
+  &lt;li&gt;Lay better grounds for the long planned move Sproutcore (reimplementation of
+the JS client)&lt;/li&gt;
+  &lt;li&gt;Improve test coverage and move to RSpec (for unifying test technologies and a
+slightly lower barrier for new devs)&lt;/li&gt;
+  &lt;li&gt;Generally clean up both model and test code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One major intention was to generally clean up our codebase, complete and
+improve the test suite and make the model design more readable. Another was
+to split up the former Build model which had grown into a huge tangled monster.
+And while we were at it we also wanted to better communicate the fact that the
+domain model is very much about about triggering state changes through various
+events and messages.&lt;/p&gt;
+
+&lt;p&gt;You can find more information about the new domain model design &lt;a href="https://github.com/travis-ci/travis-ci/blob/statemachine_merge/docs/notes/build_tasks.md"&gt;in this
+document&lt;/a&gt;.
+Some of the details outlined there haven&amp;rsquo;t been implemented, yet. E.g. the
+&lt;code&gt;Build&lt;/code&gt; model does not have the mentioned &lt;code&gt;errored&lt;/code&gt; and &lt;code&gt;cancelled&lt;/code&gt; states, the
+&lt;code&gt;Task::Test&lt;/code&gt; does not have &lt;code&gt;cloned&lt;/code&gt; and &lt;code&gt;installed&lt;/code&gt; states &amp;hellip; simply because the
+worker does not support triggering these, yet. These things will probably be
+added in a later stage.&lt;/p&gt;
+
+&lt;p&gt;When we reviewed common Ruby statemachine implementations we found none of them
+do what we needed, so we came up with our own brand of it:
+&lt;a href="https://github.com/svenfuchs/simple_states"&gt;simple_states&lt;/a&gt; may or may not
+useful for your own usecase but it does exactly what we need in Travis CI and
+nothing more.&lt;/p&gt;
+
+&lt;p&gt;Another gem that has been implemented in the course of this refactoring is
+&lt;a href="https://github.com/svenfuchs/data_migrations"&gt;data_migrations&lt;/a&gt;. We had quite a
+bunch of columns to migrate from the &lt;code&gt;builds&lt;/code&gt; table to various other tables
+(such as &lt;code&gt;commits&lt;/code&gt;, &lt;code&gt;requests&lt;/code&gt;, &lt;code&gt;tasks&lt;/code&gt;) and it seemed easier to come up with a
+simple DSL for that than writing all these queries by hand.&lt;/p&gt;
+
+&lt;p&gt;Also, we&amp;rsquo;re now using &lt;a href="https://github.com/svenfuchs/hashr"&gt;hashr&lt;/a&gt; in the
+application, too (for &lt;code&gt;Travis.config&lt;/code&gt;, specifically). We&amp;rsquo;ve used it in the
+&lt;a href="https://github.com/travis-ci/travis-worker"&gt;worker code&lt;/a&gt; before and it worked
+pretty well.&lt;/p&gt;
+
+&lt;h2 id="in-other-news-"&gt;In other news &amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;In other news, over the last month we have extract a &lt;a href="https://github.com/michaelklishin/sous-chef"&gt;small project that we use to develop our Chef cookbooks&lt;/a&gt; and
+added the following tools to the &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base"&gt;VM infrastructure&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;kerl to support Erlang with testing against multiple OTP releases&lt;/li&gt;
+  &lt;li&gt;leiningen 1.6 for Clojure projects&lt;/li&gt;
+  &lt;li&gt;sbt 0.10 for Scala projects&lt;/li&gt;
+  &lt;li&gt;Thinking Sphinx 0.9.9, 1.10 and 2.0. &lt;a href="http://freelancing-god.github.com/riddle"&gt;Riddle&lt;/a&gt; and &lt;a href="http://freelancing-god.github.com/ts/en/"&gt;Thinking Sphinx&lt;/a&gt; are now hosted on Travis.&lt;/li&gt;
+  &lt;li&gt;RabbitMQ now installs HTTP API plugin&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:about.travis-ci.org,2011-08-20://blog/hello_world/</id>
     <title type="html">Hello, World</title>

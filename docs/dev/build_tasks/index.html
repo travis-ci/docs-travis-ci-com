@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: About - The worker</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/docs/">Docs</a></li>
+          <li class="right"><a href="http://travis-ci.org">go to travis-ci.org &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <!--
+        <div class="language-switcher">
+          <nav>
+          <span>Languages:</span>
+          <ul>
+            <li><a href="/" class="selected">en</a></li>
+            <li><a href="/fr/">fr</a></li>
+          </ul>
+          </nav>
+        </div>
+        -->
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>A distributed build system for the open source community.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+              <h2>The worker</h2>
+            
+
+            <h2 id="application-domain">Application domain</h2>
+
+<p>The following classes encapsulate the application domain model concepts. I.e.
+they are part of the application server code, can be stored as ActiveRecords
+and are targetted at being published through the JSON API and/or sync&rsquo;ed over
+to the client app through websocket messages.</p>
+
+<h3 id="request">Request</h3>
+
+<p>A Request is what external services, like currently Github, send to Travis. It
+contains the sent payload and has a one-to-one relationship to a Build.</p>
+
+<h3 id="build">Build</h3>
+
+<p>A Build implements the concept of a highlevel grouping of Tasks (units of
+work). It is triggered by the Request. A Build has a configuration and at least
+one Task but can own many tasks, depending on its configuration. It can also be
+rejected based on the configuration.</p>
+
+<p>A Build has the following states:</p>
+
+<ul>
+  <li>created</li>
+  <li>configured</li>
+  <li>started</li>
+  <li>finished</li>
+  <li>errored</li>
+  <li>cancelled</li>
+</ul>
+
+<p>A quick note on build distribution: At the moment, we&rsquo;re using Redis as
+a poor man&rsquo;s message queue. We&rsquo;re migrating to <a href="https://github.com/ruby-amqp/amqp">AMQP</a>
+currently, so there&rsquo;s a lot of change in this area. Conceptually, it&rsquo;s
+very similar, however.</p>
+
+<h3 id="task">Task</h3>
+
+<p>Tasks are classes that represent elementary units of work.</p>
+
+<p>Task::Configure and Task::Test are examples of a concrete task types and these
+are the only ones currently implemented. In future there might be other types
+of Tasks, e.g. building rdocs, gathering code metrics, triggering deployments
+and so on.</p>
+
+<p>A Task has the following states which apply to all concrete Task types:</p>
+
+<ul>
+  <li>created</li>
+  <li>started</li>
+  <li>finished</li>
+  <li>errored</li>
+  <li>cancelled</li>
+</ul>
+
+<p>When a Task is created then the respective job that maps to this task is also
+created and added to the job queue.</p>
+
+<h3 id="taskconfigure">Task::Configure</h3>
+
+<p>A Task::Configure encapsulates the concept of configuring a Build before it
+will be executed.</p>
+
+<p>Configuring a Build is a separate task because configuration can be (and
+currently exclusively is) stored remotely so fetching can fail etc.</p>
+
+<h3 id="tasktest">Task::Test</h3>
+
+<p>A Task::Test encapsulates the concept of fetching source code, installing
+dependencies and executing a test suite.</p>
+
+<p>Additionally to the common Task states a Build::Test can be in the following
+states:</p>
+
+<ul>
+  <li>cloned</li>
+  <li>installed</li>
+</ul>
+
+<h2 id="worker-domain">Worker domain</h2>
+
+<p>On the worker side Tasks encapsulate the actual <em>execution</em> of units of work
+and map to respective Task classes on the application side.</p>
+
+<h3 id="taskconfigure-1">Task::Configure</h3>
+
+<p>A Task::Configure fetches configuration data. It is fetched from a job queue,
+executed and reports the configuration back to the application.</p>
+
+<h3 id="tasktest-1">Task::Test</h3>
+
+<p>A Task::Test fetches code from an SCM (git clone), installs dependencies (rvm,
+bundle install), executes before_script, build script and after_script and
+reports results back to the application.</p>
+
+<h2 id="control-flow">Control Flow</h2>
+
+<p>When a build request comes in then a Request and a Build is created. The Build
+will create its Task::Configure and push it onto the job queue.</p>
+
+<p>The worker will pick up the Task::Configure and start working on it. It will
+send messages back to the application which will trigger state changes on the
+respective Task::Configure on the server side.</p>
+
+<p>If the Task::Configure errors then the containing Build will immediatedly go
+into the same state and stop proceeding. (At a later stage we might retry the
+errored task for particular reasons, like Github was down.)</p>
+
+<p>Once the Task::Configure has finished and the build is approved then the Build
+will create and queue one or more Tasks according to the configuration (for
+starters these will be at least one Task::Test).</p>
+
+<p>The worker will then pick up the Task::Test and start working on it. It will
+send messages back to the application which will trigger state changes in the
+respective Task on the server side.</p>
+
+<p>When a Task has started then it notifies the containing Build which goes into
+the same state when first notified. (I.e. it goes into the started state as
+soon as the first contained Task has started.)</p>
+
+<p>When a Task has errored or finished then it notifies the containing Build which
+goes into the same state, too, as soon as all contained Tasks are errored or
+finished.</p>
+
+<p>When the Build is cancelled at any time then all tasks belonging to the build
+are cancelled and messages are sent to the workers which also cancel the jobs
+(or take them off the queue).</p>
+
+<p>So, in more detail:</p>
+
+<h3 id="build-creation">Build creation</h3>
+
+<ul>
+  <li>Github pings</li>
+  <li>App creates a Request</li>
+  <li>App creates a Build with the Request</li>
+  <li>App emits a build:created event</li>
+  <li>App gets the Build::Configure from the Build and queues it</li>
+  <li>App emits a build:configure:queued event</li>
+</ul>
+
+<h3 id="build-configuration">Build configuration</h3>
+
+<ul>
+  <li>Worker starts the Build::Configure</li>
+  <li>Worker emits a build:configure:started event</li>
+  <li>Worker processes and finishes the Build::Configure</li>
+  <li>Worker emits a build:configure:finished event (carrying the config)</li>
+</ul>
+
+<h3 id="build-approval">Build approval</h3>
+
+<ul>
+  <li>App saves the configuration.</li>
+</ul>
+
+<p>If the build is eligible (i.e. not excluded by the configuration) then:</p>
+
+<ul>
+  <li>App spawns one or many Build::Tests</li>
+  <li>App queues each of the Build::Tests</li>
+  <li>App emits one or many build:test:queued events</li>
+</ul>
+
+<h3 id="buildtest-execution">Build::Test execution</h3>
+
+<ul>
+  <li>Worker starts a Build::Test</li>
+  <li>Worker emits a build:test:started event</li>
+  <li>Worker processes the Job::Test</li>
+  <li>Worker emits multiple build:test:update events (carrying incremental updates)</li>
+  <li>Worker finishes the Job::Test</li>
+  <li>Worker emits a build:test:finished event (carrying the result and full log)</li>
+</ul>
+
+<h3 id="buildtest-completion">Build::Test completion</h3>
+
+<ul>
+  <li>App saves the job result and log</li>
+</ul>
+
+<h3 id="build-completion">Build completion</h3>
+
+<ul>
+  <li>If all Build::Tests are finished then the Build is finished, too</li>
+  <li>App then emits a build:finished event</li>
+</ul>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailinglist</a></li>
+            </ul>
+            <h2>User Docs</h2>
+            <ul>
+              <li><a href="/docs/user/getting-started/">Getting started</a></li>
+              <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
+              <li><a href="/docs/user/database-setup/">Database setup</a></li>
+              <li><a href="/docs/user/status-images/">Status images</a></li>
+              <li><a href="/docs/user/resources/">Resources</a></li>
+              <li><a href="/docs/user/ci-environment/">CI environment</a></li>
+            </ul>
+            <h2>Languages</h2>
+            <ul>
+            <li><a href="/docs/user/languages/clojure/">Clojure</a></li>
+            <li><a href="/docs/user/languages/erlang/">Erlang</a></li>
+                  <li><a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a></li>
+            <li><a href="/docs/user/languages/ruby/">Ruby</a></li>
+           </ul>
+            <h2>Developer Docs</h2>
+            <ul>
+              <li><a href="/docs/dev/worker/">The worker</a></li>
+              <li><a href="/docs/dev/api/">The API</a></li>
+              <li><a href="/docs/dev/build_tasks/">Build Tasks</a></li>
+            </ul>
+            <h2>Under construction</h2>
+            <ul>
+              <li><p>Our site is still under construction. You can help us in: travis#irc.freenode.net</p></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        </div>
+        <div class="box">
+          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="http://github.com/travis-ci/travis-ci" title="">View the Source</a></li>
+            <li><a href="http://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
