@@ -63,7 +63,6 @@ Below is an example configuration for a rather big build matrix that expands to 
 Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.
 
     rvm:
-      - 1.8.6
       - 1.8.7 # (current default)
       - 1.9.2
       - rbx
@@ -77,6 +76,12 @@ Please take into account that Travis CI is an open source service and we rely on
     env:
       - ISOLATED=true
       - ISOLATED=false
+
+You can also define exclusions to the build matrix:
+
+    matrix: { exclusion: [{ rvm: 1.8.7, env:RG=1.3.6 }]}
+
+Only exact matches will be excluded.
 
 <h3>Define a custom build script</h3>
 
