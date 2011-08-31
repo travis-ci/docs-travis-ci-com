@@ -16,12 +16,11 @@ the default.
 - 1.8.7
 - 1.9.2
 - 1.9.3
-- jruby (currently running 1.6.3)
+- jruby
 - rbx
-- rbx-2.0.0pre
+- rbx-2.0
 - ree
 - ruby-head
-- 1.8.7-p249
 
 Also, 'rbx-2.0.0pre' is aliased to 'rbx-2.0'
 
