@@ -152,9 +152,11 @@ after_script:  another_command
 
 <p>These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
-<h3>Recipients of email &amp; IRC notification</h3>
+<h3>Noticiations (email, IRC and HTTP)</h3>
 
-<p>You can specify recipients that will be notified about build results.</p>
+<h4>Email</h4>
+
+<p>You can specify recipients that will be notified by email about build results.</p>
 
 <pre><code>notifications:
   recipients:
@@ -162,24 +164,34 @@ after_script:  another_command
     - other@example.com
 </code></pre>
 
+<p>By default, Travis CI will notify by email :</p>
+<ul>
+  <li>for user repos: the commit author and the repository owner</li>
+  <li>for repos owned by an organization: the commit author and <em>all</em> organization members</li>
+</ul>
+
+<h4>IRC</h4>
+
+<p>You can specify notifications in an IRC channel:</p>
+<pre><code>notifications:
+  irc: "irc.freenode.org#travis"
+</code></pre>
+
+<h4>HTTP</h4>
+
+<p>You can also specify HTTP webhooks to be called :</p>
+<pre><code>notifications:
+  webhooks:
+    "http://example.com/webhooks/travis"
+</pre></code>
+
+<h4>Deactivating Notifications</h4>
 <p>You can also entirely turn off notifications like this:</p>
 
 <pre><code>notifications:
   disabled: true
 </code></pre>
 
-<p>If you do not configure this then Travis CI will notify:</p>
-
-<ul>
-  <li>for user repos: the commit author and the repository owner</li>
-  <li>for repos owned by an organization: the commit author and <em>all</em> organization members</li>
-</ul>
-
-<p>You can also specify notifications in an IRC channel:</p>
-
-<pre><code>notifications:
-  irc: "irc.freenode.org#travis"
-</code></pre>
 
 <h3>Specify branches to build</h3>
 
