@@ -65,11 +65,11 @@ Please take into account that Travis CI is an open source service and we rely on
     rvm:
       - 1.8.7 # (current default)
       - 1.9.2
-      - rbx
+      - 1.9.3
       - rbx-2.0
-      - ree
       - jruby
       - ruby-head
+      - ree
     gemfile:
       - gemfiles/Gemfile.rails-2.3.x
       - gemfiles/Gemfile.rails-3.0.x
