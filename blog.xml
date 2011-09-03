@@ -3,8 +3,8 @@
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
   <updated>2011-08-29T16:29:26Z</updated>
-  <link rel="alternate" href="http://about.travis-ci.org//"/>
-  <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
+  <link href="http://about.travis-ci.org//" rel="alternate"/>
+  <link href="http://about.travis-ci.org//blog.xml" rel="self"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
@@ -14,7 +14,7 @@
     <title type="html">A Big Refactoring!</title>
     <published>2011-08-29T16:29:26Z</published>
     <updated>2011-08-29T16:29:26Z</updated>
-    <link rel="alternate" href="http://about.travis-ci.org//blog/big_refactoring/"/>
+    <link href="http://about.travis-ci.org//blog/big_refactoring/" rel="alternate"/>
     <content type="html">&lt;p&gt;We&amp;rsquo;ve just rolled out a big refactoring to the Travis CI &lt;a href="https://github.com/travis-ci/travis-ci"&gt;application&lt;/a&gt;
 (i.e. the server app which runs on Heroku) that we&amp;rsquo;ve been working on over the
 last four weeks.&lt;/p&gt;
@@ -91,11 +91,11 @@ added the following tools to the &lt;a href="https://github.com/travis-ci/travis
 </content>
   </entry>
   <entry>
-    <id>tag:about.travis-ci.org,2011-08-21://blog/hello_world/</id>
+    <id>tag:about.travis-ci.org,2011-08-20://blog/hello_world/</id>
     <title type="html">Hello, World</title>
     <published>2011-08-20T22:52:26Z</published>
     <updated>2011-08-20T22:52:26Z</updated>
-    <link rel="alternate" href="http://about.travis-ci.org//blog/hello_world/"/>
+    <link href="http://about.travis-ci.org//blog/hello_world/" rel="alternate"/>
     <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
