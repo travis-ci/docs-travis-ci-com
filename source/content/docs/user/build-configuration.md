@@ -58,7 +58,7 @@ When you combine the three main configuration options above, Travis CI will run 
 * `gemfile` - different sets of dependencies to test against
 * `env` - environment variables with which you can configure your build scripts
 
-Below is an example configuration for a rather big build matrix that expands to <strong>32&nbsp;individual</strong> builds.
+Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.
 
 Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.
 
