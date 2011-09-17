@@ -17,7 +17,12 @@ Or if you're using markdown:
 
     [![Build Status](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 
-Travis CI's own status button looks like this: "!https://secure.travis-ci.org/travis-ci/travis-ci.png!":http://travis-ci.org/travis-ci/travis-ci
+Or RDoc:
+
+    {<img src="http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
+
+Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)	
+ 
 
 ### Specifying branches
 

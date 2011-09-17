@@ -114,6 +114,10 @@ You can also entirely turn off notifications like this:
     notifications:
       disabled: true
 
+Or just the email notifications:
+    notifications:
+      email: false
+      
 If you do not configure this then Travis CI will notify:
 
 * for user repos: the commit author and the repository owner

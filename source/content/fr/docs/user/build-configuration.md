@@ -63,7 +63,6 @@ Voyez ci-dessous un exemple de configuration pour un projet qui va jusqu'à 32 b
 Veuillez bien noter que Travis CI est un service open-source dont les ressources sont fournies par la communauté. Veuillez seulement spécifier les options dont vous avez <em>réellement besoin</em>.
 
     rvm:
-      - 1.8.6
       - 1.8.7 # (par défaut)
       - 1.9.2
       - rbx
