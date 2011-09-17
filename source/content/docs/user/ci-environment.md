@@ -66,9 +66,8 @@ We modify some of them for continuous integration needs and sync them periodical
 * jruby
 * rbx
 * rbx-2.0
-* ree 2011.03
+* ree (2011.03)
 * ruby-head
-* 1.8.6
 
 
 ## Gems in the global gem set
@@ -89,4 +88,4 @@ We modify some of them for continuous integration needs and sync them periodical
 * RAILS_ENV=test
 * RACK_ENV=test
 * MERB_ENV=test
-* JRUBY_OPTS="--server"
+* JRUBY_OPTS="--server -Dnative.enabled=false"

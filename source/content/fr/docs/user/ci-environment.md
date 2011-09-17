@@ -63,13 +63,11 @@ We modify some of them for continuous integration needs and sync them periodical
 * 1.8.7 (default)
 * 1.9.2
 * 1.9.3[-preview1]
-* jruby 1.6.3
+* jruby 1.6.4
 * rbx
 * rbx-2.0 (2.0.0 developer preview)
 * ree 2011.03
 * ruby-head
-* 1.8.7-p249
-* 1.8.6
 
 
 ## Gems in the global gem set
