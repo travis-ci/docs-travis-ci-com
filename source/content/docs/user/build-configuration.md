@@ -20,11 +20,13 @@ The outcome of this last command – the build script – indicates whether or n
 
 With the exception of `git clone` command, all of the above steps can be tweaked with `.travis.yml`.
 
+
 <h3>Choose a Ruby version</h3>
 
 To specify the Ruby version to test against, use the `rvm` option:
 
     rvm: 1.9.2
+
 
 <h3>Specify a Gemfile</h3>
 
@@ -38,6 +40,7 @@ You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra
 
     bundler_args: --binstubs
 
+
 <h3>Set environment variables</h3>
 
 To specify an environment variable:
@@ -49,6 +52,7 @@ Environment variables are useful for configuring build scripts. See the example 
     if ENV['TRAVIS']
       # do something specific to continuous integration
     end
+
 
 <h3>The build matrix</h3>
 
@@ -79,11 +83,19 @@ Please take into account that Travis CI is an open source service and we rely on
 
 You can also define exclusions to the build matrix:
 
-    matrix: { exclusion: [{ rvm: 1.8.7, env:RG=1.3.6 }]}
+    matrix:
+      exclude:
+        - rvm: 1.8.7
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+        - rvm: jruby
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
 
 Only exact matches will be excluded.
 
-<h3>Define a custom build script</h3>
+
+<h3>Define custom build scripts</h3>
 
 You can specify the main build command to run instead of just `rake`:
 
@@ -96,9 +108,17 @@ You can also define scripts to be run before and after the main script:
     before_script: some_command
     after_script:  another_command
 
-Both settings support multiple scripts, too.
+Both settings support multiple scripts, too:
 
-These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.
+    before_script:
+      - before_command_1
+      - before_command_2
+    after_script:
+      - after_command_1
+      - after_command_2
+
+These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
+
 
 <h3>Specify branches to build</h3>
 
