@@ -99,7 +99,7 @@ test:
 
 <pre><code># .travis.yml
 before_script:
-  - "mysql -e 'create database myapp_test;' &gt;/dev/null"
+  - "mysql -e 'create database myapp_test;'"
 </code></pre>
 
 <h3 id="postgresql">PostgreSQL</h3>
@@ -116,7 +116,7 @@ before_script:
 
 <pre><code># .travis.yml
 before_script:
-  - "psql -c 'create database myapp_test;' -U postgres &gt;/dev/null"
+  - "psql -c 'create database myapp_test;' -U postgres"
 </code></pre>
 
 <h3 id="mongodb">MongoDB</h3>

@@ -53,7 +53,7 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
     # .travis.yml
     before_script:
-      - "mysql -e 'create database myapp_test;' >/dev/null"
+      - "mysql -e 'create database myapp_test;'"
 
 ### PostgreSQL
 
@@ -68,7 +68,7 @@ You have to create the database as part of your build process:
 
     # .travis.yml
     before_script:
-      - "psql -c 'create database myapp_test;' -U postgres >/dev/null"
+      - "psql -c 'create database myapp_test;' -U postgres"
 
 ### MongoDB
 
