@@ -58,16 +58,17 @@ We modify some of them for continuous integration needs and sync them periodical
 * [vim](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/vim) (for debugging)
 
 
-## Ruby versions/implementations
+## Provided Ruby versions/implementations
 
 * 1.8.7 (default)
 * 1.9.2
 * 1.9.3[-preview1]
 * jruby 1.6.4
-* rbx
-* rbx-2.0 (2.0.0 developer preview)
+* rbx (master, now builds 2.0.pre)
 * ree 2011.03
 * ruby-head
+
+Ruby versions that are not listed above *are not provided*. Also, [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
 
 ## Gems in the global gem set

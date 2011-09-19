@@ -18,9 +18,8 @@ the default.
 - 1.9.3
 - jruby
 - rbx
-- rbx-2.0
 - ree
 - ruby-head
 
-Also, 'rbx-2.0.0pre' is aliased to 'rbx-2.0'
-
+[Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.

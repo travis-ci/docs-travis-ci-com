@@ -34,9 +34,10 @@ You can configure your build by adding a `.travis.yml` file to the root of your 
 
 ### Databases, available infrastructure and more
 
-A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, memcached and others.
+A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
 
-See <a href="/docs/user/database-setup/">Database setup</a> to learn how to configure a database connection for your test suite.
+See <a href="/docs/user/database-setup/">Database setup</a> to learn how to configure a database connection for your test suite. More information
+about our test environment can be found <a href="/docs/user/ci-environment/">in a separate guide</a>.
 
 ### Need help?
 

@@ -27,6 +27,7 @@ To specify the Ruby version to test against, use the `rvm` option:
 
     rvm: 1.9.2
 
+More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.
 
 <h3>Specify a Gemfile</h3>
 
