@@ -128,12 +128,19 @@ env:
 
 <p>You can also define exclusions to the build matrix:</p>
 
-<pre><code>matrix: { exclusion: [{ rvm: 1.8.7, env:RG=1.3.6 }]}
+<pre><code>matrix:
+  exclude:
+    - rvm: 1.8.7
+      gemfile: gemfiles/Gemfile.rails-2.3.x
+      env: ISOLATED=true
+    - rvm: jruby
+      gemfile: gemfiles/Gemfile.rails-2.3.x
+      env: ISOLATED=true
 </code></pre>
 
 <p>Only exact matches will be excluded.</p>
 
-<h3>Define a custom build script</h3>
+<h3>Define custom build scripts</h3>
 
 <p>You can specify the main build command to run instead of just <code>rake</code>:</p>
 
@@ -148,42 +155,17 @@ env:
 after_script:  another_command
 </code></pre>
 
-<p>Both settings support multiple scripts, too.</p>
+<p>Both settings support multiple scripts, too:</p>
 
-<p>These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.</p>
-
-<h3>Recipients of email &amp; IRC notification</h3>
-
-<p>You can specify recipients that will be notified about build results.</p>
-
-<pre><code>notifications:
-  recipients:
-    - one@example.com
-    - other@example.com
+<pre><code>before_script:
+  - before_command_1
+  - before_command_2
+after_script:
+  - after_command_1
+  - after_command_2
 </code></pre>
 
-<p>You can also entirely turn off notifications like this:</p>
-
-<pre><code>notifications:
-  disabled: true
-</code></pre>
-
-<p>Or just the email notifications:
-    notifications:
-      email: false</p>
-
-<p>If you do not configure this then Travis CI will notify:</p>
-
-<ul>
-  <li>for user repos: the commit author and the repository owner</li>
-  <li>for repos owned by an organization: the commit author and <em>all</em> organization members</li>
-</ul>
-
-<p>You can also specify notifications in an IRC channel:</p>
-
-<pre><code>notifications:
-  irc: "irc.freenode.org#travis"
-</code></pre>
+<p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
 <h3>Specify branches to build</h3>
 
@@ -203,6 +185,103 @@ branches:
 </code></pre>
 
 <p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
+
+<h2>Notifications</h2>
+
+<p>Travis CI can notify you about your build results through email, IRC and/or webhooks.</p>
+
+<p>By default it will send emails to</p>
+
+<ul>
+  <li>the commit author and committer</li>
+  <li>the owner of the repository (for normal repositories)</li>
+  <li><em>all</em> public members of the organization owning the repository</li>
+</ul>
+
+<p>And it will by default send emails when, on the given branch:</p>
+
+<ul>
+  <li>a build was just broken or still is broken</li>
+  <li>a previously broken build was just fixed</li>
+</ul>
+
+<p>You can change this behaviour using the following options:</p>
+
+<h3>Email notifications</h3>
+
+<p>You can specify recipients that will be notified about build results like so:</p>
+
+<pre><code>notifications:
+  email:
+    - one@example.com
+    - other@example.com
+</code></pre>
+
+<p>And you can entirely turn off email notifications:</p>
+
+<pre><code>notifications:
+  email: false
+</code></pre>
+
+<p>Also, you can specify when you want to get notified:</p>
+
+<pre><code>notifications:
+  email:
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+</code></pre>
+
+<p><code>always</code> and <code>never</code> obviously mean that you want email notifications to be sent always or never. <code>change</code> means that you will get them when the build status changes on the given branch.</p>
+
+<h3>IRC notification</h3>
+
+<p>You can also specify notifications sent to an IRC channel:</p>
+
+<pre><code>notifications:
+  irc: "irc.freenode.org#travis"
+</code></pre>
+
+<p>Or multiple channels:</p>
+
+<pre><code>notifications:
+  irc:
+    - "irc.freenode.org#travis"
+    - "irc.freenode.org#some-other-channel"
+</code></pre>
+
+<p>Just as with other notification types you can specify when IRC notifications will be sent:</p>
+
+<pre><code>notifications:
+  irc:
+    on_success: [always|never|change] # default: always
+    on_failure: [always|never|change] # default: always
+</code></pre>
+
+<h3>Webhook notification</h3>
+
+<p>You can define webhooks to be notified about build results the same way:</p>
+
+<pre><code>notifications:
+  webhooks: http://your-domain.com/notifications
+</code></pre>
+
+<p>Or multiple channels:</p>
+
+<pre><code>notifications:
+  webhooks:
+    - http://your-domain.com/notifications
+    - http://another-domain.com/notifications
+</code></pre>
+
+<p>Just as with other notification types you can specify when IRC notifications will be sent:</p>
+
+<pre><code>notifications:
+  webhooks:
+    on_success: [always|never|change] # default: always
+    on_failure: [always|never|change] # default: always
+</code></pre>
+
+<p>Here is an example payload of what will be <code>POST</code>ed to your webhook URLs: https://gist.github.com/1225015</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
