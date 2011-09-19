@@ -20,11 +20,13 @@ The outcome of this last command – the build script – indicates whether or n
 
 With the exception of `git clone` command, all of the above steps can be tweaked with `.travis.yml`.
 
+
 <h3>Choose a Ruby version</h3>
 
 To specify the Ruby version to test against, use the `rvm` option:
 
     rvm: 1.9.2
+
 
 <h3>Specify a Gemfile</h3>
 
@@ -38,6 +40,7 @@ You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra
 
     bundler_args: --binstubs
 
+
 <h3>Set environment variables</h3>
 
 To specify an environment variable:
@@ -49,6 +52,7 @@ Environment variables are useful for configuring build scripts. See the example 
     if ENV['TRAVIS']
       # do something specific to continuous integration
     end
+
 
 <h3>The build matrix</h3>
 
@@ -79,11 +83,19 @@ Please take into account that Travis CI is an open source service and we rely on
 
 You can also define exclusions to the build matrix:
 
-    matrix: { exclusion: [{ rvm: 1.8.7, env:RG=1.3.6 }]}
+    matrix:
+      exclude:
+        - rvm: 1.8.7
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+        - rvm: jruby
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
 
 Only exact matches will be excluded.
 
-<h3>Define a custom build script</h3>
+
+<h3>Define custom build scripts</h3>
 
 You can specify the main build command to run instead of just `rake`:
 
@@ -96,37 +108,17 @@ You can also define scripts to be run before and after the main script:
     before_script: some_command
     after_script:  another_command
 
-Both settings support multiple scripts, too.
+Both settings support multiple scripts, too:
 
-These scripts can be used to setup databases used for testing. For more information, see <a href="/docs/user/database-setup/">Database setup</a>.
+    before_script:
+      - before_command_1
+      - before_command_2
+    after_script:
+      - after_command_1
+      - after_command_2
 
-<h3>Recipients of email & IRC notification</h3>
+These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
 
-You can specify recipients that will be notified about build results.
-
-    notifications:
-      recipients:
-        - one@example.com
-        - other@example.com
-
-You can also entirely turn off notifications like this:
-
-    notifications:
-      disabled: true
-
-Or just the email notifications:
-    notifications:
-      email: false
-      
-If you do not configure this then Travis CI will notify:
-
-* for user repos: the commit author and the repository owner
-* for repos owned by an organization: the commit author and <em>all</em> organization members
-
-You can also specify notifications in an IRC channel:
-
-    notifications:
-      irc: "irc.freenode.org#travis"
 
 <h3>Specify branches to build</h3>
 
@@ -145,3 +137,92 @@ You can either white- or blacklist branches that you want to be built:
         - stable
 
 If you specify both, "except" will be ignored.
+
+
+<h2>Notifications</h2>
+
+Travis CI can notify you about your build results through email, IRC and/or webhooks.
+
+By default it will send emails to
+
+* the commit author and committer
+* the owner of the repository (for normal repositories)
+* <em>all</em> public members of the organization owning the repository
+
+And it will by default send emails when, on the given branch:
+
+* a build was just broken or still is broken
+* a previously broken build was just fixed
+
+You can change this behaviour using the following options:
+
+
+<h3>Email notifications</h3>
+
+You can specify recipients that will be notified about build results like so:
+
+    notifications:
+      email:
+        - one@example.com
+        - other@example.com
+
+And you can entirely turn off email notifications:
+
+    notifications:
+      email: false
+
+Also, you can specify when you want to get notified:
+
+    notifications:
+      email:
+        on_success: [always|never|change] # default: change
+        on_failure: [always|never|change] # default: always
+
+`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+
+
+<h3>IRC notification</h3>
+
+You can also specify notifications sent to an IRC channel:
+
+    notifications:
+      irc: "irc.freenode.org#travis"
+
+Or multiple channels:
+
+    notifications:
+      irc:
+        - "irc.freenode.org#travis"
+        - "irc.freenode.org#some-other-channel"
+
+Just as with other notification types you can specify when IRC notifications will be sent:
+
+    notifications:
+      irc:
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+
+
+<h3>Webhook notification</h3>
+
+You can define webhooks to be notified about build results the same way:
+
+    notifications:
+      webhooks: http://your-domain.com/notifications
+
+Or multiple channels:
+
+    notifications:
+      webhooks:
+        - http://your-domain.com/notifications
+        - http://another-domain.com/notifications
+
+Just as with other notification types you can specify when IRC notifications will be sent:
+
+    notifications:
+      webhooks:
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+
+Here is an example payload of what will be `POST`ed to your webhook URLs: https://gist.github.com/1225015
+
