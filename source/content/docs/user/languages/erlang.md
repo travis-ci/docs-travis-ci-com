@@ -8,7 +8,7 @@ kind: content
 Travis VMs provide
 
 * 32-bit [Erlang OTP](http://www.erlang.org/download.html) versions
-  R14B03, R14B02, R14B01, R14B, R14A, R13B04 andR13B03
+  R14B04, R14B03, R14B02, R14B01, R14B, R14A, R13B04 andR13B03
 * A recent version of  [Rebar](https://github.com/basho/rebar).
 
 ### Setting up a Erlang project on travis-ci.org
@@ -28,6 +28,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: erlang
     otp_release:
+       - R14B04
        - R14B03
        - R14B02
        - R14B01

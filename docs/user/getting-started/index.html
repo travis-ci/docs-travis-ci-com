@@ -46,7 +46,7 @@
             <h3 id="make-sure-your-project-can-build">Make sure your project can build</h3>
 
 <ul>
-  <li><em>Ruby Projects:</em> In order to build your Ruby project on Travis CI, your repository should have a Rakefile with the default task being a test task. That&rsquo;s it. Travis CI will first run <code>bundle install</code> if you have a Gemfile, and then <code>rake</code> by default. The build success is determined by the response code of that command.</li>
+  <li><em>Ruby Projects:</em> In order to build your Ruby project on Travis CI, your repository should have a Rakefile with the default task being a test task. That’s it. Travis CI will first run <code>bundle install</code> if you have a Gemfile, and then <code>rake</code> by default. The build success is determined by the response code of that command.</li>
   <li><em>Erlang projects:</em> In order to build your Erlang project on Travis CI, it should use <a href="https://github.com/basho/rebar.git">Rebar</a>  or have a working <code>tests</code> Makefile target. The build success is determined by the response codes of the compile step and eunit tests. <a href="/docs/user/languages/erlang/">More about Erlang  projects</a></li>
 </ul>
 
@@ -56,17 +56,17 @@
 
 <p>To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.</p>
 
-<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won&rsquo;t touch anything else.</p>
+<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won’t touch anything else.</p>
 
 <h3 id="add-service-hooks">Add service hooks</h3>
 
-<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.</p>
+<p>Once you’re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You’ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.</p>
 
 <p>Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if not already pre-filled.</p>
 
 <h3 id="what-triggers-the-build-process">What triggers the build process?</h3>
 
-<p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the &ldquo;Test Hook&rdquo; button for Travis.</p>
+<p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the “Test Hook” button for Travis.</p>
 
 <p>That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.</p>
 
@@ -83,7 +83,7 @@ about our test environment can be found <a href="/docs/user/ci-environment/">in 
 
 <h3 id="need-help">Need help?</h3>
 
-<p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We&rsquo;re there to help :)</p>
+<p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We’re there to help :)</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

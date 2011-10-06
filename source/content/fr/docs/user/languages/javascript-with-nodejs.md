@@ -3,7 +3,7 @@ title: Building a Node.js project
 kind: content
 ---
 
-Travis VMs includes Node 0.4.x and NPM 1.0.x. You can use these to build and test your Node.js project. Add the following line to .travis.yml:
+Travis VMs includes Node 0.4.12/0.5.8 and NPM 1.0.x. You can use these to build and test your Node.js project. Add the following line to .travis.yml:
 
     before_script: "npm install --dev"
     script: "npm test"
