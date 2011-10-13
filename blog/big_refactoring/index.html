@@ -43,12 +43,12 @@
               <h2>A Big Refactoring!</h2>
             
 
-            <p>We’ve just rolled out a big refactoring to the Travis CI <a href="https://github.com/travis-ci/travis-ci">application</a>
-(i.e. the server app which runs on Heroku) that we’ve been working on over the
+            <p>We&rsquo;ve just rolled out a big refactoring to the Travis CI <a href="https://github.com/travis-ci/travis-ci">application</a>
+(i.e. the server app which runs on Heroku) that we&rsquo;ve been working on over the
 last four weeks.</p>
 
-<p>This refactoring was quite far-reaching and even though we’ve tried hard to
-make sure everything works fine there may be glitches and bugs that we’ve
+<p>This refactoring was quite far-reaching and even though we&rsquo;ve tried hard to
+make sure everything works fine there may be glitches and bugs that we&rsquo;ve
 overlooked.</p>
 
 <h2 id="why">Why?</h2>
@@ -81,9 +81,9 @@ events and messages.</p>
 
 <p>You can find more information about the new domain model design <a href="https://github.com/travis-ci/travis-ci/blob/statemachine_merge/docs/notes/build_tasks.md">in this
 document</a>.
-Some of the details outlined there haven’t been implemented, yet. E.g. the
+Some of the details outlined there haven&rsquo;t been implemented, yet. E.g. the
 <code>Build</code> model does not have the mentioned <code>errored</code> and <code>cancelled</code> states, the
-<code>Task::Test</code> does not have <code>cloned</code> and <code>installed</code> states … simply because the
+<code>Task::Test</code> does not have <code>cloned</code> and <code>installed</code> states &hellip; simply because the
 worker does not support triggering these, yet. These things will probably be
 added in a later stage.</p>
 
@@ -99,12 +99,12 @@ bunch of columns to migrate from the <code>builds</code> table to various other 
 (such as <code>commits</code>, <code>requests</code>, <code>tasks</code>) and it seemed easier to come up with a
 simple DSL for that than writing all these queries by hand.</p>
 
-<p>Also, we’re now using <a href="https://github.com/svenfuchs/hashr">hashr</a> in the
-application, too (for <code>Travis.config</code>, specifically). We’ve used it in the
+<p>Also, we&rsquo;re now using <a href="https://github.com/svenfuchs/hashr">hashr</a> in the
+application, too (for <code>Travis.config</code>, specifically). We&rsquo;ve used it in the
 <a href="https://github.com/travis-ci/travis-worker">worker code</a> before and it worked
 pretty well.</p>
 
-<h2 id="in-other-news-">In other news …</h2>
+<h2 id="in-other-news-">In other news &hellip;</h2>
 
 <p>In other news, over the last month we have extract a <a href="https://github.com/michaelklishin/sous-chef">small project that we use to develop our Chef cookbooks</a> and
 added the following tools to the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">VM infrastructure</a>:</p>
@@ -136,6 +136,7 @@ added the following tools to the <a href="https://github.com/travis-ci/travis-co
               <li><a href="/docs/user/resources/">Resources</a></li>
               <li><a href="/docs/user/ci-environment/">CI environment</a></li>
               <li><a href="/docs/user/extensions/">Extensions</a></li>
+              <li><a href="/docs/user/how-to-skip-a-build/">How to skip a build</a></li>
             </ul>
             <h2>Languages</h2>
             <ul>

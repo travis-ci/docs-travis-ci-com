@@ -43,7 +43,7 @@
               <h2>Selenium setup</h2>
             
 
-            <p>You can run Selenium tests (and anything else that requires a browser) on Travis CI. The environment has xvfb and Firefox installed. xvfb is a “virtual framebuffer” that lets you run a real browser on a headless machine, as if a proper display were attached. It does require a little extra setup, though.</p>
+            <p>You can run Selenium tests (and anything else that requires a browser) on Travis CI. The environment has xvfb and Firefox installed. xvfb is a &ldquo;virtual framebuffer&rdquo; that lets you run a real browser on a headless machine, as if a proper display were attached. It does require a little extra setup, though.</p>
 
 <p>First, somewhere in your before_script, you need this line:</p>
 
@@ -52,7 +52,7 @@
 
 <p>This starts xvfb on display port :99.0. The display port is set directly in the /etc/init.d script. </p>
 
-<p>Second, when you run your tests, you need to tell your Selenium process about that display port, so it knows where to start Firefox. Here’s an example rake task that runs Rspec, Jasmine, and Cucumber tests:</p>
+<p>Second, when you run your tests, you need to tell your Selenium process about that display port, so it knows where to start Firefox. Here&rsquo;s an example rake task that runs Rspec, Jasmine, and Cucumber tests:</p>
 
 <pre><code>task :travis do
   ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
@@ -84,6 +84,7 @@ end
               <li><a href="/docs/user/resources/">Resources</a></li>
               <li><a href="/docs/user/ci-environment/">CI environment</a></li>
               <li><a href="/docs/user/extensions/">Extensions</a></li>
+              <li><a href="/docs/user/how-to-skip-a-build/">How to skip a build</a></li>
             </ul>
             <h2>Languages</h2>
             <ul>
