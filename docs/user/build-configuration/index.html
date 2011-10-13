@@ -169,13 +169,13 @@ after_script:
 
 <p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
-<p><strong>NOTE: Some commands (i.e. <code>cd</code>) are not available!</strong></p>
-
-<p>If you need to run those, call them via <code>sh</code>:</p>
+<p><strong>NOTE: If you need to use <code>cd</code>, either use a separate shell script or <code>sh -e</code> as demonstrated:</strong></p>
 
 <pre><code>before_script:
   - "sh -e 'cd spec/dummy &amp;&amp; rake db:migrate'"
 </code></pre>
+
+<p>This is necessary because every command is executed via wrapper that kills hanging commands when they time out.</p>
 
 <h3>Specify branches to build</h3>
 

@@ -120,12 +120,12 @@ Both settings support multiple scripts, too:
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
 
-**NOTE: Some commands (i.e. `cd`) are not available!**
-
-If you need to run those, call them via `sh`:
+**NOTE: If you need to use `cd`, either use a separate shell script or `sh -e` as demonstrated:**
 
     before_script:
       - "sh -e 'cd spec/dummy && rake db:migrate'"
+
+This is necessary because every command is executed via wrapper that kills hanging commands when they time out.
 
 <h3>Specify branches to build</h3>
 
