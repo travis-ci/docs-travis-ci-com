@@ -169,6 +169,14 @@ after_script:
 
 <p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
+<p><strong>NOTE: Some commands (i.e. <code>cd</code>) are not available!</strong></p>
+
+<p>If you need to run those, call them via <code>sh</code>:</p>
+
+<pre><code>before_script:
+  - "sh -e 'cd spec/dummy &amp;&amp; rake db:migrate'"
+</code></pre>
+
 <h3>Specify branches to build</h3>
 
 <p>You can either white- or blacklist branches that you want to be built:</p>
