@@ -100,7 +100,7 @@ Vous pouvez spécifiez plus d'une variable d'environnement par élément du tabl
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
 
-Avec cette configuration, seules **2 builds individuelles** seront exécutées:
+Avec cette configuration, seules **4 builds individuelles** seront exécutées:
 
 1. Ruby 1.9.3 avec `FOO=foo` et `BAR=bar`
 1. Rubinius 2.0 avec `FOO=bar` et `BAR=foo`

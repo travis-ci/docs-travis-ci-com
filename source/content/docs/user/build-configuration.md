@@ -104,7 +104,7 @@ You can specify more than one environment variable per item in the `env` array:
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
 
-With this configuration, only **2 individual builds** will be triggered:
+With this configuration, only **4 individual builds** will be triggered:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
 1. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
