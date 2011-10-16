@@ -142,6 +142,23 @@ env:
 
 <p>Only exact matches will be excluded.</p>
 
+<p>You can specify more than one environment variable per item in the <code>env</code> array:</p>
+
+<pre><code>rvm:
+  - 1.9.3
+  - rbx-2.0
+env:
+  - FOO=foo BAR=bar
+  - FOO=bar BAR=foo
+</code></pre>
+
+<p>With this configuration, only <strong>2 individual builds</strong> will be triggered:</p>
+
+<ol>
+  <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
+  <li>Rubinius 2.0 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+</ol>
+
 <h3>Define custom build scripts</h3>
 
 <p>You can specify the main build command to run instead of just <code>rake</code>:</p>

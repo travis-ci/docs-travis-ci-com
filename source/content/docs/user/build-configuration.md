@@ -95,6 +95,20 @@ You can also define exclusions to the build matrix:
 
 Only exact matches will be excluded.
 
+You can specify more than one environment variable per item in the `env` array:
+
+    rvm:
+      - 1.9.3
+      - rbx-2.0
+    env:
+      - FOO=foo BAR=bar
+      - FOO=bar BAR=foo
+
+With this configuration, only **2 individual builds** will be triggered:
+
+1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
+1. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
+
 
 <h3>Define custom build scripts</h3>
 

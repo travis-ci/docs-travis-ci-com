@@ -127,6 +127,37 @@ env:
   - ISOLATED=false
 </code></pre>
 
+<p>Vous pouvez également exclure des combinaisons ainsi:</p>
+
+<pre><code>matrix:
+  exclude:
+    - rvm: 1.8.7
+      gemfile: gemfiles/Gemfile.rails-2.3.x
+      env: ISOLATED=true
+    - rvm: jruby
+      gemfile: gemfiles/Gemfile.rails-2.3.x
+      env: ISOLATED=true
+</code></pre>
+
+<p>Seules les combinaisons exactes seront exclues.</p>
+
+<p>Vous pouvez spécifiez plus d’une variable d’environnement par élément du tableau <code>env</code>:</p>
+
+<pre><code>rvm:
+  - 1.9.3
+  - rbx-2.0
+env:
+  - FOO=foo BAR=bar
+  - FOO=bar BAR=foo
+</code></pre>
+
+<p>Avec cette configuration, seules <strong>2 builds individuelles</strong> seront exécutées:</p>
+
+<ol>
+  <li>Ruby 1.9.3 avec <code>FOO=foo</code> et <code>BAR=bar</code></li>
+  <li>Rubinius 2.0 avec <code>FOO=bar</code> et <code>BAR=foo</code></li>
+</ol>
+
 <h3>Définir un script de build spécifique</h3>
 
 <p>Vous pouvez spécifier la commande a exécuter à la place de <code>rake</code> :</p>

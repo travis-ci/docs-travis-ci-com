@@ -77,6 +77,34 @@ Veuillez bien noter que Travis CI est un service open-source dont les ressources
       - ISOLATED=true
       - ISOLATED=false
 
+
+Vous pouvez également exclure des combinaisons ainsi:
+
+    matrix:
+      exclude:
+        - rvm: 1.8.7
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+        - rvm: jruby
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+
+Seules les combinaisons exactes seront exclues.
+
+Vous pouvez spécifiez plus d'une variable d'environnement par élément du tableau `env`:
+
+    rvm:
+      - 1.9.3
+      - rbx-2.0
+    env:
+      - FOO=foo BAR=bar
+      - FOO=bar BAR=foo
+
+Avec cette configuration, seules **2 builds individuelles** seront exécutées:
+
+1. Ruby 1.9.3 avec `FOO=foo` et `BAR=bar`
+1. Rubinius 2.0 avec `FOO=bar` et `BAR=foo`
+
 <h3>Définir un script de build spécifique</h3>
 
 Vous pouvez spécifier la commande a exécuter à la place de `rake` :
