@@ -122,6 +122,14 @@ Vous pouvez également spécifier plusieurs scripts avec ces deux commandes.
 
 Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d'informations, <a href="/fr/docs/user/database-setup/">voyez la page Configurer une base de données</a>
 
+**NOTE: Si vous devez utiliser `cd`, utilisez un shell séparé ou `sh -c` comme ceci:**
+
+    before_script:
+      - "sh -c 'cd spec/dummy && rake db:migrate'"
+
+Ceci est nécessaire car chaque commande est exécutée par un wrapper qui
+tuera les commandes suspendues quand elles expireront.
+
 <h3>Destinataires des notifications email et IRC</h3>
 
 Vous pouvez modifier qui va recevoir les notifications de passage ou échec de build.

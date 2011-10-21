@@ -46,7 +46,7 @@
 
             <p>Le fichier <code>.travis.yml</code> vous permet de configurer vos builds. Travis CI va chercher le fichier <code>.travis.yml</code> dans le tree git pointé par le commit donné par Github.</p>
 
-<p>Une configuration donnée dans une branche ne va pas affecter la configuration du build d&rsquo;une autre branche distincte. Notez que Travis CI va builder après <em>chaque</em> git push vers votre projet Github, quelque soit la branch, et même si le fichier <code>.travis.yml</code> n&rsquo;est pas présent. Vous pouvez changer ce comportement avec des options de configuration.</p>
+<p>Une configuration donnée dans une branche ne va pas affecter la configuration du build d’une autre branche distincte. Notez que Travis CI va builder après <em>chaque</em> git push vers votre projet Github, quelque soit la branch, et même si le fichier <code>.travis.yml</code> n’est pas présent. Vous pouvez changer ce comportement avec des options de configuration.</p>
 
 <p>Par défaut, le worker utilise les commandes suivantes pour builder un projet :</p>
 
@@ -56,15 +56,15 @@ $ bundle install --path vendor/bundle
 $ bundle exec rake
 </code></pre>
 
-<p>Si votre projet n&rsquo;utilise pas Bundler (pas de Gemfile présent), le worker va seulement appeler <code>rake</code>.</p>
+<p>Si votre projet n’utilise pas Bundler (pas de Gemfile présent), le worker va seulement appeler <code>rake</code>.</p>
 
-<p>Le résultat de cette dernière commande – le script de build – indique si la build a passé ou non. Le code de sortie standard de &ldquo;0&rdquo; indique qu&rsquo;il a passé, dans n&rsquo;importe quel autre cas, c&rsquo;est un échec.</p>
+<p>Le résultat de cette dernière commande – le script de build – indique si la build a passé ou non. Le code de sortie standard de “0” indique qu’il a passé, dans n’importe quel autre cas, c’est un échec.</p>
 
-<p>À l&rsquo;exception du <code>git clone</code>, chacune des commandes peut voir son comportement modifié grâce au fichier <code>.travis.yml</code>.</p>
+<p>À l’exception du <code>git clone</code>, chacune des commandes peut voir son comportement modifié grâce au fichier <code>.travis.yml</code>.</p>
 
 <h3>Choisir une version différente de Ruby</h3>
 
-<p>Pour spécifier la version de Ruby à utiliser, définissez l&rsquo;option <code>rvm</code> :</p>
+<p>Pour spécifier la version de Ruby à utiliser, définissez l’option <code>rvm</code> :</p>
 
 <pre><code>rvm: 1.9.2
 </code></pre>
@@ -76,7 +76,7 @@ $ bundle exec rake
 <pre><code>gemfile: gemfiles/Gemfile.ci
 </code></pre>
 
-<p>Si cette option n&rsquo;est pas présente, le worker cherchera un fichier Gemfile à la racine du projet.</p>
+<p>Si cette option n’est pas présente, le worker cherchera un fichier Gemfile à la racine du projet.</p>
 
 <p>Vous pouvez aussi indiquer des <a href="http://gembundler.com/man/bundle-install.1.html">arguments</a> qui seront passés à <code>bundle install</code> :</p>
 
@@ -85,12 +85,12 @@ $ bundle exec rake
 
 <h3>Définir des variables d'environnement</h3>
 
-<p>Pour définir une variable d&rsquo;environnement, spécifiez :</p>
+<p>Pour définir une variable d’environnement, spécifiez :</p>
 
 <pre><code>env: DB=postgres
 </code></pre>
 
-<p>Les variables d&rsquo;environnement sont souvent utilisés pour configurer les scripts de build. Voyez un exemple de <a href="/fr/docs/user/database-setup/#multiple-database-systems">configuration avec plusieurs SGBD</a>. La variable <code>TRAVIS</code> est toujours présente lors du build :</p>
+<p>Les variables d’environnement sont souvent utilisés pour configurer les scripts de build. Voyez un exemple de <a href="/fr/docs/user/database-setup/#multiple-database-systems">configuration avec plusieurs SGBD</a>. La variable <code>TRAVIS</code> est toujours présente lors du build :</p>
 
 <pre><code>if ENV['TRAVIS']
   # cas particulier pour l'intégration continue
@@ -104,10 +104,10 @@ end
 <ul>
   <li><code>rvm</code> - les différentes versions de Ruby</li>
   <li><code>gemfile</code> - les différents jeux de dépendances</li>
-  <li><code>env</code> - les variables d&rsquo;environnement avec lesquelles vous pouvez configurer vos scripts</li>
+  <li><code>env</code> - les variables d’environnement avec lesquelles vous pouvez configurer vos scripts</li>
 </ul>
 
-<p>Voyez ci-dessous un exemple de configuration pour un projet qui va jusqu&rsquo;à 32 builds différents.</p>
+<p>Voyez ci-dessous un exemple de configuration pour un projet qui va jusqu’à 32 builds différents.</p>
 
 <p>Veuillez bien noter que Travis CI est un service open-source dont les ressources sont fournies par la communauté. Veuillez seulement spécifier les options dont vous avez <em>réellement besoin</em>.</p>
 
@@ -165,7 +165,7 @@ env:
 <pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
 </code></pre>
 
-<p>Ce script peut être n&rsquo;importe quel fichier exécutable, il n&rsquo;a pas besoin de commencer par <code>bundle exec</code> (qui sert à inclure le bundle).</p>
+<p>Ce script peut être n’importe quel fichier exécutable, il n’a pas besoin de commencer par <code>bundle exec</code> (qui sert à inclure le bundle).</p>
 
 <p>Vous pouvez aussi définir des scripts à exécuter avant et après le script principal :</p>
 
@@ -175,7 +175,16 @@ after_script:  another_command
 
 <p>Vous pouvez également spécifier plusieurs scripts avec ces deux commandes.</p>
 
-<p>Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d&rsquo;informations, <a href="/fr/docs/user/database-setup/">voyez la page Configurer une base de données</a></p>
+<p>Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d’informations, <a href="/fr/docs/user/database-setup/">voyez la page Configurer une base de données</a></p>
+
+<p><strong>NOTE: Si vous devez utiliser <code>cd</code>, utilisez un shell séparé ou <code>sh -c</code> comme ceci:</strong></p>
+
+<pre><code>before_script:
+  - "sh -c 'cd spec/dummy &amp;&amp; rake db:migrate'"
+</code></pre>
+
+<p>Ceci est nécessaire car chaque commande est exécutée par un wrapper qui
+tuera les commandes suspendues quand elles expireront.</p>
 
 <h3>Destinataires des notifications email et IRC</h3>
 
@@ -196,8 +205,8 @@ after_script:  another_command
 <p>Travis CI notifie par défaut :</p>
 
 <ul>
-  <li>pour les repos d&rsquo;un utilisateur : l&rsquo;auteur du commit et le propriétaire de la repo</li>
-  <li>pour les repos d&rsquo;une organisation : l&rsquo;auteur du commit et <em>tous</em> les membres de l&rsquo;organisation</li>
+  <li>pour les repos d’un utilisateur : l’auteur du commit et le propriétaire de la repo</li>
+  <li>pour les repos d’une organisation : l’auteur du commit et <em>tous</em> les membres de l’organisation</li>
 </ul>
 
 <p>Vous pouvez aussi spécifier un channel IRC à notifier :</p>
@@ -223,7 +232,7 @@ branches:
     - stable
 </code></pre>
 
-<p>Si vous spécifier les deux, &ldquo;except&rdquo; sera ignoré.</p>
+<p>Si vous spécifier les deux, “except” sera ignoré.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

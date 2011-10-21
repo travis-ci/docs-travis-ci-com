@@ -134,10 +134,10 @@ Both settings support multiple scripts, too:
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
 
-**NOTE: If you need to use `cd`, either use a separate shell script or `sh -e` as demonstrated:**
+**NOTE: If you need to use `cd`, either use a separate shell script or `sh -c` as demonstrated:**
 
     before_script:
-      - "sh -e 'cd spec/dummy && rake db:migrate'"
+      - "sh -c 'cd spec/dummy && rake db:migrate'"
 
 This is necessary because every command is executed via wrapper that kills hanging commands when they time out.
 
