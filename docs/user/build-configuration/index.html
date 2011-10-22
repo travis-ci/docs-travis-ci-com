@@ -57,7 +57,7 @@ $ bundle exec rake
 
 <p>If your project is not using Bundler (no Gemfile), it will only run <code>rake</code>.</p>
 
-<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of “0” means it passed; everything else is treated as failure.</p>
+<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of &ldquo;0&rdquo; means it passed; everything else is treated as failure.</p>
 
 <p>With the exception of <code>git clone</code> command, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
 
@@ -77,7 +77,7 @@ $ bundle exec rake
 <pre><code>gemfile: gemfiles/Gemfile.ci
 </code></pre>
 
-<p>Unless specified, the worker will look for a file named “Gemfile” in the root of your project.</p>
+<p>Unless specified, the worker will look for a file named &ldquo;Gemfile&rdquo; in the root of your project.</p>
 
 <p>You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to <code>bundle install</code>:</p>
 
@@ -108,7 +108,7 @@ end
   <li><code>env</code> - environment variables with which you can configure your build scripts</li>
 </ul>
 
-<p>Below is an example configuration for a rather big build matrix that expands to <strong>28 individual</strong> builds.</p>
+<p>Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.</p>
 
 <p>Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.</p>
 
@@ -166,7 +166,7 @@ env:
 <pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
 </code></pre>
 
-<p>The script can be any executable; it doesn’t have to be <code>rake</code>, and it doesn’t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).</p>
+<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).</p>
 
 <p>You can also define scripts to be run before and after the main script:</p>
 
@@ -211,7 +211,7 @@ branches:
     - stable
 </code></pre>
 
-<p>If you specify both, “except” will be ignored.</p>
+<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
 
 <h2>Notifications</h2>
 
