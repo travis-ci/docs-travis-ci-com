@@ -2,19 +2,62 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
-  <updated>2011-08-29T16:29:26Z</updated>
-  <link href="http://about.travis-ci.org//" rel="alternate"/>
-  <link href="http://about.travis-ci.org//blog.xml" rel="self"/>
+  <updated>2011-10-31T20:26:26Z</updated>
+  <link rel="alternate" href="http://about.travis-ci.org//"/>
+  <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
   <entry>
+    <id>tag:about.travis-ci.org,2011-11-01://blog/vm_upgrade_oct_31_2011/</id>
+    <title type="html">VM environment upgrade, Oct 31st, 2011</title>
+    <published>2011-10-31T20:26:26Z</published>
+    <updated>2011-10-31T20:26:26Z</updated>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/vm_upgrade_oct_31_2011/"/>
+    <content type="html">&lt;p&gt;travis-ci.org Ruby workers were upgraded to provide the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby 1.9.3-p0 (final release)&lt;/li&gt;
+  &lt;li&gt;JRuby 1.6.5&lt;/li&gt;
+  &lt;li&gt;Updated Rubinius 2.0 from 2.0.testing branch&lt;/li&gt;
+  &lt;li&gt;Node.js 0.4.12, npm 1.0.18&lt;/li&gt;
+  &lt;li&gt;MongoDB 2.0.1&lt;/li&gt;
+  &lt;li&gt;Riak 1.0.1&lt;/li&gt;
+  &lt;li&gt;ragel&lt;/li&gt;
+  &lt;li&gt;RVM 1.9.2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is also one more change we want to highlight: we now provide two installations of Rubinius, one in Ruby 1.8 mode
+and another one in Ruby 1.9 mode. Their RVM aliases are &lt;em&gt;rbx-18mode&lt;/em&gt; and &lt;em&gt;rbx-19mode&lt;/em&gt;, respectively. For example, to test your gem
+against Rubinius in both modes, you can use the following list of Rubies in your .travis.yml file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rvm:
+  - 1.8.7
+  - 1.9.3
+  - jruby
+  - rbx-18mode
+  - rbx-19mode
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Existing aliases for 1.8 mode (&lt;em&gt;rbx&lt;/em&gt; and &lt;em&gt;rbx-2.0&lt;/em&gt;) are still around and will work.&lt;/p&gt;
+
+&lt;p&gt;Rubinius&amp;rsquo; Ruby 1.9 features support is still a work in progress (it does not support encodings yet, for example) but
+we encourage Ruby developers to try testing their libraries against Rubinius, in both 1.8 and 1.9 modes. Now it is even
+easier to do on travis-ci.org.&lt;/p&gt;
+
+&lt;p&gt;To get regular updates about travis-ci.org environment upgrades and other developments, &lt;a href="https://twitter.com/travisci"&gt;follow Travis CI on Twitter&lt;/a&gt;
+and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base"&gt;Chef cookbooks repository on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/michaelklishin"&gt;MK&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:about.travis-ci.org,2011-08-29://blog/big_refactoring/</id>
     <title type="html">A Big Refactoring!</title>
     <published>2011-08-29T16:29:26Z</published>
     <updated>2011-08-29T16:29:26Z</updated>
-    <link href="http://about.travis-ci.org//blog/big_refactoring/" rel="alternate"/>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/big_refactoring/"/>
     <content type="html">&lt;p&gt;We&amp;rsquo;ve just rolled out a big refactoring to the Travis CI &lt;a href="https://github.com/travis-ci/travis-ci"&gt;application&lt;/a&gt;
 (i.e. the server app which runs on Heroku) that we&amp;rsquo;ve been working on over the
 last four weeks.&lt;/p&gt;
@@ -91,11 +134,11 @@ added the following tools to the &lt;a href="https://github.com/travis-ci/travis
 </content>
   </entry>
   <entry>
-    <id>tag:about.travis-ci.org,2011-08-20://blog/hello_world/</id>
+    <id>tag:about.travis-ci.org,2011-08-21://blog/hello_world/</id>
     <title type="html">Hello, World</title>
     <published>2011-08-20T22:52:26Z</published>
     <updated>2011-08-20T22:52:26Z</updated>
-    <link href="http://about.travis-ci.org//blog/hello_world/" rel="alternate"/>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/hello_world/"/>
     <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
