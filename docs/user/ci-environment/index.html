@@ -82,15 +82,15 @@ We modify some of them for continuous integration needs and sync them periodical
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/openssl">openssl</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/java">OpenJDK 6</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mysql">mysql</a> 5.1.41. We customized this cookbook to provide <a href="http://bit.ly/mysql-on-ramfs">mysql::server_on_ramfs recipe</a> I/O-heavy test suites (like the Ruby on Rails one) use.</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql">postgresql</a> 8.4.4</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql">postgresql</a> 8.4.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sqlite">sqlite</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/redis">redis</a> 2.2.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached">memcached</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak">riak</a> 0.14.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb">mongodb</a> 1.8.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak">riak</a> 1.0.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb">mongodb</a> 2.0.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang">erlang</a> R13B03</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.5.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> 0.4.x and NPM 1.0.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.6.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> 0.4.12 and NPM 1.0.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen">leiningen</a> 1.6.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt">sbt (simple build tool)</a> 0.10.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick">imagemagick</a>.</li>
@@ -104,10 +104,10 @@ We modify some of them for continuous integration needs and sync them periodical
 <ul>
   <li>1.8.7 (default)</li>
   <li>1.9.2</li>
-  <li>1.9.3[-preview1]</li>
+  <li>1.9.3</li>
   <li>jruby</li>
-  <li>rbx</li>
-  <li>rbx-2.0</li>
+  <li>rbx (aliased as rbx-2.0 and rbx-18mode)</li>
+  <li>rbx-19mode (in Ruby 1.9 mode)</li>
   <li>ree (2011.03)</li>
   <li>ruby-head</li>
 </ul>

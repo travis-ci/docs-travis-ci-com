@@ -41,15 +41,15 @@ We modify some of them for continuous integration needs and sync them periodical
 * [openssl](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/openssl)
 * [OpenJDK 6](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/java)
 * [mysql](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mysql) 5.1.41. We customized this cookbook to provide [mysql::server_on_ramfs recipe](http://bit.ly/mysql-on-ramfs) I/O-heavy test suites (like the Ruby on Rails one) use.
-* [postgresql](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql) 8.4.4
+* [postgresql](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql) 8.4.x
 * [sqlite](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sqlite)
 * [redis](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/redis) 2.2.x
 * [memcached](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached)
-* [riak](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak) 0.14.x
-* [mongodb](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb) 1.8.x
+* [riak](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak) 1.0.x
+* [mongodb](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb) 2.0.x
 * [erlang](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang) R13B03
-* [rabbitmq](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq) 2.5.x
-* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) 0.4.x and NPM 1.0.x
+* [rabbitmq](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq) 2.6.x
+* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) 0.4.12 and NPM 1.0.x
 * [leiningen](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen) 1.6.x
 * [sbt (simple build tool)](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt) 0.10.x
 * [imagemagick](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick).
@@ -62,10 +62,10 @@ We modify some of them for continuous integration needs and sync them periodical
 
 * 1.8.7 (default)
 * 1.9.2
-* 1.9.3[-preview1]
+* 1.9.3
 * jruby
-* rbx
-* rbx-2.0
+* rbx (aliased as rbx-2.0 and rbx-18mode)
+* rbx-19mode (in Ruby 1.9 mode)
 * ree (2011.03)
 * ruby-head
 
