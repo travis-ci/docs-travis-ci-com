@@ -19,7 +19,6 @@
 
     <div id="header">
       <div class="wrapper">
-        <!--
         <div class="language-switcher">
           <nav>
           <span>Languages:</span>
@@ -29,7 +28,6 @@
           </ul>
           </nav>
         </div>
-        -->
         <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
         <p>A distributed build system for the open source community.</p>
       </div><!-- /.wrapper -->
@@ -47,7 +45,7 @@
 
 <p>The following classes encapsulate the application domain model concepts. I.e.
 they are part of the application server code, can be stored as ActiveRecords
-and are targetted at being published through the JSON API and/or sync&rsquo;ed over
+and are targetted at being published through the JSON API and/or sync’ed over
 to the client app through websocket messages.</p>
 
 <h3 id="request">Request</h3>
@@ -73,9 +71,9 @@ rejected based on the configuration.</p>
   <li>cancelled</li>
 </ul>
 
-<p>A quick note on build distribution: At the moment, we&rsquo;re using Redis as
-a poor man&rsquo;s message queue. We&rsquo;re migrating to <a href="https://github.com/ruby-amqp/amqp">AMQP</a>
-currently, so there&rsquo;s a lot of change in this area. Conceptually, it&rsquo;s
+<p>A quick note on build distribution: At the moment, we’re using Redis as
+a poor man’s message queue. We’re migrating to <a href="https://github.com/ruby-amqp/amqp">AMQP</a>
+currently, so there’s a lot of change in this area. Conceptually, it’s
 very similar, however.</p>
 
 <h3 id="task">Task</h3>
@@ -230,6 +228,21 @@ are cancelled and messages are sent to the workers which also cancel the jobs
   <li>App then emits a build:finished event</li>
 </ul>
 
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'travis-ci'; // required: replace example with your forum shortname
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+               })();
+             </script>
+             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+             <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
           </div><!-- /#main -->
           <div id="sidebar">
             <h2>Contact</h2>

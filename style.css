@@ -531,3 +531,7 @@ div.language-switcher ul li a.selected {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EFEFEF), to(#888));
   border-radius: 0.25em;
 }
+
+#dsq-global-toolbar ul li {
+  list-style-type: none;
+}
