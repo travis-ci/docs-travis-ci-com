@@ -6,7 +6,7 @@ kind: content
 ### Make sure your project can build
 
 - *Ruby Projects:* In order to build your Ruby project on Travis CI, your repository should have a Rakefile with the default task being a test task. That's it. Travis CI will first run `bundle install` if you have a Gemfile, and then `rake` by default. The build success is determined by the response code of that command.
-- *Erlang projects:* In order to build your Erlang project on Travis CI, it should use [Rebar](https://github.com/basho/rebar.git)  or have a working `tests` Makefile target. The build success is determined by the response codes of the compile step and eunit tests. [More about Erlang  projects](/docs/user/languages/erlang/)
+- *Erlang projects:* In order to build your Erlang project on Travis CI, it should use [Rebar](https://github.com/basho/rebar)  or have a working `tests` Makefile target. The build success is determined by the response codes of the compile step and eunit tests. [More about Erlang  projects](/docs/user/languages/erlang/)
 
 You can <a href="/docs/user/build-configuration/">configure</a> all aspects of this, including the <a href="/docs/user/database-setup/">database connection</a> if you need one.
 
