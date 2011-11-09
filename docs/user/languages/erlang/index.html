@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - Building a Erlang project</title>
+    <title>Travis CI: Building a Erlang project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -11,7 +11,7 @@
         <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
         <ul>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/docs/">Docs</a></li>
+          <li><a href="/docs/">Documentation</a></li>
           <li class="right"><a href="http://travis-ci.org">go to travis-ci.org &rarr;</a></li>
         </ul>
       </div>
@@ -89,6 +89,11 @@ before_script: "rebar get-deps"
 script: "rebar compile eunit"
 </code></pre>
 
+<h3 id="beforeinstall-beforescript-and-friends">before_install, before_script and friends</h3>
+
+<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
+configuration and so on.</p>
+
 <h3 id="examples">Examples</h3>
 
 <ul>
@@ -122,7 +127,7 @@ script: "rebar compile eunit"
               <li><a href="http://github.com/travis-ci">Github</a></li>
               <li><a href="http://twitter.com/travisci">Twitter</a></li>
               <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
-              <li><a href="http://groups.google.com/group/travis-ci">Mailinglist</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
             </ul>
             <h2>User Docs</h2>
             <ul>

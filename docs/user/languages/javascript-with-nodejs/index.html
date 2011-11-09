@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: About - Building a Node.js project</title>
+    <title>Travis CI: Building a Node.js project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -11,7 +11,7 @@
         <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
         <ul>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/docs/">Docs</a></li>
+          <li><a href="/docs/">Documentation</a></li>
           <li class="right"><a href="http://travis-ci.org">go to travis-ci.org &rarr;</a></li>
         </ul>
       </div>
@@ -53,6 +53,10 @@ node_js:
   - 0.5
   - 0.6
 </code></pre>
+
+<p>This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.5 is an alias
+for &ldquo;the most recent 0.5.x release&rdquo; and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
+.travis.yml will get outdated and things will break.</p>
 
 <p>For example, see <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener .travis.yml</a>.</p>
 
@@ -110,7 +114,7 @@ configuration and so on.</p>
               <li><a href="http://github.com/travis-ci">Github</a></li>
               <li><a href="http://twitter.com/travisci">Twitter</a></li>
               <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
-              <li><a href="http://groups.google.com/group/travis-ci">Mailinglist</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
             </ul>
             <h2>User Docs</h2>
             <ul>
