@@ -41,14 +41,19 @@
               <h2>Building a Ruby Project</h2>
             
 
-            <p>Travis was originally intended for just Ruby, so thinks should Just
-Work! By default, Travis runs <code>rake</code> to run your tests.</p>
+            <p>Travis was originally intended for just Ruby, so things should Just
+Work! You do not need to specify language in your .travis.yml file.</p>
 
-<p>A more advanced tutorial will appear here soon.</p>
+<p>Travis will use Bundler to install your project&rsquo;s dependencies and run <code>rake</code> to run your tests.</p>
 
-<h3 id="supported-ruby-versions">Supported Ruby Versions</h3>
+<h3 id="beforeinstall-beforescript-and-friends">before_install, before_script and friends</h3>
 
-<p>Here’s a list of all of the Ruby versions supported by Travis. 1.8.7 is
+<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
+configuration and so on.</p>
+
+<h3 id="provided-ruby-versions">Provided Ruby Versions</h3>
+
+<p>Here&rsquo;s a list of all of the Ruby versions supported by Travis. 1.8.7 is
 the default.</p>
 
 <ul>

@@ -23,11 +23,17 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: clojure
 
+
+### before_install, before_script and friends
+
 If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
 
     language: clojure
     before_script: "lein deps && lein build-jni-extensions"
     script: "lein test && lein integration-test"
+
+See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
+configuration and so on.
 
 
 

@@ -10,7 +10,7 @@
     <uri>https://github.com/travis-ci</uri>
   </author>
   <entry>
-    <id>tag:about.travis-ci.org,2011-10-31://blog/vm_upgrade_oct_31_2011/</id>
+    <id>tag:about.travis-ci.org,2011-11-01://blog/vm_upgrade_oct_31_2011/</id>
     <title type="html">VM environment upgrade, Oct 31st, 2011</title>
     <published>2011-10-31T20:26:26Z</published>
     <updated>2011-10-31T20:26:26Z</updated>
@@ -42,7 +42,7 @@ against Rubinius in both modes, you can use the following list of Rubies in your
 
 &lt;p&gt;Existing aliases for 1.8 mode (&lt;em&gt;rbx&lt;/em&gt; and &lt;em&gt;rbx-2.0&lt;/em&gt;) are still around and will work.&lt;/p&gt;
 
-&lt;p&gt;Rubinius’ Ruby 1.9 features support is still a work in progress (it does not support encodings yet, for example) but
+&lt;p&gt;Rubinius&amp;rsquo; Ruby 1.9 features support is still a work in progress (it does not support encodings yet, for example) but
 we encourage Ruby developers to try testing their libraries against Rubinius, in both 1.8 and 1.9 modes. Now it is even
 easier to do on travis-ci.org.&lt;/p&gt;
 
@@ -58,12 +58,12 @@ and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/mas
     <published>2011-08-29T16:29:26Z</published>
     <updated>2011-08-29T16:29:26Z</updated>
     <link rel="alternate" href="http://about.travis-ci.org//blog/big_refactoring/"/>
-    <content type="html">&lt;p&gt;We’ve just rolled out a big refactoring to the Travis CI &lt;a href="https://github.com/travis-ci/travis-ci"&gt;application&lt;/a&gt;
-(i.e. the server app which runs on Heroku) that we’ve been working on over the
+    <content type="html">&lt;p&gt;We&amp;rsquo;ve just rolled out a big refactoring to the Travis CI &lt;a href="https://github.com/travis-ci/travis-ci"&gt;application&lt;/a&gt;
+(i.e. the server app which runs on Heroku) that we&amp;rsquo;ve been working on over the
 last four weeks.&lt;/p&gt;
 
-&lt;p&gt;This refactoring was quite far-reaching and even though we’ve tried hard to
-make sure everything works fine there may be glitches and bugs that we’ve
+&lt;p&gt;This refactoring was quite far-reaching and even though we&amp;rsquo;ve tried hard to
+make sure everything works fine there may be glitches and bugs that we&amp;rsquo;ve
 overlooked.&lt;/p&gt;
 
 &lt;h2 id="why"&gt;Why?&lt;/h2&gt;
@@ -96,9 +96,9 @@ events and messages.&lt;/p&gt;
 
 &lt;p&gt;You can find more information about the new domain model design &lt;a href="https://github.com/travis-ci/travis-ci/blob/statemachine_merge/docs/notes/build_tasks.md"&gt;in this
 document&lt;/a&gt;.
-Some of the details outlined there haven’t been implemented, yet. E.g. the
+Some of the details outlined there haven&amp;rsquo;t been implemented, yet. E.g. the
 &lt;code&gt;Build&lt;/code&gt; model does not have the mentioned &lt;code&gt;errored&lt;/code&gt; and &lt;code&gt;cancelled&lt;/code&gt; states, the
-&lt;code&gt;Task::Test&lt;/code&gt; does not have &lt;code&gt;cloned&lt;/code&gt; and &lt;code&gt;installed&lt;/code&gt; states … simply because the
+&lt;code&gt;Task::Test&lt;/code&gt; does not have &lt;code&gt;cloned&lt;/code&gt; and &lt;code&gt;installed&lt;/code&gt; states &amp;hellip; simply because the
 worker does not support triggering these, yet. These things will probably be
 added in a later stage.&lt;/p&gt;
 
@@ -114,12 +114,12 @@ bunch of columns to migrate from the &lt;code&gt;builds&lt;/code&gt; table to va
 (such as &lt;code&gt;commits&lt;/code&gt;, &lt;code&gt;requests&lt;/code&gt;, &lt;code&gt;tasks&lt;/code&gt;) and it seemed easier to come up with a
 simple DSL for that than writing all these queries by hand.&lt;/p&gt;
 
-&lt;p&gt;Also, we’re now using &lt;a href="https://github.com/svenfuchs/hashr"&gt;hashr&lt;/a&gt; in the
-application, too (for &lt;code&gt;Travis.config&lt;/code&gt;, specifically). We’ve used it in the
+&lt;p&gt;Also, we&amp;rsquo;re now using &lt;a href="https://github.com/svenfuchs/hashr"&gt;hashr&lt;/a&gt; in the
+application, too (for &lt;code&gt;Travis.config&lt;/code&gt;, specifically). We&amp;rsquo;ve used it in the
 &lt;a href="https://github.com/travis-ci/travis-worker"&gt;worker code&lt;/a&gt; before and it worked
 pretty well.&lt;/p&gt;
 
-&lt;h2 id="in-other-news-"&gt;In other news …&lt;/h2&gt;
+&lt;h2 id="in-other-news-"&gt;In other news &amp;hellip;&lt;/h2&gt;
 
 &lt;p&gt;In other news, over the last month we have extract a &lt;a href="https://github.com/michaelklishin/sous-chef"&gt;small project that we use to develop our Chef cookbooks&lt;/a&gt; and
 added the following tools to the &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base"&gt;VM infrastructure&lt;/a&gt;:&lt;/p&gt;
@@ -139,31 +139,31 @@ added the following tools to the &lt;a href="https://github.com/travis-ci/travis
     <published>2011-08-20T22:52:26Z</published>
     <updated>2011-08-20T22:52:26Z</updated>
     <link rel="alternate" href="http://about.travis-ci.org//blog/hello_world/"/>
-    <content type="html">&lt;p&gt;puts “Hello, world!”&lt;/p&gt;
+    <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
 
-&lt;p&gt;I think that’s required for first blog posts on technical topics.&lt;/p&gt;
+&lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
 
-&lt;h2 id="now-that-thats-out-of-the-way"&gt;Now that that’s out of the way&lt;/h2&gt;
+&lt;h2 id="now-that-thats-out-of-the-way"&gt;Now that that&amp;rsquo;s out of the way&lt;/h2&gt;
 
-&lt;p&gt;Welcome to the first post on the Travis blog! Hopefully we’ll end up having a
+&lt;p&gt;Welcome to the first post on the Travis blog! Hopefully we&amp;rsquo;ll end up having a
 bunch of great content for you here.&lt;/p&gt;
 
-&lt;h2 id="we-whos-this-we"&gt;We? Who’s this ‘we’?&lt;/h2&gt;
+&lt;h2 id="we-whos-this-we"&gt;We? Who&amp;rsquo;s this &amp;lsquo;we&amp;rsquo;?&lt;/h2&gt;
 
-&lt;p&gt;Me, of course. Duh. Specifically? I’m &lt;a href="https://github.com/steveklabnik"&gt;Steve Klabnik&lt;/a&gt;.
-I’m heading up the Travis documentation. But &lt;a href="https://github.com/travis-ci/travis-ci.github.com/"&gt;this entire website is on
+&lt;p&gt;Me, of course. Duh. Specifically? I&amp;rsquo;m &lt;a href="https://github.com/steveklabnik"&gt;Steve Klabnik&lt;/a&gt;.
+I&amp;rsquo;m heading up the Travis documentation. But &lt;a href="https://github.com/travis-ci/travis-ci.github.com/"&gt;this entire website is on
 GitHub&lt;/a&gt;, so if you
-were so inclined, ‘we’ could also mean ‘you!’&lt;/p&gt;
+were so inclined, &amp;lsquo;we&amp;rsquo; could also mean &amp;lsquo;you!&amp;rsquo;&lt;/p&gt;
 
 &lt;p&gt;Got a new fun project on Travis? Have you recently added some fun code,
-or found a new feature useful? Write a post! It’s good for you!&lt;/p&gt;
+or found a new feature useful? Write a post! It&amp;rsquo;s good for you!&lt;/p&gt;
 
 &lt;h2 id="why-you-should-read-this-blog"&gt;Why you should read this blog&lt;/h2&gt;
 
-&lt;p&gt;I’ll &lt;em&gt;also&lt;/em&gt; be trying to make posts roughly once a week letting you know
-what’s new in the world of Travis. We’ve got a bunch of contributors,
-and lots of exciting stuff going on, so it’s hard to keep up! Just check
-out this blog, it’s much easier than reading the commit list. ;)&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll &lt;em&gt;also&lt;/em&gt; be trying to make posts roughly once a week letting you know
+what&amp;rsquo;s new in the world of Travis. We&amp;rsquo;ve got a bunch of contributors,
+and lots of exciting stuff going on, so it&amp;rsquo;s hard to keep up! Just check
+out this blog, it&amp;rsquo;s much easier than reading the commit list. ;)&lt;/p&gt;
 
 &lt;p&gt;Oh, and if you want to subscribe via RSS, grab the &lt;a href="/blog.xml"&gt;Travis blog feed
 here&lt;/a&gt;&lt;/p&gt;

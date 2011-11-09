@@ -41,13 +41,18 @@
               <h2>Building a Node.js project</h2>
             
 
-            <p>Travis VMs includes Node 0.4.12/0.5.8 and NPM 1.0.x. You can use these to build and test your Node.js project. Add the following line to .travis.yml:</p>
+            <p>Travis VMs used by Ruby workers provide Node 0.4.12 and NPM 1.0.x. Historically Node.js projects were built there but in November 2011 Node.js support was improved to
+be &ldquo;first class&rdquo;: testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project.
+Add the following line to .travis.yml:</p>
 
-<pre><code>before_script: "npm install --dev"
-script: "npm test"
+<pre><code>language: node_js
+node_js:
+  - 0.4
+  - 0.5
+  - 0.6
 </code></pre>
 
-<p>The first command installs the project’s runtime and development dependencies (listed as devDependencies in the project’s package.json file). The second command runs the test script specified in package.json.</p>
+<p>For example, see <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener .travis.yml</a>.</p>
 
 <p>You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:</p>
 
@@ -65,6 +70,21 @@ script: "npm test"
 </code></pre>
 
 <p>Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember are the npm install and npm test conventions.</p>
+
+<h3 id="beforeinstall-beforescript-and-friends">before_install, before_script and friends</h3>
+
+<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
+configuration and so on.</p>
+
+<h3 id="provided-nodejs-versions">Provided Node.js Versions</h3>
+
+<ul>
+  <li>0.4.12</li>
+  <li>0.5.8</li>
+  <li>0.6.0</li>
+</ul>
+
+<p>The NVM project we use is available in our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">multi-version Node.js Chef cookbook</a>.</p>
 
 
             <div id="disqus_thread"></div>
