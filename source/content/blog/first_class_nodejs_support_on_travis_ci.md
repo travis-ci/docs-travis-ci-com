@@ -57,3 +57,8 @@ Once again we would like to thank Harry for doing most of the work on first clas
 Now go add your Node.js projects to travis-ci.org and tell your friends and colleagues about it!
 
 <3 <3 <3, the [Travis CI core team](https://twitter.com/travisci).
+
+
+### Discuss on Hacker News
+
+You can discuss Node.js support on travis-ci.org [on Hacker News](http://news.ycombinator.com/item?id=3216403).
