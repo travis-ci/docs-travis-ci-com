@@ -34,7 +34,7 @@ Travis' Node.js builder will do the following as part of the build process:
  * Clone your repository from GitHub
  * Pick Node.js version to use
  * Run `before_install` commands (can be more than one)
- * Install dependencies using `npm install --dev [npm_args]` or whatever you provide in the `install` key in your .travis.yml file
+ * Install dependencies using `npm install [npm_args]` or whatever you provide in the `install` key in your .travis.yml file
  * Run `before_script` (can be more than one script)
  * Run `install` command if you provided it in your .travis.yml. By default it is `npm test` if it finds package.json in the repository root or  `make test` otherwise.
  * Run `after_script` (can be more than one command)
