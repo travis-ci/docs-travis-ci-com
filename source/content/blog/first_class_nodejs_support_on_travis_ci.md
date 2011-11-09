@@ -7,7 +7,7 @@ created_at: Wed Nov 9 13:00:00 EDT 2011
 One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
 While it has been possible to build Node.js and C++ projects on Ruby workers for a while, it is not very convenient or intuitive, and such projects will not get the killer feature of travis-ci.org: testing against multiple versions/implementations. So we have good news for the Node.js community: Node.js is gaining first class support on Travis-CI, joining Ruby and Erlang.
 
-Thanks to the hard work by [Harry Brundage](https://twitter.com/harrybrundage) and the Travis core team, it is now possible to test your Node.js projects against multiple Node versions (currently 0.4.12, 0.5.8 and 0.6.0). We use Harry's [NVM ("RVM for Node.js") project](https://github.com/travis-ci/travis-cookbooks/blob/master/vagrant_base/nodejs/files/default/nvm.sh) and [Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) to enable to easy switching of Node.js versions.
+Thanks to the hard work by [Harry Brundage](https://twitter.com/harrybrundage) and the Travis core team, it is now possible to test your Node.js projects against multiple Node versions (currently 0.4.12, 0.5.8 and 0.6.0). We use [NVM ("RVM for Node.js") project](https://github.com/travis-ci/travis-cookbooks/blob/master/vagrant_base/nodejs/files/default/nvm.sh) and [Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) to enable to easy switching of Node.js versions.
 
 In addition, Shopify now sponsors a machine that we will be running five Node.js workers on. Please thank them by sending a loving tweet or two to [@Shopify](https://twitter.com/shopify) :)
 
