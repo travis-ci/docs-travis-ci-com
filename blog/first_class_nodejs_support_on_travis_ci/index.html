@@ -74,7 +74,7 @@ you can exclude those versions. The same goes for project that want to only supp
   <li>Clone your repository from GitHub</li>
   <li>Pick Node.js version to use</li>
   <li>Run <code>before_install</code> commands (can be more than one)</li>
-  <li>Install dependencies using <code>npm install --dev [npm_args]</code> or whatever you provide in the <code>install</code> key in your .travis.yml file</li>
+  <li>Install dependencies using <code>npm install [npm_args]</code> or whatever you provide in the <code>install</code> key in your .travis.yml file</li>
   <li>Run <code>before_script</code> (can be more than one script)</li>
   <li>Run <code>install</code> command if you provided it in your .travis.yml. By default it is <code>npm test</code> if it finds package.json in the repository root or  <code>make test</code> otherwise.</li>
   <li>Run <code>after_script</code> (can be more than one command)</li>
