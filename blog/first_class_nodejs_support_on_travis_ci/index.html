@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: The Travis Blog</title>
+    <title>Travis CI: Announcing "first class" Node.js project support!</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -40,66 +40,62 @@
         <div class="pad">
           <div id="main">
             
-              <h2>The Travis Blog</h2>
+              <h2>Announcing "first class" Node.js project support!</h2>
             
 
-            
-  <h3><a href="/blog/first_class_nodejs_support_on_travis_ci/">Announcing "first class" Node.js project support!</a></h3>
-  <p>One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
-While it has been possible to build Node.js and C++ projects on Ruby workers for a while, it is not very convenient or intuitive, and such projects will not get the killer feature of travis-ci.org: testing against multiple versions/implementations. So we have good news for the Node.js community: Node.js is gainin...</p>
-  <p><a href="/blog/first_class_nodejs_support_on_travis_ci/">Read More</a></p>
-  <hr />
+            <p>One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
+While it has been possible to build Node.js and C++ projects on Ruby workers for a while, it is not very convenient or intuitive, and such projects will not get the killer feature of travis-ci.org: testing against multiple versions/implementations. So we have good news for the Node.js community: Node.js is gaining first class support on Travis-CI, joining Ruby and Erlang.</p>
 
-  <h3><a href="/blog/vm_upgrade_oct_31_2011/">VM environment upgrade, Oct 31st, 2011</a></h3>
-  <p>travis-ci.org Ruby workers were upgraded to provide the following:
+<p>Thanks to the hard work by <a href="https://twitter.com/harrybrundage">Harry Brundage</a> and the Travis core team, it is now possible to test your Node.js projects against multiple Node versions (currently 0.4.12, 0.5.8 and 0.6.0). We use Harry&rsquo;s <a href="https://github.com/travis-ci/travis-cookbooks/blob/master/vagrant_base/nodejs/files/default/nvm.sh">NVM (&ldquo;RVM for Node.js&rdquo;) project</a> and <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">Chef cookbooks</a> to enable to easy switching of Node.js versions.</p>
 
+<p>In addition, Shopify now sponsors a machine that we will be running five Node.js workers on. Please thank them by sending a loving tweet or two to <a href="https://twitter.com/shopify">@Shopify</a> :)</p>
 
-  Ruby 1.9.3-p0 (final release)
-  JRuby 1.6.5
-  Updated Rubinius 2.0 from 2.0.testing branch
-  Node.js 0.4.12, npm 1.0.18
-  MongoDB 2.0.1
-  Riak 1.0.1
-  ragel
-  RVM 1.9.2
+<h3 id="how-do-i-test-my-project-against-multiple-nodejs-versions">How do I test my project against multiple Node.js versions?</h3>
 
+<p>To test your Node.js project against multiple Node versions, add a &lsquo;.travis.yml&rsquo; file to your GitHub repository and add the following to it:</p>
 
-There is also one more change we want to highlight: we now provide two installations of Rubinius, one in Ruby 1.8 mode
-and another one in Ruby 1.9 mode. Their RVM aliases are ...</p>
-  <p><a href="/blog/vm_upgrade_oct_31_2011/">Read More</a></p>
-  <hr />
+<pre><code>language: "node_js"
+node_js:
+  - 0.4
+  - 0.5
+  - 0.6
+</code></pre>
 
-  <h3><a href="/blog/big_refactoring/">A Big Refactoring!</a></h3>
-  <p>We&rsquo;ve just rolled out a big refactoring to the Travis CI application
-(i.e. the server app which runs on Heroku) that we&rsquo;ve been working on over the
-last four weeks.
+<p>When you define &ldquo;node_js&rdquo; as the language it tells Travis to switch the Node.js version (nvm use 0.4), install the dependencies of the project (npm install), and run the tests (npm test). If you define multiple Node.js versions to test against, like the above example, Travis will create a matrix of test configurations, in this case three builds will be queued. Or you can leave out the node_js versions to test against and Travis will use 0.4 by default. If your project is not yet Node 0.5 or 0.6 compatible,
+you can exclude those versions. The same goes for project that want to only support 0.6, for example.</p>
 
-This refactoring was quite far-reaching and even though we&rsquo;ve tried hard to
-make sure everything works fine there may be glitches and bugs that we&rsquo;ve
-overlooked.
+<p>See Shopify&rsquo;s <a href="https://github.com/shopify/batman/blob/master/.travis.yml">Batman</a> as well as <a href="https://twitter.com/#!/martin_sunset">Martin Wawrusch</a>&rsquo;s <a href="https://github.com/scottyapp/hook.io-blueprint-coffeescript/blob/master/.travis.yml">hook.io-blueprint-in-coffescript</a> and <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener</a> projects as examples.</p>
 
-Why?
+<h2 id="the-workflow">The Workflow</h2>
 
-The motivation behind all of this work was quite manifold....</p>
-  <p><a href="/blog/big_refactoring/">Read More</a></p>
-  <hr />
+<p>Travis&rsquo; Node.js builder will do the following as part of the build process:</p>
 
-  <h3><a href="/blog/hello_world/">Hello, World</a></h3>
-  <p>puts &ldquo;Hello, world!&rdquo;
+<ul>
+  <li>Clone your repository from GitHub</li>
+  <li>Pick Node.js version to use</li>
+  <li>Run <code>before_install</code> commands (can be more than one)</li>
+  <li>Install dependencies using <code>npm install [npm_args]</code> or whatever you provide in the <code>install</code> key in your .travis.yml file</li>
+  <li>Run <code>before_script</code> (can be more than one script)</li>
+  <li>Run <code>install</code> command if you provided it in your .travis.yml. By default it is <code>npm test</code> if it finds package.json in the repository root or  <code>make test</code> otherwise.</li>
+  <li>Run <code>after_script</code> (can be more than one command)</li>
+  <li>Report the build has finished running</li>
+</ul>
 
-I think that&rsquo;s required for first blog posts on technical topics.
+<p>Most of steps in the workflow can be overriden by projects that need it. We recommend you to use defaults when possible, though.</p>
 
-Now that that&rsquo;s out of the way
+<p>For more information on what is <a href="http://about.travis-ci.org/docs/user/ci-environment/">available in terms of services</a> (mysql, postgres, riak, etc.), or how to configure your builds or matrix, visit the <a href="http://about.travis-ci.org/docs/">docs site</a>.</p>
 
-Welcome to the first post on the Travis blog! Hopefully we&rsquo;ll end up having a
-bunch of great content for you here.
+<h3 id="next-steps">Next steps</h3>
 
-We? Who&rsquo;s this &lsquo;we&rsquo;?
+<p>We have support for more languages in the works, one of which we hope to ship really soon, so stay tuned!</p>
 
-Me, of course. Duh. Specifically? I&rsquo;m Steve Klabnik.
-I&rsquo;m heading up the Travis documentation. But ...</p>
-  <p><a href="/blog/hello_world/">Read More</a></p>
-  <hr />
+<h3 id="in-conclusion-aka-lots-of-3-3-3">In conclusion (a.k.a lots of &lt;3 &lt;3 &lt;3)</h3>
+
+<p>Once again we would like to thank Harry for doing most of the work on first class Node.js support and Shopify for sponsoring a machine that we will host the workers on. </p>
+
+<p>Now go add your Node.js projects to travis-ci.org and tell your friends and colleagues about it!</p>
+
+<p>&lt;3 &lt;3 &lt;3, the <a href="https://twitter.com/travisci">Travis CI core team</a>.</p>
 
 
             <div id="disqus_thread"></div>
