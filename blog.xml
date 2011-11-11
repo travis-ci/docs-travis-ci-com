@@ -2,13 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
-  <updated>2011-11-09T17:00:00Z</updated>
+  <updated>2011-11-11T06:18:00Z</updated>
   <link rel="alternate" href="http://about.travis-ci.org//"/>
   <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
+  <entry>
+    <id>tag:about.travis-ci.org,2011-11-11://blog/vm_upgrade_nov_11_2011/</id>
+    <title type="html">VM environment upgrade, Nov 11th, 2011</title>
+    <published>2011-11-11T06:18:00Z</published>
+    <updated>2011-11-11T06:18:00Z</updated>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/vm_upgrade_nov_11_2011/"/>
+    <content type="html">&lt;p&gt;travis-ci.org Ruby workers were upgraded, here is what&amp;rsquo;s new:&lt;/p&gt;
+
+&lt;h2 id="ruby-workers-changes"&gt;Ruby Workers Changes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Rubinius 2.0 from 2.0.testing branch&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://bit.ly/rabbitmq-2-7-0"&gt;RabbitMQ 2.7.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Rubinius team was busy making GC and full CPU concurrency improvements as well as upgrading Ruby standard library
+for their 1.9 mode. Give it a try by testing your Ruby projects against Rubinius!&lt;/p&gt;
+
+&lt;h2 id="nodejs-workers-changes"&gt;Node.js Workers Changes&lt;/h2&gt;
+
+&lt;p&gt;Node.js workers were upgraded, too:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://bit.ly/rabbitmq-2-7-0"&gt;RabbitMQ 2.7.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="follow-us-on-twitter"&gt;Follow Us on Twitter&lt;/h2&gt;
+
+&lt;p&gt;To get regular updates about travis-ci.org environment upgrades and other developments, &lt;a href="https://twitter.com/travisci"&gt;follow Travis CI on Twitter&lt;/a&gt;
+and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base"&gt;Chef cookbooks repository on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/michaelklishin"&gt;MK&lt;/a&gt; on behalf of the Travis CI Team.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:about.travis-ci.org,2011-11-09://blog/first_class_nodejs_support_on_travis_ci/</id>
     <title type="html">Announcing "first class" Node.js project support!</title>

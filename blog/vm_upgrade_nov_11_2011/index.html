@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: The Travis Blog</title>
+    <title>Travis CI: VM environment upgrade, Nov 11th, 2011</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -40,87 +40,35 @@
         <div class="pad">
           <div id="main">
             
-              <h2>The Travis Blog</h2>
+              <h2>VM environment upgrade, Nov 11th, 2011</h2>
             
 
-            
-  <h3><a href="/blog/vm_upgrade_nov_11_2011/">VM environment upgrade, Nov 11th, 2011</a></h3>
-  <p>travis-ci.org Ruby workers were upgraded, here is what&rsquo;s new:
+            <p>travis-ci.org Ruby workers were upgraded, here is what&rsquo;s new:</p>
 
-Ruby Workers Changes
+<h2 id="ruby-workers-changes">Ruby Workers Changes</h2>
 
+<ul>
+  <li>Updated Rubinius 2.0 from 2.0.testing branch</li>
+  <li><a href="http://bit.ly/rabbitmq-2-7-0">RabbitMQ 2.7.0</a></li>
+</ul>
 
-  Updated Rubinius 2.0 from 2.0.testing branch
-  RabbitMQ 2.7.0
+<p>Rubinius team was busy making GC and full CPU concurrency improvements as well as upgrading Ruby standard library
+for their 1.9 mode. Give it a try by testing your Ruby projects against Rubinius!</p>
 
+<h2 id="nodejs-workers-changes">Node.js Workers Changes</h2>
 
-Rubinius team was busy making GC and full CPU concurrency improvements as well as upgrading Ruby standard library
-for their 1.9 mode. Give it a try by testing your Ruby projects against Rubinius!
+<p>Node.js workers were upgraded, too:</p>
 
-Node.js Workers Changes
+<ul>
+  <li><a href="http://bit.ly/rabbitmq-2-7-0">RabbitMQ 2.7.0</a></li>
+</ul>
 
-Node.js workers were upgraded, too:
+<h2 id="follow-us-on-twitter">Follow Us on Twitter</h2>
 
-...</p>
-  <p><a href="/blog/vm_upgrade_nov_11_2011/">Read More</a></p>
-  <hr />
+<p>To get regular updates about travis-ci.org environment upgrades and other developments, <a href="https://twitter.com/travisci">follow Travis CI on Twitter</a>
+and watch our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">Chef cookbooks repository on GitHub</a>.</p>
 
-  <h3><a href="/blog/first_class_nodejs_support_on_travis_ci/">Announcing "first class" Node.js project support!</a></h3>
-  <p>One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
-While it has been possible to build Node.js and C++ projects on Ruby workers for a while, it is not very convenient or intuitive, and such projects will not get the killer feature of travis-ci.org: testing against multiple versions/implementations. So we have good news for the Node.js community: Node.js is gainin...</p>
-  <p><a href="/blog/first_class_nodejs_support_on_travis_ci/">Read More</a></p>
-  <hr />
-
-  <h3><a href="/blog/vm_upgrade_oct_31_2011/">VM environment upgrade, Oct 31st, 2011</a></h3>
-  <p>travis-ci.org Ruby workers were upgraded to provide the following:
-
-
-  Ruby 1.9.3-p0 (final release)
-  JRuby 1.6.5
-  Updated Rubinius 2.0 from 2.0.testing branch
-  Node.js 0.4.12, npm 1.0.18
-  MongoDB 2.0.1
-  Riak 1.0.1
-  ragel
-  RVM 1.9.2
-
-
-There is also one more change we want to highlight: we now provide two installations of Rubinius, one in Ruby 1.8 mode
-and another one in Ruby 1.9 mode. Their RVM aliases are ...</p>
-  <p><a href="/blog/vm_upgrade_oct_31_2011/">Read More</a></p>
-  <hr />
-
-  <h3><a href="/blog/big_refactoring/">A Big Refactoring!</a></h3>
-  <p>We&rsquo;ve just rolled out a big refactoring to the Travis CI application
-(i.e. the server app which runs on Heroku) that we&rsquo;ve been working on over the
-last four weeks.
-
-This refactoring was quite far-reaching and even though we&rsquo;ve tried hard to
-make sure everything works fine there may be glitches and bugs that we&rsquo;ve
-overlooked.
-
-Why?
-
-The motivation behind all of this work was quite manifold....</p>
-  <p><a href="/blog/big_refactoring/">Read More</a></p>
-  <hr />
-
-  <h3><a href="/blog/hello_world/">Hello, World</a></h3>
-  <p>puts &ldquo;Hello, world!&rdquo;
-
-I think that&rsquo;s required for first blog posts on technical topics.
-
-Now that that&rsquo;s out of the way
-
-Welcome to the first post on the Travis blog! Hopefully we&rsquo;ll end up having a
-bunch of great content for you here.
-
-We? Who&rsquo;s this &lsquo;we&rsquo;?
-
-Me, of course. Duh. Specifically? I&rsquo;m Steve Klabnik.
-I&rsquo;m heading up the Travis documentation. But ...</p>
-  <p><a href="/blog/hello_world/">Read More</a></p>
-  <hr />
+<p><a href="https://twitter.com/michaelklishin">MK</a> on behalf of the Travis CI Team.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
