@@ -40,7 +40,7 @@ with Travis CI. What you have to do is this:
 
  * Create a directory in your project's repository root where you will keep gemfiles (./gemfiles is a commonly used name)
  * Add one or more gemfiles to it
- * Instruct Travis CI to use those gemfiles using *gemfiles* option in your .travis.yml
+ * Instruct Travis CI to use those gemfiles using the *gemfile* option in your .travis.yml
 
 For example, amqp gem is [tested against EventMachine 0.12.x and 1.0 pre-releases](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
 
