@@ -2,13 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
-  <updated>2011-11-11T06:18:00Z</updated>
+  <updated>2011-11-13T16:08:00Z</updated>
   <link rel="alternate" href="http://about.travis-ci.org//"/>
   <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
+  <entry>
+    <id>tag:about.travis-ci.org,2011-11-13://blog/first_class_php_support_on_travis_ci/</id>
+    <title type="html">Announcing "first class" PHP project support!</title>
+    <published>2011-11-13T16:08:00Z</published>
+    <updated>2011-11-13T16:08:00Z</updated>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/first_class_php_support_on_travis_ci/"/>
+    <content type="html">&lt;p&gt;Today we are happy to announce first class PHP support with Travis CI. &lt;/p&gt;
+
+&lt;p&gt;It includes all the same features Ruby, Erlang and Node.js projects enjoy today, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Easy to get started and integrates with GitHub.&lt;/li&gt;
+  &lt;li&gt;Test against multiple databases and services, including Mysql, Postgres, Redis, RabbitMQ and many more.&lt;/li&gt;
+  &lt;li&gt;Test your projects against multiple PHP versions.&lt;/li&gt;
+  &lt;li&gt;Build results are publicly available online so you can link to them in your bug reports, including line numbers.&lt;/li&gt;
+  &lt;li&gt;Notifications the way you want them! (email, IRC, and webhooks)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Over the last several weeks many nice folks from the PHP community have been working with the Travis team
+and it would not be possible without all the help from &lt;a href="twitter.com/loicfrering"&gt;Lo&#239;c Frering&lt;/a&gt; and &lt;a href="https://github.com/pborreli"&gt;Pascal Borreli&lt;/a&gt;. &lt;a href="twitter.com/old_sound"&gt;&#193;lvaro Videla&lt;/a&gt; and
+&lt;a href="https://github.com/lsmith77"&gt;Lukas Kahwe Smith&lt;/a&gt; helped us with testing by adding some of the &lt;a href="https://github.com/friendsofsymfony"&gt;Friends of Symfony&lt;/a&gt; projects on Travis early on.
+Pascal also got Symfony, Twig, Silex, Doctrine and Monolog test suites up and running on travis-ci.org (we hope his patches will be accepted
+upstream). Having all those projects building fine for several days makes us confident that we are
+ready to ship this feature.&lt;/p&gt;
+
+&lt;p&gt;Please see our &lt;a href="http://about.travis-ci.org/docs/user/languages/php"&gt;initial documentation for PHP projects&lt;/a&gt; and &lt;a href="http://about.travis-ci.org/docs/"&gt;the rest of the guides&lt;/a&gt;. We tried to link to as many real world .travis.yml examples to demonstrate all the features in action.&lt;/p&gt;
+
+&lt;p&gt;In addition, we have a couple of machines lined up that we will be running PHP builds on. One of them is &lt;a href="http://shopify.com"&gt;Shopify&lt;/a&gt;: they donated us a worker we have been using for Node.js projects. Another one is &lt;a href="http://servergrove.com"&gt;ServerGrove&lt;/a&gt;, experts in PHP hosting and specifically frameworks like Symfony and Zend Framework: they donated us one more machine to run PHP builds
+on.&lt;/p&gt;
+
+&lt;p&gt;If you have questions, find us in #travis on irc.freenode.net, we will be happy to answer them. To stay up to date with new announcements, CI environment software updates and more, &lt;a href="https://twitter.com/travisci"&gt;follow us on Twitter&lt;/a&gt; and &lt;a href="https://groups.google.com/forum/#!forum/travis-ci"&gt;join our mailing list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We hope you enjoy using Travis for your open source projects as much as we do. Go add your PHP projects to Travis CI and recommend your fellow PHP developers to do the same!&lt;/p&gt;
+
+&lt;p&gt;The Travis Team.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:about.travis-ci.org,2011-11-11://blog/vm_upgrade_nov_11_2011/</id>
     <title type="html">VM environment upgrade, Nov 11th, 2011</title>
@@ -230,42 +267,6 @@ added the following tools to the &lt;a href="https://github.com/travis-ci/travis
   &lt;li&gt;Thinking Sphinx 0.9.9, 1.10 and 2.0. &lt;a href="http://freelancing-god.github.com/riddle"&gt;Riddle&lt;/a&gt; and &lt;a href="http://freelancing-god.github.com/ts/en/"&gt;Thinking Sphinx&lt;/a&gt; are now hosted on Travis.&lt;/li&gt;
   &lt;li&gt;RabbitMQ now installs HTTP API plugin&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:about.travis-ci.org,2011-08-21://blog/hello_world/</id>
-    <title type="html">Hello, World</title>
-    <published>2011-08-20T22:52:26Z</published>
-    <updated>2011-08-20T22:52:26Z</updated>
-    <link rel="alternate" href="http://about.travis-ci.org//blog/hello_world/"/>
-    <content type="html">&lt;p&gt;puts &amp;ldquo;Hello, world!&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;I think that&amp;rsquo;s required for first blog posts on technical topics.&lt;/p&gt;
-
-&lt;h2 id="now-that-thats-out-of-the-way"&gt;Now that that&amp;rsquo;s out of the way&lt;/h2&gt;
-
-&lt;p&gt;Welcome to the first post on the Travis blog! Hopefully we&amp;rsquo;ll end up having a
-bunch of great content for you here.&lt;/p&gt;
-
-&lt;h2 id="we-whos-this-we"&gt;We? Who&amp;rsquo;s this &amp;lsquo;we&amp;rsquo;?&lt;/h2&gt;
-
-&lt;p&gt;Me, of course. Duh. Specifically? I&amp;rsquo;m &lt;a href="https://github.com/steveklabnik"&gt;Steve Klabnik&lt;/a&gt;.
-I&amp;rsquo;m heading up the Travis documentation. But &lt;a href="https://github.com/travis-ci/travis-ci.github.com/"&gt;this entire website is on
-GitHub&lt;/a&gt;, so if you
-were so inclined, &amp;lsquo;we&amp;rsquo; could also mean &amp;lsquo;you!&amp;rsquo;&lt;/p&gt;
-
-&lt;p&gt;Got a new fun project on Travis? Have you recently added some fun code,
-or found a new feature useful? Write a post! It&amp;rsquo;s good for you!&lt;/p&gt;
-
-&lt;h2 id="why-you-should-read-this-blog"&gt;Why you should read this blog&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;ll &lt;em&gt;also&lt;/em&gt; be trying to make posts roughly once a week letting you know
-what&amp;rsquo;s new in the world of Travis. We&amp;rsquo;ve got a bunch of contributors,
-and lots of exciting stuff going on, so it&amp;rsquo;s hard to keep up! Just check
-out this blog, it&amp;rsquo;s much easier than reading the commit list. ;)&lt;/p&gt;
-
-&lt;p&gt;Oh, and if you want to subscribe via RSS, grab the &lt;a href="/blog.xml"&gt;Travis blog feed
-here&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>
