@@ -4,7 +4,7 @@ kind: article
 created_at: Sun Nov 13 12:08:00 EDT 2011
 ---
 
-Today we are happy to announce first class PHP support with Travis CI. 
+Today we are happy to announce first class PHP support with Travis CI.
 
 It includes all the same features Ruby, Erlang and Node.js projects enjoy today, including:
 
@@ -15,11 +15,12 @@ It includes all the same features Ruby, Erlang and Node.js projects enjoy today,
  * Notifications the way you want them! (email, IRC, and webhooks)
 
 Over the last several weeks many nice folks from the PHP community have been working with the Travis team
-and it would not be possible without all the help from [Loïc Frering](https://twitter.com/loicfrering) and [Pascal Borreli](https://github.com/pborreli). [Álvaro Videla](https://twitter.com/old_sound) and
-[Lukas Kahwe Smith](https://github.com/lsmith77) helped us with testing by adding some of the [Friends of Symfony](https://github.com/friendsofsymfony) projects on Travis early on.
+and it would not be possible without all the help from [Loïc Frering](https://twitter.com/loicfrering) and [Pascal Borreli](https://github.com/pborreli). [Till Klampaeckel](https://github.com/till) has helped us set up [phpfarm](http://sourceforge.net/p/phpfarm/wiki/Home/) and [pyrus](http://pear2.php.net/) and test drive the whole thing. [Álvaro Videla](https://twitter.com/old_sound) and
+[Lukas Kahwe Smith](https://github.com/lsmith77) also helped us a lot by running some of the [Friends of Symfony](https://github.com/friendsofsymfony) projects on Travis early on.
 Pascal also got Symfony, Twig, Silex, Doctrine and Monolog test suites up and running on travis-ci.org (we hope his patches will be accepted
-upstream). Having all those projects building fine for several days makes us confident that we are
-ready to ship this feature.
+upstream).
+
+Having all those projects building fine for several days makes us confident that we are ready to ship this feature.
 
 Please see our [initial documentation for PHP projects](http://about.travis-ci.org/docs/user/languages/php) and [the rest of the guides](http://about.travis-ci.org/docs/). We tried to link to as many real world .travis.yml examples to demonstrate all the features in action.
 
@@ -36,3 +37,7 @@ The Travis Team.
 ## Spread the word!
 
 Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231030)
+
+
+http://pear2.php.net/
+http://sourceforge.net/p/phpfarm/wiki/Home/

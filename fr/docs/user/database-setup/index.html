@@ -42,7 +42,7 @@
               <h2>Databases on Travis workers</h2>
             
 
-            <p>Every Travis CI worker has preinstalled software that&rsquo;s commonly used by the open source developer community. Some of the services available are:</p>
+            <p>Every Travis CI worker has preinstalled software that’s commonly used by the open source developer community. Some of the services available are:</p>
 
 <ul>
   <li>databases – MySQL, PostgreSQL, SQLite3, MongoDB</li>
@@ -60,7 +60,7 @@ configuration file</a>. That file specifies which <a href="https://github.com/tr
 
 <h3 id="sqlite3">SQLite3</h3>
 
-<p>Probably the easiest and simplest solution for your relation database needs. If you don&rsquo;t specifically want to test how your code behaves with other databases, SQLite in memory might be the best and fastest option.</p>
+<p>Probably the easiest and simplest solution for your relation database needs. If you don’t specifically want to test how your code behaves with other databases, SQLite in memory might be the best and fastest option.</p>
 
 <p>For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:</p>
 
@@ -103,7 +103,7 @@ before_script:
 
 <h3 id="postgresql">PostgreSQL</h3>
 
-<p>PostgreSQL requires authentication with &ldquo;postgres&rdquo; user and no password:</p>
+<p>PostgreSQL requires authentication with “postgres” user and no password:</p>
 
 <pre><code>postgres:
   adapter: postgresql
@@ -139,7 +139,7 @@ Mongo::Connection.from_uri(uri)
 
 <h3 id="multiple-database-systems">Multiple database systems</h3>
 
-<p>If your project&rsquo;s tests need to run multiple times using different databases, this can be configured on Travis CI in several ways. One approach you might take is put all database configurations in one yaml file:</p>
+<p>If your project’s tests need to run multiple times using different databases, this can be configured on Travis CI in several ways. One approach you might take is put all database configurations in one yaml file:</p>
 
 <pre><code># test/database.yml
 sqlite:
@@ -167,12 +167,12 @@ ActiveRecord::Base.establish_connection(db_name)
 ActiveRecord::Base.default_timezone = :utc
 </code></pre>
 
-<p>Now you use the &ldquo;DB&rdquo; environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:</p>
+<p>Now you use the “DB” environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:</p>
 
 <pre><code>$ DB=postgres bundle exec rake
 </code></pre>
 
-<p>On Travis CI you want to test against all 3 databases all the time, and for that you can use the &ldquo;env&rdquo; option:</p>
+<p>On Travis CI you want to test against all 3 databases all the time, and for that you can use the “env” option:</p>
 
 <pre><code># .travis.yml
 env:
@@ -183,7 +183,7 @@ env:
 
 <p>When doing this, please read and understand everything about the build matrix described in <a href="/docs/user/build-configuration/">Build configuration</a>.</p>
 
-<p>Lastly, make sure that you&rsquo;re creating mysql and postgres databases in your build script according to the notes earlier in this document.</p>
+<p>Lastly, make sure that you’re creating mysql and postgres databases in your build script according to the notes earlier in this document.</p>
 
 
 

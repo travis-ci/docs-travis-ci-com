@@ -46,7 +46,7 @@
             <p>Travis was originally intended for just Ruby, so things should Just
 Work! You do not need to specify language in your .travis.yml file.</p>
 
-<p>Travis will use Bundler to install your project&rsquo;s dependencies and run <code>rake</code> to run your tests.
+<p>Travis will use Bundler to install your project’s dependencies and run <code>rake</code> to run your tests.
 Pleasen note that you need to add rake to your Gemfile.</p>
 
 <h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
@@ -76,7 +76,7 @@ compiling linecache over and over.</p>
 with Travis CI. What you have to do is this:</p>
 
 <ul>
-  <li>Create a directory in your project&rsquo;s repository root where you will keep gemfiles (./gemfiles is a commonly used name)</li>
+  <li>Create a directory in your project’s repository root where you will keep gemfiles (./gemfiles is a commonly used name)</li>
   <li>Add one or more gemfiles to it</li>
   <li>Instruct Travis CI to use those gemfiles using the <em>gemfile</em> option in your .travis.yml</li>
 </ul>
@@ -88,7 +88,7 @@ with Travis CI. What you have to do is this:</p>
   - gemfiles/eventmachine-pre
 </code></pre>
 
-<p>Thoughtbot&rsquo;s Paperclip is <a href="https://github.com/thoughtbot/paperclip/blob/master/.travis.yml">tested against multiple ActiveRecord versions</a>:</p>
+<p>Thoughtbot’s Paperclip is <a href="https://github.com/thoughtbot/paperclip/blob/master/.travis.yml">tested against multiple ActiveRecord versions</a>:</p>
 
 <pre><code>gemfile:
   - gemfiles/rails2.gemfile
@@ -118,7 +118,7 @@ Tilt and Rack versions</a>:</p>
 
 <h3 id="provided-ruby-versions">Provided Ruby Versions</h3>
 
-<p>Here&rsquo;s a list of all of the Ruby versions supported by Travis. 1.8.7 is
+<p>Here’s a list of all of the Ruby versions supported by Travis. 1.8.7 is
 the default.</p>
 
 <ul>
