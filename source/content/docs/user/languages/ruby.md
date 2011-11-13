@@ -58,11 +58,11 @@ Thoughtbot's Paperclip is [tested against multiple ActiveRecord versions](https:
 An alternative to this is to use environment variables and make your test runner use them. For example, [Sinatra is tested against multiple
 Tilt and Rack versions](https://github.com/sinatra/sinatra/blob/master/.travis.yml):
 
-  env:
-    - "rack=1.3.4"
-    - "rack=master"
-    - "tilt=1.3.3"
-    - "tilt=master"
+    env:
+      - "rack=1.3.4"
+      - "rack=master"
+      - "tilt=1.3.3"
+      - "tilt=master"
 
 ChefSpec is [tested against multiple Opscode Chef versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 
