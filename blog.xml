@@ -54,6 +54,7 @@ on.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Doctrine is now on Travis: &lt;a href="http://travis-ci.org/#!/doctrine/doctrine2"&gt;doctrine2&lt;/a&gt;, &lt;a href="http://travis-ci.org/#!/doctrine/common"&gt;common&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Monolog is now on Travis &lt;a href="http://travis-ci.org/#!/Seldaek/monolog"&gt;Monolog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
   </entry>

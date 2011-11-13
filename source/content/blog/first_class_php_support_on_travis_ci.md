@@ -42,3 +42,4 @@ Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/ite
 ## Updates
 
  * Doctrine is now on Travis: [doctrine2](http://travis-ci.org/#!/doctrine/doctrine2), [common](http://travis-ci.org/#!/doctrine/common)
+ * Monolog is now on Travis [Monolog](http://travis-ci.org/#!/Seldaek/monolog)
