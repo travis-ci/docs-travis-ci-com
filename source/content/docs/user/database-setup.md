@@ -5,17 +5,18 @@ kind: content
 
 Every Travis CI worker has preinstalled software that's commonly used by the open source developer community. Some of the services available are:
 
-* databases – MySQL, PostgreSQL, SQLite3, MongoDB
-* key-value stores – Redis, Riak, memcached
-* messaging systems – RabbitMQ
-* node.js, ImageMagick
+* databases: MySQL, PostgreSQL, SQLite3, MongoDB, CouchDB
+* key-value stores: Redis, Riak, memcached
+* messaging brokers: RabbitMQ
+* ImageMagick
+* libqt4, xvfb and Firefox for headless browser testing
 
 You can find the full list of installed software, as well as Ruby engines and versions, in the [worker
-configuration file][config]. That file specifies which [recipes from the cookbook][cookbook] are used while building the worker instance.
+configuration file][config]. That file specifies which [recipes from our cookbooks][cookbooks] are used while building the worker instance.
 
 Some of these, e.g. node.js and memcached, are either available in the PATH or running on a default port, so no special information about them is required. Others, namely databases, may require authentication.
 
-Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration][] documentation.
+Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration][build configuration] documentation.
 
 ### SQLite3
 
@@ -41,7 +42,7 @@ However, if your project is a general library or plugin, you need to handle conn
 
 ### MySQL
 
-MySQL on Travis requires no authentication. Specify an empty username and no password:
+MySQL on Travis binds to 0.0.0.0 and requires no authentication. Specify an empty username and no password:
 
     mysql:
       adapter: mysql2
@@ -57,7 +58,7 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
 ### PostgreSQL
 
-PostgreSQL requires authentication with "postgres" user and no password:
+PostgreSQL binds to 127.0.0.1 and requires authentication with "postgres" user and no password:
 
     postgres:
       adapter: postgresql
@@ -72,7 +73,7 @@ You have to create the database as part of your build process:
 
 ### MongoDB
 
-MongoDB requires no authentication or database creation up front:
+MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front:
 
     require 'mongo'
     Mongo::Connection.new('localhost').db('myapp')
@@ -86,6 +87,21 @@ In cases you need to create users for your database, you can do something like t
     # then, in ruby:
     uri = "mongodb://travis:test@localhost:27017/myapp"
     Mongo::Connection.from_uri(uri)
+
+### CouchDB
+
+TBD
+
+
+### Riak
+
+TBD
+
+
+### Redis
+
+TBD
+
 
 ### Multiple database systems
 
@@ -132,6 +148,6 @@ When doing this, please read and understand everything about the build matrix de
 Lastly, make sure that you're creating mysql and postgres databases in your build script according to the notes earlier in this document.
 
 
-[cookbook]: https://github.com/travis-ci/travis-cookbooks
+[cookbooks]: https://github.com/travis-ci/travis-cookbooks
 [config]: https://github.com/travis-ci/travis-worker/blob/master/config/worker.production.yml
 [build configuration]: /docs/user/build-configuration/

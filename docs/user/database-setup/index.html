@@ -46,14 +46,15 @@
             <p>Every Travis CI worker has preinstalled software that&rsquo;s commonly used by the open source developer community. Some of the services available are:</p>
 
 <ul>
-  <li>databases – MySQL, PostgreSQL, SQLite3, MongoDB</li>
-  <li>key-value stores – Redis, Riak, memcached</li>
-  <li>messaging systems – RabbitMQ</li>
-  <li>node.js, ImageMagick</li>
+  <li>databases: MySQL, PostgreSQL, SQLite3, MongoDB, CouchDB</li>
+  <li>key-value stores: Redis, Riak, memcached</li>
+  <li>messaging brokers: RabbitMQ</li>
+  <li>ImageMagick</li>
+  <li>libqt4, xvfb and Firefox for headless browser testing</li>
 </ul>
 
 <p>You can find the full list of installed software, as well as Ruby engines and versions, in the <a href="https://github.com/travis-ci/travis-worker/blob/master/config/worker.production.yml">worker
-configuration file</a>. That file specifies which <a href="https://github.com/travis-ci/travis-cookbooks">recipes from the cookbook</a> are used while building the worker instance.</p>
+configuration file</a>. That file specifies which <a href="https://github.com/travis-ci/travis-cookbooks">recipes from our cookbooks</a> are used while building the worker instance.</p>
 
 <p>Some of these, e.g. node.js and memcached, are either available in the PATH or running on a default port, so no special information about them is required. Others, namely databases, may require authentication.</p>
 
@@ -86,7 +87,7 @@ test:
 
 <h3 id="mysql">MySQL</h3>
 
-<p>MySQL on Travis requires no authentication. Specify an empty username and no password:</p>
+<p>MySQL on Travis binds to 0.0.0.0 and requires no authentication. Specify an empty username and no password:</p>
 
 <pre><code>mysql:
   adapter: mysql2
@@ -104,7 +105,7 @@ before_script:
 
 <h3 id="postgresql">PostgreSQL</h3>
 
-<p>PostgreSQL requires authentication with &ldquo;postgres&rdquo; user and no password:</p>
+<p>PostgreSQL binds to 127.0.0.1 and requires authentication with &ldquo;postgres&rdquo; user and no password:</p>
 
 <pre><code>postgres:
   adapter: postgresql
@@ -121,7 +122,7 @@ before_script:
 
 <h3 id="mongodb">MongoDB</h3>
 
-<p>MongoDB requires no authentication or database creation up front:</p>
+<p>MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front:</p>
 
 <pre><code>require 'mongo'
 Mongo::Connection.new('localhost').db('myapp')
@@ -137,6 +138,18 @@ before_script:
 uri = "mongodb://travis:test@localhost:27017/myapp"
 Mongo::Connection.from_uri(uri)
 </code></pre>
+
+<h3 id="couchdb">CouchDB</h3>
+
+<p>TBD</p>
+
+<h3 id="riak">Riak</h3>
+
+<p>TBD</p>
+
+<h3 id="redis">Redis</h3>
+
+<p>TBD</p>
 
 <h3 id="multiple-database-systems">Multiple database systems</h3>
 
