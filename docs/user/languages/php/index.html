@@ -104,7 +104,7 @@ environment variables. Use <em>env</em> key in your .travis.yml file, for exampl
 <p>and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
 DB variable value to pick phpunit configuration file:</p>
 
-<pre><code>phpunit --configuration $DB.phpunit.xml
+<pre><code>script: phpunit --configuration $DB.phpunit.xml
 </code></pre>
 
 <p>The same technique is often used to test projects against multiple databases and so on.</p>
