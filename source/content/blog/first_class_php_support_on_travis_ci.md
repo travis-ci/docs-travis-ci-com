@@ -39,5 +39,3 @@ The Travis Team.
 Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231030)
 
 
-http://pear2.php.net/
-http://sourceforge.net/p/phpfarm/wiki/Home/
