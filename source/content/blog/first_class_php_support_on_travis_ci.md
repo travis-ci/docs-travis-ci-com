@@ -31,3 +31,8 @@ If you have questions, find us in #travis on irc.freenode.net, we will be happy 
 We hope you enjoy using Travis for your open source projects as much as we do. Go add your PHP projects to Travis CI and recommend your fellow PHP developers to do the same!
 
 The Travis Team.
+
+
+## Spread the word!
+
+Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231019)
