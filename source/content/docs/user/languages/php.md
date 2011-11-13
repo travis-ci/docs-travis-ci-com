@@ -3,7 +3,7 @@ title: Building a PHP project
 kind: content
 ---
 
-Travis VMs used by Ruby workers provide PHP 5.3, 5.4.0RC1 and phpunit. A minimalistic .travis.yml file would looks like this:
+PHP workers on travis-ci.org provide PHP 5.3, 5.4.0RC1 and phpunit. A minimalistic .travis.yml file would looks like this:
 
     language: php
     php:
