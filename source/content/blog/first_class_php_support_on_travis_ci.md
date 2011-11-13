@@ -39,3 +39,6 @@ The Travis Team.
 Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231030)
 
 
+## Updates
+
+ * Doctrine is now on Travis: [doctrine2](http://travis-ci.org/#!/doctrine/doctrine2), [common](http://travis-ci.org/#!/doctrine/common)

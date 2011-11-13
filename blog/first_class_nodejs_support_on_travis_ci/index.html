@@ -46,13 +46,13 @@
             <p>One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
 While it has been possible to build Node.js and C++ projects on Ruby workers for a while, it is not very convenient or intuitive, and such projects will not get the killer feature of travis-ci.org: testing against multiple versions/implementations. So we have good news for the Node.js community: Node.js is gaining first class support on Travis-CI, joining Ruby and Erlang.</p>
 
-<p>Thanks to the hard work by <a href="https://twitter.com/harrybrundage">Harry Brundage</a> and the Travis core team, it is now possible to test your Node.js projects against multiple Node versions (currently 0.4.12, 0.5.8 and 0.6.0). We use <a href="https://github.com/travis-ci/travis-cookbooks/blob/master/vagrant_base/nodejs/files/default/nvm.sh">NVM (“RVM for Node.js”) project</a> and <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">Chef cookbooks</a> to enable to easy switching of Node.js versions.</p>
+<p>Thanks to the hard work by <a href="https://twitter.com/harrybrundage">Harry Brundage</a> and the Travis core team, it is now possible to test your Node.js projects against multiple Node versions (currently 0.4.12, 0.5.8 and 0.6.0). We use <a href="https://github.com/travis-ci/travis-cookbooks/blob/master/vagrant_base/nodejs/files/default/nvm.sh">NVM (&ldquo;RVM for Node.js&rdquo;) project</a> and <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">Chef cookbooks</a> to enable to easy switching of Node.js versions.</p>
 
 <p>In addition, Shopify now sponsors a machine that we will be running five Node.js workers on. Please thank them by sending a loving tweet or two to <a href="https://twitter.com/shopify">@Shopify</a> :)</p>
 
 <h3 id="how-do-i-test-my-project-against-multiple-nodejs-versions">How do I test my project against multiple Node.js versions?</h3>
 
-<p>To test your Node.js project against multiple Node versions, add a ‘.travis.yml’ file to your GitHub repository and add the following to it:</p>
+<p>To test your Node.js project against multiple Node versions, add a &lsquo;.travis.yml&rsquo; file to your GitHub repository and add the following to it:</p>
 
 <pre><code>language: "node_js"
 node_js:
@@ -61,14 +61,14 @@ node_js:
   - 0.6
 </code></pre>
 
-<p>When you define “node_js” as the language it tells Travis to switch the Node.js version (nvm use 0.4), install the dependencies of the project (npm install), and run the tests (npm test). If you define multiple Node.js versions to test against, like the above example, Travis will create a matrix of test configurations, in this case three builds will be queued. Or you can leave out the node_js versions to test against and Travis will use 0.4 by default. If your project is not yet Node 0.5 or 0.6 compatible,
+<p>When you define &ldquo;node_js&rdquo; as the language it tells Travis to switch the Node.js version (nvm use 0.4), install the dependencies of the project (npm install), and run the tests (npm test). If you define multiple Node.js versions to test against, like the above example, Travis will create a matrix of test configurations, in this case three builds will be queued. Or you can leave out the node_js versions to test against and Travis will use 0.4 by default. If your project is not yet Node 0.5 or 0.6 compatible,
 you can exclude those versions. The same goes for project that want to only support 0.6, for example.</p>
 
-<p>See Shopify’s <a href="https://github.com/shopify/batman/blob/master/.travis.yml">Batman</a> as well as <a href="https://twitter.com/#!/martin_sunset">Martin Wawrusch</a>’s <a href="https://github.com/scottyapp/hook.io-blueprint-coffeescript/blob/master/.travis.yml">hook.io-blueprint-in-coffescript</a> and <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener</a> projects as examples.</p>
+<p>See Shopify&rsquo;s <a href="https://github.com/shopify/batman/blob/master/.travis.yml">Batman</a> as well as <a href="https://twitter.com/#!/martin_sunset">Martin Wawrusch</a>&rsquo;s <a href="https://github.com/scottyapp/hook.io-blueprint-coffeescript/blob/master/.travis.yml">hook.io-blueprint-in-coffescript</a> and <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener</a> projects as examples.</p>
 
 <h2 id="the-workflow">The Workflow</h2>
 
-<p>Travis’ Node.js builder will do the following as part of the build process:</p>
+<p>Travis&rsquo; Node.js builder will do the following as part of the build process:</p>
 
 <ul>
   <li>Clone your repository from GitHub</li>
