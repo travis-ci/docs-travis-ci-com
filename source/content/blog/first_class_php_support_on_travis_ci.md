@@ -15,7 +15,7 @@ It includes all the same features Ruby, Erlang and Node.js projects enjoy today,
  * Notifications the way you want them! (email, IRC, and webhooks)
 
 Over the last several weeks many nice folks from the PHP community have been working with the Travis team
-and it would not be possible without all the help from [Loïc Frering](twitter.com/loicfrering) and [Pascal Borreli](https://github.com/pborreli). [Álvaro Videla](twitter.com/old_sound) and
+and it would not be possible without all the help from [Loïc Frering](https://twitter.com/loicfrering) and [Pascal Borreli](https://github.com/pborreli). [Álvaro Videla](https://twitter.com/old_sound) and
 [Lukas Kahwe Smith](https://github.com/lsmith77) helped us with testing by adding some of the [Friends of Symfony](https://github.com/friendsofsymfony) projects on Travis early on.
 Pascal also got Symfony, Twig, Silex, Doctrine and Monolog test suites up and running on travis-ci.org (we hope his patches will be accepted
 upstream). Having all those projects building fine for several days makes us confident that we are

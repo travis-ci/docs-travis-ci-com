@@ -28,7 +28,7 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Over the last several weeks many nice folks from the PHP community have been working with the Travis team
-and it would not be possible without all the help from &lt;a href="twitter.com/loicfrering"&gt;Lo&#239;c Frering&lt;/a&gt; and &lt;a href="https://github.com/pborreli"&gt;Pascal Borreli&lt;/a&gt;. &lt;a href="twitter.com/old_sound"&gt;&#193;lvaro Videla&lt;/a&gt; and
+and it would not be possible without all the help from &lt;a href="https://twitter.com/loicfrering"&gt;Lo&#239;c Frering&lt;/a&gt; and &lt;a href="https://github.com/pborreli"&gt;Pascal Borreli&lt;/a&gt;. &lt;a href="https://twitter.com/old_sound"&gt;&#193;lvaro Videla&lt;/a&gt; and
 &lt;a href="https://github.com/lsmith77"&gt;Lukas Kahwe Smith&lt;/a&gt; helped us with testing by adding some of the &lt;a href="https://github.com/friendsofsymfony"&gt;Friends of Symfony&lt;/a&gt; projects on Travis early on.
 Pascal also got Symfony, Twig, Silex, Doctrine and Monolog test suites up and running on travis-ci.org (we hope his patches will be accepted
 upstream). Having all those projects building fine for several days makes us confident that we are
