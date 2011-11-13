@@ -49,24 +49,65 @@
 php:
   - 5.3
   - 5.4
-script: phpunit
 </code></pre>
 
-<p>This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 5.3.x branch release. 5.4 is an alias
+<p>This will make Travis run your tests using</p>
+
+<pre><code>phpunit
+</code></pre>
+
+<p>by default against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 5.3.x branch release. 5.4 is an alias
 for &ldquo;the most recent 5.4.x release&rdquo; and so on. Please note that using exact versions (for example, 5.3.8) is highly discouraged because as versions change, your
 .travis.yml will get outdated and things will break.</p>
 
 <p>For example, see <a href="https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml">FOSTwitterBundle .travis.yml</a>.</p>
 
+<p>If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
+&ldquo;Overriding script, before_install, before_script and friends&rdquo; section below.</p>
+
 <h3 id="dependency-management-aka-vendoring">Dependency Management (a.k.a. vendoring)</h3>
 
-<p>TBD</p>
+<p>Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP
+script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the <em>before_script</em> option
+in your .travis.yml, for example:</p>
+
+<pre><code>before_script: php vendor/vendors.php
+</code></pre>
+
+<p>or</p>
+
+<pre><code>before_script:
+  - ./bin/ci/install_dependencies.sh
+  - php vendor/vendors.php
+</code></pre>
+
+<p>If your dependencies need native libraries to be available, you can use passwordless sudo to install them with</p>
+
+<pre><code>sudo apt-get install -y [packages list] # note the -y switch!
+</code></pre>
+
+<p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
+amount of time and network bandwidth it takes to install them.</p>
 
 <h4 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h4>
 
-<p>TBD</p>
+<p>If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
+environment variables. Use <em>env</em> key in your .travis.yml file, for example:</p>
 
-<p>For example, see <a href="https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml">FOSUserBundle</a>, <a href="https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml">FOSRest .travis.yml</a>
+<pre><code>env:
+  SYMFONY_VERSION=v2.0.5
+  SYMFONY_VERSION=origin/master
+</code></pre>
+
+<p>and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
+DB variable value to pick phpunit configuration file:</p>
+
+<pre><code>phpunit --configuration $DB.phpunit.xml
+</code></pre>
+
+<p>The same technique is often used to test projects against multiple databases and so on.</p>
+
+<p>To see real world examples, see <a href="https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml">FOSUserBundle</a>, <a href="https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml">FOSRest .travis.yml</a>
 and <a href="https://github.com/pborreli/doctrine2/blob/master/.travis.yml">doctrine2 .travis.yml</a>.</p>
 
 <h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>

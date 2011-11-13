@@ -9,25 +9,62 @@ PHP workers on travis-ci.org provide PHP 5.3, 5.4.0RC1 and phpunit. A minimalist
     php:
       - 5.3
       - 5.4
-    script: phpunit
 
-This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 5.3.x branch release. 5.4 is an alias
+This will make Travis run your tests using
+
+    phpunit
+
+by default against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 5.3.x branch release. 5.4 is an alias
 for "the most recent 5.4.x release" and so on. Please note that using exact versions (for example, 5.3.8) is highly discouraged because as versions change, your
 .travis.yml will get outdated and things will break.
 
 For example, see [FOSTwitterBundle .travis.yml](https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml).
 
 
+If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
+"Overriding script, before_install, before_script and friends" section below.
+
+
 ### Dependency Management (a.k.a. vendoring)
 
-TBD
+Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP
+script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *before_script* option
+in your .travis.yml, for example:
+
+    before_script: php vendor/vendors.php
+
+or
+
+    before_script:
+      - ./bin/ci/install_dependencies.sh
+      - php vendor/vendors.php
+
+If your dependencies need native libraries to be available, you can use passwordless sudo to install them with
+
+    sudo apt-get install -y [packages list] # note the -y switch!
+
+Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
+amount of time and network bandwidth it takes to install them.
+
 
 
 #### Multiple Versions of Dependencies (e.g. Symfony)
 
-TBD
+If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
+environment variables. Use *env* key in your .travis.yml file, for example:
 
-For example, see [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml), [FOSRest .travis.yml](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
+    env:
+      SYMFONY_VERSION=v2.0.5
+      SYMFONY_VERSION=origin/master
+
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
+DB variable value to pick phpunit configuration file:
+
+    phpunit --configuration $DB.phpunit.xml
+
+The same technique is often used to test projects against multiple databases and so on.
+
+To see real world examples, see [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml), [FOSRest .travis.yml](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
 and [doctrine2 .travis.yml](https://github.com/pborreli/doctrine2/blob/master/.travis.yml).
 
 
