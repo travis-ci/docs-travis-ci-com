@@ -99,11 +99,12 @@ with Travis CI. What you have to do is this:</p>
 <p>An alternative to this is to use environment variables and make your test runner use them. For example, <a href="https://github.com/sinatra/sinatra/blob/master/.travis.yml">Sinatra is tested against multiple
 Tilt and Rack versions</a>:</p>
 
-<p>env:
-    - &ldquo;rack=1.3.4&rdquo;
-    - &ldquo;rack=master&rdquo;
-    - &ldquo;tilt=1.3.3&rdquo;
-    - &ldquo;tilt=master&rdquo;</p>
+<pre><code>env:
+  - "rack=1.3.4"
+  - "rack=master"
+  - "tilt=1.3.3"
+  - "tilt=master"
+</code></pre>
 
 <p>ChefSpec is <a href="https://github.com/acrmp/chefspec/blob/master/.travis.yml">tested against multiple Opscode Chef versions</a>:</p>
 
