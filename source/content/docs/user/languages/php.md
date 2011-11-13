@@ -34,7 +34,7 @@ in your .travis.yml, for example:
 
     before_script: php vendor/vendors.php
 
-or
+or, if you need to run multiple commands sequentially:
 
     before_script:
       - ./bin/ci/install_dependencies.sh
