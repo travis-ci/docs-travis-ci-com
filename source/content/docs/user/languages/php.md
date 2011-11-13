@@ -16,7 +16,7 @@ This will make Travis run your tests using
 
 by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means
 "as provided by the Travis maintainers, not necessarily the very latest official php.net release.
-Also not that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
+Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
 PHP versions on Travis.
 
 For example, see [FOSTwitterBundle .travis.yml](https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml).
