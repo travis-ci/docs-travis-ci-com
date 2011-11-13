@@ -35,4 +35,4 @@ The Travis Team.
 
 ## Spread the word!
 
-Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231019)
+Feel free to [discuss and upvote on Hacker News](http://news.ycombinator.com/item?id=3231030)
