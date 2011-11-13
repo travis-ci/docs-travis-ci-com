@@ -14,9 +14,10 @@ This will make Travis run your tests using
 
     phpunit
 
-by default against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 5.3.x branch release. 5.4 is an alias
-for "the most recent 5.4.x release" and so on. Please note that using exact versions (for example, 5.3.8) is highly discouraged because as versions change, your
-.travis.yml will get outdated and things will break.
+by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means
+"as provided by the Travis maintainers, not necessarily the very latest official php.net release.
+Also not that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
+PHP versions on Travis.
 
 For example, see [FOSTwitterBundle .travis.yml](https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml).
 
