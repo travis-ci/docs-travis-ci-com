@@ -46,12 +46,74 @@
             <p>Travis was originally intended for just Ruby, so things should Just
 Work! You do not need to specify language in your .travis.yml file.</p>
 
-<p>Travis will use Bundler to install your project&rsquo;s dependencies and run <code>rake</code> to run your tests.</p>
+<p>Travis will use Bundler to install your project&rsquo;s dependencies and run <code>rake</code> to run your tests.
+Pleasen note that you need to add rake to your Gemfile.</p>
 
-<h3 id="beforeinstall-beforescript-and-friends">before_install, before_script and friends</h3>
+<h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
 
 <p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
 configuration and so on.</p>
+
+<h3 id="exclude-non-essential-gems-like-ruby-debug">Exclude non-essential gems like ruby-debug</h3>
+
+<p>We ask Ruby project maintainers to exclude ruby-debug from being installed on travis-ci.org. Consider the following:
+a project that installs ruby-debug, tests against 6 Ruby versions/implementations and does 3 pushes a day. Given that
+linecache, one of the ruby-debug dependencies, takes 2 minutes to install in our CI VMs, this results in</p>
+
+<pre><code>3 * 6 * 2 = 36 minutes of time per day per project
+</code></pre>
+
+<p>And, of course, nobody will really use ruby-debug in CI environments. To exlude ruby-debug and other gems that are
+non-essential for your test suite, move them to a separate gem group (for example, :development) and <a href="https://github.com/ruby-amqp/amqp/blob/master/.travis.yml#L2">exclude it
+using <em>bundler_args</em> in your .travis.yml</a> like <a href="https://github.com/ruby-amqp/amqp">amqp gem</a> does.</p>
+
+<p>Time is better spent testing your project against more Ruby versions/implementations and more versions of libraries you depend on than
+compiling linecache over and over.</p>
+
+<h3 id="testing-against-multiple-versions-of-dependencies-ruby-on-rails-eventmachine-etc">Testing against multiple versions of dependencies (Ruby on Rails, EventMachine, etc)</h3>
+
+<p>Many projects need to be tested against multiple versions of Rack, EventMachine, HAML, Sinatra, Ruby on Rails, you name it. It is easy
+with Travis CI. What you have to do is this:</p>
+
+<ul>
+  <li>Create a directory in your project&rsquo;s repository root where you will keep gemfiles (./gemfiles is a commonly used name)</li>
+  <li>Add one or more gemfiles to it</li>
+  <li>Instruct Travis CI to use those gemfiles using <em>gemfiles</em> option in your .travis.yml</li>
+</ul>
+
+<p>For example, amqp gem is <a href="https://github.com/ruby-amqp/amqp/blob/master/.travis.yml">tested against EventMachine 0.12.x and 1.0 pre-releases</a>:</p>
+
+<pre><code>gemfile:
+  - Gemfile
+  - gemfiles/eventmachine-pre
+</code></pre>
+
+<p>Thoughtbot&rsquo;s Paperclip is <a href="https://github.com/thoughtbot/paperclip/blob/master/.travis.yml">tested against multiple ActiveRecord versions</a>:</p>
+
+<pre><code>gemfile:
+  - gemfiles/rails2.gemfile
+  - gemfiles/rails3.gemfile
+  - gemfiles/rails3_1.gemfile
+</code></pre>
+
+<p>An alternative to this is to use environment variables and make your test runner use them. For example, <a href="https://github.com/sinatra/sinatra/blob/master/.travis.yml">Sinatra is tested against multiple
+Tilt and Rack versions</a>:</p>
+
+<p>env:
+    - &ldquo;rack=1.3.4&rdquo;
+    - &ldquo;rack=master&rdquo;
+    - &ldquo;tilt=1.3.3&rdquo;
+    - &ldquo;tilt=master&rdquo;</p>
+
+<p>ChefSpec is <a href="https://github.com/acrmp/chefspec/blob/master/.travis.yml">tested against multiple Opscode Chef versions</a>:</p>
+
+<pre><code>env:
+  - CHEF_VERSION=0.9.18
+  - CHEF_VERSION=0.10.2
+  - CHEF_VERSION=0.10.4
+</code></pre>
+
+<p>Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.</p>
 
 <h3 id="provided-ruby-versions">Provided Ruby Versions</h3>
 
@@ -63,7 +125,8 @@ the default.</p>
   <li>1.9.2</li>
   <li>1.9.3</li>
   <li>jruby</li>
-  <li>rbx</li>
+  <li>rbx-18mode (Rubinius 2.0.testing branch in Ruby 1.8 mode)</li>
+  <li>rbx-19mode (Rubinius 2.0.testing branch in Ruby 1.9 mode)</li>
   <li>ree</li>
   <li>ruby-head</li>
 </ul>

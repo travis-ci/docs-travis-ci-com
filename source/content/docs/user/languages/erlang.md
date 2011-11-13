@@ -44,7 +44,7 @@ If you need a more fine-grained setup, specify operations to use in your .travis
     script: "rebar compile eunit"
 
 
-### before_install, before_script and friends
+### Overriding script, before_install, before_script and friends
 
 See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
 configuration and so on.

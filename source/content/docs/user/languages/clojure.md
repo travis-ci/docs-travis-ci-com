@@ -24,13 +24,13 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
     language: clojure
 
 
-### before_install, before_script and friends
+### Overriding script, before_install, before_script and friends
 
 If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
 
     language: clojure
-    before_script: "lein deps && lein build-jni-extensions"
-    script: "lein test && lein integration-test"
+    before_script: "lein deps && lein javac && lein build-jni-extensions"
+    script: "lein test && lein test :integration && lein test :time-consuming"
 
 See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
 configuration and so on.
@@ -39,4 +39,6 @@ configuration and so on.
 
 ### Examples
 
- * [michaelklishin/langohr](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
+ * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
+ * [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
+ * [momentum's .travis.yml](https://github.com/carllerche/momentum/blob/master/.travis.yml)

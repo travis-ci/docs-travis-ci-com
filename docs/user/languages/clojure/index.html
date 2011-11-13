@@ -67,13 +67,13 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 <pre><code>language: clojure
 </code></pre>
 
-<h3 id="beforeinstall-beforescript-and-friends">before_install, before_script and friends</h3>
+<h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
 
 <p>If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:</p>
 
 <pre><code>language: clojure
-before_script: "lein deps &amp;&amp; lein build-jni-extensions"
-script: "lein test &amp;&amp; lein integration-test"
+before_script: "lein deps &amp;&amp; lein javac &amp;&amp; lein build-jni-extensions"
+script: "lein test &amp;&amp; lein test :integration &amp;&amp; lein test :time-consuming"
 </code></pre>
 
 <p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
@@ -82,7 +82,9 @@ configuration and so on.</p>
 <h3 id="examples">Examples</h3>
 
 <ul>
-  <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">michaelklishin/langohr</a></li>
+  <li><a href="https://github.com/technomancy/leiningen/blob/stable/.travis.yml">leiningen&rsquo;s .travis.yml</a></li>
+  <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">langohr&rsquo;s .travis.yml</a></li>
+  <li><a href="https://github.com/carllerche/momentum/blob/master/.travis.yml">momentum&rsquo;s .travis.yml</a></li>
 </ul>
 
           </div><!-- /#main -->
