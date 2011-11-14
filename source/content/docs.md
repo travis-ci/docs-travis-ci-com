@@ -19,6 +19,7 @@ kind: content
 * <a href="/docs/user/languages/clojure">Clojure</a>
 * <a href="/docs/user/languages/erlang">Erlang</a>
 * <a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
+* <a href="/docs/user/languages/php>PHP</a>
 * <a href="/docs/user/languages/ruby">Ruby</a>
 
 ### Developer documentation
