@@ -33,7 +33,7 @@ cookbook contributors are encouraged to use them.
 Many cookbooks Travis CI environment uses are taken from the [official OpsCode cookbooks repository](https://github.com/opscode/cookbooks).
 We modify some of them for continuous integration needs and sync them periodically or as the need arises.
 
-* [Build essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential): gcc,autotools, make, bison and so on
+* [Build essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential): gcc, autotools, make, bison and so on
 * [Networking essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics) (curl, wget, lsof, iptables and so on)
 * [apt](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt)
 * [git](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git) 1.7.5.x with GitHub patches
@@ -47,9 +47,9 @@ We modify some of them for continuous integration needs and sync them periodical
 * [memcached](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached)
 * [riak](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak) 1.0.x
 * [mongodb](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb) 2.0.x
-* [erlang](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang) R13B03
-* [rabbitmq](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq) 2.6.x
-* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) 0.4.12 and NPM 1.0.x
+* [erlang](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang) (see below)
+* [rabbitmq](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq) 2.7.x
+* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) (see below)
 * [leiningen](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen) 1.6.x
 * [sbt (simple build tool)](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt) 0.10.x
 * [imagemagick](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick).
@@ -68,6 +68,27 @@ We modify some of them for continuous integration needs and sync them periodical
 * rbx-19mode (in Ruby 1.9 mode)
 * ree (2011.03)
 * ruby-head
+
+## Erlang/OTP releases
+
+* R14B04
+* R14B03
+* R14B02
+* R14B01
+* R14B
+* R14A
+* R13B04
+* R13B03
+
+## Node.js versions
+
+* 0.4 (0.4.12)
+* 0.6 (0.6.1)
+
+## PHP versions
+
+* 5.3 (5.3.8)
+* 5.4 (5.4.0 RC1)
 
 
 ## Gems in the global gem set
@@ -88,4 +109,4 @@ We modify some of them for continuous integration needs and sync them periodical
 * RAILS_ENV=test
 * RACK_ENV=test
 * MERB_ENV=test
-* JRUBY_OPTS="--server -Dnative.enabled=false"
+* JRUBY_OPTS="--server -Dcext.enabled=false"

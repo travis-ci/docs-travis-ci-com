@@ -10,11 +10,10 @@ Add the following line to .travis.yml:
     language: node_js
     node_js:
       - 0.4
-      - 0.5
       - 0.6
 
-This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.5 is an alias
-for "the most recent 0.5.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
+This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias
+for "the most recent 0.6.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
 .travis.yml will get outdated and things will break.
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
@@ -45,7 +44,6 @@ configuration and so on.
 ### Provided Node.js Versions
 
  * 0.4 (currently 0.4.12)
- * 0.5 (currently 0.5.8)
- * 0.6 (currently 0.6.0)
+ * 0.6 (currently 0.6.1)
 
 The NVM project we use is available in our [multi-version Node.js Chef cookbook](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs).

@@ -45,7 +45,7 @@
 
             <h2 id="purpose-of-this-page">Purpose of this page</h2>
 
-<p>To explain what packages, tools and settings are available in the Travis CI environment (often referred to as “<a href="http://vagrantup.com/">Vagrant</a> base” or “CI environment”).</p>
+<p>To explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;<a href="http://vagrantup.com/">Vagrant</a> base&rdquo; or &ldquo;CI environment&rdquo;).</p>
 
 <h2 id="overview">Overview</h2>
 
@@ -74,7 +74,7 @@ cookbook contributors are encouraged to use them.</p>
 We modify some of them for continuous integration needs and sync them periodically or as the need arises.</p>
 
 <ul>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential">Build essentials</a>: gcc,autotools, make, bison and so on</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential">Build essentials</a>: gcc, autotools, make, bison and so on</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics">Networking essentials</a> (curl, wget, lsof, iptables and so on)</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt">apt</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git">git</a> 1.7.5.x with GitHub patches</li>
@@ -88,9 +88,9 @@ We modify some of them for continuous integration needs and sync them periodical
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached">memcached</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak">riak</a> 1.0.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb">mongodb</a> 2.0.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang">erlang</a> R13B03</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.6.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> 0.4.12 and NPM 1.0.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang">erlang</a> (see below)</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.7.x</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> (see below)</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen">leiningen</a> 1.6.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt">sbt (simple build tool)</a> 0.10.x</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick">imagemagick</a>.</li>
@@ -110,6 +110,33 @@ We modify some of them for continuous integration needs and sync them periodical
   <li>rbx-19mode (in Ruby 1.9 mode)</li>
   <li>ree (2011.03)</li>
   <li>ruby-head</li>
+</ul>
+
+<h2 id="erlangotp-releases">Erlang/OTP releases</h2>
+
+<ul>
+  <li>R14B04</li>
+  <li>R14B03</li>
+  <li>R14B02</li>
+  <li>R14B01</li>
+  <li>R14B</li>
+  <li>R14A</li>
+  <li>R13B04</li>
+  <li>R13B03</li>
+</ul>
+
+<h2 id="nodejs-versions">Node.js versions</h2>
+
+<ul>
+  <li>0.4 (0.4.12)</li>
+  <li>0.6 (0.6.1)</li>
+</ul>
+
+<h2 id="php-versions">PHP versions</h2>
+
+<ul>
+  <li>5.3 (5.3.8)</li>
+  <li>5.4 (5.4.0 RC1)</li>
 </ul>
 
 <h2 id="gems-in-the-global-gem-set">Gems in the global gem set</h2>
@@ -132,7 +159,7 @@ We modify some of them for continuous integration needs and sync them periodical
   <li>RAILS_ENV=test</li>
   <li>RACK_ENV=test</li>
   <li>MERB_ENV=test</li>
-  <li>JRUBY_OPTS=”–server -Dnative.enabled=false”</li>
+  <li>JRUBY_OPTS=&rdquo;&ndash;server -Dcext.enabled=false&rdquo;</li>
 </ul>
 
           </div><!-- /#main -->
