@@ -62,6 +62,20 @@ You can also install [Composer](http://packagist.org/) packages into the Travis 
     wget http://getcomposer.org/composer.phar 
     php composer.phar install
 
+#### Installing PHP extensions
+
+It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the `midgard2` extension can be installed:
+
+    wget https://github.com/midgardproject/midgard-php5/tarball/ratatoskr
+    tar zxf ratatoskr
+    sh -c "cd midgardproject-midgard-php5-*&&php `pyrus get php_dir|tail -1`/pake.php install"
+
+You also need to enable them separately in php.ini:
+
+    echo "extension=midgard2.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` 
+
+See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh).
+
 #### Multiple Versions of Dependencies (e.g. Symfony)
 
 If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
