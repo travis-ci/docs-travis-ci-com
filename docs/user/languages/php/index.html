@@ -107,6 +107,22 @@ in your .travis.yml, for example:</p>
 php composer.phar install
 </code></pre>
 
+<h4 id="installing-php-extensions">Installing PHP extensions</h4>
+
+<p>It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the <code>midgard2</code> extension can be installed:</p>
+
+<pre><code>wget https://github.com/midgardproject/midgard-php5/tarball/ratatoskr
+tar zxf ratatoskr
+sh -c "cd midgardproject-midgard-php5-*&amp;&amp;php `pyrus get php_dir|tail -1`/pake.php install"
+</code></pre>
+
+<p>You also need to enable them separately in php.ini:</p>
+
+<pre><code>echo "extension=midgard2.so" &gt;&gt; `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` 
+</code></pre>
+
+<p>See also the <a href="https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh">full before_script using midgard2</a>.</p>
+
 <h4 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h4>
 
 <p>If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
