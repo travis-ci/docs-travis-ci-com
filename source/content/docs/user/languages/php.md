@@ -41,14 +41,26 @@ or, if you need to run multiple commands sequentially:
       - ./bin/ci/install_dependencies.sh
       - php vendor/vendors.php
 
+Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.
+
+#### Installing Ubuntu packages
+
 If your dependencies need native libraries to be available, you can use passwordless sudo to install them with
 
     sudo apt-get install -y [packages list] # note the -y switch!
 
-Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
-amount of time and network bandwidth it takes to install them.
+#### Installing PEAR packages
 
+If your dependencies include PEAR packages, the Travis PHP environment has the [Pyrus command](http://pear2.php.net/) available:
 
+    pyrus install http://phptal.org/latest.tar.gz
+
+#### Installing Composer packages
+
+You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. Use the following:
+
+    wget http://getcomposer.org/composer.phar 
+    php composer.phar install
 
 #### Multiple Versions of Dependencies (e.g. Symfony)
 

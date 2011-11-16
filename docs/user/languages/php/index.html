@@ -56,8 +56,8 @@ php:
 <pre><code>phpunit
 </code></pre>
 
-<p>by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for “the most recent x.y.z release” of any given line. Note that “most recent” means
-“as provided by the Travis maintainers, not necessarily the very latest official php.net release.</p>
+<p>by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for &ldquo;the most recent x.y.z release&rdquo; of any given line. Note that &ldquo;most recent&rdquo; means
+&ldquo;as provided by the Travis maintainers, not necessarily the very latest official php.net release.</p>
 
 <p>Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
 PHP versions on Travis.</p>
@@ -65,7 +65,7 @@ PHP versions on Travis.</p>
 <p>For example, see <a href="https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml">FOSTwitterBundle .travis.yml</a>.</p>
 
 <p>If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
-“Overriding script, before_install, before_script and friends” section below.</p>
+&ldquo;Overriding script, before_install, before_script and friends&rdquo; section below.</p>
 
 <h3 id="dependency-management-aka-vendoring">Dependency Management (a.k.a. vendoring)</h3>
 
@@ -83,13 +83,29 @@ in your .travis.yml, for example:</p>
   - php vendor/vendors.php
 </code></pre>
 
+<p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.</p>
+
+<h4 id="installing-ubuntu-packages">Installing Ubuntu packages</h4>
+
 <p>If your dependencies need native libraries to be available, you can use passwordless sudo to install them with</p>
 
 <pre><code>sudo apt-get install -y [packages list] # note the -y switch!
 </code></pre>
 
-<p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
-amount of time and network bandwidth it takes to install them.</p>
+<h4 id="installing-pear-packages">Installing PEAR packages</h4>
+
+<p>If your dependencies include PEAR packages, the Travis PHP environment has the <a href="http://pear2.php.net/">Pyrus command</a> available:</p>
+
+<pre><code>pyrus install http://phptal.org/latest.tar.gz
+</code></pre>
+
+<h4 id="installing-composer-packages">Installing Composer packages</h4>
+
+<p>You can also install <a href="http://packagist.org/">Composer</a> packages into the Travis PHP environment. Use the following:</p>
+
+<pre><code>wget http://getcomposer.org/composer.phar 
+php composer.phar install
+</code></pre>
 
 <h4 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h4>
 
@@ -97,8 +113,8 @@ amount of time and network bandwidth it takes to install them.</p>
 environment variables. Use <em>env</em> key in your .travis.yml file, for example:</p>
 
 <pre><code>env:
-  - SYMFONY_VERSION=v2.0.5
-  - SYMFONY_VERSION=origin/master
+  SYMFONY_VERSION=v2.0.5
+  SYMFONY_VERSION=origin/master
 </code></pre>
 
 <p>and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
