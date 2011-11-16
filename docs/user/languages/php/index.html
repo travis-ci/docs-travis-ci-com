@@ -83,13 +83,28 @@ in your .travis.yml, for example:</p>
   - php vendor/vendors.php
 </code></pre>
 
+<p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
+amount of time and network bandwidth it takes to install them.</p>
+
+<h4 id="dependency-management-native">Installing Ubuntu packages</h4>
+
 <p>If your dependencies need native libraries to be available, you can use passwordless sudo to install them with</p>
 
 <pre><code>sudo apt-get install -y [packages list] # note the -y switch!
 </code></pre>
 
-<p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about
-amount of time and network bandwidth it takes to install them.</p>
+<h4 id="dependency-management-pear">Installing PEAR packages</h4>
+
+<p>If your dependencies include PEAR packages, the Travis PHP environment has the <a href="http://pear2.php.net/">Pyrus command</a> available</p>
+
+<pre><code>pyrus install http://phptal.org/latest.tar.gz</code></pr>epear
+
+<h4 id="dependency-management-composer">Installing Composer packages</h4>
+
+<p>You can also install <a href="http://packagist.org/">Composer</a> packages into the Travis PHP environment. Use the following:</p>
+
+<pre><code>wget http://getcomposer.org/composer.phar 
+php composer.phar install</code></pre>
 
 <h4 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h4>
 
