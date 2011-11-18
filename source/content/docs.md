@@ -13,6 +13,7 @@ kind: content
 * <a href="/docs/user/ci-environment/">CI environment</a>
 * <a href="/docs/user/extensions/">Extensions</a>
 * <a href="/docs/user/how-to-skip-a-build/">How to skip a build</a>
+* <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">How to setup and trigger the hook manually</a>
 
 ### Specific Language Help
 
