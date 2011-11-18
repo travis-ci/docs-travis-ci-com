@@ -3,7 +3,7 @@ title: How to setup and trigger the hook manually
 kind: content
 ---
 
-ometimes you need to setup the service hook manually. Normally this should not be necessary as you should be able to [started simply flip the relevant switch](/docs/user/getting-started/) on the profile page.
+Sometimes you need to setup the service hook manually. Normally this should not be necessary as you should be able to [started simply flip the relevant switch](/docs/user/getting-started/) on the profile page.
 
 However especially when setting up an repository hosted inside a github organization the hook needs to be setup manually. Simply access the given repositories admin panel on github. Then access the "service hooks" section.
 
@@ -15,4 +15,4 @@ You can leave the Domain empty. In the User field enter the github account you u
 
 When you click "Update Settings" the hook is setup and from now on pushes to this repository will trigger a build on travis-ci.org.
 
-Clicking on "Test Hook" will trigger a build on your "master" branch without having to push.
+Clicking on "Test Hook" will trigger a build on your "master" branch without having to push. Note this will also work if you setup your hook via the switches on your profile page.
