@@ -59,7 +59,7 @@
 rebar compile &amp;&amp; rebar skip_deps=true eunit
 </code></pre>
 
-<p>The first command installs the project’s <a href="https://github.com/basho/riak/blob/master/rebar.config">dependencies as listed in the rebar.config file</a>. The second command runs the test suite.</p>
+<p>The first command installs the project&rsquo;s <a href="https://github.com/basho/riak/blob/master/rebar.config">dependencies as listed in the rebar.config file</a>. The second command runs the test suite.</p>
 
 <p>Travis will do a Rebar build if a rebar.config is present in the root of the project. If no rebar.config is found, the following operation will be triggered instead:</p>
 
@@ -91,7 +91,7 @@ script: "rebar compile eunit"
 
 <h3 id="background-information">Background information</h3>
 
-<p>Multiple Erlang/OTP distributions are installed alongside using <a href="https://github.com/spawngrid/kerl/tree/">Kerl</a>. Before every build one of the versions is activated an provides a basic installation of Erlang/OTP. Erlang projects do not a have consistent build technique. Some use Rebar, some good old make and even a combinaties of the two. As Rebar has a good handling of project dependencies, it’s a sensible default for Travis.</p>
+<p>Multiple Erlang/OTP distributions are installed alongside using <a href="https://github.com/spawngrid/kerl/tree/">Kerl</a>. Before every build one of the versions is activated an provides a basic installation of Erlang/OTP. Erlang projects do not a have consistent build technique. Some use Rebar, some good old make and even a combinaties of the two. As Rebar has a good handling of project dependencies, it&rsquo;s a sensible default for Travis.</p>
 
 
             <div id="disqus_thread"></div>
