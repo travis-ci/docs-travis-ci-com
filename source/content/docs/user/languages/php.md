@@ -64,15 +64,12 @@ You can also install [Composer](http://packagist.org/) packages into the Travis 
 
 #### Installing PHP extensions
 
-It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the `midgard2` extension can be installed:
+It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
 
-    wget https://github.com/midgardproject/midgard-php5/tarball/ratatoskr
-    tar zxf ratatoskr
-    sh -c "cd midgardproject-midgard-php5-*&&php `pyrus get php_dir|tail -1`/pake.php install"
-
-You also need to enable them separately in php.ini:
-
-    echo "extension=midgard2.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` 
+    wget http://pecl.php.net/get/memcache-2.2.6.tgz
+    tar -xzf memcache-2.2.6.tgz
+    sh -c "cd memcache-2.2.6 && phpize && ./configure --enable-memcache && make && sudo make install"
+    echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
 See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh).
 
