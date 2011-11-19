@@ -90,8 +90,13 @@ In cases you need to create users for your database, you can do something like t
 
 ### CouchDB
 
-TBD
+CouchDB binds to 127.0.0.1 and requires no authentication (it runs in admin party).
 
+You have to create the database as part of your build process:
+
+    # .travis.yml
+    before_script:
+      - curl -X PUT localhost:5984/myapp_test
 
 ### Riak
 
