@@ -117,6 +117,8 @@ You can specify the main build command to run instead of just `rake`:
     script: "bundle exec rake db:drop db:create db:migrate test"
 
 The script can be any executable; it doesn't have to be `rake`, and it doesn't even have to start with `bundle exec` (it can bootstrap the bundle internally).
+As a matter of fact the only requirement for the script is that it should use an exit code 0 on success, any thing else is considered a build failure.
+Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.
 
 You can also define scripts to be run before and after the main script:
 

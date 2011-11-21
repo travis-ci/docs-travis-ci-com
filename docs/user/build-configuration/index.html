@@ -166,7 +166,9 @@ env:
 <pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
 </code></pre>
 
-<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).</p>
+<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).
+As a matter of fact the only requirement for the script is that it should use an exit code 0 on success, any thing else is considered a build failure.
+Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.</p>
 
 <p>You can also define scripts to be run before and after the main script:</p>
 
