@@ -39,9 +39,8 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-            
+
               <h2>Build Configuration</h2>
-            
 
             <p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
 
@@ -116,7 +115,7 @@ end
   - 1.8.7 # (current default)
   - 1.9.2
   - 1.9.3
-  - rbx-2.0
+  - rbx
   - jruby
   - ruby-head
   - ree
@@ -146,7 +145,7 @@ env:
 
 <pre><code>rvm:
   - 1.9.3
-  - rbx-2.0
+  - rbx
 env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
@@ -156,7 +155,7 @@ env:
 
 <ol>
   <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
-  <li>Rubinius 2.0 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+  <li>Rubinius with <code>FOO=bar</code> and <code>BAR=foo</code></li>
 </ol>
 
 <h3>Define custom build scripts</h3>
