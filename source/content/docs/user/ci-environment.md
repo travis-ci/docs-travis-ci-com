@@ -74,7 +74,6 @@ We modify some of them for continuous integration needs and sync them periodical
 * R14B04
 * R14B03
 * R14B02
-* R14B01
 * R14B
 * R14A
 * R13B04
