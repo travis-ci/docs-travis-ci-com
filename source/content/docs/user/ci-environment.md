@@ -82,7 +82,7 @@ We modify some of them for continuous integration needs and sync them periodical
 ## Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.1)
+* 0.6 (0.6.3)
 
 ## PHP versions
 
