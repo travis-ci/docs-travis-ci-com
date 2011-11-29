@@ -47,7 +47,7 @@ Even though installed dependencies will be wiped out between builds (VMs we run 
 
 If your dependencies need native libraries to be available, you can use passwordless sudo to install them with
 
-    sudo apt-get install -y [packages list] # note the -y switch!
+    sudo apt-get install [packages list]
 
 #### Installing PEAR packages
 
