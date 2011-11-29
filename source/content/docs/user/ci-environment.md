@@ -99,10 +99,12 @@ We modify some of them for continuous integration needs and sync them periodical
 
 ## Environment variables
 
+* DEBIAN_FRONTEND=noninteractive
 * CI=true
 * TRAVIS=true
 * HAS_JOSH_K_SEAL_OF_APPROVAL=true
 * USER=vagrant
+* HOME=/home/vagrant
 * LANG=en_US.UTF-8
 * LC_ALL=en_US.UTF-8
 * RAILS_ENV=test
