@@ -55,6 +55,17 @@ If your dependencies include PEAR packages, the Travis PHP environment has the [
 
     pyrus install http://phptal.org/latest.tar.gz
 
+After install you should refresh your path
+
+    phpenv rehash
+
+So, for example when you want to use phpcs, you should execute:
+
+    pyrus install pear/PHP_CodeSniffer
+    phpenv rehash
+
+Then you can use phpcs as simply as phpunit command
+
 #### Installing Composer packages
 
 You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. Use the following:
