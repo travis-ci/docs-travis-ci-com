@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis CI: Building a PHP project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
   <body>
     <div id="navigation">
@@ -89,7 +90,7 @@ in your .travis.yml, for example:</p>
 
 <p>If your dependencies need native libraries to be available, you can use passwordless sudo to install them with</p>
 
-<pre><code>sudo apt-get install -y [packages list] # note the -y switch!
+<pre><code>sudo apt-get install [packages list]
 </code></pre>
 
 <h4 id="installing-pear-packages">Installing PEAR packages</h4>
@@ -98,6 +99,19 @@ in your .travis.yml, for example:</p>
 
 <pre><code>pyrus install http://phptal.org/latest.tar.gz
 </code></pre>
+
+<p>After install you should refresh your path</p>
+
+<pre><code>phpenv rehash
+</code></pre>
+
+<p>So, for example when you want to use phpcs, you should execute:</p>
+
+<pre><code>pyrus install pear/PHP_CodeSniffer
+phpenv rehash
+</code></pre>
+
+<p>Then you can use phpcs as simply as phpunit command</p>
 
 <h4 id="installing-composer-packages">Installing Composer packages</h4>
 

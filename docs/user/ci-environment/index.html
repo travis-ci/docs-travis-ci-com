@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis CI: About Travis CI Environment</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
   <body>
     <div id="navigation">
@@ -75,7 +76,7 @@ We modify some of them for continuous integration needs and sync them periodical
 
 <ul>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential">Build essentials</a>: gcc, autotools, make, bison and so on</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics">Networking essentials</a> (curl, wget, lsof, iptables and so on)</li>
+  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics">Networking essentials</a> (curl, wget and so on)</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt">apt</a></li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git">git</a> 1.7.5.x with GitHub patches</li>
   <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rvm">rvm</a>. We customized this cookbook to install multiple Ruby versions/implementations with the same default gem set.</li>
@@ -118,7 +119,6 @@ We modify some of them for continuous integration needs and sync them periodical
   <li>R14B04</li>
   <li>R14B03</li>
   <li>R14B02</li>
-  <li>R14B01</li>
   <li>R14B</li>
   <li>R14A</li>
   <li>R13B04</li>
@@ -129,7 +129,7 @@ We modify some of them for continuous integration needs and sync them periodical
 
 <ul>
   <li>0.4 (0.4.12)</li>
-  <li>0.6 (0.6.1)</li>
+  <li>0.6 (0.6.3)</li>
 </ul>
 
 <h2 id="php-versions">PHP versions</h2>
@@ -150,10 +150,12 @@ We modify some of them for continuous integration needs and sync them periodical
 <h2 id="environment-variables">Environment variables</h2>
 
 <ul>
+  <li>DEBIAN_FRONTEND=noninteractive</li>
   <li>CI=true</li>
   <li>TRAVIS=true</li>
   <li>HAS_JOSH_K_SEAL_OF_APPROVAL=true</li>
   <li>USER=vagrant</li>
+  <li>HOME=/home/vagrant</li>
   <li>LANG=en_US.UTF-8</li>
   <li>LC_ALL=en_US.UTF-8</li>
   <li>RAILS_ENV=test</li>
