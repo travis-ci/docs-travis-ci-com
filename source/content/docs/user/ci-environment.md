@@ -34,7 +34,7 @@ Many cookbooks Travis CI environment uses are taken from the [official OpsCode c
 We modify some of them for continuous integration needs and sync them periodically or as the need arises.
 
 * [Build essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential): gcc, autotools, make, bison and so on
-* [Networking essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics) (curl, wget, lsof, iptables and so on)
+* [Networking essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics) (curl, wget and so on)
 * [apt](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt)
 * [git](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git) 1.7.5.x with GitHub patches
 * [rvm](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rvm). We customized this cookbook to install multiple Ruby versions/implementations with the same default gem set.
