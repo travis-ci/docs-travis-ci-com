@@ -266,15 +266,17 @@ branches:
 <p>You can also specify notifications sent to an IRC channel:</p>
 
 <pre><code>notifications:
-  irc: "irc.freenode.org#travis"
+  irc:
+    channels: "irc.freenode.org#travis"
 </code></pre>
 
 <p>Or multiple channels:</p>
 
 <pre><code>notifications:
   irc:
-    - "irc.freenode.org#travis"
-    - "irc.freenode.org#some-other-channel"
+    channels:
+      - "irc.freenode.org#travis"
+      - "irc.freenode.org#some-other-channel"
 </code></pre>
 
 <p>Just as with other notification types you can specify when IRC notifications will be sent:</p>
