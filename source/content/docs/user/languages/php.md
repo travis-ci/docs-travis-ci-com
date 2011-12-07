@@ -103,6 +103,13 @@ The same technique is often used to test projects against multiple databases and
 To see real world examples, see [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml), [FOSRest .travis.yml](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
 and [doctrine2 .travis.yml](https://github.com/pborreli/doctrine2/blob/master/.travis.yml).
 
+#### Working with atoum
+
+Instead of PHPunit, you can also use [atoum](https://github.com/mageekguy/atoum)
+
+    before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+
+    script: php mageekguy.atoum.phar
 
 
 ### Overriding script, before_install, before_script and friends
