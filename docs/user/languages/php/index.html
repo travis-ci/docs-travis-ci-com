@@ -154,6 +154,15 @@ DB variable value to pick phpunit configuration file:</p>
 <p>To see real world examples, see <a href="https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml">FOSUserBundle</a>, <a href="https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml">FOSRest .travis.yml</a>
 and <a href="https://github.com/pborreli/doctrine2/blob/master/.travis.yml">doctrine2 .travis.yml</a>.</p>
 
+<h4 id="working-with-atoum">Working with atoum</h4>
+
+<p>Instead of PHPunit, you can also use <a href="https://github.com/mageekguy/atoum">atoum</a></p>
+
+<pre><code>before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+
+script: php mageekguy.atoum.phar
+</code></pre>
+
 <h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
 
 <p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>script</em>, <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
