@@ -85,6 +85,16 @@ $ bundle exec rake
 <pre><code>bundler_args: --binstubs
 </code></pre>
 
+<p>You can also define a script to be run before ‘bundle install’:</p>
+
+<pre><code>before_install: some_command
+</code></pre>
+
+<p>For example, to install and use the pre-release version of bundler:</p>
+
+<pre><code>before_install: gem install bundler --pre
+</code></pre>
+
 <h3>Set environment variables</h3>
 
 <p>To specify an environment variable:</p>
@@ -196,16 +206,6 @@ after_script:
 </code></pre>
 
 <p>This is necessary because every command is executed via wrapper that kills hanging commands when they time out.</p>
-
-<p>You can also define a script to be run before ‘bundle install’:</p>
-
-<pre><code>before_install: some_command
-</code></pre>
-
-<p>For example, to use the pre-release version of bundler:</p>
-
-<pre><code>before_install: gem install bundler --pre
-</code></pre>
 
 <h3>Specify branches to build</h3>
 
