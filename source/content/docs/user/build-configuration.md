@@ -143,6 +143,16 @@ These scripts can, e.g., be used to setup databases or other build setup tasks. 
 
 This is necessary because every command is executed via wrapper that kills hanging commands when they time out.
 
+
+You can also define a script to be run before 'bundle install':
+
+    before_install: some_command
+
+For example, to use the pre-release version of bundler:
+
+    before_install: gem install bundler --pre
+
+
 <h3>Specify branches to build</h3>
 
 You can either white- or blacklist branches that you want to be built:
