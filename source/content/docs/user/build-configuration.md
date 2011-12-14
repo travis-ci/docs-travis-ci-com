@@ -42,6 +42,15 @@ You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra
     bundler_args: --binstubs
 
 
+You can also define a script to be run before 'bundle install':
+
+    before_install: some_command
+
+For example, to install and use the pre-release version of bundler:
+
+    before_install: gem install bundler --pre
+
+
 <h3>Set environment variables</h3>
 
 To specify an environment variable:
@@ -142,15 +151,6 @@ These scripts can, e.g., be used to setup databases or other build setup tasks. 
       - "sh -c 'cd spec/dummy && rake db:migrate'"
 
 This is necessary because every command is executed via wrapper that kills hanging commands when they time out.
-
-
-You can also define a script to be run before 'bundle install':
-
-    before_install: some_command
-
-For example, to use the pre-release version of bundler:
-
-    before_install: gem install bundler --pre
 
 
 <h3>Specify branches to build</h3>
