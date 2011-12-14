@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis CI: Build Configuration</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
   <body>
     <div id="navigation">
@@ -39,8 +40,9 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-
+            
               <h2>Build Configuration</h2>
+            
 
             <p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
 
@@ -56,7 +58,7 @@ $ bundle exec rake
 
 <p>If your project is not using Bundler (no Gemfile), it will only run <code>rake</code>.</p>
 
-<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of &ldquo;0&rdquo; means it passed; everything else is treated as failure.</p>
+<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of “0” means it passed; everything else is treated as failure.</p>
 
 <p>With the exception of <code>git clone</code> command, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
 
@@ -76,7 +78,7 @@ $ bundle exec rake
 <pre><code>gemfile: gemfiles/Gemfile.ci
 </code></pre>
 
-<p>Unless specified, the worker will look for a file named &ldquo;Gemfile&rdquo; in the root of your project.</p>
+<p>Unless specified, the worker will look for a file named “Gemfile” in the root of your project.</p>
 
 <p>You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to <code>bundle install</code>:</p>
 
@@ -107,7 +109,7 @@ end
   <li><code>env</code> - environment variables with which you can configure your build scripts</li>
 </ul>
 
-<p>Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.</p>
+<p>Below is an example configuration for a rather big build matrix that expands to <strong>28 individual</strong> builds.</p>
 
 <p>Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.</p>
 
@@ -115,7 +117,7 @@ end
   - 1.8.7 # (current default)
   - 1.9.2
   - 1.9.3
-  - rbx
+  - rbx-2.0
   - jruby
   - ruby-head
   - ree
@@ -145,7 +147,7 @@ env:
 
 <pre><code>rvm:
   - 1.9.3
-  - rbx
+  - rbx-2.0
 env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
@@ -155,7 +157,7 @@ env:
 
 <ol>
   <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
-  <li>Rubinius with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+  <li>Rubinius 2.0 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
 </ol>
 
 <h3>Define custom build scripts</h3>
@@ -165,7 +167,7 @@ env:
 <pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
 </code></pre>
 
-<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).
+<p>The script can be any executable; it doesn’t have to be <code>rake</code>, and it doesn’t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).
 As a matter of fact the only requirement for the script is that it should use an exit code 0 on success, any thing else is considered a build failure.
 Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.</p>
 
@@ -195,6 +197,16 @@ after_script:
 
 <p>This is necessary because every command is executed via wrapper that kills hanging commands when they time out.</p>
 
+<p>You can also define a script to be run before ‘bundle install’:</p>
+
+<pre><code>before_install: some_command
+</code></pre>
+
+<p>For example, to use the pre-release version of bundler:</p>
+
+<pre><code>before_install: gem install bundler --pre
+</code></pre>
+
 <h3>Specify branches to build</h3>
 
 <p>You can either white- or blacklist branches that you want to be built:</p>
@@ -212,7 +224,7 @@ branches:
     - stable
 </code></pre>
 
-<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
+<p>If you specify both, “except” will be ignored.</p>
 
 <h2>Notifications</h2>
 
@@ -266,17 +278,15 @@ branches:
 <p>You can also specify notifications sent to an IRC channel:</p>
 
 <pre><code>notifications:
-  irc:
-    channels: "irc.freenode.org#travis"
+  irc: "irc.freenode.org#travis"
 </code></pre>
 
 <p>Or multiple channels:</p>
 
 <pre><code>notifications:
   irc:
-    channels:
-      - "irc.freenode.org#travis"
-      - "irc.freenode.org#some-other-channel"
+    - "irc.freenode.org#travis"
+    - "irc.freenode.org#some-other-channel"
 </code></pre>
 
 <p>Just as with other notification types you can specify when IRC notifications will be sent:</p>
