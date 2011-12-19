@@ -90,8 +90,8 @@ If you need to test against multiple versions of, say, Symfony, you can instruct
 environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
-      SYMFONY_VERSION=v2.0.5
-      SYMFONY_VERSION=origin/master
+      - SYMFONY_VERSION=v2.0.5
+      - SYMFONY_VERSION=origin/master
 
 and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
 DB variable value to pick phpunit configuration file:
