@@ -3,7 +3,7 @@ title: Building a PHP project
 kind: content
 ---
 
-PHP workers on travis-ci.org provide PHP 5.3, 5.4.0RC1 and phpunit. A minimalistic .travis.yml file would looks like this:
+PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would looks like this:
 
     language: php
     php:
@@ -20,7 +20,7 @@ by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases 
 Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
 PHP versions on Travis.
 
-For example, see [FOSTwitterBundle .travis.yml](https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml).
+For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
 
 If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
@@ -121,7 +121,8 @@ configuration and so on.
 
 ### Provided PHP Versions
 
- * 5.3.x (currently 5.3.8)
- * 5.4.x (currently 5.4.0RC1)
+ * 5.2.x (currently 5.2.17)
+ * 5.3.x (currently 5.3.2, 5.3.8, 5.3.9RC3)
+ * 5.4.x (currently 5.4.0RC3)
 
 Please see our [php, phpenv and phpfarm Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base) if you want to learn more.

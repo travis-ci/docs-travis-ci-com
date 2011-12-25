@@ -44,7 +44,7 @@
               <h2>Building a PHP project</h2>
             
 
-            <p>PHP workers on travis-ci.org provide PHP 5.3, 5.4.0RC1 and phpunit. A minimalistic .travis.yml file would looks like this:</p>
+            <p>PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would looks like this:</p>
 
 <pre><code>language: php
 php:
@@ -63,7 +63,7 @@ php:
 <p>Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
 PHP versions on Travis.</p>
 
-<p>For example, see <a href="https://github.com/FriendsOfSymfony/FOSTwitterBundle/blob/master/.travis.yml">FOSTwitterBundle .travis.yml</a>.</p>
+<p>For example, see <a href="https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml">travis-ci-php-example .travis.yml</a>.</p>
 
 <p>If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
 &ldquo;Overriding script, before_install, before_script and friends&rdquo; section below.</p>
@@ -171,8 +171,9 @@ configuration and so on.</p>
 <h3 id="provided-php-versions">Provided PHP Versions</h3>
 
 <ul>
-  <li>5.3.x (currently 5.3.8)</li>
-  <li>5.4.x (currently 5.4.0RC1)</li>
+  <li>5.2.x (currently 5.2.17)</li>
+  <li>5.3.x (currently 5.3.2, 5.3.8, 5.3.9RC3)</li>
+  <li>5.4.x (currently 5.4.0RC3)</li>
 </ul>
 
 <p>Please see our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">php, phpenv and phpfarm Chef cookbooks</a> if you want to learn more.</p>
