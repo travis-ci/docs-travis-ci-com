@@ -320,7 +320,7 @@ You can specify more than one environment variable per item in the `env` array:
 
     rvm:
       - 1.9.3
-      - rbx-2.0
+      - rbx-18mode
     env:
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
@@ -328,4 +328,4 @@ You can specify more than one environment variable per item in the `env` array:
 With this configuration, only **4 individual builds** will be triggered:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
-2. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
+2. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
