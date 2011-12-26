@@ -44,6 +44,6 @@ configuration and so on.
 ### Provided Node.js Versions
 
  * 0.4 (currently 0.4.12)
- * 0.6 (currently 0.6.1)
+ * 0.6 (currently 0.6.6)
 
 The NVM project we use is available in our [multi-version Node.js Chef cookbook](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs).

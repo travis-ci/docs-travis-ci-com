@@ -82,12 +82,13 @@ We modify some of them for continuous integration needs and sync them periodical
 ## Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.3)
+* 0.6 (0.6.6)
 
 ## PHP versions
 
-* 5.3 (5.3.8)
-* 5.4 (5.4.0 RC1)
+* 5.2 (5.2.17)
+* 5.3 (5.3.8, 5.3.9rc3, 5.3.2)
+* 5.4 (5.4.0rc3)
 
 
 ## Gems in the global gem set
