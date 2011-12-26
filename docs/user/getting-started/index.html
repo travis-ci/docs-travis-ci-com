@@ -63,15 +63,17 @@ data stores without even having all of them installed locally.</p>
 
 <h3 id="step-one-sign-in">Step one: Sign in</h3>
 
-<p>To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.</p>
+<p>To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the Sign In link at the top.</p>
 
-<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won&rsquo;t touch anything else.</p>
+<p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it,
+but it won&rsquo;t touch anything else.</p>
 
 <h3 id="step-two-add-service-hooks">Step two: Add service hooks</h3>
 
-<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.</p>
+<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
+the settings for the Travis service if not already pre-filled.</p>
 
-<p>Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if not already pre-filled.</p>
+<p>If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="http://localhost:3000/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.</p>
 
 <h3 id="what-triggers-the-build-process">What triggers the build process?</h3>
 

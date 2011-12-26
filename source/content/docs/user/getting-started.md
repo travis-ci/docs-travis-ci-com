@@ -21,15 +21,19 @@ data stores without even having all of them installed locally.
 
 ### Step one: Sign in
 
-To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the sign in link.
+To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the Sign In link at the top.
 
-Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
+Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it,
+but it won't touch anything else.
+
 
 ###  Step two: Add service hooks
 
-Once you're signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.
+Once you're signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
+the settings for the Travis service if not already pre-filled.
 
-Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if not already pre-filled.
+If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="http://localhost:3000/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.
+
 
 ### What triggers the build process?
 
@@ -37,9 +41,11 @@ To start a build you can either commit and push something to your repository, or
 
 That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.
 
+
 ### Step three: Tweaking your build configuration
 
 You can configure your build by adding a `.travis.yml` file to the root of your repository. See <a href="/docs/user/build-configuration/">Build Configuration</a> for details.
+
 
 ### Step four: Learn more
 
@@ -47,6 +53,7 @@ A Travis worker comes with a good amount of services you might depend on, includ
 
 See <a href="/docs/user/database-setup/">Database setup</a> to learn how to configure a database connection for your test suite. More information
 about our test environment can be found <a href="/docs/user/ci-environment/">in a separate guide</a>.
+
 
 ### Step five: We are here to help!
 
