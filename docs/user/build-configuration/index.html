@@ -44,79 +44,199 @@
               <h2>Build Configuration</h2>
             
 
-            <p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
+            <h2 id="configuring-your-build-using-travisyml">Configuring your build using .travis.yml</h2>
 
-<p>This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project, regardless of the branch and whether it has the configuration file or not. You can limit this behavior with configuration options.</p>
+<p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
+
+<p>This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project unless you
+instruct it to <a href="/docs/user/how-to-skip-a-build/">skip a build</a>. You can limit this behavior with configuration options.</p>
+
+<h3 id="build-lifecycle">Build Lifecycle</h3>
 
 <p>By default, the worker performs the build as following:</p>
 
-<pre><code>$ rvm use 1.8.7
-$ git clone git://github.com/YOUR/PROJECT.git
-$ bundle install --path vendor/bundle
-$ bundle exec rake
-</code></pre>
+<ul>
+  <li>Switch language runtime (for example, to Ruby 1.9.3 or PHP 5.4)</li>
+  <li>Clone project repository from GitHub</li>
+  <li>Run before_install scripts (if any)</li>
+  <li>cd to the clone directory, run dependencies installation command (default specific to project language)</li>
+  <li>Run <em>after_install</em> scripts (if any)</li>
+  <li>Run <em>before_script</em> scripts (if any)</li>
+  <li>Run test <em>script</em> command (default is specific to project language)</li>
+  <li>Run <em>after_script</em> scripts (if any)</li>
+</ul>
 
-<p>If your project is not using Bundler (no Gemfile), it will only run <code>rake</code>.</p>
-
-<p>The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of &ldquo;0&rdquo; means it passed; everything else is treated as failure.</p>
+<p>The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix <strong>exit code of &ldquo;0&rdquo; means the build passed; everything else is treated as failure</strong>.</p>
 
 <p>With the exception of <code>git clone</code> command, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
 
-<h3>Choose a Ruby version</h3>
+<h3 id="define-custom-build-lifecycle-commands">Define custom build lifecycle commands</h3>
 
-<p>To specify the Ruby version to test against, use the <code>rvm</code> option:</p>
+<h4 id="script">script</h4>
 
-<pre><code>rvm: 1.9.2
+<p>You can specify the main build command to run instead of the default</p>
+
+<pre><code>script: "make it-rain"
 </code></pre>
+
+<p>The script can be any executable; it doesn&rsquo;t have to be <code>make</code>.
+As a matter of fact the only requirement for the script is that it <strong>should use an exit code 0 on success, any thing else is considered a build failure</strong>.
+Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.</p>
+
+<p>If you want to run a script local to your repository, do it like this:</p>
+
+<pre><code>script: ./script/ci/run_build.sh
+</code></pre>
+
+<h4 id="beforescript-afterscript">before_script, after_script</h4>
+
+<p>You can also define scripts to be run before and after the main script:</p>
+
+<pre><code>before_script: some_command
+after_script:  another_command
+</code></pre>
+
+<p>Both settings support multiple scripts, too:</p>
+
+<pre><code>before_script:
+  - before_command_1
+  - before_command_2
+after_script:
+  - after_command_1
+  - after_command_2
+</code></pre>
+
+<p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
+
+<h4 id="install">install</h4>
+
+<p>If your project uses non-standard dependency management tools, you can override dependency installation command using <code>install</code> option:</p>
+
+<pre><code>install: ant install-deps
+</code></pre>
+
+<p>As with other scripts, <code>install</code> command can be anything but has to exit with the 0 status in order to be considered successful.</p>
+
+<h4 id="beforeinstall-afterinstall">before_install, after_install</h4>
+
+<p>You can also define scripts to be run before and after the dependency installation script:</p>
+
+<pre><code>before_install: some_command
+after_install:  another_command
+</code></pre>
+
+<p>Both settings support multiple scripts, too:</p>
+
+<pre><code>before_install:
+  - before_command_1
+  - before_command_2
+after_install:
+  - after_command_1
+  - after_command_2
+</code></pre>
+
+<p>These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before
+dependencies are installed.</p>
+
+<h3 id="choose-runtime-ruby-php-nodejs-etc-versions">Choose runtime (Ruby, PHP, Node.js, etc) versions</h3>
+
+<p>One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions.
+Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the <code>.travis.yml</code> file.
+The option you use for that vary between languages. Here are some basic <strong>.travis.yml</strong> examples for various languages:</p>
+
+<h4 id="clojure">Clojure</h4>
+
+<p>Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing
+against multiple Clojure versions via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>. If you are interested in testing against multiple
+Clojure releases, just use that plugin and it will work without special support on the Travis side.</p>
+
+<p>Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a></p>
+
+<h4 id="erlang">Erlang</h4>
+
+<p>Erlang projects specify OTP releases they need to be tested against using <code>otp_release</code> key:</p>
+
+<pre><code>otp_release:
+  - R14B02
+  - R14B03
+  - R14B04
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a></p>
+
+<h4 id="nodejs">Node.js</h4>
+
+<p>Node.js projects specify OTP releases they need to be tested against using <code>node_js</code> key:</p>
+
+<pre><code> node_js:
+   - 0.4
+   - 0.6
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a></p>
+
+<h4 id="php">PHP</h4>
+
+<p>PHP projects specify OTP releases they need to be tested against using <code>phps</code> key:</p>
+
+<pre><code>phps:
+  - 5.3
+  - 5.4
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a></p>
+
+<h4 id="ruby">Ruby</h4>
+
+<p>Ruby projects specify OTP releases they need to be tested against using <code>rvm</code> key:</p>
+
+<pre><code>rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - jruby
+  - rbx-18mode
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a></p>
 
 <p>More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.</p>
 
-<h3>Specify a Gemfile</h3>
-
-<p>You can specify a custom Gemfile name:</p>
-
-<pre><code>gemfile: gemfiles/Gemfile.ci
-</code></pre>
-
-<p>Unless specified, the worker will look for a file named &ldquo;Gemfile&rdquo; in the root of your project.</p>
-
-<p>You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to <code>bundle install</code>:</p>
-
-<pre><code>bundler_args: --binstubs
-</code></pre>
-
-<p>You can also define a script to be run before &lsquo;bundle install&rsquo;:</p>
-
-<pre><code>before_install: some_command
-</code></pre>
-
-<p>For example, to install and use the pre-release version of bundler:</p>
-
-<pre><code>before_install: gem install bundler --pre
-</code></pre>
-
-<h3>Set environment variables</h3>
+<h3 id="set-environment-variables">Set environment variables</h3>
 
 <p>To specify an environment variable:</p>
 
 <pre><code>env: DB=postgres
 </code></pre>
 
-<p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, <code>TRAVIS</code>:</p>
+<p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One ENV variable is always set during your builds, <code>TRAVIS</code>. Use it to detect whether your test suite is running during CI.</p>
 
-<pre><code>if ENV['TRAVIS']
-  # do something specific to continuous integration
-end
+<h3 id="specify-branches-to-build">Specify branches to build</h3>
+
+<p>You can either white- or blacklist branches that you want to be built:</p>
+
+<pre><code># blacklist
+branches:
+  except:
+    - legacy
+    - experimental
+
+# whitelist
+branches:
+  only:
+    - master
+    - stable
 </code></pre>
 
-<h3>The build matrix</h3>
+<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
 
-<p>When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. The 3 matrix dimensions are:</p>
+<h3 id="the-build-matrix">The Build Matrix</h3>
+
+<p>When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:</p>
 
 <ul>
-  <li><code>rvm</code> - Ruby interpreters to test against</li>
-  <li><code>gemfile</code> - different sets of dependencies to test against</li>
-  <li><code>env</code> - environment variables with which you can configure your build scripts</li>
+  <li>Runtime to test against</li>
+  <li>Environment variables with which you can configure your build scripts</li>
 </ul>
 
 <p>Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.</p>
@@ -170,63 +290,7 @@ env:
   <li>Rubinius 2.0 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
 </ol>
 
-<h3>Define custom build scripts</h3>
-
-<p>You can specify the main build command to run instead of just <code>rake</code>:</p>
-
-<pre><code>script: "bundle exec rake db:drop db:create db:migrate test"
-</code></pre>
-
-<p>The script can be any executable; it doesn&rsquo;t have to be <code>rake</code>, and it doesn&rsquo;t even have to start with <code>bundle exec</code> (it can bootstrap the bundle internally).
-As a matter of fact the only requirement for the script is that it should use an exit code 0 on success, any thing else is considered a build failure.
-Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.</p>
-
-<p>You can also define scripts to be run before and after the main script:</p>
-
-<pre><code>before_script: some_command
-after_script:  another_command
-</code></pre>
-
-<p>Both settings support multiple scripts, too:</p>
-
-<pre><code>before_script:
-  - before_command_1
-  - before_command_2
-after_script:
-  - after_command_1
-  - after_command_2
-</code></pre>
-
-<p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
-
-<p><strong>NOTE: If you need to use <code>cd</code>, either use a separate shell script or <code>sh -c</code> as demonstrated:</strong></p>
-
-<pre><code>before_script:
-  - "sh -c 'cd spec/dummy &amp;&amp; rake db:migrate'"
-</code></pre>
-
-<p>This is necessary because every command is executed via wrapper that kills hanging commands when they time out.</p>
-
-<h3>Specify branches to build</h3>
-
-<p>You can either white- or blacklist branches that you want to be built:</p>
-
-<pre><code># blacklist
-branches:
-  except:
-    - legacy
-    - experimental
-
-# whitelist
-branches:
-  only:
-    - master
-    - stable
-</code></pre>
-
-<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
-
-<h2>Notifications</h2>
+<h2 id="notifications">Notifications</h2>
 
 <p>Travis CI can notify you about your build results through email, IRC and/or webhooks.</p>
 
@@ -247,7 +311,7 @@ branches:
 
 <p>You can change this behaviour using the following options:</p>
 
-<h3>Email notifications</h3>
+<h3 id="email-notifications">Email notifications</h3>
 
 <p>You can specify recipients that will be notified about build results like so:</p>
 
@@ -273,7 +337,7 @@ branches:
 
 <p><code>always</code> and <code>never</code> obviously mean that you want email notifications to be sent always or never. <code>change</code> means that you will get them when the build status changes on the given branch.</p>
 
-<h3>IRC notification</h3>
+<h3 id="irc-notification">IRC notification</h3>
 
 <p>You can also specify notifications sent to an IRC channel:</p>
 
@@ -297,7 +361,7 @@ branches:
     on_failure: [always|never|change] # default: always
 </code></pre>
 
-<h3>Webhook notification</h3>
+<h3 id="webhook-notification">Webhook notification</h3>
 
 <p>You can define webhooks to be notified about build results the same way:</p>
 
@@ -332,7 +396,7 @@ branches:
               <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
               <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
             </ul>
-            <h2>User Docs</h2>
+            <h2>Guides</h2>
             <ul>
               <li><a href="/docs/user/getting-started/">Getting started</a></li>
               <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
@@ -345,7 +409,7 @@ branches:
               <li><a href="/docs/user/how-to-skip-a-build/">How to skip a build</a></li>
               <li><a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">How to setup and trigger the hook manually</a></li>
             </ul>
-            <h2>Languages</h2>
+            <h2>Language-specific Guides</h2>
             <ul>
             <li><a href="/docs/user/languages/clojure/">Clojure</a></li>
             <li><a href="/docs/user/languages/erlang/">Erlang</a></li>
@@ -353,7 +417,7 @@ branches:
             <li><a href="/docs/user/languages/php/">PHP</a></li>
             <li><a href="/docs/user/languages/ruby/">Ruby</a></li>
            </ul>
-            <h2>Developer Docs</h2>
+            <h2>Developer Guides</h2>
             <ul>
               <li><a href="/docs/dev/worker/">The worker</a></li>
               <li><a href="/docs/dev/api/">The API</a></li>
@@ -361,7 +425,7 @@ branches:
             </ul>
             <h2>Under construction</h2>
             <ul>
-              <li><p>Our site is still under construction. You can help us in: travis#irc.freenode.net</p></li>
+              <li><p>Our site is still <a href="https://github.com/travis-ci/travis-ci.github.com">under construction</a>. You can help us in: travis#irc.freenode.net</p></li>
             </ul>
           </div><!-- /#sidebar -->
         </div><!-- /.pad -->

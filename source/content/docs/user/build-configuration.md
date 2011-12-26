@@ -3,74 +3,194 @@ title: Build Configuration
 kind: content
 ---
 
+## Configuring your build using .travis.yml
+
 The `.travis.yml` file in the root of your repo allows you configure your builds. Travis CI will always look for the `.travis.yml` file that is contained in the tree specified by the git commit that Github has passed.
 
-This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project, regardless of the branch and whether it has the configuration file or not. You can limit this behavior with configuration options.
+This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project unless you
+instruct it to <a href="/docs/user/how-to-skip-a-build/">skip a build</a>. You can limit this behavior with configuration options.
+
+
+### Build Lifecycle
 
 By default, the worker performs the build as following:
 
-    $ rvm use 1.8.7
-    $ git clone git://github.com/YOUR/PROJECT.git
-    $ bundle install --path vendor/bundle
-    $ bundle exec rake
+ * Switch language runtime (for example, to Ruby 1.9.3 or PHP 5.4)
+ * Clone project repository from GitHub
+ * Run before_install scripts (if any)
+ * cd to the clone directory, run dependencies installation command (default specific to project language)
+ * Run *after_install* scripts (if any)
+ * Run *before_script* scripts (if any)
+ * Run test *script* command (default is specific to project language)
+ * Run *after_script* scripts (if any)
 
-If your project is not using Bundler (no Gemfile), it will only run `rake`.
-
-The outcome of this last command – the build script – indicates whether or not this build has failed or passed. The standard unix exit code of "0" means it passed; everything else is treated as failure.
+The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
 With the exception of `git clone` command, all of the above steps can be tweaked with `.travis.yml`.
 
 
-<h3>Choose a Ruby version</h3>
 
-To specify the Ruby version to test against, use the `rvm` option:
+### Define custom build lifecycle commands
 
-    rvm: 1.9.2
+#### script
+
+You can specify the main build command to run instead of the default
+
+    script: "make it-rain"
+
+The script can be any executable; it doesn't have to be `make`.
+As a matter of fact the only requirement for the script is that it **should use an exit code 0 on success, any thing else is considered a build failure**.
+Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.
+
+If you want to run a script local to your repository, do it like this:
+
+    script: ./script/ci/run_build.sh
+
+
+#### before_script, after_script
+
+You can also define scripts to be run before and after the main script:
+
+    before_script: some_command
+    after_script:  another_command
+
+Both settings support multiple scripts, too:
+
+    before_script:
+      - before_command_1
+      - before_command_2
+    after_script:
+      - after_command_1
+      - after_command_2
+
+These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
+
+#### install
+
+If your project uses non-standard dependency management tools, you can override dependency installation command using `install` option:
+
+    install: ant install-deps
+
+As with other scripts, `install` command can be anything but has to exit with the 0 status in order to be considered successful.
+
+
+#### before_install, after_install
+
+You can also define scripts to be run before and after the dependency installation script:
+
+    before_install: some_command
+    after_install:  another_command
+
+Both settings support multiple scripts, too:
+
+    before_install:
+      - before_command_1
+      - before_command_2
+    after_install:
+      - after_command_1
+      - after_command_2
+
+These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before
+dependencies are installed.
+
+
+### Choose runtime (Ruby, PHP, Node.js, etc) versions
+
+One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions.
+Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file.
+The option you use for that vary between languages. Here are some basic **.travis.yml** examples for various languages:
+
+#### Clojure
+
+Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing
+against multiple Clojure versions via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>. If you are interested in testing against multiple
+Clojure releases, just use that plugin and it will work without special support on the Travis side.
+
+Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a>
+
+#### Erlang
+
+Erlang projects specify OTP releases they need to be tested against using `otp_release` key:
+
+    otp_release:
+      - R14B02
+      - R14B03
+      - R14B04
+
+Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a>
+
+#### Node.js
+
+Node.js projects specify OTP releases they need to be tested against using `node_js` key:
+
+     node_js:
+       - 0.4
+       - 0.6
+
+Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a>
+
+#### PHP
+
+PHP projects specify OTP releases they need to be tested against using `phps` key:
+
+    phps:
+      - 5.3
+      - 5.4
+
+Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a>
+
+#### Ruby
+
+Ruby projects specify OTP releases they need to be tested against using `rvm` key:
+
+    rvm:
+      - 1.8.7
+      - 1.9.2
+      - 1.9.3
+      - jruby
+      - rbx-18mode
+
+Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a>
 
 More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.
 
-<h3>Specify a Gemfile</h3>
-
-You can specify a custom Gemfile name:
-
-    gemfile: gemfiles/Gemfile.ci
-
-Unless specified, the worker will look for a file named "Gemfile" in the root of your project.
-
-You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to `bundle install`:
-
-    bundler_args: --binstubs
 
 
-You can also define a script to be run before 'bundle install':
-
-    before_install: some_command
-
-For example, to install and use the pre-release version of bundler:
-
-    before_install: gem install bundler --pre
-
-
-<h3>Set environment variables</h3>
+### Set environment variables
 
 To specify an environment variable:
 
     env: DB=postgres
 
-Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One variable is always present during your builds, `TRAVIS`:
-
-    if ENV['TRAVIS']
-      # do something specific to continuous integration
-    end
+Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One ENV variable is always set during your builds, `TRAVIS`. Use it to detect whether your test suite is running during CI.
 
 
-<h3>The build matrix</h3>
 
-When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. The 3 matrix dimensions are:
+### Specify branches to build
 
-* `rvm` - Ruby interpreters to test against
-* `gemfile` - different sets of dependencies to test against
-* `env` - environment variables with which you can configure your build scripts
+You can either white- or blacklist branches that you want to be built:
+
+    # blacklist
+    branches:
+      except:
+        - legacy
+        - experimental
+
+    # whitelist
+    branches:
+      only:
+        - master
+        - stable
+
+If you specify both, "except" will be ignored.
+
+
+### The Build Matrix
+
+When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:
+
+* Runtime to test against
+* Environment variables with which you can configure your build scripts
 
 Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.
 
@@ -116,63 +236,11 @@ You can specify more than one environment variable per item in the `env` array:
 With this configuration, only **4 individual builds** will be triggered:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
-1. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
+2. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
 
 
-<h3>Define custom build scripts</h3>
 
-You can specify the main build command to run instead of just `rake`:
-
-    script: "bundle exec rake db:drop db:create db:migrate test"
-
-The script can be any executable; it doesn't have to be `rake`, and it doesn't even have to start with `bundle exec` (it can bootstrap the bundle internally).
-As a matter of fact the only requirement for the script is that it should use an exit code 0 on success, any thing else is considered a build failure.
-Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.
-
-You can also define scripts to be run before and after the main script:
-
-    before_script: some_command
-    after_script:  another_command
-
-Both settings support multiple scripts, too:
-
-    before_script:
-      - before_command_1
-      - before_command_2
-    after_script:
-      - after_command_1
-      - after_command_2
-
-These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
-
-**NOTE: If you need to use `cd`, either use a separate shell script or `sh -c` as demonstrated:**
-
-    before_script:
-      - "sh -c 'cd spec/dummy && rake db:migrate'"
-
-This is necessary because every command is executed via wrapper that kills hanging commands when they time out.
-
-
-<h3>Specify branches to build</h3>
-
-You can either white- or blacklist branches that you want to be built:
-
-    # blacklist
-    branches:
-      except:
-        - legacy
-        - experimental
-
-    # whitelist
-    branches:
-      only:
-        - master
-        - stable
-
-If you specify both, "except" will be ignored.
-
-
-<h2>Notifications</h2>
+## Notifications
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
 
@@ -190,7 +258,7 @@ And it will by default send emails when, on the given branch:
 You can change this behaviour using the following options:
 
 
-<h3>Email notifications</h3>
+### Email notifications
 
 You can specify recipients that will be notified about build results like so:
 
@@ -214,7 +282,7 @@ Also, you can specify when you want to get notified:
 `always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
 
-<h3>IRC notification</h3>
+### IRC notification
 
 You can also specify notifications sent to an IRC channel:
 
@@ -236,7 +304,7 @@ Just as with other notification types you can specify when IRC notifications wil
         on_failure: [always|never|change] # default: always
 
 
-<h3>Webhook notification</h3>
+### Webhook notification
 
 You can define webhooks to be notified about build results the same way:
 
@@ -258,4 +326,3 @@ Just as with other notification types you can specify when IRC notifications wil
         on_failure: [always|never|change] # default: always
 
 Here is an example payload of what will be `POST`ed to your webhook URLs: https://gist.github.com/1225015
-
