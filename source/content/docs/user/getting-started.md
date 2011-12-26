@@ -18,6 +18,9 @@ and more. Our CI environment provides multiple runtimes (e.g. Node.js or PHP ver
 hosting your project on travis-ci.org means you can effortlessly test your library or applications against multiple runtimes and
 data stores without even having all of them installed locally.
 
+travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since
+then.
+
 
 ### Step one: Sign in
 
@@ -26,28 +29,87 @@ To get started with Travis CI, sign in through Github OAuth. Go to <a href="http
 Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it,
 but it won't touch anything else.
 
-
-###  Step two: Add service hooks
+### Step two: Activate Service Hook
 
 Once you're signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
-the settings for the Travis service if not already pre-filled.
+the settings for the Travis service if it is not already pre-filled.
 
-If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="http://localhost:3000/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.
+If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.
 
 
-### What triggers the build process?
+###  Step three: Add .travis.yml file to your repository
+
+In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository.
+We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick: Ruby projects
+typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
+
+Here are some basic **.travis.yml** examples:
+
+#### Clojure
+
+    language: clojure
+
+Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a>
+
+#### Erlang
+
+    language: erlang
+    otp_release:
+      - R14B02
+      - R14B03
+      - R14B04
+
+Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a>
+
+#### Node.js
+
+     language: node_js
+     node_js:
+       - 0.4
+       - 0.6
+
+Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a>
+
+#### PHP
+
+    language: php
+    phps:
+      - 5.3
+      - 5.4
+
+Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a>
+
+#### Ruby
+
+    language: ruby
+    rvm:
+      - 1.8.7
+      - 1.9.2
+      - 1.9.3
+      - jruby
+      - rbx-18mode
+
+Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a>
+
+
+### Step four: Trigger Your First Build
+
+Once GitHub hook is set up, push your commit that adds .travis.yml to your repository.
+That should put a build job into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
+language is available.
 
 To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the "Test Hook" button for Travis.
-
-That should put a build job into the job queue on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as a worker is available.
-
-
-### Step three: Tweaking your build configuration
-
-You can configure your build by adding a `.travis.yml` file to the root of your repository. See <a href="/docs/user/build-configuration/">Build Configuration</a> for details.
+Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
 
 
-### Step four: Learn more
+### Step five: Tweaking your build configuration
+
+Chances are, your project requires some customization to the build process: maybe you need to create a database before running your tests or you use build tools
+different from what Travis defaults are. Worry not: Travis lets you override almost everything.
+See <a href="/docs/user/build-configuration/">Build Configuration</a> to learn more.
+
+
+### Step six: Learn more
 
 A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
 
@@ -55,6 +117,7 @@ See <a href="/docs/user/database-setup/">Database setup</a> to learn how to conf
 about our test environment can be found <a href="/docs/user/ci-environment/">in a separate guide</a>.
 
 
-### Step five: We are here to help!
+### Step seven: We are here to help!
 
-For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>! We're there to help :)
+For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>!
+We're there to help :)
