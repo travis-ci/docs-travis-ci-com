@@ -71,7 +71,14 @@ then.</p>
 <p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it,
 but it won&rsquo;t touch anything else.</p>
 
-<h3 id="step-two-add-travisyml-file-to-your-repository">Step two: Add .travis.yml file to your repository</h3>
+<h3 id="step-two-activate-service-hook">Step two: Activate Service Hook</h3>
+
+<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
+the settings for the Travis service if it is not already pre-filled.</p>
+
+<p>If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.</p>
+
+<h3 id="step-three-add-travisyml-file-to-your-repository">Step three: Add .travis.yml file to your repository</h3>
 
 <p>In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository.
 We will only cover basic .travis.yml options in this guide. The most important one is the <strong>language</strong> key. It tells Travis what builder to pick: Ruby projects
@@ -130,22 +137,14 @@ rvm:
 
 <p>Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a></p>
 
-<h3 id="step-three-activate-service-hook">Step three: Activate Service Hook</h3>
-
-<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
-the settings for the Travis service if it is not already pre-filled.</p>
-
-<p>If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.</p>
-
 <h3 id="step-four-trigger-your-first-build">Step four: Trigger Your First Build</h3>
 
-<p>Once GitHub hook is set up </p>
+<p>Once GitHub hook is set up, push your commit that adds .travis.yml to your repository.
+That should put a build job into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
+language is available.</p>
 
 <p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the &ldquo;Test Hook&rdquo; button for Travis.
 Please note that <strong>you cannot trigger your first build using Test Hook button</strong>. It has to be triggered by a push to your repository.</p>
-
-<p>That should put a build job into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
-languageis available.</p>
 
 <h3 id="step-five-tweaking-your-build-configuration">Step five: Tweaking your build configuration</h3>
 
