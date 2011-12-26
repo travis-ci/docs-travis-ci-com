@@ -185,60 +185,6 @@ You can either white- or blacklist branches that you want to be built:
 If you specify both, "except" will be ignored.
 
 
-### The Build Matrix
-
-When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:
-
-* Runtime to test against
-* Environment variables with which you can configure your build scripts
-
-Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.
-
-Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.
-
-    rvm:
-      - 1.8.7 # (current default)
-      - 1.9.2
-      - 1.9.3
-      - rbx-2.0
-      - jruby
-      - ruby-head
-      - ree
-    gemfile:
-      - gemfiles/Gemfile.rails-2.3.x
-      - gemfiles/Gemfile.rails-3.0.x
-    env:
-      - ISOLATED=true
-      - ISOLATED=false
-
-You can also define exclusions to the build matrix:
-
-    matrix:
-      exclude:
-        - rvm: 1.8.7
-          gemfile: gemfiles/Gemfile.rails-2.3.x
-          env: ISOLATED=true
-        - rvm: jruby
-          gemfile: gemfiles/Gemfile.rails-2.3.x
-          env: ISOLATED=true
-
-Only exact matches will be excluded.
-
-You can specify more than one environment variable per item in the `env` array:
-
-    rvm:
-      - 1.9.3
-      - rbx-2.0
-    env:
-      - FOO=foo BAR=bar
-      - FOO=bar BAR=foo
-
-With this configuration, only **4 individual builds** will be triggered:
-
-1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
-2. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
-
-
 
 ## Notifications
 
@@ -326,3 +272,60 @@ Just as with other notification types you can specify when IRC notifications wil
         on_failure: [always|never|change] # default: always
 
 Here is an example payload of what will be `POST`ed to your webhook URLs: https://gist.github.com/1225015
+
+
+
+### The Build Matrix
+
+When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:
+
+* Runtime to test against
+* Environment variables with which you can configure your build scripts
+
+Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.
+
+Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.
+
+    rvm:
+      - 1.8.7 # (current default)
+      - 1.9.2
+      - 1.9.3
+      - rbx-18mode
+      - jruby
+      - ruby-head
+      - ree
+    gemfile:
+      - gemfiles/Gemfile.rails-2.3.x
+      - gemfiles/Gemfile.rails-3.0.x
+      - gemfiles/Gemfile.rails-3.1.x
+      - gemfiles/Gemfile.rails-edge
+    env:
+      - ISOLATED=true
+      - ISOLATED=false
+
+You can also define exclusions to the build matrix:
+
+    matrix:
+      exclude:
+        - rvm: 1.8.7
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+        - rvm: jruby
+          gemfile: gemfiles/Gemfile.rails-2.3.x
+          env: ISOLATED=true
+
+Only exact matches will be excluded.
+
+You can specify more than one environment variable per item in the `env` array:
+
+    rvm:
+      - 1.9.3
+      - rbx-2.0
+    env:
+      - FOO=foo BAR=bar
+      - FOO=bar BAR=foo
+
+With this configuration, only **4 individual builds** will be triggered:
+
+1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
+2. Rubinius 2.0 with `FOO=bar` and `BAR=foo`
