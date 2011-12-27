@@ -14,8 +14,7 @@ This will make Travis run your tests using
 
     phpunit
 
-by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means
-"as provided by the Travis maintainers, not necessarily the very latest official php.net release.
+by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see <a href="/docs/user/ci-environment/">About Travis CI Environment</a>.
 
 Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update
 PHP versions on Travis.
@@ -100,8 +99,8 @@ DB variable value to pick phpunit configuration file:
 
 The same technique is often used to test projects against multiple databases and so on.
 
-To see real world examples, see [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml), [FOSRest .travis.yml](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
-and [doctrine2 .travis.yml](https://github.com/pborreli/doctrine2/blob/master/.travis.yml).
+To see real world examples, see [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml), [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
+and [doctrine2](https://github.com/pborreli/doctrine2/blob/master/.travis.yml).
 
 #### Working with atoum
 
@@ -117,12 +116,6 @@ Instead of PHPunit, you can also use [atoum](https://github.com/mageekguy/atoum)
 See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *script*, *before_install*, *before_script*, branches configuration, email notification
 configuration and so on.
 
-
-
-### Provided PHP Versions
-
- * 5.2.x (currently 5.2.17)
- * 5.3.x (currently 5.3.2, 5.3.8, 5.3.9RC3)
- * 5.4.x (currently 5.4.0RC3)
+### Further reading
 
 Please see our [php, phpenv and phpfarm Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base) if you want to learn more.
