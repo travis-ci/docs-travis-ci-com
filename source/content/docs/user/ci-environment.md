@@ -88,7 +88,7 @@ We modify some of them for continuous integration needs and sync them periodical
 
 * 5.2 (5.2.17)
 * 5.3 (5.3.8, 5.3.9rc3, 5.3.2)
-* 5.4 (5.4.0rc3)
+* 5.4 (5.4.0rc4)
 
 
 ## Gems in the global gem set
