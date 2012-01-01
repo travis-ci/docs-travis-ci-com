@@ -44,7 +44,13 @@
               <h2>Building a PHP project</h2>
             
 
-            <p>PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would looks like this:</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
+
+<p>This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our <a href="/docs/user/build-configuration/">general build configuration guide</a> first.</p>
+
+<h2 id="choosing-php-versions-to-test-against">Choosing PHP versions to test against</h2>
+
+<p>PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would looks like this:</p>
 
 <pre><code>language: php
 php:
@@ -64,10 +70,26 @@ PHP versions on Travis.</p>
 
 <p>For example, see <a href="https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml">travis-ci-php-example .travis.yml</a>.</p>
 
-<p>If your project uses something other than phpunit, you can override our default test command to be anything you want. See the
-&ldquo;Overriding script, before_install, before_script and friends&rdquo; section below.</p>
+<h2 id="default-test-script">Default Test Script</h2>
 
-<h3 id="dependency-management-aka-vendoring">Dependency Management (a.k.a. vendoring)</h3>
+<p>By default Travis will run your tests using</p>
+
+<pre><code>phpunit
+</code></pre>
+
+<p>for every PHP version you specify.</p>
+
+<p>If your project uses something other than phpunit, <a href="/docs/user/build-configuration/">you can override our default test command to be anything</a> you want.</p>
+
+<h3 id="working-with-atoum">Working with atoum</h3>
+
+<p>Instead of PHPunit, you can also use <a href="https://github.com/mageekguy/atoum">atoum</a> to test your projects. For example:</p>
+
+<pre><code>before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+script: php mageekguy.atoum.phar
+</code></pre>
+
+<h2 id="dependency-management-aka-vendoring">Dependency Management (a.k.a. vendoring)</h2>
 
 <p>Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP
 script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the <em>before_script</em> option
@@ -85,54 +107,7 @@ in your .travis.yml, for example:</p>
 
 <p>Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.</p>
 
-<h4 id="installing-ubuntu-packages">Installing Ubuntu packages</h4>
-
-<p>If your dependencies need native libraries to be available, you can use passwordless sudo to install them with</p>
-
-<pre><code>sudo apt-get install [packages list]
-</code></pre>
-
-<h4 id="installing-pear-packages">Installing PEAR packages</h4>
-
-<p>If your dependencies include PEAR packages, the Travis PHP environment has the <a href="http://pear2.php.net/">Pyrus command</a> available:</p>
-
-<pre><code>pyrus install http://phptal.org/latest.tar.gz
-</code></pre>
-
-<p>After install you should refresh your path</p>
-
-<pre><code>phpenv rehash
-</code></pre>
-
-<p>So, for example when you want to use phpcs, you should execute:</p>
-
-<pre><code>pyrus install pear/PHP_CodeSniffer
-phpenv rehash
-</code></pre>
-
-<p>Then you can use phpcs as simply as phpunit command</p>
-
-<h4 id="installing-composer-packages">Installing Composer packages</h4>
-
-<p>You can also install <a href="http://packagist.org/">Composer</a> packages into the Travis PHP environment. Use the following:</p>
-
-<pre><code>wget http://getcomposer.org/composer.phar 
-php composer.phar install
-</code></pre>
-
-<h4 id="installing-php-extensions">Installing PHP extensions</h4>
-
-<p>It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the <code>memcache</code> extension can be installed:</p>
-
-<pre><code>wget http://pecl.php.net/get/memcache-2.2.6.tgz
-tar -xzf memcache-2.2.6.tgz
-sh -c "cd memcache-2.2.6 &amp;&amp; phpize &amp;&amp; ./configure --enable-memcache &amp;&amp; make &amp;&amp; sudo make install"
-echo "extension=memcache.so" &gt;&gt; `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-</code></pre>
-
-<p>See also the <a href="https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh">full before_script using midgard2</a>.</p>
-
-<h4 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h4>
+<h3 id="multiple-versions-of-dependencies-eg-symfony">Multiple Versions of Dependencies (e.g. Symfony)</h3>
 
 <p>If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
 environment variables. Use <em>env</em> key in your .travis.yml file, for example:</p>
@@ -153,23 +128,49 @@ DB variable value to pick phpunit configuration file:</p>
 <p>To see real world examples, see <a href="https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml">FOSUserBundle</a>, <a href="https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml">FOSRest</a>
 and <a href="https://github.com/pborreli/doctrine2/blob/master/.travis.yml">doctrine2</a>.</p>
 
-<h4 id="working-with-atoum">Working with atoum</h4>
+<h3 id="installing-pear-packages">Installing PEAR packages</h3>
 
-<p>Instead of PHPunit, you can also use <a href="https://github.com/mageekguy/atoum">atoum</a></p>
+<p>If your dependencies include PEAR packages, the Travis PHP environment has the <a href="http://pear2.php.net/">Pyrus command</a> available:</p>
 
-<pre><code>before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
-
-script: php mageekguy.atoum.phar
+<pre><code>pyrus install http://phptal.org/latest.tar.gz
 </code></pre>
 
-<h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
+<p>After install you should refresh your path</p>
 
-<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>script</em>, <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
-configuration and so on.</p>
+<pre><code>phpenv rehash
+</code></pre>
 
-<h3 id="further-reading">Further reading</h3>
+<p>So, for example when you want to use phpcs, you should execute:</p>
 
-<p>Please see our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">php, phpenv and phpfarm Chef cookbooks</a> if you want to learn more.</p>
+<pre><code>pyrus install pear/PHP_CodeSniffer
+phpenv rehash
+</code></pre>
+
+<p>Then you can use phpcs as simply as phpunit command</p>
+
+<h3 id="installing-composer-packages">Installing Composer packages</h3>
+
+<p>You can also install <a href="http://packagist.org/">Composer</a> packages into the Travis PHP environment. Use the following:</p>
+
+<pre><code>wget http://getcomposer.org/composer.phar 
+php composer.phar install
+</code></pre>
+
+<h3 id="installing-php-extensions">Installing PHP extensions</h3>
+
+<p>It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the <code>memcache</code> extension can be installed:</p>
+
+<pre><code>wget http://pecl.php.net/get/memcache-2.2.6.tgz
+tar -xzf memcache-2.2.6.tgz
+sh -c "cd memcache-2.2.6 &amp;&amp; phpize &amp;&amp; ./configure --enable-memcache &amp;&amp; make &amp;&amp; sudo make install"
+echo "extension=memcache.so" &gt;&gt; `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+</code></pre>
+
+<p>See also the <a href="https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh">full before_script using midgard2</a>.</p>
+
+<h3 id="chef-cookbooks-for-php">Chef Cookbooks for PHP</h3>
+
+<p>If you want to learn all the details of how we build and provision multiple PHP installations, see our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">php, phpenv and php-build Chef cookbooks</a>.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

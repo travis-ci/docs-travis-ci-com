@@ -44,7 +44,13 @@
               <h2>Building a Node.js project</h2>
             
 
-            <p>Travis VMs used by Ruby workers provide Node 0.4.12 and NPM 1.0.x. Historically Node.js projects were built there but in November 2011 Node.js support was improved to
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
+
+<p>This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our <a href="/docs/user/build-configuration/">general build configuration guide</a> first.</p>
+
+<h2 id="choosing-node-versions-to-test-against">Choosing Node versions to test against</h2>
+
+<p>Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to
 be &ldquo;first class&rdquo;: testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project.
 Add the following line to .travis.yml:</p>
 
@@ -60,28 +66,6 @@ for &ldquo;the most recent 0.6.x release&rdquo; and so on. Please note that usin
 
 <p>For example, see <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener .travis.yml</a>.</p>
 
-<p>You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:</p>
-
-<pre><code>scripts: {
-  test: "vows --spec"
-},
-</code></pre>
-
-<p>To setup the database and test using Expresso:</p>
-
-<pre><code>scripts: {
-  pretest: "NODE_ENV=test node setup_db",
-  test: "expresso test/*"
-},
-</code></pre>
-
-<p>Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember are the npm install and npm test conventions.</p>
-
-<h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
-
-<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
-configuration and so on.</p>
-
 <h3 id="provided-nodejs-versions">Provided Node.js Versions</h3>
 
 <ul>
@@ -89,7 +73,52 @@ configuration and so on.</p>
   <li>0.6 (currently 0.6.6)</li>
 </ul>
 
-<p>The NVM project we use is available in our <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">multi-version Node.js Chef cookbook</a>.</p>
+<p>For full up-to-date list of provided Node versions, see our <a href="/docs/user/ci-environment/">CI environment guide</a>.</p>
+
+<h2 id="default-test-script">Default Test Script</h2>
+
+<p>For projects using NPM, Travis CI will execute</p>
+
+<pre><code>npm test
+</code></pre>
+
+<p>to run your test suite.</p>
+
+<h3 id="using-vows">Using Vows</h3>
+
+<p>You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:</p>
+
+<pre><code>scripts: {
+  test: "vows --spec"
+},
+</code></pre>
+
+<h3 id="using-expresso">Using Expresso</h3>
+
+<p>To test using Expresso:</p>
+
+<pre><code>scripts: {
+  test: "expresso test/*"
+},
+</code></pre>
+
+<p>Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember is
+the <code>npm test</code> convention.</p>
+
+<h2 id="dependency-management">Dependency Management</h2>
+
+<h3 id="travis-uses-npm">Travis uses NPM</h3>
+
+<p>Travis uses <a href="http://http://npmjs.org/">NPM</a> to install your project&rsquo;s dependencies. It is possible to override this behavior and there are project
+that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.</p>
+
+<p>By default, Travis CI will run</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no NPM packages
+installed at the beginning of your build).</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

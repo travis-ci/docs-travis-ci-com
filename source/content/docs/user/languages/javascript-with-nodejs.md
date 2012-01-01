@@ -3,7 +3,13 @@ title: Building a Node.js project
 kind: content
 ---
 
-Travis VMs used by Ruby workers provide Node 0.4.12 and NPM 1.0.x. Historically Node.js projects were built there but in November 2011 Node.js support was improved to
+## What This Guide Covers
+
+This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [general build configuration guide](/docs/user/build-configuration/) first.
+
+## Choosing Node versions to test against
+
+Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to
 be "first class": testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project.
 Add the following line to .travis.yml:
 
@@ -18,32 +24,58 @@ for "the most recent 0.6.x release" and so on. Please note that using exact vers
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
-You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:
-
-    scripts: {
-      test: "vows --spec"
-    },
-
-To setup the database and test using Expresso:
-
-    scripts: {
-      pretest: "NODE_ENV=test node setup_db",
-      test: "expresso test/*"
-    },
-
-Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember are the npm install and npm test conventions.
-
-
-### Overriding script, before_install, before_script and friends
-
-See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
-configuration and so on.
-
-
 
 ### Provided Node.js Versions
 
  * 0.4 (currently 0.4.12)
  * 0.6 (currently 0.6.6)
 
-The NVM project we use is available in our [multi-version Node.js Chef cookbook](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs).
+For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
+
+
+
+
+## Default Test Script
+
+For projects using NPM, Travis CI will execute
+
+    npm test
+
+to run your test suite.
+
+### Using Vows
+
+You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:
+
+    scripts: {
+      test: "vows --spec"
+    },
+
+
+### Using Expresso
+
+To test using Expresso:
+
+    scripts: {
+      test: "expresso test/*"
+    },
+
+Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember is
+the `npm test` convention.
+
+
+
+## Dependency Management
+
+### Travis uses NPM
+
+Travis uses [NPM](http://http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project
+that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.
+
+
+By default, Travis CI will run
+
+    npm install
+
+to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no NPM packages
+installed at the beginning of your build).

@@ -44,18 +44,74 @@
               <h2>Building a Ruby Project</h2>
             
 
-            <p>Travis was originally intended for just Ruby, so things should Just
-Work! You do not need to specify language in your .travis.yml file.</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>Travis will use Bundler to install your project&rsquo;s dependencies and run <code>rake</code> to run your tests.
-Pleasen note that you need to add rake to your Gemfile.</p>
+<p>This guide covers build environment and configuration topics specific to Ruby projects. Please make sure to read our <a href="/docs/user/build-configuration/">general build configuration guide</a> first.</p>
 
-<h3 id="overriding-script-beforeinstall-beforescript-and-friends">Overriding script, before_install, before_script and friends</h3>
+<h2 id="choosing-ruby-versionsimplementations-to-test-against">Choosing Ruby versions/implementations to test against</h2>
 
-<p>See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about <em>before_install</em>, <em>before_script</em>, branches configuration, email notification
-configuration and so on.</p>
+<p>Ruby workers on travis-ci.org use <a href="https://rvm.beginrescueend.com/">RVM</a> to provide many Ruby versions/implementations your projects can be tested against.
+To specify them, use <code>rvm:</code> key in your <code>.travis.yml</code> file, for example:</p>
 
-<h3 id="exclude-non-essential-gems-like-ruby-debug">Exclude non-essential gems like ruby-debug</h3>
+<pre><code>language: ruby
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - jruby
+  - rbx-18mode
+</code></pre>
+
+<p>A more extensive example:</p>
+
+<pre><code>language: ruby
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - jruby
+  - rbx-18mode
+  - rbx-19mode
+  - ruby-head
+  - ree
+</code></pre>
+
+<p>As time goes, new releases come out and we upgrade both RVM and Rubies, aliases like <code>1.9.3</code> or <code>jruby</code> will float and point to different
+exact versions, patch levels and so on. For full up-to-date list of provided Rubies, see our <a href="/docs/user/ci-environment/">CI environment guide</a>.</p>
+
+<h3 id="rubinius-18-and-19-modes-periodic-upgrades">Rubinius: 1.8 and 1.9 modes, periodic upgrades</h3>
+
+<p>travis-ci.org Ruby workers have two installations of Rubinius, in 1.8 and 1.9 modes, respectively. Their RVM alias names are</p>
+
+<pre><code>  - rbx-18mode
+  - rbx-19mode
+</code></pre>
+
+<p>Both are built from the <a href="https://github.com/rubinius/rubinius/tree/2.0.testing">2.0.testing branch</a> Rubinius team updates for us when they feel master becomes stable enough. This means that
+typically Rubinius is upgraded every 1-3 weeks.</p>
+
+<h3 id="c-extensions-support-is-disabled-for-jruby">C extensions support is disabled for JRuby</h3>
+
+<p>Please note that <strong>C extensions are disabled for JRuby</strong> on travis-ci.org. The reason for doing so is to bring it to developers attention
+that their project may have dependencies that should not be used on JRuby in production. Using C extensions on JRuby is technically possible
+but is not a good idea performance and stability-wise and we believe continuous integration services like Travis should highlight it.</p>
+
+<p>So if you want to run CI against JRuby, please check that your Gemfile takes JRuby into account. Most of popular C extensions these days also have Java implementations
+(jsom gem, nokogiri, eventmachine, bson gem) or Java alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).</p>
+
+<h2 id="default-test-script">Default Test Script</h2>
+
+<p>Travis will use <a href="http://gembundler.com/">Bundler</a> to install your project&rsquo;s dependencies and run <code>rake</code> by default to execute your tests.
+Pleasen note that <strong>you need to add rake to your Gemfile</strong> (adding it to just <code>:test</code> group should be sufficient).</p>
+
+<h2 id="dependency-management">Dependency Management</h2>
+
+<h3 id="travis-uses-bundler">Travis uses Bundler</h3>
+
+<p>Travis uses <a href="http://gembundler.com/">Bundler</a> to install your project&rsquo;s dependencies. It is possible to override this behavior and there are project
+that use RVM gemset import feature but the majority of Ruby projects hosted on Travis use Bundler.</p>
+
+<h3 id="exclude-non-essential-gems-like-ruby-debug-from-your-gemfile">Exclude non-essential gems like ruby-debug from your Gemfile</h3>
 
 <p>We ask Ruby project maintainers to exclude ruby-debug from being installed on travis-ci.org. Consider the following:
 a project that installs ruby-debug, tests against 6 Ruby versions/implementations and does 3 pushes a day. Given that
@@ -140,25 +196,6 @@ Tilt and Rack versions</a>:</p>
 </code></pre>
 
 <p>Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.</p>
-
-<h3 id="provided-ruby-versions">Provided Ruby Versions</h3>
-
-<p>Here&rsquo;s a list of all of the Ruby versions supported by Travis. 1.8.7 is
-the default.</p>
-
-<ul>
-  <li>1.8.7</li>
-  <li>1.9.2</li>
-  <li>1.9.3</li>
-  <li>jruby</li>
-  <li>rbx-18mode (Rubinius 2.0.testing branch in Ruby 1.8 mode)</li>
-  <li>rbx-19mode (Rubinius 2.0.testing branch in Ruby 1.9 mode)</li>
-  <li>ree</li>
-  <li>ruby-head</li>
-</ul>
-
-<p><a href="https://twitter.com/travisci/status/114926454122364928">Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org</a>.
-More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

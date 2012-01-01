@@ -44,14 +44,30 @@
               <h2>Build Configuration</h2>
             
 
-            <h2 id="configuring-your-build-using-travisyml">Configuring your build using .travis.yml</h2>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>The <code>.travis.yml</code> file in the root of your repo allows you configure your builds. Travis CI will always look for the <code>.travis.yml</code> file that is contained in the tree specified by the git commit that Github has passed.</p>
+<p>This guide covers build environment and configuration topics that are common to all projects hosted on travis-ci.org, degardless of the technology.
+We recommend you read this guide top to bottom before moving on to <a href="/docs">language-specific guides</a>.</p>
 
-<p>This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project unless you
-instruct it to <a href="/docs/user/how-to-skip-a-build/">skip a build</a>. You can limit this behavior with configuration options.</p>
+<h2 id="travisyml-file-what-it-is-and-how-it-is-used">.travis.yml file: what it is and how it is used</h2>
 
-<h3 id="build-lifecycle">Build Lifecycle</h3>
+<p>Travis CI uses <code>.travis.yml</code> file in the root of your repository to learn about your project and how you want your builds to be executed.
+<code>.travis.yml</code> can be very minimalistic or have a lot of customization in it. A few example of what kind of information your <code>.travis.yml</code> file
+may have:</p>
+
+<ul>
+  <li>What programming your project uses</li>
+  <li>What commands or scripts you want to be executed before each build (for example, to install or clone your project&rsquo;s dependencies)</li>
+  <li>What command is used to run your test suite</li>
+  <li>Emails, Campfire and IRC rooms to notify about build failures</li>
+</ul>
+
+<p>and so on.</p>
+
+<p>At the very minimum, Travis CI needs to know what builder it should use for your project: Ruby, Clojure, PHP or something else.
+For everything else, there are reasonable defaults.</p>
+
+<h2 id="build-lifecycle">Build Lifecycle</h2>
 
 <p>By default, the worker performs the build as following:</p>
 
@@ -68,11 +84,11 @@ instruct it to <a href="/docs/user/how-to-skip-a-build/">skip a build</a>. You c
 
 <p>The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix <strong>exit code of &ldquo;0&rdquo; means the build passed; everything else is treated as failure</strong>.</p>
 
-<p>With the exception of <code>git clone</code> command, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
+<p>With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
 
-<h3 id="define-custom-build-lifecycle-commands">Define custom build lifecycle commands</h3>
+<h2 id="define-custom-build-lifecycle-commands">Define custom build lifecycle commands</h2>
 
-<h4 id="script">script</h4>
+<h3 id="script">script</h3>
 
 <p>You can specify the main build command to run instead of the default</p>
 
@@ -88,7 +104,7 @@ Also practically it should output any important information to the console so th
 <pre><code>script: ./script/ci/run_build.sh
 </code></pre>
 
-<h4 id="beforescript-afterscript">before_script, after_script</h4>
+<h3 id="beforescript-afterscript">before_script, after_script</h3>
 
 <p>You can also define scripts to be run before and after the main script:</p>
 
@@ -108,7 +124,7 @@ after_script:
 
 <p>These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.</p>
 
-<h4 id="install">install</h4>
+<h3 id="install">install</h3>
 
 <p>If your project uses non-standard dependency management tools, you can override dependency installation command using <code>install</code> option:</p>
 
@@ -117,7 +133,7 @@ after_script:
 
 <p>As with other scripts, <code>install</code> command can be anything but has to exit with the 0 status in order to be considered successful.</p>
 
-<h4 id="beforeinstall-afterinstall">before_install, after_install</h4>
+<h3 id="beforeinstall-afterinstall">before_install, after_install</h3>
 
 <p>You can also define scripts to be run before and after the dependency installation script:</p>
 
@@ -138,13 +154,13 @@ after_install:
 <p>These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before
 dependencies are installed.</p>
 
-<h3 id="choose-runtime-ruby-php-nodejs-etc-versions">Choose runtime (Ruby, PHP, Node.js, etc) versions</h3>
+<h2 id="choose-runtime-ruby-php-nodejs-etc-versions">Choose runtime (Ruby, PHP, Node.js, etc) versions</h2>
 
 <p>One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions.
 Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the <code>.travis.yml</code> file.
 The option you use for that vary between languages. Here are some basic <strong>.travis.yml</strong> examples for various languages:</p>
 
-<h4 id="clojure">Clojure</h4>
+<h3 id="clojure">Clojure</h3>
 
 <p>Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing
 against multiple Clojure versions via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>. If you are interested in testing against multiple
@@ -152,7 +168,7 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a></p>
 
-<h4 id="erlang">Erlang</h4>
+<h3 id="erlang">Erlang</h3>
 
 <p>Erlang projects specify OTP releases they need to be tested against using <code>otp_release</code> key:</p>
 
@@ -164,7 +180,7 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a></p>
 
-<h4 id="nodejs">Node.js</h4>
+<h3 id="nodejs">Node.js</h3>
 
 <p>Node.js projects specify OTP releases they need to be tested against using <code>node_js</code> key:</p>
 
@@ -175,7 +191,7 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a></p>
 
-<h4 id="php">PHP</h4>
+<h3 id="php">PHP</h3>
 
 <p>PHP projects specify OTP releases they need to be tested against using <code>phps</code> key:</p>
 
@@ -186,7 +202,7 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a></p>
 
-<h4 id="ruby">Ruby</h4>
+<h3 id="ruby">Ruby</h3>
 
 <p>Ruby projects specify OTP releases they need to be tested against using <code>rvm</code> key:</p>
 
@@ -202,7 +218,7 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.</p>
 
-<h3 id="set-environment-variables">Set environment variables</h3>
+<h2 id="set-environment-variables">Set environment variables</h2>
 
 <p>To specify an environment variable:</p>
 
@@ -211,7 +227,41 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One ENV variable is always set during your builds, <code>TRAVIS</code>. Use it to detect whether your test suite is running during CI.</p>
 
-<h3 id="specify-branches-to-build">Specify branches to build</h3>
+<h2 id="installing-ubuntu-packages">Installing Ubuntu packages</h2>
+
+<p>If your dependencies need native libraries to be available, <strong>you can use passwordless sudo to install them</strong> with</p>
+
+<pre><code>sudo apt-get install [packages list]
+</code></pre>
+
+<p>The reason why travis-ci.org can affort to provide passwordless sudo is that virtual machines your test suite is executed in are snapshotted
+and rolled back to their pristine state after each build.</p>
+
+<h2 id="build-timeouts">Build Timeouts</h2>
+
+<p>Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run,
+the build will be forcefully terminated and you will see a message about this in your build log.</p>
+
+<p>Exact timeout values vary between project types but in general are between 10 and 15 minutes for test suite runs and between 5 and 10 minutes for
+before scripts and so on.</p>
+
+<p>Some common reasons why test suites may hang up:</p>
+
+<ul>
+  <li>Waiting for keyboard input or other kind of human interaction</li>
+  <li>Concurrency issues (deadlocks, livelocks and so on)</li>
+  <li>Installation of native extensions that take very long time to compile</li>
+</ul>
+
+<h2 id="specify-branches-to-build">Specify branches to build</h2>
+
+<h3 id="travisyml-and-multiple-branches">.travis.yml and multiple branches</h3>
+
+<p>Travis will always look for the <code>.travis.yml</code> file that is contained in the branch specified by the git commit that Github has passed to us.
+This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after <em>any</em> git push to your GitHub project unless you
+instruct it to <a href="/docs/user/how-to-skip-a-build/">skip a build</a>. You can limit this behavior with configuration options.</p>
+
+<h3 id="white--or-blacklisting-branches">White- or blacklisting branches</h3>
 
 <p>You can either white- or blacklist branches that you want to be built:</p>
 
@@ -327,7 +377,7 @@ branches:
 
 <p>Here is an example payload of what will be <code>POST</code>ed to your webhook URLs: https://gist.github.com/1225015</p>
 
-<h3 id="the-build-matrix">The Build Matrix</h3>
+<h2 id="the-build-matrix">The Build Matrix</h2>
 
 <p>When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:</p>
 

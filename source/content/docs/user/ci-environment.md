@@ -64,10 +64,13 @@ We modify some of them for continuous integration needs and sync them periodical
 * 1.9.2
 * 1.9.3
 * jruby
-* rbx (aliased as rbx-2.0 and rbx-18mode)
+* rbx-18mode (aliased as rbx)
 * rbx-19mode (in Ruby 1.9 mode)
 * ree (2011.03)
 * ruby-head
+
+[Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+
 
 ## Erlang/OTP releases
 
