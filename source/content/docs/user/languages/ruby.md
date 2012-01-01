@@ -5,7 +5,7 @@ kind: content
 
 ## What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Ruby projects. Please make sure to read our [general build configuration guide](/docs/user/build-configuration/) first.
+This guide covers build environment and configuration topics specific to Ruby projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Choosing Ruby versions/implementations to test against
 

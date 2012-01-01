@@ -6,7 +6,7 @@ kind: content
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics that are common to all projects hosted on travis-ci.org, degardless of the technology.
-We recommend you read this guide top to bottom before moving on to [language-specific guides](/docs).
+We recommend you start with the [Getting Started](/docs/user/getting-started/) guide and read this guide top to bottom before moving on to [language-specific guides](/docs).
 
 
 ## .travis.yml file: what it is and how it is used

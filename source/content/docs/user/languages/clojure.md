@@ -3,38 +3,52 @@ title: Building a Clojure project
 kind: content
 ---
 
-### Provided tools
+## What This Guide Covers
 
-Travis VMs provide
+This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+
+
+## Choosing Clojure versions to test against
+
+Travis VMs currently provide
 
 * 32-bit OpenJDK 6
-* [Leiningen](https://github.com/technomancy/leiningen) 1.6.x.
+* Standalone [Leiningen](https://github.com/technomancy/leiningen) 1.6.x.
+
+If you want to test your project against multiple Clojure versions, use the excellent [lein multi](https://github.com/maravillas/lein-multi) plugin.
+Because leiningen can run tests against any version of Clojure (not necessary the one available as `clojure` in the PATH), there is no need for runtime
+switchers (like RVM) for Clojure.
 
 
-### Setting up a Clojure project on travis-ci.org
+## Default Test Script
 
-Clojure projects on travis-ci.org are managed with [Leiningen](https://github.com/technomancy/leiningen). Typical build then has two operations:
+Clojure projects on travis-ci.org are managed with [Leiningen](https://github.com/technomancy/leiningen). Naturally, the default command Travis CI will use to
+run your project test suite is
 
- * lein deps
- * lein test
+    lein test
 
-The first command installs the project's [dependencies as listed in the project.clj file](https://github.com/technomancy/leiningen/blob/master/sample.project.clj). The second command runs the test suite.
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: clojure
 
 
-### Overriding script, before_install, before_script and friends
+## Dependency Management
 
-If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
+the default command Travis CI will use
+to install your project dependencies is
 
-    language: clojure
-    before_script: "lein deps && lein javac && lein build-jni-extensions"
-    script: "lein test && lein test :integration && lein test :time-consuming"
+    lein deps
 
-See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
-configuration and so on.
+This will install [dependencies as listed in the project.clj file](https://github.com/technomancy/leiningen/blob/master/sample.project.clj).
 
+
+### Precompiling Java sources
+
+If you need to AOT compile Java sources, for example, it is possible to override this in your `.travis.yml`:
+
+    install: lein javac, deps
+
+See [general build configuration guide](/docs/user/build-configuration/) to learn more.
 
 
 ### Examples
