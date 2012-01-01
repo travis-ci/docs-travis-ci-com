@@ -32,6 +32,18 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
     language: clojure
 
 
+### Using Midje on travis-ci.org
+
+If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your `project.clj` development dependencies list and override `script:` in `.travis.yml` to
+run Midje task:
+
+    script: lein midje
+
+
+For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
+
+
+
 ## Dependency Management
 
 the default command Travis CI will use
@@ -56,3 +68,6 @@ See [general build configuration guide](/docs/user/build-configuration/) to lear
  * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
  * [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
  * [momentum's .travis.yml](https://github.com/carllerche/momentum/blob/master/.travis.yml)
+ * [Knockbox's .travis.yml](https://github.com/reiddraper/knockbox/blob/master/.travis.yml)
+ * [Sumo's .travis.yml](https://github.com/reiddraper/sumo/blob/master/.travis.yml)
+ 

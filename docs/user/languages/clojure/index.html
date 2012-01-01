@@ -74,6 +74,16 @@ run your project test suite is</p>
 <pre><code>language: clojure
 </code></pre>
 
+<h3 id="using-midje-on-travis-ciorg">Using Midje on travis-ci.org</h3>
+
+<p>If your project uses <a href="https://github.com/marick/Midje">Midje</a>, make sure <a href="https://github.com/marick/Midje/wiki/Lein-midje">lein-midje</a> is on your <code>project.clj</code> development dependencies list and override <code>script:</code> in <code>.travis.yml</code> to
+run Midje task:</p>
+
+<pre><code>script: lein midje
+</code></pre>
+
+<p>For real world example, see <a href="https://github.com/reiddraper/knockbox">Knockbox</a>.</p>
+
 <h2 id="dependency-management">Dependency Management</h2>
 
 <p>the default command Travis CI will use
@@ -99,6 +109,8 @@ to install your project dependencies is</p>
   <li><a href="https://github.com/technomancy/leiningen/blob/stable/.travis.yml">leiningen&rsquo;s .travis.yml</a></li>
   <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">langohr&rsquo;s .travis.yml</a></li>
   <li><a href="https://github.com/carllerche/momentum/blob/master/.travis.yml">momentum&rsquo;s .travis.yml</a></li>
+  <li><a href="https://github.com/reiddraper/knockbox/blob/master/.travis.yml">Knockbox&rsquo;s .travis.yml</a></li>
+  <li><a href="https://github.com/reiddraper/sumo/blob/master/.travis.yml">Sumo&rsquo;s .travis.yml</a></li>
 </ul>
 
           </div><!-- /#main -->
