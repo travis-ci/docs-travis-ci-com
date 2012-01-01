@@ -67,7 +67,7 @@ Language-specific workers have multiple runtimes for their respective language (
 
 * MySQL 5.1.x
 * PostgreSQL 8.4.x
-* SQLite 3 2.7.x
+* SQLite 3.7.x
 * MongoDB 2.0.x
 * Riak 1.0.x
 * Redis 2.4.x
@@ -89,6 +89,17 @@ Language-specific workers have multiple runtimes for their respective language (
 * LANG=en_US.UTF-8
 * LC_ALL=en_US.UTF-8
 
+
+### Libraries
+
+* OpenSSL
+* ImageMagick
+
+
+### apt configuration
+
+apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration
+file). This means `apt-get install` can be used without the -y flag.
 
 
 ## Clojure worker VM images

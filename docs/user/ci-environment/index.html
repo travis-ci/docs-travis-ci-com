@@ -106,7 +106,7 @@ is aware of or notified about the release.</p>
 <ul>
   <li>MySQL 5.1.x</li>
   <li>PostgreSQL 8.4.x</li>
-  <li>SQLite 3 2.7.x</li>
+  <li>SQLite 3.7.x</li>
   <li>MongoDB 2.0.x</li>
   <li>Riak 1.0.x</li>
   <li>Redis 2.4.x</li>
@@ -132,6 +132,18 @@ is aware of or notified about the release.</p>
   <li>LANG=en_US.UTF-8</li>
   <li>LC_ALL=en_US.UTF-8</li>
 </ul>
+
+<h3 id="libraries">Libraries</h3>
+
+<ul>
+  <li>OpenSSL</li>
+  <li>ImageMagick</li>
+</ul>
+
+<h3 id="apt-configuration">apt configuration</h3>
+
+<p>apt is configured to not require confirmation (assume -y switch by default) using both <code>DEBIAN_FRONTEND</code> env variable and apt configuration
+file). This means <code>apt-get install</code> can be used without the -y flag.</p>
 
 <h2 id="clojure-worker-vm-images">Clojure worker VM images</h2>
 
