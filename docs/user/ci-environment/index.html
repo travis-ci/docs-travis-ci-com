@@ -44,9 +44,11 @@
               <h2>About Travis CI Environment</h2>
             
 
-            <h2 id="purpose-of-this-page">Purpose of this page</h2>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>To explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;<a href="http://vagrantup.com/">Vagrant</a> base&rdquo; or &ldquo;CI environment&rdquo;).</p>
+<p>This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;CI environment&rdquo;) as well as
+how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
+Ruby, PHP, Node.js and so on to be provided.</p>
 
 <h2 id="overview">Overview</h2>
 
@@ -56,66 +58,92 @@ This offers a number of benefits:</p>
 <ul>
   <li>Host OS is not affected by test suites</li>
   <li>No state persists between runs</li>
-  <li>Passwordless sudo is available</li>
+  <li>Passwordless sudo is available (so you can install dependencies using apt and so on)</li>
   <li>It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on</li>
 </ul>
 
-<p>The environment available to test suites is known as the <em>Travis CI environment</em> or <em>Vagrant base</em> (not to be confused with
-the worker environment that runs one or more instances of the Travis worker application).</p>
+<p>The environment available to test suites is known as the <em>Travis CI environment</em>. VMs are deployed from VM images (&ldquo;boxes&rdquo;) that are available to the public.
+Provisioning of VM images is highly automated, new versions are deployed on average about once a week.</p>
 
-<p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">cookbooks used by travis-ci.org</a> are open source and
-can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 10.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is a relatively small undertaking.</p>
+<h2 id="ci-environment-os">CI environment OS</h2>
 
-<p>Chef cookbooks are developed using <a href="http://vagrantup.com/">Vagrant</a> and <a href="https://github.com/michaelklishin/sous-chef">Sous Chef</a> so
-cookbook contributors are encouraged to use them.</p>
+<p>travis-ci.org uses 32-bit Ubuntu Linux 11.04 (server edition).</p>
 
-<h2 id="cookbooks">Cookbooks</h2>
+<h2 id="how-travis-ciorg-vms-are-provisioned">How travis-ci.org VMs are provisioned</h2>
 
-<p>Many cookbooks Travis CI environment uses are taken from the <a href="https://github.com/opscode/cookbooks">official OpsCode cookbooks repository</a>.
-We modify some of them for continuous integration needs and sync them periodically or as the need arises.</p>
+<p>Provisioning of VMs is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. VMs are never upgraded &ldquo;on the go&rdquo;, we always replace entire images.
+VM images are first uploaded to our internal network and deployed to each individual worker during slow periods of the day. On average, we try to
+deploy new versions of runtimes (e.g. Ruby or PHP) and software like data stores within a week from their public availability, given that Travis Core Team
+is aware of or notified about the release.</p>
 
-<ul>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential">Build essentials</a>: gcc, autotools, make, bison and so on</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/networking_basics">Networking essentials</a> (curl, wget and so on)</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/apt">apt</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/git">git</a> 1.7.5.x with GitHub patches</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rvm">rvm</a>. We customized this cookbook to install multiple Ruby versions/implementations with the same default gem set.</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/openssl">openssl</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/java">OpenJDK 6</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mysql">mysql</a> 5.1.41. We customized this cookbook to provide <a href="http://bit.ly/mysql-on-ramfs">mysql::server_on_ramfs recipe</a> I/O-heavy test suites (like the Ruby on Rails one) use.</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/postgresql">postgresql</a> 8.4.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sqlite">sqlite</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/redis">redis</a> 2.2.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/memcached">memcached</a></li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/riak">riak</a> 1.0.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb">mongodb</a> 2.0.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang">erlang</a> (see below)</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq">rabbitmq</a> 2.7.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs">node.js</a> (see below)</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen">leiningen</a> 1.6.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt">sbt (simple build tool)</a> 0.10.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick">imagemagick</a>.</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sphinx">sphinx</a> 0.9.9, 1.10 and 2.x</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/emacs">emacs</a> (for debugging)</li>
-  <li><a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/vim">vim</a> (for debugging)</li>
-</ul>
+<h2 id="environment-common-to-all-vm-images">Environment common to all VM images</h2>
 
-<h2 id="ruby-versionsimplementations">Ruby versions/implementations</h2>
+<h3 id="built-toolchain">Built toolchain</h3>
+
+<p>GCC 4.5.x, make, autotools, et cetera.</p>
+
+<h3 id="networking-tools">Networking tools</h3>
+
+<p>curl, wget, OpenSSL headers, rsync</p>
+
+<h3 id="runtimes">Runtimes</h3>
+
+<p>Every worker has at least one version of</p>
 
 <ul>
-  <li>1.8.7 (default)</li>
-  <li>1.9.2</li>
-  <li>1.9.3</li>
-  <li>jruby</li>
-  <li>rbx-18mode (aliased as rbx)</li>
-  <li>rbx-19mode (in Ruby 1.9 mode)</li>
-  <li>ree (2011.03)</li>
-  <li>ruby-head</li>
+  <li>Ruby</li>
+  <li>OpenJDK</li>
+  <li>Python</li>
+  <li>Node.js</li>
 </ul>
 
-<p><a href="https://twitter.com/travisci/status/114926454122364928">Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org</a>.</p>
+<p>to accomodate projects that may need one of those runtimes during the build.</p>
 
-<h2 id="erlangotp-releases">Erlang/OTP releases</h2>
+<p>Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).</p>
+
+<h3 id="data-stores">Data Stores</h3>
+
+<ul>
+  <li>MySQL 5.1.x</li>
+  <li>PostgreSQL 8.4.x</li>
+  <li>SQLite 3 2.7.x</li>
+  <li>MongoDB 2.0.x</li>
+  <li>Riak 1.0.x</li>
+  <li>Redis 2.4.x</li>
+  <li>CouchDB 1.0.x</li>
+</ul>
+
+<h3 id="messaging-technology">Messaging Technology</h3>
+
+<ul>
+  <li>RabbitMQ 2.7.x</li>
+  <li>ZeroMQ 2.1.x</li>
+</ul>
+
+<h3 id="environment-variables">Environment variables</h3>
+
+<ul>
+  <li>DEBIAN_FRONTEND=noninteractive</li>
+  <li>CI=true</li>
+  <li>TRAVIS=true</li>
+  <li>HAS_JOSH_K_SEAL_OF_APPROVAL=true</li>
+  <li>USER=vagrant</li>
+  <li>HOME=/home/vagrant</li>
+  <li>LANG=en_US.UTF-8</li>
+  <li>LC_ALL=en_US.UTF-8</li>
+</ul>
+
+<h2 id="clojure-worker-vm-images">Clojure worker VM images</h2>
+
+<p>Clojure projects are currently built on Ruby workers, see Ruby worker VM images section below.</p>
+
+<h3 id="leiningen-version">Leiningen version</h3>
+
+<p>travis-ci.org uses standalone (&ldquo;uberjar&rdquo;) Leiningen 1.6.x, currently 1.6.2.</p>
+
+<h2 id="erlang-worker-vm-images">Erlang worker VM images</h2>
+
+<h3 id="erlangotp-releases">Erlang/OTP releases</h3>
 
 <ul>
   <li>R14B04</li>
@@ -127,14 +155,26 @@ We modify some of them for continuous integration needs and sync them periodical
   <li>R13B03</li>
 </ul>
 
-<h2 id="nodejs-versions">Node.js versions</h2>
+<p>Erlang/OTP releases are built using <a href="https://github.com/spawngrid/kerl">kerl</a>.</p>
+
+<h2 id="nodejs-vm-images">Node.js VM images</h2>
+
+<h3 id="nodejs-versions">Node.js versions</h3>
 
 <ul>
   <li>0.4 (0.4.12)</li>
   <li>0.6 (0.6.6)</li>
 </ul>
 
-<h2 id="php-versions">PHP versions</h2>
+<p>Node runtimes are built using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
+
+<h3 id="scons">SCons</h3>
+
+<p>Scons is available to <a href="http://travis-ci.org/#!/joyent/node">build joyent/node on travis-ci.org</a>. Other projects can use it, too.</p>
+
+<h2 id="php-vm-images">PHP VM images</h2>
+
+<h3 id="php-versions">PHP versions</h3>
 
 <ul>
   <li>5.2 (5.2.17)</li>
@@ -142,30 +182,95 @@ We modify some of them for continuous integration needs and sync them periodical
   <li>5.4 (5.4.0rc4)</li>
 </ul>
 
-<h2 id="gems-in-the-global-gem-set">Gems in the global gem set</h2>
+<p>PHP runtimes are built using <a href="https://github.com/CHH/php-build">php-build</a>.</p>
+
+<h3 id="xdebug">XDebug</h3>
+
+<p>Is supported.</p>
+
+<h3 id="extensions">Extensions</h3>
+
+<p>TBD: PHP maintainers, please write me</p>
+
+<h2 id="ruby-aka-common-worker-vm-images">Ruby (aka common) worker VM images</h2>
+
+<h3 id="ruby-versionsimplementations">Ruby versions/implementations</h3>
 
 <ul>
-  <li>chef</li>
+  <li>1.8.7 (default)</li>
+  <li>1.9.2</li>
+  <li>1.9.3</li>
+  <li>jruby</li>
+  <li>rbx-18mode (aliased as rbx)</li>
+  <li>rbx-19mode (in Ruby 1.9 mode)</li>
+  <li>ree (2011.03)</li>
+  <li>ruby-head (upgraded every 1-2 weeks)</li>
+</ul>
+
+<p><a href="https://twitter.com/travisci/status/114926454122364928">Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org</a>.</p>
+
+<p>Rubies are built using <a href="https://rvm.beginrescueend.com/">RVM</a> that is installed per-user and sourced from ~/.bashrc.</p>
+
+<h3 id="bundler-version">Bundler version</h3>
+
+<p>Recent 1.0.x version (usually the most recent)</p>
+
+<h3 id="gems-in-the-global-gem-set">Gems in the global gem set</h3>
+
+<ul>
   <li>bundler</li>
   <li>rake</li>
 </ul>
 
-<h2 id="environment-variables">Environment variables</h2>
+<h3 id="environment-variables-1">Environment variables</h3>
 
 <ul>
-  <li>DEBIAN_FRONTEND=noninteractive</li>
-  <li>CI=true</li>
-  <li>TRAVIS=true</li>
-  <li>HAS_JOSH_K_SEAL_OF_APPROVAL=true</li>
-  <li>USER=vagrant</li>
-  <li>HOME=/home/vagrant</li>
-  <li>LANG=en_US.UTF-8</li>
-  <li>LC_ALL=en_US.UTF-8</li>
   <li>RAILS_ENV=test</li>
   <li>RACK_ENV=test</li>
   <li>MERB_ENV=test</li>
   <li>JRUBY_OPTS=&rdquo;&ndash;server -Dcext.enabled=false&rdquo;</li>
 </ul>
+
+<h2 id="how-vm-images-are-upgraded-and-deployed">How VM images are upgraded and deployed</h2>
+
+<p>We use Vagrant to develop, test, build, export and import VM images (a.k.a &ldquo;Vagrant boxes&rdquo;). Provisioning is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>.
+VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different
+workers vary in size but in general are <strong>between 1.5 and 2.5 GB in size</strong>.</p>
+
+<p>This means that to provision a new PHP release (for example), we do the following:</p>
+
+<ul>
+  <li>Update our PHP-related cookbooks and possibly tools like php-build that they depend on.</li>
+  <li>Test cookbooks locally</li>
+  <li>Build a new PHP VM image</li>
+  <li>Upload the image to our internal network</li>
+  <li>Take php1.worker.travis-ci.org down to import new images</li>
+</ul>
+
+<p>For new releases of data stores or messaging technologies, for example, Riak</p>
+
+<ul>
+  <li>Update our Riak cookbook</li>
+  <li>Test the cookbook locally</li>
+  <li>Build a new standard VM image, then worker-specific (Ruby, PHP, Node.js and so on) VM images based on the new standard image</li>
+  <li>Upload new images to our internal network</li>
+  <li>Take travis-ci.org workers down one by one to import new images</li>
+</ul>
+
+<p>The entire process usually takes from one to several hours (depending on how many VM images need to be rebuilt). Combined with the time for
+testing, new releases of runtimes and other widely used software usually go live on travis-ci.org within a week from the moment Travis Core team is
+notified about the release.</p>
+
+<h2 id="chef-cookbooks">Chef Cookbooks</h2>
+
+<p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">cookbooks used by travis-ci.org</a> are open source and can be found on GitHub.
+travis-ci.org uses 32-bit Ubuntu Linux 11.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.</p>
+
+<p>Chef cookbooks are developed using <a href="http://vagrantup.com/">Vagrant</a> and <a href="https://github.com/michaelklishin/sous-chef">Sous Chef</a> so
+cookbook contributors are encouraged to use them.</p>
+
+<p>Many cookbooks Travis CI environment uses are taken from the <a href="https://github.com/opscode/cookbooks">official OpsCode cookbooks repository</a>.
+We modify some of them for continuous integration needs and sync them periodically or as the need arises.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
