@@ -3,59 +3,52 @@ title: Building a Erlang project
 kind: content
 ---
 
-### Provided tools
+## What This Guide Covers
 
-Travis VMs provide
+This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
-* 32-bit [Erlang OTP](http://www.erlang.org/download.html) versions
-  R14B04, R14B03, R14B02, R14B01, R14B, R14A, R13B04 andR13B03
-* A recent version of  [Rebar](https://github.com/basho/rebar).
 
-### Setting up a Erlang project on travis-ci.org
+## Choosing OTP releases to test against
 
-Erlang projects on travis-ci.org are managed with [Rebar](https://github.com/basho/rebar).. Typical build then has two operations:
-
-    rebar get-deps
-    rebar compile && rebar skip_deps=true eunit
-
-The first command installs the project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config). The second command runs the test suite.
-
-Travis will do a Rebar build if a rebar.config is present in the root of the project. If no rebar.config is found, the following operation will be triggered instead:
-
-    make tests
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
+Travis VMs provide 32-bit [Erlang OTP](http://www.erlang.org/download.html) releases R14B04, R14B03, R14B02, R14B, R14A, R13B04 and R13B03 built using [kerl](https://github.com/spawngrid/kerl/tree/).
+To specify OTP releases you want your project to be tested against, use the `otp_release` key:
 
     language: erlang
     otp_release:
        - R14B04
        - R14B03
        - R14B02
-       - R14B01
        - R14B
        - R14A
        - R13B04
        - R13B03
 
-If you need a more fine-grained setup, specify operations to use in your .travis.yml like this:
-
-    language: erlang
-    before_script: "rebar get-deps"
-    script: "rebar compile eunit"
 
 
-### Overriding script, before_install, before_script and friends
+## Default Test Script
 
-See <a href="/docs/user/build-configuration/">Build configuration</a> to learn about *before_install*, *before_script*, branches configuration, email notification
-configuration and so on.
+Travis CI by default assumes your project is built using [Rebar](https://github.com/basho/rebar) and uses EUnit. The exact command Erlang builder
+will use by default is
+
+    rebar compile && rebar skip_deps=true eunit
+
+if your project has `rebar.config` or `Rebar.config` files in the repository root. If this is not the case, Erlang builder will fall back to
+
+    make test
+
+
+
+## Dependency Management
+
+Because Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar). is used by default, it naturally uses
+
+    rebar get-deps
+
+to installs project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config).
+
 
 
 ### Examples
 
- * [wardbekker/elixer](https://github.com/wardbekker/elixir/blob/master/.travis.yml)
+ * [elixer](https://github.com/josevalim/elixir/blob/master/.travis.yml)
  * [wardbekker/distel](https://github.com/wardbekker/distel/blob/master/.travis.yml)
-
-### Background information
-
-Multiple Erlang/OTP distributions are installed alongside using [Kerl](https://github.com/spawngrid/kerl/tree/). Before every build one of the versions is activated an provides a basic installation of Erlang/OTP. Erlang projects do not a have consistent build technique. Some use Rebar, some good old make and even a combinaties of the two. As Rebar has a good handling of project dependencies, it's a sensible default for Travis.
-
