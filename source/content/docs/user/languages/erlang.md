@@ -18,8 +18,6 @@ To specify OTP releases you want your project to be tested against, use the `otp
        - R14B04
        - R14B03
        - R14B02
-       - R14B
-       - R14A
        - R13B04
        - R13B03
 
