@@ -50,7 +50,7 @@
 
 <h2 id="choosing-otp-releases-to-test-against">Choosing OTP releases to test against</h2>
 
-<p>Travis VMs provide 32-bit <a href="http://www.erlang.org/download.html">Erlang OTP</a> releases R14B04, R14B03, R14B02, R14B, R14A, R13B04 and R13B03 built using <a href="https://github.com/spawngrid/kerl/tree/">kerl</a>.
+<p>Travis VMs provide 32-bit <a href="http://www.erlang.org/download.html">Erlang OTP</a> releases R14B04, R14B03 and R14B02 built using <a href="https://github.com/spawngrid/kerl/tree/">kerl</a>.
 To specify OTP releases you want your project to be tested against, use the <code>otp_release</code> key:</p>
 
 <pre><code>language: erlang
@@ -58,8 +58,6 @@ otp_release:
    - R14B04
    - R14B03
    - R14B02
-   - R13B04
-   - R13B03
 </code></pre>
 
 <h2 id="default-test-script">Default Test Script</h2>

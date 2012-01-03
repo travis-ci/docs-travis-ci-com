@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Erlang 
 
 ## Choosing OTP releases to test against
 
-Travis VMs provide 32-bit [Erlang OTP](http://www.erlang.org/download.html) releases R14B04, R14B03, R14B02, R14B, R14A, R13B04 and R13B03 built using [kerl](https://github.com/spawngrid/kerl/tree/).
+Travis VMs provide 32-bit [Erlang OTP](http://www.erlang.org/download.html) releases R14B04, R14B03 and R14B02 built using [kerl](https://github.com/spawngrid/kerl/tree/).
 To specify OTP releases you want your project to be tested against, use the `otp_release` key:
 
     language: erlang
@@ -18,8 +18,6 @@ To specify OTP releases you want your project to be tested against, use the `otp
        - R14B04
        - R14B03
        - R14B02
-       - R13B04
-       - R13B03
 
 
 
