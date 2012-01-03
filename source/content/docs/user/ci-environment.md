@@ -119,10 +119,6 @@ travis-ci.org uses standalone ("uberjar") Leiningen 1.6.x, currently 1.6.2.
 * R14B04
 * R14B03
 * R14B02
-* R14B
-* R14A
-* R13B04
-* R13B03
 
 Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
