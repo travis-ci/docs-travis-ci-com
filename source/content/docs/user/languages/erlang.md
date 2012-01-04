@@ -15,6 +15,7 @@ To specify OTP releases you want your project to be tested against, use the `otp
 
     language: erlang
     otp_release:
+       - R15B
        - R14B04
        - R14B03
        - R14B02

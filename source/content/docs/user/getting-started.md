@@ -55,6 +55,7 @@ Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for
 
     language: erlang
     otp_release:
+      - R15B
       - R14B02
       - R14B03
       - R14B04

@@ -116,6 +116,7 @@ travis-ci.org uses standalone ("uberjar") Leiningen 1.6.x, currently 1.6.2.
 
 ### Erlang/OTP releases
 
+* R15B
 * R14B04
 * R14B03
 * R14B02
