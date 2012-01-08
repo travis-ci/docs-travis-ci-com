@@ -89,7 +89,7 @@ Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP
       - 1.9.3
       - jruby
       - rbx-18mode
-    # if your project needs to run something other than `rake`:
+    # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 
 Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a>
