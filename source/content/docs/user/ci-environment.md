@@ -129,7 +129,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 ### Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.6)
+* 0.6 (0.6.7)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
@@ -144,8 +144,8 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 ### PHP versions
 
 * 5.2 (5.2.17)
-* 5.3 (5.3.8, 5.3.9rc3, 5.3.2)
-* 5.4 (5.4.0rc4)
+* 5.3 (5.3.8, 5.3.9rc4, 5.3.2)
+* 5.4 (5.4.0rc5)
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
