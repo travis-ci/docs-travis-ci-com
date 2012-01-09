@@ -11,7 +11,7 @@ regenerate HTML. Once your are done with your changes, please fork and make a pu
 
 ## How to edit the site
 
-Make sure you have Ruby and RubyGems installed. Next install [bundler]():
+Make sure you have Ruby and RubyGems installed. Next install [bundler](http://gembundler.com/):
 
     gem install bundler --pre
 
