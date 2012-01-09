@@ -5,6 +5,7 @@ GEM
       rack (>= 1.0.0)
     builder (3.0.0)
     cri (1.0.1)
+    effin_utf8 (1.0)
     kramdown (0.13.3)
     mime-types (1.17.2)
     nanoc (3.1.7)
@@ -20,6 +21,7 @@ PLATFORMS
 DEPENDENCIES
   adsf
   builder
+  effin_utf8
   kramdown
   mime-types
   nanoc
