@@ -68,14 +68,14 @@ which we use for VM management.</p>
 <ul>
   <li>Optionally reset <em>all</em> VirtualBox settings and VMs, stop all VirtualBox
 daemons.</li>
-  <li>Download <code>lucid32.box</code> to <code>~/travis-worker</code> unless it&rsquo;s already there.</li>
+  <li>Download <code>lucid32.box</code> to <code>~/travis-worker</code> unless it’s already there.</li>
   <li>Import <code>lucid32.box</code> as a Vagrant box named <code>base</code>.</li>
-  <li>Boot up and provision a Vagrant VM named &ldquo;base&rdquo; based on this box and using
+  <li>Boot up and provision a Vagrant VM named “base” based on this box and using
 the cookbooks.</li>
-  <li>Package (export) the provisioned &ldquo;base&rdquo; VM to a package named <code>base.box</code>
+  <li>Package (export) the provisioned “base” VM to a package named <code>base.box</code>
 stored in <code>~/travis-worker</code>.</li>
-  <li>Import the <code>base.box</code> package as Vagrant boxes <code>worker-1</code>, <code>worker-2</code>, &hellip;</li>
-  <li>Boot up Vagrant VMs named <code>worker-1</code>, <code>worker-2</code>, &hellip;</li>
+  <li>Import the <code>base.box</code> package as Vagrant boxes <code>worker-1</code>, <code>worker-2</code>, …</li>
+  <li>Boot up Vagrant VMs named <code>worker-1</code>, <code>worker-2</code>, …</li>
 </ul>
 
 <p>Warning: you do <em>not</em> want to reset VirtualBox with our Thor tasks if you are
@@ -100,10 +100,10 @@ sometimes useful for inspecting VM details. Find documentation about <code>vboxm
 <p>In order to sandbox executing code from userland we use VirtualBox VM snapshots.</p>
 
 <p>Doing so we will roll back everything to the virgin booted state that is the
-result of the provisioning. That means that even git clone&rsquo;d code and downloaded
+result of the provisioning. That means that even git clone’d code and downloaded
 rubygems will be gone after the rollback.</p>
 
-<p>To be more precise here&rsquo;s what happens:</p>
+<p>To be more precise here’s what happens:</p>
 
 <ul>
   <li>The worker gets a build job from the queue.</li>
@@ -121,7 +121,7 @@ snapshots are still restored and deleted).</li>
 
 <h3 id="setting-up-a-new-worker-box">Setting up a new worker box</h3>
 
-<p>Currently needs to be done manually. <span class="help">Automate this if you&rsquo;d like to help!<span /></span></p>
+<p>Currently needs to be done manually. <span class="help">Automate this if you’d like to help!<span /></span></p>
 
 <p>The box should have a user <code>travis</code> and the following things installed.</p>
 
@@ -172,7 +172,7 @@ maybe staging! See below for instructions.</p>
   <li>You are setting up a new worker server box.</li>
   <li>There are significant changes to the cookbooks and you want to restart from
 scratch.</li>
-  <li>For some reason VMs are broken or don&rsquo;t boot and you want to rebuild them.</li>
+  <li>For some reason VMs are broken or don’t boot and you want to rebuild them.</li>
 </ul>
 
 <p>For (re-) building all worker VMs use the following Thor task:</p>
@@ -222,7 +222,7 @@ not be overwritten. You can simply ignore these messages.</li>
   <li>Boot the additional VMs by running <code>$ vagrant up</code>.</li>
 </ul>
 
-<p>Now <code>$ vagrant status</code> should show you the same number of VMs as you&rsquo;ve specified
+<p>Now <code>$ vagrant status</code> should show you the same number of VMs as you’ve specified
 in your <code>config/worker.yml</code> and they should be all running.</p>
 
 <p>You also need to update God with the new configuration and restart the worker
@@ -243,7 +243,7 @@ to provision cookbook changes to the worker VMs:</p>
   <li>Simply provision the worker VMs</li>
   <li>Provision the base VM, re-export it to base.box, remove all worker base boxes,
 re-add base.box as new worker base boxes, destroy all VMs, start new worker
-VMs. <span class="help">Automate this if you&rsquo;d like to help!<span /></span></li>
+VMs. <span class="help">Automate this if you’d like to help!<span /></span></li>
 </ul>
 
 <p>The first approach provisions on each of your VMs, so if you have 5 VMs it will
@@ -262,7 +262,7 @@ with the first approach, whereas the second approach would only take 20 mins.</p
 <h3 id="stop-workers-before-working-on-vms">Stop workers before working on VMs</h3>
 
 <p>Before you start working on VMs you want to stop the workers in production and
-maybe staging. Here&rsquo;s how you can do that:</p>
+maybe staging. Here’s how you can do that:</p>
 
 <pre><code>$ thor travis:worker:resque:stop  # this will stop the workers but wait for current jobs to be finished (might take a little while)
 $ ps aux | grep resque            # check that all worker processes actually have quit (they should!)

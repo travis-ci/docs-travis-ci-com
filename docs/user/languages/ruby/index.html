@@ -101,14 +101,14 @@ but is not a good idea performance and stability-wise and we believe continuous 
 
 <h2 id="default-test-script">Default Test Script</h2>
 
-<p>Travis will use <a href="http://gembundler.com/">Bundler</a> to install your project&rsquo;s dependencies and run <code>rake</code> by default to execute your tests.
+<p>Travis will use <a href="http://gembundler.com/">Bundler</a> to install your project’s dependencies and run <code>rake</code> by default to execute your tests.
 Pleasen note that <strong>you need to add rake to your Gemfile</strong> (adding it to just <code>:test</code> group should be sufficient).</p>
 
 <h2 id="dependency-management">Dependency Management</h2>
 
 <h3 id="travis-uses-bundler">Travis uses Bundler</h3>
 
-<p>Travis uses <a href="http://gembundler.com/">Bundler</a> to install your project&rsquo;s dependencies. It is possible to override this behavior and there are project
+<p>Travis uses <a href="http://gembundler.com/">Bundler</a> to install your project’s dependencies. It is possible to override this behavior and there are project
 that use RVM gemset import feature but the majority of Ruby projects hosted on Travis use Bundler.</p>
 
 <h3 id="exclude-non-essential-gems-like-ruby-debug-from-your-gemfile">Exclude non-essential gems like ruby-debug from your Gemfile</h3>
@@ -134,14 +134,14 @@ compiling linecache over and over.</p>
 <pre><code>gemfile: gemfiles/Gemfile.ci
 </code></pre>
 
-<p>Unless specified, the worker will look for a file named &ldquo;Gemfile&rdquo; in the root of your project.</p>
+<p>Unless specified, the worker will look for a file named “Gemfile” in the root of your project.</p>
 
 <p>You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to <code>bundle install</code>:</p>
 
 <pre><code>bundler_args: --binstubs
 </code></pre>
 
-<p>You can also define a script to be run before &lsquo;bundle install&rsquo;:</p>
+<p>You can also define a script to be run before ‘bundle install’:</p>
 
 <pre><code>before_install: some_command
 </code></pre>
@@ -157,7 +157,7 @@ compiling linecache over and over.</p>
 with Travis CI. What you have to do is this:</p>
 
 <ul>
-  <li>Create a directory in your project&rsquo;s repository root where you will keep gemfiles (./gemfiles is a commonly used name)</li>
+  <li>Create a directory in your project’s repository root where you will keep gemfiles (./gemfiles is a commonly used name)</li>
   <li>Add one or more gemfiles to it</li>
   <li>Instruct Travis CI to use those gemfiles using the <em>gemfile</em> option in your .travis.yml</li>
 </ul>
@@ -169,7 +169,7 @@ with Travis CI. What you have to do is this:</p>
   - gemfiles/eventmachine-pre
 </code></pre>
 
-<p>Thoughtbot&rsquo;s Paperclip is <a href="https://github.com/thoughtbot/paperclip/blob/master/.travis.yml">tested against multiple ActiveRecord versions</a>:</p>
+<p>Thoughtbot’s Paperclip is <a href="https://github.com/thoughtbot/paperclip/blob/master/.travis.yml">tested against multiple ActiveRecord versions</a>:</p>
 
 <pre><code>gemfile:
   - gemfiles/rails2.gemfile

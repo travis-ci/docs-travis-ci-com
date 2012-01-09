@@ -57,7 +57,7 @@ may have:</p>
 
 <ul>
   <li>What programming your project uses</li>
-  <li>What commands or scripts you want to be executed before each build (for example, to install or clone your project&rsquo;s dependencies)</li>
+  <li>What commands or scripts you want to be executed before each build (for example, to install or clone your project’s dependencies)</li>
   <li>What command is used to run your test suite</li>
   <li>Emails, Campfire and IRC rooms to notify about build failures</li>
 </ul>
@@ -82,7 +82,7 @@ For everything else, there are reasonable defaults.</p>
   <li>Run <em>after_script</em> scripts (if any)</li>
 </ul>
 
-<p>The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix <strong>exit code of &ldquo;0&rdquo; means the build passed; everything else is treated as failure</strong>.</p>
+<p>The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix <strong>exit code of “0” means the build passed; everything else is treated as failure</strong>.</p>
 
 <p>With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with <code>.travis.yml</code>.</p>
 
@@ -95,7 +95,7 @@ For everything else, there are reasonable defaults.</p>
 <pre><code>script: "make it-rain"
 </code></pre>
 
-<p>The script can be any executable; it doesn&rsquo;t have to be <code>make</code>.
+<p>The script can be any executable; it doesn’t have to be <code>make</code>.
 As a matter of fact the only requirement for the script is that it <strong>should use an exit code 0 on success, any thing else is considered a build failure</strong>.
 Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.</p>
 
@@ -278,7 +278,7 @@ branches:
     - stable
 </code></pre>
 
-<p>If you specify both, &ldquo;except&rdquo; will be ignored.</p>
+<p>If you specify both, “except” will be ignored.</p>
 
 <h2 id="notifications">Notifications</h2>
 
@@ -386,7 +386,7 @@ branches:
   <li>Environment variables with which you can configure your build scripts</li>
 </ul>
 
-<p>Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.</p>
+<p>Below is an example configuration for a rather big build matrix that expands to <strong>28 individual</strong> builds.</p>
 
 <p>Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you <em>actually need</em>.</p>
 
