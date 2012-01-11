@@ -66,31 +66,86 @@ When the build is done (successfully or not), apps prepare to sleep:
 The End. The system is ready for another build request.
 
 
+
 ## Libraries
 
-TBD
+Travis CI applications sometimes have to share certain piece of code. For example, `Travis Hub` and `Travis Server` need to agree on the database schema. Because of that
+and to structure our code better, we extracted and/or developed a number of Travis CI libraries:
+
+ * [travis-core](https://github.com/travis-ci/travis-core) hosts most of our domain models
+ * [travis-build](https://github.com/travis-ci/travis-build) encapsulates build lifecycle `Travis Workers` use and provides a unified API for language-specific builders
+ * [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities
+
+In addition, there are mutliple side projects we developed as part of working on Travis CI, for example
+
+ * [simple_states](https://github.com/svenfuchs/simple_states)
+ * [hashr](https://github.com/svenfuchs/hashr)
+ * [sous chef](https://github.com/michaelklishin/sous-chef)
+
+as well as projects we rely on heavily and contribute to, like
+
+ * [hot bunnies](https://github.com/ruby-amqp/hot_bunnies)
+ * [amqp gem](https://github.com/ruby-amqp/amqp)
+
+
+## CI Environment
+
+`Travis CI Environment` refers to the environment (tools, services, libraries, environment settings, etc) inside `Travis VMs` that `Travis Workers` use to run builds. The environment is
+snapshotted (no state is left between builds).
+
+
+Part of the appeal of Travis CI is that [common services and tools](/docs/user/ci-environment) (like MySQL, PostgreSQL, RabbitMQ, Redis, MongoDB, Riak and many more) are preinstalled and
+available for projects to use. We also provide passwordless sudo to make it possible to test projects with unique requirements and avoid having to install and maintain
+all the software known to mankind.
+
+`Travis CI Environment` is provisioned using modern automation tools and distirbuted in the form of `Travis VM images`.
 
 
 ## VM images
 
-TBD
+`Travis VMs` are created from `Travis VM images`. There is one image per technology we support, for example, Node.js or Erlang. Because Travis CI has its roots in the Ruby
+community, Ruby VMs are referred to as `common VMs` and also host Clojure, Java and even Lua projects. We will spin off new image types, for example, for JVM languages,
+as we improve support for them (for example, move to provide multiple JDK versions to test against).
+
+`Travis VM images` are built using [travis-boxes](https://github.com/travis-ci/travis-boxes), a set of tools based on [Vagrant](http://vagrantup.com), [Veewee](https://github.com/jedi4ever/veewee)
+and [OpsCode Chef](http://opscode.com/chef). Chef cookbooks we use all live in the [travis-cookbooks](https://github.com/travis-ci/travis-cookbooks) repository and are Apache 2.0 and MIT
+licensed.
 
 
 
 ## CI Environment Upgrade Process
 
-TBD
+To update software in the `CI environment`, we periodically rebuild `Travis VM images` and deploy them. Although this process is highly automated, there is certain amount of testing involved
+and it takes time to build, upload and download `Travis VM images` that range from 1.6 to 2.5 GB in size. This means that CI environment upgrades happen roughly once a week for
+each worker type.
 
 
 
-## Dependency Updates Policy
+### Buzzwords List (tm)
 
-TBD
+Travis CI currently uses
+
+ * [PostgreSQL](http://postgresql.org) 9.0+ as its main data store
+ * [RabbitMQ](http://rabbitmq.com) 2.5+ for messaging
+ * [JRuby](http://jruby.org) for `Travis Worker` with the official VirtualBox Java client.
+ * JRuby for `Travis Hub` with [Hot Bunnies](https://github.com/ruby-amqp/hot_bunnies) and the official RabbitMQ Java client.
+ * CRuby 1.9.2 on [Heroku](http://heroku.com) for `Travis Server`
+ * [Ember.js](http://emberjs.com/) (formerly known as SproutCore 2) for the rich `Travis Server` UI frontend
+ * [Pusher](http://pusher.com) for delivering messages to Web browsers over WebSockets
+ * [OpsCode Chef](http://opscode.com/chef), [Vagrant](http://vagrantup.com) and [Veewee](https://github.com/jedi4ever/veewee) for `CI environment` provisioning & managing VM images.
+ * CouchDB for build log archiving
+
+This technology stack has changed significantly in the past and will change if the need arises.
 
 
-## Libraries
+### Worker Machines
 
-TBD
+Worker machines travis-ci.org uses are donated by the community and our sponsors ([drop us a line](mailto:contact@travis-ci.org) if you are interested in donating hardware or otherwise sponsoring the project).
+`Travis Workers` run alongside `Travis VMs` they use, one worker thread per virtual machine. We currently VirtualBox for virtualization and `Travis Worker` implementation
+depends on it, although the dependency will be abstracted away in the future.
+
+Application instances that power travis-ci.org are primarily hosted in two locations: West coast in the US and Germany.
+
 
 
 ## What To Read Next

@@ -113,23 +113,82 @@ and updates the UI in near real time.</p>
 
 <h2 id="libraries">Libraries</h2>
 
-<p>TBD</p>
+<p>Travis CI applications sometimes have to share certain piece of code. For example, <code>Travis Hub</code> and <code>Travis Server</code> need to agree on the database schema. Because of that
+and to structure our code better, we extracted and/or developed a number of Travis CI libraries:</p>
+
+<ul>
+  <li><a href="https://github.com/travis-ci/travis-core">travis-core</a> hosts most of our domain models</li>
+  <li><a href="https://github.com/travis-ci/travis-build">travis-build</a> encapsulates build lifecycle <code>Travis Workers</code> use and provides a unified API for language-specific builders</li>
+  <li><a href="https://github.com/travis-ci/travis-support">travis-support</a> contains various support classes and utilities</li>
+</ul>
+
+<p>In addition, there are mutliple side projects we developed as part of working on Travis CI, for example</p>
+
+<ul>
+  <li><a href="https://github.com/svenfuchs/simple_states">simple_states</a></li>
+  <li><a href="https://github.com/svenfuchs/hashr">hashr</a></li>
+  <li><a href="https://github.com/michaelklishin/sous-chef">sous chef</a></li>
+</ul>
+
+<p>as well as projects we rely on heavily and contribute to, like</p>
+
+<ul>
+  <li><a href="https://github.com/ruby-amqp/hot_bunnies">hot bunnies</a></li>
+  <li><a href="https://github.com/ruby-amqp/amqp">amqp gem</a></li>
+</ul>
+
+<h2 id="ci-environment">CI Environment</h2>
+
+<p><code>Travis CI Environment</code> refers to the environment (tools, services, libraries, environment settings, etc) inside <code>Travis VMs</code> that <code>Travis Workers</code> use to run builds. The environment is
+snapshotted (no state is left between builds).</p>
+
+<p>Part of the appeal of Travis CI is that <a href="/docs/user/ci-environment">common services and tools</a> (like MySQL, PostgreSQL, RabbitMQ, Redis, MongoDB, Riak and many more) are preinstalled and
+available for projects to use. We also provide passwordless sudo to make it possible to test projects with unique requirements and avoid having to install and maintain
+all the software known to mankind.</p>
+
+<p><code>Travis CI Environment</code> is provisioned using modern automation tools and distirbuted in the form of <code>Travis VM images</code>.</p>
 
 <h2 id="vm-images">VM images</h2>
 
-<p>TBD</p>
+<p><code>Travis VMs</code> are created from <code>Travis VM images</code>. There is one image per technology we support, for example, Node.js or Erlang. Because Travis CI has its roots in the Ruby
+community, Ruby VMs are referred to as <code>common VMs</code> and also host Clojure, Java and even Lua projects. We will spin off new image types, for example, for JVM languages,
+as we improve support for them (for example, move to provide multiple JDK versions to test against).</p>
+
+<p><code>Travis VM images</code> are built using <a href="https://github.com/travis-ci/travis-boxes">travis-boxes</a>, a set of tools based on <a href="http://vagrantup.com">Vagrant</a>, <a href="https://github.com/jedi4ever/veewee">Veewee</a>
+and <a href="http://opscode.com/chef">OpsCode Chef</a>. Chef cookbooks we use all live in the <a href="https://github.com/travis-ci/travis-cookbooks">travis-cookbooks</a> repository and are Apache 2.0 and MIT
+licensed.</p>
 
 <h2 id="ci-environment-upgrade-process">CI Environment Upgrade Process</h2>
 
-<p>TBD</p>
+<p>To update software in the <code>CI environment</code>, we periodically rebuild <code>Travis VM images</code> and deploy them. Although this process is highly automated, there is certain amount of testing involved
+and it takes time to build, upload and download <code>Travis VM images</code> that range from 1.6 to 2.5 GB in size. This means that CI environment upgrades happen roughly once a week for
+each worker type.</p>
 
-<h2 id="dependency-updates-policy">Dependency Updates Policy</h2>
+<h3 id="buzzwords-list-tm">Buzzwords List (tm)</h3>
 
-<p>TBD</p>
+<p>Travis CI currently uses</p>
 
-<h2 id="libraries-1">Libraries</h2>
+<ul>
+  <li><a href="http://postgresql.org">PostgreSQL</a> 9.0+ as its main data store</li>
+  <li><a href="http://rabbitmq.com">RabbitMQ</a> 2.5+ for messaging</li>
+  <li><a href="http://jruby.org">JRuby</a> for <code>Travis Worker</code> with the official VirtualBox Java client.</li>
+  <li>JRuby for <code>Travis Hub</code> with <a href="https://github.com/ruby-amqp/hot_bunnies">Hot Bunnies</a> and the official RabbitMQ Java client.</li>
+  <li>CRuby 1.9.2 on <a href="http://heroku.com">Heroku</a> for <code>Travis Server</code></li>
+  <li><a href="http://emberjs.com/">Ember.js</a> (formerly known as SproutCore 2) for the rich <code>Travis Server</code> UI frontend</li>
+  <li><a href="http://pusher.com">Pusher</a> for delivering messages to Web browsers over WebSockets</li>
+  <li><a href="http://opscode.com/chef">OpsCode Chef</a>, <a href="http://vagrantup.com">Vagrant</a> and <a href="https://github.com/jedi4ever/veewee">Veewee</a> for <code>CI environment</code> provisioning &amp; managing VM images.</li>
+  <li>CouchDB for build log archiving</li>
+</ul>
 
-<p>TBD</p>
+<p>This technology stack has changed significantly in the past and will change if the need arises.</p>
+
+<h3 id="worker-machines">Worker Machines</h3>
+
+<p>Worker machines travis-ci.org uses are donated by the community and our sponsors (<a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#111;&#110;&#116;&#097;&#099;&#116;&#064;&#116;&#114;&#097;&#118;&#105;&#115;&#045;&#099;&#105;&#046;&#111;&#114;&#103;">&#100;&#114;&#111;&#112;&#032;&#117;&#115;&#032;&#097;&#032;&#108;&#105;&#110;&#101;</a> if you are interested in donating hardware or otherwise sponsoring the project).
+<code>Travis Workers</code> run alongside <code>Travis VMs</code> they use, one worker thread per virtual machine. We currently VirtualBox for virtualization and <code>Travis Worker</code> implementation
+depends on it, although the dependency will be abstracted away in the future.</p>
+
+<p>Application instances that power travis-ci.org are primarily hosted in two locations: West coast in the US and Germany.</p>
 
 <h2 id="what-to-read-next">What To Read Next</h2>
 
