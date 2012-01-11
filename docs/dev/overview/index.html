@@ -64,11 +64,11 @@ details and should be considered a high level overview.</p>
 <p>that communicate primarily over <a href="http://rubyamqp.info/articles/amqp_9_1_model_explained/">AMQP 0.9.1</a>. Some of them also share
 our main database but in a way isolates updates from read requests.</p>
 
-<h3 id="one-day-in-life-of-push-notifications">One Day in Life of Push Notifications</h3>
+<h3 id="one-day-in-life-of-build-request">One Day in Life of Build Request</h3>
 
 <h4 id="early-morning">Early Morning</h4>
 
-<p>When external <code>Push Notification</code> comes in via HTTP, it is handled by <code>Travis Server</code>. If there is no existing builds history for
+<p>When external <code>Build Request</code> (currently, push notification from GitHub) comes in via HTTP, it is handled by <code>Travis Server</code>. If there is no existing builds history for
 the project, it is initialized. <code>Travis Server</code> then emits a <code>configuration task</code> message and is done with its part.</p>
 
 <p><code>Configuration task</code> message is routed by RabbitMQ to a queue used by <code>Travis Hub</code>. The Hub fetches <code>.travis.yml</code> from project

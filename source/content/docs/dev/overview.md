@@ -22,11 +22,11 @@ Travis CI v3 (deployed in November 2011) consists of 4 key applications:
 that communicate primarily over [AMQP 0.9.1](http://rubyamqp.info/articles/amqp_9_1_model_explained/). Some of them also share
 our main database but in a way isolates updates from read requests.
 
-### One Day in Life of Push Notifications
+### One Day in Life of Build Request
 
 #### Early Morning
 
-When external `Push Notification` comes in via HTTP, it is handled by `Travis Server`. If there is no existing builds history for
+When external `Build Request` (currently, push notification from GitHub) comes in via HTTP, it is handled by `Travis Server`. If there is no existing builds history for
 the project, it is initialized. `Travis Server` then emits a `configuration task` message and is done with its part.
 
 `Configuration task` message is routed by RabbitMQ to a queue used by `Travis Hub`. The Hub fetches `.travis.yml` from project
