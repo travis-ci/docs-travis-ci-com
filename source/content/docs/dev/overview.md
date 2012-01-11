@@ -9,6 +9,8 @@ This guide explains what applications, libraries, tools and practices make travi
 why each part of the system works the way it does and what upsides and downsides it entails. It intentionally leaves out many
 details and should be considered a high level overview.
 
+Please note that **this guide is not yet complete** (started on Jan 11th, 2012). We will expand it.
+
 
 ## Applications
 
