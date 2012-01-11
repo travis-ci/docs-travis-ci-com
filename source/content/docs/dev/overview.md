@@ -200,6 +200,10 @@ depends on it, although the dependency will be abstracted away in the future.
 Application instances that power travis-ci.org are primarily hosted in two locations: West coast in the US and Germany.
 
 
+## Documentation Site
+
+This documentation site is statically generated using [nanoc 3](http://nanoc.stoneship.org). The repository is [up on GitHub](https://github.com/travis-ci/travis-ci.github.com), just like everything else.
+
 
 ## What To Read Next
 
