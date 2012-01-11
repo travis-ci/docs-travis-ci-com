@@ -53,7 +53,7 @@ to the client app through websocket messages.</p>
 
 <h3 id="request">Request</h3>
 
-<p>A Request is what external services, like currently Github, send to Travis. It
+<p>A Request is what external services, like currently Github, send to Travis Server. It
 contains the sent payload and has a one-to-one relationship to a Build.</p>
 
 <h3 id="build">Build</h3>
@@ -177,34 +177,34 @@ are cancelled and messages are sent to the workers which also cancel the jobs
 
 <ul>
   <li>Github pings</li>
-  <li>App creates a Request</li>
-  <li>App creates a Build with the Request</li>
-  <li>App emits a build:created event</li>
-  <li>App gets the Build::Configure from the Build and queues it</li>
-  <li>App emits a build:configure:queued event</li>
+  <li>Server creates a Request</li>
+  <li>Server creates a Build with the Request</li>
+  <li>Server emits a build:created event</li>
+  <li>Server gets the Build::Configure from the Build and enqueues it</li>
+  <li>Server emits a build:configure:queued event</li>
 </ul>
 
 <h3 id="build-configuration">Build configuration</h3>
 
 <ul>
-  <li>Worker starts the Build::Configure</li>
-  <li>Worker emits a build:configure:started event</li>
-  <li>Worker processes and finishes the Build::Configure</li>
-  <li>Worker emits a build:configure:finished event (carrying the config)</li>
+  <li>Hub starts the Build::Configure</li>
+  <li>Hub emits a build:configure:started event</li>
+  <li>Hub processes and finishes the Build::Configure</li>
+  <li>Hub emits a build:configure:finished event (carrying the config)</li>
 </ul>
 
 <h3 id="build-approval">Build approval</h3>
 
 <ul>
-  <li>App saves the configuration.</li>
+  <li>Hub saves the configuration.</li>
 </ul>
 
 <p>If the build is eligible (i.e. not excluded by the configuration) then:</p>
 
 <ul>
-  <li>App spawns one or many Build::Tests</li>
-  <li>App queues each of the Build::Tests</li>
-  <li>App emits one or many build:test:queued events</li>
+  <li>Hub creates one or many Build::Tests</li>
+  <li>Hub queues each of the Build::Tests</li>
+  <li>Hub emits one or multiple build:test:queued messages</li>
 </ul>
 
 <h3 id="buildtest-execution">Build::Test execution</h3>
@@ -221,7 +221,7 @@ are cancelled and messages are sent to the workers which also cancel the jobs
 <h3 id="buildtest-completion">Build::Test completion</h3>
 
 <ul>
-  <li>App saves the job result and log</li>
+  <li>Hub saves the job result and log</li>
 </ul>
 
 <h3 id="build-completion">Build completion</h3>
@@ -263,9 +263,14 @@ are cancelled and messages are sent to the workers which also cancel the jobs
            </ul>
             <h2>Developer Guides</h2>
             <ul>
-              <li><a href="/docs/dev/worker/">The worker</a></li>
               <li><a href="/docs/dev/api/">The API</a></li>
+            </ul>
+            <h2>Contributor Guides</h2>
+            <ul>
+              <li><a href="/docs/dev/overview/">Overview</a></li>
+              <li><a href="/docs/dev/worker/">The worker (v3)</a></li>
               <li><a href="/docs/dev/build_tasks/">Build Tasks</a></li>
+              <li><a href="/docs/dev/maintenance/">Maintenance</a></li>
             </ul>
             <h2>Under construction</h2>
             <ul>

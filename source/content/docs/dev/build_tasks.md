@@ -12,7 +12,7 @@ to the client app through websocket messages.
 
 ### Request
 
-A Request is what external services, like currently Github, send to Travis. It
+A Request is what external services, like currently Github, send to Travis Server. It
 contains the sent payload and has a one-to-one relationship to a Build.
 
 ### Build
@@ -129,28 +129,28 @@ So, in more detail:
 ### Build creation
 
 * Github pings
-* App creates a Request
-* App creates a Build with the Request
-* App emits a build:created event
-* App gets the Build::Configure from the Build and queues it
-* App emits a build:configure:queued event
+* Server creates a Request
+* Server creates a Build with the Request
+* Server emits a build:created event
+* Server gets the Build::Configure from the Build and enqueues it
+* Server emits a build:configure:queued event
 
 ### Build configuration
 
-* Worker starts the Build::Configure
-* Worker emits a build:configure:started event
-* Worker processes and finishes the Build::Configure
-* Worker emits a build:configure:finished event (carrying the config)
+* Hub starts the Build::Configure
+* Hub emits a build:configure:started event
+* Hub processes and finishes the Build::Configure
+* Hub emits a build:configure:finished event (carrying the config)
 
 ### Build approval
 
-* App saves the configuration.
+* Hub saves the configuration.
 
 If the build is eligible (i.e. not excluded by the configuration) then:
 
-* App spawns one or many Build::Tests
-* App queues each of the Build::Tests
-* App emits one or many build:test:queued events
+* Hub creates one or many Build::Tests
+* Hub queues each of the Build::Tests
+* Hub emits one or multiple build:test:queued messages
 
 ### Build::Test execution
 
@@ -163,7 +163,7 @@ If the build is eligible (i.e. not excluded by the configuration) then:
 
 ### Build::Test completion
 
-* App saves the job result and log
+* Hub saves the job result and log
 
 ### Build completion
 
