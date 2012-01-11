@@ -3,6 +3,14 @@ title: The worker
 kind: content
 ---
 
+## What This Guide Covers
+
+This guide covers `Travis Worker`. Please make sure to read [Technical Overview](/docs/dev/overview/) first.
+
+Please note that **this guide needs rewriting** after v3 release in November 2011. Most of the content is still relevant
+but need clarification.
+
+
 ## Application domain
 
 The following classes encapsulate the application domain model concepts. I.e.
