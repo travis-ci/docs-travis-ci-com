@@ -174,7 +174,7 @@ each worker type.
 
 
 
-### Buzzwords List (tm)
+## Buzzwords List™
 
 Travis CI currently uses
 
@@ -191,7 +191,7 @@ Travis CI currently uses
 This technology stack has changed significantly in the past and will change if the need arises.
 
 
-### Worker Machines
+## Worker Machines
 
 Worker machines travis-ci.org uses are donated by the community and our sponsors ([drop us a line](mailto:contact@travis-ci.org) if you are interested in donating hardware or otherwise sponsoring the project).
 `Travis Workers` run alongside `Travis VMs` they use, one worker thread per virtual machine. We currently VirtualBox for virtualization and `Travis Worker` implementation
