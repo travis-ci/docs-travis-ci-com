@@ -5,7 +5,9 @@ kind: content
 
 ## What This Guide Covers
 
-TBD: we need to write this after v3 release in November 2011
+This guide covers `Travis Worker`. Please make sure to read [Technical Overview](/docs/dev/overview/) first.
+
+Please note that **this guide needs rewriting** after v3 release in November 2011.
 
 
 ## Overview
