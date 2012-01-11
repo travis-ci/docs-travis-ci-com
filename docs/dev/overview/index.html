@@ -82,7 +82,7 @@ it publishes one or more <code>build task</code> messages, one per <code>build m
 <p><code>Build task</code> messages are routed to one of several queues (depending on project language setting in <code>.travis.yml</code>) and consumed
 by one of <code>Travis Workers</code>. <code>Travis Worker</code> that consumed the message then uses information in it to determine how to run the build.
 Then it establishes SSH connection to one of snapshotted <code>Travis VMs</code>, picks a <code>technology-specific builder</code> and runs the build.
-Build lifecycle is documented in detail in our <a href="/docs/user/build-configuration">Build Configuration guide</a>.</p>
+Build lifecycle is documented in detail in our <a href="/docs/user/build-configuration/">Build Configuration guide</a>.</p>
 
 <p>Commands that <code>technology-specific builder</code> runs over SSH produce output (via standard in and standard out streams) that <code>Travis Worker</code>
 captures and publishes as <code>build log chunk</code> messages. Those messages are routed by RabbitMQ to one of several queues (one per project
