@@ -46,11 +46,70 @@
 
             <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>TBD</p>
+<p>This guide explains what applications, libraries, tools and practices make travis-ci.org run. It briefly outlines
+why each part of the system works the way it does and what upsides and downsides it entails. It intentionally leaves out many
+details and should be considered a high level overview.</p>
 
 <h2 id="applications">Applications</h2>
 
-<p>TBD</p>
+<p>Travis CI v3 (deployed in November 2011) consists of 4 key applications:</p>
+
+<ul>
+  <li>Travis Hub</li>
+  <li>Travis Server</li>
+  <li>Travis Worker</li>
+  <li>Travis Boxes</li>
+</ul>
+
+<p>that communicate primarily over <a href="http://rubyamqp.info/articles/amqp_9_1_model_explained/">AMQP 0.9.1</a>. Some of them also share
+our main database but in a way isolates updates from read requests.</p>
+
+<h3 id="one-day-in-life-of-push-notifications">One Day in Life of Push Notifications</h3>
+
+<h4 id="early-morning">Early Morning</h4>
+
+<p>When external <code>Push Notification</code> comes in via HTTP, it is handled by <code>Travis Server</code>. If there is no existing builds history for
+the project, it is initialized. <code>Travis Server</code> then emits a <code>configuration task</code> message and is done with its part.</p>
+
+<p><code>Configuration task</code> message is routed by RabbitMQ to a queue used by <code>Travis Hub</code>. The Hub fetches <code>.travis.yml</code> from project
+repository, parses it and checks whether the build has to be skipped. If so, the message is not processed further. If not, then
+it publishes one or more <code>build task</code> messages, one per <code>build matrix</code> row.</p>
+
+<h4 id="noon">Noon</h4>
+
+<p><code>Build task</code> messages are routed to one of several queues (depending on project language setting in <code>.travis.yml</code>) and consumed
+by one of <code>Travis Workers</code>. <code>Travis Worker</code> that consumed the message then uses information in it to determine how to run the build.
+Then it establishes SSH connection to one of snapshotted <code>Travis VMs</code>, picks a <code>technology-specific builder</code> and runs the build.
+Build lifecycle is documented in detail in our <a href="/docs/user/build-configuration">Build Configuration guide</a>.</p>
+
+<p>Commands that <code>technology-specific builder</code> runs over SSH produce output (via standard in and standard out streams) that <code>Travis Worker</code>
+captures and publishes as <code>build log chunk</code> messages. Those messages are routed by RabbitMQ to one of several queues (one per project
+type: Clojure, Node.js, PHP, Ruby, etc). From there, they are pushed to consumers in <code>Travis Hub</code> which <strong>primary purpose is to
+collect build logs and process them</strong>.</p>
+
+<p>Build log processing in <code>Travis Hub</code> has multiple steps, some of which have strict ordering requirements and some are executed
+asynchronously in separate threads:</p>
+
+<ul>
+  <li>Update build log in the database</li>
+  <li>Propagate <code>build log chunk</code> messages to Web browsers using WebSockets</li>
+  <li>Detect build termination</li>
+  <li>On build termination: update build task records, deliver email/IRC/Campfire notifications</li>
+</ul>
+
+<p>This is where our single page rich client app that <code>Travis Server</code> serves comes in. It receives propagated event messages via WebSockets
+and updates the UI in near real time.</p>
+
+<h4 id="night">Night</h4>
+
+<p>When the build is done (successfully or not), apps prepare to sleep:</p>
+
+<ul>
+  <li><code>Travis Hub</code> finalizes build tasks state, propagates <code>build termination event</code> messages to Web browsers, delivers notifications if needed.</li>
+  <li><code>Travis Worker</code> powers off and rolls back the VM it had been using to run this build. This wipes any changes to the CI environment so no state is preserved between builds.</li>
+</ul>
+
+<p>The End. The system is ready for another build request.</p>
 
 <h2 id="libraries">Libraries</h2>
 
