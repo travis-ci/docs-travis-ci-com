@@ -188,7 +188,7 @@ Travis CI currently uses
  * [OpsCode Chef](http://opscode.com/chef), [Vagrant](http://vagrantup.com) and [Veewee](https://github.com/jedi4ever/veewee) for `CI environment` provisioning & managing VM images.
  * CouchDB for build log archiving
 
-This technology stack has changed significantly in the past and will change if the need arises.
+This technology stack has changed significantly over our first year in operation and will change in the future should the need arise.
 
 
 ## Worker Machines
