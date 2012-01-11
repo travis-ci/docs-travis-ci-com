@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: Overview</title>
+    <title>Travis CI: Technical Overview</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
@@ -41,7 +41,7 @@
         <div class="pad">
           <div id="main">
             
-              <h2>Overview</h2>
+              <h2>Technical Overview</h2>
             
 
             <h2 id="what-this-guide-covers">What This Guide Covers</h2>
@@ -97,6 +97,7 @@ asynchronously in separate threads:</p>
   <li>Propagate <code>build log chunk</code> messages to Web browsers using WebSockets</li>
   <li>Detect build termination</li>
   <li>On build termination: update build task records, deliver email/IRC/Campfire notifications</li>
+  <li>Proactively archive build logs</li>
 </ul>
 
 <p>This is where our single page rich client app that <code>Travis Server</code> serves comes in. It receives propagated event messages via WebSockets
@@ -112,6 +113,57 @@ and updates the UI in near real time.</p>
 </ul>
 
 <p>The End. The system is ready for another build request.</p>
+
+<h2 id="travis-server">Travis Server</h2>
+
+<p><code>Travis Server</code> currently performs several related functions:</p>
+
+<ul>
+  <li>Accepts incoming <code>build requests</code>. This will soon be extracted into a separate service, <code>Travis Listener</code>.</li>
+  <li>Servers Ember.js-powered frontend application that you can see in action on <a href="http://travis-ci.org">travis-ci.org</a></li>
+  <li>Serves API requests (build statuses, build status badges, CI tray requests and more)</li>
+</ul>
+
+<p>TBD: link to separate guide</p>
+
+<h2 id="travis-worker">Travis Worker</h2>
+
+<p><code>Travis Worker</code> runs builds using snapshotted <code>Travis VMs</code>, captures build output and streams it to <code>Travis Hub</code> next to other build lifecycle messages. Each instance of <code>Travis Worker</code> can
+drive multiple <code>Travis VMs</code>, one VM per worker thread. travis-ci.org is powered by several (currently 9) <code>Travis Worker</code> app instances, varying from 3 to 6 VMs per machine.</p>
+
+<p>Adding support for new technologies primarily involves <code>Travis Worker</code> updates (more on that in the Libraries section below) as well as <code>Travis CI Environment</code> updates
+(also below).</p>
+
+<p>TBD: link to separate guide</p>
+
+<h2 id="travis-hub">Travis Hub</h2>
+
+<p><code>Travis Hub</code> collects build lifecycle events (for example, <code>build log chunks</code>) and processes them. Processing includes but is not limited to</p>
+
+<ul>
+  <li>Updates to build log in the database</li>
+  <li>Propagating build events to Web browsers using WebSockets</li>
+  <li>Delivering notifications (email, IRC, etc)</li>
+  <li>Build archival</li>
+</ul>
+
+<p>Compared to Travis CI applications, <code>Travis Hub</code> has higher performance, concurrency and GC predictability requirements. This was key
+motivation to making <code>Travis Hub</code> JVM-based (currently we use JRuby).</p>
+
+<p><code>Travis Hub</code> consumes messages from multiple reporting queues, one per technology we support (reporting messages from Ruby builds are thus completely separated from the Erlang ones,
+for example), and concurrently processes them.</p>
+
+<p>It is fair to say that <code>Travis Hub</code> is the most complex of all Travis CI applications we have today. This is why we carefully evaluate what features
+are worth adding to the Hub: many features simply won’t be worth the complexity.</p>
+
+<p>TBD: link to separate guide</p>
+
+<h2 id="travis-boxes">Travis Boxes</h2>
+
+<p><code>Travis Boxes</code> is a small set of tools we use to provision and build <code>Travis VM images</code> (see below). It currently builds Vagrant boxes (.ovf images + some metadata used by <a href="http://vagrantup.com">Vagrant</a>)
+but will be extended to build images in other formats in the future.</p>
+
+<p>TBD: link to separate guide</p>
 
 <h2 id="libraries">Libraries</h2>
 

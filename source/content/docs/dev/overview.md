@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Technical Overview
 kind: content
 ---
 
@@ -54,6 +54,7 @@ asynchronously in separate threads:
  * Propagate `build log chunk` messages to Web browsers using WebSockets
  * Detect build termination
  * On build termination: update build task records, deliver email/IRC/Campfire notifications
+ * Proactively archive build logs
 
 This is where our single page rich client app that `Travis Server` serves comes in. It receives propagated event messages via WebSockets
 and updates the UI in near real time.
@@ -66,6 +67,56 @@ When the build is done (successfully or not), apps prepare to sleep:
  * `Travis Worker` powers off and rolls back the VM it had been using to run this build. This wipes any changes to the CI environment so no state is preserved between builds.
 
 The End. The system is ready for another build request.
+
+## Travis Server
+
+`Travis Server` currently performs several related functions:
+
+ * Accepts incoming `build requests`. This will soon be extracted into a separate service, `Travis Listener`.
+ * Servers Ember.js-powered frontend application that you can see in action on [travis-ci.org](http://travis-ci.org)
+ * Serves API requests (build statuses, build status badges, CI tray requests and more)
+
+TBD: link to separate guide
+
+
+## Travis Worker
+
+`Travis Worker` runs builds using snapshotted `Travis VMs`, captures build output and streams it to `Travis Hub` next to other build lifecycle messages. Each instance of `Travis Worker` can
+drive multiple `Travis VMs`, one VM per worker thread. travis-ci.org is powered by several (currently 9) `Travis Worker` app instances, varying from 3 to 6 VMs per machine.
+
+Adding support for new technologies primarily involves `Travis Worker` updates (more on that in the Libraries section below) as well as `Travis CI Environment` updates
+(also below).
+
+TBD: link to separate guide
+
+
+## Travis Hub
+
+`Travis Hub` collects build lifecycle events (for example, `build log chunks`) and processes them. Processing includes but is not limited to
+
+ * Updates to build log in the database
+ * Propagating build events to Web browsers using WebSockets
+ * Delivering notifications (email, IRC, etc)
+ * Build archival
+
+Compared to Travis CI applications, `Travis Hub` has higher performance, concurrency and GC predictability requirements. This was key
+motivation to making `Travis Hub` JVM-based (currently we use JRuby).
+
+`Travis Hub` consumes messages from multiple reporting queues, one per technology we support (reporting messages from Ruby builds are thus completely separated from the Erlang ones,
+for example), and concurrently processes them.
+
+It is fair to say that `Travis Hub` is the most complex of all Travis CI applications we have today. This is why we carefully evaluate what features
+are worth adding to the Hub: many features simply won't be worth the complexity.
+
+TBD: link to separate guide
+
+
+## Travis Boxes
+
+`Travis Boxes` is a small set of tools we use to provision and build `Travis VM images` (see below). It currently builds Vagrant boxes (.ovf images + some metadata used by [Vagrant](http://vagrantup.com))
+but will be extended to build images in other formats in the future.
+
+TBD: link to separate guide
 
 
 
