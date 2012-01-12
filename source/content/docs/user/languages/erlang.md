@@ -47,5 +47,5 @@ to installs project's [dependencies as listed in the rebar.config file](https://
 
 ### Examples
 
+ * [cowboy](https://github.com/extend/cowboy/blob/master/.travis.yml)
  * [elixir](https://github.com/josevalim/elixir/blob/master/.travis.yml)
- * [wardbekker/distel](https://github.com/wardbekker/distel/blob/master/.travis.yml)
