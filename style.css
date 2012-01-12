@@ -276,6 +276,12 @@ div#sidebar {
   padding:0;
 }
 
+#sidebar p {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar p,
 #sidebar ul li p,
 #sidebar ul li a,
 #sidebar ul li a:visited {
