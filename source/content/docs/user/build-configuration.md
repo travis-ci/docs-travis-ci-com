@@ -126,7 +126,7 @@ Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for
 
 ### Erlang
 
-Erlang projects specify OTP releases they need to be tested against using `otp_release` key:
+Erlang projects specify releases they need to be tested against using `otp_release` key:
 
     otp_release:
       - R14B02
@@ -137,7 +137,7 @@ Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for 
 
 ### Node.js
 
-Node.js projects specify OTP releases they need to be tested against using `node_js` key:
+Node.js projects specify releases they need to be tested against using `node_js` key:
 
      node_js:
        - 0.4
@@ -147,7 +147,7 @@ Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.
 
 ### PHP
 
-PHP projects specify OTP releases they need to be tested against using `phps` key:
+PHP projects specify releases they need to be tested against using `phps` key:
 
     phps:
       - 5.3
@@ -157,7 +157,7 @@ Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP
 
 ### Ruby
 
-Ruby projects specify OTP releases they need to be tested against using `rvm` key:
+Ruby projects specify releases they need to be tested against using `rvm` key:
 
     rvm:
       - 1.8.7
