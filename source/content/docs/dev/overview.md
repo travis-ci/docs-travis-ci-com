@@ -16,10 +16,10 @@ Please note that **this guide is not yet complete** (started on Jan 11th, 2012).
 
 Travis CI v3 (deployed in November 2011) consists of 4 key applications:
 
- * Travis Hub
- * Travis Server
- * Travis Worker
- * Travis Boxes
+ * [Travis Hub](https://github.com/travis-ci/travis-hub)
+ * [Travis Server](https://github.com/travis-ci/travis-ci)
+ * [Travis Worker](https://github.com/travis-ci/travis-worker)
+ * [Travis Boxes](https://github.com/travis-ci/travis-boxes)
 
 that communicate primarily over [AMQP 0.9.1](http://rubyamqp.info/articles/amqp_9_1_model_explained/). Some of them also share
 our main database but in a way that isolates updates from read requests.
