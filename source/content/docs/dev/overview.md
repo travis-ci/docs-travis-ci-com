@@ -22,7 +22,7 @@ Travis CI v3 (deployed in November 2011) consists of 4 key applications:
  * Travis Boxes
 
 that communicate primarily over [AMQP 0.9.1](http://rubyamqp.info/articles/amqp_9_1_model_explained/). Some of them also share
-our main database but in a way isolates updates from read requests.
+our main database but in a way that isolates updates from read requests.
 
 ### One Day in Life of Build Request
 
