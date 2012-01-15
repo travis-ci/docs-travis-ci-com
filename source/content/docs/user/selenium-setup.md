@@ -1,17 +1,45 @@
 ---
-title: Selenium setup
+title: Headless browser testing setup
 kind: content
 ---
 
-You can run Selenium tests (and anything else that requires a browser) on Travis CI. The environment has xvfb and Firefox installed. xvfb is a "virtual framebuffer" that lets you run a real browser on a headless machine, as if a proper display were attached. It does require a little extra setup, though.
+## What This Guide Covers
 
-First, somewhere in your before_script, you need this line:
+This guide covers headless browser testing using tools provided by the Travis [CI environment](/docs/user/ci-environment/). Most of the content is technology-neutral and does
+not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
-    sh -e /etc/init.d/xvfb start
+
+## Using xvfb to Run Tests in the Browser
+
+You can run test suites that require a browser on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and `Firefox` installed. xvfb lets you run a real browser
+on a headless machine, as if a proper display were attached.
+
+Befor `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
+
+    before_script:
+      - "export DISPLAY=:99.0"
+      - "sh -e /etc/init.d/xvfb start"
 
 This starts xvfb on display port :99.0. The display port is set directly in the /etc/init.d script. 
+Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary
+between testing tools and programming languages.
 
-Second, when you run your tests, you need to tell your Selenium process about that display port, so it knows where to start Firefox. Here's an example rake task that runs Rspec, Jasmine, and Cucumber tests:
+
+## Using Phantom.js
+
+[Phantom.js](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping,
+pages capture, SVG renderer, network monitoring and many other use cases.
+
+[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`.
+
+
+## Examples
+
+### Ruby
+
+#### RSpec, Jasmine, Cucumber
+
+Here's an example rake task that runs Rspec, Jasmine, and Cucumber tests:
 
     task :travis do
       ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
