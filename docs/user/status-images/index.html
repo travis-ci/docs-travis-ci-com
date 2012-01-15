@@ -34,14 +34,26 @@
               <h2>Status Images</h2>
             
 
-            <p>After adding your project to Travis, you can use the status buttons to show the current status of your projects in your <code>README</code> file on Github or your project website.</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
+
+<p>This guide covers build status images feature of Travis CI. Status images are part of the HTTP API that render build status information
+(passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to
+continuous integration page for the project and to demonstrate their commitment to good software development practices.</p>
+
+<p>We recommend you start with the <a href="/docs/user/getting-started/">Getting Started</a> and <a href="/docs/user/build-configuration/">Build Configuration</a> guides before reading this one.</p>
+
+<h2 id="status-image-urls">Status Image URLs</h2>
+
+<p>After adding your project to Travis, you can use the status buttons to show the current status of your projects in your <code>README</code> file on Github or your project website.</p>
 
 <pre><code>https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
 </code></pre>
 
-<p>SSL is used so that GitHub does not cache the image.</p>
+<p>HTTPS is used so that GitHub does not cache the image.</p>
 
-<p>So, when using textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your <code>README</code>:</p>
+<h2 id="adding-status-images-to-readme-files">Adding Status Images to README Files</h2>
+
+<p>So, when using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your <code>README</code>:</p>
 
 <pre><code>"!https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
 </code></pre>
