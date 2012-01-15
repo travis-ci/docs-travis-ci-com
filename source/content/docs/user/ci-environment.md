@@ -47,7 +47,7 @@ GCC 4.5.x, make, autotools, et cetera.
 
 ### Networking tools
 
-curl, wget, OpenSSL headers, rsync
+curl, wget, OpenSSL, rsync
 
 
 ### Runtimes
@@ -75,13 +75,13 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Messaging Technology
 
-* RabbitMQ 2.7.x
-* ZeroMQ 2.1.x
+* [RabbitMQ](http://rabbitmq.com) 2.7.x
+* [ZeroMQ](http://www.zeromq.org/) 2.1.x
 
 ### Headless Browser Testing Tools
 
-* xvfb (X Virtual Framebuffer)
-* Phantom.js 1.4.x
+* [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
+* [Phantom.js](http://www.phantomjs.org/) 1.4.x
 
 ### Environment variables
 
