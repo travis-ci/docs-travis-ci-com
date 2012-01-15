@@ -34,58 +34,47 @@
               <h2>Databases on Travis workers</h2>
             
 
-            <p>Every Travis CI worker has preinstalled software that’s commonly used by the open source developer community. Some of the services available are:</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
+
+<p>This guide covers data stores offered in the Travis <a href="">CI environment</a> and what users &amp; settings projects hosted on travis-ci.org can rely on.
+Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that will will try to
+cover. We recommend you start with the <a href="/docs/user/getting-started/">Getting Started</a> and <a href="/docs/user/build-configuration/">Build Configuration</a> guides before reading this one.</p>
+
+<h2 id="data-stores-in-the-travis-ci-environment">Data Stores in the Travis CI Environment</h2>
+
+<p><a href="/docs/user/ci-environment/">Travis CI Environment</a> has multiple popular data stores preinstalled. Some of the services available are:</p>
 
 <ul>
-  <li>databases: MySQL, PostgreSQL, SQLite3, MongoDB, CouchDB</li>
-  <li>key-value stores: Redis, Riak, memcached</li>
-  <li>messaging brokers: RabbitMQ</li>
-  <li>ImageMagick</li>
-  <li>libqt4, xvfb and Firefox for headless browser testing</li>
+  <li>MySQL</li>
+  <li>PostgreSQL</li>
+  <li>SQLite3</li>
+  <li>MongoDB</li>
+  <li>CouchDB</li>
+  <li>Redis</li>
+  <li>Riak</li>
+  <li>Memcached</li>
 </ul>
 
-<p>You can find the full list of installed software, as well as Ruby engines and versions, in the <a href="https://github.com/travis-ci/travis-worker/blob/master/config/worker.production.yml">worker
-configuration file</a>. That file specifies which <a href="https://github.com/travis-ci/travis-cookbooks">recipes from our cookbooks</a> are used while building the worker instance.</p>
+<p>All aforementioned data stores use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed
+(because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.</p>
 
-<p>Some of these, e.g. node.js and memcached, are either available in the PATH or running on a default port, so no special information about them is required. Others, namely databases, may require authentication.</p>
+<h2 id="configure-your-projects-to-use-databases-in-tests">Configure Your Projects to Use Databases in Tests</h2>
 
-<p>Here is how to configure your project to use databases in its tests. This assumes you have already visited <a href="/docs/user/build-configuration/">Build configuration</a> documentation.</p>
-
-<h3 id="sqlite3">SQLite3</h3>
-
-<p>Probably the easiest and simplest solution for your relation database needs. If you don’t specifically want to test how your code behaves with other databases, SQLite in memory might be the best and fastest option.</p>
-
-<p>For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:</p>
-
-<pre><code># Gemfile
-gem 'sqlite3'
-</code></pre>
-
-<p>If your project is a Rails app, all you need to set up is:</p>
-
-<pre><code># config/database.yml in Rails
-test:
-  adapter: sqlite3
-  database: ":memory:"
-  timeout: 500
-</code></pre>
-
-<p>However, if your project is a general library or plugin, you need to handle connecting to the database yourself in tests. For example, connecting with ActiveRecord:</p>
-
-<pre><code>ActiveRecord::Base.establish_connection :adapter =&gt; 'sqlite3',
-                                        :database =&gt; ':memory:'
-</code></pre>
+<p>Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration][build configuration] documentation.</p>
 
 <h3 id="mysql">MySQL</h3>
 
-<p>MySQL on Travis binds to 0.0.0.0 and requires no authentication. Specify an empty username and no password:</p>
+<p>MySQL on Travis binds to 0.0.0.0 and requires authentication. You can connect using “root” username and blank password:</p>
 
 <pre><code>mysql:
   adapter: mysql2
   database: myapp_test
-  username: 
+  username: root
   encoding: utf8
 </code></pre>
+
+<p>If specify a blank username, keep in mind that for some clients, this is the same as “root” but for some it means “anonymous user”. When in doubt,
+try switching to <code>root</code> username.</p>
 
 <p>You do have to create the <code>myapp_test</code> database first. Run this as part of your build script:</p>
 
@@ -111,28 +100,56 @@ before_script:
   - "psql -c 'create database myapp_test;' -U postgres"
 </code></pre>
 
+<h3 id="sqlite3">SQLite3</h3>
+
+<p>Probably the easiest and simplest solution for your relation database needs. If you don’t specifically want to test how your code behaves with other databases,
+in memory SQLite might be the best option.</p>
+
+<h4 id="ruby-projects">Ruby Projects</h4>
+
+<p>For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:</p>
+
+<pre><code># Gemfile
+# for CRuby, Rubinius, including Windows and RubyInstaller
+gem "sqlite3", :platform =&gt; [:ruby, :mswin, :mingw]
+
+# for JRuby
+gem "jdbc-sqlite3", :platform =&gt; :jruby
+</code></pre>
+
+<p>If your project is a Rails app, all you need to set up is:</p>
+
+<pre><code># config/database.yml in Rails
+test:
+  adapter: sqlite3
+  database: ":memory:"
+  timeout: 500
+</code></pre>
+
+<p>However, if your project is a general library or plugin, you need to handle connecting to the database yourself in tests. For example, connecting with ActiveRecord:</p>
+
+<pre><code>ActiveRecord::Base.establish_connection :adapter =&gt; 'sqlite3',
+                                        :database =&gt; ':memory:'
+</code></pre>
+
 <h3 id="mongodb">MongoDB</h3>
 
-<p>MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front:</p>
-
-<pre><code>require 'mongo'
-Mongo::Connection.new('localhost').db('myapp')
-</code></pre>
+<p>MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.</p>
 
 <p>In cases you need to create users for your database, you can do something like this:</p>
 
 <pre><code># .travis.yml
 before_script:
-  - mongo myapp --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
-# then, in ruby:
+# connecting using Ruby MongoDB driver:
 uri = "mongodb://travis:test@localhost:27017/myapp"
 Mongo::Connection.from_uri(uri)
 </code></pre>
 
 <h3 id="couchdb">CouchDB</h3>
 
-<p>CouchDB binds to 127.0.0.1 and requires no authentication (it runs in admin party).</p>
+<p>CouchDB binds to 127.0.0.1, uses stock configuration and requires no authentication (it runs in admin party).</p>
 
 <p>You have to create the database as part of your build process:</p>
 
@@ -143,15 +160,37 @@ before_script:
 
 <h3 id="riak">Riak</h3>
 
-<p>TBD</p>
+<p>Riak uses stock configuration with one exception: it is configured to use <a href="http://wiki.basho.com/LevelDB.html">LevelDB storage backend</a>.</p>
 
 <h3 id="redis">Redis</h3>
 
-<p>TBD</p>
+<p>Redis uses stock configuration and is available on localhost.</p>
 
 <h3 id="multiple-database-systems">Multiple database systems</h3>
 
-<p>If your project’s tests need to run multiple times using different databases, this can be configured on Travis CI in several ways. One approach you might take is put all database configurations in one yaml file:</p>
+<p>If your project’s tests need to run multiple times using different databases, this can be configured on Travis CI in several ways.</p>
+
+<h4 id="using-env-variables">Using ENV variables</h4>
+
+<p>Now you use the “DB” environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:</p>
+
+<pre><code>$ DB=postgres [commands to run your tests]
+</code></pre>
+
+<p>On Travis CI you want to test against all 3 databases all the time, and for that you can use the “env” option:</p>
+
+<pre><code># .travis.yml
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgres
+</code></pre>
+
+<p>When doing this, please read and understand everything about the build matrix described in [Build configuration][/docs/user/build-configuration/].</p>
+
+<h4 id="ruby">Ruby</h4>
+
+<p>One approach you might take is put all database configurations in one YAML file, like ActiveRecord does:</p>
 
 <pre><code># test/database.yml
 sqlite:
@@ -179,24 +218,12 @@ ActiveRecord::Base.establish_connection(db_name)
 ActiveRecord::Base.default_timezone = :utc
 </code></pre>
 
-<p>Now you use the “DB” environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:</p>
+<h3 id="conclusion">Conclusion</h3>
 
-<pre><code>$ DB=postgres bundle exec rake
-</code></pre>
-
-<p>On Travis CI you want to test against all 3 databases all the time, and for that you can use the “env” option:</p>
-
-<pre><code># .travis.yml
-env:
-  - DB=sqlite
-  - DB=mysql
-  - DB=postgres
-</code></pre>
-
-<p>When doing this, please read and understand everything about the build matrix described in <a href="/docs/user/build-configuration/">Build configuration</a>.</p>
-
-<p>Lastly, make sure that you’re creating mysql and postgres databases in your build script according to the notes earlier in this document.</p>
-
+<p><a href="/docs/user/ci-environment/">Travis CI Environment</a> provides several popular open source data stores that hosted projects can use. In the majority of cases,
+said data stores use stock configuration. When it is not the case, the purpose of customizing the configuration is usually
+to minimize the amount of work developers have to do to use them. Often this means relaxing security settings, whicn is OK for
+continuous integration environments.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
@@ -240,9 +267,7 @@ env:
               <li><a href="/docs/dev/maintenance/">Maintenance</a></li>
             </ul>
             <h2>Under construction</h2>
-            <ul>
-              <li><p>Our site is still <a href="https://github.com/travis-ci/travis-ci.github.com">under construction</a>. You can help us in: travis#irc.freenode.net</p></li>
-            </ul>
+            <p>Our site is still <a href="https://github.com/travis-ci/travis-ci.github.com">under construction</a>. You can help us in: travis#irc.freenode.net</p>
           </div><!-- /#sidebar -->
         </div><!-- /.pad -->
       </div><!-- /.wrapper -->
