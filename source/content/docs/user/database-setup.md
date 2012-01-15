@@ -5,8 +5,8 @@ kind: content
 
 ## What This Guide Covers
 
-This guide covers data stores offered in the Travis [CI environment]() and what users & settings projects hosted on travis-ci.org can rely on.
-Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that will will try to
+This guide covers data stores offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on.
+Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to
 cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
 
