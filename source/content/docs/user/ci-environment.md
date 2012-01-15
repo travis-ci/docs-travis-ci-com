@@ -78,6 +78,11 @@ Language-specific workers have multiple runtimes for their respective language (
 * RabbitMQ 2.7.x
 * ZeroMQ 2.1.x
 
+### Headless Browser Testing Tools
+
+* xvfb (X Virtual Framebuffer)
+* Phantom.js 1.4.x
+
 ### Environment variables
 
 * DEBIAN_FRONTEND=noninteractive
