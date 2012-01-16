@@ -38,7 +38,7 @@ Or RDoc:
 Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)
 
 
-### Specifying branches
+## Build Status For Specific Branches
 
 You can limit the impact of this button to certain branches only. For example, you might not want to include feature branches, which might fail but don't mean the project itself fails.
 
