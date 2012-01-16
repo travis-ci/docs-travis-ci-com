@@ -73,7 +73,7 @@ The End. The system is ready for another build request.
 `Travis Server` currently performs several related functions:
 
  * Accepts incoming `build requests`. This will soon be extracted into a separate service, `Travis Listener`.
- * Servers Ember.js-powered frontend application that you can see in action on [travis-ci.org](http://travis-ci.org)
+ * Serves Ember.js-powered frontend application that you can see in action on [travis-ci.org](http://travis-ci.org)
  * Serves API requests (build statuses, build status badges, CI tray requests and more)
 
 TBD: link to separate guide
