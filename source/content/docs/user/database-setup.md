@@ -29,7 +29,7 @@ All aforementioned data stores use mostly stock default settings, however, when 
 
 ## Configure Your Projects to Use Databases in Tests
 
-Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration][build configuration] documentation.
+Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration](/docs/user/build-configuration/) documentation.
 
 ### MySQL
 
@@ -154,7 +154,7 @@ On Travis CI you want to test against all 3 databases all the time, and for that
       - DB=mysql
       - DB=postgres
 
-When doing this, please read and understand everything about the build matrix described in [Build configuration][/docs/user/build-configuration/].
+When doing this, please read and understand everything about the build matrix described in [Build configuration](/docs/user/build-configuration/).
 
 
 #### Ruby
