@@ -272,6 +272,9 @@ Also, you can specify when you want to get notified:
 
     notifications:
       email:
+        recipients:
+          - one@example.com
+          - other@example.com
         on_success: [always|never|change] # default: change
         on_failure: [always|never|change] # default: always
 
@@ -296,6 +299,9 @@ Just as with other notification types you can specify when IRC notifications wil
 
     notifications:
       irc:
+        channels:
+          - "irc.freenode.org#travis"
+          - "irc.freenode.org#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
@@ -318,6 +324,9 @@ Just as with other notification types you can specify when IRC notifications wil
 
     notifications:
       webhooks:
+        urls:
+          - http://hooks.mydomain.com/travisci
+          - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
