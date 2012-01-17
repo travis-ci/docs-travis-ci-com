@@ -36,7 +36,7 @@
 
             <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as “CI environment”) as well as
+<p>This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as &ldquo;CI environment&rdquo;) as well as
 how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
 Ruby, PHP, Node.js and so on to be provided.</p>
 
@@ -52,7 +52,7 @@ This offers a number of benefits:</p>
   <li>It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on</li>
 </ul>
 
-<p>The environment available to test suites is known as the <em>Travis CI environment</em>. VMs are deployed from VM images (“boxes”) that are available to the public.
+<p>The environment available to test suites is known as the <em>Travis CI environment</em>. VMs are deployed from VM images (&ldquo;boxes&rdquo;) that are available to the public.
 Provisioning of VM images is highly automated, new versions are deployed on average about once a week.</p>
 
 <h2 id="ci-environment-os">CI environment OS</h2>
@@ -61,7 +61,7 @@ Provisioning of VM images is highly automated, new versions are deployed on aver
 
 <h2 id="how-travis-ciorg-vms-are-provisioned">How travis-ci.org VMs are provisioned</h2>
 
-<p>Provisioning of VMs is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. VMs are never upgraded “on the go”, we always replace entire images.
+<p>Provisioning of VMs is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. VMs are never upgraded &ldquo;on the go&rdquo;, we always replace entire images.
 VM images are first uploaded to our internal network and deployed to each individual worker during slow periods of the day. On average, we try to
 deploy new versions of runtimes (e.g. Ruby or PHP) and software like data stores within a week from their public availability, given that Travis Core Team
 is aware of or notified about the release.</p>
@@ -148,7 +148,7 @@ file). This means <code>apt-get install</code> can be used without the -y flag.<
 
 <h3 id="leiningen-version">Leiningen version</h3>
 
-<p>travis-ci.org uses standalone (“uberjar”) Leiningen 1.6.x, currently 1.6.2.</p>
+<p>travis-ci.org uses standalone (&ldquo;uberjar&rdquo;) Leiningen 1.6.x, currently 1.6.2.</p>
 
 <h2 id="erlang-worker-vm-images">Erlang worker VM images</h2>
 
@@ -170,6 +170,7 @@ file). This means <code>apt-get install</code> can be used without the -y flag.<
 <ul>
   <li>0.4 (0.4.12)</li>
   <li>0.6 (0.6.7)</li>
+  <li>0.7 (0.7.0)</li>
 </ul>
 
 <p>Node runtimes are built using <a href="https://github.com/creationix/nvm">NVM</a>.</p>
@@ -234,12 +235,12 @@ file). This means <code>apt-get install</code> can be used without the -y flag.<
   <li>RAILS_ENV=test</li>
   <li>RACK_ENV=test</li>
   <li>MERB_ENV=test</li>
-  <li>JRUBY_OPTS=”–server -Dcext.enabled=false”</li>
+  <li>JRUBY_OPTS=&rdquo;&ndash;server -Dcext.enabled=false&rdquo;</li>
 </ul>
 
 <h2 id="how-vm-images-are-upgraded-and-deployed">How VM images are upgraded and deployed</h2>
 
-<p>We use Vagrant to develop, test, build, export and import VM images (a.k.a “Vagrant boxes”). Provisioning is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>.
+<p>We use Vagrant to develop, test, build, export and import VM images (a.k.a &ldquo;Vagrant boxes&rdquo;). Provisioning is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>.
 VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different
 workers vary in size but in general are <strong>between 1.5 and 2.5 GB in size</strong>.</p>
 

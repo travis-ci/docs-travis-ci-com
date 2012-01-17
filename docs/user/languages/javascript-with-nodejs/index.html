@@ -41,17 +41,18 @@
 <h2 id="choosing-node-versions-to-test-against">Choosing Node versions to test against</h2>
 
 <p>Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to
-be “first class”: testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project.
+be &ldquo;first class&rdquo;: testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project.
 Add the following line to .travis.yml:</p>
 
 <pre><code>language: node_js
 node_js:
   - 0.4
   - 0.6
+  - 0.7 # development version of 0.8, may be unstable
 </code></pre>
 
 <p>This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias
-for “the most recent 0.6.x release” and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
+for &ldquo;the most recent 0.6.x release&rdquo; and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
 .travis.yml will get outdated and things will break.</p>
 
 <p>For example, see <a href="https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml">hook.io-amqp-listener .travis.yml</a>.</p>
@@ -61,6 +62,7 @@ for “the most recent 0.6.x release” and so on. Please note that using exact 
 <ul>
   <li>0.4 (currently 0.4.12)</li>
   <li>0.6 (currently 0.6.6)</li>
+  <li>0.7 (currently 0.7.0. Development versions of 0.8)</li>
 </ul>
 
 <p>For full up-to-date list of provided Node versions, see our <a href="/docs/user/ci-environment/">CI environment guide</a>.</p>
@@ -99,7 +101,7 @@ the <code>npm test</code> convention.</p>
 
 <h3 id="travis-uses-npm">Travis uses NPM</h3>
 
-<p>Travis uses <a href="http://http://npmjs.org/">NPM</a> to install your project’s dependencies. It is possible to override this behavior and there are project
+<p>Travis uses <a href="http://http://npmjs.org/">NPM</a> to install your project&rsquo;s dependencies. It is possible to override this behavior and there are project
 that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.</p>
 
 <p>By default, Travis CI will run</p>

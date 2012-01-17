@@ -68,6 +68,7 @@ Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for 
      node_js:
        - 0.4
        - 0.6
+       - 0.7 # development version of 0.8, may be unstable
 
 Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a>
 

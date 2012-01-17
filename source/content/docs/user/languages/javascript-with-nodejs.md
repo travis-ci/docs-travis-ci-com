@@ -17,6 +17,7 @@ Add the following line to .travis.yml:
     node_js:
       - 0.4
       - 0.6
+      - 0.7 # development version of 0.8, may be unstable
 
 This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias
 for "the most recent 0.6.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your
@@ -29,6 +30,7 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
  * 0.4 (currently 0.4.12)
  * 0.6 (currently 0.6.6)
+ * 0.7 (currently 0.7.0. Development versions of 0.8)
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
 
