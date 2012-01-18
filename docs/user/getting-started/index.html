@@ -59,11 +59,11 @@ then.</p>
 <p>To get started with Travis CI, sign in through Github OAuth. Go to <a href="http://travis-ci.org">Travis CI</a> and follow the Sign In link at the top.</p>
 
 <p>Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it,
-but it won&rsquo;t touch anything else.</p>
+but it won’t touch anything else.</p>
 
 <h3 id="step-two-activate-github-service-hook">Step two: Activate GitHub Service Hook</h3>
 
-<p>Once you&rsquo;re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You&rsquo;ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
+<p>Once you’re signed in go to your <a href="http://travis-ci.org/profile">profile page</a>. You’ll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into
 the settings for the Travis service if it is not already pre-filled.</p>
 
 <p>If your repository belongs to organization or flipping the switch did not set up the hook, please <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">set it up manually</a> on GitHub, it will take just a couple of minutes.</p>
@@ -123,8 +123,10 @@ rvm:
   - 1.8.7
   - 1.9.2
   - 1.9.3
-  - jruby
+  - jruby-18mode # JRuby in 1.8 mode
+  - jruby-19mode # JRuby in 1.9 mode
   - rbx-18mode
+  # - rbx-19mode # currently in active development, may or may not work for your project
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
 </code></pre>
@@ -137,7 +139,7 @@ rvm:
 That should put a build job into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
 language is available.</p>
 
-<p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the &ldquo;Test Hook&rdquo; button for Travis.
+<p>To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the “Test Hook” button for Travis.
 Please note that <strong>you cannot trigger your first build using Test Hook button</strong>. It has to be triggered by a push to your repository.</p>
 
 <h3 id="step-five-tweaking-your-build-configuration">Step five: Tweaking your build configuration</h3>
@@ -156,7 +158,7 @@ about our test environment can be found <a href="/docs/user/ci-environment/">in 
 <h3 id="step-seven-we-are-here-to-help">Step seven: We are here to help!</h3>
 
 <p>For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>!
-We&rsquo;re there to help :)</p>
+We’re there to help :)</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

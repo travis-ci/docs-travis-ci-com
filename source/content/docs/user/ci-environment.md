@@ -174,10 +174,11 @@ TBD: PHP maintainers, please write me
 * 1.8.7 (default)
 * 1.9.2
 * 1.9.3
-* jruby
-* rbx-18mode (aliased as rbx)
+* jruby-18mode (alternative alias: jruby)
+* jruby-19mode (in Ruby 1.9 mode)
+* rbx-18mode (alternative alias: rbx)
 * rbx-19mode (in Ruby 1.9 mode)
-* ree (2011.03)
+* ree (2011.12)
 * ruby-head (upgraded every 1-2 weeks)
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).

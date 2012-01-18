@@ -17,7 +17,7 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
       - 1.8.7
       - 1.9.2
       - 1.9.3
-      - jruby
+      - jruby-18mode
       - rbx-18mode
 
 A more extensive example:
@@ -27,9 +27,10 @@ A more extensive example:
       - 1.8.7
       - 1.9.2
       - 1.9.3
-      - jruby
+      - jruby-18mode # JRuby in 1.8 mode
+      - jruby-19mode # JRuby in 1.9 mode
       - rbx-18mode
-      - rbx-19mode
+      # - rbx-19mode # currently in active development, may or may not work for your project
       - ruby-head
       - ree
 
