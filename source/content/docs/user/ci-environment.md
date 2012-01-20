@@ -134,7 +134,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 ### Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.7)
+* 0.6 (0.6.8)
 * 0.7 (0.7.0)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
