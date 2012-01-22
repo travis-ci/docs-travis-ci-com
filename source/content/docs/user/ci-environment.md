@@ -151,7 +151,7 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 
 * 5.2 (5.2.17)
 * 5.3 (5.3.9, 5.3.2)
-* 5.4 (5.4.0rc5)
+* 5.4 (5.4.0RC6)
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
