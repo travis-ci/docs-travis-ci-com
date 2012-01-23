@@ -188,6 +188,18 @@ Tilt and Rack versions</a>:</p>
 
 <p>Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.</p>
 
+<h2 id="upgrading-rubygems">Upgrading RubyGems</h2>
+
+<p>travis-ci.org provides exactly the same versions of rubygems RVM and various Ruby implementations/versions
+ship with. If REE 2011.12 ships with version <code>1.8.9</code>, it will be <code>1.8.9</code> on travis-ci.org.
+However, if your project or one of its dependencies needs a more recent version of rubygems,
+you can upgrade them with</p>
+
+<pre><code>before_install:
+  - gem update --system
+  - gem --version
+</code></pre>
+
           </div><!-- /#main -->
           <div id="sidebar">
             <h2>Contact</h2>

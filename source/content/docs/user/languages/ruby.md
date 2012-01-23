@@ -157,3 +157,13 @@ ChefSpec is [tested against multiple Opscode Chef versions](https://github.com/a
 Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.
 
 
+## Upgrading RubyGems
+
+travis-ci.org provides exactly the same versions of rubygems RVM and various Ruby implementations/versions
+ship with. If REE 2011.12 ships with version `1.8.9`, it will be `1.8.9` on travis-ci.org.
+However, if your project or one of its dependencies needs a more recent version of rubygems,
+you can upgrade them with
+
+    before_install:
+      - gem update --system
+      - gem --version
