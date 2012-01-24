@@ -12,8 +12,9 @@ kind: content
 
 ### Aide spécifique sur les langages supportés
 
-* <a href="/docs/user/languages/ruby/">Ruby</a>
-* <a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (avec Node.js)</a>
+* <a href="/fr/docs/user/languages/ruby/">Ruby</a>
+* <a href="/fr/docs/user/languages/javascript-with-nodejs/">JavaScript (avec Node.js)</a>
+* <a href="/fr/docs/user/languages/php/">PHP</a>
 
 ### Documentation développeur
 
