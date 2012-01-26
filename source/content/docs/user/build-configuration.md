@@ -1,5 +1,5 @@
 ---
-title: Build Configuration
+title: Configuring your Travis CI build with .travis.yml
 kind: content
 ---
 
