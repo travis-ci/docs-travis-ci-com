@@ -1,5 +1,5 @@
 ---
-title: Configurer une build
+title: Configurer une build avec .travis.yml
 kind: content
 ---
 
@@ -65,10 +65,9 @@ Veuillez bien noter que Travis CI est un service open-source dont les ressources
     rvm:
       - 1.8.7 # (par défaut)
       - 1.9.2
-      - rbx
-      - rbx-2.0
+      - rbx-18mode
       - ree
-      - jruby
+      - jruby-18mode
       - ruby-head
     gemfile:
       - gemfiles/Gemfile.rails-2.3.x
@@ -95,7 +94,7 @@ Vous pouvez spécifiez plus d'une variable d'environnement par élément du tabl
 
     rvm:
       - 1.9.3
-      - rbx-2.0
+      - rbx-18mode
     env:
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
