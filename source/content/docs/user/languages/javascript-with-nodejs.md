@@ -29,7 +29,7 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 ### Provided Node.js Versions
 
  * 0.4 (currently 0.4.12)
- * 0.6 (currently 0.6.8)
+ * 0.6 (currently 0.6.9)
  * 0.7 (currently 0.7.1. Development versions of 0.8)
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).

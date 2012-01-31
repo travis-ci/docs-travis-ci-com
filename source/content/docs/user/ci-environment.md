@@ -134,7 +134,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 ### Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.8)
+* 0.6 (0.6.9)
 * 0.7 (0.7.1)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
@@ -174,12 +174,13 @@ TBD: PHP maintainers, please write me
 * 1.8.7 (default)
 * 1.9.2
 * 1.9.3
-* jruby-18mode (alternative alias: jruby)
-* jruby-19mode (in Ruby 1.9 mode)
+* jruby-18mode (1.6.6; alternative alias: jruby)
+* jruby-19mode (1.6.6 in Ruby 1.9 mode)
 * rbx-18mode (alternative alias: rbx)
 * rbx-19mode (in Ruby 1.9 mode)
 * ree (2011.12)
 * ruby-head (upgraded every 1-2 weeks)
+* jruby-head (upgraded every 1-2 weeks)
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
