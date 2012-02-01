@@ -135,7 +135,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 * 0.4 (0.4.12)
 * 0.6 (0.6.9)
-* 0.7 (0.7.1)
+* 0.7 (0.7.2)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
