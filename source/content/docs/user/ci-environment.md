@@ -89,8 +89,8 @@ Language-specific workers have multiple runtimes for their respective language (
 * CI=true
 * TRAVIS=true
 * HAS_JOSH_K_SEAL_OF_APPROVAL=true
-* USER=vagrant
-* HOME=/home/vagrant
+* USER=vagrant (**a subject to change, do not depend on this value**)
+* HOME=/home/vagrant (**a subject to change, do not depend on this value**)
 * LANG=en_US.UTF-8
 * LC_ALL=en_US.UTF-8
 
@@ -208,9 +208,9 @@ Recent 1.0.x version (usually the most recent)
 
 ## How VM images are upgraded and deployed
 
-We use Vagrant to develop, test, build, export and import VM images (a.k.a "Vagrant boxes"). Provisioning is automated using [OpsCode Chef](http://www.opscode.com/chef/).
+We currently use Vagrant to develop, test, build, export and import VM images (a.k.a "Vagrant boxes"). Provisioning is automated using [OpsCode Chef](http://www.opscode.com/chef/).
 VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different
-workers vary in size but in general are **between 1.5 and 2.5 GB in size**.
+workers vary in size but in general are **between 1.6 and 3.3 GB in size**.
 
 This means that to provision a new PHP release (for example), we do the following:
 
@@ -237,7 +237,7 @@ notified about the release.
 
 ## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base) are open source and can be found on GitHub.
+The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub.
 travis-ci.org uses 32-bit Ubuntu Linux 11.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
 
 Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so

@@ -124,8 +124,8 @@ is aware of or notified about the release.</p>
   <li>CI=true</li>
   <li>TRAVIS=true</li>
   <li>HAS_JOSH_K_SEAL_OF_APPROVAL=true</li>
-  <li>USER=vagrant</li>
-  <li>HOME=/home/vagrant</li>
+  <li>USER=vagrant (<strong>a subject to change, do not depend on this value</strong>)</li>
+  <li>HOME=/home/vagrant (<strong>a subject to change, do not depend on this value</strong>)</li>
   <li>LANG=en_US.UTF-8</li>
   <li>LC_ALL=en_US.UTF-8</li>
 </ul>
@@ -242,9 +242,9 @@ file). This means <code>apt-get install</code> can be used without the -y flag.<
 
 <h2 id="how-vm-images-are-upgraded-and-deployed">How VM images are upgraded and deployed</h2>
 
-<p>We use Vagrant to develop, test, build, export and import VM images (a.k.a “Vagrant boxes”). Provisioning is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>.
+<p>We currently use Vagrant to develop, test, build, export and import VM images (a.k.a “Vagrant boxes”). Provisioning is automated using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>.
 VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different
-workers vary in size but in general are <strong>between 1.5 and 2.5 GB in size</strong>.</p>
+workers vary in size but in general are <strong>between 1.6 and 3.3 GB in size</strong>.</p>
 
 <p>This means that to provision a new PHP release (for example), we do the following:</p>
 
@@ -272,7 +272,7 @@ notified about the release.</p>
 
 <h2 id="chef-cookbooks">Chef Cookbooks</h2>
 
-<p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base">cookbooks used by travis-ci.org</a> are open source and can be found on GitHub.
+<p>The Travis CI environment is set up using <a href="http://www.opscode.com/chef/">OpsCode Chef</a>. All the <a href="https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment">cookbooks used by travis-ci.org</a> are open source and can be found on GitHub.
 travis-ci.org uses 32-bit Ubuntu Linux 11.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.</p>
 
 <p>Chef cookbooks are developed using <a href="http://vagrantup.com/">Vagrant</a> and <a href="https://github.com/michaelklishin/sous-chef">Sous Chef</a> so
