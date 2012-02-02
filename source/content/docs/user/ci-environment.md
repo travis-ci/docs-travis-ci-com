@@ -163,7 +163,67 @@ Is supported.
 
 ### Extensions
 
-TBD: PHP maintainers, please write me
+<pre>
+$ php -m
+[PHP Modules]
+bz2
+Core
+ctype
+curl
+date
+dom
+ereg
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+hash
+iconv
+intl
+json
+libxml
+mbstring
+mcrypt
+mysql
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+Phar
+posix
+readline
+Reflection
+session
+shmop
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+sysvsem
+sysvshm
+tidy
+tokenizer
+xdebug
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+zip
+zlib
+
+[Zend Modules]
+Xdebug
+</pre>
 
 
 
