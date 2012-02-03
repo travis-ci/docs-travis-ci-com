@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to PHP pro
 
 ## Choosing PHP versions to test against
 
-PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would looks like this:
+PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would look like this:
 
     language: php
     php:
