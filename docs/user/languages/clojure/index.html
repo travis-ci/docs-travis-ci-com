@@ -64,16 +64,6 @@ run your project test suite is</p>
 <pre><code>language: clojure
 </code></pre>
 
-<h3 id="using-midje-on-travis-ciorg">Using Midje on travis-ci.org</h3>
-
-<p>If your project uses <a href="https://github.com/marick/Midje">Midje</a>, make sure <a href="https://github.com/marick/Midje/wiki/Lein-midje">lein-midje</a> is on your <code>project.clj</code> development dependencies list and override <code>script:</code> in <code>.travis.yml</code> to
-run Midje task:</p>
-
-<pre><code>script: lein midje
-</code></pre>
-
-<p>For real world example, see <a href="https://github.com/reiddraper/knockbox">Knockbox</a>.</p>
-
 <h2 id="dependency-management">Dependency Management</h2>
 
 <p>the default command Travis CI will use
@@ -93,10 +83,43 @@ to install your project dependencies is</p>
 
 <p>See <a href="/docs/user/build-configuration/">general build configuration guide</a> to learn more.</p>
 
+<h3 id="testing-against-multiple-versions-of-clojure">Testing Against Multiple Versions of Clojure</h3>
+
+<p>Leiningen has an excellent plugin called <a href="https://github.com/maravillas/lein-multi">lein-multi</a> that lets you effortlessly test against multiple versions of Clojure
+(including pre-release versions like 1.4.0-beta1).</p>
+
+<p>To use lein-multi on travis-ci.org, first install it before dependency installation and override <code>script:</code> to run
+<code>lein multi test</code> instead of default <code>lein test</code>:</p>
+
+<pre><code>language: clojure
+before_install: lein plugin install lein-multi 1.1.0
+script: lein multi test
+</code></pre>
+
+<p>For a real world example, see <a href="https://github.com/michaelklishin/monger">Monger</a>.</p>
+
+<h3 id="using-midje-on-travis-ciorg">Using Midje on travis-ci.org</h3>
+
+<p>If your project uses <a href="https://github.com/marick/Midje">Midje</a>, make sure <a href="https://github.com/marick/Midje/wiki/Lein-midje">lein-midje</a> is on your <code>project.clj</code>
+development dependencies list and override <code>script:</code> in <code>.travis.yml</code> to run Midje task:</p>
+
+<pre><code>script: lein midje
+</code></pre>
+
+<p>Please note that for projects that only support Clojure 1.3.0 and later versions, you may need to exclude transient <code>org.clojure/clojure</code> for Midje
+in project.clj:</p>
+
+<pre><code>:dev-dependencies [[midje "1.3.1" :exclusions [org.clojure/clojure]]
+                   [lein-midje "1.0.7"]])
+</code></pre>
+
+<p>For real world example, see <a href="https://github.com/reiddraper/knockbox">Knockbox</a>.</p>
+
 <h3 id="examples">Examples</h3>
 
 <ul>
   <li><a href="https://github.com/technomancy/leiningen/blob/stable/.travis.yml">leiningen’s .travis.yml</a></li>
+  <li><a href="https://github.com/michaelklishin/monger/blob/stable/.travis.yml">monger’s .travis.yml</a></li>
   <li><a href="https://github.com/michaelklishin/langohr/blob/master/.travis.yml">langohr’s .travis.yml</a></li>
   <li><a href="https://github.com/carllerche/momentum/blob/master/.travis.yml">momentum’s .travis.yml</a></li>
   <li><a href="https://github.com/reiddraper/knockbox/blob/master/.travis.yml">Knockbox’s .travis.yml</a></li>
