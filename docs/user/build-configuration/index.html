@@ -431,10 +431,12 @@ env:
   - FOO=bar BAR=foo
 </code></pre>
 
-<p>With this configuration, only <strong>4 individual builds</strong> will be triggered:</p>
+<p>With this configuration, four builds will be triggered:</p>
 
 <ol>
   <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
+  <li>Ruby 1.9.3 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+  <li>Rubinius in 1.8 mode with <code>FOO=foo</code> and <code>BAR=bar</code></li>
   <li>Rubinius in 1.8 mode with <code>FOO=bar</code> and <code>BAR=foo</code></li>
 </ol>
 
