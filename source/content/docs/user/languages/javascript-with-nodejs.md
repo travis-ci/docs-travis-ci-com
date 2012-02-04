@@ -26,7 +26,7 @@ for "the most recent 0.6.x release" and so on. Please note that using exact vers
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
 
-### Provided Node.js Versions
+## Provided Node.js Versions
 
  * 0.4 (currently 0.4.12)
  * 0.6 (currently 0.6.10)

@@ -38,7 +38,7 @@
 
 <p>This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our <a href="/docs/user/getting-started/">Getting Started</a> and <a href="/docs/user/build-configuration/">general build configuration</a> guides first.</p>
 
-<h2 id="choosing-clojure-versions-to-test-against">Choosing Clojure versions to test against</h2>
+<h2 id="ci-environment-for-clojure-projects">CI environment for Clojure Projects</h2>
 
 <p>Travis VMs currently provide</p>
 
@@ -47,13 +47,11 @@
   <li>Standalone <a href="https://github.com/technomancy/leiningen">Leiningen</a> 1.6.x.</li>
 </ul>
 
-<p>If you want to test your project against multiple Clojure versions, use the excellent <a href="https://github.com/maravillas/lein-multi">lein multi</a> plugin.
-Because leiningen can run tests against any version of Clojure (not necessary the one available as <code>clojure</code> in the PATH), there is no need for runtime
-switchers (like RVM) for Clojure.</p>
+<p>Clojure projects on travis-ci.org assume you use <a href="https://github.com/technomancy/leiningen">Leiningen</a> by default.</p>
 
 <h2 id="default-test-script">Default Test Script</h2>
 
-<p>Clojure projects on travis-ci.org are managed with <a href="https://github.com/technomancy/leiningen">Leiningen</a>. Naturally, the default command Travis CI will use to
+<p>Because Clojure projects on travis-ci.org assume <a href="https://github.com/technomancy/leiningen">Leiningen</a> by default, naturally, the default command Travis CI will use to
 run your project test suite is</p>
 
 <pre><code>lein test
@@ -63,40 +61,6 @@ run your project test suite is</p>
 
 <pre><code>language: clojure
 </code></pre>
-
-<h2 id="dependency-management">Dependency Management</h2>
-
-<p>the default command Travis CI will use
-to install your project dependencies is</p>
-
-<pre><code>lein deps
-</code></pre>
-
-<p>This will install <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>.</p>
-
-<h3 id="precompiling-java-sources">Precompiling Java sources</h3>
-
-<p>If you need to AOT compile Java sources, for example, it is possible to override this in your <code>.travis.yml</code>:</p>
-
-<pre><code>install: lein javac, deps
-</code></pre>
-
-<p>See <a href="/docs/user/build-configuration/">general build configuration guide</a> to learn more.</p>
-
-<h3 id="testing-against-multiple-versions-of-clojure">Testing Against Multiple Versions of Clojure</h3>
-
-<p>Leiningen has an excellent plugin called <a href="https://github.com/maravillas/lein-multi">lein-multi</a> that lets you effortlessly test against multiple versions of Clojure
-(including pre-release versions like 1.4.0-beta1).</p>
-
-<p>To use lein-multi on travis-ci.org, first install it before dependency installation and override <code>script:</code> to run
-<code>lein multi test</code> instead of default <code>lein test</code>:</p>
-
-<pre><code>language: clojure
-before_install: lein plugin install lein-multi 1.1.0
-script: lein multi test
-</code></pre>
-
-<p>For a real world example, see <a href="https://github.com/michaelklishin/monger">Monger</a>.</p>
 
 <h3 id="using-midje-on-travis-ciorg">Using Midje on travis-ci.org</h3>
 
@@ -115,7 +79,43 @@ in project.clj:</p>
 
 <p>For real world example, see <a href="https://github.com/reiddraper/knockbox">Knockbox</a>.</p>
 
-<h3 id="examples">Examples</h3>
+<h2 id="dependency-management">Dependency Management</h2>
+
+<p>the default command Travis CI will use
+to install your project dependencies is</p>
+
+<pre><code>lein deps
+</code></pre>
+
+<p>This will install <a href="https://github.com/technomancy/leiningen/blob/master/sample.project.clj">dependencies as listed in the project.clj file</a>.</p>
+
+<h3 id="precompiling-java-sources-in-your-clojure-projects">Precompiling Java sources In Your Clojure Projects</h3>
+
+<p>If you need to AOT compile Java sources, for example, it is possible to override this in your <code>.travis.yml</code>:</p>
+
+<pre><code>install: lein javac, deps
+</code></pre>
+
+<p>See <a href="/docs/user/build-configuration/">general build configuration guide</a> to learn more.</p>
+
+<h2 id="testing-against-multiple-versions-of-clojure">Testing Against Multiple Versions of Clojure</h2>
+
+<p>Leiningen has an excellent plugin called <a href="https://github.com/maravillas/lein-multi">lein-multi</a> that lets you effortlessly test against multiple versions of Clojure
+(including pre-release versions like 1.4.0-beta1).
+Because leiningen can run tests against any version of Clojure (not necessary the one available as <code>clojure</code> in the PATH), there is no need for runtime
+switchers (like RVM) for Clojure.</p>
+
+<p>To use lein-multi on travis-ci.org, first install it before dependency installation and override <code>script:</code> to run
+<code>lein multi test</code> instead of default <code>lein test</code>:</p>
+
+<pre><code>language: clojure
+before_install: lein plugin install lein-multi 1.1.0
+script: lein multi test
+</code></pre>
+
+<p>For a real world example, see <a href="https://github.com/michaelklishin/monger">Monger</a>.</p>
+
+<h2 id="examples">Examples</h2>
 
 <ul>
   <li><a href="https://github.com/technomancy/leiningen/blob/stable/.travis.yml">leiningen’s .travis.yml</a></li>

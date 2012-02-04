@@ -42,6 +42,6 @@ dependencies before running tests without any effort on your side.
 
 
 
-### Examples
+## Examples
 
  * [gildegoma/salat](https://github.com/gildegoma/salat/blob/add-travis-ci/.travis.yml)
