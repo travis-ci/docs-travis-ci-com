@@ -102,15 +102,17 @@ However, if your project is a general library or plugin, you need to handle conn
 
 MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.
 
-In cases you need to create users for your database, you can do something like this:
+In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file::
 
     # .travis.yml
     before_script:
       - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
-    # connecting using Ruby MongoDB driver:
-    uri = "mongodb://travis:test@localhost:27017/myapp"
-    Mongo::Connection.from_uri(uri)
+
+#### JVM-based projects
+
+  For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect
+  to work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux.
 
 
 
@@ -133,6 +135,13 @@ Riak uses stock configuration with one exception: it is configured to use [Level
 ### Redis
 
 Redis uses stock configuration and is available on localhost.
+
+
+### Neo4J
+
+Neo4J Server Community Edition is available but not started by default. You can start it with a one line `before_script`:
+
+    which neo4j && neo4j start && sleep 5 # give Neo4J some time to start & initialize
 
 
 

@@ -136,16 +136,17 @@ test:
 
 <p>MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.</p>
 
-<p>In cases you need to create users for your database, you can do something like this:</p>
+<p>In cases you need to create users for your database, you can do it using a <code>before_script</code> in your <code>.travis.yml</code> file::</p>
 
 <pre><code># .travis.yml
 before_script:
   - mongo mydb_test --eval 'db.addUser("travis", "test");'
-
-# connecting using Ruby MongoDB driver:
-uri = "mongodb://travis:test@localhost:27017/myapp"
-Mongo::Connection.from_uri(uri)
 </code></pre>
+
+<h4 id="jvm-based-projects">JVM-based projects</h4>
+
+<p>For JVM-based projects that use the official MongoDB Java driver, you’ll have to use <code>127.0.0.1</code> instead of <code>localhost</code> to connect
+  to work around <a href="https://jira.mongodb.org/browse/JAVA-249">this known MongoDB Java driver issue</a> that affects Linux.</p>
 
 <h3 id="couchdb">CouchDB</h3>
 
@@ -165,6 +166,13 @@ before_script:
 <h3 id="redis">Redis</h3>
 
 <p>Redis uses stock configuration and is available on localhost.</p>
+
+<h3 id="neo4j">Neo4J</h3>
+
+<p>Neo4J Server Community Edition is available but not started by default. You can start it with a one line <code>before_script</code>:</p>
+
+<pre><code>which neo4j &amp;&amp; neo4j start &amp;&amp; sleep 5 # give Neo4J some time to start &amp; initialize
+</code></pre>
 
 <h3 id="multiple-database-systems">Multiple database systems</h3>
 
