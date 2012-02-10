@@ -47,7 +47,7 @@ to install your project's dependencies with Maven.
 
 ### Default Test Command
 
-if your project has `gradle.xml` file in the repository root, Travis Java builder will use Gradle to build it.
+if your project has `build.gradle` file in the repository root, Travis Java builder will use Gradle to build it.
 By default it will use
 
     gradle check
