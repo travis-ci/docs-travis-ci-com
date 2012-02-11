@@ -10,7 +10,7 @@
     <uri>https://github.com/travis-ci</uri>
   </author>
   <entry>
-    <id>tag:about.travis-ci.org,2011-11-14://blog/first_class_php_support_on_travis_ci/</id>
+    <id>tag:about.travis-ci.org,2011-11-13://blog/first_class_php_support_on_travis_ci/</id>
     <title type="html">Announcing "first class" PHP project support!</title>
     <published>2011-11-13T16:08:00Z</published>
     <updated>2011-11-13T16:08:00Z</updated>
@@ -93,7 +93,7 @@ and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/mas
 </content>
   </entry>
   <entry>
-    <id>tag:about.travis-ci.org,2011-11-10://blog/first_class_nodejs_support_on_travis_ci/</id>
+    <id>tag:about.travis-ci.org,2011-11-09://blog/first_class_nodejs_support_on_travis_ci/</id>
     <title type="html">Announcing "first class" Node.js project support!</title>
     <published>2011-11-09T17:00:00Z</published>
     <updated>2011-11-09T17:00:00Z</updated>
@@ -201,7 +201,7 @@ and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/mas
 </content>
   </entry>
   <entry>
-    <id>tag:about.travis-ci.org,2011-08-30://blog/big_refactoring/</id>
+    <id>tag:about.travis-ci.org,2011-08-29://blog/big_refactoring/</id>
     <title type="html">A Big Refactoring!</title>
     <published>2011-08-29T16:29:26Z</published>
     <updated>2011-08-29T16:29:26Z</updated>

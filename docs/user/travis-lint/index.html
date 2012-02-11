@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: Hello, World</title>
+    <title>Travis CI: Validate your .travis.yml with travis-lint</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
@@ -31,37 +31,34 @@
         <div class="pad">
           <div id="main">
             
-            <h2>Hello, World</h2>
+            <h2>Validate your .travis.yml with travis-lint</h2>
             
 
-            <p>puts “Hello, world!”</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>I think that’s required for first blog posts on technical topics.</p>
+<p>This guide covers <a href="https://github.com/travis-ci/travis-lint">travis-lint</a>, a small tool that validates your <code>.travis.yml</code> file to help you discover common issues.
+If you are looking for info about putting your project on travis-ci.org, start with the <a href="/docs/user/getting-started/">Getting Started</a> guide and read this guide
+top to bottom before moving on to <a href="/docs">language-specific guides</a>.</p>
 
-<h2 id="now-that-thats-out-of-the-way">Now that that’s out of the way</h2>
+<h2 id="validate-your-travisyml-with-travis-lint">Validate Your .travis.yml With travis-lint</h2>
 
-<p>Welcome to the first post on the Travis blog! Hopefully we’ll end up having a
-bunch of great content for you here.</p>
+<p>If you have Ruby 1.8.7+ and RubyGems installed, you can use <a href="http://github.com/travis-ci/travis-lint">travis-lint</a> to validate your <code>.travis.yml</code> file.
+Get it with</p>
 
-<h2 id="we-whos-this-we">We? Who’s this ‘we’?</h2>
+<pre><code>gem install travis-lint
+</code></pre>
 
-<p>Me, of course. Duh. Specifically? I’m <a href="https://github.com/steveklabnik">Steve Klabnik</a>.
-I’m heading up the Travis documentation. But <a href="https://github.com/travis-ci/travis-ci.github.com/">this entire website is on
-GitHub</a>, so if you
-were so inclined, ‘we’ could also mean ‘you!’</p>
+<p>and run it on your <code>.travis.yml</code>:</p>
 
-<p>Got a new fun project on Travis? Have you recently added some fun code,
-or found a new feature useful? Write a post! It’s good for you!</p>
+<pre><code># inside a repository with .travis-yml
+travis-lint
 
-<h2 id="why-you-should-read-this-blog">Why you should read this blog</h2>
+# from any directory
+travis-lint [path to your .travis.yml]
+</code></pre>
 
-<p>I’ll <em>also</em> be trying to make posts roughly once a week letting you know
-what’s new in the world of Travis. We’ve got a bunch of contributors,
-and lots of exciting stuff going on, so it’s hard to keep up! Just check
-out this blog, it’s much easier than reading the commit list. ;)</p>
-
-<p>Oh, and if you want to subscribe via RSS, grab the <a href="/blog.xml">Travis blog feed
-here</a></p>
+<p><code>travis-lint</code> is young but improving and we are incorporating more and more checks for common issues as
+we learn about them from travis-ci.org users.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">
