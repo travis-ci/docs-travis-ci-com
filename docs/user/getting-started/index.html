@@ -133,6 +133,26 @@ rvm:
 
 <p>Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a></p>
 
+<h4 id="validate-your-travisyml">Validate Your .travis.yml</h4>
+
+<p>If you have Ruby 1.8.7+ and RubyGems installed, you can use <a href="http://github.com/travis-ci/travis-lint">travis-lint</a> to validate your <code>.travis.yml</code> file.
+Get it with</p>
+
+<pre><code>gem install travis-lint
+</code></pre>
+
+<p>and run it on your <code>.travis.yml</code>:</p>
+
+<pre><code># inside a repository with .travis-yml
+travis-lint
+
+# from any directory
+travis-lint [path to your .travis.yml]
+</code></pre>
+
+<p><code>travis-lint</code> is young but improving and we are incorporating more and more checks for common issues as
+we learn about them from travis-ci.org users.</p>
+
 <h3 id="step-four-trigger-your-first-build">Step four: Trigger Your First Build</h3>
 
 <p>Once GitHub hook is set up, push your commit that adds .travis.yml to your repository.
