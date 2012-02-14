@@ -166,6 +166,7 @@ Is supported.
 <pre>
 $ php -m
 [PHP Modules]
+bcmath
 bz2
 Core
 ctype
