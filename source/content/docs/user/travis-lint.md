@@ -6,8 +6,7 @@ kind: content
 ## What This Guide Covers
 
 This guide covers [travis-lint](https://github.com/travis-ci/travis-lint), a small tool that validates your `.travis.yml` file to help you discover common issues.
-If you are looking for info about putting your project on travis-ci.org, start with the [Getting Started](/docs/user/getting-started/) guide and read this guide
-top to bottom before moving on to [language-specific guides](/docs).
+If you are looking for info about putting your project on travis-ci.org, start with the [Getting Started](/docs/user/getting-started/) guide.
 
 
 ## Validate Your .travis.yml With travis-lint
