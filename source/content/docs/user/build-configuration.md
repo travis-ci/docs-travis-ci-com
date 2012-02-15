@@ -81,6 +81,8 @@ Both settings support multiple scripts, too:
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see <a href="/docs/user/database-setup/">Database setup</a>.
 
+**NOTE:** The command(s) in `after_script` will only run if the build succeeded (when `script` returns 0).
+
 ### install
 
 If your project uses non-standard dependency management tools, you can override dependency installation command using `install` option:
