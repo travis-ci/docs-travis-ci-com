@@ -75,7 +75,7 @@ Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.
 #### PHP
 
     language: php
-    phps:
+    php:
       - 5.3
       - 5.4
 
