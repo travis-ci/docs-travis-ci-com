@@ -91,7 +91,7 @@ Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
       - rbx-18mode
-      # - rbx-19mode # currently in active development, may or may not work for your project
+      - rbx-19mode
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 
@@ -143,5 +143,5 @@ about our test environment can be found <a href="/docs/user/ci-environment/">in 
 
 ### Step seven: We are here to help!
 
-For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>!
+For any kind of questions feel free to join our IRC channel <a href="irc://irc.freenode.net#travis">#travis on irc.freenode.net</a>.
 We're there to help :)
