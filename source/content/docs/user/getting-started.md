@@ -43,6 +43,9 @@ In order for Travis to build your project, you need to tell the system a little 
 We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick: Ruby projects
 typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
 
+If `.travis.yml` is not in the repository, is mispelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume
+Ruby as the language and use default values for everything.
+
 Here are some basic **.travis.yml** examples:
 
 #### Clojure
@@ -112,14 +115,20 @@ and run it on your `.travis.yml`:
     # from any directory
     travis-lint [path to your .travis.yml]
 
-`travis-lint` is young but improving and we are incorporating more and more checks for common issues as
-we learn about them from travis-ci.org users.
+`travis-lint` will check things like
+
+ * That `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
+ * That `language` key is present
+ * That runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/docs/user/ci-environment/)
+ * That are you not using deprecated features or runtime aliases
+
+and so on. `travis-lint` is your friend, use it.
 
 
-### Step four: Trigger Your First Build
+### Step four: Trigger Your First Build With a Git Push
 
 Once GitHub hook is set up, push your commit that adds .travis.yml to your repository.
-That should put a build job into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
+That should add a build into one of the queues on <a href="http://travis-ci.org">Travis CI</a> and your build will start as soon as one worker for your
 language is available.
 
 To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the "Test Hook" button for Travis.
@@ -131,6 +140,9 @@ Please note that **you cannot trigger your first build using Test Hook button**.
 Chances are, your project requires some customization to the build process: maybe you need to create a database before running your tests or you use build tools
 different from what Travis defaults are. Worry not: Travis lets you override almost everything.
 See <a href="/docs/user/build-configuration/">Build Configuration</a> to learn more.
+
+After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run
+`travis-lint` to validate it.
 
 
 ### Step six: Learn more
