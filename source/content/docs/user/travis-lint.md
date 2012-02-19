@@ -9,7 +9,12 @@ This guide covers [travis-lint](https://github.com/travis-ci/travis-lint), a sma
 If you are looking for info about putting your project on travis-ci.org, start with the [Getting Started](/docs/user/getting-started/) guide.
 
 
-## Validate Your .travis.yml With travis-lint
+## Validate .travis.yml Using lint.travis-ci.org
+
+[.travis.yml validation Web app](http://lint.travis-ci.org) is the easiest way to to validate your `.travis.yml` file.
+
+
+## Validate .travis.yml With travis-lint (command-line tool)
 
 If you have Ruby 1.8.7+ and RubyGems installed, you can use [travis-lint](http://github.com/travis-ci/travis-lint) to validate your `.travis.yml` file.
 Get it with

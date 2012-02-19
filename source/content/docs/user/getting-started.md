@@ -102,8 +102,9 @@ Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ru
 
 #### Validate Your .travis.yml
 
-If you have Ruby 1.8.7+ and RubyGems installed, you can use [travis-lint](http://github.com/travis-ci/travis-lint) to validate your `.travis.yml` file.
-Get it with
+We recommend you to use [travis-lint](http://github.com/travis-ci/travis-lint) (command-line tool) or [.travis.yml validation Web app](http://lint.travis-ci.org) to validate your `.travis.yml` file.
+
+`travis-lint` requires Ruby 1.8.7+ and RubyGems installed. Get it with
 
     gem install travis-lint
 
