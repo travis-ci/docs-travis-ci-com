@@ -65,6 +65,20 @@ Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for
 
 Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a>
 
+#### Groovy
+
+    language: groovy
+
+Learn more about <a href="/docs/user/languages/groovy/">.travis.yml options for Groovy projects</a>
+
+
+#### Java
+
+    language: java
+
+Learn more about <a href="/docs/user/languages/java/">.travis.yml options for Java projects</a>
+
+
 #### Node.js
 
      language: node_js
@@ -99,6 +113,15 @@ Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP
     # script: bundle exec rspec spec
 
 Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a>
+
+#### Scala
+
+     language: scala
+     scala:
+       - 2.8.2
+       - 2.9.1
+
+Learn more about <a href="/docs/user/languages/scala/">.travis.yml options for Scala projects</a>
 
 #### Validate Your .travis.yml
 
