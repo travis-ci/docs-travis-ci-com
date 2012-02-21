@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: Announcing Java, Scala and Groovy project support on travis-ci.org</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/rss+xml" href="/blog.xml">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+          <li class="english lang active"><a href="/" class="selected">English</a></li>
+          <li class="french lang"><a href="/fr/">Français</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>A distributed build system for the open source community.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+            <h2>Announcing Java, Scala and Groovy project support on travis-ci.org</h2>
+            
+
+            <p>Travis CI started in early 2011 as a service for the Ruby community with the simple vision to make CI easy for OSS libraries and services. It wasn’t long until we added support for Erlang, Clojure, Node.js and PHP. And, in fact, it is easy to build many other projects by supplying your own commands.</p>
+
+<p>Today we are excited to announce support for Java, Scala, and Groovy!</p>
+
+<p>The JVM ecosystem is very vibrant with multiple exciting languages maturing and being adopted by companies far and wide. In fact, since November 2011 Travis started using the JVM (JRuby) for several of our applications. The JVM and JRuby gave us access to a very solid runtime, as well as a vast selection of stable libraries, helping us to keep up with the growth over the last year.</p>
+
+<h2 id="wait-what-is-travis-ci-anyway">Wait, What Is Travis CI Anyway?</h2>
+
+<p><a href="http://travis-ci.org">Travis CI</a> is a distributed continuous integration for the open source community. It is integrated with GitHub and offers first class support for multiple technologies. Our CI environment provides many tools, libraries, and services (MySQL, PostgreSQL, Redis, RabbitMQ, MongoDB and so on), and you don’t have to bother setting up your own CI server.</p>
+
+<p>You can watch build logs in near-real time in your browser, access logs later, and even link to log line numbers (for example, when reporting an issue).</p>
+
+<p>Thanks to Github integration, Travis CI lets your contributors effortlessly add their development forks to test work-in-progress branches and makes your CI status very visible to the community thanks to our <a href="http://about.travis-ci.org/docs/user/status-images/">CI badges</a>.</p>
+
+<p>Started in early 2011, Travis CI has since run half a million builds for over 6,000 open source projects, including Ruby, Ruby on Rails, RubyGems, Node.js, Leiningen, Symfony and many more.</p>
+
+<h2 id="getting-your-project-on-travis-ciorg">Getting Your Project on travis-ci.org</h2>
+
+<p>Travis CI currently provides OpenJDK 6, Maven 3, SBT 0.11.x and Gradle (currently 1.0 Milestone 8). To get started, you need to add one file
+(.travis.yml) and the Github hook as described in the <a href="http://about.travis-ci.org/docs/user/getting-started/">Getting Started guide</a>. If your
+project uses Maven or Gradle, a minimal .travis.yml would look like this:</p>
+
+<pre><code>language: java
+</code></pre>
+
+<p>for Java, or</p>
+
+<pre><code>language: groovy
+</code></pre>
+
+<p>for Groovy and so on. Then Travis will see if you have a <code>build.gradle</code> or <code>pom.xml</code> file in your repository root and will run the standard dependency installation and testing commands, like</p>
+
+<pre><code>mvn test
+</code></pre>
+
+<p>or</p>
+
+<pre><code>gradle check
+</code></pre>
+
+<p>It is possible to override these commands and add new ones to the build lifecycle, please refer to <a href="http://about.travis-ci.org/">our documentation</a>, which now includes guides dedicated to <a href="http://about.travis-ci.org/docs/user/languages/java/">Java</a>, <a href="http://about.travis-ci.org/docs/user/languages/scala/">Scala</a> and <a href="http://about.travis-ci.org/docs/user/languages/groovy/">Groovy</a>.</p>
+
+<h3 id="build-workflow">Build workflow</h3>
+
+<p>Travis’ build workflow usually is</p>
+
+<ul>
+  <li>Clone your repository from GitHub</li>
+  <li>(If applicable) pick language/runtime version to use</li>
+  <li>Run <code>before_install</code> commands (can be more than one)</li>
+  <li>Install dependencies. Travis will try to detect whether project uses Gradle and SBT and run their respective commands, falling back to <code>mvn install</code>. You can override the command using the <code>install</code> key in your .travis.yml.</li>
+  <li>Run one or more <code>before_script</code> commands.</li>
+  <li>Run the <code>script</code> command, e.g. <code>gradle check</code> or <code>mvn test</code>, falling back to <code>ant test</code>. This too can be overriden in .travis.yml.</li>
+  <li>Report the build has finished running.</li>
+</ul>
+
+<h3 id="support-for-multiple-jdks-in-the-travis-ci-environment">Support for multiple JDKs in the Travis CI Environment</h3>
+
+<p>travis-ci.org currently provides only one JDK. This is not on par with our support for Ruby (a dozen of versions/implementations), Erlang (several OTP releases)
+and so on. We will add support for testing against multiple JDKs near in the future.</p>
+
+<p>Note that Clojure and Scala build tools allow testing against multiple versions and it is just as valid for Travis CI. This is documented in our guides:</p>
+
+<ul>
+  <li><a href="http://about.travis-ci.org/docs/user/languages/scala/">Clojure guide</a></li>
+  <li><a href="http://about.travis-ci.org/docs/user/languages/scala/">Scala guide</a></li>
+</ul>
+
+<h3 id="learn-more">Learn more</h3>
+
+<p>To learn what tools and services (mysql, postgres, riak, etc.) are available in the CI environment, refer to the <a href="http://about.travis-ci.org/docs/user/ci-environment/">CI environment</a> guide.</p>
+
+<p>If you need help, feel free to join #travis on irc.freenode.net, ping us on Twitter (<a href="http://twitter.com/travisci">@travisci</a>) and ask questions on <a href="https://groups.google.com/group/travis-ci">our mailing list</a>.</p>
+
+<h2 id="thank-you-contributors">Thank You Contributors</h2>
+
+<p>We would like to thank Gilles Cornu for doing most of the work on the Scala builder and updating our SBT Chef cookbook to 0.11.x.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>We don’t want to stop here! There are so many other fantastic languages to add, and if all goes well we should have Perl and Python support around the corner. And if you want to help out, <a href="https://love.travis-ci.org">donating to Travis CI</a> will make it happen sooner.</p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+            </ul>
+            <h2>Guides</h2>
+            <ul>
+              <li><a href="/docs/user/getting-started/">Getting started</a></li>
+              <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
+              <li><a href="/docs/user/travis-lint/">Validate your .travis.yml with travis-lint</a></li>
+              <li><a href="/docs/user/database-setup/">Database setup</a></li>
+              <li><a href="/docs/user/selenium-setup/">Headless browser setup</a></li>
+              <li><a href="/docs/user/status-images/">Build Status images</a></li>
+              <li><a href="/docs/user/ci-environment/">CI environment</a></li>
+            </ul>
+            <h2>Language-specific Guides</h2>
+            <ul>
+              <li><a href="/docs/user/languages/clojure/">Clojure</a></li>
+              <li><a href="/docs/user/languages/erlang/">Erlang</a></li>
+              <li><a href="/docs/user/languages/groovy/">Groovy</a></li>
+              <li><a href="/docs/user/languages/java/">Java</a></li>
+              <li><a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a></li>
+              <li><a href="/docs/user/languages/php/">PHP</a></li>
+              <li><a href="/docs/user/languages/ruby/">Ruby</a></li>
+              <li><a href="/docs/user/languages/scala/">Scala</a></li>
+            </ul>
+
+            <h2>3rd Party Tools and Resources</h2>
+            <ul>
+              <li><a href="/docs/user/browser-extensions/">Browser Extensions</a></li>
+              <li><a href="/docs/user/resources/">Links & Resources</a></li>
+            </ul>
+            
+            <h2>How-Tos</h2>
+            <ul>
+              <li><a href="/docs/user/how-to-skip-a-build/">How to skip a build</a></li>
+              <li><a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">How to setup GitHub Travis hook and trigger builds manually</a></li>
+            </ul>
+            <h2>Developer Guides</h2>
+            <ul>
+              <li><a href="/docs/dev/api/">The API</a></li>
+            </ul>
+            <h2>Contributor Guides</h2>
+            <ul>
+              <li><a href="/docs/dev/overview/">Technical Overview</a></li>
+              <li><a href="/docs/dev/worker/">The worker (v3)</a></li>
+              <li><a href="/docs/dev/build_tasks/">Build Tasks</a></li>
+              <li><a href="/docs/dev/maintenance/">Maintenance</a></li>
+            </ul>
+            <h2>Contributing</h2>
+            <p>This documentation site is open source. Feel free to <a href="https://github.com/travis-ci/travis-ci.github.com/issues">file issues about it</a>.
+              The README in our <a href="https://github.com/travis-ci/travis-ci.github.com">Git repository</a> explains how to contribute.</p>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        </div>
+        <div class="box">
+          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="https://github.com/travis-ci" title="">Travis CI on GitHub</a></li>
+            <li><a href="https://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
