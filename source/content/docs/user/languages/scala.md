@@ -44,4 +44,5 @@ dependencies before running tests without any effort on your side.
 
 ## Examples
 
+ * [gildegoma/scalatra](https://github.com/gildegoma/scalatra/blob/add-travis-ci/.travis.yml)
  * [gildegoma/salat](https://github.com/gildegoma/salat/blob/add-travis-ci/.travis.yml)
