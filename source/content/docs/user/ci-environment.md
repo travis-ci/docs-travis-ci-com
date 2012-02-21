@@ -107,17 +107,31 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 file). This means `apt-get install` can be used without the -y flag.
 
 
-## Clojure worker VM images
 
-Clojure projects are currently built on Ruby workers, see Ruby worker VM images section below.
+## JVM (Clojure, Groovy, Java, Scala) VM images
+
+### Maven version
+
+Stock Apache Maven 3.0.x.
+
 
 ### Leiningen version
 
 travis-ci.org uses standalone ("uberjar") Leiningen 1.6.x, currently 1.6.2.
 
 
+### SBT version
 
-## Erlang worker VM images
+travis-ci.org provides SBT 0.11.x.
+
+
+### Gradle version
+
+Currently 1.0 Milestone 8.
+
+
+
+## Erlang VM images
 
 ### Erlang/OTP releases
 
@@ -228,7 +242,7 @@ Xdebug
 
 
 
-## Ruby (aka common) worker VM images
+## Ruby (aka common) VM images
 
 ### Ruby versions/implementations
 

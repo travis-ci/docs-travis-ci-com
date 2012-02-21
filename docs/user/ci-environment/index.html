@@ -142,15 +142,25 @@ is aware of or notified about the release.</p>
 <p>apt is configured to not require confirmation (assume -y switch by default) using both <code>DEBIAN_FRONTEND</code> env variable and apt configuration
 file). This means <code>apt-get install</code> can be used without the -y flag.</p>
 
-<h2 id="clojure-worker-vm-images">Clojure worker VM images</h2>
+<h2 id="jvm-clojure-groovy-java-scala-vm-images">JVM (Clojure, Groovy, Java, Scala) VM images</h2>
 
-<p>Clojure projects are currently built on Ruby workers, see Ruby worker VM images section below.</p>
+<h3 id="maven-version">Maven version</h3>
+
+<p>Stock Apache Maven 3.0.x.</p>
 
 <h3 id="leiningen-version">Leiningen version</h3>
 
 <p>travis-ci.org uses standalone (“uberjar”) Leiningen 1.6.x, currently 1.6.2.</p>
 
-<h2 id="erlang-worker-vm-images">Erlang worker VM images</h2>
+<h3 id="sbt-version">SBT version</h3>
+
+<p>travis-ci.org provides SBT 0.11.x.</p>
+
+<h3 id="gradle-version">Gradle version</h3>
+
+<p>Currently 1.0 Milestone 8.</p>
+
+<h2 id="erlang-vm-images">Erlang VM images</h2>
 
 <h3 id="erlangotp-releases">Erlang/OTP releases</h3>
 
@@ -260,7 +270,7 @@ zlib
 Xdebug
 </pre>
 
-<h2 id="ruby-aka-common-worker-vm-images">Ruby (aka common) worker VM images</h2>
+<h2 id="ruby-aka-common-vm-images">Ruby (aka common) VM images</h2>
 
 <h3 id="ruby-versionsimplementations">Ruby versions/implementations</h3>
 
