@@ -96,6 +96,10 @@ and so on. We will add support for testing against multiple JDKs near in the fut
 &lt;h2 id="next-steps"&gt;Next steps&lt;/h2&gt;
 
 &lt;p&gt;We don’t want to stop here! There are so many other fantastic languages to add, and if all goes well we should have Perl and Python support around the corner. And if you want to help out, &lt;a href="https://love.travis-ci.org"&gt;donating to Travis CI&lt;/a&gt; will make it happen sooner.&lt;/p&gt;
+
+&lt;h2 id="discuss-on-hacker-news"&gt;Discuss on Hacker News&lt;/h2&gt;
+
+&lt;p&gt;You can discuss Java, Scala and Groovy support on travis-ci.org &lt;a href="http://news.ycombinator.com/item?id=3616923"&gt;on Hacker News&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   <entry>
