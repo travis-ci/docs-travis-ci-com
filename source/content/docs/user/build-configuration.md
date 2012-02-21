@@ -15,7 +15,7 @@ Travis CI uses `.travis.yml` file in the root of your repository to learn about 
 `.travis.yml` can be very minimalistic or have a lot of customization in it. A few example of what kind of information your `.travis.yml` file
 may have:
 
- * What programming your project uses
+ * What programming language your project uses
  * What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
  * What command is used to run your test suite
  * Emails, Campfire and IRC rooms to notify about build failures
