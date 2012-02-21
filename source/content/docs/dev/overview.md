@@ -43,8 +43,8 @@ Then it establishes SSH connection to one of snapshotted `Travis VMs`, picks a `
 Build lifecycle is documented in detail in our [Build Configuration guide](/docs/user/build-configuration/).
 
 Commands that `technology-specific builder` runs over SSH produce output (via standard in and standard out streams) that `Travis Worker`
-captures and publishes as `build log chunk` messages. Those messages are routed by RabbitMQ to one of several queues (one per project
-type: Clojure, Node.js, PHP, Ruby, etc). From there, they are pushed to consumers in `Travis Hub` which **primary purpose is to
+captures and publishes as `build log chunk` messages. Those messages are routed by RabbitMQ to one of several queues: Ruby/common, JVM languages, Node.js,
+PHP, etc). From there, they are pushed to consumers in `Travis Hub` which **primary purpose is to
 collect build logs and process them**.
 
 Build log processing in `Travis Hub` has multiple steps, some of which have strict ordering requirements and some are executed
