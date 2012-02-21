@@ -85,3 +85,8 @@ We would like to thank Gilles Cornu for doing most of the work on the Scala buil
 ## Next steps
 
 We don't want to stop here! There are so many other fantastic languages to add, and if all goes well we should have Perl and Python support around the corner. And if you want to help out, [donating to Travis CI](https://love.travis-ci.org) will make it happen sooner.
+
+
+## Discuss on Hacker News
+
+You can discuss Java, Scala and Groovy support on travis-ci.org [on Hacker News](http://news.ycombinator.com/item?id=3616923)
