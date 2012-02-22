@@ -10,9 +10,12 @@ multiple technologies
 
  * Clojure
  * Erlang
+ * Groovy
+ * Java
  * Node.js
  * PHP
  * Ruby
+ * Scala
 
 and more. Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), data stores and so on. Because of this,
 hosting your project on travis-ci.org means you can effortlessly test your library or applications against multiple runtimes and
