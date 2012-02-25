@@ -149,7 +149,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 * 0.4 (0.4.12)
 * 0.6 (0.6.11)
-* 0.7 (0.7.4)
+* 0.7 (0.7.5)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
@@ -249,11 +249,11 @@ Xdebug
 * 1.8.7 (default)
 * 1.9.2
 * 1.9.3
-* jruby-18mode (1.6.6; alternative alias: jruby)
-* jruby-19mode (1.6.6 in Ruby 1.9 mode)
+* jruby-18mode (1.6.7; alternative alias: jruby)
+* jruby-19mode (1.6.7 in Ruby 1.9 mode)
 * rbx-18mode (alternative alias: rbx)
 * rbx-19mode (in Ruby 1.9 mode)
-* ree (2011.12)
+* ree (2012.02)
 * ruby-head (upgraded every 1-2 weeks)
 * jruby-head (upgraded every 1-2 weeks)
 
