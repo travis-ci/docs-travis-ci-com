@@ -45,6 +45,7 @@ multiple technologies</p>
   <li>Groovy</li>
   <li>Java</li>
   <li>Node.js</li>
+  <li>Perl</li>
   <li>PHP</li>
   <li>Ruby</li>
   <li>Scala</li>
@@ -126,6 +127,14 @@ otp_release:
 
 <p>Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a></p>
 
+<h4 id="perl">Perl</h4>
+
+<pre><code>language: perl
+perl:
+  - "5.14"
+  - "5.12"
+</code></pre>
+
 <h4 id="php">PHP</h4>
 
 <pre><code>language: php
@@ -135,6 +144,19 @@ php:
 </code></pre>
 
 <p>Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a></p>
+
+<h4 id="python">Python</h4>
+
+<pre><code>language: python
+python:
+  - 2.6
+  - 2.7
+  - 3.2
+# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: PLEASE CHANGE ME
+# command to run tests, e.g. python setup.py test
+script:  PLEASE CHANGE ME
+</code></pre>
 
 <h4 id="ruby">Ruby</h4>
 

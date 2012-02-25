@@ -159,6 +159,22 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 
 
 
+## Perl VM images
+
+### Perl versions
+
+* 5.14
+* 5.12
+* 5.10
+
+installed via [Perlbrew](http://perlbrew.pl/).
+
+### cpanm
+
+cpanm (App::cpanminus) version 1.5007
+
+
+
 ## PHP VM images
 
 ### PHP versions
@@ -239,6 +255,26 @@ zlib
 [Zend Modules]
 Xdebug
 </pre>
+
+
+## Python VM images
+
+### Python versions
+
+* 2.5
+* 2.6
+* 2.7
+* 3.1
+* 3.2
+
+Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
+
+
+### Preinstalled pip packages
+
+* nose
+* py.test
+* mock
 
 
 
