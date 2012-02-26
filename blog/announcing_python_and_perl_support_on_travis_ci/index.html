@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: Announcing Python and Perl project support on Travis CI</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/rss+xml" href="/blog.xml">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+          <li class="english lang active"><a href="/" class="selected">English</a></li>
+          <li class="french lang"><a href="/fr/">Français</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>A distributed build system for the open source community.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            
+            <h2>Announcing Python and Perl project support on Travis CI</h2>
+            
+
+            <p>Just shy of a week ago we announced support Java, Scala, and Groovy. Well, we thought to ourselves ‘we already support 8 languages, why not more?’, and MOAR you shall have!</p>
+
+<p>Today we are happy to announce first class support for Python and Perl projects!</p>
+
+<p>Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn’t, but that both languages were sought after by their respective communities and complete the quest for the three P’s (PHP, Perl, and Python). </p>
+
+<p>Perl, which has been around since 1987 (Genesis <a href="http://youtu.be/TlBIa8z_Mts">“Land Of Confusion”</a>)and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.</p>
+
+<p>Python, around since the early 90’s (think MC Hammer <a href="http://youtu.be/_UJaLq4YOo0">“Too Legit to Quit”</a>, 1991), and in fact it’s OLDER than Java! It is used for pretty much EVERYTHING you can think of, from research at CERN, to build website (YouTube and DISQUS), scripting for Games (Battlefield 2), and scripting for Graphics programs (Autodesk Maya, GIMP, Panda3D and Blender to name a few). Pretty much, you have used Python and you didn’t even know it!</p>
+
+<h2 id="wait-what-is-travis-ci-anyway">Wait, What Is Travis CI Anyway?</h2>
+
+<p><a href="http://travis-ci.org">Travis CI</a> is a distributed continuous integration for the open source community. It is integrated with GitHub and offers first class support for multiple technologies. Our CI environment provides many tools, libraries, and services (MySQL, PostgreSQL, Redis, RabbitMQ, MongoDB and so on), and you don’t have to bother setting up your own CI server.</p>
+
+<p>You can watch build logs in near-real time in your browser, access logs later, and even link to log line numbers (for example, when reporting an issue).</p>
+
+<p>Thanks to Github integration, Travis CI lets your contributors effortlessly add their development forks to test work-in-progress branches and makes your CI status very visible to the community thanks to our <a href="http://about.travis-ci.org/docs/user/status-images/">CI badges</a>.</p>
+
+<p>Started in early 2011, Travis CI has since run half a million builds for over 6,000 open source projects, including Ruby, Ruby on Rails, RubyGems, Node.js, Leiningen, Symfony and many more.</p>
+
+<h2 id="getting-your-python-project-on-travis-ci">Getting Your Python Project on Travis CI</h2>
+
+<p>Travis CI provides multiple Python and Perl versions to test against. To get started, you need to add one file
+(.travis.yml) and the Github hook as described in the <a href="http://about.travis-ci.org/docs/user/getting-started/">Getting Started guide</a>. A minimal .travis.yml
+would look like this:</p>
+
+<pre><code>language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+# command to install dependencies
+install: pip install -r requirements.txt --use-mirrors
+# command to run tests
+script: nosetests
+</code></pre>
+
+<p>It is possible to add new commands to the build lifecycle, please refer to <a href="http://about.travis-ci.org/">our documentation</a>, which now includes a guide dedicated to <a href="http://about.travis-ci.org/docs/user/languages/python/">Python</a>.</p>
+
+<h2 id="getting-your-perl-project-on-travis-ci">Getting Your Perl Project on Travis CI</h2>
+
+<p>Travis CI provides three Perl versions to test against. To get started, you need to add one file
+(.travis.yml) and the Github hook as described in the <a href="http://about.travis-ci.org/docs/user/getting-started/">Getting Started guide</a>. A minimal .travis.yml
+would look like this:</p>
+
+<pre><code>language: perl
+perl:
+  - "5.14"
+  - "5.12"
+</code></pre>
+
+<p>Travis CI will will run widely used</p>
+
+<pre><code>cpanm --installdeps --notest .
+</code></pre>
+
+<p>command to install your project’s dependencies. For running tests, Travis CI will try to detect <code>Build.PL</code> or <code>Makefile.PL</code> file in your repository root
+and will run either</p>
+
+<pre><code>perl Build.PL &amp;&amp; ./Build test
+</code></pre>
+
+<p>or</p>
+
+<pre><code>perl Makefile.PL &amp;&amp; make test
+</code></pre>
+
+<p>It is possible to override these commands and add new ones to the build lifecycle, please refer to <a href="http://about.travis-ci.org/">our documentation</a>, which now includes a guide dedicated to <a href="http://about.travis-ci.org/docs/user/languages/perl/">Perl</a>.</p>
+
+<h3 id="build-workflow">Build workflow</h3>
+
+<p>Travis’ build workflow usually is</p>
+
+<ul>
+  <li>Clone your repository from GitHub</li>
+  <li>Pick language/runtime version to use</li>
+  <li>Run <code>before_install</code> commands (can be more than one)</li>
+  <li>Install dependencies. This will use cpanm for Perl and pip for Python. You can override the command using the <code>install</code> key in your .travis.yml.</li>
+  <li>Run one or more <code>before_script</code> commands.</li>
+  <li>Run the <code>script</code> command, e.g. <code>perl Makefile.PL &amp;&amp; make test</code>. This too can be overriden in .travis.yml. Python projects are required to provide <code>script:</code> command.</li>
+  <li>Report the build has finished running.</li>
+</ul>
+
+<h3 id="learn-more">Learn more</h3>
+
+<p>To learn what tools and services (mysql, postgres, riak, etc.) are available in the CI environment, refer to the <a href="http://about.travis-ci.org/docs/user/ci-environment/">CI environment</a> guide.</p>
+
+<p>If you need help, feel free to join #travis on irc.freenode.net, ping us on Twitter (<a href="http://twitter.com/travisci">@travisci</a>) and ask questions on <a href="https://groups.google.com/group/travis-ci">our mailing list</a>.</p>
+
+<h2 id="thank-you-contributors">Thank You Contributors</h2>
+
+<p>We would like to thank <a href="http://twitter.com/dstufft">Donald Stufft</a>, <a href="http://twitter.com/kennethreitz">Kenneth Reitz</a>, <a href="http://twitter.com/jezdez">Jannis Leidel</a> and <a href="http://twitter.com/dreid">David Reid</a> for helping us making Python support happen and initial field testing.</p>
+
+<p>Perl support wouldn’t be possible without amazing work and advice by <a href="http://twitter.com/judofyr">Magnus Holm</a>, <a href="http://twitter.com/dukeleto">Jonathan “Duke” Leto</a> (also a big YAY for adding Parrot to Travis CI!), and <a href="http://twitter.com/fxn">Xavier Noria</a>.</p>
+
+<p>Also, if you have a spare minute, send a <em>HUGE</em> thanks to <a href="http://twitter.com/michaelklishin">Michael Klishin</a> who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding Java support, and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Python and Perl support brings the total number of languages supported by Travis CI to 10. We love adding support to even more languages, but we think for now we need to focus on features like pre-tested pull requests that will benefit all projects, regardless of the language.</p>
+
+<p>If you want to help us make Travis CI even better, consider <a href="https://love.travis-ci.org">making a donation</a>.</p>
+
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+            </ul>
+            <h2>Guides</h2>
+            <ul>
+              <li><a href="/docs/user/getting-started/">Getting started</a></li>
+              <li><a href="/docs/user/build-configuration/">Build configuration</a></li>
+              <li><a href="/docs/user/travis-lint/">Validate your .travis.yml with travis-lint</a></li>
+              <li><a href="/docs/user/database-setup/">Database setup</a></li>
+              <li><a href="/docs/user/selenium-setup/">Headless browser setup</a></li>
+              <li><a href="/docs/user/status-images/">Build Status images</a></li>
+              <li><a href="/docs/user/ci-environment/">CI environment</a></li>
+            </ul>
+            <h2>Language-specific Guides</h2>
+            <ul>
+              <li><a href="/docs/user/languages/clojure/">Clojure</a></li>
+              <li><a href="/docs/user/languages/erlang/">Erlang</a></li>
+              <li><a href="/docs/user/languages/groovy/">Groovy</a></li>
+              <li><a href="/docs/user/languages/java/">Java</a></li>
+              <li><a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a></li>
+              <li><a href="/docs/user/languages/perl/">Perl</a></li>
+              <li><a href="/docs/user/languages/php/">PHP</a></li>
+              <li><a href="/docs/user/languages/python/">Python</a></li>
+              <li><a href="/docs/user/languages/ruby/">Ruby</a></li>
+              <li><a href="/docs/user/languages/scala/">Scala</a></li>
+            </ul>
+
+            <h2>3rd Party Tools and Resources</h2>
+            <ul>
+              <li><a href="/docs/user/browser-extensions/">Browser Extensions</a></li>
+              <li><a href="/docs/user/resources/">Links & Resources</a></li>
+            </ul>
+            
+            <h2>How-Tos</h2>
+            <ul>
+              <li><a href="/docs/user/how-to-skip-a-build/">How to skip a build</a></li>
+              <li><a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">How to setup GitHub Travis hook and trigger builds manually</a></li>
+            </ul>
+            <h2>Developer Guides</h2>
+            <ul>
+              <li><a href="/docs/dev/api/">The API</a></li>
+            </ul>
+            <h2>Contributor Guides</h2>
+            <ul>
+              <li><a href="/docs/dev/overview/">Technical Overview</a></li>
+              <li><a href="/docs/dev/worker/">The worker (v3)</a></li>
+              <li><a href="/docs/dev/build_tasks/">Build Tasks</a></li>
+              <li><a href="/docs/dev/maintenance/">Maintenance</a></li>
+            </ul>
+            <h2>Contributing</h2>
+            <p>This documentation site is open source. Feel free to <a href="https://github.com/travis-ci/travis-ci.github.com/issues">file issues about it</a>.
+              The README in our <a href="https://github.com/travis-ci/travis-ci.github.com">Git repository</a> explains how to contribute.</p>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        </div>
+        <div class="box">
+          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="https://github.com/travis-ci" title="">Travis CI on GitHub</a></li>
+            <li><a href="https://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
