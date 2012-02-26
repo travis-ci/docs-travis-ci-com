@@ -15,7 +15,7 @@
     <published>2012-02-27T11:00:00Z</published>
     <updated>2012-02-27T11:00:00Z</updated>
     <link rel="alternate" href="http://about.travis-ci.org//blog/announcing_python_and_perl_support_on_travis_ci/"/>
-    <content type="html">&lt;p&gt;Just shy of a week ago we announced support Java, Scala, and Groovy. Well, we thought to ourselves ‘we already support 8 languages, why not more?’, and MOAR you shall have!&lt;/p&gt;
+    <content type="html">&lt;p&gt;Just shy of a week ago we announced support for Java, Scala, and Groovy. Well, we thought to ourselves ‘we already support 8 languages, why not more?’, and MOAR you shall have!&lt;/p&gt;
 
 &lt;p&gt;Today we are happy to announce first class support for Python and Perl projects!&lt;/p&gt;
 

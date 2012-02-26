@@ -4,7 +4,7 @@ kind: article
 created_at: Mon Feb 27 15:00:00 CET 2012
 ---
 
-Just shy of a week ago we announced support Java, Scala, and Groovy. Well, we thought to ourselves 'we already support 8 languages, why not more?', and MOAR you shall have!
+Just shy of a week ago we announced support for Java, Scala, and Groovy. Well, we thought to ourselves 'we already support 8 languages, why not more?', and MOAR you shall have!
 
 Today we are happy to announce first class support for Python and Perl projects!
 
