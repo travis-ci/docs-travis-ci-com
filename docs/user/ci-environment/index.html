@@ -189,6 +189,22 @@ file). This means <code>apt-get install</code> can be used without the -y flag.<
 
 <p>Scons is available to <a href="http://travis-ci.org/#!/joyent/node">build joyent/node on travis-ci.org</a>. Other projects can use it, too.</p>
 
+<h2 id="perl-vm-images">Perl VM images</h2>
+
+<h3 id="perl-versions">Perl versions</h3>
+
+<ul>
+  <li>5.14</li>
+  <li>5.12</li>
+  <li>5.10</li>
+</ul>
+
+<p>installed via <a href="http://perlbrew.pl/">Perlbrew</a>.</p>
+
+<h3 id="cpanm">cpanm</h3>
+
+<p>cpanm (App::cpanminus) version 1.5007</p>
+
 <h2 id="php-vm-images">PHP VM images</h2>
 
 <h3 id="php-versions">PHP versions</h3>
@@ -269,6 +285,28 @@ zlib
 [Zend Modules]
 Xdebug
 </pre>
+
+<h2 id="python-vm-images">Python VM images</h2>
+
+<h3 id="python-versions">Python versions</h3>
+
+<ul>
+  <li>2.5</li>
+  <li>2.6</li>
+  <li>2.7</li>
+  <li>3.1</li>
+  <li>3.2</li>
+</ul>
+
+<p>Every Python has a separate virtualenv that comes with <code>pip</code> and <code>distribute</code> and is activated before running the build.</p>
+
+<h3 id="preinstalled-pip-packages">Preinstalled pip packages</h3>
+
+<ul>
+  <li>nose</li>
+  <li>py.test</li>
+  <li>mock</li>
+</ul>
 
 <h2 id="ruby-aka-common-vm-images">Ruby (aka common) VM images</h2>
 
@@ -378,7 +416,9 @@ We modify some of them for continuous integration needs and sync them periodical
               <li><a href="/docs/user/languages/groovy/">Groovy</a></li>
               <li><a href="/docs/user/languages/java/">Java</a></li>
               <li><a href="/docs/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a></li>
+              <li><a href="/docs/user/languages/perl/">Perl</a></li>
               <li><a href="/docs/user/languages/php/">PHP</a></li>
+              <li><a href="/docs/user/languages/python/">Python</a></li>
               <li><a href="/docs/user/languages/ruby/">Ruby</a></li>
               <li><a href="/docs/user/languages/scala/">Scala</a></li>
             </ul>

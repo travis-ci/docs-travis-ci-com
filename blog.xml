@@ -2,13 +2,123 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://about.travis-ci.org//</id>
   <title>The Travis Blog</title>
-  <updated>2012-02-21T20:00:00Z</updated>
+  <updated>2012-02-27T11:00:00Z</updated>
   <link rel="alternate" href="http://about.travis-ci.org//"/>
   <link rel="self" href="http://about.travis-ci.org//blog.xml"/>
   <author>
     <name>Team Travis</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
+  <entry>
+    <id>tag:about.travis-ci.org,2012-02-27://blog/announcing_python_and_perl_support_on_travis_ci/</id>
+    <title type="html">Announcing Python and Perl project support on Travis CI</title>
+    <published>2012-02-27T11:00:00Z</published>
+    <updated>2012-02-27T11:00:00Z</updated>
+    <link rel="alternate" href="http://about.travis-ci.org//blog/announcing_python_and_perl_support_on_travis_ci/"/>
+    <content type="html">&lt;p&gt;Just shy of a week ago we announced support for Java, Scala, and Groovy. Well, we thought to ourselves ‘we already support 8 languages, why not more?’, and MOAR you shall have!&lt;/p&gt;
+
+&lt;p&gt;Today we are happy to announce first class support for Python and Perl projects!&lt;/p&gt;
+
+&lt;p&gt;Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn’t, but that both languages were sought after by their respective communities and complete the quest for the three P’s (PHP, Perl, and Python). &lt;/p&gt;
+
+&lt;p&gt;Perl, which has been around since 1987 (Genesis &lt;a href="http://youtu.be/TlBIa8z_Mts"&gt;“Land Of Confusion”&lt;/a&gt;)and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.&lt;/p&gt;
+
+&lt;p&gt;Python, around since the early 90’s (think MC Hammer &lt;a href="http://youtu.be/_UJaLq4YOo0"&gt;“Too Legit to Quit”&lt;/a&gt;, 1991), and in fact it’s OLDER than Java! It is used for pretty much EVERYTHING you can think of, from research at CERN, to build website (YouTube and DISQUS), scripting for Games (Battlefield 2), and scripting for Graphics programs (Autodesk Maya, GIMP, Panda3D and Blender to name a few). Pretty much, you have used Python and you didn’t even know it!&lt;/p&gt;
+
+&lt;h2 id="wait-what-is-travis-ci-anyway"&gt;Wait, What Is Travis CI Anyway?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="http://travis-ci.org"&gt;Travis CI&lt;/a&gt; is a distributed continuous integration for the open source community. It is integrated with GitHub and offers first class support for multiple technologies. Our CI environment provides many tools, libraries, and services (MySQL, PostgreSQL, Redis, RabbitMQ, MongoDB and so on), and you don’t have to bother setting up your own CI server.&lt;/p&gt;
+
+&lt;p&gt;You can watch build logs in near-real time in your browser, access logs later, and even link to log line numbers (for example, when reporting an issue).&lt;/p&gt;
+
+&lt;p&gt;Thanks to Github integration, Travis CI lets your contributors effortlessly add their development forks to test work-in-progress branches and makes your CI status very visible to the community thanks to our &lt;a href="http://about.travis-ci.org/docs/user/status-images/"&gt;CI badges&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Started in early 2011, Travis CI has since run half a million builds for over 6,000 open source projects, including Ruby, Ruby on Rails, RubyGems, Node.js, Leiningen, Symfony and many more.&lt;/p&gt;
+
+&lt;h2 id="getting-your-python-project-on-travis-ci"&gt;Getting Your Python Project on Travis CI&lt;/h2&gt;
+
+&lt;p&gt;Travis CI provides multiple Python and Perl versions to test against. To get started, you need to add one file
+(.travis.yml) and the Github hook as described in the &lt;a href="http://about.travis-ci.org/docs/user/getting-started/"&gt;Getting Started guide&lt;/a&gt;. A minimal .travis.yml
+would look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+# command to install dependencies
+install: pip install -r requirements.txt --use-mirrors
+# command to run tests
+script: nosetests
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is possible to add new commands to the build lifecycle, please refer to &lt;a href="http://about.travis-ci.org/"&gt;our documentation&lt;/a&gt;, which now includes a guide dedicated to &lt;a href="http://about.travis-ci.org/docs/user/languages/python/"&gt;Python&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="getting-your-perl-project-on-travis-ci"&gt;Getting Your Perl Project on Travis CI&lt;/h2&gt;
+
+&lt;p&gt;Travis CI provides three Perl versions to test against. To get started, you need to add one file
+(.travis.yml) and the Github hook as described in the &lt;a href="http://about.travis-ci.org/docs/user/getting-started/"&gt;Getting Started guide&lt;/a&gt;. A minimal .travis.yml
+would look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;language: perl
+perl:
+  - "5.14"
+  - "5.12"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Travis CI will will run widely used&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cpanm --installdeps --notest .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;command to install your project’s dependencies. For running tests, Travis CI will try to detect &lt;code&gt;Build.PL&lt;/code&gt; or &lt;code&gt;Makefile.PL&lt;/code&gt; file in your repository root
+and will run either&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;perl Build.PL &amp;amp;&amp;amp; ./Build test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;perl Makefile.PL &amp;amp;&amp;amp; make test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is possible to override these commands and add new ones to the build lifecycle, please refer to &lt;a href="http://about.travis-ci.org/"&gt;our documentation&lt;/a&gt;, which now includes a guide dedicated to &lt;a href="http://about.travis-ci.org/docs/user/languages/perl/"&gt;Perl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id="build-workflow"&gt;Build workflow&lt;/h3&gt;
+
+&lt;p&gt;Travis’ build workflow usually is&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clone your repository from GitHub&lt;/li&gt;
+  &lt;li&gt;Pick language/runtime version to use&lt;/li&gt;
+  &lt;li&gt;Run &lt;code&gt;before_install&lt;/code&gt; commands (can be more than one)&lt;/li&gt;
+  &lt;li&gt;Install dependencies. This will use cpanm for Perl and pip for Python. You can override the command using the &lt;code&gt;install&lt;/code&gt; key in your .travis.yml.&lt;/li&gt;
+  &lt;li&gt;Run one or more &lt;code&gt;before_script&lt;/code&gt; commands.&lt;/li&gt;
+  &lt;li&gt;Run the &lt;code&gt;script&lt;/code&gt; command, e.g. &lt;code&gt;perl Makefile.PL &amp;amp;&amp;amp; make test&lt;/code&gt;. This too can be overriden in .travis.yml. Python projects are required to provide &lt;code&gt;script:&lt;/code&gt; command.&lt;/li&gt;
+  &lt;li&gt;Report the build has finished running.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="learn-more"&gt;Learn more&lt;/h3&gt;
+
+&lt;p&gt;To learn what tools and services (mysql, postgres, riak, etc.) are available in the CI environment, refer to the &lt;a href="http://about.travis-ci.org/docs/user/ci-environment/"&gt;CI environment&lt;/a&gt; guide.&lt;/p&gt;
+
+&lt;p&gt;If you need help, feel free to join #travis on irc.freenode.net, ping us on Twitter (&lt;a href="http://twitter.com/travisci"&gt;@travisci&lt;/a&gt;) and ask questions on &lt;a href="https://groups.google.com/group/travis-ci"&gt;our mailing list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="thank-you-contributors"&gt;Thank You Contributors&lt;/h2&gt;
+
+&lt;p&gt;We would like to thank &lt;a href="http://twitter.com/dstufft"&gt;Donald Stufft&lt;/a&gt;, &lt;a href="http://twitter.com/kennethreitz"&gt;Kenneth Reitz&lt;/a&gt;, &lt;a href="http://twitter.com/jezdez"&gt;Jannis Leidel&lt;/a&gt; and &lt;a href="http://twitter.com/dreid"&gt;David Reid&lt;/a&gt; for helping us making Python support happen and initial field testing.&lt;/p&gt;
+
+&lt;p&gt;Perl support wouldn’t be possible without amazing work and advice by &lt;a href="http://twitter.com/judofyr"&gt;Magnus Holm&lt;/a&gt;, &lt;a href="http://twitter.com/dukeleto"&gt;Jonathan “Duke” Leto&lt;/a&gt; (also a big YAY for adding Parrot to Travis CI!), and &lt;a href="http://twitter.com/fxn"&gt;Xavier Noria&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, if you have a spare minute, send a &lt;em&gt;HUGE&lt;/em&gt; thanks to &lt;a href="http://twitter.com/michaelklishin"&gt;Michael Klishin&lt;/a&gt; who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding support for JVM languages (first Clojure, later Java, Scala, Groovy), and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!&lt;/p&gt;
+
+&lt;h2 id="next-steps"&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;Python and Perl support brings the total number of languages supported by Travis CI to 10. We love adding support to even more languages, but we think for now we need to focus on features like pre-tested pull requests that will benefit all projects, regardless of the language.&lt;/p&gt;
+
+&lt;p&gt;If you want to help us make Travis CI even better, consider &lt;a href="https://love.travis-ci.org"&gt;making a donation&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:about.travis-ci.org,2012-02-22://blog/announcing_support_for_java_scala_and_groovy_on_travis_ci/</id>
     <title type="html">Announcing Java, Scala and Groovy project support on travis-ci.org</title>
@@ -248,49 +358,6 @@ you can exclude those versions. The same goes for project that want to only supp
 &lt;h3 id="discuss-on-hacker-news"&gt;Discuss on Hacker News&lt;/h3&gt;
 
 &lt;p&gt;You can discuss Node.js support on travis-ci.org &lt;a href="http://news.ycombinator.com/item?id=3216403"&gt;on Hacker News&lt;/a&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:about.travis-ci.org,2011-11-01://blog/vm_upgrade_oct_31_2011/</id>
-    <title type="html">VM environment upgrade, Oct 31st, 2011</title>
-    <published>2011-10-31T20:26:26Z</published>
-    <updated>2011-10-31T20:26:26Z</updated>
-    <link rel="alternate" href="http://about.travis-ci.org//blog/vm_upgrade_oct_31_2011/"/>
-    <content type="html">&lt;p&gt;travis-ci.org Ruby workers were upgraded to provide the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ruby 1.9.3-p0 (final release)&lt;/li&gt;
-  &lt;li&gt;JRuby 1.6.5&lt;/li&gt;
-  &lt;li&gt;Updated Rubinius 2.0 from 2.0.testing branch&lt;/li&gt;
-  &lt;li&gt;Node.js 0.4.12, npm 1.0.18&lt;/li&gt;
-  &lt;li&gt;MongoDB 2.0.1&lt;/li&gt;
-  &lt;li&gt;Riak 1.0.1&lt;/li&gt;
-  &lt;li&gt;ragel&lt;/li&gt;
-  &lt;li&gt;RVM 1.9.2&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There is also one more change we want to highlight: we now provide two installations of Rubinius, one in Ruby 1.8 mode
-and another one in Ruby 1.9 mode. Their RVM aliases are &lt;em&gt;rbx-18mode&lt;/em&gt; and &lt;em&gt;rbx-19mode&lt;/em&gt;, respectively. For example, to test your gem
-against Rubinius in both modes, you can use the following list of Rubies in your .travis.yml file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;rvm:
-  - 1.8.7
-  - 1.9.3
-  - jruby
-  - rbx-18mode
-  - rbx-19mode
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Existing aliases for 1.8 mode (&lt;em&gt;rbx&lt;/em&gt; and &lt;em&gt;rbx-2.0&lt;/em&gt;) are still around and will work.&lt;/p&gt;
-
-&lt;p&gt;Rubinius’ Ruby 1.9 features support is still a work in progress (it does not support encodings yet, for example) but
-we encourage Ruby developers to try testing their libraries against Rubinius, in both 1.8 and 1.9 modes. Now it is even
-easier to do on travis-ci.org.&lt;/p&gt;
-
-&lt;p&gt;To get regular updates about travis-ci.org environment upgrades and other developments, &lt;a href="https://twitter.com/travisci"&gt;follow Travis CI on Twitter&lt;/a&gt;
-and watch our &lt;a href="https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base"&gt;Chef cookbooks repository on GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://twitter.com/michaelklishin"&gt;MK&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
 </feed>

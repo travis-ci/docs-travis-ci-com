@@ -13,7 +13,9 @@ multiple technologies
  * Groovy
  * Java
  * JavaScript (with Node.js)
+ * Perl
  * PHP
+ * Python
  * Ruby
  * Scala
 

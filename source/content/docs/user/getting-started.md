@@ -13,7 +13,9 @@ multiple technologies
  * Groovy
  * Java
  * Node.js
+ * Perl
  * PHP
+ * Python
  * Ruby
  * Scala
 
@@ -92,6 +94,15 @@ Learn more about <a href="/docs/user/languages/java/">.travis.yml options for Ja
 
 Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a>
 
+
+#### Perl
+
+    language: perl
+    perl:
+      - "5.14"
+      - "5.12"
+
+
 #### PHP
 
     language: php
@@ -100,6 +111,20 @@ Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.
       - 5.4
 
 Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a>
+
+
+#### Python
+
+    language: python
+    python:
+      - 2.6
+      - 2.7
+      - 3.2
+    # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+    install: PLEASE CHANGE ME
+    # command to run tests, e.g. python setup.py test
+    script:  PLEASE CHANGE ME
+
 
 #### Ruby
 

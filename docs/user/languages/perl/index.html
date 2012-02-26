@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: How to setup and trigger the hook manually</title>
+    <title>Travis CI: Building a Perl Project</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <link rel="alternate" type="application/rss+xml" href="/blog.xml">
   </head>
@@ -31,22 +31,84 @@
         <div class="pad">
           <div id="main">
             
-            <h2>How to setup and trigger the hook manually</h2>
+            <h2>Building a Perl Project</h2>
             
 
-            <p>Sometimes you need to setup the service hook manually. Normally this should not be necessary as you should be able to <a href="/docs/user/getting-started/">started simply flip the relevant switch</a> on the profile page.</p>
+            <h2 id="what-this-guide-covers">What This Guide Covers</h2>
 
-<p>However especially when setting up an repository hosted inside a github organization the hook needs to be setup manually. Simply access the given repositories admin panel on github. Then access the “service hooks” section.</p>
+<p>This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our <a href="/docs/user/getting-started/">Getting Started</a> and <a href="/docs/user/build-configuration/">general build configuration</a> guides first.</p>
 
-<p>The URL will look something like <code>https://github.com/[your organization]/[your repository]/admin/hooks</code>.</p>
+<h2 id="choosing-perl-versions-to-test-against">Choosing Perl versions to test against</h2>
 
-<p>As the list is very long you will need to scroll down and after clicking on “Travis” scroll back up. You will be presented with a form with 3 fields: Domain, User, Token.</p>
+<p>Perl workers on travis-ci.org use <a href="http://perlbrew.pl/">Perlbrew</a> to provide several Perl versions your projects can be tested against.
+To specify them, use <code>perl:</code> key in your <code>.travis.yml</code> file, for example:</p>
 
-<p>You can leave the Domain empty. In the User field enter the github account you used to authenticate yourself on travis-ci.org. In the Token field paste the token as it is listed on the profile page on travis-ci.org.</p>
+<pre><code>language: perl
+perl:
+  - "5.14"
+  - "5.12"
+</code></pre>
 
-<p>When you click “Update Settings” the hook is setup and from now on pushes to this repository will trigger a build on travis-ci.org.</p>
+<p>A more extensive example:</p>
 
-<p>Clicking on “Test Hook” will trigger a build on your “master” branch without having to push. Note this will also work if you setup your hook via the switches on your profile page.</p>
+<pre><code>language: perl
+perl:
+  - "5.14"
+  - "5.12"
+  - "5.10"
+</code></pre>
+
+<p>As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like <code>5.14</code> will float and point to different
+exact versions, patch levels and so on. For full up-to-date list of provided Perl versions, see our <a href="/docs/user/ci-environment/">CI environment guide</a>.</p>
+
+<h2 id="default-perl-version">Default Perl Version</h2>
+
+<p>If you leave the <code>perl</code> key out of your <code>.travis.yml</code>, Travis CI will use Perl 5.14.</p>
+
+<h2 id="default-test-script">Default Test Script</h2>
+
+<h3 id="modulebuild">Module::Build</h3>
+
+<p>If your repository has Build.PL is the root, it will be used to generate build script:</p>
+
+<pre><code>perl Build.PL &amp;&amp; ./Build test
+</code></pre>
+
+<h3 id="eumm">EUMM</h3>
+
+<p>If your repository has Makefile.PL is the root, it will be used like so</p>
+
+<pre><code>perl Makefile.PL &amp;&amp; make test
+</code></pre>
+
+<p>If neither Module::Build nor EUMM build files are found, Travis CI will fall back to running</p>
+
+<pre><code>make test
+</code></pre>
+
+<p>It is possible to override test command as described in the <a href="/docs/user/build-configuration/">general build configuration</a> guide.</p>
+
+<h2 id="dependency-management">Dependency Management</h2>
+
+<h3 id="travis-ci-uses-cpanm">Travis CI uses cpanm</h3>
+
+<p>By default Travis CI use <code>cpanm</code> to manage your project’s dependencies. It is possible to override dependency installation command
+as described in the <a href="/docs/user/build-configuration/">general build configuration</a> guide.</p>
+
+<p>The exact default command is</p>
+
+<pre><code>cpanm --installdeps --notest .
+</code></pre>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li><a href="https://github.com/leto/math--primality/blob/master/.travis.yml">leto/math–primality</a></li>
+  <li><a href="https://github.com/fxn/algorithm-combinatorics/blob/master/.travis.yml">fxn/algorithm-combinatorics</a></li>
+  <li><a href="https://github.com/fxn/net-fluidinfo/blob/master/.travis.yml">fxn/net-fluidinfo</a></li>
+  <li><a href="https://github.com/fxn/acme-pythonic/blob/master/.travis.yml">fxn/acme-pythonic</a></li>
+  <li><a href="https://github.com/judofyr/parallol/blob/travis-ci/.travis.yml">judofyr/parallol</a></li>
+</ul>
 
           </div><!-- /#main -->
           <div id="sidebar">
