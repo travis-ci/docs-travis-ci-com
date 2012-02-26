@@ -110,7 +110,7 @@ and will run either&lt;/p&gt;
 
 &lt;p&gt;Perl support wouldn’t be possible without amazing work and advice by &lt;a href="http://twitter.com/judofyr"&gt;Magnus Holm&lt;/a&gt;, &lt;a href="http://twitter.com/dukeleto"&gt;Jonathan “Duke” Leto&lt;/a&gt; (also a big YAY for adding Parrot to Travis CI!), and &lt;a href="http://twitter.com/fxn"&gt;Xavier Noria&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Also, if you have a spare minute, send a &lt;em&gt;HUGE&lt;/em&gt; thanks to &lt;a href="http://twitter.com/michaelklishin"&gt;Michael Klishin&lt;/a&gt; who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding Java support, and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!&lt;/p&gt;
+&lt;p&gt;Also, if you have a spare minute, send a &lt;em&gt;HUGE&lt;/em&gt; thanks to &lt;a href="http://twitter.com/michaelklishin"&gt;Michael Klishin&lt;/a&gt; who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding support for Clojure, Java, Scala, Groovy, and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!&lt;/p&gt;
 
 &lt;h2 id="next-steps"&gt;Next steps&lt;/h2&gt;
 
