@@ -102,7 +102,7 @@ We would like to thank [Donald Stufft](http://twitter.com/dstufft), [Kenneth Rei
 
 Perl support wouldn't be possible without amazing work and advice by [Magnus Holm](http://twitter.com/judofyr), [Jonathan "Duke" Leto](http://twitter.com/dukeleto) (also a big YAY for adding Parrot to Travis CI!), and [Xavier Noria](http://twitter.com/fxn).
 
-Also, if you have a spare minute, send a *HUGE* thanks to [Michael Klishin](http://twitter.com/michaelklishin) who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding support for Clojure, Java, Scala, Groovy, and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!
+Also, if you have a spare minute, send a *HUGE* thanks to [Michael Klishin](http://twitter.com/michaelklishin) who works day and night (seriously, we can not figure out when he sleeps, or if he sleeps!) maintaining the VMs and making sure they are up to date. He was the driving force behind adding support for JVM languages (first Clojure, later Java, Scala, Groovy), and was instrumental in adding Python and Perl support. So please send him a tweet to say thanks, because without Michael we would still be at just Ruby support!
 
 
 ## Next steps
