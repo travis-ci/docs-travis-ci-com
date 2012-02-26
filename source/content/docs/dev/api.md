@@ -150,3 +150,84 @@ kind: content
     }
 
 [Hurl](http://hurl.it/hurls/e69fc3c78fe69ed27e4ef772af5ac6bf005bffce/af2ecf26f637b4cf16b112a35179f9c4277d5b0c)
+
+### JSONP
+
+The server acknowledges [JSONP](http://en.wikipedia.org/wiki/JSONP "Wikipedia on JSONP") requests. This allows
+a javascript client to relax the 
+[same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy "Wikipedia on Same Origin Policy")
+and retrieve the above json by specifying a callback function.
+
+#### Example
+
+JSONP works with any of the above urls. The example below uses the url for builds and appends a callback
+
+    http://travis-ci.org/:owner_name/:name/builds.json?callback=:function
+
+#### Response (http://travis-ci.org/travis-ci/travis-ci/builds.json?callback=foo)
+
+    foo(
+      [
+        {
+          "number": "731",
+          "committed_at": "2011-08-02T23:16:51Z",
+          "commit": "9b5786d7164ef5a960e0d7b87764b9cbc0fb95e3",
+          "finished_at": "2011-08-02T23:27:17Z",
+          "config": {
+            "script": "bundle exec rake test:ci",
+            ".configured": "true",
+            "bundler_args": "--without development",
+            "notifications": {
+              "irc": "irc.freenode.org#travis"
+            },
+            "rvm": [
+              "1.8.7",
+              "1.9.2",
+              "1.9.3",
+              "ree"
+            ]
+          },
+          "author_name": "Josh Kalderimis",
+          "matrix": [
+            {
+              "number": "731.1",
+              "committed_at": "2011-08-02T23:16:51Z",
+              "commit": "9b5786d7164ef5a960e0d7b87764b9cbc0fb95e3",
+              "finished_at": "2011-08-02T23:24:06Z",
+              "config": {
+                "script": "bundle exec rake test:ci",
+                ".configured": "true",
+                "bundler_args": "--without development",
+                "notifications": {
+                  "irc": "irc.freenode.org#travis"
+                },
+                "rvm": "1.8.7"
+              },
+              "author_name": "Josh Kalderimis",
+              "log": "Using worker: main.railshoster:worker-3\n\n$ git clone --depth=1000 --quiet git://github.com/travis-ci/travis-ci.git ... ",
+              "branch": "master",
+              "id": 63812,
+              "parent_id": 63811,
+              "started_at": "2011-08-02T23:20:13Z",
+              "author_email": "josh.kalderimis@gmail.com",
+              "status": 0,
+              "repository_id": 59,
+              "message": "Merge branch 'staging'",
+              "compare_url": "https://github.com/travis-ci/travis-ci/compare/ca5b190...9b5786d"
+            },
+           ...
+          ],
+          "log": "",
+          "branch": "master",
+          "id": 63811,
+          "started_at": "2011-08-02T23:23:05Z",
+          "author_email": "josh.kalderimis@gmail.com",
+          "status": 0,
+          "repository_id": 59,
+          "message": "Merge branch 'staging'",
+          "compare_url": "https://github.com/travis-ci/travis-ci/compare/ca5b190...9b5786d"
+        },
+        ...
+      ]
+    )
+
