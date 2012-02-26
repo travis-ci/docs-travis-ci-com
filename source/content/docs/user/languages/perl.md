@@ -70,3 +70,11 @@ as described in the [general build configuration](/docs/user/build-configuration
 The exact default command is
 
     cpanm --installdeps --notest .
+
+## Examples
+
+ * [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)
+ * [fxn/algorithm-combinatorics](https://github.com/fxn/algorithm-combinatorics/blob/master/.travis.yml)
+ * [fxn/net-fluidinfo](https://github.com/fxn/net-fluidinfo/blob/master/.travis.yml)
+ * [fxn/acme-pythonic](https://github.com/fxn/acme-pythonic/blob/master/.travis.yml)
+ * [judofyr/parallol](https://github.com/judofyr/parallol/blob/travis-ci/.travis.yml)
