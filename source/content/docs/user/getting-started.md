@@ -15,6 +15,7 @@ multiple technologies
  * Node.js
  * Perl
  * PHP
+ * Python
  * Ruby
  * Scala
 

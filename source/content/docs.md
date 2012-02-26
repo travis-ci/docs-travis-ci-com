@@ -19,9 +19,14 @@ kind: content
 
 * <a href="/docs/user/languages/clojure">Clojure</a>
 * <a href="/docs/user/languages/erlang">Erlang</a>
+* <a href="/docs/user/languages/groovy">Groovy</a>
+* <a href="/docs/user/languages/java">Java</a>
 * <a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
+* <a href="/docs/user/languages/perl">Perl</a>
 * <a href="/docs/user/languages/php">PHP</a>
+* <a href="/docs/user/languages/python">Python</a>
 * <a href="/docs/user/languages/ruby">Ruby</a>
+* <a href="/docs/user/languages/scala">Scala</a>
 
 ### Developer documentation
 
