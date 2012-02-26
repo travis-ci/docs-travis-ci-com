@@ -182,6 +182,23 @@ To specify an environment variable:
 
 Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One ENV variable is always set during your builds, `TRAVIS`. Use it to detect whether your test suite is running during CI.
 
+You can specify more than one environment variable per item in the `env` array:
+
+    rvm:
+      - 1.9.3
+      - rbx-18mode
+    env:
+      - FOO=foo BAR=bar
+      - FOO=bar BAR=foo
+
+With this configuration, **4 individual builds** will be triggered:
+
+
+1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
+2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
+3. Rubinius in 1.8 mode with `FOO=foo` and `BAR=bar`
+4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
+
 
 ## Installing Ubuntu packages
 
@@ -338,10 +355,11 @@ Here is an example payload of what will be `POST`ed to your webhook URLs: https:
 
 ## The Build Matrix
 
-When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Two key matrix dimensions are:
+When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Three key matrix dimensions are:
 
 * Runtime to test against
 * Environment variables with which you can configure your build scripts
+* Exclusions and allowed failures
 
 Below is an example configuration for a rather big build matrix that expands to <strong>28&nbsp;individual</strong> builds.
 
@@ -377,18 +395,13 @@ You can also define exclusions to the build matrix:
 
 Only exact matches will be excluded.
 
-You can specify more than one environment variable per item in the `env` array:
+You can also define allowed failures in the build matrix.
+Allowed failures are items in your build matrix that are allowed to fail without causing the entire build to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
 
-    rvm:
-      - 1.9.3
-      - rbx-18mode
-    env:
-      - FOO=foo BAR=bar
-      - FOO=bar BAR=foo
+You can define allowed failures in the build matrix as follows: 
 
-With this configuration, **4 individual builds** will be triggered:
+    matrix:
+      allow_failures:
+        - rvm: 1.9.3
 
-1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
-2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
-3. Rubinius in 1.8 mode with `FOO=foo` and `BAR=bar`
-4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
+
