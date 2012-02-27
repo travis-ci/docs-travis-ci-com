@@ -26,7 +26,6 @@ A more extensive example:
 
     language: python
     python:
-      - "2.5"
       - "2.6"
       - "2.7"
       - "3.1"
