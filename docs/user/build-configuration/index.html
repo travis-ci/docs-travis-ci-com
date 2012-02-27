@@ -155,10 +155,17 @@ The option you use for that vary between languages. Here are some basic <strong>
 <h3 id="clojure">Clojure</h3>
 
 <p>Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing
-against multiple Clojure versions via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>. If you are interested in testing against multiple
-Clojure releases, just use that plugin and it will work without special support on the Travis side.</p>
+against multiple Clojure versions:</p>
 
-<p>Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a></p>
+<ul>
+  <li>In Leiningen 1.x, via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a></li>
+  <li>In upcoming Leiningen 2.0 (not yet available in Travis CI Environment), via Leiningen Profiles</li>
+</ul>
+
+<p>If you are interested in testing against multiple Clojure releases, just use these Leiningen features and
+it will work without special support on the Travis side.</p>
+
+<p>Learn more in our <a href="/docs/user/languages/clojure/">Clojure guide</a></p>
 
 <h3 id="erlang">Erlang</h3>
 
@@ -172,6 +179,18 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a></p>
 
+<h3 id="groovy">Groovy</h3>
+
+<p>Currently Groovy projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.</p>
+
+<p>Learn more in our <a href="/docs/user/languages/groovy/">Groovy guide</a></p>
+
+<h3 id="java">Java</h3>
+
+<p>Currently Java projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.</p>
+
+<p>Learn more in our <a href="/docs/user/languages/java/">Java guide</a></p>
+
 <h3 id="nodejs">Node.js</h3>
 
 <p>Node.js projects specify releases they need to be tested against using <code>node_js</code> key:</p>
@@ -183,6 +202,17 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a></p>
 
+<h3 id="perl">Perl</h3>
+
+<p>Perl projects specify Perls they need to be tested against using <code>perl</code> key:</p>
+
+<pre><code>perl:
+  - "5.14"
+  - "5.12"
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/perl/">.travis.yml options for Perl projects</a></p>
+
 <h3 id="php">PHP</h3>
 
 <p>PHP projects specify releases they need to be tested against using <code>phps</code> key:</p>
@@ -193,6 +223,18 @@ Clojure releases, just use that plugin and it will work without special support 
 </code></pre>
 
 <p>Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a></p>
+
+<h3 id="python">Python</h3>
+
+<p>Python projects specify Python versions they need to be tested against using <code>python</code> key:</p>
+
+<pre><code>python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+</code></pre>
+
+<p>Learn more about <a href="/docs/user/languages/python/">.travis.yml options for Python projects</a></p>
 
 <h3 id="ruby">Ruby</h3>
 
@@ -208,7 +250,18 @@ Clojure releases, just use that plugin and it will work without special support 
 
 <p>Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a></p>
 
-<p>More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.</p>
+<h3 id="scala">Scala</h3>
+
+<p>Scala projects specify releases they need to be tested against using <code>scala</code> key:</p>
+
+<pre><code>scala:
+  - "2.8.2"
+  - "2.9.1"
+</code></pre>
+
+<p>Travis CI relies on SBT’s support for running tests against multiple Scala versions.</p>
+
+<p>Learn more in our <a href="/docs/user/languages/scala/">Scala guide</a></p>
 
 <h2 id="set-environment-variables">Set environment variables</h2>
 
@@ -218,6 +271,25 @@ Clojure releases, just use that plugin and it will work without special support 
 </code></pre>
 
 <p>Environment variables are useful for configuring build scripts. See the example in <a href="/docs/user/database-setup/#multiple-database-systems">Database setup</a>. One ENV variable is always set during your builds, <code>TRAVIS</code>. Use it to detect whether your test suite is running during CI.</p>
+
+<p>You can specify more than one environment variable per item in the <code>env</code> array:</p>
+
+<pre><code>rvm:
+  - 1.9.3
+  - rbx-18mode
+env:
+  - FOO=foo BAR=bar
+  - FOO=bar BAR=foo
+</code></pre>
+
+<p>With this configuration, <strong>4 individual builds</strong> will be triggered:</p>
+
+<ol>
+  <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
+  <li>Ruby 1.9.3 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+  <li>Rubinius in 1.8 mode with <code>FOO=foo</code> and <code>BAR=bar</code></li>
+  <li>Rubinius in 1.8 mode with <code>FOO=bar</code> and <code>BAR=foo</code></li>
+</ol>
 
 <h2 id="installing-ubuntu-packages">Installing Ubuntu packages</h2>
 
@@ -376,7 +448,7 @@ branches:
     on_failure: [always|never|change] # default: always
 </code></pre>
 
-<p>Here is an example payload of what will be <code>POST</code>ed to your webhook URLs: https://gist.github.com/1225015</p>
+<p>Here is an example payload of what will be <code>POST</code>ed to your webhook URLs: <a href="https://gist.github.com/1225015">gist.github.com/1225015</a></p>
 
 <h2 id="the-build-matrix">The Build Matrix</h2>
 
@@ -433,27 +505,6 @@ Allowed failures are items in your build matrix that are allowed to fail without
   allow_failures:
     - rvm: 1.9.3
 </code></pre>
-
-<p>You can specify more than one environment variable per item in the <code>env</code> array:</p>
-
-<pre><code>rvm:
-  - 1.9.3
-  - rbx-18mode
-env:
-  - FOO=foo BAR=bar
-  - FOO=bar BAR=foo
-</code></pre>
-
-<p>With this configuration, <strong>4 individual builds</strong> will be triggered:</p>
-
-<ol>
-  <li>Ruby 1.9.3 with <code>FOO=foo</code> and <code>BAR=bar</code></li>
-  <li>Ruby 1.9.3 with <code>FOO=bar</code> and <code>BAR=foo</code></li>
-  <li>Rubinius in 1.8 mode with <code>FOO=foo</code> and <code>BAR=bar</code></li>
-  <li>Rubinius in 1.8 mode with <code>FOO=bar</code> and <code>BAR=foo</code></li>
-</ol>
-
-<p>Even if Ruby 1.9.3 fails, your repository will still show as passing.</p>
 
           </div><!-- /#main -->
           <div id="sidebar">

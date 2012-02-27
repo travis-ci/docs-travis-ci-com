@@ -121,10 +121,16 @@ The option you use for that vary between languages. Here are some basic **.travi
 ### Clojure
 
 Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing
-against multiple Clojure versions via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>. If you are interested in testing against multiple
-Clojure releases, just use that plugin and it will work without special support on the Travis side.
+against multiple Clojure versions:
 
-Learn more about <a href="/docs/user/languages/clojure/">.travis.yml options for Clojure projects</a>
+ * In Leiningen 1.x, via <a href="https://github.com/maravillas/lein-multi">lein-multi plugin</a>
+ * In upcoming Leiningen 2.0 (not yet available in Travis CI Environment), via Leiningen Profiles
+
+If you are interested in testing against multiple Clojure releases, just use these Leiningen features and
+it will work without special support on the Travis side.
+
+Learn more in our <a href="/docs/user/languages/clojure/">Clojure guide</a>
+
 
 ### Erlang
 
@@ -137,6 +143,21 @@ Erlang projects specify releases they need to be tested against using `otp_relea
 
 Learn more about <a href="/docs/user/languages/erlang/">.travis.yml options for Erlang projects</a>
 
+
+### Groovy
+
+Currently Groovy projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+
+Learn more in our <a href="/docs/user/languages/groovy/">Groovy guide</a>
+
+
+### Java
+
+Currently Java projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+
+Learn more in our <a href="/docs/user/languages/java/">Java guide</a>
+
+
 ### Node.js
 
 Node.js projects specify releases they need to be tested against using `node_js` key:
@@ -147,6 +168,16 @@ Node.js projects specify releases they need to be tested against using `node_js`
 
 Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.yml options for Node.js projects</a>
 
+### Perl
+
+Perl projects specify Perls they need to be tested against using `perl` key:
+
+    perl:
+      - "5.14"
+      - "5.12"
+
+Learn more about <a href="/docs/user/languages/perl/">.travis.yml options for Perl projects</a>
+
 ### PHP
 
 PHP projects specify releases they need to be tested against using `phps` key:
@@ -156,6 +187,17 @@ PHP projects specify releases they need to be tested against using `phps` key:
       - 5.4
 
 Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP projects</a>
+
+### Python
+
+Python projects specify Python versions they need to be tested against using `python` key:
+
+    python:
+      - "2.6"
+      - "2.7"
+      - "3.2"
+
+Learn more about <a href="/docs/user/languages/python/">.travis.yml options for Python projects</a>
 
 ### Ruby
 
@@ -170,7 +212,18 @@ Ruby projects specify releases they need to be tested against using `rvm` key:
 
 Learn more about <a href="/docs/user/languages/ruby/">.travis.yml options for Ruby projects</a>
 
-More information about provided Ruby versions and implementations is available <a href="/docs/user/ci-environment/">in a separate guide</a>.
+### Scala
+
+Scala projects specify releases they need to be tested against using `scala` key:
+
+    scala:
+      - "2.8.2"
+      - "2.9.1"
+
+Travis CI relies on SBT's support for running tests against multiple Scala versions.
+
+Learn more in our <a href="/docs/user/languages/scala/">Scala guide</a>
+
 
 
 
