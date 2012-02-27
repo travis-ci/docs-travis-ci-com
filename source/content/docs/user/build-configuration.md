@@ -339,7 +339,7 @@ Or multiple channels:
         - http://your-domain.com/notifications
         - http://another-domain.com/notifications
 
-Just as with other notification types you can specify when IRC notifications will be sent:
+Just as with other notification types you can specify when webhook payloads will be sent:
 
     notifications:
       webhooks:
