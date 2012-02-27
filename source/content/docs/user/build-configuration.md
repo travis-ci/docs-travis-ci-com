@@ -349,7 +349,7 @@ Just as with other notification types you can specify when webhook payloads will
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
-Here is an example payload of what will be `POST`ed to your webhook URLs: https://gist.github.com/1225015
+Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
 
 
 
