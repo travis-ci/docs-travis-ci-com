@@ -1,5 +1,5 @@
 ---
-title: Announcing Python and Perl project support on Travis CI
+title: Announcing Python and Perl support on Travis CI
 kind: article
 created_at: Mon Feb 27 15:00:00 CET 2012
 ---
