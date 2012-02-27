@@ -10,7 +10,7 @@ Today we are happy to announce first class support for Python and Perl projects!
 
 Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn't, but that both languages were sought after by their respective communities and complete the quest for the three P's (PHP, Perl, and Python). 
 
-Perl, which has been around since 1987 (Genesis ["Land Of Confusion"](http://youtu.be/TlBIa8z_Mts))and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.
+Perl, which has been around since 1987 (Genesis ["Land Of Confusion"](http://www.youtube.com/watch?v=1pkVLqSaahk))and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.
 
 Python, around since the early 90's (think MC Hammer ["Too Legit to Quit"](http://youtu.be/_UJaLq4YOo0), 1991), and in fact it's OLDER than Java! It is used for pretty much EVERYTHING you can think of, from research at CERN, to build website (YouTube and DISQUS), scripting for Games (Battlefield 2), and scripting for Graphics programs (Autodesk Maya, GIMP, Panda3D and Blender to name a few). Pretty much, you have used Python and you didn't even know it!
 
