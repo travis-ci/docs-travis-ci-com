@@ -102,6 +102,8 @@ Learn more about <a href="/docs/user/languages/javascript-with-nodejs/">.travis.
       - "5.14"
       - "5.12"
 
+Learn more about <a href="/docs/user/languages/perl/">.travis.yml options for Perl projects</a>
+
 
 #### PHP
 
@@ -124,6 +126,8 @@ Learn more about <a href="/docs/user/languages/php/">.travis.yml options for PHP
     install: PLEASE CHANGE ME
     # command to run tests, e.g. python setup.py test
     script:  PLEASE CHANGE ME
+
+Learn more about <a href="/docs/user/languages/python/">.travis.yml options for Python projects</a>
 
 
 #### Ruby
