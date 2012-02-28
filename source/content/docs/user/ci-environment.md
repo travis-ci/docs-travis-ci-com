@@ -261,6 +261,7 @@ Xdebug
 
 ### Python versions
 
+* 2.5
 * 2.6
 * 2.7
 * 3.1
