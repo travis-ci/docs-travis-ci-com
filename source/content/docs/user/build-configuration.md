@@ -259,7 +259,7 @@ If your dependencies need native libraries to be available, **you can use passwo
 
     sudo apt-get install [packages list]
 
-The reason why travis-ci.org can affort to provide passwordless sudo is that virtual machines your test suite is executed in are snapshotted
+The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are snapshotted
 and rolled back to their pristine state after each build.
 
 
