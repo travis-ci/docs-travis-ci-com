@@ -9,7 +9,7 @@ This guide covers build environment and configuration topics specific to Python 
 
 ## Choosing Python versions to test against
 
-Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus [Dead Snakes PPA]() to provide several Python versions your projects can be
+Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus [Dead Snakes PPA](https://launchpad.net/~fkrull/+archive/deadsnakes) to provide several Python versions your projects can be
 tested against. To specify them, use `python:` key in your `.travis.yml` file, for example:
 
     language: python
