@@ -100,4 +100,4 @@ installation failures.
  * [kennethreitz/requests](https://github.com/kennethreitz/requests/blob/develop/.travis.yml)
  * [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
  * [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
- * [dreid/klein](https://github.com/dreid/klein/blob/master/.travis.yml)
+ * [MostAwesomeDude/klein](https://github.com/MostAwesomeDude/klein/blob/master/.travis.yml)
