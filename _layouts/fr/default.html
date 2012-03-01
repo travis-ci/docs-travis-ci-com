@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Travis CI: À propos - <%= @item[:title] %></title>
+    <title>Travis CI: {{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
   </head>
   <body>
@@ -30,12 +30,8 @@
       <div class="wrapper">
         <div class="pad">
           <div id="main">
-            <% if item[:title] %>
-              <h2><%= item[:title] %></h2>
-            <% end %>
-
-            <%= yield %>
-
+            <h2>{{ page.title }}</h2>
+            {{ content }}
             <div id="disqus_thread"></div>
             <script type="text/javascript">
               /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
