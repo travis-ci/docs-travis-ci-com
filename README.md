@@ -5,7 +5,7 @@ This is the documentation site for Travis! (http://about.travis-ci.org)
 ## How to contribute
 
 Fork the repository, read the rest of this README file and make some changes.
-Once your are done with your changes send a pull request. Thanks!
+Once you're done with your changes send a pull request. Thanks!
 
 ## How to edit the site
 
