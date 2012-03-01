@@ -1,6 +1,6 @@
 ---
 title: VM environment upgrade, Nov 11th, 2011
-layout: default
+layout: en
 created_at: Fri Nov 11 02:18:00 EDT 2011
 permalink: vm_upgrade_nov_11_2011/
 ---

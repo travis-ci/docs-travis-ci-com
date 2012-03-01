@@ -1,6 +1,6 @@
 ---
 title: Announcing "first class" Node.js project support!
-layout: default
+layout: en
 created_at: Wed Nov 9 13:00:00 EDT 2011
 permalink: first_class_nodejs_support_on_travis_ci/
 ---

@@ -1,6 +1,6 @@
 ---
 title: Browser Extensions
-layout: default
+layout: en
 permalink: browser-extensions/
 ---
 

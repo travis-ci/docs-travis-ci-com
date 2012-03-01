@@ -1,6 +1,6 @@
 ---
 title: Building a Perl Project
-layout: default
+layout: en
 permalink: perl/
 ---
 

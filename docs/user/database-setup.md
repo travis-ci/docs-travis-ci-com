@@ -1,6 +1,6 @@
 ---
 title: Databases on Travis workers
-layout: default
+layout: en
 permalink: database-setup/
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: How to setup and trigger the hook manually
-layout: default
+layout: en
 permalink: how-to-setup-and-trigger-the-hook-manually/
 ---
 

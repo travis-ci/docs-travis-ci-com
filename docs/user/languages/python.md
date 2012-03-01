@@ -1,6 +1,6 @@
 ---
 title: Building a Python Project
-layout: default
+layout: en
 permalink: python/
 ---
 

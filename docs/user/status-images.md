@@ -1,6 +1,6 @@
 ---
 title: Status Images
-layout: default
+layout: en
 permalink: status-images/
 ---
 

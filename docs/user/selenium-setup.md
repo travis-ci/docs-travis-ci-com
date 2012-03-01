@@ -1,6 +1,6 @@
 ---
 title: Headless browser testing setup
-layout: default
+layout: en
 permalink: selenium-setup/
 ---
 

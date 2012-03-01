@@ -1,6 +1,6 @@
 ---
 title: The Travis API
-layout: default
+layout: en
 permalink: api/
 ---
 

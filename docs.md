@@ -1,6 +1,6 @@
 ---
 title:
-layout: default
+layout: en
 ---
 ### User documentation
 

@@ -1,6 +1,6 @@
 ---
 title: Building a Node.js project
-layout: default
+layout: en
 permalink: javascript-with-nodejs/
 ---
 

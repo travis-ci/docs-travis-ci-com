@@ -1,6 +1,6 @@
 ---
 title: Building a Java project
-layout: default
+layout: en
 permalink: java/
 ---
 

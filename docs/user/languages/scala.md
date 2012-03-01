@@ -1,6 +1,6 @@
 ---
 title: Building a Scala project
-layout: default
+layout: en
 permalink: scala/
 ---
 

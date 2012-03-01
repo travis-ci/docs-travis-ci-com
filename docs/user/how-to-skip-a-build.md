@@ -1,6 +1,6 @@
 ---
 title: How to skip a build
-layout: default
+layout: en
 permalink: how-to-skip-a-build/
 ---
 

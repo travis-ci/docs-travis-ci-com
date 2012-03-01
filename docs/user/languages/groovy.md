@@ -1,6 +1,6 @@
 ---
 title: Building a Groovy project
-layout: default
+layout: en
 permalink: groovy/
 ---
 

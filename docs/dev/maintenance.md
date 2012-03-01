@@ -1,6 +1,6 @@
 ---
 title: System Maintenance
-layout: default
+layout: en
 permalink: maintenance/
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Announcing Python and Perl support on Travis CI
-layout: default
+layout: en
 created_at: Mon Feb 27 15:00:00 CET 2012
 permalink: announcing_python_and_perl_support_on_travis_ci/
 ---

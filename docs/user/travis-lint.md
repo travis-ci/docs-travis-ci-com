@@ -1,6 +1,6 @@
 ---
 title: Validate your .travis.yml with travis-lint
-layout: default
+layout: en
 permalink: travis-lint/
 ---
 

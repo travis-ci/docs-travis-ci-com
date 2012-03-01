@@ -1,6 +1,6 @@
 ---
 title: Welcome to Travis CI
-layout: default
+layout: en
 ---
 
 ## What is Travis CI

@@ -1,6 +1,6 @@
 ---
 title: The worker (v3)
-layout: default
+layout: en
 permalink: worker/
 ---
 

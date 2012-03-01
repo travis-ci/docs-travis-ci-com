@@ -1,6 +1,6 @@
 ---
 title: Technical Overview
-layout: default
+layout: en
 permalink: overview/
 ---
 
