@@ -2,3 +2,4 @@ source/tmp/dependencies/**/*
 source/tmp/*
 .rvmrc
 .bundle
+bin
