@@ -1,6 +1,7 @@
 ---
 title: Browser Extensions
 layout: default
+permalink: browser-extensions/
 ---
 
 ## What This Guide Covers

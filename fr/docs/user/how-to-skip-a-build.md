@@ -1,6 +1,7 @@
 ---
 title: Comment ne pas déclencher de build
 layout: default
+permalink: how-to-skip-a-build/
 ---
 
 

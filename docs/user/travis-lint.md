@@ -1,6 +1,7 @@
 ---
 title: Validate your .travis.yml with travis-lint
 layout: default
+permalink: travis-lint/
 ---
 
 ## What This Guide Covers

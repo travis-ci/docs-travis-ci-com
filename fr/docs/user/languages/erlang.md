@@ -1,6 +1,7 @@
 ---
 title: Building a Erlang project
 layout: default
+permalink: erlang/
 ---
 
 ### Provided tools

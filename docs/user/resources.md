@@ -1,6 +1,7 @@
 ---
 title: Resources
 layout: default
+permalink: resources/
 ---
 
 <h3>Blog posts</h3>

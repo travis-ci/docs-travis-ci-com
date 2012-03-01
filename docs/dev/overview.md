@@ -1,6 +1,7 @@
 ---
 title: Technical Overview
 layout: default
+permalink: overview/
 ---
 
 ## What This Guide Covers

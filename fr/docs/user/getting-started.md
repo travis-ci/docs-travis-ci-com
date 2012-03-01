@@ -1,6 +1,7 @@
 ---
 title: Démarrer
 layout: default
+permalink: getting-started/
 ---
 
 <h3>Assurez-vous que votre projet compile</h3>

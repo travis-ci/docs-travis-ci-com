@@ -1,6 +1,7 @@
 ---
 title: Building a Python Project
 layout: default
+permalink: python/
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,7 @@
 ---
 title: Building a Node.js project
 layout: default
+permalink: javascript-with-nodejs/
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,7 @@
 ---
 title: Construire un projet PHP
 layout: default
+permalink: php/
 ---
 
 ## Ce que couvre ce guide

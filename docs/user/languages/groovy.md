@@ -1,6 +1,7 @@
 ---
 title: Building a Groovy project
 layout: default
+permalink: groovy/
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,7 @@
 ---
 title: How to skip a build
 layout: default
+permalink: how-to-skip-a-build/
 ---
 
 ## What This How-To Covers

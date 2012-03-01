@@ -1,6 +1,7 @@
 ---
 title: The worker (v3)
 layout: default
+permalink: worker/
 ---
 
 ## What This Guide Covers

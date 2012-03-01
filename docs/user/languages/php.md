@@ -1,6 +1,7 @@
 ---
 title: Building a PHP project
 layout: default
+permalink: php/
 ---
 
 ## What This Guide Covers

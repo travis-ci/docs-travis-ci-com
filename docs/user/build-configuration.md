@@ -1,6 +1,7 @@
 ---
 title: Configuring your Travis CI build with .travis.yml
 layout: default
+permalink: build-configuration/
 ---
 
 ## What This Guide Covers

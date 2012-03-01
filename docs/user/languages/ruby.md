@@ -1,6 +1,7 @@
 ---
 title: Building a Ruby Project
 layout: default
+permalink: ruby/
 ---
 
 ## What This Guide Covers

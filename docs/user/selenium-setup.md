@@ -1,6 +1,7 @@
 ---
 title: Headless browser testing setup
 layout: default
+permalink: selenium-setup/
 ---
 
 ## What This Guide Covers

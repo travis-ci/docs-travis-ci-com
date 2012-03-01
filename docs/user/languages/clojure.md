@@ -1,6 +1,7 @@
 ---
 title: Building a Clojure project
 layout: default
+permalink: clojure/
 ---
 
 ## What This Guide Covers

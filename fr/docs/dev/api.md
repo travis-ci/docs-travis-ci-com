@@ -1,6 +1,7 @@
 ---
 title: L'API Travis
 layout: default
+permalink: api/
 ---
 
 ### Repositories

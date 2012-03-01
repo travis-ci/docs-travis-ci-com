@@ -2,6 +2,7 @@
 title: VM environment upgrade, Oct 31st, 2011
 layout: default
 created_at: Mon Oct 31 16:26:26 EDT 2011
+permalink: vm_upgrade_oct_31_2011/
 ---
 
 travis-ci.org Ruby workers were upgraded to provide the following:

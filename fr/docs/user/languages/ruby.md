@@ -1,6 +1,7 @@
 ---
 title: Building a Ruby Project
 layout: default
+permalink: ruby/
 ---
 
 Travis was originally intended for just Ruby, so thinks should Just

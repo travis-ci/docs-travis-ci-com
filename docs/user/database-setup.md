@@ -1,6 +1,7 @@
 ---
 title: Databases on Travis workers
 layout: default
+permalink: database-setup/
 ---
 
 ## What This Guide Covers

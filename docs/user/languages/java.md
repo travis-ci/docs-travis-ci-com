@@ -1,6 +1,7 @@
 ---
 title: Building a Java project
 layout: default
+permalink: java/
 ---
 
 ## What This Guide Covers

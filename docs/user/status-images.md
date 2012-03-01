@@ -1,6 +1,7 @@
 ---
 title: Status Images
 layout: default
+permalink: status-images/
 ---
 
 ## What This Guide Covers

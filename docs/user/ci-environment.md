@@ -1,6 +1,7 @@
 ---
 title: About Travis CI Environment
 layout: default
+permalink: ci-environment/
 ---
 
 ## What This Guide Covers

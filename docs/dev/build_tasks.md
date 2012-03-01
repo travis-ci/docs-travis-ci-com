@@ -1,6 +1,7 @@
 ---
 title: The worker
 layout: default
+permalink: build_tasks/
 ---
 
 ## What This Guide Covers

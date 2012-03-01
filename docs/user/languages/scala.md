@@ -1,6 +1,7 @@
 ---
 title: Building a Scala project
 layout: default
+permalink: scala/
 ---
 
 ## What This Guide Covers

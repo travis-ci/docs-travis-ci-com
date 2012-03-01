@@ -2,6 +2,7 @@
 title: A Big Refactoring!
 layout: default
 created_at: Mon Aug 29 12:29:26 EDT 2011
+permalink: big_refactoring/
 ---
 
 We've just rolled out a big refactoring to the Travis CI [application](https://github.com/travis-ci/travis-ci)

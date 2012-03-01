@@ -1,6 +1,7 @@
 ---
 title: Getting started
 layout: default
+permalink: getting-started/
 ---
 
 ### Travis CI Overview

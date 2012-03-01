@@ -1,6 +1,7 @@
 ---
 title: Status Images
 layout: default
+permalink: status-images/
 ---
 
 After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on Github or your project website.

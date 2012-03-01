@@ -1,6 +1,7 @@
 ---
 title: Building a Perl Project
 layout: default
+permalink: perl/
 ---
 
 ## What This Guide Covers

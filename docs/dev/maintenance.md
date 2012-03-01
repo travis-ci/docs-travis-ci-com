@@ -1,6 +1,7 @@
 ---
 title: System Maintenance
 layout: default
+permalink: maintenance/
 ---
 
 ## What This Guide Covers

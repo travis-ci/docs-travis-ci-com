@@ -1,6 +1,7 @@
 ---
 title: The worker
 layout: default
+permalink: worker/
 ---
 
 Workers consist of the following elements:
