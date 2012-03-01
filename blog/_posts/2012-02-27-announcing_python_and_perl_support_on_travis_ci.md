@@ -2,14 +2,14 @@
 title: Announcing Python and Perl support on Travis CI
 layout: en
 created_at: Mon Feb 27 15:00:00 CET 2012
-permalink: announcing_python_and_perl_support_on_travis_ci/
+permalink: blog/announcing_python_and_perl_support_on_travis_ci
 ---
 
 Just shy of a week ago we announced support for Java, Scala, and Groovy. Well, we thought to ourselves 'we already support 8 languages, why not more?', and MOAR you shall have!
 
 Today we are happy to announce first class support for Python and Perl projects!
 
-Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn't, but that both languages were sought after by their respective communities and complete the quest for the three P's (PHP, Perl, and Python). 
+Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn't, but that both languages were sought after by their respective communities and complete the quest for the three P's (PHP, Perl, and Python).
 
 Perl, which has been around since 1987 (Genesis ["Land Of Confusion"](http://www.youtube.com/watch?v=1pkVLqSaahk))and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.
 

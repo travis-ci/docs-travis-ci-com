@@ -2,7 +2,7 @@
 title: VM environment upgrade, Nov 11th, 2011
 layout: en
 created_at: Fri Nov 11 02:18:00 EDT 2011
-permalink: vm_upgrade_nov_11_2011/
+permalink: blog/vm_upgrade_nov_11_2011
 ---
 
 travis-ci.org Ruby workers were upgraded, here is what's new:

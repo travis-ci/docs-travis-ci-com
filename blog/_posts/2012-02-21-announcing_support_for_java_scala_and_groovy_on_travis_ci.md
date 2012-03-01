@@ -2,7 +2,7 @@
 title: Announcing Java, Scala and Groovy project support on travis-ci.org
 layout: en
 created_at: Tue Feb 21 15:00:00 CDT 2012
-permalink: announcing_support_for_java_scala_and_groovy_on_travis_ci/
+permalink: blog/announcing_support_for_java_scala_and_groovy_on_travis_ci
 ---
 
 Travis CI started in early 2011 as a service for the Ruby community with the simple vision to make CI easy for OSS libraries and services. It wasn't long until we added support for Erlang, Clojure, Node.js and PHP. And, in fact, it is easy to build many other projects by supplying your own commands.

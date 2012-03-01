@@ -1,5 +1,5 @@
 auto: true
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md]
 markdown: rdiscount
-permalink: none
+permalink: /:title
 safe: true

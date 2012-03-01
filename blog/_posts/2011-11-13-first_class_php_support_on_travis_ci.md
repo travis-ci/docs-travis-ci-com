@@ -2,7 +2,7 @@
 title: Announcing "first class" PHP project support!
 layout: en
 created_at: Sun Nov 13 12:08:00 EDT 2011
-permalink: first_class_php_support_on_travis_ci/
+permalink: blog/first_class_php_support_on_travis_ci
 ---
 
 Today we are happy to announce first class PHP support with Travis CI.

@@ -2,7 +2,7 @@
 title: Announcing "first class" Node.js project support!
 layout: en
 created_at: Wed Nov 9 13:00:00 EDT 2011
-permalink: first_class_nodejs_support_on_travis_ci/
+permalink: blog/first_class_nodejs_support_on_travis_ci
 ---
 
 One of the things people keep asking us is when language X will be a first class citizen on Travis-CI.
