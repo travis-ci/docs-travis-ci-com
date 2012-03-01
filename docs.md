@@ -1,5 +1,5 @@
 ---
-title:
+title: Documentation
 layout: en
 permalink: docs/
 ---
