@@ -1,6 +1,6 @@
 ---
 title: Resources
-kind: content
+layout: default
 ---
 
 <h3>Blog posts</h3>

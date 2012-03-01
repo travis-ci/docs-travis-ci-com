@@ -1,6 +1,6 @@
 ---
 title: Construire un projet PHP
-kind: content
+layout: default
 ---
 
 ## Ce que couvre ce guide

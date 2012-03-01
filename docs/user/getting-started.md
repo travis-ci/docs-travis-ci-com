@@ -1,6 +1,6 @@
 ---
 title: Getting started
-kind: content
+layout: default
 ---
 
 ### Travis CI Overview

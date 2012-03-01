@@ -1,6 +1,6 @@
 ---
 title: A Big Refactoring!
-kind: article
+layout: default
 created_at: Mon Aug 29 12:29:26 EDT 2011
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Building a Scala project
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,6 @@
 ---
 title: The worker
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

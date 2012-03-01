@@ -1,6 +1,6 @@
 ---
 title: Status Images
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

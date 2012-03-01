@@ -1,6 +1,6 @@
 ---
 title: Configurer une build avec .travis.yml
-kind: content
+layout: default
 ---
 
 Le fichier `.travis.yml` vous permet de configurer vos builds. Travis CI va chercher le fichier `.travis.yml` dans le tree git pointé par le commit donné par Github.

@@ -1,6 +1,6 @@
 ---
 title: How to setup and trigger the hook manually
-kind: content
+layout: default
 ---
 
 Sometimes you need to setup the service hook manually. Normally this should not be necessary as you should be able to [started simply flip the relevant switch](/docs/user/getting-started/) on the profile page.

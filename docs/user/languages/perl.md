@@ -1,6 +1,6 @@
 ---
 title: Building a Perl Project
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

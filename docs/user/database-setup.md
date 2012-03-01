@@ -1,6 +1,6 @@
 ---
 title: Databases on Travis workers
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

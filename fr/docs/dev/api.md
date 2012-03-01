@@ -1,6 +1,6 @@
 ---
 title: L'API Travis
-kind: content
+layout: default
 ---
 
 ### Repositories

@@ -1,6 +1,6 @@
 ---
 title: The worker
-kind: content
+layout: default
 ---
 
 Workers consist of the following elements:

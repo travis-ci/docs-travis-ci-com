@@ -1,6 +1,6 @@
 ---
 title: Announcing "first class" Node.js project support!
-kind: article
+layout: default
 created_at: Wed Nov 9 13:00:00 EDT 2011
 ---
 

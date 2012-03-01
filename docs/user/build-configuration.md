@@ -1,6 +1,6 @@
 ---
 title: Configuring your Travis CI build with .travis.yml
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

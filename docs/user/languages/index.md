@@ -1,6 +1,6 @@
 ---
 title: Lanugages
-kind: content
+layout: default
 ---
 
 Here's a list of tutorials for using Travis with different programming

@@ -1,6 +1,6 @@
 ---
 title: Building a Node.js project
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

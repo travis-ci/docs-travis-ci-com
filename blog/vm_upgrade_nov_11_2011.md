@@ -1,6 +1,6 @@
 ---
 title: VM environment upgrade, Nov 11th, 2011
-kind: article
+layout: default
 created_at: Fri Nov 11 02:18:00 EDT 2011
 ---
 

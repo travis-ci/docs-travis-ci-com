@@ -1,6 +1,6 @@
 ---
 title: Databases on Travis workers
-kind: content
+layout: default
 ---
 
 Every Travis CI worker has preinstalled software that's commonly used by the open source developer community. Some of the services available are:

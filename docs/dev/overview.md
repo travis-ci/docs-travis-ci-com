@@ -1,6 +1,6 @@
 ---
 title: Technical Overview
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

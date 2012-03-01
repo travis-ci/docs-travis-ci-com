@@ -1,6 +1,6 @@
 ---
 title: How to skip a build
-kind: content
+layout: default
 ---
 
 ## What This How-To Covers

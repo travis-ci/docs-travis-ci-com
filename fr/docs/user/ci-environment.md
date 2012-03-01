@@ -1,6 +1,6 @@
 ---
 title: About Travis CI Environment
-kind: content
+layout: default
 ---
 
 ## Purpose of this page

@@ -1,6 +1,6 @@
 ---
 title: Headless browser testing setup
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,6 @@
 ---
 title: Démarrer
-kind: content
+layout: default
 ---
 
 <h3>Assurez-vous que votre projet compile</h3>

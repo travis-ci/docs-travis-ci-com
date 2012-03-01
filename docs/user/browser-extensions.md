@@ -1,6 +1,6 @@
 ---
 title: Browser Extensions
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

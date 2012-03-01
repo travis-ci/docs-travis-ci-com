@@ -1,6 +1,6 @@
 ---
 title:
-kind: content
+layout: default
 ---
 ### Documentation utilisateur
 

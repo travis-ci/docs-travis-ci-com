@@ -1,6 +1,6 @@
 ---
 title: Building a Clojure project
-kind: content
+layout: default
 ---
 
 ### Provided tools

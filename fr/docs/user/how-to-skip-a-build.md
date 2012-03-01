@@ -1,6 +1,6 @@
 ---
 title: Comment ne pas déclencher de build
-kind: content
+layout: default
 ---
 
 

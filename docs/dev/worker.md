@@ -1,6 +1,6 @@
 ---
 title: The worker (v3)
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

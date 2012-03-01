@@ -1,6 +1,6 @@
 ---
 title: System Maintenance
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

@@ -1,6 +1,6 @@
 ---
 title: Validate your .travis.yml with travis-lint
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

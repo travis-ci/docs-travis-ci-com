@@ -1,6 +1,6 @@
 ---
 title: Building a Ruby Project
-kind: content
+layout: default
 ---
 
 ## What This Guide Covers

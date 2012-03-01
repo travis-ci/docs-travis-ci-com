@@ -1,6 +1,6 @@
 ---
 title: Announcing Java, Scala and Groovy project support on travis-ci.org
-kind: article
+layout: default
 created_at: Tue Feb 21 15:00:00 CDT 2012
 ---
 

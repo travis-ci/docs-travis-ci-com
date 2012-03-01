@@ -1,6 +1,6 @@
 ---
 title: Welcome to Travis CI
-kind: content
+layout: default
 ---
 
 Travis CI is an open-source, distributed build system for the open source community.

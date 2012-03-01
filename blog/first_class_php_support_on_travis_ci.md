@@ -1,6 +1,6 @@
 ---
 title: Announcing "first class" PHP project support!
-kind: article
+layout: default
 created_at: Sun Nov 13 12:08:00 EDT 2011
 ---
 
