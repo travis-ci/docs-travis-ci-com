@@ -1,7 +1,0 @@
-require 'nanoc3/tasks'
-
-task :default => :compile
-
-task 'compile' do
-  puts `bundle exec nanoc compile && mv output/* ../`
-end
