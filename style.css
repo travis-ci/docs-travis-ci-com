@@ -235,7 +235,6 @@ div#content {
   padding: 0 0 0;
   text-align:center;
   overflow: hidden;
-  background: url(/images/bg-content.gif) repeat-y center top;
 }
 
 div#content div.pad {
@@ -433,7 +432,6 @@ div#header h1 a:visited:hover {
   display: block;
   width: 350px;
   height: 75px;
-  background: url('../images/logo.gif') no-repeat top left;
 }
 
 div#header h1.riddle {
@@ -456,7 +454,6 @@ div#header h1.riddle a:visited:hover {
   height: auto;
   color: #000;
   text-decoration: none;
-  background: #fff url(/images/ts.gif) no-repeat right center;
 }
 
 div#header p {
