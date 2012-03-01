@@ -1,6 +1,6 @@
 ---
 title: Building a Ruby Project
-layout: default
+layout: fr
 permalink: ruby/
 ---
 

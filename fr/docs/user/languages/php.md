@@ -1,6 +1,6 @@
 ---
 title: Construire un projet PHP
-layout: default
+layout: fr
 permalink: php/
 ---
 

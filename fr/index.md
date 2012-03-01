@@ -1,6 +1,6 @@
 ---
 title: Bienvenue sur Travis CI
-layout: default
+layout: fr
 ---
 
 Travis CI est un système open-source d'intégration continue, pour la communauté open-source.

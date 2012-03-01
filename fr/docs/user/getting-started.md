@@ -1,6 +1,6 @@
 ---
 title: Démarrer
-layout: default
+layout: fr
 permalink: getting-started/
 ---
 

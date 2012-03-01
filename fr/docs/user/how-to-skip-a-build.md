@@ -1,6 +1,6 @@
 ---
 title: Comment ne pas déclencher de build
-layout: default
+layout: fr
 permalink: how-to-skip-a-build/
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: L'API Travis
-layout: default
+layout: fr
 permalink: api/
 ---
 

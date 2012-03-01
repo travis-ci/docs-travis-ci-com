@@ -1,6 +1,6 @@
 ---
 title: Bienvenue sur Travis CI
-layout: default
+layout: fr
 permalink: welcome-to-travis/
 ---
 

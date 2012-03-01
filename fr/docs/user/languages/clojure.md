@@ -1,6 +1,6 @@
 ---
 title: Building a Clojure project
-layout: default
+layout: fr
 permalink: clojure/
 ---
 

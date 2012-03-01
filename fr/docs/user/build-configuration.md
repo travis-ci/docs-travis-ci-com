@@ -1,6 +1,6 @@
 ---
 title: Configurer une build avec .travis.yml
-layout: default
+layout: fr
 permalink: build-configuration/
 ---
 

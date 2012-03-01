@@ -1,6 +1,6 @@
 ---
 title: Resources
-layout: default
+layout: fr
 permalink: resources/
 ---
 

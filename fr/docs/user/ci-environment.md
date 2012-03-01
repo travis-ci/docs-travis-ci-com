@@ -1,6 +1,6 @@
 ---
 title: About Travis CI Environment
-layout: default
+layout: fr
 permalink: ci-environment/
 ---
 

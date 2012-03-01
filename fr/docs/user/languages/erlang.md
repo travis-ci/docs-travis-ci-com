@@ -1,6 +1,6 @@
 ---
 title: Building a Erlang project
-layout: default
+layout: fr
 permalink: erlang/
 ---
 
