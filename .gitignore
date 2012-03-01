@@ -1,5 +1,4 @@
-source/tmp/dependencies/**/*
-source/tmp/*
-.rvmrc
 .bundle
+.DS_Store
+.rvmrc
 bin
