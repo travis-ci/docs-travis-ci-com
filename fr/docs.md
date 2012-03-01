@@ -1,6 +1,7 @@
 ---
 title:
 layout: fr
+permalink: docs/
 ---
 ### Documentation utilisateur
 

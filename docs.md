@@ -1,6 +1,7 @@
 ---
 title:
 layout: en
+permalink: docs/
 ---
 ### User documentation
 
