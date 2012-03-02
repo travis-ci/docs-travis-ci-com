@@ -181,9 +181,9 @@ Learn more about <a href="/docs/user/languages/perl/">.travis.yml options for Pe
 
 ### PHP
 
-PHP projects specify releases they need to be tested against using `phps` key:
+PHP projects specify releases they need to be tested against using `php` key:
 
-    phps:
+    php:
       - 5.3
       - 5.4
 
