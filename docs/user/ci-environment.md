@@ -70,7 +70,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * PostgreSQL 8.4.x
 * SQLite 3.7.x
 * MongoDB 2.0.x
-* Riak 1.0.x
+* Riak 1.1.x
 * Redis 2.4.x
 * CouchDB 1.0.x
 
@@ -182,7 +182,7 @@ cpanm (App::cpanminus) version 1.5007
 
 * 5.2 (5.2.17)
 * 5.3 (5.3.10, 5.3.2)
-* 5.4 (5.4.0RC8)
+* 5.4 (5.4.0)
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
@@ -195,7 +195,6 @@ Is supported.
 ### Extensions
 
 <pre>
-$ php -m
 [PHP Modules]
 bcmath
 bz2
@@ -228,6 +227,7 @@ PDO
 pdo_mysql
 pdo_pgsql
 pdo_sqlite
+pgsql
 Phar
 posix
 readline
