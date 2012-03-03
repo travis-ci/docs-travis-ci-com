@@ -10,10 +10,11 @@ This guide covers headless browser testing using tools provided by the Travis [C
 not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
 
-## Using xvfb to Run Tests in the Browser
+## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
 
-You can run test suites that require a browser on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and `Firefox` installed. xvfb lets you run a real browser
-on a headless machine, as if a proper display were attached.
+You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and `Firefox` installed.
+Roughly speaking, xvfb imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper
+display were attached.
 
 Befor `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
 
