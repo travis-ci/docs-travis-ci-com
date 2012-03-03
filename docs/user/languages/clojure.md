@@ -14,7 +14,7 @@ This guide covers build environment and configuration topics specific to Clojure
 Travis VMs currently provide
 
 * 32-bit OpenJDK 6
-* Standalone [Leiningen](https://github.com/technomancy/leiningen) 1.6.x.
+* Standalone [Leiningen](https://github.com/technomancy/leiningen) 1.7.0.
 
 Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
 
@@ -66,6 +66,17 @@ If you need to AOT compile Java sources, for example, it is possible to override
 See [general build configuration guide](/docs/user/build-configuration/) to learn more.
 
 
+
+## Installing Leiningen Plugins
+
+If your project needs a Leiningen plugin to be installed, install it using `before_install` key.
+For example, to install [lein-precate](https://github.com/technomancy/lein-precate):
+
+    before_install:
+      - lein plugin install lein-precate 0.2.0
+
+
+
 ## Testing Against Multiple Versions of Clojure
 
 Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of Clojure
@@ -77,10 +88,12 @@ To use lein-multi on travis-ci.org, first install it before dependency installat
 `lein multi test` instead of default `lein test`:
 
     language: clojure
-    before_install: lein plugin install lein-multi 1.1.0
+    before_install:
+      - lein plugin install lein-multi 1.1.0
     script: lein multi test
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
+
 
 
 ## Examples
