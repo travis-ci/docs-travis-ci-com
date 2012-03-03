@@ -112,6 +112,18 @@ Both settings support multiple scripts, too:
 These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before
 dependencies are installed.
 
+### Use Public URLs For Submodules
+
+If your project uses git submodules, make sure you use public git URLs. For example, for Github instead of
+
+    git@github.com:someuser/somelibrary.git
+
+use
+
+    git://github.com/someuser/somelibrary.git
+
+Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
+
 
 ## Choose runtime (Ruby, PHP, Node.js, etc) versions
 
