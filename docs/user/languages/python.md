@@ -47,11 +47,10 @@ exact versions, patch levels and so on. For full up-to-date list of provided Pyt
 PyPy is not currently provided but we would like to provide it near in the future.
 
 
-### Travis CI Uses Isolated Environments
+### Travis CI Uses Isolated virtualenvs
 
 [CI Environment](/docs/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should
-not be relied on. In case you need to modify this setup, it is possible thanks to Travis CI VMs being snapshotted and rolled back between
-builds. Please see [general build configuration](/docs/user/build-configuration/) guide for more information.
+not be relied on. If you need to install Python packages, do it via pip and not apt.
 
 
 ## Default Python Version
