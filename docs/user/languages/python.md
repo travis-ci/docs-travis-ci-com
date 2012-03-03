@@ -106,7 +106,7 @@ and then use ENV variable values in your dependencies installation scripts, test
 DB variable value to instruct pip to install an exact version:
 
     install:
-      - pip install -q Django==$DJANGO
+      - pip install -q Django==$DJANGO_VERSION
       - python setup.py -q install
 
 The same technique is often used to test projects against multiple databases and so on. For a real world example, see
