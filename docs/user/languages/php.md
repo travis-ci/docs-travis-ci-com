@@ -67,7 +67,7 @@ or, if you need to run multiple commands sequentially:
 Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.
 
 
-### Multiple Versions of Dependencies (e.g. Symfony)
+### Testing Against Multiple Versions of Dependencies (e.g. Symfony)
 
 If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of
 environment variables. Use *env* key in your .travis.yml file, for example:
