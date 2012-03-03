@@ -3,3 +3,4 @@
 .rvmrc
 _site
 bin
+source/tmp/*
