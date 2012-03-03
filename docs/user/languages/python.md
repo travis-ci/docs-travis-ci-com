@@ -93,6 +93,27 @@ We highly recommend using `--use-mirrors` if you override dependency installatio
 installation failures.
 
 
+### Testing Against Multiple Versions of Dependencies (e.g. Django)
+
+If you need to test against multiple versions of, say, Django, you can instruct Travis to do multiple runs with different sets or values of
+environment variables. Use *env* key in your .travis.yml file, for example:
+
+    env:
+      - DJANGO_VERSION=1.2.7
+      - DJANGO_VERSION=1.3.1
+
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use
+DB variable value to instruct pip to install an exact version:
+
+    install:
+      - pip install -q Django==$DJANGO
+      - python setup.py -q install
+
+The same technique is often used to test projects against multiple databases and so on. For a real world example, see
+[dcramer/sentry](https://github.com/dcramer/sentry/blob/master/.travis.yml).
+
+
+
 ## Examples
 
  * [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
