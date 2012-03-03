@@ -46,6 +46,12 @@ The outcome of any of these commands indicates whether or not this build has fai
 With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with `.travis.yml`.
 
 
+### Travis CI Preserves No State Between Builds
+
+Travis CI uses virtual machine snapshotting to make sure no state is left between builds. If you modify CI environment by
+writing something to a data store, creating files or installing a package via apt, it won't affect subsequent builds.
+
+
 
 ## Define custom build lifecycle commands
 
