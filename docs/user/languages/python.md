@@ -42,15 +42,14 @@ A more extensive example:
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different
 exact versions, patch levels and so on. For full up-to-date list of provided Python versions, see our [CI environment guide](/docs/user/ci-environment/).
 
-### PyPy Support
-
-PyPy is not currently provided but we would like to provide it near in the future.
-
-
 ### Travis CI Uses Isolated virtualenvs
 
 [CI Environment](/docs/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should
 not be relied on. If you need to install Python packages, do it via pip and not apt.
+
+### PyPy Support
+
+PyPy is not currently provided but we would like to provide it near in the future.
 
 
 ## Default Python Version
