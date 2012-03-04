@@ -4,12 +4,9 @@ layout: en
 permalink: database-setup/
 ---
 
-## What This Guide Covers
+### What This Guide Covers
 
-This guide covers data stores offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on.
-Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to
-cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
-
+This guide covers data stores offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
 ## Data Stores in the Travis CI Environment
 
@@ -24,9 +21,7 @@ cover. We recommend you start with the [Getting Started](/docs/user/getting-star
 * Riak
 * Memcached
 
-All aforementioned data stores use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed
-(because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
-
+All aforementioned data stores use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
 
 ## Configure Your Projects to Use Databases in Tests
 
@@ -51,7 +46,6 @@ You do have to create the `myapp_test` database first. Run this as part of your 
     before_script:
       - "mysql -e 'create database myapp_test;'"
 
-
 ### PostgreSQL
 
 PostgreSQL binds to 127.0.0.1 and requires authentication with "postgres" user and no password:
@@ -67,11 +61,9 @@ You have to create the database as part of your build process:
     before_script:
       - "psql -c 'create database myapp_test;' -U postgres"
 
-
 ### SQLite3
 
-Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases,
-in memory SQLite might be the best option.
+Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases, in memory SQLite might be the best option.
 
 #### Ruby Projects
 
@@ -83,7 +75,7 @@ For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle
 
     # for JRuby
     gem "jdbc-sqlite3", :platform => :jruby
-    
+
 
 If your project is a Rails app, all you need to set up is:
 
@@ -98,7 +90,6 @@ However, if your project is a general library or plugin, you need to handle conn
     ActiveRecord::Base.establish_connection :adapter => 'sqlite3',
                                             :database => ':memory:'
 
-
 ### MongoDB
 
 MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.
@@ -109,13 +100,9 @@ In cases you need to create users for your database, you can do it using a `befo
     before_script:
       - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
-
 #### JVM-based projects
 
-  For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect
-  to work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux.
-
-
+For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect to work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux.
 
 ### CouchDB
 
@@ -127,24 +114,19 @@ You have to create the database as part of your build process:
     before_script:
       - curl -X PUT localhost:5984/myapp_test
 
-
 ### Riak
 
 Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
 
-
 ### Redis
 
 Redis uses stock configuration and is available on localhost.
-
 
 ### Neo4J
 
 Neo4J Server Community Edition is available but not started by default. You can start it with a one line `before_script`:
 
     which neo4j && neo4j start && sleep 5 # give Neo4J some time to start & initialize
-
-
 
 ### Multiple database systems
 
@@ -166,7 +148,6 @@ On Travis CI you want to test against all 3 databases all the time, and for that
 
 When doing this, please read and understand everything about the build matrix described in [Build configuration](/docs/user/build-configuration/).
 
-
 #### Ruby
 
 One approach you might take is put all database configurations in one YAML file, like ActiveRecord does:
@@ -179,7 +160,7 @@ One approach you might take is put all database configurations in one YAML file,
     mysql:
       adapter: mysql2
       database: myapp_test
-      username: 
+      username:
       encoding: utf8
     postgres:
       adapter: postgresql
@@ -198,7 +179,4 @@ Then, in your test suite, read that data into a configurations hash:
 
 ### Conclusion
 
-[Travis CI Environment](/docs/user/ci-environment/) provides several popular open source data stores that hosted projects can use. In the majority of cases,
-said data stores use stock configuration. When it is not the case, the purpose of customizing the configuration is usually
-to minimize the amount of work developers have to do to use them. Often this means relaxing security settings, whicn is OK for
-continuous integration environments.
+[Travis CI Environment](/docs/user/ci-environment/) provides several popular open source data stores that hosted projects can use. In the majority of cases, said data stores use stock configuration. When it is not the case, the purpose of customizing the configuration is usually to minimize the amount of work developers have to do to use them. Often this means relaxing security settings, which is OK for continuous integration environments.

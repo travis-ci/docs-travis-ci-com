@@ -3,33 +3,34 @@ title: Documentation
 layout: en
 permalink: docs/
 ---
+
 ### User documentation
 
-* <a href="/docs/user/getting-started/">Getting started</a>
-* <a href="/docs/user/build-configuration/">Build configuration</a>
-* <a href="/docs/user/database-setup/">Database setup</a>
-* <a href="/docs/user/selenium-setup/">Selenium setup</a>
-* <a href="/docs/user/status-images/">Status images</a>
-* <a href="/docs/user/resources/">Resources</a>
-* <a href="/docs/user/ci-environment/">CI environment</a>
-* <a href="/docs/user/browser-extensions/">Browser Extensions</a>
-* <a href="/docs/user/how-to-skip-a-build/">How to skip a build</a>
-* <a href="/docs/user/how-to-setup-and-trigger-the-hook-manually/">How to setup and trigger the hook manually</a>
+* [Getting started](/docs/user/getting-started/)
+* [Build configuration](/docs/user/build-configuration/)
+* [Database setup](/docs/user/database-setup/)
+* [Selenium setup](/docs/user/selenium-setup/)
+* [Status images](/docs/user/status-images/)
+* [Resources](/docs/user/resources/)
+* [CI environment](/docs/user/ci-environment/)
+* [Browser Extensions](/docs/user/browser-extensions/)
+* [How to skip a build](/docs/user/how-to-skip-a-build/)
+* [How to setup and trigger the hook manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/)
 
 ### Specific Language Help
 
-* <a href="/docs/user/languages/clojure">Clojure</a>
-* <a href="/docs/user/languages/erlang">Erlang</a>
-* <a href="/docs/user/languages/groovy">Groovy</a>
-* <a href="/docs/user/languages/java">Java</a>
-* <a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
-* <a href="/docs/user/languages/perl">Perl</a>
-* <a href="/docs/user/languages/php">PHP</a>
-* <a href="/docs/user/languages/python">Python</a>
-* <a href="/docs/user/languages/ruby">Ruby</a>
-* <a href="/docs/user/languages/scala">Scala</a>
+* [Clojure](/docs/user/languages/clojure)
+* [Erlang](/docs/user/languages/erlang)
+* [Groovy](/docs/user/languages/groovy)
+* [Java](/docs/user/languages/java)
+* [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
+* [Perl](/docs/user/languages/perl)
+* [PHP](/docs/user/languages/php)
+* [Python](/docs/user/languages/python)
+* [Ruby](/docs/user/languages/ruby)
+* [Scala](/docs/user/languages/scala)
 
 ### Developer documentation
 
-* <a href="/docs/dev/worker/">The Worker</a>
-* <a href="/docs/dev/api/">The API</a>
+* [The Worker](/docs/dev/worker/)
+* [The API](/docs/dev/api/)

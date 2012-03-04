@@ -3,6 +3,7 @@ title: Documentations
 layout: fr
 permalink: docs/
 ---
+
 ### Documentation utilisateur
 
 * <a href="/docs/user/getting-started/">Démarrer</a>
