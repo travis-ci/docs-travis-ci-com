@@ -323,7 +323,8 @@ You can either white- or blacklist branches that you want to be built:
         - master
         - stable
 
-If you specify both, "except" will be ignored.
+If you specify both, "except" will be ignored. Please note that currently (for historical reasons),
+`.travis.yml` needs to be present *on all active branches* of your project.
 
 
 
