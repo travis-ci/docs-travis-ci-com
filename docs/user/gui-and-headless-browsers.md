@@ -1,13 +1,14 @@
 ---
-title: Headless browser testing setup
+title: GUI & Headless browser testing on travis-ci.org
 layout: en
-permalink: selenium-setup/
+permalink: gui-and-headless-browsers/
 ---
 
 ## What This Guide Covers
 
-This guide covers headless browser testing using tools provided by the Travis [CI environment](/docs/user/ci-environment/). Most of the content is technology-neutral and does
-not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/docs/user/ci-environment/). Most of the content is technology-neutral and does
+not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/)
+guides before reading this one.
 
 
 ## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
@@ -32,7 +33,8 @@ between testing tools and programming languages.
 [Phantom.js](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping,
 pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`.
+[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`. xvfb must be running before phantomjs
+is started (see the section above).
 
 
 ## Examples
