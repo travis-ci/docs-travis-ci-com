@@ -272,11 +272,13 @@ With this configuration, **4 individual builds** will be triggered:
 4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
 
 
-## Installing Ubuntu packages
+## Installing Packages Using apt
 
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
 
-    sudo apt-get install [packages list]
+    before_install:
+     - sudo apt-get update
+     - sudo apt-get install [packages list]
 
 The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are snapshotted
 and rolled back to their pristine state after each build.
@@ -471,7 +473,7 @@ Only exact matches will be excluded.
 You can also define allowed failures in the build matrix.
 Allowed failures are items in your build matrix that are allowed to fail without causing the entire build to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
 
-You can define allowed failures in the build matrix as follows: 
+You can define allowed failures in the build matrix as follows:
 
     matrix:
       allow_failures:
