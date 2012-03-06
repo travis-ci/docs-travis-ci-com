@@ -25,7 +25,13 @@ A more extensive example:
       - "5.12"
       - "5.10"
 
-As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Perl versions, see our [CI environment guide](/docs/user/ci-environment/).
+As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
+For full up-to-date list of provided Perl versions, see our [CI environment guide](/docs/user/ci-environment/).
+
+### Versions earlier than 5.10 Are Not Provided
+
+Perl versions earlier than 5.10 are not and will not be provided. Please do not list them in `.travis.yml`.
+
 
 ## Default Perl Version
 
@@ -51,6 +57,7 @@ If neither Module::Build nor EUMM build files are found, Travis CI will fall bac
 
 It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
+
 ## Dependency Management
 
 ### Travis CI uses cpanm
@@ -60,6 +67,12 @@ By default Travis CI use `cpanm` to manage your project's dependencies. It is po
 The exact default command is
 
     cpanm --installdeps --notest .
+
+### When Overriding Build Commands, Do Not Use sudo
+
+When overriding `install:` key to tweak dependency installation command (for example, to run cpanm with verbosity flags), do not use sudo.
+Travis CI Environment has Perls installed via Perlbrew in non-privileged user $HOME directory. Using sudo will result in dependencies
+being installed in unexpected (for Travis CI Perl builder) locations and they won't load.
 
 ## Examples
 
