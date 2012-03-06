@@ -7,9 +7,10 @@ permalink: api/
 ### Repositories
 
 #### Index
+
     http://travis-ci.org/repositories.json
 
-#### Response (http://travis-ci.org/repositories.json)
+#### Response (<http://travis-ci.org/repositories.json>)
 
     [
       {
@@ -30,7 +31,8 @@ permalink: api/
 
     http://travis-ci.org/:owner_name/:name.json
 
-#### Response (http://travis-ci.org/travis-ci/travis-ci.json)
+#### Response (<http://travis-ci.org/travis-ci/travis-ci.json>)
+
     {
       "slug": "travis-ci/travis-ci",
       "last_build_id": 61817,
@@ -50,7 +52,7 @@ permalink: api/
 
     http://travis-ci.org/:owner_name/:name/builds.json
 
-#### Response (http://travis-ci.org/travis-ci/travis-ci/builds.json)
+#### Response (<http://travis-ci.org/travis-ci/travis-ci/builds.json>)
 
     [
       {
@@ -121,7 +123,7 @@ permalink: api/
 
     http://travis-ci.org/:owner_name/:name/builds/:id.json
 
-#### Response (http://travis-ci.org/travis-ci/travis-ci/builds/63812.json)
+#### Response (<http://travis-ci.org/travis-ci/travis-ci/builds/63812.json>)
 
     {
       "number": "731.1",
@@ -154,10 +156,7 @@ permalink: api/
 
 ### JSONP
 
-The server acknowledges [JSONP](http://en.wikipedia.org/wiki/JSONP "Wikipedia on JSONP") requests. This allows
-a javascript client to relax the 
-[same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy "Wikipedia on Same Origin Policy")
-and retrieve the above json by specifying a callback function.
+The server acknowledges [JSONP](http://en.wikipedia.org/wiki/JSONP "Wikipedia on JSONP") requests. This allows a javascript client to relax the [same origin policy](http://en.wikipedia.org/wiki/Same_origin_policy "Wikipedia on Same Origin Policy") and retrieve the above json by specifying a callback function.
 
 #### Example
 
@@ -165,7 +164,7 @@ JSONP works with any of the above urls. The example below uses the url for build
 
     http://travis-ci.org/:owner_name/:name/builds.json?callback=:function
 
-#### Response (http://travis-ci.org/travis-ci/travis-ci/builds.json?callback=foo)
+#### Response (<http://travis-ci.org/travis-ci/travis-ci/builds.json?callback=foo>)
 
     foo(
       [
@@ -231,4 +230,3 @@ JSONP works with any of the above urls. The example below uses the url for build
         ...
       ]
     )
-

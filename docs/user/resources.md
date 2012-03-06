@@ -4,7 +4,7 @@ layout: en
 permalink: resources/
 ---
 
-<h3>Blog posts</h3>
+### Blog posts
 
 Here are some blog posts about Travis:
 

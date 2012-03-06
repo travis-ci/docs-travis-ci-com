@@ -4,14 +4,11 @@ layout: en
 permalink: status-images/
 ---
 
-## What This Guide Covers
+### What This Guide Covers
 
-This guide covers build status images feature of Travis CI. Status images are part of the HTTP API that render build status information
-(passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to
-continuous integration page for the project and to demonstrate their commitment to good software development practices.
+This guide covers build status images feature of Travis CI. Status images are part of the HTTP API that render build status information (passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to continuous integration page for the project and to demonstrate their commitment to good software development practices.
 
 We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
-
 
 ## Status Image URLs
 
@@ -21,11 +18,9 @@ After adding your project to Travis, you can use the status buttons to show the 
 
 HTTPS is used so that GitHub does not cache the image.
 
-
 ## Adding Status Images to README Files
 
 So, when using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
-
     "!https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
 
 Or if you're using markdown:
@@ -37,7 +32,6 @@ Or RDoc:
     {<img src="https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
 
 Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)
-
 
 ## Build Status For Specific Branches
 
