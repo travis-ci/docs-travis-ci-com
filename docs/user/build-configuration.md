@@ -102,6 +102,12 @@ Both settings support multiple scripts, too:
 
 These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
 
+### On Native Dependencies
+
+If your project has native dependencies (for example, libxml or libffi) or needs tools [Travis CI Environment](/docs/user/ci-environment/) does not provide,
+you can install packages via apt and even use 3rd-party apt repositories and PPAs. For more see dedicated sections later in this guide.
+
+
 ### Use Public URLs For Submodules
 
 If your project uses git submodules, make sure you use public git URLs. For example, for Github instead of
@@ -251,7 +257,19 @@ If your dependencies need native libraries to be available, **you can use passwo
      - sudo apt-get update
      - sudo apt-get install [packages list]
 
-The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are snapshotted and rolled back to their pristine state after each build.
+The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are
+snapshotted and rolled back to their pristine state after each build.
+
+Please note that passwordless sudo availability does not mean that you need to use sudo for (most of) other operations.
+It also does not mean that Travis CI builders execute operations as root.
+
+### Using 3rd-party PPAs
+
+If you need a native dependency that is not available from the official Ubuntu repositories, possibly there are [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas)
+(personal package archives) that you can use: they need to provide packages for 32-bit Ubuntu 11.04 and 11.10.
+
+More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/), search for [available PPAs on Launchpad](https://launchpad.net/ubuntu/+ppas).
+
 
 ## Build Timeouts
 
