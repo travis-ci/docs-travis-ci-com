@@ -4,13 +4,13 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>The Travis Blog</title>
+  <title>The Travis CI Blog</title>
   <link href="http://about.travis-ci.org/blog.xml" rel="self"/>
   <link href="http://about.travis-ci.org/" rel="alternate"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>http://about.travis-ci.org/</id>
   <author>
-    <name>Team Travis</name>
+    <name>Team Travis CI</name>
     <uri>https://github.com/travis-ci</uri>
   </author>
 

@@ -1,5 +1,5 @@
 ---
-title: The Travis Blog
+title: The Travis CI Blog
 layout: en
 ---
 
