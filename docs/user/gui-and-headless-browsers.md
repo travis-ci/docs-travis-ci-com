@@ -49,6 +49,11 @@ is not necessary (and not recommended).
 
 ## Examples
 
+### Real World Projects
+
+ * [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts Web server programmatically)
+
+
 ### Ruby
 
 #### RSpec, Jasmine, Cucumber
