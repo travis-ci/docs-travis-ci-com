@@ -20,6 +20,27 @@ Befor `xvfb` can be used, it needs to be started. Typically an optimal place to 
 
 This starts xvfb on display port :99.0. The display port is set directly in the /etc/init.d script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary between testing tools and programming languages.
 
+
+## Starting a Web Server
+
+If your project requires a Web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based Web servers
+that serve HTML pages used to run test suites. Because every travis-ci.org VM provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
+3 options.
+
+Add a `before_script` to start a server, for example:
+
+    before_script:
+      - "export DISPLAY=:99.0"
+      - "sh -e /etc/init.d/xvfb start"
+      - sleep 3 # give xvfb some time to start
+      - rackup  # start a Web server
+      - sleep 3 # give Web server some time to bind to sockets, etc
+
+If you need Web server to be listening on port 80, remember to use sudo (Linux will not allow non-privileged process to bind to port 80). For ports > 1024, using sudo
+is not necessary (and not recommended).
+
+
+
 ## Using Phantom.js
 
 [Phantom.js](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
