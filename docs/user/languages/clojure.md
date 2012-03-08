@@ -41,11 +41,11 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-### Precompiling Java sources In Your Clojure Projects
+### Alternate Install Step
 
-If you need to AOT compile Java sources, for example, it is possible to override this in your `.travis.yml`:
+If you need to perform special tasks before your tests can run, you should set up the proper `:hooks` in project.clj. If for some reason you can't use hooks, it is possible to override the install step in your `.travis.yml`. For example if you use the [clojure-protobuf](https://github.com/flatland/clojure-protobuf) library:
 
-    install: lein javac, deps
+    install: lein protobuf install
 
 See [general build configuration guide](/docs/user/build-configuration/) to learn more.
 
