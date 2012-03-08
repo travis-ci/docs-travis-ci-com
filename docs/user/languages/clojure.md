@@ -69,6 +69,11 @@ override `script:` to run `lein multi test` instead of default `lein test`:
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
+## Leiningen 2.0 Preview
+
+Leiningen 2.0 (preview) will be provided near in the future side by side with 1.7.0.
+
+
 ## Examples
 
 * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
