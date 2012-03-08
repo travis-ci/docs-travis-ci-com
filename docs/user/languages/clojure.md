@@ -41,38 +41,21 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-## Dependency Management
+### Alternate Install Step
 
-the default command Travis CI will use to install your project dependencies is
+If you need to perform special tasks before your tests can run, you should set up the proper `:hooks` in project.clj. If for some reason you can't use hooks, it is possible to override the install step in your `.travis.yml`. For example if you use the [clojure-protobuf](https://github.com/flatland/clojure-protobuf) library:
 
-    lein deps
-
-This will install [dependencies as listed in the project.clj file](https://github.com/technomancy/leiningen/blob/master/sample.project.clj).
-
-### Precompiling Java sources In Your Clojure Projects
-
-If you need to AOT compile Java sources, for example, it is possible to override this in your `.travis.yml`:
-
-    install: lein javac, deps
+    install: lein protobuf install
 
 See [general build configuration guide](/docs/user/build-configuration/) to learn more.
 
-## Installing Leiningen Plugins
-
-If your project needs a Leiningen plugin to be installed, install it using `before_install` key. For example, to install [lein-precate](https://github.com/technomancy/lein-precate):
-
-    before_install:
-      - lein plugin install lein-precate 0.2.0
-
 ## Testing Against Multiple Versions of Clojure
 
-Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of Clojure (including pre-release versions like 1.4.0-beta1). Because leiningen can run tests against any version of Clojure (not necessary the one available as `clojure` in the PATH), there is no need for runtime switchers (like RVM) for Clojure.
+Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of Clojure (including pre-release versions like 1.4.0-beta1). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses), there is no need for runtime switchers (like RVM) for Clojure.
 
-To use lein-multi on travis-ci.org, first install it before dependency installation and override `script:` to run `lein multi test` instead of default `lein test`:
+To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj and override `script:` to run `lein multi test` instead of default `lein test`:
 
     language: clojure
-    before_install:
-      - lein plugin install lein-multi 1.1.0
     script: lein multi test
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
