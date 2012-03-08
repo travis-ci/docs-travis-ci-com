@@ -41,14 +41,6 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-## Dependency Management
-
-the default command Travis CI will use to install your project dependencies is
-
-    lein deps
-
-This will install [dependencies as listed in the project.clj file](https://github.com/technomancy/leiningen/blob/master/sample.project.clj).
-
 ### Precompiling Java sources In Your Clojure Projects
 
 If you need to AOT compile Java sources, for example, it is possible to override this in your `.travis.yml`:
