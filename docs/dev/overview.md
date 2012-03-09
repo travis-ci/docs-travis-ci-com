@@ -153,7 +153,7 @@ This technology stack has changed significantly over our first year in operation
 
 Worker machines travis-ci.org uses are donated by the community and our sponsors ([drop us a line](mailto:contact@travis-ci.org) if you are interested in donating hardware or otherwise sponsoring the project). `Travis Workers` run alongside `Travis VMs` they use, one worker thread per virtual machine. The `Travis Worker` implementation currently depends on VirtualBox for virtualization, although the dependency will be abstracted away in the future.
 
-Application instances that power travis-ci.org are primarily hosted in two locations: West coast in the US and Germany.
+Application instances that power travis-ci.org are primarily hosted in two locations: on the West Coast of the US and in Germany.
 
 ## Documentation Site
 
