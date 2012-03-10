@@ -29,13 +29,7 @@ Here is how to configure your project to use databases in its tests. This assume
 
 ### MySQL
 
-MySQL on Travis CI binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password:
-
-    mysql:
-      adapter: mysql2
-      database: myapp_test
-      username: root
-      encoding: utf8
+MySQL on Travis CI binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password.
 
 If specify a blank username, keep in mind that for some clients, this is the same as "root" but for some it means "anonymous user". When in doubt,
 try switching to `root` username.
@@ -44,26 +38,44 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
     # .travis.yml
     before_script:
-      - "mysql -e 'create database myapp_test;'"
+      - mysql -e 'create database myapp_test;'
+
+#### config/database.yml Example
+
+`config/database.yml` example for Ruby projects using ActiveRecord:
+
+    mysql:
+      adapter: mysql2
+      database: myapp_test
+      username: root
+      encoding: utf8
+
 
 ### PostgreSQL
 
-PostgreSQL binds to 127.0.0.1 and requires authentication with "postgres" user and no password:
+PostgreSQL binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
+
+You have to create the database as part of your build process:
+
+    # .travis.yml
+    before_script:
+      - psql -c 'create database myapp_test;' -U postgres
+
+#### config/database.yml Example
+
+`config/database.yml` example for Ruby projects using ActiveRecord:
 
     postgres:
       adapter: postgresql
       database: myapp_test
       username: postgres
 
-You have to create the database as part of your build process:
 
-    # .travis.yml
-    before_script:
-      - "psql -c 'create database myapp_test;' -U postgres"
 
 ### SQLite3
 
-Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases, in memory SQLite might be the best option.
+Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases,
+in memory SQLite might be the best option.
 
 #### Ruby Projects
 
@@ -76,10 +88,8 @@ For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle
     # for JRuby
     gem "jdbc-sqlite3", :platform => :jruby
 
+`config/database.yml` example for projects that use ActiveRecord:
 
-If your project is a Rails app, all you need to set up is:
-
-    # config/database.yml in Rails
     test:
       adapter: sqlite3
       database: ":memory:"
@@ -102,7 +112,8 @@ In cases you need to create users for your database, you can do it using a `befo
 
 #### JVM-based projects
 
-For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect to work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux.
+For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect to
+work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux.
 
 ### CouchDB
 
