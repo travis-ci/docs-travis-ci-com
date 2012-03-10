@@ -18,7 +18,7 @@ layout: nil
   <entry>
     <title>{{ post.title }}</title>
     <link href="http://about.travis-ci.org/{{ post.url }}"/>
-    <published>{{ post.date | date_to_xmlschema }}</updated>
+    <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>http://about.travis-ci.org/{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
