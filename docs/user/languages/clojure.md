@@ -94,9 +94,9 @@ multiple profiles (and thus, multiple dependency sets or Clojure versions), use 
 
 
     lein: lein2
-    script: lein2 with-profile test:1.4 test
+    script: lein2 with-profile dev:1.4 test
 
-where `test:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein2 profiles` to list your project's profiles
+where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein2 profiles` to list your project's profiles
 and `lein2 help with-profile` to learn more about the `with-profiles` task.
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
