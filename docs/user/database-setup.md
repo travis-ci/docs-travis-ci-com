@@ -29,7 +29,7 @@ Here is how to configure your project to use databases in its tests. This assume
 
 ### MySQL
 
-MySQL on Travis binds to 0.0.0.0 and requires authentication. You can connect using "root" username and blank password:
+MySQL on Travis CI binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password:
 
     mysql:
       adapter: mysql2
