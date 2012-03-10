@@ -97,9 +97,10 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 
 Stock Apache Maven 3.0.x.
 
-### Leiningen version
+### Leiningen versions
 
-travis-ci.org uses standalone ("uberjar") Leiningen 1.7.x.
+travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 [preview2]
+at `/usr/local/bin/lein2`.
 
 ### SBT version
 

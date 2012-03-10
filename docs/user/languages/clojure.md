@@ -59,7 +59,9 @@ For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 ## Testing Against Multiple Versions of Clojure
 
-Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of Clojure (including pre-release versions like 1.4.0-beta1). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses), there is no need for runtime switchers (like RVM) for Clojure.
+Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of 
+Clojure (including pre-release versions like 1.4.0-beta4). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
+there is no need for runtime switchers (like RVM) for Clojure.
 
 To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
 override `script:` to run `lein multi test` instead of default `lein test`:
@@ -69,9 +71,17 @@ override `script:` to run `lein multi test` instead of default `lein test`:
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
-## Leiningen 2.0 Preview
 
-Leiningen 2.0 (preview) will be provided near in the future side by side with 1.7.0.
+## Using Leiningen 2.0 (Preview)
+
+Leiningen 2.0 (preview) is provided side by side with 1.7.0. To use it, specify `lein` key in `.travis.yml`:
+
+    lein: lein2
+
+In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein2`:
+
+    before_install:
+      - lein2 bootstrap
 
 
 ## Examples
