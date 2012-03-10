@@ -108,6 +108,16 @@ If your project has native dependencies (for example, libxml or libffi) or needs
 you can install packages via apt and even use 3rd-party apt repositories and PPAs. For more see dedicated sections later in this guide.
 
 
+### Updating Git Submodules
+
+If your project uses git submodules, use the following technique to clone them before dependencies installation:
+
+    before_install:
+      - git submodule update --init --recursive
+
+This will include nested submodules (submodules of submodules), in case there are any.
+
+
 ### Use Public URLs For Submodules
 
 If your project uses git submodules, make sure you use public git URLs. For example, for Github instead of
