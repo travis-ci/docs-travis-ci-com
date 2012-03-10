@@ -127,7 +127,7 @@ Redis uses stock configuration and is available on localhost.
 Neo4J Server Community Edition is available but not started by default. You can start it using `before_install`:
 
     before_install:
-      - which neo4j && neo4j start
+      - which neo4j && sudo neo4j start
       - sleep 3
 
 Neo4J Server uses default configuration (localhost, port 7474).
