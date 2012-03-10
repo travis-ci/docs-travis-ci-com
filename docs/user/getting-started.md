@@ -45,7 +45,14 @@ Here are some basic **.travis.yml** examples:
 
 #### Clojure
 
+For projects using Leiningen 1:
+
     language: clojure
+
+For projects using Leiningen 2:
+
+    language: clojure
+    lein: lein2
 
 Learn more about [.travis.yml options for Clojure projects](/docs/user/languages/clojure/)
 
