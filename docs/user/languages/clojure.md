@@ -13,7 +13,8 @@ This guide covers build environment and configuration topics specific to Clojure
 Travis VMs currently provide
 
 * 32-bit OpenJDK 6
-* Standalone [Leiningen](https://github.com/technomancy/leiningen) 1.7.0.
+* Standalone [Leiningen](https://leiningen.org) 1.7.0.
+* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) [preview 2].
 
 Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
 
