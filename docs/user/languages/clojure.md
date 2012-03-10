@@ -58,7 +58,21 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 
+## Using Leiningen 2.0 (Preview)
+
+Leiningen 2.0 (preview) is provided side by side with 1.7.0. To use it, specify `lein` key in `.travis.yml`:
+
+    lein: lein2
+
+In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein2`:
+
+    before_install:
+      - lein2 bootstrap
+
+
 ## Testing Against Multiple Versions of Clojure
+
+### With Leiningen 1
 
 Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of 
 Clojure (including pre-release versions like 1.4.0-beta4). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
@@ -73,16 +87,19 @@ override `script:` to run `lein multi test` instead of default `lein test`:
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
 
-## Using Leiningen 2.0 (Preview)
+### With Leiningen 2
 
-Leiningen 2.0 (preview) is provided side by side with 1.7.0. To use it, specify `lein` key in `.travis.yml`:
+Leiningen 2 has a core feature that replaces `lein-multi`: [Profiles](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md). To run your tests against
+multiple profiles (and thus, multiple dependency sets or Clojure versions), use `lein2 with-profile` command like so:
+
 
     lein: lein2
+    script: lein2 with-profile test:1.4 test
 
-In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein2`:
+where `test:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein2 profiles` to list your project's profiles
+and `lein2 help with-profile` to learn more about the `with-profiles` task.
 
-    before_install:
-      - lein2 bootstrap
+For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 
 ## Examples
