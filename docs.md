@@ -9,7 +9,7 @@ permalink: docs/
 * [Getting started](/docs/user/getting-started/)
 * [Build configuration](/docs/user/build-configuration/)
 * [Database setup](/docs/user/database-setup/)
-* [Selenium setup](/docs/user/selenium-setup/)
+* [GUI & Headless browsers](/docs/user/gui-and-headless-browsers/)
 * [Status images](/docs/user/status-images/)
 * [Resources](/docs/user/resources/)
 * [CI environment](/docs/user/ci-environment/)
