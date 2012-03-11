@@ -31,7 +31,7 @@ By default, the worker performs the build as following:
 * cd to the clone directory, run dependencies installation command (default specific to project language)
 * Run *after_install* scripts (if any)
 * Run *before_script* scripts (if any)
-* Run test *script* command (default is specific to project language)
+* Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
 * Run *after_script* scripts (if any)
 
 The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
