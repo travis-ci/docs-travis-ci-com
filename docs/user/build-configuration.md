@@ -455,7 +455,10 @@ You can also define exclusions to the build matrix:
 
 Only exact matches will be excluded.
 
-You can also define allowed failures in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
+### Rows That are Allowed To Fail
+
+You can also define rows that are allowed to fail in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build
+to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
 
 You can define allowed failures in the build matrix as follows:
 
