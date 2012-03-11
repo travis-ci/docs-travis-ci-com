@@ -21,24 +21,28 @@ Default test script Travis CI Haskell builder will use is
 
     cabal configure --enable-tests && cabal build && cabal test
 
-It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide, for example:
+
+    script: runghc -isrc -itests tests/CountVonCount/TestSuite.hs --plain
 
 
 ## Dependency Management
 
 ### Travis CI uses cabal
 
-By default Travis CI use `cabal` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+By default Travis CI use `cabal` to manage your project's dependencies.
 
 The exact default command is
 
     cabal install
 
-Dependency installation may include multiple steps:
+It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
+for example:
 
     install:
+      - cabal update
       - cabal install
-      - cabal install test-framework-hunit
+
 
 ## Examples
 
