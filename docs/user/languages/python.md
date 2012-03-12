@@ -81,7 +81,7 @@ which is very similar to what [Heroku build pack for Python](https://github.com/
 
 We highly recommend using `--use-mirrors` if you override dependency installation command to reduce the load on PyPI and possibility of installation failures.
 
-### Testing Against Multiple Versions of Dependencies (e.g. Django)
+### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
 If you need to test against multiple versions of, say, Django, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
@@ -95,7 +95,7 @@ and then use ENV variable values in your dependencies installation scripts, test
       - pip install -q Django==$DJANGO_VERSION
       - python setup.py -q install
 
-The same technique is often used to test projects against multiple databases and so on. For a real world example, see [dcramer/sentry](https://github.com/dcramer/sentry/blob/master/.travis.yml).
+The same technique is often used to test projects against multiple databases and so on. For a real world example, see [dcramer/sentry](https://github.com/dcramer/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
 ## Examples
 
