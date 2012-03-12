@@ -135,6 +135,14 @@ Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
 Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/#!/joyent/node). Other projects can use it, too.
 
+
+## Haskell VM images
+
+### Haskell Platform Version
+
+[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (includes GHC 7.0).
+
+
 ## Perl VM images
 
 ### Perl versions

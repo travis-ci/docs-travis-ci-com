@@ -22,6 +22,7 @@ permalink: docs/
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
 * [Groovy](/docs/user/languages/groovy)
+* [Haskell](/docs/user/languages/haskell)
 * [Java](/docs/user/languages/java)
 * [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
 * [Perl](/docs/user/languages/perl)
