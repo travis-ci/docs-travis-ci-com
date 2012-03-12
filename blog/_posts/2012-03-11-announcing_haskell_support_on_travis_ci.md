@@ -7,7 +7,7 @@ permalink: blog/announcing_support_for_haskell_on_travis_ci
 
 ## Travis' Eleven
 
-Today we are happy to announce support for the 11th language supported on Travis CI: Haskell. Known for its concision and very advanced type system, Haskell
+Today we are happy to announce support for an 11th language on Travis CI: Haskell. Known for its concision and very advanced type system, Haskell
 has been attracting some of the brightest minds in the programming languages research community for a couple of decades.
 
 Haskell can be found in [code analysis tools](http://vimeo.com/6699769), [DSLs for cryptographic algorithms](http://corp.galois.com/cryptol/),
@@ -28,7 +28,7 @@ Started in early 2011, Travis CI has since run half a million builds for over 7,
 
 
 
-## Getting Your Project on travis-ci.org
+## Getting Your Project on Travis CI
 
 Travis CI currently provides [Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (with GHC 7, Cabal, Happy, Alex and so on). To get started, you need to add one file
 (.travis.yml) and the Github hook as described in the [Getting Started guide](http://about.travis-ci.org/docs/user/getting-started/). If your
@@ -36,11 +36,11 @@ project uses Cabal, a minimal .travis.yml would look like this:
 
     language: haskell
 
-Travis CI will run the dependency installation and testing commands, like
+Travis CI will run the dependency installation command:
 
     cabal install 
 
-and
+and then the testing commands:
 
     cabal configure --enable-tests && cabal build && cabal test
 
@@ -50,14 +50,14 @@ a guide dedicated to [Haskell](http://about.travis-ci.org/docs/user/languages/ha
 
 ### Build workflow
 
-Travis' build workflow usually is
+By default Travis' build workflow is
 
  * Clone your repository from GitHub
  * (If applicable) pick language/runtime version to use
  * Run `before_install` commands (can be more than one)
  * Install dependencies. Travis will use `cabal install` by default. You can override the command using the `install` key in your .travis.yml.
  * Run one or more `before_script` commands.
- * Run the `script` command, e.g. `cabal build && cabal test`. This too can be overriden in .travis.yml.
+ * Run the `script` command, e.g. `cabal build && cabal test`. This too can be overridden in .travis.yml.
  * Report the build has finished running.
 
 
@@ -71,4 +71,4 @@ If you need help, feel free to join #travis on irc.freenode.net, ping us on Twit
 
 ## Thank You Contributors
 
-We would like to thank [Alessandro Vermeulen](http://alessandrovermeulen.me) for his help with making Haskell support on travis-ci.org a reality.
+We would like to thank [Alessandro Vermeulen](http://alessandrovermeulen.me) for his help with making Haskell support on Travis CI a reality.
