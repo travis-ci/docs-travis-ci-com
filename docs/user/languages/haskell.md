@@ -37,7 +37,7 @@ The exact default command is
     cabal install
 
 It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
-for example:
+for example, if you need to update Cabal metadata:
 
     install:
       - cabal update
