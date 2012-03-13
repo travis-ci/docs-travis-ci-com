@@ -42,8 +42,8 @@ to run your test suite.
 
 You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:
 
-    scripts: {
-      test: "vows --spec"
+    "scripts": {
+      "test": "vows --spec"
     },
 
 
@@ -51,8 +51,8 @@ You can tell npm how to run your test suite by adding a line in package.json. Fo
 
 To test using Expresso:
 
-    scripts: {
-      test: "expresso test/*"
+    "scripts": {
+      "test": "expresso test/*"
     },
 
 Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember is the `npm test` convention.
