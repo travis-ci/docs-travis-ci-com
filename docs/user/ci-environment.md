@@ -273,7 +273,7 @@ Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed 
 
 ### Bundler version
 
-Recent 1.0.x version (usually the most recent)
+Recent 1.1.x version (usually the most recent)
 
 ### Gems in the global gem set
 
