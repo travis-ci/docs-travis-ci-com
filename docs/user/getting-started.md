@@ -176,7 +176,7 @@ and run it on your `.travis.yml`:
 * That `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
 * That `language` key is present
 * That runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/docs/user/ci-environment/)
-* That are you not using deprecated features or runtime aliases
+* That you are not using deprecated features or runtime aliases
 
 and so on. `travis-lint` is your friend, use it.
 
