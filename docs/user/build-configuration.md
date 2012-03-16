@@ -139,7 +139,7 @@ One of the key features of Travis is the ease of running your test suite against
 Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
 
 * In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
-* In upcoming Leiningen 2.0 (not yet available in Travis CI Environment), via Leiningen Profiles
+* In upcoming Leiningen 2.0, via Leiningen Profiles
 
 If you are interested in testing against multiple Clojure releases, just use these Leiningen features and it will work without special support on the Travis side.
 
