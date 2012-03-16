@@ -81,3 +81,5 @@ being installed in unexpected (for Travis CI Perl builder) locations and they wo
 * [fxn/net-fluidinfo](https://github.com/fxn/net-fluidinfo/blob/master/.travis.yml)
 * [fxn/acme-pythonic](https://github.com/fxn/acme-pythonic/blob/master/.travis.yml)
 * [judofyr/parallol](https://github.com/judofyr/parallol/blob/travis-ci/.travis.yml)
+* [mjgardner/SVN-Tree](https://github.com/mjgardner/SVN-Tree/blob/master/.travis.yml)
+* [mjgardner/svn-simple-hook](https://github.com/mjgardner/svn-simple-hook/blob/master/.travis.yml)
