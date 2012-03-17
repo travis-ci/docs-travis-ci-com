@@ -35,8 +35,9 @@ On March 14th, 2012 we plan to update the Ruby VMs to use Bundler 1.1. If you ex
 If for some reason you want to continue using a previous Bundler version you can downgrade using the following technique: 
 
     before_install:
-      - gem uninstall bundler
+      - rvm @default,@global do gem uninstall bundler -v 1.1.0 -x
       - gem install bundle --version '~> 1.0.0'
+      - bundle --version
 
 Happy Friday!
 
