@@ -19,7 +19,7 @@ defaults that use `cabal`. It is possible to override them to use `make` or any 
 
 Default test script Travis CI Haskell builder will use is
 
-    cabal configure --enable-tests && cabal build && cabal test
+    cabal test
 
 It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide, for example:
 
@@ -34,7 +34,7 @@ By default Travis CI use `cabal` to manage your project's dependencies.
 
 The exact default command is
 
-    cabal update && cabal install
+    cabal update && cabal install --enable-tests
 
 It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
 for example:
