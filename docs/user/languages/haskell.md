@@ -34,13 +34,13 @@ By default Travis CI use `cabal` to manage your project's dependencies.
 
 The exact default command is
 
-    cabal install
+    cabal update && cabal install
 
 It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
-for example, if you need to update Cabal metadata:
+for example:
 
     install:
-      - cabal update
+      - cabal update --verbose=2
       - cabal install
 
 
