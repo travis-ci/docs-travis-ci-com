@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Haskell
 
 ## Overview
 
-Haskell workers on travis-ci.org use Haskell Platform 2011.04 (GHC 7.0, cabal, etc). For full up-to-date list of provided tools, see
+Haskell workers on travis-ci.org use Haskell Platform 2011.2.0.1 (GHC 7.0.3, cabal-install 0.10.2, etc). For full up-to-date list of provided tools, see
 our [CI environment guide](/docs/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
 defaults that use `cabal`. It is possible to override them to use `make` or any other build tool and dependency management tool.
 
