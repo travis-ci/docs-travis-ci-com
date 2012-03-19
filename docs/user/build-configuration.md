@@ -384,6 +384,30 @@ Just as with other notification types you can specify when IRC notifications wil
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
+If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#travis"
+          - "irc.freenode.org#some-other-channel"
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+        use_notice: true
+
+and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#travis"
+          - "irc.freenode.org#some-other-channel"
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+        use_notice: true
+        skip_join: true
+
+If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
 ### Webhook notification
 
