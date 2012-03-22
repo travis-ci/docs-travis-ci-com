@@ -297,7 +297,7 @@ Some common reasons why test suites may hang up:
 
 ### .travis.yml and multiple branches
 
-Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that Github has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/docs/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
+Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/docs/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
 
 ### White- or blacklisting branches
 
@@ -383,6 +383,28 @@ Just as with other notification types you can specify when IRC notifications wil
           - "irc.freenode.org#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
+
+You also have the possibility to customize the message that will be sent to the channel(s) with a template:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#travis"
+          - "irc.freenode.org#some-other-channel"
+        template:
+          - "%{repository_url} (%{commit}) : %{message} %{foo} "
+          - "Build details: %{build_url}"
+
+You can interpolate the following variables:
+
+* *repository_url*: your GitHub repo URL.
+* *build_number*: build number.
+* *branch*: branch build name.
+* *commit*: shorten commit SHA
+* *author*: commit author name.
+* *message*: travis message to the build.
+* *compare_url*: commit change view URL.
+* *build_url*: URL of the build detail.
 
 If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
 
