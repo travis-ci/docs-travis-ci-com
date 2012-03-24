@@ -34,5 +34,6 @@ Because Scala builder on travis-ci.org assumes SBT dependency management is used
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
-* [gildegoma/scalatra](https://github.com/gildegoma/scalatra/blob/add-travis-ci/.travis.yml)
-* [gildegoma/salat](https://github.com/gildegoma/salat/blob/add-travis-ci/.travis.yml)
+* [scalatra/scalatra](https://github.com/scalatra/scalatra/blob/develop/.travis.yml)
+* [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
+
