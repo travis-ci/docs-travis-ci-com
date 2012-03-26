@@ -1,5 +1,5 @@
 ---
-title: Announcing Haskell project support on travis-ci.org
+title: Announcing Haskell project support
 layout: en
 created_at: Mon Mar 12 10:00:00 CDT 2012
 permalink: blog/announcing_support_for_haskell_on_travis_ci
