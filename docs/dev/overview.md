@@ -107,7 +107,7 @@ Travis CI applications sometimes have to share certain piece of code. For exampl
 
 * [travis-core](https://github.com/travis-ci/travis-core) hosts most of our domain models
 * [travis-build](https://github.com/travis-ci/travis-build) encapsulates build lifecycle `Travis Workers` use and provides a unified API for language-specific builders
-* [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities. Used by 
+* [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities. Used by `Travis Hub`, `Travis Server`, `Travis Listener` and `Travis Worker`.
 
 In addition, there are mutliple side projects we developed as part of working on Travis CI, for example
 
