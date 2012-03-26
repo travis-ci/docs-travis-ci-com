@@ -17,6 +17,7 @@ Travis CI v3 (deployed in November 2011) consists of 4 key applications:
 * [Travis Hub](https://github.com/travis-ci/travis-hub)
 * [Travis Server](https://github.com/travis-ci/travis-ci)
 * [Travis Worker](https://github.com/travis-ci/travis-worker)
+* [Travis Listener](https://github.com/travis-ci/travis-listener)
 * [Travis Boxes](https://github.com/travis-ci/travis-boxes)
 
 that communicate primarily over [AMQP 0.9.1](http://rubyamqp.info/articles/amqp_9_1_model_explained/). Some of them also share our main database but in a way that isolates updates from read requests.
@@ -56,19 +57,24 @@ The End. The system is ready for another build request.
 
 ## Travis Server
 
-`Travis Server` currently performs several related functions:
+`Travis Server` is the main front-end application. It currently performs several related functions:
 
-* Accepts incoming `build requests`. This will soon be extracted into a separate service, `Travis Listener`.
 * Serves Ember.js-powered frontend application that you can see in action on [travis-ci.org](http://travis-ci.org)
 * Serves API requests (build statuses, build status badges, CI tray requests and more)
 
 TBD: link to separate guide
 
+## Travis Listener
+
+`Travis Listener` is a small Sinatra application. Currently its main purpose is to accept incoming `build requests`.
+
 ## Travis Worker
 
-`Travis Worker` runs builds using snapshotted `Travis VMs`, captures build output and streams it to `Travis Hub` next to other build lifecycle messages. Each instance of `Travis Worker` can drive multiple `Travis VMs`, one VM per worker thread. travis-ci.org is powered by several (currently 9) `Travis Worker` app instances, varying from 3 to 6 VMs per machine.
+`Travis Worker` runs builds using snapshotted `Travis VMs`, captures build output and streams it to `Travis Hub` next to other build lifecycle messages. The build mechanism is provided by `[travis-build](https://github.com/travis-ci/travis-build)` library.
 
-Adding support for new technologies primarily involves `Travis Worker` updates (more on that in the Libraries section below) as well as `Travis CI Environment` updates (also below).
+Each instance of `Travis Worker` can drive multiple `Travis VMs`, one VM per worker thread. travis-ci.org is powered by several (currently 9) `Travis Worker` app instances, varying from 3 to 6 VMs per machine.
+
+Adding support for new technologies primarily involves `Travis Build` library updates (more on that in the Libraries section below) as well as `Travis CI Environment` updates (also below).
 
 TBD: link to separate guide
 
@@ -101,7 +107,7 @@ Travis CI applications sometimes have to share certain piece of code. For exampl
 
 * [travis-core](https://github.com/travis-ci/travis-core) hosts most of our domain models
 * [travis-build](https://github.com/travis-ci/travis-build) encapsulates build lifecycle `Travis Workers` use and provides a unified API for language-specific builders
-* [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities
+* [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities. Used by 
 
 In addition, there are mutliple side projects we developed as part of working on Travis CI, for example
 
@@ -126,7 +132,9 @@ Part of the appeal of Travis CI is that [common services and tools](/docs/user/c
 
 `Travis VMs` are created from `Travis VM images`. There is one image per technology we support, for example, Node.js or Erlang. Because Travis CI has its roots in the Ruby community, Ruby VMs are referred to as `common VMs` and also host Clojure, Java and even Lua projects. We will spin off new image types, for example, for JVM languages, as we improve support for them (for example, move to provide multiple JDK versions to test against).
 
-`Travis VM images` are built using [travis-boxes](https://github.com/travis-ci/travis-boxes), a set of tools based on [Vagrant](http://vagrantup.com), [Veewee](https://github.com/jedi4ever/veewee) and [OpsCode Chef](http://opscode.com/chef). Chef cookbooks we use all live in the [travis-cookbooks](https://github.com/travis-ci/travis-cookbooks) repository and are Apache 2.0 and MIT licensed.
+`Travis VM images` are built using [travis-boxes](https://github.com/travis-ci/travis-boxes), a set of tools based on [Vagrant](http://vagrantup.com), [Veewee](https://github.com/jedi4ever/veewee) and [OpsCode Chef](http://opscode.com/chef).
+
+Chef cookbooks (`[travis-cookbooks](https://github.com/travis-ci/travis-cookbooks)`) are used to install software on `Travis VMs`.
 
 ## CI Environment Upgrade Process
 
