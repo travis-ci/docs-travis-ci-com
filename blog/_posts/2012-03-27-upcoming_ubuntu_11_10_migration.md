@@ -1,7 +1,7 @@
 ---
 title: Migrating CI Environment to Ubuntu 11.10
 layout: en
-created_at: Tue Mar 27 10:00:00 CDT 2012
+created_at: Tue Mar 27 04:00:00 CDT 2012
 permalink: blog/upcoming_ubuntu_11_10_migration
 ---
 
