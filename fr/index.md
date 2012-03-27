@@ -3,9 +3,32 @@ title: Bienvenue sur Travis CI
 layout: fr
 ---
 
-Travis CI est un systÃ¨me open-source d'intÃ©gration continue, pour la communautÃ© open-source.
+Travis CI est un service d'intégration continue pour la communauté open-source. Il est intégré à GitHub et propose un support de première classe pour:
 
-Nous prÃ©voyons d'avoir un blog sous peu mais pour l'instant vous pouvez
-lire nos *idÃ©es initiales* sur le [blog en anglais de Sven](http://svenfuchs.com/2011/2/5/travis-a-distributed-build-server-tool-for-the-ruby-community") et lire les diapositives des prÃ©sentations que nous avons faites lors de confÃ©rences (dont [Ruby Lugdunum](http://rulu.eu), Ã  Lyon) et User Groups Ruby.
+* [Clojure](/fr/docs/user/languages/clojure)
+* [Erlang](/fr/docs/user/languages/erlang)
+* [Groovy](/fr/docs/user/languages/groovy)
+* [Haskell](/fr/docs/user/languages/haskell)
+* [Java](/fr/docs/user/languages/java)
+* [JavaScript (avec Node.js)](/fr/docs/user/languages/javascript-with-nodejs)
+* [Perl](/fr/docs/user/languages/perl)
+* [PHP](/fr/docs/user/languages/php)
+* [Python](/fr/docs/user/languages/python)
+* [Ruby](/fr/docs/user/languages/ruby)
+* [Scala](/fr/docs/user/languages/scala)
 
-Si vous souhaitez nous rejoindre sur IRC, rendez-vous sur [#travis on irc.freenode.net](irc://travis#irc.freenode.net)
+Notre environnement d'intégration continue offre plusieurs runtimes (par ex. Node.js ou des versions PHP), stockages de données, etc.
+Heberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort  votre librairie ou application avec différents runtimes et stockages de données sans même à avoir à les installer localement. 
+
+travis-ci.org a commencé début 2011 en tant que service pour la communauté Ruby et a intégré depuis un support pour de nombreuses autres technologies.
+
+Il ne vous faut que quelques minutes pour héberger votre projet sur travis et l'executer : [Démarrer](/docs/user/getting-started/).
+
+## Travis est open-source
+
+Les services et les librairies qui font fonctionner travis-ci.org sont [hebergés sur GitHub](https://github.com/travis-ci).
+
+## Rencontrez l'équipe
+
+N'hésitez pas à venir nous passer le bonjour sur [#travis sur irc.freenode.net](irc://travis#irc.freenode.net) si vous trouvez le projet génial !
+Et n'oubliez pas de jeter un oeil sur le [Blog](/blog/) !
