@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis CI: {{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link rel="alternate" type="application/atom+xml" href="/blog.xml">
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/pt-BR/docs/">Documentação</a></li>
+          <li class="english lang"><a href="/" class="selected">English</a></li>
+          <li class="french lang"><a href="/fr/">Français</a></li>
+          <li class="spanish lang"><a href="/es/">Español</a></li>
+          <li class="portuguese lang active"><a href="/pt-BR/">Português</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <h1 class="riddle"><a href="/" title="Travis">Travis CI</a></h1>
+        <p>Serviço hospedado de integração contínua para a comunidade open source.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            <h2>{{ page.title }}</h2>
+            {{ content }}
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net#travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Lista de email</a></li>
+              <li><a href="http://github.com/travis-ci">Github</a></li>
+            </ul>
+            <h2>Guias</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/user/getting-started/">Guia de início</a></li>
+              <li><a href="/pt-BR/docs/user/build-configuration/">Configuração de build</a></li>
+              <li><a href="/pt-BR/docs/user/travis-lint/">Valide seu .travis.yml com travis-lint</a></li>
+              <li><a href="/pt-BR/docs/user/database-setup/">Configuração de banco de dados</a></li>
+              <li><a href="/pt-BR/docs/user/gui-and-headless-browsers/">Testando GUI & headless browsers</a></li>
+              <li><a href="/pt-BR/docs/user/status-images/">Imagens de status</a></li>
+              <li><a href="/pt-BR/docs/user/ci-environment/">Ambiente de Integração Contínua</a></li>
+            </ul>
+            <h2>Guias para linguagens específicas</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/user/languages/clojure/">Clojure</a></li>
+              <li><a href="/pt-BR/docs/user/languages/erlang/">Erlang</a></li>
+              <li><a href="/pt-BR/docs/user/languages/groovy/">Groovy</a></li>
+              <li><a href="/pt-BR/docs/user/languages/haskell/">Haskell</a></li>
+              <li><a href="/pt-BR/docs/user/languages/java/">Java</a></li>
+              <li><a href="/pt-BR/docs/user/languages/javascript-with-nodejs/">JavaScript (com Node.js)</a></li>
+              <li><a href="/pt-BR/docs/user/languages/perl/">Perl</a></li>
+              <li><a href="/pt-BR/docs/user/languages/php/">PHP</a></li>
+              <li><a href="/pt-BR/docs/user/languages/python/">Python</a></li>
+              <li><a href="/pt-BR/docs/user/languages/ruby/">Ruby</a></li>
+              <li><a href="/pt-BR/docs/user/languages/scala/">Scala</a></li>
+            </ul>
+
+            <h2>Recursos e ferramentas de terceiros</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/user/browser-extensions/">Extensões para navegadores</a></li>
+              <li><a href="/pt-BR/docs/user/resources/">Links & Recursos</a></li>
+            </ul>
+
+            <h2>How-Tos</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/user/how-to-skip-a-build/">Como pular um build</a></li>
+              <li><a href="/pt-BR/docs/user/how-to-setup-and-trigger-the-hook-manually/">Como configurar e ativar um hook manualmente</a></li>
+            </ul>
+            <h2>Guia para desenvolvedores</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/dev/api/">The API</a></li>
+            </ul>
+            <h2>Guias para contribuidores</h2>
+            <ul>
+              <li><a href="/pt-BR/docs/dev/overview/">Technical Overview</a></li>
+              <li><a href="/pt-BR/docs/dev/worker/">The worker (v3)</a></li>
+              <li><a href="/pt-BR/docs/dev/build_tasks/">Build Tasks</a></li>
+              <li><a href="/pt-BR/docs/dev/maintenance/">Maintenance</a></li>
+            </ul>
+            <h2>Contribuindo</h2>
+            <p>Este site de documentação é open source. Sinta-se livre para <a href="https://github.com/travis-ci/travis-ci.github.com/issues">reportar problemas</a>.
+              O README em nosso <a href="https://github.com/travis-ci/travis-ci.github.com">repositório Git</a> explica como contribuir.</p>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>Este site é mantido pela <a href="http://github.com/travis-ci">comunidade Travis CI</a>. Sinta-se livre para <a href="http://github.com/travis-ci/travis-ci.github.com">contribuir</a>!</p>
+        </div>
+        <div class="box">
+          <p>Este design foi feito pelo talentoso Ben Webster da <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="https://github.com/travis-ci" title="">Travis CI no GitHub</a></li>
+            <li><a href="https://twitter.com/travisci" title="">Travis CI no Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
