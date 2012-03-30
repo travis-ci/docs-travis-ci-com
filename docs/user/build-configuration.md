@@ -317,6 +317,19 @@ You can either white- or blacklist branches that you want to be built:
 
 If you specify both, "except" will be ignored. Please note that currently (for historical reasons), `.travis.yml` needs to be present *on all active branches* of your project.
 
+### Using regular expresions ###
+
+You can use regular expressions to white- or blacklist branches:
+
+    branches:
+      only:
+        - master
+        - /^deploy-.*$/
+
+Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain all kinds of quantifiers, anchors, and character classes [supported](http://www.ruby-doc.org/core-1.9.3/Regexp.html) by Ruby.
+
+Options that are usually specified after the last `/` (e.g., `i` for case insensitive matching) are not supported at the moment.
+
 ## Notifications
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
