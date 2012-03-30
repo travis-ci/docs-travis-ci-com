@@ -7,15 +7,15 @@ permalink: docs/
 ### Documentação de usuário
 
 * [Guia de início](/pt-BR/docs/user/getting-started/)
-* [Build configuration](/pt-BR/docs/user/build-configuration/)
-* [Database setup](/pt-BR/docs/user/database-setup/)
+* [Configuração de build](/pt-BR/docs/user/build-configuration/)
+* [Configuração de banco de dados](/pt-BR/docs/user/database-setup/)
 * [GUI & Headless browsers](/pt-BR/docs/user/gui-and-headless-browsers/)
-* [Status images](/pt-BR/docs/user/status-images/)
-* [Resources](/pt-BR/docs/user/resources/)
-* [CI environment](/pt-BR/docs/user/ci-environment/)
-* [Browser Extensions](/pt-BR/docs/user/browser-extensions/)
-* [How to skip a build](/pt-BR/docs/user/how-to-skip-a-build/)
-* [How to setup and trigger the hook manually](/pt-BR/docs/user/how-to-setup-and-trigger-the-hook-manually/)
+* [Imagens de status](/pt-BR/docs/user/status-images/)
+* [Recursos](/pt-BR/docs/user/resources/)
+* [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/)
+* [Extensões para navegadores](/pt-BR/docs/user/browser-extensions/)
+* [Como pular um build](/pt-BR/docs/user/how-to-skip-a-build/)
+* [Como configurar e ativar um hook manualmente](/pt-BR/docs/user/how-to-setup-and-trigger-the-hook-manually/)
 
 ### Documentação em linguagens específicas
 
