@@ -79,9 +79,12 @@ This little trick utilizes Papertrail's filters and webhooks alerts, and a nifty
 [little app that Eric built](https://github.com/eric/metriks_log_webhook) to
 accept the filtered output when a metric is found in the logs.
 
-Why would we want to do that? Simply because it decouples the fact that
-we're collecting from where the metrics need to be stored. It's a fully
-asynchronous process, and they'll simply show up in Librato eventually.
+Why would we want to do that? Simply because it decouples the fact that we're
+collecting from where the metrics need to be stored. It's a fully asynchronous
+process, and they'll simply show up in Librato eventually. We can also put a
+filter on anything in Papertrail and have occurrences in the log be directly
+graphed in Librato's Metrics. It's pretty awesome. Every bug fixed is a new
+opportunity to add more graphs and add more logging.
 
 For good measure, here's another graph showing the requests we're receiving from
 Github. It includes the received, accepted and rejected pushes.
