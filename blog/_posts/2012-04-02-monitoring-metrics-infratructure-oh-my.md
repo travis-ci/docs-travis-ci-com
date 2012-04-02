@@ -12,7 +12,7 @@ secret, so let's talk about some recent changes to Travis' infrastructure.
 
 Case in point. A recent deployment broke updating profiles temporarily. Here's a
 pretty graph showing the pretty much exact point in time when we deployed and
-the number of errors spiked.
+the spike in the number of errors.
 
 ![Pretty graph showing deployments](http://s3itch.paperplanes.de/Librato_Metrics-20120402-114010.png)
 
@@ -75,7 +75,7 @@ Here's how that looks coming into Papertrail (click to enlarge).
 
 [![Papertrail Metrics](http://s3itch.paperplanes.de/Skitch-20120402-204339.png)](http://s3itch.paperplanes.de/Skitch-20120402-204154.png)
 
-This little trick utilizes Papertrail's filters and webhooks alerts, and a nift
+This little trick utilizes Papertrail's filters and webhooks alerts, and a nifty
 [little app that Eric built](https://github.com/eric/metriks_log_webhook) to
 accept the filtered output when a metric is found in the logs.
 
