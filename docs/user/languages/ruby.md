@@ -56,7 +56,7 @@ So if you want to run CI against JRuby, please check that your Gemfile takes JRu
 
 ## Default Test Script
 
-Travis will use [Bundler](http://gembundler.com/) to install your project's dependencies and run `rake` by default to execute your tests. Pleasen note that **you need to add rake to your Gemfile** (adding it to just `:test` group should be sufficient).
+Travis will use [Bundler](http://gembundler.com/) to install your project's dependencies and run `rake` by default to execute your tests. Please note that **you need to add rake to your Gemfile** (adding it to just `:test` group should be sufficient).
 
 ## Dependency Management
 
