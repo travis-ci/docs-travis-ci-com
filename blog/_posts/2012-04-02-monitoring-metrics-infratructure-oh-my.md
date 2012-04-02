@@ -7,8 +7,8 @@ permalink: blog/2012-04-02-metrics-monitoring-infrastructure-oh-my
 Making sure Travis always runs smoothly all the time has become one of our most
 important tasks over the recent weeks and months. As a distributed system, there
 are a lot of moving parts, and we're putting more and more eyes on every single
-piece to make sure they do their job. Obviously there's not need to keep this a
-secret, so let's talk about recent changes to Travis' infrastructure.
+piece to make sure they do their job. Obviously there's no need to keep this a
+secret, so let's talk about some recent changes to Travis' infrastructure.
 
 Case in point. A recent deployment broke updating profiles temporarily. Here's a
 pretty graph showing the pretty much exact point in time when we deployed and
@@ -51,10 +51,9 @@ library that turns Rails' logging events into a neat, single line per request.
 You can read all about it in [Mathias' blog
 post](http://www.paperplanes.de/2012/3/14/on-notifications-logsubscribers-and-bringing-sanity-to-rails-logging.html).
 
-Thanks to that neat little bit, our logging got streamlined more and more,
-making it more and more useful along the way. All our logs are aggregated in
-[Papertrail](https://papertrailapp.com/), who were also kind enough to offer
-sponsoring their services for Travis.
+This helped streamlining our logging, making it more and more useful along the
+way. All our logs are aggregated in [Papertrail](https://papertrailapp.com/),
+who were also kind enough to offer sponsoring their services for Travis.
 
 This allowed us to do something pretty nifty.
 [Eric](https://twitter.com/lindvall) of Papertrail wrote a neat little metrics
