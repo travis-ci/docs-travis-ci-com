@@ -18,15 +18,15 @@ Travis CI est un service d'intégration continue pour la communauté open-source. 
 * [Scala](/fr/docs/user/languages/scala)
 
 Notre environnement d'intégration continue offre plusieurs runtimes (par ex. Node.js ou des versions PHP), stockages de données, etc.
-Heberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort  votre librairie ou application avec différents runtimes et stockages de données sans même à avoir à les installer localement. 
+Héberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort votre librairie ou application avec différents runtimes et stockages de données sans même à avoir à les installer localement. 
 
-travis-ci.org a commencé début 2011 en tant que service pour la communauté Ruby et a intégré depuis un support pour de nombreuses autres technologies.
+travis-ci.org est né début 2011 en tant que service pour la communauté Ruby et a intégré depuis un support pour de nombreuses autres technologies.
 
-Il ne vous faut que quelques minutes pour héberger votre projet sur travis et l'executer : [Démarrer](/docs/user/getting-started/).
+Il ne vous faut que quelques minutes pour héberger votre projet sur travis et l'exécuter : [Démarrer](/fr/docs/user/getting-started/).
 
 ## Travis est open-source
 
-Les services et les librairies qui font fonctionner travis-ci.org sont [hebergés sur GitHub](https://github.com/travis-ci).
+Les services et les librairies qui font fonctionner travis-ci.org sont [hébergés sur GitHub](https://github.com/travis-ci).
 
 ## Rencontrez l'équipe
 
