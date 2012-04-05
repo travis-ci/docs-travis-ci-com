@@ -21,7 +21,7 @@ Travis CI est un service d'intégration continue pour la communauté open-source
 * [Scala](/fr/docs/user/languages/scala)
 
 Notre environnement d'intégration continue offre plusieurs runtimes (par ex. Node.js ou des versions PHP), stockages de données, etc.
-Heberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort  votre librairie ou application avec différents runtimes et stockages de données sans même à avoir à les installer localement. 
+Heberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort  votre librairie ou application avec différents environnements d'exécution et stockages de données sans même à avoir à les installer localement. 
 
 travis-ci.org est né début 2011 en tant que service pour la communauté Ruby et a intégré depuis un support pour de nombreuses autres technologies.
 
@@ -33,15 +33,15 @@ Github vous demandera d'accorder les droits de lecture et écriture. Travis CI r
 
 ### Etape n°2: Activer les service hooks
 
-Une fois authentifié, allez sur votre [profil](http://travis-ci.org/profile). Vous retrouverez la liste de vos dépôt Github. Basculez sur "on" les dépôts que vous souhaitez lier à Travis CI. Allez ensuite sur la page service hooks Github de ce projet et collez votre username Github et votre token Travis dans les paramètres du service Travis si ce n'est pas pré-rempli.
+Une fois authentifié, allez sur votre [profil](http://travis-ci.org/profile). Vous retrouverez la liste de vos dépôt Github. Basculez sur "on" les dépôts que vous souhaitez lier à Travis CI. Allez ensuite sur la page service hooks Github de ce projet et entrez votre nom d'utilisateur Github et votre token Travis dans les paramètres du service Travis si ce n'est pas pré-rempli.
 
-Si votre dépôt appartient à une organisation ou basculer le bouton n'a pas suffit à mettre en place le hook, [faites le manuellement](/fr/docs/user/how-to-setup-and-trigger-the-hook-manually/) sur GitHub, ça ne prend pas plus que quelques minutes.
+Si votre dépôt appartient à une organisation ou si basculer le bouton n'a pas suffit à mettre en place le hook, [faites le manuellement](/fr/docs/user/how-to-setup-and-trigger-the-hook-manually/) sur GitHub, cela ne prend pas plus que quelques minutes.
 
 ### Etape n°3: Intégrer un fichier .travis.yml au dépôt
 
 Pour que Travis puisse compiler votre projet, vous avez besoin de lui expliquer un minimum comment procéder. Pour ce faire, ajouter un fichier .travis.yml à la racine de votre dépot. Dans ce guide nous ne couvrirons que les options les plus basiques. La plus importante est la key **language**. Elle indique à Travis quel builder utiliser : les projets Ruby utilisent en général pour leur build des outils différents que ceux utilisés pour les projets Clojure ou PHP ; Travis doit donc savoir comment il doit procéder.
 
-Si `.travis.yml` n'est pas dans le dépôt, contient une coquille ou n'est pas un [YAML valide](http://yaml-online-parser.appspot.com/), travis-ci.org l'ignorera, utilisera Ruby comme language et les valeurs par défaut.
+Si `.travis.yml` n'est pas dans le dépôt, contient une coquille ou n'est pas un [YAML valide](http://yaml-online-parser.appspot.com/), travis-ci.org l'ignorera, utilisera Ruby comme langage et les valeurs par défaut.
 
 Voici des exemples basiques de **.travis.yml** :
 
@@ -183,9 +183,9 @@ et ainsi de suite. `travis-lint` est votre ami, utilisez-le.
 
 ### Etape n°4: Déclancher sa première constuction avec un push.
 
-Un fois que le Hook GitHub est mis en place, pushez votre commit contenant .travis.yml. Ca devait ajouté une build à l'une des files sur [Travis CI](http://travis-ci.org) et votre build démarrera aussitôt qu'un worker pour votre langage sera disponible.
+Un fois que le Hook GitHub est mis en place, pushez votre commit contenant .travis.yml. Cela devrait ajouté une build à l'une des files sur [Travis CI](http://travis-ci.org) et votre build démarrera aussitôt qu'un worker pour votre langage sera disponible.
 
-Pour démarrer une build, vous pouvez soit commiter soit pusher quelquechose sur votre dépôt, ou alors vous pouvez aller sur votre page service hooks sur GitHub et presser le bouton "Test Hook". Attention : **vous ne pouvez pas utiliser le bouton Test Hook pour votre première build**, elle doit être déclanchée par un push.
+Pour démarrer une build, vous pouvez soit commiter soit pusher quelquechose sur votre dépôt, ou alors vous pouvez aller sur votre page service hooks sur GitHub et cliquer le bouton "Test Hook". Attention : **vous ne pouvez pas utiliser le bouton Test Hook pour votre première build**, elle doit être déclanchée par un push.
 
 ### Etape n°5 : Customiser la configuration de la build
 
@@ -201,4 +201,4 @@ Lisez [Configurer une base de données](/fr/docs/user/database-setup/) pour appr
 
 ### Etape n°7 : Nous sommes là pour vous aider !
 
-Quelque soit votre question, n'hésitez pas à joindre notre canal IRC [#travis sur irc.freenode.net](irc://irc.freenode.net#travis). On sera là pour vous aider ;). Bien que la lingua franca du canal soit l'anglais, vous pourrez aussi y trouver quelques francophones pour vous aidez !
+Quelque soit votre question, n'hésitez pas à rejoindre notre canal IRC [#travis sur irc.freenode.net](irc://irc.freenode.net#travis). On sera là pour vous aider ;). Bien que la lingua franca du canal soit l'anglais, vous pourrez aussi y trouver quelques francophones pour vous aider !
