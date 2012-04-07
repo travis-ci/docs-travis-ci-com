@@ -22,7 +22,7 @@ The environment available to test suites is known as the *Travis CI environment*
 
 ## CI environment OS
 
-travis-ci.org uses 32-bit Ubuntu Linux 11.04 (server edition).
+travis-ci.org uses 32-bit Ubuntu Linux 11.10 (server edition).
 
 ## How travis-ci.org VMs are provisioned
 
@@ -32,7 +32,7 @@ Provisioning of VMs is automated using [OpsCode Chef](http://www.opscode.com/che
 
 ### Built toolchain
 
-GCC 4.5.x, make, autotools, et cetera.
+GCC 4.6.x, make, autotools, et cetera.
 
 ### Networking tools
 
@@ -54,22 +54,22 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Data Stores
 
 * MySQL 5.1.x
-* PostgreSQL 8.4.x
+* PostgreSQL 9.1.x
 * SQLite 3.7.x
 * MongoDB 2.0.x
 * Riak 1.1.x
 * Redis 2.4.x
-* CouchDB 1.0.x
+* CouchDB 1.1.x
 
 ### Messaging Technology
 
-* [RabbitMQ](http://rabbitmq.com) 2.7.x
+* [RabbitMQ](http://rabbitmq.com) 2.8.x
 * [ZeroMQ](http://www.zeromq.org/) 2.1.x
 
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [Phantom.js](http://www.phantomjs.org/) 1.4.x
+* [Phantom.js](http://www.phantomjs.org/) 1.5.x
 
 ### Environment variables
 
@@ -140,7 +140,7 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 
 ### Haskell Platform Version
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (includes GHC 7.0).
+[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.10 (includes GHC 7.0).
 
 
 ## Perl VM images
@@ -241,7 +241,6 @@ Is supported.
 * 2.5
 * 2.6
 * 2.7
-* 3.1
 * 3.2
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
@@ -312,7 +311,7 @@ notified about the release.
 
 ## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 11.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
+The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 11.10 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
 
 Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are encouraged to use them.
 

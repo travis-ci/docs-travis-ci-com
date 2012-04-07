@@ -8,7 +8,7 @@ permalink: overview/
 
 This guide explains what applications, libraries, tools and practices make travis-ci.org run. It briefly outlines why each part of the system works the way it does and what upsides and downsides it entails. It intentionally leaves out many details and should be considered a high level overview.
 
-Please note that **this guide is not yet complete** (started on Jan 11th, 2012). We will expand it.
+Please note that **this guide is not yet complete**. We will expand it over time.
 
 ## Applications
 
