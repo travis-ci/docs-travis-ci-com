@@ -114,6 +114,7 @@ Currently 1.0 Milestone 8.
 
 ### Erlang/OTP releases
 
+* R15B01
 * R15B
 * R14B04
 * R14B03
@@ -126,8 +127,8 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 ### Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.12)
-* 0.7 (0.7.5)
+* 0.6 (0.6.14)
+* 0.7 (0.7.7)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
@@ -242,6 +243,7 @@ Is supported.
 * 2.6
 * 2.7
 * 3.2
+* pypy
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
