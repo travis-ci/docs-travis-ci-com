@@ -21,7 +21,7 @@ Travis Scala VMs provide SBT 0.11.x and OpenJDK 6. Thanks to SBT 0.11.x ability 
 
 Travis CI by default assumes your project is built using SBT. The exact command Scala builder will use by default is
 
-    sbt +$SCALA_VERSION test
+    sbt ++$SCALA_VERSION test
 
 if your project has `project` directory or `build.sbt` file in the repository root. If this is not the case, Scala builder will fall back to
 
