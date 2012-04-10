@@ -39,5 +39,6 @@ to installs project's [dependencies as listed in the rebar.config file](https://
 
 ## Examples
 
-* [cowboy](https://github.com/extend/cowboy/blob/master/.travis.yml)
-* [elixir](https://github.com/josevalim/elixir/blob/master/.travis.yml)
+* [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
+* [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
+* [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
