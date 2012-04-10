@@ -29,8 +29,8 @@ A more extensive example:
       - "2.5"
       - "2.6"
       - "2.7"
-      - "3.1"
       - "3.2"
+      - "pypy"
     # command to install dependencies
     install:
       - pip install . --use-mirrors
@@ -46,7 +46,7 @@ As time goes, new releases come out and we provision more Python versions and/or
 
 ### PyPy Support
 
-PyPy is not currently provided but we would like to provide it near in the future.
+We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa).
 
 ## Default Python Version
 
