@@ -57,8 +57,11 @@ Language-specific workers have multiple runtimes for their respective language (
 * PostgreSQL 9.1.x
 * SQLite 3.7.x
 * MongoDB 2.0.x
-* Riak 1.1.x
 * Redis 2.4.x
+* Riak 1.1.x
+* Apache Cassandra 1.0.x
+* Neo4J Community Edition 1.6.x
+* ElasticSearch 0.19.x
 * CouchDB 1.1.x
 
 ### Messaging Technology
