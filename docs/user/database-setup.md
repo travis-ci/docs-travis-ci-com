@@ -133,6 +133,16 @@ Riak uses stock configuration with one exception: it is configured to use [Level
 
 Redis uses stock configuration and is available on localhost.
 
+### Cassandra
+
+Cassandra is available but not started by default. You can start it using `before_install`:
+
+    before_install:
+      - sudo service cassandra start
+      - sleep 3
+
+Cassandra is provided via [Datastax Community Edition](http://www.datastax.com/products/community) and uses stock configuration (available on 127.0.0.1).
+
 ### Neo4J
 
 Neo4J Server Community Edition is available but not started by default. You can start it using `before_install`:
@@ -142,6 +152,17 @@ Neo4J Server Community Edition is available but not started by default. You can 
       - sleep 3
 
 Neo4J Server uses default configuration (localhost, port 7474).
+
+### ElasticSearch
+
+ElasticSearch is available but not started by default. You can start it using `before_install`:
+
+    before_install:
+      - sudo service elasticsearch start
+      - sleep 3
+
+ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
+
 
 
 ### Multiple database systems
