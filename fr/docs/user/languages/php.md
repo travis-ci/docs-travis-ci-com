@@ -155,7 +155,7 @@ installée:
     sh -c "cd memcache-2.2.6 && phpize && ./configure --enable-memcache && make && sudo make install"
     echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
-Voir aussi [midgard2 utilisant pleinement before_script](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh).
+Voir aussi [midgard2 utilisant pleinement before_script](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh) ainsi que l'installation du [driver php mongo](https://gist.github.com/2351174).
 
 
 ### Livres de cuisine du chef pour PHP

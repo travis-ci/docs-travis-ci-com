@@ -111,7 +111,7 @@ It is possible to install custom PHP extensions into the Travis environment, but
     sh -c "cd memcache-2.2.6 && phpize && ./configure --enable-memcache && make && sudo make install"
     echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 
-See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh).
+See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh) or another one for [mongo php driver](https://gist.github.com/2351174).
 
 ### Chef Cookbooks for PHP
 
