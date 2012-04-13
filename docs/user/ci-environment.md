@@ -102,7 +102,7 @@ Stock Apache Maven 3.0.x.
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 [preview2]
+travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 (preview)
 at `/usr/local/bin/lein2`.
 
 ### SBT version
@@ -130,7 +130,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 ### Node.js versions
 
 * 0.4 (0.4.12)
-* 0.6 (0.6.14)
+* 0.6 (0.6.15)
 * 0.7 (0.7.7)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
