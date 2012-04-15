@@ -75,7 +75,7 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
 ### With Leiningen 1
 
 Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of 
-Clojure (including pre-release versions like 1.4.0-beta4). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
+Clojure (for example, 1.3, 1.4 and alphas/betas/snapshots of the most recent development version). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
 there is no need for runtime switchers (like RVM) for Clojure.
 
 To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
