@@ -10,15 +10,15 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 ## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
 
-You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and `Firefox` installed. Roughly speaking, xvfb imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper display were attached.
+You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper display were attached.
 
-Before xvfb can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
+Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
 
     before_script:
       - "export DISPLAY=:99.0"
       - "sh -e /etc/init.d/xvfb start"
 
-This starts xvfb on display port :99.0. The display port is set directly in the /etc/init.d script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary between testing tools and programming languages.
+This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary between testing tools and programming languages.
 
 
 ## Starting a Web Server
@@ -36,7 +36,7 @@ Add a `before_script` to start a server, for example:
       - rackup  # start a Web server
       - sleep 3 # give Web server some time to bind to sockets, etc
 
-If you need Web server to be listening on port 80, remember to use sudo (Linux will not allow non-privileged process to bind to port 80). For ports > 1024, using sudo
+If you need Web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports > 1024, using `sudo`
 is not necessary (and not recommended).
 
 
@@ -45,7 +45,7 @@ is not necessary (and not recommended).
 
 [Phantom.js](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`. xvfb must be running before Phantom.js is started (see the section above).
+[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`. `xvfb` must be running before Phantom.js is started (see the section above).
 
 ## Examples
 
