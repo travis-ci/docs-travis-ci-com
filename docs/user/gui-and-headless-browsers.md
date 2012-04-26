@@ -12,7 +12,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and `Firefox` installed. Roughly speaking, xvfb imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper display were attached.
 
-Befor `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
+Before xvfb can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
 
     before_script:
       - "export DISPLAY=:99.0"
