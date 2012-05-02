@@ -1,8 +1,10 @@
 ---
 title: The Great Bundler 1.1 Upgrade
-layout: en
+layout: post
 created_at: Fri Mar 9 12:00:00 CET 2012
 permalink: blog/the-great-bundler-1-1-upgrade
+author: Michael Klishin
+twitter: michaelklishin
 ---
 
 

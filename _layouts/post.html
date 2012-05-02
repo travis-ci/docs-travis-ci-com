@@ -1,0 +1,14 @@
+---
+layout: en
+---
+
+<p class='meta'>
+  {% if page.twitter %}
+    <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
+  {% else %}
+    {{ page.author }},
+  {% endif %}
+  <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
+</p>
+
+{{ content }}

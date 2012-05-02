@@ -263,6 +263,47 @@ div#main {
   margin-left: 1.4286em;
 }
 
+#main figure {
+  clear: both;
+  width: 578px;
+  border: 1px solid #efefef;
+  text-align: center;
+  margin: 0px;
+  border-radius: 4px;
+}
+
+#main figure figcaption {
+  background-color: #efefef;
+  text-align: left;
+  font-size: 80%;
+  padding: 5px 10px;
+}
+
+#main figure img {
+  max-width: 570px;
+  margin: 4px;
+}
+
+#main figure.left {
+  margin-bottom: 1.4286em;
+  margin-right: 1.4286em;
+  float: left;
+}
+
+#main figure.right {
+  margin-bottom: 1.4286em;
+  margin-left: 1.4286em;
+  float: right;
+}
+
+#main figure.small {
+  width: 258px;
+}
+
+#main figure.small img {
+  max-width: 250px;
+}
+
 div#sidebar {
   float:right;
   width: 325px;
@@ -377,6 +418,7 @@ h1 {
   font-size: 3em;
   line-height: 1em;
   margin-bottom: 0.5em;
+  clear: both;
 }
 
 h2 {
@@ -384,6 +426,12 @@ h2 {
   margin-bottom: 1em;
   line-height: 1em;
   letter-spacing: -0.5px;
+  clear: both;
+}
+
+.meta {
+  margin-top: -1.7em;
+  font-size: 80%;
 }
 
 h3 {

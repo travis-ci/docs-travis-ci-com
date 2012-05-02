@@ -1,8 +1,10 @@
 ---
 title: Announcing Haskell project support
-layout: en
+layout: post
 created_at: Mon Mar 12 10:00:00 CDT 2012
 permalink: blog/announcing_support_for_haskell_on_travis_ci
+author: Michael Klishin
+twitter: michaelklishin
 ---
 
 ## Travis' Eleven

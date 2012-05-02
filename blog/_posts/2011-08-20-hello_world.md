@@ -1,8 +1,10 @@
 ---
 title: Hello, World
-layout: en
+layout: post
 created_at: Sat Aug 20 18:52:26 EDT 2011
 permalink: blog/hello_world
+author: Steve Klabnik
+twitter: steveklabnik
 ---
 
     puts "Hello, world!"
