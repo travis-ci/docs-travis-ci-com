@@ -105,8 +105,13 @@ For instance, we would like to leave a comment whenever master is updated and gi
 
 If you made it this far in the blog post, you probably want it for your repository, and you want it *now*. Good news! We started unrolling this feature.
 
-As we are still improving it, and are not sure if we can stand the load of activating it for everyone right away, we are turning it on on a repo per repo basis. Please note that we start unrolling for those people, that donated, so I was actually able to work on this.
+<figure class="small right">
+  [ ![Let us know if you want this feature](https://img.skitch.com/20120502-xmjnfsk2bfjkwabk5y2ra6dtfi.jpg) ](https://img.skitch.com/20120502-xmjnfsk2bfjkwabk5y2ra6dtfi.jpg)
+  <figcaption>Let us know if you want this feature</figcaption>
+</figure>
 
-So, if you donated and want this, just [let us know](mailto:contact+pr@travis-ci.org?subject=Pull Request Support&body=Could you please activate PR testing for USER/REPO? I donated - Order #XYZ - and would love to use this feature. XOXO - NAME).
+As we are still improving it, and are not sure if we can stand the load of activating it for everyone right away, we are turning it on on a repo per repo basis.
+
+Please note that we start unrolling for those people, that donated, so I was actually able to work on this. So, if you donated and want this, just [let us know](mailto:contact+pr@travis-ci.org?subject=Pull Request Support&body=Could you please activate PR testing for USER/REPO? I donated - Order #XYZ - and would love to use this feature. XOXO - NAME).
 
 If you didn't donate, but still want to use this feature, our [Love Campaign](https://love.travis-ci.org/) is still running.
