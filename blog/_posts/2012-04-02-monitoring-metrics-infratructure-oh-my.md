@@ -1,8 +1,10 @@
 ---
 title: Metrics, Monitoring, Infrastructure, Oh my!
-layout: en
+layout: post
 created_at: mon apr 02 22:29:26 edt 2012
 permalink: blog/2012-04-02-metrics-monitoring-infrastructure-oh-my
+author: Mathias Meyer
+twitter: roidrage
 ---
 Making sure Travis always runs smoothly all the time has become one of our most
 important tasks over the recent weeks and months. As a distributed system, there
