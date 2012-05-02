@@ -116,4 +116,4 @@ As we are still improving it, and are not sure if we can stand the load of activ
 
 Please note that we start unrolling for those people, that donated, so I was actually able to work on this. So, if you donated and want this, just [let us know](mailto:contact+pr@travis-ci.org?subject=Pull Request Support&body=Could you please activate PR testing for USER/REPO? I donated - Order #XYZ - and would love to use this feature. XOXO - NAME).
 
-If you didn't donate, but still want to use this feature, our [Love Campaign](https://love.travis-ci.org/) is still running.
+If you didn't donate, but still want to use this feature right away, our [Love Campaign](https://love.travis-ci.org/) is still running.
