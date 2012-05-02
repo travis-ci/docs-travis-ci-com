@@ -2,7 +2,7 @@
 title: Pre-Tested Pull Requests
 layout: post
 created_at: Tue May 02 18:30:00 CEST 2012
-permalink: blog/pull-requests
+permalink: blog/announcing-pull-request-support
 author: Konstantin Haase
 twitter: konstantinhaase
 ---
