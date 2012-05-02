@@ -1,5 +1,5 @@
 ---
-title: Pre-Tested Pull Requests
+title: Announcing Pull Requests Support
 layout: post
 created_at: Tue May 02 18:30:00 CEST 2012
 permalink: blog/announcing-pull-request-support
