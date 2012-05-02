@@ -1,0 +1,10 @@
+---
+layout: en
+---
+
+<p class='meta'>
+  <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
+  <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
+</p>
+
+{{ content }}

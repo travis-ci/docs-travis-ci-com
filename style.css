@@ -429,6 +429,11 @@ h2 {
   clear: both;
 }
 
+.meta {
+  margin-top: -1.7em;
+  font-size: 80%;
+}
+
 h3 {
   font-size: 1.15em;
   line-height: 1em;
