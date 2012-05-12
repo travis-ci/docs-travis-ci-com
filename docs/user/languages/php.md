@@ -99,7 +99,7 @@ Then you can use phpcs as simply as phpunit command
 
 You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. Use the following:
 
-    wget http://getcomposer.org/composer.phar
+    curl -s http://getcomposer.org/installer | php
     php composer.phar install
 
 ### Installing PHP extensions
