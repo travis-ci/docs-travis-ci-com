@@ -14,7 +14,7 @@ Travis VMs currently provide
 
 * 32-bit OpenJDK 6
 * Standalone [Leiningen](https://leiningen.org) 1.7.1.
-* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (currently preview 3).
+* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (currently preview 4).
 
 Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
 
