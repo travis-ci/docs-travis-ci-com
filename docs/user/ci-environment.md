@@ -111,7 +111,7 @@ travis-ci.org provides SBT 0.11.x.
 
 ### Gradle version
 
-Currently 1.0 Milestone 8.
+Currently 1.0 RC3.
 
 ## Erlang VM images
 
@@ -129,9 +129,9 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 ### Node.js versions
 
-* 0.4 (0.4.12)
-* 0.6 (0.6.15)
-* 0.7 (0.7.7)
+* 0.4.x
+* 0.6.x
+* 0.7.x
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
