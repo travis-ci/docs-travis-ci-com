@@ -38,7 +38,8 @@ A more extensive example:
     # command to run tests
     script: nosetests
 
-As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Python versions, see our [CI environment guide](/docs/user/ci-environment/).
+As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
+For the full up-to-date list of provided Python versions, see our [CI environment guide](/docs/user/ci-environment/).
 
 ### Travis CI Uses Isolated virtualenvs
 

@@ -250,6 +250,8 @@ Is supported.
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
+Python 2.4 *is not supported* and there are no plans to support it in the future.
+
 ### Preinstalled pip packages
 
 * nose
