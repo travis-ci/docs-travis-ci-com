@@ -14,13 +14,13 @@ _plus a little treat for you :)_
   <figcaption>"Received @travisci stickers today :)" - [*Marek Nowak*](https://twitter.com/#!/yundt87)</figcaption>
 </figure>
 
-When the '[Love Campaign](http://love.travis-ci.org)' was launched back in February we didn't have a goal in mind with how much we wanted, or needed, to raise. The general idea was simple, the more we raised the more we could work without having to worry about where rent money came from.
+When the '[Love Campaign](http://love.travis-ci.org)' was launched back in February we didn't have a goal in mind with how much we wanted, or needed, to raise. The general idea was simple: the more we raised the more we could work without having to worry about where rent money came from.
 
 The first couple of days of donations were insane, with the majority of all the money raised coming within the first 24 hours of us opening the door. It was amazing and very humbling to know that the community was behind Travis and also behind us.
 
 Well, three months and ten days later we are ecstatic to announce that we have raised **$100,000** !!!
 
-The one thing we did not anticipate or plan for well was the time needed to ship all the swag and personal notes to all the donators. In fact, to say we were running behind was an understatement. Even the personal note took longer than we expected due to the love we put into it. For example, for all donators of $35 or more we needed to sort out the following:
+The one thing we did not anticipate or plan for was the time needed to ship all the swag and personal notes to all the donators. In fact, to say we were running behind was an understatement. Even the personal notes took longer than we expected due to the love we put into it. For example, for all donators of $35 or more we needed to sort out the following:
 
 
 <figure class="smallest right">
@@ -32,7 +32,8 @@ The one thing we did not anticipate or plan for well was the time needed to ship
 * A wax seal of the Travis T (we even included some special words surrounding the T)
 * Lots and lots of wax, including a special wax gun! (we did not even know they made them)
 * A specially designed Love Certificate, and lots of them
-* Lots of big envelopes so the certificates and swag didn't get damaged* Several days of wax sealing, packing, and addressing 400+ envelopes
+* Lots of big envelopes so the certificates and swag didn't get damaged
+* Several days of wax sealing, packing, and addressing 400+ envelopes
 * And personally handwriting the donor's name along with a one-of-a-kind note onto the certificate. (Which also meant that we could not simply prepare a huge stack of certificates, we needed to add them to the right envelope for the right donation package, addressed to the right person.)
 
 <figure class="smallest right">
@@ -63,7 +64,7 @@ Apart from sending out swag we also promised to add some awesome new features to
 * Private build support
 * Build artifacts
 
-So far we have delivered the first two of these. With the help of the community and Michael Klishin we have added support for [Perl](http://about.travis-ci.org/docs/user/languages/perl/), [Python](http://about.travis-ci.org/docs/user/languages/python/), [Java](http://about.travis-ci.org/docs/user/languages/java/), [Clojure](http://about.travis-ci.org/docs/user/languages/clojure/), [Scala](http://about.travis-ci.org/docs/user/languages/scala/), and [Haskell](http://about.travis-ci.org/docs/user/languages/haskell/)
+So far we have delivered the first two of these. With the help of the community and Michael Klishin we have added support for [Perl](http://about.travis-ci.org/docs/user/languages/perl/), [Python](http://about.travis-ci.org/docs/user/languages/python/), [Java](http://about.travis-ci.org/docs/user/languages/java/), [Clojure](http://about.travis-ci.org/docs/user/languages/clojure/), [Scala](http://about.travis-ci.org/docs/user/languages/scala/), and [Haskell](http://about.travis-ci.org/docs/user/languages/haskell/).
 
 <figure class="small right">
   [ ![Loads of swag](http://distilleryimage1.s3.amazonaws.com/eef1f4869b5711e181bd12313817987b_7.jpg) ](http://distilleryimage1.s3.amazonaws.com/eef1f4869b5711e181bd12313817987b_7.jpg)
@@ -82,7 +83,7 @@ But we have some special news for you....
 
 We are very pleased to announce that we are adding some goodies to each of the plans.
 
-Two awesome companies, [RailsCasts](http://railscasts.com) and [Pragmatic Programmer](http://pragprog.com), as well as our own [Mathias Meyer](http://www.paperplanes.de/), have jumped on board to add some love to some of the current donation plans.
+Two awesome companies, [RailsCasts](http://railscasts.com) and [Pragmatic Programmer](http://pragprog.com), as well as our own [Mathias Meyer](http://www.paperplanes.de/) have jumped on board to add some love to some of the current donation plans.
 
 **RailsCasts** has been very generous and offered Huge, Big and Medium donators a month of [RailsCasts Pro](http://railscasts.com/pro) for free.
 
@@ -99,7 +100,7 @@ _**PLUS**_ we have decided to double the number of pair programming hours offere
 
 These new plans will take effect immediately, and over the coming weeks we will get in touch with all current donators to make sure you get the swag you deserve!
 
-If you would like to upgrade your donation to one of the bigger plans email [contact@travis-ci.org](mailto:contact@travis-ci.org) and we can help you with it.
+If you would like to upgrade your donation to one of the bigger plans, email [contact@travis-ci.org](mailto:contact@travis-ci.org) and we can help you with it.
 
 
 Last but not least
