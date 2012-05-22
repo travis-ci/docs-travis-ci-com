@@ -263,8 +263,12 @@ div#main {
   margin-left: 1.4286em;
 }
 
-#main figure {
+.clear {
   clear: both;
+}
+
+#main figure {
+  clear: both !important;
   width: 578px;
   border: 1px solid #efefef;
   text-align: center;
@@ -294,6 +298,23 @@ div#main {
   margin-bottom: 1.4286em;
   margin-left: 1.4286em;
   float: right;
+}
+
+#main figure.smallest {
+  width: 138px;
+}
+
+#main figure.smallest img {
+  width: 130px;
+}
+
+
+#main figure.smaller {
+  width: 208px;
+}
+
+#main figure.smaller img {
+  width: 200px;
 }
 
 #main figure.small {
