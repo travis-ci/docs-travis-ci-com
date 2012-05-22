@@ -97,7 +97,7 @@ And our own amazing **Mathias** has offered all Huge and Big donators a copy of 
 
 *PLUS* we have decided to double the number of pair programming hours offered in the Huge plan, so now you can pair with your favorite developer for even longer!!
 
-These new plans will take effect immediately, and over the coming week we will get in touch with all current donators to make sure you get the swag you deserve!
+These new plans will take effect immediately, and over the coming weeks we will get in touch with all current donators to make sure you get the swag you deserve!
 
 If you would like to upgrade your donation to one of the bigger plans email [contact@travis-ci.org](mailto:contact@travis-ci.org) and we can help you with it.
 
