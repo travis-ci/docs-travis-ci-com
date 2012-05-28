@@ -129,6 +129,13 @@ Currently 1.0 RC3.
 
 Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
+
+### Rebar
+
+travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
+be used instead of the preprovisioned version.
+
+
 ## Node.js VM images
 
 ### Node.js versions
