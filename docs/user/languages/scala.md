@@ -15,7 +15,7 @@ Travis Scala VMs provide SBT 0.11.x and OpenJDK 6. Thanks to SBT 0.11.x ability 
     language: scala
     scala:
        - 2.8.2
-       - 2.9.1
+       - 2.9.2
 
 ## Default Test Command
 
