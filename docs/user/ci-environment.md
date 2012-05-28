@@ -60,7 +60,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * Redis 2.4.x
 * Riak 1.1.x
 * Apache Cassandra 1.0.x
-* Neo4J Community Edition 1.6.x
+* Neo4J Community Edition 1.7.x
 * ElasticSearch 0.19.x
 * CouchDB 1.1.x
 
@@ -95,6 +95,10 @@ Language-specific workers have multiple runtimes for their respective language (
 apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file). This means `apt-get install` can be used without the -y flag.
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
+
+### JDK
+
+OpenJDK 6. Support for OpenJDK 7 and Oracle JDK 7u4 will be added around June-July 2012.
 
 ### Maven version
 
