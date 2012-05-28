@@ -13,7 +13,7 @@ This guide covers build environment and configuration topics specific to Clojure
 Travis VMs currently provide
 
 * 32-bit OpenJDK 6
-* Standalone [Leiningen](https://leiningen.org) 1.7.1.
+* Standalone [Leiningen](https://leiningen.org) 1.7.x.
 * Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (currently preview 4).
 
 Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
@@ -60,7 +60,7 @@ For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 ## Using Leiningen 2.0 (Preview)
 
-Leiningen 2.0 (preview) is provided side by side with 1.7.0. To use it, specify `lein` key in `.travis.yml`:
+Leiningen 2.0 (preview) is provided side by side with 1.7. To use it, specify `lein` key in `.travis.yml`:
 
     lein: lein2
 
@@ -106,7 +106,9 @@ For a real world example, see [Neocons](https://github.com/michaelklishin/neocon
 
 * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
 * [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/stable/.travis.yml)
+* [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/stable/.travis.yml)
 * [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
+* [neocons' .travis.yml](https://github.com/michaelklishin/neocons/blob/stable/.travis.yml)
 * [momentum's .travis.yml](https://github.com/carllerche/momentum/blob/master/.travis.yml)
 * [Knockbox's .travis.yml](https://github.com/reiddraper/knockbox/blob/master/.travis.yml)
 * [Sumo's .travis.yml](https://github.com/reiddraper/sumo/blob/master/.travis.yml)
