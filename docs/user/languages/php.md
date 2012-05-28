@@ -27,6 +27,11 @@ Also note that specifying exact versions like 5.3.8 is discouraged as your .trav
 
 For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
+### OpenSSL extension support
+
+For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
+
+
 ## Default Test Script
 
 By default Travis will run your tests using
