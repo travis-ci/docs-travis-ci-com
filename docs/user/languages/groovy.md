@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Groovy 
 
 ## Overview
 
-Travis CI environment provides OpenJDK 6, Gradle 1.0-milestone 7, Maven 3 and Ant 1.7. Groovy project builder has reasonably good defaults for
+Travis CI environment provides OpenJDK 6, OpenJDK 7, Oracle JDK 7u4, Gradle 1.0 (a recent RC), Maven 3 and Ant 1.7. Groovy project builder has reasonably good defaults for
 projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
 
     language: groovy
@@ -72,3 +72,23 @@ Because there is no single standard way of installing project dependencies with 
 
     language: groovy
     install: ant deps
+
+
+## Testing Against Multiple JDKs
+
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+
+    jdk:
+      - openjdk6
+      - openjdk7
+
+To test against OpenJDK 7 and Oracle JDK 7u4:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+will not be provided.
+
+JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.

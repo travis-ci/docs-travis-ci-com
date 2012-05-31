@@ -31,9 +31,30 @@ if your project has `project` directory or `build.sbt` file in the repository ro
 
 Because Scala builder on travis-ci.org assumes SBT dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
 
+
+## Testing Against Multiple JDKs
+
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+
+    jdk:
+      - openjdk6
+      - openjdk7
+
+To test against OpenJDK 7 and Oracle JDK 7u4:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+will not be provided.
+
+JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+
+
+
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
 * [scalatra/scalatra](https://github.com/scalatra/scalatra/blob/develop/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
-

@@ -12,9 +12,9 @@ This guide covers build environment and configuration topics specific to Clojure
 
 Travis VMs currently provide
 
-* 32-bit OpenJDK 6
+* 32-bit OpenJDK 6, OpenJDK 7, Oracle JDK 7u4
 * Standalone [Leiningen](https://leiningen.org) 1.7.x.
-* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (currently preview 4).
+* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (new previews are provisioned within a couple of days after release).
 
 Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
 
@@ -68,6 +68,33 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
 
     before_install:
       - lein2 bootstrap
+
+
+## Testing Against Multiple JDKs
+
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+
+    jdk:
+      - openjdk6
+      - openjdk7
+
+To test against OpenJDK 7 and Oracle JDK 7u4:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+will not be provided.
+
+JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+
+### Examples
+
+ * [Monger](https://github.com/michaelklishin/monger/blob/master/.travis.yml)
+ * [Welle](https://github.com/michaelklishin/welle/blob/master/.travis.yml)
+ * [Langohr](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
+ * [Neocons](https://github.com/michaelklishin/neocons/blob/master/.travis.yml)
 
 
 ## Testing Against Multiple Versions of Clojure

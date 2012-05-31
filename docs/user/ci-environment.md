@@ -98,7 +98,9 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 
 ### JDK
 
-OpenJDK 6. Support for OpenJDK 7 and Oracle JDK 7u4 will be added around June-July 2012.
+* OpenJDK 6 (alias: openjdk6)
+* OpenJDK 7 (openjdk7)
+* Oracle JDK 7u4 (oraclejdk7)
 
 ### Maven version
 

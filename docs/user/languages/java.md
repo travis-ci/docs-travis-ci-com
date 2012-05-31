@@ -71,8 +71,31 @@ Because there is no single standard way of installing project dependencies with 
     language: java
     install: ant deps
 
+
+## Testing Against Multiple JDKs
+
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+
+    jdk:
+      - openjdk6
+      - openjdk7
+
+To test against OpenJDK 7 and Oracle JDK 7u4:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+will not be provided.
+
+JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+
+
+
 ## Examples
 
+* [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
 * [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
 * [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
 * [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
