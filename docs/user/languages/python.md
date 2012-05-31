@@ -30,7 +30,6 @@ A more extensive example:
       - "2.6"
       - "2.7"
       - "3.2"
-      - "pypy"
     # command to install dependencies
     install:
       - pip install . --use-mirrors
@@ -47,7 +46,28 @@ For the full up-to-date list of provided Python versions, see our [CI environmen
 
 ### PyPy Support
 
-We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa).
+We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa). For pure Python projects,
+it works well. However, due to known issues with the development (header) packages, native libraries won't install on PyPy. We have notified
+PyPy package maintainers as well as PyPy core team members about the issue and waiting for it to be resolved.
+
+To test your project against PyPy, add "pypy" to the list of Pythons in your `.travis.yml`:
+
+    language: python
+    python:
+      - "2.5"
+      - "2.6"
+      - "2.7"
+      - "3.2"
+      # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
+      # maintainers to fix their pypy-dev package.
+      - "pypy"
+    # command to install dependencies
+    install:
+      - pip install . --use-mirrors
+      - pip install -r requirements.txt --use-mirrors
+    # command to run tests
+    script: nosetests 
+
 
 ## Default Python Version
 
