@@ -101,3 +101,4 @@ JDK 7 is backwards compatible, we think it's time for all projects to start test
 * [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
 * [RESTHub](https://github.com/pullrequest/resthub/blob/master/.travis.yml)
 * [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+* [Android](https://github.com/leviwilson/android-travis-ci-example/blob/master/.travis.yml), using the [maven-android-plugin](http://code.google.com/p/maven-android-plugin/)
