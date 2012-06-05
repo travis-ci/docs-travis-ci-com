@@ -7,8 +7,6 @@ author: Michael Klishin
 twitter: michaelklishin
 ---
 
-## Support for multiple JDKs
-
 Every new feature starts with a developer wanting to scratch an itch.
 
 When Travis CI started in early 2011, one of the goals behind it was to make CI for everyone, including ourselves. Back then the Ruby community was in full swing moving to Ruby 1.9, and most popular projects supported 1.9 unknowingly, but it was common to run into issues with projects that either did not test against 1.9, or tested against 1.9 but not 1.8. So one of the features that was added very early on was ability to easily test against multiple versions and implementations of Ruby in the simplest way possible.
