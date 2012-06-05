@@ -49,11 +49,18 @@ Here are some basic **.travis.yml** examples:
 For projects using Leiningen 1:
 
     language: clojure
+    jdk:
+      - openjdk7
+      - openjdk6
 
 For projects using Leiningen 2:
 
     language: clojure
     lein: lein2
+    jdk:
+      - openjdk7
+      - openjdk6
+
 
 Learn more about [.travis.yml options for Clojure projects](/docs/user/languages/clojure/)
 
@@ -79,12 +86,20 @@ Learn more about [.travis.yml options for Haskell projects](/docs/user/languages
 #### Groovy
 
     language: groovy
+    jdk:
+      - openjdk7
+      - openjdk6
+
 
 Learn more about [.travis.yml options for Groovy projects](/docs/user/languages/groovy/)
 
 #### Java
 
     language: java
+    jdk:
+      - openjdk7
+      - openjdk6
+
 
 Learn more about [.travis.yml options for Java projects](/docs/user/languages/java/)
 
@@ -151,7 +166,11 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
      language: scala
      scala:
        - 2.8.2
-       - 2.9.1
+       - 2.9.2
+     jdk:
+       - openjdk7
+       - openjdk6
+
 
 Learn more about [.travis.yml options for Scala projects](/docs/user/languages/scala/)
 
