@@ -75,6 +75,11 @@ We would like to thank [Henri Gomez](http://twitter.com/hgomez) for his work on 
 OpenJDK 7 build on OS X cannot possibly be easier than that.
 
 
+### Discuss
+
+Feel free to [upvote and discuss this feature on Hacker News](http://news.ycombinator.com/item?id=4068927).
+
+
 Happy testing!
 
 
