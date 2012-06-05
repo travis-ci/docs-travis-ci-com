@@ -102,13 +102,15 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 * OpenJDK 7 (openjdk7)
 * Oracle JDK 7u4 (oraclejdk7)
 
+Currently, OpenJDK 6 is the default. OpenJDK 7 will be the default JDK in the near future (June-July 2012).
+
 ### Maven version
 
 Stock Apache Maven 3.0.x.
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 (preview)
+travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 (a recent preview)
 at `/usr/local/bin/lein2`.
 
 ### SBT version

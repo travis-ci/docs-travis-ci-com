@@ -48,7 +48,7 @@ travis-ci.org Ruby workers have two installations of Rubinius, in 1.8 and 1.9 mo
 
 Both are built from the [2.0.testing branch](https://github.com/rubinius/rubinius/tree/2.0.testing) Rubinius team updates for us when they feel master becomes stable enough. This means that typically Rubinius is upgraded every 1-3 weeks.
 
-### C extensions support is disabled for JRuby
+### JRuby: C extensions support is disabled
 
 Please note that **C extensions are disabled for JRuby** on travis-ci.org. The reason for doing so is to bring it to developers attention that their project may have dependencies that should not be used on JRuby in production. Using C extensions on JRuby is technically possible but is not a good idea performance and stability-wise and we believe continuous integration services like Travis should highlight it.
 
@@ -131,6 +131,53 @@ ChefSpec is [tested against multiple Opscode Chef versions](https://github.com/a
       - CHEF_VERSION=0.10.4
 
 Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.
+
+
+
+## Testing against multiple JDKs (JRuby)
+
+It is possible to test projects against multiple JDKs, namely
+
+ * OpenJDK 7
+ * Oracle JDK 7u4
+ * OpenJDK 6
+
+To do so, use the `:jdk` key in your `.travis.yml`, for example:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+or all 3:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+      - openjdk6
+
+Each JDK you test against will create permutations with all other configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
+you need to add some matrix excludes (described in our general [Build Configuration guide](/docs/user/build-configuration/)):
+
+    language: ruby
+    rvm:
+      - 1.9.2
+      - jruby-18mode
+      - jruby-19mode
+      - jruby-head
+    jdk:
+      - openjdk6
+      - openjdk7
+      - oraclejdk7
+    matrix:
+      exclude:
+    - rvm: 1.9.2
+      jdk: openjdk7
+    - rvm: 1.9.2
+      jdk: oraclejdk7
+
+
+For example, see [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
+
 
 ## Upgrading RubyGems
 
