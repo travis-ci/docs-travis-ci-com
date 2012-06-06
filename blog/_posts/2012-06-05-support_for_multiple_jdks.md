@@ -64,7 +64,7 @@ For Mac OS X, you can either use [Oracle JDK 7 for OS X](http://www.oracle.com/t
 To learn more about JDK 6 and JDK 7 differences, see
 
  * [JDK 7 compatibility guide](http://www.oracle.com/technetwork/java/javase/compatibility-417013.html)
- * [JDK 7 adoption guide](http://docs.oracle.com/javase/7/docs/webnotes/adoptionGuide/index.html) (an overview of why you
+ * [JDK 7 adoption guide](http://docs.oracle.com/javase/7/docs/webnotes/adoptionGuide/index.html)
 
 
 ### Thank you, contributors
