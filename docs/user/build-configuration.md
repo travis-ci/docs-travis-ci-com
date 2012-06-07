@@ -44,6 +44,14 @@ Travis CI uses virtual machine snapshotting to make sure no state is left betwee
 
 ## Define custom build lifecycle commands
 
+### Overview
+
+Travis CI runs all commands over SSH in isolated virtual machines. Commands that modify SSH session state are "sticky" and persist throughout the build.
+For example, if you `cd` into a particular directory, all the following commands will be executed from it. This may be used for good (e.g. building subprojects one
+after another) or affect tools like `rake` or `mvn` that may be looking for files in the current directory.
+
+
+
 ### script
 
 You can specify the main build command to run instead of the default
