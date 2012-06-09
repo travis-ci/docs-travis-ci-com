@@ -158,9 +158,9 @@ Learn more in our [Clojure guide](/docs/user/languages/clojure/)
 Erlang projects specify releases they need to be tested against using `otp_release` key:
 
     otp_release:
-      - R14B02
       - R14B03
       - R14B04
+      - R15B01
 
 Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/)
 
@@ -237,7 +237,7 @@ Scala projects specify releases they need to be tested against using `scala` key
 
     scala:
       - "2.8.2"
-      - "2.9.1"
+      - "2.9.2"
 
 Travis CI relies on SBT's support for running tests against multiple Scala versions.
 
