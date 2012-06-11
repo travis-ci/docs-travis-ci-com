@@ -486,7 +486,7 @@ When you combine the three main configuration options above, Travis CI will run 
 
 * Runtime to test against
 * Environment variables with which you can configure your build scripts
-* Exclusions and allowed failures
+* Exclusions, inclusions and allowed failures
 
 Below is an example configuration for a rather big build matrix that expands to **28 individual** builds.
 
@@ -521,6 +521,17 @@ You can also define exclusions to the build matrix:
           env: ISOLATED=true
 
 Only exact matches will be excluded.
+
+It is also possible to include entries into the matrix:
+
+    matrix:
+      include:
+        - rvm: ruby-head
+          gemfile: gemfiles/Gemfile.rails-3.2.x
+          env: ISOLATED=false
+
+This is useful if you want to, say, only test the latest version of a
+dependency together with the latest version of the runtime.
 
 ### Rows That are Allowed To Fail
 
