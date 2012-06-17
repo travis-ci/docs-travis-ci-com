@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-Travis CI environment provides OpenJDK 6, Maven 3, Gradle 1.0-milestone 7 and Ant 1.7. Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
+Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.0, Maven 3 and Ant. Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
 
     language: java
 
@@ -74,19 +74,19 @@ Because there is no single standard way of installing project dependencies with 
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 7 and OpenJDK 6:
 
     jdk:
-      - openjdk6
       - openjdk7
+      - openjdk6
 
-To test against OpenJDK 7 and Oracle JDK 7u4:
+To test against OpenJDK 7 and Oracle JDK 7:
 
     jdk:
       - openjdk7
       - oraclejdk7
 
-Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7. Sun JDK 6 is not provided and because it is EOL in November 2012,
 will not be provided.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.

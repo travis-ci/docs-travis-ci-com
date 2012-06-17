@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Scala p
 
 ## Choosing Scala versions to test against
 
-Travis Scala VMs provide SBT 0.11.x and OpenJDK 6. Thanks to SBT 0.11.x ability to perform actions against multiple Scala versions, it is possible to test your projects against Both Scala 2.8.x and 2.9.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
+Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, SBT 0.11.3, Gradle 1.0, Maven 3 and Ant. Thanks to SBT 0.11.x ability to perform actions against multiple Scala versions, it is possible to test your projects against Both Scala 2.8.x and 2.9.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
 
     language: scala
     scala:
@@ -34,19 +34,19 @@ Because Scala builder on travis-ci.org assumes SBT dependency management is used
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 6 and OpenJDK 7:
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 7 and OpenJDK 6:
 
     jdk:
-      - openjdk6
       - openjdk7
+      - openjdk6
 
-To test against OpenJDK 7 and Oracle JDK 7u4:
+To test against OpenJDK 7 and Oracle JDK 7:
 
     jdk:
       - openjdk7
       - oraclejdk7
 
-Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7u4. Sun JDK 6 is not provided and because it is EOL in November 2012,
+Travis CI provides OpenJDK 7, OpenJDK 6 and Oracle JDK 7. Sun JDK 6 is not provided and because it is EOL in November 2012,
 will not be provided.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.

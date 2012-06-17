@@ -98,15 +98,15 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 
 ### JDK
 
-* OpenJDK 6 (alias: openjdk6)
-* OpenJDK 7 (openjdk7)
+* OpenJDK 7 (alias: openjdk7)
+* OpenJDK 6 (openjdk6)
 * Oracle JDK 7u4 (oraclejdk7)
 
-Currently, OpenJDK 6 is the default. OpenJDK 7 will be the default JDK in the near future (June-July 2012).
+OpenJDK 7 is the default. Sun/Oracle JDK 6 is not provided because it reaches End of Life in the fall 2012.
 
 ### Maven version
 
-Stock Apache Maven 3.0.x.
+Stock Apache Maven 3. Maven is configured to use Central and oss.sonatype.org mirrors at http://maven.travis-ci.org
 
 ### Leiningen versions
 
@@ -115,11 +115,11 @@ at `/usr/local/bin/lein2`.
 
 ### SBT version
 
-travis-ci.org provides SBT 0.11.x.
+travis-ci.org provides a recent SBT 0.11.x version.
 
 ### Gradle version
 
-Currently 1.0 RC3.
+Gradle 1.0.
 
 ## Erlang VM images
 
