@@ -53,8 +53,8 @@ If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-m
 
 Please note that for projects that only support Clojure 1.3.0 and later versions, you may need to exclude transient `org.clojure/clojure` for Midje in project.clj:
 
-    :dev-dependencies [[midje "1.3.1" :exclusions [org.clojure/clojure]]
-                       [lein-midje "1.0.7"]])
+    :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
+                       [lein-midje "1.0.10"]])
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
