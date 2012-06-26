@@ -16,7 +16,7 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
     node_js:
       - 0.4
       - 0.6
-      - 0.7 # development version of 0.8, may be unstable
+      - 0.8
 
 This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias for "the most recent 0.6.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
 
@@ -24,9 +24,9 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
 ## Provided Node.js Versions
 
- * 0.4.x (currently 0.4.12)
- * 0.6.x (currently 0.6.11)
- * 0.7.x (development versions of 0.8)
+ * 0.4.x
+ * 0.6.x
+ * 0.8.x
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
 

@@ -109,7 +109,7 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
      node_js:
        - 0.4
        - 0.6
-       - 0.7 # development version of 0.8, may be unstable
+       - 0.8
 
 Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
 
@@ -117,6 +117,7 @@ Learn more about [.travis.yml options for Node.js projects](/docs/user/languages
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
       - "5.12"
 

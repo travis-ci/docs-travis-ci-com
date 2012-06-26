@@ -146,7 +146,7 @@ be used instead of the preprovisioned version.
 
 * 0.4.x
 * 0.6.x
-* 0.7.x
+* 0.8.x
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
@@ -166,6 +166,7 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 
 ### Perl versions
 
+* 5.16
 * 5.14
 * 5.12
 * 5.10
