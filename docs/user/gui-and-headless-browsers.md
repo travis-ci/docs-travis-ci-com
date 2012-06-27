@@ -4,7 +4,7 @@ layout: en
 permalink: gui-and-headless-browsers/
 ---
 
-### What This Guide Covers
+## What This Guide Covers
 
 This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/docs/user/ci-environment/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
@@ -19,6 +19,10 @@ Before `xvfb` can be used, it needs to be started. Typically an optimal place to
       - "sh -e /etc/init.d/xvfb start"
 
 This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary between testing tools and programming languages.
+
+### Configuring xvfb screen size and more
+
+It is possible to set xvfb screen size and pixel depth. Because xvfb is a virtual screen, it can emulate virtually any resolution. See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
 
 ## Starting a Web Server
