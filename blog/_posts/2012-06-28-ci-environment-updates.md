@@ -1,5 +1,5 @@
 ---
-title: Some CI environment updates
+title: Some CI Environment Updates
 layout: post
 created_at: Thu Jun 28 18:00:00 CDT 2012
 permalink: blog/june-2012-ci-environment-updates
