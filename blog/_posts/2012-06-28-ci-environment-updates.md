@@ -1,7 +1,7 @@
 ---
 title: Some CI environment updates
 layout: post
-created_at: Thu Jun 28 23:00:00 CDT 2012
+created_at: Thu Jun 28 18:00:00 CDT 2012
 permalink: blog/june-2012-ci-environment-updates
 author: Michael Klishin
 twitter: michaelklishin
