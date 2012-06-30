@@ -117,6 +117,7 @@ Learn more about [.travis.yml options for Node.js projects](/docs/user/languages
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
       - "5.12"
 

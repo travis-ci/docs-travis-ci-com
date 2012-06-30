@@ -166,6 +166,7 @@ Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/
 
 ### Perl versions
 
+* 5.16
 * 5.14
 * 5.12
 * 5.10
