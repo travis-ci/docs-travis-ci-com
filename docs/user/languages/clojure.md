@@ -70,6 +70,10 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
     before_install:
       - lein2 bootstrap
 
+Task chaining requires using the `do` task as of Leiningen 2.0 Preview 7:
+
+    script: lein2 do javac, test
+
 
 ## Testing Against Multiple JDKs
 
