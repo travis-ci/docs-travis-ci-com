@@ -152,7 +152,7 @@ Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
 ### SCons
 
-Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/#!/joyent/node). Other projects can use it, too.
+Scons 2.x.
 
 
 ## Haskell VM images
