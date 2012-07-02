@@ -85,9 +85,10 @@ To see real world examples, see:
 
 ### Installing PEAR packages
 
-If your dependencies include PEAR packages, the Travis PHP environment has the [Pyrus command](http://pear2.php.net/) available:
+If your dependencies include PEAR packages, the Travis PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
 
     pyrus install http://phptal.org/latest.tar.gz
+    pear install pear/PHP_CodeSniffer
 
 After install you should refresh your path
 
@@ -109,7 +110,12 @@ You can also install [Composer](http://packagist.org/) packages into the Travis 
 
 ### Installing PHP extensions
 
-It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
+It is possible to install custom PHP extensions into the Travis environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
+
+    pecl install memcache
+    echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+
+It is also possible to do the installation "manually". This is how the `memcache` extension can be installed this way:
 
     wget http://pecl.php.net/get/memcache-2.2.6.tgz
     tar -xzf memcache-2.2.6.tgz
