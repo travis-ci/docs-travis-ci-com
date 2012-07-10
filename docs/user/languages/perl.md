@@ -14,13 +14,14 @@ Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide sev
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
-      - "5.12"
 
 A more extensive example:
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
       - "5.12"
       - "5.10"
