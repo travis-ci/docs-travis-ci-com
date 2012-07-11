@@ -5,8 +5,11 @@ layout: en
 
 Travis CI is a hosted continuous integration service for the open source community. It is integrated with GitHub and offers first class support for:
 
+* [C](/docs/user/languages/c)
+* [C++](/docs/user/languages/cpp)
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
+* [Go](/docs/user/languages/go)
 * [Groovy](/docs/user/languages/groovy)
 * [Haskell](/docs/user/languages/haskell)
 * [Java](/docs/user/languages/java)

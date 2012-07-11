@@ -30,13 +30,20 @@ Provisioning of VMs is automated using [OpsCode Chef](http://www.opscode.com/che
 
 ## Environment common to all VM images
 
-### Built toolchain
+### Compilers & Built toolchain
 
-GCC 4.6.x, make, autotools, et cetera.
+GCC 4.6.x, Clang 3.1.x, make, autotools, cmake, scons.
+
 
 ### Networking tools
 
 curl, wget, OpenSSL, rsync
+
+
+### Go
+
+Go compiler/build tool 1.0.
+
 
 ### Runtimes
 
@@ -46,6 +53,7 @@ Every worker has at least one version of
 * OpenJDK
 * Python
 * Node.js
+* Go compiler/build tool
 
 to accommodate projects that may need one of those runtimes during the build.
 

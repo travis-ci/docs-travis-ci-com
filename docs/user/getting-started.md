@@ -8,8 +8,11 @@ permalink: getting-started/
 
 Travis CI is a hosted continuous integration service for the open source community. It is integrated with GitHub and offers first class support for:
 
+* [C](/docs/user/languages/c)
+* [C++](/docs/user/languages/cpp)
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
+* [Go](/docs/user/languages/go)
 * [Groovy](/docs/user/languages/groovy)
 * [Haskell](/docs/user/languages/haskell)
 * [Java](/docs/user/languages/java)
@@ -23,6 +26,10 @@ Travis CI is a hosted continuous integration service for the open source communi
 Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), data stores and so on. Because of this, hosting your project on travis-ci.org means you can effortlessly test your library or applications against multiple runtimes and data stores without even having all of them installed locally.
 
 travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since then.
+
+As a free community service, Travis CI limits build duration to about 20 minutes. Because some larger codebases may take very long time to build,
+please take care to only use a reasonable amount of workers time.
+
 
 ### Step one: Sign in
 
@@ -43,6 +50,31 @@ In order for Travis to build your project, you need to tell the system a little 
 If `.travis.yml` is not in the repository, is misspelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume Ruby as the language and use default values for everything.
 
 Here are some basic **.travis.yml** examples:
+
+
+#### C
+
+    language: c
+    compiler:
+      - gcc
+      - clang
+    # Change this to your needs
+    script: ./configure && make
+
+Learn more about [.travis.yml options for C projects](/docs/user/languages/c/)
+
+
+#### C++
+
+    language: cpp
+    compiler:
+      - gcc
+      - clang
+    # Change this to your needs
+    script: ./configure && make
+
+Learn more about [.travis.yml options for C++ projects](/docs/user/languages/cpp/)
+
 
 #### Clojure
 
@@ -83,6 +115,14 @@ Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/
 Learn more about [.travis.yml options for Haskell projects](/docs/user/languages/haskell/)
 
 
+#### Go
+
+    language: go
+
+Learn more about [.travis.yml options for Go projects](/docs/user/languages/go/)
+
+
+
 #### Groovy
 
     language: groovy
@@ -107,7 +147,6 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
 
      language: node_js
      node_js:
-       - 0.4
        - 0.6
        - 0.8
 
