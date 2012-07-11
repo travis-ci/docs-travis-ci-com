@@ -278,16 +278,16 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 ### Ruby versions/implementations
 
-* 1.8.7 (default)
+* 1.9.3 (default)
 * 1.9.2
-* 1.9.3
-* jruby-18mode (1.6.7; alternative alias: jruby)
+* jruby-18mode (1.6.7 in Ruby 1.8 mode)
 * jruby-19mode (1.6.7 in Ruby 1.9 mode)
 * rbx-18mode (alternative alias: rbx)
 * rbx-19mode (in Ruby 1.9 mode)
+* ruby-head (upgraded every 2-3 weeks)
+* jruby-head (upgraded every 2-3 weeks)
+* 1.8.7
 * ree (2012.02)
-* ruby-head (upgraded every 1-2 weeks)
-* jruby-head (upgraded every 1-2 weeks)
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 

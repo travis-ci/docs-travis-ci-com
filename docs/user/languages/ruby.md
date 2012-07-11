@@ -15,26 +15,26 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
     language: ruby
     rvm:
-      - 1.8.7
       - 1.9.3
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
       - rbx-18mode
       - rbx-19mode
+      - 1.8.7
 
 A more extensive example:
 
     language: ruby
     rvm:
-      - 1.8.7
-      - 1.9.2
       - 1.9.3
+      - 1.9.2
       - jruby-18mode
       - jruby-19mode
       - rbx-18mode
       - rbx-19mode
       - ruby-head
       - jruby-head
+      - 1.8.7
       - ree
 
 As time goes, new releases come out and we upgrade both RVM and Rubies, aliases like `1.9.3` or `jruby` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Rubies, see our [CI environment guide](/docs/user/ci-environment/).
