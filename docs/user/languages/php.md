@@ -68,10 +68,18 @@ Even though installed dependencies will be wiped out between builds (VMs we run 
 If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
-      - SYMFONY_VERSION=v2.0.5
-      - SYMFONY_VERSION=origin/master
+      - SYMFONY_VERSION=2.0.*,DB=mysql
+      - SYMFONY_VERSION=dev-master,DB=mysql
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to pick phpunit configuration file:
+and then use ENV variable values in any later script like your dependencies installation scripts, test cases or test script parameter values.
+
+Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 differnt versions of Symfony as defined above.
+
+    before_script:
+       - curl -s http://getcomposer.org/installer | php --
+       - php composer.phar require symfony/framework-bundle:${SYMFONY_VERSION}
+
+Here we use DB variable value to pick phpunit configuration file:
 
     script: phpunit --configuration $DB.phpunit.xml
 
@@ -79,9 +87,9 @@ The same technique is often used to test projects against multiple databases and
 
 To see real world examples, see:
 
-* [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml)
 * [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
-* [doctrine2](https://github.com/pborreli/doctrine2/blob/master/.travis.yml)
+* [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
+* [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
 ### Installing PEAR packages
 
