@@ -12,6 +12,7 @@ Travis CI is a hosted continuous integration service for the open source communi
 * [C++](/docs/user/languages/cpp)
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
+* [Go](/docs/user/languages/go)
 * [Groovy](/docs/user/languages/groovy)
 * [Haskell](/docs/user/languages/haskell)
 * [Java](/docs/user/languages/java)
@@ -112,6 +113,14 @@ Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/
     language: haskell
 
 Learn more about [.travis.yml options for Haskell projects](/docs/user/languages/haskell/)
+
+
+#### Go
+
+    language: go
+
+Learn more about [.travis.yml options for Go projects](/docs/user/languages/go/)
+
 
 
 #### Groovy

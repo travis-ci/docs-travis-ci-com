@@ -19,8 +19,6 @@ permalink: docs/
 
 ### Specific Language Help
 
-* [C](/docs/user/languages/c)
-* [C++](/docs/user/languages/cpp)
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
 * [Groovy](/docs/user/languages/groovy)
