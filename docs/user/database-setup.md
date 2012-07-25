@@ -167,15 +167,16 @@ ElasticSearch is provided via official Debian packages and uses stock configurat
 
 ### Multiple database systems
 
-If your project's tests need to run multiple times using different databases, this can be configured on Travis CI in several ways.
+If your project's tests need to run multiple times using different databases, this can be configured on Travis CI using a technique
+with env variables. The technique  is just a convention and requires a `before_script` or `before_install` lines to work.
 
-#### Using ENV variables
+#### Using ENV variables and before_script steps
 
 Now you use the "DB" environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:
 
     $ DB=postgres [commands to run your tests]
 
-On Travis CI you want to test against all 3 databases all the time, and for that you can use the "env" option:
+On Travis CI you want to create a matrix of 3 builds each having the `DB` variable exported with a different value, and for that you can use the "env" option:
 
     # .travis.yml
     env:
@@ -183,11 +184,25 @@ On Travis CI you want to test against all 3 databases all the time, and for that
       - DB=mysql
       - DB=postgres
 
+Then you can use those values in a `before_install` step or more to set up each database. For example:
+
+    before_script:
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests_tmp;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
+
 When doing this, please read and understand everything about the build matrix described in [Build configuration](/docs/user/build-configuration/).
 
-#### Ruby
+Note: **Travis CI does not have any special support for these variables**, it just creates 3 builds with different exported values. It is up to your
+test suite or `before_install`/`before_script` steps to make use of them.
 
-One approach you might take is put all database configurations in one YAML file, like ActiveRecord does:
+For a real example, see [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
+
+#### A Ruby-specific Approach
+
+Another approach that is Ruby-specific is put all database configurations in one YAML file, like ActiveRecord does:
 
     # test/database.yml
     sqlite:
