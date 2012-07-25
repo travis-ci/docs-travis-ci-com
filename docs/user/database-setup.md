@@ -184,7 +184,7 @@ On Travis CI you want to create a matrix of 3 builds each having the `DB` variab
       - DB=mysql
       - DB=postgres
 
-Then you can use those values in a `before_install` step or more to set up each database. For example:
+Then you can use those values in a `before_install` (or `before_script`) step or more to set up each database. For example:
 
     before_script:
       - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
