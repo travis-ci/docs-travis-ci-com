@@ -76,8 +76,7 @@ and then use ENV variable values in any later script like your dependencies inst
 Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 differnt versions of Symfony as defined above.
 
     before_script:
-       - curl -s https://getcomposer.org/installer | php -- --quiet
-       - php composer.phar require symfony/framework-bundle:${SYMFONY_VERSION}
+       - composer require symfony/framework-bundle:${SYMFONY_VERSION}
 
 Here we use DB variable value to pick phpunit configuration file:
 
@@ -111,10 +110,10 @@ Then you can use phpcs as simply as phpunit command
 
 ### Installing Composer packages
 
-You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. Use the following:
+You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. The composer
+command comes pre-installed, so just use the following:
 
-    curl -s https://getcomposer.org/installer | php -- --quiet
-    php composer.phar install
+    composer install
 
 ### Installing PHP extensions
 
