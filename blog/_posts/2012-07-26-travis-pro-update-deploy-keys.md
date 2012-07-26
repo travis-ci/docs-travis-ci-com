@@ -1,8 +1,8 @@
 ---
-title: Travis Pro Update: Deploy Keys
+title: "Travis Pro Update: Deploy Keys"
 layout: post
 created_at: thu jul 27 15:55:26 cest 2012
-permalink: blog/2012-04-02-metrics-monitoring-infrastructure-oh-my
+permalink: blog/2012-07-26-travis-pro-update-deploy-keys
 author: Mathias Meyer
 twitter: roidrage
 ---
