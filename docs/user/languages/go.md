@@ -32,6 +32,12 @@ If you need to perform special tasks before your tests can run, override the `in
 
     install: make get-deps
 
+It is also possible to specify a list of operations, for example, to `go get` remote dependencies:
+
+    install:
+      - go get github.com/bmizerany/assert
+      - go get github.com/mrb/hob
+
 See [general build configuration guide](/docs/user/build-configuration/) to learn more.
 
 
@@ -72,3 +78,4 @@ Travis CI currently only provides a single Go version, 1.0.
 
  * [peterbourgon/diskv](https://github.com/peterbourgon/diskv/blob/master/.travis.yml)
  * [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
+ * [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
