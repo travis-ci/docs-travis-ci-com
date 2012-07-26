@@ -41,6 +41,12 @@ That way we don't break existing projects that still have a .travis.yml
 configured and still allow for you to specify a key in the .travis.yml if you
 need to.
 
+If you're already using Travis Pro and have your deploy key set up in the
+.travis.yml, there's an easy way to migrate. Just delete the `source_key` from
+the .travis.yml and remove it from the GitHub deploy keys as well. We'll
+automatically generate a new SSH key for your repository the next time you push
+a commit.
+
 Curious about Travis Pro? You can still donate to our [Love
 campaign](http://love.travis-ci.org) to get on the fast track to using it before
 we launch it to the public! If you donated, just hit us up on
