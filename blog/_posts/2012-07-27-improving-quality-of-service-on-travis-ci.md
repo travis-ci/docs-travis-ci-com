@@ -44,7 +44,11 @@ change makes Travis a place that's evenly shared by the community.
 We'll be watching how that change works out in production, and fine tune the
 number of concurrent builds if necessary. The number five is something we chose
 based on the overall fairness and the build capacity we have available but it's
-not written in stone.
+not written in stone. We've also been thinking about taking into account the
+general runtime of builds for a particular project and be smarter about
+scheduling by giving projects with faster test ways a head start. But that's
+just off the top of our heads for now, we'll keep an eye on how things are going
+with the current change in place.
 
 ### Technicalities
 
