@@ -55,9 +55,10 @@ So far, we've pushed builds immediately onto our RabbitMQ queue as they come in.
 This had the advantage that they'd be popped off in the order they arrived in
 Travis, and we wouldn't have to worry about scheduling.
 
-But it also meant that our queues would be the single source of truth about what
-needs to be built next, which in turn introduces a single point of failure and
-pushed state into the message broker.
+But it also meant that our queues would have to be kept in sync with the
+database. Should we lose the jobs queued in RabbitMQ for some reason, we had to
+manually queue them. With the new logic, the database is the single source of
+truth and jobs are only queued if there's capacity available to build them.
 
 Instead of pushing a job immediately on the queue, it's now only stored in the
 database. A job is now scheduled based on the heartbeats we receive from a
@@ -72,9 +73,22 @@ components. We could use ZeroMQ or simple HTTP instead, because we're doing
 simple inter-process communication instead of relying on the ordered nature of
 AMQP, because exact order is not important anymore.
 
+Another upshot of this is that we don't need to do manual requeing anymore,
+the new logic will automatically pick up any build that's ready to be built.
+
 We have several areas in Travis where order is still important currently, but we
 already have ideas on how to tackle them. We'll keep you posted on the technical
 details!
+
+On a fun side note, the changes described here were deployed earlier today.
+Here's a graph of the average run time of handling worker updates went through
+the roof, middle finger style, until we added a database index:
+
+![Librato Metrics](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120727-160635.png)
+
+Today's motto:
+
+![](http://i.imgur.com/X9sEI.jpg)
 
 ### The Bottom Line
 
