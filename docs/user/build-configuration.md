@@ -64,6 +64,9 @@ If you want to run a script local to your repository, do it like this:
 
     script: ./script/ci/run_build.sh
 
+In this case, the script should be made executable (for example, using `chmod +x`) and contain a valid shebang line
+(`/usr/bin/env sh`, `/usr/bin/env ruby`, `/usr/bin/env python` and so on).
+
 ### before_script, after_script
 
 You can also define scripts to be run before and after the main script:
