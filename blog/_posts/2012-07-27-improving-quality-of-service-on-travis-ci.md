@@ -88,7 +88,7 @@ On a fun side note, the changes described here were deployed earlier today.
 Here's a graph of the average run time of handling worker updates went through
 the roof, middle finger style, until we added a database index:
 
-![Librato Metrics](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120727-160635.png)
+![Librato Metrics](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120727-163033.png)
 
 Today's motto:
 
