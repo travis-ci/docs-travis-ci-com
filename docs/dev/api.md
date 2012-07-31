@@ -273,7 +273,7 @@ permalink: api/
               "ctest -V ."
             ], 
             "install": [
-              "sudo apt-get install cmake"
+              "sudo apt-get install -qq cmake"
             ], 
             ".result": "configured"
           }
@@ -334,7 +334,7 @@ permalink: api/
           ]
         }, 
         "before_install": [
-          "sudo apt-get install libgmp3-dev", 
+          "sudo apt-get install -qq libgmp3-dev", 
           "mysql -e 'create database browserid;'"
         ], 
         "env": "WHAT_TESTS=back_mysql MYSQL_USER=root", 
