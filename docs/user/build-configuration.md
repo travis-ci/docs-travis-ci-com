@@ -275,8 +275,8 @@ With this configuration, **4 individual builds** will be triggered:
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
 
     before_install:
-     - sudo apt-get update
-     - sudo apt-get install [packages list]
+     - sudo apt-get update -qq
+     - sudo apt-get install -qq [packages list]
 
 The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are
 snapshotted and rolled back to their pristine state after each build.

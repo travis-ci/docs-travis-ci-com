@@ -100,7 +100,7 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### apt configuration
 
-apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file). This means `apt-get install` can be used without the -y flag.
+apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file). This means `apt-get install -qq` can be used without the -y flag.
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
