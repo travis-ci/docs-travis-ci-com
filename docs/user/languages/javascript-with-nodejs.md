@@ -25,6 +25,7 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
  * 0.8.x
  * 0.6.x
+ * 0.9.x (development, may be unstable)
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
 
