@@ -10,23 +10,21 @@ This guide covers build environment and configuration topics specific to Node.js
 
 ## Choosing Node versions to test against
 
-Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to be "first class": testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project. Add the following line to .travis.yml:
+Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to be "first class": testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project. Add the following to .travis.yml:
 
     language: node_js
     node_js:
-      - 0.4
-      - 0.6
       - 0.8
+      - 0.6
 
-This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias for "the most recent 0.6.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
+This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.6.x branch release. 0.8 is an alias for "the most recent 0.8.x release" and so on. Please note that using exact versions (for example, 0.6.19) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
 ## Provided Node.js Versions
 
- * 0.4.x
- * 0.6.x
  * 0.8.x
+ * 0.6.x
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
 

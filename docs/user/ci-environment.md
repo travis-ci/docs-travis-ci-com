@@ -152,9 +152,9 @@ be used instead of the preprovisioned version.
 
 ### Node.js versions
 
-* 0.4.x
-* 0.6.x
 * 0.8.x
+* 0.6.x
+
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
