@@ -1,7 +1,7 @@
 ---
 title: "Travis Now Syncs Your Repositories Automagically"
 layout: post
-created_at: wed aug 01 15:55:26 cest 2012
+created_at: thu aug 02 15:30:26 cest 2012
 permalink: blog/2012-08-01-travis-now-syncs-your-repositories-automagically
 author: Mathias Meyer
 twitter: roidrage
@@ -51,15 +51,24 @@ set up a new repository right away.
 One more thing...
 
 Until now, the "My Repositories" tab used to be a pretty lonely place. It only
-showed repositories you enabled the Travis hook for. It also was somewhat
-confusing to click on it as a first time user and find it's empty even though we
-just synchronized all your repositories.
+showed your personal repositories Travis knows about and not ones of an
+organization that is already setup in Travis.
 
 To make it a merrier place for everyone it now shows all the repositories that
 we synced for you, so all repositories you have access to now show up in that
-tab, nicely sorted by the most recent build.
+tab, nicely sorted by the most recent build, including all the repositories of
+organizations you're a member of. That way, when a new user signs up and his or
+her organization is already using Travis, he or she will have immediate access
+to the respective repositories.
 
-This is much less confusing for everyone using Travis.
+![My
+Repositories](http://s3itch.paperplanes.de/Travis_CI_-_Distributed_build_platform_for_the_open_source_community-20120802-153002.png)
+
+This is much less confusing for everyone using Travis. There is still a tiny bug
+in our synchronization which we're currently working on. Currently you'll only
+see repositories you have administrative rights too, basically the same as in
+your profile page. We're improving the synchronization to respect push access
+too, so that you'll see all repositories you have push access too as well.
 
 ### On Travis Pro...
 
