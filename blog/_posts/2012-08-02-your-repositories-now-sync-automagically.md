@@ -51,8 +51,8 @@ set up a new repository right away.
 One more thing...
 
 Until now, the "My Repositories" tab used to be a pretty lonely place. It only
-showed your personal repositories Travis knows about and not ones of an
-organization that is already setup in Travis.
+showed your personal repositories Travis knows about, not the ones of your
+organizations.
 
 To make it a merrier place for everyone it now shows all the repositories that
 we synced for you, so all repositories you have access to now show up in that
