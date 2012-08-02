@@ -26,7 +26,7 @@ repositories up to date.
 
 When you log in for the first time we trigger a background task that checks with
 GitHub and fetches all the repositories you have administrative access to. Why
-only administrative? Only administrators of a repository are allow to configure
+only administrative? Only administrators of a repository are allowed to configure
 the service hook required for Travis.
 
 So when you log in and go to your profile page for the first time, you'll be
