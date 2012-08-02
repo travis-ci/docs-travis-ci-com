@@ -2,7 +2,7 @@
 title: "Travis Now Syncs Your Repositories Automagically"
 layout: post
 created_at: thu aug 02 15:30:26 cest 2012
-permalink: blog/2012-08-01-travis-now-syncs-your-repositories-automagically
+permalink: blog/2012-08-02-travis-now-syncs-your-repositories-automagically
 author: Mathias Meyer
 twitter: roidrage
 ---
