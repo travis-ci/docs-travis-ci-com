@@ -34,13 +34,13 @@ greeted with this screen. To show you how serious this synchronizing process is,
 notice the progress indicator.
 
 ![Travis
-Sync](http://s3itch.paperplanes.de/Travis_CI_-_Distributed_build_platform_for_the_open_source_community-4-20120801-083921.png)
+Sync](http://s3itch.paperplanes.de/Travis_CI_-_Distributed_build_platform_for_the_open_source_community-20120802-154935.png)
 
 You can leave the page open until the process is finish, your repositories will
 automatically show up once it's done.
 
 ![Travis
-Sync](http://s3itch.paperplanes.de/Travis_CI_-_Distributed_build_platform_for_the_open_source_community-2-1-20120801-084052.png)
+Sync](http://s3itch.paperplanes.de/Travis_CI_-_Distributed_build_platform_for_the_open_source_community-4-1-20120802-155023.png)
 
 You can trigger a sync when you added a new repository. We also trigger one
 every time you log in, to make sure we're already up-to-date should you want to
