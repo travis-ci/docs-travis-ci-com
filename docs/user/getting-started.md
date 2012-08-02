@@ -147,8 +147,8 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
 
      language: node_js
      node_js:
-       - 0.6
-       - 0.8
+       - "0.8"
+       - "0.6"
 
 Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
 
@@ -166,8 +166,8 @@ Learn more about [.travis.yml options for Perl projects](/docs/user/languages/pe
 
     language: php
     php:
-      - 5.3
-      - 5.4
+      - "5.4"
+      - "5.3"
 
 Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/)
 
@@ -175,9 +175,9 @@ Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php
 
     language: python
     python:
-      - 2.6
-      - 2.7
-      - 3.2
+      - "3.2"
+      - "2.7"
+      - "2.6"
     # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
     install: PLEASE CHANGE ME
     # command to run tests, e.g. python setup.py test
@@ -205,8 +205,8 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
 
      language: scala
      scala:
-       - 2.8.2
-       - 2.9.2
+       - "2.9.2"
+       - "2.8.2"
      jdk:
        - openjdk7
        - openjdk6
