@@ -45,11 +45,17 @@ is not necessary (and not recommended).
 
 
 
-## Using Phantom.js
+## Using PhantomJS
 
-[Phantom.js](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
+[PhantomJS](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/docs/user/ci-environment/) provides Phantom.js preinstalled at `/usr/local/bin/phantomjs`. `xvfb` must be running before Phantom.js is started (see the section above).
+[CI environment](/docs/user/ci-environment/) provides PhantomJS preinstalled at `/usr/local/bin/phantomjs`. Since it is completely headless, there is no need run `xvfb`.
+
+A very simple example:
+
+    script: phantomjs testrunner.js
+
+If you need a web server to serve the tests, see the previous section.
 
 ## Examples
 
