@@ -139,14 +139,15 @@ Same technique is often applied to test against multiple databases, templating e
 It is possible to test projects against multiple JDKs, namely
 
  * OpenJDK 7
- * Oracle JDK 7u4
+ * Oracle JDK 7
  * OpenJDK 6
+
 
 To do so, use the `:jdk` key in your `.travis.yml`, for example:
 
     jdk:
-      - openjdk7
       - oraclejdk7
+      - openjdk7
 
 or all 3:
 

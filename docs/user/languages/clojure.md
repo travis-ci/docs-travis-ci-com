@@ -77,10 +77,10 @@ Task chaining requires using the `do` task as of Leiningen 2.0 Preview 7:
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against OpenJDK 7 and OpenJDK 6:
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
 
     jdk:
-      - openjdk7
+      - oraclejdk7
       - openjdk6
 
 To test against OpenJDK 7 and Oracle JDK 7:

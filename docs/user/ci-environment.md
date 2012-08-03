@@ -80,7 +80,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [Phantom.js](http://www.phantomjs.org/) 1.5.x
+* [PhantomJS](http://www.phantomjs.org/) 1.5.x
 
 ### Environment variables
 
@@ -92,11 +92,16 @@ Language-specific workers have multiple runtimes for their respective language (
 * `HOME=/home/vagrant` (**subject to change, do not depend on this value**)
 * `LANG=en_US.UTF-8`
 * `LC_ALL=en_US.UTF-8`
+* `RAILS_ENV=test`
+* `RACK_ENV=test`
+* `MERB_ENV=test`
+* `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
 
 ### Libraries
 
 * OpenSSL
 * ImageMagick
+
 
 ### apt configuration
 
@@ -106,11 +111,12 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 
 ### JDK
 
+* Oracle JDK 7u5 (oraclejdk7)
 * OpenJDK 7 (alias: openjdk7)
 * OpenJDK 6 (openjdk6)
-* Oracle JDK 7u4 (oraclejdk7)
 
-OpenJDK 7 is the default. Sun/Oracle JDK 6 is not provided because it reaches End of Life in the fall 2012.
+OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
+it reaches End of Life in the fall 2012.
 
 ### Maven version
 
@@ -310,13 +316,6 @@ Recent 1.1.x version (usually the most recent)
 
 * bundler
 * rake
-
-### Environment variables
-
-* `RAILS_ENV=test`
-* `RACK_ENV=test`
-* `MERB_ENV=test`
-* `JRUBY_OPTS="--server -Dcext.enabled=false"`
 
 ## How VM images are upgraded and deployed
 
