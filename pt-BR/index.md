@@ -29,4 +29,4 @@ Os serviços e bibliotecas que fazem o travis-ci.org funcionar estão [disponív
 
 ## Encontre o time
 
-Se você acha que este é um grande projeto, então vá para o [#travis nada rede irc.freenode.net](irc://travis#irc.freenode.net) e diga oi! E não se esqueça de checar o [Travis Blog](/blog/)!
+Se você acha que este é um grande projeto, então vá para o [#travis nada rede irc.freenode.net](irc://irc.freenode.net/%23travis) e diga oi! E não se esqueça de checar o [Travis Blog](/blog/)!
