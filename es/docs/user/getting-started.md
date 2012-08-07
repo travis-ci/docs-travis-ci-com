@@ -200,4 +200,4 @@ Mira [Configuración de Base de datos](/docs/user/database-setup/) para aprender
 
 ### Paso 7: Estamos aquí para ayudar!
 
-Para cualquier duda sientete libre de conectarte a nuestro canal de IRC [#travis en irc.freenode.net](irc://irc.freenode.net#travis). Estamos para ayudarte :)
+Para cualquier duda sientete libre de conectarte a nuestro canal de IRC [#travis en irc.freenode.net](irc://irc.freenode.net/%23travis). Estamos para ayudarte :)

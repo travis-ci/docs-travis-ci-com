@@ -200,4 +200,4 @@ Leia [Configuração de Banco de Dados](/pt-BR/docs/user/database-setup/) para a
 
 ### Sétimo passo: Estamos aqui para ajudar!
 
-Para qualquer tipo de pergunta, sinta-se livre para entrar em nosso canal de IRC [#travis na rede irc.freenode.net](irc://irc.freenode.net#travis). Estamos aqui para ajudar! :)
+Para qualquer tipo de pergunta, sinta-se livre para entrar em nosso canal de IRC [#travis na rede irc.freenode.net](irc://irc.freenode.net/%23travis). Estamos aqui para ajudar! :)

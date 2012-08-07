@@ -201,4 +201,4 @@ Lisez [Configurer une base de données](/fr/docs/user/database-setup/) pour appr
 
 ### Etape n°7 : Nous sommes là pour vous aider !
 
-Quelque soit votre question, n'hésitez pas à rejoindre notre canal IRC [#travis sur irc.freenode.net](irc://irc.freenode.net#travis). On sera là pour vous aider ;). Bien que la lingua franca du canal soit l'anglais, vous pourrez aussi y trouver quelques francophones pour vous aider !
+Quelque soit votre question, n'hésitez pas à rejoindre notre canal IRC [#travis sur irc.freenode.net](irc://irc.freenode.net/%23travis). On sera là pour vous aider ;). Bien que la lingua franca du canal soit l'anglais, vous pourrez aussi y trouver quelques francophones pour vous aider !
