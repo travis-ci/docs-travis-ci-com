@@ -9,7 +9,7 @@ twitter: konstantinhaase
 
 Two months ago we [announced support for Pull Request testing](/blog/announcing-pull-request-support). Since then, you've managed to keep [The Travis Bot](https://github.com/travisbot) quite busy.
 
-We just started unrolling an updated version and are under way of enabling it for everybody.
+We just started unrolling an updated version and are in the process of turning it on for everybody.
 
 <figure class="small right">
   [ ![Sven working hard on Travis CI](http://farm8.staticflickr.com/7225/7334422306_98400fd1a6_z.jpg) ](http://www.flickr.com/photos/khaase/7334422306/in/photostream)
