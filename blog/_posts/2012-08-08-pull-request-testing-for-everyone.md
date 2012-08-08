@@ -36,6 +36,8 @@ Keep in mind that a Pull Request test will actually reflect the status of the *m
 
 After getting participants of our [Love Campaign](https://love.travis-ci.org/) on board, we will now start enabling it for the rest of the nearly [18k Open Source projects](http://travis-ci.org/stats) using Travis CI. Current plans are to enable it in batches, probably on the scale of 500 to 1000 repositories per batch, so we can see how much more load this will cause. The first batch will be enabled tomorrow and we plan to enable one more batch every morning.
 
+New projects will be enabled automatically.
+
 ### No More Race Condition
 
 Our initial release had a high level race condition. Basically, if your project was too busy, you could see a failing test with an error message like this:
