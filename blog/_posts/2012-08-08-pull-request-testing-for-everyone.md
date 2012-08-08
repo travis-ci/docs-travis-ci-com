@@ -20,7 +20,7 @@ We just started unrolling an updated version and are in the process of turning i
 
 Up until now, Pull Request testing was only available for Open Source projects. We had to make some adjustments to Travis CI and are proud to announce the availability for [private projects](http://travis-ci.com/).
 
-We enabled the feature for all repositories already set up on "Travis Pro". Please swing by our [support channel](https://travisci.campfirenow.com/10e50) if you are having issues.
+We enabled the feature for all repositories already set up on "[Travis Pro](http://travis-ci.com/)". Please swing by our [support channel](https://travisci.campfirenow.com/10e50) if you are having issues.
 
 If you want to see our bot leave comments on your Pull Requests, you will have to give [travisbot](https://github.com/travisbot) read access to the repository. Otherwise you will have to check the Pull Request tab in the Travis CI interface.
 
