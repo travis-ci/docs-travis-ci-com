@@ -46,3 +46,5 @@ Our initial release had a high level race condition. Basically, if your project 
 That happened mostly if a merge commit changed due to the base branch being updated while some but not all of your build's jobs already ran. We started deploying the fix to our worker machines and within 24 hours the fix should be available on all machines. If you want to know more, we invite you to read [the full story](https://github.com/travis-ci/travis-build/pull/26).
 
 Thanks for all your support. Without your help we would not have been able to get this feature out of the door for everyone.
+
+The Travis Team
