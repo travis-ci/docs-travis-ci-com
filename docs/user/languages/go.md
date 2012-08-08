@@ -79,3 +79,4 @@ Travis CI currently only provides a single Go version, 1.0.
  * [peterbourgon/diskv](https://github.com/peterbourgon/diskv/blob/master/.travis.yml)
  * [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
  * [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
+ * [timeredbull/tsuru](https://github.com/timeredbull/tsuru/blob/master/.travis.yml)
