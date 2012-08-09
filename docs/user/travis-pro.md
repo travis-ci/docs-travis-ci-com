@@ -21,7 +21,7 @@ all of GitHub.
 If you need to pull in git submodules or dependent repositories, that's still
 easy to achieve, though. You can either specify the dependencies using GitHub's
 https URL scheme, which can include username and password, e.g.
-https://user:password@github.com/organization/repo.git. Ideally the user is a
+`https://user:password@github.com/organization/repo.git`. Ideally the user is a
 separate user in your organization that only has read access to the required
 repository.
 
