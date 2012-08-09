@@ -9,6 +9,14 @@ permalink: travis-pro/
 Note: These issues are related to [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
+### How can I get support?
+
+You can email us directly at <support@travis-ci.org>, you can use the little
+feedback button on the right side when you're on Travis Pro (see screenshot
+below), or you can hop on our [Campfire chat
+room](https://travisci.campfirenow.com/10e50) (we always have fresh coffee ready
+for you!)
+
 ### How can I configure Travis Pro to use private GitHub repositories as dependencies?
 
 By default Travis focuses its build efforts around a single repository. We set
