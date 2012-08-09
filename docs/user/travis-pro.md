@@ -13,9 +13,12 @@ continuous integration solution for private repositories.
 
 You can email us directly at <support@travis-ci.org>, you can use the little
 feedback button on the right side when you're on Travis Pro (see screenshot
-below), or you can hop on our [Campfire chat
+below, the ❤ is for support), or you can hop on our [Campfire chat
 room](https://travisci.campfirenow.com/10e50) (we always have fresh coffee ready
 for you!)
+
+![The ❤ is for
+support!](http://s3itch.paperplanes.de/Travis_CI_Pro_-_Hosted_CI_that_just_works-20120809-125329.png)
 
 ### How can I configure Travis Pro to use private GitHub repositories as dependencies?
 
@@ -70,8 +73,11 @@ fail to authorize access, failing the entire git clone operation.
 
 ### Can I use pull request testing on Travis Pro?
 
-Yes, you can. It's enabled by default for all repositories set up. Currently,
-the only thing you need to do for our trusty travisbot to be able to leave
-comments on your pull requests is to add him as a read-only user to the
+Yes, you can. It's enabled by default for all repositories set up. See the [blog
+post](http://about.travis-ci.org/docs/user/travis-pro/) accompanying the launch
+of pull requests for Travis.
+
+Currently, the only thing you need to do for our trusty travisbot to be able to
+leave comments on your pull requests is to add him as a read-only user to the
 repositories tested on Travis. These steps aren't necessary for open source
 projects, travisbot loves all of them without any manual intervention.
