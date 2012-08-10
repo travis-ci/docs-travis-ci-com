@@ -34,14 +34,13 @@ By default Travis CI use `cabal` to manage your project's dependencies.
 
 The exact default command is
 
-    cabal update && cabal install --enable-tests
+    cabal install --enable-tests
 
 It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
 for example:
 
     install:
-      - cabal update --verbose=2
-      - cabal install --enable-tests
+      - cabal install --enable-tests -fFOO
 
 
 ## Examples
