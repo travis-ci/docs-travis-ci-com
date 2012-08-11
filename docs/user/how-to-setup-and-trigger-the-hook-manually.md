@@ -5,7 +5,7 @@ permalink: how-to-setup-and-trigger-the-hook-manually/
 ---
 
 Sometimes you need to setup the service hook manually. Normally this should not
-be necessary as you should be able to [started simply flip the relevant
+be necessary as you should be able to [simply flip the relevant
 switch](/docs/user/getting-started/) on the profile page. As of August 2nd, 2012
 Travis synchronizes all of your repositories, including the ones of
 organizations you have administrative access to. See the corresponding [blog
