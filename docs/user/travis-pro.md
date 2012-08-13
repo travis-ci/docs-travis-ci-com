@@ -107,11 +107,18 @@ private key that we already store on the machine.
 
 Below are the steps required to encrypt and decrypt data.
 
-* Download the key from GitHub and store it in a file. e.g. `id_rsa.pub`
+* Download the key from GitHub and store it in a file. e.g. `id_travis.pub`.
+  Unfortunately, you can't get the public key from the user interface, but you
+  can fetch it via the API:
+  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys`
+  Look for a key named travis-ci.com in the JSON outpt and copy the string that
+  contains the public key into a file `id_travis.pub`. Here's a handy one-liner
+  that does it for you:
+  `curl -u roidrage https://api.github.com/repos/roidrage/sunnyspots/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//"`
 * Extract a public key certificate from the public key:
-  `ssh-keygen -e -m PKCS8 -f id_rsa.pub > id_rsa.pub.pem`
+  `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
 * Now you can encrypt a file, let's call it config.xml:
-  `openssl rsautl -encrypt -pubin -inkey id_rsa.pem -in config.xml -out config.xml.enc`
+  `openssl rsautl -encrypt -pubin -inkey id_travis.pem -in config.xml -out config.xml.enc`
 * Add the file to your Git repository.
 * For the build to decrypt the file, add a `before_script` section to your
 `.travis.yml` that runs the opposite command of the above:
