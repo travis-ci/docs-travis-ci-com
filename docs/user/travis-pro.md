@@ -81,3 +81,45 @@ Currently, the only thing you need to do for our trusty travisbot to be able to
 leave comments on your pull requests is to add him as a read-only user to the
 repositories tested on Travis. These steps aren't necessary for open source
 projects, travisbot loves all of them without any manual intervention.
+
+### How can I encrypt files that include sensitive data?
+
+Some customers have files in their repositories that contain sensitive data,
+like passwords or API credentials, all of which are important for your build to
+succeed. But it's data you don't want to give everyone access to. You still want
+to be able to give the source code to folks on your team without giving them
+access to this kind of data.
+
+While we're working on a solution that allows you to encrypt sensitive data as
+environment variables, there's a simple trick you can deploy on Travis Pro in
+the meantime. [Luke Patterson](https://twitter.com/lukewpatterson/) came up with
+this little trick, thanks for sharing it!
+
+It utilizes the private key we generate for each repository so we can clone the
+code on our build machines. That key is kept on Travis' end only, so no external
+party has access to it. What you do have access to is the public key on GitHub.
+You can download that public key and e.g. make it part of your project to keep
+it around.
+
+After data is encrypted locally you can store the files in Git and run a set of
+commands to decrypt it on the continuous integration machine, using the SSH
+private key that we already store on the machine.
+
+Below are the steps required to encrypt and decrypt data.
+
+* Download the key from GitHub and store it in a file. e.g. `id_travis.pub`.
+  Unfortunately, you can't get the public key from the user interface, but you
+  can fetch it via the API:
+  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys`
+  Look for a key named travis-ci.com in the JSON outpt and copy the string that
+  contains the public key into a file `id_travis.pub`. Here's a handy one-liner
+  that does it for you:
+  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//' > id_travis.pub`
+* Extract a public key certificate from the public key:
+  `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
+* Now you can encrypt a file, let's call it config.xml:
+  `openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -in config.xml -out config.xml.enc`
+* Add the file to your Git repository.
+* For the build to decrypt the file, add a `before_script` section to your
+`.travis.yml` that runs the opposite command of the above:
+  `before_script: openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in config.xml.enc -out config.xml`
