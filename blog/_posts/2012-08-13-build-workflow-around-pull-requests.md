@@ -2,6 +2,7 @@
 title: "A Build Workflow Around Pull Requests"
 author: Mathias Meyer
 twitter: roidrage
+created_at: mon aug 13 15:05:00 cest 2012
 permalink: blog/2012-08-13-build-workflow-around-pull-requests
 layout: post
 ---
@@ -59,13 +60,11 @@ branch.
 To restrict Travis to only build a small set of branches, you can add a section
 to you `.travis.yml` file:
 
-```yaml
-branches:
-  only:
-    - master
-    - production
-    - staging
-```
+    branches:
+      only:
+        - master
+        - production
+        - staging
 
 The added benefit of using this approach is that the build status becomes a part
 of the code history as it evolves, making it visual (by way of comments on the pull
