@@ -21,9 +21,14 @@ themselves have [popularized this
 workflow](http://scottchacon.com/2011/08/31/github-flow.html) and it has been
 adapted by numerous other companies and teams, the Travis team included. Heck,
 even this blog post was written on a branch and submitted for review via pull
-request. We love pull requests a lot. So does
-[Travisbot](https://github.com/travisbot), who leaves a totally un-opinionated
-comment on pull requests to let the owner know if they passed or failed.
+request. This little button on GitHub makes it so easy:
+
+![Just open a pull
+request](http://s3itch.paperplanes.de/travis-ci_travis-ci.github.com_at_mm-pull-requests-workflow-20120813-103348.png)
+
+We love pull requests a lot. So does [Travisbot](https://github.com/travisbot),
+who leaves a totally un-opinionated comment on pull requests to let the owner
+know if they passed or failed.
 
 With the [availability of pull requests for
 everyone](http://about.travis-ci.org/blog/pull-request-testing-for-everyone/),
