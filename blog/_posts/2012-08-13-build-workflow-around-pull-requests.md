@@ -11,14 +11,14 @@ fixes. Entire
 around the ease of branching off with Git.  Whichever approach you use, Travis
 loves all your branches equally and builds them happily as you push them.
 
+<figure class="small right">
+  ![ERMAHGERD!](http://s3itch.paperplanes.de/skitched-20120813-155400.png)
+</figure>
+
 [Pull requests](https://help.github.com/articles/using-pull-requests) have
 changed that workflow for a lot of users though. While new features still evolve
 around separate branches created off a master, production or development branch,
 or even your own fork, they start out early as a pull requests.
-
-<figure class="small right">
-  ![ERMAHGERD!](http://s3itch.paperplanes.de/skitched-20120813-155400.png)
-</figure>
 
 Opening a pull request early allows discussions around what the end result looks
 like. They also make community or internal code review a breeze. GitHub
