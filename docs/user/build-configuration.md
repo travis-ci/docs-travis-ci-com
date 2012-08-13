@@ -481,7 +481,14 @@ Just as with other notification types you can specify when webhook payloads will
 
 Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
 
+#### Authorization
+When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
+Github username, the name of the repository, and your Travis token.  In python,
 
+    from hashlib import sha256
+    sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
+
+Use this to ensure Travis is the one making requests to your webhook.
 
 ## The Build Matrix
 
