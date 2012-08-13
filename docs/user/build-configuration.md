@@ -483,10 +483,10 @@ Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.
 
 #### Authorization
 When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
-Github username, the name of the repository, and the Travis token for that repository.  In python,
+Github username, the name of the repository, and your Travis token.  In python,
 
     from hashlib import sha256
-    sha256('username/repository' + REPOSITORY_TOKEN).hexdigest()
+    sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
 
 Use this to ensure Travis is the one making requests to your webhook.
 
