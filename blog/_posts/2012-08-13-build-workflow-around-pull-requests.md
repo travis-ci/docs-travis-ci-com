@@ -15,6 +15,10 @@ changed that workflow for a lot of users though. While new features still evolve
 around separate branches created off a master, production or development branch,
 or even your own fork, they start out early as a pull requests.
 
+<figure class="small right">
+  ![ERMAHGERD!](http://s3itch.paperplanes.de/skitched-20120813-155400.png)
+</figure>
+
 Opening a pull request early allows discussions around what the end result looks
 like. They also make community or internal code review a breeze. GitHub
 themselves have [popularized this
