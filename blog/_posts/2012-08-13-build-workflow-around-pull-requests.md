@@ -3,6 +3,7 @@ title: "A Build Workflow Around Pull Requests"
 author: Mathias Meyer
 twitter: roidrage
 permalink: blog/2012-08-13-build-workflow-around-pull-requests
+layout: post
 ---
 Git makes it very easy to create and merge branches around new features and bug
 fixes. Entire
