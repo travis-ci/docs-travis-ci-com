@@ -114,7 +114,7 @@ Below are the steps required to encrypt and decrypt data.
   Look for a key named travis-ci.com in the JSON outpt and copy the string that
   contains the public key into a file `id_travis.pub`. Here's a handy one-liner
   that does it for you:
-  `curl -u roidrage https://api.github.com/repos/roidrage/sunnyspots/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//"`
+  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//"`
 * Extract a public key certificate from the public key:
   `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
 * Now you can encrypt a file, let's call it config.xml:
