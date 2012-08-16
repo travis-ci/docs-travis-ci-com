@@ -115,6 +115,8 @@ command comes pre-installed, so just use the following:
 
     composer install
 
+To ensure that everything works, use http(s) URLs on [Packagist](http://packagist.org/) and not git URLs.
+
 ### Installing PHP extensions
 
 It is possible to install custom PHP extensions into the Travis environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
