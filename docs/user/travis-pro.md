@@ -122,10 +122,8 @@ Below are the steps required to encrypt and decrypt data.
 * Encrypt a file using a passphrase generated from a SHA hash of /dev/urandom
 output:
 
-```
-password=`cat /dev/urandom | head -c 10000 | openssl sha1`
-openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
-```
+    password=`cat /dev/urandom | head -c 10000 | openssl sha1`
+    openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
 
 * Now you can encrypt the key, let's call it `secret`:
   `echo "$password" | openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -out secret`
@@ -133,11 +131,9 @@ openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
 * For the build to decrypt the file, add a `before_script` section to your
   `.travis.yml` that runs the opposite command of the above:
 
-```
-before_script:
-  - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
-  - openssl aes-256-cbc -k "$secret" -in config.xml.enc -d -a -out config.xml
-```
+    before_script:
+      - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
+      - openssl aes-256-cbc -k "$secret" -in config.xml.enc -d -a -out config.xml
 
 It must be noted that this scenario is still not perfectly secure. While it
 prevents collaborators on projects to be able to access sensitive data on a
@@ -161,14 +157,12 @@ the virtual machine with this new key in your .travis.yml. Below is are the
 additional steps that need to be added to a `before_install` or `before_script`
 step:
 
-```
-before_install:
-  - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
-  - openssl aes-256-cbc -k $secret -in id_pypy.enc -d -a -out id_private
-  - ssh-add -D
-  - chmod 600 id_private
-  - ssh-add ./id_private
-```
+    before_install:
+      - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
+      - openssl aes-256-cbc -k $secret -in id_pypy.enc -d -a -out id_private
+      - ssh-add -D
+      - chmod 600 id_private
+      - ssh-add ./id_private
 
 This way, the deploy key is never exposed to parties you don't want it exposed
 to. The same note as with the encryption scheme applies here too, though: when a
