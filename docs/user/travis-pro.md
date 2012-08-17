@@ -159,7 +159,7 @@ step:
 
     before_install:
       - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
-      - openssl aes-256-cbc -k $secret -in id_pypy.enc -d -a -out id_private
+      - openssl aes-256-cbc -k $secret -in id_private.enc -d -a -out id_private
       - ssh-add -D
       - chmod 600 id_private
       - ssh-add ./id_private
