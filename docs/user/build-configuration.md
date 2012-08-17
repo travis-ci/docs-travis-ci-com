@@ -413,12 +413,12 @@ You also have the possibility to customize the message that will be sent to the 
           - "irc.freenode.org#travis"
           - "irc.freenode.org#some-other-channel"
         template:
-          - "%{repository_url} (%{commit}) : %{message} %{foo} "
+          - "%{repository} (%{commit}) : %{message} %{foo} "
           - "Build details: %{build_url}"
 
 You can interpolate the following variables:
 
-* *repository_url*: your GitHub repo URL.
+* *repository*: your GitHub repo URL.
 * *build_number*: build number.
 * *branch*: branch build name.
 * *commit*: shorten commit SHA
