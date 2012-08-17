@@ -128,7 +128,7 @@ openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
 ```
 
 * Now you can encrypt the key, let's call it `secret`:
-  `echo $password | openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -out secret`
+  `echo "$password" | openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -out secret`
 * Add the encrypted file and the secret to your Git repository.
 * For the build to decrypt the file, add a `before_script` section to your
   `.travis.yml` that runs the opposite command of the above:
@@ -144,3 +144,32 @@ prevents collaborators on projects to be able to access sensitive data on a
 daily basis. But a malicious collaborator could for example tamper with the
 build scripts to output the sensitive data to your build log. The upshot is that
 you'll know who's responsible for this from the commit history.
+
+### Combine Encryption and Deploy Keys For Private Dependencies for Extra Strength
+
+You can combine the encryption outlined above with build dependencies that are
+private GitHub repositories. The approach outlined above, putting the deploy key
+into your `.travis.yml` might not be a favorable solution for everyone.
+
+What you can do instead is generate a custom deploy key using `ssh-keygen`,
+assign it to a user, and then encrypt the private key using the encryption
+scheme outlined above. Instead of encrypting a config.xml, you encrypt a
+`id_private` key and store it in your repository together with the secret.
+
+Then you replace the SSH key currently registered with the SSH agent running on
+the virtual machine with this new key in your .travis.yml. Below is are the
+additional steps that need to be added to a `before_install` or `before_script`
+step:
+
+```
+before_install:
+  - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
+  - openssl aes-256-cbc -k $secret -in id_pypy.enc -d -a -out id_private
+  - ssh-add -D
+  - chmod 600 id_private
+  - ssh-add ./id_private
+```
+
+This way, the deploy key is never exposed to parties you don't want it exposed
+to. The same note as with the encryption scheme applies here too, though: when a
+malicious party tampers with your build script, the key could still be exposed.
