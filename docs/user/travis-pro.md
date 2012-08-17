@@ -99,7 +99,9 @@ It utilizes the private key we generate for each repository so we can clone the
 code on our build machines. That key is kept on Travis' end only, so no external
 party has access to it. What you do have access to is the public key on GitHub.
 You can download that public key and e.g. make it part of your project to keep
-it around.
+it around. Due to the nature of asymmetric key cryptography, though, the file
+needs to be encrypted with a symmetric key (e.g. using AES 256), and then the
+secret used to encrypt that file is encrypted using the public key.
 
 After data is encrypted locally you can store the files in Git and run a set of
 commands to decrypt it on the continuous integration machine, using the SSH
@@ -111,12 +113,67 @@ Below are the steps required to encrypt and decrypt data.
   Unfortunately, you can't get the public key from the user interface, but you
   can fetch it via the API:
   `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys`
-  Look for a key named travis-ci.com in the JSON outpt and copy the string that
+  Look for a key named travis-ci.com in the JSON output and copy the string that
   contains the public key into a file `id_travis.pub`. Here's a handy one-liner
   that does it for you:
   `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//' > id_travis.pub`
-* Extract a public key certificate from the public key: `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
-* Now you can encrypt a file, let's call it config.xml: `openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -in config.xml -out config.xml.enc`
-* Add the file to your Git repository.
+* Extract a public key certificate from the public key:
+  `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
+* Encrypt a file using a passphrase generated from a SHA hash of /dev/urandom
+output:
+
+```
+password=`cat /dev/urandom | head -c 10000 | openssl sha1`
+openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
+```
+
+* Now you can encrypt the key, let's call it `secret`:
+  `echo "$password" | openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -out secret`
+* Add the encrypted file and the secret to your Git repository.
 * For the build to decrypt the file, add a `before_script` section to your
-`.travis.yml` that runs the opposite command of the above: `before_script: openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in config.xml.enc -out config.xml`
+  `.travis.yml` that runs the opposite command of the above:
+
+```
+before_script:
+  - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
+  - openssl aes-256-cbc -k "$secret" -in config.xml.enc -d -a -out config.xml
+```
+
+It must be noted that this scenario is still not perfectly secure. While it
+prevents collaborators on projects to be able to access sensitive data on a
+daily basis. But a malicious collaborator could for example tamper with the
+build scripts to output the sensitive data to your build log. The upshot is that
+you'll know who's responsible for this from the commit history.
+
+### Combine Encryption and Deploy Keys For Private Dependencies for Extra Strength
+
+You can combine the encryption outlined above with build dependencies that are
+private GitHub repositories. The approach outlined above, putting the deploy key
+into your `.travis.yml` might not be a favorable solution for everyone.
+
+What you can do instead is generate a custom deploy key using `ssh-keygen`,
+assign it to a user, and then encrypt the private key using the encryption
+scheme outlined above. Instead of encrypting a config.xml, you encrypt a
+`id_private` key and store it in your repository together with the secret.
+
+Then you replace the SSH key currently registered with the SSH agent running on
+the virtual machine with this new key in your .travis.yml. Below is are the
+additional steps that need to be added to a `before_install` or `before_script`
+step:
+
+```
+before_install:
+  - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
+  - openssl aes-256-cbc -k $secret -in id_pypy.enc -d -a -out id_private
+  - ssh-add -D
+  - chmod 600 id_private
+  - ssh-add ./id_private
+```
+
+This way, the deploy key is never exposed to parties you don't want it exposed
+to. The same note as with the encryption scheme applies here too, though: when a
+malicious party tampers with your build script, the key could still be exposed.
+
+It also must be noted that subsequent accesses to the original processes, should
+they be required by your build, won't be possible without assigning the
+secondary deploy key to the original repository as well.
