@@ -173,3 +173,7 @@ before_install:
 This way, the deploy key is never exposed to parties you don't want it exposed
 to. The same note as with the encryption scheme applies here too, though: when a
 malicious party tampers with your build script, the key could still be exposed.
+
+It also must be noted that subsequent accesses to the original processes, should
+they be required by your build, won't be possible without assigning the
+secondary deploy key to the original repository as well.
