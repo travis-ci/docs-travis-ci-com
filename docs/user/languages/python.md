@@ -102,6 +102,15 @@ which is very similar to what [Heroku build pack for Python](https://github.com/
 
 We highly recommend using `--use-mirrors` if you override dependency installation command to reduce the load on PyPI and possibility of installation failures.
 
+### Pre-installed packages
+
+Travis pre-installs a few packages in each virtualenv by default to
+ease running tests:
+
+- pytest
+- nose
+- mock
+
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
 If you need to test against multiple versions of, say, Django, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
