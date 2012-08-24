@@ -44,7 +44,7 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
-    mysql:
+    test:
       adapter: mysql2
       database: myapp_test
       username: root
@@ -65,7 +65,7 @@ You have to create the database as part of your build process:
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
-    postgres:
+    test:
       adapter: postgresql
       database: myapp_test
       username: postgres
