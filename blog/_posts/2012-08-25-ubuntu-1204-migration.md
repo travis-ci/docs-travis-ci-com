@@ -19,7 +19,7 @@ it still moves fast. Today we want to give you a heads-up on important upcoming 
 
 ## CI Username Change
 
-Starting on August 25th, we will deploy new VM images that change CI username from `vagrant` to `travis`. If your project depends on
+August 25th, we deployed new VM images that change CI username from `vagrant` to `travis`. If your project depends on
 
  * The exact username
  * `$HOME` pointing to `/home/vagrant`
