@@ -9,7 +9,7 @@ twitter: michaelklishin
 
 An important part of Travis CI is our [CI environment](http://about.travis-ci.org/docs/user/ci-environment/): all the runtimes, tools, libraries and system configuration that
 projects rely on to run their test suites. While considered to be the most mature part of Travis CI (we are at v5.1 at the moment),
-it still moves fast. Today we want to give you a heads-up on important upcoming changes:
+it still moves fast. Today we want to give you a heads-up on important recent and upcoming changes:
 
  * CI username change
  * Disabling some services (e.g. MongoDB, Riak, RabbitMQ) on boot
@@ -19,7 +19,7 @@ it still moves fast. Today we want to give you a heads-up on important upcoming 
 
 ## CI Username Change
 
-August 25th, we deployed new VM images that change CI username from `vagrant` to `travis`. If your project depends on
+On August 25th, we deployed new VM images that change CI username from `vagrant` to `travis`. If your project depends on
 
  * The exact username
  * `$HOME` pointing to `/home/vagrant`
