@@ -27,7 +27,7 @@ By default, the worker performs the build as following:
 
 * Switch language runtime (for example, to Ruby 1.9.3 or PHP 5.4)
 * Clone project repository from GitHub
-* Run before_install scripts (if any)
+* Run *before_install* scripts (if any)
 * cd to the clone directory, run dependencies installation command (default specific to project language)
 * Run *after_install* scripts (if any)
 * Run *before_script* scripts (if any)
