@@ -1,12 +1,12 @@
 ---
-title: Databases on Travis workers
+title: Databases and other services in the Travis CI Environment
 layout: en
 permalink: database-setup/
 ---
 
 ### What This Guide Covers
 
-This guide covers data stores offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
 ## Data Stores in the Travis CI Environment
 
@@ -20,10 +20,15 @@ This guide covers data stores offered in the Travis [CI environment](/docs/user/
 * Redis
 * Riak
 * Memcached
+* Cassandra
+* Neo4J
+* ElasticSearch
 
 All aforementioned data stores use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
 
-## Configure Your Projects to Use Databases in Tests
+In addition, our CI environment provisions RabbitMQ, a popular open source messaging broker.
+
+## Configure Your Projects to Use Services in Tests
 
 Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration](/docs/user/build-configuration/) documentation.
 
@@ -139,6 +144,19 @@ You have to create the database as part of your build process:
     before_script:
       - curl -X PUT localhost:5984/myapp_test
 
+
+### RabbitMQ
+
+RabbitMQ is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - rabbitmq
+
+to your `.travis.yml`.
+
+RabbitMQ uses stock configuration, so default vhost, username and password can be relied on.
+
+
 ### Riak
 
 Riak is not started on boot. To make Travis CI start the service for you, add
@@ -150,12 +168,23 @@ to your `.travis.yml`.
 
 Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
 
+### Memcached
+
+Memcached is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - memcached
+
+to your `.travis.yml`.
+
+Memcached uses stock configuration and binds to localhost.
+
 ### Redis
 
 Redis is not started on boot. To make Travis CI start the service for you, add
 
     services:
-      - riak
+      - redis
 
 to your `.travis.yml`.
 
