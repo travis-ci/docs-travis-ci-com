@@ -29,7 +29,7 @@ Here is how to configure your project to use databases in its tests. This assume
 
 ### MySQL
 
-MySQL on Travis CI binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password.
+MySQL on Travis CI is started on boot, binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password.
 
 If specify a blank username, keep in mind that for some clients, this is the same as "root" but for some it means "anonymous user". When in doubt,
 try switching to `root` username.
@@ -53,7 +53,7 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
 ### PostgreSQL
 
-PostgreSQL binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
+PostgreSQL is started on boot, binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
 
 You have to create the database as part of your build process:
 
@@ -102,6 +102,13 @@ However, if your project is a general library or plugin, you need to handle conn
 
 ### MongoDB
 
+MongoDB is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - mongodb
+
+to your `.travis.yml`.
+
 MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.
 
 In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file::
@@ -117,6 +124,13 @@ work around [this known MongoDB Java driver issue](https://jira.mongodb.org/brow
 
 ### CouchDB
 
+CouchDB is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - couchdb
+
+to your `.travis.yml`.
+
 CouchDB binds to 127.0.0.1, uses stock configuration and requires no authentication (it runs in admin party).
 
 You have to create the database as part of your build process:
@@ -127,39 +141,57 @@ You have to create the database as part of your build process:
 
 ### Riak
 
+Riak is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - riak
+
+to your `.travis.yml`.
+
 Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
 
 ### Redis
 
+Redis is not started on boot. To make Travis CI start the service for you, add
+
+    services:
+      - riak
+
+to your `.travis.yml`.
+
 Redis uses stock configuration and is available on localhost.
+
 
 ### Cassandra
 
-Cassandra is available but not started by default. You can start it using `before_install`:
+Cassandra is not started on boot. To make Travis CI start the service for you, add
 
-    before_install:
-      - sudo service cassandra start
-      - sleep 3
+    services:
+      - cassandra
+
+to your `.travis.yml`.
 
 Cassandra is provided via [Datastax Community Edition](http://www.datastax.com/products/community) and uses stock configuration (available on 127.0.0.1).
 
 ### Neo4J
 
-Neo4J Server Community Edition is available but not started by default. You can start it using `before_install`:
+Neo4J Server Community Edition is not started on boot. To make Travis CI start the service for you, add
 
-    before_install:
-      - which neo4j && sudo neo4j start
-      - sleep 3
+    services:
+      - neo4j
+
+to your `.travis.yml`.
 
 Neo4J Server uses default configuration (localhost, port 7474).
 
 ### ElasticSearch
 
-ElasticSearch is available but not started by default. You can start it using `before_install`:
+ElasticSearch is not started on boot. To make Travis CI start the service for you, add
 
-    before_install:
-      - sudo service elasticsearch start
-      - sleep 3
+    services:
+      - elasticsearch
+
+to your `.travis.yml`.
 
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
 
