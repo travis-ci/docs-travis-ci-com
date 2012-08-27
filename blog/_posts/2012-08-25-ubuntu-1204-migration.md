@@ -62,7 +62,9 @@ or if you need several services, you can use the following:
       - rabbitmq # will start rabbitmq-server
       - memcache # will start memcached
 
-This allows us to provide nice aliases for each service and normalize any differences between names, like RabbitMQ for example.
+This allows us to provide nice aliases for each service and normalize any differences between names, like RabbitMQ for example. Note that this feature only
+works for services we provision in our [CI environment](http://about.travis-ci.org/docs/user/ci-environment/). If you download, say, Apache Jackrabbit and
+start it manually in a `before_install` step, you will still have to do it the same way.
 
 The change will go into effect on the 14th of September, 2012 and we encourage all Travis CI users to make changes to their `.travis.yml` as soon as possible as to avoid any issues, as well as being forward-compatible.
 
