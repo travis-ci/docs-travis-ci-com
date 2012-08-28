@@ -66,8 +66,8 @@ Language-specific workers have multiple runtimes for their respective language (
 * SQLite 3.7.x
 * MongoDB 2.0.x
 * Redis 2.4.x
-* Riak 1.1.x
-* Apache Cassandra 1.0.x
+* Riak 1.2.x
+* Apache Cassandra 1.1.x
 * Neo4J Community Edition 1.7.x
 * ElasticSearch 0.19.x
 * CouchDB 1.1.x
