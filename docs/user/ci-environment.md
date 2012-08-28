@@ -88,8 +88,8 @@ Language-specific workers have multiple runtimes for their respective language (
 * `CI=true`
 * `TRAVIS=true`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-* `USER=vagrant` (**subject to change, do not depend on this value**)
-* `HOME=/home/vagrant` (**subject to change, do not depend on this value**)
+* `USER=travis` (**do not depend on this value**)
+* `HOME=/home/travis` (**do not depend on this value**)
 * `LANG=en_US.UTF-8`
 * `LC_ALL=en_US.UTF-8`
 * `RAILS_ENV=test`
