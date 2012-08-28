@@ -111,7 +111,7 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 
 ### JDK
 
-* Oracle JDK 7u5 (oraclejdk7)
+* Oracle JDK 7u6 (oraclejdk7)
 * OpenJDK 7 (alias: openjdk7)
 * OpenJDK 6 (openjdk6)
 
@@ -133,7 +133,7 @@ travis-ci.org provides a recent SBT 0.11.x version.
 
 ### Gradle version
 
-Gradle 1.0.
+Gradle 1.1.
 
 ## Erlang VM images
 
