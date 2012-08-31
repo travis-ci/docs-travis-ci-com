@@ -19,9 +19,11 @@ pull requests since we launched this feature. We salute you, travisbot, for
 never letting us down!
 
 Today, and largely thanks to the fine folks over at GitHub, pull requests are
-getting even more awesome. Instead of relying on travisbot to comment on pull
-requests to notify you of the build status, pull requests now have first class
-build status support.
+getting even more awesome. Check out the [full story on the GitHub
+blog](https://github.com/blog/1227-commit-status-api).
+
+Instead of relying on travisbot to comment on pull requests to notify you of the
+build status, pull requests now have first class build status support.
 
 What does that mean? A picture says more than thousand words. Here's how every
 pull request looks like when it's successfully built on Travis CI. All green,
@@ -42,7 +44,7 @@ pending build as well. They're both marked as unstable. You can merge it, but
 you do so at your own risk. After all, isn't it nicer to just wait patiently for
 that beautiful green to come up? We thought so!
 
-![Failed, oh noes!](http://s3itch.paperplanes.de/Fullscreen-12-1-20120827-214117.png)
+![Failed, oh noes!](http://s3itch.paperplanes.de/skitched-20120831-211528.png)
 
 In all three scenarios, there's a handy link included for you, allowing
 you to go to the build's page on Travis to follow the test log in awe while you
@@ -65,6 +67,11 @@ while now, meaning hundreds of existing pull requests will immediately have a
 build status attached and displayed in the user interface. This is true for open
 source projects on [Travis CI](http://travis-ci.org) and for private projects on
 [Travis Pro](http://travis-ci.com).
+
+Due to an unfortunate issue that we failed to notice early on, pull requests
+opened in the last two-ish days unfortunately weren't properly updated on
+[Travis CI](http://travis-ci.org). We apologize for the slightly reduced show
+effect of this new hotness.
 
 Now, the bad news is that this means that travisbot is going to retire from
 commenting on your pull requests soon. You all learned to love him just as much
