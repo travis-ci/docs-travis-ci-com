@@ -62,6 +62,11 @@ little bubbles next to each commit reference.
 
 ![Josh](http://s3itch.paperplanes.de/joshk-20120827-215347.png)
 
+Want to have a look at what it looks like for real? No worries, here's a [pull
+request](https://github.com/rspec/rspec-core/pull/666) on the rspec project,
+here's [one from Mongoid](https://github.com/mongoid/mongoid/pull/2334), and
+here's [one from the Zend Framework](https://github.com/zendframework/zf2/pull/2284) project.
+
 The great news is that this awesome feature has been active on Travis CI for a
 while now, meaning hundreds of existing pull requests will immediately have a
 build status attached and displayed in the user interface. This is true for open
