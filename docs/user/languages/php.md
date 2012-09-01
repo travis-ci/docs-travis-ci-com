@@ -135,4 +135,4 @@ See also the [full before_script using midgard2](https://github.com/bergie/midga
 
 ### Chef Cookbooks for PHP
 
-If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base).
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment).
