@@ -74,8 +74,8 @@ fail to authorize access, failing the entire git clone operation.
 ### Can I use pull request testing on Travis Pro?
 
 Yes, you can. It's enabled by default for all repositories set up. See the [blog
-post](http://about.travis-ci.org/docs/user/travis-pro/) accompanying the launch
-of pull requests for Travis.
+post](http://about.travis-ci.org/blog/announcing-pull-request-support/) accompanying 
+the launch of pull requests for Travis.
 
 Currently, the only thing you need to do for our trusty travisbot to be able to
 leave comments on your pull requests is to add him as a read-only user to the
