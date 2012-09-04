@@ -2,9 +2,9 @@
 title: Pull Requests Just Got Even More Awesome
 author: Mathias Meyer
 twitter: roidrage
-permalink: blog/2012-08-31-pull-requests-just-got-even-more-awesome
+permalink: blog/2012-09-04-pull-requests-just-got-even-more-awesome
 layout: post
-created_at: Fri Aug 31 18:00:00 CEST 2012
+created_at: Tue Sep 04 18:00:00 CEST 2012
 ---
 Just short of four months ago, we [announced the availability of pull request
 testing](http://about.travis-ci.org/blog/announcing-pull-request-support/) on
@@ -74,9 +74,10 @@ source projects on [Travis CI](http://travis-ci.org) and for private projects on
 [Travis Pro](http://travis-ci.com).
 
 Due to an unfortunate issue that we failed to notice early on, pull requests
-opened in the last two-ish days unfortunately weren't properly updated on
-[Travis CI](http://travis-ci.org). We apologize for the slightly reduced show
-effect of this new hotness.
+opened around Thursday and Friday of last week unfortunately weren't properly
+updated on [Travis CI](http://travis-ci.org) at the time. If they got any new
+commits or updates to the pull request in the mean time, that should be fixed by
+now. We apologize for the slightly reduced show effect of this new hotness.
 
 Now, the bad news is that this means that travisbot is going to retire from
 commenting on your pull requests soon. You all learned to love him just as much
