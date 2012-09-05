@@ -61,16 +61,16 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Data Stores
 
-* MySQL 5.1.x
+* MySQL 5.5.x
 * PostgreSQL 9.1.x
 * SQLite 3.7.x
-* MongoDB 2.0.x
+* MongoDB 2.2.x
 * Redis 2.4.x
 * Riak 1.2.x
 * Apache Cassandra 1.1.x
 * Neo4J Community Edition 1.7.x
 * ElasticSearch 0.19.x
-* CouchDB 1.1.x
+* CouchDB 1.2.x
 
 ### Messaging Technology
 
@@ -84,9 +84,9 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Environment variables
 
-* `DEBIAN_FRONTEND=noninteractive`
 * `CI=true`
 * `TRAVIS=true`
+* `DEBIAN_FRONTEND=noninteractive`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
 * `USER=travis` (**do not depend on this value**)
 * `HOME=/home/travis` (**do not depend on this value**)
@@ -139,6 +139,7 @@ Gradle 1.1.
 
 ### Erlang/OTP releases
 
+* R15B02
 * R15B01
 * R15B
 * R14B04
