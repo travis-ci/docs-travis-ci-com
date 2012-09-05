@@ -100,10 +100,10 @@ Learn more about [.travis.yml options for Clojure projects](/docs/user/languages
 
     language: erlang
     otp_release:
-      - R15B
-      - R14B02
-      - R14B03
+      - R15B02
+      - R15B01
       - R14B04
+      - R14B03
 
 Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/)
 
