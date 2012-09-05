@@ -22,7 +22,7 @@ The environment available to test suites is known as the *Travis CI environment*
 
 ## CI environment OS
 
-travis-ci.org uses 32-bit Ubuntu Linux 11.10 (server edition).
+travis-ci.org uses 32-bit Ubuntu Linux 12.04 (server edition).
 
 ## How travis-ci.org VMs are provisioned
 
@@ -342,7 +342,7 @@ notified about the release.
 
 ## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 11.10 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
+The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
 
 Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are encouraged to use them.
 
