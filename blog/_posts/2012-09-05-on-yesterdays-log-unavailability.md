@@ -57,6 +57,10 @@ updates.
 As a first step we moved log processing into a [separate
 application](https://github.com/travis-ci/travis-logs). Multiple threads work
 through the log messages as they come in, therefore speeding up the processing.
+Jobs are partitioned by their key, so we make sure that log ordering is still
+consistent. It's still not perfect because a) it's not distributed yet and b)
+jobs with a lot of log output can still clog up a single processor thread's
+queue.
 
 We weren't sure if this would affect our database load at all, but luckily, even
 with 9 threads, there was no noteworthy increase in database response time.
@@ -64,14 +68,6 @@ Thanks to our graphs in [Librato Metrics](http://metrics.librato.com), we could
 keep a close eye on any variance in the mean and 95th percentile.
 
 ### The Future
-
-There is one downside to this parallelized way of processing the logs: we lose
-strict ordering. So far, the entire app has relied on strict ordering of
-messages to store in the database and to display and update in the user
-interface.
-
-We found this to be an acceptable trade-off given that we needed to move quickly
-to ensure log processing is done on time. We won't leave like this, of course.
 
 We've been thinking a lot about how we can improve the processing of logs in
 general. Currently, the entire log is stored in one field in the database,
