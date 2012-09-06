@@ -47,7 +47,8 @@ minute at peak times.
 
 After last week's incidents we decided to take measures to improve the log
 processing performance in general. Until last week, our hub component was
-processing all log updates, and all of them in a single thread.
+processing all log updates, and all of them in just one thread per build platform
+(PHP, Ruby, Erlang/Java/Node.js, Rails).
 
 At peak times we get about 1000 log updates per minute, which doesn't look like
 a lot, but it's quite a bit for a single thread that does lots of database
