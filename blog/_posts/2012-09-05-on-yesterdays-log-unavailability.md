@@ -34,7 +34,7 @@ hour.
 Here's a graph outlining what happened in the log processing and how things
 evolved when we finally found and fixed the issue:
 
-![](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120905-193959.png)
+![](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120906-130435.png)
 
 For most of the day, processing got stuck at around 700 messages per minute.
 Given that we get a few hundred more than that every minute, backed-up queues
