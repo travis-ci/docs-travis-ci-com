@@ -455,6 +455,18 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+### Campfire notification
+
+Notifications can also be sent to Campfire chat rooms, using the following format:
+
+    notifications:
+      campfire: [subdomain]:[api token]@[room id]
+
+
+* *subdomain*: is your campfire subdomain (ie 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
+* *api token*: is the token of the user you want to use to post the notifications.
+* *room id*: this is the room id not the name.
+
 ### Webhook notification
 
 You can define webhooks to be notified about build results the same way:
