@@ -20,8 +20,8 @@ other repositories use a
 [more](http://travis-ci.org/#!/php/php-src/builds/2360140)
 [verbose](http://travis-ci.org/#!/rubygems/rubygems.org/jobs/2363074)
 [log](http://travis-ci.org/#!/redis/redis-rb/jobs/2243620)
-output watching the logs requires to continously scroll to the bottom of the
-page as new log output comes in.
+output so watching their logs live requires to continously scroll to the bottom
+of the page as new log output comes in.
 
 Thus, one of the most requested features has been a switch that would make the
 page stick to the bottom of the log file.
