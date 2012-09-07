@@ -34,6 +34,6 @@ from our feature pull request:
 
 ... or simply head over to [Travis CI](http://travis-ci.org) and try it out.
 
-![](http://forgif.me/system/image/404/image.gif)
+Of course this feature is now also available on [Travis CI Pro](http://travis-ci.com) starting today.
 
 Cheers!
