@@ -82,6 +82,7 @@ For projects using Leiningen 1:
 
     language: clojure
     jdk:
+      - oraclejdk7
       - openjdk7
       - openjdk6
 
@@ -127,6 +128,7 @@ Learn more about [.travis.yml options for Go projects](/docs/user/languages/go/)
 
     language: groovy
     jdk:
+      - oraclejdk7
       - openjdk7
       - openjdk6
 
@@ -137,6 +139,7 @@ Learn more about [.travis.yml options for Groovy projects](/docs/user/languages/
 
     language: java
     jdk:
+      - oraclejdk7
       - openjdk7
       - openjdk6
 
@@ -189,9 +192,9 @@ Learn more about [.travis.yml options for Python projects](/docs/user/languages/
 
     language: ruby
     rvm:
-      - 1.8.7
-      - 1.9.2
-      - 1.9.3
+      - "1.8.7"
+      - "1.9.2"
+      - "1.9.3"
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
       - rbx-18mode
@@ -208,6 +211,7 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
        - "2.9.2"
        - "2.8.2"
      jdk:
+      - oraclejdk7
        - openjdk7
        - openjdk6
 
