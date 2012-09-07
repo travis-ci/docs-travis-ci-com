@@ -26,7 +26,7 @@ On August 25th, we deployed new VM images that change CI username from `vagrant`
 
 then you need to update your `.travis.yml` and/or build scripts to use the environment variables `USER` and `HOME` instead. Depending on exact values of those variables
 is usually not necessary: the best way to detect that you are running in the Travis CI environment is by checking if either (or both) `CI` and `TRAVIS` env varibales
-are set. If you feel adventurous, feel free to use [`HAS_JOSH_K_SEAL_OF_APPROVAL`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/travis_build_environment/files/default/vagrant/travis_environment.sh#L8-9) instead ([Josh K is a real person](https://twitter.com/j2h)).
+are set. If you feel adventurous, feel free to use [`HAS_JOSH_K_SEAL_OF_APPROVAL`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/travis_build_environment/files/default/ci_user/travis_environment.sh#L8-9) instead ([Josh K is a real person](https://twitter.com/j2h)).
 
 
 ## Disabling Most Services on Boot

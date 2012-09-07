@@ -22,7 +22,7 @@ The environment available to test suites is known as the *Travis CI environment*
 
 ## CI environment OS
 
-travis-ci.org uses 32-bit Ubuntu Linux 11.10 (server edition).
+travis-ci.org uses 32-bit Ubuntu Linux 12.04 (server edition).
 
 ## How travis-ci.org VMs are provisioned
 
@@ -61,16 +61,16 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Data Stores
 
-* MySQL 5.1.x
+* MySQL 5.5.x
 * PostgreSQL 9.1.x
 * SQLite 3.7.x
-* MongoDB 2.0.x
+* MongoDB 2.2.x
 * Redis 2.4.x
 * Riak 1.2.x
 * Apache Cassandra 1.1.x
 * Neo4J Community Edition 1.7.x
 * ElasticSearch 0.19.x
-* CouchDB 1.1.x
+* CouchDB 1.2.x
 
 ### Messaging Technology
 
@@ -84,9 +84,9 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Environment variables
 
-* `DEBIAN_FRONTEND=noninteractive`
 * `CI=true`
 * `TRAVIS=true`
+* `DEBIAN_FRONTEND=noninteractive`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
 * `USER=travis` (**do not depend on this value**)
 * `HOME=/home/travis` (**do not depend on this value**)
@@ -139,6 +139,7 @@ Gradle 1.1.
 
 ### Erlang/OTP releases
 
+* R15B02
 * R15B01
 * R15B
 * R14B04
@@ -342,7 +343,7 @@ notified about the release.
 
 ## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 11.10 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
+The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
 
 Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are encouraged to use them.
 

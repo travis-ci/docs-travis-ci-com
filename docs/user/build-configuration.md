@@ -287,7 +287,7 @@ It also does not mean that Travis CI builders execute operations as root.
 ### Using 3rd-party PPAs
 
 If you need a native dependency that is not available from the official Ubuntu repositories, possibly there are [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas)
-(personal package archives) that you can use: they need to provide packages for 32-bit Ubuntu 11.04 and 11.10.
+(personal package archives) that you can use: they need to provide packages for 32-bit Ubuntu 12.04.
 
 More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/), search for [available PPAs on Launchpad](https://launchpad.net/ubuntu/+ppas).
 
@@ -454,6 +454,18 @@ and if you want the bot to not join before the messages are sent, and part after
         skip_join: true
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
+
+### Campfire notification
+
+Notifications can also be sent to Campfire chat rooms, using the following format:
+
+    notifications:
+      campfire: [subdomain]:[api token]@[room id]
+
+
+* *subdomain*: is your campfire subdomain (ie 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
+* *api token*: is the token of the user you want to use to post the notifications.
+* *room id*: this is the room id not the name.
 
 ### Webhook notification
 
