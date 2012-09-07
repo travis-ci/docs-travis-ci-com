@@ -7,7 +7,7 @@ permalink: blog/2012-09-07-auto-tailing-logs
 layout: post
 ---
 From the very [beginning](http://svenfuchs.com/2011/2/5/travis-a-distributed-build-server-tool-for-the-ruby-community)
-one of Travis CI's most standing out features was streaming logs from test runs
+one of Travis CI's most outstanding features was streaming logs from test runs
 that happen on workers to the client application which runs in your browser.
 It can be just mesmerizing to watch your tests run live on Travis CI:
 
@@ -34,6 +34,6 @@ from our feature pull request:
 
 ... or simply head over to [Travis CI](http://travis-ci.org) and try it out.
 
-Of course this feature is now also available on [Travis CI Pro](http://travis-ci.com) starting today.
+Of course this feature is also available on [Travis CI Pro](http://travis-ci.com) starting today.
 
 Cheers!
