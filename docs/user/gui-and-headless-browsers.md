@@ -49,7 +49,7 @@ is not necessary (and not recommended).
 
 [PhantomJS](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/docs/user/ci-environment/) provides PhantomJS preinstalled at `/usr/local/bin/phantomjs`. Since it is completely headless, there is no need run `xvfb`.
+[CI environment](/docs/user/ci-environment/) provides PhantomJS preinstalled (available in PATH as `phantomjs`; don't rely on the exact location). Since it is completely headless, there is no need run `xvfb`.
 
 A very simple example:
 
