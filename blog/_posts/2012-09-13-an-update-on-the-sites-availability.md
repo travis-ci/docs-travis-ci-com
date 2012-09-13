@@ -72,12 +72,12 @@ In the future, these images are more likely to be served by a combination of
 cached build statuses and a CDN behind it.
 
 The current frontend is a bit wonky. Folks using Chrome have been noticing that
-in particular, and we're sorry for that. [Piotr](https://twitter.com/drogus) has
-been working on a new client that puts these issues to rest and makes for a much
-more resilient and speedy user interface overall. You can [try it
-out](http://travis-ember.herokuapp.com) yourself. It's still a work in progress,
-and you can contribute or open issues on the
-[repository](https://github.com/travis-ci/travis-ember).
+in particular, and we're sorry for that. Sven and
+[Piotr](https://twitter.com/drogus) have been working on a new client that puts
+these issues to rest and makes for a much more resilient and speedy user
+interface overall. You can [try it out](http://travis-ember.herokuapp.com)
+yourself. It's still a work in progress, and you can contribute or open issues
+on the [repository](https://github.com/travis-ci/travis-ember).
 
 One part of the problems with the user interface could be seen when there were
 lots of builds waiting in the queue. That dragged the performance down quite
