@@ -131,7 +131,7 @@ This will include nested submodules (submodules of submodules), in case there ar
 
 ### Use Public URLs For Submodules
 
-If your project uses git submodules, make sure you use public git URLs. For example, for Github instead of
+If your project uses git submodules, make sure you use public git URLs. For example, for GitHub instead of
 
     git@github.com:someuser/somelibrary.git
 
@@ -495,7 +495,7 @@ Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.
 
 #### Authorization
 When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
-Github username, the name of the repository, and your Travis token.  In python,
+GitHub username, the name of the repository, and your Travis token.  In python,
 
     from hashlib import sha256
     sha256('username/repository' + TRAVIS_TOKEN).hexdigest()

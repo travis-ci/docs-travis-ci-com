@@ -3,7 +3,7 @@ title: Bienvenido a Travis CI
 layout: es
 ---
 
-Travis CI es un sistema de integración continua para la comunidad OpenSource. Está integrado con Github y ofrece soporte de primera clase para:
+Travis CI es un sistema de integración continua para la comunidad OpenSource. Está integrado con GitHub y ofrece soporte de primera clase para:
 
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)

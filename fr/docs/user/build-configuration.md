@@ -4,9 +4,9 @@ layout: fr
 permalink: build-configuration/
 ---
 
-Le fichier `.travis.yml` vous permet de configurer vos builds. Travis CI va chercher le fichier `.travis.yml` dans le tree git pointé par le commit donné par Github.
+Le fichier `.travis.yml` vous permet de configurer vos builds. Travis CI va chercher le fichier `.travis.yml` dans le tree git pointé par le commit donné par GitHub.
 
-Une configuration donnée dans une branche ne va pas affecter la configuration du build d'une autre branche distincte. Notez que Travis CI va builder après <em>chaque</em> git push vers votre projet Github, quelque soit la branch, et même si le fichier `.travis.yml` n'est pas présent. Vous pouvez changer ce comportement avec des options de configuration.
+Une configuration donnée dans une branche ne va pas affecter la configuration du build d'une autre branche distincte. Notez que Travis CI va builder après <em>chaque</em> git push vers votre projet GitHub, quelque soit la branch, et même si le fichier `.travis.yml` n'est pas présent. Vous pouvez changer ce comportement avec des options de configuration.
 
 Par défaut, le worker utilise les commandes suivantes pour builder un projet :
 

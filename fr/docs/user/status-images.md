@@ -4,7 +4,7 @@ layout: fr
 permalink: status-images/
 ---
 
-After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on Github or your project website.
+After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on GitHub or your project website.
 
 Your status button is available at the following URL:
 
@@ -33,7 +33,7 @@ Specify a `?branch=` parameter in the URI. Split branches with a comma if you wa
 
     http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
 
-### Using SSL enabled status images on Github
+### Using SSL enabled status images on GitHub
 
 **Please note :** If you are placing this image on a GitHub project status page we recommend you use the SSL enabled url for the image so that GitHub does not proxy and cache it.
 

@@ -33,9 +33,9 @@ please take care to only use a reasonable amount of workers time.
 
 ### Step one: Sign in
 
-To get started with Travis CI, sign in through Github OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
+To get started with Travis CI, sign in through GitHub OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
 
-Github will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
+GitHub will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
 
 ### Step two: Activate GitHub Service Hook
 

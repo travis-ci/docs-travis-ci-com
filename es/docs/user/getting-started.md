@@ -6,7 +6,7 @@ permalink: getting-started/
 
 ### Travis CI Overview
 
-Travis CI es un sistema de integración continua para la comunidad OpenSource. Está integrado con Github y ofrece soporte de primera clase para:
+Travis CI es un sistema de integración continua para la comunidad OpenSource. Está integrado con GitHub y ofrece soporte de primera clase para:
 
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
@@ -28,7 +28,7 @@ travis-ci.org originalmente comenzó como un servicio para la comunidad Ruby a i
 
 Para comenzar con Travis CI debes registrarte, puedes hacerlo usando tu cuenta de GitHub. Ve a [Travis CI](http://travis-ci.org) y haz clic en el enlace "Iniciar sesión con GitHub" en la parte superior.
 
-Github te pedirá que des permiso de lectura y escritura. Travis CI necesita permiso de escritura para configurar automáticamente el Hook de servicio para tus repositorios según lo solicites. Pero no tocará nada mas.
+GitHub te pedirá que des permiso de lectura y escritura. Travis CI necesita permiso de escritura para configurar automáticamente el Hook de servicio para tus repositorios según lo solicites. Pero no tocará nada mas.
 
 ### Paso Dos: Activar el Hook de Servicio de GitHub
 
@@ -182,9 +182,9 @@ y algunas mas. `travis-lint` es tu amigo, ¡úsalo!.
 
 ### Paso Cuatro: Lanzar tu primera construcción haciendo Git Push
 
-Una vez configurado el Hook de Github, puedes hacer push a tu commit añadiendo el .travis.yml a tu repositorio. Esto hará que tu proyecto se añada a la cola en [Travis CI](http://travis-ci.org) y la contrucción de tu proyecto comenzará tan pronto como el worker de tu lenguaje esté disponible.
+Una vez configurado el Hook de GitHub, puedes hacer push a tu commit añadiendo el .travis.yml a tu repositorio. Esto hará que tu proyecto se añada a la cola en [Travis CI](http://travis-ci.org) y la contrucción de tu proyecto comenzará tan pronto como el worker de tu lenguaje esté disponible.
 
-Para ejecutar la construcción de tu proyecto puedes hacerlo de 2 maneras, puedes hacer un push a tu repositorio o bien, ir a los hooks de servicio en Github y usar el botón "Test Hook" para travis. Es importante destacar que **no es posible lanzar la primera construcción con el botón Test Hook de Github**. Es necesario que se haga un push en este caso. 
+Para ejecutar la construcción de tu proyecto puedes hacerlo de 2 maneras, puedes hacer un push a tu repositorio o bien, ir a los hooks de servicio en GitHub y usar el botón "Test Hook" para travis. Es importante destacar que **no es posible lanzar la primera construcción con el botón Test Hook de GitHub**. Es necesario que se haga un push en este caso. 
 
 ### Paso cinco: Ajustado la configuración
 
