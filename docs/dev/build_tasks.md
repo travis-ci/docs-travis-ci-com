@@ -16,7 +16,7 @@ The following classes encapsulate the application domain model concepts. I.e. th
 
 ### Request
 
-A Request is what external services, like currently Github, send to Travis Server. It contains the sent payload and has a one-to-one relationship to a Build.
+A Request is what external services, like currently GitHub, send to Travis Server. It contains the sent payload and has a one-to-one relationship to a Build.
 
 ### Build
 
@@ -82,7 +82,7 @@ When a build request comes in then a Request and a Build is created. The Build w
 
 The worker will pick up the Task::Configure and start working on it. It will send messages back to the application which will trigger state changes on the respective Task::Configure on the server side.
 
-If the Task::Configure errors then the containing Build will immediately go into the same state and stop proceeding. (At a later stage we might retry the errored task for particular reasons, like Github was down.)
+If the Task::Configure errors then the containing Build will immediately go into the same state and stop proceeding. (At a later stage we might retry the errored task for particular reasons, like GitHub was down.)
 
 Once the Task::Configure has finished and the build is approved then the Build will create and queue one or more Tasks according to the configuration (for starters these will be at least one Task::Test).
 
@@ -98,7 +98,7 @@ So, in more detail:
 
 ### Build creation
 
-* Github pings
+* GitHub pings
 * Server creates a Request
 * Server creates a Build with the Request
 * Server emits a build:created event

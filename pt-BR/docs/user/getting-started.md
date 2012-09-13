@@ -26,9 +26,9 @@ travis-ci.org originalmente começou como um serviço para a comunidade Ruby no 
 
 ### Primeiro passo: Login
 
-Para começar com o Travis CI, faça seu login com o Github OAuth. Vá até o [Travis CI](http://travis-ci.org) e clique no link de login no topo.
+Para começar com o Travis CI, faça seu login com o GitHub OAuth. Vá até o [Travis CI](http://travis-ci.org) e clique no link de login no topo.
 
-O Github vai pedir para você permitir acesso de leitura e escrita ao Travis. O Travis precisa de escrita para poder criar e configurar hooks de serviço para seus repositórios quando você pedir, ele não vai mexer em mais nada.
+O GitHub vai pedir para você permitir acesso de leitura e escrita ao Travis. O Travis precisa de escrita para poder criar e configurar hooks de serviço para seus repositórios quando você pedir, ele não vai mexer em mais nada.
 
 ### Segundo passo: Ativar o hook de serviço do GitHub
 

@@ -27,13 +27,13 @@ travis-ci.org est né début 2011 en tant que service pour la communauté Ruby e
 
 ### Etape n°1: S'authentifier
 
-Pour commencer à utiliser Travis CI, inscrivez-vous en utilisant Github OAuth. Allez sur [Travis CI](http://travis-ci.org) et suivez le lien.
+Pour commencer à utiliser Travis CI, inscrivez-vous en utilisant GitHub OAuth. Allez sur [Travis CI](http://travis-ci.org) et suivez le lien.
 
-Github vous demandera d'accorder les droits de lecture et écriture. Travis CI requière les droits d'écriture pour mettre en place les services hooks pour votre dépôt, mais n'affectera aucune autre partie
+GitHub vous demandera d'accorder les droits de lecture et écriture. Travis CI requière les droits d'écriture pour mettre en place les services hooks pour votre dépôt, mais n'affectera aucune autre partie
 
 ### Etape n°2: Activer les service hooks
 
-Une fois authentifié, allez sur votre [profil](http://travis-ci.org/profile). Vous retrouverez la liste de vos dépôt Github. Basculez sur "on" les dépôts que vous souhaitez lier à Travis CI. Allez ensuite sur la page service hooks Github de ce projet et entrez votre nom d'utilisateur Github et votre token Travis dans les paramètres du service Travis si ce n'est pas pré-rempli.
+Une fois authentifié, allez sur votre [profil](http://travis-ci.org/profile). Vous retrouverez la liste de vos dépôt GitHub. Basculez sur "on" les dépôts que vous souhaitez lier à Travis CI. Allez ensuite sur la page service hooks GitHub de ce projet et entrez votre nom d'utilisateur GitHub et votre token Travis dans les paramètres du service Travis si ce n'est pas pré-rempli.
 
 Si votre dépôt appartient à une organisation ou si basculer le bouton n'a pas suffit à mettre en place le hook, [faites le manuellement](/fr/docs/user/how-to-setup-and-trigger-the-hook-manually/) sur GitHub, cela ne prend pas plus que quelques minutes.
 

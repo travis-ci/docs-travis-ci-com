@@ -12,7 +12,7 @@ We recommend you start with the [Getting Started](/docs/user/getting-started/) a
 
 ## Status Image URLs
 
-After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on Github or your project website.
+After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on GitHub or your project website.
 
     https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
 

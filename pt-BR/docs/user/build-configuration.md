@@ -120,7 +120,7 @@ This will include nested submodules (submodules of submodules), in case there ar
 
 ### Use Public URLs For Submodules
 
-If your project uses git submodules, make sure you use public git URLs. For example, for Github instead of
+If your project uses git submodules, make sure you use public git URLs. For example, for GitHub instead of
 
     git@github.com:someuser/somelibrary.git
 
