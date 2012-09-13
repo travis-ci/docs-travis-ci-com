@@ -68,8 +68,8 @@ Even though installed dependencies will be wiped out between builds (VMs we run 
 If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
-      - SYMFONY_VERSION=2.0.*,DB=mysql
-      - SYMFONY_VERSION=dev-master,DB=mysql
+      - SYMFONY_VERSION="2.0.*" DB=mysql
+      - SYMFONY_VERSION="dev-master" DB=mysql
 
 and then use ENV variable values in any later script like your dependencies installation scripts, test cases or test script parameter values.
 
