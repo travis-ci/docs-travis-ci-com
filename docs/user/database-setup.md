@@ -8,13 +8,12 @@ permalink: database-setup/
 
 This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
-## Data Stores in the Travis CI Environment
+## Services (data stores, messaging brokers, etc) in the Travis CI Environment
 
 [Travis CI Environment](/docs/user/ci-environment/) has multiple popular data stores preinstalled. Some of the services available are:
 
 * MySQL
 * PostgreSQL
-* SQLite3
 * MongoDB
 * CouchDB
 * Redis
@@ -23,8 +22,10 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * Cassandra
 * Neo4J
 * ElasticSearch
+* Kestrel
+* SQLite3
 
-All aforementioned data stores use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
+All the aforementioned services use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
 
 In addition, our CI environment provisions RabbitMQ, a popular open source messaging broker.
 
@@ -32,9 +33,30 @@ In addition, our CI environment provisions RabbitMQ, a popular open source messa
 
 Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration](/docs/user/build-configuration/) documentation.
 
+### Enabling Services
+
+Most services are not started on boot to make more RAM available to project test suites.
+
+If your project needs, say, MongoDB running, you can the following to your `.travis.yml`:
+
+    services: mongodb
+
+or if you need several services, you can use the following:
+
+    services:
+      - riak     # will start riak
+      - rabbitmq # will start rabbitmq-server
+      - memcache # will start memcached
+
+This allows us to provide nice aliases for each service and normalize common differences between names, like RabbitMQ for example. Note that this feature only
+works for services we provision in our [CI environment](http://about.travis-ci.org/docs/user/ci-environment/). If you download, say, Apache Jackrabbit and
+start it manually in a `before_install` step, you will still have to do it the same way.
+
+
+
 ### MySQL
 
-MySQL on Travis CI is started on boot, binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password.
+MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using "root" username and blank password.
 
 If specify a blank username, keep in mind that for some clients, this is the same as "root" but for some it means "anonymous user". When in doubt,
 try switching to `root` username.
@@ -58,7 +80,7 @@ You do have to create the `myapp_test` database first. Run this as part of your 
 
 ### PostgreSQL
 
-PostgreSQL is started on boot, binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
+PostgreSQL is **started on boot**, binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
 
 You have to create the database as part of your build process:
 
@@ -107,7 +129,7 @@ However, if your project is a general library or plugin, you need to handle conn
 
 ### MongoDB
 
-MongoDB is not started on boot. To make Travis CI start the service for you, add
+MongoDB is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - mongodb
@@ -129,7 +151,7 @@ work around [this known MongoDB Java driver issue](https://jira.mongodb.org/brow
 
 ### CouchDB
 
-CouchDB is not started on boot. To make Travis CI start the service for you, add
+CouchDB is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - couchdb
@@ -147,19 +169,20 @@ You have to create the database as part of your build process:
 
 ### RabbitMQ
 
-RabbitMQ is not started on boot. To make Travis CI start the service for you, add
+RabbitMQ is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - rabbitmq
 
 to your `.travis.yml`.
 
-RabbitMQ uses stock configuration, so default vhost, username and password can be relied on.
+RabbitMQ uses stock configuration, so default vhost (`/`), username (`guest`) and password (`guest`) can be relied on.
+You can set up more vhosts and roles via a `before_script` if needed (for example, to test authentication).
 
 
 ### Riak
 
-Riak is not started on boot. To make Travis CI start the service for you, add
+Riak is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - riak
@@ -167,10 +190,11 @@ Riak is not started on boot. To make Travis CI start the service for you, add
 to your `.travis.yml`.
 
 Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
+Riak Search is enabled.
 
 ### Memcached
 
-Memcached is not started on boot. To make Travis CI start the service for you, add
+Memcached is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - memcached
@@ -181,10 +205,10 @@ Memcached uses stock configuration and binds to localhost.
 
 ### Redis
 
-Redis is not started on boot. To make Travis CI start the service for you, add
+Redis is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
-      - redis
+      - redis-server
 
 to your `.travis.yml`.
 
@@ -193,7 +217,7 @@ Redis uses stock configuration and is available on localhost.
 
 ### Cassandra
 
-Cassandra is not started on boot. To make Travis CI start the service for you, add
+Cassandra is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - cassandra
@@ -204,7 +228,7 @@ Cassandra is provided via [Datastax Community Edition](http://www.datastax.com/p
 
 ### Neo4J
 
-Neo4J Server Community Edition is not started on boot. To make Travis CI start the service for you, add
+Neo4J Server (Community Edition) is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - neo4j
@@ -215,7 +239,7 @@ Neo4J Server uses default configuration (localhost, port 7474).
 
 ### ElasticSearch
 
-ElasticSearch is not started on boot. To make Travis CI start the service for you, add
+ElasticSearch is **not started on boot**. To make Travis CI start the service for you, add
 
     services:
       - elasticsearch
@@ -223,6 +247,16 @@ ElasticSearch is not started on boot. To make Travis CI start the service for yo
 to your `.travis.yml`.
 
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
+
+### Kestrel
+
+Kestrel is **not started on boot**. To make Travis CI start the service for you, add
+
+    services:
+      - kestrel
+
+to your `.travis.yml`.
+
 
 
 
