@@ -4,6 +4,7 @@ author: Mathias Meyer
 twitter: roidrage
 created_at: Thu Sep 13 2012 21:00:00 CEST
 permalink: blog/2012-09-13-an-update-on-the-sites-availability
+layout: post
 ---
 As I'm sure you've noticed, Travis CI wasn't doing its best recently. The site
 kept being unavailable in unregular intervals. We're sorry for these
