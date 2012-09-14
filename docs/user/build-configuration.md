@@ -29,7 +29,6 @@ By default, the worker performs the build as following:
 * Clone project repository from GitHub
 * Run *before_install* scripts (if any)
 * cd to the clone directory, run dependencies installation command (default specific to project language)
-* Run *after_install* scripts (if any)
 * Run *before_script* scripts (if any)
 * Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
 * Run *after_script* scripts (if any)
@@ -95,23 +94,19 @@ If your project uses non-standard dependency management tools, you can override 
 
 As with other scripts, `install` command can be anything but has to exit with the 0 status in order to be considered successful.
 
-### before_install, after_install
+### before_install
 
 You can also define scripts to be run before and after the dependency installation script:
 
     before_install: some_command
-    after_install:  another_command
 
 Both settings support multiple scripts, too:
 
     before_install:
       - before_command_1
       - before_command_2
-    after_install:
-      - after_command_1
-      - after_command_2
 
-These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
+`before_install` is commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
 
 ### On Native Dependencies
 
