@@ -265,6 +265,11 @@ With this configuration, **4 individual builds** will be triggered:
 3. Rubinius in 1.8 mode with `FOO=foo` and `BAR=bar`
 4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
 
+Note that environment variable values may need quoting, for example, if they have asterisks (`*`) in them:
+
+    env:
+      - PACKAGE_VERSION="1.0.*"
+
 ## Installing Packages Using apt
 
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
