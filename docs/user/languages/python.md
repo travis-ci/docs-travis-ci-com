@@ -125,7 +125,7 @@ and then use ENV variable values in your dependencies installation scripts, test
       - pip install -q Django==$DJANGO_VERSION
       - python setup.py -q install
 
-The same technique is often used to test projects against multiple databases and so on. For a real world example, see [dcramer/sentry](https://github.com/dcramer/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
+The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
 ## Examples
 
