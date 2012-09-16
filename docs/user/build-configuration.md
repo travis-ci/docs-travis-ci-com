@@ -555,6 +555,50 @@ It is also possible to include entries into the matrix:
 This is useful if you want to, say, only test the latest version of a
 dependency together with the latest version of the runtime.
 
+### Environment variables
+
+Sometimes you may want to use env variables that are global to the matrix, ie. they're inserted into each matrix row. That may include keys, tokens, uris or other data that is needed for every build. In such case, instead of manually adding such keys to each env line in matrix, you can use `global` and `matrix` keys to differentiate between those two cases. For example:
+
+    env:
+      global:
+        - CAMPFIRE_TOKEN=abc123
+        - TIMEOUT=1000
+      matrix:
+        - USE_NETWORK=true
+        - USE_NETWORK=false
+
+Such configuration will generate matrix with 2 following env rows:
+
+    USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+    USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+
+### Secure environment variables
+
+In the last example I used a token as one of the environment variables. However, it's not very wise to put your private tokens in the publicly available file. Travis supports environment variables encryption to handle this case and allows you to keep configuration public, while keeping parts of it public. Example configuration with secure environment variables looks something like:
+
+    env:
+      global:
+        - secure: <encrypted string here>
+        - TIMEOUT=1000
+      matrix:
+        - USE_NETWORK=true
+        - USE_NETWORK=false
+        - secure: <you can also put encrypted vars inside matrix>
+
+You can encrypt environment variables using public key attached to your repository. The simplest way to do that is to use travis gem:
+
+    gem install travis
+    travis encrypt travis-ci/travis-core MY_SECRET_ENV=super_secret
+
+Please note that secure env variables are not available for pull requests. This is done due to security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
+
+To make the usage of secure environment variables easier, we expose an info on their availability and info about the type of this build:
+
+* TRAVIS_SECURE_ENV_VARS is set to "true" or "false" depending on the availability of environment variables
+* TRAVIS_PULL_REQUEST is set to "true" or "false" depending on this build being pull request or not
+
+Please also note that keys used for encryption and decryption are tied to the repository. If you fork a project and add it to travis, it will have different pair of keys than the original.
+
 ### Rows That are Allowed To Fail
 
 You can also define rows that are allowed to fail in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build
