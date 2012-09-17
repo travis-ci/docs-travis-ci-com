@@ -73,7 +73,7 @@ If you need to test against multiple versions of, say, Symfony, you can instruct
 
 and then use ENV variable values in any later script like your dependencies installation scripts, test cases or test script parameter values.
 
-Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 differnt versions of Symfony as defined above.
+Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 different versions of Symfony as defined above.
 
     before_script:
        - composer require symfony/framework-bundle:${SYMFONY_VERSION}
