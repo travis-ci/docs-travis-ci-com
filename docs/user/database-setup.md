@@ -18,6 +18,7 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * CouchDB
 * Redis
 * Riak
+* RabbitMQ
 * Memcached
 * Cassandra
 * Neo4J
