@@ -27,8 +27,6 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 
 All the aforementioned services use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
 
-In addition, our CI environment provisions RabbitMQ, a popular open source messaging broker.
-
 ## Configure Your Projects to Use Services in Tests
 
 Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration](/docs/user/build-configuration/) documentation.
