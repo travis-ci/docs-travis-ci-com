@@ -142,6 +142,11 @@ No matter how you look at it, this was bound to happen eventually, and we're
 very sorry that it did, and that we didn't notice the dangers in this part of
 Travis sooner.
 
+You don't simply rely on an external API to always work and respond in the way
+you expect, and in a timely manner too. APIs tend to break every now and then,
+they become unavailable temporarily, and they can change in unexpected ways.
+We're at fault for not considering the implications of this sooner.
+
 We want to make sure this doesn't happen again, or at least make sure that
 increased API delays don't affect the overall system.
 
@@ -188,3 +193,5 @@ are resolved, but in this case, the issue was too big. Catching up on everything
 that's in our queues after a weekend would've taken a very long time. It's why
 we're looking into alternatives to VirtualBox that allow us to be a lot more
 flexible when it comes to running builds.
+
+Love, the Travis team!
