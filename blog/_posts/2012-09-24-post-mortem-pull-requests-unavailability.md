@@ -194,4 +194,7 @@ that's in our queues after a weekend would've taken a very long time. It's why
 we're looking into alternatives to VirtualBox that allow us to be a lot more
 flexible when it comes to running builds.
 
+We'll be enabling pull request testing again first thing in the morning, so we
+can keep a close idea on stability over the day.
+
 Love, the Travis team!
