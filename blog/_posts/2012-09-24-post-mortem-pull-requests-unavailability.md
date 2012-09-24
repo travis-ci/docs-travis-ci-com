@@ -39,11 +39,12 @@ fetching meta data about a pull request. So we kept investigating in this
 direction and tried to find out why our internal timeouts didn't fire.
 
 We ended up putting this component on external cloud capacity that we have
-available thanks to Bluebox (why we have this capacity is a story to be told in
-a separate post). We deployed the component on JRuby 1.7.0-preview2 on a server
-we have physical access to.
+available thanks to [Bluebox](http://www.bluebox.net) (why we have this capacity
+is a story to be told in a separate post). We deployed the component on JRuby
+1.7.0-preview2 on a server we have physical access to.
 
-So we were able to start debugging the issue further. We still kept running into
+So we were able to start debugging the issue further by inspecting thread dumps
+and profiling the JVM using VirtualVM. We still kept running into
 the same issues, timeouts not being hit. But at least we were able to more
 reliably get timeouts eventually.
 
@@ -134,7 +135,8 @@ Coming to the route cause of all of this, it was an unlikely set of
 circumstances that hit at the most unexpected time, as they always do. An
 increased delay of processing on an internal part of the GitHub API brought up
 timeout issues that in turn brought things to a halt because we only process one
-build process at a time.
+build process at a time, a cascading failure throughout the Travis system, if
+you will.
 
 No matter how you look at it, this was bound to happen eventually, and we're
 very sorry that it did, and that we didn't notice the dangers in this part of
