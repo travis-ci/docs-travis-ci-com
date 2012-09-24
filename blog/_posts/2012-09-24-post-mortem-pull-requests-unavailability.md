@@ -44,9 +44,9 @@ is a story to be told in a separate post). We deployed the component on JRuby
 1.7.0-preview2 on a server we have physical access to.
 
 So we were able to start debugging the issue further by inspecting thread dumps
-and profiling the JVM using VirtualVM. We still kept running into
-the same issues, timeouts not being hit. But at least we were able to more
-reliably get timeouts eventually.
+and profiling the JVM using [VisualVM](http://visualvm.java.net). We still kept
+running into the same issues, timeouts not being hit. But at least we were able
+to more reliably get timeouts eventually.
 
 At around 2:30 am CEST, things were looking up, and we left things running on
 its own, on the new server. Queue processing seemed to go smoothly until we
@@ -87,7 +87,7 @@ root cause of why things were stalling.
 When we get a pull request, we hit the GitHub API, an undocumented part no less,
 to determine the merge state of a pull request. We only test pull requests that
 are mergeable, so when a pull request is green to merge on GitHub, we will test
-it as well. The reason is simple: we can't automatically merge a pull request
+it as well. The reason is simple: we can't automatically test a pull request
 when we already know that merging it would fail and require manual interaction.
 
 To determine the status, we continuously poll the GitHub API. Until last week's
