@@ -178,3 +178,11 @@ want to make sure we run every single one of them!
 The new component uses [Celluloid](http://celluloid.io) under the hood, so we
 get benefits like thread supervision, timeouts, exit handling of linked threads,
 and very simple message passing to hook actors together.
+
+We have these things lined up and are actually starting to roll them out rather
+soon, but that doesn't make up for the lost builds unfortunately. We're sorry
+about them, we'd have liked to make sure they at least stick around until issues
+are resolved, but in this case, the issue was too big. Catching up on everything
+that's in our queues after a weekend would've taken a very long time. It's why
+we're looking into alternatives to VirtualBox that allow us to be a lot more
+flexible when it comes to running builds.
