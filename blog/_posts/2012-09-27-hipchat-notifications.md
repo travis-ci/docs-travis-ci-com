@@ -1,6 +1,6 @@
 ---
 title: HitChat Notifications
-created_at: Thu September 27 2012 10:00:00 CEST
+created_at: Thu Sep 27 10:00:00 CEST 2012 
 layout: post
 author: Mathias Meyer
 twitter: roidrage
