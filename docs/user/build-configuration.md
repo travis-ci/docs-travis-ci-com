@@ -467,6 +467,16 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 * *api token*: is the token of the user you want to use to post the notifications.
 * *room id*: this is the room id not the name.
 
+### Flowdock notification
+
+Notifications can be sent to your Flowdock Team Inbox using the following format:
+
+    notifications:
+      flowdock: [api token]
+
+
+* *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
+
 ### Webhook notification
 
 You can define webhooks to be notified about build results the same way:
