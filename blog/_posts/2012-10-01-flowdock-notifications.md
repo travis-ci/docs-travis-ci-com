@@ -6,6 +6,8 @@ author: Phil Cohen
 twitter: phlipper
 permalink: blog/2012-10-01-flowdock-notifications
 ---
+_A HUGE thanks to Phil Cohen ([@phlipper](http://twitter.com/phlipper)) for writing this guest post and adding this awesome feature!_
+
 I love platforms that enable collaboration and streamline workflows.
 [Travis](http://travis-ci.org) is a great platform for seamless testing and
 collaborative development (and what's not to love about an organization who
