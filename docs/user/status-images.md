@@ -14,24 +14,24 @@ We recommend you start with the [Getting Started](/docs/user/getting-started/) a
 
 After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on GitHub or your project website.
 
-    https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+    https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
 
-HTTPS is used so that GitHub does not cache the image.
+Only a HTTPS endpoint is provided, which is good as GitHub does not cache images served from HTTPS.
 
 ## Adding Status Images to README Files
 
 So, when using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
-    "!https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
+    "!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
 
 Or if you're using markdown:
 
-    [![Build Status](https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+    [![Build Status](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 
 Or RDoc:
 
-    {<img src="https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
+    {<img src="https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
 
-Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)
+Travis CI's own status button looks like this: [![Build Status](https://travis-ci.org/travis-ci/travis-ci.png)](https://travis-ci.org/travis-ci/travis-ci)
 
 ## Build Status For Specific Branches
 
@@ -39,4 +39,4 @@ You can limit the impact of this button to certain branches only. For example, y
 
 Specify a `?branch=` parameter in the URI. Split branches with a comma if you want to specify several.
 
-    https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
+    https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
