@@ -142,7 +142,7 @@ One of the key features of Travis is the ease of running your test suite against
 
 ### Clojure
 
-Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
+Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
 
 * In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
 * In upcoming Leiningen 2.0, via Leiningen Profiles
@@ -164,13 +164,13 @@ Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/
 
 ### Groovy
 
-Currently Groovy projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+Currently Groovy projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
 Learn more in our [Groovy guide](/docs/user/languages/groovy/)
 
 ### Java
 
-Currently Java projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+Currently Java projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
 Learn more in our [Java guide](/docs/user/languages/java/)
 
@@ -200,8 +200,8 @@ Learn more about [.travis.yml options for Perl projects](/docs/user/languages/pe
 PHP projects specify releases they need to be tested against using `php` key:
 
     php:
-      - 5.3
-      - 5.4
+      - "5.4"
+      - "5.3"
 
 Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/)
 
@@ -210,8 +210,8 @@ Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php
 Python projects specify Python versions they need to be tested against using `python` key:
 
     python:
-      - "2.6"
       - "2.7"
+      - "2.6"
       - "3.2"
 
 Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/)
@@ -221,11 +221,12 @@ Learn more about [.travis.yml options for Python projects](/docs/user/languages/
 Ruby projects specify releases they need to be tested against using `rvm` key:
 
     rvm:
-      - 1.8.7
-      - 1.9.2
-      - 1.9.3
-      - jruby
-      - rbx-18mode
+      - "1.9.3"
+      - "1.9.2"
+      - jruby-19mode
+      - rbx-19mode
+      - jruby-18mode
+      - "1.8.7"
 
 Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/)
 
@@ -234,8 +235,8 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
 Scala projects specify releases they need to be tested against using `scala` key:
 
     scala:
-      - "2.8.2"
       - "2.9.2"
+      - "2.8.2"
 
 Travis CI relies on SBT's support for running tests against multiple Scala versions.
 
