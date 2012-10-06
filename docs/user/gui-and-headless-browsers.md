@@ -12,9 +12,9 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper display were attached.
 
-Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_script`, like this:
+Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_install`, like this:
 
-    before_script:
+    before_install:
       - "export DISPLAY=:99.0"
       - "sh -e /etc/init.d/xvfb start"
 
@@ -22,7 +22,15 @@ This starts `xvfb` on display port :99.0. The display port is set directly in th
 
 ### Configuring xvfb screen size and more
 
-It is possible to set xvfb screen size and pixel depth. Because xvfb is a virtual screen, it can emulate virtually any resolution. See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
+It is possible to set xvfb screen size and pixel depth. Because xvfb is a virtual screen, it can emulate virtually any resolution. When doing so, you need to start
+xvfb directly or via the `start-stop-daemon` utility and not via the init script:
+
+    before_install:
+      - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+
+In the example above, we are setting screen resolution to `1280x1024x16`.
+
+See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
 
 ## Starting a Web Server
