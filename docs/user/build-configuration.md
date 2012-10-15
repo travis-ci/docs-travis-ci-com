@@ -596,7 +596,7 @@ Such configuration will generate matrix with 2 following env rows:
 
 ### Secure environment variables
 
-In the last example I used a token as one of the environment variables. However, it's not very wise to put your private tokens in the publicly available file. Travis supports environment variables encryption to handle this case and allows you to keep configuration public, while keeping parts of it public. Example configuration with secure environment variables looks something like:
+In the last example I used a token as one of the environment variables. However, it's not very wise to put your private tokens in the publicly available file. Travis supports environment variables encryption to handle this case and allows you to keep configuration public, while keeping parts of it private. Example configuration with secure environment variables looks something like:
 
     env:
       global:
