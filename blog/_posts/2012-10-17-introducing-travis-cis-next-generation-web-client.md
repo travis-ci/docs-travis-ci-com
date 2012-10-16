@@ -1,0 +1,163 @@
+---
+title: "Introducing Travis CI's next generation web client"
+created_at: Mon Oct 17 01:30:00 PDT 2012
+layout: post
+author: Sven Fuchs
+twitter: svenfuchs
+permalink: blog/2012-10-17-introducing-travis-cis-next-generation-web-client
+---
+
+If you think about Travis CI, the web client is the face of the project. You
+look at it a lot.
+
+The "live" nature of our UI, updating the repository timeline as new builds
+come in, streaming the logs to the browser while a test suite is being run,
+updating job queue etc. has always been a great asset for Travis CI. People
+just love it.
+
+[![](http://s3itch.svenfuchs.com/tweet_steveklabnik-20121017-000845.jpg)](http://twitter.com/steveklabnik/status/254714874251325440)
+
+... and the "Mac OS X style desktop application" metaphor works has proven to
+work quite well over time.
+
+At the same time we are all aware of the issues that our client had over the
+last months, especially since traffic on Travis CI has exploded. We are now
+running about 10,000 builds a day for nearly 25,000 repositories.
+
+Our old client could just not hold up with that, especially in situations where
+our queues had run full and other, seemingly "unrelated" issues occured and the
+whole client just stalled on Chrome.
+
+On top of the scalability issues our codebase made it pretty hard to fix things
+and add new features. Instead one had to fight with really old library versions
+that could not be upgrade easily, a ton of work-arounds and even things like a
+slow asset compilation pipeline.
+
+Even though the client as such was still great, people became increasingly
+unhappy with the issues it started to show. And rightfully so. We felt just
+the same.
+
+So today we&rsquo;re happy to announce Travis CI&rsquo;s next generation
+web client.
+
+
+## The next generation web client
+
+The new Travis CI web client is a complete reimplementation of the proven
+feature set of the last version. Development has started [4 months ago](https://github.com/travis-ci/travis-web/commit/a3f629bd0d54c99450fb41e366c78f4e8f1a7783)
+and a huge amount of work has been put into it over the last months.
+
+It is running on [https://next.travis-ci.org](https://next.travis-ci.org) and
+we will keep the old version running on
+[http://travis-ci.org](http://travis-ci.org) for a while until it has proven
+under high load and remaining issues were hashed out.
+
+With this new version  our main goal was to reimplement the same, well known
+and battle tested functionality that the old client had, but make it based
+on the latest versions of ember and ember-data, improve its performance,
+overall stability and usability.
+
+We are very happy that this goal has been achieved. The new client feels
+much more snappy and performs quite well even in situations where our queues
+see lots of traffic and start backing up.
+
+Still, we also were able to put in some goodies and new features:
+
+### New features
+
+#### No more hashbang URLs, finally
+
+We have never been very religious about this but there always were good
+arguments that made us want to move away from the hashbang URLs that Travis CI
+has started with (and frankly, proved quite successful despite using them).
+
+With the move to the new, shiny Ember router and the new api endpoint there
+was no reason to stick with them and we changed our URL scheme to plain,
+simple (and some would say "non-broken") URLs:
+
+![](http://s3itch.svenfuchs.com/no_hashbang_urls-20121017-001420.jpg)
+
+#### Requeue builds button
+
+This probably is one of the most requested features recently: there now is a
+way to re-trigger a build through our UI, which will come in handy if you have
+a build that stalled or misbehaved for some reason and you want to re-run it:
+
+![](http://s3itch.svenfuchs.com/rebuild-button-20121017-001533.jpg)
+
+#### Flash messages
+
+If you use that feature you will also notice that we also finally have a
+generic way of displaying flash messages:
+
+![](http://s3itch.svenfuchs.com/flash-20121017-001607.jpg)
+
+This yet has to be used for other interactive features such as turning
+service hooks on/off and synchronizing data from GitHub.
+
+#### Repository events log
+
+TBD
+
+### Design details
+
+We have also put in a significant amount of attention to further iterate on
+the look and feel.
+
+Especially when it came to smaller screens the old client was not really great
+to use. We have now tweaked font sizes, margins and a few other aspects and
+made good use of css media queries to respond to different screen sizes
+gracefully.
+
+Even though this still could be improved (especially for very small screens, we
+would happily accept pull requests) but we believe it&rsquo;s a huge improvement:
+
+![](http://s3itch.svenfuchs.com/left-sidebar-scaling-20121017-001639.jpg)
+
+#### Other design touches
+
+The profile page (now renamed to "Accounts" page) got a complete overhaul:
+
+![](http://s3itch.svenfuchs.com/account-hooks-20121017-001727.jpg)
+
+If you&rsquo;re into CSS then you might notice that the service hooks on/off
+switch is done entirely in CSS without using any images.
+
+The somewhat weird behaving and flickering feature that displayed repository
+descriptions when mousing over a repository entry in the left sidebar has been
+replaced by an "Info" button which reveals all repository descriptions:
+
+![](http://s3itch.svenfuchs.com/repo-info-20121017-004218.jpg)
+
+Also, we have ressurected the long buried selection indicator for the
+repository list on the left as well as the accounts list on your profile page.
+And one can now expand and collapse all workers in the right sidebar with one
+click:
+
+![](http://s3itch.svenfuchs.com/list-indicator-expand-workers-20121017-001806.jpg)
+
+And finally there&rsquo;s a more generic way to display popups:
+
+![](http://s3itch.svenfuchs.com/popup-20121017-001956.jpg)
+
+
+### Under the hood
+
+The new client is built on top of the latest version of Ember.js, instead of
+the pre-alpha Ember version that actually still was called Sproutcore 2.0 at
+that time. It uses the much faster and lighter Ember Data storage, instead of
+the old and very, very crufty Sproutcore Datastore. And it uses the new, shiny
+Ember Router, not our own port of the old Sproutcore router.
+
+All these improvements that have gone into Ember combined make up for
+tremendous improvements not only in terms of speed and stability, but also ease
+of development and way more consistent code everywhere.
+
+
+TODO: events trail (either complete or remove), mention piotr, say thanks to
+yehuda + ember core
+
+
+
+
+
