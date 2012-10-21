@@ -20,7 +20,7 @@ If you have Ruby 1.8.7+ and RubyGems installed, you can use [travis-lint](http:/
 
 and run it on your `.travis.yml`:
 
-    # inside a repository with .travis-yml
+    # inside a repository with .travis.yml
     travis-lint
 
     # from any directory
