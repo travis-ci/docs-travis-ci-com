@@ -66,7 +66,7 @@ to run your test suite. This can be overriden as described in the [general build
 
 ### Dependency Management
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis-yml`, for example:
+Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
 
     language: java
     install: ant deps
