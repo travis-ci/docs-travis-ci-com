@@ -165,7 +165,7 @@ Recomendamos que você utilize o [travis-lint](http://github.com/travis-ci/travi
 
 e rode-o no seu `.travis.yml`:
 
-    # dentro de um repositório com .travis-yml
+    # dentro de um repositório com .travis.yml
     travis-lint
 
     # de qualquer diretório

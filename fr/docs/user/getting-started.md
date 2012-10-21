@@ -166,7 +166,7 @@ Nous vous recommendons l'utilisation de [travis-lint](http://github.com/travis-c
 
 et l'executer sur votre `.travis.yml`:
 
-    # dans un dépôt avec .travis-yml
+    # dans un dépôt avec .travis.yml
     travis-lint
 
     # ou depuis n'importe quel dossier
