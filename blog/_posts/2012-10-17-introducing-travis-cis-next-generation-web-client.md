@@ -138,6 +138,15 @@ And finally there&rsquo;s a more generic way to display popups:
 ![](http://s3itch.svenfuchs.com/popup-20121017-001956.jpg)
 
 
+## Coming to Travis CI Pro soon
+
+We already prepared integrating this client for Travis CI Pro so you can expect
+it to be ready soonish.
+
+Travis CI Pro is still in private beta, but if you are interested in trying it
+out then drop us an email to <a href="maito:support@travis-ci.com">support@travis-ci.com</a>.
+
+
 ## Thank you, Ember.js!
 
 The new client is built on top of the latest version of
