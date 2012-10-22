@@ -24,12 +24,10 @@ community!
 
 <img src="http://s3itch.paperplanes.de/skitched-20121018-152519.png" style="float: left; margin-right: 10px;" width="210"/>
 
-With the sponsorship, Piotr joins the Engine Yard OSS Grant Program. Piotr is
-going to help us in lots of areas on open source Travis.
+With the sponsorship, Piotr joins the Engine Yard OSS Grant Program.
 
-Piotr is going to help us in lots of areas on open source Travis. Already, he's
-built support for secure environment variables, allowing you to store important
-credentials in your .travis.yml securely.
+Already, he's built support for secure environment variables, allowing you to
+store important credentials in your .travis.yml securely.
 
 Recently, he's been putting a lot of great work into our new user interface, now
 fully based on Ember.js. Expect a blog post on it very soon!
