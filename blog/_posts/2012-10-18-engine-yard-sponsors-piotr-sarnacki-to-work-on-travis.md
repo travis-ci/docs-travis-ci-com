@@ -3,7 +3,7 @@ layout: post
 title: Engine Yard Sponsors Piotr Sarnacki to Work on Travis
 author: Mathias Meyer
 twitter: roidrage
-created_at: Fri Oct 19 2012 21:00:00 CEST
+created_at: Mon Oct 22 2012 15:00:00 CEST
 permalink: blog/2012-10-18-engine-yard-sponsors-piotr-sarnacki-to-work-on-travis
 ---
 <a href="http://engineyard.com"><img src="/images/logo-engineyard.png" style="float: right; margin-left: 10px;" width="130"/></a>
