@@ -228,7 +228,7 @@ We recommend you to use [travis-lint](http://github.com/travis-ci/travis-lint) (
 
 and run it on your `.travis.yml`:
 
-    # inside a repository with .travis-yml
+    # inside a repository with .travis.yml
     travis-lint
 
     # from any directory

@@ -66,7 +66,7 @@ to run your test suite. This can be overriden as described in the [general build
 
 ### Dependency Management
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis-yml`, for example:
+Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
 
     language: java
     install: ant deps
@@ -76,5 +76,5 @@ Because there is no single standard way of installing project dependencies with 
 * [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
 * [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
 * [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
-* [RESTHub](https://github.com/pullrequest/resthub/blob/master/.travis.yml)
+* [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
 * [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation

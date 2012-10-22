@@ -20,7 +20,7 @@ Si vous avez Ruby 1.8.7+ et RubyGems installés, vous pouvez utiliser [travis-li
 
 and exécutez le avec `.travis.yml`:
 
-    # dans un dépôt contenant .travis-yml
+    # dans un dépôt contenant .travis.yml
     travis-lint
 
     # depuis n'importe quel répertoire
