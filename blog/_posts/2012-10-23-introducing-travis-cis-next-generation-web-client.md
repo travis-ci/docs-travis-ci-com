@@ -1,10 +1,10 @@
 ---
 title: "Introducing Travis CI's next generation web client"
-created_at: Mon Oct 17 01:30:00 PDT 2012
+created_at: Mon Oct 23 01:30:00 PDT 2012
 layout: post
 author: Sven Fuchs
 twitter: svenfuchs
-permalink: blog/2012-10-17-introducing-travis-cis-next-generation-web-client
+permalink: blog/2012-10-23-introducing-travis-cis-next-generation-web-client
 ---
 
 If you think about Travis CI, the web client is the face of the project. You
