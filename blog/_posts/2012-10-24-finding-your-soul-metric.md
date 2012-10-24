@@ -3,7 +3,7 @@ title: Finding Your Soul Metric
 permalink: blog/2012-10-24-finding-your-soul-metric
 author: Mathias Meyer
 twitter: roidrage
-created_at Wed Oct 24 2012 17:00:00 CEST
+created_at: Wed Oct 24 2012 17:00:00 CEST
 layout: post
 ---
 Travis has a history of failure. While we're not ashamed to admit that and talk
