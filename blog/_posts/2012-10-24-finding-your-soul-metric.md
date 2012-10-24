@@ -96,10 +96,12 @@ with a few additions.
 
 To track custom, external metrics like the ones from RabbitMQ or determined by
 database updates, we built a small monitoring app based on Celluloid. It polls
-data sources every 20 seconds and pushes them directly to Librato Metrics. As
-these metrics are critical to running the platform, a resolution of 20 seconds
-is pretty good, though we might take them further down to 10 seconds in the
-future.
+data sources every 20 seconds and pushes them directly to [Librato
+Metrics](http://metrics.librato.com).
+
+As these metrics are critical to running the platform, a resolution of 20
+seconds is pretty good, though we might take them further down to 10 seconds in
+the future.
 
 That little app also does threshold-based alerting to our Campfire room. I'm
 planning on adding support for Pagerduty and Prowl soon too.
