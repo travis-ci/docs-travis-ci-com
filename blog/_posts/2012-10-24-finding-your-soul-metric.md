@@ -41,6 +41,13 @@ recent snapshot of what they look like when correlated:
 
 ![](http://s3itch.paperplanes.de/buildvsrabbit-20121024-170411.png)
 
+Here's a more recent graph that shows a database latency spike not long ago and
+queues backing up as a consequence. We're still investigating why this happened,
+and we'll move to a bigger database setup soon as well. We're also spreading out
+the work load even more to keep up with it better.
+
+![](http://s3itch.paperplanes.de/graphs-20121024-182007.png)
+
 ### How can I find my soul metric?
 
 Why did this take so long to figure out? The most common question I get from
