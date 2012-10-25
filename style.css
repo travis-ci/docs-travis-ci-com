@@ -86,6 +86,25 @@ p, ul, blockquote, pre, td, th, label {
   line-height: 1.4286;
 }
 
+blockquote {
+  font-style: italic;
+  margin-left: 1em;
+}
+
+blockquote small.author {
+  font-style: normal;
+  margin-top: 10px;
+  text-align: right;
+}
+
+blockquote small.author:after {
+  content: ":";
+}
+
+p small.author {
+  margin: 0;
+}
+
 ul, ol {
   margin: 1.4286em 0;
   text-align: left;
