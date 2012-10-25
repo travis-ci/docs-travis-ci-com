@@ -144,7 +144,7 @@ Here's what some of our customers say about Travis for private repositories.
 > sea like a wild unicorn by Travis CI's very own Josh Kalderimis, an offer that
 > is too valuable to pass up.
 
-<small class="author">Benedikt Eicke, flinc</small>
+<small class="author">Benedikt Deicke, flinc</small>
 
 > Since switching to Travis Pro, we stopped worrying about our CI setup: It just
 > works and it's better than anything we had before.
