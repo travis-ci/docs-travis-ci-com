@@ -111,6 +111,10 @@ Here's what some of our customers say about Travis for private repositories.
 
 <small class="author">Arnaud Limbourg, 20minutes</small>
 
+> Great tool that works and good customer service, off to a good start I say
+
+<small class="author">David Pavilla, Crowd Interactive</small>
+
 > Travis changed the way we did CI since day one. As a 100% TDD company, it is
 > very important for us to always know if a build is good or bad, specially
 > because there's always at least 4 people working on the same codebase. Now, we
