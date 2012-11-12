@@ -108,6 +108,23 @@ Language-specific workers have multiple runtimes for their respective language (
 * `MERB_ENV=test`
 * `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
 
+Additionally, Travis sets environment variables you can use in your build, e.g.
+to tag the build, or to run post-build deployments.
+
+* `TRAVIS_BRANCH`: The name of the branch currently being built.
+* `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
+* `TRAVIS_PULL_REQUEST`: True if the current build is for a pull request.
+
+Language-specific builds expose additional environment variables representing
+the current version being used to run the build. Whether or not they're set
+depends on the language you're using.
+
+* `TRAVIS_RUBY_VERSION`
+* `TRAVIS_JDK_VERSION`
+* `TRAVIS_NODE_VERSION`
+* `TRAVIS_PHP_VERSION`
+* `TRAVIS_PYTHON_VERSION`
+
 ### Libraries
 
 * OpenSSL
@@ -330,7 +347,12 @@ Recent 1.1.x version (usually the most recent)
 
 ## How VM images are upgraded and deployed
 
-We currently use Vagrant to develop, test, build, export and import VM images (a.k.a "Vagrant boxes"). Provisioning is automated using [OpsCode Chef](http://www.opscode.com/chef/). VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different workers vary in size but in general are **between 1.6 and 3.3 GB in size**.
+We currently use Vagrant to develop, test, build, export and import VM images
+(a.k.a "Vagrant boxes"). Provisioning is automated using [Opscode
+Chef](http://www.opscode.com/chef/). VM images are then uploaded to our internal
+network and deployed to each individual worker during slow periods of the day
+(around 03:00 GMT). VM images for different workers vary in size but in general
+are **between 1.6 and 3.3 GB in size**.
 
 This means that to provision a new PHP release (for example), we do the following:
 
@@ -348,13 +370,26 @@ For new releases of data stores or messaging technologies, for example, Riak
 * Upload new images to our internal network
 * Take travis-ci.org workers down one by one to import new images
 
-The entire process usually takes from one to several hours (depending on how many VM images need to be rebuilt). Combined with the time for testing, new releases of runtimes and other widely used software usually go live on travis-ci.org within a week from the moment Travis Core team is
-notified about the release.
+The entire process usually takes from one to several hours (depending on how
+many VM images need to be rebuilt). Combined with the time for testing, new
+releases of runtimes and other widely used software usually go live on
+travis-ci.org within a week from the moment Travis Core team is notified about
+the release.
 
 ## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
+The Travis CI environment is set up using [Opscode
+Chef](http://www.opscode.com/chef/). All the [cookbooks used by
+travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment)
+are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu
+Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or
+another distribution is much easier.
 
-Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are encouraged to use them.
+Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous
+Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are
+encouraged to use them.
 
-Many cookbooks Travis CI environment uses are taken from the [official OpsCode cookbooks repository](https://github.com/opscode/cookbooks). We modify some of them for continuous integration needs and sync them periodically or as the need arises.
+Many cookbooks Travis CI environment uses are taken from the [official Opscode
+cookbooks repository](https://github.com/opscode/cookbooks). We modify some of
+them for continuous integration needs and sync them periodically or as the need
+arises.

@@ -32,6 +32,7 @@ By default, the worker performs the build as following:
 * Run *before_script* scripts (if any)
 * Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
 * Run *after_script* scripts (if any)
+* Run *after_success/after_failure* scripts (if any)
 
 The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
@@ -84,7 +85,9 @@ Both settings support multiple scripts, too:
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see [Database setup](/docs/user/database-setup/).
 
-**NOTE:** The command(s) in `after_script` will only run if the build succeeded (when `script` returns 0).
+**NOTE:** The command(s) in `after_script` will only run if the build succeeded
+(when `script` returns 0). The command(s) in `after_failure` and `after_success`
+will always be run though.
 
 ### install
 
@@ -434,15 +437,21 @@ Please note that secure env variables are not available for pull requests. This 
 
 To make the usage of secure environment variables easier, we expose an info on their availability and info about the type of this build:
 
-* TRAVIS_SECURE_ENV_VARS is set to "true" or "false" depending on the availability of environment variables
-* TRAVIS_PULL_REQUEST is set to "true" or "false" depending on this build being pull request or not
+* `TRAVIS_SECURE_ENV_VARS` is set to "true" or "false" depending on the availability of environment variables
+* `TRAVIS_PULL_REQUEST` is set to "true" or "false" depending on this build being pull request or not
 
 Please also note that keys used for encryption and decryption are tied to the repository. If you fork a project and add it to travis, it will have different pair of keys than the original.
 
 ### Rows That are Allowed To Fail
 
-You can also define rows that are allowed to fail in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build
-to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
+You can also define rows that are allowed to fail in the build matrix. Allowed
+failures are items in your build matrix that are allowed to fail without causing
+the entire build to be shown as failed. This lets you add in experimental and
+preparatory builds to test against versions or configurations that you are not
+ready to officially support.
+
+Allowed failures must be a list of key/value pairs representing entries in your
+build matrix.
 
 You can define allowed failures in the build matrix as follows:
 
