@@ -4,6 +4,9 @@ layout: en
 permalink: api/
 ---
 
+**Note: The API described in this document has been deprecated in favor of our
+[new API](http://api.travis-ci.org).**
+
 ### Repositories
 
 #### Index
