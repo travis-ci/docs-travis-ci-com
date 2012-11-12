@@ -4,6 +4,8 @@ layout: en
 permalink: notifications/
 ---
 
+<div id="toc"></div>
+
 ## Notifications
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
@@ -21,7 +23,7 @@ And it will by default send emails when, on the given branch:
 
 You can change this behaviour using the following options:
 
-### Email notifications
+## Email notifications
 
 You can specify recipients that will be notified about build results like so:
 
@@ -47,7 +49,7 @@ Also, you can specify when you want to get notified:
 
 `always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
-### IRC notification
+## IRC notification
 
 You can also specify notifications sent to an IRC channel:
 
@@ -118,7 +120,7 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
-### Campfire notification
+## Campfire notification
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
 
@@ -130,7 +132,7 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 * *api token*: is the token of the user you want to use to post the notifications.
 * *room id*: this is the room id not the name.
 
-### Flowdock notification
+## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
 
@@ -140,7 +142,7 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 * *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
 
-### HipChat notification
+## HipChat notification
 
 Notifications can be sent to your HipChat chat rooms using the following format:
 
@@ -151,7 +153,7 @@ Notifications can be sent to your HipChat chat rooms using the following format:
 * *api token*: is the token of the user you want to use to post the notifications.
 * *room name*: is the name of the room you want to notify.
 
-### Webhook notification
+## Webhook notification
 
 You can define webhooks to be notified about build results the same way:
 
@@ -177,7 +179,7 @@ Just as with other notification types you can specify when webhook payloads will
 
 Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
 
-#### Authorization
+### Authorization
 When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
 GitHub username, the name of the repository, and your Travis token.  In python,
 
