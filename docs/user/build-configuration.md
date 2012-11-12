@@ -4,13 +4,22 @@ layout: en
 permalink: build-configuration/
 ---
 
+<div id="toc"></div>
+
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics that are common to all projects hosted on travis-ci.org, regardless of the technology. We recommend you start with the [Getting Started](/docs/user/getting-started/) guide and read this guide top to bottom before moving on to [language-specific guides](/docs).
+This guide covers build environment and configuration topics that are common to
+all projects hosted on travis-ci.org, regardless of the technology. We recommend
+you start with the [Getting Started](/docs/user/getting-started/) guide and read
+this guide top to bottom before moving on to [build
+notifications](/docs/user/notifications/) and [language-specific guides](/docs).
 
 ## .travis.yml file: what it is and how it is used
 
-Travis CI uses `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. `.travis.yml` can be very minimalistic or have a lot of customization in it. A few example of what kind of information your `.travis.yml` file may have:
+Travis CI uses `.travis.yml` file in the root of your repository to learn about
+your project and how you want your builds to be executed. `.travis.yml` can be
+very minimalistic or have a lot of customization in it. A few example of what
+kind of information your `.travis.yml` file may have:
 
 * What programming language your project uses
 * What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
@@ -19,7 +28,9 @@ Travis CI uses `.travis.yml` file in the root of your repository to learn about 
 
 and so on.
 
-At the very minimum, Travis CI needs to know what builder it should use for your project: Ruby, Clojure, PHP or something else. For everything else, there are reasonable defaults.
+At the very minimum, Travis CI needs to know what builder it should use for your
+project: Ruby, Clojure, PHP or something else. For everything else, there are
+reasonable defaults.
 
 ## Build Lifecycle
 
@@ -32,6 +43,7 @@ By default, the worker performs the build as following:
 * Run *before_script* scripts (if any)
 * Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
 * Run *after_script* scripts (if any)
+* Run *after_success/after_failure* scripts (if any)
 
 The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
@@ -84,7 +96,9 @@ Both settings support multiple scripts, too:
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see [Database setup](/docs/user/database-setup/).
 
-**NOTE:** The command(s) in `after_script` will only run if the build succeeded (when `script` returns 0).
+**NOTE:** The command(s) in `after_script` will only run if the build succeeded
+(when `script` returns 0). The command(s) in `after_failure` and `after_success`
+will always be run though.
 
 ### install
 
@@ -342,188 +356,6 @@ Any name surrounded with `/` in the list of branches is treated as a regular exp
 
 Options that are usually specified after the last `/` (e.g., `i` for case insensitive matching) are not supported at the moment.
 
-## Notifications
-
-Travis CI can notify you about your build results through email, IRC and/or webhooks.
-
-By default it will send emails to
-
-* the commit author and committer
-* the owner of the repository (for normal repositories)
-* *all* public members of the organization owning the repository
-
-And it will by default send emails when, on the given branch:
-
-* a build was just broken or still is broken
-* a previously broken build was just fixed
-
-You can change this behaviour using the following options:
-
-### Email notifications
-
-You can specify recipients that will be notified about build results like so:
-
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
-
-And you can entirely turn off email notifications:
-
-    notifications:
-      email: false
-
-Also, you can specify when you want to get notified:
-
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
-
-`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
-
-### IRC notification
-
-You can also specify notifications sent to an IRC channel:
-
-    notifications:
-      irc: "irc.freenode.org#travis"
-
-Or multiple channels:
-
-    notifications:
-      irc:
-        - "irc.freenode.org#travis"
-        - "irc.freenode.org#some-other-channel"
-
-Just as with other notification types you can specify when IRC notifications will be sent:
-
-    notifications:
-      irc:
-        channels:
-          - "irc.freenode.org#travis"
-          - "irc.freenode.org#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-
-You also have the possibility to customize the message that will be sent to the channel(s) with a template:
-
-    notifications:
-      irc:
-        channels:
-          - "irc.freenode.org#travis"
-          - "irc.freenode.org#some-other-channel"
-        template:
-          - "%{repository} (%{commit}) : %{message} %{foo} "
-          - "Build details: %{build_url}"
-
-You can interpolate the following variables:
-
-* *repository*: your GitHub repo URL.
-* *build_number*: build number.
-* *branch*: branch build name.
-* *commit*: shorten commit SHA
-* *author*: commit author name.
-* *message*: travis message to the build.
-* *compare_url*: commit change view URL.
-* *build_url*: URL of the build detail.
-
-If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
-
-    notifications:
-      irc:
-        channels:
-          - "irc.freenode.org#travis"
-          - "irc.freenode.org#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-        use_notice: true
-
-and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
-
-    notifications:
-      irc:
-        channels:
-          - "irc.freenode.org#travis"
-          - "irc.freenode.org#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-        use_notice: true
-        skip_join: true
-
-If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
-
-### Campfire notification
-
-Notifications can also be sent to Campfire chat rooms, using the following format:
-
-    notifications:
-      campfire: [subdomain]:[api token]@[room id]
-
-
-* *subdomain*: is your campfire subdomain (ie 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
-* *api token*: is the token of the user you want to use to post the notifications.
-* *room id*: this is the room id not the name.
-
-### Flowdock notification
-
-Notifications can be sent to your Flowdock Team Inbox using the following format:
-
-    notifications:
-      flowdock: [api token]
-
-
-* *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
-
-### HipChat notification
-
-Notifications can be sent to your HipChat chat rooms using the following format:
-
-    notifications:
-      hipchat: [api token]@[room name]
-
-
-* *api token*: is the token of the user you want to use to post the notifications.
-* *room name*: is the name of the room you want to notify.
-
-### Webhook notification
-
-You can define webhooks to be notified about build results the same way:
-
-    notifications:
-      webhooks: http://your-domain.com/notifications
-
-Or multiple channels:
-
-    notifications:
-      webhooks:
-        - http://your-domain.com/notifications
-        - http://another-domain.com/notifications
-
-Just as with other notification types you can specify when webhook payloads will be sent:
-
-    notifications:
-      webhooks:
-        urls:
-          - http://hooks.mydomain.com/travisci
-          - http://hooks.mydomain.com/events
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-
-Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
-
-#### Authorization
-When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
-GitHub username, the name of the repository, and your Travis token.  In python,
-
-    from hashlib import sha256
-    sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
-
-Use this to ensure Travis is the one making requests to your webhook.
-
 ## The Build Matrix
 
 When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Three key matrix dimensions are:
@@ -616,15 +448,21 @@ Please note that secure env variables are not available for pull requests. This 
 
 To make the usage of secure environment variables easier, we expose an info on their availability and info about the type of this build:
 
-* TRAVIS_SECURE_ENV_VARS is set to "true" or "false" depending on the availability of environment variables
-* TRAVIS_PULL_REQUEST is set to "true" or "false" depending on this build being pull request or not
+* `TRAVIS_SECURE_ENV_VARS` is set to "true" or "false" depending on the availability of environment variables
+* `TRAVIS_PULL_REQUEST` is set to "true" or "false" depending on this build being pull request or not
 
 Please also note that keys used for encryption and decryption are tied to the repository. If you fork a project and add it to travis, it will have different pair of keys than the original.
 
 ### Rows That are Allowed To Fail
 
-You can also define rows that are allowed to fail in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build
-to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
+You can also define rows that are allowed to fail in the build matrix. Allowed
+failures are items in your build matrix that are allowed to fail without causing
+the entire build to be shown as failed. This lets you add in experimental and
+preparatory builds to test against versions or configurations that you are not
+ready to officially support.
+
+Allowed failures must be a list of key/value pairs representing entries in your
+build matrix.
 
 You can define allowed failures in the build matrix as follows:
 
