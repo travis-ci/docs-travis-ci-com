@@ -8,11 +8,18 @@ permalink: build-configuration/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics that are common to all projects hosted on travis-ci.org, regardless of the technology. We recommend you start with the [Getting Started](/docs/user/getting-started/) guide and read this guide top to bottom before moving on to [language-specific guides](/docs).
+This guide covers build environment and configuration topics that are common to
+all projects hosted on travis-ci.org, regardless of the technology. We recommend
+you start with the [Getting Started](/docs/user/getting-started/) guide and read
+this guide top to bottom before moving on to [build
+notifications](/docs/user/notifications/) and [language-specific guides](/docs).
 
 ## .travis.yml file: what it is and how it is used
 
-Travis CI uses `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. `.travis.yml` can be very minimalistic or have a lot of customization in it. A few example of what kind of information your `.travis.yml` file may have:
+Travis CI uses `.travis.yml` file in the root of your repository to learn about
+your project and how you want your builds to be executed. `.travis.yml` can be
+very minimalistic or have a lot of customization in it. A few example of what
+kind of information your `.travis.yml` file may have:
 
 * What programming language your project uses
 * What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
@@ -21,7 +28,9 @@ Travis CI uses `.travis.yml` file in the root of your repository to learn about 
 
 and so on.
 
-At the very minimum, Travis CI needs to know what builder it should use for your project: Ruby, Clojure, PHP or something else. For everything else, there are reasonable defaults.
+At the very minimum, Travis CI needs to know what builder it should use for your
+project: Ruby, Clojure, PHP or something else. For everything else, there are
+reasonable defaults.
 
 ## Build Lifecycle
 
