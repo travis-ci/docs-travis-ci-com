@@ -45,7 +45,7 @@ By default, the worker performs the build as following:
 * Run *after_script* scripts (if any)
 * Run *after_success/after_failure* scripts (if any)
 
-The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
+The outcome of any of these commands (except currently after_success/after_failure) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
 With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with `.travis.yml`.
 
