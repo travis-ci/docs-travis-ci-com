@@ -176,6 +176,7 @@ Just as with other notification types you can specify when webhook payloads will
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
+        on_start: [true|false] # default: false
 
 Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
 
