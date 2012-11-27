@@ -11,7 +11,7 @@ You asked for it, so here it is.
 Today we are happy to announce that we have shipped the new Travis CI web
 client for Travis Pro.
 
-![Travis Pro new web UI](http://s3itch.svenfuchs.com/travis_pro_next_ui-20121127-130622.jpg)
+![Travis Pro new web UI](http://s3itch.svenfuchs.com/travis_pro_next_ui-20121127-161502.jpg)
 
 You can find a link to the new client on Travis Pro, we've sent a broadcast to
 everyone.
