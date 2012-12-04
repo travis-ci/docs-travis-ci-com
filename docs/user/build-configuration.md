@@ -42,10 +42,12 @@ By default, the worker performs the build as following:
 * cd to the clone directory, run dependencies installation command (default specific to project language)
 * Run *before_script* scripts (if any)
 * Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
-* Run *after_script* scripts (if any)
 * Run *after_success/after_failure* scripts (if any)
+* Run *after_script* scripts (if any)
 
-The outcome of any of these commands (except currently after_success/after_failure) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
+The outcome of any of these commands (except after_success, after_failure or after_scripts) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
+
+Test result is exported to `TRAVIS_TEST_RESULT`, which you can use in commands run in `after_sript` commands.
 
 With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with `.travis.yml`.
 
@@ -95,10 +97,6 @@ Both settings support multiple scripts, too:
       - after_command_2
 
 These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see [Database setup](/docs/user/database-setup/).
-
-**NOTE:** The command(s) in `after_script` will only run if the build succeeded
-(when `script` returns 0). The command(s) in `after_failure` and `after_success`
-will always be run though.
 
 ### install
 
