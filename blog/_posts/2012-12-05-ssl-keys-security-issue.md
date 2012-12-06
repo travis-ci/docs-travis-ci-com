@@ -12,10 +12,10 @@ As soon as we were notified about the issue we deployed a fix for the misbehavin
 
 Although most of the repositories were not affected, we rolled out a new feature that allows you to regenerate keys for a repository. If you're worried about security of your data, feel free to reset your keys. In order to do that, you can log in on https://travis-ci.org, go to you repo, click on the cog icon on the right and choose "Regenerate Key" option from the menu.
 
-[![](http://drogus-s3itch.s3.amazonaws.com/Travis_CI_-_Free_Hosted_Continuous_Integration_Platform_for_the_Open_Source_Community-20121203-222851.jpg)
+<img src="http://drogus-s3itch.s3.amazonaws.com/Travis_CI_-_Free_Hosted_Continuous_Integration_Platform_for_the_Open_Source_Community-20121203-222851.jpg" width="600" />
 
-Special thanks needs to be given to Forbes Lindesay (http://www.forbeslindesay.co.uk) who notified us of the issue. Thank you Forbes!
+Special thanks needs to be given to [Forbes Lindesay](http://www.forbeslindesay.co.uk) who notified us of the issue. Thank you Forbes!
 
-I would also like to thank Konstantin Haase (https://twitter.com/konstantinhaase) for fixing the issue within minutes, as well as Piotr Sarnacki (https://twitter.com/drogus) for adding the new feature allowing users to regenerate the SSL key.
+I would also like to thank [Konstantin Haase](https://twitter.com/konstantinhaase) for fixing the issue within minutes, as well as [Piotr Sarnacki](https://twitter.com/drogus) for adding the new feature allowing users to regenerate the SSL key.
 
 If you have any questions or feedback regarding SSL keys, please email us at support@travis-ci.com
