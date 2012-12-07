@@ -40,20 +40,16 @@ phase.
 
 For example such script:
 
-```yml
-script:
-  - rake
-after_script:
-  - build_something_important
-```
+    script:
+      - rake
+    after_script:
+      - build_something_important
 
 should be changed to:
 
-```yml
-script:
-  - rake
-  - build_something_important
-```
+    script:
+      - rake
+      - build_something_important
 
 If you don't want for those commands to fail the test then move them to the
 `after_success` phase.
