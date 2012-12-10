@@ -137,10 +137,10 @@ For a real world example, see [Neocons](https://github.com/michaelklishin/neocon
 ## Examples
 
 * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
-* [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/stable/.travis.yml)
-* [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/stable/.travis.yml)
+* [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/master/.travis.yml)
+* [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/master/.travis.yml)
 * [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
-* [neocons' .travis.yml](https://github.com/michaelklishin/neocons/blob/stable/.travis.yml)
+* [neocons' .travis.yml](https://github.com/michaelklishin/neocons/blob/master/.travis.yml)
 * [momentum's .travis.yml](https://github.com/carllerche/momentum/blob/master/.travis.yml)
 * [Knockbox's .travis.yml](https://github.com/reiddraper/knockbox/blob/master/.travis.yml)
 * [Sumo's .travis.yml](https://github.com/reiddraper/sumo/blob/master/.travis.yml)
