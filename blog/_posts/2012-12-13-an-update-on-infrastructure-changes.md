@@ -27,7 +27,7 @@ volume.
 
 To give you perspective, [travis-ci.org](http://travis-ci.org) handles about
 1500 log updates per minute during peak hours, while
-[travis-ci.com](http://travis-ci.org) has to handle 2500. In situation where our
+[travis-ci.com](http://travis-ci.com) has to handle 2500. In situation where our
 log processing has temporarily backed up, it handled 4000 updates per minute.
 While that only boils down to ~66 writes per second, our current data
 model is bound to break down eventually as we scale up, as too much data needs
