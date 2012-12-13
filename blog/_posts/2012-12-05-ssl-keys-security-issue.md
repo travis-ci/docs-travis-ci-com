@@ -1,6 +1,7 @@
 ---
 title: "Advisory: Secure Environment Keys Security Issue"
 permalink: blog/2012-12-05-ssl-keys-security-issue
+created_at: Thu 6 Dec 2012 15:00:00 CET
 layout: post
 ---
 
