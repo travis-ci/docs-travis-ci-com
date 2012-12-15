@@ -119,7 +119,8 @@ to tag the build, or to run post-build deployments.
   or pull request.
 * `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
 * `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-* `TRAVIS_PULL_REQUEST`: True if the current build is for a pull request.
+* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
+  request, "false" if it's not a pull request.
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
   used. This value is either "true" or "false".
 
