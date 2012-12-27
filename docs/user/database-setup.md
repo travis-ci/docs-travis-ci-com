@@ -36,7 +36,7 @@ Here is how to configure your project to use databases in its tests. This assume
 
 Most services are not started on boot to make more RAM available to project test suites.
 
-If your project needs, say, MongoDB running, you can the following to your `.travis.yml`:
+If your project needs, say, MongoDB running, you can add the following to your `.travis.yml`:
 
     services: mongodb
 
