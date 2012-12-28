@@ -60,7 +60,7 @@ Keeping the test script configuration in package.json makes it easy for other pe
 
 ### Travis uses NPM
 
-Travis uses [NPM](http://http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.
+Travis uses [NPM](http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.
 
 By default, Travis CI will run
 
