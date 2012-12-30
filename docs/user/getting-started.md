@@ -211,7 +211,7 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
        - "2.9.2"
        - "2.8.2"
      jdk:
-      - oraclejdk7
+       - oraclejdk7
        - openjdk7
        - openjdk6
 
