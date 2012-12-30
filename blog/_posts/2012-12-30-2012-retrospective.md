@@ -181,22 +181,22 @@ One year ago Travis CI consisted of a web app, a bunch of worker machines and a
 central message crunching app called Hub. Today there's an entire small army of
 apps that all share their their part in getting your builds run:
 
-[Listener](http://github.com/travis-listener) picks up requests from GitHub (created Dec 2011).
-[Gatekeeper](http://github.com/travis-gatekeeper)
+[Listener](http://github.com/travis-ci/travis-listener) picks up requests from GitHub (created Dec 2011).
+[Gatekeeper](http://github.com/travis-ci/travis-gatekeeper)
 configures them and takes care of syncing user data with GitHub (Oct 2012).
-[Enqueue](http://github.com/travis-gatekeeper)
+Enqueue
 queues build jobs based on a rate limiting strategy (Oct 2012).
-[Hub](http://github.com/travis-hub)
+[Hub](http://github.com/travis-ci/travis-hub)
 still is a central node that picks up state changes and triggers events.
-[Tasks](http://github.com/travis-tasks)
+[Tasks](http://github.com/travis-ci/travis-tasks)
 sends out notifications to external targets (like Email, IRC, Campfire etc.,
 created Aug 2012).
-[Logs](http://github.com/travis-logs)
+[Logs](http://github.com/travis-ci/travis-logs)
  does nothing else but processing logs that are streamed
 over from the workers (Aug 2012).
 
-There are also other apps for serving the static [web client](http://github.com/travis-web) and
-serving the [HTTP API](http://github.com/travis-api).
+There are also other apps for serving the static [web client](http://github.com/travis-ci/travis-web) and
+serving the [HTTP API](http://github.com/travis-ci/travis-api).
 Moreover, we created other tools for things like
 [administration](https://github.com/travis-ci/travis-admin),
 [single sign on](https://github.com/travis-ci/travis-sso),
