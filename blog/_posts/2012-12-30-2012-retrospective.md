@@ -98,7 +98,7 @@ but finally in April we were all set. They've changed the face of Travis CI
 entirely. Having these guys join the team was the best thing that could happen
 to the project.
 
-![travis team in oniesies](http://s3itch.svenfuchs.com/travis-team-in-onesies-20121230-182624.jpg)
+![travis team in oniesies](http://s3itch.svenfuchs.com/travis-team-in-onesies-20121230-194350.jpg)
 
 Then in March and April one of our earliest and most supportive sponsors,
 [Enterprise Rails](http://www.enterprise-rails.com/), sponsored Lucas to work
