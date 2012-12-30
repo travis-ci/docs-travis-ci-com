@@ -182,7 +182,7 @@ central message crunching app called Hub. Today there's an entire small army of
 apps that all share their their part in getting your builds run:
 
 [Listener](http://github.com/travis-ci/travis-listener) picks up requests from GitHub (created Dec 2011).
-[Gatekeeper](http://github.com/travis-ci/travis-gatekeeper)
+Gatekeeper
 configures them and takes care of syncing user data with GitHub (Oct 2012).
 Enqueue
 queues build jobs based on a rate limiting strategy (Oct 2012).
