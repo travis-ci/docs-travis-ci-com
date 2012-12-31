@@ -47,7 +47,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: c
 
-This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to build
+This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to build
 by running Scons without arguments, override the `script:` key in `.travis.yml` like this:
 
     script: scons

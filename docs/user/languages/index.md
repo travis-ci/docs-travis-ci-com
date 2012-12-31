@@ -1,5 +1,5 @@
 ---
-title: Lanugages
+title: Languages
 layout: en
 ---
 

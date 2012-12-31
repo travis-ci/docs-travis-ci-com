@@ -109,7 +109,7 @@ Travis CI applications sometimes have to share certain piece of code. For exampl
 * [travis-build](https://github.com/travis-ci/travis-build) encapsulates build lifecycle `Travis Workers` use and provides a unified API for language-specific builders
 * [travis-support](https://github.com/travis-ci/travis-support) contains various support classes and utilities. Used by `Travis Hub`, `Travis Server`, `Travis Listener` and `Travis Worker`.
 
-In addition, there are mutliple side projects we developed as part of working on Travis CI, for example
+In addition, there are multiple side projects we developed as part of working on Travis CI, for example
 
 * [simple_states](https://github.com/svenfuchs/simple_states)
 * [hashr](https://github.com/svenfuchs/hashr)
@@ -126,7 +126,7 @@ as well as projects we rely on heavily and contribute to, like
 
 Part of the appeal of Travis CI is that [common services and tools](/docs/user/ci-environment) (like MySQL, PostgreSQL, RabbitMQ, Redis, MongoDB, Riak and many more) are preinstalled and available for projects to use. We also provide passwordless sudo to make it possible to test projects with unique requirements and avoid having to install and maintain all the software known to mankind.
 
-`Travis CI Environment` is provisioned using modern automation tools and distirbuted in the form of `Travis VM images`.
+`Travis CI Environment` is provisioned using modern automation tools and distributed in the form of `Travis VM images`.
 
 ## VM images
 

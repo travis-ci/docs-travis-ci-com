@@ -26,7 +26,7 @@ if your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn test
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -44,7 +44,7 @@ if your project has `build.gradle` file in the repository root, Travis Java buil
 
     gradle check
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -62,7 +62,7 @@ If Travis could not detect Maven or Gradle files, Travis Java builder will use A
 
     ant test
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
 ### Dependency Management
 
