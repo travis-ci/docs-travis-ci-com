@@ -52,7 +52,7 @@ Both are built from the [2.0.testing branch](https://github.com/rubinius/rubiniu
 
 Please note that **C extensions are disabled for JRuby** on travis-ci.org. The reason for doing so is to bring it to developers attention that their project may have dependencies that should not be used on JRuby in production. Using C extensions on JRuby is technically possible but is not a good idea performance and stability-wise and we believe continuous integration services like Travis should highlight it.
 
-So if you want to run CI against JRuby, please check that your Gemfile takes JRuby into account. Most of popular C extensions these days also have Java implementations (jsom gem, nokogiri, eventmachine, bson gem) or Java alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
+So if you want to run CI against JRuby, please check that your Gemfile takes JRuby into account. Most of popular C extensions these days also have Java implementations (json gem, nokogiri, eventmachine, bson gem) or Java alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 
 ## Default Test Script
 

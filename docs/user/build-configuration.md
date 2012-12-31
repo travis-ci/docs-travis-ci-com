@@ -47,7 +47,7 @@ By default, the worker performs the build as following:
 
 The outcome of any of these commands (except after_success, after_failure or after_scripts) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
-Test result is exported to `TRAVIS_TEST_RESULT`, which you can use in commands run in `after_sript` commands.
+Test result is exported to `TRAVIS_TEST_RESULT`, which you can use in commands run in `after_script` commands.
 
 With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with `.travis.yml`.
 

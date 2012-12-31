@@ -59,7 +59,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: go
 
-This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to omit the `-v` flag,
+This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to omit the `-v` flag,
 override the `script:` key in `.travis.yml` like this:
 
     script: go test
