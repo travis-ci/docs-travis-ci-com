@@ -341,6 +341,8 @@ You can either white- or blacklist branches that you want to be built:
 
 If you specify both, "except" will be ignored. Please note that currently (for historical reasons), `.travis.yml` needs to be present *on all active branches* of your project.
 
+Note that the `gh-pages` branch will not be built unless you add it to the whitelist (`branches.only`).
+
 ### Using regular expressions ###
 
 You can use regular expressions to white- or blacklist branches:
