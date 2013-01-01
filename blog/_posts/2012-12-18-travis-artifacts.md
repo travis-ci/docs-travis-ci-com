@@ -9,7 +9,7 @@ permalink: blog/2012-12-18-travis-artifacts
 
 TL;DR Travis prepares a solution to easily upload files produced while
 running tests to any external storage service. If you want to test it,
-you can go straight to [install instructions](#how-to-use).
+you can go straight to [install instructions](#How-to-use%3F).
 
 Travis is already very good at running your tests, but we feel that we can
 do much better job with things that happen **after** the tests have
