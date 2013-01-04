@@ -56,5 +56,4 @@ JDK 7 is backwards compatible, we think it's time for all projects to start test
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
-* [scalatra/scalatra](https://github.com/scalatra/scalatra/blob/develop/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
