@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Scala p
 
 ## Choosing Scala versions to test against
 
-Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, SBT 0.11.3, Gradle 1.0, Maven 3 and Ant. Thanks to SBT 0.11.x ability to perform actions against multiple Scala versions, it is possible to test your projects against Both Scala 2.8.x and 2.9.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
+Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.3, Maven 3, Ant and flexible SBT (..., 0.10, 0.11, 0.12,...) through sbt-extras script. Thanks to SBT ability to perform actions against multiple Scala versions, it is possible to test your projects against Scala 2.8.x, 2.9.x and 2.10.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
 
     language: scala
     scala:
@@ -52,8 +52,9 @@ will not be provided.
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
 
-
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
+* [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/master/.travis.yml)
+

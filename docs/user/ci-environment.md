@@ -164,13 +164,13 @@ Stock Apache Maven 3. Maven is configured to use Central and oss.sonatype.org mi
 travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 (a recent preview)
 at `/usr/local/bin/lein2`.
 
-### SBT version
+### SBT versions
 
-travis-ci.org provides a recent SBT 0.11.x version.
+travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.12.1 or 0.11.3), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects. 
 
 ### Gradle version
 
-Gradle 1.1.
+Gradle 1.3.
 
 ## Erlang VM images
 
