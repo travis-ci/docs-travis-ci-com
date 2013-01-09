@@ -39,7 +39,7 @@ If your project uses something other than phpunit, [you can override our default
 
 ### Working with atoum
 
-Instead of PHPunit, you can also use [atoum](https://github.com/mageekguy/atoum) to test your projects. For example:
+Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
     before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
     script: php mageekguy.atoum.phar
