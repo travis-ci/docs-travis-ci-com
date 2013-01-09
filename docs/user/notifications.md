@@ -134,15 +134,13 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 
 You can also customise the notifications, like with IRC notifications:
 
-``` YAML
-notifications:
-  campfire:
-    targets:
-      - [subdomain]:[api token]@[room id]
-    template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
-      - "Build details: %{build_url}"
-```
+    notifications:
+      campfire:
+        targets:
+          - [subdomain]:[api token]@[room id]
+        template:
+          - "%{repository} (%{commit}) : %{message} %{foo} "
+          - "Build details: %{build_url}"
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
