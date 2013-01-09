@@ -132,6 +132,20 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 * *api token*: is the token of the user you want to use to post the notifications.
 * *room id*: this is the room id not the name.
 
+You can also customise the notifications, like with IRC notifications:
+
+``` YAML
+notifications:
+  campfire:
+    targets:
+      - [subdomain]:[api token]@[room id]
+    template:
+      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "Build details: %{build_url}"
+```
+
+Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+
 ## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
