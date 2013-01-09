@@ -58,7 +58,7 @@ voulez.
 ### Travaillez avec Atoum
 
 Au lieu de PHPUnit, vous pouvez aussi utiliser
-[Atoum](https://github.com/mageekguy/atoum) pour tester vos projets. Par
+[Atoum](https://github.com/atoum/atoum) pour tester vos projets. Par
 exemple:
 
     before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
