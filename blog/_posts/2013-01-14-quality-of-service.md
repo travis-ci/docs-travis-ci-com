@@ -7,9 +7,12 @@ twitter: parndt
 permalink: blog/2013-01-14-quality-of-service
 ---
 
-Sometimes it can appear like Travis CI was only built to run continuous integration for a single project because that project has completely "filled up the queue" and your builds appear to be scheduled very far down the list.
+<figure class="small right">
+  ![Busy Queue](/images/qos.001.jpg)
+  <figcaption>Two projects with a lot of builds.</figcaption>
+</figure>
 
-![Busy Queue](/images/qos.001.jpg)
+Sometimes it can appear like Travis CI was only built to run continuous integration for a single project because that project has completely "filled up the queue" and your builds appear to be scheduled very far down the list.
 
 We're delighted to say that this is not the case due to some quality of service measures we implemented back when Travis CI was much younger.
 
