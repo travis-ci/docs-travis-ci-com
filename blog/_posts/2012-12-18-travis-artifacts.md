@@ -35,7 +35,7 @@ In order to use artifacts you need to do a couple steps:
 
    Last 2 vars should be kept secret, so you should encrypt them using `travis` gem, just like this:
 
-       travis encrypt owner/repo_name ARTIFACTS_AWS_ACCESS_KEY_ID=abc123
+       travis encrypt ARTIFACTS_AWS_ACCESS_KEY_ID=abc123 -r owner/repo_name
 
    In the end your .travis.yml should look something like:
 
