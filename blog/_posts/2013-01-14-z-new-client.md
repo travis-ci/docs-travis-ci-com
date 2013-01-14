@@ -48,12 +48,12 @@ For instance, the following [script](https://github.com/travis-ci/travis/blob/ma
 
 Will print something like this:
 
-    travis-ci/travis is passed
-    travis-ci/travis-boxes is passed
-    travis-ci/travis-worker is failed
-    travis-ci/travis-build is passed
-    travis-ci/travis-api is passed
-    travis-ci/travis-web is passed
+    travis-ci/travis passed
+    travis-ci/travis-boxes passed
+    travis-ci/travis-worker failed
+    travis-ci/travis-build passed
+    travis-ci/travis-api passed
+    travis-ci/travis-web passed
     ...
 
 ### What's next?
