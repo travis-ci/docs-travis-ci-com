@@ -442,9 +442,14 @@ In the last example I used a token as one of the environment variables. However,
 You can encrypt environment variables using public key attached to your repository. The simplest way to do that is to use travis gem:
 
     gem install travis
-    travis encrypt travis-ci/travis-core MY_SECRET_ENV=super_secret
+    cd my_project
+    travis encrypt MY_SECRET_ENV=super_secret
 
 Please note that secure env variables are not available for pull requests. This is done due to security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
+
+You can also automatically add it to your `.travis.yml`:
+
+    travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
 
 To make the usage of secure environment variables easier, we expose an info on their availability and info about the type of this build:
 

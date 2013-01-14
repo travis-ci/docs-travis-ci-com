@@ -20,11 +20,10 @@ the gem:
 gem install travis
 ```
 
-Then, you can use `encrypt` command to encrypt data (this example uses
-`travis-ci/travis-ci` repo, you should replace it with yours, of course):
+Then, you can use `encrypt` command to encrypt data (this example assumes you are running the command in your project directory, if not, add `-r owner/project`):
 
 ```
-travis encrypt travis-ci/travis-ci "something to encrypt"
+travis encrypt "something to encrypt"
 ```
 
 This will output string looking something like:
