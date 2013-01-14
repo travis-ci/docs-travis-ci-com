@@ -1,5 +1,5 @@
 ---
-title: "New Client"
+title: "New Command Line Client"
 created_at: Tue Jan 14 17:30 CET 2013
 layout: post
 author: Konstantin Haase
