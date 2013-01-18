@@ -234,7 +234,8 @@ cpanm (App::cpanminus) version 1.5007
 
 ### PHP versions
 
-* Recent 5.4.x release
+* 5.5
+* 5.4
 * 5.3 (recent 5.3.x release, 5.3.3)
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
@@ -314,6 +315,7 @@ Is supported.
 * 2.6
 * 2.7
 * 3.2
+* 3.3
 * pypy
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.

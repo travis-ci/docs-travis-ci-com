@@ -169,6 +169,7 @@ Learn more about [.travis.yml options for Perl projects](/docs/user/languages/pe
 
     language: php
     php:
+      - "5.5"
       - "5.4"
       - "5.3"
 
@@ -178,7 +179,7 @@ Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php
 
     language: python
     python:
-      - "3.2"
+      - "3.3"
       - "2.7"
       - "2.6"
     # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
