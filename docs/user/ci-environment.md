@@ -236,7 +236,7 @@ cpanm (App::cpanminus) version 1.5007
 
 * 5.5
 * 5.4
-* 5.3 (recent 5.3.x release, 5.3.3)
+* 5.3
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
