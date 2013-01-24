@@ -1,5 +1,5 @@
 ---
-title: "Quality of Service"
+title: "The Worker gets a revamp"
 created_at: Fri Jan 25 10:00:00 NZDT 2013
 layout: post
 author: Josh Kalderimis
