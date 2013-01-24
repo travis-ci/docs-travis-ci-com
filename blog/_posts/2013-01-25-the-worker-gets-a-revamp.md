@@ -12,8 +12,6 @@ Some big Travis changes in the mist
 
 **HAPPY FRIDAY!**
 
-It's been a long time since I've written a blog post, and what a perfect time to fix that!
-
 For the past 6+ months I've been working hard on a bunch of changes related to how your tests are run. This includes everything from the stability of the VMs, to the services we install on the VMs, and, not forgetting, _how we run your test suite._
 
 Travis is broken up into various small apps, each with a very focused responsibility. One of these apps is called [Travis Worker](https://github.com/travis-ci/travis-worker) and its responsibility is to manage a virtual machine (VM), get a Job from our queue (using RabbitMQ), run the build/job, and report the logs chunks and final job state.
@@ -23,7 +21,7 @@ This might sound like a big responsibilty, and it is, but there is another piece
 Timeouts and Stalls
 -------------------
 
-As much as we love Travis Worker and Travis Build, things aren't always pain free. If you've been using Travis for any period of time you would have possibly come across two annoying bugs, the dreaded [VMFatalError](https://travis-ci.org/westoque/phantomjs.rb/builds/3614255), and the [stalled job](https://travis-ci.org/rootpy/rootpy/jobs/3606285/#L31) (which also includes false timeouts). These issues are an awful and frustrating experience for our users, and no easier for us. I would go as far to say that every time a VM explodes or a timeout fails a test incorrectly, a German looses his leiderhoosen.
+As much as we love Travis Worker and Travis Build, things aren't always pain free. If you've been using Travis for any period of time you would have possibly come across two annoying bugs, the dreaded [VMFatalError](https://travis-ci.org/westoque/phantomjs.rb/builds/3614255), and the [stalled job](https://travis-ci.org/rootpy/rootpy/jobs/3606285/#L31) (which also includes false timeouts). These issues are an awful and frustrating experience for our users, and no easier for us. I would go as far to say that every time a VM explodes or a timeout fails a test incorrectly, a German looses his lederhosen.
 
 <figure class="small right">
   [ ![The Travis Team in Lederhosen](http://mudskipperbeerlife.files.wordpress.com/2011/09/lederhosen.jpg) ](http://mudskipperbeerlife.wordpress.com/tag/lederhosen/)
