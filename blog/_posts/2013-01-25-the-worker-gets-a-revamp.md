@@ -7,9 +7,6 @@ twitter: j2h
 permalink: blog/2013-01-25-the-worker-gets-a-revamp
 ---
 
-Some big Travis changes in the mist
-===================================
-
 **HAPPY FRIDAY!**
 
 For the past 6+ months we've been working hard on a bunch of changes related to how your tests are run. This includes everything from the stability of the VMs, to the services we install on the VMs, and, not forgetting, _how we run your test suite._
