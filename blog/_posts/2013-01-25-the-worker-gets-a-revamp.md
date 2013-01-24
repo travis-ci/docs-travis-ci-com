@@ -53,7 +53,7 @@ So what have we been doing about it?
 
 **How we run your tests**
 
-About a month ago our amazing Sven had an idea, he thought it was a bit crazy at first so coded it mostly as an experiment, but it was such a super smart idea we just had to use it as soon as possible. Mind blowingly smart! (mind blown pic)
+About a month ago our amazing Sven had an idea, he thought it was a bit crazy at first so coded it mostly as an experiment, but it was such a super smart idea we just had to use it as soon as possible. Mind blowingly smart!
 
 <figure class="small right">
   [ ![Spend 5 minutes with Sven and this is what happens to you!](http://www.reactiongifs.com/wp-content/uploads/2011/09/mind_blown.gif) ](http://www.reactiongifs.com/wp-content/uploads/2011/09/mind_blown.gif)
@@ -67,7 +67,7 @@ Welcome to the new Travis Build, which can be found on the [sf-compile-sh](https
 
 **What we run your tests on**
 
-VirtualBox has got us very far. It was great for development, had some fantastic features like snapshots and immutable disk images, and had some great tools built around it like [vagrant](http://www.vagrantup.com/).
+VirtualBox has got us very far. It was great for development, had some fantastic features like snapshots and immutable disk images, and had some great tools built around it like [Vagrant](http://www.vagrantup.com/).
 
 As we grew from one worker box to our current 24, maintenance of the VMs became a pain. Updating a worker took up to an hour as each VM on the host had to be provisioned and primed for use. Also, because of how VirtualBox works, we had to plan for how many Ruby boxes we would run, or how many Perl/Python/PHP (PPP) or JVM boxes we needed. To make a long story short, we could not easily dynamically decide what builds a host box could or would run. 
 
@@ -81,7 +81,7 @@ So what is this new setup you ask?
 
 We will save most of these details for a later blog post after we've ironed out some of the bugs, but we will be partnering with a server hosting provider in the States who will be running a private cloud for us. This private cloud, backed with SSDs, will allow us to offer the awesome users of Travis greater resource allocations (3gigs of ram, double what we currently offer), and we are also looking at offering users the ability to pick your VM type, like the ability to test on 32bit Ubuntu AS WELL AS 64bit.
 
-This is a huge maintainence relief for us as we can now focus on Travis features instead of having to maintain servers. We also pledge to update VMs more often so you have the latest and greatest services available for you to test against!
+This is a huge maintenance relief for us as we can now focus on Travis features instead of having to maintain servers. We also pledge to update VMs more often so you have the latest and greatest services available for you to test against!
 
 But wait, there's more!
 ----------------------
