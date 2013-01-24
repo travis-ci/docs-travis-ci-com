@@ -53,7 +53,7 @@ So what have we been doing about it?
 
 **How we run your tests**
 
-About a month ago our amazing Sven had an idea, he thought it was a bit crazy at first so coded it mostly as an experiment, but it was such a super smart idea we just had to use it as soon as possible. Mind blowingly smart!
+About a month ago our amazing [Sven](http://twitter.com/svenfuchs) had an idea, he thought it was a bit crazy at first so coded it mostly as an experiment, but it was such a super smart idea we just had to use it as soon as possible. Mind blowingly smart!
 
 <figure class="small right">
   [ ![Spend 5 minutes with Sven and this is what happens to you!](http://www.reactiongifs.com/wp-content/uploads/2011/09/mind_blown.gif) ](http://www.reactiongifs.com/wp-content/uploads/2011/09/mind_blown.gif)
