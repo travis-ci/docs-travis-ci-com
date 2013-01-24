@@ -36,7 +36,7 @@ Fixing these issues have not been easy as there were three prime culprits, each 
   
   3. [net-ssh-shell](https://github.com/mitchellh/net-ssh-shell/)
 
-VirtualBox was definitly at fault for the VM explosions, that was easy, but it was also a possible candidate for the VM stalls as we postulated that it was interferring with the SSH connection causing it to hang, or that the [network card might be causing issues](https://github.com/mitchellh/vagrant/issues/391). 
+VirtualBox was definitely at fault for the VM explosions, that was easy, but it was also a possible candidate for the VM stalls as we postulated that it was interferring with the SSH connection causing it to hang, or that the [network card might be causing issues](https://github.com/mitchellh/vagrant/issues/391). 
 
 SSH was also a logical explanation as maybe the connection was flickering and (maybe) net-ssh was trying to be forgiving when it should have just exploded and raised connection errors.
 
@@ -60,7 +60,7 @@ About a month ago our amazing Sven had an idea, he thought it was a bit crazy at
   <figcaption>Spend 5 minutes with Sven and this is what happens to you!</figcaption>
 </figure>
 
-Instead of us running command after command using net-ssh-shell, why not create a shell script which includes all the commands we need to run, upload that to the VM, and then excute it? This means we now only need to run one command, capture the output and exit code, and all covered by the standard SSH spec. Even better, we now have a script you can run locally on a Linux or Mac machine to replicate exactly what we do!
+Instead of us running command after command using net-ssh-shell, we now create a shell script which includes all the commands we need to run, upload that to the VM, and then excute it! Boom! This means we now only need to run one command, capture the output and exit code, and all covered by the standard SSH spec. Even better, we now have a script you can run locally on a Linux or Mac machine to replicate exactly what we do!
 
 Welcome to the new Travis Build, which can be found on the [sf-compile-sh](https://github.com/travis-ci/travis-build/tree/sf-compile-sh) branch (for the meantime). You can read about it more [here](https://github.com/travis-ci/travis-build/pull/60), which also includes links to example build scripts we generate.
 
@@ -69,7 +69,7 @@ Welcome to the new Travis Build, which can be found on the [sf-compile-sh](https
 
 VirtualBox has got us very far. It was great for development, had some fantastic features like snapshots and immutable disk images, and had some great tools built around it like [vagrant](http://www.vagrantup.com/).
 
-As we grew from one worker box to our current 12, maintainence of the VMs became a pain. Updating a worker took up to an hour as each VM on the host had to be provisioned and primed for use. Also, because of how VirtualBox works, we had to plan for how many Ruby boxes we would run, or how many Perl/Python/PHP (PPP) or JVM boxes we needed. To make a long story short, we could not easily dynamically decide what builds a host box could or would run. 
+As we grew from one worker box to our current 24, maintenance of the VMs became a pain. Updating a worker took up to an hour as each VM on the host had to be provisioned and primed for use. Also, because of how VirtualBox works, we had to plan for how many Ruby boxes we would run, or how many Perl/Python/PHP (PPP) or JVM boxes we needed. To make a long story short, we could not easily dynamically decide what builds a host box could or would run. 
 
 And of course there are the API isuses and VirtualBox specific errors, like trying to shut down VMs which looked liked they were shutting down but were actually stuck. Initially we implemented a crud 'kill -9' trick which would detect this error and then, well, shell out and kill the VM process using it's process id, which  seemed to work for a while, but was not fool proof by any means. In fact, it was mearly a band aid around a more complicated issue of 'what does the future architecture of Travis look like?'
 
@@ -79,11 +79,11 @@ And don't worry [Travis Pro customers](http://about.travis-ci.org/blog/2012-10-2
 
 So what is this new setup you ask?
 
-We will save most of these details for a later blog post after we've ironed out some of the bugs, but we will be partnering with a server hosting provider in the states who will be running a private cloud for us. This private cloud, backed with SSDs, will allow us to offer the awesome users of Travis greater resource allocations (3gigs of ram, double what we currently offer), and we are also looking at offering users the ability to pick your VM type, like the ability to test on 32bit Ubuntu AS WELL AS 64bit.
+We will save most of these details for a later blog post after we've ironed out some of the bugs, but we will be partnering with a server hosting provider in the States who will be running a private cloud for us. This private cloud, backed with SSDs, will allow us to offer the awesome users of Travis greater resource allocations (3gigs of ram, double what we currently offer), and we are also looking at offering users the ability to pick your VM type, like the ability to test on 32bit Ubuntu AS WELL AS 64bit.
 
 This is a huge maintainence relief for us as we can now focus on Travis features instead of having to maintain servers. We also pledge to update VMs more often so you have the latest and greatest services available for you to test against!
 
-But wait, theres more!
+But wait, there's more!
 ----------------------
 
 While we were at it we decided to add two often requested features to this new code base, these being **an 'errored' build state**, and **better, more flexible time outs**.
@@ -100,7 +100,7 @@ The fine grained timeouts we've been using for the past year and a half were goo
 So where to from here?
 ----------------------
 
-Although we have made a lot of headway, we still have a long way to go. For example, starting a VM incurs a startup cost of around 30-40 seconds, sometimes greater depending on load. We need to prestart VMs and have them waiting in a pool. We also need to remove the notion of defined queues, eg. having 30 VMs for Ruby builds and 30 for PPP means if the Ruby queue is empty and the PPP queue is knee deep in jobs, why can't we use the Ruby VMs for the PPP queue?
+Although we have made a lot of headway, we still have a long way to go. For example, starting a VM incurs a startup cost of around 30-40 seconds, sometimes greater depending on load. We need to prestart VMs and have them waiting in a pool. We also need to remove the notion of defined queues, eg. having 30 VMs for Ruby builds and 30 for PPP means if the Ruby queue is empty and the PPP queue is knee deep in jobs, we should be dynamically allocating capacity where and when needed!
 
 So please be patient with us over the next couple of weeks as we roll out these changes and more. If you experience any issues please report them to our GitHub issues page on [travis-ci/travis-ci](https://github.com/travis-ci/travis-ci/issues?direction=desc&labels=feature-request&sort=updated&state=open). And, as always, free feel to drop by our IRC room (#travis on freenode) if you have any questions, comments, or advice :)
 
