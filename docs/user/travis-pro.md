@@ -50,7 +50,8 @@ that key into your .travis.yml. Here are the steps to take:
   Mac, you can run `base64 id_mustache_power | pbcopy` to copy the encoded
   version of the key to the clipboard
 * Add a new key to your main repositories .travis.yml file: `source_key: `. The
-  value of the key should be the encoded version of the SSH key.
+  value of the key should be the encoded version of the SSH key in double
+  quotes and on a single line
 
 Travis will automatically prefer the key specified in your .travis.yml over the
 deploy key for a repository, so all repositories you're pulling in for the build
