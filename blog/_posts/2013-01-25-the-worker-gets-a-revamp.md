@@ -12,7 +12,7 @@ Some big Travis changes in the mist
 
 **HAPPY FRIDAY!**
 
-For the past 6+ months I've been working hard on a bunch of changes related to how your tests are run. This includes everything from the stability of the VMs, to the services we install on the VMs, and, not forgetting, _how we run your test suite._
+For the past 6+ months we've been working hard on a bunch of changes related to how your tests are run. This includes everything from the stability of the VMs, to the services we install on the VMs, and, not forgetting, _how we run your test suite._
 
 Travis is broken up into various small apps, each with a very focused responsibility. One of these apps is called [Travis Worker](https://github.com/travis-ci/travis-worker) and its responsibility is to manage a virtual machine (VM), get a Job from our queue (using RabbitMQ), run the build/job, and report the logs chunks and final job state.
 
