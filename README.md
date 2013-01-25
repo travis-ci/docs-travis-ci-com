@@ -1,4 +1,4 @@
-# About that repository #
+# About this repository #
 
 This is the documentation site for Travis! (http://about.travis-ci.org)
 
