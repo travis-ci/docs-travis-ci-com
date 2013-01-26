@@ -86,14 +86,14 @@ You also have the possibility to customize the message that will be sent to the 
 
 You can interpolate the following variables:
 
-* *repository*: your GitHub repo URL.
-* *build_number*: build number.
-* *branch*: branch build name.
-* *commit*: shorten commit SHA
-* *author*: commit author name.
-* *message*: travis message to the build.
-* *compare_url*: commit change view URL.
-* *build_url*: URL of the build detail.
+* *repository*: your GitHub repo URL
+* *build_number*: build number
+* *branch*: branch build name
+* *commit*: shortened commit SHA
+* *author*: commit author name
+* *message*: travis message to the build
+* *compare_url*: commit change view URL
+* *build_url*: URL of the build detail
 
 If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
 
@@ -128,9 +128,9 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
       campfire: [subdomain]:[api token]@[room id]
 
 
-* *subdomain*: is your campfire subdomain (ie 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
+* *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
 * *api token*: is the token of the user you want to use to post the notifications.
-* *room id*: this is the room id not the name.
+* *room id*: this is the room id, not the name.
 
 You can also customise the notifications, like with IRC notifications:
 
@@ -162,8 +162,8 @@ Notifications can be sent to your HipChat chat rooms using the following format:
       hipchat: [api token]@[room name]
 
 
-* *api token*: is the token of the user you want to use to post the notifications.
-* *room name*: is the name of the room you want to notify.
+* *api token*: token of the user you want to use to post the notifications.
+* *room name*: name of the room you want to notify.
 
 ## Webhook notification
 
@@ -193,8 +193,8 @@ Just as with other notification types you can specify when webhook payloads will
 Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
 
 ### Authorization
-When Travis makes the POST request, a header named 'Authorization' is included.  It's value is the SHA2 hash of your
-GitHub username, the name of the repository, and your Travis token.  In python,
+When Travis makes the POST request, a header named 'Authorization' is included.  Its value is the SHA2 hash of your
+GitHub username, the name of the repository, and your Travis token.  In Python,
 
     from hashlib import sha256
     sha256('username/repository' + TRAVIS_TOKEN).hexdigest()

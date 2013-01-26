@@ -6,7 +6,7 @@ permalink: status-images/
 
 ### What This Guide Covers
 
-This guide covers build status images feature of Travis CI. Status images are part of the HTTP API that render build status information (passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to continuous integration page for the project and to demonstrate their commitment to good software development practices.
+This guide covers the build status images feature of Travis CI. Status images are part of the HTTP API that render build status information (passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to continuous integration page for the project and to demonstrate their commitment to good software development practices.
 
 We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
@@ -20,7 +20,7 @@ Only a HTTPS endpoint is provided, which is good as GitHub does not cache images
 
 ## Adding Status Images to README Files
 
-So, when using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
+When using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
     "!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
 
 Or if you're using markdown:

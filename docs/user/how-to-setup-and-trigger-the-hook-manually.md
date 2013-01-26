@@ -17,10 +17,10 @@ the service hooks page of a repository on GitHub. You'll find it in the
 respective "Admin" section.
 
 As the list is very long you will need to scroll down and after clicking on
-"Travis" scroll back up. You will be presented with a form with 3 fields:
+"Travis" scroll back up. You will be presented with a form with three fields:
 Domain, User, Token.
 
-You can leave the Domain empty. In the User field enter the github account you
+You can leave the Domain empty. In the User field enter the GitHub account you
 used to authenticate yourself on travis-ci.org. In the Token field paste the
 token as it is listed on the profile page on travis-ci.org.
 

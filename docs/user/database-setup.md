@@ -6,7 +6,7 @@ permalink: database-setup/
 
 ### What This Guide Covers
 
-This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/docs/user/ci-environment/) and what users & settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/docs/user/ci-environment/) and what users and settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
 ## Services (data stores, messaging brokers, etc) in the Travis CI Environment
 
@@ -26,11 +26,11 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * Kestrel
 * SQLite3
 
-All the aforementioned services use mostly stock default settings, however, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
+All the aforementioned services use mostly stock default settings. However, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
 
 ## Configure Your Projects to Use Services in Tests
 
-Here is how to configure your project to use databases in its tests. This assumes you have already visited [Build configuration](/docs/user/build-configuration/) documentation.
+Here is how to configure your project to use databases in its tests. This assumes you have already read the [Build configuration](/docs/user/build-configuration/) documentation.
 
 ### Enabling Services
 
@@ -105,7 +105,7 @@ in memory SQLite might be the best option.
 
 #### Ruby Projects
 
-For ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:
+For Ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:
 
     # Gemfile
     # for CRuby, Rubinius, including Windows and RubyInstaller
@@ -262,7 +262,7 @@ to your `.travis.yml`.
 ### Multiple database systems
 
 If your project's tests need to run multiple times using different databases, this can be configured on Travis CI using a technique
-with env variables. The technique  is just a convention and requires a `before_script` or `before_install` lines to work.
+with env variables. The technique is just a convention and requires a `before_script` or `before_install` line to work.
 
 #### Using ENV variables and before_script steps
 
@@ -270,7 +270,7 @@ Now you use the "DB" environment variable to specify the name of the database co
 
     $ DB=postgres [commands to run your tests]
 
-On Travis CI you want to create a matrix of 3 builds each having the `DB` variable exported with a different value, and for that you can use the "env" option:
+On Travis CI you want to create a matrix of three builds each having the `DB` variable exported with a different value, and for that you can use the "env" option:
 
     # .travis.yml
     env:
@@ -289,7 +289,7 @@ Then you can use those values in a `before_install` (or `before_script`) step or
 
 When doing this, please read and understand everything about the build matrix described in [Build configuration](/docs/user/build-configuration/).
 
-Note: **Travis CI does not have any special support for these variables**, it just creates 3 builds with different exported values. It is up to your
+Note: **Travis CI does not have any special support for these variables**, it just creates three builds with different exported values. It is up to your
 test suite or `before_install`/`before_script` steps to make use of them.
 
 For a real example, see [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).

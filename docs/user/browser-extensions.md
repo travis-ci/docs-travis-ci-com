@@ -14,4 +14,4 @@ permalink: browser-extensions/
 
 ### Opera
 
-[Travis CI Build Status Extension for Opera](https://addons.opera.com/en/extensions/details/travisgithub/) displays the build status icon next to the project name on GitHub project/user pages and provides button for monitoring build status of user-defined projects. It also shows build status of pull requests tested by the Travis Bot.
+[Travis CI Build Status Extension for Opera](https://addons.opera.com/en/extensions/details/travisgithub/) displays the build status icon next to the project name on GitHub project/user pages and provides button for monitoring build status of user-defined projects. It also shows the build status of pull requests tested by the Travis Bot.
