@@ -27,25 +27,25 @@ Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), da
 
 travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since then.
 
-As a free community service, Travis CI limits build duration to about 20 minutes. Because some larger codebases may take very long time to build,
-please take care to only use a reasonable amount of workers time.
+As a free community service, Travis CI limits build duration to about 20 minutes. Because some larger codebases may take a very long time to build,
+please take care to only use a reasonable amount of worker's time.
 
 
 ### Step one: Sign in
 
 To get started with Travis CI, sign in through GitHub OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
 
-GitHub will ask you for granting read- and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
+GitHub will ask you to grant read and write access. Travis CI needs write access for setting up service hooks for your repositories when you request it, but it won't touch anything else.
 
 ### Step two: Activate GitHub Service Hook
 
 Once you're signed in go to your [profile page](http://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if it is not already pre-filled.
 
-If your repository belongs to organization or flipping the switch did not set up the hook, please [set it up manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/) on GitHub, it will take just a couple of minutes.
+If your repository belongs to an organization or flipping the switch did not set up the hook, please [set it up manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/) on GitHub. It will take just a couple of minutes.
 
 ###  Step three: Add .travis.yml file to your repository
 
-In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick: Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
+In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick. Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
 
 If `.travis.yml` is not in the repository, is misspelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume Ruby as the language and use default values for everything.
 
@@ -221,7 +221,7 @@ Learn more about [.travis.yml options for Scala projects](/docs/user/languages/s
 
 #### Validate Your .travis.yml
 
-We recommend you to use [travis-lint](http://github.com/travis-ci/travis-lint) (command-line tool) or [.travis.yml validation Web app](http://lint.travis-ci.org) to validate your `.travis.yml` file.
+We recommend you use [travis-lint](http://github.com/travis-ci/travis-lint) (command-line tool) or [.travis.yml validation Web app](http://lint.travis-ci.org) to validate your `.travis.yml` file.
 
 `travis-lint` requires Ruby 1.8.7+ and RubyGems installed. Get it with
 
@@ -237,9 +237,9 @@ and run it on your `.travis.yml`:
 
 `travis-lint` will check things like
 
-* That `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
-* That `language` key is present
-* That runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/docs/user/ci-environment/)
+* The `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
+* The `language` key is present
+* The runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/docs/user/ci-environment/)
 * That you are not using deprecated features or runtime aliases
 
 and so on. `travis-lint` is your friend, use it.
@@ -252,7 +252,7 @@ To start a build you can either commit and push something to your repository, or
 
 ### Step five: Tweaking your build configuration
 
-Chances are, your project requires some customization to the build process: maybe you need to create a database before running your tests or you use build tools different from what Travis defaults are. Worry not: Travis lets you override almost everything. See [Build Configuration](/docs/user/build-configuration/) to learn more.
+Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis defaults are. Worry not. Travis lets you override almost everything. See [Build Configuration](/docs/user/build-configuration/) to learn more.
 
 After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run `travis-lint` to validate it.
 

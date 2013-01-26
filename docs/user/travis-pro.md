@@ -29,7 +29,7 @@ dependent repositories, e.g. from your Gemfile or for your Composer setup. The
 key can only be assigned to the single repository and not be reused throughout
 all of GitHub.
 
-If you need to pull in git submodules or dependent repositories, that's still
+If you need to pull in Git submodules or dependent repositories, that's still
 easy to achieve, though. You can either specify the dependencies using GitHub's
 https URL scheme, which can include username and password, e.g.
 `https://user:password@github.com/organization/repo.git`. Ideally the user is a
@@ -43,29 +43,29 @@ instance your Gemfile, you add an SSH key specifically for this user and put
 that key into your .travis.yml. Here are the steps to take:
 
 * Create a user and add it to your organization, give it pull permission to the
-  relevant repositories
-* Create an SSH key for the user: `ssh-keygen -f id_mustache_power`
-* Add the SSH key to the user on GitHub
+  relevant repositories.
+* Create an SSH key for the user: `ssh-keygen -f id_mustache_power`.
+* Add the SSH key to the user on GitHub.
 * Add a Base64-encoded version of the private key to your .travis.yml. On the
   Mac, you can run `base64 id_mustache_power | pbcopy` to copy the encoded
-  version of the key to the clipboard
-* Add a new key to your main repositories .travis.yml file: `source_key: `. The
+  version of the key to the clipboard.
+* Add a new key to your main repositories' .travis.yml file: `source_key: `. The
   value of the key should be the encoded version of the SSH key in double
-  quotes and on a single line
+  quotes and on a single line.
 
 Travis will automatically prefer the key specified in your .travis.yml over the
 deploy key for a repository, so all repositories you're pulling in for the build
 to succeed automatically use this key.
 
-__Note__: this only works on [Travis Pro](http://travis-ci.com), the open source
+__Note__: This only works on [Travis Pro](http://travis-ci.com), the open source
 version of [Travis CI](http://travis-ci.org) doesn't support private
 repositories.
 
 ##### Technicalities
 
-These steps are necessary due to the way git and the underlying transport SSH
-authenticate with a remote service. When you e.g. specify more than one key that
-you want SSH to use, it will still use the first one that authenticates
+These steps are necessary due to the way Git and the underlying transport SSH
+authenticate with a remote service. For example, when you specify more than one 
+key that you want SSH to use, it will still use the first one that authenticates
 successfully. After authentication, GitHub checks if this key is authorized to
 access the repository requested. Given that you rely on SSH to use the second
 key you have configured (e.g. by adding it to an ssh-agent), it will fail
@@ -93,13 +93,13 @@ access to this kind of data.
 
 While we're working on a solution that allows you to encrypt sensitive data as
 environment variables, there's a simple trick you can deploy on Travis Pro in
-the meantime. [Luke Patterson](https://twitter.com/lukewpatterson/) came up with
+the meantime. [Luke Patterson](https://twitter.com/lukewpatterson) came up with
 this little trick, thanks for sharing it!
 
 It utilizes the private key we generate for each repository so we can clone the
 code on our build machines. That key is kept on Travis' end only, so no external
 party has access to it. What you do have access to is the public key on GitHub.
-You can download that public key and e.g. make it part of your project to keep
+You can download that public key and make it part of your project to keep
 it around. Due to the nature of asymmetric key cryptography, though, the file
 needs to be encrypted with a symmetric key (e.g. using AES 256), and then the
 secret used to encrypt that file is encrypted using the public key.
@@ -110,7 +110,7 @@ private key that we already store on the machine.
 
 Below are the steps required to encrypt and decrypt data.
 
-* Download the key from GitHub and store it in a file. e.g. `id_travis.pub`.
+* Download the key from GitHub and store it in a file. E.g. `id_travis.pub`.
   Unfortunately, you can't get the public key from the user interface, but you
   can fetch it via the API:
   `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys`
@@ -137,8 +137,8 @@ output:
         - openssl aes-256-cbc -k "$secret" -in config.xml.enc -d -a -out config.xml
 
 It must be noted that this scenario is still not perfectly secure. While it
-prevents collaborators on projects to be able to access sensitive data on a
-daily basis. But a malicious collaborator could for example tamper with the
+prevents project collaborators being able to access sensitive data on a
+daily basis, a malicious collaborator could tamper with the
 build scripts to output the sensitive data to your build log. The upshot is that
 you'll know who's responsible for this from the commit history.
 
@@ -154,7 +154,7 @@ scheme outlined above. Instead of encrypting a config.xml, you encrypt a
 `id_private` key and store it in your repository together with the secret.
 
 Then you replace the SSH key currently registered with the SSH agent running on
-the virtual machine with this new key in your .travis.yml. Below is are the
+the virtual machine with this new key in your .travis.yml. Below are the
 additional steps that need to be added to a `before_install` or `before_script`
 step:
 
@@ -166,7 +166,7 @@ step:
       - ssh-add ./id_private
 
 This way, the deploy key is never exposed to parties you don't want it exposed
-to. The same note as with the encryption scheme applies here too, though: when a
+to. The same note as with the encryption scheme applies here too: when a
 malicious party tampers with your build script, the key could still be exposed.
 
 It also must be noted that subsequent accesses to the original processes, should

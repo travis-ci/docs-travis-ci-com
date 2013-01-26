@@ -10,7 +10,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 ## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
 
-You can run test suites that require GUI (like a Web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or Web browser on a headless machine, as if a proper display were attached.
+You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
 
 Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_install`, like this:
 
@@ -35,9 +35,9 @@ See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more inform
 
 ## Starting a Web Server
 
-If your project requires a Web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based Web servers
+If your project requires a web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based web servers
 that serve HTML pages used to run test suites. Because every travis-ci.org VM provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
-3 options.
+three options.
 
 Add a `before_script` to start a server, for example:
 
@@ -48,8 +48,7 @@ Add a `before_script` to start a server, for example:
       - rackup  # start a Web server
       - sleep 3 # give Web server some time to bind to sockets, etc
 
-If you need Web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports > 1024, using `sudo`
-is not necessary (and not recommended).
+If you need web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports greater than 1024, using `sudo` is not necessary (and not recommended).
 
 
 
@@ -57,7 +56,7 @@ is not necessary (and not recommended).
 
 [PhantomJS](http://www.phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/docs/user/ci-environment/) provides PhantomJS preinstalled (available in PATH as `phantomjs`; don't rely on the exact location). Since it is completely headless, there is no need run `xvfb`.
+[CI environment](/docs/user/ci-environment/) provides PhantomJS pre-installed (available in PATH as `phantomjs`; don't rely on the exact location). Since it is completely headless, there is no need run `xvfb`.
 
 A very simple example:
 
@@ -69,7 +68,7 @@ If you need a web server to serve the tests, see the previous section.
 
 ### Real World Projects
 
- * [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts Web server programmatically)
+ * [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts web server programmatically)
 
 
 ### Ruby

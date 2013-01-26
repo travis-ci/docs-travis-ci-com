@@ -18,7 +18,7 @@ notifications](/docs/user/notifications/) and [language-specific guides](/docs).
 
 Travis CI uses `.travis.yml` file in the root of your repository to learn about
 your project and how you want your builds to be executed. `.travis.yml` can be
-very minimalistic or have a lot of customization in it. A few example of what
+very minimalistic or have a lot of customization in it. A few examples of what
 kind of information your `.travis.yml` file may have:
 
 * What programming language your project uses
@@ -96,7 +96,8 @@ Both settings support multiple scripts, too:
       - after_command_1
       - after_command_2
 
-These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see [Database setup](/docs/user/database-setup/).
+These scripts can, for example, be used to setup databases or other build setup tasks. 
+For more information about database setup see [Database setup](/docs/user/database-setup/).
 
 ### install
 
@@ -128,7 +129,7 @@ you can install packages via apt and even use 3rd-party apt repositories and PPA
 
 ### Updating Git Submodules
 
-If your project uses git submodules, use the following technique to clone them before dependencies installation:
+If your project uses Git submodules, use the following technique to clone them before dependencies installation:
 
     before_install:
       - git submodule update --init --recursive
@@ -138,7 +139,7 @@ This will include nested submodules (submodules of submodules), in case there ar
 
 ### Use Public URLs For Submodules
 
-If your project uses git submodules, make sure you use public git URLs. For example, for GitHub instead of
+If your project uses Git submodules, make sure you use public Git URLs. For example, on GitHub, instead of
 
     git@github.com:someuser/somelibrary.git
 
@@ -150,7 +151,7 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## Choose runtime (Ruby, PHP, Node.js, etc) versions
 
-One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that vary between languages. Here are some basic **.travis.yml** examples for various languages:
+One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies between languages. Here are some basic **.travis.yml** examples for various languages:
 
 ### Clojure
 
@@ -161,7 +162,7 @@ Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and Ope
 
 If you are interested in testing against multiple Clojure releases, just use these Leiningen features and it will work without special support on the Travis side.
 
-Learn more in our [Clojure guide](/docs/user/languages/clojure/)
+Learn more in our [Clojure guide](/docs/user/languages/clojure/).
 
 ### Erlang
 
@@ -172,19 +173,19 @@ Erlang projects specify releases they need to be tested against using `otp_relea
       - R14B04
       - R15B01
 
-Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/)
+Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/).
 
 ### Groovy
 
-Currently Groovy projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
+Groovy projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
-Learn more in our [Groovy guide](/docs/user/languages/groovy/)
+Learn more in our [Groovy guide](/docs/user/languages/groovy/).
 
 ### Java
 
-Currently Java projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
+Java projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
-Learn more in our [Java guide](/docs/user/languages/java/)
+Learn more in our [Java guide](/docs/user/languages/java/).
 
 
 ### Node.js
@@ -195,7 +196,7 @@ Node.js projects specify releases they need to be tested against using `node_js`
        - 0.4
        - 0.6
 
-Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
+Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/).
 
 ### Perl
 
@@ -205,7 +206,7 @@ Perl projects specify Perls they need to be tested against using `perl` key:
       - "5.14"
       - "5.12"
 
-Learn more about [.travis.yml options for Perl projects](/docs/user/languages/perl/)
+Learn more about [.travis.yml options for Perl projects](/docs/user/languages/perl/).
 
 ### PHP
 
@@ -215,7 +216,7 @@ PHP projects specify releases they need to be tested against using `php` key:
       - "5.4"
       - "5.3"
 
-Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/)
+Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/).
 
 ### Python
 
@@ -226,7 +227,7 @@ Python projects specify Python versions they need to be tested against using `py
       - "2.6"
       - "3.2"
 
-Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/)
+Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/).
 
 ### Ruby
 
@@ -240,7 +241,7 @@ Ruby projects specify releases they need to be tested against using `rvm` key:
       - jruby-18mode
       - "1.8.7"
 
-Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/)
+Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/).
 
 ### Scala
 
@@ -252,7 +253,7 @@ Scala projects specify releases they need to be tested against using `scala` key
 
 Travis CI relies on SBT's support for running tests against multiple Scala versions.
 
-Learn more in our [Scala guide](/docs/user/languages/scala/)
+Learn more in our [Scala guide](/docs/user/languages/scala/).
 
 ## Set environment variables
 
@@ -278,7 +279,7 @@ With this configuration, **4 individual builds** will be triggered:
 3. Rubinius in 1.8 mode with `FOO=foo` and `BAR=bar`
 4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
 
-Note that environment variable values may need quoting, for example, if they have asterisks (`*`) in them:
+Note that environment variable values may need quoting. For example, if they have asterisks (`*`) in them:
 
     env:
       - PACKAGE_VERSION="1.0.*"
@@ -411,7 +412,7 @@ dependency together with the latest version of the runtime.
 
 ### Environment variables
 
-Sometimes you may want to use env variables that are global to the matrix, ie. they're inserted into each matrix row. That may include keys, tokens, uris or other data that is needed for every build. In such case, instead of manually adding such keys to each env line in matrix, you can use `global` and `matrix` keys to differentiate between those two cases. For example:
+Sometimes you may want to use env variables that are global to the matrix, i.e. they're inserted into each matrix row. That may include keys, tokens, URIs or other data that is needed for every build. In such cases, instead of manually adding such keys to each env line in matrix, you can use `global` and `matrix` keys to differentiate between those two cases. For example:
 
     env:
       global:
@@ -445,13 +446,13 @@ You can encrypt environment variables using public key attached to your reposito
     cd my_project
     travis encrypt MY_SECRET_ENV=super_secret
 
-Please note that secure env variables are not available for pull requests. This is done due to security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
+Please note that secure env variables are not available for pull requests. This is done due to the security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
 
 You can also automatically add it to your `.travis.yml`:
 
     travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
 
-To make the usage of secure environment variables easier, we expose an info on their availability and info about the type of this build:
+To make the usage of secure environment variables easier, we expose info on their availability and info about the type of this build:
 
 * `TRAVIS_SECURE_ENV_VARS` is set to "true" or "false" depending on the availability of environment variables
 * `TRAVIS_PULL_REQUEST` is set to "true" or "false" depending on this build being pull request or not

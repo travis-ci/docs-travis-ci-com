@@ -32,15 +32,13 @@ Provisioning of VMs is automated using [Opscode Chef](http://www.opscode.com/che
 
 ### Git, etc
 
-All VM images have
+All VM images have the following pre-installed
 
  * A (very) recent Git release from the [Peter van der Does' Git PPA](https://launchpad.net/~pdoes/+archive/ppa)
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
-preinstalled.
-
-
+ 
 ### Compilers & Built toolchain
 
 GCC 4.6.x, Clang 3.1.x, make, autotools, cmake, scons.
