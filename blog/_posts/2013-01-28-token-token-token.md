@@ -28,7 +28,7 @@ With an access token you can, amongst other things:
 * Enable/disable a repository.
 * Anything else [our web interface](https://travis-ci.org) can do (except for billing on [Pro](http://travis-ci.com)).
 
-You can append an access token to an API call via `?access_token=...` or an `Authorization: token ...` header.
+You can add an access token to an API call by appending `?access_token=...` to the URL or via an `Authorization: token ...` header.
 
 ## Travis Token
 
