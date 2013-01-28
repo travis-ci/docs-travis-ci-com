@@ -11,7 +11,7 @@ At Travis CI, when we say "token", we can mean different things. So I thought I'
 
 ## GitHub Token
 
-This is pretty straight forward and should usually not bother you unless you want to leave Travis CI. When you sign in on Travis, we redirect you to GitHub, where you're asked to grant us [limited access](blog/2013-01-08-new-github-scope) to your account. This will give use a token, which we store internally.
+This is pretty straight forward and should usually not bother you unless you want to leave Travis CI. When you sign in on Travis, we redirect you to GitHub, where you're asked to grant us [limited access](/blog/2013-01-08-new-github-scope) to your account. This will give use a token, which we store internally.
 
 You can also use any other GitHub token to [prove that you are you](https://api.travis-ci.org/docs/#POST%20/auth/github). In that case, Travis will not store the token. Our [command line client](https://github.com/travis-ci/travis) for instance uses this with a temporary token for authentication.
 
