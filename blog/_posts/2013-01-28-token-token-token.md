@@ -19,7 +19,7 @@ You can revoke this token any time via your [GitHub account settings](https://gi
 
 ## Access Token
 
-Access tokens are used to interact with the Travis API. This mechanism is used by both our web and our command line client. These tokens are quite powerful, as you can imagine. Giving someone an access token for your account is like giving them access to your Travis account. Which is why you wouldn't give away such a token.
+Access tokens are used to interact with the Travis API. This mechanism is used by both our web and our command line client. These tokens are quite powerful, as you can imagine. Giving someone an access token is like giving them full access to your Travis account. Which is why you wouldn't give away such a token.
 
 With an access token you can, amongst other things:
 
