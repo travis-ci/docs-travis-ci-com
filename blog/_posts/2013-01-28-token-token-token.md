@@ -36,7 +36,7 @@ Last but not least, the "Travis Token". There are times where you need a token t
 
 With a travis token you can:
 
-* Manually set up a service hook on GitHub, if you have admin access to the repository.
+* Manually set up a service hook on GitHub, if you have admin access to the repository (although this is something we discourage).
 * Display the status image for a private repository.
 * Access the `cc.xml` of a private repository (for [CCMenu](http://ccmenu.sourceforge.net/)/[CCTray](http://confluence.public.thoughtworks.org/display/CCNET/CCTray)).
 
