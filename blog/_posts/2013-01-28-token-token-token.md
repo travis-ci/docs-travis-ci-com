@@ -38,7 +38,7 @@ With a travis token you can:
 
 * Manually set up a service hook on GitHub, if you have admin access to the repository.
 * Display the status image for a private repository.
-* Access the cc.xml of a private repository (for [CCMenu](http://ccmenu.sourceforge.net/)/[CCTray](http://confluence.public.thoughtworks.org/display/CCNET/CCTray)).
+* Access the `cc.xml` of a private repository (for [CCMenu](http://ccmenu.sourceforge.net/)/[CCTray](http://confluence.public.thoughtworks.org/display/CCNET/CCTray)).
 
 You can append a travis token via `?token=...` to a normal request. If your repository is at `travis-ci.com/my/private_repo` you can for instance access the `cc.xml` under `travis-ci.com/my/private_repo/cc.xml?token=...`.
 
