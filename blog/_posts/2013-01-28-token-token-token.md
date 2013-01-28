@@ -26,7 +26,7 @@ With an access token you can, amongst other things:
 * See log output for private repositories.
 * Restart a build.
 * Enable/disable a repository.
-* Anything else the [our web interface](https://travis-ci.org) can do (except for billing on [Pro](http://travis-ci.com)).
+* Anything else [our web interface](https://travis-ci.org) can do (except for billing on [Pro](http://travis-ci.com)).
 
 You can append an access token to an API call via `?access_token=...` or an `Authorization: token ...` header.
 
