@@ -20,7 +20,7 @@ The immediate benefit to you, our customer, is that these images are running on
 **64-bit systems** and that we're effectively doubling the amount of available
 memory. You'll now have **3 GB memory** available.
 
-#### Improved and Much Stabler Build System
+#### Improved and Much More Stable Build System
 
 Along the way, we've **revamped our build system** to be a lot stabler and much
 less prone to timeouts, stalls, even including improved error detection. You can
