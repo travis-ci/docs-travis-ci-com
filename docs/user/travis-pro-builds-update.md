@@ -39,7 +39,7 @@ everyone, we want to gradually move over customers.
 If you would like to be one of the first to try it out, please [get in
 touch](mailto:support@travis-ci.com) and let us know, and we'll make it happen!
 
-We'll beta-testing this setup for a little while longer, eventually switching
+We'll be beta-testing this setup for a little while longer, eventually switching
 over everyone soon.
 
 Meanwhile, we're working on rolling out the same new build system to the current
