@@ -40,7 +40,8 @@ If you would like to be one of the first to try it out, please [get in
 touch](mailto:support@travis-ci.com) and let us know, and we'll make it happen!
 
 We'll be beta-testing this setup for a little while longer, eventually switching
-over everyone soon.
+over everyone soon. If you run into a build oddity, please [shoot us an
+email](mailto:support@travis-ci.com)!
 
 Meanwhile, we're working on rolling out the same new build system to the current
 VirtualBox setup, so that even if they will still be running for a while, the
