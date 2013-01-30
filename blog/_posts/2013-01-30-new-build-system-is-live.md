@@ -10,7 +10,7 @@ As of today, all of Travis CI, both for open source and private projects, is
 running on our new build system!
 
 This is good news, as we've outlined recently, as this new build system and the
-way it's now used is a lot stabler compared to our old one. You can read up on
+way it's now used is a lot more stable compared to our old one. You can read up on
 all the details in [last week's blog
 post](http://about.travis-ci.org/blog/2013-01-25-the-worker-gets-a-revamp/).
 
