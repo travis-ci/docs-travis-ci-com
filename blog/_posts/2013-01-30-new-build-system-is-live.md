@@ -25,3 +25,6 @@ better now.
 We've been ironing out some bugs since then, and we're still working on fixing
 any remaining glitches. So if you find something that's odd or suddenly
 different, [please report it](mailto:support@travis-ci.com)!
+
+We have more awesome things in the works to improve the build environment. Stay
+tuned for the next announcement!
