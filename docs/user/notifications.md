@@ -95,6 +95,15 @@ You can interpolate the following variables:
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
+The default template is:
+
+    notifications:
+      irc:
+        template:
+          - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+          - "Change view : %{compare_url}"
+          - "Build details : %{build_url}"
+
 If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
 
     notifications:
