@@ -1,5 +1,5 @@
 ---
-title: Post-Mortem: Build Outage and Security Advisory
+title: "Post-Mortem: Build Outage and Security Advisory"
 author: Mathias Meyer
 twitter: roidrage
 created_at: Thu Jan 31 2013 13:00:00 CET
