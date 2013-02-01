@@ -45,7 +45,7 @@ One of the biggest changes with every distro release is GCC version changes. 11.
 ### OpenSSL
 
 Another important change OpenSSL version. 11.10 ships with OpenSSL 1.0 by default, but even more importantly,
-disables SSLv2 support. SSLv2 is very old (released in [1995](http://youtu.be/N6voHeEa3ig)), there were 4 updates to the spec after it: SSL 3.0, TLS 1.0, TLS 1.1 and TLS 1.2. In addition to that, SSLv2 contains several known [security flaws](http://en.wikipedia.org/wiki/Secure_Socket_Layer#cite_note-5)
+disables SSLv2 support. SSLv2 is very old (released in [1995](http://www.youtube.com/watch?v=N6voHeEa3ig)), there were four updates to the spec after it: SSL 3.0, TLS 1.0, TLS 1.1 and TLS 1.2. In addition to that, SSLv2 contains several known [security flaws](http://en.wikipedia.org/wiki/Secure_Socket_Layer#cite_note-5)
 and all new distributions either already dropped support for it or will be dropping it very soon.
 
 

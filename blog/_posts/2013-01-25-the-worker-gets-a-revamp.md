@@ -15,8 +15,7 @@ Travis is broken up into various small apps, each with a very focused responsibi
 
 This might sound like a big responsibilty, and it is, but there is another piece to the worker puzzle, and that is Travis Build. [Travis Build](https://github.com/travis-ci/travis-build)'s responsibility is to know how to run a build for a particular language. For example, a Ruby project uses [Bundler](http://gembundler.com/) for dependency management, while Node uses [npm](https://npmjs.org/). And of course, these defaults are configurable and overridable.
 
-Timeouts and Stalls
--------------------
+### Timeouts and Stalls
 
 As much as we love Travis Worker and Travis Build, things aren't always pain free. If you've been using Travis for any period of time you would have possibly come across two annoying bugs, the dreaded [VMFatalError](https://travis-ci.org/westoque/phantomjs.rb/builds/3614255), and the [stalled job](https://travis-ci.org/rootpy/rootpy/jobs/3606285/#L31) (which also includes false timeouts). These issues are an awful and frustrating experience for our users, and no easier for us. I would go as far to say that every time a VM explodes or a timeout fails a test incorrectly, a German looses his lederhosen.
 
@@ -45,8 +44,7 @@ This has worked great, but it's also a bit of a hack which isn't 100% realibale.
 
 At the end of the day there is no single reason we can pinpoint and be sure of when it comes to false timeouts, it is highly likely a mixture of technologies and libraries used contributes to the problem, and it is highly likely componded by Travis code.
 
-So what have we been doing about it?
-------------------------------------
+### So what have we been doing about it?
 
 **How we run your tests**
 
@@ -64,11 +62,11 @@ Welcome to the new Travis Build, which can be found on the [sf-compile-sh](https
 
 **What we run your tests on**
 
-VirtualBox has got us very far. It was great for development, had some fantastic features like snapshots and immutable disk images, and had some great tools built around it like [Vagrant](http://www.vagrantup.com/).
+VirtualBox has gotten us very far. It was great for development, had some fantastic features like snapshots and immutable disk images, and had some great tools built around it like [Vagrant](http://www.vagrantup.com/).
 
 As we grew from one worker box to our current 24, maintenance of the VMs became a pain. Updating a worker took up to an hour as each VM on the host had to be provisioned and primed for use. Also, because of how VirtualBox works, we had to plan for how many Ruby boxes we would run, or how many Perl/Python/PHP (PPP) or JVM boxes we needed. To make a long story short, we could not easily dynamically decide what builds a host box could or would run. 
 
-And of course there are the API isuses and VirtualBox specific errors, like trying to shut down VMs which looked liked they were shutting down but were actually stuck. Initially we implemented a crude 'kill -9' trick which would detect this error and then, well, shell out and kill the VM process using it's process id, which  seemed to work for a while, but was not fool proof by any means. In fact, it was mearly a band aid around a more complicated issue of 'what does the future architecture of Travis look like?'
+And of course there are the API isuses and VirtualBox specific errors, like trying to shut down VMs which looked liked they were shutting down but were actually stuck. Initially we implemented a crude 'kill -9' trick which would detect this error and then, well, shell out and kill the VM process using its process id, which seemed to work for a while, but was not fool proof by any means. In fact, it was merely a band aid around a more complicated issue of 'what does the future architecture of Travis look like?'
 
 The great thing is we finally have the answer to this question, and are very happy to say we now know what our next-gen architecture will look like. In fact, we have been testing it with the Rails and Spree queues, and since a week ago, the JVM queue. And over the next week or two we will be moving all queues to this new setup.
 
@@ -80,8 +78,7 @@ We will save most of these details for a later blog post after we've ironed out 
 
 This is a huge maintenance relief for us as we can now focus on Travis features instead of having to maintain servers. We also pledge to update VMs more often so you have the latest and greatest services available for you to test against!
 
-But wait, there's more!
-----------------------
+### But wait, there's more!
 
 While we were at it we decided to add two often requested features to this new code base, these being **an 'errored' build state**, and **better, more flexible time outs**.
 
@@ -92,12 +89,11 @@ From now on, if any command before your actual tests are run fails we will mark 
   <figcaption>Errors in Pull Requests!</figcaption>
 </figure>
 
-The fine grained timeouts we've been using for the past year and a half were good, but they became restrictive for some. Restricting how long your app spends installing dependecies is annoying, especially when your test run might only take a fraction of the time. Instead we are now moving to a global 50 minute job timeout, and if no log output has been received in 5 minutes then we cancel the job. Why 5 minutes you say? We have found that not having log output from a job run points towards either a stalled test suite, or stalled process. A good example of this is some jobs start a background webserver but sometimes forget to stop it, causing the job to sit and wait. And of course, we mark these timeouts as errors as well!
+The fine grained timeouts we've been using for the past year and a half were good, but they became restrictive for some. Restricting how long your app spends installing dependecies is annoying, especially when your test run might only take a fraction of the time. Instead we are now moving to a global 50 minute job timeout, and if no log output has been received in five minutes then we cancel the job. Why five minutes you say? We have found that not having log output from a job run points towards either a stalled test suite, or stalled process. A good example of this is some jobs start a background webserver but sometimes forget to stop it, causing the job to sit and wait. And of course, we mark these timeouts as errors as well!
 
-So where to from here?
-----------------------
+### So where to from here?
 
-Although we have made a lot of headway, we still have a long way to go. For example, starting a VM incurs a startup cost of around 30-40 seconds, sometimes greater depending on load. We need to prestart VMs and have them waiting in a pool. We also need to remove the notion of defined queues, eg. having 30 VMs for Ruby builds and 30 for PPP means if the Ruby queue is empty and the PPP queue is knee deep in jobs, we should be dynamically allocating capacity where and when needed!
+Although we have made a lot of headway, we still have a long way to go. For example, starting a VM incurs a startup cost of around 30-40 seconds, sometimes greater depending on load. We need to prestart VMs and have them waiting in a pool. We also need to remove the notion of defined queues, e.g. having 30 VMs for Ruby builds and 30 for PPP means if the Ruby queue is empty and the PPP queue is knee deep in jobs, we should be dynamically allocating capacity where and when needed!
 
 So please be patient with us over the next couple of weeks as we roll out these changes and more. If you experience any issues please report them to our GitHub issues page on [travis-ci/travis-ci](https://github.com/travis-ci/travis-ci/issues?direction=desc&labels=feature-request&sort=updated&state=open). And, as always, free feel to drop by our IRC room (#travis on freenode) if you have any questions, comments, or advice :)
 

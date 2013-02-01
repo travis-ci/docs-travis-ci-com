@@ -10,7 +10,7 @@ twitter: michaelklishin
 Travis CI was designed to be an awesome testing service for anyone and everyone. With over 16,000 projects
 on Travis to date, it is not uncommon to see people pushing the boundaries and building projects Travis CI does not have native support for.
 
-Over time we notice that some languages gain enough traction on Travis that it makes sense to provide some sugar so that configuration and setup becomes as simple as counting to three. From fairly early on
+Over time we noticed that some languages gain enough traction on Travis that it makes sense to provide some sugar so that configuration and setup becomes as simple as counting to three. From fairly early on
 we've seen C and C++ projects being built and tested on Travis, as well as a surge of Go projects as of late. 
 
 Today we are happy to announce first class support for C, C++ and Go projects.

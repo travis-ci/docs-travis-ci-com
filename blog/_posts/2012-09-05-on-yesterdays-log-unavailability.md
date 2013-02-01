@@ -34,7 +34,7 @@ hour.
 Here's a graph outlining what happened in the log processing and how things
 evolved when we finally found and fixed the issue:
 
-![](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120906-130435.png)
+![log processing graph](http://s3itch.paperplanes.de/Metric_%E2%80%93_Librato_Metrics-20120906-130435.png)
 
 For most of the day, processing got stuck at around 700 messages per minute.
 Given that we get a few hundred more than that every minute, backed-up queues
@@ -63,7 +63,7 @@ jobs with a lot of log output can still clog up a single processor thread's
 queue.
 
 We weren't sure if this would affect our database load at all, but luckily, even
-with 9 threads, there was no noteworthy increase in database response time.
+with nine threads, there was no noteworthy increase in database response time.
 Thanks to our graphs in [Librato Metrics](http://metrics.librato.com), we could
 keep a close eye on any variance in the mean and 95th percentile.
 
@@ -71,11 +71,11 @@ keep a close eye on any variance in the mean and 95th percentile.
 
 We've been thinking a lot about how we can improve the processing of logs in
 general. Currently, the entire log is stored in one field in the database,
-constantly being updated. That has the downside, that on every update, the
-column has to be read to be updated again, in the worst case.
+constantly being updated. The downside is that on every update, in the worst 
+case, the column has to be read to be updated again.
 
 To avoid that, we'll be splitting up the logs into chunks and store only these
-chunks. Every messages gets timestamped and a chunk identifier based on the
+chunks. Every message gets timestamped and a chunk identifier based on the
 position in the log. Based on that information, we can reassemble the logs
 from all chunks to display in the user interface while the build is running.
 

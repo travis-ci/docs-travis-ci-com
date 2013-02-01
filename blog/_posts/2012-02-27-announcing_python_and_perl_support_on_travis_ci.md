@@ -9,11 +9,11 @@ Just shy of a week ago we announced support for Java, Scala, and Groovy. Well, w
 
 Today we are happy to announce first class support for Python and Perl projects!
 
-Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn't, but that both languages were sought after by their respective communities and complete the quest for the three P's (PHP, Perl, and Python).
+Adding support for Perl and Python was a no brainer for us, not that it was easy, because it wasn't, but that both languages were sought after by their respective communities and completes the quest for the three P's (PHP, Perl, and Python).
 
-Perl, which has been around since 1987 (Genesis ["Land Of Confusion"](http://www.youtube.com/watch?v=1pkVLqSaahk))and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.
+Perl, which has been around since 1987 (Genesis ["Land Of Confusion"](http://www.youtube.com/watch?v=1pkVLqSaahk)) and has a toolset just as strong and mature as its community. For example, the Perl community has had a variation of Travis for the last 10 years called CPANTesters, with the difference being that CPANTesters tests releases while we test active development.
 
-Python, around since the early 90's (think MC Hammer ["Too Legit to Quit"](http://youtu.be/_UJaLq4YOo0), 1991), and in fact it's OLDER than Java! It is used for pretty much EVERYTHING you can think of, from research at CERN, to build website (YouTube and DISQUS), scripting for Games (Battlefield 2), and scripting for Graphics programs (Autodesk Maya, GIMP, Panda3D and Blender to name a few). Pretty much, you have used Python and you didn't even know it!
+Python, around since the early 90's (think MC Hammer ["Too Legit to Quit"](http://youtu.be/_UJaLq4YOo0), 1991), and in fact it's OLDER than Java! It is used for pretty much EVERYTHING you can think of, from research at CERN, building websites (YouTube and DISQUS), scripting for Games (Battlefield 2), and scripting for Graphics programs (Autodesk Maya, GIMP, Panda3D and Blender to name a few). You may have used Python and didn't even know it!
 
 ## Wait, What Is Travis CI Anyway?
 
@@ -21,7 +21,7 @@ Python, around since the early 90's (think MC Hammer ["Too Legit to Quit"](http:
 
 You can watch build logs in near-real time in your browser, access logs later, and even link to log line numbers (for example, when reporting an issue).
 
-Thanks to Github integration, Travis CI lets your contributors effortlessly add their development forks to test work-in-progress branches and makes your CI status very visible to the community thanks to our [CI badges](http://about.travis-ci.org/docs/user/status-images/).
+Thanks to GitHub integration, Travis CI lets your contributors effortlessly add their development forks to test work-in-progress branches and makes your CI status very visible to the community thanks to our [CI badges](http://about.travis-ci.org/docs/user/status-images/).
 
 Started in early 2011, Travis CI has since run half a million builds for over 6,000 open source projects, including Ruby, Ruby on Rails, RubyGems, Node.js, Leiningen, Symfony and many more.
 
@@ -29,7 +29,7 @@ Started in early 2011, Travis CI has since run half a million builds for over 6,
 ## Getting Your Python Project on Travis CI
 
 Travis CI provides multiple Python and Perl versions to test against. To get started, you need to add one file
-(.travis.yml) and the Github hook as described in the [Getting Started guide](http://about.travis-ci.org/docs/user/getting-started/). A minimal .travis.yml
+(.travis.yml) and the GitHub hook as described in the [Getting Started guide](http://about.travis-ci.org/docs/user/getting-started/). A minimal .travis.yml
 would look like this:
 
     language: python
@@ -49,7 +49,7 @@ It is possible to add new commands to the build lifecycle, please refer to [our 
 ## Getting Your Perl Project on Travis CI
 
 Travis CI provides three Perl versions to test against. To get started, you need to add one file
-(.travis.yml) and the Github hook as described in the [Getting Started guide](http://about.travis-ci.org/docs/user/getting-started/). A minimal .travis.yml
+(.travis.yml) and the GitHub hook as described in the [Getting Started guide](http://about.travis-ci.org/docs/user/getting-started/). A minimal .travis.yml
 would look like this:
 
     language: perl
@@ -91,7 +91,7 @@ Travis' build workflow usually is
 
 ### Learn more
 
-To learn what tools and services (mysql, postgres, riak, etc.) are available in the CI environment, refer to the [CI environment](http://about.travis-ci.org/docs/user/ci-environment/) guide.
+To learn what tools and services (MySQL, Postgres, Riak, etc.) are available in the CI environment, refer to the [CI environment](http://about.travis-ci.org/docs/user/ci-environment/) guide.
 
 If you need help, feel free to join #travis on irc.freenode.net, ping us on Twitter ([@travisci](http://twitter.com/travisci)) and ask questions on [our mailing list](https://groups.google.com/group/travis-ci).
 

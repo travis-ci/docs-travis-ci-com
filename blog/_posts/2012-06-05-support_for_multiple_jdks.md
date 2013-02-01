@@ -9,9 +9,9 @@ twitter: michaelklishin
 
 Every new feature starts with a developer wanting to scratch an itch.
 
-When Travis CI started in early 2011, one of the goals behind it was to make CI for everyone, including ourselves. Back then the Ruby community was in full swing moving to Ruby 1.9, and most popular projects supported 1.9 unknowingly, but it was common to run into issues with projects that either did not test against 1.9, or tested against 1.9 but not 1.8. So one of the features that was added very early on was ability to easily test against multiple versions and implementations of Ruby in the simplest way possible.
+When Travis CI started in early 2011, one of the goals behind it was to make CI for everyone, including ourselves. Back then the Ruby community was in full swing moving to Ruby 1.9, and most popular projects supported 1.9 unknowingly, but it was common to run into issues with projects that either did not test against 1.9, or tested against 1.9 but not 1.8. So one of the features that was added very early on was the ability to easily test against multiple versions and implementations of Ruby in the simplest way possible.
 
-Fast forward to around August 2011. We were working on the Erlang support, the first additional language to be added to Travis, and had a question to face: should multi-runtime support be a Ruby-specific feature or should we try to do the same for more languages if we can? It was a no brainer: easy CI against multiple runtimes is too awesome a feature to pass by. So we launched Erlang support with multiple Erlang/OTP versions from the start.
+Fast forward to around August 2011. We were working on Erlang support, the first additional language to be added to Travis, and had a question to face: should multi-runtime support be a Ruby-specific feature or should we try to do the same for more languages if we can? It was a no brainer: easy CI against multiple runtimes is too awesome a feature to pass by. So we launched Erlang support with multiple Erlang/OTP versions from the start.
 
 Today you can test your projects in several languages against multiple releases or implementations. Sometimes we did not have to do any work to make this happen: Clojure and Scala build tools, ([Leiningen](http://leiningen.org) and SBT, respectively), for example, let you test against multiple versions without having to install several versions of Clojure or Scala.
 
@@ -35,7 +35,7 @@ To test against multiple JDKs, list them using the `:jdk` key in your `.travis.y
 
 It is that simple and that easy!
 
-You can specify one, two or all jdk keys, and it works the same way for Java, Clojure and so on.
+You can specify one, two or all JDK keys, and it works the same way for Java, Clojure and so on.
 
 Here are some real examples:
 

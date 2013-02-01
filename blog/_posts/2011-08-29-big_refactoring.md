@@ -20,9 +20,9 @@ summary is that our previous domain model still had the very basic design from
 its original spike. But here are some more details. We wanted to achieve the
 following things:
 
-* Split up the monster Build model into more finegrained classes for more
+* Split up the monster Build model into more fine-grained classes for more
   clarity
-* Move to a statemachine-like pattern for more explicitely reflecting
+* Move to a statemachine-like pattern for more explicitly reflecting
   various state changes that happen across various models
 * Lay better grounds for the long planned move to [AMQP](https://github.com/ruby-amqp/amqp)
   (communication with the workers)
@@ -50,7 +50,7 @@ added in a later stage.
 When we reviewed common Ruby statemachine implementations we found none of them
 do what we needed, so we came up with our own brand of it:
 [simple_states](https://github.com/svenfuchs/simple_states) may or may not
-useful for your own usecase but it does exactly what we need in Travis CI and
+useful for your own use case but it does exactly what we need in Travis CI and
 nothing more.
 
 Another gem that has been implemented in the course of this refactoring is
@@ -64,9 +64,9 @@ application, too (for `Travis.config`, specifically). We've used it in the
 [worker code](https://github.com/travis-ci/travis-worker) before and it worked
 pretty well.
 
-## In other news ...
+## In other news
 
-In other news, over the last month we have extract a [small project that we use to develop our Chef cookbooks](https://github.com/michaelklishin/sous-chef) and
+Over the last month we have extracted a [small project that we use to develop our Chef cookbooks](https://github.com/michaelklishin/sous-chef) and
 added the following tools to the [VM infrastructure](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base):
 
  * kerl to support Erlang with testing against multiple OTP releases

@@ -13,7 +13,7 @@ everyone](http://about.travis-ci.org/blog/pull-request-testing-for-everyone/)
 and all of their projects by default.
 
 Since then, [travisbot](https://github.com/travisbot) has been busy, very busy,
-leaving comments on your pull requests, helping you in making a fair judgement
+leaving comments on your pull requests, helping you make a fair judgement
 of whether a pull request is good to merge or not. We have built more than 17000
 pull requests since we launched this feature. We salute you, travisbot, for
 never letting us down!
@@ -39,7 +39,7 @@ see the changes happen as if done by the magic robot hands of travisbot himself!
 ![Pending pull request](http://s3itch.paperplanes.de/Fullscreen-14-3-20120827-214334.png)
 
 Should a pull request fail the build, as unlikely as it may seem, you'll see a
-warning that warns you about merging this pull request. This is true for a
+warning about merging this pull request. This is true for a
 pending build as well. They're both marked as unstable. You can merge it, but
 you do so at your own risk. After all, isn't it nicer to just wait patiently for
 that beautiful green to come up? We thought so!
@@ -60,7 +60,7 @@ ship features.
 Let's have a look at what Josh has been up to in this pull request. Notice the
 little bubbles next to each commit reference.
 
-![Josh](http://s3itch.paperplanes.de/joshk-20120827-215347.png)
+![pull request with commits from Josh](http://s3itch.paperplanes.de/joshk-20120827-215347.png)
 
 Want to have a look at what it looks like for real? No worries, here's a [pull
 request](https://github.com/rspec/rspec-core/pull/666) on the rspec project,

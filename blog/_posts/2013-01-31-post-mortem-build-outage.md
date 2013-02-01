@@ -57,7 +57,7 @@ Michael Fairley, who also had a working exploit based on our code, at 0:00 UTC.
 ### The investigation
 
 When we process a build we store the configuration in our database, so we could
-check all existing builds for any occurrances of a string starting with "!ruby",
+check all existing builds for any occurrences of a string starting with "!ruby",
 which would denote an attempt to inject code.
 
 We also investigated all commits that had parsing errors (a sign that something is
@@ -126,7 +126,7 @@ earlier this month, we should have reviewed all use of YAML files and how
 they're parsed.
 
 In hindsight it's such an obvious issue, and we should've added one and one
-right away and look at this part of Travis CI too.
+right away and looked at this part of Travis CI too.
 
 As we turned up build processing today at around 14:00 UTC for private
 repositories and 15:30 UTC for open source projects, we had to discard
@@ -135,7 +135,7 @@ handled for private projects and around 5800 for open source projects. With our
 current build capacity it would've taken us days to plow through these.
 
 We processed all of them, but moved them into an erroneous state. Should you
-rely on a specific commit to be build, you can trigger a rebuild through the UI.
+rely on a specific commit to be built, you can trigger a rebuild through the UI.
 
 Processing on <http://travis-ci.org> was unfortunately rather slow after we
 brought everything back up, we're investigating the cause.

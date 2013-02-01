@@ -7,7 +7,7 @@ twitter: drogus
 created_at: Fri 6 Dec 2012
 ---
 
-TL;DR We're changing the `after_script` command to run regardless the test result,
+TL;DR We're changing the `after_script` command to run regardless of the test result,
 previously it was run only on success.
 
 ## What exactly will change?
@@ -19,7 +19,7 @@ were successful (ie. returned 0).  This made it virtually the same as the
 success and failure without specifying them twice in the success and failure
 stages.
 
-In order to simplify things, we change `after_script` to run at the very end,
+In order to simplify things, we changed `after_script` to run at the very end,
 i.e. after the `after_success` and `after_failure` stages. `after_script` will
 be run no matter what was returned from the previous commands. We will also
 export a `TRAVIS_TEST_RESULT` env variable, which contain the test result
@@ -40,7 +40,7 @@ If you rely on the fact that a failure in the `after_script` phase, fails the
 entire test, you should move, you should move such commands to the `script`
 phase.
 
-For example such script:
+For example, the following:
 
     script:
       - rake

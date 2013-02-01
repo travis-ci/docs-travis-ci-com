@@ -23,7 +23,7 @@ I'm pretty excited about this one, as I've been working on it over the last week
   <figcaption>A typical Pull Request</figcaption>
 </figure>
 
-When Github first announced [Pull Requests 2.0](https://github.com/blog/712-pull-requests-2-0), it wasn't obvious right away how truly amazing this feature is for us developers.
+When GitHub first announced [Pull Requests 2.0](https://github.com/blog/712-pull-requests-2-0), it wasn't obvious right away how truly amazing this feature is for us developers.
 
 <figure class="small right">
   [ ![Pull Request 2.0 Workflow](http://travis-pr.herokuapp.com/image/slides/pre-merge-button.png) ](http://travis-pr.herokuapp.com/image/slides/pre-merge-button.png)
@@ -39,8 +39,8 @@ It really only had one downside: Merging still was as complicated as before. You
 ## The Merge Button
 
 <figure>
-  [ ![GitHub's Merge Button allows merging Pull Request form the Web Interface](http://travis-pr.herokuapp.com/image/slides/merge_button.png) ](http://travis-pr.herokuapp.com/image/slides/merge_button.png)
-  <figcaption>GitHub's Merge Button allows merging Pull Request form the Web Interface</figcaption>
+  [ ![GitHub's Merge Button allows merging Pull Request from the web interface](http://travis-pr.herokuapp.com/image/slides/merge_button.png) ](http://travis-pr.herokuapp.com/image/slides/merge_button.png)
+  <figcaption>GitHub's Merge Button allows merging Pull Request from the web interface</figcaption>
 </figure>
 
 GitHub, once more, came to our rescue by adding the [Merge Button](https://github.com/blog/843-the-merge-button).
@@ -54,7 +54,7 @@ By pressing a button on the website, one could easily merge Pull Requests withou
 
 This feature, combined with the [Fork and Edit](https://github.com/blog/844-forking-with-the-edit-button) button, made contributing a no brainer.
 
-Especially the roundtrip time for documentation fixes, like typos, broken examples, etc. went down to sometimes just a few seconds.
+Especially the round-trip time for documentation fixes, like typos, broken examples, etc. went down to sometimes just a few seconds.
 
 Contributing a fix became as simple as two clicks on GitHub. Making contributions that easy lowers the barrier and thereby strengthens the Open Source ecosystem.
 
@@ -67,7 +67,7 @@ You probably can tell by now how much we love this feature.
 
 There is a downside, though. The Merge Button is not really usable for anything but documentation.
 
-If you click the Merge Button for anything touching code, you risk breaking upstream. Maybe this seem acceptable at first, after all your CI will tell you if you broke anything. You are using CI, right?
+If you click the Merge Button for anything touching code, you risk breaking upstream. Maybe this seems acceptable at first, after all your CI will tell you if you broke anything. You are using CI, right?
 
 However, it not only renders your mainline pretty unstable, it also changes responsibility. All of a sudden you as a maintainer are responsible for fixing the issue, if only by reverting the commits.
 
@@ -84,7 +84,7 @@ It would be really cool to just know if the Pull Request breaks anything, withou
 
 This is basically what we've implemented. We test every mergeable Pull Request and have our friendly [Travisbot](https://github.com/travisbot) leave a comment in the Pull Request discussion.
 
-That way you can now safely press the Merge Button. That is, if it doesn't break anything, of course. And if it breaks, it's not necessarily the maintainers (or worse, the users) responsibility to deal with the issue.
+That way you can now safely press the Merge Button. That is, if it doesn't break anything, of course. And if it breaks, it's not necessarily the maintainers' (or worse, the users') responsibility to deal with the issue.
 
 Or imagine having a broken upstream and someone submits a Pull Request fixing it.
 
@@ -95,7 +95,7 @@ Or imagine having a broken upstream and someone submits a Pull Request fixing it
 
 In contrast to most [self-made solutions](https://github.com/cramerdev/jenkins-comments) out there, we actually test the *merged* version, rather than just the fork or feature branch. Thus, we also take into account changes made upstream *after* the repository has been forked.
 
-We will also re-run the tests whenever new commits are added to a Pull Requests (yes, this works fine with force pushes and rebases). Also, it pretty much works with anything that is mergeable, might it be a branch, tag, fork, etc. As long as you see the green Merge Button, we can test it.
+We will also re-run the tests whenever new commits are added to Pull Requests (yes, this works fine with force pushes and rebases). Also, it pretty much works with anything that is mergeable, might it be a branch, tag, fork, etc. As long as you see the green Merge Button, we can test it.
 
 ## Are we there yet?
 
@@ -112,8 +112,8 @@ If you made it this far in the blog post, you probably want it for your reposito
   <figcaption>Let us know if you want this feature</figcaption>
 </figure>
 
-As we are still improving it, and are not sure if we can stand the load of activating it for everyone right away, we are turning it on on a repo per repo basis.
+As we are still improving it, and are not sure if we can stand the load of activating it for everyone right away, we are turning it on on a repo by repo basis.
 
-Please note that we start unrolling for those people, that donated, so I was actually able to work on this. So, if you donated and want this, just [let us know](mailto:contact+pr@travis-ci.org?subject=Pull Request Support&body=Could you please activate PR testing for USER/REPO? I donated - Order #XYZ - and would love to use this feature. XOXO - NAME).
+Please note that we started unrolling for those who donated, so I was actually able to work on this. So, if you donated and want this, just [let us know](mailto:contact+pr@travis-ci.org?subject=Pull Request Support&body=Could you please activate PR testing for USER/REPO? I donated - Order #XYZ - and would love to use this feature. XOXO - NAME).
 
 If you didn't donate, but still want to use this feature right away, our [Love Campaign](https://love.travis-ci.org/) is still running.

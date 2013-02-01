@@ -13,7 +13,7 @@ piece to make sure they do their job. Obviously there's no need to keep this a
 secret, so let's talk about some recent changes to Travis' infrastructure.
 
 Case in point. A recent deployment broke updating profiles temporarily. Here's a
-pretty graph showing the pretty much exact point in time when we deployed and
+pretty graph showing pretty much the exact point in time when we deployed and
 the spike in the number of errors.
 
 ![Pretty graph showing deployments](http://s3itch.paperplanes.de/Librato_Metrics-20120402-114010.png)
@@ -24,7 +24,7 @@ There's still some noise though, still several 500 errors popping up in our
 logs. It took a while to fix those, but you can see it eventually ebbed off
 after another deployment.
 
-This is a pretty powerful tool. We added putting more and more metrics on the
+This is a pretty powerful tool. We added more and more metrics on the
 moving parts in Travis. If you want to know why, you should read this [blog
 post](http://code.flickr.com/blog/2008/10/27/counting-timing/) from the Flickr
 engineering team, and you should definitely watch [Coda Hale's talk Metrics,
@@ -53,7 +53,7 @@ library that turns Rails' logging events into a neat, single line per request.
 You can read all about it in [Mathias' blog
 post](http://www.paperplanes.de/2012/3/14/on-notifications-logsubscribers-and-bringing-sanity-to-rails-logging.html).
 
-This helped streamlining our logging, making it more and more useful along the
+This helped streamline our logging, making it more and more useful along the
 way. All our logs are aggregated in [Papertrail](https://papertrailapp.com/),
 who were also kind enough to offer sponsoring their services for Travis.
 
@@ -89,9 +89,9 @@ graphed in Librato's Metrics. It's pretty awesome. Every bug fixed is a new
 opportunity to add more graphs and add more logging.
 
 For good measure, here's another graph showing the requests we're receiving from
-Github. It includes the received, accepted and rejected pushes.
+GitHub. It includes the received, accepted and rejected pushes.
 
-![Github Requests](http://s3itch.paperplanes.de/Skitch-20120402-202853.png)
+![GitHub Requests](http://s3itch.paperplanes.de/Skitch-20120402-202853.png)
 
 The beautiful bit is that we can take any metric and correlate it with others.
 That's a pretty powerful tool to find problems in infrastructure.

@@ -10,13 +10,13 @@ The Travis team loves two things a lot: coffee and meeting people. We also like
 to hug the people we meet. So why not combine all three and get to know users
 and customers better and meet them in person?
 
-![](http://distilleryimage5.s3.amazonaws.com/c9c1a8d20a4711e2900e22000a1cbaa0_7.jpg)
+![coffee cups on a table](http://distilleryimage5.s3.amazonaws.com/c9c1a8d20a4711e2900e22000a1cbaa0_7.jpg)
 
 Today we're announcing the Travis Coffee Office Hours. You can meet and chat
 with the Travis team and enjoy some fine coffees, and cake too. Mmmmmmm, cake.
 The coffee's on us, of course!
 
-To start things off, we'll be hanging out our favorite coffee shops in Berlin
+To start things off, we'll be hanging out at our favorite coffee shops in Berlin
 and in Wellington on Thursday, December 6. Please stop by if you want to chat
 about Travis, infrastructure, continuous integration, or anything that's on your
 mind.

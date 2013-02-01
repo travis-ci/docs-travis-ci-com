@@ -24,7 +24,7 @@ order to estimate possible damage.
 
 We have taken the following steps
 
-1. Regenerate keys for affected repos and notify maintainers
+1. Regenerated keys for affected repos and notified maintainers
 2. Add a 'regenerate key' button into the web interface
 3. Announce the issue by way of this blog post
 

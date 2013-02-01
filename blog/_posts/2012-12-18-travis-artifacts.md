@@ -14,7 +14,7 @@ you can go straight to [install instructions](#How-to-use%3F).
 Travis is already very good at running your tests, but we feel that we can
 do much better job with things that happen **after** the tests have
 finished running. First step in this direction is what we call build artifacts.
-Artifacts are files, which are produced while running the tests. It may be
+Artifacts are files which are produced while running the tests. It may be
 compiled version of a library, screenshots done while running your tests in the browser
 or logs that can help with debugging test failures.
 
@@ -33,7 +33,7 @@ In order to use artifacts you need to do a couple steps:
    - `ARTIFACTS_AWS_ACCESS_KEY_ID`
    - `ARTIFACTS_AWS_SECRET_ACCESS_KEY`
 
-   Last 2 vars should be kept secret, so you should encrypt them using `travis` gem, just like this:
+   Last two vars should be kept secret, so you should encrypt them using `travis` gem, just like this:
 
        travis encrypt ARTIFACTS_AWS_ACCESS_KEY_ID=abc123 -r owner/repo_name
 
@@ -101,7 +101,7 @@ The other argument for going in such direction is that we're not yet sure what w
 we end up with. Maybe it will not evolve too much, but maybe based on use cases and
 feedback we will change a lot in a way it works.
 
-During the development of artifacts I wanted a way to run script regardless the tests result.
+During the development of artifacts I wanted a way to run scripts regardless of test results.
 There was no such hook, so I wanted to change `after_script` to behave that way.
 I also exposed the `TRAVIS_TEST_RESULT` environment variable so you can check if tests failed
 or passed at this point. This is a general purpose change in a way travis works and it will
@@ -112,7 +112,7 @@ This is also a good way to deal with things in open source in general. Sometimes
 like to make an addition to a library, which can't be accepted. It may be something that
 is a specific use case, which will not be used by a majority. It may be something that
 is not yet well formed as an idea and needs testing or maybe maintainers are just not
-interested in going that way. In such situation you can either fork the project, which
+interested in going that way. In such situations you can either fork the project, which
 is not a good solution in the long run, because you need to maintain the fork, or you can extend
 the library to allow you to plug in your extensions. I really like the latter approach, because
 not only does it make the library more flexible, but it also makes your life easier.

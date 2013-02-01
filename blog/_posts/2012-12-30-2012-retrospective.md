@@ -13,7 +13,7 @@ happened in just a single year.
 
 If Travis CI has been a toddler when [Josh](http://github.com/joshk) and I
 started touring conferences in 2011 to tell everyone about the idea and vision
-then in 2012 it was a kid growing up, went through some heavy duty rock'n'roll
+then in 2012 it was a kid growing up, going through some heavy duty rock'n'roll
 and all night party times.
 
 In 2011 the [initial experiments](http://svenfuchs.com/2011/2/5/travis-a-distributed-build-server-tool-for-the-ruby-community)
@@ -52,7 +52,7 @@ In addition, somewhere around June we started working on the new Ember.js web
 client as well as the new API (yellow, see below) and split up the app more and
 more (red) towards the end of the year.
 
-And if you really want to stalk us more then you can find even more detailled information
+And if you really want to stalk us more then you can find even more detailed information
 [in a feature list](https://gist.github.com/0f0ede41b07653810fd1) and
 [a summary of our commit history](https://gist.github.com/f7e81d3b92505ee3c3a7).
 
@@ -181,19 +181,16 @@ One year ago Travis CI consisted of a web app, a bunch of worker machines and a
 central message crunching app called Hub. Today there's an entire small army of
 apps that all share their their part in getting your builds run:
 
-[Listener](http://github.com/travis-ci/travis-listener) picks up requests from GitHub (created Dec 2011).
-Gatekeeper
-configures them and takes care of syncing user data with GitHub (Oct 2012).
-Enqueue
-queues build jobs based on a rate limiting strategy (Oct 2012).
-[Hub](http://github.com/travis-ci/travis-hub)
-still is a central node that picks up state changes and triggers events.
-[Tasks](http://github.com/travis-ci/travis-tasks)
-sends out notifications to external targets (like Email, IRC, Campfire etc.,
-created Aug 2012).
-[Logs](http://github.com/travis-ci/travis-logs)
- does nothing else but processing logs that are streamed
-over from the workers (Aug 2012).
+- [Listener](http://github.com/travis-ci/travis-listener) picks up requests from 
+GitHub (created Dec 2011).
+- Gatekeeper configures them and takes care of syncing user data with GitHub (Oct 2012).
+- Enqueue queues build jobs based on a rate limiting strategy (Oct 2012).
+- [Hub](http://github.com/travis-ci/travis-hub) still is a central node that picks up state 
+changes and triggers events.
+- [Tasks](http://github.com/travis-ci/travis-tasks) sends out notifications to external targets 
+(like Email, IRC, Campfire etc., created Aug 2012).
+- [Logs](http://github.com/travis-ci/travis-logs) does nothing else but processing logs that 
+are streamed over from the workers (Aug 2012).
 
 There are also other apps for serving the static [web client](http://github.com/travis-ci/travis-web) and
 serving the [HTTP API](http://github.com/travis-ci/travis-api).
@@ -275,7 +272,7 @@ resources for this we will also look into follwing up on the crowdfunding
 campaign for the next year. Expect to hear more about this soon.
 
 So, if 2011 was the year of birth of the Travis CI project and 2012 was the
-year of it's childhood and youth, we hope that we can make 2013 the year of
+year of its childhood and youth, we hope that we can make 2013 the year of
 growing Travis CI up to stabilize as the most useful, efficient and well
 supported continuous integration platform out there.
 
