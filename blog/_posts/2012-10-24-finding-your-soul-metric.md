@@ -10,7 +10,7 @@ Travis has a history of failure. While we're not ashamed to admit that and talk
 about them in public, we're also working hard to ensure that we notice early on if
 something breaks. We want to find out about it before our users do.
 
-Over the last couple of months we've added a ton of metrics to have good insight
+Over the last couple of months we've added a ton of metrics to improve insight
 into all parts of Travis. But during these months, we couldn't find the single
 metric that would tell us if the system is doing what it's supposed to do, which
 is of course to run your builds. It took us quite a while to finally figure out
@@ -35,18 +35,18 @@ the last build started.
 Yes, it turns out to be that simple. Turns out that this it the sole defining
 metric that helps us keep a watchful eye on Travis. Just to be safe, we added
 the time since the last build finished. As a general metric we're also tracking
-the number of message currently ready to be consume in RabbitMQ. These metrics
+the number of message currently ready to be consumed in RabbitMQ. These metrics
 give us a rough clue that something is failing in our infrastructure. Here's a
 recent snapshot of what they look like when correlated:
 
-![](http://s3itch.paperplanes.de/buildvsrabbit-20121024-170411.png)
+![Graph of Messages vs Build Started/Finished](http://s3itch.paperplanes.de/buildvsrabbit-20121024-170411.png)
 
 Here's a more recent graph that shows a database latency spike not long ago and
 queues backing up as a consequence. We're still investigating why this happened,
 and we'll move to a bigger database setup soon as well. We're also spreading out
 the work load even more to keep up with it better.
 
-![](http://s3itch.paperplanes.de/graphs-20121024-182007.png)
+![Graph of Log Messages vs Log Updates](http://s3itch.paperplanes.de/graphs-20121024-182007.png)
 
 ### How can I find my soul metric?
 
@@ -85,7 +85,7 @@ started and our alerts immediately went off. Here's something visual that shows
 the latency spiking and the number of messages queueing up in our logging
 queues as a result:
 
-![](http://snapshots.librato.com/instruments/7hc3ny1p-317.png)
+![Graph of latency spike](http://snapshots.librato.com/instruments/7hc3ny1p-317.png)
 
 Notice the latency going up (green graph) and messages piling up. Suddenly the
 latency went back to almost being normal, and the queues were slowly drained.
@@ -113,7 +113,7 @@ the future.
 That little app also does threshold-based alerting to our Campfire room. I'm
 planning on adding support for Pagerduty and Prowl soon too.
 
-![](http://s3itch.paperplanes.de/alerts-20121024-165255.png)
+![travisbot messages](http://s3itch.paperplanes.de/alerts-20121024-165255.png)
 
 While there are existing tools for monitoring, metrics collection and alerting,
 there's no shame in experimenting with your own, if you're aware of the

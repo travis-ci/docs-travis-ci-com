@@ -19,7 +19,7 @@ Travis’ [build
 matrix](http://about.travis-ci.org/docs/user/build-configuration/#The-Build-Matrix)
 feature.
 
-![](http://i.imgur.com/w8Wv1.jpg)
+![Neo dodging bullets](http://i.imgur.com/w8Wv1.jpg)
 
 Say you want to split up your unit tests and your integration tests into two
 different build jobs. They’ll run in parallel and fully utilize the available

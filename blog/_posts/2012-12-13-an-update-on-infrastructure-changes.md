@@ -6,8 +6,8 @@ author: Mathias Meyer
 twitter: roidrage
 permalink: blog/2012-12-13-an-update-on-infrastructure-changes
 ---
-We've had our share of issues over the last months, and it's time we give you an
-update on what we've been doing about them.
+We've had our share of issues over the last few months, and it's time we give 
+you an update on what we've been doing about them.
 
 The most important bit up front is that we're breaking Travis down into more and
 more small apps. We traditionally had one big component, called the hub, which
@@ -27,7 +27,7 @@ volume.
 
 To give you perspective, [travis-ci.org](http://travis-ci.org) handles about
 1500 log updates per minute during peak hours, while
-[travis-ci.com](http://travis-ci.com) has to handle 2500. In situation where our
+[travis-ci.com](http://travis-ci.com) has to handle 2500. In situations where our
 log processing has temporarily backed up, it handled 4000 updates per minute.
 While that only boils down to ~66 writes per second, our current data
 model is bound to break down eventually as we scale up, as too much data needs

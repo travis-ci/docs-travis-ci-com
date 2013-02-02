@@ -48,8 +48,7 @@ All this swag is in the mail right now, and for lots of Europe and America it sh
 In fact, if you want some swag or your own Love Certificate it isn't too late to [donate](http://love.travis-ci.org)! ;)
 
 
-What we have delivered so far
------------------------------
+### What we have delivered so far
 
 <figure class="small right">
   [ !["Dear @kanbanery @wooga. These two thank you for the @travisci support." - John E. Vincent](https://twitpic.com/show/large/9mjmhh) ](https://twitter.com/#!/lusis/status/203624917055455235)
@@ -60,7 +59,7 @@ What we have delivered so far
 Apart from sending out swag we also promised to add some awesome new features to Travis. These included:
 
 * Support for more languages
-* Pre-tested pull-requests
+* Pre-tested pull requests
 * Private build support
 * Build artifacts
 
@@ -71,15 +70,13 @@ So far we have delivered the first two of these. With the help of the community 
   <figcaption>Loads of swag</figcaption>
 </figure>
 
-Also, we have implemented support for [pre-tested pull-requests](http://about.travis-ci.org/blog/announcing-pull-request-support/), which has taken the community by storm. We are currently still unlocking accounts for donors before we will finally release the feature into the wild. So, if you would like to use it for your projects please shoot us an email.
+Also, we have implemented support for [pre-tested pull requests](http://about.travis-ci.org/blog/announcing-pull-request-support/), which has taken the community by storm. We are currently still unlocking accounts for donors before we will finally release the feature into the wild. So, if you would like to use it for your projects please shoot us an email.
 
 We are also in the middle of completing private build support, which will be released as a product currently codenamed "Travis Pro - Magnum". We have had a few handpicked users running builds on a alpha-stage system for quite a while, but we still need to put more work into it before we can add more users.
 
 Expect a blog post next week with further details on what is going on with Pro, including how you can test drive it for yourself.
 
-
-But we have some special news for you....
------------------------------------------
+### But we have some special news for you....
 
 We are very pleased to announce that we are adding some goodies to each of the plans.
 
@@ -103,8 +100,7 @@ These new plans will take effect immediately, and over the coming weeks we will 
 If you would like to upgrade your donation to one of the bigger plans, email [contact@travis-ci.org](mailto:contact@travis-ci.org) and we can help you with it.
 
 
-Last but not least
-------------------
+### Last but not least
 
 We would like to extend a massive amount of love and thanks to RailsCasts, Pragmatic Programmer, and Mathias for being so awesome and generous.
 
@@ -129,7 +125,7 @@ The Travis Team
 * 28 company donations
 * Over 5,000 pieces of swag sent out
 * Over 1,000 EUR in postage and envelopes to send all the swag
-* And so far only 1 envelope has been 'return to sender'
+* And so far only one envelope has been 'return to sender'
 
 <figure>
   [ !["Ma, see what the mailman brought :)" - Dennis Reimann](https://p.twimg.com/AssRaPZCIAEAOr0.jpg:large) ](https://twitter.com/#!/dennisreimann/status/201273750849724416)

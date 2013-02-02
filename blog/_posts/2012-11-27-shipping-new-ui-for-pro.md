@@ -17,7 +17,7 @@ You can find a link to the new client on Travis Pro, we've sent a broadcast to
 everyone.
 
 Travis Pro is still in beta. If you are interested in trying it out but don't
-have an account then drop us an email to [support@travis-ci.com](support@travis-ci.com).
+have an account then drop us an email at [support@travis-ci.com](support@travis-ci.com).
 
 We are going to follow the same practice that we've followed shipping the
 client for .org: We'll make the new client available on a separate domain, in
@@ -31,7 +31,4 @@ Please help us by giving feedback on any issues, breakage or weirdness.
 If you are eager to read an overview of all the features and goodies that the
 new UI includes you can find them in the [original announcement](http://about.travis-ci.org/blog/2012-10-23-introducing-travis-cis-next-generation-web-client).
 But the gist is: overall polished, much more responsive, fast and stable, new
-features like proper urls, requeueing builds, flash messages etc.
-
-
-
+features like proper URLs, requeueing builds, flash messages etc.

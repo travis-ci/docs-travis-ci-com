@@ -10,7 +10,7 @@ Today we are happy to announce first class PHP support with Travis CI.
 It includes all the same features Ruby, Erlang and Node.js projects enjoy today, including:
 
  * Easy to get started and integrates with GitHub.
- * Test against multiple databases and services, including Mysql, Postgres, Redis, RabbitMQ and many more.
+ * Test against multiple databases and services, including MySQL, Postgres, Redis, RabbitMQ and many more.
  * Test your projects against multiple PHP versions.
  * Build results are publicly available online so you can link to them in your bug reports, including line numbers.
  * Notifications the way you want them! (email, IRC, and webhooks)
@@ -25,8 +25,7 @@ Having all those projects building fine for several days makes us confident that
 
 Please see our [initial documentation for PHP projects](http://about.travis-ci.org/docs/user/languages/php) and [the rest of the guides](http://about.travis-ci.org/docs/). We tried to link to as many real world .travis.yml examples to demonstrate all the features in action.
 
-In addition, we have a couple of machines lined up that we will be running PHP builds on. One of them is [Shopify](http://shopify.com): they donated us a worker we have been using for Node.js projects. Another one is [ServerGrove](http://servergrove.com), experts in PHP hosting and specifically frameworks like Symfony and Zend Framework: they donated us one more machine to run PHP builds
-on.
+In addition, we have a couple of machines lined up that we will be running PHP builds on. One of them is [Shopify](http://shopify.com): they donated a worker we have been using for Node.js projects. Another one is [ServerGrove](http://servergrove.com), experts in PHP hosting and specifically frameworks like Symfony and Zend Framework: they donated us one more machine to run PHP builds on.
 
 If you have questions, find us in #travis on irc.freenode.net, we will be happy to answer them. To stay up to date with new announcements, CI environment software updates and more, [follow us on Twitter](https://twitter.com/travisci) and [join our mailing list](https://groups.google.com/forum/#!forum/travis-ci).
 

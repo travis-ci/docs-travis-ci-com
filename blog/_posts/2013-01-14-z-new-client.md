@@ -60,6 +60,6 @@ Will print something like this:
 
 We want the Ruby library to reach 100% coverage of our API. Thus anything the web front end can do - and potentially more - will in the future be possible with this library. We would also love to add more functionality to the command line client, check out our [TODO list](https://github.com/travis-ci/travis#todo) to see what we have planned.
 
-Needless to say, this client is fully Open Source, so any contributions are very much welcome!
+Needless to say, this client is fully open source, so any contributions are very much welcome!
 
 PS: It also runs on Windows!

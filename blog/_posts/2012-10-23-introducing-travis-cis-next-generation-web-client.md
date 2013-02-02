@@ -22,7 +22,7 @@ People just love it:
 quite well over time.
 
 At the same time we are all aware of the issues that our client had over the
-last months, especially since traffic on Travis CI has exploded.
+last few months, especially since traffic on Travis CI has exploded.
 
 We are now running about 10,000 builds a day for nearly 25,000 repositories and
 our old client could just not hold up with that. Especially in situations where
@@ -30,7 +30,7 @@ our queues had run full and other, seemingly "unrelated" issues occured and the
 whole client just stalled on Chrome.
 
 On top of the scalability issues our codebase made it pretty hard to fix things
-and add new features. Instead one had to fight with really old library versions
+and add new features. Instead, one had to fight with really old library versions
 that could not be upgraded easily, a ton of work-arounds and even things like a
 slow asset compilation pipeline.
 
@@ -38,15 +38,15 @@ Even though the client as such was still great, people became increasingly
 unhappy with the issues it started to show. And rightfully so. We felt just
 the same!
 
-So today we&rsquo;re really happy to announce Travis CI&rsquo;s next generation
+So today we're really happy to announce Travis CI's next generation
 web client.
 
 
 ## The next generation web client
 
 The new Travis CI web client is a complete reimplementation of the proven
-feature set of the last version. Development started [4 months ago](https://github.com/travis-ci/travis-web/commit/a3f629bd0d54c99450fb41e366c78f4e8f1a7783)
-and a huge amount of work has been put into it over the last months.
+feature set of the last version. Development started [four months ago](https://github.com/travis-ci/travis-web/commit/a3f629bd0d54c99450fb41e366c78f4e8f1a7783)
+and a huge amount of work has been put into it over the last few months.
 
 It is currently running on
 [https://next.travis-ci.org](https://next.travis-ci.org) and we will keep the
@@ -56,7 +56,7 @@ hashed out.
 
 ### New features
 
-With this new version  our main goal was to reimplement the same, well known
+With this new version our main goal was to reimplement the same, well known
 and battle tested functionality that the old client had, but make it based
 on the latest versions of ember and ember-data, improve its performance,
 overall stability and usability.
@@ -73,11 +73,11 @@ We have never been very religious about this but there always were good
 arguments that made us want to move away from the hashbang URLs that Travis CI
 has started with (and frankly, worked great despite using them).
 
-With the move to the new, shiny Ember router and the new api endpoint there
+With the move to the new, shiny Ember router and the new API endpoint there
 was no reason to stick with them and we changed our URL scheme to plain,
 simple (and some would say "non-broken") URLs:
 
-![](http://s3itch.svenfuchs.com/no_hashbang_urls-20121017-001420.jpg)
+![URL scheme in location bar](http://s3itch.svenfuchs.com/no_hashbang_urls-20121017-001420.jpg)
 
 #### Requeue builds button
 
@@ -107,7 +107,7 @@ to use. We have now tweaked font sizes, widths and margins and made good use of
 css media queries to respond to different screen sizes gracefully.
 
 Even though this can still be improved (especially for very small screens, we
-will happily accept pull requests) we believe it&rsquo;s a huge improvement:
+will happily accept pull requests) we believe it's a huge improvement:
 
 ![](http://s3itch.svenfuchs.com/left-sidebar-scaling-20121017-001639.jpg)
 
@@ -117,7 +117,7 @@ The profile page (now renamed to "Accounts") got a complete overhaul:
 
 ![](http://s3itch.svenfuchs.com/account-hooks-20121017-001727.jpg)
 
-If you&rsquo;re into CSS then you might notice that the service hooks on/off
+If you're into CSS then you might notice that the service hooks on/off
 switch is done entirely in CSS without using any images.
 
 The somewhat weird behaving and flickering feature that displayed repository
@@ -126,14 +126,14 @@ replaced by an "Info" button which reveals all repository descriptions:
 
 ![](http://s3itch.svenfuchs.com/repo-info-20121017-004218.jpg)
 
-Also, we have ressurected the long buried selection indicator for the
+We have also ressurected the long buried selection indicator for the
 repository list on the left as well as the accounts list on your profile page.
 And one can now expand and collapse all workers in the right sidebar with one
 click:
 
 ![](http://s3itch.svenfuchs.com/list-indicator-expand-workers-20121017-001806.jpg)
 
-And finally there&rsquo;s a more generic way to display popups:
+And finally there's a more generic way to display popups:
 
 ![](http://s3itch.svenfuchs.com/popup-20121017-001956.jpg)
 
@@ -170,9 +170,4 @@ of the Ember.js core team, most importantly
 [Adam Hawkins](https://github.com/twinturbo) who helped us come up with a
 solid and fast implementation of our [asset compilation pipeline](https://github.com/travis-ci/travis-web/blob/master/AssetFile).
 Thank you so much, guys :)
-
-
-
-
-
 
