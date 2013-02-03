@@ -8,29 +8,56 @@ permalink: scala/
 
 This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
-## Choosing Scala versions to test against
+## Overview
 
-Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.3, Maven 3, Ant and flexible SBT (..., 0.10, 0.11, 0.12,...) through sbt-extras script. Thanks to SBT ability to perform actions against multiple Scala versions, it is possible to test your projects against Scala 2.8.x, 2.9.x and 2.10.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
+Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.4, Maven 3, Ant and flexible SBT (..., 0.10, 0.11, 0.12,...) through sbt-extras script. Thanks to SBT ability to perform actions against multiple Scala versions, it is possible to test your projects against Scala 2.8.x, 2.9.x and 2.10.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
 
     language: scala
     scala:
        - 2.8.2
        - 2.9.2
 
-## Default Test Command
+## Projects Using SBT
 
-Travis CI by default assumes your project is built using SBT. The exact command Scala builder will use by default is
+###Default Test Command
+
+If your project has `project` directory or `build.sbt` file in the repository root, Travis Scala builder will use SBT to build it. By default, it will use
 
     sbt ++$SCALA_VERSION test
 
-if your project has `project` directory or `build.sbt` file in the repository root. If this is not the case, Scala builder will fall back to
+to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
+### Dependency Management
+
+Because Travis Scala builder assumes SBT dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
+
+## Projects Using Gradle
+
+###Default Test Command
+
+If your project has `build.gradle` file in the repository root, Travis Scala builder will use Gradle to build it. By default, it will use
+
+    gradle check 
+
+to run your test suite.
+
+### Dependency Management
+
+It naturally will pull down project dependencies before running tests without any effort on your side.
+
+## Projects Using Maven
+
+###Default Test Command
+
+If Travis did not detect SBT or Gradle files, Travis Scala builder will use Maven to build it. By default it will use
+ 
     mvn test
 
-## Dependency Management
+to run your test suite.
 
-Because Scala builder on travis-ci.org assumes SBT dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
+### Dependency Management
 
+It naturally will pull down project dependencies before running tests without any effort on your side.
 
 ## Testing Against Multiple JDKs
 
@@ -50,7 +77,6 @@ Travis CI provides OpenJDK 7, OpenJDK 6 and Oracle JDK 7. Sun JDK 6 is not provi
 will not be provided.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
-
 
 ## Examples
 
