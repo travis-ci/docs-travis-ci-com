@@ -14,8 +14,8 @@ You can read about the things that I've been working on on
 
 This pure awesomness does not end here, though. Recently Engine Yard extended
 my participation in EY OSS Grant Program by 3 months! I can't be thankful
-enough for that, so please help me and give them lots of internet hugs,
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="Thank you @engineyard!">thank them on twitter</a>
+enough for that, so please help me and give them lots of internet hugs or thank them on twitter:
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="Thank you @engineyard!"></a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 or check out their [products](https://www.engineyard.com/). And I mean it, take a break from
 reading the post and do it now!
@@ -49,8 +49,7 @@ some ideas how to improve this situation and I hope to work on them soon.
 
 This is all extremely cool and it's going to happen because of Engine Yard's
 generosity. So, if you haven't done this already and you care about Travis and
-open source testing, please let them know
- <a href="https://twitter.com/share" class="twitter-share-button" data-text="Thank you @engineyard!">how awesome they are</a>!
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>!
-
+open source testing, please let them know how awesome they are!
+ <a href="https://twitter.com/share" class="twitter-share-button" data-text="Thank you @engineyard!">how awesome they are</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
