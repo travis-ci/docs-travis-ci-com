@@ -1,7 +1,7 @@
 ---
 title: Engine Yard is awesome!
 layout: post
-created_at: Mon 04 Feb 16:00:00 CET
+created_at: Mon 4 Feb 16:00:00 CET
 author: Piotr Sarnacki
 twitter: drogus
 permalink: blog/2013-02-04-engine-yard-is-awesome
