@@ -145,7 +145,7 @@ You can also customise the notifications, like with IRC notifications:
 
     notifications:
       campfire:
-        targets:
+        rooms:
           - [subdomain]:[api token]@[room id]
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
