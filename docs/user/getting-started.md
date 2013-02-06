@@ -39,7 +39,7 @@ GitHub will ask you to grant read and write access. Travis CI needs write access
 
 ### Step two: Activate GitHub Service Hook
 
-Once you're signed in go to your [profile page](http://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if it is not already pre-filled.
+Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if it is not already pre-filled.
 
 If your repository belongs to an organization or flipping the switch did not set up the hook, please [set it up manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/) on GitHub. It will take just a couple of minutes.
 
