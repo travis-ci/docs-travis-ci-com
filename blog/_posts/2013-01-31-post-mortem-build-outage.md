@@ -25,9 +25,12 @@ Jonathan Rudenberg. Thank you guys for the responsible disclosure!
 Build processing on both platforms was stopped and was down a long time, our
 longest build outage so far. We're incredibly sorry for the inconvenience.
 
-We had to take this drastic measure as Heroku disabled new deployments accessing
-external resources for any new RubyGems that might be required for the
-deployment.
+We had to take this drastic measure as Heroku *rightfully* disabled new deployments 
+accessing external resources for any new RubyGems that might be required for the
+deployment. Heroku did this in order to protect their users and we are grateful for it
+since we potentially might have underestimated the extend of this part of the issue at that point.
+Also, we decided to not deploy anything before there's a positive sign from Rubygems ...
+in order to protect our own users.
 
 ### The vulnerability
 
