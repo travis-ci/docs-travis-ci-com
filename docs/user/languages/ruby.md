@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Ruby pr
 
 ## Choosing Ruby versions/implementations to test against
 
-Ruby workers on travis-ci.org use [RVM](https://rvm.beginrescueend.com/) to provide many Ruby versions/implementations your projects can be tested against.
+Ruby workers on travis-ci.org use [RVM](https://rvm.io/) to provide many Ruby versions/implementations your projects can be tested against.
 To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
     language: ruby
