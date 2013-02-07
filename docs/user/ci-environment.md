@@ -110,6 +110,8 @@ Additionally, Travis sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
 * `TRAVIS_BRANCH`: The name of the branch currently being built.
+* `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
+  being built has been copied on the worker.
 * `TRAVIS_BUILD_ID`: The id of the current build that Travis uses internally.
 * `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 * `TRAVIS_COMMIT`: The commit that the current build is testing.
@@ -121,6 +123,8 @@ to tag the build, or to run post-build deployments.
   request, "false" if it's not a pull request.
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
   used. This value is either "true" or "false".
+* `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
+  repository currently being built. (for example, "travis-ci/travis-build").
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
