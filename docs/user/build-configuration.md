@@ -365,7 +365,7 @@ When you combine the three main configuration options above, Travis CI will run 
 * Environment variables with which you can configure your build scripts
 * Exclusions, inclusions and allowed failures
 
-Below is an example configuration for a rather big build matrix that expands to **28 individual** builds.
+Below is an example configuration for a rather big build matrix that expands to **56 individual** builds.
 
 Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you *actually need*.
 
