@@ -16,8 +16,6 @@ Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.4, M
 
 in your `.travis.yml` file.
 
-Support for multiple JDKs will be available in the future.
-
 ## Projects Using Maven
 
 ### Default Test Command
@@ -66,7 +64,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ### Dependency Management
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
+Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
     language: java
     install: ant deps
