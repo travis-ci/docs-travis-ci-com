@@ -65,7 +65,7 @@ In order to use artifacts you need to do a couple steps:
    but you can customize it with `--target-path` option, for example:
 
        after_test:
-         - "travis-artifacts upload --target_path artifacts/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID"
+         - "travis-artifacts upload --target-path artifacts/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID"
 
 4. Profit!
 
