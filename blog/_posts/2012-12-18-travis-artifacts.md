@@ -58,7 +58,7 @@ In order to use artifacts you need to do a couple steps:
          - "travis-artifacts upload --path logs --path a/long/nested/path:short_alias"
        after_failure: # this will of course run only on failure
          - "travis-artifacts upload --path debug/debug.log"
-       aftrer_success: # and this only on success
+       after_success: # and this only on success
          - "travis-artifacts upload --path build/build.tar.gz"
 
    The default path to save files is "artifacts/{{build_number}}/{{job_number}}",
