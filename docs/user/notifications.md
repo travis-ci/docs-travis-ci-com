@@ -174,6 +174,13 @@ Notifications can be sent to your HipChat chat rooms using the following format:
 * *api token*: token of the user you want to use to post the notifications.
 * *room name*: name of the room you want to notify.
 
+HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
+
+    notifications:
+      hipchat:
+        template:
+          - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+
 ## Webhook notification
 
 You can define webhooks to be notified about build results the same way:
