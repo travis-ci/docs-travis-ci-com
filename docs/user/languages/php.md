@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to PHP pro
 
 ## Choosing PHP versions to test against
 
-PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. A minimalistic .travis.yml file would look like this:
+PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP vesions installed on the VM. A minimalistic .travis.yml file would look like this:
 
     language: php
     php:
@@ -30,6 +30,23 @@ For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-c
 ### OpenSSL extension support
 
 For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
+
+## Custom PHP configuration
+
+The easiest way to customize PHP's configuration is by using `phpenv config-add` to add a custom config file with your configuration directives:
+
+    before_script: phpenv config-add myconfig.ini
+
+And myconfig.ini:
+
+    extension = "mongo.so"
+    date.timezone = "Europe/Paris"
+    default_socket_timeout = 120
+    # some other configuration directives...
+
+You can also use this one line command:
+
+    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 ## Default Test Script
 
