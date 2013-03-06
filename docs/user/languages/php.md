@@ -31,8 +31,9 @@ For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-c
 
 For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
 
-
 ## Default Test Script
+
+### PHPUnit
 
 By default Travis will run your tests using
 
@@ -40,7 +41,7 @@ By default Travis will run your tests using
 
 for every PHP version you specify.
 
-If your project uses something other than phpunit, [you can override our default test command to be anything](/docs/user/build-configuration/) you want.
+If your project uses something other than PHPUnit, [you can override our default test command to be anything](/docs/user/build-configuration/) you want.
 
 ### Working with atoum
 
@@ -117,7 +118,32 @@ command comes pre-installed, so just use the following:
 
 To ensure that everything works, use http(s) URLs on [Packagist](http://packagist.org/) and not git URLs.
 
-### Installing PHP extensions
+### Preinstalled PHP extensions
+
+There are some common PHP extensions preinstalled on Travis:
+
+* [apc.so](http://php.net/apc)
+* [memcache.so](http://php.net/memcache)
+* [memcached.so](http://php.net/memcached)
+* [mongo.so](http://php.net/mongo)
+* [amqp.so](http://php.net/amqp)
+* [zmq.so](http://php.zero.mq/)
+
+Please note that these extensions are not enabled by default, you will have to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version). So the easiest way to do this is by using phpenv to add a custom config file that enables and eventually configure the extension:
+
+    before_script: phpenv config-add myconfig.ini
+
+And myconfig.ini:
+
+    extension="mongo.so"
+    # some other mongo specific configuration directives
+    # or general custom PHP settings...
+
+You can also use this one line command:
+
+    echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+### Installing additional PHP extensions
 
 It is possible to install custom PHP extensions into the Travis environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
 
