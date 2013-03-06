@@ -147,17 +147,15 @@ You can also use this one line command:
 
 It is possible to install custom PHP extensions into the Travis environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
 
-    pecl install memcache
-    echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+    pecl install <extension>
 
-It is also possible to do the installation "manually". This is how the `memcache` extension can be installed this way:
+PECL will automatically enable the extension at the end of the installation. If you want to configure your extension, use the `phpenv config-add` command to add a custom ini configuration file in your before_script.
 
-    wget http://pecl.php.net/get/memcache-2.2.6.tgz
-    tar -xzf memcache-2.2.6.tgz
-    sh -c "cd memcache-2.2.6 && phpize && ./configure --enable-memcache && make && sudo make install"
-    echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+It is also possible to do the installation "manually", but you'll have to manually enable the extension after the installation either with `phpenv config-add` and a custom ini file or with this one line command:
 
-See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh) or another one for [mongo php driver](https://gist.github.com/2351174).
+    echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+See also the [full script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard2.sh).
 
 ### Chef Cookbooks for PHP
 
