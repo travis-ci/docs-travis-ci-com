@@ -27,27 +27,6 @@ Also note that specifying exact versions like 5.3.8 is discouraged as your .trav
 
 For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
-### OpenSSL extension support
-
-For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
-
-## Custom PHP configuration
-
-The easiest way to customize PHP's configuration is by using `phpenv config-add` to add a custom config file with your configuration directives:
-
-    before_script: phpenv config-add myconfig.ini
-
-And myconfig.ini:
-
-    extension = "mongo.so"
-    date.timezone = "Europe/Paris"
-    default_socket_timeout = 120
-    # some other configuration directives...
-
-You can also use this one line command:
-
-    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-
 ## Default Test Script
 
 ### PHPUnit
@@ -135,9 +114,46 @@ command comes pre-installed, so just use the following:
 
 To ensure that everything works, use http(s) URLs on [Packagist](http://packagist.org/) and not git URLs.
 
+## PHP installation
+
+You'll find the default configure options used to build the different PHP versions used on Travis [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis' PHP installation.
+
+However please note the following differences between the different PHP versions available on Travis:
+
+* For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
+* Pyrus is obviously not available for PHP 5.2.x.
+* Different SAPIs:
+
+  * 5.2.x and 5.3.3 come with php-cgi only.
+  * 5.3.x (last version in the 5.3 branch) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
+  * 5.4.x and 5.5.x come with php-cgi *and* php-fpm.
+
+## Custom PHP configuration
+
+The easiest way to customize PHP's configuration is by using `phpenv config-add` to add a custom config file with your configuration directives:
+
+    before_script: phpenv config-add myconfig.ini
+
+And myconfig.ini:
+
+    extension = "mongo.so"
+    date.timezone = "Europe/Paris"
+    default_socket_timeout = 120
+    # some other configuration directives...
+
+You can also use this one line command:
+
+    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+## PHP extensions
+
+### Core extensions
+
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+
 ### Preinstalled PHP extensions
 
-There are some common PHP extensions preinstalled on Travis:
+There are some common PHP extensions preinstalled with PECL on Travis:
 
 * [apc.so](http://php.net/apc)
 * [memcache.so](http://php.net/memcache)
@@ -158,7 +174,7 @@ And myconfig.ini:
 
 You can also use this one line command:
 
-    echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+    echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 ### Installing additional PHP extensions
 
