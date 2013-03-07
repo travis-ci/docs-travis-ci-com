@@ -30,4 +30,8 @@ notifications for both platforms, which may or may not be relevant to you
 depending on which ones you're using.
 
 We're using a hosted service for this service, courtesy of the fine folks at
-<http://statuspage.io>.
+<http://statuspage.io>. They just yesterday shipped an initial version of their
+API, so we already started implementing support for hubot so we can update the
+site's status from the comfort of our Campfire room.
+
+![](http://s3itch.paperplanes.de/travisbot-20130307-200929.png)
