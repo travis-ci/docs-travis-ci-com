@@ -3,7 +3,8 @@ title: Introducing Our Status Page
 author: Mathias Meyer
 twitter: roidrage
 created_at: Thu Mar 7 2013 18:00:00 CET
-
+permalink: blog/2013-03-07-introducing-our-status-page
+layout: post
 ---
 "All Systems Operational!" is the kind of thing everyone loves to see and hear.
 Unfortunately failure is always lurking around the corner. During our outages in
