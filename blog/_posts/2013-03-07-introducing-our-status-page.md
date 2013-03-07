@@ -18,7 +18,7 @@ If you hop over to <http://status.travis-ci.com> you'll be greeted by our
 friendly mascot and the current state of all relevant parts of Travis CI,
 together with the latest incidents and their resolutions.
 
-![](http://s3itch.paperplanes.de/status.travis-ci.com-20130307-105910.png)
+![](https://f.cloud.github.com/assets/2208/232754/e63e7312-873f-11e2-8e6c-558f62ea413c.png)
 
 The status updates are also connected to our Twitter account, so any incidents
 will be posted there as well. We'll publish notifications for both platforms
