@@ -49,6 +49,11 @@ And myconfig.ini:
     # some other mongo specific configuration directives
     # or general custom PHP settings...
 
+If adding a full configuration file looks overkill regarding your needs, you
+can also use this one-line command in your before_script:
+
+    echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
 For more information, please refer to the [PHP extensions
 section](http://about.travis-ci.org/docs/user/languages/php/#PHP-extensions) of
 the documentation!
