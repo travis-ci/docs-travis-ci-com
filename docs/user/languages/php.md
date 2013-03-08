@@ -130,7 +130,7 @@ However please note the following differences between the different PHP versions
 
 ## Custom PHP configuration
 
-The easiest way to customize PHP's configuration is by using `phpenv config-add` to add a custom config file with your configuration directives:
+The easiest way to customize PHP's configuration is to use `phpenv config-add` to add a custom config file with your configuration directives:
 
     before_script: phpenv config-add myconfig.ini
 
@@ -162,7 +162,7 @@ There are some common PHP extensions preinstalled with PECL on Travis:
 * [amqp.so](http://php.net/amqp)
 * [zmq.so](http://php.zero.mq/)
 
-Please note that these extensions are not enabled by default, you will have to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version). So the easiest way to do this is by using phpenv to add a custom config file that enables and eventually configure the extension:
+Please note that these extensions are not enabled by default, you will have to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version). So the easiest way to do this is by using phpenv to add a custom config file which enables and eventually configure the extension:
 
     before_script: phpenv config-add myconfig.ini
 

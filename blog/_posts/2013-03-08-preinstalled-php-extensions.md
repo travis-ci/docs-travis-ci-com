@@ -28,18 +28,18 @@ explicitly enable them by adding an `extension="<extension>.so"` line to your
 PHP configuration.
 
 But it was not particularly easy to customize Travis' PHP configuration until
-now because you had to know where was located the php.ini file of the current
-PHP version you were running your tests against. So I developed a little
-extension to [phpenv](https://github.com/CHH/phpenv) that allows to easily add
-a config file with all the configuration directives that make sense for your
-build with a simple command! Just use `phpenv config-add` and `phpenv
-config-rm` to add or remove a configuration file. You can refer to the
-documentation for more details on how to [customize PHP
+now since you had to locate the php.ini of the current PHP version you were
+running your tests against. So I developed a little extension to
+[phpenv](https://github.com/CHH/phpenv) that allows to easily add a config file
+with all the configuration directives which make sense for your build with a
+simple command! Just use `phpenv config-add` and `phpenv config-rm` to add or
+remove a configuration file. You can refer to the documentation for more
+details on how to [customize PHP
 configuration](http://about.travis-ci.org/docs/user/languages/php/#Custom-PHP-configuration).
 
-Thereby, the easiest way to enable a preinstalled extension is by using `phpenv
-config-add` to add a custom config file that enables and configures if necessary
-the extension you need:
+Thereby, the easiest way to enable a preinstalled extension is to use `phpenv
+config-add` to add a custom config file which enables and configures if
+necessary the extension you need:
 
     before_script: phpenv config-add myconfig.ini
 
@@ -58,7 +58,7 @@ feature. Also if you experience any issue or if you feel that there is a really
 important extension that should be preinstalled on Travis, feel free to open an
 [issue on GitHub](https://github.com/travis-ci/travis-ci/issues).
 
-I hope that you will enjoy this new feature and that it will make your test
-settings easier and speed up your builds!
+I hope you will enjoy this new feature and that it will make your test settings
+easier and speed up your builds!
 
 Happy testing!
