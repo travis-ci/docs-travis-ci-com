@@ -58,10 +58,14 @@ For more information, please refer to the [PHP extensions
 section](http://about.travis-ci.org/docs/user/languages/php/#PHP-extensions) of
 the documentation!
 
-We encourage you to update your Travis setup to take advantage of this new
-feature. Also if you experience any issue or if you feel that there is a really
-important extension that should be preinstalled on Travis, feel free to open an
-[issue on GitHub](https://github.com/travis-ci/travis-ci/issues).
+Unfortunately, this update can cause build failures because of
+incompatibilities between the extension you are trying to install and the
+extension already preinstalled. So we encourage you to update your Travis setup
+to take advantage of this new feature and to report any issue you would
+encounter on [GitHub](https://github.com/travis-ci/travis-ci/issues). You can
+also pop into #travis on irc.freenode.org if you need any help. Finally if you
+feel that there is a really important extension that should be preinstalled on
+Travis, feel free to [tell us](https://github.com/travis-ci/travis-ci/issues).
 
 I hope you will enjoy this new feature and that it will make your test settings
 easier and speed up your builds!
