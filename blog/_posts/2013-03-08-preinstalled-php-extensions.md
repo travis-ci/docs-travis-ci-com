@@ -13,7 +13,7 @@ layout: post
 >
 >If you use PHP on Travis, and would like to show your appreciation, please send him an internet hug, get him over to a conference near you, or visit Lyon and give him a hug and High-5 in person!
 
-When your project depends on some particular PHP extensions, maybe memcached or apc, installing these extensions during each build on Travis takes time and can slow down your CI feedback loop dramatically. In order to improve this, and to get your builds running as fast as possible, we're glad to announce that the Travis VMs now come pre-setup with some common PHP extensions!
+When your project depends on some particular PHP extension, maybe memcached or apc, installing these extensions during each build on Travis takes time and can slow down your CI feedback loop dramatically. In order to improve this, and to help get your builds running as fast as possible, we're happy to announce that the Travis VMs now come pre-setup with some common PHP extensions!
 
 We have taken six of the most popular extensions and preinstalled them in each PHP version (with a few exceptions) so you no longer need to manually build them!
 
