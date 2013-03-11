@@ -190,6 +190,11 @@ It is also possible to do the installation "manually", but you'll have to manual
 
 See also the [full script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard2.sh).
 
+If you need specific version of preinstalled extension, you need to force install specific version with the `-f` flag. For example:
+
+    pecl install -f mongo-1.2.12
+
+
 ### Chef Cookbooks for PHP
 
 If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment).
