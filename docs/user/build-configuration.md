@@ -193,8 +193,8 @@ Learn more in our [Java guide](/docs/user/languages/java/).
 Node.js projects specify releases they need to be tested against using `node_js` key:
 
      node_js:
-       - 0.4
-       - 0.6
+       - "0.4"
+       - "0.6"
 
 Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/).
 
