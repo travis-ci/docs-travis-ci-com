@@ -19,7 +19,7 @@ domain.
 ### Why?
 
 At a first glance, such setup may seem more as a way to complicate things
-rather than help, but let me explain how does it really help us.
+rather than help, but let me explain how it really help us.
 
 For me, one of the biggest advantages of having more than one app are
 the independent deployments. We deploy some of our applications a lot
@@ -115,8 +115,8 @@ On the client side, we don't have to do anything, the browser will just do the p
 ### Any caveats?
 
 As you may noticed, there is one small disadvantage of using CORS. A browser
-need to fire an additional `OPTIONS` request before making the actual request.
-Handling such request is really fast, because most of the time you don't
+needs to fire an additional `OPTIONS` request before making the actual request.
+Handling such a request is really fast, because most of the time you don't
 need to do anything more than setting up a few headers, but you pay the cost
 of doing the request anyway.
 
@@ -135,4 +135,4 @@ API and client isolation is awesome and you should try it!
 
 I would also like to remind all of you reading this post, that I work
 on Travis full time thanks to [Engine Yard](https://www.engineyard.com/),
-they're sponsoring TravisCI and a lot of other OSS projects!
+they're sponsoring Travis CI and a [lot of other OSS projects](https://www.engineyard.com/community/open-source)!
