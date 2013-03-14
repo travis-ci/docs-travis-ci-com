@@ -75,25 +75,21 @@ the `OPTIONS` request should be sent in order to check if an endpoint accepts CO
 In order to see how it works in action with Travis API, you may try to use such curl
 request:
 
-```
-curl --verbose --request OPTIONS \
-     --header "Accept: application/json; version=2" \
-     https://api.travis-ci.org/jobs
-```
+    curl --verbose --request OPTIONS \
+         --header "Accept: application/json; version=2" \
+         https://api.travis-ci.org/jobs
 
 The response should look something like:
 
-```
-< HTTP/1.1 200 OK
-< Access-Control-Allow-Credentials: true
-< Access-Control-Allow-Headers: Content-Type, Authorization, Accept, If-None-Match, If-Modified-Since
-< Access-Control-Allow-Methods: HEAD, GET, POST, PATCH, PUT, DELETE
-< Access-Control-Allow-Origin: *
-< Access-Control-Expose-Headers: Content-Type, Cache-Control, Expires, Etag, Last-Modified
-< Content-Type: text/html;charset=utf-8
-< Content-Length: 69
-< Connection: keep-alive
-```
+    < HTTP/1.1 200 OK
+    < Access-Control-Allow-Credentials: true
+    < Access-Control-Allow-Headers: Content-Type, Authorization, Accept, If-None-Match, If-Modified-Since
+    < Access-Control-Allow-Methods: HEAD, GET, POST, PATCH, PUT, DELETE
+    < Access-Control-Allow-Origin: *
+    < Access-Control-Expose-Headers: Content-Type, Cache-Control, Expires, Etag, Last-Modified
+    < Content-Type: text/html;charset=utf-8
+    < Content-Length: 69
+    < Connection: keep-alive
 
 It basically specifies how should browser behave when issuing a request to such endpoint,
 ie.:
