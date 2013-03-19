@@ -24,7 +24,7 @@ As a free community service, Travis CI limits build duration to about 20 minutes
 
 Because there is no dominant [convention in the community about dependency management](https://groups.google.com/forum/?fromgroups#!topic/golang-nuts/t01qsI40ms4), Travis CI uses
 
-    go get -d -v && go build -v
+    go get -d -v ./... && go build -v ./...
 
 to build Go project's dependencies by default.
 
@@ -51,7 +51,7 @@ the default command Travis CI will use to run your project test suite is
 
 In case there is no Makefile, it will be
 
-    go test -v
+    go test -v ./...
 
 instead.
 
@@ -62,7 +62,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to omit the `-v` flag,
 override the `script:` key in `.travis.yml` like this:
 
-    script: go test
+    script: go test ./...
 
 To build by running Scons without arguments, use this:
 
