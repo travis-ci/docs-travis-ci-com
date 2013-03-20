@@ -13,7 +13,9 @@ memory (3 GB), it runs in container-virtualized hardware and directly off SSDs.
 It's also a 64bit platform with the option of supporting 32bit environments as
 well!
 
-![](/images/bluebox.png)
+<figure class="small right">
+  <img src="/images/bluebox.png"/>
+</figure>
 
 All this has been made possible by our amazing partner, [Blue
 Box](https://bluebox.net), who have provided us with a customized private cloud
@@ -37,9 +39,7 @@ You should give Blue Box a nice high five next time you meet someone from their
 awesome team. They're amazing folks to work with, and we're looking forward to
 working closely with them to push Travis CI forward!
 
-<figure class="small right">
-  <a href="/images/blueboxteam.png"><img src="/images/blueboxteam-small.png"/></a>
-</figure>
+<a href="/images/blueboxteam.png"><img src="/images/blueboxteam-small.png"/></a>
 
 We're in the process of rolling this out for our customers on
 <http://travis-ci.com> as well, stay tuned!
