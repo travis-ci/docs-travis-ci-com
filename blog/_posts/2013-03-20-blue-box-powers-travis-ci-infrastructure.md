@@ -37,7 +37,9 @@ You should give Blue Box a nice high five next time you meet someone from their
 awesome team. They're amazing folks to work with, and we're looking forward to
 working closely with them to push Travis CI forward!
 
-<a href="/images/blueboxteam.png"><img src="/images/blueboxteam-small.png"/></a>
+<figure class="small right">
+  <a href="/images/blueboxteam.png"><img src="/images/blueboxteam-small.png"/></a>
+</figure>
 
 We're in the process of rolling this out for our customers on
 <http://travis-ci.com> as well, stay tuned!
