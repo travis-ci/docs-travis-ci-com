@@ -150,6 +150,7 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
 
      language: node_js
      node_js:
+       - "0.10"
        - "0.8"
        - "0.6"
 
