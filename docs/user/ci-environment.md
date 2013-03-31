@@ -200,9 +200,11 @@ be used instead of the preprovisioned version.
 
 ### Node.js versions
 
+* 0.10.x (latest stable release)
 * 0.8.x
 * 0.6.x
-* 0.9.x (development, may be unstable)
+* 0.11.x (latest development release, may be unstable)
+* 0.9.x (previous development, will be deprecated soon)
 
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
