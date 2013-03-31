@@ -178,6 +178,8 @@ Gradle 1.4.
 
 ### Erlang/OTP releases
 
+* R16B
+* R15B03
 * R15B02
 * R15B01
 * R15B

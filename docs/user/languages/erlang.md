@@ -15,6 +15,7 @@ Travis VMs provide 32-bit [Erlang OTP](http://www.erlang.org/download.html) rele
     language: erlang
     otp_release:
        - R16B
+       - R15B03
        - R15B02
        - R15B01
        - R15B
