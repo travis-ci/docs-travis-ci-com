@@ -17,6 +17,7 @@ Travis CI is a hosted continuous integration service for the open source communi
 * [Haskell](/docs/user/languages/haskell)
 * [Java](/docs/user/languages/java)
 * [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
+* [Objective-C](/docs/user/languages/objective-c)
 * [Perl](/docs/user/languages/perl)
 * [PHP](/docs/user/languages/php)
 * [Python](/docs/user/languages/python)
@@ -154,6 +155,12 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
        - "0.6"
 
 Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
+
+#### Objective-C
+
+     language: objective-c
+
+Learn more about [.travis.yml options for Objective-C projects](/docs/user/languages/objective-c/)
 
 #### Perl
 
