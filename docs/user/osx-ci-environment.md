@@ -30,14 +30,6 @@ travis-ci.org uses Mac OS X 10.8.2
 
 Homebrew is installed and updated every time the VMs are updated. It is recommended that you run `brew update` before installing anything with Homebrew.
 
-### Git, etc
-
-All VM images have the following pre-installed
-
- * A (very) recent Git release from the [Peter van der Does' Git PPA](https://launchpad.net/~pdoes/+archive/ppa)
- * Mercurial (official Ubuntu packages)
- * Subversion (official Ubuntu packages)
-
 
 ### Compilers & Built toolchain
 
@@ -86,24 +78,6 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
   repository currently being built. (for example, "travis-ci/travis-build").
 
-Language-specific builds expose additional environment variables representing
-the current version being used to run the build. Whether or not they're set
-depends on the language you're using.
-
-* `TRAVIS_RUBY_VERSION`
-* `TRAVIS_JDK_VERSION`
-* `TRAVIS_NODE_VERSION`
-* `TRAVIS_PHP_VERSION`
-* `TRAVIS_PYTHON_VERSION`
-
-### JDK
-
-* Oracle JDK 7u6 (oraclejdk7)
-* OpenJDK 7 (alias: openjdk7)
-* OpenJDK 6 (openjdk6)
-
-OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reaches End of Life in the fall 2012.
 
 ### Maven version
 
@@ -111,7 +85,8 @@ Stock Apache Maven 3.
 
 ### Ruby versions/implementations
 
-* 1.8.7 (system, default)
+* 1.8.7 (system, default) -- You need to use `sudo` to install gems with this ruby
+* 1.8.7 (installed by RVM)
 * 1.9.3
 
 Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `~/.bashrc`.
