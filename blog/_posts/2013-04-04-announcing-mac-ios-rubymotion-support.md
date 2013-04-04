@@ -9,6 +9,10 @@ permalink: blog/introducing-mac-ios-rubymotion-testing
 Today we're very thrilled to announce official support for Mac, iOS and
 RubyMotion applications and libraries on [Travis CI](http://travis-ci.org).
 
+<figure class="small right">
+  <img src="/images/saucelabs.png">
+</figure>
+
 To make this possible, we've partnered with the great folks at [Sauce
 Labs](http://saucelabs.com), who are providing us with the infrastructure to run
 tests for your open source projects on the Mac platform.
