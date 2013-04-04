@@ -32,7 +32,7 @@ For a RubyMotion example project, check out
 
 ### How does it work?
 
-Henrik Hodne has worked hard on making the integration as simple as possible,
+[Henrik Hodne](https://twitter.com/henrikhodne) has worked hard on making the integration as simple as possible,
 and did a great job on it too.
 
 The build setup supports CocoaPods too, so if you have a Podfile in your
