@@ -4,6 +4,7 @@ created_at: Thu 2013 Apr 4 20:00:00 CEST
 layout: post
 author: Mathias Meyer
 twitter: roidrage
+permalink: blog/introducing-mac-ios-rubymotion-testing
 ---
 Today we're very thrilled to announce official support for Mac, iOS and
 RubyMotion applications and libraries on [Travis CI](http://travis-ci.org).
