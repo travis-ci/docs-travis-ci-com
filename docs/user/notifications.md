@@ -14,7 +14,6 @@ By default it will send emails to
 
 * the commit author and committer
 * the owner of the repository (for normal repositories)
-* *all* public members of the organization owning the repository
 
 And it will by default send emails when, on the given branch:
 
