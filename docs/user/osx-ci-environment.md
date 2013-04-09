@@ -40,6 +40,10 @@ GCC 4.2.1, Clang 4.1, make, autotools.
 
 curl, wget, OpenSSL, rsync
 
+### Xcode
+
+Xcode 4.6.1 is installed with the iOS 6.0 and 6.1 simulators. Command Line Tools are installed as well.
+
 
 ### Runtimes
 
@@ -85,9 +89,9 @@ Stock Apache Maven 3.
 
 ### Ruby versions/implementations
 
-* 1.8.7 (system, default) -- You need to use `sudo` to install gems with this ruby
+* system (1.8.7) -- You need to use `sudo` to install gems with this ruby
 * 1.8.7 (installed by RVM)
-* 1.9.3
+* 1.9.3 (default)
 
 Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `~/.bashrc`.
 
