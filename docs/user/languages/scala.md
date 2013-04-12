@@ -23,7 +23,7 @@ Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.4, M
 
 If your project has `project` directory or `build.sbt` file in the repository root, Travis Scala builder will use SBT to build it. By default, it will use
 
-    sbt ++$SCALA_VERSION test
+    sbt ++$TRAVIS_SCALA_VERSION test
 
 to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
