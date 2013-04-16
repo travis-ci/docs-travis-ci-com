@@ -13,4 +13,4 @@ Here are some blog posts about Travis:
 * [Building Node.js projects with Travis](http://labnotes.org/2011/08/10/building-node-js-projects-with-travis/)
 * [Using RVM gemset imports on Travis CI instead of Bundler](http://manveru.name/blog/show/2011-12-08/en/Simplified-Travis-CI-RVM)
 * [Display Travis CI status in your shell prompt](http://madebynathan.com/2012/01/30/travis-ci-status-in-shell-prompt/)
-* [Use Travis CI with Jython](http://dev.hong.me/blog/2012/05/27/use-travis-ci-with-jython/)
+* [Use Travis CI with Jython](http://www.topbug.net/blog/2012/05/27/use-travis-ci-with-jython/)
