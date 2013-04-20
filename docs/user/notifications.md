@@ -177,6 +177,8 @@ HipChat notifications support templates too, so you can customize the appearance
 
     notifications:
       hipchat:
+        rooms:
+          - [api token]@[room name]
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
 
