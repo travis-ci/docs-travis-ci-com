@@ -18,7 +18,7 @@ Travis CI runs builds in virtual machines that are snapshotted before each build
 * Passwordless sudo is available (so you can install dependencies using apt and so on)
 * It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on
 
-The environment available to test suites is known as the *Travis CI environment*. VMs are deployed from VM images ("boxes") that are available to the public. Provisioning of VM images is highly automated, new versions are deployed on average about once a week.
+The environment available to test suites is known as the *Travis CI environment*.
 
 ## CI environment OS
 
@@ -90,10 +90,9 @@ Stock Apache Maven 3.
 ### Ruby versions/implementations
 
 * system (1.8.7) -- You need to use `sudo` to install gems with this ruby
-* 1.8.7 (installed by RVM)
 * 1.9.3 (default)
 
-Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `~/.bashrc`.
+Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `/etc/profile.d/rvm.sh`.
 
 ### Bundler version
 
@@ -103,3 +102,4 @@ Recent 1.2.x version (usually the most recent)
 
 * bundler
 * rake
+
