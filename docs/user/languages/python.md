@@ -17,6 +17,7 @@ Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus 
       - "2.6"
       - "2.7"
       - "3.2"
+      - "3.3"
     # command to install dependencies
     install: "pip install -r requirements.txt --use-mirrors"
     # command to run tests
@@ -30,6 +31,7 @@ A more extensive example:
       - "2.6"
       - "2.7"
       - "3.2"
+      - "3.3"
     # command to install dependencies
     install:
       - "pip install . --use-mirrors"
@@ -58,6 +60,7 @@ To test your project against PyPy, add "pypy" to the list of Pythons in your `.t
       - "2.6"
       - "2.7"
       - "3.2"
+      - "3.3"
       # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
       # maintainers to fix their pypy-dev package.
       - "pypy"
