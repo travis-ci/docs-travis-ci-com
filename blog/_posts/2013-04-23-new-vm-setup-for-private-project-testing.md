@@ -1,10 +1,10 @@
 ---
-title: Our new VM setup for private project testing
+title: Upcoming Infrastructure Change for Travis Pro on April 29
 created_at: Thu 2013 Apr 23 17:00:00 CEST
 layout: post
 author: Josh Kalderimis
 twitter: j2h
-permalink: blog/new-vm-setup-for-private-project-testing
+permalink: blog/upcoming-infrastructure-change-for-travis-pro
 ---
 
 At the end of January we announced our fantastic partnership with Blue Box who now host and run our Linux VM infrastructure for all open source test runs.
