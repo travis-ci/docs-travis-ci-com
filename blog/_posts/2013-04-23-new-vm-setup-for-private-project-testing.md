@@ -26,7 +26,7 @@ There are three important changes which are good to be aware of as well as they 
 
 2. FireFox has been updated to 19.0.2. This may effect your Selenium tests. We will be locking FireFox to 19.0.2 and providing an easy way to specify which FireFox you need in your test run, this will be announced in a blog post soon.
 
-3. The use of 'sudo' should not be required for tasks like 'npm install', 'pip install' or 'gem install', removing the 'sudo' should make everything hum along nicely.
+3. The use of 'sudo' should not be required for commands like 'npm install', 'pip install' or 'gem install'. Removing the 'sudo' should make everything hum along nicely.
 
 If you experience any issues, please email us at [support@travis-ci.com](mailto:support@travis-ci.com), or pop into our Campfire room, and we would be more than happy to help :)
 
