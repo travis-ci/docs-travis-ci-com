@@ -16,9 +16,9 @@ Over the last month we have been running the new VM setup in parallel, with many
 The new VM setup is based in Ashburn, in the heart of cloud country. Being closer to GitHub and services like RubyGems have helped improve builds times as well, for example, git clone is significantly faster and more reliable.
 
 Today we are very happy to let all our Pro customers know that on the 29th of April we will be transitioning all private repositories to our private VM setup on Blue Box. This will start at 8am UTC/GMT and you should see no disruption of
-service or downtime. We will announce on [twitter](http://twitter.com/travisci) as well as our [status page](http://status.travis-ci.com) when we start the change, and when it is finished.
+service or downtime. We'll announce on [twitter](http://twitter.com/travisci), as well as our [status page](http://status.travis-ci.com), when we begin the transition and when it is completed.
 
-If you would like to move your repository over to the new setup before the 29th, please email support@travis-ci.com and we will help move you over earlier.
+If you would like to move your repository over to the new setup before the 29th, please email [support@travis-ci.com](mailto:support@travis-ci.com) and we will help move you over earlier.
 
 There are three important changes which are good to be aware of as well as they may effect some builds.
 
