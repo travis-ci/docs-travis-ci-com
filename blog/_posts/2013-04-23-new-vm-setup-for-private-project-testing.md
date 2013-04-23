@@ -30,7 +30,7 @@ There are three important changes which are good to be aware of as well as they 
 
 If you experience any issues, please email us at [support@travis-ci.com](mailto:support@travis-ci.com), or pop into our Campfire room, and we would be more than happy to help :)
 
-Thanks to the awesome guys at Blue Box for working with us closely to make this possible!
+Thanks to the awesome guys at [Blue Box](http://bluebox.net) for working with us closely to make this possible!
 
 Have a fantastic week,
 
