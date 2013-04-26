@@ -10,7 +10,7 @@ Last week we've been having quite some trouble with our build infrastructure and
 
 I wanted to take some time to explain what happened and what we did to fix it.
 
-# What happened?
+## What happened?
 
 Last Monday, April 15 around 20:15 UTC, we received customer reports of builds on their private projects not properly running. We looked into it right away and found that creating new VMs to run the tests on started failing for a majority of all requests.
 
@@ -66,7 +66,7 @@ That switch was successfully deployed at 20:00 UTC, so we could turn on builds a
 
 Since then, our VM deployments haven't seen any significant issues. We're still investigating some problems getting particular services running on the IPv6 setup. 
 
-# The mitigation
+## The mitigation
 
 The major change required to reduce the address allocation issues is now deployed on both platforms, successfully so. This change will allow us to add more capacity more reliably and without having to worry about any more conflicts in the future.
 
