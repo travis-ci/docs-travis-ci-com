@@ -9,7 +9,7 @@ $(function(){
     $("#toc").append(list);
   }
 
-  $('#main').children(":header:not(h1)").each(function(i) {
+  $('#main').children(":header:not(h1,h2)").each(function(i) {
     var current = $(this);
     var text = current.text();
     var id = cname(text);

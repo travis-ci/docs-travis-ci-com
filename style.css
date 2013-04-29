@@ -476,13 +476,11 @@ h2 {
 
 h3 {
   font-size: 1.15em;
-  line-height: 1em;
   margin-bottom: 0.5em;
 }
 
 h4 {
   font-size: 0.95em;
-  line-height: 1.25;
   margin-bottom: 1.25em;
   height: 1.25em;
 }
@@ -502,6 +500,7 @@ h4 a:visited,
 h5 a,
 h5 a:visited {
   color: #464755;
+  text-decoration: none;
 }
 
 div#header h1 {
@@ -591,4 +590,15 @@ div#navigation ul li.lang {
 
 #dsq-global-toolbar ul li {
   list-style-type: none;
+}
+
+.toc-anchor {
+  font-size: 75%;
+  color: #aaa;
+}
+
+hr {
+  border: 1px solid #ddd;
+  border-bottom-width: 0;
+  margin: 2em 0;
 }

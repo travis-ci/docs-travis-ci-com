@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travis Foundation: {{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="/site.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="alternate" type="application/atom+xml" href="/blog.xml">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24868285-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="navigation">
+      <div class="wrapper">
+        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/foundation/">Foundation</a></li>
+          <!-- <li class="english lang active"><a href="/" class="selected">English</a></li> -->
+          <!-- <li class="french lang"><a href="/fr/">Français</a></li> -->
+          <!-- <li class="spanish lang"><a href="/es/">Español</a></li> -->
+          <!-- <li class="portuguese lang"><a href="/pt-BR/">Português</a></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="wrapper">
+        <h1 class="riddle"><a href="/" title="Travis">Travis Foundation</a></h1>
+        <p>Making Open Source an even better place.</p>
+      </div><!-- /.wrapper -->
+    </div><!-- /#header -->
+
+    <div id="content">
+      <div class="wrapper">
+        <div class="pad">
+          <div id="main">
+            <h2>{{ page.title }}</h2>
+            {{ content }}
+          </div><!-- /#main -->
+          <div id="sidebar">
+            <h2>Pages</h2>
+            <ul>
+              <li><a href="/foundation/faq/">FAQ</a></li>
+            </ul>
+            <h2>Projects</h2>
+            <ul>
+              <li><a href="/foundation/projects/railsgirls-summer-of-code/">RailsGirls Summer of Code</a></li>
+              <li><a href="/foundation/projects/diversity-in-tech/">Diversity in Tech</a></li>
+              <li><a href="/foundation/projects/open-source-internships/">Open Source Internships</a></li>
+              <li><a href="/foundation/projects/travis-ci-oss/">Travis CI OSS</a></li>
+            </ul>
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="http://twitter.com/travisci">Twitter</a></li>
+              <li><a href="irc://irc.freenode.net/%23travis">IRC</a></li>
+              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
+            </ul>
+          </div><!-- /#sidebar -->
+        </div><!-- /.pad -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#content -->
+
+    <div id="footer">
+      <div class="wrapper">
+        <div class="box">
+          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        </div>
+        <div class="box">
+          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+        </div>
+        <div class="box last">
+          <ul>
+            <li><a href="https://github.com/travis-ci" title="">Travis CI on GitHub</a></li>
+            <li><a href="https://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
+          </ul>
+        </div><!-- /.box -->
+      </div><!-- /.wrapper -->
+    </div><!-- /#footer -->
+  </body>
+</html>
