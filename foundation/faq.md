@@ -27,7 +27,7 @@ onto a solid, permanent foundation.
 It runs both the free, open source service travis-ci.org as well as the
 commercial, private service travis-ci.com (currently in private beta).
 
-### What's the relationship of Travis CI GmbH and the Travis Foundation?
+### What's the relationship of Travis CI GmbH and Travis Foundation?
 
 As a company Travis CI GmbH's primary concern is making our users happy on both
 the free, open source service travis-ci.org as well as the commercial, private
@@ -42,8 +42,8 @@ distinct when it comes to concrete decisions on, e.g. priorities or
 implementation details.
 
 In order to make sure we will continue to pursue both of these interrelated but
-in praxis not always identical purposes we decided to establish the Travis
-Foundation as an entity separate from the company.
+in praxis not always identical purposes we decided to establish Travis
+Foundation as a non-profit foundation separate from the company.
 
 ### Will Travis CI GmbH still support development of the Travis CI platform?
 

@@ -5,7 +5,7 @@ permalink: railsgirls-summer-of-code/
 ---
 
 The [RailsGirls Summer of Code](http://railsgirlsberlin.github.io/summer-of-code/)
-initiative, run by [Rails Girls](http://railsgirls.com) helps Rails Girls
+initiative, run by [Rails Girls](http://railsgirls.com), helps Rails Girls
 students to get into Open Source projects and culture.
 
 [<img src="http://s3itch.svenfuchs.com/railsgirls-summer-of-code-20130429-161434.jpg" width="580" />](http://railsgirlsberlin.github.io/summer-of-code)
