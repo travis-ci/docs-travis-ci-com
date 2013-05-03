@@ -11,16 +11,14 @@ permalink: addons/
 Travis CI allows you to set up some build tools using settings right in your
 .travis.yml file.
 
-Currently, the only available addon is [Sauce Connect][sauce-connect].
-
-[sauce-connect]: https://saucelabs.com/docs/connect
-
 ### Sauce Connect
 
 [Sauce Connect][sauce-connect] securely proxies browser traffic between Sauce
 Labs' cloud-based VMs and your local servers. Connect uses ports 443 and 80 for
 communication with Sauce's cloud. If you're using Sauce Labs for your Selenium
 tests, this makes connecting to your webserver a lot easier.
+
+[sauce-connect]: https://saucelabs.com/docs/connect
 
 First, [sign up][sauce-sign-up] with Sauce Labs if you haven't already (it's
 [free][open-sauce] for Open Source projects), and get your access key from your
