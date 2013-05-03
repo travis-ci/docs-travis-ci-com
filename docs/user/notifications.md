@@ -180,7 +180,18 @@ HipChat notifications support templates too, so you can customize the appearance
         rooms:
           - [api token]@[room name]
         template:
+          - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+
+If you want to send HTML notifications you need to add `format: html` like this
+(note that this disables some features like @mentions and autolinking):
+
+    notifications:
+      hipchat:
+        rooms:
+          - [api token]@[room name]
+        template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+        format: html
 
 ## Webhook notification
 
