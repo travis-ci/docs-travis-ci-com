@@ -52,4 +52,4 @@ This is available on both Pro and Org VMs today. Go try it out!
 [sauce-browsers]: https://saucelabs.com/docs/browsers
 [open-sauce]: https://saucelabs.com/signup/plan/OSS
 [sauce-connect]: https://saucelabs.com/docs/connect
-[addons]: http://about.travis-ci.org/docs/user/encryption-keys/
+[addons]: /docs/user/addons/
