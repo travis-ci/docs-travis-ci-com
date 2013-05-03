@@ -310,7 +310,8 @@ More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technolog
 
 Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run, the build will be forcefully terminated and you will see a message about this in your build log.
 
-Exact timeout values vary between project types but in general are between 10 and 15 minutes for test suite runs and between 5 and 10 minutes for before scripts and so on.
+With our current timeouts, a build will be terminated if it's still running
+after 50 minutes, or if there hasn't been any log output in 10 minutes.
 
 Some common reasons why test suites may hang up:
 
