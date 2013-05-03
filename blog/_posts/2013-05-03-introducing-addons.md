@@ -1,6 +1,6 @@
 ---
 title: Introducing Addons
-permalink: blog/introducing-addons
+permalink: blog/2013-05-03-introducing-addons
 created_at: Fri 03 May 2013 10:00:00 GMT
 author: Henrik Hodne
 twitter: henrikhodne
