@@ -20,13 +20,19 @@ the gem:
 
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
-    travis encrypt "something to encrypt"
+    travis encrypt SOMEVAR=secretvalue
 
 This will output a string looking something like:
 
     secure: ".... encrypted data ...."
 
-Now you can place it in the `.travis.yml` file. You can read more about
+Now you can place it in the `.travis.yml` file. 
+
+Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
+
+You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.  
+
+You can read more about
 [secure environment variables](/docs/user/build-configuration/#Secure-environment-variables)
 or [notifications](/docs/user/notifications).
 
