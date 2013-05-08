@@ -36,6 +36,36 @@ You can read more about
 [secure environment variables](/docs/user/build-configuration/#Secure-environment-variables)
 or [notifications](/docs/user/notifications).
 
+### Notifications Example
+
+We want to add campfire notifications to our .travis.yml file, but we don't want to publicly expose our API token.
+
+The entry should be in this format:
+
+    notifications:
+      campfire: [subdomain]:[api token]@[room id]
+
+For us, that is somedomain:abcxyz@14.
+
+We encrypt this string
+
+    travis encrypt somedomain:abcxyz@14
+
+Which produces something like this
+
+    Please add the following to your .travis.yml file:
+
+      secure: "ABC5OwLpwB7L6Ca...."
+
+We add to our .travis.yml file
+
+    notifications:
+      campfire:
+        rooms:
+          secure: "ABC5OwLpwB7L6Ca...."
+
+And we're done.
+
 ## Fetching the public key for your repository
 
 You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
