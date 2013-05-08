@@ -66,6 +66,47 @@ We add to our .travis.yml file
 
 And we're done.
 
+### Detailed Discussion
+
+The way the secure var system works is is takes values on the format ```{ 'secure' => 'encrypted string' }``` in the (parsed YAML) configuration and replaces it with the decrypted string.
+
+So
+
+    notifications:
+      campfire:
+        rooms:
+          secure: "encrypted string"
+
+becomes
+
+    notifications:
+      campfire:
+        rooms: "decrypted string"
+
+while
+
+    notifications:
+      campfire:
+        rooms:
+          - secure: "encrypted string"
+
+becomes
+
+    notifications:
+      campfire:
+        rooms:
+          - "decrypted string"
+
+In the case of secure env vars
+
+    env:
+      - secure: "encrypted string"
+
+becomes
+
+    env:
+      - "decrypted string"
+
 ## Fetching the public key for your repository
 
 You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
