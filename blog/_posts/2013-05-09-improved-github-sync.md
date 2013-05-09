@@ -13,7 +13,7 @@ But sometimes we are left playing catch up when it comes to permission syncing a
 
 Today everything got a bit simpler for both [travis-ci.org][travis-ci-org] and [travis-ci.com][travis-ci-com] users with the introduction of _DAILY_ syncs with GitHub!
 
-Using [Sidekiq][sidekiq], an awesome background processing library from [Mike Perham][mike-perham], we schedule syncs for all users over a 23 hour period. As we use Heroku this makes sure we don't hit the 24 hour dyno restart. For both Travis for open source and Travis for private projects we sync around 1,500 users per hour (around 34,000 users total), with a typical user sync (user info, orgs, repositories, and memberships/permissions) taking anywhere between 30 seconds to several minutes depending on how many orgs and repositories a user might have access to.
+Using [Sidekiq][sidekiq], an awesome background processing library from [Mike Perham][mike-perham], we schedule syncs for all users over a 24 hour period. For both Travis for open source and Travis for private projects we sync around 1,400 users per hour (around 34,000 users total), with a typical user sync (user info, orgs, repositories, and memberships/permissions) taking anywhere between 30 seconds to several minutes depending on how many orgs and repositories a user might have access to.
 
 We are not done with sync, we have a lot to improve and are working on making sure what you see on GitHub is also what you see on Travis. 
 
