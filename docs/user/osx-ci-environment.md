@@ -31,7 +31,7 @@ travis-ci.org uses Mac OS X 10.8.2
 Homebrew is installed and updated every time the VMs are updated. It is recommended that you run `brew update` before installing anything with Homebrew.
 
 
-### Compilers & Built toolchain
+### Compilers & Build toolchain
 
 GCC 4.2.1, Clang 4.1, make, autotools.
 
