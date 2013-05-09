@@ -39,7 +39,7 @@ All VM images have the following pre-installed
  * Subversion (official Ubuntu packages)
 
  
-### Compilers & Built toolchain
+### Compilers & Build toolchain
 
 GCC 4.6.x, Clang 3.1.x, make, autotools, cmake, scons.
 
