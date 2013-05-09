@@ -9,7 +9,7 @@ layout: post
 
 Travis and GitHub love each other, from login to service hooks to marking pull requests as passing or failing, seamless GitHub integration is what makes the Travis experience so awesome.
 
-But sometimes we are left playing catch up when it comes to permission syncing and repository listings. Having to hit the 'sync now' button on your profile page just so Travis knows of your new repositories is not uncommon.
+But sometimes we are left playing catch up when it comes to permission syncing and repository listings. Having to hit the 'sync now' button on your profile page just so Travis knows of your new repositories is not uncommon, and sometimes easy to forget.
 
 Today everything got a bit simpler for both [travis-ci.org][travis-ci-org] and [travis-ci.com][travis-ci-com] users with the introduction of _DAILY_ syncs with GitHub!
 
@@ -23,5 +23,5 @@ The Travis Team
 
 [travis-ci-org]: https://travis-ci.org
 [travis-ci-com]: https://travis-ci.com
-[sidekiq]: https://sidekiq.com
+[sidekiq]: http://sidekiq.com
 [mike-perham]: https://twitter.com/mperham
