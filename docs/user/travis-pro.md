@@ -6,6 +6,8 @@ permalink: travis-pro/
 
 ## Travis Pro Frequently Asked Questions
 
+<div id="toc"></div>
+
 Note: These issues are related to [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
