@@ -23,5 +23,5 @@ The Travis Team
 
 [travis-ci-org]: https://travis-ci.org
 [travis-ci-com]: https://travis-ci.com
-[sidekiq]: http://sidekiq.com
+[sidekiq]: http://sidekiq.org
 [mike-perham]: https://twitter.com/mperham
