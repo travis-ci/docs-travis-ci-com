@@ -128,6 +128,14 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#travis"
+        channel_key: 'password'
+
 ## Campfire notification
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
