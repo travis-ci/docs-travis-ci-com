@@ -1,50 +1,47 @@
 ---
-title: Building a Haskell Project
-layout: en
+title: Construindo um Projeto Haskell
+layout: pt-BR
 permalink: haskell/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Haskell. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Overview
+## Visão Geral
 
-Haskell workers on travis-ci.org use Haskell Platform 2011.2.0.1 (GHC 7.0.3, cabal-install 0.10.2, etc). For full up-to-date list of provided tools, see
-our [CI environment guide](/docs/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
-defaults that use `cabal`. It is possible to override them to use `make` or any other build tool and dependency management tool.
+Os processos trabalhadores Haskell do travis-ci.org usam a plataforma Haskell 2012.2.0.0 e GHC 7.4.1. Para uma lista atualizada de ferramentas oferecidas, veja o nosso [guia de ambiente de Integração Contínua](/pt_BR/docs/user/ci-environment/). Comandos de build (instalação de dependências, execução de testes) usam o `cabal` por padrão. É possível sobrescrever o comportamento padrão e utilizar o `make` ou qualquer outra ferramenta de build e de gerenciamento de dependências.
 
 
-## Default Test Script
+## Script de Teste Padrão
 
-Default test script Travis CI Haskell builder will use is
+O Script padrão para testes que o construtor Haskell do Travis CI usa é
 
     cabal configure --enable-tests && cabal build && cabal test
 
-It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide, for example:
+É possível sobrescrever o comando de teste conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/). Por exemplo:
 
-    script: runghc -isrc -itests tests/CountVonCount/TestSuite.hs --plain
+    script:
+      - cabal configure --enable-tests -fFOO && cabal build && cabal test
 
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-### Travis CI uses cabal
+### Travis CI usa cabal
 
-By default Travis CI use `cabal` to manage your project's dependencies.
+Por padrão o Travis CI usa `cabal` para gerenciar as dependências do seu projeto.
 
-The exact default command is
+O comando padrão executado é
 
-    cabal update && cabal install
+    cabal install --only-dependencies --enable-tests
 
-It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide,
-for example:
+É possível sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/). Por exemplo:
 
     install:
-      - cabal update --verbose=2
-      - cabal install
+      - cabal install QuickCheck
 
 
-## Examples
+## Exemplos
 
 * [spockz/TravisHSTest](https://github.com/spockz/TravisHSTest/blob/master/.travis.yml)
 * [ZeusWPI/12Urenloop](https://github.com/ZeusWPI/12Urenloop/blob/master/.travis.yml)

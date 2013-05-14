@@ -5,29 +5,29 @@ Esta é a tradução para português da documentação do Travis (http://about.t
 ## Como contribuir
 
 Faça fork do repositório, leia o resto deste arquivo e faça suas alterações. 
-Quando você tiver terminado suas alterações, mande um pull request. Obrigado!
+Quando você tiver terminado, mande um pull request. Obrigado!
 
 ## Como editar o site
 
-Certifique-se que você possui o Ruby e RubyGems instalados. Agora instale o
+Certifique-se que você possui o Ruby e RubyGems instalados. Em seguida instale o
 [bundler](http://gembundler.com/):
 
-    gem install bundler --pre
+    gem install bundler
 
 Então instale as dependências:
 
-    bundle install
+    bundle install --binstubs
 
-Para montar um servidor web local que irá rodar o site de documentação, use:
+Para executar um servidor web local que irá rodar o site de documentação, use:
 
-    bundle exec jekyll --server
+    ./bin/jekyll --server
 
-E então abra o endereço [localhost:4000](http://localhost:4000/) no seu navegador. Quando você
+e abra o endereço [localhost:4000](http://localhost:4000/) no seu navegador. Quando você
 faz alterações nos arquivos Markdown, páginas HTML serão geradas automaticamente a cada requisição.
 
 Para gerar todo o site, use:
 
-    bundle exec jekyll
+    ./bin/jekyll --no-auto
 
 Observe que quoted entities podem ser escapadas ou não dependendo da versão do Ruby (1.8 vs. 1.9). Isso é normal.
 

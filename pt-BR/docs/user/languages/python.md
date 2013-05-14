@@ -1,108 +1,138 @@
 ---
-title: Building a Python Project
-layout: en
+title: Construindo um Projeto Python
+layout: pt-BR
 permalink: python/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Python. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing Python versions to test against
+## Escolhendo as versões do Python para Executar os Testes
 
-Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus [Dead Snakes PPA](https://launchpad.net/~fkrull/+archive/deadsnakes) to provide several Python versions your projects can be tested against. To specify them, use `python:` key in your `.travis.yml` file, for example:
+Os processos trabalhadores do travis-ci.org usam os repositórios padrão do Ubuntu/Debian mais [o PPA Dead Snakes](https://launchpad.net/~fkrull/+archive/deadsnakes) para fornecer diversas versões do Python que seus projetos podem utilizar. Para especificá-las, utilize a chave `python:` no seu arquivo `.travis.yml`. Por exemplo:
 
     language: python
     python:
       - "2.6"
       - "2.7"
       - "3.2"
-    # command to install dependencies
-    install: pip install -r requirements.txt --use-mirrors
-    # command to run tests
+      - "3.3"
+    # comando para instalar dependências
+    install: "pip install -r requirements.txt --use-mirrors"
+    # comando para executar testes
     script: nosetests
 
-A more extensive example:
+Um exemplo mais completo:
 
     language: python
     python:
       - "2.5"
       - "2.6"
       - "2.7"
-      - "3.1"
       - "3.2"
-    # command to install dependencies
+      - "3.3"
+    # comando para instalar dependências
+    install:
+      - "pip install . --use-mirrors"
+      - "pip install -r requirements.txt --use-mirrors"
+    # comando para executar testes
+    script: nosetests
+
+Com o tempo, novas versões são liberadas e nós passamos a oferecer mais versões e/ou implementações do Python. Apelidos como `3.2` são alterados para apontar para versões exatas, níveis de patch, etc.
+Para uma lista completa e atualizada das versões de Python disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+
+### O Travis CI usa virtualenvs Isolados
+
+O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) utiliza instâncias virtualenv separadas para cada versão do Python. O Python do sistema não é utilizado e não deve-se depender dele. Caso precise instalar pacotes Python, o faça via pip e não via apt.
+
+### Suporte PyPy
+
+Nós oferecemos as versões estáveis mais recentes do PyPy via [PPA do Time PyPy](https://launchpad.net/~pypy/+archive/ppa). Para projetos puramente Python, ele funciona bem. Contudo, devido a problemas conhecidos com os cabeçalhos dos pacotes de desenvolvimento, bibliotecas nativas não instalarão no PyPy. Nós notificamos os mantedores de pacotes do PyPy bem como os desenvolvedores do core team sobre este problema e estamos aguardando que seja resolvido.
+
+Para testar seu projeto utilizando PyPy, adicione "pypy" na lista de Pythons no seu `.travis.yml`:
+
+    language: python
+    python:
+      - "2.5"
+      - "2.6"
+      - "2.7"
+      - "3.2"
+      - "3.3"
+      # não possui headers, por favor peça em https://launchpad.net/~pypy/+archive/ppa
+      # para os desenvolvedores corrigirem seu pacote pypy-dev.
+      - "pypy"
+    # comando para instalar dependências
     install:
       - pip install . --use-mirrors
       - pip install -r requirements.txt --use-mirrors
-    # command to run tests
+    # comando para executar testes
+    script: nosetests 
+
+
+## Versão Padrão do Python
+
+Caso você não informe a chave `python` no seu `.travis.yml`, o Travis CI utilizará o Python 2.7.
+
+## Especificando o Script de Teste
+
+Projetos Python devem informar a chave `script` no seu `.travis.yml` para especificar o comando que executará os testes. Por exemplo, se o seu projeto é testado utilizando nosetests:
+
+    # comando para executar os testes
     script: nosetests
 
-As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Python versions, see our [CI environment guide](/docs/user/ci-environment/).
-
-### Travis CI Uses Isolated virtualenvs
-
-[CI Environment](/docs/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
-
-### PyPy Support
-
-PyPy is not currently provided but we would like to provide it near in the future.
-
-## Default Python Version
-
-If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
-
-## Specifying Test Script
-
-Python projects need to provide `script` key in their `.travis.yml` to specify what command to run tests with. For example, if your project is tested by running nosetests, specify it like this:
-
-    # command to run tests
-    script: nosetests
-
-if you need to run `make test` instead:
+se você precisa executar `make test`:
 
     script: make test
 
-and so on.
+e assim por diante.
 
-In case `script` key is not provided in `.travis.yml` for Python projects, Python builder will print a message and fail the build.
+Caso a chave `script` não esteja presente no seu `.travis.yml`, o construtor Python imprimirá uma mensagem e o build falhará.
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-### Travis CI uses pip
+### Travis CI usa pip
 
-By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+Por padrão o Travis CI usa o `pip` para gerenciar as dependências do seu projeto. É possível (e comum) sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
-The exact default command is
+O comando padrão é
 
     pip install -r requirements.txt --use-mirrors
 
-which is very similar to what [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) uses.
+que é muito similar ao que o [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) usa.
 
-We highly recommend using `--use-mirrors` if you override dependency installation command to reduce the load on PyPI and possibility of installation failures.
+Nós recomendamos fortemente o uso de `--use-mirrors` caso você sobrescreva o comando de instalação de dependências, de forma a reduzir a carga no PyPI e de falhas na instalação.
 
-### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
+### Pacotes Pré-Instalados
 
-If you need to test against multiple versions of, say, Django, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
+O Travis pré-instala alguns pacotes em cada virtualenv por padrão para facilitar a execução de testes:
+
+- pytest
+- nose
+- mock
+
+### Testando com Múltiplas Versões de Dependências (ex. Django ou Flask)
+
+Caso necessite testar em diversas versões de, por exemplo Django, você pode instruir o Travis a realizar múltiplas versões com diferentes conjuntos de valores para variáveis de ambiente. Use a chave *env* no seu arquivo .travis.yml. Por exemplo:
 
     env:
       - DJANGO_VERSION=1.2.7
       - DJANGO_VERSION=1.3.1
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
+e use os valores da variável ENV nos seus scripts de instalação de dependências, casos de teste ou parâmetros de scripts de testes. A seguir um exemplo do uso da variável de ambiente DB para instruir o pip a instalar uma determinada versão:
 
     install:
       - pip install -q Django==$DJANGO_VERSION
       - python setup.py -q install
 
-The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
+A mesma técnica é frequentemente utilizada para testar projetos com diversos bancos de dados. Para um exemplo real, veja [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) e [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
-## Examples
+## Exemplos
 
 * [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
 * [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
 * [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
-* [kennethreitz/requests](https://github.com/kennethreitz/requests/blob/develop/.travis.yml)
+* [kennethreitz/requests](https://github.com/kennethreitz/requests/blob/master/.travis.yml)
 * [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 * [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 * [MostAwesomeDude/klein](https://github.com/MostAwesomeDude/klein/blob/master/.travis.yml)

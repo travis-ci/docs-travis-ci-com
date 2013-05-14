@@ -1,43 +1,50 @@
 ---
-title: Building a Erlang project
-layout: en
+title: Construindo um Projeto Erlang
+layout: pt-BR
 permalink: erlang/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Erlang. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing OTP releases to test against
 
-Travis VMs provide 32-bit [Erlang OTP](http://www.erlang.org/download.html) releases R14B04, R14B03 and R14B02 built using [kerl](https://github.com/spawngrid/kerl/tree/). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
+## Escolhendo as Releases OTP para Executar os Testes
+
+As máquinas virtuais do Travis fornecem versões de 32 bits do [Erlang OTP](http://www.erlang.org/download.html), de releases R14B04, R14B03 e R14B02 construídas utilizando [kerl](https://github.com/spawngrid/kerl/tree/). Para especificar as releases OTP que você quer utilizar para testar ao seu projeto, use a chave `otp_release`:
 
     language: erlang
     otp_release:
+       - R16B
+       - R15B03
+       - R15B02
+       - R15B01
        - R15B
        - R14B04
        - R14B03
        - R14B02
 
-## Default Test Script
+## Script Padrão de Teste
 
-Travis CI by default assumes your project is built using [Rebar](https://github.com/basho/rebar) and uses EUnit. The exact command Erlang builder will use by default is
+O Travis CI assume que o seu projeto é construído com o [Rebar](https://github.com/basho/rebar) e usa EUnit. O comando que o construtor Erlang usa por padrão é
 
     rebar compile && rebar skip_deps=true eunit
 
-if your project has `rebar.config` or `Rebar.config` files in the repository root. If this is not the case, Erlang builder will fall back to
+se o seu projeto tem os arquivos `rebar.config` ou `Rebar.config` na raiz do seu repositório. Se esse não for o caso, o construtor Erlang utilizará
 
     make test
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-Because Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar). is used by default, it naturally uses
+Como o construtor Erlang no travis-ci.org assume o uso do [Rebar](https://github.com/basho/rebar), ele utiliza
 
     rebar get-deps
 
-to installs project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config).
+para instalar [as dependências do projeto como listadas no arquivo rebar.config](https://github.com/basho/riak/blob/master/rebar.config).
 
-## Examples
 
-* [cowboy](https://github.com/extend/cowboy/blob/master/.travis.yml)
-* [elixir](https://github.com/josevalim/elixir/blob/master/.travis.yml)
+## Exemplos
+
+* [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
+* [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
+* [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)

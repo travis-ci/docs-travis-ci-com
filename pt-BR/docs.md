@@ -19,8 +19,11 @@ permalink: docs/
 
 ### Documentação em linguagens específicas
 
+* [C](/pt-BR/docs/user/languages/c)
+* [C++](/pt-BR/docs/user/languages/cpp)
 * [Clojure](/pt-BR/docs/user/languages/clojure)
 * [Erlang](/pt-BR/docs/user/languages/erlang)
+* [Go](/pt-BR/docs/user/languages/go)
 * [Groovy](/pt-BR/docs/user/languages/groovy)
 * [Haskell](/pt-BR/docs/user/languages/haskell)
 * [Java](/pt-BR/docs/user/languages/java)
@@ -33,5 +36,5 @@ permalink: docs/
 
 ### Documentação para desenvolvedores
 
-* [The Worker](/pt-BR/docs/dev/worker/)
-* [The API](/pt-BR/docs/dev/api/)
+* [O Worker](/pt-BR/docs/dev/worker/)
+* [A API](/pt-BR/docs/dev/api/)

@@ -1,74 +1,92 @@
 ---
-title: Building a Groovy project
-layout: en
+title: Construindo um Projeto Groovy
+layout: pt-BR
 permalink: groovy/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Groovy projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Groovy. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Overview
+## Visão Geral
 
-Travis CI environment provides OpenJDK 6, Gradle 1.0-milestone 7, Maven 3 and Ant 1.7. Groovy project builder has reasonably good defaults for
-projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
+O ambiente do Travis CI oferece o OpenJDK 7, OpenJDK 6, Oracle JDK 7u4, Gradle 1.4, Maven 3 e Ant. O construtor de projetos Groovy possui boas configurações padrão para projetos que usem Gradle, Maven ou Ant, então provavelmente você não precisará configurar nada além de 
 
     language: groovy
 
-in your `.travis.yml` file.
+no seu arquivo `.travis.yml`.
 
-Support for multiple JDKs will be available in the future.
+O suporte para múltiplos JDKs será oferecido no futuro.
 
-## Projects Using Gradle
+## Projetos Usando Gradle
 
-### Default Test Command
+### Comando Padrão de Teste
 
-if your project has `build.gradle` file in the repository root, Travis Groovy builder will use Gradle to build it. By default it will use
+Se o seu projeto possui o arquivo `build.gradle` na raiz do repositório, o construtor Groovy do Travis utilizará o Gradle para construí-lo. Por padrão, ele utilizará
 
     gradle check
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+para executar a suite de teste. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
-### Dependency Management
+### Gerenciamento de Dependências
 
-Before running tests, Groovy builder will execute
+Antes de executar os testes, o construtor Groovy executará
 
     gradle assemble
 
-to install your project's dependencies with Gradle.
+para instalar as dependências do seu projeto com Gradle.
 
-## Projects Using Maven
+## Projetos Usando Maven
 
-### Default Test Command
+### Comando Padrão de Teste
 
-if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis Groovy builder will use Maven 3 to build it. By default it will use
+Se o seu projeto possuir o arquivo `pom.xml` na raiz do repositório e não possuir o `build.gradle`, o construtor Groovy do Travis usará o Maven 3 para construí-lo. Por padrão ele utilizará
 
     mvn test
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
-### Dependency Management
+### Gerenciamento de Dependências
 
-Before running tests, Groovy builder will execute
+Antes de executar os testes, o construtor Groovy executará
 
     mvn install -DskipTests=true
 
-to install your project's dependencies with Maven.
+para instalar as dependências do seu projeto com Maven.
 
-## Projects Using Ant
+## Projetos Usando Ant
 
-### Default Test Command
+### Comando Padrão de Teste
 
-If Travis could not detect Maven or Gradle files, Travis Groovy builder will use Ant to build it. By default it will use
+Caso o Travis não encontre arquivos Maven ou Gradle, o construtor Groovy utilizará o Ant para construir o seu projeto. Por padrão será utilizado
 
     ant test
 
-to run your test suite. This can be overriden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
 
-### Dependency Management
+### Gerenciamento de Dependências
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Groovy builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
+Como não existe uma forma padrão de instalar dependências em um projeto com Ant, o construtor Groovy do Travis CI não possui configurações padrão para ele. Você deve especificar o comando a executar utilizando a chave  `install:` no seu `.travis.yml`. Por exemplo:
 
     language: groovy
     install: ant deps
+
+
+## Testando em Múltiplos JDKs
+
+Para testar em múltiplos JDKs, use a chave `:jdk` no `.travis.yml`. Por exemplo, para testar no Oracle JDK 7 (que é mais novo que o OpenJDK 7 no Travis CI) e no OpenJDK 6:
+
+    jdk:
+      - oraclejdk7
+      - openjdk6
+
+Para testar no OpenJDK 7 e Oracle JDK 7:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+
+O Travis CI provê o OpenJDK 7, OpenJDK 6 e Oracle JDK 7. O Sun JDK 6 não é fornecido porque foi marcada como EOL (End-Of-Life) em Novembro de 2012.
+
+O JDK 7 possui compatibilidade com as versões anteriores, e nós achamos que é hora de todos os projetos começarem a serem testados no JDK 7 primeiro, e no JDK 6 apenas se os recursos permitirem.

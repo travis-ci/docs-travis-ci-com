@@ -1,18 +1,18 @@
 ---
-title: Lanugages
-layout: en
+title: Linguagens
+layout: pt-BR
 ---
 
-Here's a list of tutorials for using Travis with different programming
-languages:
+Esta é uma lista de tutoriais para utilizar o Travis com diversas linguagens de programação
 
-* [Clojure](/docs/user/languages/clojure)
-* [Erlang](/docs/user/languages/erlang)
-* [Groovy](/docs/user/languages/groovy)
-* [Java](/docs/user/languages/java)
-* [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
-* [Perl](/docs/user/languages/perl)
-* [PHP](/docs/user/languages/php)
-* [Python](/docs/user/languages/python)
-* [Ruby](/docs/user/languages/ruby)
-* [Scala](/docs/user/languages/scala)
+* [Clojure](/pt_BR/docs/user/languages/clojure)
+* [Erlang](/pt_BR/docs/user/languages/erlang)
+* [Groovy](/pt_BR/docs/user/languages/groovy)
+* [Java](/pt_BR/docs/user/languages/java)
+* [JavaScript (com Node.js)](/pt_BR/docs/user/languages/javascript-with-nodejs)
+* [Objective-C](/pt_BR/docs/user/languages/objective-c)
+* [Perl](/pt_BR/docs/user/languages/perl)
+* [PHP](/pt_BR/docs/user/languages/php)
+* [Python](/pt_BR/docs/user/languages/python)
+* [Ruby](/pt_BR/docs/user/languages/ruby)
+* [Scala](/pt_BR/docs/user/languages/scala)

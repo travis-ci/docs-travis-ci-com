@@ -1,121 +1,122 @@
 ---
-title: Building a Ruby Project
-layout: en
+title: Construindo um Projeto Ruby
+layout: pt-BR
 permalink: ruby/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Ruby projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Ruby. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing Ruby versions/implementations to test against
+## Escolhendo as versões/implementações do Ruby para executar os testes
 
-Ruby workers on travis-ci.org use [RVM](https://rvm.beginrescueend.com/) to provide many Ruby versions/implementations your projects can be tested against.
-To specify them, use `rvm:` key in your `.travis.yml` file, for example:
+Os processos trabalhadores Ruby no travis-ci.org usam [RVM](https://rvm.io/) para fornecer diversas versões/implementações Ruby que seus projetos podem utilizar para executar os testes. Para especificá-los, use a chave `rvm:` no seu arquivo `.travis.yml`. Por exemplo:
 
     language: ruby
     rvm:
-      - 1.8.7
       - 1.9.3
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
       - rbx-18mode
       - rbx-19mode
+      - 1.8.7
 
-A more extensive example:
+Um exemplo mais completo:
 
     language: ruby
     rvm:
-      - 1.8.7
-      - 1.9.2
       - 1.9.3
+      - 1.9.2
       - jruby-18mode
       - jruby-19mode
       - rbx-18mode
       - rbx-19mode
       - ruby-head
       - jruby-head
+      - 1.8.7
       - ree
 
-As time goes, new releases come out and we upgrade both RVM and Rubies, aliases like `1.9.3` or `jruby` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Rubies, see our [CI environment guide](/docs/user/ci-environment/).
+Com o tempo, novas versões são liberadas e nós atualizamos tanto o RVM quanto o Ruby. Apelidos como `1.9.3` ou `jruby` são alterados para apontar para versões exatas, níveis de patch, etc.
+Para uma lista completa e atualizada das versões de Ruby disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
 
-### Rubinius: 1.8 and 1.9 modes, periodic upgrades
+### Rubinius: modos 1.8 e 1.9, atualizações periódicas
 
-travis-ci.org Ruby workers have two installations of Rubinius, in 1.8 and 1.9 modes, respectively. Their RVM alias names are
+Os processos trabalhadores Ruby do travis-ci.org possuem duas instalações do Rubinius, nos modos 1.8 e 1.9, respectivamente. Seus apelidos RVM são
 
       - rbx-18mode
       - rbx-19mode
 
-Both are built from the [2.0.testing branch](https://github.com/rubinius/rubinius/tree/2.0.testing) Rubinius team updates for us when they feel master becomes stable enough. This means that typically Rubinius is upgraded every 1-3 weeks.
+Ambos são construídos do [branch 2.0 de teste](https://github.com/rubinius/rubinius/tree/2.0.testing) que o time do Rubinius atualiza para nós quando sentem que estão estáveis o suficiente. Isto significa que tipicamente o Rubinius é atualizado a cada 1-3 semanas.
 
-### C extensions support is disabled for JRuby
+### JRuby: Suporte à extensões C está desabilitado
 
-Please note that **C extensions are disabled for JRuby** on travis-ci.org. The reason for doing so is to bring it to developers attention that their project may have dependencies that should not be used on JRuby in production. Using C extensions on JRuby is technically possible but is not a good idea performance and stability-wise and we believe continuous integration services like Travis should highlight it.
+Note que as **extensões C estão desabilitadas para o JRuby** no travis-vi.org. O motivo é chamar a atenção dos desenvolvedores de que o projeto deles pode possuir dependências que não deveriam ser utilizadas no JRuby em produção. Usar extensões C no JRuby é tecnicamente possível mas não é uma boa ideia em termos de performance e estabilidade, e nós acreditamos que serviços de integração contínua com o Travis devem alertar sobre tal fato.
 
-So if you want to run CI against JRuby, please check that your Gemfile takes JRuby into account. Most of popular C extensions these days also have Java implementations (jsom gem, nokogiri, eventmachine, bson gem) or Java alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
+De modo que, caso queira executar integração contínua com JRuby, por favor certifique-se de que o seu Gemfile leva o JRuby em consideração. A maioria das extenções C mais populares também possuem implementações Java (json gem, nokogiri, eventmachine, bson gem) ou alternativas Java (como drivers JDBCpara MySQL, PostgreSQL, etc).
 
-## Default Test Script
+## Comando Padrão de Teste
 
-Travis will use [Bundler](http://gembundler.com/) to install your project's dependencies and run `rake` by default to execute your tests. Pleasen note that **you need to add rake to your Gemfile** (adding it to just `:test` group should be sufficient).
+Por padrão o Travis utilizará o [Bundler](http://gembundler.com/) para instalar as dependências do seu projeto e o `rake` para executar seus testes. Note que **você deve adicionar o rake no seu Gemfile** (adicioná-lo apenas no grupo `:test` deve ser o suficiente).
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-### Travis uses Bundler
+### Travis usa Bundler
 
-Travis uses [Bundler](http://gembundler.com/) to install your project's dependencies. It is possible to override this behavior and there are project that use RVM gemset import feature but the majority of Ruby projects hosted on Travis use Bundler.
+O Travis usa o [Bundler](http://gembundler.com/) para instalar as dependências do seu projeto. É possível sobrescrever este comportamento e existem projetos que utilizam a funcionalidade de import do RVM gemset, mas a maioria dos projetos Ruby hospedados no Travis usam o Bundler.
 
-### Exclude non-essential gems like ruby-debug from your Gemfile
+### Exclua gems não-essenciais como ruby-debug do seu Gemfile
 
-We ask Ruby project maintainers to exclude ruby-debug from being installed on travis-ci.org. Consider the following: a project that installs ruby-debug, tests against 6 Ruby versions/implementations and does 3 pushes a day. Given that linecache, one of the ruby-debug dependencies, takes 2 minutes to install in our CI VMs, this results in
+Nós pedimos que os mantedores de projetos Ruby evitem que o ruby-debug seja instalado no travis-ci.org. Considere o seguinte: um projeto que instale ruby-debug, realize testes em 6 versões/implementações diferentes do Ruby e receba 3 pushes por dia. Dado que o linecache, uma das dependências do ruby-debug, leva 2 minutos para instalar nas nossas máquians virtuais, isto resulta em
 
-    3 * 6 * 2 = 36 minutes of time per day per project
+    3 * 6 * 2 = 36 minutos por dia por projeto
 
-And, of course, nobody will really use ruby-debug in CI environments. To exlude ruby-debug and other gems that are non-essential for your test suite, move them to a separate gem group (for example, :development) and [exclude it using *bundler_args* in your .travis.yml](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml#L2) like [amqp gem](https://github.com/ruby-amqp/amqp) does.
+E, claro, ninguem realmente usa o ruby-debug em ambientes de integração contínua. Para excluir o ruby-debug e outras gems não essenciais para a sua suite de testes, mova-as para um grupo gem separado (por exemplo, :development) e [exclua-a usando *bundler_args* no seu .travis.yml](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml#L2) da mesma forma que [amqp gem](https://github.com/ruby-amqp/amqp) faz.
 
-Time is better spent testing your project against more Ruby versions/implementations and more versions of libraries you depend on than compiling linecache over and over.
+O tempo é melhor gasto testando seu projeto em diversas versões/implementações de Ruby e em mais versões de bibliotecas que você depende do que compilando o linecache diversas vezes.
 
-### Custom Bundler arguments and Gemfile locations
+### Argumentos Customizados do Bundler e Localização do Gemfile
 
-You can specify a custom Gemfile name:
+Você pode especificar um Gemfile com nome customizado:
 
     gemfile: gemfiles/Gemfile.ci
 
-Unless specified, the worker will look for a file named "Gemfile" in the root of your project.
+Caso não seja especificado, o processo trabalhador irá procurar por um arquivo chamado "Gemfile" na raiz do projeto.
 
-You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to `bundle install`:
+Também é possível definir <a href="http://gembundler.com/man/bundle-install.1.html">argumentos extras</a>
+You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> a serem passados ao `bundle install`:
 
     bundler_args: --binstubs
 
-You can also define a script to be run before 'bundle install':
+Você também pode definir um script para ser executado antes do 'bundle install':
 
     before_install: some_command
 
-For example, to install and use the pre-release version of bundler:
+Por exemplo, para instalar e utilizar versão pré-release do bundler:
 
     before_install: gem install bundler --pre
 
-### Testing against multiple versions of dependencies (Ruby on Rails, EventMachine, etc)
+### Testando com múltiplas versões de dependências (Ruby on Rails, EventMachine, etc)
 
-Many projects need to be tested against multiple versions of Rack, EventMachine, HAML, Sinatra, Ruby on Rails, you name it. It is easy with Travis CI. What you have to do is this:
+Muitos projetos precisam ser testados com diversas versões do Rack, EventMachine, HAML, Sinatra, Ruby on Rails, etc. Isto é fácil com o Travis CI. Você precisa fazer o seguinte:
 
-* Create a directory in your project's repository root where you will keep gemfiles (./gemfiles is a commonly used name)
-* Add one or more gemfiles to it
-* Instruct Travis CI to use those gemfiles using the *gemfile* option in your .travis.yml
+* Criar um diretório na raiz do seu repositório onde os arquivos gemfile serão armazenados (./gemfiles é um nome comumente usado)
+* Adicionar um ou mais gemfiles a ele
+* Instruir o Travis CI a utilizar estes gemfiles através da opção *gemfile* no seu .travis.yml
 
-For example, amqp gem is [tested against EventMachine 0.12.x and 1.0 pre-releases](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
+Por exemplo, a gem amqp é [testada nas versões 0.12.x e 1.0 do EventMachine](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
 
     gemfile:
       - Gemfile
       - gemfiles/eventmachine-pre
 
-Thoughtbot's Paperclip is [tested against multiple ActiveRecord versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
+O Paperclip é [testado com múltiplas versões do ActiveRecord](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
 
     gemfile:
       - gemfiles/rails2.gemfile
       - gemfiles/rails3.gemfile
       - gemfiles/rails3_1.gemfile
 
-An alternative to this is to use environment variables and make your test runner use them. For example, [Sinatra is tested against multiple Tilt and Rack versions](https://github.com/sinatra/sinatra/blob/master/.travis.yml):
+Uma alternativa a este método é usar variáveis de ambiente e fazer o seu runner de testes utilizá-las. Por exemplo, o [Sinatra é testado em diversas versões do Tilt e Rack](https://github.com/sinatra/sinatra/blob/master/.travis.yml):
 
     env:
       - "rack=1.3.4"
@@ -123,18 +124,63 @@ An alternative to this is to use environment variables and make your test runner
       - "tilt=1.3.3"
       - "tilt=master"
 
-ChefSpec is [tested against multiple Opscode Chef versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
+ChefSpec é [testando em diversas versões do Opscode Chef](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 
     env:
       - CHEF_VERSION=0.9.18
       - CHEF_VERSION=0.10.2
       - CHEF_VERSION=0.10.4
 
-Same technique is often applied to test against multiple databases, templating engines, [hosted] service providers and so on.
+A mesma técnica é comumente utilizada para testar em diversos bancos de dados, engines de template, provedores de serviço, etc.
 
-## Upgrading RubyGems
 
-travis-ci.org provides exactly the same versions of rubygems RVM and various Ruby implementations/versions ship with. If REE 2011.12 ships with version `1.8.9`, it will be `1.8.9` on travis-ci.org. However, if your project or one of its dependencies needs a more recent version of rubygems, you can upgrade them with
+## Testando em Múltiplos JDKs (JRuby)
+
+É possível testar os projetos em múltiplas versões de JDKs, especificamente
+
+ * OpenJDK 7
+ * Oracle JDK 7
+ * OpenJDK 6
+
+Para fazer isto, use a chave `:jdk` no seu `.travis.yml`. Por exemplo:
+
+    jdk:
+      - oraclejdk7
+      - openjdk7
+
+ou todos os 3:
+
+    jdk:
+      - openjdk7
+      - oraclejdk7
+      - openjdk6
+
+Cada JDK que você utiliza para testes criará permutações com todas as outras configurações. Para evitar executar os testes para, por exemplo, CRuby 1.9.3 diversas vezes você deve adicionar algumas exclusões de matriz (descritas no [guia de configuração de build](/pt_BR/docs/user/build-configuration/)):
+
+    language: ruby
+    rvm:
+      - 1.9.2
+      - jruby-18mode
+      - jruby-19mode
+      - jruby-head
+    jdk:
+      - openjdk6
+      - openjdk7
+      - oraclejdk7
+    matrix:
+      exclude:
+    - rvm: 1.9.2
+      jdk: openjdk7
+    - rvm: 1.9.2
+      jdk: oraclejdk7
+
+
+Para um exemplo, veja [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
+
+
+## Atualizando RubyGems
+
+O travis-ci.org fornece as mesmas versões do rubygems RVM e várias versões/implementações do Ruby que vêm junto. Se a REE 2011.12 vem com a versão `1.8.9`, ela será `1.8.9` no travis-ci.org. Contudo, se o seu projeto ou alguma de suas dependências precisa de uma versão mais recente do rubygems, você pode atualizá-lo utilizando
 
     before_install:
       - gem update --system

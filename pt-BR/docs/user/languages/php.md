@@ -1,118 +1,199 @@
 ---
-title: Building a PHP project
-layout: en
+title: Construindo um Projeto PHP
+layout: pt-BR
 permalink: php/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos PHP. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing PHP versions to test against
+## Escolhendo as versões do PHP para Executar os Testes
 
-PHP workers on travis-ci.org provide PHP 5.2, 5.3, 5.4 including XDebug as well as PHPUnit. A minimalistic .travis.yml file would look like this:
+As máquinas virtuais do travis-ci.org fornecem diversas versões do PHP incluindo o XDebug e PHPUnit. O Travis utiliza o [phpenv](https://github.com/CHH/phpenv) para gerenciar as diversas versões de PHP instaladas nas máquinas virtuais. Um arquivo .travis.yml minimalístico ficaria assim:
 
     language: php
     php:
-      - 5.3
       - 5.4
+      - 5.3
 
-This will make Travis run your tests using
-
-    phpunit
-
-by default against the latest 5.3.x and 5.4.x releases. 5.3 and 5.4 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/docs/user/ci-environment/).
-
-Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis.
-
-For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
-
-## Default Test Script
-
-By default Travis will run your tests using
+Isto fará com que o Travis execute seus testes com
 
     phpunit
 
-for every PHP version you specify.
+por padrão, utilizando as últimas versões 5.3.x e 5.4.x. 5.3 e 5.4 são apelidos para "a mais recente versão x.y.z" de uma determinada linha. Note que "a mais recente" significa "as mais recentes fornecidas pelos mantedores do Travis", não necessariamente as últimas versões oficiais disponíveis no php.net. Para uma listagem completa das versões suportadas, veja [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
 
-If your project uses something other than phpunit, [you can override our default test command to be anything](/docs/user/build-configuration/) you want.
+Note ainda que especificar versões exatas como 5.3.8 não é recomendado, visto que seu arquivo .travis.yml pode ficar desatualizado e quebrar o build quando nós atualizarmos as versões do PHP no Travis.
 
-### Working with atoum
+Para um exemplo, veja [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
-Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
+## Script Padrão de Teste
+
+### PHPUnit
+
+Por padrão o Travis executará seus testes utilizando
+
+    phpunit
+
+para cada versão do PHP que você especificar.
+
+Caso o seu projeto utilize algo diferente do PHPUnit, você pode sobrescrever o comando padrão de testes para o que for necessário, conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+
+### Trabalhando com atoum
+
+Ao invés do PHPUnit, você também pode utilizar o [atoum](https://github.com/atoum/atoum) para testar ses projetos. Por exemplo:
 
     before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
     script: php mageekguy.atoum.phar
 
-## Dependency Management (a.k.a. vendoring)
+## Gerenciamento de Dependências (a.k.a. vendoring)
 
-Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *before_script* option in your .travis.yml, for example:
+Antes que o Travis possa executar sua suite de testes, pode ser necessário obter as dependências do seu projeto. Isto pode ser feito utilizando um script PHP, um shell script ou qualquer outra coisa que você precisar. Defina um ou mais comandos que você quer que o Travis use com a opção *before_script* do seu arquivo .travis.yml. Por exemplo:
 
     before_script: php vendor/vendors.php
 
-or, if you need to run multiple commands sequentially:
+ou, caso precise executar múltiplos comandos sequencialmente:
 
     before_script:
       - ./bin/ci/install_dependencies.sh
       - php vendor/vendors.php
 
-Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.
+As dependências instaladas serão apagadas entre os builds (utilizamos snapshots das máquinas virtuais que executam os testes). Por favor seja razoável em quanto tempo e banda de rede você utiliza para instalá-las.
 
-### Testing Against Multiple Versions of Dependencies (e.g. Symfony)
+### Testando com Múltiplas Versões de Dependências (ex. Symfony)
 
-If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
+Caso você precise testar com diversas versões de, por exemplo Symfony, você pode instruir o Travis a realizar múltiplas execuções com um conjunto diferente de variáveis de ambiente. Use a chave *env* no seu arquivo .travis.yml. Por exemplo:
 
     env:
-      - SYMFONY_VERSION=v2.0.5
-      - SYMFONY_VERSION=origin/master
+      - SYMFONY_VERSION="2.0.*" DB=mysql
+      - SYMFONY_VERSION="dev-master" DB=mysql
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to pick phpunit configuration file:
+e então utilize os valores da variável de ambiente ENV nos seus scripts de instalação de dependências, casos de teste ou parâmetros do script de testes.
+
+Segue abaixo um exemplo sobre como utilizar a variável ENV para modificar as dependências utilizando o gerenciador de pacotes composer de forma a executar os testes em duas versões do Symfony.
+
+    before_script:
+       - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+
+Aqui usamos o valor da variável DB para selecionar o arquivo de configuração do phpunit:
 
     script: phpunit --configuration $DB.phpunit.xml
 
-The same technique is often used to test projects against multiple databases and so on.
+A mesma técnica é utilizada para testar o projeto em diversos bancos de dados.
 
-To see real world examples, see:
+Para exemplos reais, veja:
 
-* [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/.travis.yml)
 * [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
-* [doctrine2](https://github.com/pborreli/doctrine2/blob/master/.travis.yml)
+* [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
+* [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
-### Installing PEAR packages
+### Instalando pacotes PEAR
 
-If your dependencies include PEAR packages, the Travis PHP environment has the [Pyrus command](http://pear2.php.net/) available:
+Caso suas dependências incluam pacotes PEAR, o ambiente PHP do Travis possui os comandos [Pyrus](http://pear2.php.net/) e [pear](http://pear.php.net/):
 
     pyrus install http://phptal.org/latest.tar.gz
+    pear install pear/PHP_CodeSniffer
 
-After install you should refresh your path
+Após a instalação, você deve atualizar o seu path
 
     phpenv rehash
 
-So, for example when you want to use phpcs, you should execute:
+Então, caso você queira, por exemplo, utilizar o phpcs, é necessário executar:
 
     pyrus install pear/PHP_CodeSniffer
     phpenv rehash
 
-Then you can use phpcs as simply as phpunit command
+Após isso você poderá utilizar o phpcs como um comando phpunit
 
-### Installing Composer packages
+### Instalando pacotes Composer
 
-You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. Use the following:
+Também é possível instalar pacotes [Composer](http://packagist.org/) no ambiente PHP do Travis. O comando composer já vem pré-instalado, por isso utilize apenas:
 
-    wget http://getcomposer.org/composer.phar
-    php composer.phar install
+    composer install
 
-### Installing PHP extensions
+Para garantir que tudo funcione, utilize as URLs http(s) do [Packagist](http://packagist.org/), e não URLs git.
 
-It is possible to install custom PHP extensions into the Travis environment, but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
+## Instalação do PHP
 
-    wget http://pecl.php.net/get/memcache-2.2.6.tgz
-    tar -xzf memcache-2.2.6.tgz
-    sh -c "cd memcache-2.2.6 && phpize && ./configure --enable-memcache && make && sudo make install"
-    echo "extension=memcache.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+As opções de configuração padrão utilizadas para compilar as versões do PHP usadas no Travis podem ser vistas [aqui](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb). Este link lhe dará uma visão geral da instalação do PHP usada no Travis.
 
-See also the [full before_script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard.sh).
+Note, contudo, as seguintes diferenças entre as versões de PHP disponíveis no Travis:
 
-### Chef Cookbooks for PHP
+* Para versões do PHP não mantidas que nós oferecemos (5.2.x, 5.3.3), a extensão OpenSSL está desativada devido a [problemas de compilação com OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). As releases recentes das versões PHP 5.3.x e 5.4.x que nós fornecemos possuem suporte à extensão OpenSSL.
+* Pyrus não está disponível para o PHP 5.2.x.
+* SAPIs diferentes:
 
-If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base).
+  * 5.2.x e 5.3.3 possuem php-cgi apenas.
+  * 5.3.x (última versão no branch 5.3) possui php-fpm apenas (veja este [issue](https://bugs.php.net/bug.php?id=53271:)).
+  * 5.4.x e 5.5.x possuem php-cgi *e* php-fpm.
+
+## Configuração Personalizada do PHP
+
+A maneira mais simples de customizar a configuração do PHP é usar `phpenv config-add` para adicionar um arquivo de configuração customizado com as suas diretrizes de configuração:
+
+    before_script: phpenv config-add myconfig.ini
+
+E no myconfig.ini:
+
+    extension = "mongo.so"
+    date.timezone = "Europe/Paris"
+    default_socket_timeout = 120
+    # outras configurações...
+
+Você também pode utilizar este comando:
+
+    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+## Extensões do PHP
+
+### Core extensions
+
+Veja [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb) para uma visão geral das core extensions ativas.
+
+### Extensões PHP pré-instaladas
+
+Existem algumas extensões comuns do PHP pré-instaladas com PECL no Travis:
+
+* [apc.so](http://php.net/apc)
+* [memcache.so](http://php.net/memcache)
+* [memcached.so](http://php.net/memcached)
+* [mongo.so](http://php.net/mongo)
+* [amqp.so](http://php.net/amqp)
+* [zmq.so](http://php.zero.mq/)
+
+Note que estas extensões não estão ativas por padrão, de modo que é necessário ativá-las adicionando uma linha  `extension="<extension>.so"` a um arquivo de configuração do PHP (para a versão corrente). A maneira mais fácil de fazer isto é utilizando o phpenv para adicionar um arquivo de configuração customizado que ative e configure a extensão:
+
+    before_script: phpenv config-add myconfig.ini
+
+E no myconfig.ini:
+
+    extension="mongo.so"
+    # outras configurações do mongo
+    # ou configurações gerais...
+
+Você também pode utilizar este comando:
+
+    echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+### Instalando extensões adicionais do PHP
+
+É possível instalar extensões PHP adicionais no ambiente Travis usando o [PECL](http://pecl.php.net/), mas elas precisam ser construídas utilizando a versão do PHP que está sendo utilizada para o teste. Este é um exemplo de como a extensão `memcache` pode ser instalada:
+
+    pecl install <extension>
+
+O PECL irá ativar a extensão automaticamente ao final da instalação. Caso queira configurar a sua extensão, use o comando `phpenv config-add` para adicionar um arquivo de configuração personalizado no seu before_script.
+
+Também é possível realizar a instalação "manualmente", mas você terá que ativar a extensão manualmente após a instalação, utilizando `phpenv config-add` e um arquivo ini personalizado com esta linha de comando:
+
+    echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+Veja também [full script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard2.sh).
+
+Caso necessite de uma versão específica de uma extensão pré-instalada, utilize a flag `-f`. Por exemplo:
+
+    pecl install -f mongo-1.2.12
+
+
+### Chef Cookbooks para PHP
+
+Caso queira aprender os detalhes sobre como construir e fornecer múltiplas instalações do PHP, veja [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment).
