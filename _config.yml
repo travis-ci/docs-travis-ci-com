@@ -1,4 +1,3 @@
-auto: true
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md]
 markdown: rdiscount
 permalink: :title
