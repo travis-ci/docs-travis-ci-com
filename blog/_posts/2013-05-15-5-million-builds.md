@@ -4,7 +4,7 @@ created_at: Wed May 15 2013 15:00 CEST
 author: Mathias Meyer
 twitter: roidrage
 layout: post
-permalink: blog/5-million-open-source-build-jobs
+permalink: /blog/5-million-open-source-build-jobs
 ---
 Today we crossed a magic number, we've had our five millionth job run for open
 source projects on <https://travis-ci.org>!
