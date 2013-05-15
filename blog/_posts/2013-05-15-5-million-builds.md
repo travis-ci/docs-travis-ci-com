@@ -16,8 +16,8 @@ Here's a visual representation of the celebrations in our team's Campfire:
 
 ![](http://i.imgur.com/JJrgOzQ.gif)
 
-To give you some more statistical context, We're now doing more than 20000 job
-runs on average every day, around 23000 on weekdays, and around 15000 on
+To give you some more statistical context, we're now doing more than 20\_000 job
+runs on average every day, around 23\_000 on weekdays, and around 15\_000 on
 weekends. Keep on shipping that open source code!
 
 Here's to five million more build jobs!
