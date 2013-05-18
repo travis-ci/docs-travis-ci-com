@@ -12,7 +12,7 @@ meet you all over a coffee next Thursday, May 23.
 Not only do you get to meet the entire Travis team and Henrik (our shipping hero
 of the week and main driver of our Mac integration), your coffee is on us.
 
-![](https://i.chzbgr.com/maxW500/6537829376/h50C9137B/)
+<a href="http://www.youtube.com/watch?v=fhdCslFcKFU"><img src="https://i.chzbgr.com/maxW500/6537829376/h50C9137B/"/></a>
 
 To make sure you'll have the finest [fresh
 pots](http://www.youtube.com/watch?v=fhdCslFcKFU) in Berlin, we'll be at [Café
