@@ -14,7 +14,8 @@ of the week and main driver of our Mac integration), your coffee is on us.
 
 ![](https://i.chzbgr.com/maxW500/6537829376/h50C9137B/)
 
-To make sure you'll have the finest fresh pots in Berlin, we'll be at [Café
+To make sure you'll have the finest [fresh
+pots](http://www.youtube.com/watch?v=fhdCslFcKFU) in Berlin, we'll be at [Café
 CK](http://cafeck.tumblr.com) from 14:00 to 18:00 CEST. Join us for a chat about
 coffee, Travis, bacon or distributed systems, anything goes!
 
