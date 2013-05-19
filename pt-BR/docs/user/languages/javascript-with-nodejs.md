@@ -1,70 +1,75 @@
 ---
-title: Building a Node.js project
-layout: en
+title: Construindo um Projeto Node.js
+layout: pt-BR
 permalink: javascript-with-nodejs/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Java. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing Node versions to test against
+## Escolhendo as versões do Node para usar nos testes
 
-Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to be "first class": testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project. Add the following line to .travis.yml:
+Historicamente os projetos Node.js eram construindo usando os processos workers do Ruby, mas em Novembro de 2011 o suporte ao Node.js foi promovido à primeira classe: execução dos testes em múltiplas versões do Node.js em um conjunto separado de máquinas virtuais. Recomendamos que você as use para testar o seu projeto Node.js. Adicione o seguinte ao seu .travis.yml:
 
     language: node_js
     node_js:
-      - 0.4
-      - 0.6
-      - 0.7 # development version of 0.8, may be unstable
+      - "0.11"
+      - "0.10"
+      - "0.8"
+      - "0.6"
 
-This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.4.x branch release. 0.6 is an alias for "the most recent 0.6.x release" and so on. Please note that using exact versions (for example, 0.4.12) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
+Isto fará o Travis executar os testes nas últimas releases (fornecidas pelos mantedores do Travis, não necessariamente as últimas disponíveis) das branches 0.6.x, 0.8.x, 0.10.x e 0.11.x.
 
-For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
+0.10 é um apelido para "a mais recente release 0.10.x" e assim por diante. Note que usar versões exatas (por exemplo, 0.10.2) é altamente desencorajado porque quando as versões mudarem, o seu arquivo .travis.yml ficará velho e as coisas quebrarão.
 
-## Provided Node.js Versions
+Para um exemplo, veja [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
- * 0.4.x (currently 0.4.12)
- * 0.6.x (currently 0.6.11)
- * 0.7.x (development versions of 0.8)
+## Versões Fornecidas do Node.js
 
-For full up-to-date list of provided Node versions, see our [CI environment guide](/docs/user/ci-environment/).
+* 0.10.x (última versão estável)
+* 0.8.x
+* 0.6.x
+* 0.11.x (última versão de desenvolvimento, pode ser instável)
+* 0.9.x (antiga versão de desenvolvimento, será marcada como deprecated logo)
 
-## Default Test Script
+Para uma lista completa e atualizada das versões do Node fornecidas, veja o nosso [Guia de Ambiente de Integração Contínua](/pt_BR/docs/user/ci-environment/).
 
-For projects using NPM, Travis CI will execute
+## Comando Padrão de Teste
+
+Para projetos usando NPM, Travis CI executará
 
     npm test
 
-to run your test suite.
+para executar a suite de teste.
 
-### Using Vows
+### Usando Vows
 
-You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:
+Você pode dizer ao npm como executar a sua suite de testes adicionando uma linha no package.json. Por exemplo, para testar utilizando Vows:
 
     "scripts": {
       "test": "vows --spec"
     },
 
 
-### Using Expresso
+### Usando Expresso
 
-To test using Expresso:
+Para testar utilizando Expresso:
 
     "scripts": {
       "test": "expresso test/*"
     },
 
-Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember is the `npm test` convention.
+Manter a configuração do script de teste no package.json faz com que seja fácil para outras pessoas colaborarem com o seu projeto, pois tudo que precisam lembrar é da convenção `npm test`.
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-### Travis uses NPM
+### Travis usa NPM
 
-Travis uses [NPM](http://http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.
+O Travis usa o [NPM](http://npmjs.org/) para instalar as dependências do seu projeto. É possível alterar este comportamento, e existem projetos que usam ferramentas diferentes, mas a maioria dos projetos Node.js hospedados no Travis usam NPM, que acompanha o Node a partir a versão 0.6.0.
 
-By default, Travis CI will run
+Por padrão o Travis CI executará
 
     npm install
 
-to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no NPM packages installed at the beginning of your build).
+para instalar as dependências. Note que a instalação de dependências no ambiente do Travis CI sempre acontece do começo (não existem pacotes NPM instalados no início do seu build).

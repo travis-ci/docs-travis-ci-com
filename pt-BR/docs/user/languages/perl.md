@@ -1,80 +1,85 @@
 ---
-title: Building a Perl Project
-layout: en
+title: Construindo um Projeto Perl
+layout: pt-BR
 permalink: perl/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Perl. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
-## Choosing Perl versions to test against
+## Escolhendo as versões de Perl para Executar os Testes
 
-Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use `perl:` key in your `.travis.yml` file, for example:
+Os processos workers no travis-ci.org usam o [Perlbrew](http://perlbrew.pl/) para oferecer diversas versões de Perl para os projetos. Para especificá-las, use a chave `perl:`no seu arquivo `.travis.yml`, por exemplo:
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
-      - "5.12"
 
-A more extensive example:
+Um exemplo mais extensivo:
 
     language: perl
     perl:
+      - "5.16"
       - "5.14"
       - "5.12"
       - "5.10"
 
-As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
-For full up-to-date list of provided Perl versions, see our [CI environment guide](/docs/user/ci-environment/).
+Com o tempo, novas versões são liberadas e nós atualizamos tanto o Perlbrew quanto o Perl. Apelidos como `5.14` são alterados para apontar para versões exatas, níveis de patch, etc.
+Para uma lista completa e atualizada das versões de Perl disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
 
-### Versions earlier than 5.10 Are Not Provided
+### Versões Anteriores à 5.10 não são Fornecidas
 
-Perl versions earlier than 5.10 are not and will not be provided. Please do not list them in `.travis.yml`.
+Versões do Perl anteriores à 5.10 não são e não serão fornecidas. Por favor não as inclua no seu `.travis.yml`.
 
 
-## Default Perl Version
+## Versão Padrão do Perl
 
-If you leave the `perl` key out of your `.travis.yml`, Travis CI will use Perl 5.14.
+Se você não incluir a chave `perl` no seu `.travis.yml`, o Travis CI utilizará a versão 5.14.
 
-## Default Test Script
+## Script Padrão de Teste
 
 ### Module::Build
 
-If your repository has Build.PL is the root, it will be used to generate build script:
+Se o seu repositório possuir um arquivo Build.PL na raiz, ele será utilizado para gerar o script de build:
 
     perl Build.PL && ./Build test
 
 ### EUMM
 
-If your repository has Makefile.PL is the root, it will be used like so
+Se o seu repositório possuir um arquivo Makefile.PL na raiz, ele será utilizado:
 
     perl Makefile.PL && make test
 
-If neither Module::Build nor EUMM build files are found, Travis CI will fall back to running
+Se nem os arquivos de build do Module::Build nem do EUMM forem encontrados, o Travis CI utilizará
 
     make test
 
-It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+É possível sobrescrever o comando de teste, conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
 
-## Dependency Management
+## Gerenciamento de Dependências
 
-### Travis CI uses cpanm
+### O Travis CI usa cpanm
 
-By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+Por padrão o Travis CI usa o `cpanm` para gerenciar as dependências do seu projeto. É possível sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
 
-The exact default command is
+O comando padrão executado é
 
     cpanm --installdeps --notest .
 
-### When Overriding Build Commands, Do Not Use sudo
+### Ao Sobrescrever Comandos de Build, Não Utilize o sudo
 
-When overriding `install:` key to tweak dependency installation command (for example, to run cpanm with verbosity flags), do not use sudo.
-Travis CI Environment has Perls installed via Perlbrew in non-privileged user $HOME directory. Using sudo will result in dependencies
-being installed in unexpected (for Travis CI Perl builder) locations and they won't load.
+Ao sobrescrever a chave `install:` para personalizar o comando de instalação (por exemplo, para executar o cpanm com a flag de verbose), não utilize o sudo. O ambiente do Travis CI tem o Perl insalado via Perlbrew em um diretório $HOME não privilegiado. Usar o sudo resultará na instalação das dependências em um local não esperado (para o construtor Perl do Travis CI) e elas não serão carregadas.
 
-## Examples
+
+## Espelho Local CPAN
+
+O Travis CI possui um espelho local do CPAN em [cpan.mirrors.travis-ci.org](http://cpan.mirrors.travis-ci.org/) e `PERL_CPANM_OPT` está configurado para utilizá-lo.
+
+
+## Exemplos
 
 * [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)
 * [fxn/algorithm-combinatorics](https://github.com/fxn/algorithm-combinatorics/blob/master/.travis.yml)
