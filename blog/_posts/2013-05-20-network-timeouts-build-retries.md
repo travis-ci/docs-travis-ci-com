@@ -108,3 +108,6 @@ installation failed because of timeouts or for other reasons.
 We're sorry for the bad experience you've been having on Travis due to these
 errors. The retries should reduce the overall impact of the timeouts for the
 time being, but we'll work on reducing them coming up overall.
+
+If you're still seeing strange build timeouts or other errors that look
+spurious, please [let us know](https://github.com/travis-ci/travis-ci/issues/new)!
