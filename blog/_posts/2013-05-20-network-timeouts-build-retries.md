@@ -87,7 +87,7 @@ solutions, e.g. looking at the return codes of the tools.
 The upshot is that when the command succeeds the second time, the entire set
 will be folded away neatly so it doesn't clutter the logs visually.
 
-We're also adding this to git clones as well, it's being deployed the very minute.
+We're also adding this to git clones as well, it's being deployed this very minute.
 
 ### Retrying Your Own Commands
 
