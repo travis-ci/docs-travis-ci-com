@@ -2,3 +2,5 @@ exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md]
 markdown: rdiscount
 permalink: :title
 safe: true
+paginate_path: /blog/page-:num
+paginate: 7
