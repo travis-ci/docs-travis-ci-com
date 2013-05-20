@@ -2,8 +2,18 @@
 title: The Travis CI Blog
 layout: en
 ---
+<span id="blog">
 {% for post in paginator.posts %}
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+  <p class="meta">
+    {% if post.twitter %}
+      <a href="http://twitter.com/{{ post.twitter }}">{{ post.author }}</a>,
+    {% else %}
+      {{ post.author }},
+    {% endif %}
+    <time datetime="{{ post.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ post.created_at | date: "%B %-d, %Y" }}</time>
+  </p>
+
 
 {{ post.content | strip_html | truncatewords: 75 }}
 
@@ -27,3 +37,4 @@ layout: en
     <span class="next ">Next</span>
   {% endif %}
 </div>
+</span>

@@ -474,6 +474,10 @@ h2 {
   font-size: 80%;
 }
 
+#blog .meta {
+  margin-top: -0.5em;
+}
+
 h3 {
   font-size: 1.15em;
   margin-bottom: 0.5em;
