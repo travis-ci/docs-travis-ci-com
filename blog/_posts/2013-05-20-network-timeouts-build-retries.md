@@ -1,5 +1,5 @@
 ---
-title: On Network Timeouts and Build Retries
+title: On Network Timeouts and Build Installation Retries
 author: Mathias Meyer
 twitter: roidrage
 created_at: Mon 20 May 2013 16:00 CEST
