@@ -27,7 +27,7 @@ Please see our [initial documentation for PHP projects](http://about.travis-ci.o
 
 In addition, we have a couple of machines lined up that we will be running PHP builds on. One of them is [Shopify](http://shopify.com): they donated a worker we have been using for Node.js projects. Another one is [ServerGrove](http://servergrove.com), experts in PHP hosting and specifically frameworks like Symfony and Zend Framework: they donated us one more machine to run PHP builds on.
 
-If you have questions, find us in #travis on irc.freenode.net, we will be happy to answer them. To stay up to date with new announcements, CI environment software updates and more, [follow us on Twitter](https://twitter.com/travisci) and [join our mailing list](https://groups.google.com/forum/#!forum/travis-ci).
+If you have questions, find us in #travis on chat.freenode.net, we will be happy to answer them. To stay up to date with new announcements, CI environment software updates and more, [follow us on Twitter](https://twitter.com/travisci) and [join our mailing list](https://groups.google.com/forum/#!forum/travis-ci).
 
 We hope you enjoy using Travis for your open source projects as much as we do. Go add your PHP projects to Travis CI and recommend your fellow PHP developers to do the same!
 

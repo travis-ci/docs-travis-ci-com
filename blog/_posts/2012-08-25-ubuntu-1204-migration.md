@@ -151,7 +151,7 @@ The exact migration date is not yet decided, but most likely this will happen in
 ## Getting Help
 
 If you have questions, please ask them on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/travis-ci) or in
-`#travis` on irc.freenode.net.
+`#travis` on chat.freenode.net.
 
 
 Happy testing!

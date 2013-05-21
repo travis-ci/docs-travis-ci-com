@@ -30,5 +30,5 @@ Les services et les librairies qui font fonctionner travis-ci.org sont [héberg�
 
 ## Rencontrez l'équipe
 
-N'hésitez pas à venir nous passer le bonjour sur [#travis sur irc.freenode.net](irc://irc.freenode.net/%23travis) si vous trouvez le projet génial !
+N'hésitez pas à venir nous passer le bonjour sur [#travis sur chat.freenode.net](irc://chat.freenode.net/%23travis) si vous trouvez le projet génial !
 Et n'oubliez pas de jeter un oeil sur le [Blog](/blog/) !

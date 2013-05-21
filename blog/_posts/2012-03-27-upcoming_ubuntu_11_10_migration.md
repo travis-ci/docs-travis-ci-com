@@ -58,7 +58,7 @@ PHP 5.3.10 and 5.4.0 are maintained and work with OpenSSL 1.0 without modificati
 
 ## The Road to 11.10
 
-On April 6th, 2012 we plan to update all our VMs to use Ubuntu 11.10. We will provide the same set of tools, services, and libraries, but some of them will be newer than what we have today. Most maintained software should work without any changes on your part. If you experience any issues please drop by #travis on irc.freenode.net and we will do our best to help you.
+On April 6th, 2012 we plan to update all our VMs to use Ubuntu 11.10. We will provide the same set of tools, services, and libraries, but some of them will be newer than what we have today. Most maintained software should work without any changes on your part. If you experience any issues please drop by #travis on chat.freenode.net and we will do our best to help you.
 
 You can also try a minimalistic 11.10 image using Virtual Box and [sous chef](https://github.com/michaelklishin/sous-chef) or [Vagrant](http://vagrantup.com)
 with our [11.10 base box](http://files.travis-ci.org/boxes/bases/oneiric32_base.box).

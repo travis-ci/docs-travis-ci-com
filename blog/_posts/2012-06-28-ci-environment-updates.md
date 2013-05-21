@@ -57,7 +57,7 @@ More information can be found in the [README of node-gyp](https://github.com/Too
 ## Getting Help
 
 If you have questions, please ask them on our [mailing list](https://groups.google.com/forum/?fromgroups#!forum/travis-ci) or in
-`#travis` on irc.freenode.net.
+`#travis` on chat.freenode.net.
 
 
 Happy testing!

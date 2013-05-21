@@ -93,7 +93,7 @@ Travis' build workflow usually is
 
 To learn what tools and services (MySQL, Postgres, Riak, etc.) are available in the CI environment, refer to the [CI environment](http://about.travis-ci.org/docs/user/ci-environment/) guide.
 
-If you need help, feel free to join #travis on irc.freenode.net, ping us on Twitter ([@travisci](http://twitter.com/travisci)) and ask questions on [our mailing list](https://groups.google.com/group/travis-ci).
+If you need help, feel free to join #travis on chat.freenode.net, ping us on Twitter ([@travisci](http://twitter.com/travisci)) and ask questions on [our mailing list](https://groups.google.com/group/travis-ci).
 
 
 
