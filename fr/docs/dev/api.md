@@ -63,7 +63,7 @@ permalink: api/
           ".configured": "true",
           "bundler_args": "--without development",
           "notifications": {
-            "irc": "irc.freenode.org#travis"
+            "irc": "chat.freenode.net#travis"
           },
           "rvm": [
             "1.8.7",
@@ -84,7 +84,7 @@ permalink: api/
               ".configured": "true",
               "bundler_args": "--without development",
               "notifications": {
-                "irc": "irc.freenode.org#travis"
+                "irc": "chat.freenode.net#travis"
               },
               "rvm": "1.8.7"
             },
@@ -133,7 +133,7 @@ permalink: api/
         ".configured": "true",
         "bundler_args": "--without development",
         "notifications": {
-          "irc": "irc.freenode.org#travis"
+          "irc": "chat.freenode.net#travis"
         },
         "rvm": "1.8.7"
       },

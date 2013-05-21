@@ -152,7 +152,7 @@ Travis CI notifie par défaut :
 Vous pouvez aussi spécifier un channel IRC à notifier :
 
     notifications:
-      irc: "irc.freenode.org#travis"
+      irc: "chat.freenode.net#travis"
 
 <h3>Build seulement certaines branches</h3>
 

@@ -159,7 +159,7 @@ permalink: api/
             "script": "RAILS_ENV=test bundle exec rake test:ci --trace", 
             "bundler_args": "--without development", 
             "notifications": {
-              "irc": "irc.freenode.org#travis", 
+              "irc": "chat.freenode.net#travis", 
               "campfire": {
                 "secure": "JJezWGD9KJY/LC2aznI3Zyohy31VTIhcTKX7RWR4C/C8YKbW9kZv3xV6Vn11\nSHxJTeZo6st2Bpv6tjlWZ+HCR09kyCNavIChedla3+oHOiuL0D4gSo+gkTNW\nUKYZz9mcQUd9RoQpTeyxvdvX+l7z62/7JwFA7txHOqxbTS8jrjc="
               }
@@ -192,7 +192,7 @@ permalink: api/
         "script": "RAILS_ENV=test bundle exec rake test:ci --trace", 
         "bundler_args": "--without development", 
         "notifications": {
-          "irc": "irc.freenode.org#travis", 
+          "irc": "chat.freenode.net#travis", 
           "campfire": {
             "secure": "JJezWGD9KJY/LC2aznI3Zyohy31VTIhcTKX7RWR4C/C8YKbW9kZv3xV6Vn11\nSHxJTeZo6st2Bpv6tjlWZ+HCR09kyCNavIChedla3+oHOiuL0D4gSo+gkTNW\nUKYZz9mcQUd9RoQpTeyxvdvX+l7z62/7JwFA7txHOqxbTS8jrjc="
           }
@@ -384,7 +384,7 @@ JSONP works with any of the above urls. The example below uses the url for build
             ".configured": "true",
             "bundler_args": "--without development",
             "notifications": {
-              "irc": "irc.freenode.org#travis"
+              "irc": "chat.freenode.net#travis"
             },
             "rvm": [
               "1.8.7",
@@ -405,7 +405,7 @@ JSONP works with any of the above urls. The example below uses the url for build
                 ".configured": "true",
                 "bundler_args": "--without development",
                 "notifications": {
-                  "irc": "irc.freenode.org#travis"
+                  "irc": "chat.freenode.net#travis"
                 },
                 "rvm": "1.8.7"
               },

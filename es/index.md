@@ -30,4 +30,4 @@ Los servicios y librerías que hace posible travis-ci.org están [alojadas en Gi
 
 ## Conoce al Equipo
 
-Si sientes que este es un gran proyecto visitanos en [#travis on irc.freenode.net](irc://irc.freenode.net/%23travis) y saluda! Y no olvides de visitar el  [Travis Blog](/blog/)!
+Si sientes que este es un gran proyecto visitanos en [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis) y saluda! Y no olvides de visitar el  [Travis Blog](/blog/)!

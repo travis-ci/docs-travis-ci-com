@@ -272,4 +272,4 @@ See [Database setup](/docs/user/database-setup/) to learn how to configure a dat
 
 ### Step seven: We are here to help!
 
-For any kind of questions feel free to join our IRC channel [#travis on irc.freenode.net](irc://irc.freenode.net/%23travis). We're there to help :)
+For any kind of questions feel free to join our IRC channel [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis). We're there to help :)

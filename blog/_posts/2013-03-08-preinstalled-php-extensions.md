@@ -50,7 +50,7 @@ For more information, please refer to the [PHP extensions section](http://about.
 
 This feature is live on Travis CI for open source projects now and will be made available to [Travis Pro](http://beta.travis-ci.com) projects on the 18th of March.
 
-Unfortunately, this update may cause build failures because of incompatibilities between the extension you are trying to install and the extension already preinstalled. We encourage you to update your Travis setup to take advantage of this new feature and to report any issues you encounter on [our GitHub issues tracker](https://github.com/travis-ci/travis-ci/issues). You can also pop into #travis on irc.freenode.org if you need any help.
+Unfortunately, this update may cause build failures because of incompatibilities between the extension you are trying to install and the extension already preinstalled. We encourage you to update your Travis setup to take advantage of this new feature and to report any issues you encounter on [our GitHub issues tracker](https://github.com/travis-ci/travis-ci/issues). You can also pop into #travis on chat.freenode.net if you need any help.
 
 If you feel that there is a really important extension that should be preinstalled on Travis, feel free to [tell us](https://github.com/travis-ci/travis-ci/issues).
 

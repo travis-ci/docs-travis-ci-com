@@ -65,7 +65,7 @@ permalink: api/
           ".configured": "true",
           "bundler_args": "--without development",
           "notifications": {
-            "irc": "irc.freenode.org#travis"
+            "irc": "chat.freenode.net#travis"
           },
           "rvm": [
             "1.8.7",
@@ -86,7 +86,7 @@ permalink: api/
               ".configured": "true",
               "bundler_args": "--without development",
               "notifications": {
-                "irc": "irc.freenode.org#travis"
+                "irc": "chat.freenode.net#travis"
               },
               "rvm": "1.8.7"
             },
@@ -135,7 +135,7 @@ permalink: api/
         ".configured": "true",
         "bundler_args": "--without development",
         "notifications": {
-          "irc": "irc.freenode.org#travis"
+          "irc": "chat.freenode.net#travis"
         },
         "rvm": "1.8.7"
       },
@@ -178,7 +178,7 @@ JSONP works with any of the above urls. The example below uses the url for build
             ".configured": "true",
             "bundler_args": "--without development",
             "notifications": {
-              "irc": "irc.freenode.org#travis"
+              "irc": "chat.freenode.net#travis"
             },
             "rvm": [
               "1.8.7",
@@ -199,7 +199,7 @@ JSONP works with any of the above urls. The example below uses the url for build
                 ".configured": "true",
                 "bundler_args": "--without development",
                 "notifications": {
-                  "irc": "irc.freenode.org#travis"
+                  "irc": "chat.freenode.net#travis"
                 },
                 "rvm": "1.8.7"
               },

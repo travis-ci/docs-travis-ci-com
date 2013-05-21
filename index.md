@@ -32,4 +32,4 @@ Services and libraries that make travis-ci.org work are [hosted on GitHub](https
 
 ## Meet the Team
 
-If you feel like this is a great project then jump into [#travis on irc.freenode.net](irc://irc.freenode.net/%23travis) and say hi! And don't forget to check out the [Travis Blog](/blog/)!
+If you feel like this is a great project then jump into [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis) and say hi! And don't forget to check out the [Travis Blog](/blog/)!
