@@ -69,3 +69,13 @@ If you need version 17.0 of Firefox to be installed, add the following to your
 Please note that this downloads binaries that are only compatible with our
 64-bit Linux VMs, so this won't work on our Mac VMs.
 
+### Hosts
+
+If your requires setting up custom hostnames, you can specify a single host or a
+list of them in your .travis.yml. Travis CI will automatically setup the
+hostnames in `/etc/hosts` for both IPv4 and IPv6.
+
+    addons:
+      hosts:
+        - travis.dev
+        - joshkalderimis.com
