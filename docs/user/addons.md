@@ -4,14 +4,12 @@ layout: en
 permalink: addons/
 ---
 
-<div id="toc"></div>
-
-## Addons
-
 Travis CI allows you to set up some build tools using settings right in your
 .travis.yml file.
 
-### Sauce Connect
+<div id="toc"></div>
+
+## Sauce Connect
 
 [Sauce Connect][sauce-connect] securely proxies browser traffic between Sauce
 Labs' cloud-based VMs and your local servers. Connect uses ports 443 and 80 for
@@ -53,7 +51,7 @@ all you need to add to your .travis.yml file is this:
 
 [encryption-keys]: http://about.travis-ci.org/docs/user/encryption-keys/
 
-### Firefox
+## Firefox
 
 Our VMs come preinstalled with some recent version of Firefox, but sometimes you
 need a specific version to be installed. The Firefox addon allows you to specify
@@ -69,7 +67,7 @@ If you need version 17.0 of Firefox to be installed, add the following to your
 Please note that this downloads binaries that are only compatible with our
 64-bit Linux VMs, so this won't work on our Mac VMs.
 
-### Hosts
+## Hosts
 
 If your requires setting up custom hostnames, you can specify a single host or a
 list of them in your .travis.yml. Travis CI will automatically setup the
