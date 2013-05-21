@@ -96,7 +96,7 @@ Both settings support multiple scripts, too:
       - after_command_1
       - after_command_2
 
-These scripts can, for example, be used to setup databases or other build setup tasks. 
+These scripts can, for example, be used to setup databases or other build setup tasks.
 For more information about database setup see [Database setup](/docs/user/database-setup/).
 
 ### install
@@ -456,7 +456,7 @@ You can also automatically add it to your `.travis.yml`:
 To make the usage of secure environment variables easier, we expose info on their availability and info about the type of this build:
 
 * `TRAVIS_SECURE_ENV_VARS` is set to "true" or "false" depending on the availability of environment variables
-* `TRAVIS_PULL_REQUEST` is set to "true" or "false" depending on this build being pull request or not
+* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull request, "false" if it's not a pull request.
 
 Please also note that keys used for encryption and decryption are tied to the repository. If you fork a project and add it to travis, it will have different pair of keys than the original.
 
