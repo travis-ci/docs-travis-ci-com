@@ -23,7 +23,7 @@ To start with, we made the contrast a bit easier to read, with a darker
 background.
 
 More noteworthy though, we added more prominent folds, that hide common commands
-whose output usually isn't relevant to the overall build.
+whose output usually isn't relevant to the overall build, unless they fail.
 
 ![](http://s3itch.paperplanes.de/folds_20130522_150215.jpg)
 
