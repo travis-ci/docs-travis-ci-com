@@ -633,7 +633,6 @@ hr {
   font: 12px/normal sans-serif;
   color: #666666;
   white-space: nowrap;
-  margin-left: 15px;
   height: 31px;
 }
 
@@ -667,9 +666,10 @@ hr {
 
 input[type=email] {
   display: inline-block;
-  width: 200px;
+  width: 190px;
   height: 20px;
   padding: 3px 7px;
+  margin-right: 10px;
 }
 
 .blog-post h3 a {
