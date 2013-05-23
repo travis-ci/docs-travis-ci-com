@@ -11,7 +11,9 @@ layout: en
   <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
 </p>
 
-{{ content }}
+<span class="blog-post">
+  {{ content }}
+</span>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">

@@ -671,3 +671,7 @@ input[type=email] {
   height: 20px;
   padding: 3px 7px;
 }
+
+.blog-post h3 a {
+  text-decoration: underline;
+}
