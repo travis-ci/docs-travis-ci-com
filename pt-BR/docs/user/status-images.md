@@ -1,42 +1,41 @@
 ---
-title: Status Images
-layout: en
+title: Imagens de Status
+layout: pt-BR
 permalink: status-images/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers build status images feature of Travis CI. Status images are part of the HTTP API that render build status information (passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to continuous integration page for the project and to demonstrate their commitment to good software development practices.
+Este guia cobre a funcionalidade de imagens de status da construção (build) do Travis CI. Imagens de status são parte da API HTTP que renderiza informação sobre o build (sucesso ou falhando) como uma imagem PNG. Os desenvolvedore são encorajados a adicioná-las ao site do projeto, arquivos README, etc, tanto para fazer um link com a página de integração contínua do projeto quanto para demonstrar o seu comprometimento com as boas práticas de desenvolvimento de software.
 
-We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+Nós recomendamos que você leia o [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
 
-## Status Image URLs
+## URLs das Imagens de Status
 
-After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on GitHub or your project website.
+Após adicionar o seu projeto ao Travis, você pode utilizar os botões de status para exibir o estado atual dos seus projetos no seu arquivo `README` do GitHub ou no site do seu projeto.
 
-    https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+    https://secure.travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO].png
 
-HTTPS is used so that GitHub does not cache the image.
+O HTTPS é utilizado para que o GitHub não armazene a imagem no cache.
 
-## Adding Status Images to README Files
+## Adicionando Imagens de Status em Arquivos README
 
-So, when using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
-    "!https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
+Utilizando Textile, mostrar o botão de estado (incluindo um link para a página do seu projeto no Travis) é tão simples quanto adicionar o seguinte no seu `README`:
+    "!https://secure.travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO].png!":http://travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO]
 
-Or if you're using markdown:
+Ou, caso esteja utilizando markdown:
 
-    [![Build Status](https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+    [![Build Status](https://secure.travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO].png)](http://travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO])
 
-Or RDoc:
+Ou RDoc:
 
-    {<img src="https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
+    {<img src="https://secure.travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO].png" />}[http://travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO]]
 
-Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)
+O botão de status do Travis CI aparece assim: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)
 
-## Build Status For Specific Branches
+## Estado do Build de Branches Específicos
 
-You can limit the impact of this button to certain branches only. For example, you might not want to include feature branches, which might fail but don't mean the project itself fails.
+É possível limitar o impacto deste botão em apenas alguns branches. Por exemplo, você pode não querer incluir branches de novas funcionalidades, que podem falhar mas que não significa que o projeto em si falhou.
 
-Specify a `?branch=` parameter in the URI. Split branches with a comma if you want to specify several.
-
-    https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
+Especifique um parâmetro `?branch=` na URI. Caso precise especificar vários, separe os branches com uma vírgula.
+    https://secure.travis-ci.org/[SEU_USUARIO_GITHUB]/[NOME_DO_SEU_PROJETO].png?branch=master,staging,production

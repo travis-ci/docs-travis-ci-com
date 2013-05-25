@@ -1,126 +1,132 @@
 ---
-title: Configuring your Travis CI build with .travis.yml
-layout: en
+title: Configurando o seu build no Travis CI com o .travis.yml
+layout: pt-BR
 permalink: build-configuration/
 ---
 
-### What This Guide Covers
+<div id="toc"></div>
 
-This guide covers build environment and configuration topics that are common to all projects hosted on travis-ci.org, regardless of the technology. We recommend you start with the [Getting Started](/docs/user/getting-started/) guide and read this guide top to bottom before moving on to [language-specific guides](/docs).
+### O Que Este Guia Cobre
 
-## .travis.yml file: what it is and how it is used
+Este guia aborda o ambiente de build e tópicos de configuração comuns a todos os projetos hospedados no travis-ci.org, independente de tecnologia. Recomendamos que você inicie com o [Guia de Início](/pt-BR/docs/user/getting-started/) e leia este guia inteiro antes de passar para as [notificações de build](/pt-BR/docs/user/notifications/) e os [guias específicos das linguagens](/docs)
 
-Travis CI uses `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. `.travis.yml` can be very minimalistic or have a lot of customization in it. A few example of what kind of information your `.travis.yml` file may have:
+## O arquivo .travis.yml: o que é e como é usado
 
-* What programming language your project uses
-* What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
-* What command is used to run your test suite
-* Emails, Campfire and IRC rooms to notify about build failures
+O Travis CI usa um arquivo `.travis.yml` na raiz do seu repositório para aprender sobre o seu projeto e sobre como você quer que seus builds sejam executados. O `.travis.yml` pode ser minimalístico ou possuir muitas customizações. Alguns exemplos do tipo de informação que o arquivo `.travis.yml` pode ter:
 
-and so on.
+* A linguagem de programação que o seu projeto usa
+* Quais comandos ou scripts devem ser executados antes de cada build (por exemplo, para instalar as dependências do projeto)
+* Qual comando é utilizado para executar a suite de testes
+* Emails, salas do campfire e IRC para notificar sobre falhas nos builds
 
-At the very minimum, Travis CI needs to know what builder it should use for your project: Ruby, Clojure, PHP or something else. For everything else, there are reasonable defaults.
+e assim por diante.
 
-## Build Lifecycle
+No mínimo, o Travis CI precisa saber qual construtor deve utilizar no seu projeto: Ruby, Clojure, PHP ou algo diferente. Para o resto, existem padrões razoáveis.
 
-By default, the worker performs the build as following:
+## Ciclo de Vida da Construção (Build)
 
-* Switch language runtime (for example, to Ruby 1.9.3 or PHP 5.4)
-* Clone project repository from GitHub
-* Run before_install scripts (if any)
-* cd to the clone directory, run dependencies installation command (default specific to project language)
-* Run *after_install* scripts (if any)
-* Run *before_script* scripts (if any)
-* Run test *script* command (default is specific to project language). It must use exit code 0 on success and any code on failure.
-* Run *after_script* scripts (if any)
+Por padrão, os processos construtores (workers) executarão o build da seguinte maneira:
 
-The outcome of any of these commands indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
+* Troca do ambiente de execução da linguagem (por exemplo, para Ruby 1.9.3 ou PHP 5.4)
+* Clonar o repositório do projeto no GitHub
+* Executar os scripts *before_install* (se existir)
+* Entrar no diretório clonado e executar o comando de instalação das dependências (padrão específico para a linguagem do projeto)
+* Executar os scripts *before_script* (se existir)
+* Executar o script de teste (padrão específico para a linguagem do projeto). Ele deve retornar 0 em caso de sucesso e qualquer outro código em caso de falha.
+* Executar os scripts *after_sucess/after_failure* (se existir)
+* Executar os scripts *after_script* (se existir)
 
-With the exception of cloning project repository and changing directory to it, all of the above steps can be tweaked with `.travis.yml`.
+A saída de qualquer um desses comandos (exceto after_success, after_failure u after_scripts) indica se a construção (build) falhou ou passou. O **código de saída com "0" significa que o build passou; qualquer valor diferente é tratado como falha.**
 
-### Travis CI Preserves No State Between Builds
+O resultado do teste é exportado para `TRAVIS_TEST_RESULT`, que você pode usar em comandos executados no `after_script`.
 
-Travis CI uses virtual machine snapshotting to make sure no state is left between builds. If you modify CI environment by writing something to a data store, creating files or installing a package via apt, it won't affect subsequent builds.
+Salvo os passos de clonar o repositório do projeto e entrar neste diretório, todos os passos anteriores podem ser ajustados no `.travis.yml`.
 
-## Define custom build lifecycle commands
+### O Travis CI Não Preserva Estado Entre Builds
+
+O Travis CI usa snapshots de máquinas virtuais para garantir que nenhum estado seja deixado entre as construções. Caso você modifique o ambiente de integração contínua escrevendo algo em um banco de dados, criando arquivos ou instalando um pacote via apt, isto não afetará as construções subsequentes.
+
+## Definição de comandos de build personalizados
+
+### Visão Geral
+
+O Travis CI executa todos os comandos via SSH em máquinas virtuais isoladas. Comandos que modificam o estado da sessão SSH são persistentes durante a construção.
+Por exemplo, se você entra em um diretório (com `cd`), todos os comandos seguintes serão executados deste diretório. Isto pode ser utilizado para o bem (ex. construir seguidamente diversos subprojetos) ou pode afetar ferramentas como `rake` ou `mvn` que podem estar buscando por arquivos no diretório corrente.
+
 
 ### script
 
-You can specify the main build command to run instead of the default
+É possível especificar o comando principal de construção (build) a executar, ao invés de se utilizar o padrão
 
     script: "make it-rain"
 
-The script can be any executable; it doesn't have to be `make`. As a matter of fact the only requirement for the script is that it **should use an exit code 0 on success, any thing else is considered a build failure**. Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.
+O script pode ser qualquer executável; ele não precisa ser o `make`. O único requisito para o script é que ele **deve retornar 0 em caso de sucesso e qualquer outro valor em caso de falha na construção**. Ele também deve imprimir toda informação que seja importante no console, de forma que os resultados possam ser observados (em tempo real!) no website.
 
-If you want to run a script local to your repository, do it like this:
+Caso queira executar um script local ao seu repositório, faça:
 
     script: ./script/ci/run_build.sh
 
+Neste caso, o script deve ser executável (por exemplo, usando `chmod +x`) e deve conter uma linha de shebang válida (`/usr/bin/env sh`, `/usr/bin/env ruby`, `/usr/bin/env python` etc).
+
+
 ### before_script, after_script
 
-You can also define scripts to be run before and after the main script:
+Também é possível definir scripts a serem executados antes e depois do script principal:
 
-    before_script: some_command
-    after_script:  another_command
+    before_script: algum_comando
+    after_script:  outro_comando
 
-Both settings support multiple scripts, too:
+As duas opções suportam múltiplos scripts:
 
     before_script:
-      - before_command_1
-      - before_command_2
+      - comando_before_1
+      - comando_before_2
     after_script:
-      - after_command_1
-      - after_command_2
+      - comando_after_1
+      - comando_after_2
 
-These scripts can, e.g., be used to setup databases or other build setup tasks. For more information about database setup see [Database setup](/docs/user/database-setup/).
-
-**NOTE:** The command(s) in `after_script` will only run if the build succeeded (when `script` returns 0).
+Esses scripts podem ser utilizados, por exemplo, para configurar bancos de dados ou outras tarefas de configuração do build. Para mais informação sobre a configuração de bancos de dados, veja o guia de [Configuração de Banco de Dados](/pt-BR/docs/user/database-setup/).
 
 ### install
 
-If your project uses non-standard dependency management tools, you can override dependency installation command using `install` option:
+Caso o seu projeto não utilize ferramentas de gerenciamento de dependências padrão, é possível sobrescrever o comando de instalação de dependências usando a opção `install`:
 
     install: ant install-deps
 
-As with other scripts, `install` command can be anything but has to exit with the 0 status in order to be considered successful.
+Como os outros script, o comando `install` pode ser qualquer coisa, desde que retorne 0 quando o comando for executado corretamente.
 
-### before_install, after_install
+### before_install
 
-You can also define scripts to be run before and after the dependency installation script:
+Também é possível definir scripts a serem utilizados antes e após o script de instalação de dependências:
 
-    before_install: some_command
-    after_install:  another_command
+    before_install: algum_comando
 
-Both settings support multiple scripts, too:
+Tanto a opção `before_install` quanto `after_install` suportam o uso de múltiplos scripts:
 
     before_install:
-      - before_command_1
-      - before_command_2
-    after_install:
-      - after_command_1
-      - after_command_2
+      - comando_before_1
+      - comando_before_2
 
-These commands are commonly used to update git repository submodules and do similar tasks that need to be performed before dependencies are installed.
+`before_install` é comumente utlizado para atualizar os repositórios git de submódulos e realizar tarefas semelhantes que devem ser executadas antes da instalação de dependências.	  
 
-### On Native Dependencies
+### Dependências Nativas
 
-If your project has native dependencies (for example, libxml or libffi) or needs tools [Travis CI Environment](/docs/user/ci-environment/) does not provide,
-you can install packages via apt and even use 3rd-party apt repositories and PPAs. For more see dedicated sections later in this guide.
+Caso o seu projeto tenha dependências nativas (por exemplo, libxml ou libffi) ou precise de ferramentas que o [Ambiente de CI Travis](/pt-BR/docs/user/ci-environment/) não forneça, você pode instalá-las via apt, e até mesmo utilizar repositórios de terceiros e PPAs. Para mais informações, veja as respectivas seções mais a frente neste guia.
 
 
-### Updating Git Submodules
+### Atualizando Submódulos Git
 
-If your project uses git submodules, use the following technique to clone them before dependencies installation:
+Caso o seu projeto utilize submódulos Git, use a seguinte técnica para cloná-los antes da instalação de dependências:
 
     before_install:
       - git submodule update --init --recursive
 
-This will include nested submodules (submodules of submodules), in case there are any.
+Isto incluirá submódulos aninhados (submódulos de submódulos), caso existam.
 
 
-### Use Public URLs For Submodules
+### Use URLs Públicas Para Submódulos
 
-If your project uses git submodules, make sure you use public git URLs. For example, for GitHub instead of
+Caso o seu projeto utilize submódulos Git, certifique-se de utilizar as URLs Git públicas. Por exemplo, ao invés de
 
     git@github.com:someuser/somelibrary.git
 
@@ -128,122 +134,123 @@ use
 
     git://github.com/someuser/somelibrary.git
 
-Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
+Caso contrário, os construtores do Travis CI não conseguirão clonar o seu projeto pois não possuem a sua chave privada SSH.
 
-## Choose runtime (Ruby, PHP, Node.js, etc) versions
+## Escolha as versões do ambiente de execução (Ruby, PHP, Node.js, etc)
 
-One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that vary between languages. Here are some basic **.travis.yml** examples for various languages:
+Um dos principais recursos do Travis é a facilidade em executar a sua suite de testes em múltiplos ambientes de execução e versões. Como o Travis não sabe quais ambientes e versões o seu projeto suporta, essas informações precisam ser especificados no seu arquivo `.travis.yml`. As opções utilizadas variam entre as linguagens. A lista a seguir são alguns exemplos básicos do **.travis.yml** para diversas linguagens:
 
 ### Clojure
 
-Currently Clojure projects can only be tested against JDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
+Atualmente os projetos Clojure podem ser testados no Oracle JDK 7, OpenJDK 7 e OpenJDK 6. A principal ferramenta de build do Clojure, Leiningen, suporta a execução dos testes em diversas versões de Clojure:
 
-* In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
-* In upcoming Leiningen 2.0, via Leiningen Profiles
+* No Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
+* No futuro Leiningen 2.0, via Leiningen Profiles
 
-If you are interested in testing against multiple Clojure releases, just use these Leiningen features and it will work without special support on the Travis side.
+Caso você tenha interesse em testar em múltiplas versões de Clojure, apenas utilize estas funcionalidades do Leiningen que tudo funcionará sem nenhum suporte especial do Travis.
 
-Learn more in our [Clojure guide](/docs/user/languages/clojure/)
+Aprenda mais no nosso [Guia de Projetos Clojure](/pt-BR/docs/user/languages/clojure/).
 
 ### Erlang
 
-Erlang projects specify releases they need to be tested against using `otp_release` key:
+Projetos Erlando especificam as versões a utilizar nos testes através da chave `otp_release`:
 
     otp_release:
-      - R14B02
       - R14B03
       - R14B04
+      - R15B01
 
-Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/)
+Aprenda mais no [Guia de Projetos Erlang](/pt-BR/docs/user/languages/erlang/).
 
 ### Groovy
 
-Currently Groovy projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+Atualmente os projetos Groovy podem ser testados no Oracle JDK 7, OpenJDK 7 e OpenJDK 6. Suporte para múltiplos JDKs será adicionado futuramente.
 
-Learn more in our [Groovy guide](/docs/user/languages/groovy/)
+Aprenda mais no nosso [Guia para Projetos Groovy](/pt-BR/docs/user/languages/groovy/).
 
 ### Java
 
-Currently Java projects can only be tested against JDK 6. Support for multiple JDKs will be added eventually.
+Atualmente os projetos Groovy podem ser testados no Oracle JDK 7, OpenJDK 7 e OpenJDK 6. Suporte para múltiplos JDKs será adicionado futuramente.
 
-Learn more in our [Java guide](/docs/user/languages/java/)
+Aprenda mais no nosso [Guia para Projetos Java](/pt-BR/docs/user/languages/java/).
 
 
 ### Node.js
 
-Node.js projects specify releases they need to be tested against using `node_js` key:
+Projetos Node.js especificam as versões a serem utilizadas nos testes usando a chave `node_js`:
 
      node_js:
-       - 0.4
-       - 0.6
+       - "0.4"
+       - "0.6"
 
-Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
+Aprenda mais no nosso [Guia para Projetos Node.js](/docs/user/languages/javascript-with-nodejs/).
 
 ### Perl
 
-Perl projects specify Perls they need to be tested against using `perl` key:
+Projetos Perl especificam as versões a serem utilizadas nos testes usando a chave `perl`:
 
     perl:
       - "5.14"
       - "5.12"
 
-Learn more about [.travis.yml options for Perl projects](/docs/user/languages/perl/)
+Aprenda mais no nosso [Guia para Projetos Perl](/pt-BR/docs/user/languages/perl/).
 
 ### PHP
 
-PHP projects specify releases they need to be tested against using `php` key:
+Projetos PHP especificam as versões a serem utilizadas nos testes usando a chave `php`:
 
     php:
-      - 5.3
-      - 5.4
+      - "5.4"
+      - "5.3"
 
-Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/)
+Aprenda mais no nosso [Guia para Projetos PHP](/pt-BR/docs/user/languages/php/).
 
 ### Python
 
-Python projects specify Python versions they need to be tested against using `python` key:
+Projetos Python especificam as versões a serem utilizadas nos testes usando a chave `python`:
 
     python:
-      - "2.6"
       - "2.7"
+      - "2.6"
       - "3.2"
 
-Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/)
+Aprenda mais no nosso [Guia para Projetos Python](/pt-BR/docs/user/languages/python/).
 
 ### Ruby
 
-Ruby projects specify releases they need to be tested against using `rvm` key:
+Projetos Ruby especificam as versões a serem utilizadas nos testes usando a chave `rvm`:
 
     rvm:
-      - 1.8.7
-      - 1.9.2
-      - 1.9.3
-      - jruby
-      - rbx-18mode
+      - "1.9.3"
+      - "1.9.2"
+      - jruby-19mode
+      - rbx-19mode
+      - jruby-18mode
+      - "1.8.7"
 
-Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/)
+Aprenda mais no nosso [Guia para Projetos Ruby](/pt-BR/docs/user/languages/ruby/).
 
 ### Scala
 
-Scala projects specify releases they need to be tested against using `scala` key:
+Projetos Scala especificam as versões a serem utilizadas nos testes usando a chave `scala`:
 
     scala:
+      - "2.9.2"
       - "2.8.2"
-      - "2.9.1"
 
-Travis CI relies on SBT's support for running tests against multiple Scala versions.
+O Travis CI depende do suporte do SBT para executar os testes em múltiplas versões do Scala.
 
-Learn more in our [Scala guide](/docs/user/languages/scala/)
+Aprenda mais no nosso [Guia para Projetos Scala](/pt-BR/docs/user/languages/scala/).
 
-## Set environment variables
+## Definição de variáveis de ambiente
 
-To specify an environment variable:
+Para definir uma variável de ambiente:
 
     env: DB=postgres
 
-Environment variables are useful for configuring build scripts. See the example in [Database setup](/docs/user/database-setup/#multiple-database-systems). One ENV variable is always set during your builds, `TRAVIS`. Use it to detect whether your test suite is running during CI.
+Variáveis de ambiente são úteis para configurar scripts de build. Veja um exemplo no [Guia de Configuração de Banco de Dados](/pt-BR/docs/user/database-setup/#multiple-database-systems). A variável de ambiente `TRAVIS` sempre é definida durante os builds. Use-a para determinar se a sua suite de testes está executando no ambiente de integração contínua.
 
-You can specify more than one environment variable per item in the `env` array:
+É possível especificar mais de uma variável de ambiente por item na lista `env`:
 
     rvm:
       - 1.9.3
@@ -252,56 +259,58 @@ You can specify more than one environment variable per item in the `env` array:
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
 
-With this configuration, **4 individual builds** will be triggered:
+Com esta configuração, **4 builds individuais** serão executados:
 
-1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
-2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
-3. Rubinius in 1.8 mode with `FOO=foo` and `BAR=bar`
-4. Rubinius in 1.8 mode with `FOO=bar` and `BAR=foo`
+1. Ruby 1.9.3 com `FOO=foo` e `BAR=bar`
+2. Ruby 1.9.3 com `FOO=bar` e `BAR=foo`
+3. Rubinius no modo 1.8 com `FOO=foo` e `BAR=bar`
+4. Rubinius no modo 1.8 com `FOO=bar` e `BAR=foo`
 
-## Installing Packages Using apt
+Note que os valores das variáveis de ambiente podem necessitar de escape. Por exemplo, caso elas tenham asterisco (`*`):
 
-If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
+    env:
+      - PACKAGE_VERSION="1.0.*"
+
+## Instalando Pacotes Usando apt
+
+Caso as suas dependências precisem de bibliotecas nativas, **você pode utilizar o sudo (sem senha) para instalá-las** com
 
     before_install:
      - sudo apt-get update -qq
      - sudo apt-get install -qq [packages list]
 
-The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are
-snapshotted and rolled back to their pristine state after each build.
+O motivo pelo qual o travis-ci.org pode utilizar o sudo sem senha é que as máquinas virtuais utilizadas para executar a suite de testes são restauradas ao seu estado original intocado após cada execução de build.
 
-Please note that passwordless sudo availability does not mean that you need to use sudo for (most of) other operations.
-It also does not mean that Travis CI builders execute operations as root.
+Note que a disponibilidade do sudo sem senha não significa que você precisa utilizar o sudo para a maioria das outras operações. Também não significa que os construtores do Travis CI executam operações como root.
 
-### Using 3rd-party PPAs
+### Usando PPAs de Terceiros
 
-If you need a native dependency that is not available from the official Ubuntu repositories, possibly there are [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas)
-(personal package archives) that you can use: they need to provide packages for 32-bit Ubuntu 11.10.
+Caso precise de uma dependência nativa que não está disponível nos repositórios oficiais do Ubuntu, é possível que existam [PPAs de terceiros](https://launchpad.net/ubuntu/+ppas) (personal package archives) que você pode utilizar: eles devem fornecer pacotes para o Ubuntu 12.04 de 32 bits.
 
-More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/), search for [available PPAs on Launchpad](https://launchpad.net/ubuntu/+ppas).
+Veja mais sobre PPAs [neste artigo](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/). Procure por [PPAs disponíveis no Launchpad](https://launchpad.net/ubuntu/+ppas).
 
 
-## Build Timeouts
+## Timeout do Build
 
-Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run, the build will be forcefully terminated and you will see a message about this in your build log.
+Como é muito comum ver suites de testes ou scripts pararem de responder ("travarem"), o Travis CI possui limites de tempo. Caso um script ou suite de testes demore muito a executar, o build será encerrado e você verá uma mensagem sobre o ocorrido no seu log de build.
 
-Exact timeout values vary between project types but in general are between 10 and 15 minutes for test suite runs and between 5 and 10 minutes for before scripts and so on.
+Com os nossos tempos máximos de espera (timeouts) atuais, uma construção será terminada caso ainda esteja executando após 50 minutos, ou se não existir qualquer registro nos logs em 10 minutos.
 
-Some common reasons why test suites may hang up:
+Alguns motivos comuns para uma suite de testes travar:
 
-* Waiting for keyboard input or other kind of human interaction
-* Concurrency issues (deadlocks, livelocks and so on)
-* Installation of native extensions that take very long time to compile
+* Esperando por entrada no teclado ou algum tipo de interação humana
+* Problemas de concorrência (deadlocks, livelocks, etc)
+* Instalação de extensões nativas que podem demorar muito tempo para compilar
 
-## Specify branches to build
+## Especificando os branches a construir
 
-### .travis.yml and multiple branches
+### O .travis.yml e múltiplos branches
 
-Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/docs/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
+O Travis irá sempre procurar pelo arquivo `.travis.yml` contido no branch especificado pelo commit git que o GitHub nos passa. A configuração em um branch não afetará a construção de outro branch. Além disso, o Travis CI executará o build após *qualquer* git push para o seu projeto GitHub, a menos que você o instrua a [pular um build](/pt-BR/docs/user/how-to-skip-a-build/). Você pode limitar este comportamente com opções de configuração.
 
-### White- or blacklisting branches
+### Adicionando branches na lista negra / branca
 
-You can either white- or blacklist branches that you want to be built:
+Você pode adicionar branches na lista negra (blacklist) ou lista branca (whilelist):
 
     # blacklist
     branches:
@@ -315,164 +324,37 @@ You can either white- or blacklist branches that you want to be built:
         - master
         - stable
 
-If you specify both, "except" will be ignored. Please note that currently (for historical reasons), `.travis.yml` needs to be present *on all active branches* of your project.
+Caso especifique ambos, o "except" será ignorado. Observe que atualmente (por motivos históricos), o `.travis.yml` deve estar presente *em todos os branches ativos* do seu projeto.
 
-## Notifications
+Note que o branch `gh-pages` não será construído, a menos que você adicione-o na lista branca (`branches.only`).
 
-Travis CI can notify you about your build results through email, IRC and/or webhooks.
+### Usando expressões regulares ###
 
-By default it will send emails to
+É possível usar expressões regulares para adicionar branches nas listas negra/branca:
 
-* the commit author and committer
-* the owner of the repository (for normal repositories)
-* *all* public members of the organization owning the repository
+    branches:
+      only:
+        - master
+        - /^deploy-.*$/
 
-And it will by default send emails when, on the given branch:
+Qualquer nome entre `/` na lista de branches é tratado como uma expressão regular e pode conter todos os tipos de quantificadores, âncoras e classes de caracteres [suportados](http://www.ruby-doc.org/core-1.9.3/Regexp.html) pelo Ruby.
 
-* a build was just broken or still is broken
-* a previously broken build was just fixed
+Opções que geralmente são especificadas após a última `/` (ex. `i` para comparação insensível à caixa alta/baixa) não são suportadas no momento.
 
-You can change this behaviour using the following options:
+## A Matriz de Build (Construção)
 
-### Email notifications
+Quando você combina as três configurações principais acima, o Travis CI executará seus testes utilizando uma matriz de todas as combinações possíveis. As três dimensões da matriz são:
 
-You can specify recipients that will be notified about build results like so:
+* Ambientes de execução a utilizar nos testes
+* Variáveis de ambiente que você pode definir nos seus scripts de build
+* Exclusões, inclusões e falhas permitidas
 
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
+Segue abaixo uma configuração de exemplo para uma matriz de build bem grande, que gera **56 construções individuais**.
 
-And you can entirely turn off email notifications:
-
-    notifications:
-      email: false
-
-Also, you can specify when you want to get notified:
-
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
-
-`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
-
-### IRC notification
-
-You can also specify notifications sent to an IRC channel:
-
-    notifications:
-      irc: "chat.freenode.net#travis"
-
-Or multiple channels:
-
-    notifications:
-      irc:
-        - "chat.freenode.net#travis"
-        - "chat.freenode.net#some-other-channel"
-
-Just as with other notification types you can specify when IRC notifications will be sent:
-
-    notifications:
-      irc:
-        channels:
-          - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-
-You also have the possibility to customize the message that will be sent to the channel(s) with a template:
-
-    notifications:
-      irc:
-        channels:
-          - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        template:
-          - "%{repository_url} (%{commit}) : %{message} %{foo} "
-          - "Build details: %{build_url}"
-
-You can interpolate the following variables:
-
-* *repository_url*: your GitHub repo URL.
-* *build_number*: build number.
-* *branch*: branch build name.
-* *commit*: shorten commit SHA
-* *author*: commit author name.
-* *message*: travis message to the build.
-* *compare_url*: commit change view URL.
-* *build_url*: URL of the build detail.
-
-If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
-
-    notifications:
-      irc:
-        channels:
-          - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-        use_notice: true
-
-and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
-
-    notifications:
-      irc:
-        channels:
-          - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-        use_notice: true
-        skip_join: true
-
-If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
-
-### Webhook notification
-
-You can define webhooks to be notified about build results the same way:
-
-    notifications:
-      webhooks: http://your-domain.com/notifications
-
-Or multiple channels:
-
-    notifications:
-      webhooks:
-        - http://your-domain.com/notifications
-        - http://another-domain.com/notifications
-
-Just as with other notification types you can specify when webhook payloads will be sent:
-
-    notifications:
-      webhooks:
-        urls:
-          - http://hooks.mydomain.com/travisci
-          - http://hooks.mydomain.com/events
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-
-Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
-
-
-
-## The Build Matrix
-
-When you combine the three main configuration options above, Travis CI will run your tests against a matrix of all possible combinations. Three key matrix dimensions are:
-
-* Runtime to test against
-* Environment variables with which you can configure your build scripts
-* Exclusions and allowed failures
-
-Below is an example configuration for a rather big build matrix that expands to **28 individual** builds.
-
-Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you *actually need*.
+Por favor considere que o Travis CI é um serviço open source, e que nós dependemos de máquinas (workers) fornecidos pela comunidade. Por isso, especifique uma matriz de um tamanho que *você realmente precise*.
 
     rvm:
-      - 1.8.7 # (current default)
+      - 1.8.7 # (padrão atual)
       - 1.9.2
       - 1.9.3
       - rbx-18mode
@@ -488,7 +370,7 @@ Please take into account that Travis CI is an open source service and we rely on
       - ISOLATED=true
       - ISOLATED=false
 
-You can also define exclusions to the build matrix:
+Também é possível definir exclusões para a matriz de build:
 
     matrix:
       exclude:
@@ -499,14 +381,74 @@ You can also define exclusions to the build matrix:
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
 
-Only exact matches will be excluded.
+Apenas ocorrências exatas serão excluídas.
 
-### Rows That are Allowed To Fail
+Também é possível incluir registros na matriz:
 
-You can also define rows that are allowed to fail in the build matrix. Allowed failures are items in your build matrix that are allowed to fail without causing the entire build
-to be shown as failed. This lets you add in experimental and preparatory builds to test against versions or configurations that you are not ready to officially support.
+    matrix:
+      include:
+        - rvm: ruby-head
+          gemfile: gemfiles/Gemfile.rails-3.2.x
+          env: ISOLATED=false
 
-You can define allowed failures in the build matrix as follows:
+Isto é útil caso, por exemplo, você queira apenas testar a última versão de uma dependência junto da última versão do ambiente de execução.
+
+### Variáveis de ambiente
+
+Algumas vezes você pode querer utilizar variáveis de ambiente que são globais para a matriz, isto é, que são inseridas em cada linha da matriz. Podem ser chaves, tokens, URIs ou outro dado que seja necessário em cada build. Nestes casos, ao invés de adicionar tais chaves em cada linha do `env` na matriz, você pode utilizar as chaves `global` e `matrix` para diferenciar entre os dois casos. Por exemplo:
+
+    env:
+      global:
+        - CAMPFIRE_TOKEN=abc123
+        - TIMEOUT=1000
+      matrix:
+        - USE_NETWORK=true
+        - USE_NETWORK=false
+
+Esta configuração gerará uma matriz com as seguintes linhas env:
+
+    USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+    USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
+
+### Variáveis de ambiente seguras
+
+No exemplo anterior uma das variáveis de ambiente utilizada foi um token. Contudo, não é recomendado colocar seus tokens privados em um arquivo disponível publicamente. O Travis suporta a criptografia de variáveis de ambiente para lidar com este caso, mantendo a sua configuração pública enquanto mantem algumas partes privadas. Uma configuração com variáveis de ambiente seguras fica como a seguir:
+
+    env:
+      global:
+        - secure: <string criptografada aqui>
+        - TIMEOUT=1000
+      matrix:
+        - USE_NETWORK=true
+        - USE_NETWORK=false
+        - secure: <você também pode colocar variáveis criptografadas dentro da matriz>
+
+Você pode criptografar variáveis de ambiente com a chave pública anexada ao seu repositório. A forma mais simples de fazer isto é usar a gem travis:
+
+    gem install travis
+    cd my_project
+    travis encrypt MY_SECRET_ENV=super_segredo
+
+Note que as variáveis de ambiente seguras não estão disponíveis para pull requests. Isto ocorre devido ao risco de segurança de expor tal informação em um código submetido. Qualquer pessoa pode submeter um pull request, e se uma variável descriptografada estiver disponível, ela poderia ser facilmente exibida.
+
+Você também pode adicioná-la no seu `.travis.yml`:
+
+    travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
+
+Para tornar o uso de variáveis de ambiente seguras mais fácil, nós expomos informações sobre sua disponibilidade e sobre o tipo do build:
+
+* `TRAVIS_SECURE_ENV_VARS` é definido como "true" ou "false" dependendo da disponibilidade das variáveis de ambiente
+* `TRAVIS_PULL_REQUEST`: Contém o número do pull request se a execução atual for de um pull request, e "false" se não for um pull request.
+
+Note ainda que as chaves usadas para criptografar e descriptografar são amarradas ao repositório. Se você fizer o fork de um repositório e adicioná-lo ao travis, ele possuirá um par de chaves diferente do original.
+
+### Linhas Que Podem Falhar
+
+É possível definir linhas na matriz de build que podem falhar sem que isto faça com que a construção inteira seja marcada como uma falha. Isto é útil para você adicionar builds experimentais e preparatórios que possam testar versões ou configurações que ainda não possuem um suporte oficial do seu projeto.
+
+As falhas permitidas devem ser uma lista de pares chave/valor representando os registros na sua matriz de build.
+
+Você pode definir as falhas permitidas na matriz de build da seguinte forma:
 
     matrix:
       allow_failures:

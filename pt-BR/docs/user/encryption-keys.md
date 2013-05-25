@@ -1,38 +1,30 @@
 ---
-title: Encryption keys
-layout: en
+title: Chaves de criptografia
+layout: pt-BR
 permalink: encryption-keys/
 ---
 
-Travis generates a pair of private and public RSA keys which can be used
-to encrypt information which you will want to put into the `.travis.yml` file and
-still keep it private. Currently we allow encryption of
-[environment variables](/docs/user/build-configuration/#Secure-environment-variables)
-and notification settings.
+O Travis gera um par de chaves RSA (privada e pública) que pode ser usada para criptografar informações que você deseja incluir no arquivo `.travis.yml` e ainda assim mantê-la privada. Atualmente, nós permitimos a criptografia de [variáveis de ambiente](/pt-BR/docs/user/build-configuration/#Secure-environment-variables) e configurações de notificações.
 
-## Usage
+## Uso
 
-The easiest way to encrypt something with the public key is to use Travis CLI.
-This tool is written in Ruby and published as a gem. First, you need to install
-the gem:
+A forma mais fácil de criptografar algo com a chave pública é utilizar o Travis CLI. 
+Esta ferramenta foi escrita em Ruby e publicada como uma gem. Primeiro, você precisa instalá-la:
 
     gem install travis
 
-Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
+Depois disso, é possível utilizar o comando `encrypt` para criptografar as informações (este exemplo assume que você está executando o comando no diretório do seu projeto. Caso contrário, adicione `-r owner/project`):
 
-    travis encrypt "something to encrypt"
+    travis encrypt "algo para criptografar"
 
-This will output a string looking something like:
+Isto gerará uma saída similar a seguinte:
 
-    secure: ".... encrypted data ...."
+    secure: ".... dados criptografados ...."
 
-Now you can place it in the `.travis.yml` file. You can read more about
-[secure environment variables](/docs/user/build-configuration/#Secure-environment-variables)
-or [notifications](/docs/user/notifications).
+Agora você pode colocá-la no seu arquivo `.travis.yml`. Você pode ler mais sobre [variáveis de ambiente seguras](/pt-BR/docs/user/build-configuration/#Variáveis-de-ambiente-seguras) ou [notificações](/pt-BR/docs/user/notifications).
 
-## Fetching the public key for your repository
+## Obtendo a chave pública do seu repositório
 
-You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
-`/repos/:id/key` endpoints, for example:
+Você pode obter a chave pública com a API do Travis, usando os endpoints `/repos/:dono/:nome/key` ou `/repos/:id/key`. Por exemplo:
 
     https://api.travis-ci.org/repos/travis-ci/travis-ci/key

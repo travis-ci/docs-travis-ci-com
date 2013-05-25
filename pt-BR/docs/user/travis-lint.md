@@ -1,29 +1,30 @@
 ---
-title: Validate your .travis.yml with travis-lint
-layout: en
+title: Valide seu arquivo .travis.yml com travis-lint
+layout: pt-BR
 permalink: travis-lint/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide covers [travis-lint](https://github.com/travis-ci/travis-lint), a small tool that validates your `.travis.yml` file to help you discover common issues. If you are looking for info about putting your project on travis-ci.org, start with the [Getting Started](/docs/user/getting-started/) guide.
+Este guia cobre o [travis-lint](https://github.com/travis-ci/travis-lint), uma pequena ferramenta que valida o seu arquivo `.travis.yml` de forma a ajudá-lo a descobrir problemas comuns. Caso esteja procurando informações sobre como adicionar o seu projeto no travis-ci.org, comece pelo [Guia de Início](/pt-BR/docs/user/getting-started/).
 
-## Validate .travis.yml Using lint.travis-ci.org
 
-[.travis.yml validation Web app](http://lint.travis-ci.org) is the easiest way to to validate your `.travis.yml` file.
+## Valide o .travis.yml com o lint.travis-ci.org
 
-## Validate .travis.yml With travis-lint (command-line tool)
+[A aplicação web de validação do .travis.yml](http://lint.travis-ci.org) é a maneira mais fácil de validar o seu arquivo `.travis.yml`.
 
-If you have Ruby 1.8.7+ and RubyGems installed, you can use [travis-lint](http://github.com/travis-ci/travis-lint) to validate your `.travis.yml` file. Get it with
+## Valide o .travis.yml com o travis-lint (ferramenta de linha de comando)
+
+Se você possuir o Ruby 1.8.7+ e o RubyGems instalado, poderá utilizar o [travis-lint](http://github.com/travis-ci/travis-lint) para validar o seu arquivo `.travis.yml`. Obtenha-o com
 
     gem install travis-lint
 
-and run it on your `.travis.yml`:
+e execute-o no seu `.travis.yml`:
 
-    # inside a repository with .travis.yml
+    # dentro do repositório com o .travis.yml
     travis-lint
 
-    # from any directory
-    travis-lint [path to your .travis.yml]
+    # de qualquer diretório
+    travis-lint [caminho para o seu .travis.yml]
 
-`travis-lint` is young but improving and we are incorporating more and more checks for common issues as we learn about them from travis-ci.org users.
+O `travis-lint` é novo mas vem evoluindo, e nós estamos adicionando diversas novas verificações para problemas comuns conforme aprendemos mais sobre tais problemas com os usuários do travis-ci.org.
