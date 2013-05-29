@@ -1,6 +1,6 @@
 ---
-title: Build Addons
-layout: en
+title: Addons de Build
+layout: pt-BR
 permalink: addons/
 ---
 
@@ -8,64 +8,47 @@ permalink: addons/
 
 ## Addons
 
-Travis CI allows you to set up some build tools using settings right in your
-.travis.yml file.
+O Travis CI permite que você configure algumas ferramentas de build usando o seu arquivo .travis.yml.
 
 ### Sauce Connect
 
-[Sauce Connect][sauce-connect] securely proxies browser traffic between Sauce
-Labs' cloud-based VMs and your local servers. Connect uses ports 443 and 80 for
-communication with Sauce's cloud. If you're using Sauce Labs for your Selenium
-tests, this makes connecting to your webserver a lot easier.
+O [Sauce Connect][sauce-connect] cria um proxy seguro do tráfico entre as máquinas virtuais do Sauce Labs e os nossos servidores locais. O Connect usa as portas 443 e 80 para comunicação com a nuvem do Sauce. Caso esteja utilizando o Sauce Labs para os seus testes Selenium, isto torna mais fácil conectar com os nossos webservers.
 
 [sauce-connect]: https://saucelabs.com/docs/connect
 
-First, [sign up][sauce-sign-up] with Sauce Labs if you haven't already (it's
-[free][open-sauce] for Open Source projects), and get your access key from your
-[account page][sauce-account]. Once you have that, add this to your .travis.yml
-file:
+Primeiramente, [cadastre-se][sauce-sign-up] no Sauce Labs caso ainda não o tenha feito (é [gratuito][open-sauce] para projetos Open Source), e obtenha sua chave de acesso da sua [página da conta][sauce-account]. Em seguida, adicione o seguinte ao seu arquivo .travis.yml:
 
     addons:
       sauce_connect:
-        username: "Your Sauce Labs username"
-        access_key: "Your Sauce Labs access key"
+        username: "O seu nome de usuário do Sauce Labs"
+        access_key: "Sua chave de acesso do Sauce Labs"
 
 [sauce-sign-up]: https://saucelabs.com/signup/plan/free
 [sauce-account]: https://saucelabs.com/account
 [open-sauce]: https://saucelabs.com/signup/plan/OSS
 
-If you don't want your access key publicly available in your repository, you
-can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
-for more information on encryption), and add the secure string as such:
+Caso não queira que sua chave de acesso fique publicamente disponível no repositório, você pode criptografá-la usando `travis encrypt "your-access-key"` (veja [Chaves de Criptografia][encryption-keys] para mais informações sobre criptografia), e adicionando a string segura conforme a seguir:
 
     addons:
       sauce_connect:
-        username: "Your Sauce Labs username"
+        username: "O seu nome de usuário Sauce Labs"
         access_key:
-          secure: "The secure string output by `travis encrypt`"
+          secure: "A string segura gerada por `travis encrypt`"
 
-You can also add the `username` and `access_key` as environment variables if you
-name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
-all you need to add to your .travis.yml file is this:
+Você também pode adicionar o `nome de usuário` e a `chave de acesso` como variáveis de ambiente caso as nomeie `SAUCE_USERNAME` e `SAUCE_ACCESS_KEY`, respectivamente. Neste caso, tudo que você precisa fazer é adicionar o seguinte ao seu arquivo .travis.yml:
 
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://about.travis-ci.org/docs/user/encryption-keys/
+[encryption-keys]: http://about.travis-ci.org/pt-BR/docs/user/encryption-keys/
 
 ### Firefox
 
-Our VMs come preinstalled with some recent version of Firefox, but sometimes you
-need a specific version to be installed. The Firefox addon allows you to specify
-any version of Firefox and the binary will be downloaded and installed before
-running you build script (as a part of the before_install stage).
+As nossas máquinas virtuais vêm pré-instaladas com alguma versão recente do Firefox, mas algumas vezes você pode precisar que alguma versão específica esteja instalada. O addon do Firefox permite que você especifique qualquer versão do Firefox e o binário será baixado e instalado antes de executar o seu script de build (como uma parte do estágio before_install).
 
-If you need version 17.0 of Firefox to be installed, add the following to your
-.travis.yml file:
+Caso necessite da versão 17.0 do Firefox, adicione o seguinte ao seu arquivo .travis.yml:
 
     addons:
       firefox: "17.0"
 
-Please note that this downloads binaries that are only compatible with our
-64-bit Linux VMs, so this won't work on our Mac VMs.
-
+Por favor note que estes binários são compatíveis apenas com as nossas máquinas virtuais Linux de 64-bits, de forma que não funcionará nas nossas máquinas virtuais Mac.

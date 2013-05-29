@@ -1,104 +1,98 @@
 ---
-title: About OSX Travis CI Environment
-layout: en
+title: Sobre o Ambiente OSX do Travis CI
+layout: pt-BR
 permalink: osx-ci-environment/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as "CI environment") as well as how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
-Ruby, PHP, Node.js and so on to be provided.
+Este guia explica quais pacotes, ferramentas e configurações estão disponíveis no ambiente do Travis CI (frequentemente chamado de ambiente de integração contínua), bem como as máquinas virtuais usadas pelo travis-ci.org são atualizadas e colocadas em produção. Este último explica quando você deve esperar que novas versões do Ruby, PHP, Node.js, etc sejam fornecidas.
 
-## Overview
 
-Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it. This offers a number of benefits:
+## Visão Geral
 
-* Host OS is not affected by test suites
-* No state persists between runs
-* Passwordless sudo is available (so you can install dependencies using apt and so on)
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on
+O Travis CI executa as construções em imagens de máquinas virtuais utilizadas em cada build e restauradas após o seu final. Esta abordagem oferece alguns benefícios:
 
-The environment available to test suites is known as the *Travis CI environment*.
+* O sistema operacional do host não é afetado pela suite de testes
+* Nenhum estado persiste entre as execuções (builds)
+* O sudo sem senha está disponível (de forma que você pode instalar dependências com apt etc)
+* As suites de testes podem criar bancos de dados, adicionar usuários/vhosts RabbitMQ etc
 
-## CI environment OS
+O ambiente disponível para a suite de testes é conhecida como *ambiente Travis CI*.
 
-travis-ci.org uses Mac OS X 10.8.2
+## Sistema operacional do ambiente Travis CI
 
-## Environment common to all VM images
+travis-ci.org usa o Mac OS X 10.8.2
+
+## Ambiente comum à todas as imagens de máquinas virtuais
 
 ### Homebrew
 
-Homebrew is installed and updated every time the VMs are updated. It is recommended that you run `brew update` before installing anything with Homebrew.
+O Homebrew é instalado e atualizado cada vez que as imagens são atualizadas. É recomendável executar `brew update` antes de instalar qualquer coisa com o Homebrew.
 
 
-### Compilers & Build toolchain
+### Compiladores & Ferramentas de Build
 
 GCC 4.2.1, Clang 4.1, make, autotools.
 
 
-### Networking tools
+### Ferramentas de Rede
 
 curl, wget, OpenSSL, rsync
 
 ### Xcode
 
-Xcode 4.6.1 is installed with the iOS 6.0 and 6.1 simulators. Command Line Tools are installed as well.
+O Xcode 4.6.1 está instalado com os simuladores de iOS 6.0 e 6.1. As ferramentas de linha de comando também estão instaladas.
 
 
-### Runtimes
+### Ambientes de Execução
 
-Every worker has at least one version of
+Cada ambiente tem pelo menos uma versão de
 
 * Ruby
 * Java
 * Python
 
-to accommodate projects that may need one of those runtimes during the build.
+de forma a acomodar projetos que podem necessitar de algum desses ambientes de execução durante o build.
 
-### Environment variables
+### Variáveis de Ambiente
 
 * `CI=true`
 * `TRAVIS=true`
-* `USER=travis` (**do not depend on this value**)
-* `HOME=/Users/travis` (**do not depend on this value**)
+* `USER=travis` (**não dependa deste valor**)
+* `HOME=/Users/travis` (**não dependa deste valor**)
 
-Additionally, Travis sets environment variables you can use in your build, e.g.
-to tag the build, or to run post-build deployments.
+Adicionalmente, o Travis define algumas variáveis de ambiente que você pode utilizar no seu build para, por exemplo, criar uma tag para o build ou executar passos após a construção.
 
-* `TRAVIS_BRANCH`: The name of the branch currently being built.
-* `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
-  being built has been copied on the worker.
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis uses internally.
-* `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
-* `TRAVIS_COMMIT`: The commit that the current build is testing.
-* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
-  or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
-* `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
-  request, "false" if it's not a pull request.
-* `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
-  used. This value is either "true" or "false".
-* `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
-  repository currently being built. (for example, "travis-ci/travis-build").
+* `TRAVIS_BRANCH`: O nome da branch sendo construída
+* `TRAVIS_BUILD_DIR`: O caminho absoluto para o diretório onde o repositório sendo construído foi copiado.
+* `TRAVIS_BUILD_ID`: O id do build atual, que o Travis utiliza internamente.
+* `TRAVIS_BUILD_NUMBER`: O número atual do build (por exemplo, "4").
+* `TRAVIS_COMMIT`: O commit que o build corrente está testando.
+* `TRAVIS_COMMIT_RANGE`: O intervalo de commits que está incluído no push ou pull request.
+* `TRAVIS_JOB_ID`: O id do job atual, usado internamente pelo Travis.
+* `TRAVIS_JOB_NUMBER`: O número atual do job (por exemplo, "4.1").
+* `TRAVIS_PULL_REQUEST`: O número do pull request caso o job em questão seja um pull request, "false" caso contrário.
+* `TRAVIS_SECURE_ENV_VARS`: "true" caso variáveis de ambiente seguras estejam sendo utilizadas, "false" caso contrário.
+* `TRAVIS_REPO_SLUG`: O nome (na forma: `nome_do_dono/nome_do_repo`) do repositório sendo construído. (por exemplo, "travis-ci/travis-build").
 
 
-### Maven version
+### Versão do Maven
 
-Stock Apache Maven 3.
+Apache Maven 3 padrão.
 
-### Ruby versions/implementations
+### Versões/Implementações Ruby
 
-* system (1.8.7) -- You need to use `sudo` to install gems with this ruby
-* 1.9.3 (default)
+* system (1.8.7) -- Você precisa usar `sudo` para instalar gems
+* 1.9.3 (padrão)
 
-Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `/etc/profile.d/rvm.sh`.
+Rubies são construídos usando o [RVM](https://rvm.beginrescueend.com/) que é instalado por usuário e originado de `/etc/profile.d/rvm.sh`.
 
-### Bundler version
+### Versão do Bundler
 
-Recent 1.2.x version (usually the most recent)
+Uma versão 1.2.x recente (geralmente a mais recente)
 
-### Gems in the global gem set
+### Gems no gem set global
 
 * bundler
 * rake

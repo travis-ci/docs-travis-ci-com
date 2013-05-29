@@ -1,100 +1,100 @@
 ---
-title: Configuring Build Notifications
-layout: en
+title: Configurando as Notificações de Build
+layout: pt-BR
 permalink: notifications/
 ---
 
 <div id="toc"></div>
 
-## Notifications
+## Notificações
 
-Travis CI can notify you about your build results through email, IRC and/or webhooks.
+O Travis CI pode lhe notificar sobre os resultados das construções através de email, IRC e/ou webhooks.
 
-By default it will send emails to
+Por padrão ele enviará emails para
 
-* the commit author and committer
-* the owner of the repository (for normal repositories)
+* o autor do commit
+* o dono do repositório (para repositórios normais)
 
-And it will by default send emails when, on the given branch:
+E por padrão enviará emails quando, em um dado branch:
 
-* a build was just broken or still is broken
-* a previously broken build was just fixed
+* um build for quebrado ou se mantiver quebrado
+* um build quebrado tiver sido corrigido
 
-You can change this behaviour using the following options:
+Você pode alterar este comportamento com as opções listadas a seguir.
 
-## Email notifications
+## Notificações por Email
 
-You can specify recipients that will be notified about build results like so:
+É possível especificar os destinatários que serão notificados sobre os resultados das construções (builds) da seguinte forma:
 
     notifications:
       email:
-        - one@example.com
-        - other@example.com
+        - um@exemplo.com
+        - outro@exemplo.com
 
-And you can entirely turn off email notifications:
+Também é possível desativar inteiramente as notificações por email:
 
     notifications:
       email: false
 
-Also, you can specify when you want to get notified:
+Além disso, você também pode especificar em quais situações deseja ser notificado:
 
     notifications:
       email:
         recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
+          - um@exemplo.com
+          - outro@exemplo.com
+        on_success: [always|never|change] # padrão: change
+        on_failure: [always|never|change] # padrão: always
 
-`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+`always` e `never` significam que você quer notificações de email sempre e nunca, respectivamente. `change` significa que você será notificado quando o estado do build mudar em um dado branch.
 
-## IRC notification
+## Notificações via IRC
 
-You can also specify notifications sent to an IRC channel:
+Também é possível especificar notificações a serem enviadas para um canal IRC:
 
     notifications:
       irc: "chat.freenode.net#travis"
 
-Or multiple channels:
+Ou múltiplos canais:
 
     notifications:
       irc:
         - "chat.freenode.net#travis"
-        - "chat.freenode.net#some-other-channel"
+        - "chat.freenode.net#algum-outro-canal"
 
-Just as with other notification types you can specify when IRC notifications will be sent:
-
-    notifications:
-      irc:
-        channels:
-          - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-
-You also have the possibility to customize the message that will be sent to the channel(s) with a template:
+Assim como em outros tipos de notificações, você pode especificar quando as notificações IRC serão realizadas:
 
     notifications:
       irc:
         channels:
           - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
+          - "chat.freenode.net#algum-outro-canal"
+        on_success: [always|never|change] # padrão: always
+        on_failure: [always|never|change] # padrão: always
+
+Você pode customizar a mensagem que será enviada ao(s) canal(is) utilizando um modelo:
+
+    notifications:
+      irc:
+        channels:
+          - "chat.freenode.net#travis"
+          - "chat.freenode.net#algum-outro-canal"
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
-          - "Build details: %{build_url}"
+          - "Detalhes da construção: %{build_url}"
 
-You can interpolate the following variables:
+As seguintes variáveis podem ser utilizadas:
 
-* *repository*: your GitHub repo URL
-* *build_number*: build number
-* *branch*: branch build name
-* *commit*: shortened commit SHA
-* *author*: commit author name
-* *message*: travis message to the build
-* *compare_url*: commit change view URL
-* *build_url*: URL of the build detail
+* *repository*: A URL do seu repositório no GitHub
+* *build_number*: O número do build
+* *branch*: O nome da branch do build
+* *commit*: O SHA reduzido do commit
+* *author*: O nome do autor do commit
+* *message*: A mensagem do travis para o build
+* *compare_url*: A URL para visualização das alterações do commit
+* *build_url*: A URL com os detalhes do build
 
-The default template is:
+O modelo padrão é:
 
     notifications:
       irc:
@@ -103,54 +103,53 @@ The default template is:
           - "Change view : %{compare_url}"
           - "Build details : %{build_url}"
 
-If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
+Caso prefira que o robô de notificações utilize notices ao invés de mensagens, a opção `use_notice` pode ser utilizada:
 
     notifications:
       irc:
         channels:
           - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
+          - "chat.freenode.net#algum-outro-canal"
+        on_success: [always|never|change] # padrão: always
+        on_failure: [always|never|change] # padrão: always
         use_notice: true
 
-and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
+e caso prefira que o robô não entre no canal antes de enviar as mensagens, e saia em seguida, use a opção `skip_join`:
 
     notifications:
       irc:
         channels:
           - "chat.freenode.net#travis"
-          - "chat.freenode.net#some-other-channel"
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
+          - "chat.freenode.net#algum-outro-canal"
+        on_success: [always|never|change] # padrão: always
+        on_failure: [always|never|change] # padrão: always
         use_notice: true
         skip_join: true
 
-If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
+Caso ative a opção `skip_join`, lembre-se de remover a configuração `NO_EXTERNAL_MSGS` (n) do(s) canal(is) que o robô deve notificar.
 
-## Campfire notification
+## Notificações  via Campfire
 
-Notifications can also be sent to Campfire chat rooms, using the following format:
+As notificações também podem ser enviadas para salas de chat do Campfire, usando a seguinte configuração:
 
     notifications:
-      campfire: [subdomain]:[api token]@[room id]
+      campfire: [subdomínio]:[token da api]@[id da sala]
 
+* *subdomínio*: é o seu subdomínio campfire (i.e. 'seu-subdominio' caso você acesse 'https://seu-subdominio.campfirenow.com')
+* *token da api*: é o token do usuário a ser utilizado para postar as notificações.
+* *id da sala*: é o id da sala, não o nome.
 
-* *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit 'https://your-subdomain.campfirenow.com')
-* *api token*: is the token of the user you want to use to post the notifications.
-* *room id*: this is the room id, not the name.
-
-You can also customise the notifications, like with IRC notifications:
+Da mesma forma que as notificações via IRC, é possível personalizá-las:
 
     notifications:
       campfire:
         rooms:
-          - [subdomain]:[api token]@[room id]
+          - [[subdomínio]:[token da api]@[id da sala]
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
-          - "Build details: %{build_url}"
+          - "Detalhes do Build: %{build_url}"
 
-Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+Outras opções, como `on_success` e `on_failure` funcionam da mesma forma que as notificações via IRC.
 
 ## Flowdock notification
 
@@ -162,69 +161,69 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 * *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
 
-## HipChat notification
+## Notificações via HipChat
 
-Notifications can be sent to your HipChat chat rooms using the following format:
+Notificações podem ser enviadas para salas de chat do HitChat, usando a seguinte configuração:
 
     notifications:
-      hipchat: [api token]@[room name]
+      hipchat: [token da api]@[nome da sala]
 
 
-* *api token*: token of the user you want to use to post the notifications.
-* *room name*: name of the room you want to notify.
+* *token da api*: é o token do usuário a ser utilizado para postar as notificações.
+* *nome da sala*: nome da sala onde as notificações serão enviadas.
 
-HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
+As notificações via HipChat também suportam modelos, de forma que você pode customizar a aparência das notificações, ex: reduzí-las a uma única linha:
 
     notifications:
       hipchat:
         rooms:
-          - [api token]@[room name]
+          - [token da api]@[nome da sala]
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 
-If you want to send HTML notifications you need to add `format: html` like this
-(note that this disables some features like @mentions and autolinking):
+Caso queira enviar notificações HTML, é necessário adicionar a opção `format: html` (note que isto desabilita algumas funcionalidades, como @mentions e linking automático):
 
     notifications:
       hipchat:
         rooms:
-          - [api token]@[room name]
+          - [token da api]@[nome da sala]
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
         format: html
 
-## Webhook notification
+## Notificações via Webhook
 
-You can define webhooks to be notified about build results the same way:
+Você pode definir webhooks a serem notificados sobre os resultados dos build da mesma maneira:
 
     notifications:
-      webhooks: http://your-domain.com/notifications
+      webhooks: http://seu-dominio.com/notifications
 
-Or multiple channels:
+Ou múltiplos canais:
 
     notifications:
       webhooks:
-        - http://your-domain.com/notifications
-        - http://another-domain.com/notifications
+        - http://seu-dominio.com/notifications
+        - http://outro-dominio.com/notifications
 
-Just as with other notification types you can specify when webhook payloads will be sent:
+Assim como nas outras notificações, é possível especificar quando o webhook será acionado:
 
     notifications:
       webhooks:
         urls:
-          - http://hooks.mydomain.com/travisci
-          - http://hooks.mydomain.com/events
-        on_success: [always|never|change] # default: always
-        on_failure: [always|never|change] # default: always
-        on_start: [true|false] # default: false
+          - http://hooks.meudominio.com/travisci
+          - http://hooks.meudominio.com/events
+        on_success: [always|never|change] # padrão: always
+        on_failure: [always|never|change] # padrão: always
+        on_start: [true|false] # padrão: false
 
-Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
+Veja um exemplo das informações que serão enviadas às URLs do seu webhook via POST: [gist.github.com/1225015](https://gist.github.com/1225015)
 
-### Authorization
-When Travis makes the POST request, a header named 'Authorization' is included.  Its value is the SHA2 hash of your
-GitHub username, the name of the repository, and your Travis token.  In Python,
+### Autorização
+
+Quando o Travis faz a requisição POST, um cabeçalho chamado 'Authorization' é incluído. O seu valor é o hash SHA2 do seu usuário GitHub, o nome do repositório, e o seu token no Travis.
+No Python, utilize
 
     from hashlib import sha256
-    sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
+    sha256('nome-do-usuario/repositório' + TOKEN_DO_TRAVIS).hexdigest()
 
-Use this to ensure Travis is the one making requests to your webhook.
+para garantir que o Travis é quem está realizando requisições no seu webhook.
