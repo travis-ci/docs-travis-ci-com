@@ -675,3 +675,9 @@ input[type=email] {
 .blog-post h3 a {
   text-decoration: underline;
 }
+
+#imprint ul,
+#imprint ul li {
+  list-style-type: none;
+  margin-left: 0px;
+}
