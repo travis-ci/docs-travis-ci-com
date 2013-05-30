@@ -32,18 +32,4 @@ handy!
 The fine folks at Crowd Interactive wrote about how to setup Android projects
 with Maven on Travis CI.
 
-### Newsletter
-
-If you'd like to receive future updates on Travis CI, our staff picks, tips on
-coffee and special offers, make sure to sign up for our newsletter, "Testing and
-Coffee"
-
-<div id="mc_embed_signup" style="margin-bottom: 50px;">
-  <form
-     action="http://travis-ci.us7.list-manage.com/subscribe/post?u=8ce724a4c9af4dace663cd39c&amp;id=44f8dff14c"
-     method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-     target="_blank" novalidate>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required/>
-    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-  </form>
-</div>
+{% include newsletter.html %}
