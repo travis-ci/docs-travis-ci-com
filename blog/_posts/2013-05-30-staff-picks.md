@@ -4,6 +4,7 @@ created_at: Thu 30 May 2013 16:00:00 CEST
 author: Mathias Meyer
 twitter: roidrage
 layout: post
+permalink: blog/2013-05-30-staff-picks
 ---
 Hey, it's Thursday, and we just had lots of coffee! Time for a new round of
 links on continuous caffeine, Travis and other interesting things!
