@@ -1,7 +1,7 @@
 ---
 title: An Update on Infrastructure Changes
 layout: post
-created_at: Thu 13 Dec 16:00:00 CET
+created_at: Thu 13 Dec 2012 16:00:00 CET
 author: Mathias Meyer
 twitter: roidrage
 permalink: blog/2012-12-13-an-update-on-infrastructure-changes
