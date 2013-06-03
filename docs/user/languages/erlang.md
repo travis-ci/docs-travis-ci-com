@@ -46,3 +46,7 @@ to installs project's [dependencies as listed in the rebar.config file](https://
 * [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
 * [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
 * [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
+
+## Tutorial(s)
+
+* [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
