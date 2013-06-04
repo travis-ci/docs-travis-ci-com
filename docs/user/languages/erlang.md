@@ -49,4 +49,5 @@ to installs project's [dependencies as listed in the rebar.config file](https://
 
 ## Tutorial(s)
 
+* [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 * [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
