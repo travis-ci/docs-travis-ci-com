@@ -190,12 +190,12 @@ div#navigation .wrapper {
 
 div#navigation .wrapper a#logo {
   color: #828282;
-  display:block;
+  display: block;
   float: left;
   font-weight: bold;
   font-size: 1.1em;
   line-height: 1.2em;
-  margin: 0.15em 1em 0 0;
+  margin: 0em 1em 0 0;
   padding: 0 1em 0 0;
   text-decoration: none;
 }
@@ -206,8 +206,8 @@ div#navigation .wrapper a#logo span {
 }
 
 div#navigation ul {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 div#navigation ul li {
