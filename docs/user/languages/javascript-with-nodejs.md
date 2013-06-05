@@ -73,3 +73,18 @@ By default, Travis CI will run
     npm install
 
 to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no NPM packages installed at the beginning of your build).
+
+## Meteor Packages
+
+It is possible to build **Meteor Packages** on travis by extending nodejs configurations. 
+Use following `.travis.yml` file.
+
+    language: node_js
+    node_js:
+      - "0.10"
+    before_install:
+      - "curl -L http://git.io/ejPSng | /bin/sh"
+
+`berfore_install` script will take care of the actual building process.
+Related source code is available on [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages) repository.
+
