@@ -1,5 +1,5 @@
 ---
-title: About Travis CI Environment
+title: The Build Environment
 layout: en
 permalink: ci-environment/
 ---
