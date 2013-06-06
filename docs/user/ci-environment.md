@@ -6,27 +6,27 @@ permalink: ci-environment/
 
 ### What This Guide Covers
 
-This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as "CI environment") as well as how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
-Ruby, PHP, Node.js and so on to be provided.
+This guide explain what packages, tools and settings are available in the Travis
+CI environment (often referred to as "CI environment").
 
 ## Overview
 
-Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it. This offers a number of benefits:
+Travis CI runs builds in isolated virtual machines that offer a vanilla build
+environment for every build.
 
-* Host OS is not affected by test suites
-* No state persists between runs
-* Passwordless sudo is available (so you can install dependencies using apt and so on)
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on
+This has the advantage that no state persists between builds, offering a clean
+slate and making sure that your tests can run in an environment built from
+scratch.
 
-The environment available to test suites is known as the *Travis CI environment*. VMs are deployed from VM images ("boxes") that are available to the public. Provisioning of VM images is highly automated, new versions are deployed on average about once a week.
+To set up the system for your build, you can use the `sudo` command to install
+packages, to change configuration, create users, and so on.
+
+Builds have access to a variety of services for data storage and messaging, and
+can install anything that's required for them to run.
 
 ## CI environment OS
 
-travis-ci.org uses 32-bit Ubuntu Linux 12.04 (server edition).
-
-## How travis-ci.org VMs are provisioned
-
-Provisioning of VMs is automated using [Opscode Chef](http://www.opscode.com/chef/). VMs are never upgraded "on the go", we always replace entire images. VM images are first uploaded to our internal network and deployed to each individual worker during slow periods of the day. On average, we try to deploy new versions of runtimes (e.g. Ruby or PHP) and software like data stores within a week from their public availability, given that Travis Core Team is aware of or notified about the release.
+Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition.
 
 ## Environment common to all VM images
 
