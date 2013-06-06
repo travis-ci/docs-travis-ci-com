@@ -26,7 +26,7 @@ can install anything that's required for them to run.
 
 ## CI environment OS
 
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition.
+Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit.
 
 ## Environment common to all VM images
 
