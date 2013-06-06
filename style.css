@@ -681,3 +681,75 @@ input[type=email] {
   list-style-type: none;
   margin-left: 0px;
 }
+
+.get-started-box {
+  width: 400px;
+  margin: 0 auto;
+  height: 100px;
+  text-align: center;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #F6F6F6;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+.big-text {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.get-started-button,
+.get-started-button:visited,
+.get-started-button:active {
+  overflow: visible;
+  display: inline;
+  padding: 8px 20px;
+  margin: 0;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #c7000f;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e60f00), color-stop(100%, #c7000f));
+  background: -webkit-linear-gradient( #e60f00, #c7000f);
+  background: -moz-linear-gradient(#e60f00, #c7000f);
+  background: -o-linear-gradient(#e60f00, #c7000f);
+  background: linear-gradient(#e60f00, #c7000f);
+  background-clip: padding-box;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  font: 17px/normal sans-serif;
+  color: #F6F6F6;
+  white-space: nowrap;
+  height: 54px; 
+  position: relative;
+  top: -1px;
+}
+
+.get-started-button:hover {
+  color: #F6F6F6;
+  text-decoration: underline;
+}
+
+.language-docs {
+  font-size: 1.2em;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+  line-height: 1.8em;
+}
+
+.language-docs a {
+  padding-right: 1em;
+}
+

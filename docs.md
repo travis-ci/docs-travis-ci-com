@@ -1,40 +1,31 @@
 ---
-title: Documentation
+title: Travis CI Documentation
 layout: en
 permalink: docs/
 ---
 
-### User documentation
+<div class="get-started-box">
+  <div class="big-text">New to Travis CI?</div>
 
-* [Getting started](/docs/user/getting-started/)
-* [Build configuration](/docs/user/build-configuration/)
-* [Database setup](/docs/user/database-setup/)
-* [GUI & Headless browsers](/docs/user/gui-and-headless-browsers/)
-* [Status images](/docs/user/status-images/)
-* [Resources](/docs/user/resources/)
-* [CI environment](/docs/user/ci-environment/)
-* [Browser Extensions](/docs/user/browser-extensions/)
-* [How to skip a build](/docs/user/how-to-skip-a-build/)
-* [How to setup and trigger the hook manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/)
+  <div><a class="get-started-button" href="/docs/user/getting-started">Get Started</a></div>
+</div>
 
-### Specific Language Help
+<div class="big-text">Looking for language-specific documentation?</div>
 
-* [C](/docs/user/languages/c)
-* [C++](/docs/user/languages/cpp)
-* [Clojure](/docs/user/languages/clojure)
-* [Erlang](/docs/user/languages/erlang)
-* [Go](/docs/user/languages/go)
-* [Groovy](/docs/user/languages/groovy)
-* [Haskell](/docs/user/languages/haskell)
-* [Java](/docs/user/languages/java)
-* [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
-* [Perl](/docs/user/languages/perl)
-* [PHP](/docs/user/languages/php)
-* [Python](/docs/user/languages/python)
-* [Ruby](/docs/user/languages/ruby)
-* [Scala](/docs/user/languages/scala)
+<div class="language-docs">
+  <a href="/docs/user/languages/c">C</a>
+  <a href="/docs/user/languages/cpp">C++</a>
+  <a href="/docs/user/languages/clojure">Clojure</a>
+  <a href="/docs/user/languages/erlang">Erlang</a>
+  <a href="/docs/user/languages/go">Go</a>
+  <a href="/docs/user/languages/groovy">Groovy</a>
+  <a href="/docs/user/languages/haskell">Haskell</a>
+  <a href="/docs/user/languages/java">Java</a>
+  <a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
+  <a href="/docs/user/languages/perl">Perl</a>
+  <a href="/docs/user/languages/php">PHP</a>
+  <a href="/docs/user/languages/python">Python</a>
+  <a href="/docs/user/languages/ruby">Ruby</a>
+  <a href="/docs/user/languages/scala">Scala</a>
+</div>
 
-### Developer documentation
-
-* [The Worker](/docs/dev/worker/)
-* [The API](/docs/dev/api/)
