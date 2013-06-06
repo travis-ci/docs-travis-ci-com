@@ -1,5 +1,5 @@
 ---
-title: Configuring your Travis CI build with .travis.yml
+title: Configuring your build
 layout: en
 permalink: build-configuration/
 ---
