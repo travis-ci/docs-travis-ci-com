@@ -78,7 +78,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * Riak 1.2.x
 * Apache Cassandra 1.1.x
 * Neo4J Community Edition 1.7.x
-* ElasticSearch 0.19.x
+* ElasticSearch 0.90.x
 * CouchDB 1.2.x
 
 ### Messaging Technology
