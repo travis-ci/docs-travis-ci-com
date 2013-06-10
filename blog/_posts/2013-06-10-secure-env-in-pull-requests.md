@@ -28,7 +28,7 @@ to run the full test suite, it reduces the value that a PR build provides.
 
 Today I am happy to say that this has now been fixed! I deployed a set of changes which allows 
 for the use of secure environment variables if a pull request's target repository
-is the same as the source repository.
+is the same as the source repository. This change is available on both the open source platform and for private repositories!
 
 These changes were sponsored by the great folks at [Engine Yard](https://www.engineyard.com),
 give them a big internet hug on [twitter](https://twitter.com/engineyard) if
