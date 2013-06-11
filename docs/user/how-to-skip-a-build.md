@@ -19,6 +19,8 @@ It's easy - just add the following to the commit message:
 Pushes that have `[ci skip]` anywhere in one of the commit messages will be ignored. `[ci skip]` does not have to appear on the first line,
 so it is possible to use it without polluting your project's history.
 
+Alternatively, you can also use `[skip ci]`.
+
 ## Example
 
 Here is an example:
