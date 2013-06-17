@@ -75,12 +75,14 @@ Note worthy mentions:
 
  - Composer: Read-only GitHub OAuth token added, this should help resolve rate limit issues.
 
- - Cassandra: Config fixed, service should now start up like a dream.
+ - PHP: PEAR is now available on v5.5
 
- - Mirrors removed: We provided EU based mirrors for Maven and Perl, these have been removed as our VMs are based in the US.
+ - Cassandra: Config fixed, service should now start up like a dream.
 
  - Postgres: shmmax and shmmall both increased
 
- - TmpFS for Mysql and Postgres DBs doubled to 512megs
+ - Tmpfs for Mysql and Postgres DBs doubled to 512megs
+
+ - Mirrors removed: We provided EU based mirrors for Maven and Perl, these have been removed as our VMs are based in the US.
 
  - FireFox locked to 19.0, see http://about.travis-ci.org/docs/user/addons/#Firefox for more info
