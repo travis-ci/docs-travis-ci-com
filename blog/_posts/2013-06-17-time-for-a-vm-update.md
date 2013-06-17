@@ -24,52 +24,43 @@ Have a great Monday,
 Josh and the Travis Team.
 
 
-Language Updates:
------------------
+### Language Updates:
 
-Ruby : 
- 
+Ruby:
  - JRuby 1.7.4
  - MRI 1.9.3-p429 and p327, and 2.0.0-p195
 
-Node.js :
-
+Node.js:
  - 0.8.24, 0.10.9 and 0.11.2 
 
-Go :
-
+Go:
  - 1.1.1 preinstalled and set as the default
 
-PHP
-
+PHP:
  - 5.3.26, 5.4.16 and 5.5.0RC3
 
-Perl
-
+Perl:
  - added 5.8 and 5.19
  - updated current versions to 5.12.5, 5.14.4, and 5.16.3
 
-Python
-
+Python:
  - latest patch versions installed
 
 
-Services Updates:
------------------
+### Services Updates:
 
-Redis: v2.6.13
+Redis: **v2.6.13**
 
-ElasticSearch: v0.90.1
+ElasticSearch: **v0.90.1**
 
-MongoDB: v2.4.4
+MongoDB: **v2.4.4**
 
-Cassandra: v1.2.5
+Cassandra: **v1.2.5**
 
-PhantomJs: v1.9.1
+PhantomJs: **v1.9.1**
 
 
-Note worthy mentions:
----------------------
+### Note worthy mentions:
 
  - Clojure: Leinigen updated to v2.2 
 
