@@ -27,24 +27,24 @@ Josh and the Travis Team.
 ### Language Updates:
 
 Ruby:
- - JRuby 1.7.4
- - MRI 1.9.3-p429 and p327, and 2.0.0-p195
+- JRuby 1.7.4
+- MRI 1.9.3-p429 and p327, and 2.0.0-p195
 
 Node.js:
- - 0.8.24, 0.10.9 and 0.11.2 
+- 0.8.24, 0.10.9 and 0.11.2 
 
 Go:
- - 1.1.1 preinstalled and set as the default
+- 1.1.1 preinstalled and set as the default
 
 PHP:
- - 5.3.26, 5.4.16 and 5.5.0RC3
+- 5.3.26, 5.4.16 and 5.5.0RC3
 
 Perl:
- - added 5.8 and 5.19
- - updated current versions to 5.12.5, 5.14.4, and 5.16.3
+- added 5.8 and 5.19
+- updated current versions to 5.12.5, 5.14.4, and 5.16.3
 
 Python:
- - latest patch versions installed
+- latest patch versions installed
 
 
 ### Services Updates:
@@ -62,18 +62,18 @@ PhantomJs: **v1.9.1**
 
 ### Note worthy mentions:
 
- - Clojure: Leinigen updated to v2.2 
+- Clojure: Leinigen updated to v2.2 
 
- - Composer: Read-only GitHub OAuth token added, this should help resolve rate limit issues.
+- Composer: Read-only GitHub OAuth token added, this should help resolve rate limit issues.
 
- - PHP: PEAR is now available on v5.5
+- PHP: PEAR is now available on v5.5
 
- - Cassandra: Config fixed, service should now start up like a dream.
+- Cassandra: Config fixed, service should now start up like a dream.
 
- - Postgres: shmmax and shmmall both increased
+- Postgres: shmmax and shmmall both increased
 
- - Tmpfs for Mysql and Postgres DBs doubled to 512megs
+- Tmpfs for Mysql and Postgres DBs doubled to 512megs
 
- - Mirrors removed: We provided EU based mirrors for Maven and Perl, these have been removed as our VMs are based in the US.
+- Mirrors removed: We provided EU based mirrors for Maven and Perl, these have been removed as our VMs are based in the US.
 
- - FireFox locked to 19.0, see http://about.travis-ci.org/docs/user/addons/#Firefox for more info
+- FireFox locked to 19.0, see http://about.travis-ci.org/docs/user/addons/#Firefox for more info
