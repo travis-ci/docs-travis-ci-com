@@ -1,57 +1,56 @@
 ---
-title: About Travis CI Environment
-layout: en
+title: Sobre o Ambiente de Integração Contínua do Travis
+layout: pt-BR
 permalink: ci-environment/
 ---
 
-### What This Guide Covers
+### O Que Este Guia Cobre
 
-This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as "CI environment") as well as how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
-Ruby, PHP, Node.js and so on to be provided.
+Este guia explica quais pacotes, ferramentas e configurações estão disponíveis no ambiente de integração contínua do Travis (comumente chamado de "ambiente de IC"), bem como as máquinas virtuais utilizadas pelo travis-ci.org são atualizadas e colocadas em produção. Este último explica o quão você deve esperar até que novas versões do Ruby, PHP, Node.js, etc sejam fornecidas.
 
-## Overview
+## Visão Geral
 
-Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it. This offers a number of benefits:
+O ambiente de CI do Travis executa as construções (builds) em máquinas virtuais que são armazenadas (snapshotted) antes de cada construção e restauradas ao seu término. Isto oferece diversos benefícios:
 
-* Host OS is not affected by test suites
-* No state persists between runs
-* Passwordless sudo is available (so you can install dependencies using apt and so on)
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on
+* O sistema hospedeiro não é afetado pelas suites de testes
+* Nenhum estado persiste entre as execuções
+* O sudo sem senha está disponível (de forma que você pode instalar dependências utilizando apt)
+* As suites de testes podem criar bancos de dados, adicionar vhosts/usuários RabbitMQ, etc
 
-The environment available to test suites is known as the *Travis CI environment*. VMs are deployed from VM images ("boxes") that are available to the public. Provisioning of VM images is highly automated, new versions are deployed on average about once a week.
+O ambiente disponível para as suites de testes é conhecido como o *Ambiente de IC Travis*. As máquinas virtuais (VMs) são iniciadas através de imagens de VM ("boxes") que estão disponíveis para o público. O fornecimento de imagens das VMs é extremamente automatizado, de forma que novas versões são oferecidas uma vez por semana, em média.
 
-## CI environment OS
+## Sistema Operacional do Ambiente de IC
 
-travis-ci.org uses 32-bit Ubuntu Linux 11.19 (server edition).
+O travis-ci.org usa a versão 32-bits do Ubuntu Linux 11.19 (served edition).
 
-## How travis-ci.org VMs are provisioned
+## Como as VMs do travis-ci.org são geradas
 
-Provisioning of VMs is automated using [OpsCode Chef](http://www.opscode.com/chef/). VMs are never upgraded "on the go", we always replace entire images. VM images are first uploaded to our internal network and deployed to each individual worker during slow periods of the day. On average, we try to deploy new versions of runtimes (e.g. Ruby or PHP) and software like data stores within a week from their public availability, given that Travis Core Team is aware of or notified about the release.
+O fornecimento de VMs é automatizado utilizando o [OpsCode Chef](http://www.opscode.com/chef/). As VMs nunca são atualizadas em funcionamento, nós sempre substituímos a imagem inteira. As imagens das máquinas virtuais são primeiramente enviadas para a nossa rede interna e então colocadas em produção em cada máquina trabalhadora (worker) durante períodos menos movimentados do dia. Em média, tentamos colocar em produção novas versões dos ambientes de execução (ex. Ruby ou PHP) e softwares como bancos de dados em até uma semana após a sua disponibilização para o público, dado que o Core Team do Travis está ciente ou foi notificado sobre a nova versão.
 
-## Environment common to all VM images
+## Ambiente comum à todas as Imagens de VMs
 
 ### Built toolchain
 
-GCC 4.5.x, make, autotools, et cetera.
+GCC 4.5.x, make, autotools, etc.
 
-### Networking tools
+### Ferramentas de Rede
 
 curl, wget, OpenSSL, rsync
 
-### Runtimes
+### Ambientes de Execução
 
-Every worker has at least one version of
+Cada trabalhador possui ao menos uma versão de 
 
 * Ruby
 * OpenJDK
 * Python
 * Node.js
 
-to accommodate projects that may need one of those runtimes during the build.
+para acomodar projetos que possam precisar de algum desses ambientes de execução durante a construção.
 
-Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).
+Trabalhadores específicos da linguagem possuem múltiplos ambientes de execução da respectiva linguagem (por exemplo, trabalhadores Ruby possuem cerca de 10 versões/implementações de Ruby).
 
-### Data Stores
+### Armazenamento de Dados
 
 * MySQL 5.1.x
 * PostgreSQL 8.4.x
@@ -61,119 +60,119 @@ Language-specific workers have multiple runtimes for their respective language (
 * Redis 2.4.x
 * CouchDB 1.0.x
 
-### Messaging Technology
+### Tecnologia de Mensageria
 
 * [RabbitMQ](http://rabbitmq.com) 2.7.x
 * [ZeroMQ](http://www.zeromq.org/) 2.1.x
 
-### Headless Browser Testing Tools
+### Ferramentas de Testes com Browser
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
 * [Phantom.js](http://www.phantomjs.org/) 1.4.x
 
-### Environment variables
+### Variáveis de Ambiente
 
 * `DEBIAN_FRONTEND=noninteractive`
 * `CI=true`
 * `TRAVIS=true`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-* `USER=vagrant` (**subject to change, do not depend on this value**)
-* `HOME=/home/vagrant` (**subject to change, do not depend on this value**)
+* `USER=vagrant` (**sujeito à mudanças, não dependa deste valor**)
+* `HOME=/home/vagrant` (**sujeito à mudanças, não dependa deste valor**)
 * `LANG=en_US.UTF-8`
 * `LC_ALL=en_US.UTF-8`
 
-### Libraries
+### Bibliotecas
 
 * OpenSSL
 * ImageMagick
 
-### apt configuration
+### Configuração do apt
 
-apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file). This means `apt-get install -qq` can be used without the -y flag.
+O apt é configurado para não solicitar confirmação (assume o -y por padrão) usando tanto a variável de ambiente `DEBIAN_FRONTEND` quanto o arquivo de configuração do apt. Isto significa que `apt-get install -qq` pode ser utilizado sem a flag -y.
 
-## JVM (Clojure, Groovy, Java, Scala) VM images
 
-### Maven version
+## Imagens VM de JVM (Clojure, Groovy, Java, Scala)
 
-Stock Apache Maven 3.0.x.
+### Versão do Maven
 
-### Leiningen versions
+ Apache Maven 3.0.x padrão.
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 [preview2]
-at `/usr/local/bin/lein2`.
+### Versões do Leiningen
 
-### SBT version
+O travis-ci.org possui tanto a versão standalone ("uberjar") do Leiningen 1.7.x em `/usr/local/bin/lein` quanto o Leiningen 2.0 [preview2] em `/usr/local/bin/lein2`.
 
-travis-ci.org provides SBT 0.11.x.
+### Versão do SBT
 
-### Gradle version
+travis-ci.org fornece o SBT 0.11.x.
 
-Currently 1.0 Milestone 8.
+### Versão do Gradle
 
-## Erlang VM images
+Atualmente 1.0 Milestone 8.
 
-### Erlang/OTP releases
+## Imagens VM do Erlang
+
+### Releases Erlang/OTP
 
 * R15B
 * R14B04
 * R14B03
 * R14B02
 
-Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
+As versões Erlang/OTP são construídas utilizando [kerl](https://github.com/spawngrid/kerl).
 
-## Node.js VM images
+## Imagens VM do Node.js
 
-### Node.js versions
+### Versões do Node.js
 
 * 0.4 (0.4.12)
 * 0.6 (0.6.12)
 * 0.7 (0.7.5)
 
-Node runtimes are built using [NVM](https://github.com/creationix/nvm).
+Os ambientes de execução do Node são construídos usando [NVM](https://github.com/creationix/nvm).
 
 ### SCons
 
-Scons is available to [build joyent/node on travis-ci.org](http://travis-ci.org/#!/joyent/node). Other projects can use it, too.
+O Scons está disponível para [construir o joyent/node no travis-ci.org](http://travis-ci.org/#!/joyent/node). Outros projetos também podem utilizá-lo.
 
 
-## Haskell VM images
+## Imagens VM do Haskell
 
-### Haskell Platform Version
+### Versões da Plataforma Haskell
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (includes GHC 7.0).
+[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (inclui GHC 7.0).
 
 
-## Perl VM images
+## Imagens VM do Perl
 
-### Perl versions
+### Versões do Perl
 
 * 5.14
 * 5.12
 * 5.10
 
-installed via [Perlbrew](http://perlbrew.pl/).
+instaladas via [Perlbrew](http://perlbrew.pl/). 
 
 ### cpanm
 
-cpanm (App::cpanminus) version 1.5007
+cpanm (App::cpanminus) versão 1.5007
 
-## PHP VM images
+## Imagens VM do PHP
 
-### PHP versions
+### Versões do PHP
 
 * 5.2 (5.2.17)
 * 5.3 (5.3.10, 5.3.2)
 * 5.4 (5.4.0)
 
-PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
+Os ambientes de execução PHP são construídos usando [php-build](https://github.com/CHH/php-build).
 
 ### XDebug
 
-Is supported.
+É suportado.
 
-### Extensions
+### Extensões
 
-    [PHP Modules]
+    [Módulos PHP]
     bcmath
     bz2
     Core
@@ -231,12 +230,12 @@ Is supported.
     zip
     zlib
 
-    [Zend Modules]
+    [Módulos Zend]
     Xdebug
 
-## Python VM images
+## Imagens VM do Python
 
-### Python versions
+### Versões do Python
 
 * 2.5
 * 2.6
@@ -244,76 +243,76 @@ Is supported.
 * 3.1
 * 3.2
 
-Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
+Cada Python possui um virtualenv separado que vem com `pip` e `distribute` e é ativado antes da execução da construção.
 
-### Preinstalled pip packages
+### Pacotes pip Pré-instalados
 
 * nose
 * py.test
 * mock
 
-## Ruby (aka common) VM images
+## Imagens VM do Ruby (aka common)
 
-### Ruby versions/implementations
+### Versões/Implementações do Ruby
 
-* 1.8.7 (default)
+* 1.8.7 (padrão)
 * 1.9.2
 * 1.9.3
-* jruby-18mode (1.6.7; alternative alias: jruby)
-* jruby-19mode (1.6.7 in Ruby 1.9 mode)
-* rbx-18mode (alternative alias: rbx)
-* rbx-19mode (in Ruby 1.9 mode)
+* jruby-18mode (1.6.7; apelido alternativo: jruby)
+* jruby-19mode (1.6.7 no modo Ruby 1.9)
+* rbx-18mode (apelido alternativo: rbx)
+* rbx-19mode (no modo Ruby 1.9)
 * ree (2012.02)
-* ruby-head (upgraded every 1-2 weeks)
-* jruby-head (upgraded every 1-2 weeks)
+* ruby-head (atualizado a cada 1-2 semanas)
+* jruby-head (atualizado a cada 1-2 semanas)
 
-[Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+[Ruby 1.8.6 e 1.9.1 não são mais fornecidos no travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
-Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `~/.bashrc`.
+Rubies são construídos utilizando o [RVM](https://rvm.beginrescueend.com/) que é instalado por usuário e localizado do `~/.bashrc`.
 
-### Bundler version
+### Versão do Bundler
 
-Recent 1.1.x version (usually the most recent)
+Uma versão 1.1.x recente (geralmente a mais recente)
 
-### Gems in the global gem set
+### Gems no gem set global
 
 * bundler
 * rake
 
-### Environment variables
+### Variáveis de Ambiente
 
 * `RAILS_ENV=test`
 * `RACK_ENV=test`
 * `MERB_ENV=test`
 * `JRUBY_OPTS="--server -Dcext.enabled=false"`
 
-## How VM images are upgraded and deployed
+## Como as Imagens das VMs são Atualizadas e Colocadas em Produção
 
-We currently use Vagrant to develop, test, build, export and import VM images (a.k.a "Vagrant boxes"). Provisioning is automated using [OpsCode Chef](http://www.opscode.com/chef/). VM images are then uploaded to our internal network and deployed to each individual worker during slow periods of the day (around 03:00 GMT). VM images for different workers vary in size but in general are **between 1.6 and 3.3 GB in size**.
+Nós utilizamos o Vagrant para desenvolver, testar, construir, exportar e importar imagens da VM (conhecidas como "Vagrant boxes"). A geração das imagens é automatizada utilizando o [OpsCode Chef](http://www.opscode.com/chef/). As imagens das máquinas virtuais são primeiramente enviadas para a nossa rede interna e então colocadas em produção em cada máquina trabalhadora (worker) durante períodos menos movimentados do dia (perto de 03:00 GMT). As imagens para diferentes trabalhadores variam em tamanho mas no geral estão **entre 1.6 e 3.3 GB em tamanho**.
 
-This means that to provision a new PHP release (for example), we do the following:
+Isto significa que, para gerar uma imagem de uma nova versão do PHP (por exemplo), fazemos o seguinte:
 
-* Update our PHP-related cookbooks and possibly tools like php-build that they depend on.
-* Test cookbooks locally
-* Build a new PHP VM image
-* Upload the image to our internal network
-* Take php1.worker.travis-ci.org down to import new images
+* Atualização do nossos cookbooks relacionados ao PHP e possivelmente de ferramentas como o php-build.
+* Teste dos cookbooks localmente
+* Construção de uma nova imagem VM para PHP
+* Envio da imagem para a nossa rede interna
+* Desligamento do php1.worker.travis-ci.org para importar a imagem nova
 
-For new releases of data stores or messaging technologies, for example, Riak
+Para novas versões de armazenamentos de dados ou tecnologias de mensageria, por exemplo, Riak:
 
-* Update our Riak cookbook
-* Test the cookbook locally
-* Build a new standard VM image, then worker-specific (Ruby, PHP, Node.js and so on) VM images based on the new standard image
-* Upload new images to our internal network
-* Take travis-ci.org workers down one by one to import new images
+* Atualização do nosso cookbook do Riak
+* Teste do cookbook localmente
+* Construção de uma nova imagem VM padrão, e então imagens VM específicas (Ruby, PHP, Node.js, etc) baseadas na imagem padrão
+* Envio das novas imagens para a nossa rede interna
+* Desligamento dos trabalhadores do travis-ci.org um a um para importar as novas imagens
 
-The entire process usually takes from one to several hours (depending on how many VM images need to be rebuilt). Combined with the time for testing, new releases of runtimes and other widely used software usually go live on travis-ci.org within a week from the moment Travis Core team is
-notified about the release.
+O processo inteiro usualmente leva de uma a algumas horas (dependendo de quantas imagens precisam ser reconstruídas). Combinadas com o tempo para testes, novas versões de ambientes de execução e outros softwares amplamente utilizados geralmente são disponibilizados no travis-ci.org uma semana após o Core Team do Travis ser notificado sobre a nova versão.
 
-## Chef Cookbooks
 
-The Travis CI environment is set up using [OpsCode Chef](http://www.opscode.com/chef/). All the [cookbooks used by travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu Linux 11.10 but thanks to Chef, migrating to a different Ubuntu version or another distribution is much easier.
+## Chef Cookbooks (Receitas)
 
-Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are encouraged to use them.
+O ambiente de IC do Travis é configurado usando o [OpsCode Chef](http://www.opscode.com/chef/). Todos os [cookbooks (receitas) usados pelo travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) são open source e podem ser encontrados pelo GitHub. O travis-ci.org usa o Ubuntu Linux 11.10 de 32 bits, mas graças ao Chef, a migração para uma versão diferente do Ubuntu ou para outra distribuição Linux é muito mais fácil.
 
-Many cookbooks Travis CI environment uses are taken from the [official OpsCode cookbooks repository](https://github.com/opscode/cookbooks). We modify some of them for continuous integration needs and sync them periodically or as the need arises.
+Os cookbooks do Chef são desenvolvidos utilizando o [Vagrant](http://vagrantup.com/) e [Sous Chef](https://github.com/michaelklishin/sous-chef), de forma que os contribuidores dos cookbooks são encorajados a utilizá-los.
+
+Muitos dos cookbooks que o ambiente de IC do Travis usa foram retirados do [repositório oficial de cookbooks do OpsCode](https://github.com/opscode/cookbooks). Nós modificamos alguns deles para as necessidades da integração contínua e os sincronizamos periodicamente ou quando for necessário.
