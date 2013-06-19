@@ -107,6 +107,12 @@ If your project uses non-standard dependency management tools, you can override 
 
 As with other scripts, `install` command can be anything but has to exit with the 0 status in order to be considered successful.
 
+If you'd like to skip the `install` stage entirely, just set it to `true` and nothing will be run.
+
+    install: true
+
+`true` is a Unix command which returns (you guessed it) 0.
+
 ### before_install
 
 You can also define scripts to be run before and after the dependency installation script:
