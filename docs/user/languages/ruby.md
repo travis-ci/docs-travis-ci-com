@@ -82,7 +82,7 @@ You can specify a custom Gemfile name:
 
 Unless specified, the worker will look for a file named "Gemfile" in the root of your project.
 
-You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> to be passed to `bundle install`:
+You can also set <a href="http://gembundler.com/v1.3/man/bundle-install.1.html">extra arguments</a> to be passed to `bundle install`:
 
     bundler_args: --binstubs
 
