@@ -27,23 +27,29 @@ Josh and the Travis Team.
 ### Language Updates:
 
 Ruby:
+
 - JRuby 1.7.4
 - MRI 1.9.3-p429 and p327, and 2.0.0-p195
 
 Node.js:
+
 - 0.8.24, 0.10.9 and 0.11.2 
 
 Go:
+
 - 1.1.1 preinstalled and set as the default
 
 PHP:
+
 - 5.3.26, 5.4.16 and 5.5.0RC3
 
 Perl:
+
 - added 5.8 and 5.19
 - updated current versions to 5.12.5, 5.14.4, and 5.16.3
 
 Python:
+
 - latest patch versions installed
 
 
