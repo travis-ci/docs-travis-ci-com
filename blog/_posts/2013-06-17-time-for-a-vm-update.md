@@ -45,7 +45,7 @@ PHP:
 
 Perl:
 
-- added 5.8 and 5.19
+- added 5.8, 5.18 and 5.19
 - updated current versions to 5.12.5, 5.14.4, and 5.16.3
 
 Python:
