@@ -11,9 +11,9 @@ We love London, if it be the never ending clouds, the hot and sticky underground
 
 With all that said, we do love London for one special reason alone, it is home to our awesome friends at [Pusher](http://pusher.com)!
 
-Because we love to show our Pusher friends so much, we thought it would be great to hold a coffee meetup TOGETHER!
+Because we love our Pusher friends so much, we thought it would be great to hold a coffee meetup **TOGETHER!**
 
-Come to [Workshop coffee in Clerkenwell, London](http://lanyrd.com/2013/pusher-travis-ci-coffee-meetup/), on Monday the 24th of June from 3pm to chat about testing, dev ops, the Queen, and of course, a coffee on Travis and Pusher!
+Come to [Workshop coffee in Clerkenwell, London](http://lanyrd.com/2013/pusher-travis-ci-coffee-meetup/), on Monday the 24th of June from 3pm for a high 5, or maybe to chat about testing, dev ops, or the Queen, and of course, a coffee on Travis and Pusher!
 
 ![Travis and Pusher in Love](/images/travis-and-pusher-in-love.jpeg)
 
