@@ -13,7 +13,7 @@ With all that said, we do love London for one special reason alone, it is home t
 
 Because we love to show our Pusher friends so much, we thought it would be great to hold a coffee meetup TOGETHER!
 
-Come to Workshop coffee in Clerkenwell, London, on Monday the 24th of June from 3pm to chat about testing, dev ops, the Queen, and of course, a coffee on Travis and Pusher!
+Come to [Workshop coffee in Clerkenwell, London](http://lanyrd.com/2013/pusher-travis-ci-coffee-meetup/), on Monday the 24th of June from 3pm to chat about testing, dev ops, the Queen, and of course, a coffee on Travis and Pusher!
 
 ![Travis and Pusher in Love](/images/travis-and-pusher-in-love.jpeg)
 
