@@ -1,7 +1,7 @@
 ---
 title: Coffee Office Hours in London
 author: Josh Kalderimis
-twitter: roidrage
+twitter: j2h
 created_at: Thur 20 Jun 2013 19:00:00 CEST
 layout: post
 permalink: blog/2013-06-20-coffee-office-hours-in-london
