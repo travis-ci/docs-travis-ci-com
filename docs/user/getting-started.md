@@ -42,8 +42,6 @@ GitHub will ask you to grant read and write access. Travis CI needs write access
 
 Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if it is not already pre-filled.
 
-If your repository belongs to an organization or flipping the switch did not set up the hook, please [set it up manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/) on GitHub. It will take just a couple of minutes.
-
 ###  Step three: Add .travis.yml file to your repository
 
 In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick. Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
