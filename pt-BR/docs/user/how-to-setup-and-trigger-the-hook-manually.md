@@ -1,19 +1,19 @@
 ---
-title: How to setup and trigger the hook manually
-layout: en
+title: Como configurar e ativar o hook manualmente
+layout: pt-BR
 permalink: how-to-setup-and-trigger-the-hook-manually/
 ---
 
-Sometimes you need to setup the service hook manually. Normally this should not be necessary as you should be able to [started simply flip the relevant switch](/docs/user/getting-started/) on the profile page.
+As vezes será necessário configurar o hook manualmente. Normalmente isto não é necessário pois [ativar o botão correto](/pt-BR/docs/user/getting-started/) na página de perfil será suficiente.
 
-However especially when setting up an repository hosted inside a github organization the hook needs to be setup manually. Simply access the given repositories admin panel on github. Then access the "service hooks" section.
+Contudo as vezes o hook deve ser configurado manualmente, especialmente ao configurar um repositório hospedado dentro de uma organização do GitHub. Simplesmente acesse o painel de administração do repositório em questão no GitHub, e vá até a sessão chamada "service hooks".
 
-The URL will look something like ``https://github.com/[your organization]/[your repository]/admin/hooks``.
+A URL será algo como ``https://github.com/[sua organização]/[seu repositório]/admin/hooks``.
 
-As the list is very long you will need to scroll down and after clicking on "Travis" scroll back up. You will be presented with a form with 3 fields: Domain, User, Token.
+Como a lista é longa, será necessário descer até a opção "Travis", e após selecioná-la, voltar ao topo da página. Você verá um formulário com 3 campos: Domain, User e Token.
 
-You can leave the Domain empty. In the User field enter the github account you used to authenticate yourself on travis-ci.org. In the Token field paste the token as it is listed on the profile page on travis-ci.org.
+Você pode deixar o campo Domain vazio. No campo User, digite a conta do github que você utilizou para se autenticar no travis-ci.org. No campo Token cole o token da forma que ele é listado na página de perfil no travis-ci.org.
 
-When you click "Update Settings" the hook is setup and from now on pushes to this repository will trigger a build on travis-ci.org.
+Ao clicar em "Update Settings" o hook será configurado e partir deste instante qualquer push neste repositório disparará uma construção no travis-ci.org.
 
-Clicking on "Test Hook" will trigger a build on your "master" branch without having to push. Note this will also work if you setup your hook via the switches on your profile page.
+Um clique em "Test Hook" irá disparar uma construção no seu branch "master" sem a necessidade de um push. Note que isto também funcionará caso você tenha configurado o hook através do botão na sua página de perfil.

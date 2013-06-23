@@ -1,12 +1,12 @@
 ---
-title: Resources
-layout: en
+title: Recursos
+layout: pt-BR
 permalink: resources/
 ---
 
-### Blog posts
+### Mensagens no Blog
 
-Here are some blog posts about Travis:
+A seguir algumas mensagens no blog sobre o Travis (em inglês):
 
 * [An Intro to Travis](http://labnotes.org/2011/08/10/travis-ci/)
 * [Get Your Ruby Project on Travis and Have a Martini in 15 Minutes](http://ducktypo.blogspot.com/2011/08/get-your-ruby-project-on-travis-and.html)

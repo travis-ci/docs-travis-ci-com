@@ -1,26 +1,25 @@
 ---
-title: How to skip a build
-layout: en
+title: Como pular um build
+layout: pt-BR
 permalink: how-to-skip-a-build/
 ---
 
-### What This How-To Covers
+### O Que Este Guia Cobre
 
-This How-To explains how to make travis-ci.org skip a build, for example, when working on documentation or stylesheets. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+Este guia explica como fazer com que o travis-ci.org ignore (pule) uma construção, por exemplo, quando você está trabalhando na documentação ou com stylesheets. Nós recomendamos que você leia o [Guia de Início](/pt-BR/docs/user/getting-started/) e o [Guia de Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de prosseguir.
 
-## Not All Commits Need CI Builds
+## Nem Todos os Commits Precisam de Construções na IC
 
-Sometimes you just change a README, some docs or just stuff which has no effect on the app itself. So you would like to know how to prevent your push from being built.
+As vezes você apenas altera um arquivo README, alguma documentação ou outras coisas que não afetam a aplicação em si. Nestes casos, você gostaria de saber como evitar que o seu push inicie o processo de construção no Travis CI.
 
-It's easy - just add the following to the commit message:
+É fácil - apenas adicione a seguinte mensagem ao seu commit:
 
     [ci skip]
 
-Pushes that have `[ci skip]` anywhere in one of the commit messages will be ignored. `[ci skip]` does not have to appear on the first line,
-so it is possible to use it without polluting your project's history.
+Pushs que possuam `[ci skip]` em qualquer uma das mensagens de commit serão ignorados. O `[ci skip]` não precisa aparecer na primeira linha, de modo que é possível utilizar este recurso sem poluir o histórico do seu projeto.
 
-## Example
+## Exemplo
 
-Here is an example:
+Veja a seguir um exemplo:
 
 ![ci skip example](https://img.skitch.com/20111013-pu5e4gijiw4416m4y4uc29fxwa.jpg)
