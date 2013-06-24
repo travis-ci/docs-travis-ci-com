@@ -41,8 +41,6 @@ O GitHub vai pedir para você permitir acesso de leitura e escrita ao Travis. O 
 
 Uma vez que você fez seu login, vá até seu [perfil](http://travis-ci.org/profile). Você verá uma lista dos seus repositórios. Use o botão para ativar ou desativar a integração do repositório com o Travis CI. Depois disso, visite a página de hooks de serviço do GitHub referente àquele repositório e cole seu nome de usuário e o token do Travis nas configurações do serviço, caso isto já não esteja pré-preenchido.
 
-Se seu repositório pertence à uma organização, ou o botão não ativou o hook, por favor [configure-o manualmente](/pt-BR/docs/user/how-to-setup-and-trigger-the-hook-manually/) no GitHub, só leva alguns minutos.
-
 ###  Terceiro passo: Crie o arquivo .travis.yml no seu repositório
 
 Para o Travis poder construir seu projeto, você precisa falar um pouco mais sobre ele. Para fazer isso, crie um arquivo .travis.yml na raiz do seu repositório. Só iremos ver opções básicas do .travis.yml neste guia. A mais importante delas é a chave **language**. Ela diz ao Travis como ele deve construir o projeto de acordo com a linguagem dele, já que não se pode construir um projeto Ruby da mesma maneira que um projeto Clojure ou PHP.
