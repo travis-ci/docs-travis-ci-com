@@ -15,20 +15,18 @@ overwriting the `at_exit` handler of another RubyGem, in this case RSpec's.
 The workaround is to install this `at_exit` handler in your code, as pointed out
 in [this article](http://www.davekonopka.com/2013/rspec-exit-code.html).
 
-```
-if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
-  module Kernel
-    alias :__at_exit :at_exit
-    def at_exit(&block)
-      __at_exit do
-        exit_status = $!.status if $!.is_a?(SystemExit)
-        block.call
-        exit exit_status if exit_status
+    if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
+      module Kernel
+        alias :__at_exit :at_exit
+        def at_exit(&block)
+          __at_exit do
+            exit_status = $!.status if $!.is_a?(SystemExit)
+            block.call
+            exit exit_status if exit_status
+          end
+        end
       end
     end
-  end
-end
-```
 
 ## Ruby: Installing the `debugger_ruby-core-source` library fails
 
@@ -41,18 +39,12 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
-#### Gemfile
+    # Gemfile
+    group :debug do
+      gem 'debugger'
+      gem 'debugger-linecache'
+      gem 'rblineprof'
+    end
 
-```
-group :debug do
-  gem 'debugger'
-  gem 'debugger-linecache'
-  gem 'rblineprof'
-end
-```
-
-#### .travis.yml
-
-```
-bundler_args: --without development debug
-```
+    # .travis.yml
+    bundler_args: --without development debug
