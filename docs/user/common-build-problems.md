@@ -41,8 +41,9 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
+#### Gemfile
+
 ```
-# Gemfile
 group :debug do
   gem 'debugger'
   gem 'debugger-linecache'
@@ -50,7 +51,8 @@ group :debug do
 end
 ```
 
+#### .travis.yml
+
 ```
-# .travis.yml
 bundler_args: --without development debug
 ```
