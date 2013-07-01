@@ -70,7 +70,7 @@ We ask Ruby project maintainers to exclude ruby-debug from being installed on tr
 
     3 * 6 * 2 = 36 minutes of time per day per project
 
-And, of course, nobody will really use ruby-debug in CI environments. To exclude ruby-debug and other gems that are non-essential for your test suite, move them to a separate gem group (for example, :development) and [exclude it using *bundler_args* in your .travis.yml](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml#L2) like [amqp gem](https://github.com/ruby-amqp/amqp) does.
+And, of course, nobody will really use ruby-debug in CI environments. To exclude ruby-debug and other gems that are non-essential for your test suite, move them to a separate gem group (for example, :debug) and [exclude it using *bundler_args* in your .travis.yml](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml#L2) like [amqp gem](https://github.com/ruby-amqp/amqp) does.
 
 Time is better spent testing your project against more Ruby versions/implementations and more versions of libraries you depend on than compiling linecache over and over.
 
