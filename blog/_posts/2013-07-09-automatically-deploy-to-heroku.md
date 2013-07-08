@@ -2,9 +2,9 @@
 title: Automatically Deploy to Heroku
 author: Konstantin Haase
 twitter: konstantinhaase
-created_at: Mon 08 Jul 2013 20:00:00 CEST
+created_at: Mon 09 Jul 2013 12:00:00 CEST
 layout: post
-permalink: blog/2013-07-08-automatically-deploy-to-heroku
+permalink: blog/2013-07-09-automatically-deploy-to-heroku
 ---
 
 <figure class="small right">
