@@ -7,6 +7,11 @@ layout: post
 permalink: blog/2013-07-08-automatically-deploy-to-heroku
 ---
 
+<figure class="small right">
+  ![](/images/deploy.png)
+  <figcaption>Deploying from Travis CI</figcaption>
+</figure>
+
 Are you testing your [Heroku](https://www.heroku.com/) application on Travis CI? If so, we've got some amazing news for you: Deploying that application after a passing build has just become [incredibly easy](/docs/user/deployment/)!
 
 Here is what you need to add to your app's `.travis.yml`:
