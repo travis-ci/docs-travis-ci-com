@@ -51,7 +51,7 @@ In a Ruby matrix, only deploy from Ruby 1.9.3:
       provider: heroku
       api_key: ...
       on:
-        rvm: 2.0.0
+        rvm: 1.9.3
 
 Deploy staging app from staging branch:
 
