@@ -10,8 +10,8 @@ permalink: blog/2013-07-09-introducing-continuous-deployment-to-heroku
 <figure class="small right">
   ![](/images/heroku.png)
   <figcaption>
-    Heroku is not just a happy [Travis Pro](http://travis-ci.com/) customer,
-    but also one of our amazing sponsors
+  Heroku is not just a happy [Travis Pro](http://travis-ci.com/) customer,
+  but also one of our amazing sponsors
   </figcaption>
 </figure>
 
