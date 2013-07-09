@@ -1,18 +1,21 @@
 ---
-title: Automatically Deploy to Heroku
+title: Introducing Continuous Deployment to Heroku
 author: Konstantin Haase
 twitter: konstantinhaase
-created_at: Mon 09 Jul 2013 12:00:00 CEST
+created_at: Mon 09 Jul 2013 16:00:00 CEST
 layout: post
-permalink: blog/2013-07-09-automatically-deploy-to-heroku
+permalink: blog/2013-07-09-introducing-continuous-deployment-to-heroku
 ---
 
 <figure class="small right">
-  ![](/images/deploy.png)
-  <figcaption>Deploying from Travis CI</figcaption>
+  ![](/images/heroku.png)
+  <figcaption>
+    Heroku is not just a happy [Travis Pro](http://travis-ci.com/) customer,
+    but also one of our amazing sponsors
+  </figcaption>
 </figure>
 
-Are you testing your [Heroku](https://www.heroku.com/) application on Travis CI? If so, we've got some amazing news for you: Deploying that application after a passing build has just become [incredibly easy](/docs/user/deployment/)!
+Are you testing your [Heroku](https://www.heroku.com/) application on Travis CI? Then we've got some amazing news for you: Deploying that application after a passing build has just become [incredibly easy](/docs/user/deployment/)!
 
 Here is what you need to add to your app's `.travis.yml`:
 
@@ -28,6 +31,11 @@ If you have the [travis](https://github.com/travis-ci/travis#installation) tool 
     travis encrypt $(heroku auth:token) --add deploy.api_key
 
 See [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat/blob/2eac1840c0f1df90ccb0b6b6a96ecf0e570119e8/.travis.yml) for a real world example.
+
+<figure class="small right">
+  ![](/images/deploy.png)
+  <figcaption>Deploying from Travis CI</figcaption>
+</figure>
 
 ### Common Scenarios
 
@@ -76,7 +84,7 @@ For a description of all available options, check out [the documentation](/docs/
 
 In good Travis CI tradition, all the code is of course released under MIT license on GitHub. You are more than welcome to [take a look and contribute](https://github.com/rkh/dpl).
 
-More over, since we wanted to make it easy and testable, you can even run our internal tool locally (or lo and behold, use it on your Jenkis setup):
+More over, since we wanted to make it easy and testable, you can even run our internal tool locally (or lo and behold, use it on your Jenkins setup):
 
     $ gem install dpl
     $ dpl --provider=heroku --api-key=`heroku auth:token`
