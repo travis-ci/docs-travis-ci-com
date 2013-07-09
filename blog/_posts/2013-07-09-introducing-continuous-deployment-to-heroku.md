@@ -2,7 +2,7 @@
 title: Introducing Continuous Deployment to Heroku
 author: Konstantin Haase
 twitter: konstantinhaase
-created_at: Mon 09 Jul 2013 16:00:00 CEST
+created_at: Mon 09 Jul 2013 16:25:00 CEST
 layout: post
 permalink: blog/2013-07-09-introducing-continuous-deployment-to-heroku
 ---
