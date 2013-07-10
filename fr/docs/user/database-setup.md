@@ -41,12 +41,12 @@ Toutefois, si votre projet est une librairie ou un plugin, vous devrez vous-mêm
 
 ### MySQL
 
-MySQL pour Travis ne nécessite aucune autentification. Entrez un champ *username* vide et n'entrez aucun champ *password* :
+MySQL pour Travis nécessite une authentification. Entrez un champ *username* avec comme valeur *travis* et n'entrez aucun champ *password* :
 
     mysql:
       adapter: mysql2
       database: myapp_test
-      username: 
+      username: travis
       encoding: utf8
 
 Vous devrez tout d'abord créer la BDD `myapp_test`. Exécutez ceci dans votre script de build :
