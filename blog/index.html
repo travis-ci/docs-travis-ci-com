@@ -32,7 +32,11 @@ layout: blog
   {% endif %}
   {% if paginator.previous_page %}
     <div class="right">
-      <a href="/blog/page-{{ paginator.previous_page }}" class="previous">Newer</a>
+      {% if paginator.previous_page == 1 %}
+        <a href="/blog/" class="previous">Newer</a>
+      {% else %}
+        <a href="/blog/page-{{ paginator.previous_page }}" class="previous">Newer</a>
+      {% endif %}
     </div>
   {% endif %}
 </div>
