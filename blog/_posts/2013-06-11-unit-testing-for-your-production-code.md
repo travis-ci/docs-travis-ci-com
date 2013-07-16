@@ -154,5 +154,3 @@ your first steps to more transparency and visibility.
 While there's no one way to integrate them, there are certainly a lot of options
 to get you started. Combined with a healthy test suite, both allow you to build
 and ship your code with confidence.
-
-{% include newsletter.html %}
