@@ -175,7 +175,7 @@ figure.right {
   font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
   font-size: 14px;
-  height: 40px;
+  height: 42px;
 }
 
 #top #navigation {
@@ -187,7 +187,7 @@ figure.right {
   display: inline;
   margin-right: 20px;
   height: 40px;
-  padding-top: 12px;
+  padding-top: 13px;
 }
 
 #top #navigation li.left {
@@ -214,7 +214,7 @@ figure.right {
 #footer {
   font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
   width: 100%;
-  margin: 70px auto 0px auto;
+  margin: 20px auto 0px auto;
   text-align: center;
   height: 150px;
   padding: 0;
@@ -274,6 +274,8 @@ figure.right {
 
 .pagination {
   margin: 0px auto;
+  margin-top: 30px;
+  height: 20px;
 }
 
 .pagination .right {
@@ -290,7 +292,7 @@ figure.right {
 
 hr {
   border-color: #ccc;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
   border: none;
   height: 1px;
