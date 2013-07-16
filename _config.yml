@@ -3,4 +3,4 @@ markdown: rdiscount
 permalink: :title
 safe: true
 paginate_path: /blog/page-:num
-paginate: 7
+paginate: 3

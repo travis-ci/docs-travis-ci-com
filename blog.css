@@ -1,0 +1,136 @@
+body {
+  background-color: #f9f9f9;
+}
+
+#main {
+  width: 850px;
+  margin: 0px auto;
+}
+
+p.meta {
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+div.article-header {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 850px;
+}
+
+div.article-header h3 {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 300;
+  color: #40454f;
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: underline;
+  color: #40454f;
+}
+
+div.article-header a {
+  text-decoration: none;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+article {
+  font-family: Georgia;
+  font-size: 16px;
+  line-height: 24px;
+  width: 600px;
+  margin: 0px auto;
+  color: #40454f;
+}
+
+article h3 {
+  padding: 0px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+div#blog {
+  margin: 0px auto;
+}
+
+pre {
+  background-color: white;
+  border: 1px solid #bbb;
+  padding: 10px 20px; 
+  border-radius: 5px;
+}
+
+code {
+  font-size: 14px;
+}
+
+figure.right {
+  float: right;
+}
+
+#main figure {
+  clear: both !important;
+  width: 578px;
+  border: 1px solid #efefef;
+  text-align: center;
+  margin: 0px;
+  border-radius: 4px;
+  background: white;
+}
+
+#main figure figcaption {
+  background-color: #efefef;
+  text-align: left;
+  font-size: 80%;
+  padding: 5px 10px;
+}
+
+#main figure img {
+  max-width: 570px;
+  margin: 4px;
+}
+
+#main figure.left {
+  margin-bottom: 1.4286em;
+  margin-right: 1.4286em;
+  float: left;
+}
+
+#main figure.right {
+  margin-bottom: 1.4286em;
+  margin-left: 1.4286em;
+  float: right;
+}
+
+#main figure.smallest {
+  width: 138px;
+}
+
+#main figure.smallest img {
+  width: 130px;
+}
+
+#main figure.smaller {
+  width: 208px;
+}
+
+#main figure.smaller img {
+  width: 200px;
+}
+
+#main figure.small {
+  width: 258px;
+}
+
+#main figure.small img {
+  max-width: 250px;
+}
+
+
