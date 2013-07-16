@@ -11,13 +11,33 @@ body {
 
 p.meta {
   font-size: 12px;
-  margin-top: 0px;
+  width: 500px;
+  margin: 0px auto;
+  text-align: center;
+  font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #aaa;
+}
+
+p.meta img {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  vertical-align: baseline;
+  position: relative;
+  top: 15px;
+  margin-right: 10px;
+}
+
+div.article-header p.meta a {
+  color: #aaa;
+  text-decoration: underline;
 }
 
 div.article-header {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 850px;
+  height: 140px;
 }
 
 div.article-header h3 {

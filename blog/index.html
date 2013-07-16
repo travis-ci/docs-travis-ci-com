@@ -5,15 +5,23 @@ layout: blog
 {% for post in paginator.posts %}
   <div class="article-header">
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-<!--    <p class="meta">
+    <p class="meta">
+      {% if site.gravatars %}
+        {% for gravatar_pair in site.gravatars %}
+          {% for gravatar in gravatar_pair %}
+            {% if gravatar[0] == post.twitter %}
+              <img src="https://secure.gravatar.com/avatar/{{ gravatar[1] }}"/>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
       {% if post.twitter %}
-        <a href="http://twitter.com/{{ post.twitter }}">{{ post.author }}</a>,
+        <a href='http://twitter.com/{{ post.twitter }}'>{{ post.author }}</a>,
       {% else %}
         {{ post.author }},
       {% endif %}
-      <time datetime="{{ post.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ post.created_at | date: "%B %-d, %Y" }}</time>
+      <time datetime="{{ post.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ post.created_at | date: "%e %b %Y" }}</time>
     </p>
-    -->
   </div>
 
   <article>
