@@ -71,7 +71,7 @@ article {
   color: #40454f;
 }
 
-article h3 {
+article h3, article h2 {
   padding: 0px;
   font-weight: normal;
   font-size: 20px;
