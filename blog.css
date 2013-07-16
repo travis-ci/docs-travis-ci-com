@@ -13,7 +13,6 @@ p.meta {
 }
 
 div.article-header {
-  padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 850px;
@@ -52,8 +51,13 @@ article {
 
 article h3 {
   padding: 0px;
-  font-weight: 600;
-  font-size: 17px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+article > p > img {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 div#blog {
@@ -133,4 +137,7 @@ figure.right {
   max-width: 250px;
 }
 
-
+#disqus_thread {
+  width: 600px;
+  margin: 50px auto 0px auto;
+}

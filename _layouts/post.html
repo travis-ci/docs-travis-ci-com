@@ -1,19 +1,22 @@
 ---
-layout: en
+layout: blog
 ---
 
-<p class='meta'>
-  {% if page.twitter %}
-    <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
-  {% else %}
-    {{ page.author }},
-  {% endif %}
-  <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
-</p>
+<div class="article-header">
+  <h3>{{ page.title }}</h3>
+  <!--<p class='meta'>
+    {% if page.twitter %}
+      <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
+    {% else %}
+      {{ page.author }},
+    {% endif %}
+    <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
+  </p>-->
+</div>
 
-<span class="blog-post">
+<article>
   {{ content }}
-</span>
+</article>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
