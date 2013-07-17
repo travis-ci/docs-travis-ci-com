@@ -57,6 +57,10 @@ div.article-list article {
   margin-bottom: 80px;
 }
 
+div.article-list .article-header h3 {
+  margin-top: 10px;
+}
+
 div.article-header a {
   text-decoration: none;
   color: #40454f;
