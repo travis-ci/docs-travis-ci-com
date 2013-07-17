@@ -1,19 +1,30 @@
 ---
-layout: en
+layout: blog
 ---
+<div class="article-header">
+  <h3>{{ page.title }}</h3>
+  <p class='meta'>
+    {% if site.gravatars %}
+      {% for gravatar_pair in site.gravatars %}
+        {% for gravatar in gravatar_pair %}
+          {% if gravatar[0] == page.twitter %}
+            <img src="https://secure.gravatar.com/avatar/{{ gravatar[1] }}"/>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+    {% if page.twitter %}
+      <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
+    {% else %}
+      {{ page.author }},
+    {% endif %}
+    <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%e %b %Y" }}</time>
+  </p>
+</div>
 
-<p class='meta'>
-  {% if page.twitter %}
-    <a href='http://twitter.com/{{ page.twitter }}'>{{ page.author }}</a>,
-  {% else %}
-    {{ page.author }},
-  {% endif %}
-  <time datetime="{{ page.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ page.created_at | date: "%B %-d, %Y" }}</time>
-</p>
-
-<span class="blog-post">
+<article>
   {{ content }}
-</span>
+</article>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">

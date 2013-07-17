@@ -1,40 +1,47 @@
 ---
-title: The Travis CI Blog
-layout: en
+layout: blog
 ---
-<span id="blog">
 {% for post in paginator.posts %}
-  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <p class="meta">
-    {% if post.twitter %}
-      <a href="http://twitter.com/{{ post.twitter }}">{{ post.author }}</a>,
-    {% else %}
-      {{ post.author }},
-    {% endif %}
-    <time datetime="{{ post.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ post.created_at | date: "%B %-d, %Y" }}</time>
-  </p>
+  <div class="article-header">
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p class="meta">
+      {% if site.gravatars %}
+        {% for gravatar_pair in site.gravatars %}
+          {% for gravatar in gravatar_pair %}
+            {% if gravatar[0] == post.twitter %}
+              <img src="https://secure.gravatar.com/avatar/{{ gravatar[1] }}"/>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+      {% if post.twitter %}
+        <a href='http://twitter.com/{{ post.twitter }}'>{{ post.author }}</a>,
+      {% else %}
+        {{ post.author }},
+      {% endif %}
+      <time datetime="{{ post.created_at | date: "%Y-%m-%dT%H:%M:%S%z"  }}">{{ post.created_at | date: "%e %b %Y" }}</time>
+    </p>
+  </div>
 
+  <article>
+    {{ post.content }}
+  </article>
 
-{{ post.content | strip_html | truncatewords: 75 }}
-
-  <p>
-    <a href="{{ post.url }}">Read More</a>
-  </p>
-
-  <hr/>
 {% endfor %}
 
 <div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="/blog/page-{{ paginator.previous_page }}" class="previous">Previous</a>
-  {% else %}
-    <span class="previous">Previous</span>
-  {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a href="/blog/page-{{ paginator.next_page }}" class="next">Next</a>
-  {% else %}
-    <span class="next ">Next</span>
+    <div class="left">
+      <a href="/blog/page-{{ paginator.next_page }}" class="next">Older</a>
+    </div>
+  {% endif %}
+  {% if paginator.previous_page %}
+    <div class="right">
+      {% if paginator.previous_page == 1 %}
+        <a href="/blog/" class="previous">Newer</a>
+      {% else %}
+        <a href="/blog/page-{{ paginator.previous_page }}" class="previous">Newer</a>
+      {% endif %}
+    </div>
   {% endif %}
 </div>
-</span>

@@ -35,5 +35,3 @@ Travis CI supports the Rails Girls Summer of Code project, which helps to get
 more women involved with open source. They're currently [collecting
 donations](http://railsgirlssummerofcode.org/campaign) to make the project
 happen, you should consider supporting them too!
-
-{% include newsletter.html %}
