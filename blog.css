@@ -61,6 +61,10 @@ div.article-list .article-header h3 {
   margin-top: 10px;
 }
 
+div.article-list .article-header:first-child h3 {
+  margin-top: 40px;
+}
+
 div.article-header a {
   text-decoration: none;
   color: #40454f;
