@@ -240,24 +240,40 @@ figure.right {
 
 #footer #made-in-berlin {
   float: right;
+  height: 95px;
+  width: 110px;
 }
 
 #footer #travis-logo {
   float: left;
-  width: 100px;
-  margin-top: 15px;
-  height: 100px;
+  width: 80px;
+  margin-top: 10px;
+  height: 80px;
 }
 
 #footer ul {
-  list-style-type: none;
   font-size: 12px;
-  display: inline-block;
-  margin-top: 25px;
+  margin-top: 40px;
+  padding: 0px;
+}
+
+#footer ul.left {
+  list-style-type: none;
+  float: left;
 }
 
 #footer ul li {
   height: 18px;
+  display: inline;
+  margin-left: 20px;
+}
+
+#footer ul.left li {
+  margin-left: 0px;
+}
+
+#footer ul.right {
+  float: right;
 }
 
 #footer a {
@@ -266,9 +282,11 @@ figure.right {
 }
 
 #footer-inner {
-  margin-left: 100px;
-  width: 300px;
-  display: inline;
+  margin-left: 70px;
+  width: 550px;
+  height: 100px;
+  float: left;
+  vertical-align: top;
 }
 
 .pagination {
