@@ -87,6 +87,17 @@ It also accepts a list of commands:
         - "rake db:migrate"
         - "rake cleanup"
 
+#### Restarting
+
+Sometimes you want to restart your Heroku application between or after commands. You can easily do so by adding a "restart" command:
+
+    deploy:
+      provider: heroku
+      api_key: ...
+      run:
+        - "rake db:migrate"
+        - restart
+        - "rake cleanup"
 
 ### Conditional Deploys
 
