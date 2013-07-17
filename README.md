@@ -20,15 +20,13 @@ Then install dependencies:
 
 In order to run a local Web server that will serve documentation site, run:
 
-    ./bin/jekyll --server
+    ./bin/jekyll serve
 
-and then open [localhost:4000](http://localhost:4000/) in your browser. When you
-make changes to Markdown source files, HTML pages will be regenerated on every
-page reload.
+and then open [localhost:4000](http://localhost:4000/) in your browser. 
 
-To regenerate the entire site, use
+To regenerate automatically the HTML pages when you make changes to Markdown source files, use
 
-    ./bin/jekyll --no-auto
+    ./bin/jekyll serve --watch
 
 Note that quoted entities may be escaped or unescaped depending on the Ruby
 version (1.8 vs. 1.9) used. It is normal.
