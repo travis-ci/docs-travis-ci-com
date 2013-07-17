@@ -19,7 +19,7 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 ## Specifying a Go version to use
 
-Travis CI support Go 1.0, which is installed by default, but you can also use 1.1 and the latest Go version from tip.
+Travis CI supports Go 1.0, which is installed by default, but you can also use 1.1 and the latest Go version from tip.
 
     go:
       - 1.0
@@ -73,11 +73,6 @@ override the `script:` key in `.travis.yml` like this:
 To build by running Scons without arguments, use this:
 
     script: scons
-
-
-## Provided Go versions
-
-Travis CI currently only provides a single Go version, 1.0.
 
 
 ## Examples
