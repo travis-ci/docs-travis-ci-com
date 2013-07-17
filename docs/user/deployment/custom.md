@@ -19,7 +19,7 @@ The evn variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](http://l
 
 ### Git
 
-This should also work with services like Heroku.
+This should also work with services you can deploy to via git.
 
     after_success:
       - chmod 600 .travis/deploy_key.pem # this key should have push access
