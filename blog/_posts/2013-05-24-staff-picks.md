@@ -31,5 +31,3 @@ handy!
 
 The fine folks at Crowd Interactive wrote about how to setup Android projects
 with Maven on Travis CI.
-
-{% include newsletter.html %}

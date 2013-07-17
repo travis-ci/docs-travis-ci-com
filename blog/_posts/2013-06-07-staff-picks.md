@@ -21,5 +21,3 @@ Ward Bekker whipped up a great introduction on testing Erlang on Travis CI.
 ### [Using Scheme with Travis CI](http://blog.theincredibleholk.org/blog/2013/05/28/using-scheme-with-travis-ci/)
 
 Erik Holk gives us the low-down on testing Scheme (a Lisp dialect) on Travis CI.
-
-{% include newsletter.html %}
