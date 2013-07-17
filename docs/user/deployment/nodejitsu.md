@@ -10,6 +10,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     deploy:
       provider: nodejitsu
+      user: "YOUR USER NAME"
       api_key: "YOUR API KEY"
 
 You can create an API key by running `jitsu tokens create travis` or retrieve an existing one by running `jitsu tokens list`.
@@ -29,6 +30,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
 
     deploy:
       provider: nodejitsu
+      user: ...
       api_key: ...
       on: production
 
@@ -36,6 +38,7 @@ Alternatively, you can also configure it to deploy from all branches:
 
     deploy:
       provider: nodejitsu
+      user: ...
       api_key: ...
       on:
         all_branches: true
@@ -48,6 +51,7 @@ It is possible to make deployments conditional using the **on** option:
 
     deploy:
       provider: nodejitsu
+      user: ...
       api_key: ...
       on:
         branch: staging
