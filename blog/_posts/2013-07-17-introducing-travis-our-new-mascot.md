@@ -1,7 +1,7 @@
 ---
-title: Introducing Travis, Your Local Builder!
+title: Introducing Travis, Our New Mascot!
 created_at: Wed 17 Jul 2013 16:00:00 CEST
-permalink: blog/2013-07-17-introducing-travis-your-local-builder
+permalink: blog/2013-07-17-introducing-travis-our-new-mascot
 author: Josh Kalderimis
 twitter: j2h
 layout: post
