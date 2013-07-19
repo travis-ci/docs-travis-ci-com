@@ -145,7 +145,7 @@ The main differences:
 * The Git strategy allows using *user* and *password* instead of *api_key*
 * When using Git, Heroku might send you an email for every deploy, as it adds a temporary SSH key to your account
 
-As a rule of thumb, you should switch to the Git strategy if you run into issues with Anvil.
+As a rule of thumb, you should switch to the Git strategy if you run into issues with Anvil or if you're using the [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) plugin.
 
 ## Custom Deployments
 
