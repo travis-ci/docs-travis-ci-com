@@ -126,7 +126,9 @@ figure.right {
 #main figure figcaption {
   background-color: #efefef;
   text-align: left;
-  font-size: 80%;
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  line-height: 120%;
   padding: 5px 10px;
 }
 
