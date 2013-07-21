@@ -22,6 +22,10 @@ It is recommended to encrypt that key. Assuming you have the Heroku and Travis C
     ...
     $ travis encrypt THE-API-TOKEN --add deploy.api_key
 
+You can also have the `travis` tool set up everything for you:
+
+    $ travis setup nodejitsu
+
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.

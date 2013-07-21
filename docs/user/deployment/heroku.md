@@ -17,6 +17,10 @@ Assuming you have the Heroku and Travis CI command line clients installed, you c
 
     travis encrypt $(heroku auth:token) --add deploy.api_key
 
+You can also have the `travis` tool set up everything for you:
+
+    $ travis setup heroku
+
 ### Application to deploy
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Heroku app named *travis-chat*.

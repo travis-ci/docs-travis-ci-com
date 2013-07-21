@@ -28,7 +28,7 @@ You should also encrypt your token (at least if you use this on a public reposit
 
 If you have the [travis](https://github.com/travis-ci/travis#installation) tool installed, try the following:
 
-    travis encrypt $(heroku auth:token) --add deploy.api_key
+    travis setup heroku
 
 This feature is available immediately on both [travis-ci.org](http://travis-ci.org) and [travis-ci.com](http://travis-ci.com). See [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat/blob/2eac1840c0f1df90ccb0b6b6a96ecf0e570119e8/.travis.yml) for a real world example.
 
