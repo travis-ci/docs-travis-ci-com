@@ -12,14 +12,14 @@ This guide covers build environment and configuration topics specific to Go proj
 
 Travis VMs are 64 bit and currently provide
 
- * go 1.0
+ * any tagged version of Go (via gvm)
  * core GNU build toolchain (autotools, make), cmake, scons
 
 Go projects on travis-ci.org assume you use Make or straight Go build tool by default.
 
 ## Specifying a Go version to use
 
-Travis CI support Go 1.0, which is installed by default, but you can also use 1.1 and the latest Go version from tip.
+Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get the latest version.
 
     go:
       - 1.0
@@ -73,11 +73,6 @@ override the `script:` key in `.travis.yml` like this:
 To build by running Scons without arguments, use this:
 
     script: scons
-
-
-## Provided Go versions
-
-Travis CI currently only provides a single Go version, 1.0.
 
 
 ## Examples
