@@ -16,16 +16,16 @@ permalink: blog/2013-07-22-deploying-to-nodejitsu
 
 Recently we announced built-in support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku).
 
-Last week we sat together with our good friends from [Nodejitsu](https://www.nodejitsu.com/) and are pleased to announce that we now also offer [first class support](/docs/user/deployment/nodejitsu/) for continuous deployment to their platform!
+Last week we sat together with our good friends from [Nodejitsu](https://www.nodejitsu.com/) and are pleased to announce that we now also offer [first class support](/docs/user/deployment/nodejitsu/) for continuous deployment to their amazing platform!
 
-All you need to add to your `.travis.yml` is the following:
+All you need to do is add the following to your `.travis.yml`:
 
     deploy:
       provider: nodejitsu
       user: "YOUR USER NAME"
       api_key: "YOUR API KEY" # can of course be encrypted
 
-Too complicated? If you have [our command line tool](https://github.com/travis-ci/travis) installed, you just need to run the following command in your project directory:
+Too complicated? If you have [our command line tool](https://github.com/travis-ci/travis) installed, you just use the brand new setup command:
 
     $ travis setup nodejitsu
 
