@@ -14,7 +14,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
       api_key: "YOUR API KEY"
 
 You can create an API key by running `jitsu tokens create travis` or retrieve an existing one by running `jitsu tokens list`.
-It is recommended to encrypt that key. Assuming you have the Heroku and Travis CI command line clients installed, you can do it like this:
+It is recommended to encrypt that key. Assuming you have the Nodejitsu and Travis CI command line clients installed, you can do it like this:
 
     $ jitsu token create travis
     ...

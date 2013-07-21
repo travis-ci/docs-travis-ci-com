@@ -15,7 +15,7 @@ You can easily deploy to your own server the way you would deploy from your loca
     after_success:
         "wget -r ftp://server.com/ --user $FTP_USER --password $FTP_PASSWORD"
 
-The evn variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](http://localhost:4000/docs/user/encryption-keys/).
+The env variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](http://localhost:4000/docs/user/encryption-keys/).
 
 ### Git
 
