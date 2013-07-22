@@ -25,7 +25,7 @@ All you need to do is add the following to your `.travis.yml`:
       user: "YOUR USER NAME"
       api_key: "YOUR API KEY" # can of course be encrypted
 
-But we've made it even simpler that hat: If you have [our command line tool](https://github.com/travis-ci/travis) installed, you just use the brand new setup command:
+But we've made it even simpler than that: If you have [our command line tool](https://github.com/travis-ci/travis) installed, you just use the brand new setup command:
 
     $ travis setup nodejitsu
 
