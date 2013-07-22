@@ -32,7 +32,7 @@ But we've made it even simpler than that: If you have [our command line tool](ht
 <figure class="small right">
   ![](/images/dscape.png)
   <figcaption>
-  [Nuno Job](https://github.com/dscape) was a great help in implementing this feature
+  [Nuno Job](https://github.com/dscape) and [Maciej Małecki](https://github.com/mmalecki) were a great help in implementing this feature
   </figcaption>
 </figure>
 
