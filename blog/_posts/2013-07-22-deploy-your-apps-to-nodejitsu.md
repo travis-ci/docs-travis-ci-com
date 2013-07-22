@@ -16,7 +16,7 @@ permalink: blog/2013-07-22-deploy-your-apps-to-nodejitsu
 
 Recently we announced built-in support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku).
 
-Last week we sat together with our good friends from [Nodejitsu](https://www.nodejitsu.com/) and are pleased to announce that we now also offer [first class support](/docs/user/deployment/nodejitsu/) for continuous deployment to their amazing platform!
+Last week we sat together with our awesome customers and good friends from [Nodejitsu](https://www.nodejitsu.com/) and are pleased to announce that we now also offer [first class support](/docs/user/deployment/nodejitsu/) for continuous deployment to their amazing platform!
 
 All you need to do is add the following to your `.travis.yml`:
 
