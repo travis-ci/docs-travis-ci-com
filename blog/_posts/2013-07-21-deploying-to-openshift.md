@@ -6,7 +6,7 @@ layout: post
 permalink: blog/2013-07-21-deploying-to-openshift
 ---
 
-Remember a little while back when we introduced support for [deploying to Heroku?]((/blog/2013-07-09-introducing-continuous-deployment-to-heroku)
+Remember a little while back when we introduced support for [deploying to Heroku?](/blog/2013-07-09-introducing-continuous-deployment-to-heroku)
 
 Now, in addition to Nodejitsu and Heroku, we offer support for deploying to [Openshift!](http://openshift.com)
 
@@ -16,7 +16,7 @@ To set up continuous deployment to Openshift, add the following lines to your `.
       provider: openshift
       user: "YOUR-EMAIL-ADDRESS"
       password: "YOUR-PASSWORD" # encrypted, of course
-      app: "YOUR-APP-NAME" # options if it's the same as your repo name
+      app: "YOUR-APP-NAME" # optional if it's the same as your repo name
       domain: "YOUR-OPENSHIFT-DOMAIN"
 
 Or, if your have [our command line tool](https://github.com/travis-ci/travis) installed, use the new `setup` command:
@@ -27,7 +27,7 @@ That's it!
 
 This feature is immediately available to all our users including our Travis Pro customers.
 
-For more information, see [the documetation](/docs/user/deployment/openshift).
+For more information, see [the documentation](/docs/user/deployment/openshift).
 
 ### Your provider still missing?
 
