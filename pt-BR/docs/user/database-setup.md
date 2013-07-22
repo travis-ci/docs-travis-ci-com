@@ -14,12 +14,17 @@ Este guia cobre os armazenamentos de dados oferecidos no [Ambiente de Integraç�
 
 * MySQL
 * PostgreSQL
-* SQLite3
 * MongoDB
 * CouchDB
 * Redis
 * Riak
+* RabbitMQ
 * Memcached
+* Cassandra
+* Neo4J
+* ElasticSearch
+* Kestrel
+* SQLite3
 
 Todos os bancos de dados supracidatos usam, em sua maioria, as configurações padrão. Contudo, quando faz sentido, novos usuários são adicionados e configurações de segurança são relaxadas (porque para a integração contínua a facilidade de uso é importante). Um exemplo de tal adaptação é o PostgreSQL, que possui configurações de acesso padrão restritas.
 
@@ -27,11 +32,28 @@ Todos os bancos de dados supracidatos usam, em sua maioria, as configurações p
 
 Aqui mostra-se como configurar o seu projeto para utilizar banco de dados nos testes. Assume-se que você já leu a documentação sobre a [Configuração de Build](/pt-BR/docs/user/build-configuration/).
 
+### Habilitando os Serviços
+
+A maioria dos serviços não é iniciada no boot, a fim de disponibilizar mais RAM para as suites de testes do seu projeto.
+
+Caso o seu projeto precise, por exemplo, do MongoDB, você deve adicionar o seguinte ao seu `.travis.yml`:
+
+    services: mongodb
+
+Caso necessite de diversos serviços, utilize o seguinte:
+
+    services:
+      - riak     # iniciará o riak
+      - rabbitmq # iniciará o rabbitmq-server
+      - memcache # iniciará o memcached
+
+Isto permite que nós forneçamos apelidos para cada serviço e normalizemos as diferenças de nomenclaturas, como RabbitMQ por exemplo. Note que esta funcionalidade está 
+disponível apenas para serviços que nós oferecemos no nosso [Ambiente de Integração Contínua](http://about.travis-ci.org/pt-BR/docs/user/ci-environment/).
+Caso você faça o download do Apache Jackrabbit, por exemplo, e inicie-o manualmente na etapa `before_install`, você deverá continuar fazendo da mesma maneira.
+
 ### MySQL
 
-O MySQL no Travis CI é acessível via 127.0.0.1 e requer autenticação. É possível conectar-se utilizando o usuário "root" com uma senha em branco.
-
-Caso especifique um usuário em branco, lembre-se de que para alguns clientes isto significa "root", mas que para outros significa "usuário anônimo". Em dúvida, tente trocar para o usuário `root`.
+O MySQL no Travis CI é **iniciado no boot**, está acessível via 127.0.0.1 e requer autenticação. É possível conectar-se utilizando o usuário "root" com uma senha em branco.
 
 É preciso criar o banco de dados `myapp_test`. Execute o seguinte como parte do seu script de build:
 
@@ -52,7 +74,7 @@ Caso especifique um usuário em branco, lembre-se de que para alguns clientes is
 
 ### PostgreSQL
 
-O PostgreSQL é acessível via 127.0.0.1 e requer autenticação através do usuário "postgres" sem senha.
+O PostgreSQL é **iniciado no boot**, está acessível via 127.0.0.1 e requer autenticação através do usuário "postgres" sem senha.
 
 É preciso criar o banco de dados como parte do processo de build:
 
@@ -100,6 +122,13 @@ Caso o seu projeto seja uma biblioteca ou plugin, você precisará gerenciar a c
 
 ### MongoDB
 
+O MongoDB **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - mongodb
+
+ao seu `.travis.yml`.
+
 O MongoDB é acessível via 127.0.0.1, usa as configurações padrão e não necessita de autenticação ou criação de uma base de dados.
 
 Caso necessite criar usuários para o seu banco de dados, você pode fazê-lo usando o `before_script` no seu arquivo `.travis.yml`:
@@ -111,8 +140,16 @@ Caso necessite criar usuários para o seu banco de dados, você pode fazê-lo us
 #### Projetos baseados na JVM
 
 Para projetos JVM que usam o driver oficial do MongoDB para Java, você precisará utilizar `127.0.0.1` ao invés de `localhost` para conectar, de forma a contornar um [problema conhecido com o driver Java do MongoDB](https://jira.mongodb.org/browse/JAVA-249) que afeta o Linux.
+Note que este problema foi corrigido na versão 2.8.0 do cliente Java para MongoDB, de forma que ele apenas afeta projetos usando versões mais antigas.
 
 ### CouchDB
+
+O CouchDB **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - couchdb
+
+ao seu `.travis.yml`.
 
 O CouchDB é acessível via 127.0.0.1, usa as configurações padrão e não necessita de autenticação (ele é executado como admin).
 
@@ -122,36 +159,108 @@ Você deve criar o seu banco de dados como parte do processo de build:
     before_script:
       - curl -X PUT localhost:5984/myapp_test
 
+### RabbitMQ
+
+O RabbitMQ **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - rabbitmq
+
+ao seu `.travis.yml`.
+
+O RabbitMQ usa as configurações padrão, de forma que pode-se utilizar o vhost padrão (`/`), nome de usuário (`guest`) e senha (`guest`).
+Você pode configurar mais vhosts e papéis utilizando o `before_script`, caso necessário (por exemplo, para testar a autenticação).
+
 ### Riak
 
-O Riak utiliza as configurações padrão com uma exceção: é configurado para usar o [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
+O Riak **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - riak
+
+ao seu `.travis.yml`.
+
+O Riak utiliza as configurações padrão com uma exceção: é configurado para usar o [LevelDB storage backend](http://wiki.basho.com/LevelDB.html). A Riak Search está ativada.
+
+### Memcached
+
+O Memcached **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - memcached
+
+ao seu `.travis.yml`.
+
+O Memcached usa as configurações padrão e é acessível via localhost.
 
 ### Redis
 
+O Redis **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - redis-server
+
+ao seu `.travis.yml`.
+
 O Redis usa as configurações padrão e é acessível no localhost.
+
+### Cassandra
+
+O Cassandra **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - cassandra
+
+ao seu `.travis.yml`.
+
+O Cassandra é fornecido via [Datastax Community Edition](http://www.datastax.com/products/community) e usa as configurações padrão (acessível no 127.0.0.1).
 
 ### Neo4J
 
-O servidor Neo4J Community Edition esta disponível mas não é iniciado por padrão. Você pode iniciá-lo usando o `before_install`:
+O Neo4J Server (Community Edition) **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
 
-    before_install:
-      - which neo4j && sudo neo4j start
-      - sleep 3
+    services:
+      - neo4j
+
+ao seu `.travis.yml`.
 
 O servidor Neo4J usa as configurações padrão (localhost, porta 7474).
+
+### ElasticSearch
+
+O ElasticSearch **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - elasticsearch
+
+ao seu `.travis.yml`.
+
+O ElasticSearch é fornecido via pacote oficial do Debian e usa as configurações padrão (acessível no 127.0.0.1).
+
+### Kestrel
+
+O Kestrel **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o para você, adicione
+
+    services:
+      - kestrel
+
+ao seu `.travis.yml`.
 
 
 ### Múltiplos Bancos de Dados
 
-Caso os testes do seu projeto necessitem executar utilizando diversos bancos de dados, é possível configurar este comportamento no Travis CI de diversas maneiras.
+Caso os testes do seu projeto necessitem executar diversas vezes, utilizando diversos bancos de dados, é possível configurar este comportamento no Travis CI usando
+uma técnica com variáveis de ambiente. Esta técnica é apenas uma convenção e requer o `before_script` ou `before_install` para funcionar.
 
-#### Usando variáveis ENV
+
+
+#### Usando variáveis ENV e etapas before_script
 
 Neste caso você utiliza a variável "DB" para especificar o nome do banco de dados que quer utilizar. Localmente, você faria o seguinte:
 
     $ DB=postgres [comandos para executar os seus testes]
 
-Para testar utilizando 3 bancos de dados no Travis CI, você pode utilizar a opção "env":
+No Travis CI você quer criar uma matriz com três construções (builds), cada uma tendo a variável de ambiente `DB` exportada com um valor diferente. Para isto, você deve utilizar a opção "env":
 
     # .travis.yml
     env:
@@ -159,11 +268,25 @@ Para testar utilizando 3 bancos de dados no Travis CI, você pode utilizar a op�
       - DB=mysql
       - DB=postgres
 
+Com isso, você pode utilizr estes valores na etapa `before_install` (ou `before_script`) para configurar cada banco de dados. Por exemplo:
+
+    before_script:
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests_tmp;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
+      - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
+
 Ao fazer isto, por favor leia e entenda tudo sobre a matriz de build descrita no guia de [Configuração de Build](/pt-BR/docs/user/build-configuration/).
 
-#### Ruby
+Nota: ** O Travis CI não oferece nenhum suporte especial à estas variáveis**, ele simplesmente cria três construções com valores exportados diferentes.
+A sua suite de testes ou as etapas `before_install`/`before_script` que devem fazer uso destes valores.
 
-Uma abordagem que você pode serguir é colocar todas as configurações de bancos de dados em um arquivo YAML, como o ActiveRecord faz:
+Para um exemplo real, veja [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
+
+#### Uma Abordagem Específica para Ruby
+
+Uma abordagem que você pode seguir é colocar todas as configurações de bancos de dados em um arquivo YAML, como o ActiveRecord faz:
 
     # test/database.yml
     sqlite:
