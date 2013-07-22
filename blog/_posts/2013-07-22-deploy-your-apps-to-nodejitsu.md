@@ -60,6 +60,6 @@ If you have a project hosted on Nodejitsu and would love get started on Travis C
 
 ### Provider still missing?
 
-You run your application in the cloud and would love to have Travis CI automatically deploy to it, but we don't support your provider at the moment? Please [let us know](support@travis-ci.com)!
+You run your application in the cloud and would love to have Travis CI automatically deploy to it, but we don't support your provider at the moment? Please [let us know](mail:support@travis-ci.com)!
 
 Already using continuous deployment? [Tell us](mail:support@travis-ci.com) about your experience.
