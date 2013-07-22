@@ -2,7 +2,7 @@
 title: Deploying to Nodejitsu
 author: Konstantin Haase
 twitter: konstantinhaase
-created_at: Mon 22 Jul 2013 16:25:00 CEST
+created_at: Mon 22 Jul 2013 18:00:00 CEST
 layout: post
 permalink: blog/2013-07-22-deploying-to-nodejitsu
 ---
@@ -29,6 +29,13 @@ But we've made it even simpler than that: If you have [our command line tool](ht
 
     $ travis setup nodejitsu
 
+<figure class="small right">
+  ![](/images/dscape.png)
+  <figcaption>
+  [Nuno Job](https://github.com/dscape) was a great help in implementing this feature
+  </figcaption>
+</figure>
+
 Done!
 
 This feature is immediately available to all our users including our [Travis Pro](http://travis-ci.com) customers.
@@ -47,7 +54,11 @@ You can make deploys conditional. For instance, if you only want to deploy from 
 
 For more infos, head over to [the documentation](/docs/user/deployment/nodejitsu/).
 
-### Your provider still missing?
+### Your Nodejitsu project on Travis CI
+
+If you have a project hosted on Nodejitsu and would love get started on Travis CI for your private projects, email [support@travis-ci.com](mail:support@travis-ci.com) before the 29th of July for a 20% off for three months coupon.
+
+### Provider still missing?
 
 You run your application in the cloud and would love to have Travis CI automatically deploy to it, but we don't support your provider at the moment? Please [let us know](support@travis-ci.com)!
 
