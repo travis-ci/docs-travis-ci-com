@@ -90,8 +90,8 @@ article h3, article h2 {
 }
 
 article > p > img {
-  padding-left: 25px;
-  padding-right: 25px;
+  margin: 0px auto;
+  max-width: 100%;
 }
 
 div#blog {
