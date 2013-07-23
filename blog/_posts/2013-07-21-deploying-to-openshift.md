@@ -25,7 +25,7 @@ Or, if your have [our command line tool](https://github.com/travis-ci/travis) in
 
 That's it!
 
-This feature is immediately available to all our users including our Travis Pro customers.
+This feature is immediately available to all our users including our [Travis Pro](http://travis-ci.com) customers.
 
 For more information, see [the documentation](/docs/user/deployment/openshift).
 
