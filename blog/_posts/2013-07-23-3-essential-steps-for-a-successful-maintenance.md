@@ -1,10 +1,10 @@
 ---
 title: 3 Essential Preparation Steps for a Successful Maintenance
-created_at: Tue 22 Jul 2013 16:00:00 CEST
+created_at: Tue 23 Jul 2013 16:00:00 CEST
 author: Mathias Meyer
 layout: post
 twitter: roidrage
-permalink: blog/2013-07-22-3-essential-preparation-steps-for-a-successful-maintenance
+permalink: blog/2013-07-23-3-essential-preparation-steps-for-a-successful-maintenance
 ---
 We all love shipping code to production fast and with zero downtime.
 
