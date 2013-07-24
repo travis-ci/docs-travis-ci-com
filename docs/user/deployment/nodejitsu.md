@@ -26,6 +26,8 @@ You can also have the `travis` tool set up everything for you:
 
     $ travis setup nodejitsu
 
+Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.

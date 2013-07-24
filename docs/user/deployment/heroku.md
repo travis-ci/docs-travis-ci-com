@@ -21,6 +21,8 @@ You can also have the `travis` tool set up everything for you:
 
     $ travis setup heroku
 
+Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+
 ### Application to deploy
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Heroku app named *travis-chat*.

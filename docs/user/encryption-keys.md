@@ -35,3 +35,11 @@ You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
 `/repos/:id/key` endpoints, for example:
 
     https://api.travis-ci.org/repos/travis-ci/travis-ci/key
+
+You can also use the `travis` tool for retrieving said key:
+
+    travis pubkey
+
+Or, if you're not in your project directory:
+
+    travis pubkey -r owner/project
