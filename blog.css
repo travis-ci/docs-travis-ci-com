@@ -187,28 +187,31 @@ figure.right {
   margin: 0px;
   font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 13px;
   height: 42px;
 }
 
 #top #navigation {
-  width: 700px;
+  padding: 0px;
+  width: 850px;
+  height: 40px;
   margin: 0px auto 0px auto;
 }
 
 #top #navigation li {
   display: inline;
-  margin-right: 20px;
   height: 40px;
   padding-top: 13px;
 }
 
 #top #navigation li.left {
   float: left;
+  margin-right: 30px;
 }
 
 #top #navigation li.right {
   float: right;
+  margin-left: 30px;
 }
 
 #top #navigation li.image {
@@ -292,7 +295,7 @@ figure.right {
 
 #footer a {
   color: rgb(64, 69, 79);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 #footer-inner {
