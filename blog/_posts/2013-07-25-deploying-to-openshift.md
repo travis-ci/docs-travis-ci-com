@@ -8,6 +8,8 @@ permalink: blog/2013-07-25-deploying-to-openshift
 
 Remember a little while back when we introduced support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku) and [Nodejitsu](/blog/2013-07-22-deploy-your-apps-to-nodejitsu)?
 
+We thought "why stop there"!
+
 Now, in addition to Nodejitsu and Heroku, we offer support for deploying to [Openshift](http://openshift.com)!
 
 To set up continuous deployment to Openshift, add the following lines to your `.travis.yml`:
