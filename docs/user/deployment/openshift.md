@@ -22,6 +22,8 @@ You can also have the `travis` tool set up everything for you:
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
+To provide the best service possible, Travis CI has teamed up with OpenShift as a [partner](https://www.openshift.com/partners) and there is an official [Travis CI QuickStart](https://www.openshift.com/quickstarts/travis-ci-on-openshift) to get you going.
+
 ### Application to deploy
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to an OpenShift app named *travis-chat*.

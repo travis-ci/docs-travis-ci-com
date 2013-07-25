@@ -25,6 +25,8 @@ Or, if your have [our command line tool](https://github.com/travis-ci/travis) in
 
 That's it!
 
+To provide the best service possible, Travis CI has teamed up with OpenShift as a [partner](https://www.openshift.com/partners) and there is an official [Travis CI QuickStart](https://www.openshift.com/quickstarts/travis-ci-on-openshift) to get you going.
+
 This feature is immediately available to all our users including our [Travis Pro](http://travis-ci.com) customers.
 
 For more information, see [the documentation](/docs/user/deployment/openshift).
