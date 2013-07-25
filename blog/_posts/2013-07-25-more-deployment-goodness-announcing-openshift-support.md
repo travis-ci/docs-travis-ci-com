@@ -10,7 +10,7 @@ Remember a little while back when we introduced support for [deploying to Heroku
 
 We thought "why stop there"!
 
-Now, in addition to Nodejitsu and Heroku, we offer support for deploying to [Openshift](http://openshift.com)!
+We are excited to announce that you can now deploy to [OpenShift](http://openshift.com) from your Travis builds!
 
 To set up continuous deployment to Openshift, add the following lines to your `.travis.yml`:
 
