@@ -1,5 +1,5 @@
 ---
-title: More Deployment Goodness: Announcing OpenShift Support!
+title: "More Deployment Goodness: Announcing OpenShift Support!"
 author: Aaron Hill
 created_at: Thu 25 Jul 2013 20:15 CET
 layout: post
