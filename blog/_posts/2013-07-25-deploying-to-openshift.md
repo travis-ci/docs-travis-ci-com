@@ -1,9 +1,9 @@
 ---
 title: Deploying to Openshift
 author: Aaron Hill
-created_at: Sun 21 Jul 2013 6:24 MDT
+created_at: Thu 25 Jul 2013 20:15 CET
 layout: post
-permalink: blog/2013-07-21-deploying-to-openshift
+permalink: blog/2013-07-25-deploying-to-openshift
 ---
 
 Remember a little while back when we introduced support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku)?
