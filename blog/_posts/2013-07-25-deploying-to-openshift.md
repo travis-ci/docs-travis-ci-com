@@ -6,7 +6,7 @@ layout: post
 permalink: blog/2013-07-25-deploying-to-openshift
 ---
 
-Remember a little while back when we introduced support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku)?
+Remember a little while back when we introduced support for [deploying to Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku) and [Nodejitsu](/blog/2013-07-22-deploy-your-apps-to-nodejitsu)?
 
 Now, in addition to Nodejitsu and Heroku, we offer support for deploying to [Openshift](http://openshift.com)!
 
