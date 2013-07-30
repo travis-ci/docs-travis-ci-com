@@ -105,6 +105,17 @@ Sometimes you want to restart your Heroku application between or after commands.
         - restart
         - "rake cleanup"
 
+### Deploying build artifacts
+
+After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
+
+Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
+
+    deploy:
+      provider: heroku
+      api_key: ...
+      skip_cleanup: true
+
 ### Conditional Deploys
 
 It is possible to make deployments conditional using the **on** option:
@@ -138,6 +149,16 @@ Available conditions are:
 * **python** - Python version to deploy from if passing
 * **ruby** - Ruby version to deploy from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
+
+### Buildpack
+
+When deploying via the Anvil strategy (as described [below](#Deploy-Strategy)), you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
+
+    deploy:
+      provider: heroku
+      buildpack: ruby
+
+You can either use a shorthand for the [default buildpacks](https://devcenter.heroku.com/articles/buildpacks#default-buildpacks), like `ruby` or `nodejs` or give it the full URL for a [custom buildpack](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack).
 
 ### Deploy Strategy
 

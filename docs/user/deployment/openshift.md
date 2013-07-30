@@ -77,6 +77,17 @@ Alternatively, you can also configure it to deploy from all branches:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
+### Deploying build artifacts
+
+After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
+
+Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
+
+    deploy:
+      provider: openshift
+      ...
+      skip_cleanup: true
+
 ### Conditional Deploys
 
 It is possible to make deployments conditional using the **on** option:
