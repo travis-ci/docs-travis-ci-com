@@ -105,6 +105,17 @@ Sometimes you want to restart your Heroku application between or after commands.
         - restart
         - "rake cleanup"
 
+### Deploying build artifacts
+
+After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
+
+Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
+
+    deploy:
+      provider: heroku
+      api_key: ...
+      skip_cleanup: true
+
 ### Conditional Deploys
 
 It is possible to make deployments conditional using the **on** option:
