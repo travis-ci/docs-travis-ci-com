@@ -132,7 +132,11 @@ MongoDB is **not started on boot**. To make Travis CI start the service for you,
 
 to your `.travis.yml`.
 
-MongoDB binds to 127.0.0.1, uses stock configuration and requires no authentication or database creation up front.
+MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front.
+
+However, authentication will be enabled upon adding an admin user as mongod is started with the `--auth` parameter.
+
+Note: Admin users are users created on the admin database.
 
 In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file::
 
