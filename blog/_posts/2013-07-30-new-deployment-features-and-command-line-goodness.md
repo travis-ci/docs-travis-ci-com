@@ -15,14 +15,6 @@ Of course, everything described here is available right now to both [travis-ci.o
 
 We've recently launched built-in continuous deployment support for [Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku/) and [Nodejitsu](/blog/2013-07-22-deploy-your-apps-to-nodejitsu/) and have heard back from the first happy users. We've looked at your feedback and are happy to tell you about our two new deployment features.
 
-##### Only deploy tagged commits
-
-Travis CI can now restrict deploys to commits that have also been tagged:
-
-    deploy:
-      on:
-        tags_only: true
-
 ##### Restarting Heroku applications
 
 Sometimes you need to restart your Heroku application after running some command.
