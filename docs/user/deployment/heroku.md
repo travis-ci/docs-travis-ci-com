@@ -151,6 +151,16 @@ Available conditions are:
 * **repo** - only trigger a build for the given repository, to play nice with forks
 * **tags_only** - if set to true, only deploy if current commit has also been tagged
 
+### Buildpack
+
+When deploying via the Anvil strategy (as described [below](#Deploy-Strategy)), you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
+
+    deploy:
+      provider: heroku
+      buildpack: ruby
+
+You can either use a shorthand for the [default buildpacks](https://devcenter.heroku.com/articles/buildpacks#default-buildpacks), like `ruby` or `nodejs` or give it the full URL for a [custom buildpack](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack).
+
 ### Deploy Strategy
 
 Travis CI knows two different ways for deploying to Heroku: Via [Git](https://devcenter.heroku.com/articles/git#deploying-code) or via [Anvil](https://github.com/ddollar/anvil).
