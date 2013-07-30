@@ -15,6 +15,14 @@ Of course, everything described here is available right now to both [travis-ci.o
 
 We've recently launched built-in continuous deployment support for [Heroku](/blog/2013-07-09-introducing-continuous-deployment-to-heroku/) and [Nodejitsu](/blog/2013-07-22-deploy-your-apps-to-nodejitsu/) and have heard back from the first happy users. We've looked at your feedback and are happy to tell you about our two new deployment features.
 
+##### Only deploy tagged commits
+
+Travis CI can now restrict deploys to commits that have also been tagged:
+
+    deploy:
+      on:
+        tags_only: true
+
 ##### Restarting Heroku applications
 
 Sometimes you need to restart your Heroku application after running some command.
@@ -39,13 +47,45 @@ Maybe that is not what you want, as you might generate some artifacts (think ass
     deploy:
       skip_cleanup: true
 
+##### Setting Heroku buildpack
+
+When deploying to Heroku via the [Anvil](/docs/user/deployment/heroku/#Deploy-Strategy) strategy, you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
+
+    deploy:
+      provider: heroku
+      buildpack: ruby
+
+You can either use a shorthand for the [default buildpacks](https://devcenter.heroku.com/articles/buildpacks#default-buildpacks), like `ruby` or `nodejs` or give it the full URL for a [custom buildpack](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack).
+
 ### Command Line Tool
 
 Our [command line client](https://github.com/travis-ci/travis#the-travis-client) also got a few new features that should make your life easier. Get the latest version by running
 
     $ gem install travis
 
-If that command doesn't work, make sure you have [Ruby installed].
+If that command doesn't work, make sure you have [Ruby installed](https://github.com/travis-ci/travis#updating-your-ruby).
+
+##### Initializing a project for Travis CI
+
+If you want to set up a project on Travis CI, you can now run `travis init`, which will create a `.travis.yml` with some sane defaults and enable the project, so the next push to GitHub will trigger a new build.
+
+    $ travis init
+    Main programming language used: java
+    .travis.yml file created!
+    example/project: enabled :)
+
+The `.travis.yml` generated from the above example looks like this:
+
+    language: java
+    jdk:
+    - oraclejdk7
+    - openjdk6
+
+You can also pass in a lot of options to influence the generated configuration:
+
+    $ travis init ruby --rvm 1.8.7 --rvm 1.9.3 --script "rake test"
+    .travis.yml file created!
+    example/project: enabled :)
 
 ##### Setup wizard for continuous deployment and addons
 
@@ -102,3 +142,7 @@ Like all `travis` commands, this is pipe friendly:
 ##### Lots of small fixes
 
 There were a lot of small improvements, especially dealing with edge cases and encodings. The documentation and error messages have also seen some love.
+
+### Thank you
+
+Special thanks for helping with these features go out to [Aaron Hill](Aaron1011), [Johannes Würbach](https://github.com/johanneswuerbach) and [Peter Souter](https://github.com/petems). You rock!
