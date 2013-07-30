@@ -73,23 +73,23 @@ Language-specific workers have multiple runtimes for their respective language (
 * MySQL 5.5.x
 * PostgreSQL 9.1.x
 * SQLite 3.7.x
-* MongoDB 2.2.x
-* Redis 2.4.x
+* MongoDB 2.4.x
+* Redis 2.6.x
 * Riak 1.2.x
-* Apache Cassandra 1.1.x
+* Apache Cassandra 1.2.x
 * Neo4J Community Edition 1.7.x
 * ElasticSearch 0.90.x
-* CouchDB 1.2.x
+* CouchDB 1.3.x
 
 ### Messaging Technology
 
-* [RabbitMQ](http://rabbitmq.com) 2.8.x
+* [RabbitMQ](http://rabbitmq.com) 3.x
 * [ZeroMQ](http://www.zeromq.org/) 2.1.x
 
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://www.phantomjs.org/) 1.8
+* [PhantomJS](http://www.phantomjs.org/) 1.9.1
 
 ### Environment variables
 
@@ -205,7 +205,6 @@ be used instead of the preprovisioned version.
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
 * 0.9.x (previous development, will be deprecated soon)
-
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 

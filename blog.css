@@ -90,8 +90,8 @@ article h3, article h2 {
 }
 
 article > p > img {
-  padding-left: 25px;
-  padding-right: 25px;
+  margin: 0px auto;
+  max-width: 100%;
 }
 
 div#blog {
@@ -126,7 +126,9 @@ figure.right {
 #main figure figcaption {
   background-color: #efefef;
   text-align: left;
-  font-size: 80%;
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-size: 70%;
+  line-height: 120%;
   padding: 5px 10px;
 }
 
@@ -185,28 +187,31 @@ figure.right {
   margin: 0px;
   font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 13px;
   height: 42px;
 }
 
 #top #navigation {
-  width: 700px;
+  padding: 0px;
+  width: 850px;
+  height: 40px;
   margin: 0px auto 0px auto;
 }
 
 #top #navigation li {
   display: inline;
-  margin-right: 20px;
   height: 40px;
   padding-top: 13px;
 }
 
 #top #navigation li.left {
   float: left;
+  margin-right: 30px;
 }
 
 #top #navigation li.right {
   float: right;
+  margin-left: 30px;
 }
 
 #top #navigation li.image {
@@ -290,7 +295,7 @@ figure.right {
 
 #footer a {
   color: rgb(64, 69, 79);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 #footer-inner {

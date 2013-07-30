@@ -20,14 +20,13 @@ Então instale as dependências:
 
 Para executar um servidor web local que irá rodar o site de documentação, use:
 
-    ./bin/jekyll --server
+    ./bin/jekyll serve
 
-e abra o endereço [localhost:4000](http://localhost:4000/) no seu navegador. Quando você
-faz alterações nos arquivos Markdown, páginas HTML serão geradas automaticamente a cada requisição.
+e abra o endereço [localhost:4000](http://localhost:4000/) no seu navegador.
 
-Para gerar todo o site, use:
+Para regenerar os arquivos HTML automaticamente quando você alterar os arquivos Markdown, use:
 
-    ./bin/jekyll --no-auto
+    ./bin/jekyll serve --watch
 
 Observe que quoted entities podem ser escapadas ou não dependendo da versão do Ruby (1.8 vs. 1.9). Isso é normal.
 
