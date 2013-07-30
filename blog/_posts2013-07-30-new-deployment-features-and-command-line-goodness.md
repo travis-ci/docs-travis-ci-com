@@ -1,10 +1,10 @@
 ---
-title: Bits and Pieces
+title: New Deployment Features and Command Line Goodness
 author: Konstantin Haase
 twitter: konstantinhaase
-created_at: Wed 24 Jul 2013 19:30:00 CEST
+created_at: Tue 30 Jul 2013 18:00:00 CEST
 layout: post
-permalink: blog/2013-07-24-bits-and-pieces
+permalink: blog/2013-07-30-new-deployment-features-and-command-line-goodness
 ---
 
 Travis CI is moving fast, quickly approaching the 70,000 project mark. To make sure you get the best CI experience, we want to keep you up to date with what's going on. So here is a few things that landed recently.
