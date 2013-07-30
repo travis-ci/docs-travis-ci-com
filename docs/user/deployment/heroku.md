@@ -138,6 +138,7 @@ Available conditions are:
 * **python** - Python version to deploy from if passing
 * **ruby** - Ruby version to deploy from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
+* **tags_only** - if set to true, only deploy if current commit has also been tagged
 
 ### Deploy Strategy
 

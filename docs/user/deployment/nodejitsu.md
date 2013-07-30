@@ -72,3 +72,4 @@ Available conditions are:
 * **condition** - custom condition or list of custom conditions
 * **node** - NodeJS version to deploy from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
+* **tags_only** - if set to true, only deploy if current commit has also been tagged
