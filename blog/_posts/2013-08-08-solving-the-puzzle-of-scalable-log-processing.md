@@ -130,6 +130,8 @@ It's allowed us to keep the 95th percentile of the time to process a single log 
 
 The number of alerts that were due to log processing backing up has decreased significantly over the last couple of months. Queue age has oftentimes been our biggest headache, and when log chunks queue up, they queue up fast. With 100 messages per second, it just takes a few minutes for 10,000 messages to pile up.
 
+Our next barrier is very likely to be the database. We have plans to move log processing to its own database, as most of what it's doing is very short-lived and very focused on a single task.
+
 Don't tell anyone, but rumor has it that Josh has been working on a Go implementation that's ridiculously fast.
 
-Our next barrier is very likely to be the database. We have plans to move log processing to its own database, as most of what it's doing is very short-lived and very focused on a single task.
+Here's to more scaling adventures!
