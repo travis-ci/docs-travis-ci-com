@@ -251,3 +251,8 @@ Don't tell anyone, but rumor has it that Josh has been working on a Go
 implementation that's ridiculously fast.
 
 Here's to more scaling adventures!
+
+PS: I'll be a [GOTO in Aarhus](http://gotocon.com/aarhus-2013/presentation/The%20Smallest%20Distributed%20System)
+and [Erlang Factory in Berlin](https://www.erlang-factory.com/conference/Berlin2013/speakers/MathiasMeyer),
+talking about the challenges we've had and still have turning Travis CI into a
+reliable distributed system. You should come!
