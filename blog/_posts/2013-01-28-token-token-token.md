@@ -46,6 +46,6 @@ You can append a travis token via `?token=...` to a normal request. If your repo
 
 * GitHub token: You don't.
 * Travis token: Go to the *Profile* tab on your [Accounts](https://travis-ci.org/profile) page
-* API token: `gem install travis && travis login && travis token` or manually via the [API](https://api.travis-ci.org).
+* Access token: `gem install travis && travis login && travis token` or manually via the [API](https://api.travis-ci.org).
 
 Enjoy!
