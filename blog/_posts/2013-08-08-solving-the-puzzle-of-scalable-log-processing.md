@@ -38,7 +38,10 @@ The earliest implementation of this feature updated a single column in the
 database which contained the entire log as a string. A sample message
 representing a log chunk looks pretty simple.
 
-    { "job_id": 1243, "chunk": "$ bundle install" }
+    {
+      "job_id": 1243,
+      "chunk": "$ bundle install"
+    }
 
 This way of handling logs worked for quite a while, but it had an obvious flaw:
 it relied heavily on the ordering of messages received. When chunks for a single
@@ -137,7 +140,11 @@ message sent to RabbitMQ.
 
 The log chunk now looks like this:
 
-    { "job_id": 1243, "position", 102, "chunk": "$ bundle install" }
+    {
+      "job_id": 1243,
+      "position": 102,
+      "chunk": "$ bundle install"
+    }
 
 A small change with a big effect.
 
