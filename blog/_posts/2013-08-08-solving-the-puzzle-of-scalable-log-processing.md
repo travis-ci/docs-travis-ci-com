@@ -31,7 +31,7 @@ height="329" alt="traffic jam -B"></a> </figure>
 
 At the very core, log processing takes chunks of your build's output, sends them
 to a processor which updates a database record and forwards the chunk to
-[Pusher](https://pusher.com) to enable live updates when you're looking at a
+[Pusher](http://pusher.com) to enable live updates when you're looking at a
 build.
 
 The earliest implementation of this feature updated a single column in the
