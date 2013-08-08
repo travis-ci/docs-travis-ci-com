@@ -41,7 +41,7 @@ All VM images have the following pre-installed
  
 ### Compilers & Build toolchain
 
-GCC 4.6.x, Clang 3.1.x, make, autotools, cmake, scons.
+GCC 4.6.x, Clang 3.2.x, make, autotools, cmake, scons.
 
 
 ### Networking tools
