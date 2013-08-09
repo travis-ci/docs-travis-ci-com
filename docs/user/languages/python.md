@@ -46,6 +46,8 @@ For the full up-to-date list of provided Python versions, see our [CI environmen
 
 [CI Environment](/docs/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
+If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
+
 ### PyPy Support
 
 We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa). For pure Python projects,
