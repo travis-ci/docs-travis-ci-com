@@ -14,6 +14,7 @@ Travis CIはオープンソースコミュニティの為の、ホスティン�
 * [Haskell](/docs/user/languages/haskell) (英語)
 * [Java](/docs/user/languages/java) (英語)
 * [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs) (英語)
+* [Objective-C](/docs/user/languages/objective-c) (英語)
 * [Perl](/docs/user/languages/perl) (英語)
 * [PHP](/docs/user/languages/php) (英語)
 * [Python](/docs/user/languages/python) (英語)
