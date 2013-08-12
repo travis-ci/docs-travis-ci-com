@@ -1,7 +1,7 @@
 ---
 title: Travis Artifacts
 layout: post
-created_at: Tue 18 Dec 16:00:00 CET
+created_at: Tue 18 Dec 2012 16:00:00 CET
 author: Piotr Sarnacki
 twitter: drogus
 permalink: blog/2012-12-18-travis-artifacts
