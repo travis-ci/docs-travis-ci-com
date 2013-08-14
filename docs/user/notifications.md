@@ -22,6 +22,8 @@ And it will by default send emails when, on the given branch:
 
 You can change this behaviour using the following options:
 
+> Note: Items in brackets are just placeholders. Brackets should be omitted.
+
 ## Email notifications
 
 You can specify recipients that will be notified about build results like so:
