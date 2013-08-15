@@ -22,3 +22,6 @@ you still use travis-ci.org host, thus you rely on redirect, please
 update your apps to use api.travis-ci.org
 till the next Friday (23<sup>rd</sup> of August).
 
+This change will not affect status images endpoint (`/:owner/:repo.png`)
+nor `cc.xml` endpoint  (`/:owner/:repo/cc.xml`), they will continue
+to work as currently.
