@@ -2,10 +2,13 @@
 title: Deploy Your cloudControl Apps with Travis CI
 author: Mathias Meyer
 twitter: roidrage
-created_at: Thu 15 Aug 2013 12:00:00 CEST
-permalink: blog/2013-15-08-deploy-your-cloudcontrol-apps-with-travis-ci
+created_at: Thu 15 Aug 2013 15:00:00 CEST
+permalink: blog/2013-08-15-deploy-your-cloudcontrol-apps-with-travis-ci
 layout: post
 ---
+<figure class="small right">
+  <a href="https://www.cloudcontrol.com"><img src="/images/cloudcontrol.png"/></a>
+</figure>
 Today we're happy to announce continuous deployment support for
 [cloudControl](https://www.cloudcontrol.com), a cloud application platform
 provider from Berlin, Germany.
