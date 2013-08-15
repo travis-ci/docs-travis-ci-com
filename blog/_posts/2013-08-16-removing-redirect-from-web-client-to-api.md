@@ -1,10 +1,10 @@
 ---
 title: Redirection from web client to API will be removed soon
-author: Mathias Meyer
-twitter: roidrage
+author: Piotr Sarnacki
+twitter: drogus
 layout: post
-created_at: Thu 08 Aug 2013 16:00:00 CEST
-permalink: blog/2013-08-08-solving-the-puzzle-of-scalable-log-processing
+created_at: Fri 16 Aug 2013 16:00:00 CEST
+permalink: blog/2013-08-16-removing-redirect-from-web-client-to-api
 ---
 
 Historically Travis' web interface and Travis API where living on
