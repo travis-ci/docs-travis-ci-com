@@ -11,6 +11,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Heroku](/docs/user/deployment/heroku)
 * [Nodejitsu](/docs/user/deployment/nodejitsu)
 * [OpenShift](/docs/user/deployment/openshift)
+* [cloudControl](/docs/user/deployment/cloudcontrol)
 * [Custom deployment via after_success hook](/docs/user/deployment/custom)
 
 ### Other Providers
