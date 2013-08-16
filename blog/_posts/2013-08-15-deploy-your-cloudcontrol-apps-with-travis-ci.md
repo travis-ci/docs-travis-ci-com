@@ -40,4 +40,7 @@ CI](http://myfoo.cloudcontrolled.com).
 To get started using cloudControl, check out their [quickstart
 guide](https://www.cloudcontrol.com/dev-center/Quickstart).
 
+Make sure to read [their announcement blog
+post](https://www.cloudcontrol.com/blog/support-for-travis-ci)!
+
 Happy shipping!
