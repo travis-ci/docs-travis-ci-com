@@ -10,8 +10,9 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     deploy:
       provider: cloudcontrol
-      user: "YOUR USER NAME"
       email: "YOUR CLOUDCONTROL EMAIL"
+      password: "YOUR CLOUDCONTROL PASSWORD"
+      deployment: "APP_NAME/DEP_NAME"
 
 You can sign up for an account on [their website](https://www.cloudcontrol.com) or using the [cctrl
 tool](create-a-user-account-if-you-haven39t-already).
@@ -19,7 +20,7 @@ tool](create-a-user-account-if-you-haven39t-already).
 To store the password in your .travis.yml securely, use our travis command line
 tool.
 
-$ travis encrypt <email@address> --add deploy.api_key
+$ travis encrypt <password> --add deploy.password
 
 You can also have the `travis` tool set up everything for you:
 
@@ -35,16 +36,18 @@ You can explicitly specify the branch to deploy from with the **on** option:
 
     deploy:
       provider: cloudcontrol
-      user: ...
-      api_key: ...
+      email: ...
+      password: ...
+      deployment: ...
       on: production
 
 Alternatively, you can also configure it to deploy from all branches:
 
     deploy:
       provider: cloudcontrol
-      user: ...
-      api_key: ...
+      email: ...
+      password: ...
+      deployment: ...
       on:
         all_branches: true
 
@@ -58,8 +61,9 @@ Maybe that is not what you want, as you might generate some artifacts (think ass
 
     deploy:
       provider: cloudcontrol
-      user: ...
-      api_key: ...
+      email: ...
+      password: ...
+      deployment: ...
       skip_cleanup: true
 
 ### Conditional Deploys
@@ -68,8 +72,9 @@ It is possible to make deployments conditional using the **on** option:
 
     deploy:
       provider: cloudcontrol
-      user: ...
-      api_key: ...
+      email: ...
+      password: ...
+      deployment: ...
       on:
         branch: staging
         python: 2.7
