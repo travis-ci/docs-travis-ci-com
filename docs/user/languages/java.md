@@ -88,13 +88,6 @@ Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7. Sun JDK 6 is not provi
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
-
-## Network-local Maven Mirror
-
-Travis CI has a network-local Maven mirror at [maven.mirrors.travis-ci.org](http://maven.mirrors.travis-ci.org/) and `~/.m2/settings.xml` is configured to use
-it.
-
-
 ## Examples
 
 * [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
