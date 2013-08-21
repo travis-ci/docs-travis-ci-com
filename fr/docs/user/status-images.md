@@ -22,7 +22,7 @@ Or RDoc:
 
     {<img src="http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[http://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
 
-Travis CI's own status button looks like this: [![Build Status](https://secure.travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)	
+Travis CI's own status button looks like this: [![Build Status](https://travis-ci.org/travis-ci/travis-ci.png)](http://travis-ci.org/travis-ci/travis-ci)	
  
 
 ### Specifying branches
@@ -39,6 +39,6 @@ Specify a `?branch=` parameter in the URI. Split branches with a comma if you wa
 
 The SSL url is:
 
-    https://secure.travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+    https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
 
 
