@@ -36,6 +36,6 @@ And you're all set!
 
 This feature is immediately available to all our users including our Travis Pro customers.
 
-### Is you provider still missing?
+### Is your provider still missing?
 
 If you'd like to see your provider supported on Travis CI, [contact us](mailto:support@travis-ci.org) or [fork us on Github](https://github.com/rkh/dpl).
