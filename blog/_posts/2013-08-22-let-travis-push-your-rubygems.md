@@ -34,7 +34,7 @@ An alternative approach is to let Travis CI push pre-releases and still do manua
 
 And you're all set!
 
-This feature is immediately available to all our users including our Travis Pro customers.
+This feature is immediately available to all our users including our [Travis Pro](http://travis-ci.com) customers.
 
 ### Is your provider still missing?
 
