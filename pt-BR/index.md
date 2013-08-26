@@ -14,6 +14,7 @@ O Travis CI é um serviço de integração contínua para a comunidade open sour
 * [Haskell](/pt-BR/docs/user/languages/haskell)
 * [Java](/pt-BR/docs/user/languages/java)
 * [JavaScript (com Node.js)](/pt-BR/docs/user/languages/javascript-with-nodejs)
+* [Objective-C](/pt-BR/docs/user/languages/objective-c)
 * [Perl](/pt-BR/docs/user/languages/perl)
 * [PHP](/pt-BR/docs/user/languages/php)
 * [Python](/pt-BR/docs/user/languages/python)

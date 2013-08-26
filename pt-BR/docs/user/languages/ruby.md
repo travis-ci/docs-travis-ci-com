@@ -82,8 +82,7 @@ Você pode especificar um Gemfile com nome customizado:
 
 Caso não seja especificado, o processo trabalhador irá procurar por um arquivo chamado "Gemfile" na raiz do projeto.
 
-Também é possível definir <a href="http://gembundler.com/man/bundle-install.1.html">argumentos extras</a>
-You can also set <a href="http://gembundler.com/man/bundle-install.1.html">extra arguments</a> a serem passados ao `bundle install`:
+Também é possível definir <a href="http://gembundler.com/man/bundle-install.1.html">argumentos extras</a> a serem passados ao `bundle install`:
 
     bundler_args: --binstubs
 

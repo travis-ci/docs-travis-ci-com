@@ -46,6 +46,8 @@ Para uma lista completa e atualizada das versões de Python disponíveis, veja o
 
 O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) utiliza instâncias virtualenv separadas para cada versão do Python. O Python do sistema não é utilizado e não deve-se depender dele. Caso precise instalar pacotes Python, o faça via pip e não via apt.
 
+Caso você decida usar o apt mesmo assim, observe que os pacotes de sistema do Python são apenas as bibliotecas do Python 2.7 no Ubuntu 12.04 LTS. Isto significa que pacotes instalados de outros repositórios não estão disponíveis em outros virtualenvs mesmo se você utilizar a opção --system-site-packages.
+
 ### Suporte PyPy
 
 Nós oferecemos as versões estáveis mais recentes do PyPy via [PPA do Time PyPy](https://launchpad.net/~pypy/+archive/ppa). Para projetos puramente Python, ele funciona bem. Contudo, devido a problemas conhecidos com os cabeçalhos dos pacotes de desenvolvimento, bibliotecas nativas não instalarão no PyPy. Nós notificamos os mantedores de pacotes do PyPy bem como os desenvolvedores do core team sobre este problema e estamos aguardando que seja resolvido.

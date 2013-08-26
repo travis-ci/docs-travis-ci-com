@@ -25,13 +25,12 @@ Um exemplo mais extensivo:
       - "5.14"
       - "5.12"
       - "5.10"
+      - "5.8"
 
 Com o tempo, novas versões são liberadas e nós atualizamos tanto o Perlbrew quanto o Perl. Apelidos como `5.14` são alterados para apontar para versões exatas, níveis de patch, etc.
 Para uma lista completa e atualizada das versões de Perl disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
 
-### Versões Anteriores à 5.10 não são Fornecidas
-
-Versões do Perl anteriores à 5.10 não são e não serão fornecidas. Por favor não as inclua no seu `.travis.yml`.
+*Versões do Perl anteriores à 5.8 não são e não serão fornecidas. Por favor não as inclua no seu `.travis.yml`.*
 
 
 ## Versão Padrão do Perl

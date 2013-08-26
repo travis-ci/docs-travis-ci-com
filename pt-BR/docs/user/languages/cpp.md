@@ -11,10 +11,10 @@ Este guia cobre tópicos específicos ao ambiente de build e configuração de p
 
 ## Ambiente de Integração Contínua para Projetos C++
 
-As máquinas virtuais do Travis são de 32 bits e oferecem
+As máquinas virtuais do Travis são de 64 bits e oferecem
 
  * gcc 4.6
- * clang 3.1
+ * clang 3.2
  * core GNU build toolchain (autotools, make), cmake, scons
 
 Projetos C++ no travis.ci.org assumem que você utiliza Autotools e Make.

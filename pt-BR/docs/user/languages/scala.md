@@ -83,4 +83,3 @@ O JDK 7 possui compatibilidade com as versões anteriores, e nós achamos que é
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
 * [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/master/.travis.yml)
-

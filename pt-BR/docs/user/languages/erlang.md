@@ -11,7 +11,7 @@ Este guia cobre tópicos específicos ao ambiente de build e configuração de p
 
 ## Escolhendo as Releases OTP para Executar os Testes
 
-As máquinas virtuais do Travis fornecem versões de 32 bits do [Erlang OTP](http://www.erlang.org/download.html), de releases R14B04, R14B03 e R14B02 construídas utilizando [kerl](https://github.com/spawngrid/kerl/tree/). Para especificar as releases OTP que você quer utilizar para testar ao seu projeto, use a chave `otp_release`:
+As máquinas virtuais do Travis fornecem versões de 64 bits do [Erlang OTP](http://www.erlang.org/download.html), de releases R14B04, R14B03 e R14B02 construídas utilizando [kerl](https://github.com/spawngrid/kerl/tree/). Para especificar as releases OTP que você quer utilizar para testar ao seu projeto, use a chave `otp_release`:
 
     language: erlang
     otp_release:
@@ -48,3 +48,7 @@ para instalar [as dependências do projeto como listadas no arquivo rebar.config
 * [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
 * [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
 * [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
+
+## Tutoriais
+* [(Inglês) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
+* [(Holandês) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)

@@ -10,15 +10,23 @@ Este guia cobre tópicos específicos ao ambiente de build e configuração de p
 
 ## Ambiente de Integração Contínua para Projetos Go
 
-As máquinas virtuais do Travis são de 32 bits e oferecem
+As máquinas virtuais do Travis são de 64 bits e oferecem
 
- * go 1.0
+ * qualquer versão do Go (via gvm)
  * core GNU build toolchain (autotools, make), cmake, scons
 
 Projetos Go no travis-ci.org assumem o uso do Make ou da ferramenta de build do Go.
 
+## Especificando a versão de Go a utilizar
 
-Como um serviço gratuito para a comunidade, o Travis CI limita a duração do build em cerca de 20 minutos.
+O Travis CI usa o gvm, então você pode utilizar qualquer versão disponível do Go, ou utilizar `tip` para obter a versão mais recente.
+
+    language: go
+    
+    go:
+      - 1.0
+      - 1.1
+      - tip
 
 ## Gerenciamento de Dependências
 
@@ -65,11 +73,6 @@ Projetos que achem esses passos suficientes podem utilizar um arquivo .travis.ym
 Para construir utilizando o Scons sem parâmetros, utilize:
 
     script: scons
-
-
-## Versões do Go Fornecidas
-
-O Travis CI atualmente apenas oferece uma versão do Go, 1.0.
 
 
 ## Exemplos

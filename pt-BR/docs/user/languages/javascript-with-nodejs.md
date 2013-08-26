@@ -73,3 +73,36 @@ Por padrão o Travis CI executará
     npm install
 
 para instalar as dependências. Note que a instalação de dependências no ambiente do Travis CI sempre acontece do começo (não existem pacotes NPM instalados no início do seu build).
+
+## Meteor Apps
+
+Você pode construir o seu **Meteor Apps** no Travis e testar utilizando [`laika`](http://arunoda.github.io/laika/). 
+Simplesmente adicione o seguinte ao arquivo `.travis.yml` na raiz do seu projeto.
+
+    language: node_js
+    node_js:
+      - "0.10"
+    before_install:
+      - "curl -L http://git.io/3l-rRA | /bin/sh"
+    services:
+      - mongodb
+    env: 
+      - LAIKA_OPTIONS="-t 5000"
+      
+Código fonte relacionado pode ser encontrado [aqui](https://github.com/arunoda/travis-ci-laika)
+
+## Meteor Packages
+
+Também é possível construir o seu **Meteor Packages** no Travis extendendo a configuração do NodeJS.
+
+Por exemplo, você pode utilizar o seguinte ao seu arquivo `.travis.yml`.
+
+    language: node_js
+    node_js:
+      - "0.10"
+    before_install:
+      - "curl -L http://git.io/ejPSng | /bin/sh"
+
+O script `before_install` garantirá que as dependências necessárias estão instaladas.
+
+O código fonte relacionado pode ser encontrado no repositório [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).

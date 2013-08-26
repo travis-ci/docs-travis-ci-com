@@ -14,14 +14,14 @@ As máquinas virtuais do travis-ci.org fornecem diversas versões do PHP incluin
 
     language: php
     php:
+      - 5.5
       - 5.4
-      - 5.3
 
 Isto fará com que o Travis execute seus testes com
 
     phpunit
 
-por padrão, utilizando as últimas versões 5.3.x e 5.4.x. 5.3 e 5.4 são apelidos para "a mais recente versão x.y.z" de uma determinada linha. Note que "a mais recente" significa "as mais recentes fornecidas pelos mantedores do Travis", não necessariamente as últimas versões oficiais disponíveis no php.net. Para uma listagem completa das versões suportadas, veja [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+por padrão, utilizando as últimas versões 5.4.x e 5.5.x. 5.4 e 5.5 são apelidos para "a mais recente versão x.y.z" de uma determinada linha. Note que "a mais recente" significa "as mais recentes fornecidas pelos mantedores do Travis", não necessariamente as últimas versões oficiais disponíveis no php.net. Para uma listagem completa das versões suportadas, veja [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
 
 Note ainda que especificar versões exatas como 5.3.8 não é recomendado, visto que seu arquivo .travis.yml pode ficar desatualizado e quebrar o build quando nós atualizarmos as versões do PHP no Travis.
 
@@ -160,6 +160,7 @@ Existem algumas extensões comuns do PHP pré-instaladas com PECL no Travis:
 * [mongo.so](http://php.net/mongo)
 * [amqp.so](http://php.net/amqp)
 * [zmq.so](http://php.zero.mq/)
+* [xdebug.so](http://xdebug.org)
 
 Note que estas extensões não estão ativas por padrão, de modo que é necessário ativá-las adicionando uma linha  `extension="<extension>.so"` a um arquivo de configuração do PHP (para a versão corrente). A maneira mais fácil de fazer isto é utilizando o phpenv para adicionar um arquivo de configuração customizado que ative e configure a extensão:
 

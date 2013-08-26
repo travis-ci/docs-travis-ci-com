@@ -14,7 +14,7 @@ As máquinas virtuais OSX do Travis executam atualmente 10.8 e possuem o Homebre
 
 ## Gerenciamento de Dependências
 
-Se você possuir um `Podfile` no seu repositório, o Travis CU executará automaticamente o `pod install` durante a fase install.
+Se você possuir um `Podfile` no seu repositório, o Travis CI executará automaticamente o `pod install` durante a fase install.
 
 Caso use outro sistema de gerenciamento de dependências, sobrescreva a chave `install:` no seu `.travis.yml`:
 
