@@ -28,10 +28,6 @@ Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), da
 
 travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since then.
 
-As a free community service, Travis CI limits build duration to about 20 minutes. Because some larger codebases may take a very long time to build,
-please take care to only use a reasonable amount of worker's time.
-
-
 ### Step one: Sign in
 
 To get started with Travis CI, sign in through GitHub OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
