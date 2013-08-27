@@ -138,7 +138,7 @@ However, authentication will be enabled upon adding an admin user as mongod is s
 
 Note: Admin users are users created on the admin database.
 
-In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file::
+In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file:
 
     # .travis.yml
     before_script:
