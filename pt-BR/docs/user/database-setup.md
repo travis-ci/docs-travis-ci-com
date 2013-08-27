@@ -6,9 +6,9 @@ permalink: database-setup/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre os armazenamentos de dados oferecidos no [Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) e descreve quais usuários e configurações os projetos hospedados no travis-ci.org podem utilizar. A maioria do conteúdo é aplicável a qualquer tecnologia, apesar de existirem alguns aspectos sutis no comportamento de alguns drivers de bancos de dados que este guia tentará cobrir. Recomendamos que você leia com os guias [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
+Este guia cobre os armazenamentos de dados e outros serviços (ex.: RabbitMQ) oferecidos no [Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) e descreve quais usuários e configurações os projetos hospedados no travis-ci.org podem utilizar. A maioria do conteúdo é aplicável a qualquer tecnologia, apesar de existirem alguns aspectos sutis no comportamento de alguns drivers de bancos de dados que este guia tentará cobrir. Recomendamos que você leia com os guias [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
 
-## Armazenamenos de Dados no Ambiente Travis CI
+## Serviços no Ambiente Travis CI
 
 [O Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) possui diversos bancos de dados populares pré-instalados. Alguns dos serviços disponíveis são:
 
@@ -26,9 +26,9 @@ Este guia cobre os armazenamentos de dados oferecidos no [Ambiente de Integraç�
 * Kestrel
 * SQLite3
 
-Todos os bancos de dados supracidatos usam, em sua maioria, as configurações padrão. Contudo, quando faz sentido, novos usuários são adicionados e configurações de segurança são relaxadas (porque para a integração contínua a facilidade de uso é importante). Um exemplo de tal adaptação é o PostgreSQL, que possui configurações de acesso padrão restritas.
+Todos os serviços supracitados usam, em sua maioria, as configurações padrão. Contudo, quando faz sentido, novos usuários são adicionados e configurações de segurança são relaxadas (porque para a integração contínua a facilidade de uso é importante). Um exemplo de tal adaptação é o PostgreSQL, que possui configurações de acesso padrão restritas.
 
-## Configure seus Projetos para utilizar Bancos de Dados nos Testes
+## Configure seus Projetos para utilizar Serviços nos Testes
 
 Aqui mostra-se como configurar o seu projeto para utilizar banco de dados nos testes. Assume-se que você já leu a documentação sobre a [Configuração de Build](/pt-BR/docs/user/build-configuration/).
 
@@ -130,6 +130,10 @@ O MongoDB **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o 
 ao seu `.travis.yml`.
 
 O MongoDB é acessível via 127.0.0.1, usa as configurações padrão e não necessita de autenticação ou criação de uma base de dados.
+
+A autenticação será ativada ao se adicionar um usuário admin, dado que o mongod é iniciado com o parâmatro `--auth`.
+
+Nota: Usuários admin são criados na base de dados admin.
 
 Caso necessite criar usuários para o seu banco de dados, você pode fazê-lo usando o `before_script` no seu arquivo `.travis.yml`:
 

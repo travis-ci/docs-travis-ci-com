@@ -18,8 +18,16 @@ Antes de poder utilizar o `xvfb`, ele deve ser iniciado. Tipicamente o melhor lu
       - "export DISPLAY=:99.0"
       - "sh -e /etc/init.d/xvfb start"
 
-Isto inicia o xvfb na porta de exibição (display port) :99.0. A porta de exibição é definida diretamente no script /etc/init.d. Ao executar os testes, você deve informar ao processo da sua ferramenta de testes (ex: Selenium) sobre esta porta de exibição, de forma que ele saiba onde iniciar o Firefox. Este passo varia conforme a ferramenta de testes e a linguagem de programação.
+Isto inicia o xvfb na porta de exibição (display port) :99.0. A porta de exibição é definida diretamente no script `/etc/init.d`. Ao executar os testes, você deve informar ao processo da sua ferramenta de testes (ex: Selenium) sobre esta porta de exibição, de forma que ele saiba onde iniciar o Firefox. Este passo varia conforme a ferramenta de testes e a linguagem de programação.
 
+### Configurando o Tamanho da Tela no xvfb e Mais
+
+É possível definir o tamanho da tela e a produndidade de cor no xvfb. Como o xvfb é uma tela virtual, é possível emular qualquer resolução. Ao fazê-lo, é necessário iniciar o xvfb diretamente via utilitário `start-stop-daemon`, ao invés do script de init:
+
+    before_install:
+    - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+    
+Neste exemplo, a resolução da tela foi definida como `1280x1024x16`.
 
 ## Iniciando um Servidor Web
 
@@ -42,7 +50,13 @@ Caso necessite que o servidor web esteja escutando na porta 80, lembre-se de uti
 
 O [Phantom.js](http://www.phantomjs.org/) é um WebKit sem interface gráfica (headless) com uma API JavaScript. É uma solução ideal para testes rápidos, captura de informações em sites, captura de páginas, renderização de SVG, monitoração de redes e muitos outros casos de uso.
 
-O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) fornece o Phantom.js em `/usr/local/bin/phantomjs`. O xvfb deve estar executando antes de iniciar o Phantom.js (veja a seção anterior).
+O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) fornece o Phantom.js (disponível no PATH como `phantomjs`). Como ele não utiliza interface gráfica, o `xvfb` não precisa estar executando.
+
+Um exemplo bem simples:
+
+    script: phantomjs testrunner.js
+    
+Caso necessite de um servidor web para servir aos testes, veja a seção anterior.
 
 ## Exemplos
 
@@ -65,4 +79,4 @@ Este é um exemplo de uma rake task que executa testes Rspec, Jasmine e Cucumber
       end
     end
 
-Neste exemplo, tanto o Jasmine quanto o Cucumber necessitam de uma porta de exibição, pois ambos utilizam navegadores reais. Rspec pode executar sem isto, mas não existe problema em definí-lo.
+Neste exemplo, tanto o Jasmine quanto o Cucumber necessitam de uma porta de exibição, pois ambos utilizam navegadores reais. Rspec pode executar sem isto, mas não existe problema em defini-lo.

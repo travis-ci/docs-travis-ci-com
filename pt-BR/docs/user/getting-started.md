@@ -28,9 +28,6 @@ Nosso ambiente de integração contínua proporciona múltiplos ambientes de exe
 
 O travis-ci.org originalmente começou como um serviço para a comunidade Ruby no início de 2011, mas desde então adicionou suporte à muitas outras tecnologias.
 
-Como um serviço gratuito para a comunidade, o Travis CI limita a duração do build em cerca de 20 minutos. Como alguns projetos maiores podem demorar muito para serem construídos, por favor procure usar apenas um tempo razoável dos processos trabalhadores.
-
-
 ### Primeiro passo: Login
 
 Para começar com o Travis CI, faça seu login com o GitHub OAuth. Vá até o [Travis CI](http://travis-ci.org) e clique no link de login no topo.
