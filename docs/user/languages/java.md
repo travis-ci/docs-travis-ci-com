@@ -42,7 +42,11 @@ if your project has `build.gradle` file in the repository root, Travis Java buil
 
     gradle check
 
-to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Java builder will try to use it instead. The default command will become:
+
+    ./gradlew check
+
+This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -50,7 +54,11 @@ Before running tests, Java builder will execute
 
     gradle assemble
 
-to install your project's dependencies with Gradle.
+
+to install your project's dependencies with Gradle. Again, if you include the wrapper script, the command will be defaulted to
+
+    ./gradlew assemble
+
 
 ## Projects Using Ant
 
