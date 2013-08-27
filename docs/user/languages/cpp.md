@@ -18,9 +18,6 @@ Travis VMs are 64 bit and currently provide
 
 C++ projects on travis-ci.org assume you use Autotools and Make by default.
 
-As a free community service, Travis CI limits build duration to about 20 minutes. Because some large C++ codebases may take very long time to build,
-please take care to not take too much of workers time. If you project takes longer than 10-15, please contact us on the mailing list
-before you add your project to Travis.
 
 ## Dependency Management
 
