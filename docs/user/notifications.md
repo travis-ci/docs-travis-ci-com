@@ -150,6 +150,10 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 * *api token*: is the token of the user you want to use to post the notifications.
 * *room id*: this is the room id, not the name.
 
+> Note: We highly recommend you [encrypt](/docs/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
+
+    travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
+
 You can also customise the notifications, like with IRC notifications:
 
     notifications:
@@ -172,6 +176,10 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 * *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
 
+> Note: We highly recommend you [encrypt](/docs/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
+
+    travis encrypt api_token --add notifications.flowdock
+
 ## HipChat notification
 
 Notifications can be sent to your HipChat chat rooms using the following format:
@@ -182,6 +190,10 @@ Notifications can be sent to your HipChat chat rooms using the following format:
 
 * *api token*: token of the user you want to use to post the notifications.
 * *room name*: name of the room you want to notify.
+
+> Note: We highly recommend you [encrypt](/docs/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
+
+    travis encrypt api_token@room_name --add notifications.hipchat.rooms
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
