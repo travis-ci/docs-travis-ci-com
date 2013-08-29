@@ -22,6 +22,8 @@ E por padrão enviará emails quando, em um dado branch:
 
 Você pode alterar este comportamento com as opções listadas a seguir.
 
+*Nota: Os colchetes devem ser omitidos.*
+
 ## Notificações por Email
 
 É possível especificar os destinatários que serão notificados sobre os resultados das construções (builds) da seguinte forma:
@@ -128,6 +130,14 @@ e caso prefira que o robô não entre no canal antes de enviar as mensagens, e s
 
 Caso ative a opção `skip_join`, lembre-se de remover a configuração `NO_EXTERNAL_MSGS` (n) do(s) canal(is) que o robô deve notificar.
 
+Se você quiser que o bot envie mensagens para canais protegidos com uma senha de canal (ie. com /mode #channel +k password), você pode usar a variável `channel_key`:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#travis"
+        channel_key: 'password'
+
 ## Notificações  via Campfire
 
 As notificações também podem ser enviadas para salas de chat do Campfire, usando a seguinte configuração:
@@ -138,6 +148,10 @@ As notificações também podem ser enviadas para salas de chat do Campfire, usa
 * *subdomínio*: é o seu subdomínio campfire (i.e. 'seu-subdominio' caso você acesse 'https://seu-subdominio.campfirenow.com')
 * *token da api*: é o token do usuário a ser utilizado para postar as notificações.
 * *id da sala*: é o id da sala, não o nome.
+
+> Nota: Recomendamos que você [criptografe](/pt-BR/docs/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
+
+    travis encrypt subdomínio:token_da_api@id_da_sala --add notifications.campfire.rooms
 
 Da mesma forma que as notificações via IRC, é possível personalizá-las:
 
@@ -151,15 +165,15 @@ Da mesma forma que as notificações via IRC, é possível personalizá-las:
 
 Outras opções, como `on_success` e `on_failure` funcionam da mesma forma que as notificações via IRC.
 
-## Flowdock notification
+## Notificações via Flowdock
 
-Notifications can be sent to your Flowdock Team Inbox using the following format:
+Notificações podem ser enviadas para a caixa de entrada Flowdock do seu time usando o seguinte formato:
 
     notifications:
-      flowdock: [api token]
+      flowdock: [token da api]
 
 
-* *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
+* *token da api*: é o seu token da API para a caixa de entrada do time que você deseja notificar. Você pode passar múltiplos tokens como uma string separada por vírgulas ou um array.
 
 ## Notificações via HipChat
 
@@ -171,6 +185,10 @@ Notificações podem ser enviadas para salas de chat do HitChat, usando a seguin
 
 * *token da api*: é o token do usuário a ser utilizado para postar as notificações.
 * *nome da sala*: nome da sala onde as notificações serão enviadas.
+
+> Nota: Recomendamos que você [criptografe](/pt-BR/docs/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
+
+    travis encrypt subdomínio:token_da_api@id_da_sala --add notifications.hipchat.rooms
 
 As notificações via HipChat também suportam modelos, de forma que você pode customizar a aparência das notificações, ex: reduzí-las a uma única linha:
 

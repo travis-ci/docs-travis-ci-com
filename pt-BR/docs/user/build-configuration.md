@@ -294,7 +294,7 @@ Veja mais sobre PPAs [neste artigo](http://www.makeuseof.com/tag/ubuntu-ppa-tech
 
 Como é muito comum ver suites de testes ou scripts pararem de responder ("travarem"), o Travis CI possui limites de tempo. Caso um script ou suite de testes demore muito a executar, o build será encerrado e você verá uma mensagem sobre o ocorrido no seu log de build.
 
-Com os nossos tempos máximos de espera (timeouts) atuais, uma construção será terminada caso ainda esteja executando após 50 minutos, ou se não existir qualquer registro nos logs em 10 minutos.
+Com os nossos tempos máximos de espera (timeouts) atuais, uma construção será terminada caso ainda esteja executando após 50 minutos (70 no travis-ci.com), ou se não existir qualquer registro nos logs em 10 minutos.
 
 Alguns motivos comuns para uma suite de testes travar:
 

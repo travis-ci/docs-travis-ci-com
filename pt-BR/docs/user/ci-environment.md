@@ -6,36 +6,40 @@ permalink: ci-environment/
 
 ### O Que Este Guia Cobre
 
-Este guia explica quais pacotes, ferramentas e configurações estão disponíveis no ambiente de integração contínua do Travis (comumente chamado de "ambiente de IC"), bem como as máquinas virtuais utilizadas pelo travis-ci.org são atualizadas e colocadas em produção. Este último explica o quão você deve esperar até que novas versões do Ruby, PHP, Node.js, etc sejam fornecidas.
+Este guia explica quais pacotes, ferramentas e configurações estão disponíveis no ambiente de integração contínua do Travis (comumente chamado de "ambiente de IC").
 
 ## Visão Geral
 
-O ambiente de CI do Travis executa as construções (builds) em máquinas virtuais que são armazenadas (snapshotted) antes de cada construção e restauradas ao seu término. Isto oferece diversos benefícios:
+O ambiente de CI do Travis executa as construções (builds) em máquinas virtuais que são armazenadas (snapshotted) antes de cada construção e restauradas ao seu término.
 
-* O sistema hospedeiro não é afetado pelas suites de testes
-* Nenhum estado persiste entre as execuções
-* O sudo sem senha está disponível (de forma que você pode instalar dependências utilizando apt)
-* As suites de testes podem criar bancos de dados, adicionar vhosts/usuários RabbitMQ, etc
+Este modo de operação possui a vantagem de que nenhum estado persiste entre as construções (builds), oferecendo um estado limpo e garantindo que seus testes executem em um ambiente construído do zero.
 
-O ambiente disponível para as suites de testes é conhecido como o *Ambiente de IC Travis*. As máquinas virtuais (VMs) são iniciadas através de imagens de VM ("boxes") que estão disponíveis para o público. O fornecimento de imagens das VMs é extremamente automatizado, de forma que novas versões são oferecidas uma vez por semana, em média.
+Para configurar o sistema para o seu build, você pode usar o comando `sudo` para instalar pacotes, alterar configurações, criar usuários, etc.
+
+As construções tem acesso a uma variedade de serviços para armazenamento de dados e mensageria, e você pode instalar qualquer coisa necessária.
 
 ## Sistema Operacional do Ambiente de IC
 
-O travis-ci.org usa a versão 32-bits do Ubuntu Linux 11.19 (served edition).
-
-## Como as VMs do travis-ci.org são geradas
-
-O fornecimento de VMs é automatizado utilizando o [OpsCode Chef](http://www.opscode.com/chef/). As VMs nunca são atualizadas em funcionamento, nós sempre substituímos a imagem inteira. As imagens das máquinas virtuais são primeiramente enviadas para a nossa rede interna e então colocadas em produção em cada máquina trabalhadora (worker) durante períodos menos movimentados do dia. Em média, tentamos colocar em produção novas versões dos ambientes de execução (ex. Ruby ou PHP) e softwares como bancos de dados em até uma semana após a sua disponibilização para o público, dado que o Core Team do Travis está ciente ou foi notificado sobre a nova versão.
+As máquinas virtuais do Travis CI são baseadas no Ubuntu 12.04 LTS Server Edition 64 bit.
 
 ## Ambiente comum à todas as Imagens de VMs
 
-### Built toolchain
+### Git, etc
+ * Uma versão (muito) nova do Git, do [PPA do Peter van der Does](https://launchpad.net/~pdoes/+archive/ppa)
+ * Mercurial (pacotes oficiais do Ubuntu)
+ * Subversion (pacotes oficiais do Ubuntu)
 
-GCC 4.5.x, make, autotools, etc.
+### Compiladores & Build toolchain
+
+GCC 4.6.x, Clang 3.2.x, make, autotools, cmake, scons.
 
 ### Ferramentas de Rede
 
 curl, wget, OpenSSL, rsync
+
+### Go
+
+Compilador/ferramenta de build do Go versões 1.0.3 e 1.1.1
 
 ### Ambientes de Execução
 
@@ -45,6 +49,7 @@ Cada trabalhador possui ao menos uma versão de
 * OpenJDK
 * Python
 * Node.js
+* Compilador/ferramenta de build do Go
 
 para acomodar projetos que possam precisar de algum desses ambientes de execução durante a construção.
 
@@ -52,34 +57,67 @@ Trabalhadores específicos da linguagem possuem múltiplos ambientes de execuç�
 
 ### Armazenamento de Dados
 
-* MySQL 5.1.x
-* PostgreSQL 8.4.x
+* MySQL 5.5.x
+* PostgreSQL 9.1.x
 * SQLite 3.7.x
-* MongoDB 2.0.x
-* Riak 1.1.x
-* Redis 2.4.x
-* CouchDB 1.0.x
+* MongoDB 2.4.x
+* Redis 2.6.x
+* Riak 1.2.x
+* Apache Cassandra 1.2.x
+* Neo4J Community Edition 1.7.x
+* ElasticSearch 0.90.x
+* CouchDB 1.3.x
 
 ### Tecnologia de Mensageria
 
-* [RabbitMQ](http://rabbitmq.com) 2.7.x
+* [RabbitMQ](http://rabbitmq.com) 3.x
 * [ZeroMQ](http://www.zeromq.org/) 2.1.x
 
 ### Ferramentas de Testes com Browser
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [Phantom.js](http://www.phantomjs.org/) 1.4.x
+* [Phantom.js](http://www.phantomjs.org/) 1.9.1
 
 ### Variáveis de Ambiente
 
-* `DEBIAN_FRONTEND=noninteractive`
 * `CI=true`
 * `TRAVIS=true`
+* `DEBIAN_FRONTEND=noninteractive`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-* `USER=vagrant` (**sujeito à mudanças, não dependa deste valor**)
-* `HOME=/home/vagrant` (**sujeito à mudanças, não dependa deste valor**)
+* `USER=travis` (**não dependa deste valor**)
+* `HOME=/home/travis` (**não dependa deste valor**)
 * `LANG=en_US.UTF-8`
 * `LC_ALL=en_US.UTF-8`
+* `RAILS_ENV=test`
+* `RACK_ENV=test`
+* `MERB_ENV=test`
+* `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
+
+Adicionalmente, o Travis define variáveis de ambiente que você pode usar no seu build, por exemplo, para colocar uma tag no build, ou para executar deploys após o build.
+
+* `TRAVIS_BRANCH`: O nome da branch sendo construída.
+* `TRAVIS_BUILD_DIR`: O caminho absoluto para onde o repositório sendo construído
+ foi copiado na máquina virtual.
+* `TRAVIS_BUILD_ID`: O id do build atual que o Travis usa internamente.
+* `TRAVIS_BUILD_NUMBER`: O número do build atual (por exemplo, "4").
+* `TRAVIS_COMMIT`: O commit do build que está sendo testado.
+* `TRAVIS_COMMIT_RANGE`: O intervalo de commits que foi incluído no
+  pull ou push request.
+* `TRAVIS_JOB_ID`: O id do job atual que o Travis usa internamente.
+* `TRAVIS_JOB_NUMBER`: O número do job atual (por exemplo, "4.1").
+* `TRAVIS_PULL_REQUEST`: O número do pull request se o job atual é um pull request, "false" caso não seja.
+* `TRAVIS_SECURE_ENV_VARS`: "true" caso variáveis seguras estejam sendo usadas. "false" caso contrário.
+* `TRAVIS_REPO_SLUG`: O "slug" (no formato: `nome_do_proprietário/nome_do_repo`) do repositório
+  sendo construído. (por exemplo, "travis-ci/travis-build").
+
+Build de linguagens específicas expoem variáveis de ambiente adicionais representando a versão
+sendo utilizada na construção. A linguagem que você está utilizando define se cada uma dela está definida ou não.
+
+* `TRAVIS_RUBY_VERSION`
+* `TRAVIS_JDK_VERSION`
+* `TRAVIS_NODE_VERSION`
+* `TRAVIS_PHP_VERSION`
+* `TRAVIS_PYTHON_VERSION`
 
 ### Bibliotecas
 
@@ -93,9 +131,18 @@ O apt é configurado para não solicitar confirmação (assume o -y por padrão)
 
 ## Imagens VM de JVM (Clojure, Groovy, Java, Scala)
 
+### JDK
+
+* Oracle JDK 7u6 (oraclejdk7)
+* OpenJDK 7 (alias: openjdk7)
+* OpenJDK 6 (openjdk6)
+
+O OracleJDK 7 é o padrão pois nós utilizamos um patchlevel muito mais recente que o disponível para o
+OpenJDK 7 dos repositórios do Ubuntu. Sun/Oracle JDK 6 não é fornecido pois eles já atingiram o "End of Life" em 2012.
+
 ### Versão do Maven
 
- Apache Maven 3.0.x padrão.
+ Apache Maven 3.0.x padrão. O Maven está configurado para usar os mirrors Central e oss.sonatype.org em http://maven.travis-ci.org
 
 ### Versões do Leiningen
 
@@ -104,15 +151,25 @@ O travis-ci.org possui tanto a versão standalone ("uberjar") do Leiningen 1.7.x
 ### Versão do SBT
 
 travis-ci.org fornece o SBT 0.11.x.
+O travis-ci.org provê qualquer versão do Simple Build Tool (SBT), graças
+ao extremamente poderoso [sbt-extras](https://github.com/paulp/sbt-extras).
+De forma a reduzir o tempo de construção, versões populares do sbt já
+estão pré-instaladas (como por exemplo 0.12.1 ou 0.11.3), mas o comando `sbt`
+é capaz de detectar e instalar dinamicamente a versão do sbt requerida 
+pelos seus projetos Scala.
 
 ### Versão do Gradle
 
-Atualmente 1.0 Milestone 8.
+Gradle 1.6.
 
 ## Imagens VM do Erlang
 
 ### Releases Erlang/OTP
 
+* R16B
+* R15B03
+* R15B02
+* R15B01
 * R15B
 * R14B04
 * R14B03
@@ -120,35 +177,45 @@ Atualmente 1.0 Milestone 8.
 
 As versões Erlang/OTP são construídas utilizando [kerl](https://github.com/spawngrid/kerl).
 
+### Rebar
+
+O travis-ci.org fornece uma versão recente do Rebar. Caso um repositório
+tenha o binário do rebar em `./rebar` (na raiz do repositório), ele será utilizado
+ao invés da versão fornecida.
+
 ## Imagens VM do Node.js
 
 ### Versões do Node.js
 
-* 0.4 (0.4.12)
-* 0.6 (0.6.12)
-* 0.7 (0.7.5)
+* 0.10.x (última versão estável)
+* 0.8.x
+* 0.6.x
+* 0.11.x (última versão de desenvolvimento, pode ser instável)
+* 0.9.x (versão anterior de desenvolvimento, será descontinuada em breve)
 
 Os ambientes de execução do Node são construídos usando [NVM](https://github.com/creationix/nvm).
 
 ### SCons
 
-O Scons está disponível para [construir o joyent/node no travis-ci.org](http://travis-ci.org/#!/joyent/node). Outros projetos também podem utilizá-lo.
-
+Scons 2.x.
 
 ## Imagens VM do Haskell
 
 ### Versões da Plataforma Haskell
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2011.04 (inclui GHC 7.0).
-
+[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 e GHC 7.4.
 
 ## Imagens VM do Perl
 
 ### Versões do Perl
 
+* 5.19
+* 5.18
+* 5.16
 * 5.14
 * 5.12
 * 5.10
+* 5.8
 
 instaladas via [Perlbrew](http://perlbrew.pl/). 
 
@@ -160,9 +227,9 @@ cpanm (App::cpanminus) versão 1.5007
 
 ### Versões do PHP
 
-* 5.2 (5.2.17)
-* 5.3 (5.3.10, 5.3.2)
-* 5.4 (5.4.0)
+* 5.5
+* 5.4 
+* 5.3 
 
 Os ambientes de execução PHP são construídos usando [php-build](https://github.com/CHH/php-build).
 
@@ -240,10 +307,13 @@ Os ambientes de execução PHP são construídos usando [php-build](https://gith
 * 2.5
 * 2.6
 * 2.7
-* 3.1
 * 3.2
+* 3.3
+* pypy
 
 Cada Python possui um virtualenv separado que vem com `pip` e `distribute` e é ativado antes da execução da construção.
+
+Python 2.4 e Jython *não são suportados* e não existem planos de suportá-los no futuro.
 
 ### Pacotes pip Pré-instalados
 
@@ -255,16 +325,17 @@ Cada Python possui um virtualenv separado que vem com `pip` e `distribute` e é 
 
 ### Versões/Implementações do Ruby
 
-* 1.8.7 (padrão)
+* 2.0.0
+* 1.9.3 (padrão)
 * 1.9.2
-* 1.9.3
-* jruby-18mode (1.6.7; apelido alternativo: jruby)
-* jruby-19mode (1.6.7 no modo Ruby 1.9)
+* jruby-18mode (1.7.4 no modo Ruby 1.8)
+* jruby-19mode (1.7.4 no modo Ruby 1.9)
 * rbx-18mode (apelido alternativo: rbx)
 * rbx-19mode (no modo Ruby 1.9)
+* ruby-head (atualizado a cada 3-4 semanas)
+* jruby-head (atualizado a cada 3-4 semanas)
+* 1.8.7
 * ree (2012.02)
-* ruby-head (atualizado a cada 1-2 semanas)
-* jruby-head (atualizado a cada 1-2 semanas)
 
 [Ruby 1.8.6 e 1.9.1 não são mais fornecidos no travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
@@ -272,19 +343,12 @@ Rubies são construídos utilizando o [RVM](https://rvm.beginrescueend.com/) que
 
 ### Versão do Bundler
 
-Uma versão 1.1.x recente (geralmente a mais recente)
+Uma versão 1.3.x recente (geralmente a mais recente)
 
 ### Gems no gem set global
 
 * bundler
 * rake
-
-### Variáveis de Ambiente
-
-* `RAILS_ENV=test`
-* `RACK_ENV=test`
-* `MERB_ENV=test`
-* `JRUBY_OPTS="--server -Dcext.enabled=false"`
 
 ## Como as Imagens das VMs são Atualizadas e Colocadas em Produção
 
@@ -311,7 +375,7 @@ O processo inteiro usualmente leva de uma a algumas horas (dependendo de quantas
 
 ## Chef Cookbooks (Receitas)
 
-O ambiente de IC do Travis é configurado usando o [OpsCode Chef](http://www.opscode.com/chef/). Todos os [cookbooks (receitas) usados pelo travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) são open source e podem ser encontrados pelo GitHub. O travis-ci.org usa o Ubuntu Linux 11.10 de 32 bits, mas graças ao Chef, a migração para uma versão diferente do Ubuntu ou para outra distribuição Linux é muito mais fácil.
+O ambiente de IC do Travis é configurado usando o [OpsCode Chef](http://www.opscode.com/chef/). Todos os [cookbooks (receitas) usados pelo travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment) são open source e podem ser encontrados pelo GitHub. O travis-ci.org usa o Ubuntu Linux 12.04 LTS de 64 bits, mas graças ao Chef, a migração para uma versão diferente do Ubuntu ou para outra distribuição Linux é muito mais fácil.
 
 Os cookbooks do Chef são desenvolvidos utilizando o [Vagrant](http://vagrantup.com/) e [Sous Chef](https://github.com/michaelklishin/sous-chef), de forma que os contribuidores dos cookbooks são encorajados a utilizá-los.
 

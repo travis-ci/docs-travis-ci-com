@@ -28,3 +28,11 @@ Agora você pode colocá-la no seu arquivo `.travis.yml`. Você pode ler mais so
 Você pode obter a chave pública com a API do Travis, usando os endpoints `/repos/:dono/:nome/key` ou `/repos/:id/key`. Por exemplo:
 
     https://api.travis-ci.org/repos/travis-ci/travis-ci/key
+
+Também é possível utilizar a ferramenta `travis` para recuperar a chave:
+
+    travis pubkey
+
+Ou, caso você não esteja no diretório do seu projeto:
+
+    travis pubkey -r owner/project
