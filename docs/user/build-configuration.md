@@ -36,15 +36,22 @@ reasonable defaults.
 
 By default, the worker performs the build as following:
 
-* Clone project repository from GitHub
-* `cd` to clone directory
-* Checkout commit for this build
-* Run `before_install` commands. Use this to prepare the system to install prerequisites or dependencies, e.g. `sudo apt-get update`
-* Run `install` commands. Use this to install any prerequisites or dependencies necessary to run your build.
-* Run `before_script` commands. Use this to prepare your build for testing, e.g. copy database configurations, environment variables, etc.
-* Run `script` commands. Each command must exit code 0 for success. Anything else is considered failure.
-* Run `after_success` or `after_failure` commands
-* Run `after_script` commands
+1. Clone project repository from GitHub
+2. `cd` to clone directory
+3. Checkout commit for this build
+4. Run `before_install` commands
+   * Use this to prepare the system to install prerequisites or dependencies
+   * e.g. `sudo apt-get update`
+5. Run `install` commands
+   * Use this to install any prerequisites or dependencies necessary to run your build
+6. Run `before_script` commands
+   * Use this to prepare your build for testing
+   * e.g. copy database configurations, environment variables, etc.
+7. Run test `script` commands
+   * Default is specific to project language
+   * All commands must exit with code 0 on success. Anything else is considered failure.
+8. Run `after_success` or `after_failure` commands
+9. Run `after_script` commands
 
 The outcome of any of these commands (except `after_success`, `after_failure` or `after_scripts`) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
