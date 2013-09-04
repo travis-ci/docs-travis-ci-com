@@ -45,7 +45,7 @@ or if you need several services, you can use the following:
     services:
       - riak     # will start riak
       - rabbitmq # will start rabbitmq-server
-      - memcache # will start memcached
+      - memcached # will start memcached
 
 This allows us to provide nice aliases for each service and normalize common differences between names, like RabbitMQ for example. Note that this feature only
 works for services we provision in our [CI environment](http://about.travis-ci.org/docs/user/ci-environment/). If you download, say, Apache Jackrabbit and
