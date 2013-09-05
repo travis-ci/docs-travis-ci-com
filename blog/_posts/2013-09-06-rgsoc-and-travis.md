@@ -43,7 +43,7 @@ In bearly 2 months the dream of a Summer of Code had become reality:
   [GitHub](http://github.com),
   [37signals](http://37signals.com),
   [Tilde](http://tilde.io),
-  [Google Open Source](https://developers.google.com/open-source)
+  [Google Open Source](https://developers.google.com/open-source),
   [SoundCloud](http://soundcloud.com)...
 And we are humbled to be included in this amazing list as well!
 * We raised $80,0000 in the first two weeks alone.
