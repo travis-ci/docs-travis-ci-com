@@ -1,5 +1,5 @@
 ---
-title: Travis and Rails Girls Summer of Code
+title: Travis CI and Rails Girls Summer of Code
 author: Anika Lindtner
 twitter: langziehohr
 created_at: Fri 06 Sep 2013 
@@ -7,7 +7,7 @@ layout: post
 permalink: blog/2013-09-05-travis-and-rails-girls-summer-of-code
 ---
 
-### Or: How to get from a dream to 19 sponsored scholarships in under 3 months.
+### Or: How to get from a dream to 19 scholarships in under 3 months.
 
 A Summer of Code sponsoring 10 teams of
 [students from all over the world](http://railsgirlssummerofcode.org/students)
