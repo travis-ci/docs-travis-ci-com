@@ -34,7 +34,7 @@ Rails Girls Summer of Code now provides [10 sponsored teams and 8 volunteering T
 with the chance to dive deeper into coding and to get in touch with the amazing
 Open Source community. On top of that it gives the Rails Girls movement a longer-term goal of supporting women in technology and role models: Being the first Rails Girls students who make meaningful contributions to projects like Rails, Sinatra, Bundler, Spree... we think they'll inspire many others with their stories.
 
-In bearly 2 months the dream of a Summer of Code had become reality:
+In barely 2 months the dream of a Summer of Code had become reality:
 
 * Over 140 students applied [from all over the world](http://railsgirlssummerofcode.org/students).
 * Over 280 people & companies donated for the campaign.
