@@ -13,7 +13,7 @@ A Summer of Code sponsoring 10 teams of
 [students from all over the world](http://railsgirlssummerofcode.org/students)
 working on Open Source projects full-time for three months. Sounds like a great idea? Why of course it does!
 
-It's the idea of [Rails Girls Summer of Code](http://railsgirlssummerofcode.org): To support women who fell in love with programming, for instance at a [Rails Girls Workshop](http://railsgirls.com) workshop and want to spend their summer coding full-time.
+It's the idea of [Rails Girls Summer of Code](http://railsgirlssummerofcode.org): To support women who fell in love with programming, for instance at a [Rails Girls Workshop](http://railsgirls.com) and want to spend their summer coding full-time.
 
 As [Travis CI](http://travis-ci.org) has always been deeply rooted in the community, supporting this project with all our hearts has been a no-brainer for us! We are old Rails Girls friends: We have been dedicated to their projects and ideas from the beginning. [Josh](https://twitter.com/j2h), [Konstantin](https://twitter.com/konstantinhaase) and [Sven](https://twitter.com/svenfuchs) have coached and talked on various workshops and have been especially involved in the Berlin Chapter. Sven even started the programming group [ruby monsters](https://github.com/rubymonsters), who have met every Monday for a year now. So for us a Rails Girls Summer of Code (RGSoC) meant a Summer of Code with all our help.
 
