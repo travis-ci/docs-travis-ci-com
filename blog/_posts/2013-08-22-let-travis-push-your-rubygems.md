@@ -21,7 +21,7 @@ Or, if you've installed our handy [command line tool](https://github.com/travis-
     $ travis setup rubygems
 
 However, releasing a gem is different than deploying an application. You probably don't want every single build to be released.
-Instead, you can configure Travis CI to only deploy build with tags. This allows you to only release when you have a new version of yout gem ready.
+Instead, you can configure Travis CI to only deploy build with tags. This allows you to only release when you have a new version of your gem ready.
 Just add `tags: true` to the `on` section of your `.travis.yml` so it looks like this:
 
     deploy:
