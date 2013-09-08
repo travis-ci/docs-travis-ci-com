@@ -19,15 +19,92 @@ the gem:
 
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
-    travis encrypt "something to encrypt"
+    travis encrypt SOMEVAR=secretvalue
 
 This will output a string looking something like:
 
     secure: ".... encrypted data ...."
 
-Now you can place it in the `.travis.yml` file. You can read more about
+Now you can place it in the `.travis.yml` file. 
+
+Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
+
+You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.  
+
+You can read more about
 [secure environment variables](/docs/user/build-configuration/#Secure-environment-variables)
 or [notifications](/docs/user/notifications).
+
+### Notifications Example
+
+We want to add campfire notifications to our .travis.yml file, but we don't want to publicly expose our API token.
+
+The entry should be in this format:
+
+    notifications:
+      campfire: [subdomain]:[api token]@[room id]
+
+For us, that is somedomain:abcxyz@14.
+
+We encrypt this string
+
+    travis encrypt somedomain:abcxyz@14
+
+Which produces something like this
+
+    Please add the following to your .travis.yml file:
+
+      secure: "ABC5OwLpwB7L6Ca...."
+
+We add to our .travis.yml file
+
+    notifications:
+      campfire:
+        rooms:
+          secure: "ABC5OwLpwB7L6Ca...."
+
+And we're done.
+
+### Detailed Discussion
+
+The way the secure var system works is is takes values on the format ```{ 'secure' => 'encrypted string' }``` in the (parsed YAML) configuration and replaces it with the decrypted string.
+
+So
+
+    notifications:
+      campfire:
+        rooms:
+          secure: "encrypted string"
+
+becomes
+
+    notifications:
+      campfire:
+        rooms: "decrypted string"
+
+while
+
+    notifications:
+      campfire:
+        rooms:
+          - secure: "encrypted string"
+
+becomes
+
+    notifications:
+      campfire:
+        rooms:
+          - "decrypted string"
+
+In the case of secure env vars
+
+    env:
+      - secure: "encrypted string"
+
+becomes
+
+    env:
+      - "decrypted string"
 
 ## Fetching the public key for your repository
 
