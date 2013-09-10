@@ -178,3 +178,14 @@ The main differences:
 * When using Git, Heroku might send you an email for every deploy, as it adds a temporary SSH key to your account
 
 As a rule of thumb, you should switch to the Git strategy if you run into issues with Anvil or if you're using the [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) plugin.
+
+### Running commands before and after deploy
+
+Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+    before_deploy: "echo 'ready?'"
+    deploy:
+      ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
