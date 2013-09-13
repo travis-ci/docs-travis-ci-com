@@ -282,6 +282,14 @@ div#main {
   margin-left: 1.4286em;
 }
 
+#main ol li ul {
+    font-size: 0.8571em;
+    margin: 1em 0;
+}
+#main ol li ul li {
+    list-style-type: circle;
+}
+
 .clear {
   clear: both;
 }
