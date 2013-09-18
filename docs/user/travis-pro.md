@@ -44,7 +44,7 @@ repositories. But instead of specifying the username and passwords in for
 instance your Gemfile, you add an SSH key specifically for this user and put
 that key into your .travis.yml. Here are the steps to take:
 
-* Create a user and add it to your organization, give it pull permission to the
+* Create a new user on GitHub and add it to your organization, give it pull permission to the
   relevant repositories.
 * Create an SSH key for the user: `ssh-keygen -f id_mustache_power`.
   Note: this must be a password-less key for Travis CI to be able to use it.
