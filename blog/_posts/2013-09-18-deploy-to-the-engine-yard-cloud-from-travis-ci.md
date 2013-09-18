@@ -4,6 +4,7 @@ created_at: Wed 18 Sep 2013 17:00:00
 author: Mathias Meyer
 twitter: roidrage
 layout: post
+permalink: blog/2013-09-18-deploy-to-engine-yard-cloud-from-travis-ci
 ---
 <figure class=" small right">
   <a href="http://www.engineyard.com"><img src="http://about.travis-ci.org/images/logo-engineyard.png"/></a>
