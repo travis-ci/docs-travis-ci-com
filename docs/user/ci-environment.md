@@ -89,7 +89,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://www.phantomjs.org/) 1.9.1
+* [PhantomJS](http://phantomjs.org/) 1.9.1
 
 ### Environment variables
 

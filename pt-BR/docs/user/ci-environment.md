@@ -76,7 +76,7 @@ Trabalhadores específicos da linguagem possuem múltiplos ambientes de execuç�
 ### Ferramentas de Testes com Browser
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [Phantom.js](http://www.phantomjs.org/) 1.9.1
+* [Phantom.js](http://phantomjs.org/) 1.9.1
 
 ### Variáveis de Ambiente
 
