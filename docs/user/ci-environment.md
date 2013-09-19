@@ -84,7 +84,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Messaging Technology
 
 * [RabbitMQ](http://rabbitmq.com) 3.x
-* [ZeroMQ](http://www.zeromq.org/) 2.1.x
+* [ZeroMQ](http://zeromq.org/) 2.1.x
 
 ### Headless Browser Testing Tools
 
