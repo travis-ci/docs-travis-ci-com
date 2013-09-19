@@ -15,7 +15,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
       deployment: "APP_NAME/DEP_NAME"
 
 You can sign up for an account on [their website](https://www.cloudcontrol.com) or using the [cctrl
-tool](create-a-user-account-if-you-haven39t-already).
+tool](https://www.cloudcontrol.com/dev-center/Quickstart#create-a-user-account-if-you-haven39t-already).
 
 To store the password in your .travis.yml securely, use our travis command line
 tool.
