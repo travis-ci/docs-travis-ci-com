@@ -35,7 +35,7 @@ Vous pouvez spécifier un Gemfile différent à utiliser :
 
 Si cette option n'est pas présente, le worker cherchera un fichier Gemfile à la racine du projet.
 
-Vous pouvez aussi indiquer des <a href="http://gembundler.com/man/bundle-install.1.html">arguments</a> qui seront passés à `bundle install` :
+Vous pouvez aussi indiquer des <a href="http://bundler.io/man/bundle-install.1.html">arguments</a> qui seront passés à `bundle install` :
 
     bundler_args: --binstubs
 
