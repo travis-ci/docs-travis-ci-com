@@ -339,7 +339,7 @@ Python 2.4 e Jython *não são suportados* e não existem planos de suportá-los
 
 [Ruby 1.8.6 e 1.9.1 não são mais fornecidos no travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
-Rubies são construídos utilizando o [RVM](https://rvm.beginrescueend.com/) que é instalado por usuário e localizado do `~/.bashrc`.
+Rubies são construídos utilizando o [RVM](http://rvm.io/) que é instalado por usuário e localizado do `~/.bashrc`.
 
 ### Versão do Bundler
 
