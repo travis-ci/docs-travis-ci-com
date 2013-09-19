@@ -13,7 +13,7 @@ For the past 6+ months we've been working hard on a bunch of changes related to 
 
 Travis is broken up into various small apps, each with a very focused responsibility. One of these apps is called [Travis Worker](https://github.com/travis-ci/travis-worker) and its responsibility is to manage a virtual machine (VM), get a Job from our queue (using RabbitMQ), run the build/job, and report the logs chunks and final job state.
 
-This might sound like a big responsibilty, and it is, but there is another piece to the worker puzzle, and that is Travis Build. [Travis Build](https://github.com/travis-ci/travis-build)'s responsibility is to know how to run a build for a particular language. For example, a Ruby project uses [Bundler](http://gembundler.com/) for dependency management, while Node uses [npm](https://npmjs.org/). And of course, these defaults are configurable and overridable.
+This might sound like a big responsibilty, and it is, but there is another piece to the worker puzzle, and that is Travis Build. [Travis Build](https://github.com/travis-ci/travis-build)'s responsibility is to know how to run a build for a particular language. For example, a Ruby project uses [Bundler](http://bundler.io/) for dependency management, while Node uses [npm](https://npmjs.org/). And of course, these defaults are configurable and overridable.
 
 ### Timeouts and Stalls
 

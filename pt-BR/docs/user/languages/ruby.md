@@ -56,13 +56,13 @@ De modo que, caso queira executar integração contínua com JRuby, por favor ce
 
 ## Comando Padrão de Teste
 
-Por padrão o Travis utilizará o [Bundler](http://gembundler.com/) para instalar as dependências do seu projeto e o `rake` para executar seus testes. Note que **você deve adicionar o rake no seu Gemfile** (adicioná-lo apenas no grupo `:test` deve ser o suficiente).
+Por padrão o Travis utilizará o [Bundler](http://bundler.io/) para instalar as dependências do seu projeto e o `rake` para executar seus testes. Note que **você deve adicionar o rake no seu Gemfile** (adicioná-lo apenas no grupo `:test` deve ser o suficiente).
 
 ## Gerenciamento de Dependências
 
 ### Travis usa Bundler
 
-O Travis usa o [Bundler](http://gembundler.com/) para instalar as dependências do seu projeto. É possível sobrescrever este comportamento e existem projetos que utilizam a funcionalidade de import do RVM gemset, mas a maioria dos projetos Ruby hospedados no Travis usam o Bundler.
+O Travis usa o [Bundler](http://bundler.io/) para instalar as dependências do seu projeto. É possível sobrescrever este comportamento e existem projetos que utilizam a funcionalidade de import do RVM gemset, mas a maioria dos projetos Ruby hospedados no Travis usam o Bundler.
 
 ### Exclua gems não-essenciais como ruby-debug do seu Gemfile
 
@@ -82,7 +82,7 @@ Você pode especificar um Gemfile com nome customizado:
 
 Caso não seja especificado, o processo trabalhador irá procurar por um arquivo chamado "Gemfile" na raiz do projeto.
 
-Também é possível definir <a href="http://gembundler.com/man/bundle-install.1.html">argumentos extras</a> a serem passados ao `bundle install`:
+Também é possível definir <a href="http://bundler.io/man/bundle-install.1.html">argumentos extras</a> a serem passados ao `bundle install`:
 
     bundler_args: --binstubs
 

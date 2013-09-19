@@ -10,7 +10,7 @@ Quando você tiver terminado, mande um pull request. Obrigado!
 ## Como editar o site
 
 Certifique-se que você possui o Ruby e RubyGems instalados. Em seguida instale o
-[bundler](http://gembundler.com/):
+[bundler](http://bundler.io/):
 
     gem install bundler
 

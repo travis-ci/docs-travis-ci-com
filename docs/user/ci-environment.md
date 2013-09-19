@@ -84,12 +84,12 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Messaging Technology
 
 * [RabbitMQ](http://rabbitmq.com) 3.x
-* [ZeroMQ](http://www.zeromq.org/) 2.1.x
+* [ZeroMQ](http://zeromq.org/) 2.1.x
 
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://www.phantomjs.org/) 1.9.1
+* [PhantomJS](http://phantomjs.org/) 1.9.1
 
 ### Environment variables
 
@@ -354,7 +354,7 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
-Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `~/.bashrc`.
+Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
 
 ### Bundler version
 

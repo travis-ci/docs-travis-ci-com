@@ -92,7 +92,7 @@ Stock Apache Maven 3.
 * system (1.8.7) -- You need to use `sudo` to install gems with this ruby
 * 1.9.3 (default)
 
-Rubies are built using [RVM](https://rvm.beginrescueend.com/) that is installed per-user and sourced from `/etc/profile.d/rvm.sh`.
+Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `/etc/profile.d/rvm.sh`.
 
 ### Bundler version
 

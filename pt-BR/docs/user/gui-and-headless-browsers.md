@@ -48,7 +48,7 @@ Caso necessite que o servidor web esteja escutando na porta 80, lembre-se de uti
 
 ## Usando o Phantom.js
 
-O [Phantom.js](http://www.phantomjs.org/) é um WebKit sem interface gráfica (headless) com uma API JavaScript. É uma solução ideal para testes rápidos, captura de informações em sites, captura de páginas, renderização de SVG, monitoração de redes e muitos outros casos de uso.
+O [Phantom.js](http://phantomjs.org/) é um WebKit sem interface gráfica (headless) com uma API JavaScript. É uma solução ideal para testes rápidos, captura de informações em sites, captura de páginas, renderização de SVG, monitoração de redes e muitos outros casos de uso.
 
 O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) fornece o Phantom.js (disponível no PATH como `phantomjs`). Como ele não utiliza interface gráfica, o `xvfb` não precisa estar executando.
 

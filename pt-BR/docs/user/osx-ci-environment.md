@@ -86,7 +86,7 @@ Apache Maven 3 padrão.
 * system (1.8.7) -- Você precisa usar `sudo` para instalar gems
 * 1.9.3 (padrão)
 
-Rubies são construídos usando o [RVM](https://rvm.beginrescueend.com/) que é instalado por usuário e originado de `/etc/profile.d/rvm.sh`.
+Rubies são construídos usando o [RVM](http://rvm.io/) que é instalado por usuário e originado de `/etc/profile.d/rvm.sh`.
 
 ### Versão do Bundler
 
