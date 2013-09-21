@@ -57,26 +57,26 @@ blockquote, q {
 
 body {
   margin: 0 0 1em 0;
-  font-size: 14px;
-  line-height: 1.4286;
-  color: #555;
+  color: #595959;
   background: #fff;
-  font-family: "Helvetica Neue", Arial, Verdana, sans-serif;
+  font-family : 'Source Sans Pro', sans-serif; font-weight: 400;
+  font-size   : 15px;
+  line-height : 1.2em;
 }
 
 a {
-  color: #3366cc;
+  color: #337389;
   outline: none;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #666;
+  color: #337389;
 
 }
 
 a:hover {
-  color: #66cc33;
+  color: #a53230;
   text-decoration: none;
 }
 
@@ -120,8 +120,8 @@ table {
 }
 
 strong {
-  font-family: Helvetica, Arial;
-  color: #8e7a2b;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 600;
+  color: #337389;
   font-weight: bold;
 }
 
@@ -130,8 +130,8 @@ em {
 }
 span.help {
   font-style: italic;
-  background-color: #ffff99;
-  font-family: Georgia, Times, Serif;
+  background-color: #c6c5ab;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 600;
 }
 
 pre {
@@ -171,8 +171,8 @@ div#navigation {
   margin: 0 0 0 0;
   padding: .8em 0 .6em 0;
   overflow: hidden;
-  background: #efefef;
-  color: #888;
+  background: #40454f;
+  color: #fff;
   border-bottom: 1px solid #ccc;
 }
 
@@ -189,7 +189,7 @@ div#navigation .wrapper {
 }
 
 div#navigation .wrapper a#logo {
-  color: #828282;
+  color: #40454F;
   display: block;
   float: left;
   font-weight: bold;
