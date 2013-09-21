@@ -56,7 +56,7 @@ blockquote, q {
 /* travis-ci styles */
 
 body {
-  margin: 0 0 1em 0;
+  margin: 0 auto;
   color: #595959;
   background: #fff;
   font-family : 'Source Sans Pro', sans-serif; font-weight: 400;
@@ -268,6 +268,7 @@ div#main {
 
 #main ul,
 #main ul li {
+  color : #a53f3f;
   list-style-type: disc;
 }
 
@@ -426,9 +427,7 @@ div#footer {
   padding-top: 10px;
   text-align: center;
   overflow: hidden;
-  background: #efefef;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd
+  background: #ebeae8;
 }
 
 div#footer .wrapper {
@@ -453,23 +452,31 @@ div#footer div.box ul li a:visited {
   color: #7d8997;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   margin: 0;
   padding: 0;
   font-weight: bold;
-  color: #40454F;
+  color: #337389;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #607a84;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.2em;
   line-height: 1em;
   margin-bottom: 0.5em;
   clear: both;
 }
 
 h2 {
-  font-size: 1.6em;
-  margin-bottom: 1em;
+  color : #939386;
+  font-size: 1.75em;
+  margin-bottom: .6em;
   line-height: 1em;
   letter-spacing: -0.5px;
   clear: both;
@@ -485,7 +492,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.15em;
+  font-size: 1.3em;
+  line-height: 1.2em;
   margin-bottom: 0.5em;
 }
 
@@ -536,7 +544,7 @@ div#header h1.riddle {
   width: 100%;
   text-indent: 0;
   background: #fff;
-  color: #000;
+  color: #40454f;
   font-size:4em;
   margin: 20px 0 0 0;
   padding:0;
@@ -549,14 +557,14 @@ div#header h1.riddle a:visited:hover {
   display: block;
   width: 100%;
   height: auto;
-  color: #000;
+  color: #40454f;
   text-decoration: none;
 }
 
 div#header p {
-  color: #777;
+  color: #a53230;
   display: block;
-  font: italic 1.25em Georgia, Times, Serif;
+  font-size: 1.25em;
   line-height: 1.67em;
   margin: 0.935em 0 1.87em 0;
   padding: 0 0 1.25em 0;
@@ -564,7 +572,8 @@ div#header p {
 }
 
 div#sidebar h2 {
-  font-size: .9em;
+  color : #939386;
+  font-size: 1.2em;
   letter-spacing: .5px;
   text-transform:uppercase;
   margin: 40px 20px 5px 20px;
