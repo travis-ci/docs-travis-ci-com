@@ -172,8 +172,8 @@ div#navigation {
   padding: .8em 0 .6em 0;
   overflow: hidden;
   background: #40454f;
-  color: #fff;
-  border-bottom: 1px solid #ccc;
+  color: #2f333a;
+  border-bottom: 0;
 }
 
 div#header {
@@ -189,10 +189,10 @@ div#navigation .wrapper {
 }
 
 div#navigation .wrapper a#logo {
-  color: #40454F;
+  color: #fff;
   display: block;
   float: left;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 1.1em;
   line-height: 1.2em;
   margin: 0em 1em 0 0;
@@ -202,7 +202,6 @@ div#navigation .wrapper a#logo {
 
 div#navigation .wrapper a#logo span {
   color: #bbbaba;
-  font-size: .85em;
 }
 
 div#navigation ul {
@@ -214,18 +213,17 @@ div#navigation ul li {
   margin: 0;
   padding: 0;
   float: left;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #343942;
 }
 
 div#navigation ul li.right {
   float: right;
   border-left: none;
-  font-size: .83em;
 }
 
 div#navigation ul li a,
 div#navigation ul li a:visited {
-  color: #999;
+  color: #efeaea;
   display:block;
   padding: 0em 1em 0 1em ;
   text-decoration:none;
@@ -239,13 +237,13 @@ div#navigation ul li a:visited {
 div#navigation ul li.selected a,
 div#navigation ul li.selected a:visited {
   text-decoration: none;
-  color: #6c3;
+  color: #efeaea;
 }
 
 div#navigation ul li.active a,
 div#navigation ul li.selected a:visited {
   text-decoration: none;
-  color: #444;
+  color: #efeaea;
 }
 
 div#content {
@@ -375,7 +373,7 @@ div#sidebar {
 #sidebar ul li a:visited {
   display:block;
   text-decoration:none;
-  padding:4px 0 3px 20px;
+  padding:6px 0 6px 20px;
   border-top: 1px solid #efefef;
 }
 
@@ -413,7 +411,7 @@ div#sidebar {
   padding:0;
   border-top: 0;
   font-weight: normal;
-  color: #195190;
+  color: #2b4b6b;
 }
 
 #sidebar ul li ul li.selected a,
