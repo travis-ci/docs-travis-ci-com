@@ -422,13 +422,63 @@ div#sidebar {
   font-weight: normal;
 }
 
-div#footer {
+/*div#footer {
   clear: both;
   margin: 0 auto;
   padding-top: 10px;
   text-align: center;
   overflow: hidden;
   background: #ebeae8;
+}*/
+
+#footer {
+  background: #ebeae8;
+  padding : 28px 0 28px 0;
+}
+
+#footer p {
+  color : #a53230;
+}
+
+#travis-logo {
+  float   : left;
+  margin  : 0 20px 0 0;
+  display : inline-block;
+}
+
+#travis-address {
+  padding-top : 20px;
+  clear       : all;
+  display     : inline-block;
+}
+
+.left {
+  float   : left;
+  display : inline-block;
+  padding : 0 0 0 10px;
+}
+
+#footer ul li {
+  display     : inline;
+  margin-left : 3px;
+}
+
+#footer ul.right {
+  list-style-type : none;
+  display         : inline-block;
+  padding         : 30px 0 0 10px;
+}
+
+#footer a {
+  color           : #4d4d4d;
+  font-family     : 'Source Sans Pro', sans-serif; font-weight: 400;
+  font-size       : 15px;
+  text-decoration : none;
+}
+
+#footer img {
+  display    : inline-block;
+  max-height : 80px;
 }
 
 div#footer .wrapper {
@@ -436,7 +486,7 @@ div#footer .wrapper {
   width: 920px;
 }
 
-div#footer div.box {
+/*div#footer div.box {
   float: left;
   width: 280px;
   margin-right: 30px;
@@ -451,7 +501,7 @@ div#footer div.last {
 div#footer div.box ul li a,
 div#footer div.box ul li a:visited {
   color: #7d8997;
-}
+}*/
 
 h1 {
   margin: 0;
@@ -762,4 +812,27 @@ input[type=email] {
 .language-docs a:hover,
 .language-docs a:visited:hover {
   color : #337389;
+}
+
+.large-6 {
+  position: relative;
+  width: 50%;
+  display: inline-block;
+  clear: all;
+}
+
+.large-4 {
+  position: relative;
+  width: 33.33333%;
+  display: inline-block;
+  clear: all;
+}
+
+.column,
+.columns {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
 }
