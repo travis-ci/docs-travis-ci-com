@@ -159,7 +159,8 @@ p > code, div > code, li > code {
 }
 
 .wrapper {
-  width: 960px;
+  width: 909px;
+  padding : 0 14px 0 14px;
   margin: 0 auto;
   text-align: left;
   overflow: hidden;
@@ -169,7 +170,7 @@ p > code, div > code, li > code {
 div#navigation {
   clear: both;
   margin: 0 0 0 0;
-  padding: .8em 0 .6em 0;
+  padding: .8em 0 .4em 0;
   overflow: hidden;
   background: #40454f;
   color: #2f333a;
@@ -177,7 +178,7 @@ div#navigation {
 }
 
 div#navigation .wrapper {
-  width: 940px;
+  width: 909px;
 }
 
 div#navigation .wrapper a#logo {
@@ -262,7 +263,7 @@ div#content div.pad {
 
 div#main {
   float:left;
-  width: 580px;
+  width: 550px;
   overflow: hidden;
   padding-top: 2em;
 }
