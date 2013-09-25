@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis CI: {{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/atom+xml" href="/blog.xml">
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -20,7 +21,7 @@
   <body>
     <div id="navigation">
       <div class="wrapper">
-        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        {% include logo.html %}
         <ul>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/docs/">Documentación</a></li>

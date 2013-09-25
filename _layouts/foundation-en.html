@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis Foundation: {{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="/site.js" type="text/javascript" charset="utf-8"></script>
     <link rel="alternate" type="application/atom+xml" href="/blog.xml">
@@ -22,7 +23,7 @@
   <body>
     <div id="navigation">
       <div class="wrapper">
-        <a href="http://travis-ci.org" id="logo">travis-ci<span>.org</span></a>
+        {% include logo.html %}
         <ul>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/docs/">Documentation</a></li>
