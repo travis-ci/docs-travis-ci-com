@@ -816,6 +816,7 @@ input[type=email] {
 
 .large-6 {
   position: relative;
+  float: left
   width: 50%;
   display: inline-block;
   clear: all;
@@ -824,8 +825,17 @@ input[type=email] {
 .large-4 {
   position: relative;
   width: 33.33333%;
+  float: left;
   display: inline-block;
   clear: all;
+}
+
+.large-2 {
+  position: relative;
+  width: 16.66667%;
+  float: right
+  display : inline-block;
+  clear : all;
 }
 
 .column,
@@ -833,6 +843,5 @@ input[type=email] {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
-  width: 100%;
   float: left;
 }
