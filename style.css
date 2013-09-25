@@ -204,10 +204,11 @@ div#navigation ul {
 
 div#navigation ul li {
   margin: 0;
+  font-size: 14px;
+  color : #ffffff;
   padding: 0;
   float: left;
-  line-height: 2.4em;
-  border-left: 1px solid #343942;
+  line-height: 2.6em;
 }
 
 div#navigation ul li.right {
