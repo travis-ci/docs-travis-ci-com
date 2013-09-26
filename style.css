@@ -424,21 +424,12 @@ div#sidebar {
   font-weight : normal;
 }
 
-/*div#footer {
-  clear       : both;
-  margin      : 0 auto;
-  padding-top : 10px;
-  text-align  : center;
-  overflow    : hidden;
-  background  : #ebeae8;
-}*/
-
-#footer {
+footer {
   background : #ebeae8;
   padding    : 28px 0 28px 0;
 }
 
-#footer p {
+footer p {
   color : #a53230;
 }
 
@@ -449,7 +440,6 @@ div#sidebar {
 }
 
 #travis-address {
-  padding-top : 20px;
   clear       : all;
   display     : inline-block;
 }
@@ -457,53 +447,61 @@ div#sidebar {
 .left {
   float   : left;
   display : inline-block;
-  padding : 0 0 0 10px;
+  padding : 0;
 }
 
-#footer ul li {
+.right {
+  float   : right;
+  display : inline-block;
+  padding : 0;
+}
+
+footer ul li {
   display     : inline;
-  margin-left : 3px;
+  margin-left : 25px;
 }
 
-#footer ul.right {
+footer ul.right {
   list-style-type : none;
   display         : inline-block;
-  padding         : 30px 0 0 10px;
+  padding         : 10px 0 0 10px;
 }
 
-#footer a {
+footer a {
   color           : #4d4d4d;
   font-family     : 'Source Sans Pro', sans-serif; font-weight: 400;
   font-size       : 15px;
   text-decoration : none;
 }
 
-#footer img {
+footer a:visited {
+  color           : #4d4d4d;
+  font-family     : 'Source Sans Pro', sans-serif; font-weight: 400;
+  font-size       : 15px;
+  text-decoration : none;
+}
+
+#berlin-sticker {
+  margin  : 0 0 20px 0;
+  float   : right;
+  display : block; 
+}
+
+footer img#travis-mascot {
   display    : inline-block;
   max-height : 80px;
 }
 
-div#footer .wrapper {
+footer img#made-in-berlin {
+  float      : right;
+  display    : inline-block;
+  max-height : 80px;
+}
+
+div footer .wrapper {
   background : transparent;
-  width      : 920px;
+  width      : 950px;
 }
-
-/*div#footer div.box {
-  float        : left;
-  width        : 280px;
-  margin-right : 30px;
-  color        : #888;
-}
-
-div#footer div.last {
-  margin-right : 0;
-  margin-left  : 15px;
-}
-
-div#footer div.box ul li a,
-div#footer div.box ul li a:visited {
-  color : #7d8997;
-}*/
 
 h1 {
   margin      : 0;
@@ -819,6 +817,7 @@ input[type=email] {
 .large-6 {
   position : relative;
   float    : left;
+  padding  : 0;
   width    : 50%;
   display  : inline-block;
   clear    : all;
@@ -826,8 +825,7 @@ input[type=email] {
 
 .large-4 {
   position : relative;
-  width    : 23.33333%;
-  float    : left;
+  float    : none;
   display  : inline-block;
   clear    : all;
 }
@@ -843,7 +841,4 @@ input[type=email] {
 .column,
 .columns {
   position      : relative;
-  padding-left  : 0.9375em;
-  padding-right : 0.9375em;
-  float         : left;
 }
