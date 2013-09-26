@@ -379,4 +379,4 @@ O ambiente de IC do Travis é configurado usando o [OpsCode Chef](http://www.ops
 
 Os cookbooks do Chef são desenvolvidos utilizando o [Vagrant](http://vagrantup.com/) e [Sous Chef](https://github.com/michaelklishin/sous-chef), de forma que os contribuidores dos cookbooks são encorajados a utilizá-los.
 
-Muitos dos cookbooks que o ambiente de IC do Travis usa foram retirados do [repositório oficial de cookbooks do OpsCode](https://github.com/opscode/cookbooks). Nós modificamos alguns deles para as necessidades da integração contínua e os sincronizamos periodicamente ou quando for necessário.
+Muitos dos cookbooks que o ambiente de IC do Travis usa foram retirados do [repositório oficial de cookbooks do OpsCode](https://github.com/opscode-cookbooks). Nós modificamos alguns deles para as necessidades da integração contínua e os sincronizamos periodicamente ou quando for necessário.
