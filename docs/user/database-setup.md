@@ -190,7 +190,7 @@ Riak is **not started on boot**. To make Travis CI start the service for you, ad
 
 to your `.travis.yml`.
 
-Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://wiki.basho.com/LevelDB.html).
+Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://docs.basho.com/riak/latest/ops/advanced/backends/leveldb/).
 Riak Search is enabled.
 
 ### Memcached
