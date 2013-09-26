@@ -14,7 +14,7 @@ p.meta {
   width: 500px;
   margin: 0px auto;
   text-align: center;
-  font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
   color: #aaa;
 }
 
@@ -44,8 +44,7 @@ div.article-header h3 {
   text-align: center;
   font-weight: 300;
   color: #40454f;
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
 }
 
 article a {
@@ -126,7 +125,7 @@ figure.right {
 #main figure figcaption {
   background-color: #efefef;
   text-align: left;
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 70%;
   line-height: 120%;
   padding: 5px 10px;
@@ -185,8 +184,7 @@ figure.right {
   background-color: #40454f;
   color: white;
   margin: 0px;
-  font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
   font-size: 13px;
   height: 42px;
 }
@@ -228,7 +226,7 @@ figure.right {
 }
 
 #footer {
-  font-family: "Merriweather Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100%;
   margin: 20px auto 0px auto;
   text-align: center;
