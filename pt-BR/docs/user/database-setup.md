@@ -184,7 +184,7 @@ O Riak **não é iniciado no boot**. Para fazer com que o Travis CI inicie-o par
 
 ao seu `.travis.yml`.
 
-O Riak utiliza as configurações padrão com uma exceção: é configurado para usar o [LevelDB storage backend](http://wiki.basho.com/LevelDB.html). A Riak Search está ativada.
+O Riak utiliza as configurações padrão com uma exceção: é configurado para usar o [LevelDB storage backend](http://docs.basho.com/riak/latest/ops/advanced/backends/leveldb/). A Riak Search está ativada.
 
 ### Memcached
 
