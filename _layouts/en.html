@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Travis CI: {{ page.title }}</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="/site.js" type="text/javascript" charset="utf-8"></script>
     <link rel="alternate" type="application/atom+xml" href="/blog.xml">
@@ -22,7 +23,7 @@
   <body>
     <div id="navigation">
       <div class="wrapper">
-        <a href="http://travis-ci.org" id="logo">Travis CI</a>
+        {% include logo.html %}
         <ul>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/docs/">Documentation</a></li>
@@ -141,21 +142,33 @@
       </div><!-- /.wrapper -->
     </div><!-- /#content -->
 
-    <div id="footer">
+
+
+    <footer>
       <div class="wrapper">
-        <div class="box">
-          <p>This site is maintained by the <a href="http://github.com/travis-ci">Travis CI community</a>. Feel free to <a href="http://github.com/travis-ci/travis-ci.github.com">contribute</a>!</p>
+        <div class="large-6 columns left">
+          <div id="travis-logo">
+            <img src="/images/travis-mascot-200px.png" id="travis-mascot">
+          </div>
+          <div id="travis-address">
+            <p>&copy; 2013 Travis CI GmbH,<br> Prinzessinnenstr. 20, 10969 Berlin, Germany</p>
+          </div>
         </div>
-        <div class="box">
-          <p>This design was kindly provided by the talented Ben Webster of <a href="http://www.plus2.com.au">Plus2</a>.</p>
+
+        <div class="large-6 columns right">
+          <div id="footer-nav">
+            <ul class="left">
+              <li><a href="mailto:contact@travis-ci.com">Email</a></li>
+              <li><a href="http://chat.travis-ci.com">Live Chat</a></li>
+              <li><a href="http://about.travis-ci.org/docs">Docs</a></li>
+              <li><a href="http://status.travis-ci.com">Status</a></li>
+            </ul>
+          </div>
+          <div id="berlin-sticker">
+            <img src="/images/made-in-berlin-badge.png" id="made-in-berlin">
+          </div>
         </div>
-        <div class="box last">
-          <ul>
-            <li><a href="https://github.com/travis-ci" title="">Travis CI on GitHub</a></li>
-            <li><a href="https://twitter.com/travisci" title="">Travis CI on Twitter</a></li>
-          </ul>
-        </div><!-- /.box -->
-      </div><!-- /.wrapper -->
-    </div><!-- /#footer -->
+      </div>
+    </footer>
   </body>
 </html>
