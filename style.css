@@ -815,35 +815,3 @@ input[type=email] {
 .language-docs a:visited:hover {
   color : #337389;
 }
-
-.large-6 {
-  position: relative;
-  float: left
-  width: 50%;
-  display: inline-block;
-  clear: all;
-}
-
-.large-4 {
-  position: relative;
-  width: 33.33333%;
-  float: left;
-  display: inline-block;
-  clear: all;
-}
-
-.large-2 {
-  position: relative;
-  width: 16.66667%;
-  float: right
-  display : inline-block;
-  clear : all;
-}
-
-.column,
-.columns {
-  position: relative;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
-  float: left;
-}

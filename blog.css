@@ -1,7 +1,45 @@
 body {
-  background-color: #f9f9f9;
+  background-color: #fffffff;
+  font-family : 'Source Sans Pro', sans-serif; font-weight: 400;
+  font-size   : 15px;
   margin: 0px;
   padding: 0px;
+}
+
+a {
+  color: #337389;
+  outline: none;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #337389;
+
+}
+
+a:hover {
+  color: #a53230;
+  text-decoration: none;
+}
+
+div article a {
+  color: #337389;
+  outline: none;
+  text-decoration: underline;
+}
+
+div article a:visited {
+  color: #337389;
+
+}
+
+div article a:hover {
+  color: #a53230;
+  text-decoration: none;
+}
+
+div article li {
+  color : #A53F3F;
 }
 
 #main {
@@ -10,11 +48,11 @@ body {
 }
 
 p.meta {
-  font-size: 12px;
+  font-size: 14px;
   width: 500px;
   margin: 0px auto;
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 600;
   color: #aaa;
 }
 
@@ -35,16 +73,15 @@ div.article-header p.meta a {
 
 div.article-header {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   width: 850px;
 }
 
 div.article-header h3 {
   font-size: 36px;
   text-align: center;
-  font-weight: 300;
-  color: #40454f;
-  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
+  color: #607a84;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 800;
 }
 
 article a {
@@ -66,7 +103,7 @@ div.article-list .article-header:first-child h3 {
 
 div.article-header a {
   text-decoration: none;
-  color: #40454f;
+  color: #607a84;
 }
 
 h3 {
@@ -74,18 +111,20 @@ h3 {
 }
 
 article {
-  font-family: Georgia;
+  font-family: 'Source Sans Pro', sans-serif; font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   width: 600px;
   margin: 0px auto;
-  color: #40454f;
+  color: #595959;
 }
 
 article h3, article h2 {
+  font-size: 1.2em;
+  line-height: 1.1em;
+  color : #939386;
+  margin-bottom: 5px;
   padding: 0px;
-  font-weight: normal;
-  font-size: 20px;
 }
 
 article > p > img {
@@ -98,13 +137,14 @@ div#blog {
 }
 
 pre {
-  background-color: white;
-  border: 1px solid #bbb;
+  background-color: #fafbfb;
+  border: 1px solid #e8e9ea;
   padding: 10px 20px; 
   border-radius: 5px;
 }
 
 code {
+  color: #337389;
   font-size: 14px;
 }
 
@@ -189,40 +229,95 @@ figure.right {
   height: 42px;
 }
 
-#top #navigation {
-  padding: 0px;
-  width: 850px;
-  height: 40px;
-  margin: 0px auto 0px auto;
+.wrapper {
+  width: 909px;
+  padding : 0 14px 0 14px;
+  margin: 0 auto;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
 }
 
-#top #navigation li {
-  display: inline;
-  height: 40px;
-  padding-top: 13px;
+.logo-home img {
+  max-width      : 72px;
+  display        : inline-block;
+  float          : left;
+  padding-right   : 14px;
+  vertical-align : middle;
 }
 
-#top #navigation li.left {
+div#navigation {
+  clear: both;
+  margin: 0 0 0 0;
+  padding: 12px 0 6px 0;
+  overflow: hidden;
+  background: #40454f;
+  color: #2f333a;
+  border-bottom: 0;
+}
+
+div#navigation .wrapper {
+  width: 909px;
+}
+
+div#navigation .wrapper a#logo {
+  color: #fff;
+  display: block;
   float: left;
-  margin-right: 30px;
-}
-
-#top #navigation li.right {
-  float: right;
-  margin-left: 30px;
-}
-
-#top #navigation li.image {
-  padding-top: 5px;
-}
-
-#top a {
+  font-weight: 800;
+  font-size: 1.1em;
+  line-height: 1.2em;
+  margin: 0em 1em 0 0;
+  padding: 0 1em 0 0;
   text-decoration: none;
-  color: #ccc;
 }
 
-#top a:hover {
-  color: #eee;
+div#navigation .wrapper a#logo span {
+  color: #bbbaba;
+}
+
+div#navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+div#navigation ul li {
+  margin: 0;
+  font-size: 14px;
+  color : #ffffff;
+  padding: 0;
+  float: left;
+  line-height: 2.7em;
+}
+
+div#navigation ul li.right {
+  float: right;
+  border-left: none;
+}
+
+div#navigation ul li a,
+div#navigation ul li a:visited {
+  color: #efeaea;
+  display:block;
+  padding: 0em 1em 0 1em ;
+  text-decoration:none;
+}
+
+div#navigation ul li a:hover,
+div#navigation ul li a:visited {
+  text-decoration:underline;
+}
+
+div#navigation ul li.selected a,
+div#navigation ul li.selected a:visited {
+  text-decoration: none;
+  color: #efeaea;
+}
+
+div#navigation ul li.active a,
+div#navigation ul li.selected a:visited {
+  text-decoration: none;
+  color: #efeaea;
 }
 
 #footer {
@@ -319,7 +414,7 @@ figure.right {
 }
 
 .pagination a {
-  color: #40454f;
+  color: #337389;
 }
 
 hr {
