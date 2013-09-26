@@ -461,7 +461,7 @@ footer ul li {
   margin-left : 25px;
 }
 
-footer ul.right {
+footer ul.left {
   list-style-type : none;
   display         : inline-block;
   padding         : 10px 0 0 10px;
@@ -482,9 +482,15 @@ footer a:visited {
 }
 
 #berlin-sticker {
-  margin  : 0 0 20px 0;
+  margin  : 0;
   float   : right;
   display : block; 
+}
+
+#footer-nav {
+  float   : none;
+  clear   : all;
+  display : block;
 }
 
 footer img#travis-mascot {
@@ -819,21 +825,6 @@ input[type=email] {
   float    : left;
   padding  : 0;
   width    : 50%;
-  display  : inline-block;
-  clear    : all;
-}
-
-.large-4 {
-  position : relative;
-  float    : none;
-  display  : inline-block;
-  clear    : all;
-}
-
-.large-2 {
-  position : relative;
-  width    : 16.66667%;
-  float    : right;
   display  : inline-block;
   clear    : all;
 }
