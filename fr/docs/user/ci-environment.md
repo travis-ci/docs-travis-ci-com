@@ -31,7 +31,7 @@ cookbook contributors are encouraged to use them.
 
 ## Cookbooks
 
-Many cookbooks Travis CI environment uses are taken from the [official OpsCode cookbooks repository](https://github.com/opscode/cookbooks).
+Many cookbooks Travis CI environment uses are taken from the [official OpsCode cookbooks repository](https://github.com/opscode-cookbooks).
 We modify some of them for continuous integration needs and sync them periodically or as the need arises.
 
 * [Build essentials](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/build-essential): gcc,autotools, make, bison and so on
