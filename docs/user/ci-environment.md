@@ -410,6 +410,6 @@ Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are
 encouraged to use them.
 
 Many cookbooks Travis CI environment uses are taken from the [official Opscode
-cookbooks repository](https://github.com/opscode/cookbooks). We modify some of
+cookbooks repository](https://github.com/opscode-cookbooks). We modify some of
 them for continuous integration needs and sync them periodically or as the need
 arises.
