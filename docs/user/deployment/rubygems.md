@@ -37,7 +37,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 ## Pre-releasing
 
-Instead of releasing for each new version of your gem, you can have Travis CI create a [prelease](http://guides.rubygems.org/patterns/#prerelease-gems) for each build.
+Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns/#prerelease_gems) for each build.
 
 This gives your gem's users the option to download a newer, possibly more unstable version of your gem.
 
