@@ -10,18 +10,27 @@ This guide covers build environment and configuration topics specific to Scala p
 
 ## Overview
 
-Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.4, Maven 3, Ant and flexible SBT (..., 0.10, 0.11, 0.12,...) through sbt-extras script. Thanks to SBT ability to perform actions against multiple Scala versions, it is possible to test your projects against Scala 2.8.x, 2.9.x and 2.10.x. To specify Scala versions you want your project to be tested against, use the `scala` key:
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/docs/user/languages/java/#Overview) and [sbt](http://www.scala-sbt.org).
+
+## Projects using sbt
+
+If your project has `project` directory or `build.sbt` file in the repository root, Travis Scala builder will use `sbt` to build it.
+
+Thanks to [paulp/sbt-extras](https://github.com/paulp/sbt-extras) the sbt version of your project is dynamically detected and used.
+
+### Choosing Scala versions to test against
+
+Thanks to sbt ability to perform actions against multiple Scala versions, it is possible to test your projects against different Scala versions. To specify Scala versions you want your project to be tested against, use the `scala` key, for example:
 
     language: scala
     scala:
-       - 2.8.2
-       - 2.9.2
+       - 2.9.3
+       - 2.10.2
+       - 2.10.3-RC3
 
-## Projects Using SBT
+### Default Test Command
 
-###Default Test Command
-
-If your project has `project` directory or `build.sbt` file in the repository root, Travis Scala builder will use SBT to build it. By default, it will use
+By default, Travis will use
 
     sbt ++$TRAVIS_SCALA_VERSION test
 
@@ -29,58 +38,44 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ### Dependency Management
 
-Because Travis Scala builder assumes SBT dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
+Because Travis Scala builder assumes sbt dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
 
-## Projects Using Gradle
+### Custom sbt Arguments
 
-###Default Test Command
+Most of the time, Travis default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/jvmopts.erb) options should work fine.
 
-If your project has `build.gradle` file in the repository root, Travis Scala builder will use Gradle to build it. By default, it will use
+If needed, you can override SBT and JVM options in [many different ways](https://github.com/paulp/sbt-extras#sbt--h) by passing extra arguments to `sbt`.
+For example
 
-    gradle check 
+    script:
+      - sbt -jvm-opts travis/jvmopts.compile ... compile
+      - sbt -jvm-opts travis/jvmopts.test ... test
 
-to run your test suite.
+will then run `compile` and `test` with different JVM parameters.
 
-### Dependency Management
+With `sbt_args` key in your `.travis.yml`, you also can specify [extra arguments](https://github.com/paulp/sbt-extras#sbt--h) to be passed to the default build script.
+For example
 
-It naturally will pull down project dependencies before running tests without any effort on your side.
+    sbt_args: -no-colors -J-Xss2m
 
-## Projects Using Maven
+will generate
 
-###Default Test Command
+    script: sbt -no-colors -J-Xss2m ++$TRAVIS_SCALA_VERSION test
 
-If Travis did not detect SBT or Gradle files, Travis Scala builder will use Maven to build it. By default it will use
- 
-    mvn test
 
-to run your test suite.
+## Projects Using Gradle, Maven or Ant
 
-### Dependency Management
-
-It naturally will pull down project dependencies before running tests without any effort on your side.
+If your project is not configured for sbt, the build process behaves like a typical [Java Project](/docs/user/languages/java).
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
-
-    jdk:
-      - oraclejdk7
-      - openjdk6
-
-To test against OpenJDK 7 and Oracle JDK 7:
-
-    jdk:
-      - openjdk7
-      - oraclejdk7
-
-Travis CI provides OpenJDK 7, OpenJDK 6 and Oracle JDK 7. Sun JDK 6 is not provided and because it is EOL in November 2012,
-will not be provided.
-
-JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+As for any JVM language, it is also possible to [test against multiple JDKs](/docs/user/languages/java/#Testing-Against-Multiple-JDKs).
 
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)
+* [twitter/summingbird](https://github.com/twitter/summingbird/blob/master/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
-* [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/master/.travis.yml)
+* [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/scalaz-seven/.travis.yml)
+* [spray/spray](https://github.com/spray/spray/blob/master/.travis.yml) (using a custom [`.jvmopts`](https://github.com/spray/spray/blob/master/.jvmopts) to override Travis defaults)
 

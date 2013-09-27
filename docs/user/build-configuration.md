@@ -262,10 +262,11 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
 Scala projects specify releases they need to be tested against using `scala` key:
 
     scala:
+      - "2.11.0-M4"
+      - "2.10.2"
       - "2.9.2"
-      - "2.8.2"
 
-Travis CI relies on SBT's support for running tests against multiple Scala versions.
+Travis CI relies on sbt's support for running tests against multiple Scala versions.
 
 Learn more in our [Scala guide](/docs/user/languages/scala/).
 
