@@ -13,8 +13,8 @@ For a minimal configuration, all you need to do is add the following to your `.t
       api_key: "YOUR API KEY"
 
 However, this is almost certainly not ideal.
-Instead, you will most likely want to only release to RubyGems when you relase a new version of your gem.
-To do this, add `tags: tags` to the `on` section ofyour `.travis.yml` like so:
+Instead, you will most likely want to only release to RubyGems when you release a new version of your gem.
+To do this, add `tags: tags` to the `on` section of your `.travis.yml` like so:
 
     deploy:
       provider: rubygems
