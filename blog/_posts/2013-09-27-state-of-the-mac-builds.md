@@ -16,3 +16,5 @@ We've seen this very issue show up more often lately, and while we haven't found
 Unrelated to this issue, we will be having some downtime for the Mac infrastructure tomorrow, September 28th 2013 at [5:30 PM CEST](http://everytimezone.com/#2013-9-28,210,6bj). Our infrastructure provider is moving to a different data center, which means we'll have to take the Mac builders offline when they are being moved. We expect the move to take no longer than two hours. We'll stop accepting new Mac builds at 5:30 PM and then let the existing ones finish until 6:00 PM, at which point we'll take the workers offline and begin the move.
 
 We are also working on getting the VMs' version of Mac OS X updated so we can install Xcode 5 and allow building iOS 7 projects. Stay tuned!
+
+**Update**: Our Mac infrastructure provider will be performing some additional upgrades tomorrow at [7:00 PM CEST](http://everytimezone.com/#2013-9-29,300,6bj). The downtime should not be longer than two hours, although we're aiming for a much shorter downtime than that.
