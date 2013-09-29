@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to PHP pro
 
 ## Choosing PHP versions to test against
 
-PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP vesions installed on the VM. A minimalistic .travis.yml file would look like this:
+PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM. A minimalistic `.travis.yml` file would look like this:
 
     language: php
     php:
