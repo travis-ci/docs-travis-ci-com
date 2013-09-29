@@ -13,6 +13,8 @@ Continuous Deployment to the following providers are currently supported out of 
 * [OpenShift](/docs/user/deployment/openshift)
 * [cloudControl](/docs/user/deployment/cloudcontrol)
 * [RubyGems](/docs/user/deployment/rubygems)
+* [PyPI](/docs/user/deployment/pypi)
+* [NPM](/docs/user/deployment/npm)
 * [Custom deployment via after_success hook](/docs/user/deployment/custom)
 
 ### Other Providers
