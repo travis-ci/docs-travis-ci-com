@@ -59,6 +59,19 @@ or it will not be able to connect to the server running on the VM.
 
 [identified-tunnels]: https://saucelabs.com/docs/connect#tunnel-identifier
 
+How this looks will depend on the client library you're using, in
+Ruby's [selenium-webdriver][ruby-bindings] bindings:
+
+    caps = Selenium::WebDriver::Remote::Capabilities.firefox({
+      'tunnel-identifier' => ENV['TRAVIS_JOB_NUMBER']
+    })
+    driver = Selenium::WebDriver.for(:remote, {
+      url: 'http://username:access_key@ondemand.saucelabs.com/wd/hub',
+      desired_capabilities: caps
+    })
+
+[ruby-bindings]: https://code.google.com/p/selenium/wiki/RubyBindings
+
 ## Firefox
 
 Our VMs come preinstalled with some recent version of Firefox, but sometimes you
