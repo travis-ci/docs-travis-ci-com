@@ -401,7 +401,7 @@ the release.
 The Travis CI environment is set up using [Opscode
 Chef](http://www.opscode.com/chef/). All the [cookbooks used by
 travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment)
-are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu
+are open source and can be found on GitHub. travis-ci.org uses 64-bit Ubuntu
 Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or
 another distribution is much easier.
 
