@@ -51,6 +51,14 @@ all you need to add to your .travis.yml file is this:
 
 [encryption-keys]: http://about.travis-ci.org/docs/user/encryption-keys/
 
+To allow multiple tunnels to be open simultaneously, Travis CI opens a
+Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
+the `TRAVIS_JOB_NUMBER` environment variable when you are opening the connection
+to Sauce Labs' selenium grid, as the desired capability `tunnel-identifier`,
+or it will not be able to connect to the server running on the VM.
+
+[identified-tunnels]: https://saucelabs.com/docs/connect#tunnel-identifier
+
 ## Firefox
 
 Our VMs come preinstalled with some recent version of Firefox, but sometimes you
