@@ -4,7 +4,7 @@ layout: en
 permalink: npm/
 ---
 
-Travis CI can automatically release your NPM package to [NPM](https://npmjs.org/) after a successful build.
+Travis CI can automatically release your NPM package to [npmjs.org](https://npmjs.org/) after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
@@ -98,12 +98,7 @@ The available conditions are:
 * **all_branches** - when set to true, trigger release from any branch if passing
 * **branch** - branch or list of branches to release from if passing
 * **condition** - custom condition or list of custom conditions
-* **jdk** - jdk version to release from if passing
 * **node** - nodejs version to release from if passing
-* **perl** - perl version to release from if passing
-* **php** - php version to release from if passing
-* **python** - python version to release from if passing
-* **ruby** - ruby version to release from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
 
 ### Running commands before and after release
