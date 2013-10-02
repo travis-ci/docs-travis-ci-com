@@ -59,8 +59,10 @@ You can cache arbitrary directories between builds by listing them in your *.tra
 
     cache:
       directories:
-      - vendor/something
       - .autoconf
+      - $HOME/.m2
+
+As you can see, it is also possible to use environment variables in the directories.
 
 The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
 
