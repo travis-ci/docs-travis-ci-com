@@ -37,6 +37,22 @@ If you have [custom Bundler arguments](/docs/user/languages/ruby/#Custom-Bundler
 
 Otherwise it will automatically add the *--path* option. In this case it will either use the value of the environment variable *BUNDLE_PATH* or, if it is missing, *vendor/bundle*.
 
+#### With a custom install step
+
+Bundler caching will not automatically work if you override the install step. You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
+    language: ruby
+    install: bundle install --without development --deployment
+    cache:
+      directories:
+      - vendor/bundle
+
+In the above example, you could also omit the install step and instead define [bundler_args](/docs/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
+
+    language: ruby
+    bundler_args: --without development --deployment
+    cache: bundler
+
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
