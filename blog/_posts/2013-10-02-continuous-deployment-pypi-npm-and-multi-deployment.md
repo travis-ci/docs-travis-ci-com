@@ -1,9 +1,9 @@
 ---
-title: Big News for Continuous Deployment
+title: Continuous Deployment: PyPI, NPM and Multi Deployment
 created_at: Wed 2 Oct 2013 19:15:00 CET
 author: Aaron Hill
 layout: post
-permalink: blog/2013-10-02-big-news-for-continuous-deployment
+permalink: blog/2013-10-02-continuous-deployment-pypi-npm-and-multi-deployment
 ---
 
 Recently, we've been adding new providers and other goodies to our continuous deployment.
