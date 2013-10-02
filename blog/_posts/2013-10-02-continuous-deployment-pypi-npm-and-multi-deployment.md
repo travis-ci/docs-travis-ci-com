@@ -1,5 +1,5 @@
 ---
-title: Continuous Deployment: PyPI, NPM and Multi Deployment
+title: "Continuous Deployment: PyPI, NPM and Multi Deployment"
 created_at: Wed 2 Oct 2013 19:15:00 CET
 author: Aaron Hill
 layout: post
