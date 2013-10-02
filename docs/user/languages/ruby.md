@@ -171,10 +171,13 @@ you need to add some matrix excludes (described in our general [Build Configurat
       - oraclejdk7
     matrix:
       exclude:
-    - rvm: 1.9.2
-      jdk: openjdk7
-    - rvm: 1.9.2
-      jdk: oraclejdk7
+        - rvm: 1.9.2
+          jdk: openjdk6
+        - rvm: 1.9.2
+          jdk: openjdk7
+        - rvm: 1.9.2
+          jdk: oraclejdk7
+
 
 
 For example, see [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
