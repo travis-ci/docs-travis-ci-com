@@ -61,7 +61,7 @@ That's it!
 Again, if you've installed [our command line tool](http://github.com/travis-ci/travis),
 you can simply run the following in a clone of your repository:
 
-    $ travis setup pypi
+    $ travis setup npm
 
 # Allowing Deployment Failures
 
