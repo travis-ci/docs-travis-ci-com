@@ -10,7 +10,7 @@ layout: blog
           {% for gravatar_pair in site.gravatars %}
             {% for gravatar in gravatar_pair %}
               {% if gravatar[0] == post.twitter %}
-                <img src="https://secure.gravatar.com/avatar/{{ gravatar[1] }}"/>
+                <img src="https://secure.gravatar.com/avatar/{{ gravatar[1] }}" alt="{{ post.author }}'s Gravatar"/>
               {% endif %}
             {% endfor %}
           {% endfor %}
