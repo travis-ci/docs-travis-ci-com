@@ -74,13 +74,6 @@ Travis CI Environment has Perls installed via Perlbrew in non-privileged user $H
 being installed in unexpected (for Travis CI Perl builder) locations and they won't load.
 
 
-
-## Network-local CPAN Mirror
-
-Travis CI has a network-local CPAN mirror at [cpan.mirrors.travis-ci.org](http://cpan.mirrors.travis-ci.org/) and `PERL_CPANM_OPT` is configured to use
-it.
-
-
 ## Examples
 
 * [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)
