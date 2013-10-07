@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.6, Maven 3.0 and Ant 1.8. Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
+Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 7, Gradle 1.8, Maven 3.1 and Ant 1.8. Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
 
     language: java
 
