@@ -60,6 +60,16 @@ By default, Travis CI will only release from the **master** branch.
 
 Builds triggered from Pull Requests will never trigger a release.
 
+### Releasing to a different index:
+
+If you wish to release to a different index you can do so:
+
+    deploy:
+          provider: pypi
+          user: ...
+          password:...
+          server: https://mypackageindex.com/index
+
 ### Releasing build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
@@ -102,6 +112,7 @@ available conditions are:
 * **condition** - custom condition or list of custom conditions
 * **python** - python version to release from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
+* **server** - the index server to deploy to. it defaults to PyPi.
 
 ### Running commands before and after release
 
