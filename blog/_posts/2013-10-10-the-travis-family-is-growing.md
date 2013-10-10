@@ -1,10 +1,10 @@
 ---
 title: "The Travis family is growing!"
-created_at: Wed 2 Oct 2013 19:15:00 CET
+created_at: Thur 10 Oct 2013 17:00:00 CET
 author: Josh Kalderimis
 twitter: j2h
 layout: post
-permalink: blog/2013-10-09-the-travis-family-is-growing
+permalink: blog/2013-10-10-the-travis-family-is-growing
 ---
 
 We've recently made some exciting additions to the Travis family and we thought that called for some introductions. With our new teammates settled in, we're getting pretty excited about the growth of Travis and the new things to come! They've got big things planned for Travis' future.
