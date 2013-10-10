@@ -101,7 +101,7 @@ We love open source and giving back to the community, and with the help of [Anik
 
 </div>
 
-While at Eurucamp this year we were lucky to have run into [Justine](https://twitter.com/saltinejustine) who was speaking about how designers and developers can work better together. Justine is an awesome designer and helped build sites like [Git Immersion](http://gitimmersion.com/), ScotRuby Conf 2012, and JRuby Conf 2011, just to name a few. She will be at the core of helping make Travis CI awesome, plain and simple!
+While at [eurucamp](http://2013.eurucamp.org/) this year we were lucky to have run into [Justine](https://twitter.com/saltinejustine) who was speaking about how designers and developers can work better together. Justine is an awesome designer and helped build sites like [Git Immersion](http://gitimmersion.com/), ScotRuby Conf 2012, and JRuby Conf 2011, just to name a few. She will be at the core of helping make Travis CI awesome, plain and simple!
 
 <br><br>
 
