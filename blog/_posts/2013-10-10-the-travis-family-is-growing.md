@@ -1,13 +1,13 @@
 ---
-title: "The Travis family is growing!"
+title: "The Travis CI family is growing!"
 created_at: Thur 10 Oct 2013 17:00:00 CET
 author: Josh Kalderimis
 twitter: j2h
 layout: post
-permalink: blog/2013-10-10-the-travis-family-is-growing
+permalink: blog/2013-10-10-the-travis-ci-family-is-growing
 ---
 
-We've recently made some exciting additions to the Travis family and we thought that called for some introductions. With our new teammates settled in, we're getting pretty excited about the growth of Travis and the new things to come! They've got big things planned for Travis' future.
+We've recently made some exciting additions to the Travis CI family and we thought that called for some introductions. With our new teammates settled in, we're getting pretty excited about the growth of Travis CI and the new things to come! They've got big things planned for Travis CI's future.
 
 
 #Piotr Sarnacki
@@ -38,7 +38,7 @@ We've recently made some exciting additions to the Travis family and we thought 
 
 </div>
 
-[Piotr](https://twitter.com/drogus) is not only a Rails and Ember contributor, but also a Polish Nicholas Cage impersonator! He started working for Travis as an [open source intern from Engine Yard](/blog/2012-10-22-engine-yard-sponsors-piotr-sarnacki-to-work-on-travis/), but has since joined us full time working on everything from our web UI, our API, and everything inbetween. Piotr has been instrumental is helping Travis scale, adding great new features, and generally making Travis more and more awesome every day.
+[Piotr](https://twitter.com/drogus) is not only a Rails and Ember contributor, but also a Polish Nicholas Cage impersonator! He started working for Travis CI as an [open source intern from Engine Yard](/blog/2012-10-22-engine-yard-sponsors-piotr-sarnacki-to-work-on-travis/), but has since joined us full time working on everything from our web UI, our API, and everything inbetween. Piotr has been instrumental is helping Travis CI scale, adding great new features, and generally making Travis CI more and more awesome every day.
 
 <br>
 
@@ -101,7 +101,7 @@ We love open source and giving back to the community, and with the help of [Anik
 
 </div>
 
-While at Eurucamp this year we were lucky to have run into [Justine](https://twitter.com/saltinejustine) who was speaking about how designers and developers can work better together. Justine is an awesome designer and helped build sites like [Git Immersion](http://gitimmersion.com/), ScotRuby Conf 2012, and JRuby Conf 2011, just to name a few. She will be at the core of helping make Travis awesome, plain and simple!
+While at Eurucamp this year we were lucky to have run into [Justine](https://twitter.com/saltinejustine) who was speaking about how designers and developers can work better together. Justine is an awesome designer and helped build sites like [Git Immersion](http://gitimmersion.com/), ScotRuby Conf 2012, and JRuby Conf 2011, just to name a few. She will be at the core of helping make Travis CI awesome, plain and simple!
 
 <br><br>
 
@@ -132,7 +132,7 @@ While at Eurucamp this year we were lucky to have run into [Justine](https://twi
    alt="Travis"/>
 </div>
 
-Who can forget Travis, our awesome mascot created by the awesome [StickerMule](https://stickermule.com). There is so much awesome rolled up in this little guys mustache we don't know where to begin! Lets just say that he will be showing his pretty face more and more around Travis over the coming months :)
+Who can forget Travis, our awesome mascot created by the awesome [StickerMule](https://stickermule.com). There is so much awesome rolled up in this little guys mustache we don't know where to begin! Lets just say that he will be showing his pretty face more and more around Travis CI over the coming months :)
 
 <br><br>
 
@@ -140,5 +140,5 @@ If you have a moment, send Piotr, Anika and Justine a hug to welcome them to the
 
 Have an great week,
 
-The Travis Team
+The Travis CI Team
 
