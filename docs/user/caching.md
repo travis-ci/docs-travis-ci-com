@@ -84,9 +84,9 @@ Sometimes you ruin your cache by storing bad data in one of the cached directori
 A network-local APT cache is available, allowing for more reliable download
 speeds compared to the Ubuntu mirrors.
 
-Simply enable add caching in your .travis.yml:
+Simply enable APT caching in your .travis.yml:
 
-cache: apt
+    cache: apt
 
 Subsequently, all Ubuntu packages will be downloaded by way of our
 cache or added to the cache for future use.
@@ -106,6 +106,9 @@ APT repository), and we'll add it for you.
 - packages.erlang-solutions.com
 
 The default Ubuntu repositories are included by default.
+
+Caching Ubuntu packages will soon be enabled by default, but we're still
+beta-testing the new cache until it is.
 
 ## Caching HTTP requests
 
