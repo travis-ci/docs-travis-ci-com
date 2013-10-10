@@ -8,7 +8,7 @@ permalink: caching/
 
 <div id="toc"></div>
 
-## Caching directories
+## Caching directories (Bundler, dependencies)
 
 Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
 
@@ -79,19 +79,37 @@ This logic works very well if branches do not modify the cache at all or modifyi
 
 Sometimes you ruin your cache by storing bad data in one of the cached directories. We are working on adding an API endpoint and option in the web interface for forcefully clearing a project's cache. In the mean time, please [shoot us an email](mailto:support@travis-ci.com) and we'll happily clear it for you.
 
+## Caching Ubuntu packages
+
+A network-local APT cache is available, allowing for more reliable download
+speeds compared to the Ubuntu mirrors.
+
+Simply enable add caching in your .travis.yml:
+
+cache: apt
+
+Subsequently, all Ubuntu packages will be downloaded by way of our
+cache or added to the cache for future use.
+
+The package repositories are currently limited to a pre-selected set. If you
+need to install packages from a repository not available in the list below,
+[please shoot us an email](mailto:support@travis-ci.com?subject=Please add this
+APT repository), and we'll add it for you.
+
+- ppa.launchpad.net
+- apt.postgresql.org
+- apt.basho.com
+- www.rabbitmq.com
+- downloads-distro.mongodb.org
+- download.oracle.com
+- archive.cloudera.com
+- packages.erlang-solutions.com
+
+The default Ubuntu repositories are included by default.
+
 ## Caching HTTP requests
 
 We have an HTTP proxy in place that can cache certain requests for you.
-
-### APT
-
-You can turn on HTTP caching for APT in your `.travis.yml`:
-
-    before_install: sudo apt-get install cowsay
-    script: cowsay moo
-    cache: apt
-
-This will proxy and cache HTTP calls made by the `apt-get install` step.
 
 ## Configuration
 
