@@ -22,6 +22,7 @@ permalink: docs/
   <a href="/docs/user/languages/haskell">Haskell</a>
   <a href="/docs/user/languages/java">Java</a>
   <a href="/docs/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
+  <a href="/docs/user/languages/objective-c">Objective-C</a>
   <a href="/docs/user/languages/perl">Perl</a>
   <a href="/docs/user/languages/php">PHP</a>
   <a href="/docs/user/languages/python">Python</a>
