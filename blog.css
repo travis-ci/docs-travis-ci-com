@@ -379,6 +379,10 @@ footer a:visited {
   text-decoration : none;
 }
 
+img.circular-radius {
+  border-radius: 100px;
+}
+
 .large-6 {
   position : relative;
   float    : left;
