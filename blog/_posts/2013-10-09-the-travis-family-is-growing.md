@@ -25,7 +25,7 @@ We've recently made some exciting additions to the Travis family and we thought 
 	             document.getElementById('piotr2').style.display='inline';" 
    alt="Piotr Sarnacki"/>
 <img 
-   src="https://www.evernote.com/shard/s266/sh/eccc1cb1-dcd6-496f-b2da-dd2034eb0aa0/b133b20dbdc2eff4d97406000799b762/deep/0/anika-hs.png" 
+   src="http://img.photobucket.com/albums/v330/pretendercrazy/piotr-an_zpsd1457662.gif" 
    width="150" 
    height="150" 
    border="0"
@@ -57,7 +57,7 @@ We've recently made some exciting additions to the Travis family and we thought 
 	             document.getElementById('anika2').style.display='inline';" 
    alt="Piotr Sarnacki"/>
 <img 
-   src="https://www.evernote.com/shard/s266/sh/620e6c1f-5d64-4392-b0f4-78403c7d48f4/ceae6cffc24ec1a30eaea45c371663b2/deep/0/piotr-hs.png" 
+   src="http://img.photobucket.com/albums/v330/pretendercrazy/anika-an_zps08e6cd05.gif" 
    width="150" 
    height="150" 
    border="0"
