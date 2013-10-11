@@ -10,7 +10,7 @@ layout: post
   <img src="http://floydpink.github.io/Mantis-CI/images/image07.png">
 </figure>
 
-A while ago, [Hari Memnon](https://twitter.com/menonHari) set out to build a
+A while ago, [Hari Menon](https://twitter.com/menonHari) set out to build a
 mobile app using PhoneGap. Luckily for our community, he started working on a
 mobile client for Travis CI.
 
