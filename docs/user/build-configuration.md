@@ -77,7 +77,7 @@ after another) or affect tools like `rake` or `mvn` that may be looking for file
 
 You can specify the main build command to run instead of the default
 
-    script: "make it-rain"
+    script: "./run-tests.sh"
 
 The script can be any executable; it doesn't have to be `make`. As a matter of fact the only requirement for the script is that it **should use an exit code 0 on success, any thing else is considered a build failure**. Also practically it should output any important information to the console so that the results can be reviewed (in real time!) on the website.
 
