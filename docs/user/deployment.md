@@ -36,7 +36,7 @@ If you want to deploy to, say, cloudControl and Heroku, your `deploy` section wo
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 
-If you contribute to or experiment with the [deploy tool](https://github.com/rkh/dpl) make sure you use the edge version from GitHub:
+If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl) make sure you use the edge version from GitHub:
 
     deploy:
       provider: awesome-experimental-provider
