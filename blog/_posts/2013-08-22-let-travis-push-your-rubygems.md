@@ -30,7 +30,7 @@ Just add `tags: true` to the `on` section of your `.travis.yml` so it looks like
         on:
             tags: true
 
-An alternative approach is to let Travis CI push pre-releases and still do manual releases yourself. Look at what our [deploy tool](https://github.com/rkh/dpl/blob/master/dpl.gemspec#L24-L26) does internally for some inspiration.
+An alternative approach is to let Travis CI push pre-releases and still do manual releases yourself. Look at what our [deploy tool](https://github.com/travis-ci/dpl/blob/master/dpl.gemspec#L24-L26) does internally for some inspiration.
 
 And you're all set!
 
@@ -38,4 +38,4 @@ This feature is immediately available to all our users including our [Travis Pro
 
 ### Is your provider still missing?
 
-If you'd like to see your provider supported on Travis CI, [contact us](mailto:support@travis-ci.org) or [fork us on Github](https://github.com/rkh/dpl).
+If you'd like to see your provider supported on Travis CI, [contact us](mailto:support@travis-ci.org) or [fork us on Github](https://github.com/travis-ci/dpl).

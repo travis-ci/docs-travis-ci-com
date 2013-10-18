@@ -82,7 +82,7 @@ For a description of all available options, check out [the documentation](/docs/
 
 ### All open source
 
-In good Travis CI tradition, all the code is of course released under MIT license on GitHub. You are more than welcome to [take a look and contribute](https://github.com/rkh/dpl).
+In good Travis CI tradition, all the code is of course released under MIT license on GitHub. You are more than welcome to [take a look and contribute](https://github.com/travis-ci/dpl).
 
 More over, since we wanted to make it easy and testable, you can even run our internal tool locally (or lo and behold, use it on your Jenkins setup):
 

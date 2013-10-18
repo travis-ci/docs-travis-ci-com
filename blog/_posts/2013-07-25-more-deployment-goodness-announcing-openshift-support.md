@@ -37,4 +37,4 @@ For more information, see [the documentation](/docs/user/deployment/openshift).
 
 If your cloud provider isn't supported by Travis CI, please [let us know](mailto:support@travis-ci.org).
 
-Or, if you're so inclined, add support yourself and [send us a pull request](https://github.com/rkh/dpl).
+Or, if you're so inclined, add support yourself and [send us a pull request](https://github.com/travis-ci/dpl).
