@@ -132,10 +132,6 @@ The default Ubuntu repositories are included by default.
 Caching Ubuntu packages will soon be enabled by default, but we're still
 beta-testing the new cache until it is.
 
-## Caching HTTP requests
-
-We have an HTTP proxy in place that can cache certain requests for you.
-
 ## Configuration
 
 ### Enabling multiple caching features
