@@ -95,14 +95,13 @@ If your test suite handles a modal dialog popup, for example, [a redirect to ano
 
 This can be fixed by applying a custom Firefox profile with the option turned off: (example is in Ruby using Capybara)
 
-```ruby
-Capybara.register_driver :selenium do |app|
+    Capybara.register_driver :selenium do |app|
 
-  custom_profile = Selenium::WebDriver::Firefox::Profile.new
+      custom_profile = Selenium::WebDriver::Firefox::Profile.new
 
-  # Turn off the super annoying popup!
-  custom_profile["network.http.prompt-temp-redirect"] = false
+      # Turn off the super annoying popup!
+      custom_profile["network.http.prompt-temp-redirect"] = false
 
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
-end
-```
+      Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
+    end
+
