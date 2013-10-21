@@ -86,3 +86,23 @@ Here's an example rake task that runs Rspec, Jasmine, and Cucumber tests:
     end
 
 In this example, both Jasmine and Cucumber need the display port, because they both use real browsers. Rspec would run without it, but it does no harm to set it.
+
+## Troubleshooting
+
+### Selenium and Firefox popups
+
+If your test suite handles a modal dialog popup, for example, [a redirect to another location](https://support.mozilla.org/en-US/questions/792131), then you may need to add a custom profile so that the popup is suppressed.
+
+This can be fixed by applying a custom Firefox profile with the option turned off: (example is in Ruby using Capybara)
+
+```ruby
+Capybara.register_driver :selenium do |app|
+
+  custom_profile = Selenium::WebDriver::Firefox::Profile.new
+
+  # Turn off the super annoying popup!
+  custom_profile["network.http.prompt-temp-redirect"] = false
+
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
+end
+```
