@@ -91,11 +91,11 @@ we'll see about adding your custom source to our cache.
 ### Fetching and storing caches
 
 * We fetch the repo's cache on every build, including feature branches and pull requests.
-* There is one cache per repository and language version/compiler version/JDK version/Gemfile location/etc.
-* All branches use the same cache.
-* Only modifications made to the cached directories from normal pushes to the master branch are stored.
+* There is one cache per branch and language version/compiler version/JDK version/Gemfile location/etc.
+* If a branch does not have its own cache yet, it will fetch the master branch cache.
+* Only modifications made to the cached directories from normal pushes are stored.
 
-This logic works very well if branches do not modify the cache at all or modifying the cache is generally cheaper than creating it from scratch. Newly created branches can thus instantly use the cache from master without polluting it for other branches.
+Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
 ### Clearing Caches
 
