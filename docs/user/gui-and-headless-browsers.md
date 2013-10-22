@@ -10,7 +10,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 ## Using Sauce Labs
 
-[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to over 150 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
+[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to over 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
 
 Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/docs/user/addons/#Sauce-Connect) makes this easy, just add this to your .travis.yml:
 
