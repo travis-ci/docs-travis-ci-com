@@ -718,14 +718,16 @@ hr {
 body form input.st-search-input {
   background-color      : #f2f2f2;
   display               : inline-block;
-  width                 : 190px;
+  width                 : 253px;
   height                : 24px;
-  padding               : 3px 7px;
+  padding               : 3px 7px 3px 27px;
   margin-right          : 6px;
   border                : none 0px;
   -moz-border-radius    : 5px;
   -webkit-border-radius : 5px;
   border-radius         : 5px;
+  -webkit-box-shadow    : none;
+  box-shadow            : none;
 }
 
 input[type=email] {
