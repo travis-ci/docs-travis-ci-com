@@ -8,6 +8,40 @@ permalink: gui-and-headless-browsers/
 
 This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/docs/user/ci-environment/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
 
+## Using Sauce Labs
+
+[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to over 150 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
+
+Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/docs/user/addons/#Sauce-Connect) makes this easy, just add this to your .travis.yml:
+
+    addons:
+      sauce_connect:
+        username: "Your Sauce Labs username"
+        access_key: "Your Sauce Labs access key"
+
+You can [encrypt your access key](/docs/user/encryption-keys/), if you want to.
+
+Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#Starting-a-Web-Server) below for more information on how to do that.
+
+Finally, you need to configure your Selenium tests to run on Sauce Labs instead of locally. This is done using a [Remote WebDriver](https://code.google.com/p/selenium/wiki/RemoteWebDriver). The exact code depends on what tool/platform you're using, but for Python it would look like this:
+
+    username = os.environ["SAUCE_USERNAME"]
+    access_key = os.environ["SAUCE_ACCESS_KEY"]
+    capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
+    hub_url = "%s:%s@localhost:4445" % (username, access_key)
+    driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="http://%s/wd/hub" % hub_url)
+
+The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
+
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/docs/user/ci-environment/#Environment-variables) for more ways to detect if you're running on Travis CI).
+
+To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
+
+    capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
+    capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
+
+For travis-web, our very own website, we use Sauce Labs to run browser tests on multiple browsers. We use environment variables in our [.travis.yml](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15) to split up the build into multiple jobs, and then pass the desired browser into Sauce Labs using [desired capabilities](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13). On the Travis CI side, it ends up looking like [this](https://travis-ci.org/travis-ci/travis-web/builds/12857641).
+
 ## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
 
 You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
