@@ -1,5 +1,5 @@
 ---
-title: GUI & Headless browser testing on travis-ci.org
+title: GUI & Headless browser testing
 layout: en
 permalink: gui-and-headless-browsers/
 ---
