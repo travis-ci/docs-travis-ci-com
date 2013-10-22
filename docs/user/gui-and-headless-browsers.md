@@ -40,6 +40,8 @@ To make the test results on Sauce Labs a little more easy to navigate, you may w
     capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
     capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
 
+For travis-web, our very own website, we use Sauce Labs to run browser tests on multiple browsers. We use environment variables in our [.travis.yml](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15) to split up the build into multiple jobs, and then pass the desired browser into Sauce Labs using [desired capabilities](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13). On the Travis CI side, it ends up looking like [this](https://travis-ci.org/travis-ci/travis-web/builds/12857641).
+
 ## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
 
 You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
