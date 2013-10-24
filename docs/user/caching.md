@@ -1,5 +1,5 @@
 ---
-title: Caching
+title: Caching Dependencies and Directories
 layout: en
 permalink: caching/
 ---
