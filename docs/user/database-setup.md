@@ -1,5 +1,5 @@
 ---
-title: Databases and other services in the Travis CI Environment
+title: Databases and other services
 layout: en
 permalink: database-setup/
 ---
