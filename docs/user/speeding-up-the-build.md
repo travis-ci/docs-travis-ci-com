@@ -76,6 +76,8 @@ jobs.
 ## Caching the dependencies
 
 Installing the dependencies for a project can take quite some time for bigger projects. In
-order to make it faster, you may try caching the dependencies to S3. If you use
-Ruby with Bundler check out [the great WAD project](https://github.com/Fingertips/WAD). For
-other languages, you can use s3 tools directly to upload and download the dependencies.
+order to make it faster, you may try caching the dependencies.
+
+You can either use our [built-in caching](/docs/user/caching/) or roll your own on S3. If you
+want to roll your own and you use Ruby with Bundler, check out [the great WAD project](https://github.com/Fingertips/WAD).
+For other languages, you can use s3 tools directly to upload and download the dependencies.
