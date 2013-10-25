@@ -20,7 +20,7 @@ To do this, add `tags: tags` to the `on` section of your `.travis.yml` like so:
       provider: rubygems
       api_key: "YOUR API KEY"
       on:
-        - tags: true
+        tags: true
 
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -145,6 +145,7 @@ available conditions are:
 
 * **all_branches** - when set to true, trigger release from any branch if passing
 * **branch** - branch or list of branches to release from if passing
+* **tags** - when set to true, Travis CI only deploys on tagged builds
 * **condition** - custom condition or list of custom conditions
 * **jdk** - jdk version to release from if passing
 * **node** - nodejs version to release from if passing

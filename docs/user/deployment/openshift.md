@@ -113,6 +113,7 @@ Available conditions are:
 
 * **all_branches** - when set to true, trigger deploy from any branch if passing
 * **branch** - branch or list of branches to deploy from if passing
+* **tags** - when set to true, Travis CI only deploys on tagged builds
 * **condition** - custom condition or list of custom conditions
 * **jdk** - JDK version to deploy from if passing
 * **node** - NodeJS version to deploy from if passing
