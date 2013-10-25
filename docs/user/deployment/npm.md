@@ -21,7 +21,7 @@ To do this, add `tags: true` to the `on` section of your `.travis.yml` like so:
       provider: npm
       api_key: "YOUR API KEY"
       on:
-        - tags: true
+        tags: true
 
 You can retrieve your api key by running `npm login`. Your api key will now be present in your ~/.npmrc. It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -97,6 +97,7 @@ The available conditions are:
 
 * **all_branches** - when set to true, trigger release from any branch if passing
 * **branch** - branch or list of branches to release from if passing
+* **tags** - when set to true, Travis CI only deploys on tagged builds
 * **condition** - custom condition or list of custom conditions
 * **node** - nodejs version to release from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks

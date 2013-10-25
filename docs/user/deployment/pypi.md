@@ -23,7 +23,7 @@ To do this, add `tags: tags` to the `on` section of your `.travis.yml` like so:
       user: ...
       password: ...
       on:
-        - tags: true
+        tags: true
 
 Assuming you have the Travis CI command line client installed, you can encrypt your password like this:
 
@@ -109,6 +109,7 @@ available conditions are:
 
 * **all_branches** - when set to true, trigger release from any branch if passing
 * **branch** - branch or list of branches to release from if passing
+* **tags** - when set to true, Travis CI only deploys on tagged builds
 * **condition** - custom condition or list of custom conditions
 * **python** - python version to release from if passing
 * **repo** - only trigger a build for the given repository, to play nice with forks
