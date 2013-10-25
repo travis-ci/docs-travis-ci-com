@@ -1,5 +1,5 @@
 ---
-title: About OSX Travis CI Environment
+title: The OSX Build Environment
 layout: en
 permalink: osx-ci-environment/
 ---
