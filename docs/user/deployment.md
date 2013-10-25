@@ -15,6 +15,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [RubyGems](/docs/user/deployment/rubygems)
 * [PyPI](/docs/user/deployment/pypi)
 * [NPM](/docs/user/deployment/npm)
+* [S3](/docs/user/deployment/s3)
 * [Custom deployment via after_success hook](/docs/user/deployment/custom)
 
 ### Deploying to multiple Providers
