@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Objecti
 
 ## CI environment for Objective-C Projects
 
-Travis OSX VMs currently run 10.8 and have Homebrew installed.
+Travis OS X VMs currently run 10.8 and have Homebrew installed.
 
 ## Dependency Management
 

@@ -10,7 +10,7 @@ Este guia cobre tópicos específicos ao ambiente de build e configuração de p
 
 ## Ambiente de Integração Contínua para Projetos Objective-C
 
-As máquinas virtuais OSX do Travis executam atualmente 10.8 e possuem o Homebrew instalado.
+As máquinas virtuais OS X do Travis executam atualmente 10.8 e possuem o Homebrew instalado.
 
 ## Gerenciamento de Dependências
 

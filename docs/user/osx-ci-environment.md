@@ -1,5 +1,5 @@
 ---
-title: The OSX Build Environment
+title: The OS X Build Environment
 layout: en
 permalink: osx-ci-environment/
 ---

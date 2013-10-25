@@ -1,5 +1,5 @@
 ---
-title: Sobre o Ambiente OSX do Travis CI
+title: Sobre o Ambiente OS X do Travis CI
 layout: pt-BR
 permalink: osx-ci-environment/
 ---
