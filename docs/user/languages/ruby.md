@@ -18,8 +18,7 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
       - 1.9.3
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
-      - rbx-18mode
-      - rbx-19mode
+      - rbx-2.1.1
       - 1.8.7
 
 A more extensive example:
@@ -30,8 +29,7 @@ A more extensive example:
       - 1.9.2
       - jruby-18mode
       - jruby-19mode
-      - rbx-18mode
-      - rbx-19mode
+      - rbx-2.1.1
       - ruby-head
       - jruby-head
       - 1.8.7
@@ -39,14 +37,10 @@ A more extensive example:
 
 As time goes, new releases come out and we upgrade both RVM and Rubies, aliases like `1.9.3` or `jruby` will float and point to different exact versions, patch levels and so on. For full up-to-date list of provided Rubies, see our [CI environment guide](/docs/user/ci-environment/).
 
-### Rubinius: 1.8 and 1.9 modes, periodic upgrades
+### Rubinius
 
-travis-ci.org Ruby workers have two installations of Rubinius, in 1.8 and 1.9 modes, respectively. Their RVM alias names are
+[Rubinius](http://rubini.us) releases frequent updates which can be found on the Rubinius [downloads](http://rubini.us/downloads/) page. Binaries for Travis should be available for every release from 2.1.1 onwards. To test against a release of Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z specifies a Rubinius release.
 
-      - rbx-18mode
-      - rbx-19mode
-
-Both are built from the [2.0.testing branch](https://github.com/rubinius/rubinius/tree/2.0.testing) Rubinius team updates for us when they feel master becomes stable enough. This means that typically Rubinius is upgraded every 1-3 weeks.
 
 ### JRuby: C extensions support is disabled
 
