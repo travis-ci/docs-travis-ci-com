@@ -19,7 +19,7 @@ Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus 
       - "3.2"
       - "3.3"
     # command to install dependencies
-    install: "pip install -r requirements.txt --use-mirrors"
+    install: "pip install -r requirements.txt"
     # command to run tests
     script: nosetests
 
@@ -34,8 +34,8 @@ A more extensive example:
       - "3.3"
     # command to install dependencies
     install:
-      - "pip install . --use-mirrors"
-      - "pip install -r requirements.txt --use-mirrors"
+      - "pip install ."
+      - "pip install -r requirements.txt"
     # command to run tests
     script: nosetests
 
@@ -68,8 +68,8 @@ To test your project against PyPy, add "pypy" to the list of Pythons in your `.t
       - "pypy"
     # command to install dependencies
     install:
-      - pip install . --use-mirrors
-      - pip install -r requirements.txt --use-mirrors
+      - pip install .
+      - pip install -r requirements.txt
     # command to run tests
     script: nosetests 
 
