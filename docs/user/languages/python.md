@@ -101,7 +101,7 @@ By default Travis CI use `pip` to manage your project's dependencies. It is poss
 
 The exact default command is
 
-    pip install -r requirements.txt --use-mirrors
+    pip install -r requirements.txt
 
 which is very similar to what [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) uses.
 
