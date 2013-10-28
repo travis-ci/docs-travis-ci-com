@@ -53,7 +53,7 @@ By default, the worker performs the build as following:
 8. Run `after_success` or `after_failure` commands
 9. Run `after_script` commands
 
-The outcome of any of these commands (except `after_success`, `after_failure` or `after_scripts`) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
+The outcome of any of these commands (except `after_success`, `after_failure` or `after_script`) indicates whether or not this build has failed or passed. The standard Unix **exit code of "0" means the build passed; everything else is treated as failure**.
 
 Test result is exported to `TRAVIS_TEST_RESULT`, which you can use in commands run in `after_script` commands.
 
