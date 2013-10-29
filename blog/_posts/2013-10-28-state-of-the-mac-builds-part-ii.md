@@ -7,9 +7,8 @@ layout: post
 permalink: blog/2013-10-28-state-of-the-mac-builds-part-ii
 ---
 
-Hello again! [A few weeks back]
-(http://about.travis-ci.org/blog/2013-09-27-state-of-the-mac-builds/) we
-blogged about the state of the Mac cloud, and mentioned about working to get
+Hello again! [A few weeks back](http://about.travis-ci.org/blog/2013-09-27-state-of-the-mac-builds/)
+we blogged about the state of the Mac cloud, and mentioned about working to get
 iOS 7 and Xcode 5 up and running. I'd like to take a moment to review what we
 have been working on lately and how we're working on getting this live for you
 to use.
