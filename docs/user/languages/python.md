@@ -137,7 +137,6 @@ The same technique is often used to test projects against multiple databases and
 * [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
 * [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
 * [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
-* [kennethreitz/requests](https://github.com/kennethreitz/requests/blob/master/.travis.yml)
 * [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 * [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 * [MostAwesomeDude/klein](https://github.com/MostAwesomeDude/klein/blob/master/.travis.yml)
