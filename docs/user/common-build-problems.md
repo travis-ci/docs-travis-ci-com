@@ -50,16 +50,16 @@ process of your build.
     bundler_args: --without development debug
 
 
-## System: Required langauge pack isn't installed
+## System: Required language pack isn't installed
 
 The Travis build environments currently have only the en_US language pack installed. 
 If you get an error similar to : "Error: unsupported locale setting", then you may need
-to install another laguage pack during your test run.
+to install another language pack during your test run.
 
 This can be done with the follow addition to your `.travis.yml`:
 
     before_install:
       - sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 
-The above addition will reinstall the en\_US language pack, as well the the en\_DE
+The above addition will reinstall the en\_US language pack, as well as the de\_DE
 language pack.
