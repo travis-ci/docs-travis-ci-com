@@ -99,7 +99,14 @@ Currently Pull Requests will use the cache of the branch they are supposed to be
 
 ### Clearing Caches
 
-Sometimes you ruin your cache by storing bad data in one of the cached directories. We are working on adding an API endpoint and option in the web interface for forcefully clearing a project's cache. In the mean time, please [shoot us an email](mailto:support@travis-ci.com) and we'll happily clear it for you.
+Sometimes you ruin your cache by storing bad data in one of the cached directories. Currently it is not possible to clear the cache via the web interface. However, you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+
+<figure>
+  [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
+  <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
+</figure>
+
+Of course there is a [corresponding API](https://api.travis-ci.com/docs/#/repos/:owner_name/:name/caches).
 
 ## Caching Ubuntu packages
 
