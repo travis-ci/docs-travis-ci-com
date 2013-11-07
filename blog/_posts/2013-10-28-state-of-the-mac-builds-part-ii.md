@@ -31,3 +31,10 @@ these updates live much faster in the future.
 A quick note on OS X Mavericks, which was also released recently: We plan to
 support OS X Mavericks, and will start working on updating to OS X Mavericks as
 soon as we have Xcode 5 and iOS 7 testing live.
+
+**Update**: We are working with our infrastructure partner Sauce Labs on the
+final stages of bringing the Mac cloud up, including the configuration of the
+API and testing the updated OSX image. Due to this delay, the upgrade to Xcode
+5 and iOS 7 has been delayed until tomorrow, Friday November 8th. We're very
+sorry for this additional delay and will update the blog as soon as we have
+more news.
