@@ -22,6 +22,8 @@ To do this, add `tags: tags` to the `on` section of your `.travis.yml` like so:
       on:
         tags: true
 
+If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
+
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
