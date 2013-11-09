@@ -38,3 +38,7 @@ API and testing the updated OSX image. Due to this, the upgrade to Xcode 5 and
 iOS 7 has been delayed until tomorrow, Friday November 8th. We're very sorry
 for this additional delay and will update the blog as soon as we have more
 news.
+
+**Update II**: We are continuing to work with our infrastructure partner on the
+update. The setup is taking longer than expected, we anticipate the update to
+be finished over the weekend.
