@@ -491,3 +491,15 @@ You can define allowed failures in the build matrix as follows:
     matrix:
       allow_failures:
         - rvm: 1.9.3
+
+### Fast finishing
+
+If you've defined some rows in the build matrix that are allowed to fail, you might notice that the entire build won't be marked as finished until they have completed.
+Or, a build won't be marked as failed until all of the jobs have finished, even if one has already failed.
+You may want the build to finish as soon as possible.
+To enable this, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
+
+    matrix:
+      fast_finish: true
+
+Now, a build will finish as soon as a job has failed, or when the only jobs left allow failures.
