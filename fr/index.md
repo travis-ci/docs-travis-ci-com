@@ -22,7 +22,7 @@ Héberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sa
 
 travis-ci.org est né début 2011 en tant que service pour la communauté Ruby et a intégré depuis un support pour de nombreuses autres technologies.
 
-Il ne vous faut que quelques minutes pour héberger votre projet sur travis et l'exécuter : [Démarrer](/fr/docs/user/getting-started/).
+Il ne vous faut que quelques minutes pour héberger votre projet sur Travis et l'exécuter : [Démarrer](/fr/docs/user/getting-started/).
 
 ## Travis est open-source
 
