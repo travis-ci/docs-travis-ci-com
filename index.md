@@ -25,7 +25,7 @@ Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), da
 
 travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since then.
 
-[Get started](/docs/user/getting-started/), it only takes a few minutes to get your project up and running on travis!
+[Get started](/docs/user/getting-started/), it only takes a few minutes to get your project up and running on Travis!
 
 ## Travis is open source
 

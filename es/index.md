@@ -22,7 +22,7 @@ Nuestro entorno de integración continua provee de multiples runtimes (e.j Node.
 
 travis-ci.org originalmente comenzo como un servicio para la comunidad Ruby a inicios de 2011, y desde entonces se ha añadido el soporte para muchas mas técnologias.
 
-[Comenzando](/docs/user/getting-started/), ¡solo toma algunos minutos tener tu proyecto funcionando en travis!
+[Comenzando](/docs/user/getting-started/), ¡solo toma algunos minutos tener tu proyecto funcionando en Travis!
 
 ## Travis es open source
 
