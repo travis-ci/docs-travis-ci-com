@@ -16,6 +16,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [PyPI](/docs/user/deployment/pypi)
 * [NPM](/docs/user/deployment/npm)
 * [S3](/docs/user/deployment/s3)
+* [Engine Yard](/docs/user/deployment/engineyard)
 * [Custom deployment via after_success hook](/docs/user/deployment/custom)
 
 ### Deploying to multiple Providers
