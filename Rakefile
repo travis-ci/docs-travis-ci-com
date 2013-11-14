@@ -11,15 +11,15 @@ task :gen_blog_post, [:title] do |t, args|
   date_stamp       = time.strftime('%Y-%m-%d')
   permalink        = "#{date_stamp}-#{title_normalized}"
   file_name        = "#{permalink}.md"
+  file_full_path   = File.join('blog', '_posts', file_name)
+  erb              = ERB.new(template)
 
-  erb = ERB.new(template)
-
-  File.open(File.join('blog/_posts', file_name), 'w+') do |f|
+  File.open(file_full_path, 'w+') do |f|
     f.write erb.result(binding)
-    puts "blog/_posts/#{file_name} generated"
+    puts "#{file_full_path} generated"
   end
 
   if editor = ENV['VISUAL'] || ENV['EDITOR']
-    system "#{editor} blog/_posts/#{file_name}"
+    system "#{editor} #{file_full_path}"
   end
 end
