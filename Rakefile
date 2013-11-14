@@ -6,7 +6,7 @@ task :gen_blog_post, [:title] do |t, args|
   template = File.read(File.join(File.dirname(__FILE__),'templates', 'blog.erb'))
 
   title            = args.title
-  title_normalized = title.downcase.gsub(/[^a-z]/,'')
+  title_normalized = title.downcase.split.join('-').gsub(/[^a-z]-/,'')
   time             = Time.now
   date_stamp       = time.strftime('%Y-%m-%d')
   permalink        = "#{date_stamp}-#{title_normalized}"
