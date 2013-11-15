@@ -59,7 +59,7 @@ Here are all the details on what's new.
 
 **Ruby**
 
-- Ruby 2.1-pre is available.
+- Ruby 2.1.0-preview1 is available.
 - Ruby and JRuby head are now continuously up-to-date with latest changes.
 - Support for Ruby Enterprise Edition 1.8.7 2011.12 (please remember that this
   version has been declared End Of Life, and is not supported anymore in
