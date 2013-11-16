@@ -25,9 +25,11 @@ Here are all the details on what's new.
 
 - Clang has been updated to 3.3.
 
+
 **Go**
 
 - Go 1.1.2 now preinstalled and set as the default.
+
 
 **Java**
 
@@ -37,21 +39,25 @@ Here are all the details on what's new.
 - Leinigen has been updated to v2.3.1
 - Maven has ben updated to v3.1.1
 
+
 **Erlang / OTP**
 
 - Erlang releases R16B02, R16B01 are now available.
+
 
 **Node.js**
 
 - Node.js releases have been updated to 0.8.25, 0.8.26, 0.10.21, and 0.11.8.
 - For backwards compatibility, 0.8.23, 0.8.25, and 0.10.18 are still available.
 
-**PHP**:
+
+**PHP**
 
 - PHP releases have been updated to 5.3.27, 5.4.21, and 5.5.5 respectively
 - New PHP modules are available by default: kerberos, imap, imap-ssl
 
-**Python**:
+
+**Python**
 
 - Python 2.5 has been removed due to very low overall usage and breaking changes
   in pip and virtualenv.
@@ -65,7 +71,8 @@ Here are all the details on what's new.
   version has been declared End Of Life, and is not supported anymore in
   production)
 
-**Scala**:
+
+**Scala**
 
 - Scala 2.10.3 is set as the new default.
 - sbt 0.13.0 is set as new default, but [other releases can be specified in your build configuration](/docs/user/languages/scala/#Projects-using-sbt)
