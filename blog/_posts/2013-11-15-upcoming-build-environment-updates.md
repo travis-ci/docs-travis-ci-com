@@ -107,6 +107,7 @@ Here are all the details on what's new.
 - **PhantomJs: v1.9.2**
 - **Redis: v2.6.16**
 - **Riak: v1.4.2-1**
+- **Sphinx 1.10 was removed, versions 2.0.9, 2.1.3, and 2.2.1 are now available**
 
 
 ### Other changes to the build environment
