@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Objecti
 
 ## CI environment for Objective-C Projects
 
-Travis OS X VMs currently run 10.8 and have Homebrew installed.
+Travis OS X VMs currently run 10.8.5 and have Homebrew installed.
 
 ## Dependency Management
 
@@ -24,19 +24,15 @@ See [general build configuration guide](/docs/user/build-configuration/) to lear
 
 ## Default Test Script
 
-Travis CI is going to assume that your project is buildable by `xcodebuild`. However, since `xcodebuild` uses the same exit code for passing and failing tests, we have a version of [Justin Spahr-Summers](https://github.com/jspahrsummers)' [objc-build-scripts](https://github.com/jspahrsummers/objc-build-scripts) preinstalled on the VMs. The default command we will use to run the tests is
-
-    ~/travis-utils/osx-cibuild.sh
-
-The contents of this script can be found [in this Gist](https://gist.github.com/henrikhodne/73151fccea7af3201f63).
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
+Travis CI uses [xctool](https://github.com/facebook/xctool) by default to run the tests. In order for xctool to work, you need to tell it the name of your scheme and either project or workspace. For example:
 
     language: objective-c
+    xcode_project: MyNewProject.xcodeproj
+    xcode_scheme: MyNewProjectTests
 
-This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to build by running make without arguments, override the `script:` key in `.travis.yml` like this:
+You can also specify an SDK using the `xcode_sdk` variable.
+
+The build script can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to build by running make without arguments, override the `script:` key in `.travis.yml` like this:
 
     script: make
-
-## Examples
 

@@ -22,7 +22,7 @@ The environment available to test suites is known as the *Travis CI environment*
 
 ## CI environment OS
 
-travis-ci.org uses Mac OS X 10.8.2
+travis-ci.org uses Mac OS X 10.8.5
 
 ## Environment common to all VM images
 
@@ -42,7 +42,7 @@ curl, wget, OpenSSL, rsync
 
 ### Xcode
 
-Xcode 4.6.1 is installed with the iOS 6.0 and 6.1 simulators. Command Line Tools are installed as well.
+Xcode 5.0.2 is installed with the iOS 5.0, 5.1, 6.0, 6.1 and 7.0 simulators. Command Line Tools are installed as well.
 
 
 ### Runtimes
@@ -89,10 +89,10 @@ Stock Apache Maven 3.
 
 ### Ruby versions/implementations
 
-* system (1.8.7) -- You need to use `sudo` to install gems with this ruby
-* 1.9.3 (default)
+* system (1.8.7, default) -- You need to use `sudo` to install gems with this ruby
+* 1.9.3
 
-Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `/etc/profile.d/rvm.sh`.
+Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
 ### Bundler version
 
