@@ -4,7 +4,7 @@ author: Josh Kalderimis
 twitter: j2h
 created_at: Mon 18 Nov 2013 12:00:00 CEST
 layout: post
-permalink: blog/2013-11-18-ci-environment-updates
+permalink: blog/2013-11-18-upcoming-build-environment-updates
 ---
 We're preparing a rollout of fresh updates and new features for our build
 environment, and wanted to keep you in the loop on what's coming, what's
@@ -12,7 +12,7 @@ changing, and what's possibly breaking.
 
 We'll be rolling out these changes to **<https://travis-ci.org> on Wednesday,
 November 20**. The changes will be rolled out to **<https://travis-ci.com> the
-following week, on November 25**.
+following week, on November 26**.
 
 If you're having any problems after the upgrade, please [file an issue](https://github.com/travis-ci/travis-ci/issues/new) or [contact
 support](mailto:support@travis-ci.com) directly.
