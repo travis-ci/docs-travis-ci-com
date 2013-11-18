@@ -2,9 +2,9 @@
 title: Upcoming Build Environment Updates
 author: Josh Kalderimis
 twitter: j2h
-created_at: Fri 15 Nov 2013 12:00:00 CEST
+created_at: Fri 18 Nov 2013 12:00:00 CEST
 layout: post
-permalink: blog/2013-11-08-ci-environment-updates
+permalink: blog/2013-11-18-ci-environment-updates
 ---
 We're preparing a rollout of fresh updates and new features for our build
 environment, and wanted to keep you in the loop on what's coming, what's
