@@ -14,7 +14,7 @@ We'll be rolling out these changes to **<https://travis-ci.org> on Wednesday,
 November 20**. The changes will be rolled out to **<https://travis-ci.com> the
 following week, on November 25**.
 
-If you're having any problems after the upgrade, please file an issue or [contact
+If you're having any problems after the upgrade, please [file an issue](https://github.com/travis-ci/travis-ci/issues/new) or [contact
 support](mailto:support@travis-ci.com) directly.
 
 Here are all the details on what's new.
@@ -42,18 +42,18 @@ Here are all the details on what's new.
 
 **Erlang / OTP**
 
-- Erlang releases R16B02, R16B01 are now available.
+- Erlang releases 16B, 16B02, 16B01 are now available.
 
 
 **Node.js**
 
-- Node.js releases have been updated to 0.8.25, 0.8.26, 0.10.21, and 0.11.8.
+- Node.js releases have been updated to 0.8.25, 0.8.26, 0.10.22, and 0.11.8.
 - For backwards compatibility, 0.8.23, 0.8.25, and 0.10.18 are still available.
 
 
 **PHP**
 
-- PHP releases have been updated to 5.3.27, 5.4.21, and 5.5.5 respectively
+- PHP releases have been updated to 5.3.27, 5.4.22, and 5.5.6 respectively
 - New PHP modules are available by default: kerberos, imap, imap-ssl
 
 
@@ -65,6 +65,7 @@ Here are all the details on what's new.
 
 **Ruby**
 
+- Ruby versions have been updated to their latest patchlevel releases: 2.0.0-p247 and 1.9.3-p448
 - Ruby 2.1.0-preview1 is available.
 - Ruby and JRuby head are now continuously up-to-date with latest changes.
 - Support for Ruby Enterprise Edition 1.8.7 2011.12 (please remember that this
@@ -117,5 +118,5 @@ Here are all the details on what's new.
 
 ### Known Issues
 
-- At the moment, Gradle does not work with Oracle JDK 8 **on Travis CI virtual machines**. We're investigating... (TODO-JOSHK: tell me if you want more details about that point)
-- Travis CI is still equipped by default with `gcc-4.6`, but we are aware that C++11 projects need `gcc-4.8` and we are working on an update...
+- At the moment, Gradle does not work with Oracle JDK 8 **on Travis CI virtual machines**. We're investigating and should have an update soon.
+- Travis CI is still equipped by default with `gcc-4.6`, but we are aware that C++11 projects need `gcc-4.8` and we are working on an update.
