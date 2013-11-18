@@ -1,11 +1,15 @@
 ---
 title: Xcode 5 and iOS 7 now available for Mac and iOS Builds!
-created_at: Mon 18 Nov 2013 20:00:00 CET
+created_at: Mon 19 Nov 2013 20:00:00 CET
 author: Mathias Meyer
 twitter: roidrage
 permalink: blog/2013-11-18-xcode-5-now-available-for-mac-ios-builds
 layout: post
 ---
+<figure class="smaller right">
+  <img src="http://upload.wikimedia.org/wikipedia/commons/c/c2/IOS_7_Logo.png"/>
+</figure>
+
 We're thrilled to announce that our Mac platform is now running on Mac OS X
 10.8.5, with **Xcode 5 and iOS 7** installed.
 
@@ -26,6 +30,10 @@ Happy shipping!
 If you find any issues or having troubles upgrading, file [an
 issue](https://github.com/travis-ci/travis-ci/issues/new) or [contact
 support](mailto:support@travis-ci.com).
+
+Our thanks to [Sauce Labs](http://saucelabs.com) for continuing to provide us
+with the infrastructure and the resources to get this update done and out. Much
+<3 from the Travis CI team!
 
 ### What else is new?
 
