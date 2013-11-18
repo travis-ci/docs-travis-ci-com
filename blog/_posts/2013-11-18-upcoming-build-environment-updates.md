@@ -63,7 +63,7 @@ Here are all the details on what's new.
 
 **Python**
 
-- Python 2.5 has been removed due to very low overall usage and breaking changes
+- Python 2.5 has been removed due to [very low overall usage](https://caremad.io/blog/a-look-at-pypi-downloads/) and breaking changes
   in pip and virtualenv.
 - PyPy was updated to 2.2
 
