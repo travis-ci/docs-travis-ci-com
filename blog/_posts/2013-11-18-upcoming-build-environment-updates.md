@@ -65,7 +65,7 @@ Here are all the details on what's new.
 
 - Python 2.5 has been removed due to very low overall usage and breaking changes
   in pip and virtualenv.
-
+- PyPy was updated to 2.2
 
 **Ruby**
 
