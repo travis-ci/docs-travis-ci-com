@@ -2,7 +2,7 @@
 title: Upcoming Build Environment Updates
 author: Josh Kalderimis
 twitter: j2h
-created_at: Fri 18 Nov 2013 12:00:00 CEST
+created_at: Mon 18 Nov 2013 12:00:00 CEST
 layout: post
 permalink: blog/2013-11-18-ci-environment-updates
 ---
