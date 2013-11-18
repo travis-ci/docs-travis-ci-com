@@ -94,7 +94,7 @@ Here are all the details on what's new.
   code.
 
 
-### Updates to the pre-installed database services
+### Updates to the pre-installed database services and tools
 
 - Support for **PostgreSQL 9.1, 9.2, and 9.3**. You can select the version that's
   running in your build environment in your [.travis.yml](/docs/user/addons/#PostgreSQL).
