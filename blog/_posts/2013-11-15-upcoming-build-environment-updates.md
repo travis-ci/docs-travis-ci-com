@@ -17,6 +17,10 @@ following week, on November 25**.
 If you're having any problems after the upgrade, please [file an issue](https://github.com/travis-ci/travis-ci/issues/new) or [contact
 support](mailto:support@travis-ci.com) directly.
 
+A big thank you goes to [Gilles Cornu](https://github.com/gildegoma), who's been
+helping a lot with this upgrade. He's contributed one of the biggest features
+added with this update, the ability to switch PostgreSQL versions.
+
 Here are all the details on what's new.
 
 ### Language Updates:
