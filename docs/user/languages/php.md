@@ -199,3 +199,50 @@ If you need specific version of preinstalled extension, you need to force instal
 ### Chef Cookbooks for PHP
 
 If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment).
+
+### Apache + PHP
+
+Currently Travis does not support mod_php for apache, however you can configure php-fpm for your integration tests.
+
+In your .travis.yml:
+
+    before_script:
+       - sudo apt-get install apache2 libapache2-mod-fastcgi
+       # enable php-fpm
+       - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+       - sudo a2enmod rewrite actions fastcgi alias
+       - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+       - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+       # configure apache virtual hosts
+       - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
+       - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+       - sudo service apache2 restart
+
+You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
+
+```
+<VirtualHost *:80>
+  # [...]
+
+  DocumentRoot %TRAVIS_BUILD_DIR%
+
+  <Directory "%TRAVIS_BUILD_DIR%">
+    Options FollowSymLinks MultiViews ExecCGI
+    AllowOverride All
+    Order deny,allow
+    Allow from all
+  </Directory>
+
+  # Wire up Apache to use Travis CI's php-fpm.
+  <IfModule mod_fastcgi.c>
+    AddHandler php5-fcgi .php
+    Action php5-fcgi /php5-fcgi
+    Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+    FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
+  </IfModule>
+
+  # [...]
+</VirtualHost>
+```
+
+
