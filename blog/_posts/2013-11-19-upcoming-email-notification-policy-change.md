@@ -15,6 +15,10 @@ It is important that our notifications are meaningful and helpful.
 When we change the notification policy, therefore, it is paramount that
 we keep you informed about the change well in advance.
 
+*Note* This change affects only the builds triggered by pushes
+to the repository.
+The builds initiated by pull requests are not affected.
+
 ## Current policy
 The current policy is to notify owners of the repository, as well as
 the committer and the author of the commit we test.
