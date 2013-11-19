@@ -40,7 +40,7 @@ then the owners of the repository will be notified.
 committer of the commit who are also owners of the repository will be
 notified.
 
-We will use email address on our databse.
+We will use email address on our database.
 
 ## Effective date
 This new policy is scheduled to go into effect for
