@@ -3,7 +3,10 @@ title: Welcome to Travis CI
 layout: en
 ---
 
-Travis CI is a hosted continuous integration service for the open source community. It is integrated with GitHub and offers first class support for:
+Travis CI is a hosted continuous integration and deployment service for [open
+source](https://travis-ci.org) and [private projects](https://travis-ci.com). It
+is tightly integrated with GitHub and offers first class support for these
+languages:
 
 * [C](/docs/user/languages/c)
 * [C++](/docs/user/languages/cpp)
