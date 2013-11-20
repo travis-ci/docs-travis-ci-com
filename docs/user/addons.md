@@ -77,7 +77,7 @@ Ruby's [selenium-webdriver][ruby-bindings] bindings:
 Our VMs come preinstalled with some recent version of Firefox, but sometimes you
 need a specific version to be installed. The Firefox addon allows you to specify
 any version of Firefox and the binary will be downloaded and installed before
-running you build script (as a part of the before_install stage).
+running your build script (as a part of the before_install stage).
 
 If you need version 17.0 of Firefox to be installed, add the following to your
 .travis.yml file:
@@ -98,3 +98,19 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
       hosts:
         - travis.dev
         - joshkalderimis.com
+
+## PostgreSQL
+
+Our Linux VMs come preinstalled with three versions of PostgreSQL:
+9.1 (default), 9.2 and 9.3. The PostgreSQL addon allows you to specify the
+version of PostgreSQL to be started before running your build script (as a part
+of the before_install stage).
+
+If you want to use PostgreSQL 9.3 in your tests, add the following to your
+.travis.yml file:
+
+    addons:
+      postgresql: "9.3"
+
+Please note that this addon is only compatible with our 64-bit Linux VMs,
+so this won't work on our Mac VMs.
