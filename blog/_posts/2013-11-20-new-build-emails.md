@@ -38,7 +38,7 @@ but we made the red more subtle too:
 ![](http://s3itch.paperplanes.de/buildfailed_20131115_155653.jpg)
 
 We have a lot of ideas on how to improve the emails in the future, and how to
-make them more useful to get see more immediately what's been broken, stay
+make them more useful to get better insight about what's been broken, stay
 tuned!
 
 Thank you, Jessica!
