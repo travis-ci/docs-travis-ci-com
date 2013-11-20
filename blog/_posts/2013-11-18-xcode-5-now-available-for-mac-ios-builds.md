@@ -27,7 +27,7 @@ our new platform.
 
 Happy shipping!
 
-Please not that RubyMotion is currently not available on the Mac environment,
+Please note that RubyMotion is currently not available on the Mac environment,
 we're working on bringing it back. Sorry for the inconvenience. When the Mac
 environment has been updated, RubyMotion will be available in the currently
 latest version.
