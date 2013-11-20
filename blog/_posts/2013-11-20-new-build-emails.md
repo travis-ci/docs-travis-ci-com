@@ -17,7 +17,7 @@ We're sending up to 14.000 of these emails per day, so we wanted to improve
 their overall appearance and usefulness. The latter is still a work in progress,
 but we're moving in the right direction.
 
-Thanks to [Jessica Allen](https://twitter.com/jessikaspacekat), we made a big step towards improving our communication
+Thanks to [Jessica Allen](https://twitter.com/jessicaspacekat), we made a big step towards improving our communication
 on broken builds.
 
 As you've probably noticed, we pushed these out a few weeks ago, but we still
