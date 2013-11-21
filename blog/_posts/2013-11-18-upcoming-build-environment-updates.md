@@ -38,7 +38,7 @@ Here are all the details on what's new.
 **Java**
 
 - All JDKs have been updated to their latest releases.
-- Support for Java 8 via OpenJDK 8 EA, see below for more details.
+- Support for Java 8 via OracleJDK 8 EA, see below for more details.
 - Gradle has been updated to v1.8
 - Leinigen has been updated to v2.3.1
 - Maven has ben updated to v3.1.1
@@ -118,7 +118,7 @@ Here are all the details on what's new.
 
 ### New Features
 
-- Java 8 is now available thanks to the early access releases of OpenJDK 8.
+- Java 8 is now available thanks to the early access releases of OracleJDK 8. Select `oraclejdk8` to start testing with it.
 
 
 ### Known Issues
