@@ -19,7 +19,7 @@ something back. So this is what we build for you: Meet Travis Foundation!
 
 ### Non-profit support for Open Source
 
-With [Travis Foundation](foundation.travis-ci.org) is an institution aiming to
+[Travis Foundation](foundation.travis-ci.org) is an institution aiming to
 foster the Open Source community: We'll help fund hand-picked projects, work
 towards more diversity and support amazing initiatives!
 
@@ -41,7 +41,7 @@ help set up funding for hand-picked Open Source projects. Either if it's a new
 project or an established one that needs help being continued - we want to
 support progress and amazing ideas!
 
-The first project we took on for our Open Source Grants is [RVM](rvm.io): We
+The first project we took on for our Open Source Grants is [RVM](rvm.io). We
 are happy to announce that we've secured funding for RVM for the next two
 months! This means that the current Maintainer Michal Papis can work fulltime
 on bootstrapping RVM 2.0 until mid January. This is made possible by the great
@@ -56,25 +56,21 @@ wonderful project start off.
 
 ### How you can get involved
 
-Travis Foundation is a non-profit initiative that wants to make some change,
-and since we have lots of ideas and even bigger plans for it, we are always
-looking for people to help us on that journey. So if you want to get on board,
-awesome! [Get in touch](mailto:Foundation@travis-ci.org), we'd love to hear
-from you.
+Travis Foundation is a non-profit initiative that wants to help make our
+community an even better place. Since we have lots of ideas and even bigger
+plans, we are always looking for people to help us on that journey. So if you
+want to get on board [please get in touch](mailto:Foundation@travis-ci.org),
+we'd love to hear from you.
 
 Thanks again to [PAYMILL](paymill.com) for being our launch partner and
-supporting us and our mission from the very first minute. There are some really
+supporting us and our mission from the first minute. There are some really
 great things ahead and it's time to raise our glasses (or tea pots/ coffee
 mugs/ mate bottles for that matter):
 
-May Gorby Thunderhorse and all the internet cats be with us.
-
 To the Travis Foundation and a great journey ahead!
 
-![a6esidiceaakba9](https://f.cloud.github.com/assets/1711357/1591368/28dae2b2-52a3-11e3-89fa-614f23997114.jpg)
 
-
-### CHEERS!
+### Cheers!
 
 And now ... go a head and hop on to our new and shiny Foundation Site and [read
 on about our goals, our projects, and how to contribute](foundation.travis-ci.org).
