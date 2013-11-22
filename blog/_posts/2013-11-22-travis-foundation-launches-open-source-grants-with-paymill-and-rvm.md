@@ -24,7 +24,7 @@ community, connects people and ideas.
 
 Travis CI has always been very much rooted in Open Source. Working with the
 community to build a service for the community has been one wild love and
-succes story. Since Travis CI now is an established, solid service, it is time
+success story. Since Travis CI now is an established, solid service, it is time
 to give back even more.
 
 
