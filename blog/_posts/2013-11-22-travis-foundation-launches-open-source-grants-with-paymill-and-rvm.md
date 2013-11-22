@@ -43,7 +43,7 @@ months! This means that the current Maintainer Michal Papis can work fulltime
 on bootstrapping RVM 2.0 until mid January. This is made possible by the great
 people of
 
-<a href="paymill.com"><img src="https://f.cloud.github.com/assets/1711357/1591306/6c7064c2-52a1-11e3-917d-9b3be5f40f83.png" width="300">
+<a href="http://paymill.com"><img src="https://f.cloud.github.com/assets/1711357/1591306/6c7064c2-52a1-11e3-917d-9b3be5f40f83.png" width="300"></a>
 
 who are supporting and sponsoring this project, which we are truly grateful
 for! The journey will start today and we are looking forward to see this
