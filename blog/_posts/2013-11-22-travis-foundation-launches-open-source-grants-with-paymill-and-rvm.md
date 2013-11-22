@@ -21,7 +21,7 @@ Meet Travis Foundation!
 
 ### Non-profit support for Open Source
 
-[Travis Foundation](foundation.travis-ci.org) is an institution aiming to
+[Travis Foundation](http://foundation.travis-ci.org) is an institution aiming to
 foster the Open Source community: We'll help fund hand-picked projects, work
 towards more diversity and support amazing initiatives!
 
@@ -37,13 +37,13 @@ to give back even more.
 ### Our first project
 
 After coordinating and managing [Rails Girls Summer of
-Code](railsgirlssummerofcode.org) - which was our unofficial first project we
+Code](http://railsgirlssummerofcode.org) - which was our unofficial first project we
 took on - we are now focussing on organizing Open Source Grants. This means we
 help set up funding for hand-picked Open Source projects. Either if it's a new
 project or an established one that needs help being continued - we want to
 support progress and amazing ideas!
 
-The first project we took on for our Open Source Grants is [RVM](rvm.io). We
+The first project we took on for our Open Source Grants is [RVM](http://rvm.io). We
 are happy to announce that we've secured funding for RVM for the next two
 months! This means that the current Maintainer Michal Papis can work fulltime
 on bootstrapping RVM 2.0 until mid January. This is made possible by the great
@@ -64,7 +64,7 @@ plans, we are always looking for people to help us on that journey. So if you
 want to get on board [please get in touch](mailto:Foundation@travis-ci.org),
 we'd love to hear from you.
 
-Thanks again to [PAYMILL](paymill.com) for being our launch partner and
+Thanks again to [PAYMILL](http://paymill.com) for being our launch partner and
 supporting us and our mission from the first minute. There are some really
 great things ahead and it's time to raise our glasses (or tea pots/ coffee
 mugs/ [Club-Mate bottles](http://en.wikipedia.org/wiki/Club-Mate) for that matter):
@@ -75,4 +75,4 @@ To the Travis Foundation and a great journey ahead!
 ### Cheers!
 
 Visit the Travis Foundation site and read
-on about our [goals, projects, and how to contribute](foundation.travis-ci.org).
+on about our [goals, projects, and how to contribute](http://foundation.travis-ci.org).
