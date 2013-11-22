@@ -2,7 +2,7 @@
 title: "Travis Foundation Launches Open Source Grants with Paymill and RVM"
 layout: post
 created_at: Wed 20 Nov 2013
-permalink: blog/
+permalink: blog/travis-foundation-launches
 current: blog
 author: Anika
 twitter: langziehohr
