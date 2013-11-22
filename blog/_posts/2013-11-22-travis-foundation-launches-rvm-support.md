@@ -19,7 +19,7 @@ something back. So this is what we build for you: Meet Travis Foundation!
 
 ### Non-profit support for Open Source
 
-With [Travis Foundation](foundation.travis-ci.org) is an institution aiming to
+[Travis Foundation](foundation.travis-ci.org) is an institution aiming to
 foster the Open Source community: We'll help fund hand-picked projects, work
 towards more diversity and support amazing initiatives!
 
