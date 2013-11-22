@@ -1,5 +1,5 @@
 ---
-title: "Travis Foundation launches support for RVM"
+title: "Travis Foundation Launches Open Source Grants with Paymill and RVM"
 layout: post
 created_at: Wed 20 Nov 2013
 permalink: blog/
