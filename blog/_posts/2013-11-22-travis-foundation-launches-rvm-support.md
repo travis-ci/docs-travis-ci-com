@@ -7,12 +7,14 @@ current: blog
 author: Anika
 twitter: langziehohr
 ---
-Oh my gosh, the day has come! Today we are finally revealing what we've been
-working on for the last weeks and months!
+The day has come! Today we finally reveal what we've been working on for the
+last weeks and months!
 
 It's been so amazing getting this [love and support from you
-all](love.travis-ci.org), that we thought what would be a good way of giving
-something back. So this is what we build for you: Meet Travis Foundation!
+all](love.travis-ci.org), that we thought: "What would be a good way of giving
+something back?"
+
+Meet Travis Foundation!
 
 ![](https://f.cloud.github.com/assets/1711357/1578037/5ead41b2-5174-11e3-96e1-7e9dae8580b2.png)
 
@@ -65,12 +67,12 @@ we'd love to hear from you.
 Thanks again to [PAYMILL](paymill.com) for being our launch partner and
 supporting us and our mission from the first minute. There are some really
 great things ahead and it's time to raise our glasses (or tea pots/ coffee
-mugs/ mate bottles for that matter):
+mugs/ [mate bottles](http://en.wikipedia.org/wiki/Club-Mate) for that matter):
 
 To the Travis Foundation and a great journey ahead!
 
 
 ### Cheers!
 
-And now ... go a head and hop on to our new and shiny Foundation Site and [read
-on about our goals, our projects, and how to contribute](foundation.travis-ci.org).
+Visit the Travis Foundation site and read
+on about our [goals, projects, and how to contribute](foundation.travis-ci.org).
