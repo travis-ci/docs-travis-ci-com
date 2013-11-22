@@ -7,14 +7,8 @@ current: blog
 author: Anika
 twitter: langziehohr
 ---
-The day has come! Today we finally reveal what we've been working on for the
-last weeks and months!
+Today we're launching the Travis Foundation, an initiative to improve and foster Open Source!
 
-It's been so amazing getting this [love and support from you
-all](love.travis-ci.org), that we thought: "What would be a good way of giving
-something back?"
-
-Meet Travis Foundation!
 
 ![](https://f.cloud.github.com/assets/1711357/1578037/5ead41b2-5174-11e3-96e1-7e9dae8580b2.png)
 
