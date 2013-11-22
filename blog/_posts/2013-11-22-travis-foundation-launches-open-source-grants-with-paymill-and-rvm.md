@@ -67,7 +67,7 @@ we'd love to hear from you.
 Thanks again to [PAYMILL](paymill.com) for being our launch partner and
 supporting us and our mission from the first minute. There are some really
 great things ahead and it's time to raise our glasses (or tea pots/ coffee
-mugs/ [CLub-Mate bottles](http://en.wikipedia.org/wiki/Club-Mate) for that matter):
+mugs/ [Club-Mate bottles](http://en.wikipedia.org/wiki/Club-Mate) for that matter):
 
 To the Travis Foundation and a great journey ahead!
 
