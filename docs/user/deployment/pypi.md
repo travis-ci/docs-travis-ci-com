@@ -70,6 +70,19 @@ If you wish to release to a different index you can do so:
           password:...
           server: https://mypackageindex.com/index
 
+### Uploading different distributions
+
+By default, only a source distribution ('sdist') will be uploaded to PyPI.
+If you would like to upload different distributions, specify them using the `distributions` option, like this:
+
+    deploy:
+      provider: pypi
+      user: ...
+      password: ...
+      distributions: "sdist bdist" # Your distribtuions here
+
+If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
+
 ### Releasing build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
