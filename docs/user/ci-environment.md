@@ -153,6 +153,7 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 * Oracle JDK 7u6 (oraclejdk7)
 * OpenJDK 7 (alias: openjdk7)
 * OpenJDK 6 (openjdk6)
+* Oracle JDK 8 EA (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reaches End of Life in the fall 2012.
@@ -179,6 +180,8 @@ Gradle 1.6.
 ### Erlang/OTP releases
 
 * R16B
+* R16B01
+* R16B02
 * R15B03
 * R15B02
 * R15B01
@@ -204,7 +207,6 @@ be used instead of the preprovisioned version.
 * 0.8.x
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
-* 0.9.x (previous development, will be deprecated soon)
 
 Node runtimes are built using [NVM](https://github.com/creationix/nvm).
 
@@ -319,7 +321,6 @@ Is supported.
 
 ### Python versions
 
-* 2.5
 * 2.6
 * 2.7
 * 3.2
