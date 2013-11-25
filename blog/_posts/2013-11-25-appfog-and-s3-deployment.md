@@ -1,16 +1,16 @@
 ---
-title: "Appfog and S3 support"
+title: "Deploy to AppFog and S3!"
 author: Aaron Hill
 created_at: Mon Nov 25 2013 15:15:00 EST
 layout: post
 permalink: blog/2013-10-24-appfog-and-s3-deployment
 ---
 
-Following in the wake of PyPI and NPM support, we're happy to announce support for deploying to Appfog and Amazon S3!
+Following in the wake of PyPI and NPM support, we're happy to announce support for deploying to AppFog and Amazon S3!
 
-# Deploying to Appfog
+# Deploying to AppFog
 
-Getting started is easy. Sign up for an account with [Appfog](http://appfog.com), and create an app.
+Getting started is easy. Sign up for an account with [AppFog](http://appfog.com), and create an app.
 
 Once your app is set up, simply add the following to your `.travis.yml`:
 
@@ -39,7 +39,7 @@ Once your bucket is set up, just add this to your `.travis.yml`:
       secret-access-key: "YOUR SECRET ACCESS KEY" # should be encrypted
       bucket: "YOUR S3 BUCKET NAME"
 
-As with Appfog, you'll need to install [our command line client](http://github.com/travis-ci/travis) in order to encrypt the secret access key.
+As with AppFog, you'll need to install [our command line client](http://github.com/travis-ci/travis) in order to encrypt the secret access key.
 
 Alternatively, you can just use the `setup` command:
 
