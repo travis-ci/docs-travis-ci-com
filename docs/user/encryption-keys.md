@@ -67,7 +67,7 @@ And we're done.
 
 ### Detailed Discussion
 
-The way the secure var system works is is takes values on the format ```{ 'secure' => 'encrypted string' }``` in the (parsed YAML) configuration and replaces it with the decrypted string.
+The secure var system takes values of the form ```{ 'secure' => 'encrypted string' }``` in the (parsed YAML) configuration and replaces it with the decrypted string.
 
 So
 
