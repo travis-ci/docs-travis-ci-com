@@ -27,7 +27,6 @@ A more extensive example:
 
     language: python
     python:
-      - "2.5"
       - "2.6"
       - "2.7"
       - "3.2"
@@ -58,7 +57,6 @@ To test your project against PyPy, add "pypy" to the list of Pythons in your `.t
 
     language: python
     python:
-      - "2.5"
       - "2.6"
       - "2.7"
       - "3.2"
