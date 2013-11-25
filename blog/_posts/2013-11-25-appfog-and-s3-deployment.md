@@ -3,7 +3,7 @@ title: "Deploy to AppFog and S3!"
 author: Aaron Hill
 created_at: Mon Nov 25 2013 15:15:00 EST
 layout: post
-permalink: blog/2013-10-24-appfog-and-s3-deployment
+permalink: blog/2013-11-25-appfog-and-s3-deployment
 ---
 
 Following in the wake of PyPI and NPM support, we're happy to announce support for deploying to AppFog and Amazon S3!
