@@ -10,7 +10,9 @@ This guide covers build environment and configuration topics specific to Python 
 
 ## Choosing Python versions to test against
 
-Python workers on travis-ci.org use default Ubuntu/Debian apt repositories plus [Dead Snakes PPA](https://launchpad.net/~fkrull/+archive/deadsnakes) to provide several Python versions your projects can be tested against. To specify them, use `python:` key in your `.travis.yml` file, for example:
+Travis CI support Python versions 2.6, 2.7, 3.2 and 3.3. While 2.7 is based on
+the default Ubuntu package, the other three are pulled from the [Dead Snakes
+PPA](https://launchpad.net/~fkrull/+archive/deadsnakes).
 
     language: python
     python:
