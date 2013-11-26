@@ -7,7 +7,7 @@ permalink: blog/2013-11-26-test-your-java-libraries-on-java-8
 layout: post
 ---
 <figure class="right smaller">
-  <img src="http://ecx.images-amazon.com/images/I/51nSBnJw2xL.jpg"/>
+  <img src="http://www.eclipse.org/xtend/images/java8_logo.png"/>
 </figure>
 
 [Java 8](https://jdk8.java.net) is close to general availability and being
@@ -42,7 +42,9 @@ JRuby is already testing on JDK 8, now it's your turn!
 
 To find out about all the goodness included in Java 8, [TechEmpower has a great
 blog post with lots of
-detail](http://www.techempower.com/blog/2013/03/26/everything-about-java-8/).
+detail](http://www.techempower.com/blog/2012/03/26/everything-about-java-8/) and
+here's a [great list of resources on lambdas and
+streams](http://javarevisited.blogspot.ca/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html#more).
 
 Java 8 Early Access SDKs are available on [travis-ci.org](https://travis-ci.org)
 today, and we'll have it available on [travis-ci.com](https://travis-ci.com)
