@@ -39,7 +39,7 @@ feedback](http://bugreport.sun.com/bugreport/), be it bugs, issues, or success
 stories. For deeper discussion, make sure to follow the [JDK
 8](http://mail.openjdk.java.net/mailman/listinfo/jdk8-dev) mailing list
 
-JRuby is already testing on JDK 8, now it's your turn!
+[JRuby](https://travis-ci.org/jruby/jruby) is already testing on JDK 8, now it's your turn!
 
 To find out about all the goodness included in Java 8, [TechEmpower has a great
 blog post with lots of
