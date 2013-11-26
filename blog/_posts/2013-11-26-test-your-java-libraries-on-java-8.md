@@ -43,7 +43,7 @@ stories. For deeper discussion, make sure to follow the [JDK
 
 To find out about all the goodness included in Java 8, [TechEmpower has a great
 blog post with lots of
-detail](http://www.techempower.com/blog/2012/03/26/everything-about-java-8/) and
+detail](http://www.techempower.com/blog/2013/03/26/everything-about-java-8/) and
 here's a [great list of resources on lambdas and
 streams](http://javarevisited.blogspot.ca/2013/11/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html#more).
 
