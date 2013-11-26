@@ -16,7 +16,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
 However, this is almost certainly not ideal.
 Instead, you will most likely want to only release to PyPI when you release a new version of your package.
-To do this, add `tags: tags` to the `on` section of your `.travis.yml` like so:
+To do this, add `tags: true` to the `on` section of your `.travis.yml` like so:
 
     deploy:
       provider: pypi
