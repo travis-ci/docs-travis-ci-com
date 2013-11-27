@@ -29,7 +29,7 @@ To start building your projects on JDK 8, update your `.travis.yml` to include
 `oraclejdk8`:
 
     language: java
-    jvm:
+    jdk:
       - oraclejdk8
 
 This is a great opportunity to not only make sure your code runs properly on the
