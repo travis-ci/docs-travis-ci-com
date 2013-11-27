@@ -3,7 +3,7 @@ title: Fast-Finish Builds with Allowed Failures
 created_at: Wed 27 Nov 2013 12:40:00 EST
 author: Aaron Hill
 layout: post
-permalink: blog/2013-11-10-fast-finishing-builds
+permalink: blog/2013-11-27-fast-finishing-builds
 ---
 
 For a while, Travis CI has supported [allowed failures](http://about.travis-ci.org/docs/user/build-configuration/#Rows-That-are-Allowed-To-Fail) in your build matrix -
