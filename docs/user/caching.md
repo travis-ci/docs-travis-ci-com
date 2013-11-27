@@ -4,7 +4,7 @@ layout: en
 permalink: caching/
 ---
 
-***The features described here are currently only available for private repositories. These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.***
+The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**. These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
 
