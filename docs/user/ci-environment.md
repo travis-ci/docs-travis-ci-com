@@ -344,18 +344,20 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 * 2.0.0
 * 1.9.3 (default)
 * 1.9.2
-* jruby-18mode (1.7.4 in Ruby 1.8 mode)
-* jruby-19mode (1.7.4 in Ruby 1.9 mode)
-* rbx-18mode (alternative alias: rbx)
-* rbx-19mode (in Ruby 1.9 mode)
-* ruby-head  (upgraded every 3-4 weeks)
-* jruby-head (upgraded every 3-4 weeks)
+* jruby-18mode (1.7.8 in Ruby 1.8 mode)
+* jruby-19mode (1.7.8 in Ruby 1.9 mode)
+* ruby-head  (upgraded every time CI passes)
+* jruby-head (upgraded every time CI passes)
 * 1.8.7
 * ree (2012.02)
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
+
+These are only the pre-installed versions of Ruby. RVM is able to install other
+versions on demand. For example, to test against Rubinius 2.2.1, you can use
+`rbx-2.2.1` and RVM will download binaries on-demand.
 
 ### Bundler version
 

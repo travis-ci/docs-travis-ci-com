@@ -200,8 +200,7 @@ Learn more about [.travis.yml options for Python projects](/docs/user/languages/
       - "1.9.3"
       - jruby-18mode # JRuby in 1.8 mode
       - jruby-19mode # JRuby in 1.9 mode
-      - rbx-18mode
-      - rbx-19mode
+      - rbx
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 

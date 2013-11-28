@@ -251,7 +251,7 @@ Ruby projects specify releases they need to be tested against using `rvm` key:
       - "1.9.3"
       - "1.9.2"
       - jruby-19mode
-      - rbx-19mode
+      - rbx
       - jruby-18mode
       - "1.8.7"
 
@@ -282,7 +282,7 @@ You can specify more than one environment variable per item in the `env` array:
 
     rvm:
       - 1.9.3
-      - rbx-18mode
+      - rbx
     env:
       - FOO=foo BAR=bar
       - FOO=bar BAR=foo
@@ -389,7 +389,7 @@ Please take into account that Travis CI is an open source service and we rely on
       - 1.8.7 # (current default)
       - 1.9.2
       - 1.9.3
-      - rbx-18mode
+      - rbx
       - jruby
       - ruby-head
       - ree
