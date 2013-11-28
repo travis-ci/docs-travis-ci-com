@@ -48,13 +48,13 @@ Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to 
 
 ## Dependency Management (a.k.a. vendoring)
 
-Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *before_script* option in your .travis.yml, for example:
+Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *install* option in your .travis.yml, for example:
 
-    before_script: php vendor/vendors.php
+    install: php vendor/vendors.php
 
 or, if you need to run multiple commands sequentially:
 
-    before_script:
+    install:
       - ./bin/ci/install_dependencies.sh
       - php vendor/vendors.php
 
@@ -72,7 +72,7 @@ and then use ENV variable values in any later script like your dependencies inst
 
 Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 different versions of Symfony as defined above.
 
-    before_script:
+    install:
        - composer require symfony/framework-bundle:${SYMFONY_VERSION}
 
 Here we use DB variable value to pick phpunit configuration file:
