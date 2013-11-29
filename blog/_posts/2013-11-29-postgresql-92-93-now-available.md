@@ -45,3 +45,6 @@ already be up and running when your test run starts!
 
 A big thank you to [Gilles Cornu](https://github.com/gildegoma) for the hard
 work he's put into this feature!
+
+PostgreSQL 9.2 and 9.3 are available for [open source](https://travis-ci.org)
+and [private repositories](https://travis-ci.com) today!
