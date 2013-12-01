@@ -462,7 +462,7 @@ You can encrypt environment variables using public key attached to your reposito
     cd my_project
     travis encrypt MY_SECRET_ENV=super_secret
 
-Please note that secure env variables are not available for pull requests. This is done due to the security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
+Please note that secure env variables are not available for pull requests from forks. This is done due to the security risk of exposing such information in submitted code. Everyone can submit a pull request and if an unencrypted variable is available there, it could be easily displayed.
 
 You can also automatically add it to your `.travis.yml`:
 
