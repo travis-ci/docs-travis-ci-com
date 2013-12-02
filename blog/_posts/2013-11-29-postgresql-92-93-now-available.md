@@ -30,7 +30,8 @@ Being able to test against newer versions of PostgreSQL then, was long overdue!
 
 Today we're happy to ship support for three different versions, 9.1, 9.2 and
 9.3, all pulled directly from [PostgreSQL's APT
-repository](http://www.postgresql.org/download/linux/ubuntu/).
+repository](http://www.postgresql.org/download/linux/ubuntu/). All come with
+PostGIS 2.1 preinstalled and enabled!
 
 How can you start testing against different PostgreSQL versions on Travis CI?
 
