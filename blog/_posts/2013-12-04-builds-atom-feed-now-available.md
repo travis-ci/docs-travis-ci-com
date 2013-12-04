@@ -7,7 +7,7 @@ layout: post
 permalink: blog/2013-12-04-builds-atom-feed-now-available
 ---
 There are many ways to stay up-to-date with your projects' build
-results; you can visit https://travis-ci.org, or
+results; you can visit [the web site](https://travis-ci.org), or
 write your own client by using our [API](https://api.travis-ci.org/docs/).
 We have recently added another.
 You can now subscribe to the Atom feed with your favorite
