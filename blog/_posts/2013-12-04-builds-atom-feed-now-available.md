@@ -37,7 +37,7 @@ With [cURL](http://curl.haxx.se/), you can run:
 
 # Availability
 The Atom feed is available now on both
-[Travis](https://travis-ci.org) and
+[Travis CI](https://travis-ci.org) and
 [Travis Pro](https://travis-ci.com).
 
 Enjoy!
