@@ -22,7 +22,7 @@ favorite Atom Reader to the Atom feed URL:
 You can substitute `travis-ci` and `travis-core` to the repository owner
 and name of the repository you would like to subscribe to.
 
-Alternately, you can also send the HTTP `Accept: application/atom+xml`
+Alternatively, you can also send the HTTP `Accept: application/atom+xml`
 header to the above URL with or without the `.atom` extension.
 (If you do not pass this header, you will get the JSON-formatted data
 without the extension.)
