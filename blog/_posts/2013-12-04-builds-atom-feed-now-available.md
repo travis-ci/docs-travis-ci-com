@@ -33,7 +33,8 @@ without the extension.)
 
 With [cURL](http://curl.haxx.se/), you can run:
 
-    curl -H "Accept: application/atom+xml" https://api.travis-ci.org/repos/travis-ci/travis-core/builds
+    curl -H "Accept: application/atom+xml" \
+    https://api.travis-ci.org/repos/travis-ci/travis-core/builds
 
 # Availability
 The Atom feed is available now on both
