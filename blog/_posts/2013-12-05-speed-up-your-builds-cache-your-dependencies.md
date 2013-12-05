@@ -22,8 +22,9 @@ But in the end, it became clear that we need to offer something that's built-in,
 automatically caching our customers' bundles without requiring major changes to
 their build configuration.
 
-<figure class="right smaller"> <img
-src="http://s3.amazonaws.com/rapgenius/img122.jpg"/> </figure>
+<figure class="right smaller">
+  <img src="http://s3.amazonaws.com/rapgenius/img122.jpg"/>
+</figure>
 
 Today, we're officially announcing **built-in caching for dependencies**.
 
@@ -52,12 +53,15 @@ your .travis.yml:
 If you want to add the asset pipeline's compilation cache, you can specify the
 directories to cache as well:
 
-    cache: bundler: true directories:
+    cache:
+      bundler: true
+      directories:
         - tmp/assets/cache/test/sprockets
 
 For a Node.js project, simply specify the `node_modules` directory:
 
-    cache: directories:
+    cache:
+      directories:
         - node_modules
 
 The specified paths are relative to the build directory.
