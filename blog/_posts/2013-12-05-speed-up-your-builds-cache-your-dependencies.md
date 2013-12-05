@@ -1,5 +1,5 @@
 ---
-title: Speed Up Your Builds: Cache Your Dependencies
+title: "Speed Up Your Builds: Cache Your Dependencies"
 created_at: Thu 5 Dec 2013 17:00:00 CET
 author: Mathias Meyer
 twitter: roidrage
