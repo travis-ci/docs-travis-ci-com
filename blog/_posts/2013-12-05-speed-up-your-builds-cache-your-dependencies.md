@@ -83,5 +83,4 @@ For all the gory details on caching, see our [docs](/docs/user/caching/). Note
 that this feature is currently only [**available for private
 repositories**](https://travis-ci.com).
 
-We've open source the tool we're using to cache dependencies is [open
-source](https://github.com/travis-ci/casher)!
+The tool we're using to cache dependencies is [open source](https://github.com/travis-ci/casher)!
