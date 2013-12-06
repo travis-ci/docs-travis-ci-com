@@ -7,7 +7,7 @@ permalink: blog/2013-12-2-a-long-overdue-database-upgrade-heroku-postgres
 layout: post
 ---
 Last week, we shipped official support for [PostgreSQL 9.2 and 9.3 on Travis
-CI](blog/2013-11-29-postgresql-92-93-now-available/).
+CI](/blog/2013-11-29-postgresql-92-93-now-available/).
 
 In the weeks leading up to the announcements, just in time, we finished up some
 long overdue upgrades of our own infrastructure, bringing Travis CI up to par
