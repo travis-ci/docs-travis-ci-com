@@ -56,7 +56,7 @@ directories to cache as well:
     cache:
       bundler: true
       directories:
-        - tmp/assets/cache/test/sprockets
+        - tmp/cache/assets/test/sprockets
 
 For a Node.js project, simply specify the `node_modules` directory:
 
