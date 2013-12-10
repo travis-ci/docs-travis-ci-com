@@ -71,12 +71,12 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Data Stores
 
 * MySQL 5.5.x
-* PostgreSQL 9.1.x
+* PostgreSQL 9.1.x, 9.2.x and 9.3.x
 * SQLite 3.7.x
 * MongoDB 2.4.x
-* Redis 2.6.x
+* Redis 2.8.2 (on travis-ci.org, available in the Ruby, PHP and Java environments), Redis 2.6.x everywhere else
 * Riak 1.2.x
-* Apache Cassandra 1.2.x
+* Apache Cassandra 2.0.x
 * Neo4J Community Edition 1.7.x
 * ElasticSearch 0.90.x
 * CouchDB 1.3.x
@@ -89,7 +89,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/) 1.9.1
+* [PhantomJS](http://phantomjs.org/) 1.9.2
 
 ### Environment variables
 
