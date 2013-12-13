@@ -44,6 +44,11 @@ In order for Travis to build your project, you need to tell the system a little 
 
 If `.travis.yml` is not in the repository, is misspelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume Ruby as the language and use default values for everything.
 
+#### Note
+
+The `language` value is case-sensitive.
+If you set `language: C`, for example, your project will be considered a Ruby project.
+
 Here are some basic **.travis.yml** examples:
 
 
