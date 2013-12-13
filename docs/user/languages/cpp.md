@@ -66,6 +66,12 @@ Testing against two compilers will create (at least) 2 rows in your build matrix
 env variable to point to either `g++` or `clang++` and `CC` to either `gcc` or `clang`.
 
 
+## Build Matrix
+
+For C++ projects, `env` and `compiler` can be given as arrays
+to construct a build matrix.
+
+
 ## Examples
 
  * [Rubinius](https://github.com/rubinius/rubinius/blob/master/.travis.yml)

@@ -41,6 +41,12 @@ Because Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho
 
 to installs project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config).
 
+
+## Build Matrix
+
+For Erlang projects, `env` and `otp_release` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)

@@ -36,3 +36,7 @@ The build script can be overridden as described in the [general build configurat
 
     script: make
 
+## Build Matrix
+
+For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and `xcode_scheme` can be given as arrays
+to construct a build matrix.

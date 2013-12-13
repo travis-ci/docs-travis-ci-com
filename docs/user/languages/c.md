@@ -63,3 +63,8 @@ or both GCC and Clang:
 
 Testing against two compilers will create (at least) 2 rows in your build matrix. For each row, Travis CI C builder will export the `CC`
 env variable to point to either `gcc` or `clang`.
+
+## Build Matrix
+
+For C projects, `env` and `compiler` can be given as arrays
+to construct a build matrix.

@@ -134,6 +134,11 @@ and `lein2 help with-profile` to learn more about the `with-profiles` task.
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 
+## Build Matrix
+
+For Clojure projects, `env`, `lein`, and `jdk` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)

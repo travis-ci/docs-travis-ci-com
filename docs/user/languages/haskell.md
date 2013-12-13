@@ -44,6 +44,11 @@ for example:
       - cabal install QuickCheck
 
 
+## Build Matrix
+
+For Haskell projects, `env` and `ghc` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [spockz/TravisHSTest](https://github.com/spockz/TravisHSTest/blob/master/.travis.yml)

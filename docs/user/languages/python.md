@@ -132,6 +132,11 @@ and then use ENV variable values in your dependencies installation scripts, test
 
 The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
+## Build Matrix
+
+For Python projects, `env` and `python` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
