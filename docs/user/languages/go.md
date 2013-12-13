@@ -76,6 +76,11 @@ To build by running Scons without arguments, use this:
 
     script: scons
 
+## Build Matrix
+
+For Go projects, `env` and `go` can be given as arrays
+to construct a build matrix.
+
 
 ## Examples
 

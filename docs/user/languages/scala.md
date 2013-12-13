@@ -71,6 +71,11 @@ If your project is not configured for sbt, the build process behaves like a typi
 
 As for any JVM language, it is also possible to [test against multiple JDKs](/docs/user/languages/java/#Testing-Against-Multiple-JDKs).
 
+## Build Matrix
+
+For Scala projects, `env`, `scala`, and `jdk` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)

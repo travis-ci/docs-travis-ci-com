@@ -74,6 +74,11 @@ Travis CI Environment has Perls installed via Perlbrew in non-privileged user $H
 being installed in unexpected (for Travis CI Perl builder) locations and they won't load.
 
 
+## Build Matrix
+
+For Perl projects, `env` and `perl` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)

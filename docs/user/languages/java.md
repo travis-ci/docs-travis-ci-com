@@ -96,6 +96,11 @@ Travis CI provides OpenJDK 6, OpenJDK 7 and Oracle JDK 7. Sun JDK 6 is not provi
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
+## Build Matrix
+
+For Java projects, `env` and `jdk` can be given as arrays
+to construct a build matrix.
+
 ## Examples
 
 * [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)

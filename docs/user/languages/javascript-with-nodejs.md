@@ -107,3 +107,8 @@ The `before_install` script will make sure the required dependencies are install
 
 The related source code can be found at the [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages) repository.
 
+
+## Build Matrix
+
+For JavaScript/Node.js projects, `env` and `node_js` can be given as arrays
+to construct a build matrix.

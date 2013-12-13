@@ -184,3 +184,8 @@ travis-ci.org provides exactly the same versions of rubygems RVM and various Rub
     before_install:
       - gem update --system
       - gem --version
+
+## Build Matrix
+
+For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays
+to construct a build matrix.
