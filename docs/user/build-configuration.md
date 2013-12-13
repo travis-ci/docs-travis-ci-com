@@ -475,7 +475,9 @@ To make the usage of secure environment variables easier, we expose info on thei
 
 Please also note that keys used for encryption and decryption are tied to the repository. If you fork a project and add it to travis, it will have different pair of keys than the original.
 
-Since we encrypt the strings as-is, note that many strings may have to be escaped twice. For instance, if you wish to encrypt the string '\', you will have to run `travis encrypt VAR=\\\\`. Due to the way things are escaped on the command line, this means that the travis tool will see `VAR=\\` and encrypt that, and then the build script will contain `export VAR=\\`, which means that the `VAR` environment variable will end up with a single '\' in it.
+Since we encrypt the strings as-is, note that many strings may have to be escaped twice. For instance, if you wish to encrypt the string `\`, you will have to run `travis encrypt VAR=\\\\`.
+Due to the way things are escaped on the command line, this means that the travis tool will see `VAR=\\` and encrypt that, and then the build script will contain `export VAR=\\`.
+This, then, means that the `VAR` environment variable will end up with a single `\` in it.
 
 ### Rows That are Allowed To Fail
 
