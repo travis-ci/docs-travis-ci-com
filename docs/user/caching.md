@@ -135,6 +135,8 @@ APT repository), and we'll add it for you.
 - download.oracle.com
 - archive.cloudera.com
 - packages.erlang-solutions.com
+- repo.varnish-cache.org
+- packages.ros.org
 
 The default Ubuntu repositories are included by default.
 
