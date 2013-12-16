@@ -34,10 +34,10 @@ For inspiration, check out
 [support](https://github.com/EllisLab/CodeIgniter/pull/2766)
 [for](https://github.com/j4mie/idiorm/pull/168)
 [HipHop](https://github.com/sebastianbergmann/phpunit/pull/1072)
-[VM](https://github.com/j4mie/paris/pull/81) [in]() their build matrix.
+[VM](https://github.com/j4mie/paris/pull/81) in their build matrix.
 
 There are a few open issues left, but if you run into any problems, report them
-either to [our issues
+either to [our issue
 tracker](https://github.com/travis-ci/travis-ci/issues?labels=php&page=1&state=open)
 or to the [HipHop team](https://github.com/facebook/hhvm/issues)!
 
