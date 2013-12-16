@@ -46,3 +46,6 @@ HipHop VM
 architecture](https://www.facebook.com/notes/facebook-engineering/the-hiphop-virtual-machine/10150415177928920)
 and the details the team [continuously publishes on their own
 blog](http://www.hhvm.com/blog/2027/faster-and-cheaper-the-evolution-of-the-hhvm-jit).
+
+A big thank you to [Loic Frering](https://github.com/loicfrering) for the work he's contributed to make HipHop VM
+available on Travis CI!
