@@ -58,7 +58,7 @@ bits of Travis CI that run on dedicated infrastructure.
 **[Sentry](http://getsentry.com)** for patiently catching all of the runtime
 errors in production.
 
-**[CloudAMQP](http://cloudamqp)** for letting the orange rabbit roar and letting
+**[CloudAMQP](http://cloudamqp.com)** for letting the orange rabbit roar and letting
 us push hundreds of build log messages per second.
 
 **[Mandrill](http://mandrillapp.com)** for notifying you when your builds are
