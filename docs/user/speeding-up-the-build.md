@@ -69,7 +69,7 @@ mainly Ruby and RSpec, which means that we can use [parallel_tests](https://gith
 gem. If you use Java, you may use the built in feature [to run tests in parallel
 using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
-To give you an idea of what speedup are we talking about, I've tried runnig tests in parallel
+To give you an idea of what speedup are we talking about, I've tried running tests in parallel
 on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
 jobs.
 
