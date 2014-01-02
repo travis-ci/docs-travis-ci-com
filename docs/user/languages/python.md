@@ -144,4 +144,4 @@ to construct a build matrix.
 * [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
 * [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 * [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
-* [MostAwesomeDude/klein](https://github.com/MostAwesomeDude/klein/blob/master/.travis.yml)
+* [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
