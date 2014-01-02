@@ -100,6 +100,11 @@ Fleischer](http://www.benjaminfleischer.com/2013/12/05/testing-rubinius-on-travi
 for collecting information about how to get Rubinius up and running with the
 recent changes in the project.
 
+On [his blog
+post](http://www.benjaminfleischer.com/2013/12/05/testing-rubinius-on-travis-ci/),
+you'll find more examples specific to what your library might require from
+Ruby's standard set of tools.
+
 ### JRuby: C extensions support is disabled
 
 Please note that **C extensions are disabled for JRuby** on travis-ci.org. The
