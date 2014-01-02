@@ -25,7 +25,6 @@ following Rubies:
 - MRI 1.8.7 
 - JRuby 1.7.9 in Ruby 1.8 mode
 - JRuby 1.7.9 in Ruby 1.9 mode
-- Rubinius 2.1.1
 - Ruby Enterprise Edition 1.8.7 2012.02
 - Ruby (latest master)
 - JRuby (latest master)
@@ -70,13 +69,33 @@ environment guide](/docs/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
 
+### Choosing Rubies that aren't installed
+
+While we pre-install some Rubies, you can install other versions by way of RVM's
+binary installation feature.
+
+As long as they're available as a binary for Ubuntu 12.04, you can specify
+custom patchlevels.
+
+    language: ruby
+    rvm:
+      - 2.0.0-p247
+
+Note that this binds you to potentially unsupported releases of Rubies. It also
+extends your build time as downloading and installing a custom Ruby can add an
+extra 60 seconds or more to your build.
+
 ### Rubinius
 
 [Rubinius](http://rubini.us) releases frequent updates which can be found on the
-Rubinius [downloads](http://rubini.us/downloads/) page. Binaries for Travis
+Rubinius [downloads](http://rubini.us/downloads/) page. Binaries for Travis CI
 should be available for every release from 2.1.1 onwards. To test against a
 release of Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z
 specifies a Rubinius release.
+
+Note that the syntax of `rbx-19mode` isn't supported anymore.
+
+Rubinius will be installed via a download currently.
 
 As of Rubinius 2.2, some special treatment is required in your build
 configuration to make Ruby projects work.
@@ -107,7 +126,7 @@ Ruby's standard set of tools.
 
 ### JRuby: C extensions support is disabled
 
-Please note that **C extensions are disabled for JRuby** on travis-ci.org. The
+Please note that **C extensions are disabled for JRuby** on Travis CI. The
 reason for doing so is to bring it to developers attention that their project
 may have dependencies that should not be used on JRuby in production. Using C
 extensions on JRuby is technically possible but is not a good idea performance
@@ -135,6 +154,9 @@ dependencies.
 The default command run by Travis CI is:
 
     bundle install
+
+Note that this is only run when we detect a Gemfile in the project's root
+directory, or if the Gemfile specified via the build matrix exists.
 
 If a Gemfile.lock exists in your project's root directory, we add the
 `--deployment` flag.
@@ -211,8 +233,7 @@ For example, to install and use the pre-release version of bundler:
 
     before_install: gem install bundler --pre
 
-### Testing against multiple versions of dependencies (Ruby on Rails,
-EventMachine, etc)
+### Testing against multiple versions of dependencies (Ruby on Rails, EventMachine, etc)
 
 Many projects need to be tested against multiple versions of Rack, EventMachine,
 HAML, Sinatra, Ruby on Rails, you name it. It is easy with Travis CI. What you
@@ -269,7 +290,7 @@ It is possible to test projects against multiple JDKs, namely
  * Oracle JDK 8 EA
  * OpenJDK 6
 
-To do so, use the `:jdk` key in your `.travis.yml`, for example:
+To do so, use the `jdk` key in your `.travis.yml`, for example:
 
     jdk:
       - oraclejdk7
@@ -292,7 +313,8 @@ Configuration guide](/docs/user/build-configuration/)):
       - 1.9.2
       - jruby-18mode
       - jruby-19mode
-      - jruby-head jdk:
+      - jruby-head
+    jdk:
       - openjdk6
       - openjdk7
       - oraclejdk7
