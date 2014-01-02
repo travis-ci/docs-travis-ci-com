@@ -140,8 +140,8 @@ alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 
 ## Default Test Script
 
-Travis CI runs `rake` by default to execute your tests. Please note that
-**you need to add rake to your Gemfile** (adding it to just `:test` group should
+Travis CI runs `rake` by default to execute your tests. Please note that **you
+need to add rake to your Gemfile** (adding it to just the `:test` group should
 be sufficient).
 
 ## Dependency Management
