@@ -142,6 +142,16 @@ dependencies, you can override the `install` command.
 By default, gems are installed into vendor/bundle in your project's root
 directory.
 
+### Caching Bundler
+
+Bundler installation can take a while, slowing down your build. You can tell
+[Travis CI to cache the installed bundle](/docs/user/caching/).
+
+On your first build, we warm the cache. On the second one, we'll pull in the
+cache, making `bundle install` only take seconds to run.
+
+Note that this feature is currently only available for private projects.
+
 ### Speed up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`
