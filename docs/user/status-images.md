@@ -3,40 +3,45 @@ title: Status Images
 layout: en
 permalink: status-images/
 ---
+With Travis CI, you can embed little status icons into your project's README or
+general documentation. That way, visitors of your projects or site can
+immediately see its build status.
 
-### What This Guide Covers
+Here's an example from one of our repositories. Fingers crossed it's green when
+you're reading this:
 
-This guide covers the build status images feature of Travis CI. Status images are part of the HTTP API that render build status information (passing or failing) as a PNG image. Developers are encouraged to add them to project sites, README files and so on both to link to continuous integration page for the project and to demonstrate their commitment to good software development practices.
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.png?branch=master)](https://travis-ci.org/travis-ci/travis-web)
 
-We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+### Fetching the Build Status Embed Code
 
-## Status Image URLs
+The URLs for status images are available on your repositories' page on Travis
+CI.
 
-After adding your project to Travis, you can use the status buttons to show the current status of your projects in your `README` file on GitHub or your project website.
+You'll find the most current status image in the top right.
 
-    https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png
+![](http://s3itch.paperplanes.de/statusimages_20140103_084409.jpg)
 
-Only a HTTPS endpoint is provided, which is good as GitHub does not cache images served from HTTPS.
+Clicking that will reveal a dialog that allows you to copy and paste the URL and
+ready to use templates for common markup formats, like Markdown or Textile.
 
-## Adding Status Images to README Files
+![](http://s3itch.paperplanes.de/statusimagesdialog_20140103_084132.jpg)
 
-When using Textile, showing your status button (including a link to your Travis project page) is as simple as adding this to your `README`:
-    "!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]
+Make sure to select the right branch in the dropdown. The default URL, without
+the `branch` parameter, will return the status for the latest build, on any
+branch. Selecting the desired branch makes sure your image only displays the
+status for the branch whose stability is most relevant.
 
-Or if you're using markdown:
+You can manually change the branch later, when pasting it into your
+documentation, should the right branch not show up in the branch dropdown.
 
-    [![Build Status](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+### Build Status Images on Travis CI Pro
 
-Or RDoc:
+Build status images for public repositories are publicly available on Travis CI.
 
-    {<img src="https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME]]
+But for [private repositories](https://travis-ci.com), make sure to fetch the
+full URL shown in the dialog, as we include a little token for security reasons.
 
-Travis CI's own status button looks like this: [![Build Status](https://travis-ci.org/travis-ci/travis-ci.png)](https://travis-ci.org/travis-ci/travis-ci)
+![](http://s3itch.paperplanes.de/statusimagespro_20140103_083929.jpg)
 
-## Build Status For Specific Branches
-
-You can limit the impact of this button to certain branches only. For example, you might not want to include feature branches, which might fail but don't mean the project itself fails.
-
-Specify a `?branch=` parameter in the URI. Split branches with a comma if you want to specify several.
-
-    https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png?branch=master,staging,production
+This token is only used to access the build status image, but we recommend you
+not use it on a publicly available site.
