@@ -41,7 +41,7 @@ Build status images for public repositories are publicly available on Travis CI.
 But for [private repositories](https://travis-ci.com), make sure to fetch the
 full URL shown in the dialog, as we include a little token for security reasons.
 
-![](http://s3itch.paperplanes.de/statusimagespro_20140103_083929.jpg)
+![](http://s3itch.paperplanes.de/buildstatusimagespro_20140103_085137.jpg)
 
 This token is only used to access the build status image, but we recommend you
 not use it on a publicly available site.
