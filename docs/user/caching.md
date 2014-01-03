@@ -172,3 +172,23 @@ It is also possible to disable a single caching mode:
     cache:
       bundler: false
       apt: true
+
+## How does the caching work?
+
+The caching tars up all the directories listed in the configuration and uploads
+them to S3, using a secure and protected URL, ensuring security and privacy of
+the uploaded archives.
+
+Note that this makes our cache not network-local, it's still bound to network
+bandwidth and DNS resolutions for S3. That impacts what you can and should store
+in the cache. If you store archives larger than a few hundred megabytes in the
+cache, it's unlikely that you'll see a big speed improvement.
+
+Before the build, we check if a cached archive exists. If it does, we pull it
+down and unpack it to the specified locations.
+
+After the build we check for changes in the directory, create a new archive and
+upload the updated archive back to S3.
+
+The upload is currently part of the build cycle, but we're looking into improving
+that to happen outside of the build, giving faster build feedback.
