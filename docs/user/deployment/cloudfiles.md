@@ -68,10 +68,11 @@ Often, you don't want to upload your entire project to Cloud Files. You can tell
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
 
-### Deploy to Multiple Buckets:
+### Deploy to Multiple Containers:
 
-If you want to upload to multiple buckets, you can do this:
-	deploy:
+If you want to upload to multiple containers, you can do this:
+	
+    deploy:
       - provider: cloudfiles
         username: "RACKSPACE USERNAME"
         api-key: "RACKSPACE API KEY"
