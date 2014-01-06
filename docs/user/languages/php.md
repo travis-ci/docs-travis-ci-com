@@ -162,6 +162,7 @@ There are some common PHP extensions preinstalled with PECL on Travis:
 * [amqp.so](http://php.net/amqp)
 * [zmq.so](http://php.zero.mq/)
 * [xdebug.so](http://xdebug.org)
+* [redis.so](http://pecl.php.net/package/redis)
 
 Please note that these extensions are not enabled by default, you will have to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version). So the easiest way to do this is by using phpenv to add a custom config file which enables and eventually configure the extension:
 
