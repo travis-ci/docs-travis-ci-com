@@ -1,12 +1,12 @@
 ---
-title: "OpsWorks, Cloudfiles, and Divshot.io Deployment"
+title: "OpsWorks, Cloudfiles, and Divshot Deployment"
 author: Joshua Anderson
 created_at: Mon 06 Jan 2014 00:00:00 PST
 layout: post
 permalink: /blog/2014-01-06-opsworks-cloud-files-and-divshot-deployment
 ---
 
-Over the holidays, we have been very busy adding support for deploying to several new providers: [AWS OpsWorks](https://aws.amazon.com/en/opsworks/), [Rackspace Cloud Files](https://cart.rackspace.com/cloud/?cp_id=cloud_files), and [Divshot.io](https://www.divshot.io).
+Over the holidays, we have been very busy adding support for deploying to several new providers: [AWS OpsWorks](https://aws.amazon.com/en/opsworks/), [Rackspace Cloud Files](https://cart.rackspace.com/cloud/?cp_id=cloud_files), and [Divshot](https://www.divshot.com).
 
 ### AWS OpsWorks
 
@@ -45,9 +45,9 @@ You can always use the `travis` tool to set this up as well.
 
 To learn more about pushing files to Rackspace Cloud files you can go [here](http://about.travis-ci.org/docs/user/deployment/cloudfiles).
 
-### Divshot.io
+### Divshot
 
-To get started with [Divshot.io](https://www.divshot.io), just sign up and add the following to your `.travis.yml`.
+To get started with [Divshot](https://www.divshot.com), just sign up and add the following to your `.travis.yml`.
 
     deploy:
       provider: divshot
@@ -59,7 +59,7 @@ As always, you can use the `travis` tool to set this up as well.
 
     $ travis setup divshot
 
-Read more about Divshot.io deployment [here](http://about.travis-ci.org/docs/user/deployment/divshot).
+Read more about Divshot deployment [here](http://about.travis-ci.org/docs/user/deployment/divshot).
 
 Send a huge thank you to the many volunteers that contributed to make this possible: Johannes Würbach, Brad Gignac,  and Joshua Anderson.
 
