@@ -26,7 +26,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 ### Migrate the Database
 
-If you want to migrate your the rails database on travis to AWS OpsWorks, add the `migrate` option to your `.travis.yml`.
+If you want to migrate your rails database on travis to AWS OpsWorks, add the `migrate` option to your `.travis.yml`.
 
     deploy:
       provider: opsworks
@@ -62,7 +62,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 ### Deploying build artifacts
 
-After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
+After your tests run and before the deploy stage, Travis CI will clean up any additional files and changes you made.
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
