@@ -84,7 +84,6 @@ to construct a build matrix.
 
 ## Examples
 
- * [peterbourgon/diskv](https://github.com/peterbourgon/diskv/blob/master/.travis.yml)
  * [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
  * [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
  * [globocom/tsuru](https://github.com/globocom/tsuru/blob/master/.travis.yml)
