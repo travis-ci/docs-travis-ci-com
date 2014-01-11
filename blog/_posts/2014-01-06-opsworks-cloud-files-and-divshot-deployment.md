@@ -6,7 +6,7 @@ layout: post
 permalink: /blog/2014-01-06-opsworks-cloud-files-and-divshot-deployment
 ---
 
-Over the holidays, we have been very busy adding support for deploying to several new providers: [AWS OpsWorks](https://aws.amazon.com/en/opsworks/), [Rackspace Cloud Files](https://cart.rackspace.com/cloud/?cp_id=cloud_files), and [Divshot](https://www.divshot.com).
+Over the holidays, we have been very busy adding support for deploying to several new providers: [AWS OpsWorks](https://aws.amazon.com/en/opsworks/), [Rackspace Cloud Files](http://www.rackspace.com/cloud/files), and [Divshot](https://www.divshot.com).
 
 ### AWS OpsWorks
 
