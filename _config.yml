@@ -2,15 +2,3 @@ exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md]
 markdown: rdiscount
 permalink: :title
 safe: true
-paginate_path: /blog/page-:num
-paginate: 3
-gravatars:
-  - j2h: 21b21efe14359ec323f9a70464b91e39
-  - roidrage: 1f093c9fe42d562390aca2cb18936a67
-  - konstantinhaase: 5c2b452f6eea4a6d84c105ebd971d2a4
-  - drogus: 582034b63279abeaa8e76acf12f5ee30
-  - henrikhodne: 0fd80494679214743a967d583420a731
-  - svenfuchs: 2f042f300d1249917adf6f13d3f698b2
-  - langziehohr: de4c05b637f469f1b2b1571da7599ffd
-  - saltinejustine: 9c269c09f119cce083b4968890d4f189
-  - hiro_asari: 40e5e9fe36a1f85166493faac2c17499
