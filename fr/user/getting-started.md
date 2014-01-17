@@ -8,17 +8,17 @@ permalink: getting-started/
 
 Travis CI est un service d'intégration continue pour la communauté open-source. Il est intégré à GitHub et propose un support de première classe pour:
 
-* [Clojure](/fr/docs/user/languages/clojure)
-* [Erlang](/fr/docs/user/languages/erlang)
-* [Groovy](/fr/docs/user/languages/groovy)
-* [Haskell](/fr/docs/user/languages/haskell)
-* [Java](/fr/docs/user/languages/java)
-* [JavaScript (avec Node.js)](/fr/docs/user/languages/javascript-with-nodejs)
-* [Perl](/fr/docs/user/languages/perl)
-* [PHP](/fr/docs/user/languages/php)
-* [Python](/fr/docs/user/languages/python)
-* [Ruby](/fr/docs/user/languages/ruby)
-* [Scala](/fr/docs/user/languages/scala)
+* [Clojure](/fr/user/languages/clojure)
+* [Erlang](/fr/user/languages/erlang)
+* [Groovy](/fr/user/languages/groovy)
+* [Haskell](/fr/user/languages/haskell)
+* [Java](/fr/user/languages/java)
+* [JavaScript (avec Node.js)](/fr/user/languages/javascript-with-nodejs)
+* [Perl](/fr/user/languages/perl)
+* [PHP](/fr/user/languages/php)
+* [Python](/fr/user/languages/python)
+* [Ruby](/fr/user/languages/ruby)
+* [Scala](/fr/user/languages/scala)
 
 Notre environnement d'intégration continue offre plusieurs runtimes (par ex. Node.js ou des versions PHP), stockages de données, etc.
 Heberger votre projet sur travis-ci.org signifie donc que vous pouvez tester sans effort  votre librairie ou application avec différents environnements d'exécution et stockages de données sans même à avoir à les installer localement. 
@@ -35,7 +35,7 @@ GitHub vous demandera d'accorder les droits de lecture et écriture. Travis CI r
 
 Une fois authentifié, allez sur votre [profil](http://travis-ci.org/profile). Vous retrouverez la liste de vos dépôt GitHub. Basculez sur "on" les dépôts que vous souhaitez lier à Travis CI. Allez ensuite sur la page service hooks GitHub de ce projet et entrez votre nom d'utilisateur GitHub et votre token Travis dans les paramètres du service Travis si ce n'est pas pré-rempli.
 
-Si votre dépôt appartient à une organisation ou si basculer le bouton n'a pas suffit à mettre en place le hook, [faites le manuellement](/fr/docs/user/how-to-setup-and-trigger-the-hook-manually/) sur GitHub, cela ne prend pas plus que quelques minutes.
+Si votre dépôt appartient à une organisation ou si basculer le bouton n'a pas suffit à mettre en place le hook, [faites le manuellement](/fr/user/how-to-setup-and-trigger-the-hook-manually/) sur GitHub, cela ne prend pas plus que quelques minutes.
 
 ### Etape n°3: Intégrer un fichier .travis.yml au dépôt
 
@@ -56,7 +56,7 @@ Pour des projets utilisant Leiningen 2:
     language: clojure
     lein: lein2
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Clojure](/fr/docs/user/languages/clojure/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Clojure](/fr/user/languages/clojure/)
 
 #### Erlang
 
@@ -67,27 +67,27 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets Clojure](/fr/d
       - R14B03
       - R14B04
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets  Erlang](/fr/docs/user/languages/erlang/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets  Erlang](/fr/user/languages/erlang/)
 
 
 #### Haskell
 
     language: haskell
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Haskell](/fr/docs/user/languages/haskell/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Haskell](/fr/user/languages/haskell/)
 
 
 #### Groovy
 
     language: groovy
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Groovy](/fr/docs/user/languages/groovy/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Groovy](/fr/user/languages/groovy/)
 
 #### Java
 
     language: java
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Java](/fr/docs/user/languages/java/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Java](/fr/user/languages/java/)
 
 #### Node.js
 
@@ -97,7 +97,7 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets Java](/fr/docs
        - 0.6
        - 0.7 # la version en development 0.8 peut être instable
 
-Apprenez-en plus sur les options de [.travis.yml pour Node.js](/fr/docs/user/languages/javascript-with-nodejs/)
+Apprenez-en plus sur les options de [.travis.yml pour Node.js](/fr/user/languages/javascript-with-nodejs/)
 
 #### Perl
 
@@ -106,7 +106,7 @@ Apprenez-en plus sur les options de [.travis.yml pour Node.js](/fr/docs/user/lan
       - "5.14"
       - "5.12"
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets  Perl](/fr/docs/user/languages/perl/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets  Perl](/fr/user/languages/perl/)
 
 #### PHP
 
@@ -115,7 +115,7 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets  Perl](/fr/doc
       - 5.3
       - 5.4
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets PHP](/fr/docs/user/languages/php/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets PHP](/fr/user/languages/php/)
 
 #### Python
 
@@ -129,7 +129,7 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets PHP](/fr/docs/
     # command to run tests, e.g. python setup.py test
     script:  PLEASE CHANGE ME
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Python](/fr/docs/user/languages/python/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Python](/fr/user/languages/python/)
 
 #### Ruby
 
@@ -145,7 +145,7 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets Python](/fr/do
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 
-Apprenez-en plus sur les options de [.travis.yml pour les projets Ruby](/fr/docs/user/languages/ruby/)
+Apprenez-en plus sur les options de [.travis.yml pour les projets Ruby](/fr/user/languages/ruby/)
 
 #### Scala
 
@@ -154,7 +154,7 @@ Apprenez-en plus sur les options de [.travis.yml pour les projets Ruby](/fr/docs
        - 2.8.2
        - 2.9.1
 
-Apprenez-en plus sur les options de [.travis.yml options for Scala projects](/fr/docs/user/languages/scala/)
+Apprenez-en plus sur les options de [.travis.yml options for Scala projects](/fr/user/languages/scala/)
 
 #### Validez votre .travis.yml
 
@@ -176,7 +176,7 @@ et l'executer sur votre `.travis.yml`:
 
 * le fichier `.travis.yml` est-il un [YAML valide](http://yaml-online-parser.appspot.com/) ?
 * la key `language` est-elle présente ?
-* les versions de runtime (Ruby, PHP, OTP, etc.) spécifiés sont-elles supportées dans l'[Environnement Travis CI](/fr/docs/user/ci-environment/) ?
+* les versions de runtime (Ruby, PHP, OTP, etc.) spécifiés sont-elles supportées dans l'[Environnement Travis CI](/fr/user/ci-environment/) ?
 * les features et les alias de runtime qui vous utilisez ne sont-ils pas dépréciés ?
 
 et ainsi de suite. `travis-lint` est votre ami, utilisez-le.
@@ -189,7 +189,7 @@ Pour démarrer une build, vous pouvez soit commiter soit pusher quelquechose sur
 
 ### Etape n°5 : Customiser la configuration de la build
 
-Il y a de fortes chances pour que votre projet demande une certaine configuration pour sa build : peut-être avez-vous besoin de créer und base de données avant d'executer vos tests ou d'utiliser d'autres outils que ceux proposés par Travis par défaut. Pas de soucis : Travis vous laisse la possibilité de modifer (presque) tout ça. Reportez-vous à [la configuration de la build](/fr/docs/user/build-configuration/) pour en savoir plus.
+Il y a de fortes chances pour que votre projet demande une certaine configuration pour sa build : peut-être avez-vous besoin de créer und base de données avant d'executer vos tests ou d'utiliser d'autres outils que ceux proposés par Travis par défaut. Pas de soucis : Travis vous laisse la possibilité de modifer (presque) tout ça. Reportez-vous à [la configuration de la build](/fr/user/build-configuration/) pour en savoir plus.
 
 Après avoir fait vos changements à  `.travis.yml`, n'oubliez pas de vérifier qu'il reste un [YAML valide](http://yaml-online-parser.appspot.com/) et faites-le valider avec `travis-lint`.
 
@@ -197,7 +197,7 @@ Après avoir fait vos changements à  `.travis.yml`, n'oubliez pas de vérifier 
 
 Un worker Travis possède bon nombre de services dont vous pouvez avoir besoin parmis lesquels MySQL, PostgreSQL, MongoDB, CouchDB, RabbitMQ, memcached et d'autres.
 
-Lisez [Configurer une base de données](/fr/docs/user/database-setup/) pour apprendre à configurer une connection de base de données pour votre suite de tests. Vous pourrez trouver plus d'informations sur notre environement de test dans [un autre guide](/fr/docs/user/ci-environment/).
+Lisez [Configurer une base de données](/fr/user/database-setup/) pour apprendre à configurer une connection de base de données pour votre suite de tests. Vous pourrez trouver plus d'informations sur notre environement de test dans [un autre guide](/fr/docs/user/ci-environment/).
 
 ### Etape n°7 : Nous sommes là pour vous aider !
 

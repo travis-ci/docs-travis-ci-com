@@ -45,7 +45,7 @@ Pour définir une variable d'environnement, spécifiez :
 
     env: DB=postgres
 
-Les variables d'environnement sont souvent utilisés pour configurer les scripts de build. Voyez un exemple de <a href="/fr/docs/user/database-setup/#multiple-database-systems">configuration avec plusieurs SGBD</a>. La variable `TRAVIS` est toujours présente lors du build :
+Les variables d'environnement sont souvent utilisés pour configurer les scripts de build. Voyez un exemple de <a href="/fr/user/database-setup/#multiple-database-systems">configuration avec plusieurs SGBD</a>. La variable `TRAVIS` est toujours présente lors du build :
 
     if ENV['TRAVIS']
       # cas particulier pour l'intégration continue
@@ -120,7 +120,7 @@ Vous pouvez aussi définir des scripts à exécuter avant et après le script pr
 
 Vous pouvez également spécifier plusieurs scripts avec ces deux commandes.
 
-Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d'informations, <a href="/fr/docs/user/database-setup/">voyez la page Configurer une base de données</a>
+Ces scripts sont souvent utilisés pour le setup des bases de données utilisés pour le test. Pour plus d'informations, <a href="/fr/user/database-setup/">voyez la page Configurer une base de données</a>
 
 **NOTE: Si vous devez utiliser `cd`, utilisez un shell séparé ou `sh -c` comme ceci:**
 

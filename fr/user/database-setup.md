@@ -133,4 +133,4 @@ Et enfin, assurez-vous que vous ne créer pas de BDD mysql ou postgres dans votr
 
 [cookbook]: https://github.com/travis-ci/travis-cookbooks
 [config]: https://github.com/travis-ci/travis-worker/blob/master/config/worker.production.yml
-[config build]: /fr/docs/user/build-configuration/
+[config build]: /fr/user/build-configuration/

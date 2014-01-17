@@ -6,7 +6,7 @@ permalink: travis-lint/
 
 ### Ce que couvre ce guide
 
-Ce guide est à propos de [travis-lint](https://github.com/travis-ci/travis-lint), un outil simple qui vérifie votre fichier `.travis.yml` et vous aider a y déceler les erreurs les plus courantes. Si vous cherchez à vous documenter pour mettre votre projet sur travis-ci.org, commencer par lire le guide de [Démarrage](/fr/docs/user/getting-started/).
+Ce guide est à propos de [travis-lint](https://github.com/travis-ci/travis-lint), un outil simple qui vérifie votre fichier `.travis.yml` et vous aider a y déceler les erreurs les plus courantes. Si vous cherchez à vous documenter pour mettre votre projet sur travis-ci.org, commencer par lire le guide de [Démarrage](/fr/user/getting-started/).
 
 ## Vérifiez votre .travis.yml en utilisant lint.travis-ci.org
 

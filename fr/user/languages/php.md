@@ -8,8 +8,8 @@ permalink: php/
 
 Ce guide couvre l'environnement de compilation et des sujets de configuration
 spécifiques pour des projets PHP. Assurez-vous de lire en premier notre [guide de
-démarrage](/fr/docs/user/getting-started/) et le [guide général de configuration
-de compilation](/fr/docs/user/build-configuration/).
+démarrage](/fr/user/getting-started/) et le [guide général de configuration
+de compilation](/fr/user/build-configuration/).
 
 
 ## Choisir les versions de PHP à tester
@@ -32,7 +32,7 @@ pour "les plus récentes releases x.y.z" de la ligne. Notez que "plus récente"
 signifie "tel que prévu par les mainteneurs de Travis", pas nécessairement la
 toute dernière version officelle de la release php.net. Pour une liste complète
 des versions supportées, voir [À propos de Travis CI
-Environment](/fr/docs/user/ci-environment/).
+Environment](/fr/user/ci-environment/).
 
 A noter également que la spécification exacte des versions comme 5.3.8 est
 déconseillée, car votre fichier .travis.yml peut devenir obsolète et casser
@@ -51,7 +51,7 @@ Par défaut Travis lancera vos tests en utilisant
 pour chaque version PHP que vous spécifiez.
 
 Si votre projet utilise autre chose que PHPUnit, [vous pouvez remplacer notre
-commande de test par défaut](/fr/docs/user/build-configuration) par ce que vous
+commande de test par défaut](/fr/user/build-configuration) par ce que vous
 voulez.
 
 
