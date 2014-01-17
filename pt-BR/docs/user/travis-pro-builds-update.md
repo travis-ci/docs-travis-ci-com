@@ -25,7 +25,7 @@ memory. You'll now have **3 GB memory** available.
 Along the way, we've **revamped our build system** to be a lot stabler and much
 less prone to timeouts, stalls, even including improved error detection. You can
 read all the details
-[here](http://about.travis-ci.org/blog/2013-01-25-the-worker-gets-a-revamp/),
+[here](http://blog.travis-ci.com/2013-01-25-the-worker-gets-a-revamp/),
 but suffice it to say: it's been running pretty smoothly for the past couple of
 weeks.
 
