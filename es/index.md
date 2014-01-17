@@ -1,9 +1,23 @@
 ---
-title: Bienvenido a Travis CI
-layout: es
+title: Documentation
+layout: en
+permalink: 
 ---
 
-Travis CI es un sistema de integración continua para la comunidad OpenSource. Está integrado con GitHub y ofrece soporte de primera clase para:
+### User documentation
+
+* [Getting started](/docs/user/getting-started/)
+* [Build configuration](/docs/user/build-configuration/)
+* [Database setup](/docs/user/database-setup/)
+* [GUI & Headless browsers](/docs/user/gui-and-headless-browsers/)
+* [Status images](/docs/user/status-images/)
+* [Resources](/docs/user/resources/)
+* [CI environment](/docs/user/ci-environment/)
+* [Browser Extensions](/docs/user/browser-extensions/)
+* [How to skip a build](/docs/user/how-to-skip-a-build/)
+* [How to setup and trigger the hook manually](/docs/user/how-to-setup-and-trigger-the-hook-manually/)
+
+### Specific Language Help
 
 * [Clojure](/docs/user/languages/clojure)
 * [Erlang](/docs/user/languages/erlang)
@@ -17,17 +31,7 @@ Travis CI es un sistema de integración continua para la comunidad OpenSource. E
 * [Ruby](/docs/user/languages/ruby)
 * [Scala](/docs/user/languages/scala)
 
+### Developer documentation
 
-Nuestro entorno de integración continua provee de multiples runtimes (e.j Node.js o versiones de PHP), bases de datos y mas. Por ello usar travis significa que puedes de una manera facil testear tu proyecto en diferentes runtimes o bases de datos sin siquiera tenerlas todas ellas instaladas en tu maquina local.
-
-travis-ci.org originalmente comenzo como un servicio para la comunidad Ruby a inicios de 2011, y desde entonces se ha añadido el soporte para muchas mas técnologias.
-
-[Comenzando](/docs/user/getting-started/), ¡solo toma algunos minutos tener tu proyecto funcionando en Travis!
-
-## Travis es open source
-
-Los servicios y librerías que hace posible travis-ci.org están [alojadas en GitHub](https://github.com/travis-ci).
-
-## Conoce al Equipo
-
-Si sientes que este es un gran proyecto visitanos en [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis) y saluda! Y no olvides de visitar el  [Travis Blog](/blog/)!
+* [The Worker](/docs/dev/worker/)
+* [The API](/docs/dev/api/)
