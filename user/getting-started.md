@@ -266,7 +266,7 @@ After making some changes to the `.travis.yml`, don't forget to check that it is
 
 A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
 
-See [Database setup](/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/docs/user/ci-environment/).
+See [Database setup](/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/user/ci-environment/).
 
 ### Step seven: We are here to help!
 

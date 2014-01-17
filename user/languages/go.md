@@ -6,7 +6,7 @@ permalink: go/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
 ## CI environment for Go Projects
 

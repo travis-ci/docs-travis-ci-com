@@ -6,7 +6,7 @@ permalink: database-setup/
 
 ### What This Guide Covers
 
-This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/user/ci-environment/) and what users and settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/docs/user/getting-started/) and [Build Configuration](/docs/user/build-configuration/) guides before reading this one.
+This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/user/ci-environment/) and what users and settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/build-configuration/) guides before reading this one.
 
 ## Services (data stores, messaging brokers, etc) in the Travis CI Environment
 
