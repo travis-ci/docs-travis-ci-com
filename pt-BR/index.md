@@ -1,9 +1,23 @@
 ---
-title: Bem vindo ao Travis CI
+title: Documentação
 layout: pt-BR
+permalink: 
 ---
 
-O Travis CI é um serviço de integração contínua para a comunidade open source. Ele é integrado ao GitHub e oferece suporte de primeira classe para:
+### Documentação de usuário
+
+* [Guia de início](/pt-BR/docs/user/getting-started/)
+* [Configuração de build](/pt-BR/docs/user/build-configuration/)
+* [Configuração de banco de dados](/pt-BR/docs/user/database-setup/)
+* [GUI & Headless browsers](/pt-BR/docs/user/gui-and-headless-browsers/)
+* [Imagens de status](/pt-BR/docs/user/status-images/)
+* [Recursos](/pt-BR/docs/user/resources/)
+* [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/)
+* [Extensões para navegadores](/pt-BR/docs/user/browser-extensions/)
+* [Como pular um build](/pt-BR/docs/user/how-to-skip-a-build/)
+* [Como configurar e ativar um hook manualmente](/pt-BR/docs/user/how-to-setup-and-trigger-the-hook-manually/)
+
+### Documentação em linguagens específicas
 
 * [C](/pt-BR/docs/user/languages/c)
 * [C++](/pt-BR/docs/user/languages/cpp)
@@ -21,16 +35,7 @@ O Travis CI é um serviço de integração contínua para a comunidade open sour
 * [Ruby](/pt-BR/docs/user/languages/ruby)
 * [Scala](/pt-BR/docs/user/languages/scala)
 
-Nosso ambiente de integração contínua proporciona múltiplos runtimes (exemplo: versões de Node.js e PHP), bancos de dados, etc. Por isso, hospedar seu projeto no travis-ci.org significa que você pode facilmente testar sua biblioteca ou aplicação em vários ambientes diferentes, sem tê-los instalados localmente.
+### Documentação para desenvolvedores
 
-travis-ci.org originalmente começou como um serviço para a comunidade Ruby no início de 2011, mas desde então adicionou suporte à muitas outras tecnologias.
-
-[Comece a usar](/pt-BR/docs/user/getting-started/), só leva alguns minutinhos para colocar seu projeto no Travis!
-
-## Travis é open source
-
-Os serviços e bibliotecas que fazem o travis-ci.org funcionar estão [disponíveis no GitHub](https://github.com/travis-ci).
-
-## Encontre o time
-
-Se você acha que este é um grande projeto, então vá para o [#travis nada rede chat.freenode.net](irc://chat.freenode.net/%23travis) e diga oi! E não se esqueça de checar o [Travis Blog](/blog/)!
+* [O Worker](/pt-BR/docs/dev/worker/)
+* [A API](/pt-BR/docs/dev/api/)
