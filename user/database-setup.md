@@ -48,7 +48,7 @@ or if you need several services, you can use the following:
       - memcached # will start memcached
 
 This allows us to provide nice aliases for each service and normalize common differences between names, like RabbitMQ for example. Note that this feature only
-works for services we provision in our [CI environment](http://about.travis-ci.org/docs/user/ci-environment/). If you download, say, Apache Jackrabbit and
+works for services we provision in our [CI environment](http://docs.travis-ci.com/user/ci-environment/). If you download, say, Apache Jackrabbit and
 start it manually in a `before_install` step, you will still have to do it the same way.
 
 

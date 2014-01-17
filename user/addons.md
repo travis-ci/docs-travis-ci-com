@@ -49,7 +49,7 @@ all you need to add to your .travis.yml file is this:
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://about.travis-ci.org/docs/user/encryption-keys/
+[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
