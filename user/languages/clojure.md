@@ -6,7 +6,7 @@ permalink: clojure/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## CI environment for Clojure Projects
 
@@ -30,7 +30,7 @@ If you need to perform special tasks before your tests can run, you should set u
 
     install: lein protobuf install
 
-See [general build configuration guide](/docs/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/build-configuration/) to learn more.
 
 
 

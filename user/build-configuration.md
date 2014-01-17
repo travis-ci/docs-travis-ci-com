@@ -10,9 +10,9 @@ permalink: build-configuration/
 
 This guide covers build environment and configuration topics that are common to
 all projects hosted on travis-ci.org, regardless of the technology. We recommend
-you start with the [Getting Started](/docs/user/getting-started/) guide and read
+you start with the [Getting Started](/user/getting-started/) guide and read
 this guide top to bottom before moving on to [build
-notifications](/docs/user/notifications/) and [language-specific guides](/docs).
+notifications](/user/notifications/) and [language-specific guides](/docs).
 
 ## .travis.yml file: what it is and how it is used
 
@@ -105,7 +105,7 @@ Both settings support multiple scripts, too:
       - after_command_2
 
 These scripts can, for example, be used to setup databases or other build setup tasks.
-For more information about database setup see [Database setup](/docs/user/database-setup/).
+For more information about database setup see [Database setup](/user/database-setup/).
 
 ### install
 
@@ -137,7 +137,7 @@ Both settings support multiple scripts, too:
 
 ### On Native Dependencies
 
-If your project has native dependencies (for example, libxml or libffi) or needs tools [Travis CI Environment](/docs/user/ci-environment/) does not provide,
+If your project has native dependencies (for example, libxml or libffi) or needs tools [Travis CI Environment](/user/ci-environment/) does not provide,
 you can install packages via apt and even use 3rd-party apt repositories and PPAs. For more see dedicated sections later in this guide.
 
 
@@ -176,7 +176,7 @@ Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and Ope
 
 If you are interested in testing against multiple Clojure releases, just use these Leiningen features and it will work without special support on the Travis side.
 
-Learn more in our [Clojure guide](/docs/user/languages/clojure/).
+Learn more in our [Clojure guide](/user/languages/clojure/).
 
 ### Erlang
 
@@ -187,19 +187,19 @@ Erlang projects specify releases they need to be tested against using `otp_relea
       - R14B04
       - R15B01
 
-Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/).
+Learn more about [.travis.yml options for Erlang projects](/user/languages/erlang/).
 
 ### Groovy
 
 Groovy projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
-Learn more in our [Groovy guide](/docs/user/languages/groovy/).
+Learn more in our [Groovy guide](/user/languages/groovy/).
 
 ### Java
 
 Java projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
 
-Learn more in our [Java guide](/docs/user/languages/java/).
+Learn more in our [Java guide](/user/languages/java/).
 
 
 ### Node.js
@@ -210,7 +210,7 @@ Node.js projects specify releases they need to be tested against using `node_js`
        - "0.4"
        - "0.6"
 
-Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/).
+Learn more about [.travis.yml options for Node.js projects](/user/languages/javascript-with-nodejs/).
 
 ### Perl
 
@@ -220,7 +220,7 @@ Perl projects specify Perls they need to be tested against using `perl` key:
       - "5.14"
       - "5.12"
 
-Learn more about [.travis.yml options for Perl projects](/docs/user/languages/perl/).
+Learn more about [.travis.yml options for Perl projects](/user/languages/perl/).
 
 ### PHP
 
@@ -230,7 +230,7 @@ PHP projects specify releases they need to be tested against using `php` key:
       - "5.4"
       - "5.3"
 
-Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/).
+Learn more about [.travis.yml options for PHP projects](/user/languages/php/).
 
 ### Python
 
@@ -241,7 +241,7 @@ Python projects specify Python versions they need to be tested against using `py
       - "2.6"
       - "3.2"
 
-Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/).
+Learn more about [.travis.yml options for Python projects](/user/languages/python/).
 
 ### Ruby
 
@@ -255,7 +255,7 @@ Ruby projects specify releases they need to be tested against using `rvm` key:
       - jruby-18mode
       - "1.8.7"
 
-Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/).
+Learn more about [.travis.yml options for Ruby projects](/user/languages/ruby/).
 
 ### Scala
 
@@ -268,7 +268,7 @@ Scala projects specify releases they need to be tested against using `scala` key
 
 Travis CI relies on sbt's support for running tests against multiple Scala versions.
 
-Learn more in our [Scala guide](/docs/user/languages/scala/).
+Learn more in our [Scala guide](/user/languages/scala/).
 
 ## Set environment variables
 
@@ -276,7 +276,7 @@ To specify an environment variable:
 
     env: DB=postgres
 
-Environment variables are useful for configuring build scripts. See the example in [Database setup](/docs/user/database-setup/#multiple-database-systems). One ENV variable is always set during your builds, `TRAVIS`. Use it to detect whether your test suite is running during CI.
+Environment variables are useful for configuring build scripts. See the example in [Database setup](/user/database-setup/#multiple-database-systems). One ENV variable is always set during your builds, `TRAVIS`. Use it to detect whether your test suite is running during CI.
 
 You can specify more than one environment variable per item in the `env` array:
 
@@ -338,7 +338,7 @@ Some common reasons why test suites may hang up:
 
 ### .travis.yml and multiple branches
 
-Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/docs/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
+Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
 
 ### White- or blacklisting branches
 

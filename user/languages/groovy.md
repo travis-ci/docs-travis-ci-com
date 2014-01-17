@@ -6,7 +6,7 @@ permalink: groovy/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Groovy projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Groovy projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Overview
 
@@ -27,7 +27,7 @@ if your project has `build.gradle` file in the repository root, Travis Groovy bu
 
     gradle check
 
-to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -45,7 +45,7 @@ if your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -63,7 +63,7 @@ If Travis could not detect Maven or Gradle files, Travis Groovy builder will use
 
     ant test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
 
 ### Dependency Management

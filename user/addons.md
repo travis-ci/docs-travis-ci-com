@@ -16,7 +16,7 @@ Labs' cloud-based VMs and your local servers. Connect uses ports 443 and 80 for
 communication with Sauce's cloud. If you're using Sauce Labs for your Selenium
 tests, this makes connecting to your webserver a lot easier.
 
-[sauce-connect]: https://saucelabs.com/docs/connect
+[sauce-connect]: https://saucelabs.com/connect
 
 First, [sign up][sauce-sign-up] with Sauce Labs if you haven't already (it's
 [free][open-sauce] for Open Source projects), and get your access key from your
@@ -49,7 +49,7 @@ all you need to add to your .travis.yml file is this:
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://about.travis-ci.org/docs/user/encryption-keys/
+[encryption-keys]: http://about.travis-ci.org/user/encryption-keys/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -57,7 +57,7 @@ the `TRAVIS_JOB_NUMBER` environment variable when you are opening the connection
 to Sauce Labs' selenium grid, as the desired capability `tunnel-identifier`,
 or it will not be able to connect to the server running on the VM.
 
-[identified-tunnels]: https://saucelabs.com/docs/connect#tunnel-identifier
+[identified-tunnels]: https://saucelabs.com/connect#tunnel-identifier
 
 How this looks will depend on the client library you're using, in
 Ruby's [selenium-webdriver][ruby-bindings] bindings:

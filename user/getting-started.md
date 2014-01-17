@@ -8,21 +8,21 @@ permalink: getting-started/
 
 Travis CI is a hosted continuous integration service for the open source community. It is integrated with GitHub and offers first class support for:
 
-* [C](/docs/user/languages/c)
-* [C++](/docs/user/languages/cpp)
-* [Clojure](/docs/user/languages/clojure)
-* [Erlang](/docs/user/languages/erlang)
-* [Go](/docs/user/languages/go)
-* [Groovy](/docs/user/languages/groovy)
-* [Haskell](/docs/user/languages/haskell)
-* [Java](/docs/user/languages/java)
-* [JavaScript (with Node.js)](/docs/user/languages/javascript-with-nodejs)
-* [Objective-C](/docs/user/languages/objective-c)
-* [Perl](/docs/user/languages/perl)
-* [PHP](/docs/user/languages/php)
-* [Python](/docs/user/languages/python)
-* [Ruby](/docs/user/languages/ruby)
-* [Scala](/docs/user/languages/scala)
+* [C](/user/languages/c)
+* [C++](/user/languages/cpp)
+* [Clojure](/user/languages/clojure)
+* [Erlang](/user/languages/erlang)
+* [Go](/user/languages/go)
+* [Groovy](/user/languages/groovy)
+* [Haskell](/user/languages/haskell)
+* [Java](/user/languages/java)
+* [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
+* [Objective-C](/user/languages/objective-c)
+* [Perl](/user/languages/perl)
+* [PHP](/user/languages/php)
+* [Python](/user/languages/python)
+* [Ruby](/user/languages/ruby)
+* [Scala](/user/languages/scala)
 
 Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), data stores and so on. Because of this, hosting your project on travis-ci.org means you can effortlessly test your library or applications against multiple runtimes and data stores without even having all of them installed locally.
 
@@ -61,7 +61,7 @@ Here are some basic **.travis.yml** examples:
     # Change this to your needs
     script: ./configure && make
 
-Learn more about [.travis.yml options for C projects](/docs/user/languages/c/)
+Learn more about [.travis.yml options for C projects](/user/languages/c/)
 
 
 #### C++
@@ -73,7 +73,7 @@ Learn more about [.travis.yml options for C projects](/docs/user/languages/c/)
     # Change this to your needs
     script: ./configure && make
 
-Learn more about [.travis.yml options for C++ projects](/docs/user/languages/cpp/)
+Learn more about [.travis.yml options for C++ projects](/user/languages/cpp/)
 
 
 #### Clojure
@@ -95,7 +95,7 @@ For projects using Leiningen 2:
       - openjdk6
 
 
-Learn more about [.travis.yml options for Clojure projects](/docs/user/languages/clojure/)
+Learn more about [.travis.yml options for Clojure projects](/user/languages/clojure/)
 
 #### Erlang
 
@@ -106,21 +106,21 @@ Learn more about [.travis.yml options for Clojure projects](/docs/user/languages
       - R14B04
       - R14B03
 
-Learn more about [.travis.yml options for Erlang projects](/docs/user/languages/erlang/)
+Learn more about [.travis.yml options for Erlang projects](/user/languages/erlang/)
 
 
 #### Haskell
 
     language: haskell
 
-Learn more about [.travis.yml options for Haskell projects](/docs/user/languages/haskell/)
+Learn more about [.travis.yml options for Haskell projects](/user/languages/haskell/)
 
 
 #### Go
 
     language: go
 
-Learn more about [.travis.yml options for Go projects](/docs/user/languages/go/)
+Learn more about [.travis.yml options for Go projects](/user/languages/go/)
 
 
 
@@ -133,7 +133,7 @@ Learn more about [.travis.yml options for Go projects](/docs/user/languages/go/)
       - openjdk6
 
 
-Learn more about [.travis.yml options for Groovy projects](/docs/user/languages/groovy/)
+Learn more about [.travis.yml options for Groovy projects](/user/languages/groovy/)
 
 #### Java
 
@@ -144,7 +144,7 @@ Learn more about [.travis.yml options for Groovy projects](/docs/user/languages/
       - openjdk6
 
 
-Learn more about [.travis.yml options for Java projects](/docs/user/languages/java/)
+Learn more about [.travis.yml options for Java projects](/user/languages/java/)
 
 #### Node.js
 
@@ -154,13 +154,13 @@ Learn more about [.travis.yml options for Java projects](/docs/user/languages/ja
        - "0.8"
        - "0.6"
 
-Learn more about [.travis.yml options for Node.js projects](/docs/user/languages/javascript-with-nodejs/)
+Learn more about [.travis.yml options for Node.js projects](/user/languages/javascript-with-nodejs/)
 
 #### Objective-C
 
      language: objective-c
 
-Learn more about [.travis.yml options for Objective-C projects](/docs/user/languages/objective-c/)
+Learn more about [.travis.yml options for Objective-C projects](/user/languages/objective-c/)
 
 #### Perl
 
@@ -170,7 +170,7 @@ Learn more about [.travis.yml options for Objective-C projects](/docs/user/langu
       - "5.14"
       - "5.12"
 
-Learn more about [.travis.yml options for Perl projects](/docs/user/languages/perl/)
+Learn more about [.travis.yml options for Perl projects](/user/languages/perl/)
 
 #### PHP
 
@@ -180,7 +180,7 @@ Learn more about [.travis.yml options for Perl projects](/docs/user/languages/pe
       - "5.4"
       - "5.3"
 
-Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php/)
+Learn more about [.travis.yml options for PHP projects](/user/languages/php/)
 
 #### Python
 
@@ -194,7 +194,7 @@ Learn more about [.travis.yml options for PHP projects](/docs/user/languages/php
     # command to run tests, e.g. python setup.py test
     script:  PLEASE CHANGE ME
 
-Learn more about [.travis.yml options for Python projects](/docs/user/languages/python/)
+Learn more about [.travis.yml options for Python projects](/user/languages/python/)
 
 #### Ruby
 
@@ -209,7 +209,7 @@ Learn more about [.travis.yml options for Python projects](/docs/user/languages/
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 
-Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ruby/)
+Learn more about [.travis.yml options for Ruby projects](/user/languages/ruby/)
 
 #### Scala
 
@@ -223,7 +223,7 @@ Learn more about [.travis.yml options for Ruby projects](/docs/user/languages/ru
        - openjdk6
 
 
-Learn more about [.travis.yml options for Scala projects](/docs/user/languages/scala/)
+Learn more about [.travis.yml options for Scala projects](/user/languages/scala/)
 
 #### Validate Your .travis.yml
 
@@ -245,7 +245,7 @@ and run it on your `.travis.yml`:
 
 * The `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
 * The `language` key is present
-* The runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/docs/user/ci-environment/)
+* The runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/user/ci-environment/)
 * That you are not using deprecated features or runtime aliases
 
 and so on. `travis-lint` is your friend, use it.
@@ -258,7 +258,7 @@ To start a build you can either commit and push something to your repository, or
 
 ### Step five: Tweaking your build configuration
 
-Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis defaults are. Worry not. Travis lets you override almost everything. See [Build Configuration](/docs/user/build-configuration/) to learn more.
+Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis defaults are. Worry not. Travis lets you override almost everything. See [Build Configuration](/user/build-configuration/) to learn more.
 
 After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run `travis-lint` to validate it.
 
@@ -266,7 +266,7 @@ After making some changes to the `.travis.yml`, don't forget to check that it is
 
 A Travis worker comes with a good amount of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
 
-See [Database setup](/docs/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/docs/user/ci-environment/).
+See [Database setup](/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/docs/user/ci-environment/).
 
 ### Step seven: We are here to help!
 

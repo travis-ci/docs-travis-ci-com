@@ -6,7 +6,7 @@ permalink: objective-c/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Objective-C projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Objective-C projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## CI environment for Objective-C Projects
 
@@ -20,7 +20,7 @@ If you use some other dependency management system, override the `install:` key 
 
     install: make get-deps
 
-See [general build configuration guide](/docs/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/build-configuration/) to learn more.
 
 ## Default Test Script
 
@@ -32,7 +32,7 @@ Travis CI uses [xctool](https://github.com/facebook/xctool) by default to run th
 
 You can also specify an SDK using the `xcode_sdk` variable.
 
-The build script can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to build by running make without arguments, override the `script:` key in `.travis.yml` like this:
+The build script can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example, to build by running make without arguments, override the `script:` key in `.travis.yml` like this:
 
     script: make
 

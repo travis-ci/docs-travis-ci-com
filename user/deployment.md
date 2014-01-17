@@ -8,20 +8,20 @@ permalink: deployment/
 
 Continuous Deployment to the following providers are currently supported out of the box:
 
-* [Appfog](/docs/user/deployment/appfog)
-* [Heroku](/docs/user/deployment/heroku)
-* [Nodejitsu](/docs/user/deployment/nodejitsu)
-* [OpenShift](/docs/user/deployment/openshift)
-* [cloudControl](/docs/user/deployment/cloudcontrol)
-* [RubyGems](/docs/user/deployment/rubygems)
-* [AWS OpsWorks](/docs/user/deployment/opsworks)
-* [PyPI](/docs/user/deployment/pypi)
-* [Divshot.io](/docs/user/deployment/divshot)
-* [Rackspace Cloud Files](/docs/user/deployment/cloudfiles)
-* [NPM](/docs/user/deployment/npm)
-* [S3](/docs/user/deployment/s3)
-* [Engine Yard](/docs/user/deployment/engineyard)
-* [Custom deployment via after_success hook](/docs/user/deployment/custom)
+* [Appfog](/user/deployment/appfog)
+* [Heroku](/user/deployment/heroku)
+* [Nodejitsu](/user/deployment/nodejitsu)
+* [OpenShift](/user/deployment/openshift)
+* [cloudControl](/user/deployment/cloudcontrol)
+* [RubyGems](/user/deployment/rubygems)
+* [AWS OpsWorks](/user/deployment/opsworks)
+* [PyPI](/user/deployment/pypi)
+* [Divshot.io](/user/deployment/divshot)
+* [Rackspace Cloud Files](/user/deployment/cloudfiles)
+* [NPM](/user/deployment/npm)
+* [S3](/user/deployment/s3)
+* [Engine Yard](/user/deployment/engineyard)
+* [Custom deployment via after_success hook](/user/deployment/custom)
 
 ### Deploying to multiple Providers
 

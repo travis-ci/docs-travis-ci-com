@@ -12,7 +12,7 @@ that can be done to improve build times even more.
 
 To speed up a test suite, you can break it up into several parts using
 Travis’ [build
-matrix](http://about.travis-ci.org/docs/user/build-configuration/#The-Build-Matrix)
+matrix](http://about.travis-ci.org/user/build-configuration/#The-Build-Matrix)
 feature.
 
 Say you want to split up your unit tests and your integration tests into two
@@ -78,6 +78,6 @@ jobs.
 Installing the dependencies for a project can take quite some time for bigger projects. In
 order to make it faster, you may try caching the dependencies.
 
-You can either use our [built-in caching](/docs/user/caching/) or roll your own on S3. If you
+You can either use our [built-in caching](/user/caching/) or roll your own on S3. If you
 want to roll your own and you use Ruby with Bundler, check out [the great WAD project](https://github.com/Fingertips/WAD).
 For other languages, you can use s3 tools directly to upload and download the dependencies.

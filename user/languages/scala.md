@@ -6,11 +6,11 @@ permalink: scala/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Overview
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/docs/user/languages/java/#Overview) and [sbt](http://www.scala-sbt.org).
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and [sbt](http://www.scala-sbt.org).
 
 ## Projects using sbt
 
@@ -34,7 +34,7 @@ By default, Travis will use
 
     sbt ++$TRAVIS_SCALA_VERSION test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
 ### Dependency Management
 
@@ -65,11 +65,11 @@ will generate
 
 ## Projects Using Gradle, Maven or Ant
 
-If your project is not configured for sbt, the build process behaves like a typical [Java Project](/docs/user/languages/java).
+If your project is not configured for sbt, the build process behaves like a typical [Java Project](/user/languages/java).
 
 ## Testing Against Multiple JDKs
 
-As for any JVM language, it is also possible to [test against multiple JDKs](/docs/user/languages/java/#Testing-Against-Multiple-JDKs).
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
 
 ## Build Matrix
 

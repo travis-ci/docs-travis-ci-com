@@ -6,7 +6,7 @@ permalink: python/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Choosing Python versions to test against
 
@@ -41,11 +41,11 @@ A more extensive example:
     script: nosetests
 
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
-For the full up-to-date list of provided Python versions, see our [CI environment guide](/docs/user/ci-environment/).
+For the full up-to-date list of provided Python versions, see our [CI environment guide](/user/ci-environment/).
 
 ### Travis CI Uses Isolated virtualenvs
 
-[CI Environment](/docs/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
+[CI Environment](/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
 If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
 
@@ -97,7 +97,7 @@ In case `script` key is not provided in `.travis.yml` for Python projects, Pytho
 
 ### Travis CI uses pip
 
-By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide.
 
 The exact default command is
 

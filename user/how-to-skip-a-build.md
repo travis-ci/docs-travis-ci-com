@@ -8,8 +8,8 @@ permalink: how-to-skip-a-build/
 
 This How-To explains how to make travis-ci.org skip a build, for example, when
 working on documentation or stylesheets. We recommend you start with the
-[Getting Started](/docs/user/getting-started/) and [Build
-Configuration](/docs/user/build-configuration/) guides before reading this one.
+[Getting Started](/user/getting-started/) and [Build
+Configuration](/user/build-configuration/) guides before reading this one.
 
 ## Not All Commits Need CI Builds
 

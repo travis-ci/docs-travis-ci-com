@@ -35,7 +35,7 @@ Whenever you update your bundle, Travis CI will also update the cache.
 
 Travis CI tries its best at determining the path bundler uses for storing dependencies.
 
-If you have [custom Bundler arguments](/docs/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the *--path* option, Travis CI will use that path. If *--path* is missing but *--deployment* is present, it will use *vendor/bundle*.
+If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the *--path* option, Travis CI will use that path. If *--path* is missing but *--deployment* is present, it will use *vendor/bundle*.
 
 Otherwise it will automatically add the *--path* option. In this case it will either use the value of the environment variable *BUNDLE_PATH* or, if it is missing, *vendor/bundle*.
 
@@ -49,7 +49,7 @@ Bundler caching will not automatically work if you override the install step. Yo
       directories:
       - vendor/bundle
 
-In the above example, you could also omit the install step and instead define [bundler_args](/docs/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
+In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
 
     language: ruby
     bundler_args: --without development --deployment
@@ -108,7 +108,7 @@ Sometimes you ruin your cache by storing bad data in one of the cached directori
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 </figure>
 
-Of course there is a [corresponding API](https://api.travis-ci.com/docs/#/repos/:owner_name/:name/caches).
+Of course there is a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches).
 
 ## Caching Ubuntu packages
 

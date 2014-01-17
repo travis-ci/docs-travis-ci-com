@@ -6,7 +6,7 @@ permalink: go/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## CI environment for Go Projects
 
@@ -46,7 +46,7 @@ It is also possible to specify a list of operations, for example, to `go get` re
       - go get github.com/bmizerany/assert
       - go get github.com/mrb/hob
 
-See [general build configuration guide](/docs/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/build-configuration/) to learn more.
 
 
 
@@ -67,7 +67,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: go
 
-This can be overridden as described in the [general build configuration](/docs/user/build-configuration/) guide. For example, to omit the `-v` flag,
+This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example, to omit the `-v` flag,
 override the `script:` key in `.travis.yml` like this:
 
     script: go test ./...

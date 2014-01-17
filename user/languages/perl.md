@@ -6,7 +6,7 @@ permalink: perl/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Choosing Perl versions to test against
 
@@ -28,7 +28,7 @@ A more extensive example:
       - "5.8"
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
-For full up-to-date list of provided Perl versions, see our [CI environment guide](/docs/user/ci-environment/).
+For full up-to-date list of provided Perl versions, see our [CI environment guide](/user/ci-environment/).
 
 *Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
 
@@ -54,14 +54,14 @@ If neither Module::Build nor EUMM build files are found, Travis CI will fall bac
 
     make test
 
-It is possible to override test command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+It is possible to override test command as described in the [general build configuration](/user/build-configuration/) guide.
 
 
 ## Dependency Management
 
 ### Travis CI uses cpanm
 
-By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/docs/user/build-configuration/) guide.
+By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide.
 
 The exact default command is
 

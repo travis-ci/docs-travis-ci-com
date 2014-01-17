@@ -10,8 +10,8 @@ permalink: ruby/
 
 This guide covers build environment and configuration topics specific to Ruby
 projects. Please make sure to read our [Getting
-Started](/docs/user/getting-started/) and [general build
-configuration](/docs/user/build-configuration/) guides first.
+Started](/user/getting-started/) and [general build
+configuration](/user/build-configuration/) guides first.
 
 ### Supported Ruby Versions
 
@@ -65,7 +65,7 @@ A more extensive example:
 As time goes, new releases come out and we upgrade both RVM and Rubies, aliases
 like `1.9.3` or `jruby` will float and point to different exact versions, patch
 levels and so on. For full up-to-date list of provided Rubies, see our [CI
-environment guide](/docs/user/ci-environment/).
+environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
 
@@ -172,7 +172,7 @@ directory.
 ### Caching Bundler
 
 Bundler installation can take a while, slowing down your build. You can tell
-[Travis CI to cache the installed bundle](/docs/user/caching/).
+[Travis CI to cache the installed bundle](/user/caching/).
 
 On your first build, we warm the cache. On the second one, we'll pull in the
 cache, making `bundle install` only take seconds to run.
@@ -306,7 +306,7 @@ or all 3:
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
 you need to add some matrix excludes (described in our general [Build
-Configuration guide](/docs/user/build-configuration/)):
+Configuration guide](/user/build-configuration/)):
 
     language: ruby
     rvm:

@@ -6,7 +6,7 @@ permalink: php/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/docs/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/docs/user/build-configuration/) guides first.
 
 ## Choosing PHP versions to test against
 
@@ -21,7 +21,7 @@ This will make Travis run your tests using
 
     phpunit
 
-by default against the latest 5.4.x and 5.5.x releases. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/docs/user/ci-environment/).
+by default against the latest 5.4.x and 5.5.x releases. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
 Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis.
 
@@ -37,7 +37,7 @@ By default Travis will run your tests using
 
 for every PHP version you specify.
 
-If your project uses something other than PHPUnit, [you can override our default test command to be anything](/docs/user/build-configuration/) you want.
+If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/build-configuration/) you want.
 
 ### Working with atoum
 
