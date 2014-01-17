@@ -6,7 +6,7 @@ permalink: clojure/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Clojure. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Clojure. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Ambiente de Integração Contínua para Projetos Clojure
 
@@ -29,7 +29,7 @@ Caso precise realizar outras tarefas antes de executar os testes, você deve def
 
     install: lein protobuf install
 
-Veja o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) para aprender mais.
+Veja o [guia de configuração de build](/pt_BR/user/build-configuration/) para aprender mais.
 
 
 

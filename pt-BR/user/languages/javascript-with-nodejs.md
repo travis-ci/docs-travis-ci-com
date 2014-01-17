@@ -6,7 +6,7 @@ permalink: javascript-with-nodejs/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Java. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Java. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Escolhendo as versões do Node para usar nos testes
 
@@ -33,7 +33,7 @@ Para um exemplo, veja [hook.io-amqp-listener .travis.yml](https://github.com/sco
 * 0.11.x (última versão de desenvolvimento, pode ser instável)
 * 0.9.x (antiga versão de desenvolvimento, será marcada como deprecated logo)
 
-Para uma lista completa e atualizada das versões do Node fornecidas, veja o nosso [Guia de Ambiente de Integração Contínua](/pt_BR/docs/user/ci-environment/).
+Para uma lista completa e atualizada das versões do Node fornecidas, veja o nosso [Guia de Ambiente de Integração Contínua](/pt_BR/user/ci-environment/).
 
 ## Comando Padrão de Teste
 

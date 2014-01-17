@@ -4,7 +4,7 @@ layout: pt-BR
 permalink: encryption-keys/
 ---
 
-O Travis gera um par de chaves RSA (privada e pública) que pode ser usada para criptografar informações que você deseja incluir no arquivo `.travis.yml` e ainda assim mantê-la privada. Atualmente, nós permitimos a criptografia de [variáveis de ambiente](/pt-BR/docs/user/build-configuration/#Secure-environment-variables) e configurações de notificações.
+O Travis gera um par de chaves RSA (privada e pública) que pode ser usada para criptografar informações que você deseja incluir no arquivo `.travis.yml` e ainda assim mantê-la privada. Atualmente, nós permitimos a criptografia de [variáveis de ambiente](/pt-BR/user/build-configuration/#Secure-environment-variables) e configurações de notificações.
 
 ## Uso
 
@@ -21,7 +21,7 @@ Isto gerará uma saída similar a seguinte:
 
     secure: ".... dados criptografados ...."
 
-Agora você pode colocá-la no seu arquivo `.travis.yml`. Você pode ler mais sobre [variáveis de ambiente seguras](/pt-BR/docs/user/build-configuration/#Variáveis-de-ambiente-seguras) ou [notificações](/pt-BR/docs/user/notifications).
+Agora você pode colocá-la no seu arquivo `.travis.yml`. Você pode ler mais sobre [variáveis de ambiente seguras](/pt-BR/user/build-configuration/#Variáveis-de-ambiente-seguras) ou [notificações](/pt-BR/docs/user/notifications).
 
 ## Obtendo a chave pública do seu repositório
 

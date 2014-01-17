@@ -6,7 +6,7 @@ permalink: travis-lint/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre o [travis-lint](https://github.com/travis-ci/travis-lint), uma pequena ferramenta que valida o seu arquivo `.travis.yml` de forma a ajudá-lo a descobrir problemas comuns. Caso esteja procurando informações sobre como adicionar o seu projeto no travis-ci.org, comece pelo [Guia de Início](/pt-BR/docs/user/getting-started/).
+Este guia cobre o [travis-lint](https://github.com/travis-ci/travis-lint), uma pequena ferramenta que valida o seu arquivo `.travis.yml` de forma a ajudá-lo a descobrir problemas comuns. Caso esteja procurando informações sobre como adicionar o seu projeto no travis-ci.org, comece pelo [Guia de Início](/pt-BR/user/getting-started/).
 
 
 ## Valide o .travis.yml com o lint.travis-ci.org

@@ -6,7 +6,7 @@ permalink: scala/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Scala. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Scala. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Visão Geral
 
@@ -26,7 +26,7 @@ Caso o seu projeto tenha um diretório `project` ou um arquivo `build.sbt` na ra
     sbt ++$TRAVIS_SCALA_VERSION test
 
 para executar a suite de teste. 
-to run your test suite. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+to run your test suite. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 ### Gerenciamento de Dependências
 

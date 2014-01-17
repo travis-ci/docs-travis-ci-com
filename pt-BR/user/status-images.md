@@ -8,7 +8,7 @@ permalink: status-images/
 
 Este guia cobre a funcionalidade de imagens de status da construção (build) do Travis CI. Imagens de status são parte da API HTTP que renderiza informação sobre o build (sucesso ou falhando) como uma imagem PNG. Os desenvolvedore são encorajados a adicioná-las ao site do projeto, arquivos README, etc, tanto para fazer um link com a página de integração contínua do projeto quanto para demonstrar o seu comprometimento com as boas práticas de desenvolvimento de software.
 
-Nós recomendamos que você leia o [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
+Nós recomendamos que você leia o [Guia de Início](/pt-BR/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
 
 ## URLs das Imagens de Status
 

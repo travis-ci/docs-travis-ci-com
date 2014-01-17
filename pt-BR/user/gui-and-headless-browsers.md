@@ -6,7 +6,7 @@ permalink: gui-and-headless-browsers/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre testes de interface (GUI) e testes com o navegador (headless) utilizando ferramentas fornecidas pelo [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) do Travis. A maior parte do conteúdo é independente de tecnologia e não cobre todos os detalhes de ferramentas específicas de teste (como Poltergeist ou Capybara). Recomendamos que você inicie com o [Guia de Início](/pt-BR/docs/user/getting-started/) e o guia de [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
+Este guia cobre testes de interface (GUI) e testes com o navegador (headless) utilizando ferramentas fornecidas pelo [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/) do Travis. A maior parte do conteúdo é independente de tecnologia e não cobre todos os detalhes de ferramentas específicas de teste (como Poltergeist ou Capybara). Recomendamos que você inicie com o [Guia de Início](/pt-BR/docs/user/getting-started/) e o guia de [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
 
 ## Usando o xvfb para Executar  Testes que Utilizam GUI (ex. um navegador web)
 
@@ -50,7 +50,7 @@ Caso necessite que o servidor web esteja escutando na porta 80, lembre-se de uti
 
 O [Phantom.js](http://phantomjs.org/) é um WebKit sem interface gráfica (headless) com uma API JavaScript. É uma solução ideal para testes rápidos, captura de informações em sites, captura de páginas, renderização de SVG, monitoração de redes e muitos outros casos de uso.
 
-O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) fornece o Phantom.js (disponível no PATH como `phantomjs`). Como ele não utiliza interface gráfica, o `xvfb` não precisa estar executando.
+O [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/) fornece o Phantom.js (disponível no PATH como `phantomjs`). Como ele não utiliza interface gráfica, o `xvfb` não precisa estar executando.
 
 Um exemplo bem simples:
 

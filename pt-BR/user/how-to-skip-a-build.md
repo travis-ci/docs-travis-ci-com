@@ -6,7 +6,7 @@ permalink: how-to-skip-a-build/
 
 ### O Que Este Guia Cobre
 
-Este guia explica como fazer com que o travis-ci.org ignore (pule) uma construção, por exemplo, quando você está trabalhando na documentação ou com stylesheets. Nós recomendamos que você leia o [Guia de Início](/pt-BR/docs/user/getting-started/) e o [Guia de Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de prosseguir.
+Este guia explica como fazer com que o travis-ci.org ignore (pule) uma construção, por exemplo, quando você está trabalhando na documentação ou com stylesheets. Nós recomendamos que você leia o [Guia de Início](/pt-BR/user/getting-started/) e o [Guia de Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de prosseguir.
 
 ## Nem Todos os Commits Precisam de Construções na IC
 

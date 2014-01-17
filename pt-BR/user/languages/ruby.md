@@ -6,7 +6,7 @@ permalink: ruby/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Ruby. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Ruby. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Escolhendo as versões/implementações do Ruby para executar os testes
 
@@ -37,7 +37,7 @@ Um exemplo mais completo:
       - ree
 
 Com o tempo, novas versões são liberadas e nós atualizamos tanto o RVM quanto o Ruby. Apelidos como `1.9.3` ou `jruby` são alterados para apontar para versões exatas, níveis de patch, etc.
-Para uma lista completa e atualizada das versões de Ruby disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+Para uma lista completa e atualizada das versões de Ruby disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/).
 
 ### Rubinius: modos 1.8 e 1.9, atualizações periódicas
 
@@ -154,7 +154,7 @@ ou todos os 3:
       - oraclejdk7
       - openjdk6
 
-Cada JDK que você utiliza para testes criará permutações com todas as outras configurações. Para evitar executar os testes para, por exemplo, CRuby 1.9.3 diversas vezes você deve adicionar algumas exclusões de matriz (descritas no [guia de configuração de build](/pt_BR/docs/user/build-configuration/)):
+Cada JDK que você utiliza para testes criará permutações com todas as outras configurações. Para evitar executar os testes para, por exemplo, CRuby 1.9.3 diversas vezes você deve adicionar algumas exclusões de matriz (descritas no [guia de configuração de build](/pt_BR/user/build-configuration/)):
 
     language: ruby
     rvm:

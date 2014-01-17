@@ -6,11 +6,11 @@ permalink: database-setup/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre os armazenamentos de dados e outros serviços (ex.: RabbitMQ) oferecidos no [Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) e descreve quais usuários e configurações os projetos hospedados no travis-ci.org podem utilizar. A maioria do conteúdo é aplicável a qualquer tecnologia, apesar de existirem alguns aspectos sutis no comportamento de alguns drivers de bancos de dados que este guia tentará cobrir. Recomendamos que você leia com os guias [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
+Este guia cobre os armazenamentos de dados e outros serviços (ex.: RabbitMQ) oferecidos no [Ambiente de Integração Contínua do Travis](/pt-BR/user/ci-environment/) e descreve quais usuários e configurações os projetos hospedados no travis-ci.org podem utilizar. A maioria do conteúdo é aplicável a qualquer tecnologia, apesar de existirem alguns aspectos sutis no comportamento de alguns drivers de bancos de dados que este guia tentará cobrir. Recomendamos que você leia com os guias [Guia de Início](/pt-BR/docs/user/getting-started/) e [Configuração de Build](/pt-BR/docs/user/build-configuration/) antes de ler este guia.
 
 ## Serviços no Ambiente Travis CI
 
-[O Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) possui diversos bancos de dados populares pré-instalados. Alguns dos serviços disponíveis são:
+[O Ambiente de Integração Contínua do Travis](/pt-BR/user/ci-environment/) possui diversos bancos de dados populares pré-instalados. Alguns dos serviços disponíveis são:
 
 * MySQL
 * PostgreSQL
@@ -30,7 +30,7 @@ Todos os serviços supracitados usam, em sua maioria, as configurações padrão
 
 ## Configure seus Projetos para utilizar Serviços nos Testes
 
-Aqui mostra-se como configurar o seu projeto para utilizar banco de dados nos testes. Assume-se que você já leu a documentação sobre a [Configuração de Build](/pt-BR/docs/user/build-configuration/).
+Aqui mostra-se como configurar o seu projeto para utilizar banco de dados nos testes. Assume-se que você já leu a documentação sobre a [Configuração de Build](/pt-BR/user/build-configuration/).
 
 ### Habilitando os Serviços
 
@@ -48,7 +48,7 @@ Caso necessite de diversos serviços, utilize o seguinte:
       - memcache # iniciará o memcached
 
 Isto permite que nós forneçamos apelidos para cada serviço e normalizemos as diferenças de nomenclaturas, como RabbitMQ por exemplo. Note que esta funcionalidade está 
-disponível apenas para serviços que nós oferecemos no nosso [Ambiente de Integração Contínua](http://about.travis-ci.org/pt-BR/docs/user/ci-environment/).
+disponível apenas para serviços que nós oferecemos no nosso [Ambiente de Integração Contínua](http://about.travis-ci.org/pt-BR/user/ci-environment/).
 Caso você faça o download do Apache Jackrabbit, por exemplo, e inicie-o manualmente na etapa `before_install`, você deverá continuar fazendo da mesma maneira.
 
 ### MySQL
@@ -281,7 +281,7 @@ Com isso, você pode utilizr estes valores na etapa `before_install` (ou `before
       - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
       - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
 
-Ao fazer isto, por favor leia e entenda tudo sobre a matriz de build descrita no guia de [Configuração de Build](/pt-BR/docs/user/build-configuration/).
+Ao fazer isto, por favor leia e entenda tudo sobre a matriz de build descrita no guia de [Configuração de Build](/pt-BR/user/build-configuration/).
 
 Nota: ** O Travis CI não oferece nenhum suporte especial à estas variáveis**, ele simplesmente cria três construções com valores exportados diferentes.
 A sua suite de testes ou as etapas `before_install`/`before_script` que devem fazer uso destes valores.
@@ -319,4 +319,4 @@ Na sua suite de testes, leia esses dados em um hash de configurações:
 
 ### Conclusão
 
-O [Ambiente de Integração Contínua do Travis](/pt-BR/docs/user/ci-environment/) provê diversos bancos de dados open source que os projetos podem utilizar. Na maioria dos casos, esses bancos usam as configurações padrão. Quando este não é o caso, o propósito desta customização geralmente é minimizar o trabalho a ser realizado pelos desenvolvedores para utilizá-lo. Frequentemente, isto significa relaxar as configurações de segurança. o que é aceitável para um ambiente de integração contínua.
+O [Ambiente de Integração Contínua do Travis](/pt-BR/user/ci-environment/) provê diversos bancos de dados open source que os projetos podem utilizar. Na maioria dos casos, esses bancos usam as configurações padrão. Quando este não é o caso, o propósito desta customização geralmente é minimizar o trabalho a ser realizado pelos desenvolvedores para utilizá-lo. Frequentemente, isto significa relaxar as configurações de segurança. o que é aceitável para um ambiente de integração contínua.

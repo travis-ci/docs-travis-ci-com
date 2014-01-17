@@ -14,7 +14,7 @@ O Travis CI permite que você configure algumas ferramentas de build usando o se
 
 O [Sauce Connect][sauce-connect] cria um proxy seguro do tráfico entre as máquinas virtuais do Sauce Labs e os nossos servidores locais. O Connect usa as portas 443 e 80 para comunicação com a nuvem do Sauce. Caso esteja utilizando o Sauce Labs para os seus testes Selenium, isto torna mais fácil conectar com os nossos webservers.
 
-[sauce-connect]: https://saucelabs.com/docs/connect
+[sauce-connect]: https://saucelabs.com/connect
 
 Primeiramente, [cadastre-se][sauce-sign-up] no Sauce Labs caso ainda não o tenha feito (é [gratuito][open-sauce] para projetos Open Source), e obtenha sua chave de acesso da sua [página da conta][sauce-account]. Em seguida, adicione o seguinte ao seu arquivo .travis.yml:
 
@@ -40,7 +40,7 @@ Você também pode adicionar o `nome de usuário` e a `chave de acesso` como var
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://about.travis-ci.org/pt-BR/docs/user/encryption-keys/
+[encryption-keys]: http://about.travis-ci.org/pt-BR/user/encryption-keys/
 
 ### Firefox
 

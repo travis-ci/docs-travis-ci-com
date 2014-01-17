@@ -6,7 +6,7 @@ permalink: erlang/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Erlang. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Erlang. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 
 ## Escolhendo as Releases OTP para Executar os Testes

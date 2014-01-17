@@ -6,7 +6,7 @@ permalink: c/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos C. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos C. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 
 ## Ambiente de Integração Contínua para Projetos C
@@ -32,7 +32,7 @@ Caso necessite realizar tarefas antes de executar os testes, sobrescreva a chave
 
     install: make get-deps
 
-Veja o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) para aprender mais.
+Veja o [guia de configuração de build](/pt_BR/user/build-configuration/) para aprender mais.
 
 
 
@@ -47,7 +47,7 @@ Projetos que achem esses passos suficientes podem utilizar um arquivo .travis.ym
 
     language: c
 
-É possível sobrescrever este comportamento, conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/). Por exemplo, para executar o build
+É possível sobrescrever este comportamento, conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/). Por exemplo, para executar o build
 utilizando o Scons sem argumentos, sobrescreva a chave `script:` no `.travis.yml` para:
 
     script: scons

@@ -6,7 +6,7 @@ permalink: groovy/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Groovy. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Groovy. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Visão Geral
 
@@ -26,7 +26,7 @@ Se o seu projeto possui o arquivo `build.gradle` na raiz do repositório, o cons
 
     gradle check
 
-para executar a suite de teste. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+para executar a suite de teste. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 ### Gerenciamento de Dependências
 
@@ -44,7 +44,7 @@ Se o seu projeto possuir o arquivo `pom.xml` na raiz do repositório e não poss
 
     mvn test
 
-para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 ### Gerenciamento de Dependências
 
@@ -62,7 +62,7 @@ Caso o Travis não encontre arquivos Maven ou Gradle, o construtor Groovy utiliz
 
     ant test
 
-para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+para executar a suite de testes. Este comportamento pode ser sobrescrito conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 
 ### Gerenciamento de Dependências

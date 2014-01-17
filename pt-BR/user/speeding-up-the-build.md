@@ -11,7 +11,7 @@ de coisas que podem ser feitas para melhorar ainda mais o tempo de construção.
 ## Paralelizando seus builds entre máquinas virtuais
 
 Para acelerar uma suite de testes, você pode separá-la em diversas partes usando
-a funcionalidade  de [matriz de build do Travis](http://about.travis-ci.org/pt-BR/docs/user/build-configuration/#A-Matriz-de-Build-(Constru%C3%A7%C3%A3o)).
+a funcionalidade  de [matriz de build do Travis](http://about.travis-ci.org/pt-BR/user/build-configuration/#A-Matriz-de-Build-(Constru%C3%A7%C3%A3o)).
 
 Digamos que você quer separar seus testes unitários e testes de integração em dois jobs diferentes de construção.
 Eles executarão em paralelo e utilizarão completamente a capacidade de construção disponível para a sua conta.

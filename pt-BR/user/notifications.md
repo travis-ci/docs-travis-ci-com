@@ -149,7 +149,7 @@ As notificações também podem ser enviadas para salas de chat do Campfire, usa
 * *token da api*: é o token do usuário a ser utilizado para postar as notificações.
 * *id da sala*: é o id da sala, não o nome.
 
-> Nota: Recomendamos que você [criptografe](/pt-BR/docs/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
+> Nota: Recomendamos que você [criptografe](/pt-BR/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
 
     travis encrypt subdomínio:token_da_api@id_da_sala --add notifications.campfire.rooms
 
@@ -186,7 +186,7 @@ Notificações podem ser enviadas para salas de chat do HitChat, usando a seguin
 * *token da api*: é o token do usuário a ser utilizado para postar as notificações.
 * *nome da sala*: nome da sala onde as notificações serão enviadas.
 
-> Nota: Recomendamos que você [criptografe](/pt-BR/docs/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
+> Nota: Recomendamos que você [criptografe](/pt-BR/user/encryption-keys/) este valor se o seu .travis.yml está armazenado em um repositório público:
 
     travis encrypt subdomínio:token_da_api@id_da_sala --add notifications.hipchat.rooms
 

@@ -8,7 +8,7 @@ permalink: build-configuration/
 
 ### O Que Este Guia Cobre
 
-Este guia aborda o ambiente de build e tópicos de configuração comuns a todos os projetos hospedados no travis-ci.org, independente de tecnologia. Recomendamos que você inicie com o [Guia de Início](/pt-BR/docs/user/getting-started/) e leia este guia inteiro antes de passar para as [notificações de build](/pt-BR/docs/user/notifications/) e os [guias específicos das linguagens](/docs)
+Este guia aborda o ambiente de build e tópicos de configuração comuns a todos os projetos hospedados no travis-ci.org, independente de tecnologia. Recomendamos que você inicie com o [Guia de Início](/pt-BR/user/getting-started/) e leia este guia inteiro antes de passar para as [notificações de build](/pt-BR/docs/user/notifications/) e os [guias específicos das linguagens](/docs)
 
 ## O arquivo .travis.yml: o que é e como é usado
 
@@ -85,7 +85,7 @@ As duas opções suportam múltiplos scripts:
       - comando_after_1
       - comando_after_2
 
-Esses scripts podem ser utilizados, por exemplo, para configurar bancos de dados ou outras tarefas de configuração do build. Para mais informação sobre a configuração de bancos de dados, veja o guia de [Configuração de Banco de Dados](/pt-BR/docs/user/database-setup/).
+Esses scripts podem ser utilizados, por exemplo, para configurar bancos de dados ou outras tarefas de configuração do build. Para mais informação sobre a configuração de bancos de dados, veja o guia de [Configuração de Banco de Dados](/pt-BR/user/database-setup/).
 
 ### install
 
@@ -111,7 +111,7 @@ Tanto a opção `before_install` quanto `after_install` suportam o uso de múlti
 
 ### Dependências Nativas
 
-Caso o seu projeto tenha dependências nativas (por exemplo, libxml ou libffi) ou precise de ferramentas que o [Ambiente de CI Travis](/pt-BR/docs/user/ci-environment/) não forneça, você pode instalá-las via apt, e até mesmo utilizar repositórios de terceiros e PPAs. Para mais informações, veja as respectivas seções mais a frente neste guia.
+Caso o seu projeto tenha dependências nativas (por exemplo, libxml ou libffi) ou precise de ferramentas que o [Ambiente de CI Travis](/pt-BR/user/ci-environment/) não forneça, você pode instalá-las via apt, e até mesmo utilizar repositórios de terceiros e PPAs. Para mais informações, veja as respectivas seções mais a frente neste guia.
 
 
 ### Atualizando Submódulos Git
@@ -149,7 +149,7 @@ Atualmente os projetos Clojure podem ser testados no Oracle JDK 7, OpenJDK 7 e O
 
 Caso você tenha interesse em testar em múltiplas versões de Clojure, apenas utilize estas funcionalidades do Leiningen que tudo funcionará sem nenhum suporte especial do Travis.
 
-Aprenda mais no nosso [Guia de Projetos Clojure](/pt-BR/docs/user/languages/clojure/).
+Aprenda mais no nosso [Guia de Projetos Clojure](/pt-BR/user/languages/clojure/).
 
 ### Erlang
 
@@ -160,19 +160,19 @@ Projetos Erlando especificam as versões a utilizar nos testes através da chave
       - R14B04
       - R15B01
 
-Aprenda mais no [Guia de Projetos Erlang](/pt-BR/docs/user/languages/erlang/).
+Aprenda mais no [Guia de Projetos Erlang](/pt-BR/user/languages/erlang/).
 
 ### Groovy
 
 Atualmente os projetos Groovy podem ser testados no Oracle JDK 7, OpenJDK 7 e OpenJDK 6. Suporte para múltiplos JDKs será adicionado futuramente.
 
-Aprenda mais no nosso [Guia para Projetos Groovy](/pt-BR/docs/user/languages/groovy/).
+Aprenda mais no nosso [Guia para Projetos Groovy](/pt-BR/user/languages/groovy/).
 
 ### Java
 
 Atualmente os projetos Groovy podem ser testados no Oracle JDK 7, OpenJDK 7 e OpenJDK 6. Suporte para múltiplos JDKs será adicionado futuramente.
 
-Aprenda mais no nosso [Guia para Projetos Java](/pt-BR/docs/user/languages/java/).
+Aprenda mais no nosso [Guia para Projetos Java](/pt-BR/user/languages/java/).
 
 
 ### Node.js
@@ -183,7 +183,7 @@ Projetos Node.js especificam as versões a serem utilizadas nos testes usando a 
        - "0.4"
        - "0.6"
 
-Aprenda mais no nosso [Guia para Projetos Node.js](/docs/user/languages/javascript-with-nodejs/).
+Aprenda mais no nosso [Guia para Projetos Node.js](/user/languages/javascript-with-nodejs/).
 
 ### Perl
 
@@ -193,7 +193,7 @@ Projetos Perl especificam as versões a serem utilizadas nos testes usando a cha
       - "5.14"
       - "5.12"
 
-Aprenda mais no nosso [Guia para Projetos Perl](/pt-BR/docs/user/languages/perl/).
+Aprenda mais no nosso [Guia para Projetos Perl](/pt-BR/user/languages/perl/).
 
 ### PHP
 
@@ -203,7 +203,7 @@ Projetos PHP especificam as versões a serem utilizadas nos testes usando a chav
       - "5.4"
       - "5.3"
 
-Aprenda mais no nosso [Guia para Projetos PHP](/pt-BR/docs/user/languages/php/).
+Aprenda mais no nosso [Guia para Projetos PHP](/pt-BR/user/languages/php/).
 
 ### Python
 
@@ -214,7 +214,7 @@ Projetos Python especificam as versões a serem utilizadas nos testes usando a c
       - "2.6"
       - "3.2"
 
-Aprenda mais no nosso [Guia para Projetos Python](/pt-BR/docs/user/languages/python/).
+Aprenda mais no nosso [Guia para Projetos Python](/pt-BR/user/languages/python/).
 
 ### Ruby
 
@@ -228,7 +228,7 @@ Projetos Ruby especificam as versões a serem utilizadas nos testes usando a cha
       - jruby-18mode
       - "1.8.7"
 
-Aprenda mais no nosso [Guia para Projetos Ruby](/pt-BR/docs/user/languages/ruby/).
+Aprenda mais no nosso [Guia para Projetos Ruby](/pt-BR/user/languages/ruby/).
 
 ### Scala
 
@@ -240,7 +240,7 @@ Projetos Scala especificam as versões a serem utilizadas nos testes usando a ch
 
 O Travis CI depende do suporte do SBT para executar os testes em múltiplas versões do Scala.
 
-Aprenda mais no nosso [Guia para Projetos Scala](/pt-BR/docs/user/languages/scala/).
+Aprenda mais no nosso [Guia para Projetos Scala](/pt-BR/user/languages/scala/).
 
 ## Definição de variáveis de ambiente
 
@@ -248,7 +248,7 @@ Para definir uma variável de ambiente:
 
     env: DB=postgres
 
-Variáveis de ambiente são úteis para configurar scripts de build. Veja um exemplo no [Guia de Configuração de Banco de Dados](/pt-BR/docs/user/database-setup/#multiple-database-systems). A variável de ambiente `TRAVIS` sempre é definida durante os builds. Use-a para determinar se a sua suite de testes está executando no ambiente de integração contínua.
+Variáveis de ambiente são úteis para configurar scripts de build. Veja um exemplo no [Guia de Configuração de Banco de Dados](/pt-BR/user/database-setup/#multiple-database-systems). A variável de ambiente `TRAVIS` sempre é definida durante os builds. Use-a para determinar se a sua suite de testes está executando no ambiente de integração contínua.
 
 É possível especificar mais de uma variável de ambiente por item na lista `env`:
 
@@ -306,7 +306,7 @@ Alguns motivos comuns para uma suite de testes travar:
 
 ### O .travis.yml e múltiplos branches
 
-O Travis irá sempre procurar pelo arquivo `.travis.yml` contido no branch especificado pelo commit git que o GitHub nos passa. A configuração em um branch não afetará a construção de outro branch. Além disso, o Travis CI executará o build após *qualquer* git push para o seu projeto GitHub, a menos que você o instrua a [pular um build](/pt-BR/docs/user/how-to-skip-a-build/). Você pode limitar este comportamente com opções de configuração.
+O Travis irá sempre procurar pelo arquivo `.travis.yml` contido no branch especificado pelo commit git que o GitHub nos passa. A configuração em um branch não afetará a construção de outro branch. Além disso, o Travis CI executará o build após *qualquer* git push para o seu projeto GitHub, a menos que você o instrua a [pular um build](/pt-BR/user/how-to-skip-a-build/). Você pode limitar este comportamente com opções de configuração.
 
 ### Adicionando branches na lista negra / branca
 

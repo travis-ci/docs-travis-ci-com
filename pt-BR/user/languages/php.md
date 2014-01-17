@@ -6,7 +6,7 @@ permalink: php/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos PHP. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos PHP. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Escolhendo as versões do PHP para Executar os Testes
 
@@ -21,7 +21,7 @@ Isto fará com que o Travis execute seus testes com
 
     phpunit
 
-por padrão, utilizando as últimas versões 5.4.x e 5.5.x. 5.4 e 5.5 são apelidos para "a mais recente versão x.y.z" de uma determinada linha. Note que "a mais recente" significa "as mais recentes fornecidas pelos mantedores do Travis", não necessariamente as últimas versões oficiais disponíveis no php.net. Para uma listagem completa das versões suportadas, veja [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+por padrão, utilizando as últimas versões 5.4.x e 5.5.x. 5.4 e 5.5 são apelidos para "a mais recente versão x.y.z" de uma determinada linha. Note que "a mais recente" significa "as mais recentes fornecidas pelos mantedores do Travis", não necessariamente as últimas versões oficiais disponíveis no php.net. Para uma listagem completa das versões suportadas, veja [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/).
 
 Note ainda que especificar versões exatas como 5.3.8 não é recomendado, visto que seu arquivo .travis.yml pode ficar desatualizado e quebrar o build quando nós atualizarmos as versões do PHP no Travis.
 
@@ -37,7 +37,7 @@ Por padrão o Travis executará seus testes utilizando
 
 para cada versão do PHP que você especificar.
 
-Caso o seu projeto utilize algo diferente do PHPUnit, você pode sobrescrever o comando padrão de testes para o que for necessário, conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+Caso o seu projeto utilize algo diferente do PHPUnit, você pode sobrescrever o comando padrão de testes para o que for necessário, conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 ### Trabalhando com atoum
 

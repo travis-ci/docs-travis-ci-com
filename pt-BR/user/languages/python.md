@@ -6,7 +6,7 @@ permalink: python/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Python. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Python. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Escolhendo as versões do Python para Executar os Testes
 
@@ -40,11 +40,11 @@ Um exemplo mais completo:
     script: nosetests
 
 Com o tempo, novas versões são liberadas e nós passamos a oferecer mais versões e/ou implementações do Python. Apelidos como `3.2` são alterados para apontar para versões exatas, níveis de patch, etc.
-Para uma lista completa e atualizada das versões de Python disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+Para uma lista completa e atualizada das versões de Python disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/).
 
 ### O Travis CI usa virtualenvs Isolados
 
-O [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/) utiliza instâncias virtualenv separadas para cada versão do Python. O Python do sistema não é utilizado e não deve-se depender dele. Caso precise instalar pacotes Python, o faça via pip e não via apt.
+O [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/) utiliza instâncias virtualenv separadas para cada versão do Python. O Python do sistema não é utilizado e não deve-se depender dele. Caso precise instalar pacotes Python, o faça via pip e não via apt.
 
 Caso você decida usar o apt mesmo assim, observe que os pacotes de sistema do Python são apenas as bibliotecas do Python 2.7 no Ubuntu 12.04 LTS. Isto significa que pacotes instalados de outros repositórios não estão disponíveis em outros virtualenvs mesmo se você utilizar a opção --system-site-packages.
 
@@ -95,7 +95,7 @@ Caso a chave `script` não esteja presente no seu `.travis.yml`, o construtor Py
 
 ### Travis CI usa pip
 
-Por padrão o Travis CI usa o `pip` para gerenciar as dependências do seu projeto. É possível (e comum) sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+Por padrão o Travis CI usa o `pip` para gerenciar as dependências do seu projeto. É possível (e comum) sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 O comando padrão é
 

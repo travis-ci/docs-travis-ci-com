@@ -6,7 +6,7 @@ permalink: perl/
 
 ### O Que Este Guia Cobre
 
-Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Perl. Por favor leia o nosso [Guia de Início](/pt_BR/docs/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
+Este guia cobre tópicos específicos ao ambiente de build e configuração de projetos Perl. Por favor leia o nosso [Guia de Início](/pt_BR/user/getting-started/) e o [guia de configuração de build](/pt_BR/docs/user/build-configuration/) antes.
 
 ## Escolhendo as versões de Perl para Executar os Testes
 
@@ -28,7 +28,7 @@ Um exemplo mais extensivo:
       - "5.8"
 
 Com o tempo, novas versões são liberadas e nós atualizamos tanto o Perlbrew quanto o Perl. Apelidos como `5.14` são alterados para apontar para versões exatas, níveis de patch, etc.
-Para uma lista completa e atualizada das versões de Perl disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/docs/user/ci-environment/).
+Para uma lista completa e atualizada das versões de Perl disponíveis, veja o nosso guia [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/).
 
 *Versões do Perl anteriores à 5.8 não são e não serão fornecidas. Por favor não as inclua no seu `.travis.yml`.*
 
@@ -55,14 +55,14 @@ Se nem os arquivos de build do Module::Build nem do EUMM forem encontrados, o Tr
 
     make test
 
-É possível sobrescrever o comando de teste, conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+É possível sobrescrever o comando de teste, conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 
 ## Gerenciamento de Dependências
 
 ### O Travis CI usa cpanm
 
-Por padrão o Travis CI usa o `cpanm` para gerenciar as dependências do seu projeto. É possível sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/docs/user/build-configuration/).
+Por padrão o Travis CI usa o `cpanm` para gerenciar as dependências do seu projeto. É possível sobrescrever o comando de instalação de dependências conforme descrito no [guia de configuração de build](/pt_BR/user/build-configuration/).
 
 O comando padrão executado é
 
