@@ -1,6 +1,6 @@
 # Sobre este repositório #
 
-Esta é a tradução para português da documentação do Travis (http://about.travis-ci.org)
+Esta é a tradução para português da documentação do Travis (http://docs.travis-ci.com)
 
 ## Como contribuir
 

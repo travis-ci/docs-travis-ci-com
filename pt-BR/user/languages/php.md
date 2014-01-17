@@ -119,7 +119,7 @@ As opções de configuração padrão utilizadas para compilar as versões do PH
 
 Note, contudo, as seguintes diferenças entre as versões de PHP disponíveis no Travis:
 
-* Para versões do PHP não mantidas que nós oferecemos (5.2.x, 5.3.3), a extensão OpenSSL está desativada devido a [problemas de compilação com OpenSSL 1.0](http://about.travis-ci.org/blog/upcoming_ubuntu_11_10_migration/). As releases recentes das versões PHP 5.3.x e 5.4.x que nós fornecemos possuem suporte à extensão OpenSSL.
+* Para versões do PHP não mantidas que nós oferecemos (5.2.x, 5.3.3), a extensão OpenSSL está desativada devido a [problemas de compilação com OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/). As releases recentes das versões PHP 5.3.x e 5.4.x que nós fornecemos possuem suporte à extensão OpenSSL.
 * Pyrus não está disponível para o PHP 5.2.x.
 * SAPIs diferentes:
 

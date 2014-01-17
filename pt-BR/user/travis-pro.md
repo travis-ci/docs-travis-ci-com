@@ -78,7 +78,7 @@ fail to authorize access, failing the entire git clone operation.
 
 Yes, you can. It's enabled by default for all repositories set up on Travis. See
 the [blog
-post](http://about.travis-ci.org/blog/announcing-pull-request-support/)
+post](http://blog.travis-ci.com/blog/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis.
 
 ### How can I encrypt files that include sensitive data?

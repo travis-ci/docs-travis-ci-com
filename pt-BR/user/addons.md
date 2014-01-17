@@ -40,7 +40,7 @@ Você também pode adicionar o `nome de usuário` e a `chave de acesso` como var
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://about.travis-ci.org/pt-BR/user/encryption-keys/
+[encryption-keys]: http://docs.travis-ci.com/pt-BR/user/encryption-keys/
 
 ### Firefox
 

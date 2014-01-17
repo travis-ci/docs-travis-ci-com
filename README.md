@@ -1,6 +1,6 @@
 # About this repository #
 
-This is the documentation site for Travis! (http://about.travis-ci.org)
+This is the documentation site for Travis CI! (http://blog.travis-ci.com)
 
 ## How to contribute
 

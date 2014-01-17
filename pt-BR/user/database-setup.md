@@ -48,7 +48,7 @@ Caso necessite de diversos serviços, utilize o seguinte:
       - memcache # iniciará o memcached
 
 Isto permite que nós forneçamos apelidos para cada serviço e normalizemos as diferenças de nomenclaturas, como RabbitMQ por exemplo. Note que esta funcionalidade está 
-disponível apenas para serviços que nós oferecemos no nosso [Ambiente de Integração Contínua](http://about.travis-ci.org/pt-BR/user/ci-environment/).
+disponível apenas para serviços que nós oferecemos no nosso [Ambiente de Integração Contínua](/pt-BR/user/ci-environment/).
 Caso você faça o download do Apache Jackrabbit, por exemplo, e inicie-o manualmente na etapa `before_install`, você deverá continuar fazendo da mesma maneira.
 
 ### MySQL
