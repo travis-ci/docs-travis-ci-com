@@ -101,21 +101,21 @@ Currently Pull Requests will use the cache of the branch they are supposed to be
 
 ### Clearing Caches
 
-Sometimes you ruin your cache by storing bad data in one of the cached directories. Currently it is not possible to clear the cache via the web interface. However, you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+Sometimes you ruin your cache by storing bad data in one of the cached directories. Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
 
 <figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 </figure>
 
-Of course there is a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches).
+There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
 
 ## Caching Ubuntu packages
 
 A network-local APT cache is available, allowing for more reliable download
 speeds compared to the Ubuntu mirrors.
 
-Simply enable APT caching in your .travis.yml:
+To enable APT caching, add the following to your .travis.yml:
 
     cache: apt
 

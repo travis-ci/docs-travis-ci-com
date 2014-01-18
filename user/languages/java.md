@@ -1,4 +1,3 @@
----
 title: Building a Java project
 layout: en
 permalink: java/

@@ -141,7 +141,7 @@ alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 ## Default Test Script
 
 Travis CI runs `rake` by default to execute your tests. Please note that **you
-need to add rake to your Gemfile** (adding it to just the `:test` group should
+need to add rake to your Gemfile** (adding it to the `:test` group should
 be sufficient).
 
 ## Dependency Management
@@ -337,8 +337,8 @@ installed by the newest Bundler/RubyGems combination.
 
 We try to keep it as up-to-date as possible.
 
-However, should you require the latest version of RubyGems, you can add the
-following to your .travis.yml:
+Should you require the latest version of RubyGems, you can add the following to
+your .travis.yml:
 
     before_install:
       - gem update --system

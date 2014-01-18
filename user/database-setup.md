@@ -26,7 +26,10 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * Kestrel
 * SQLite3
 
-All the aforementioned services use mostly stock default settings. However, when it makes sense, new users are added and security settings are relaxed (because for continuous integration ease of use is more important): one example of such adaptation is PostgreSQL that has strict default access settings.
+All of these data stores use the default settings, with one exception: When it
+makes sense, new users are added and the security settings are relaxed for ease
+of use. One example of this is PostgreSQL which normally has very strict
+default access settings.
 
 ## Configure Your Projects to Use Services in Tests
 
@@ -118,7 +121,7 @@ For Ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle
       database: ":memory:"
       timeout: 500
 
-However, if your project is a general library or plugin, you need to handle connecting to the database yourself in tests. For example, connecting with ActiveRecord:
+If you're not using a `config/database.yml` file to configure ActiveRecord, you need to connect to the database manually in the tests. For example, connecting with ActiveRecord could be done like this:
 
     ActiveRecord::Base.establish_connection :adapter => 'sqlite3',
                                             :database => ':memory:'
@@ -132,9 +135,7 @@ MongoDB is **not started on boot**. To make Travis CI start the service for you,
 
 to your `.travis.yml`.
 
-MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front.
-
-However, authentication will be enabled upon adding an admin user as mongod is started with the `--auth` parameter.
+MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front. If you add an admin user, authentication will be enabled, since mongod is started with the `--auth` argument.
 
 Note: Admin users are users created on the admin database.
 

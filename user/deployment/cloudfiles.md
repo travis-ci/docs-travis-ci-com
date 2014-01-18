@@ -15,10 +15,9 @@ For a minimal configuration, all you need to do is add the following to your `.t
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
 
+This example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set skip_cleanup to true to prevent Travis CI from deleting your build artifacts.
 
-However, this example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set skip_cleanup to true to prevent Travis CI from deleting your build artifacts.
-
-	 deploy:
+    deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
       api-key: "RACKSPACE API KEY"

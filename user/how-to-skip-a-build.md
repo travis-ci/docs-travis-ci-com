@@ -13,13 +13,10 @@ Configuration](/user/build-configuration/) guides before reading this one.
 
 ## Not All Commits Need CI Builds
 
-Sometimes you just change a README, some docs or just stuff which has no effect
-on the app itself. So you would like to know how to prevent your push from
-being built.
-
-It's easy - just add the following to the commit message:
-
-    [ci skip]
+Sometimes all you are changing is the README, some documentation or other
+things which have no effect on the tests. In this case, you may not want a
+build to be created for that commit. To do this, all you need to do is to add
+`[ci skip]` somewhere in the commit message.
 
 Commits that have `[ci skip]` anywhere in the commit messages will be ignored.
 `[ci skip]` does not have to appear on the first line, so it is possible to use
