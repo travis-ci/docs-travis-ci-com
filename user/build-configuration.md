@@ -153,7 +153,7 @@ This can be turned off by setting:
 
 If your project requires some specific option for your Git submodules which Travis CI does not support out of the box, then you can turn the automatic integration off and use the `before_install` hook to initializes and update them. 
 
-E.g.:
+For example:
 
     before_install:
       - git submodule update --init --recursive
