@@ -141,9 +141,18 @@ If your project has native dependencies (for example, libxml or libffi) or needs
 you can install packages via apt and even use 3rd-party apt repositories and PPAs. For more see dedicated sections later in this guide.
 
 
-### Updating Git Submodules
+### Git Submodules
 
-If your project uses Git submodules, use the following technique to clone them before dependencies installation:
+Travis CI automatically initializes and updates submodules when a `.gitmodules` file is being found in the root directory. 
+
+This can be turned off by setting:
+
+    git:
+      submodules: false
+
+If your project requires some specific option for your Git submodules which Travis CI does not support out of the box, then you can turn the automatic integration off and use the `before_install` hook to initializes and update them. 
+
+E.g.:
 
     before_install:
       - git submodule update --init --recursive
