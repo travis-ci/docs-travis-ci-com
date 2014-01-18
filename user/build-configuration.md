@@ -143,7 +143,8 @@ you can install packages via apt and even use 3rd-party apt repositories and PPA
 
 ### Git Submodules
 
-Travis CI automatically initializes and updates submodules when a `.gitmodules` file is being found in the root of the repository. 
+Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository. 
+
 
 This can be turned off by setting:
 
