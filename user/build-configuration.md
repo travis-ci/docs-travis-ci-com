@@ -12,7 +12,7 @@ This guide covers build environment and configuration topics that are common to
 all projects hosted on travis-ci.org, regardless of the technology. We recommend
 you start with the [Getting Started](/user/getting-started/) guide and read
 this guide top to bottom before moving on to [build
-notifications](/user/notifications/) and [language-specific guides](/docs).
+notifications](/user/notifications/) and [language-specific guides](/user/languages).
 
 ## .travis.yml file: what it is and how it is used
 
@@ -143,7 +143,7 @@ you can install packages via apt and even use 3rd-party apt repositories and PPA
 
 ### Git Submodules
 
-Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository. 
+Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository.
 
 
 This can be turned off by setting:
@@ -151,7 +151,7 @@ This can be turned off by setting:
     git:
       submodules: false
 
-If your project requires some specific option for your Git submodules which Travis CI does not support out of the box, then you can turn the automatic integration off and use the `before_install` hook to initializes and update them. 
+If your project requires some specific option for your Git submodules which Travis CI does not support out of the box, then you can turn the automatic integration off and use the `before_install` hook to initializes and update them.
 
 For example:
 
