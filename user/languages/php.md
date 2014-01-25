@@ -252,3 +252,6 @@ You will need to have ``build/travis-ci-apache`` file that will configure your v
 For PHP projects, `env` and `php` can be given as arrays
 to construct a build matrix.
 
+## Examples
+
+  * [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
