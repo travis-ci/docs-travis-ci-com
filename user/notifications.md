@@ -10,9 +10,14 @@ permalink: notifications/
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
 
+By default, email notifications will be sent to the committer and the commit
+author, if they are members of the repository (that is, they have push or admin
+permissions for public repositories, or if they have pull, push or admin
+permissions for private repositories).
+
 By default it will send emails to
 
-* the owners of the repository, if the build occurs on the [default branch](https://help.github.com/articles/setting-the-default-branch)
+* the committer and author, if they are members of the repository
 * the committer and author, if they are also members of the repository, if the build occurs on a non-default branch
 
 And it will by default send emails when, on the given branch:
