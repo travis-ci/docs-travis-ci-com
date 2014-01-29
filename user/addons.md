@@ -114,3 +114,73 @@ If you want to use PostgreSQL 9.3 in your tests, add the following to your
 
 Please note that this addon is only compatible with our 64-bit Linux VMs,
 so this won't work on our Mac VMs.
+
+## Coverity Scan
+
+[Coverity Scan](http://scan.coverity.com) is a free static code analysis tool for Java, C, C++, and C#. It analyzes every line of code and potential execution path and produces a list of potential code defects. By augmenting your CI flow with Coverity Scan, you'll gain further insight into the quality of your code, beyond that which is covered by your automated tests.
+
+This addon leverages the Travis-CI infrastructure to automatically run code analysis on your github projects.
+
+### What is static analysis?
+
+Static analysis is a set of processes for finding source code defects and vulnerabilities.
+
+In static analysis, the code under examination is not executed. As a result, test cases and specially designed input datasets are not required. Examination for defects and vulnerabilities is not limited to the lines of code that are run during some number of executions of the code, but can include all lines of code in the codebase.
+
+Additionally, Coverity's implementation of static analysis can follow all the possible paths of execution through source code (including interprocedurally) and find defects and vulnerabilities caused by the conjunction of statements that are not errors independent of each other.
+
+See more details about Coverity Scan in the [FAQ](https://scan.coverity.com/faq).
+
+### Build Submission Frequency
+
+It's probably overkill to run static analysis on each and every commit of your project. To increase availability of the free service to more projects, the addon is designed to run analsyis on a per-branch basis. We recommend you create a branch named `coverity_scan`, which you can merge into whenever you would like to trigger analysis. See the [FAQ](https://scan.coverity.com/faq#frequency) for information about build submission frequency.
+
+### Installation
+
+In order to use this addon, [sign up](http://scan.coverity.com/users/sign_up) with Coverity Scan if you haven't already. Sign in with your github account, and then add your project. Be sure to add it as a [GitHub Project](https://scan.coverity.com/projects/new?tab=github).
+
+The first time you use Coverity Scan with your project, you may want to do a build on a development machine of your own to be sure evertying completes properly. This is optional but it will ease any necessary debugging. Consult the Coverity Scan [download page](https://scan.coverity.com/download) for instructions. 
+
+#### travis.yml
+
+From your project page on Coverity Scan, select the Travis CI tab. You'll see a snippet of YAML to be copied over to your `.travis-ci` file. Note that this is an example, and might require some tweaking for the build to run properly.
+
+    env:
+      global:
+        # COVERITY_SCAN_TOKEN
+        - secure: "xxxx"
+
+    addons:
+      coverity_scan:
+
+        project:
+          name: my_github/my_project
+          slug: my_github/my_project
+          version: 1.0
+          description: My Project
+
+        # Where email notification of build analysis results will be sent
+        email: scan_notifications@example.com
+
+        # Commands to prepare for build_command, specific to yourbuild
+        build_command_prepend: ./configure
+
+        # The command that will be added after the "cov-build" to compile your project for analysis, specific to your build
+        build_command: cmake --build .
+
+        # Pattern to match selecting branches that will run analysis
+        # Take care in resource usage, and consider the build frequency allowances per 
+        #   https://scan.coverity.com/faq#frequency
+        branch_pattern: coverity_scan
+
+The project settings should be self-explanatory, and should match the values for the project configuration on Coverity Scan. The `branch_pattern` is a regular expression for the branches on which you want to run Coverity Scan. Please refer to the [FAQ](https://scan.coverity.com/faq) regarding build submission limits before enabling additional branches.
+
+The next time you commit to the appropriate branch, the Coverity Scan build process will automatically run analysis and upload the results. Please note that this analysis takes the place of the normal CI run. You should merge the same changes to another branch to run your tests.
+
+The COVERITY_SCAN_TOKEN is encrypted and is obtained by using the [Travis CI CLI](https://github.com/travis-ci/travis). Coverity Scan provides this information on your Project's Travis CI tab for convenience, but you may also run it manually (see [Encryption Keys][encryption-keys] for more information on encryption).
+
+    gem install travis
+    cd my_project
+    travis encrypt COVERITY_SCAN_TOKEN=project_token_from_coverity_scan
+
+Then copy the resulting line as shown in the YAML example.
