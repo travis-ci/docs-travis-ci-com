@@ -105,8 +105,6 @@ The exact default command is
 
 which is very similar to what [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) uses.
 
-We highly recommend using `--use-mirrors` if you override dependency installation command to reduce the load on PyPI and possibility of installation failures.
-
 ### Pre-installed packages
 
 Travis pre-installs a few packages in each virtualenv by default to
