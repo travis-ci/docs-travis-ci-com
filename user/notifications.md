@@ -182,6 +182,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 ## HipChat notification
 
+> Note: At this time, we use the API v1. You must use v1 tokens for the HipChat notifications to work.
+
 Notifications can be sent to your HipChat chat rooms using the following format:
 
     notifications:
