@@ -15,10 +15,10 @@ continuous integration solution for private repositories.
 
 By default Travis focuses its build efforts around a single repository. We set
 up a private deploy key for every repository that's enabled to build on Travis
-Pro and assign that to the repository. That means we can't simply pull in
-dependent repositories, e.g. from your Gemfile or for your Composer setup. The
-key can only be assigned to the single repository and not be reused throughout
-all of GitHub.
+Pro and assign that to the repository. That means we can't pull in dependent
+repositories, e.g. from your Gemfile or for your Composer setup, without some
+additional setup. The key can only be assigned to the single repository and not
+be reused throughout all of GitHub.
 
 If you need to pull in Git submodules or dependent repositories, that's still
 easy to achieve, though. You can either specify the dependencies using GitHub's

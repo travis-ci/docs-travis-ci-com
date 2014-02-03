@@ -24,12 +24,11 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Engine Yard](/user/deployment/engineyard)
 * [Custom deployment via after_success hook](/user/deployment/custom)
 
-### Deploying to multiple Providers
+### Deploying to Multiple Providers
 
-If you would like to deploy to multiple providers, you will need to set up your `.travis.yml` a little differently.
-Add the information for the providers you want to deploy to to the `deploy` section of your `.travis.yml`, just like you would add them individually.
-Now, in front of each provider declaration (e.g. `provider: heroku`), place a dash (-).
-If you want to deploy to, say, cloudControl and Heroku, your `deploy` section would look like this:
+Deploying to multiple providers is possible by adding the different providers
+to the `deploy` section as a list. For example, if you want to deploy to both
+cloudControl and Heroku, your `deploy` section would look something like this:
 
     deploy:
       - provider: cloudcontrol

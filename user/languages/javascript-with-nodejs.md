@@ -76,8 +76,9 @@ to install your dependencies. Note that dependency installation in Travis CI env
 
 ## Meteor Apps
 
-You can build your **Meteor Apps** on Travis and test against [`laika`](http://arunoda.github.io/laika/). 
-Simply add following `.travis.yml` file to your project root.
+You can build your **Meteor Apps** on Travis and test against
+[`laika`](http://arunoda.github.io/laika/). To do this, use a .travis.yml file
+like this:
 
     language: node_js
     node_js:

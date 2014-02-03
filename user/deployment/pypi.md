@@ -13,10 +13,9 @@ For a minimal configuration, all you need to do is add the following to your `.t
       user: "Your username"
       password: "Your password"
 
-
-However, this is almost certainly not ideal.
-Instead, you will most likely want to only release to PyPI when you release a new version of your package.
-To do this, add `tags: true` to the `on` section of your `.travis.yml` like so:
+Most likely, you would only want to deploy to PyPI when a new version of your
+package is cut. To do this, you can tell Travis CI to only deploy on tagged
+commits, like so:
 
     deploy:
       provider: pypi

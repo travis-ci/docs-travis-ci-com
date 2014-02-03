@@ -22,7 +22,7 @@ And it will by default send emails when, on the given branch:
 
 You can change this behaviour using the following options:
 
-> Note: Items in brackets are just placeholders. Brackets should be omitted.
+> Note: Items in brackets are placeholders. Brackets should be omitted.
 
 ## Email notifications
 
@@ -48,7 +48,7 @@ Also, you can specify when you want to get notified:
         on_success: [always|never|change] # default: change
         on_failure: [always|never|change] # default: always
 
-`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+`always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
 ## IRC notification
 
@@ -64,7 +64,7 @@ Or multiple channels:
         - "chat.freenode.net#travis"
         - "chat.freenode.net#some-other-channel"
 
-Just as with other notification types you can specify when IRC notifications will be sent:
+As with other notification types you can specify when IRC notifications will be sent:
 
     notifications:
       irc:
@@ -231,7 +231,7 @@ Or multiple channels:
         - http://your-domain.com/notifications
         - http://another-domain.com/notifications
 
-Just as with other notification types you can specify when webhook payloads will be sent:
+As with other notification types you can specify when webhook payloads will be sent:
 
     notifications:
       webhooks:
