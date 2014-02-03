@@ -10,6 +10,7 @@ Continuous Deployment to the following providers are currently supported out of 
 
 * [Appfog](/user/deployment/appfog)
 * [Heroku](/user/deployment/heroku)
+* [Modulus](/user/deployment/modulus)
 * [Nodejitsu](/user/deployment/nodejitsu)
 * [OpenShift](/user/deployment/openshift)
 * [cloudControl](/user/deployment/cloudcontrol)
