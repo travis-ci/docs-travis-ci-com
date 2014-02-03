@@ -93,6 +93,7 @@ You can interpolate the following variables:
 * *commit*: shortened commit SHA
 * *author*: commit author name
 * *message*: travis message to the build
+* *duration*: duration of the build
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
