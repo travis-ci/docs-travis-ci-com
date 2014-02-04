@@ -118,7 +118,7 @@ To ensure that everything works, use http(s) URLs on [Packagist](http://packagis
 
 You'll find the default configure options used to build the different PHP versions used on Travis [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis' PHP installation.
 
-Please note the following differences between the different PHP versions available on Travis:
+Please note the following differences among the different PHP versions available on Travis:
 
 * For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
 * Pyrus is not available for PHP 5.2.x.

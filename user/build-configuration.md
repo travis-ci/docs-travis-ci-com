@@ -175,7 +175,7 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## Choose runtime (Ruby, PHP, Node.js, etc) versions
 
-One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies between languages. Here are some basic **.travis.yml** examples for various languages:
+One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies among languages. Here are some basic **.travis.yml** examples for various languages:
 
 ### Clojure
 
