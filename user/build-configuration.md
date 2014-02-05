@@ -428,7 +428,7 @@ You can also define exclusions to the build matrix:
 If the builds you want to exclude from the matrix share the same matrix
 parameters, you can only specify those, and omit the varying parts.
 
-Supporse you have:
+Suppose you have:
 
     language: ruby
     rvm:
