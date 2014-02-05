@@ -423,9 +423,54 @@ You can also define exclusions to the build matrix:
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
 
-Only exact matches will be excluded.
+### Excluding jobs with a shorthand
 
-It is also possible to include entries into the matrix:
+If the builds you want to exclude from the matrix share the same matrix
+parameters, you can only specify those, and omit the varying parts.
+
+Supporse you have:
+
+    language: ruby
+    rvm:
+      - 1.9.3
+      - 2.0.0
+      - 2.1.0
+    env:
+      - DB=mongodb
+      - DB=redis
+      - DB=mysql
+    gemfile:
+      - Gemfile
+      - gemfiles/rails4.gemfile
+      - gemfiles/rails31.gemfile
+      - gemfiles/rails32.gemfile
+
+This results in a 3×3×4 build matrix.
+In order to exclude all jobs which have `rvm` value `2.0.0` and
+`gemfile` value `Gemfile`, you can write:
+
+    matrix:
+      exclude:
+        - rvm: 2.0.0
+          gemfile: Gemfile
+
+Which is equivalent to:
+
+    matrix:
+      exclude:
+        - rvm: 2.0.0
+          gemfile: Gemfile
+          env: DB=mongodb
+        - rvm: 2.0.0
+          gemfile: Gemfile
+          env: DB=redis
+        - rvm: 2.0.0
+          gemfile: Gemfile
+          env: DB=mysql
+
+### Explicit inclusion of jobs into the build matrix
+
+It is also possible to include entries into the matrix with `matrix.include`:
 
     matrix:
       include:
@@ -433,8 +478,28 @@ It is also possible to include entries into the matrix:
           gemfile: gemfiles/Gemfile.rails-3.2.x
           env: ISOLATED=false
 
+This will add the indicated job to the build matrix which has already
+been built by the matrix dimensions explained above.
+
 This is useful if you want to, say, only test the latest version of a
 dependency together with the latest version of the runtime.
+
+You can use this method to create a job matrix precisely from scratch.
+For example,
+
+    language: python
+    matrix:
+      include:
+        - python: "2.7"
+          env: TEST_SUITE=suite_2_7
+        - python: "3.3"
+          env: TEST_SUITE=suite_3_3
+        - python: "pypy"
+          env: TEST_SUITE=suite_pypy
+    script: ./test.py $TEST_SUITE
+
+will create a build matrix with 3 jobs, which runs test suite for each version
+of Python.
 
 ### Environment variables
 
