@@ -16,12 +16,13 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
     php:
       - 5.5
       - 5.4
+      - hhvm
 
 This will make Travis run your tests using
 
     phpunit
 
-by default against the latest 5.4.x and 5.5.x releases. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
+by default against the latest 5.4.x and 5.5.x releases, and the latest release of HHVM. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
 Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis.
 
