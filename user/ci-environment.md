@@ -95,6 +95,7 @@ Language-specific workers have multiple runtimes for their respective language (
 
 * `CI=true`
 * `TRAVIS=true`
+* `CONTINUOUS_INTEGRATION=true`
 * `DEBIAN_FRONTEND=noninteractive`
 * `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
 * `USER=travis` (**do not depend on this value**)

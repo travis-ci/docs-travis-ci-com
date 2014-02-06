@@ -16,12 +16,13 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
     php:
       - 5.5
       - 5.4
+      - hhvm
 
 This will make Travis run your tests using
 
     phpunit
 
-by default against the latest 5.4.x and 5.5.x releases. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
+by default against the latest 5.4.x and 5.5.x releases, and the latest release of HHVM. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
 Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis.
 
@@ -98,17 +99,17 @@ After install you should refresh your path
 
     phpenv rehash
 
-So, for example when you want to use phpcs, you should execute:
+For example, if you want to use phpcs, you should execute:
 
     pyrus install pear/PHP_CodeSniffer
     phpenv rehash
 
-Then you can use phpcs as simply as phpunit command
+Then you can use phpcs like the phpunit command
 
 ### Installing Composer packages
 
 You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. The composer
-command comes pre-installed, so just use the following:
+command comes pre-installed, use the following:
 
     composer install
 
@@ -118,10 +119,10 @@ To ensure that everything works, use http(s) URLs on [Packagist](http://packagis
 
 You'll find the default configure options used to build the different PHP versions used on Travis [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis' PHP installation.
 
-However please note the following differences between the different PHP versions available on Travis:
+Please note the following differences among the different PHP versions available on Travis:
 
 * For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
-* Pyrus is obviously not available for PHP 5.2.x.
+* Pyrus is not available for PHP 5.2.x.
 * Different SAPIs:
 
   * 5.2.x and 5.3.3 come with php-cgi only.
@@ -203,7 +204,7 @@ If you want to learn all the details of how we build and provision multiple PHP 
 
 ### Apache + PHP
 
-Currently Travis does not support mod_php for apache, however you can configure php-fpm for your integration tests.
+Currently Travis does not support mod_php for apache, but you can configure php-fpm for your integration tests.
 
 In your .travis.yml:
 

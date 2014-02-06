@@ -52,7 +52,7 @@ If you decide to use apt anyway, note that Python system packages only include P
 ### PyPy Support
 
 We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa). For pure Python projects,
-it works well. However, due to known issues with the development (header) packages, native libraries won't install on PyPy. We have notified
+it works well. Native libraries won't install on PyPy due to known issues with the development (header) packages. We have notified
 PyPy package maintainers as well as PyPy core team members about the issue and waiting for it to be resolved.
 
 To test your project against PyPy, add "pypy" to the list of Pythons in your `.travis.yml`:

@@ -10,7 +10,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 ## Using Sauce Labs
 
-[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to over 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
+[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to more than 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
 
 Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/addons/#Sauce-Connect) makes this easy, just add this to your .travis.yml:
 
@@ -52,7 +52,7 @@ Before `xvfb` can be used, it needs to be started. Typically an optimal place to
       - "export DISPLAY=:99.0"
       - "sh -e /etc/init.d/xvfb start"
 
-This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary between testing tools and programming languages.
+This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary among testing tools and programming languages.
 
 ### Configuring xvfb screen size and more
 

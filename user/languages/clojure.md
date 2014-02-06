@@ -21,8 +21,8 @@ Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/
 
 ## Dependency Management
 
-With Leiningen, explicit dependencies installation step (`lein deps`) typically is not necessary. Simply make sure all dependencies are listed in
-`project.clj` and `lein test` and other tasks will automatically install them if necessary before doing other things.
+If you use Leiningen, it will automatically install any dependencies you need
+as long as they are listed in the `project.clj` file.
 
 ### Alternate Install Step
 

@@ -22,7 +22,7 @@ And it will by default send emails when, on the given branch:
 
 You can change this behaviour using the following options:
 
-> Note: Items in brackets are just placeholders. Brackets should be omitted.
+> Note: Items in brackets are placeholders. Brackets should be omitted.
 
 ## Email notifications
 
@@ -48,7 +48,7 @@ Also, you can specify when you want to get notified:
         on_success: [always|never|change] # default: change
         on_failure: [always|never|change] # default: always
 
-`always` and `never` obviously mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+`always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
 ## IRC notification
 
@@ -64,7 +64,7 @@ Or multiple channels:
         - "chat.freenode.net#travis"
         - "chat.freenode.net#some-other-channel"
 
-Just as with other notification types you can specify when IRC notifications will be sent:
+As with other notification types you can specify when IRC notifications will be sent:
 
     notifications:
       irc:
@@ -93,6 +93,7 @@ You can interpolate the following variables:
 * *commit*: shortened commit SHA
 * *author*: commit author name
 * *message*: travis message to the build
+* *duration*: duration of the build
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
@@ -182,6 +183,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 ## HipChat notification
 
+> Note: At this time, we use the API v1. You must use v1 tokens for the HipChat notifications to work.
+
 Notifications can be sent to your HipChat chat rooms using the following format:
 
     notifications:
@@ -229,7 +232,7 @@ Or multiple channels:
         - http://your-domain.com/notifications
         - http://another-domain.com/notifications
 
-Just as with other notification types you can specify when webhook payloads will be sent:
+As with other notification types you can specify when webhook payloads will be sent:
 
     notifications:
       webhooks:

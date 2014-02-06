@@ -22,7 +22,7 @@ C++ projects on travis-ci.org assume you use Autotools and Make by default.
 ## Dependency Management
 
 Because there is no dominant convention in the community about dependency management, Travis CI skips dependency installation
-for C++ projects. 
+for C++ projects.
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
@@ -75,3 +75,10 @@ to construct a build matrix.
 ## Examples
 
  * [Rubinius](https://github.com/rubinius/rubinius/blob/master/.travis.yml)
+
+## Hints
+
+### OpenMP projects
+
+OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a reasonably small value (say, 4).
+OpenMP detects the cores on the hosting hardware, rather than the VM on which your tests run.

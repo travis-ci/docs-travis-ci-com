@@ -115,7 +115,7 @@ If your project uses non-standard dependency management tools, you can override 
 
 As with other scripts, `install` command can be anything but has to exit with the 0 status in order to be considered successful.
 
-If you'd like to skip the `install` stage entirely, just set it to `true` and nothing will be run.
+If you'd like to skip the `install` stage entirely, set it to `true` and nothing will be run.
 
     install: true
 
@@ -175,7 +175,7 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## Choose runtime (Ruby, PHP, Node.js, etc) versions
 
-One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies between languages. Here are some basic **.travis.yml** examples for various languages:
+One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies among languages. Here are some basic **.travis.yml** examples for various languages:
 
 ### Clojure
 
@@ -184,7 +184,7 @@ Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and Ope
 * In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
 * In upcoming Leiningen 2.0, via Leiningen Profiles
 
-If you are interested in testing against multiple Clojure releases, just use these Leiningen features and it will work without special support on the Travis side.
+If you are interested in testing against multiple Clojure releases, you can use these Leiningen features and it will work without special support on the Travis side.
 
 Learn more in our [Clojure guide](/user/languages/clojure/).
 
@@ -455,7 +455,7 @@ Such configuration will generate matrix with 2 following env rows:
 
 ### Secure environment variables
 
-In the last example I used a token as one of the environment variables. However, it's not very wise to put your private tokens in the publicly available file. Travis supports environment variables encryption to handle this case and allows you to keep configuration public, while keeping parts of it private. Example configuration with secure environment variables looks something like:
+In the previous example, one of the environment variables had a token in it. Since putting private tokens in a file in cleartext isn't always the best idea, Travis supports encryption of environment variables. This allows you to keep parts of the configuration private. A configuration with secure environment variables might look something like this:
 
     env:
       global:
