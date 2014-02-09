@@ -14,6 +14,9 @@ Travis VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) rele
 
     language: erlang
     otp_release:
+       - 17.0-rc1
+       - R16B03-1
+       - R16B03
        - R16B02
        - R16B01
        - R15B03
