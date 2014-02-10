@@ -66,7 +66,7 @@ Por padrão o Travis CI usa o `cpanm` para gerenciar as dependências do seu pro
 
 O comando padrão executado é
 
-    cpanm --installdeps --notest .
+    cpanm --quiet --installdeps --notest .
 
 ### Ao Sobrescrever Comandos de Build, Não Utilize o sudo
 
