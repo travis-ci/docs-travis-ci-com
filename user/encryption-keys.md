@@ -31,9 +31,9 @@ Please note that the name of the environment variable and its value are both enc
 
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
-You can read more about
+Encrypted values can be used in
 [secure environment variables](/user/build-configuration/#Secure-environment-variables)
-or [notifications](/user/notifications).
+and [notifications](/user/notifications).
 
 ### Note on escaping certain symbols
 
@@ -48,8 +48,7 @@ For example, when you want to assign the string `6&a(5!1Ab\` to `FOO`, you need 
 
     travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"
 
-`travis` encrypts the string `FOO=6\&a\(5\!1Ab\\`, which will be decrpyted correctly
-for `bash` to execute in the build environment.
+`travis` encrypts the string `FOO=6\&a\(5\!1Ab\\`, which then `bash` uses to evaluate in the build environment.
 
 Equivalently, you can do
 
