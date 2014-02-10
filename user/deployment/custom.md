@@ -13,9 +13,11 @@ You can easily deploy to your own server the way you would deploy from your loca
         - "FTP_USER=user"
         - "FTP_PASSWORD=password"
     after_success:
-        "wget -r ftp://server.com/ --user $FTP_USER --password $FTP_PASSWORD"
+        "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://sitename.com/directory/myfile"
 
 The env variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](/user/encryption-keys/).
+
+See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to use cURL as an FTP client.
 
 ### Git
 
