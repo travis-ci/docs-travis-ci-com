@@ -65,7 +65,7 @@ By default Travis CI use `cpanm` to manage your project's dependencies. It is po
 
 The exact default command is
 
-    cpanm --installdeps --notest .
+    cpanm --quiet --installdeps --notest .
 
 ### When Overriding Build Commands, Do Not Use sudo
 
