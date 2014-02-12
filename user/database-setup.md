@@ -58,9 +58,9 @@ start it manually in a `before_install` step, you will still have to do it the s
 
 ### MySQL
 
-MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" and a blank password.
+MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 
-You do have to create the `myapp_test` database first. Run this as part of your build script:
+You might have to create the `myapp_test` database first. Run this as part of your build script:
 
     # .travis.yml
     before_script:
