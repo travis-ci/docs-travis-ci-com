@@ -25,15 +25,34 @@ This will output a string looking something like:
 
     secure: ".... encrypted data ...."
 
-Now you can place it in the `.travis.yml` file. 
+Now you can place it in the `.travis.yml` file.
 
 Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
 
-You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.  
+You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
-You can read more about
-[secure environment variables](/user/build-configuration/#Secure-environment-variables)
-or [notifications](/user/notifications).
+Encrypted values can be used in
+[secure environment variables in the build matrix](/user/build-configuration/#Secure-environment-variables)
+and [notifications](/user/notifications).
+
+### Note on escaping certain symbols
+
+When you use `travis encrypt` to encrypt sensitive data, it is important to note that it will
+be processed as a `bash` statement.
+This means that secret you are encrypting should not cause errors when `bash` parses it.
+Having incomplete data will cause `bash` to dump the error statement to the log, which
+contains portions of your sensitive data.
+
+Thus, you need to escape symbols such as braces, parentheses, backslashes, and pipe symbols.
+For example, when you want to assign the string `6&a(5!1Ab\` to `FOO`, you need to execute:
+
+    travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"
+
+`travis` encrypts the string `FOO=6\&a\(5\!1Ab\\`, which then `bash` uses to evaluate in the build environment.
+
+Equivalently, you can do
+
+    travis encrypt 'FOO=6\&a\(5\!1AB\\'
 
 ### Notifications Example
 
