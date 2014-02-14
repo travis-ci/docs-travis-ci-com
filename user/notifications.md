@@ -87,7 +87,9 @@ You also have the possibility to customize the message that will be sent to the 
 
 You can interpolate the following variables:
 
-* *repository*: your GitHub repo URL
+* *repository_slug*: your GitHub repo identifier (like ```svenfuchs/minimal```)
+* *repository_name*: the slug without the username
+* *repository*: same as repository_slug [Deprecated]
 * *build_number*: build number
 * *branch*: branch build name
 * *commit*: shortened commit SHA
