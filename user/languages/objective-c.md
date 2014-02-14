@@ -24,7 +24,7 @@ See [general build configuration guide](/user/build-configuration/) to learn mor
 
 ## Default Test Script
 
-Travis CI uses [xctool](https://github.com/facebook/xctool) by default to run the tests. In order for xctool to work, you need to tell it the name of your scheme and either project or workspace. For example:
+Travis CI uses [xctool](https://github.com/facebook/xctool) by default to run the tests. In order for xctool to work, you need to tell it the name of your scheme and either project using `xcode_project` or workspace using `xcode_workspace`. For example:
 
     language: objective-c
     xcode_project: MyNewProject.xcodeproj
