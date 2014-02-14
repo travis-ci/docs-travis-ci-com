@@ -183,15 +183,13 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 ## HipChat notification
 
-> Note: At this time, we use the API v1. You must use v1 tokens for the HipChat notifications to work.
-
 Notifications can be sent to your HipChat chat rooms using the following format:
 
     notifications:
       hipchat: [api token]@[room name]
 
 
-* *api token*: token of the user you want to use to post the notifications.
+* *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
 * *room name*: name of the room you want to notify.
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
