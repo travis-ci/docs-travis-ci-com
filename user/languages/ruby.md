@@ -97,33 +97,6 @@ Note that the syntax of `rbx-19mode` isn't supported anymore.
 
 Rubinius will be installed via a download currently.
 
-As of Rubinius 2.2, some special treatment is required in your build
-configuration to make Ruby projects work.
-
-In particular, Rubinius relies on a Ruby Standard Library installed as a
-RubyGem. It's not bundled with Rubinius anymore and needs to be installed
-separately.
-
-To get your project ready for Rubinius, you'll need to add some libraries to
-your Gemfile. You can specify a separate platform so they're only installed for
-Rubinius:
-
-    platforms :rbx do
-      gem 'racc'
-      gem 'rubysl', '~> 2.0'
-      gem 'psych'
-    end
-
-Thanks to [Benjamin
-Fleischer](http://www.benjaminfleischer.com/2013/12/05/testing-rubinius-on-travis-ci/)
-for collecting information about how to get Rubinius up and running with the
-recent changes in the project.
-
-On [his blog
-post](http://www.benjaminfleischer.com/2013/12/05/testing-rubinius-on-travis-ci/),
-you'll find more examples specific to what your library might require from
-Ruby's standard set of tools.
-
 ### JRuby: C extensions support is disabled
 
 Please note that **C extensions are disabled for JRuby** on Travis CI. The
