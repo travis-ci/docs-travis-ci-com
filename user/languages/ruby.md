@@ -15,14 +15,14 @@ configuration](/user/build-configuration/) guides first.
 
 ### Supported Ruby Versions
 
-Currently pre-installed on our systems are the latest patchlevel releases of the
+Currently pre-installed on our systems are the latest patch-level releases of the
 following Rubies:
 
 - MRI 2.1.0
 - MRI 2.0.0
 - MRI 1.9.3
 - MRI 1.9.2
-- MRI 1.8.7 
+- MRI 1.8.7
 - JRuby 1.7.9 in Ruby 1.8 mode
 - JRuby 1.7.9 in Ruby 1.9 mode
 - Ruby Enterprise Edition 1.8.7 2012.02
