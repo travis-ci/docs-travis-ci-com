@@ -73,6 +73,22 @@ Maybe that is not what you want, as you might generate some artifacts (think ass
       app-id: APP-ID     
       skip_cleanup: true
 
+### Waiting for Deployments
+
+By default, the build will continue immediately after triggering an OpsWorks
+deploy. To wait for the deploy to complete, use the **wait-until-deployed**
+option:
+
+    deploy:
+      provider: opsworks
+      access-key-id: ACCESS-KEY-ID
+      secret-access-key: SECRET-ACCESS-KEY
+      app-id: APP-ID
+      wait-until-deployed: true
+
+Travis CI will wait up to 10 minutes for the deploy to complete, and log
+whether it succeeded.
+
 ### Conditional Deploys
 
 It is possible to make deployments conditional using the **on** option:
