@@ -289,13 +289,70 @@ As with other notification types you can specify when webhook payloads will be s
         on_failure: [always|never|change] # default: always
         on_start: [true|false] # default: false
 
-Here is an example payload of what will be `POST`ed to your webhook URLs: [gist.github.com/1225015](https://gist.github.com/1225015)
+Here is an example payload of what will be `POST`ed to your webhook URLs:
+[gist.github.com/1225015](https://gist.github.com/1225015)
 
-### Authorization
-When Travis makes the POST request, a header named 'Authorization' is included.  Its value is the SHA2 hash of your
-GitHub username, the name of the repository, and your Travis token.  In Python,
+### Webhooks Delivery Format
+
+Webhooks are delivered with a `application/x-www-form-urlencoded` content type using HTTP POST, with the body including a `payload` parameter that contains the JSON webhook payload in a URL-encoded format.
+
+Here's an example of what you'll find in the `payload`:
+
+<script src="https://gist.github.com/roidrage/9272064.js"></script>
+
+For pull requests, the `type` field will have the value `pull_request`, and a `pull_request_number` field is included too, pointing to the pull request's issue number on GitHub.
+
+Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
+
+	require 'sinatra'
+	require 'json'
+	require 'digest/sha2'
+	
+	class TravisWebhook < Sinatra::Base
+	  set :token, ENV['TRAVIS_USER_TOKEN']
+	
+	  post '/' do
+	    if not valid_request?
+	      puts "Invalid payload request for repository #{repo_slug}"
+	    else
+	      payload = JSON.parse(params[:payload])
+	      puts "Received valid payload for repository #{repo_slug}"
+	    end
+	  end
+	
+	  def valid_request?
+	    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
+	    digest.to_s == authorization
+	  end
+	
+	  def authorization
+	    env['HTTP_AUTHORIZATION']
+	  end
+	
+	  def repo_slug
+	    env['HTTP_TRAVIS_REPO_SLUG']
+	  end
+	end
+
+To quickly identify the repository involved, we include a `Travis-Repo-Slug` header, with a format of `account/repository`, so for instance `travis-ci/travis-ci`.
+
+### Authorization for Webhooks
+
+When Travis makes the POST request, a header named `Authorization` is included.
+Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
+and your Travis CI token.
+
+For instance, in Python, use this snippet:
 
     from hashlib import sha256
     sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
 
-Use this to ensure Travis is the one making requests to your webhook.
+Use this to ensure Travis CI is the one making requests to your webhook.
+
+The Travis CI token used to authenticate the webhooks is the user token, which you can find on your profile page.
+
+![](/images/token.jpg)
+
+It's the token for the user who originally set up the repository on Travis CI. If you're uncertain who that was, you can find the user's name on the service hooks page of your repository on GitHub. This user's GitHub username is also the one used in the authorization header. 
+
+This process is going to be reworked in the future, as the user token isn't constantly reliable, but we'll announce any changes well in advance.
