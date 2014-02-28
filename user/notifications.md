@@ -353,6 +353,9 @@ The Travis CI token used to authenticate the webhooks is the user token, which y
 
 ![](/images/token.jpg)
 
-It's the token for the user who originally set up the repository on Travis CI. If you're uncertain who that was, you can find the user's name on the service hooks page of your repository on GitHub. This user's GitHub username is also the one used in the authorization header. 
+It's the token for the user who originally set up the repository on Travis CI.
+If you're uncertain who that was, you can find the user's name on the service
+hooks page of your repository on GitHub.
 
-This process is going to be reworked in the future, as the user token isn't constantly reliable, but we'll announce any changes well in advance.
+This process is going to be reworked in the future, as the user token isn't
+constantly reliable, but we'll announce any changes well in advance.
