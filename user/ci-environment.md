@@ -245,9 +245,11 @@ cpanm (App::cpanminus) version 1.5007
 
 ### PHP versions
 
+* 5.6
 * 5.5
 * 5.4
 * 5.3
+* [hhvm](https://github.com/facebook/hhvm)
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
