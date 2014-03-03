@@ -13,7 +13,7 @@ Objective-C projects. Please make sure to read our [Getting
 Started](/docs/user/getting-started/) and [general build
 configuration](/docs/user/build-configuration/) guides first.
 
-### Supported SDK versions
+## Supported iOS SDK versions
 
 Currently pre-installed on our systems are the following SDKs for Xcode:
 
