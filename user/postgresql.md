@@ -8,7 +8,7 @@ permalink: using-postgresql/
 
 One of the databases available on Travis CI is [PostgreSQL](http://postgresql.org).
 
-### Choosing a PostgreSQL Version
+## Selecting a PostgreSQL Version
 
 By default, the build environment will have version 9.1 running already.
 
@@ -27,7 +27,7 @@ This selects PostgreSQL 9.3 as the version your build expects to be running.
 
 **Available selections are "9.1", "9.2" and "9.3"**. Make sure to only specify the major and the minor version, without the patch release.
 
-### Using PostgreSQL in your Builds
+## Using PostgreSQL in your Builds
 
 The default user for accessing the local PostgreSQL server is `postgres` and doesn't have a password set up.
 
@@ -48,7 +48,7 @@ Should your local test setup use different credentials or settings to access the
     before_script:
       - cp config/database.yml.travis config/database.yml
 
-### Using PostGIS
+## Using PostGIS
 
 All available versions of PostgreSQL come with PostGIS 2.1 packages preinstalled.
 
