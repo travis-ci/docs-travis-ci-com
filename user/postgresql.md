@@ -3,6 +3,9 @@ title: Using PostgreSQl on Travis CI
 layout: en
 permalink: using-postgresql/
 ---
+<div id="toc">
+</div>
+
 One of the databases available on Travis CI is [PostgreSQL](http://postgresql.org).
 
 ### Choosing a PostgreSQL Version
