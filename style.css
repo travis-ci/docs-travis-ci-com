@@ -773,7 +773,7 @@ input[type=email] {
 .get-started-box {
   width            : 100%;
   margin           : 0 auto;
-  height           : 200px;
+  height           : 150px;
   text-align       : center;
   background-color : transparent;
   padding          : 1em;
@@ -784,7 +784,7 @@ input[type=email] {
   color         : #607a84;
   font-size     : 1.5em;
   font-weight   : 400;
-  padding-top   : 4em;
+  padding-top   : 2em;
   margin-bottom : 1.2em;
   text-align    : center;
 }
@@ -833,6 +833,22 @@ input[type=email] {
 .language-docs a:hover,
 .language-docs a:visited:hover {
   color : #337389;
+}
+
+.intro-links {
+  font-size      : 1.2em;
+  margin         : 0 auto;
+  line-height    : 1.8em;
+}
+
+#main ul.intro-links li {
+  list-style-type: none;
+  margin-top: 0.5em;
+  margin-left 0px;
+}
+
+.intro-links a {
+  text-decoration: none;
 }
 
 .large-6 {
