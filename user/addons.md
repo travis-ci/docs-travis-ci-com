@@ -7,7 +7,7 @@ permalink: addons/
 This page is deprecated. The integrations previously listed here have been
 moved:
 
-* [/user/sauce-connect](Sauce Connect)
-* [/user/hosts/](Custom Host Names)
-* [/user/postgresql/](PostgreSQL)
-* [/user/firefox/](Firefox)
+* [Sauce Connect](/user/sauce-connect)
+* [Custom Host Names](/user/hosts/)
+* [PostgreSQL](/user/postgresql/)
+* [Firefox](/user/firefox/)
