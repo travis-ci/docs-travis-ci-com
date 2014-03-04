@@ -73,6 +73,7 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_COMMIT`: The commit that the current build is testing.
 * `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request.
+* `TRAVIS_COMMIT_MESSAGE`: The commit message from the commit that the current build is testing.
 * `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
 * `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 * `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
