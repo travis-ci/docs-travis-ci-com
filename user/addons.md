@@ -3,28 +3,6 @@ title: Build Addons
 layout: en
 permalink: addons/
 ---
-
-Travis CI allows you to set up some build tools using settings right in your
-.travis.yml file.
-
-<div id="toc"></div>
-
-## PostgreSQL
-
-Our Linux VMs come preinstalled with three versions of PostgreSQL:
-9.1 (default), 9.2 and 9.3. The PostgreSQL addon allows you to specify the
-version of PostgreSQL to be started before running your build script (as a part
-of the before_install stage).
-
-If you want to use PostgreSQL 9.3 in your tests, add the following to your
-.travis.yml file:
-
-    addons:
-      postgresql: "9.3"
-
-Please note that this addon is only compatible with our 64-bit Linux VMs,
-so this won't work on our Mac VMs.
-
 ## Coverity Scan
 
 [Coverity Scan](http://scan.coverity.com) is a free static code analysis tool for Java, C, C++, and C#. It analyzes every line of code and potential execution path and produces a list of potential code defects. By augmenting your CI flow with Coverity Scan, you'll gain further insight into the quality of your code, beyond that which is covered by your automated tests.
