@@ -21,7 +21,8 @@ months](https://codeclimate.com/partners/travisci)!
 ## Measuring Test Coverage with Code Climate
 
 Test coverage integration is currently available for Ruby projects and requires
-adding a library to your Gemfile called `code-climate-reporter`:
+adding a library to your Gemfile called
+[`code-climate-reporter`](https://github.com/codeclimate/ruby-test-reporter):
 
     gem "codeclimate-test-reporter", group: :test, require: nil
 
