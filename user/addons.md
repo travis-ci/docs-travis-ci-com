@@ -9,22 +9,6 @@ Travis CI allows you to set up some build tools using settings right in your
 
 <div id="toc"></div>
 
-# Firefox
-
-Our VMs come preinstalled with some recent version of Firefox, but sometimes you
-need a specific version to be installed. The Firefox addon allows you to specify
-any version of Firefox and the binary will be downloaded and installed before
-running your build script (as a part of the before_install stage).
-
-If you need version 17.0 of Firefox to be installed, add the following to your
-.travis.yml file:
-
-    addons:
-      firefox: "17.0"
-
-Please note that this downloads binaries that are only compatible with our
-64-bit Linux VMs, so this won't work on our Mac VMs.
-
 ## Hosts
 
 If your requires setting up custom hostnames, you can specify a single host or a
