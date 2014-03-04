@@ -9,17 +9,6 @@ Travis CI allows you to set up some build tools using settings right in your
 
 <div id="toc"></div>
 
-## Hosts
-
-If your requires setting up custom hostnames, you can specify a single host or a
-list of them in your .travis.yml. Travis CI will automatically setup the
-hostnames in `/etc/hosts` for both IPv4 and IPv6.
-
-    addons:
-      hosts:
-        - travis.dev
-        - joshkalderimis.com
-
 ## PostgreSQL
 
 Our Linux VMs come preinstalled with three versions of PostgreSQL:
