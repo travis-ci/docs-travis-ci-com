@@ -17,12 +17,11 @@ turn shows on GitHub as either a warning that the build is still running, that
 the pull request should be merged with caution because the build failed, or that
 it can be merged safely because the build was successful.
 
-While Travis CI gets notifications for single commits as a pull request is
-opened, or for its lifetime as new commits are added, we test more than just
-these commits.
+Travis CI builds a pull request when it's first opened and when commits are
+added to the pull request throughout its lifetime.
 
-Pull request testing on Travis CI runs the build based on the merge between the
-changes in the pull request and the upstream branch.
+Rather than test the commits from the branches the pull request is sent from, we
+test the merge between the origin and the upstream branch.
 
 ### Restrictions when testing Pull Requests
 
