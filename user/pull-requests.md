@@ -23,7 +23,7 @@ added to the pull request throughout its lifetime.
 Rather than test the commits from the branches the pull request is sent from, we
 test the merge between the origin and the upstream branch.
 
-### Restrictions when testing Pull Requests
+### Security Restrictions when testing Pull Requests
 
 The most important restriction for pull requests is about secure environment
 variables, or rather, any data that's encrypted with our encryption feature.
