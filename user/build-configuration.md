@@ -175,7 +175,8 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## Choose runtime (Ruby, PHP, Node.js, etc) versions
 
-One of the key features of Travis is the ease of running your test suite against multiple runtimes and versions. Since Travis does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies among languages. Here are some basic **.travis.yml** examples for various languages:
+One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Since Travis CI does not know what runtimes and versions your projects supports, they need to be specified in the `.travis.yml` file. The option you use for that varies among languages. Here are some basic **.travis.yml** examples for various languages:
+
 
 ### Clojure
 
@@ -184,7 +185,7 @@ Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and Ope
 * In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
 * In upcoming Leiningen 2.0, via Leiningen Profiles
 
-If you are interested in testing against multiple Clojure releases, you can use these Leiningen features and it will work without special support on the Travis side.
+If you are interested in testing against multiple Clojure releases, you can use these Leiningen features and it will work without special support on the Travis CI side.
 
 Learn more in our [Clojure guide](/user/languages/clojure/).
 
@@ -348,7 +349,7 @@ Some common reasons why test suites may hang up:
 
 ### .travis.yml and multiple branches
 
-Travis will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
+Travis CI will always look for the `.travis.yml` file that is contained in the branch specified by the git commit that GitHub has passed to us. This configuration in one branch will not affect the build of another, separate branch. Also, Travis CI will build after *any* git push to your GitHub project unless you instruct it to [skip a build](/user/how-to-skip-a-build/). You can limit this behavior with configuration options.
 
 ### White- or blacklisting branches
 
@@ -455,7 +456,7 @@ Such configuration will generate matrix with 2 following env rows:
 
 ### Secure environment variables
 
-In the previous example, one of the environment variables had a token in it. Since putting private tokens in a file in cleartext isn't always the best idea, Travis supports encryption of environment variables. This allows you to keep parts of the configuration private. A configuration with secure environment variables might look something like this:
+In the previous example, one of the environment variables had a token in it. Since putting private tokens in a file in cleartext isn't always the best idea, Travis CI supports encryption of environment variables. This allows you to keep parts of the configuration private. A configuration with secure environment variables might look something like this:
 
     env:
       global:

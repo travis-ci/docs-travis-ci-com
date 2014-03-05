@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Erlang 
 
 ## Choosing OTP releases to test against
 
-Travis VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
+Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
 
     language: erlang
     otp_release:

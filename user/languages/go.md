@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Go proj
 
 ## CI environment for Go Projects
 
-Travis VMs are 64 bit and currently provide
+Travis CI VMs are 64 bit and currently provide
 
  * any tagged version of Go (via gvm)
  * core GNU build toolchain (autotools, make), cmake, scons

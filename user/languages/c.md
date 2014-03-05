@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to C proje
 
 ## CI environment for C Projects
 
-Travis VMs are 64 bit and currently provide
+Travis CI VMs are 64 bit and currently provide
 
  * gcc 4.6
  * clang 3.3

@@ -14,7 +14,7 @@ Travis CI environment provides a large set of build tools for JVM languages with
 
 ## Projects using sbt
 
-If your project has `project` directory or `build.sbt` file in the repository root, Travis Scala builder will use `sbt` to build it.
+If your project has `project` directory or `build.sbt` file in the repository root, the Travis CI Scala builder will use `sbt` to build it.
 
 Thanks to [paulp/sbt-extras](https://github.com/paulp/sbt-extras) the sbt version of your project is dynamically detected and used.
 
@@ -30,7 +30,7 @@ Thanks to sbt ability to perform actions against multiple Scala versions, it is 
 
 ### Default Test Command
 
-By default, Travis will use
+By default, Travis CI will use
 
     sbt ++$TRAVIS_SCALA_VERSION test
 
@@ -38,11 +38,11 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ### Dependency Management
 
-Because Travis Scala builder assumes sbt dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
+Because Travis CI Scala builder assumes sbt dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
 
 ### Custom sbt Arguments
 
-Most of the time, Travis default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/jvmopts.erb) options should work fine.
+Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt/templates/default/jvmopts.erb) options should work fine.
 
 If needed, you can override SBT and JVM options in [many different ways](https://github.com/paulp/sbt-extras#sbt--h) by passing extra arguments to `sbt`.
 For example
@@ -82,5 +82,5 @@ to construct a build matrix.
 * [twitter/summingbird](https://github.com/twitter/summingbird/blob/master/.travis.yml)
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
 * [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/scalaz-seven/.travis.yml)
-* [spray/spray](https://github.com/spray/spray/blob/master/.travis.yml) (using a custom [`.jvmopts`](https://github.com/spray/spray/blob/master/.jvmopts) to override Travis defaults)
+* [spray/spray](https://github.com/spray/spray/blob/master/.travis.yml) (using a custom [`.jvmopts`](https://github.com/spray/spray/blob/master/.jvmopts) to override Travis CI defaults)
 

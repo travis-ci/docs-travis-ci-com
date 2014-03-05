@@ -1,10 +1,10 @@
 ---
-title: NPM Releasing
+title: npm Releasing
 layout: en
 permalink: npm/
 ---
 
-Travis CI can automatically release your NPM package to [npmjs.org](https://npmjs.org/) after a successful build.
+Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/) after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
@@ -13,7 +13,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
       email: "YOUR EMAIL ADDRESS"
       api_key: "YOUR API KEY"
 
-Most likely, you would only want to deploy to NPM when a new version of your
+Most likely, you would only want to deploy to npm when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
 commits, like so:
 

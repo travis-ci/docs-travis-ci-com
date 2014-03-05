@@ -11,7 +11,7 @@ that can be done to improve build times even more.
 ## Parallelizing your builds across virtual machines
 
 To speed up a test suite, you can break it up into several parts using
-Travis’ [build
+Travis CI's [build
 matrix](/user/build-configuration/#The-Build-Matrix)
 feature.
 
@@ -30,7 +30,7 @@ determine the script to run.
 
     script: "bundle exec rake test:$TEST_SUITE"
 
-Travis will determine the build matrix based on the environment variables and
+Travis CI will determine the build matrix based on the environment variables and
 schedule two builds to run.
 
 The neat part about this setup is that the unit test suite is usually going to

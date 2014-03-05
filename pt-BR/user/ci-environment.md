@@ -193,7 +193,7 @@ ao invés da versão fornecida.
 * 0.11.x (última versão de desenvolvimento, pode ser instável)
 * 0.9.x (versão anterior de desenvolvimento, será descontinuada em breve)
 
-Os ambientes de execução do Node são construídos usando [NVM](https://github.com/creationix/nvm).
+Os ambientes de execução do Node são construídos usando [nvm](https://github.com/creationix/nvm).
 
 ### SCons
 

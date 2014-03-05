@@ -23,7 +23,7 @@ Support for multiple JDKs will be available in the future.
 
 ### Default Test Command
 
-if your project has `build.gradle` file in the repository root, Travis Groovy builder will use Gradle to build it. By default it will use
+if your project has `build.gradle` file in the repository root, Travis CI Groovy builder will use Gradle to build it. By default it will use
 
     gradle check
 
@@ -41,7 +41,7 @@ to install your project's dependencies with Gradle.
 
 ### Default Test Command
 
-if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis Groovy builder will use Maven 3 to build it. By default it will use
+if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Groovy builder will use Maven 3 to build it. By default it will use
 
     mvn test
 
@@ -59,7 +59,7 @@ to install your project's dependencies with Maven.
 
 ### Default Test Command
 
-If Travis could not detect Maven or Gradle files, Travis Groovy builder will use Ant to build it. By default it will use
+If Travis CI could not detect Maven or Gradle files, Travis CI Groovy builder will use Ant to build it. By default it will use
 
     ant test
 

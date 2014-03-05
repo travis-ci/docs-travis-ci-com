@@ -107,18 +107,18 @@ Language-specific workers have multiple runtimes for their respective language (
 * `MERB_ENV=test`
 * `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
 
-Additionally, Travis sets environment variables you can use in your build, e.g.
+Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
 * `TRAVIS_BRANCH`: The name of the branch currently being built.
 * `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
   being built has been copied on the worker.
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis uses internally.
+* `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 * `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 * `TRAVIS_COMMIT`: The commit that the current build is testing.
 * `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
+* `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
 * `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 * `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
@@ -209,7 +209,7 @@ be used instead of the preprovisioned version.
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
 
-Node runtimes are built using [NVM](https://github.com/creationix/nvm).
+Node runtimes are built using [nvm](https://github.com/creationix/nvm).
 
 ### SCons
 
@@ -399,7 +399,7 @@ For new releases of data stores or messaging technologies, for example, Riak
 The entire process usually takes from one to several hours (depending on how
 many VM images need to be rebuilt). Combined with the time for testing, new
 releases of runtimes and other widely used software usually go live on
-travis-ci.org within a week from the moment Travis Core team is notified about
+travis-ci.org within a week from the moment Travis CI Core team is notified about
 the release.
 
 ## Chef Cookbooks

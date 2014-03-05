@@ -338,7 +338,7 @@ To quickly identify the repository involved, we include a `Travis-Repo-Slug` hea
 
 ### Authorization for Webhooks
 
-When Travis makes the POST request, a header named `Authorization` is included.
+When Travis CI makes the POST request, a header named `Authorization` is included.
 Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
 and your Travis CI token.
 

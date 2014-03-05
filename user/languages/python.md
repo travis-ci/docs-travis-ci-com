@@ -107,7 +107,7 @@ which is very similar to what [Heroku build pack for Python](https://github.com/
 
 ### Pre-installed packages
 
-Travis pre-installs a few packages in each virtualenv by default to
+Travis CI pre-installs a few packages in each virtualenv by default to
 ease running tests:
 
 - pytest
@@ -116,7 +116,7 @@ ease running tests:
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
-If you need to test against multiple versions of, say, Django, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
+If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
       - DJANGO_VERSION=1.2.7

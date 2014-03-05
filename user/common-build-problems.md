@@ -52,7 +52,7 @@ process of your build.
 
 ## System: Required language pack isn't installed
 
-The Travis build environments currently have only the en_US language pack installed. 
+The Travis CI build environments currently have only the en_US language pack installed. 
 If you get an error similar to : "Error: unsupported locale setting", then you may need
 to install another language pack during your test run.
 

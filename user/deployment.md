@@ -19,7 +19,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [PyPI](/user/deployment/pypi)
 * [Divshot.io](/user/deployment/divshot)
 * [Rackspace Cloud Files](/user/deployment/cloudfiles)
-* [NPM](/user/deployment/npm)
+* [npm](/user/deployment/npm)
 * [S3](/user/deployment/s3)
 * [Engine Yard](/user/deployment/engineyard)
 * [Custom deployment via after_success hook](/user/deployment/custom)

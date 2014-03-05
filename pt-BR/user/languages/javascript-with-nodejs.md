@@ -37,7 +37,7 @@ Para uma lista completa e atualizada das versões do Node fornecidas, veja o nos
 
 ## Comando Padrão de Teste
 
-Para projetos usando NPM, Travis CI executará
+Para projetos usando npm, Travis CI executará
 
     npm test
 
@@ -64,15 +64,15 @@ Manter a configuração do script de teste no package.json faz com que seja fác
 
 ## Gerenciamento de Dependências
 
-### Travis usa NPM
+### Travis usa npm
 
-O Travis usa o [NPM](http://npmjs.org/) para instalar as dependências do seu projeto. É possível alterar este comportamento, e existem projetos que usam ferramentas diferentes, mas a maioria dos projetos Node.js hospedados no Travis usam NPM, que acompanha o Node a partir a versão 0.6.0.
+O Travis usa o [npm](http://npmjs.org/) para instalar as dependências do seu projeto. É possível alterar este comportamento, e existem projetos que usam ferramentas diferentes, mas a maioria dos projetos Node.js hospedados no Travis usam npm, que acompanha o Node a partir a versão 0.6.0.
 
 Por padrão o Travis CI executará
 
     npm install
 
-para instalar as dependências. Note que a instalação de dependências no ambiente do Travis CI sempre acontece do começo (não existem pacotes NPM instalados no início do seu build).
+para instalar as dependências. Note que a instalação de dependências no ambiente do Travis CI sempre acontece do começo (não existem pacotes npm instalados no início do seu build).
 
 ## Meteor Apps
 

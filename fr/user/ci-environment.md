@@ -50,7 +50,7 @@ We modify some of them for continuous integration needs and sync them periodical
 * [mongodb](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/mongodb) 1.8.x
 * [erlang](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/erlang) R13B03
 * [rabbitmq](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/rabbitmq) 2.5.x
-* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) 0.4.x and NPM 1.0.x
+* [node.js](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/nodejs) 0.4.x and npm 1.0.x
 * [leiningen](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/leiningen) 1.6.x
 * [sbt (simple build tool)](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/sbt) 0.10.x
 * [imagemagick](https://github.com/travis-ci/travis-cookbooks/tree/master/vagrant_base/imagemagick).

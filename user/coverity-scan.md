@@ -8,7 +8,7 @@ permalink: coverity-scan/
 
 [Coverity Scan](http://scan.coverity.com) is a free static code analysis tool for Java, C, C++, and C#. It analyzes every line of code and potential execution path and produces a list of potential code defects. By augmenting your CI flow with Coverity Scan, you'll gain further insight into the quality of your code, beyond that which is covered by your automated tests.
 
-This addon leverages the Travis-CI infrastructure to automatically run code analysis on your GitHub projects.
+This addon leverages the Travis CI infrastructure to automatically run code analysis on your GitHub projects.
 
 ### What is static analysis?
 

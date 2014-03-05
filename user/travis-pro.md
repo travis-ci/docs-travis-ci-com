@@ -13,7 +13,7 @@ continuous integration solution for private repositories.
 
 ### How can I configure Travis Pro to use private GitHub repositories as dependencies?
 
-By default Travis focuses its build efforts around a single repository. We set
+By default Travis CI focuses its build efforts around a single repository. We set
 up a private deploy key for every repository that's enabled to build on Travis
 Pro and assign that to the repository. That means we can't pull in dependent
 repositories, e.g. from your Gemfile or for your Composer setup, without some
@@ -45,7 +45,7 @@ that key into your .travis.yml. Here are the steps to take:
   value of the key should be the encoded version of the SSH key in double
   quotes and on a single line.
 
-Travis will automatically prefer the key specified in your .travis.yml over the
+Travis CI will automatically prefer the key specified in your .travis.yml over the
 deploy key for a repository, so all repositories you're pulling in for the build
 to succeed automatically use this key.
 
@@ -66,10 +66,10 @@ fail to authorize access, failing the entire git clone operation.
 
 ### Can I use pull request testing on Travis Pro?
 
-Yes, you can. It's enabled by default for all repositories set up on Travis. See
+Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
 post](http://blog.travis-ci.com/announcing-pull-request-support/)
-accompanying the launch of pull requests for Travis.
+accompanying the launch of pull requests for Travis CI.
 
 ### How can I encrypt files that include sensitive data?
 
@@ -85,7 +85,7 @@ the meantime. [Luke Patterson](https://twitter.com/lukewpatterson) came up with
 this little trick, thanks for sharing it!
 
 It utilizes the private key we generate for each repository so we can clone the
-code on our build machines. That key is kept on Travis' end only, so no external
+code on our build machines. That key is kept on Travis CI's end only, so no external
 party has access to it. What you do have access to is the public key on GitHub.
 You can download that public key and make it part of your project to keep
 it around. Due to the nature of asymmetric key cryptography, though, the file

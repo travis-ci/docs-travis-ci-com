@@ -36,11 +36,11 @@ GitHub will ask you to grant read and write access. Travis CI needs write access
 
 ### Step two: Activate GitHub Service Hook
 
-Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis token into the settings for the Travis service if it is not already pre-filled.
+Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub service hooks page for that project and paste your GitHub username and Travis CI token into the settings for the Travis CI service if it is not already pre-filled.
 
 ###  Step three: Add .travis.yml file to your repository
 
-In order for Travis to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis what builder to pick. Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis needs to know what to do.
+In order for Travis CI to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis CI what builder to pick. Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis CI needs to know what to do.
 
 If `.travis.yml` is not in the repository, is misspelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume Ruby as the language and use default values for everything.
 
@@ -254,17 +254,17 @@ and so on. `travis-lint` is your friend, use it.
 
 Once GitHub hook is set up, push your commit that adds .travis.yml to your repository. That should add a build into one of the queues on [Travis CI](http://travis-ci.org) and your build will start as soon as one worker for your language is available.
 
-To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the "Test Hook" button for Travis. Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
+To start a build you can either commit and push something to your repository, or you can go to your GitHub service hooks page and use the "Test Hook" button for Travis CI. Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
 
 ### Step five: Tweaking your build configuration
 
-Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis defaults are. Worry not. Travis lets you override almost everything. See [Build Configuration](/user/build-configuration/) to learn more.
+Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis CI's defaults are. Worry not. Travis CI lets you override almost everything. See [Build Configuration](/user/build-configuration/) to learn more.
 
 After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run `travis-lint` to validate it.
 
 ### Step six: Learn more
 
-A Travis worker comes with a good number of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
+A Travis CI worker comes with a good number of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
 
 See [Database setup](/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/user/ci-environment/).
 

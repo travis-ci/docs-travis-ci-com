@@ -19,7 +19,7 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
       - "0.8"
       - "0.6"
 
-This will make Travis run your tests against the latest (as provided by Travis maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases. 
+This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases. 
 
 0.10 is an alias for "the most recent 0.10.x release" and so on. Please note that using exact versions (for example, 0.10.2) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
 
@@ -37,7 +37,7 @@ For full up-to-date list of provided Node versions, see our [CI environment guid
 
 ## Default Test Script
 
-For projects using NPM, Travis CI will execute
+For projects using npm, Travis CI will execute
 
     npm test
 
@@ -64,19 +64,19 @@ Keeping the test script configuration in package.json makes it easy for other pe
 
 ## Dependency Management
 
-### Travis uses NPM
+### Travis CI uses npm
 
-Travis uses [NPM](http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project that use different tooling but the majority of Node.js projects hosted on Travis use NPM, which is also bundled with Node starting with 0.6.0 release.
+Travis CI uses [npm](http://npmjs.org/) to install your project's dependencies. It is possible to override this behavior and there are project that use different tooling but the majority of Node.js projects hosted on Travis CI use npm, which is also bundled with Node starting with 0.6.0 release.
 
 By default, Travis CI will run
 
     npm install
 
-to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no NPM packages installed at the beginning of your build).
+to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no npm packages installed at the beginning of your build).
 
 ## Meteor Apps
 
-You can build your **Meteor Apps** on Travis and test against
+You can build your **Meteor Apps** on Travis CI and test against
 [`laika`](http://arunoda.github.io/laika/). To do this, use a .travis.yml file
 like this:
 
@@ -94,7 +94,7 @@ related source code can be found [here](https://github.com/arunoda/travis-ci-lai
 
 ## Meteor Packages
 
-It is also possible to build your **Meteor Packages** on Travis by extending the NodeJs configuration.
+It is also possible to build your **Meteor Packages** on Travis CI by extending the NodeJs configuration.
 
 For example, you can use the following `.travis.yml` file .
 

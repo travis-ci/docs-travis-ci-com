@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Clojure
 
 ## CI environment for Clojure Projects
 
-Travis VMs currently provide
+Travis CI VMs currently provide
 
 * 32-bit OpenJDK 7, OpenJDK 6, Oracle JDK 7
 * Standalone [Leiningen](http://leiningen.org) 1.7.x.

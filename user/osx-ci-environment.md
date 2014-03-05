@@ -22,7 +22,7 @@ The environment available to test suites is known as the *Travis CI environment*
 
 ## CI environment OS
 
-travis-ci.org uses Mac OS X 10.8.5
+travis-ci.org uses OS X 10.8.5
 
 ## Environment common to all VM images
 
@@ -62,18 +62,18 @@ to accommodate projects that may need one of those runtimes during the build.
 * `USER=travis` (**do not depend on this value**)
 * `HOME=/Users/travis` (**do not depend on this value**)
 
-Additionally, Travis sets environment variables you can use in your build, e.g.
+Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
 * `TRAVIS_BRANCH`: The name of the branch currently being built.
 * `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
   being built has been copied on the worker.
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis uses internally.
+* `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 * `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 * `TRAVIS_COMMIT`: The commit that the current build is testing.
 * `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
+* `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
 * `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 * `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.

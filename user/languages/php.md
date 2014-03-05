@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to PHP pro
 
 ## Choosing PHP versions to test against
 
-PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM. A minimalistic `.travis.yml` file would look like this:
+PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM. A minimalistic `.travis.yml` file would look like this:
 
     language: php
     php:
@@ -18,13 +18,13 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
       - 5.4
       - hhvm
 
-This will make Travis run your tests using
+This will make Travis CI run your tests using
 
     phpunit
 
-by default against the latest 5.4.x and 5.5.x releases, and the latest release of HHVM. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
+by default against the latest 5.4.x and 5.5.x releases, and the latest release of HHVM. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis CI maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
-Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis.
+Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis CI.
 
 For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
@@ -32,7 +32,7 @@ For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-c
 
 ### PHPUnit
 
-By default Travis will run your tests using
+By default Travis CI will run your tests using
 
     phpunit
 
@@ -49,7 +49,7 @@ Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to 
 
 ## Dependency Management (a.k.a. vendoring)
 
-Before Travis can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *install* option in your .travis.yml, for example:
+Before Travis CI can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *install* option in your .travis.yml, for example:
 
     install: php vendor/vendors.php
 
@@ -63,7 +63,7 @@ Even though installed dependencies will be wiped out between builds (VMs we run 
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Symfony)
 
-If you need to test against multiple versions of, say, Symfony, you can instruct Travis to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
+If you need to test against multiple versions of, say, Symfony, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
       - SYMFONY_VERSION="2.0.*" DB=mysql
@@ -90,7 +90,7 @@ To see real world examples, see:
 
 ### Installing PEAR packages
 
-If your dependencies include PEAR packages, the Travis PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
+If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
 
     pyrus install http://phptal.org/latest.tar.gz
     pear install pear/PHP_CodeSniffer
@@ -108,7 +108,7 @@ Then you can use phpcs like the phpunit command
 
 ### Installing Composer packages
 
-You can also install [Composer](http://packagist.org/) packages into the Travis PHP environment. The composer
+You can also install [Composer](http://packagist.org/) packages into the Travis CI PHP environment. The composer
 command comes pre-installed, use the following:
 
     composer install
@@ -117,9 +117,9 @@ To ensure that everything works, use http(s) URLs on [Packagist](http://packagis
 
 ## PHP installation
 
-You'll find the default configure options used to build the different PHP versions used on Travis [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis' PHP installation.
+You'll find the default configure options used to build the different PHP versions used on Travis CI [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis CI's PHP installation.
 
-Please note the following differences among the different PHP versions available on Travis:
+Please note the following differences among the different PHP versions available on Travis CI:
 
 * For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provision do have OpenSSL extension support.
 * Pyrus is not available for PHP 5.2.x.
@@ -154,7 +154,7 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 ### Preinstalled PHP extensions
 
-There are some common PHP extensions preinstalled with PECL on Travis:
+There are some common PHP extensions preinstalled with PECL on Travis CI:
 
 * [apc.so](http://php.net/apc)
 * [memcache.so](http://php.net/memcache)
@@ -181,7 +181,7 @@ You can also use this one line command:
 
 ### Installing additional PHP extensions
 
-It is possible to install custom PHP extensions into the Travis environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
+It is possible to install custom PHP extensions into the Travis CI environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
 
     pecl install <extension>
 
@@ -204,7 +204,7 @@ If you want to learn all the details of how we build and provision multiple PHP 
 
 ### Apache + PHP
 
-Currently Travis does not support mod_php for apache, but you can configure php-fpm for your integration tests.
+Currently Travis CI does not support mod_php for apache, but you can configure php-fpm for your integration tests.
 
 In your .travis.yml:
 

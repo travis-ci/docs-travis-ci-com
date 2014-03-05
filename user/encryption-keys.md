@@ -4,7 +4,7 @@ layout: en
 permalink: encryption-keys/
 ---
 
-Travis generates a pair of private and public RSA keys which can be used
+Travis CI generates a pair of private and public RSA keys which can be used
 to encrypt information which you will want to put into the `.travis.yml` file and
 still keep it private. Currently we allow encryption of
 [environment variables](/user/build-configuration/#Secure-environment-variables), notification settings, and deploy api keys.
