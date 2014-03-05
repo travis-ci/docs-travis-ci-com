@@ -55,13 +55,13 @@ Also, you can specify when you want to get notified:
 You can also specify notifications sent to an IRC channel:
 
     notifications:
-      irc: "chat.freenode.net#travis"
+      irc: "chat.freenode.net#my-channel"
 
 Or multiple channels:
 
     notifications:
       irc:
-        - "chat.freenode.net#travis"
+        - "chat.freenode.net#my-channel"
         - "chat.freenode.net#some-other-channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
@@ -69,7 +69,7 @@ As with other notification types you can specify when IRC notifications will be 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#travis"
+          - "chat.freenode.net#my-channel"
           - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
@@ -79,7 +79,7 @@ You also have the possibility to customize the message that will be sent to the 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#travis"
+          - "chat.freenode.net#my-channel"
           - "chat.freenode.net#some-other-channel"
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
@@ -113,7 +113,7 @@ If you want the bot to use notices instead of regular messages the `use_notice` 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#travis"
+          - "chat.freenode.net#my-channel"
           - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
@@ -124,7 +124,7 @@ and if you want the bot to not join before the messages are sent, and part after
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#travis"
+          - "chat.freenode.net#my-channel"
           - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
@@ -138,7 +138,7 @@ If you want the bot to send messages to channels protected with a channel key (i
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#travis"
+          - "irc.freenode.org#my-channel"
         channel_key: 'password'
 
 ## Campfire notification
