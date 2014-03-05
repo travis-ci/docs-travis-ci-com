@@ -1,7 +1,7 @@
 ---
 title: Using Sauce Labs with Travis CI
 layout: en
-permalink: using-sauce-labs/
+permalink: sauce-connect/
 ---
 Travis CI integrates with [Sauce Labs](https://saucelabs.com), a browser and
 mobile testing platform. It integrates well with Selenium, for instance.
