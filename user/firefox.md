@@ -1,7 +1,7 @@
 ---
 title: Firefox
 layout: en
-permalin: firefox/
+permalink: firefox/
 ---
 
 # Selecting a Firefox version
