@@ -4,7 +4,7 @@ layout: en
 permalink: firefox/
 ---
 
-# Selecting a Firefox version
+### Selecting a Firefox version
 
 Our VMs come preinstalled with some recent version of Firefox, currently 19.0,
 but sometimes you need a specific version to be installed. The Firefox addon
