@@ -7,7 +7,7 @@ permalink: encryption-keys/
 Travis CI generates a pair of private and public RSA keys which can be used
 to encrypt information which you will want to put into the `.travis.yml` file and
 still keep it private. Currently we allow encryption of
-[environment variables](/user/build-configuration/#Secure-environment-variables), notification settings, and deploy api keys.
+[environment variables](/user/build-configuration/#Secure-environment-variables), notification settings, and deploy api keys. Please note that encrypted environment variables are not available for pull requests from forks.
 
 ## Usage
 
