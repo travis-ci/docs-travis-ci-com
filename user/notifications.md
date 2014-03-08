@@ -50,6 +50,44 @@ Also, you can specify when you want to get notified:
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
+### How is the build email receiver determined?
+
+By default, a build email is sent to the committer and the author, but only if
+they have access to the repository the commit was pushed to. This prevents forks
+active on Travis CI from notifying the upstream repository's owners when they're
+pushing any upstream changes to their fork. It also prevents build notifications
+from going to folks not registered on Travis CI.
+
+The email address is then determined based on the email address in the commit,
+but only if it matches one of the email addresses in our database. We
+synchronize all your email addresses from GitHub, solely for the purpose of
+build notifications. 
+
+The default can be overridden in the `.travis.yml` as shown above. If there's a
+setting specified, Travis CI only sends an emails to the addresses specified
+there, rather than to the committer and author.
+
+### How can I change the email address for build notifications?
+
+The email addresses are pulled from GitHub. All emails registered there for your
+user account are available in Travis CI as well.
+
+You can change the build email address by setting a different email address for
+a specific repository. Running `git config user.email my@email.com` sets a
+different email address than the default for your repository.
+
+Note that we currently don't respect the [detailed notifications
+settings](https://github.com/settings/notifications) on
+GitHub, as they're not exposed via an API at this point.
+
+### I'm not receiving any build notifications
+
+The most common cause for not receiving build notifications, beyond not having a
+user account on Travis CI, is the use of an email address that's not registered
+and verified on GitHub. See above on how to change the email address to one
+that's registered or make sure to add the email address used in this repository
+to [your verified email addresses](https://github.com/settings/emails) on GitHub.
+
 ## IRC notification
 
 You can also specify notifications sent to an IRC channel:
