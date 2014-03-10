@@ -14,6 +14,9 @@ On <https://travis-ci.org> we currently ask for the following permissions.
 Note that for open source projects, we don't have any write access to your
 source code or your profile.
 
+Make sure to check with [GitHub API's documentation](/user/github-oauth-scopes/)
+for additional details on the scopes we use.
+
 * `user:email`
 
     We synchronize your email addresses for the purpose of emailing you build
