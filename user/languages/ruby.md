@@ -18,6 +18,7 @@ configuration](/user/build-configuration/) guides first.
 Currently pre-installed on our systems are the latest patch-level releases of the
 following Rubies:
 
+- MRI 2.1.1
 - MRI 2.1.0
 - MRI 2.0.0
 - MRI 1.9.3
