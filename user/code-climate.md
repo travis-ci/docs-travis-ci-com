@@ -51,8 +51,17 @@ to whitelist Code Climate:
 
     WebMock.disable_net_connect!(allow: %w{codeclimate.com})
 
-#### I want to use Code Climate with Parallel Builds
+#### I want to use Code Climate with parallel builds
 
 Code Climate currently doesn't aggregate test coverage results across multiple
 test runs. That means, you can't effectively use it yet with libraries like
 `parallel_test` or parallel builds using our build matrix.
+
+#### My build is successful even though rspec failed
+
+Due to a [bug in Simplecov's 0.8 release
+branch](https://github.com/colszowka/simplecov/issues/281), rspec's exit code is
+overridden by Simplecov, making a failed build appear successful.
+
+Until the issue is fixed in Simplecov, it's recommended to use the latest 0.7
+release instead, which doesn't have this issue.
