@@ -18,7 +18,6 @@ configuration](/user/build-configuration/) guides first.
 Currently pre-installed on our systems are the latest patch-level releases of the
 following Rubies:
 
-- MRI 2.1.1
 - MRI 2.1.0
 - MRI 2.0.0
 - MRI 1.9.3
@@ -27,11 +26,15 @@ following Rubies:
 - JRuby 1.7.9 in Ruby 1.8 mode
 - JRuby 1.7.9 in Ruby 1.9 mode
 - Ruby Enterprise Edition 1.8.7 2012.02
+
+Other Rubies are available for installation in binary format too. Note that these will currently be download and installed when manually, but as they're pre-compiled this usually takes just a few seconds.
+
+- MRI 2.1.1
 - Ruby (latest master)
 - JRuby (latest master)
 
-Ruby and JRuby master are rebuilt automatically every six hours. These and a
-couple more Rubies are available for automatic download via
+Ruby and JRuby master are rebuilt automatically in irregular intervals. These and a
+few more Rubies are available for automatic download via
 <https://rubies.travis-ci.org>.
 
 The same service also provides Ruby Enterprise Edition 1.8.7 2011.12.
