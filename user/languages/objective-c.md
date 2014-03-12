@@ -10,8 +10,8 @@ permalink: objective-c/
 
 This guide covers build environment and configuration topics specific to
 Objective-C projects. Please make sure to read our [Getting
-Started](/docs/user/getting-started/) and [general build
-configuration](/docs/user/build-configuration/) guides first.
+Started](/user/getting-started/) and [general build
+configuration](/user/build-configuration/) guides first.
 
 ## Supported iOS SDK versions
 
