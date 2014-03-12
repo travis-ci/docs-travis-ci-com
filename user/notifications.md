@@ -302,6 +302,67 @@ To customize it, add a template definition to your .travis.yml.
 
 It's recommended to encrypt the credentials.
 
+## Slack notifications
+
+Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
+build results.
+
+You'll need to setup a new
+[integration](https://my.slack.com/services/new/incoming-webhook) on Slack first for incoming webhooks.
+
+<figure>
+  <img src="http://s3itch.paperplanes.de/traviscislacknewintegration_20140311_190114.jpg"/>
+</figure>
+
+Select a channel and give your new integration bot a nice name. We think
+"travisci" has a nice ring to it, but we're biased. The channel name can be
+overridden in Travis CI's notification settings, so you can set up one
+integration and use it for multiple channels regardless of the initial setup.
+
+Next you can fetch the token for the new integration from the left-hand sidebar.
+
+<figure>
+  <img src="http://s3itch.paperplanes.de/slacktravistoken_20140311_190440.jpg">
+</figure>
+
+Now you can add notifications to your projects on Travis CI.
+
+The simplest configuration requires your account name and the token you just
+generated.
+
+    notifications:
+      slack: '<account>:<token>'
+
+Overriding the channel is also possible, just add it to the configuration with a
+`#` separating them from account and token.
+
+    notifications:
+      slack: '<account>:<token>#development'
+
+You can specify multiple channels as well.
+
+    notifications:
+      slack:
+        rooms:
+          - <account>:<token>#development
+          - <account>:<token>#general
+    
+
+As always, it's recommended to encrypt the credentials with our
+[travis](https://github.com/travis-ci/travis#readme) command line client.
+
+    travis encrypt "<account>:<token>" --add notifications.slack
+
+Once everything's setup, push a new commit and you should see something like the
+screenshot below:
+
+<figure>
+  <img src="http://s3itch.paperplanes.de/Travis_CI_Slack_20140311_182458_20140311_182507.jpg">
+</figure>
+
+Slack will be notified both for normal branch builds and for pull requests as
+well.
+
 ## Webhook notification
 
 You can define webhooks to be notified about build results the same way:
