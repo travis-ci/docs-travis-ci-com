@@ -6,6 +6,56 @@ permalink: common-build-problems/
 
 <div id="toc"></div>
 
+## My tests broke but were working yesterday
+
+A very common cause when a test is suddenly breaking without any major code
+changes involved is a change in upstream dependencies.
+
+This can be a Ubuntu package or any of your project's language dependencies,
+like RubyGems, NPM packages, Pip, Composer, etc.
+
+To find out if this is the case, restart a build that used to be green, the last
+known working one, for instance. If that build suddenly fails too, there's a
+good chance, that a dependency was updated and is causing the breakage.
+
+Make sure to check the list of dependencies in the build log, usually output
+including versions, and see if there's anything that's changed.
+
+Sometimes, this can also be caused by an indirect dependency that was updated.
+
+After figuring out which dependency was updated, lock it to the last known
+version.
+
+Additionally, we update our build environment regularly, which brings in newer
+versions of languages and the running services. Make sure to follow our
+[changelog](http://changelog.travis-ci.com) to get a hold of the latest updates.
+
+## My build script is killed without any error
+
+Sometimes, you'll see a build script being causing an error, and the message in
+the log will be something like `Killed`.
+
+This is usually caused by the script or one of the programs it runs exhausting
+the memory available in the build sandbox, which is currently 3GB. Plus, there
+are two cores available, bursted.
+
+Depending on the tool in use, this can be cause by a few things:
+
+* Ruby test suite consuming too much memory
+* Tests running in parallel using too many processes or threads (e.g. using the
+  `parallel_test` gem) 
+* g++ needing too much memory to compile files, for instance with a lot of
+  templates included.
+
+For parallel processes running at the same time, try to reduce the number. More
+than two to four processes should be fine, beyond that, resources are likely to
+be exhausted.
+
+With Ruby processes, check the memory consumption on your local machine, it's
+likely to show similar causes. It can be caused by memory leaks or by custom
+settings for the garbage collector, for instance to delay a sweep for as long as
+possible. Dialing these numbers down should help.
+
 ## Ruby: RSpec returns 0 even though the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
@@ -28,7 +78,35 @@ in [this article](http://www.davekonopka.com/2013/rspec-exit-code.html).
       end
     end
 
-## Ruby: Installing the `debugger_ruby-core-source` library fails
+If your project is using the [Code Climate integration](/user/code-climate/) or
+Simplecov, this issue can also come up with the 0.8 branch of Simplecov. The fix
+is downgrade to the last 0.7 release until the issue is fixed.
+
+## Capybara: I'm getting errors about elements not being found
+
+In scenarios that involve JavaScript, you can occasionally see errors that
+indicate that an element is missing, a button, a link, or some other resource
+that is updated or created by asynchronous JavaScript.
+
+This can indicate that the timeouts used for Selenium or one of its drivers are
+set too low.
+
+Capybara has a timeout setting which you can increase to a minimum of 15
+seconds:
+
+    Capybara.default_wait_time = 15
+
+Poltergeist has its own setting for timeouts:
+
+    Capybara.register_driver :poltergeist do |app|
+      Capybara::Poltergeist::Driver.new(app, timeout: 15)
+    end
+
+If you're still seeing timeouts after increasing it initially, set it to
+something much higher for one test run. Should the error still persist, there's
+possibly a deeper issue on the page, for instance compiling the assets.
+
+## Ruby: Installing the debugger_ruby-core-source library fails
 
 This Ruby library unfortunately has a history of breaking with even patchlevel
 releases of Ruby. It's commonly a dependency of libraries like linecache or
@@ -52,14 +130,15 @@ process of your build.
 
 ## System: Required language pack isn't installed
 
-The Travis CI build environments currently have only the en_US language pack installed. 
-If you get an error similar to : "Error: unsupported locale setting", then you may need
-to install another language pack during your test run.
+The Travis CI build environments currently have only the en_US language pack
+installed. If you get an error similar to : "Error: unsupported locale
+setting", then you may need to install another language pack during your test
+run.
 
 This can be done with the follow addition to your `.travis.yml`:
 
     before_install:
-      - sudo apt-get --reinstall install -qq language-pack-en language-pack-de
+      - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 
 The above addition will reinstall the en\_US language pack, as well as the de\_DE
 language pack.
