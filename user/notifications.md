@@ -354,7 +354,7 @@ Once everything's setup, push a new commit and you should see something like the
 screenshot below:
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/Travis_CI_Slack_20140311_182458_20140311_182507.jpg">
+  <img src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
 </figure>
 
 Slack will be notified both for normal branch builds and for pull requests as
