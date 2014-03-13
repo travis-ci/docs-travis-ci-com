@@ -201,7 +201,7 @@ The same is true for gems that you only need in production, like Unicorn, the
 New Relic library, and the like.
 
 You can speed up your installation process by moving these libraries to a
-separate section in your .travis.yml, e.g. `production`:
+separate section in your Gemfile, e.g. `production`:
 
     group :production do
       gem 'unicorn'
