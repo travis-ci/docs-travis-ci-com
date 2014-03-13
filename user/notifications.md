@@ -307,25 +307,22 @@ It's recommended to encrypt the credentials.
 Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
 build results.
 
-You'll need to setup a new
-[integration](https://my.slack.com/services/new/incoming-webhook) on Slack first for incoming webhooks.
+On Slack, set up a [new Travis CI
+integration](https://travisci.slack.com/services/new/travis). Select a channel,
+and you'll find the details to paste into your .travis.yml.
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/traviscislacknewintegration_20140311_190114.jpg"/>
+  <img src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
 </figure>
 
-Select a channel and give your new integration bot a nice name. We think
-"travisci" has a nice ring to it, but we're biased. The channel name can be
-overridden in Travis CI's notification settings, so you can set up one
-integration and use it for multiple channels regardless of the initial setup.
+The channel name in the Slack settings can be overridden in Travis CI's
+notification settings, so you can set up one integration and use it for multiple
+channels regardless of the initial setup.
 
-Next you can fetch the token for the new integration from the left-hand sidebar.
+Just copy and paste the settings, which already include the proper token, into
+your `.travis.yml`, and you're good to go.
 
-<figure>
-  <img src="http://s3itch.paperplanes.de/slacktravistoken_20140311_190440.jpg">
-</figure>
-
-Now you can add notifications to your projects on Travis CI.
+Easy as pie, but if you want more customization, read on.
 
 The simplest configuration requires your account name and the token you just
 generated.
