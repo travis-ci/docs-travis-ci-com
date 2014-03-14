@@ -52,10 +52,10 @@ for additional details on the scopes we use.
     update the commit status as the build starts and finishes.
 
 * `write:repo_hook`
-  
+
     Building a new repository on Travis CI is as easy as enabling it in your
     profile and pushing a new commit.
 
-    Updating the service hook required for us to be notified from GitHub on new
+    Updating the webhook required for us to be notified from GitHub on new
     commits or pull requests requires this API scope. Additionally, your user
     needs to have admin access to the repository you want to enable.
