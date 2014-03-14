@@ -36,7 +36,10 @@ GitHub will ask you to grant read and write access. Travis CI needs write access
 
 ### Step two: Activate GitHub Webhook
 
-Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI. Then visit the GitHub webhooks page for that project and paste your GitHub username and Travis CI token into the settings for the Travis CI service if it is not already pre-filled.
+Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.
+Then visit the GitHub Webhooks & Services page for that project,
+click on "Configure services", then "Travis",
+and paste your GitHub username and Travis CI token into the settings for the Travis CI service if it is not already pre-filled.
 
 ###  Step three: Add .travis.yml file to your repository
 
@@ -254,7 +257,7 @@ and so on. `travis-lint` is your friend, use it.
 
 Once GitHub hook is set up, push your commit that adds .travis.yml to your repository. That should add a build into one of the queues on [Travis CI](http://travis-ci.org) and your build will start as soon as one worker for your language is available.
 
-To start a build you can either commit and push something to your repository, or you can go to your GitHub webhooks page and use the "Test Hook" button for Travis CI. Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
+To start a build you can either commit and push something to your repository, or you can go to your GitHub Webhooks & Services page and use the "Test Hook" button for Travis CI. Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
 
 ### Step five: Tweaking your build configuration
 
