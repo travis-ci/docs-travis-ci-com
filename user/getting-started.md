@@ -32,14 +32,23 @@ travis-ci.org originally started as a service for the Ruby community in early 20
 
 To get started with Travis CI, sign in through GitHub OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
 
-GitHub will ask you to grant read and write access. Travis CI needs write access for setting up webhooks for your repositories when you request it, but it won't touch anything else.
+Note that **on <https://travis-ci.org>, you'll currently only see your public
+repositories**, whereas **on <https://travis-ci.com>, you can find your private
+projects**.
+
+While signing in, GitHub will ask you for a set of access permissions on our
+behalf. We've [outlined them and their use in more
+detail](/user/github-oauth-scopes).
 
 ### Step two: Activate GitHub Webhook
 
-Once you're signed in go to your [profile page](https://travis-ci.org/profile). You'll see a list of your repositories. Flip the on/off switch for each repository that you want to hook up on Travis CI.
-Then visit the GitHub Webhooks & Services page for that project,
-click on "Configure services", then "Travis",
-and paste your GitHub username and Travis CI token into the settings for the Travis CI service if it is not already pre-filled.
+Once you're signed in go to your [profile page for open source](https://travis-ci.org/profile) or [for your private projects](https://magnum.travis-ci.com/profile).
+
+You'll see all the organizations you're a member of and all the repositories you
+have access to. The ones you have administrative access to are the ones you can
+enable the service hook for.
+
+Flip switch to on for all repositories you'd like to enable.
 
 ###  Step three: Add .travis.yml file to your repository
 
