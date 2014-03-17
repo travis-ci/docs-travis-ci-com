@@ -6,7 +6,8 @@ permalink: getting-started/
 
 ### Travis CI Overview
 
-Travis CI is a hosted continuous integration service for the open source community. It is integrated with GitHub and offers first class support for:
+Travis CI is a hosted continuous integration service. It is integrated with
+GitHub and offers first class support for:
 
 * [C](/user/languages/c)
 * [C++](/user/languages/cpp)
@@ -24,13 +25,19 @@ Travis CI is a hosted continuous integration service for the open source communi
 * [Ruby](/user/languages/ruby)
 * [Scala](/user/languages/scala)
 
-Our CI environment provides multiple runtimes (e.g. Node.js or PHP versions), data stores and so on. Because of this, hosting your project on travis-ci.org means you can effortlessly test your library or applications against multiple runtimes and data stores without even having all of them installed locally.
 
-travis-ci.org originally started as a service for the Ruby community in early 2011 but has added support for many other technologies since then.
+Travis CI's build environment provides different runtimes for different
+languages, for instance multiple versions of Ruby, PHP, Node.js. It also comes
+preinstalled with a variety of data stores and common tools like message
+brokers.
+
+You can easily test your project against one or more versions of languages and
+even data stores.
 
 ### Step one: Sign in
 
-To get started with Travis CI, sign in through GitHub OAuth. Go to [Travis CI](http://travis-ci.org) and follow the Sign In link at the top.
+To get started with Travis CI, sign in with your GitHub account. Go to [Travis
+CI](http://travis-ci.org) and follow the Sign In link at the top.
 
 Note that **on <https://travis-ci.org>, you'll currently only see your public
 repositories**, whereas **on <https://travis-ci.com>, you can find your private
@@ -42,7 +49,9 @@ detail](/user/github-oauth-scopes).
 
 ### Step two: Activate GitHub Webhook
 
-Once you're signed in go to your [profile page for open source](https://travis-ci.org/profile) or [for your private projects](https://magnum.travis-ci.com/profile).
+Once you're signed in, and we've initially synchronized your repositories from
+GitHub, go to your [profile page for open source](https://travis-ci.org/profile)
+or [for your private projects](https://magnum.travis-ci.com/profile).
 
 You'll see all the organizations you're a member of and all the repositories you
 have access to. The ones you have administrative access to are the ones you can
@@ -52,9 +61,21 @@ Flip switch to on for all repositories you'd like to enable.
 
 ###  Step three: Add .travis.yml file to your repository
 
-In order for Travis CI to build your project, you need to tell the system a little bit about it. To do so, add .travis.yml to the root of your repository. We will only cover basic .travis.yml options in this guide. The most important one is the **language** key. It tells Travis CI what builder to pick. Ruby projects typically use different build tools and practices than Clojure or PHP projects do, so Travis CI needs to know what to do.
+In order for Travis CI to build your project, you need to tell the system a
+little bit about it. You'll need to add a file named `.travis.yml` to the root
+of your repository.
 
-If `.travis.yml` is not in the repository, is misspelled or is not [valid YAML](http://yaml-online-parser.appspot.com/), travis-ci.org will ignore it, assume Ruby as the language and use default values for everything.
+We will only cover basic .travis.yml options in this guide. The most important
+one is the **language** key. It tells Travis CI which language environment to
+select for your project.
+
+Ruby projects typically use different build tools and
+practices than Clojure or PHP projects do, so Travis CI needs to know what to
+do.
+
+If `.travis.yml` is not in the repository, is misspelled or is not [valid
+YAML](http://yaml-online-parser.appspot.com/), Travis CI will ignore it,
+assume Ruby as the language and use default values for everything.
 
 #### Note
 
