@@ -3,6 +3,9 @@ title: Customizing the Build
 layout: en
 permalink: customizing-the-build/
 ---
+
+<div id="toc"></div>
+
 Travis CI provides a default build environment and a default set of steps for specific programming languages.
 
 But it's easy to customize these steps to your needs. You can override the default steps run for installing dependencies and running your build, you can patch configuration files, you can install custom Ubuntu packages.
