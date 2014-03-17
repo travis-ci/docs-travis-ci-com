@@ -25,8 +25,12 @@
 
 <ul>
 <li><strong>all_branches</strong> - when set to true, trigger deploy from any branch if passing</li>
-<li><strong>branch</strong> - branch or list of branches to deploy from if passing</li>
-<li><strong>tags</strong> - when set to true, Travis CI only deploys on tagged builds</li>
+<li><strong>branch</strong> - branch or list of branches to deploy from if
+  passing, defaults to master if no branch is specified.</li>
+<li><strong>tags</strong> - when set to true, Travis CI only deploys on tagged
+  builds. Due to a limitation, this condition must be paired with `all_branches`
+set to true. Otherwise the default condition for branches will interfere with
+the tags condition.</li>
 <li><strong>condition</strong> - custom condition or list of custom conditions</li>
 <li><strong>jdk</strong> - JDK version to deploy from if passing</li>
 <li><strong>node</strong> - NodeJS version to deploy from if passing</li>
