@@ -291,7 +291,13 @@ To start a build you can either commit and push something to your repository, or
 
 ### Step five: Tweaking your build configuration
 
-Chances are, your project requires some customization to the build process. Maybe you need to create a database before running your tests or you use build tools different from what Travis CI's defaults are. Worry not. Travis CI lets you override almost everything. See [Build Configuration](/user/build-configuration/) to learn more.
+Chances are, your project requires some customization to the build process.
+Maybe you need to create a database before running your tests or you use build
+tools different from what Travis CI's defaults are. Worry not. Travis CI lets
+you override almost everything.
+
+Learn how to [customize your build](/user/customizing-the-build) or [how to
+install dependencies for your project.](/user/installing-dependencies)
 
 After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run `travis-lint` to validate it.
 
