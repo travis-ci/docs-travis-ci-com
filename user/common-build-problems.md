@@ -127,6 +127,37 @@ process of your build.
     # .travis.yml
     bundler_args: --without development debug
 
+## Mac: Errors running CocoaPods
+
+CocoaPods usage can fail for a few reasons currently.
+
+### CocoaPods 0.29 required
+
+Most Pods now require CocoaPods 0.29, but we still have 0.28 preinstalled. If
+you're seeing this error, add this to your `.travis.yml`:
+
+    before_install:
+      - gem install cocoapods -v '0.29.0'
+
+### CocoaPods can't be found
+
+CocoaPods isn't currently installed on all available Rubies, which unfortunately
+means it will fail when using the default Ruby, which is 2.0.0.
+
+To work around this issue, you can either install CocoaPods manually as shown
+above, or you can switch to Ruby 1.9.3 in your `.travis.yml`, which should work
+without any issues:
+
+    rvm: 1.9.3
+
+### CocoaPods fails with a segmentation fault
+
+On Ruby 2.0.0, CocoaPods has been seen crashing with a segmentation fault.
+
+You can work around the issue by using Ruby 1.9.3, which hasn't shown these
+issues. Add this to your `.travis.yml`:
+
+    rvm: 1.9.3
 
 ## System: Required language pack isn't installed
 
