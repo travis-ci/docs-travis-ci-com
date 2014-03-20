@@ -19,12 +19,12 @@ CI.
 
 You'll find the most current status image in the top right.
 
-![](http://s3itch.paperplanes.de/statusimages_20140103_084409.jpg)
+![](http://s3itch.paperplanes.de/statusimage_20140320_112129.jpg)
 
 Clicking that will reveal a dialog that allows you to copy and paste the URL and
 ready to use templates for common markup formats, like Markdown or Textile.
 
-![](http://s3itch.paperplanes.de/statusimagesdialog_20140103_084132.jpg)
+![](http://s3itch.paperplanes.de/Travis_CI__Free_Hosted_Continuous_Integration_Platform_for_the_Open_Source_Community_20140320_112210_20140320_112214.jpg)
 
 Make sure to select the right branch in the dropdown. The default URL, without
 the `branch` parameter, will return the status for the latest build, on any
@@ -41,7 +41,7 @@ Build status images for public repositories are publicly available on Travis CI.
 But for [private repositories](https://travis-ci.com), make sure to fetch the
 full URL shown in the dialog, as we include a little token for security reasons.
 
-![](http://s3itch.paperplanes.de/buildstatusimagespro_20140103_085137.jpg)
+![](http://s3itch.paperplanes.de/Travis_CI__Hosted_Continuous_Integration_That_Just_Works_20140320_112255_20140320_112334.jpg)
 
 This token is only used to access the build status image, but we recommend you
 not use it on a publicly available site.
