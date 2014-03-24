@@ -72,4 +72,4 @@ If there are any steps you'd like to run after the deployment, you can use the `
 
 ### Customizing Build Steps
 
-You can override any of the existing steps or add new ones. Our [guide on customizing your build](/docs/user/customizing-your-build) covers these topics.
+You can override any of the existing steps or add new ones. Our [guide on customizing your build](/user/customizing-the-build) covers these topics.
