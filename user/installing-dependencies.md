@@ -9,7 +9,7 @@ You have full control over the virtual machine your tests are running on, so you
 
 <div id="toc"></div>
 
-### Installing Ubuntu packages
+## Installing Ubuntu packages
 
 Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages. That are available from its package repository, including security and backports.
 
@@ -23,7 +23,7 @@ There are two things to note. Before installing a package, make sure to run 'apt
 
 Second thing to note is the use of the '-y' parameter when running apt-get install. As your build runs without any means for human interaction or intervention, you should make sure that it won't stall with apt-get asking for input. Specifying this flag ensures that it'll do what it'd normally ask your permission for.
 
-#### On apt-get upgrade
+### A word on apt-get upgrade
 
 We recommend you avoid running apt-get upgrade, as it will upgrade every single package for which apt-get can find a newer version. As we install quite a few packages by default, this could end up downloading and installing up to 500MB of packages.
 
@@ -31,7 +31,7 @@ This extends your build time quite significantly, so we generally recommend you 
 
 If you need to upgrade a very specific package, you can run a normal 'apt-get install', which will install the latest version available.
 
-### Installing Packages from a custom APT repository
+## Installing Packages from a custom APT repository
 
 For some packages, you may find an existing repository, which isn't yet set up on our build environment by default. You can easily add custom repositories and Launchpad PPAs as part of your build.
 
@@ -54,7 +54,7 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
       - sudo apt-get update -qq
       - sudo apt-get install varnish
 
-### Installing Packages without an APT Repository
+## Installing Packages without an APT Repository
 
 For some projects, there may be a Debian/Ubuntu package available, but no corresponding APT repository. These are still easy to install, but require the extra step of downloading.
 
@@ -66,7 +66,7 @@ Say your project requires the pngquant tool to compress PNG files, here's how to
 
 If you're installing packages this way, make sure they're available for Ubuntu 12.04, our current Linux platform.
 
-### Installing Projects from Source
+## Installing Projects from Source
 
 Some dependencies can only be installed from a source package. The build may require a more recent version or a tool or library that's not available as a Ubuntu package.
 
@@ -101,7 +101,7 @@ Once it's added to the repository, you can run it from your .travis.yml:
     before_install:
       - ./install-protobuf.sh
 
-### Installing Mac Packages
+## Installing Mac Packages
 
 On our Mac platform, you have all the developer tools available to install packages from scratch, if you need to.
 
