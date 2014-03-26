@@ -18,6 +18,8 @@ This tool is written in Ruby and published as a gem. First, you need to install
 the gem:
 
     gem install travis
+    
+You may need to run `sudo apt-get install ruby1.9.1-dev` for that to work.
 
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
