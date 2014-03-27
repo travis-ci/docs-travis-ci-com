@@ -12,19 +12,19 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 
 [Travis CI Environment](/user/ci-environment/) has multiple popular data stores preinstalled. Some of the services available are:
 
-* MySQL
-* PostgreSQL
-* MongoDB
-* CouchDB
-* Redis
-* Riak
-* RabbitMQ
-* Memcached
-* Cassandra
-* Neo4J
-* ElasticSearch
-* Kestrel
-* SQLite3
+* [MySQL](#mysql)
+* [PostgreSQL](#postgresql)
+* [MongoDB](#mongodb)
+* [CouchDB](#couchdb)
+* [Redis](#redis)
+* [Riak](#riak)
+* [RabbitMQ](#rabbitmq)
+* [Memcached](#memcached)
+* [Cassandra](#cassandra)
+* [Neo4J](#neo4j)
+* [ElasticSearch](#elasticsearch)
+* [Kestrel](#kestrel)
+* [SQLite3](#sqlite3)
 
 All of these data stores use the default settings, with one exception: When it
 makes sense, new users are added and the security settings are relaxed for ease
@@ -249,6 +249,19 @@ ElasticSearch is **not started on boot**. To make Travis CI start the service fo
 to your `.travis.yml`.
 
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
+
+#### Note
+
+When ElasticSearch is started, you may see a mangled message such as this:
+
+```
+$ sudo service elasticsearch start
+ * Starting ElasticSearch Server       ission denied on key 'vm.max_map_count'
+```
+
+This is due to a [recent change in ElasticSearch](https://github.com/elasticsearch/elasticsearch/issues/4397),
+as reported [here](https://github.com/elasticsearch/elasticsearch/issues/4978).
+The message is harmless, and the service is functional.
 
 ### Kestrel
 
