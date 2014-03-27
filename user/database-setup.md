@@ -79,24 +79,7 @@ You might have to create the `myapp_test` database first. Run this as part of yo
 
 ### PostgreSQL
 
-PostgreSQL is **started on boot**, binds to 127.0.0.1 and requires authentication with "postgres" user and no password.
-
-You have to create the database as part of your build process:
-
-    # .travis.yml
-    before_script:
-      - psql -c 'create database myapp_test;' -U postgres
-
-#### config/database.yml Example
-
-`config/database.yml` example for Ruby projects using ActiveRecord:
-
-    test:
-      adapter: postgresql
-      database: myapp_test
-      username: postgres
-
-
+[Using PostgreSQL is covered in a separate guide](/user/using-postgresql).
 
 ### SQLite3
 

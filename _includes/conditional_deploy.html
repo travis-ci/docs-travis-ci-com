@@ -1,0 +1,44 @@
+<h3>Conditional Deploys</h3>
+
+<p>It is possible to make deployments conditional using the <strong>on</strong> option:</p>
+
+<pre><code>deploy:
+  provider: {{ include.provider }}
+  api_key: ...
+  on:
+    branch: staging
+    rvm: 2.0.0
+</code></pre>
+
+<p>The above configuration will trigger a deploy if the staging branch is passing on Ruby 2.0.0.</p>
+
+<p>You can also add custom conditions:</p>
+
+<pre><code>deploy:
+  provider: {{ include.provider }}
+  api_key: ...
+  on:
+    condition: "$CC = gcc"
+</code></pre>
+
+<p>Available conditions are:</p>
+
+<ul>
+<li><strong>all_branches</strong> - when set to true, trigger deploy from any branch if passing</li>
+<li><strong>branch</strong> - branch or list of branches to deploy from if
+  passing, defaults to master if no branch is specified.</li>
+<li><strong>tags</strong> - when set to true, Travis CI only deploys on tagged
+  builds. Due to a limitation, this condition must be paired with `all_branches`
+set to true. Otherwise the default condition for branches will interfere with
+the tags condition.</li>
+<li><strong>condition</strong> - custom condition or list of custom conditions</li>
+<li><strong>jdk</strong> - JDK version to deploy from if passing</li>
+<li><strong>node</strong> - NodeJS version to deploy from if passing</li>
+<li><strong>perl</strong> - Perl version to deploy from if passing</li>
+<li><strong>php</strong> - PHP version to deploy from if passing</li>
+<li><strong>python</strong> - Python version to deploy from if passing</li>
+<li><strong>ruby</strong> - Ruby version to deploy from if passing</li>
+<li><strong>repo</strong> - only trigger a build for the given repository, to play nice with forks</li>
+</ul>
+
+
