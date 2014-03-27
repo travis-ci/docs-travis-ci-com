@@ -12,19 +12,19 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 
 [Travis CI Environment](/user/ci-environment/) has multiple popular data stores preinstalled. Some of the services available are:
 
-* [MySQL](#mysql)
-* [PostgreSQL](#postgresql)
-* [MongoDB](#mongodb)
-* [CouchDB](#couchdb)
-* [Redis](#redis)
-* [Riak](#riak)
-* [RabbitMQ](#rabbitmq)
-* [Memcached](#memcached)
-* [Cassandra](#cassandra)
-* [Neo4J](#neo4j)
-* [ElasticSearch](#elasticsearch)
-* [Kestrel](#kestrel)
-* [SQLite3](#sqlite3)
+* [MySQL](#MySQL)
+* [PostgreSQL](#PostgreSQL)
+* [MongoDB](#MongoDB)
+* [CouchDB](#CouchDB)
+* [Redis](#Redis)
+* [Riak](#Riak)
+* [RabbitMQ](#RabbitMQ)
+* [Memcached](#Memcached)
+* [Cassandra](#Cassandra)
+* [Neo4J](#Neo4J)
+* [ElasticSearch](#ElasticSearch)
+* [Kestrel](#Kestrel)
+* [SQLite3](#SQLite3)
 
 All of these data stores use the default settings, with one exception: When it
 makes sense, new users are added and the security settings are relaxed for ease
