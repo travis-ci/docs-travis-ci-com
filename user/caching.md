@@ -137,6 +137,11 @@ APT repository), and we'll add it for you.
 - packages.erlang-solutions.com
 - repo.varnish-cache.org
 - packages.ros.org
+- dl.hhvm.com
+- dev.mysql.com
+- llvm.org
+- repo.percona.com
+- packages.elasticsearch.org
 
 The default Ubuntu repositories are included by default.
 
