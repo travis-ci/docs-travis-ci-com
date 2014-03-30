@@ -1,5 +1,5 @@
 ---
-title: Building a C Project
+title: Building a C++ Project
 layout: en
 permalink: cpp/
 ---
@@ -8,7 +8,7 @@ permalink: cpp/
 
 This guide covers build environment and configuration topics specific to C++ projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
-## CI environment for C Projects
+## CI environment for C++ Projects
 
 Travis CI's VMs are 64 bit and currently provide
 
@@ -34,7 +34,7 @@ See [general build configuration guide](/user/build-configuration/) to learn mor
 
 ## Default Test Script
 
-Because C projects on travis-ci.org assume Autotools and Make by default, naturally, the default command Travis CI will use to
+Because C++ projects on travis-ci.org assume Autotools and Make by default, naturally, the default command Travis CI will use to
 run your project test suite is
 
     ./configure && make && make test
@@ -62,8 +62,7 @@ or both GCC and Clang:
       - clang
       - gcc
 
-Testing against two compilers will create (at least) 2 rows in your build matrix. For each row, Travis CI C builder will export the `CXX`
-env variable to point to either `g++` or `clang++` and `CC` to either `gcc` or `clang`.
+Testing against two compilers will create (at least) 2 rows in your build matrix. For each row, the Travis CI C++ builder will export the `CXX` env variable to point to either `g++` or `clang++` and `CC` to either `gcc` or `clang`.
 
 
 ## Build Matrix
