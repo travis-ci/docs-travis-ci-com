@@ -63,7 +63,7 @@ instance.
 Go to your [GitHub account](https://github.com/settings/applications) and create
 a personal access token.
 
-![](http://s3itch.paperplanes.de/New_personal_access_token_20140331_171047_20140331_171122.jpg)
+![](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
