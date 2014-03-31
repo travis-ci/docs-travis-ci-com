@@ -75,8 +75,8 @@ Copy the token and store it in a .netrc in your repository, with the following
 data:
 
     machine github.com
-      login: <username>
-      password: <token>
+      login <username>
+      password <token>
 
 Add this to your repository and add the following steps to your .travis.yml:
 
