@@ -28,6 +28,8 @@ Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get 
       - 1.1
       - tip
 
+Currently support versions of Go are 1.0.2, 1.1.3 and 1.2.1.
+
 ## Dependency Management
 
 Because there is no dominant [convention in the community about dependency management](https://groups.google.com/forum/?fromgroups#!topic/golang-nuts/t01qsI40ms4), Travis CI uses
@@ -48,7 +50,43 @@ It is also possible to specify a list of operations, for example, to `go get` re
 
 See [general build configuration guide](/user/build-configuration/) to learn more.
 
+### Installing Private Dependencies
 
+As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
+requires a different workaround than our [recommended way of handling private
+dependencies](/user/travis-pro/#How-can-I-configure-Travis-Pro-to-use-private-GitHub-repositories-as-dependencies%3F).
+
+When cloning via HTTPS, git uses curl under the covers, which in turn allows you
+to specify a [.netrc](http://linux.die.net/man/5/netrc) file, where you can
+store custom authentication credentials for specific domains, github.com for
+instance.
+
+Go to your [GitHub account](https://github.com/settings/applications) and create
+a personal access token.
+
+![](http://s3itch.paperplanes.de/New_personal_access_token_20140331_171047_20140331_171122.jpg)
+
+Make sure to give it the `repo` scope, which allows accessing private
+repositories.
+
+To reduce access rights of the token, you can also create a separate user
+account with access to only the repositories you need for a particular project.
+
+Copy the token and store it in a .netrc in your repository, with the following
+data:
+
+    machine github.com
+      login: <username>
+      password: <token>
+
+Add this to your repository and add the following steps to your .travis.yml:
+
+    before_install:
+      - cp .netrc ~
+      - chmod 600 .netrc
+
+You can leave out the second step if your .netrc already has access permissions
+set only for the owner. That's a requirement for it to be read from curl.
 
 ## Default Test Script
 
