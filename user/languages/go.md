@@ -52,7 +52,7 @@ See [general build configuration guide](/user/build-configuration/) to learn mor
 ### Installing Private Dependencies
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
-requires a different workaround than our [recommended way of handling private
+requires a different workaround from our [recommended way of handling private
 dependencies](/user/travis-pro/#How-can-I-configure-Travis-Pro-to-use-private-GitHub-repositories-as-dependencies%3F).
 
 When cloning via HTTPS, git uses curl under the covers, which in turn allows you
