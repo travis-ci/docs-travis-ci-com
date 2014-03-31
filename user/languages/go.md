@@ -26,9 +26,8 @@ Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get 
     go:
       - 1.0
       - 1.1
+      - 1.2
       - tip
-
-Currently support versions of Go are 1.0.2, 1.1.3 and 1.2.1.
 
 ## Dependency Management
 
