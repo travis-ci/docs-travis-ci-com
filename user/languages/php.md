@@ -144,7 +144,7 @@ And myconfig.ini:
 
 You can also use this one line command:
 
-    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+    echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 ## PHP extensions
 
