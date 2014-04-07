@@ -80,4 +80,4 @@ Para construir utilizando o Scons sem parâmetros, utilize:
  * [peterbourgon/diskv](https://github.com/peterbourgon/diskv/blob/master/.travis.yml)
  * [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
  * [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
- * [globocom/tsuru](https://github.com/globocom/tsuru/blob/master/.travis.yml)
+ * [tsuru/tsuru](https://github.com/tsuru/tsuru/blob/master/.travis.yml)
