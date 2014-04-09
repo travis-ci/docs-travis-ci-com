@@ -4,7 +4,7 @@ layout: en
 permalink: divshot/
 ---
 
-Travis CI can automatically deploy your [Divshot](https://www.divshot.com) application after a successful build.
+Travis CI can automatically deploy your [Divshot](http://www.divshot.com) application after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
