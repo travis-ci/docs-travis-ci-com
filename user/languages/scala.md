@@ -25,8 +25,8 @@ Thanks to sbt ability to perform actions against multiple Scala versions, it is 
     language: scala
     scala:
        - 2.9.3
-       - 2.10.2
-       - 2.10.3-RC3
+       - 2.10.4
+       - 2.11.0-RC1
 
 ### Default Test Command
 
