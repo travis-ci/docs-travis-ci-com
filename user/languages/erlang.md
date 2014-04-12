@@ -26,7 +26,7 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
        - R14B03
        - R14B02 
 
-Note that 17.0, R16B03-1 and R16B03 aren't yet available on <https://travis-ci.com>
+Note that 17.0 isn't yet available on <https://travis-ci.com>
 
 ## Default Test Script
 
