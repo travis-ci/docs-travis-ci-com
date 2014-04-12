@@ -14,6 +14,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Nodejitsu](/user/deployment/nodejitsu)
 * [OpenShift](/user/deployment/openshift)
 * [cloudControl](/user/deployment/cloudcontrol)
+* [CloudFoundry](/user/deployment/cloudfoundry)
 * [RubyGems](/user/deployment/rubygems)
 * [AWS OpsWorks](/user/deployment/opsworks)
 * [PyPI](/user/deployment/pypi)
