@@ -19,6 +19,7 @@ And it will by default send emails when, on the given branch:
 
 * a build was just broken or still is broken
 * a previously broken build was just fixed
+* it is not a pull request
 
 You can change this behaviour using the following options:
 
@@ -50,6 +51,15 @@ Also, you can specify when you want to get notified:
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
+If needed, you can also enable emails notifications to send on pull requests:
+
+    notifications:
+      email:
+        recipients:
+          - one@example.com
+        on_pull_requests: true # default: false
+
+
 ### How is the build email receiver determined?
 
 By default, a build email is sent to the committer and the author, but only if
@@ -61,7 +71,7 @@ from going to folks not registered on Travis CI.
 The email address is then determined based on the email address in the commit,
 but only if it matches one of the email addresses in our database. We
 synchronize all your email addresses from GitHub, solely for the purpose of
-build notifications. 
+build notifications.
 
 The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
@@ -179,6 +189,14 @@ If you want the bot to send messages to channels protected with a channel key (i
           - "irc.freenode.org#my-channel"
         channel_key: 'password'
 
+If needed, you can also enable IRC notifications to sent on pull request:
+
+      notifications:
+        irc:
+          channels:
+            - "irc.freenode.org#my-channel"
+          on_pull_requests: true # default: false
+
 ## Campfire notification
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
@@ -205,7 +223,7 @@ You can also customise the notifications, like with IRC notifications:
           - "%{repository} (%{commit}) : %{message} %{foo} "
           - "Build details: %{build_url}"
 
-Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+Other flags, like `on_pull_requests`, `on_success` and `on_failure` also work like the IRC notification config.
 
 ## Flowdock notification
 
@@ -220,6 +238,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
     travis encrypt api_token --add notifications.flowdock
+
+Flag `on_pull_requests` works like the IRC notification config.
 
 ## HipChat notification
 
@@ -255,6 +275,8 @@ If you want to send HTML notifications you need to add `format: html` like this
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
         format: html
+
+Flag `on_pull_requests` works like the IRC notification config.
 
 ## Sqwiggle notifications
 
@@ -343,7 +365,7 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-    
+
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -403,10 +425,10 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	require 'sinatra'
 	require 'json'
 	require 'digest/sha2'
-	
+
 	class TravisWebhook < Sinatra::Base
 	  set :token, ENV['TRAVIS_USER_TOKEN']
-	
+
 	  post '/' do
 	    if not valid_request?
 	      puts "Invalid payload request for repository #{repo_slug}"
@@ -415,16 +437,16 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	      puts "Received valid payload for repository #{repo_slug}"
 	    end
 	  end
-	
+
 	  def valid_request?
 	    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
 	    digest.to_s == authorization
 	  end
-	
+
 	  def authorization
 	    env['HTTP_AUTHORIZATION']
 	  end
-	
+
 	  def repo_slug
 	    env['HTTP_TRAVIS_REPO_SLUG']
 	  end
