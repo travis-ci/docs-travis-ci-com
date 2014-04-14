@@ -129,9 +129,12 @@ You can interpolate the following variables:
 * *repository_name*: the slug without the username
 * *repository*: same as repository_slug [Deprecated]
 * *build_number*: build number
+* *build_id*: build id
 * *branch*: branch build name
 * *commit*: shortened commit SHA
 * *author*: commit author name
+* *commit_message*: commit message of build
+* *result*: result of build
 * *message*: travis message to the build
 * *duration*: duration of the build
 * *compare_url*: commit change view URL
