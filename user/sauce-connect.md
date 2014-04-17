@@ -9,6 +9,8 @@ mobile testing platform. It integrates well with Selenium, for instance.
 The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
+Note that due to security restrictions, the Sauce Labs addon is not available on pull request builds. See the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests) for full details on why it is disabled.
+
 ## Setting up Sauce Connect
 
 [Sauce Connect][sauce-connect] securely proxies browser traffic between Sauce
