@@ -128,12 +128,6 @@ In cases you need to create users for your database, you can do it using a `befo
     before_script:
       - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
-#### JVM-based projects
-
-For JVM-based projects that use the official MongoDB Java driver, you'll have to use `127.0.0.1` instead of `localhost` to connect to
-work around [this known MongoDB Java driver issue](https://jira.mongodb.org/browse/JAVA-249) that affects Linux. Note that this issue has been
-fixed in version 2.8.0 of the Java client for MongoDB, so it only affects projects using versions older than that.
-
 ### CouchDB
 
 CouchDB is **not started on boot**. To make Travis CI start the service for you, add
