@@ -6,54 +6,58 @@ permalink: osx-ci-environment/
 
 ### What This Guide Covers
 
-This guide explain what packages, tools and settings are available in the Travis CI environment (often referred to as "CI environment") as well as how virtual machines that travis-ci.org workers use are upgraded and deployed. The latter explains how soon you should expect new versions of
-Ruby, PHP, Node.js and so on to be provided.
+This guide explains what packages, tools and settings are available in the
+Travis OS X CI environment (often referred to as the “CI environment”).
 
 ## Overview
 
-Travis CI runs builds in virtual machines that are snapshotted before each build and rolled back at the end of it. This offers a number of benefits:
+Travis CI runs builds in virtual machines that are snapshotted before each build
+and rolled back at the end of it. This offers a number of benefits:
 
 * Host OS is not affected by test suites
 * No state persists between runs
-* Passwordless sudo is available (so you can install dependencies using apt and so on)
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users and so on
+* Passwordless sudo is available (so you can install dependencies using apt and
+  so on)
+* It is possible for test suites to create databases, add RabbitMQ vhosts/users
+  and so on
 
-The environment available to test suites is known as the *Travis CI environment*.
+The environment available to test suites is known as the *Travis CI
+environment*.
 
 ## CI environment OS
 
-travis-ci.org uses OS X 10.8.5
+Travis CI uses OS X 10.9.2.
 
 ## Environment common to all VM images
 
 ### Homebrew
 
-Homebrew is installed and updated every time the VMs are updated. It is recommended that you run `brew update` before installing anything with Homebrew.
-
+Homebrew is installed and updated every time the VMs are updated. It is
+recommended that you run `brew update` before installing anything with Homebrew.
 
 ### Compilers & Build toolchain
 
-GCC 4.2.1, Clang 4.1, make, autotools.
-
+* GCC 4.2.1
+* Apple LLVM 5.1
+* GNU Make
+* Autotools
 
 ### Networking tools
 
-curl, wget, OpenSSL, rsync
+* Curl
+* wget
+* OpenSSL
+* rsync
 
 ### Xcode
 
-Xcode 5.0.2 is installed with the iOS 5.0, 5.1, 6.0, 6.1 and 7.0 simulators. Command Line Tools are installed as well.
-
+Xcode 5.1.1 is installed with the iOS 6.1, 7.0 and 7.1 simulators and SDKs.
+Command Line Tools are also installed.
 
 ### Runtimes
 
-Every worker has at least one version of
-
-* Ruby
-* Java
-* Python
-
-to accommodate projects that may need one of those runtimes during the build.
+Every worker has at least one version of Ruby, Java and Python to accommodate
+projects that may need one of those runtimes during the build.
 
 ### Environment variables
 
@@ -62,8 +66,8 @@ to accommodate projects that may need one of those runtimes during the build.
 * `USER=travis` (**do not depend on this value**)
 * `HOME=/Users/travis` (**do not depend on this value**)
 
-Additionally, Travis CI sets environment variables you can use in your build, e.g.
-to tag the build, or to run post-build deployments.
+Additionally, Travis CI sets environment variables you can use in your build,
+e.g.  to tag the build, or to run post-build deployments.
 
 * `TRAVIS_BRANCH`: The name of the branch currently being built.
 * `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
@@ -71,8 +75,8 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 * `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 * `TRAVIS_COMMIT`: The commit that the current build is testing.
-* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
-  or pull request.
+* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push or
+  pull request.
 * `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
 * `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 * `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
@@ -89,7 +93,7 @@ Stock Apache Maven 3.
 
 ### Ruby versions/implementations
 
-* system (1.8.7) -- You need to use `sudo` to install gems with this ruby
+* system (2.0.0) -- You need to use `sudo` to install gems with this ruby
 * 1.9.3
 * 2.0.0 (default)
 
@@ -97,7 +101,7 @@ Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
 ### Bundler version
 
-Recent 1.2.x version (usually the most recent)
+Recent 1.6 version (usually the most recent)
 
 ### Gems in the global gem set
 
