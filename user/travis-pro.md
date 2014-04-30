@@ -56,7 +56,7 @@ repositories.
 ##### Technicalities
 
 These steps are necessary due to the way Git and the underlying transport SSH
-authenticate with a remote service. For example, when you specify more than one 
+authenticate with a remote service. For example, when you specify more than one
 key that you want SSH to use, it will still use the first one that authenticates
 successfully. After authentication, GitHub checks if this key is authorized to
 access the repository requested. Given that you rely on SSH to use the second
@@ -129,6 +129,13 @@ prevents project collaborators being able to access sensitive data on a
 daily basis, a malicious collaborator could tamper with the
 build scripts to output the sensitive data to your build log. The upshot is that
 you'll know who's responsible for this from the commit history.
+
+#### Note on Mac OS X
+The system default `openssl` command may be out of date, which can cause problems.
+Be sure to use an up-to-date version.
+For example, if you use Homebrew, you can use:
+
+    `brew --prefix openssl`/bin/openssl
 
 ### Combine Encryption and Deploy Keys For Private Dependencies for Extra Strength
 
