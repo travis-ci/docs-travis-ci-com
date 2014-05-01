@@ -13,7 +13,7 @@ This guide covers build environment and configuration topics specific to C proje
 Travis CI VMs are 64 bit and currently provide
 
  * gcc 4.6
- * clang 3.3
+ * clang 3.4
  * core GNU build toolchain (autotools, make), cmake, scons
 
 C projects on travis-ci.org assume you use Autotools and Make by default.

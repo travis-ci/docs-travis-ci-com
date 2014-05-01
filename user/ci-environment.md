@@ -78,7 +78,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * Riak 1.2.x
 * Apache Cassandra 2.0.x
 * Neo4J Community Edition 1.7.x
-* ElasticSearch 0.90.x
+* ElasticSearch 1.1.x
 * CouchDB 1.3.x
 
 ### Messaging Technology
@@ -152,7 +152,7 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 ### JDK
 
 * Oracle JDK 7u6 (oraclejdk7)
-* OpenJDK 7 (alias: openjdk7)
+* OpenJDK 7 (openjdk7)
 * OpenJDK 6 (openjdk6)
 * Oracle JDK 8 EA (oraclejdk8)
 
@@ -165,24 +165,26 @@ Stock Apache Maven 3. Maven is configured to use Central and oss.sonatype.org mi
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.0 (a recent preview)
-at `/usr/local/bin/lein2`.
+travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.3.x at `/usr/local/bin/lein2`.
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.12.1 or 0.11.3), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects. 
+travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.2 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects. 
 
 ### Gradle version
 
-Gradle 1.9.
+Gradle 1.11.
 
 ## Erlang VM images
 
 ### Erlang/OTP releases
 
+* 17.0
 * R16B
 * R16B01
 * R16B02
+* R16B03
+* R16B03-1
 * R15B03
 * R15B02
 * R15B01
@@ -220,7 +222,7 @@ Scons 2.x.
 
 ### Haskell Platform Version
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.4.
+[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
 
 
 ## Perl VM images
