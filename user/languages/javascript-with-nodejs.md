@@ -19,7 +19,7 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
       - "0.8"
       - "0.6"
 
-This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases. 
+This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases.
 
 0.10 is an alias for "the most recent 0.10.x release" and so on. Please note that using exact versions (for example, 0.10.2) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
 
@@ -31,7 +31,6 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 * 0.8.x
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
-* 0.9.x (previous development, will be deprecated soon)
 
 For full up-to-date list of provided Node versions, see our [CI environment guide](/user/ci-environment/).
 
@@ -87,9 +86,9 @@ like this:
       - "curl -L http://git.io/3l-rRA | /bin/sh"
     services:
       - mongodb
-    env: 
+    env:
       - LAIKA_OPTIONS="-t 5000"
-      
+
 related source code can be found [here](https://github.com/arunoda/travis-ci-laika)
 
 ## Meteor Packages
