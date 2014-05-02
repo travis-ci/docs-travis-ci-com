@@ -128,6 +128,18 @@ In cases you need to create users for your database, you can do it using a `befo
     before_script:
       - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
+#### MongoDB may not be immediately accepting connections
+
+A few users have reported that MongoDB may not be accepting connections when the job attempts to
+execute commands.
+The issue is intermittent at best, and the only reliable means to avoid it is to
+inject artificial wait before making the first connection:
+
+    # .travis.yml
+    before_script:
+      - sleep 15
+      - mongo mydb_test --eval 'db.addUser("travis", "test");'
+
 ### CouchDB
 
 CouchDB is **not started on boot**. To make Travis CI start the service for you, add
