@@ -76,6 +76,12 @@ As for any JVM language, it is also possible to [test against multiple JDKs](/us
 For Scala projects, `env`, `scala`, and `jdk` can be given as arrays
 to construct a build matrix.
 
+## Environment Variable
+
+The version of Scala a job is using is available as:
+
+    TRAVIS_SCALA_VERSION
+
 ## Examples
 
 * [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)

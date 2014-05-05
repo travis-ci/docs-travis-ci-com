@@ -139,6 +139,7 @@ depends on the language you're using.
 * `TRAVIS_OTP_VERSION`
 * `TRAVIS_PERL_VERSION`
 * `TRAVIS_GO_VERSION`
+* `TRAVIS_SCALA_VERSION`
 
 ### Libraries
 
