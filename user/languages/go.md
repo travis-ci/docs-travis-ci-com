@@ -118,6 +118,11 @@ To build by running Scons without arguments, use this:
 For Go projects, `env` and `go` can be given as arrays
 to construct a build matrix.
 
+## Environment Variable
+
+The version of Go a job is using is available as:
+
+    TRAVIS_GO_VERSION
 
 ## Examples
 
