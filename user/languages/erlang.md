@@ -56,7 +56,7 @@ to construct a build matrix.
 
 The version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_VERSION
+    TRAVIS_OTP_RELEASE
 
 ## Examples
 
