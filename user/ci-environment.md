@@ -131,14 +131,14 @@ Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
 depends on the language you're using.
 
-* `TRAVIS_RUBY_VERSION`
+* `TRAVIS_GO_VERSION`
 * `TRAVIS_JDK_VERSION`
 * `TRAVIS_NODE_VERSION`
-* `TRAVIS_PHP_VERSION`
-* `TRAVIS_PYTHON_VERSION`
 * `TRAVIS_OTP_RELEASE`
 * `TRAVIS_PERL_VERSION`
-* `TRAVIS_GO_VERSION`
+* `TRAVIS_PHP_VERSION`
+* `TRAVIS_PYTHON_VERSION`
+* `TRAVIS_RUBY_VERSION`
 * `TRAVIS_SCALA_VERSION`
 
 ### Libraries
