@@ -38,7 +38,7 @@ All VM images have the following pre-installed
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
- 
+
 ### Compilers & Build toolchain
 
 GCC 4.6.x, Clang 3.2.x, make, autotools, cmake, scons.
@@ -136,6 +136,7 @@ depends on the language you're using.
 * `TRAVIS_NODE_VERSION`
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
+* `TRAVIS_OTP_VERSION`
 
 ### Libraries
 
@@ -169,7 +170,7 @@ travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.2 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects. 
+travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.2 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
 
 ### Gradle version
 

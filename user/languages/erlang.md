@@ -24,7 +24,7 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
        - R15B01
        - R14B04
        - R14B03
-       - R14B02 
+       - R14B02
 
 Note that 17.0, R16B03-1 and R16B03 aren't yet available on <https://travis-ci.com>
 
@@ -51,6 +51,12 @@ to installs project's [dependencies as listed in the rebar.config file](https://
 
 For Erlang projects, `env` and `otp_release` can be given as arrays
 to construct a build matrix.
+
+## Environment Variable
+
+The version of OTP release a job is using is available as:
+
+    TRAVIS_OTP_VERSION
 
 ## Examples
 
