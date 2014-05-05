@@ -79,6 +79,12 @@ being installed in unexpected (for Travis CI Perl builder) locations and they wo
 For Perl projects, `env` and `perl` can be given as arrays
 to construct a build matrix.
 
+## Environment Variable
+
+The version of Perl a job is using is available as:
+
+    TRAVIS_PERL_VERSION
+
 ## Examples
 
 * [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)

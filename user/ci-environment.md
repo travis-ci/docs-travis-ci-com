@@ -137,6 +137,7 @@ depends on the language you're using.
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
 * `TRAVIS_OTP_VERSION`
+* `TRAVIS_PERL_VERSION`
 
 ### Libraries
 
