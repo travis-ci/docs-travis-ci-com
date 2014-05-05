@@ -8,16 +8,11 @@ permalink: clojure/
 
 This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
-## CI environment for Clojure Projects
+## Overview
 
-Travis CI VMs currently provide
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both [Leiningen](http://leiningen.org) 1.7.x and 2.3.x.
 
-* 32-bit OpenJDK 7, OpenJDK 6, Oracle JDK 7
-* Standalone [Leiningen](http://leiningen.org) 1.7.x.
-* Standalone [Leiningen 2.0.0](https://github.com/technomancy/leiningen/wiki/Upgrading) (new previews are provisioned within a couple of days after release).
-* Maven 3
-
-Clojure projects on travis-ci.org assume you use [Leiningen](https://github.com/technomancy/leiningen) by default.
+Clojure projects on Travis CI assume you use Leiningen 1.7.x by default.
 
 ## Dependency Management
 
@@ -59,9 +54,9 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 
-## Using Leiningen 2.0 (Preview)
+## Using Leiningen 2
 
-Leiningen 2.0 (preview) is provided side by side with 1.7. To use it, specify `lein` key in `.travis.yml`:
+Leiningen 2 is provided side by side with 1.7. To use it, specify `lein` key in `.travis.yml`:
 
     lein: lein2
 
@@ -70,29 +65,13 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
     before_install:
       - lein2 bootstrap
 
-Task chaining requires using the `do` task as of Leiningen 2.0 Preview 7:
+Task chaining requires using the `do` task:
 
     script: lein2 do javac, test
 
-
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
-
-    jdk:
-      - oraclejdk7
-      - openjdk6
-
-To test against OpenJDK 7 and Oracle JDK 7:
-
-    jdk:
-      - openjdk7
-      - oraclejdk7
-
-Travis CI provides OpenJDK 7, OpenJDK 6 and Oracle JDK 7. Sun JDK 6 is not provided and because it is EOL in November 2012,
-will not be provided.
-
-JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
 
 ### Examples
 
