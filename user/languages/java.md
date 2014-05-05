@@ -109,5 +109,3 @@ to construct a build matrix.
 * [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
 * [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
 * [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
-* [Android](https://github.com/leviwilson/android-travis-ci-example/blob/master/.travis.yml), using the [maven-android-plugin](http://code.google.com/p/maven-android-plugin/)
-* [Android](http://blog.crowdint.com/2013/05/24/android-builds-on-travis-ci-with-gradle.html), using the [new build system with Gradle](http://tools.android.com/tech-docs/new-build-system)
