@@ -38,7 +38,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ### Dependency Management
 
-Because Travis CI Scala builder assumes sbt dependency management is used by default, it naturally will pull down project dependencies before running tests without any effort on your side.
+Because Travis CI Scala builder assumes sbt dependency management is used by default, it automatically will pull down project dependencies before running tests without any effort on your side.
 
 ### Custom sbt Arguments
 
