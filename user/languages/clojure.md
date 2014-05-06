@@ -8,7 +8,7 @@ permalink: clojure/
 
 This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
-## Overview
+## CI Environment for Clojure Projects
 
 Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both [Leiningen](http://leiningen.org) 1.7.x and 2.3.x.
 
