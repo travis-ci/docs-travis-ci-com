@@ -68,6 +68,11 @@ If no license is specified, Travis CI will only accept `android-sdk-license-bcbb
         - build-tools-18.1.1
         - android-8
 
+### How to Create and Start an Emulator
+
+At the moment, these steps are not supported by Travis CI Android builder.
+Basically you'll need to ship a script like [`wait_for_emulator`](https://github.com/andrewhr/rxjava-android-example/blob/master/ci/wait_for_emulator) and adapt your [`.travis.yml`](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml) in order to make the emulator available for your tests.
+
 ## Dependency Management
 
 Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
@@ -89,11 +94,11 @@ to run your test suite. This can be overridden as described in the [general buil
 
 If your project has `build.gradle` file in the repository root, Gradle will be used to build it. By default it will use
 
-    gradle check connectedCheck
+    gradle build connectedCheck
 
 to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Travis Android builder will try to use it instead. The default command will become:
 
-    ./gradlew check connectedCheck
+    ./gradlew build connectedCheck
 
 This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
@@ -117,5 +122,6 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 
 * [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml) (Google Guice on Android)
 * [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml) (A platform for developing apps using JRuby on Android)
-* [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
-* [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml) (still using `language: java`, see https://github.com/embarkmobile/android-maven-example/pull/7)
+* [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
+* [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml) (the wait for the emulator must be fixed)
+* [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml) (still using `language: java`, see pending [pull request](https://github.com/embarkmobile/android-maven-example/pull/7))
