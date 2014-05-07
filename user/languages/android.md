@@ -68,6 +68,11 @@ If no license is specified, Travis CI will only accept `android-sdk-license-bcbb
         - build-tools-18.1.1
         - android-8
 
+### How to Create and Start an Emulator
+
+At the moment, these steps are not supported by Travis CI Android builder.
+Basically you'll need to ship a script like [`wait_for_emulator`](https://github.com/andrewhr/rxjava-android-example/blob/master/ci/wait_for_emulator) and adapt your [`.travis.yml`](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml) in order to make the emulator available for your tests.
+
 ## Dependency Management
 
 Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
