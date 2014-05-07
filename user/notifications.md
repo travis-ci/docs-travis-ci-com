@@ -311,7 +311,7 @@ Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
 build results.
 
 On Slack, set up a [new Travis CI
-integration](https://travisci.slack.com/services/new/travis). Select a channel,
+integration](https://my.slack.com/services/new/travis). Select a channel,
 and you'll find the details to paste into your .travis.yml.
 
 <figure>
