@@ -4,7 +4,7 @@ permalink: build-hacks/
 layout: en
 ---
 
-<div id="toc"></toc>
+<div id="toc"></div>
 
 ## Update ElasticSearch to a specific version
 
