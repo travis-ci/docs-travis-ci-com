@@ -89,11 +89,11 @@ to run your test suite. This can be overridden as described in the [general buil
 
 If your project has `build.gradle` file in the repository root, Gradle will be used to build it. By default it will use
 
-    gradle check connectedCheck
+    gradle build connectedCheck
 
 to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Travis Android builder will try to use it instead. The default command will become:
 
-    ./gradlew check connectedCheck
+    ./gradlew build connectedCheck
 
 This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
