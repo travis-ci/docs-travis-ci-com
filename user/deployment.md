@@ -9,6 +9,7 @@ permalink: deployment/
 Continuous Deployment to the following providers are currently supported out of the box:
 
 * [Appfog](/user/deployment/appfog)
+* [Cloud 66](/user/deployment/cloud66)
 * [Heroku](/user/deployment/heroku)
 * [Modulus](/user/deployment/modulus)
 * [Nodejitsu](/user/deployment/nodejitsu)
