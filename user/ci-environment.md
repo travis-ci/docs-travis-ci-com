@@ -163,7 +163,7 @@ apt is configured to not require confirmation (assume -y switch by default) usin
 * Oracle JDK 8 EA (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reaches End of Life in the fall 2012.
+it reached End of Life in fall 2012.
 
 ### Maven version
 
