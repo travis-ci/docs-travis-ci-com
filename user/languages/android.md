@@ -124,4 +124,4 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 * [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml) (A platform for developing apps using JRuby on Android)
 * [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 * [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml) (the wait for the emulator must be fixed)
-* [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml) (still using `language: java`, see pending [pull request](https://github.com/embarkmobile/android-maven-example/pull/7))
+* [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
