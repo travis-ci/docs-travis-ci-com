@@ -10,9 +10,7 @@ This guide covers build environment and configuration topics specific to Python 
 
 ## Choosing Python versions to test against
 
-Travis CI support Python versions 2.6, 2.7, 3.2 and 3.3. While 2.7 is based on
-the default Ubuntu package, the other three are pulled from the [Dead Snakes
-PPA](https://launchpad.net/~fkrull/+archive/deadsnakes).
+Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4.
 
     language: python
     python:
