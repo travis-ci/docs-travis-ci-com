@@ -131,7 +131,7 @@ process of your build.
 
 CocoaPods usage can fail for a few reasons currently.
 
-### Newer rersion of CocoaPods 0.29 required
+### Newer rersion of CocoaPods required
 
 Most Pods now require CocoaPods 0.32.1, but we still have 0.21 preinstalled. If
 you're seeing this error, add this to your `.travis.yml`:
