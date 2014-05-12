@@ -25,7 +25,6 @@ By setting
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK](http://developer.android.com/sdk) 22.6.2 with following preinstalled components:
 
 - platform-tools
-- build-tools-19.0.3
 - android-19
 - sysimg-19 (ARM)
 - android-18
@@ -42,15 +41,23 @@ in your `.travis.yml` file, your project will be built in the Android environmen
 - extra-google-m2repository
 - extra-android-m2repository
 
-### How to install or update Android SDK components
-
-In your `.travis.yml` you can optionally define the SDK **components** to be installed and the **licenses** to be accepted, as illustrated in the following example:
+If your project does not require any additional dependencies or component updates, a minimalistic `.travis.yml` file would look like this:
 
     language: android
     android:
       components:
-        - tools
-        - build-tools-19.0.1
+        - build-tools-19.0.2
+
+Note that `build-tools-x.y.z` components are intentionally **not pre-installed** in the Travis CI Android environment.
+
+### How to install or update Android SDK components
+
+In your `.travis.yml` you can optionally define the SDK **components** to be installed (or updated) with the **licenses** to be accepted, as illustrated in the following example:
+
+    language: android
+    android:
+      components:
+        - build-tools-19.0.3
         - android-19
         - sysimg-19
         - extra-android-support
