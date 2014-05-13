@@ -85,7 +85,7 @@ recommended that you run `brew update` before installing anything with Homebrew.
 
 ### Xcode
 
-Xcode 5.1.1 is installed with the iOS 6.1, 7.0 and 7.1 simulators and SDKs.
+Xcode 5.1 is installed with the iOS 6.1, 7.0 and 7.1 simulators and SDKs.
 Command Line Tools are also installed.
 
 ### Runtimes
