@@ -17,11 +17,10 @@ configuration](/user/build-configuration/) guides first.
 
 Currently pre-installed on our systems are the following SDKs for Xcode:
 
+
+- 7.1 (simulator and device)
 - 7.0 (simulator and device)
 - 6.1 (simulator and device)
-- 6.0 (simulator only)
-- 5.1 (simulator only)
-- 5.0 (simulator only)
 
 The device SDKs are needed if you want to build a binary to distribute to
 devices. Testing on devices is currently not possible.
