@@ -23,6 +23,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [npm](/user/deployment/npm)
 * [S3](/user/deployment/s3)
 * [Engine Yard](/user/deployment/engineyard)
+* [GitHub Releases](/user/deployment/releases)
 * [Custom deployment via after_success hook](/user/deployment/custom)
 
 ### Deploying to Multiple Providers
