@@ -37,17 +37,51 @@ recommended that you run `brew update` before installing anything with Homebrew.
 
 ### Compilers & Build toolchain
 
-* GCC 4.2.1
-* Apple LLVM 5.1
-* GNU Make
-* Autotools
+* apple-gcc42 4.2.1-5666.3
+* autoconf 2.69
+* automake 1.14 1.14.1
+* maven 3.2.1
+* mercurial 2.8 2.9 2.9.1
+* pkg-config 0.28
+* subversion 1.8.5 1.8.8
+* wget 1.14 1.15
+* xctool 0.1.14
 
-### Networking tools
+### Languages
 
-* Curl
-* wget
-* OpenSSL
-* rsync
+* go 1.1.2 1.2 1.2.1
+* node 0.10.26
+
+### Services
+
+* postgis 2.1.1 2.1.2
+* postgresql 9.3.3 9.3.4
+
+### Libraries
+
+* freexl 1.0.0g
+* gdal 1.10.1 1.10.1_1
+* geos 3.4.2
+* giflib 4.1.6
+* gpp 2.24
+* jpeg 8d
+* json-c 0.11
+* libgeotiff 1.4.0
+* libgpg-error 1.12
+* libksba 1.3.0
+* liblwgeom 2.1.1
+* libpng 1.5.17 1.6.10
+* libspatialite 4.1.1
+* libtiff 4.0.3
+* libtool 2.4.2
+* libxml2 2.9.1
+* libyaml 0.1.4 0.1.5 0.1.6
+* lzlib 1.5
+* openssl 1.0.1e 1.0.1f
+* ossp-uuid 1.6.2
+* proj 4.8.0
+* readline 6.2.4
+* sqlite 3.8.1 3.8.3 3.8.4.2
 
 ### Xcode
 
