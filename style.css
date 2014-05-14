@@ -354,6 +354,53 @@ div#main {
   max-width : 250px;
 }
 
+#main figure.app img {
+  float: left;
+  max-height: 100px;
+}
+
+#main figure.app {
+  min-height: 108px;
+  border: none;
+  margin-bottom: 3em;
+}
+
+
+#main figure.app ul {
+  font-size: 80%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#main figure.app li {
+  display: inline;
+}
+
+#main figure.official {
+  border-top: solid 3px #efefef;
+  border-bottom: solid 3px #efefef;
+  border-radius: 0;
+  min-height: 148px;
+}
+
+#main figure.official img {
+  margin: 20px 0;
+}
+
+#main figure.official:before {
+  content: "official";
+  width: 70px;
+  height: 20px;
+  margin-bottom: -20px;
+  font-size: 80%;
+  background-color: #efefef;
+  border-radius: 0 0 0 10px;
+  color: #337389;
+  float: right;
+  display: block;
+}
+
 div#sidebar {
   float       : right;
   width       : 325px;
