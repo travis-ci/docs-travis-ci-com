@@ -41,7 +41,7 @@ that can affect your tests.
 1. Not all tools may be available on the Mac
 
 	We are still working on building up the tool chain on the Mac worker.
-	Presently, Ruby is the most supported language across the operating systems.
+	Missing pieces of software [may be available](http://braumeister.org/) via Homebrew.
 
 1. The file system behavior is different
 
