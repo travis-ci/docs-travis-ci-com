@@ -360,7 +360,7 @@ By Automated Architecture
 <figcation>
 ### Travis CLI
 
-Feature complete command line client (Ruby)
+Feature complete command line client
 
 * [website](https://github.com/travis-ci/travis#readme)
 </figcation>
@@ -445,6 +445,7 @@ By Dylan Egan
 
 * [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
 * [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
+* [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
 
 ## Node.js
 
