@@ -316,7 +316,7 @@ By ThoughtWorks Inc.
 ### BuildNotify
 
 Linux alternative to CCMenu<br>
-By ThoughtWorks Inc.
+By Anay Nayak
 
 * [website](https://bitbucket.org/Anay/buildnotify/wiki/Home)
 * [tutorial](/user/cc-menu/)
