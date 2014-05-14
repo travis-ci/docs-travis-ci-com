@@ -9,8 +9,7 @@ The feature described in this document is considered beta.
 Some features may not work as described.
 
 ### This feature is not generally available
-The multi-OS feature is enabled for each repository,
-and it must be turned on by the Travis CI team.
+The multi-OS feature is turned on or off for each repository.
 If you wish to try it, please send email to [support@travis-ci.com](mailto:support@travis-ci.com).
 
 ## Introduction
@@ -36,13 +35,13 @@ The value corresponds to the `os` value in `.travis.yml`,
 either `linux` or `osx`.
 
 ## Operating System differences
-When you test your code on multiple OSes, always be mindful of differences
+When you test your code on multiple operating systems, always be mindful of differences
 that can affect your tests.
 
 1. Not all tools may be available on the Mac
 
 	We are still working on building up the tool chain on the Mac worker.
-	Presently, Ruby is the most supported language across the OSes.
+	Presently, Ruby is the most supported language across the operating systems.
 
 1. The file system behavior is different
 
