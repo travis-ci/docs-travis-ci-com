@@ -63,3 +63,13 @@ that can affect your tests.
 Not all languages are equally available on all operating systems.
 Before you embark on the multi-os testing journey, be sure to check
 [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2320).
+
+## Allowing Failures on Jobs Running on One Operating System
+If you want to ignore the results of jobs on one operating system, you can add the following
+to your `.travis.yml`:
+
+```yaml
+matrix:
+  allow_failures:
+    - os: osx
+```
