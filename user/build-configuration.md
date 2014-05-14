@@ -397,10 +397,10 @@ Below is an example configuration for a rather big build matrix that expands to 
 Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you *actually need*.
 
     rvm:
-      - 1.8.7 # (current default)
+      - 1.8.7
       - 1.9.2
       - 1.9.3
-      - rbx
+      - rbx-2
       - jruby
       - ruby-head
       - ree
