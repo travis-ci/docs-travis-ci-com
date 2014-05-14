@@ -6,7 +6,7 @@ permalink: apps/
 
 There is a wide range of [websites](#websites), [mobile applications](#mobile), [desktop applications](#desktop), [command line clients](#commandline) and [libraries](#libraries) you can use to interact with Travis CI. And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
 
-Note however that Travis CI can not take any responsibility of any sort for any third-party tools you might use.
+Note however that Travis CI can not take any responsibility of for third-party tools you might use.
 
 <a name='websites'></a>
 # Websites
