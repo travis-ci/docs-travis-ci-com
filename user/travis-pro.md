@@ -64,6 +64,12 @@ key you have configured (e.g. by adding it to an ssh-agent), it will fail
 because it will try the first one every time, successfully authenticate, but
 fail to authorize access, failing the entire git clone operation.
 
+Submodles should be specified using the SSH URL; e.g.,
+
+    git@github.com:<username>/<repo>.git
+
+Using the HTTPS URL may fail due to the reason described above.
+
 ### Can I use pull request testing on Travis Pro?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
