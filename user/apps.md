@@ -494,7 +494,7 @@ By James Smith
 <figcation>
 ### Travisify (Node.js)
 
-Add travis-ci hooks to your github project.<br>
+Add Travis CI hooks to your GitHub project<br>
 By James Halliday
 
 * [website](https://github.com/substack/travisify)
