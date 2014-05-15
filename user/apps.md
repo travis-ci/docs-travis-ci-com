@@ -4,14 +4,23 @@ layout: en
 permalink: apps/
 ---
 
-There is a wide range of [websites](#websites), [mobile applications](#mobile), [desktop applications](#desktop), [command line clients](#commandline) and [libraries](#libraries) you can use to interact with Travis CI. And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
+There is a wide range of tools you can use to interact with Travis CI:
+
+* **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
+* **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
+* **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows)
+* **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
+* **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
+* **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP)
+
+And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
 
 Note however that Travis CI can not take any responsibility of for third-party tools you might use.
 
 <a name='websites'></a>
 # Websites
 
-## Full Clients
+## Full Web Clients
 
 <figure class="app official">
 ![travis-web](/images/apps/travis-web.jpg)
@@ -353,7 +362,9 @@ By Automated Architecture
 </figure>
 
 <a name='commandline'></a>
-# Command Line Clients
+# Command Line Tools
+
+## Full Clients
 
 <figure class="app official">
 ![cli](/images/apps/cli.jpg)
@@ -365,6 +376,8 @@ Feature complete command line client
 * [website](https://github.com/travis-ci/travis#readme)
 </figcation>
 </figure>
+
+## Build Monitoring
 
 <figure class="app">
 ![bickle](/images/apps/bickle.jpg)
@@ -387,30 +400,6 @@ Bickle clone in PHP<br>
 By Anthony Sterling
 
 * [website](https://github.com/AnthonySterling/falken#readme)
-</figcation>
-</figure>
-
-<figure class="app">
-![git-travis](/images/apps/git.png)
-<figcation>
-### git-travis
-
-Git subcommand to display build status<br>
-By Dav Glass
-
-* [website](https://github.com/davglass/git-travis#readme)
-</figcation>
-</figure>
-
-<figure class="app">
-![travis-encrypt](/images/apps/node-travis-encrypt.jpg)
-<figcation>
-### travis-encrypt
-
-Encrypt environment variables<br>
-By Patrick Williams
-
-* [website](https://github.com/pwmckenna/node-travis-encrypt)
 </figcation>
 </figure>
 
@@ -438,6 +427,226 @@ By Dylan Egan
 </figcation>
 </figure>
 
+<figure class="app">
+![travis-build-watcher](/images/apps/travis-build-watcher.jpg)
+<figcation>
+### Travis Build Watcher
+
+Trigger a script on build changes<br>
+By Andrew Sutherland
+
+* [website](https://github.com/asutherland/travis-build-watcher)
+</figcation>
+</figure>
+
+<figure class="app">
+![status-gravatar](/images/apps/status-gravatar.jpg)
+<figcation>
+### Status Gravatar
+
+Sets Gravatar profile image depending on build status<br>
+By Gleb Bahmutov
+
+* [website](https://github.com/bahmutov/status-gravatar)
+</figcation>
+</figure>
+
+## Generators
+
+<figure class="app">
+![travis-encrypt](/images/apps/node-travis-encrypt.jpg)
+<figcation>
+### travis-encrypt
+
+Encrypt environment variables<br>
+By Patrick Williams
+
+* [website](https://github.com/pwmckenna/node-travis-encrypt)
+</figcation>
+</figure>
+
+<figure class="app">
+![travis-tools](/images/apps/travis-tools.jpg)
+<figcation>
+### travis-tools
+
+Easy secure data encryption<br>
+By Michael van der Weg
+
+* [website](https://github.com/eventEmitter/travis-tools)
+</figcation>
+</figure>
+
+<figure class="app">
+![travisify-ruby](/images/apps/travisify-ruby.jpg)
+<figcation>
+### Travisify (Ruby)
+
+Creates .travis.yml with tagging and env variables<br>
+By James Smith
+
+* [website](https://github.com/theodi/travisify)
+</figcation>
+</figure>
+
+<figure class="app">
+![travisify-node](/images/apps/travisify-node.jpg)
+<figcation>
+### Travisify (Node.js)
+
+Add travis-ci hooks to your github project.<br>
+By James Halliday
+
+* [website](https://github.com/substack/travisify)
+</figcation>
+</figure>
+
+<a name='plugins'></a>
+# Plugins
+
+## Google Chrome
+
+<figure class="app">
+![chrome-my-travis](/images/apps/chrome-my-travis.jpg)
+<figcation>
+### My Travis
+
+Monitor your projects builds within Chrome<br>
+By Leonardo Quixadá
+
+* [website](https://chrome.google.com/webstore/detail/my-travis/ddlafmkcenhiahiikbgjemcbdengmjbg)
+</figcation>
+</figure>
+
+<figure class="app">
+![chrome-github-travis](/images/apps/chrome-github-travis.jpg)
+<figcation>
+### github+travis
+
+Display build status next to project name on GitHub<br>
+By Tomas Carnecky
+
+* [website](https://chrome.google.com/webstore/detail/klbmicjanlggbmanmpneloekhajhhbfb)
+</figcation>
+</figure>
+
+<figure class="app">
+![chrome-github-status](/images/apps/chrome-github-status.jpg)
+<figcation>
+### GitHub Status
+
+Display build status next to project name on GitHub<br>
+By excellenteasy
+
+* [website](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp)
+</figcation>
+</figure>
+
+## Mozilla Firefox
+
+<figure class="app">
+![chrome-github-travis](/images/apps/chrome-github-travis.jpg)
+<figcation>
+### Github+Travis
+
+Display build status next to project name on GitHub<br>
+By David Burns
+
+* [website](https://addons.mozilla.org/en-US/firefox/addon/githubtravis/)
+</figcation>
+</figure>
+
+<figure class="app">
+![firefox-travis-lite](/images/apps/firefox-travis-lite.jpg)
+<figcation>
+### Link to Travis Lite
+
+Add a links to corresponding Travis Lite page<br>
+By Nigel Babu
+
+* [website](https://addons.mozilla.org/en-US/firefox/addon/link-to-travis-lite/)
+</figcation>
+</figure>
+
+## Opera
+
+<figure class="app">
+![chrome-github-travis](/images/apps/chrome-github-travis.jpg)
+<figcation>
+### GitHub+Travis
+
+Display build status next to project name on GitHub<br>
+By smasty
+
+* [website](https://addons.opera.com/en/extensions/details/travisgithub/)
+</figcation>
+</figure>
+
+
+## Editors
+
+<figure class="app">
+![atom](/images/apps/atom.jpg)
+<figcation>
+### Atom Plugin
+
+Travis CI integration for [Atom](https://atom.io/)<br>
+By Tom Bell
+
+* [website](https://github.com/tombell/travis-ci-status)
+</figcation>
+</figure>
+
+<figure class="app">
+![brackets](/images/apps/brackets.jpg)
+<figcation>
+### Brackets Plugin
+
+Travis CI integration for [Brackets](http://brackets.io/)<br>
+By Cas du Plessis
+
+* [website](https://github.com/AgileAce/Brackets-TravisCI)
+</figcation>
+</figure>
+
+<figure class="app">
+![vim](/images/apps/vim.jpg)
+<figcation>
+### Vim Plugin
+
+Travis CI integration for [Vim](http://www.vim.org/)<br>
+By Keith Smiley
+
+* [website](https://github.com/Keithbsmiley/travis.vim)
+</figcation>
+</figure>
+
+## Other
+
+<figure class="app">
+![git-travis](/images/apps/git.png)
+<figcation>
+### git-travis
+
+Git subcommand to display build status<br>
+By Dav Glass
+
+* [website](https://github.com/davglass/git-travis#readme)
+</figcation>
+</figure>
+
+<figure class="app">
+![NodeGH](/images/apps/nodegh.jpg)
+<figcation>
+### gh-travis
+
+NodeGH plugin for integrating Travis CI<br>
+By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
+
+* [website](https://github.com/node-gh/gh-travis)
+</figcation>
+</figure>
+
 <a name='libraries'></a>
 # Libraries
 
@@ -447,12 +656,14 @@ By Dylan Egan
 * [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 * [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
 
-## Node.js
+## JavaScript
 
 * [travis-ci](https://github.com/pwmckenna/node-travis-ci) by Patrick Williams
 * [node-travis-ci](https://github.com/mmalecki/node-travis-ci) by Maciej Małecki
 * [travis-api-wrapper](https://github.com/cmaujean/travis-api-wrapper) by Christopher Maujean
 * [travis.js](https://github.com/travis-ci/travis.js) by Konstantin Haase
+* [ee-travis](https://github.com/eventEmitter/ee-travis) by Michael van der Weg
+* [Favis CI](https://github.com/jaunesarmiento/favis-ci) by Jaune Sarmiento
 
 ## PHP
 
