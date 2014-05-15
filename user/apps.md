@@ -221,7 +221,7 @@ By Automated Architecture
 <figcation>
 ### Jarvis
 
-iPad client for Travis CI<br>
+iPad client for Travis CI, supports private projects<br>
 By NinjaConcept GmbH
 
 * [website](http://www.ninjaconcept.com/jarvis)
@@ -248,7 +248,7 @@ By Hari Menon
 <figcation>
 ### Project Monitor
 
-iPhone app that monitors builds<br>
+iPhone app that monitors public and private builds<br>
 By Dimitri Roche
 
 * [app store](https://itunes.apple.com/us/app/project-monitor/id857272990?ls=1&mt=8)
