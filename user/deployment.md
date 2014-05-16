@@ -22,6 +22,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Rackspace Cloud Files](/user/deployment/cloudfiles)
 * [npm](/user/deployment/npm)
 * [S3](/user/deployment/s3)
+* [Ninefold](/user/deployments/ninefold)
 * [Engine Yard](/user/deployment/engineyard)
 * [GitHub Releases](/user/deployment/releases)
 * [Custom deployment via after_success hook](/user/deployment/custom)
