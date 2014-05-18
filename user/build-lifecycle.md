@@ -26,7 +26,7 @@ Each step in the build's lifecycle gives you the means to hook in and run your o
 
 You can run steps before or after the installation step, and before or after the script step.
 
-They're called `before_install`, `after_install`, `before_script` and `after_script`, respectively.
+They're called `before_install`, `before_script` and `after_script`, respectively.
 
 In a `before_install` step, you can install additional dependencies required by your project, Ubuntu packages for instance, or custom services, downloaded and installed from the internet.
 
@@ -42,11 +42,10 @@ The complete lifecycle is as follows:
 
 1. `before_install`
 2. `install`
-3. `after_install`
-4. `before_script`
-5. `script`
-6. `after_script`
-7. `after_success` or `after_failure`
+3. `before_script`
+4. `script`
+5. `after_script`
+6. `after_success` or `after_failure`
 
 ### Breaking the Build
 
