@@ -9,6 +9,8 @@ permalink: ci-environment/
 This guide explain what packages, tools and settings are available in the Travis
 CI environment (often referred to as "CI environment").
 
+<div id="toc"></div>
+
 ## Overview
 
 Travis CI runs builds in isolated virtual machines that offer a vanilla build
@@ -27,6 +29,14 @@ can install anything that's required for them to run.
 ## CI environment OS
 
 Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit.
+
+## Networking
+
+The containers running the tests have IPv6 enabled. They don't have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+
+The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
+
+Most services work normally when talking to the local host by either `localhost` or `127.0.0.1`.
 
 ## Environment common to all VM images
 
