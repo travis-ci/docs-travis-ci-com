@@ -40,13 +40,13 @@ If you leave the `perl` key out of your `.travis.yml`, Travis CI will use Perl 5
 
 ### Module::Build
 
-If your repository has Build.PL is the root, it will be used to generate build script:
+If your repository has Build.PL in the root, it will be used to generate the build script:
 
     perl Build.PL && ./Build test
 
 ### EUMM
 
-If your repository has Makefile.PL is the root, it will be used like so
+If your repository has Makefile.PL in the root, it will be used like so
 
     perl Makefile.PL && make test
 
