@@ -294,7 +294,7 @@ pops up in your streams.
 
 The default looks like this:
 
-![](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
+![Screenshot of default Swiggle message template](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
 
 To customize it, add a template definition to your .travis.yml.
 
@@ -315,7 +315,7 @@ integration](https://my.slack.com/services/new/travis). Select a channel,
 and you'll find the details to paste into your .travis.yml.
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
+  <img src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg" alt="Screenshot of success screen after enabling the Travis CI integration on Slack"/>
 </figure>
 
 The channel name in the Slack settings can be overridden in Travis CI's
@@ -357,7 +357,7 @@ Once everything's setup, push a new commit and you should see something like the
 screenshot below:
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
+  <img src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg" alt="Single status message showing links to the Travis build, and the GitHub hash">
 </figure>
 
 Slack will be notified both for normal branch builds and for pull requests as
@@ -460,7 +460,7 @@ Use this to ensure Travis CI is the one making requests to your webhook.
 
 The Travis CI token used to authenticate the webhooks is the user token, which you can find on your profile page.
 
-![](/images/token.jpg)
+![Screenshot of Mathias Meyer's Travis CI profile page with arrow pointing to Token value.](/images/token.jpg)
 
 It's the token for the user who originally set up the repository on Travis CI.
 If you're uncertain who that was, you can find the user's name on the service

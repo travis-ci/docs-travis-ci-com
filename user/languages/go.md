@@ -63,7 +63,7 @@ instance.
 Go to your [GitHub account](https://github.com/settings/applications) and create
 a personal access token.
 
-![](/images/personal-token.jpg)
+![Screenshot of GitHub application security page with 'Travis CI go get token' in the name field, and the 'repo' scope selected.](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
