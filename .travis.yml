@@ -1,0 +1,9 @@
+language: ruby
+
+install:
+ - bundle install
+
+branches:
+  only:
+    - gh-pages
+    - /.*/
