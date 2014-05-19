@@ -1,4 +1,4 @@
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
+exclude: [.travis.yml, bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
 markdown: rdiscount
 permalink: :title
 safe: true
