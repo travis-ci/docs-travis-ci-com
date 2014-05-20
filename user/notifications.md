@@ -396,6 +396,19 @@ Here's an example of what you'll find in the `payload`:
 
 <script src="https://gist.github.com/roidrage/9272064.js"></script>
 
+You will see one of the following values in the `status`/`result` fields that represent the state of the build.
+
+* *0*: Represents a build that has completed successfully
+* *1*: Represents a build that has not yet completed or has completed and failed
+
+Additionally a message will be present in the `status_message`/`result_message` fields that further describe the status of the build.
+
+* *Pending*: A build has been requested
+* *Passed*: The build completed successfully
+* *Fixed*: The build completed successfully after a previously failed build
+* *Broken*: The build completed in failure after a previously successful build
+* *Still Failing*: The build completed in failure after a previously failed build
+
 For pull requests, the `type` field will have the value `pull_request`, and a `pull_request_number` field is included too, pointing to the pull request's issue number on GitHub.
 
 Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
