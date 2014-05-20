@@ -23,29 +23,31 @@ be reused throughout all of GitHub.
 If you need to pull in Git submodules or dependent repositories, that's still
 easy to achieve, though. You can either specify the dependencies using GitHub's
 https URL scheme, which can include username and password, e.g.
-`https://user:password@github.com/organization/repo.git`. Ideally the user is a
-separate user in your organization that only has read access to the required
-repository.
+`https://user:password@github.com/organization/repo.git`.
+Ideally the user is a separate user in your organization that only has read
+access to the required repository.
 
-As this doesn't work in all cases, e.g. with Composer, there's an alternative.
+As this doesn't work in all cases, e.g. with Composer, there's another way.
 It still requires setting up a separate user with pull access to the relevant
-repositories. But instead of specifying the username and passwords in for
-instance your Gemfile, you add an SSH key specifically for this user and put
-that key into your .travis.yml. Here are the steps to take:
+repositories, but instead of specifying the username and passwords in for
+instance your Gemfile, you use an SSH key: you add the public key for this user
+on GitHub and store the the private key into your `.travis.yml`.
 
-* Create a new user on GitHub and add it to your organization, give it pull permission to the
-  relevant repositories.
-* Create an SSH key for the user: `ssh-keygen -f id_mustache_power`.
+In order to do this, follow these steps:
+
+1. Create a new user on GitHub, add it to your organization, and give it pull
+  permission to the relevant repositories.
+1. Create an SSH key for the user: `ssh-keygen -f id_username_travisci`.
   Note: this must be a password-less key for Travis CI to be able to use it.
-* Add the SSH key to the user on GitHub.
-* Add a Base64-encoded version of the private key to your .travis.yml. On the
-  Mac, you can run `base64 id_mustache_power | pbcopy` to copy the encoded
-  version of the key to the clipboard.
-* Add a new key to your main repositories' .travis.yml file: `source_key: `. The
-  value of the key should be the encoded version of the SSH key in double
-  quotes and on a single line.
+1. Add the public SSH key (`id_username_travisci.pub`) to the user on GitHub.
+1. Add a Base64-encoded version of the private key (`id_username_travisci`) to
+  your .travis.yml. On a Mac, you can run `base64 id_username_travisci |
+  pbcopy` to copy the encoded version of the key to the clipboard.
+1. Add a the encoded private key to your main repositories' `.travis.yml` file:
+  `source_key: `. (This value should be the encoded version of the private SSH
+  key in double quotes and on a single line.)
 
-Travis CI will automatically prefer the key specified in your .travis.yml over the
+Travis CI will automatically prefer the key specified in your `.travis.yml` to the
 deploy key for a repository, so all repositories you're pulling in for the build
 to succeed automatically use this key.
 
