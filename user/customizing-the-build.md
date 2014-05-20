@@ -19,12 +19,12 @@ By default, we run familiar commands to install their respective dependencies. F
 You can specify your own script to run to install whatever dependencies your project requires. Here's an example for your .travis.yml:
 
     install: ./install-dependencies.sh
-  
+
 You can also provide multiple steps, for instance to install a Ubuntu package as part of your build:
 
     install:
       - sudo apt-get update -qq
-      - sudo apt-get install 
+      - sudo apt-get install
       - bundle install --path vendor/bundle
 
 When one of the steps fails, the build stops immediately and is marked as errored.
@@ -83,3 +83,11 @@ Assuming the script above is stored as `scripts/run-tests.sh` in your repository
     script: ./scripts/run-tests.sh
 
 On top of reducing complexity of your build configuration, using scripts for your builds instead of building complex scenarios in your .travis.yml gives you more flexibility to figure out which steps should fail the build.
+
+## How does this work? (Or, why you should not use `exit` in build steps)
+
+The steps specified in the build lifecycle are compiled into a single bash script and executed on the worker.
+
+When overriding these steps, do not use `exit` shell built-in command.
+Doing so will terminate the entire build process without giving Travis a chance to
+perform cleanup tasks, such as `after_success`, `after_failure` tasks.
