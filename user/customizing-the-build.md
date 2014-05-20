@@ -91,3 +91,5 @@ The steps specified in the build lifecycle are compiled into a single bash scrip
 When overriding these steps, do not use `exit` shell built-in command.
 Doing so will terminate the entire build process without giving Travis a chance to
 perform cleanup tasks, such as `after_success`, `after_failure` tasks.
+
+Using `exit` inside a custom script, of course, is acceptable.
