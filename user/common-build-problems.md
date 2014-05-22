@@ -43,7 +43,7 @@ Depending on the tool in use, this can be cause by a few things:
 
 * Ruby test suite consuming too much memory
 * Tests running in parallel using too many processes or threads (e.g. using the
-  `parallel_test` gem) 
+  `parallel_test` gem)
 * g++ needing too much memory to compile files, for instance with a lot of
   templates included.
 
@@ -131,7 +131,7 @@ process of your build.
 
 CocoaPods usage can fail for a few reasons currently.
 
-### Newer rersion of CocoaPods required
+### Newer version of CocoaPods required
 
 Most Pods now require CocoaPods 0.32.1, but we still have 0.21 preinstalled. If
 you're seeing this error, add this to your `.travis.yml`:
