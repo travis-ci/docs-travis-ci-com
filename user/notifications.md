@@ -61,7 +61,7 @@ from going to folks not registered on Travis CI.
 The email address is then determined based on the email address in the commit,
 but only if it matches one of the email addresses in our database. We
 synchronize all your email addresses from GitHub, solely for the purpose of
-build notifications. 
+build notifications.
 
 The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
@@ -88,7 +88,7 @@ and verified on GitHub. See above on how to change the email address to one
 that's registered or make sure to add the email address used in this repository
 to [your verified email addresses](https://github.com/settings/emails) on GitHub.
 
-## IRC notification
+## IRC notifications
 
 You can also specify notifications sent to an IRC channel:
 
@@ -182,7 +182,7 @@ If you want the bot to send messages to channels protected with a channel key (i
           - "irc.freenode.org#my-channel"
         channel_key: 'password'
 
-## Campfire notification
+## Campfire notifications
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
 
@@ -210,7 +210,7 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
-## Flowdock notification
+## Flowdock notifications
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
 
@@ -224,7 +224,7 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
     travis encrypt api_token --add notifications.flowdock
 
-## HipChat notification
+## HipChat notifications
 
 Notifications can be sent to your HipChat chat rooms using the following format:
 
@@ -346,7 +346,7 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-    
+
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -363,7 +363,7 @@ screenshot below:
 Slack will be notified both for normal branch builds and for pull requests as
 well.
 
-## Webhook notification
+## Webhook notifications
 
 You can define webhooks to be notified about build results the same way:
 
@@ -416,10 +416,10 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	require 'sinatra'
 	require 'json'
 	require 'digest/sha2'
-	
+
 	class TravisWebhook < Sinatra::Base
 	  set :token, ENV['TRAVIS_USER_TOKEN']
-	
+
 	  post '/' do
 	    if not valid_request?
 	      puts "Invalid payload request for repository #{repo_slug}"
@@ -428,16 +428,16 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	      puts "Received valid payload for repository #{repo_slug}"
 	    end
 	  end
-	
+
 	  def valid_request?
 	    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
 	    digest.to_s == authorization
 	  end
-	
+
 	  def authorization
 	    env['HTTP_AUTHORIZATION']
 	  end
-	
+
 	  def repo_slug
 	    env['HTTP_TRAVIS_REPO_SLUG']
 	  end
