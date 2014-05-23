@@ -16,7 +16,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
 You can obtain your AWS Access Key Id and your AWS Secret Access Key from [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt your AWS Secret Access Key. Assuming you have the `travis` client installed, you can do it like this:
     
-    $ travis encrypt SECRET-ACCESS-KEY --add deploy.api_key
+    $ travis encrypt SECRET-ACCESS-KEY --add deploy.secret-access-key
 
 You can also have the `travis` tool set up everything for you:
 
