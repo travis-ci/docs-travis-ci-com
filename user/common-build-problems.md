@@ -127,6 +127,24 @@ process of your build.
     # .travis.yml
     bundler_args: --without development debug
 
+## Mac: Code Signing Errors
+
+With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
+
+Signs of issues can be errors messages stating that an identity can't be found and that "User
+interaction is not allowed."
+
+The keychain must be marked as the default keychain, must be unlocked explicitly and the build needs to make sure that the keychain isn't locked before the critical point in the build is reached. The following set of commands takes care
+of this:
+
+    security create-keychain -p travis ios-build.keychain
+    # Make the keychain the default so identities are found
+    security default-keychain -s travis-ios-build.keychain
+    # Unlock the keychain
+    security unlock-keychain -p travis ios-build.keychain
+    # Set keychain locking timeout to 3600 seconds
+    security set-keychain-settings -t 3600 -u travis-ios-build.keychain
+
 ## Mac: Errors running CocoaPods
 
 CocoaPods usage can fail for a few reasons currently.
