@@ -54,7 +54,7 @@ A more extensive example:
       - 2.1.0
       - jruby-18mode
       - jruby-19mode
-      - rbx
+      - rbx-2
       - ruby-head
       - jruby-head
       - ree
@@ -65,6 +65,10 @@ levels and so on. For full up-to-date list of provided Rubies, see our [CI
 environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
+
+When using Rubinius, there's currently an issue with selecting the correct version
+in RVM in our build environment, but only when specifying `rbx` as your version. As
+a workaround, specify `rbx-2` instead.
 
 ### Choosing Rubies that aren't installed
 
