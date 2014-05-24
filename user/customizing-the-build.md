@@ -89,7 +89,7 @@ On top of reducing complexity of your build configuration, using scripts for you
 The steps specified in the build lifecycle are compiled into a single bash script and executed on the worker.
 
 When overriding these steps, do not use `exit` shell built-in command.
-Doing so will terminate the entire build process without giving Travis a chance to
-perform cleanup tasks, such as `after_success`, `after_failure` tasks.
+Doing so will run the risk of terminating the build process without giving Travis a chance to
+perform subsequent tasks.
 
-Using `exit` inside a custom script, of course, is acceptable.
+Using `exit` inside a custom script which will be invoked from during a build, of course, is acceptable.
