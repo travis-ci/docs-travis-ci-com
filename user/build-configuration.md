@@ -383,6 +383,9 @@ You can use regular expressions to white- or blacklist branches:
 Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain all kinds of quantifiers, anchors, and character classes [supported](http://www.ruby-doc.org/core-1.9.3/Regexp.html) by Ruby.
 
 Options that are usually specified after the last `/` (e.g., `i` for case insensitive matching) are not supported at the moment.
+However, such options can be given inline instead.
+For example, `/^(?i:deploy)-.*$/` matches `Deploy-2014-06-01` and other
+branches and tags that start with `deploy-` in any combination of cases.
 
 ## The Build Matrix
 
