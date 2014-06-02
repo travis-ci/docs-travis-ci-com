@@ -142,8 +142,11 @@ APT repository), and we'll add it for you.
 - llvm.org
 - repo.percona.com
 - packages.elasticsearch.org
+- debian.neo4j.org
+- packages.osrfoundation.org
+- dl.google.com
 
-The default Ubuntu repositories are included by default.
+The standard Ubuntu repositories are included by default.
 
 Caching Ubuntu packages will soon be enabled by default, but we're still
 beta-testing the new cache until it is.
