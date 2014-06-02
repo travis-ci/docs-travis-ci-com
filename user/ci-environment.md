@@ -26,6 +26,11 @@ packages, to change configuration, create users, and so on.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
+## The Build Machine
+
+On the Linux platform, builds have 3 GB of memory available. Disk space is limited,
+but there's no fixed limit per build. Builds have up to two cores available (bursted).
+
 ## CI environment OS
 
 Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit.
