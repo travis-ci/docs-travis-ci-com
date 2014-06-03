@@ -49,7 +49,7 @@ The complete lifecycle is as follows:
 
 ### Breaking the Build
 
-If any of the commands in the first six stages above returns a non-zero exit code, Travis CI considers the build to be broken.
+If any of the commands in the first four stages above returns a non-zero exit code, Travis CI considers the build to be broken.
 
 When any of the steps in the `before_install`, `install` or `after_install` stages fails with a non-zero exit code, the build will be marked as **errored**.
 
