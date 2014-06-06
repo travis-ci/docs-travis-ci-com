@@ -51,7 +51,7 @@ The complete lifecycle is as follows:
 
 If any of the commands in the first four stages above returns a non-zero exit code, Travis CI considers the build to be broken.
 
-When any of the steps in the `before_install`, `install` or `after_install` stages fails with a non-zero exit code, the build will be marked as **errored**.
+When any of the steps in the `before_install` or `install` stages fails with a non-zero exit code, the build will be marked as **errored**.
 
 When any of the steps in the `before_script`, `script` or `after_script` stages fails with a non-zero exit code, the build will be marked as **failed**.
 
