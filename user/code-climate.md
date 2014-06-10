@@ -51,6 +51,13 @@ to whitelist Code Climate:
 
     WebMock.disable_net_connect!(allow: %w{codeclimate.com})
 
+One way to do this is to add the following to your `spec_helper.rb` file:
+
+    # whitelist codeclimate.com so test coverage can be reported
+    config.after(:suite) do
+      WebMock.disable_net_connect!(:allow => 'codeclimate.com')
+    end
+
 #### I want to use Code Climate with parallel builds
 
 Code Climate currently doesn't aggregate test coverage results across multiple
