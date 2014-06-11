@@ -70,6 +70,16 @@ When using Rubinius, there's currently an issue with selecting the correct versi
 in RVM in our build environment, but only when specifying `rbx` as your version. As
 a workaround, specify `rbx-2` instead.
 
+#### Using `.ruby-version`
+
+If the ruby version is not dictated by the `rvm` key as described above, Travis CI
+will consult `.ruby-version` in the root of the repository and use the indicated
+Ruby runtime.
+
+This strategy works if the specified Ruby runtime is already installed on the
+worker.
+If it is not, your build will fail.
+
 ### Choosing Rubies that aren't installed
 
 While we pre-install some Rubies, you can install other versions by way of RVM's
