@@ -141,7 +141,8 @@ to tag the build, or to run post-build deployments.
   used. This value is either "true" or "false".
 * `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
   repository currently being built. (for example, "travis-ci/travis-build").
-* `TRAVIS_OS_NAME`: Name of the operating system built on. Mostly relevant for multi-OS builds. Values are `linux` and `osx` currently, to be extended in the future.
+* `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
+  Values are `linux` and `osx` currently, to be extended in the future.
 * `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
 
 Language-specific builds expose additional environment variables representing
