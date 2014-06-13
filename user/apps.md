@@ -78,6 +78,19 @@ By William Durand
 </figure>
 
 <figure class="app">
+![travis-wall](/images/apps/travis-wall.jpg)
+<figcation>
+### TravisWall
+
+Online build monitoring tool for public/private repos<br>
+By Eric Geloen
+
+* [website](http://egeloen.fr/travis-wall/)
+* [source code](https://github.com/egeloen/travis-wall)
+</figcation>
+</figure>
+
+<figure class="app">
 ![travis-light](/images/apps/team-dashboard.jpg)
 <figcation>
 ### Team Dashboard
