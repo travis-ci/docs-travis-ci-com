@@ -36,7 +36,7 @@ A common task for `after_success` is to generate documentation, or to upload a b
 
 `after_failure` can be used in similar ways, for example to upload any log files that could help debugging a failure to S3.
 
-In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_RESULT` environment variable.
+In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
 
 The complete lifecycle is as follows:
 
