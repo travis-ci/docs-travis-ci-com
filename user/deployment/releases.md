@@ -17,7 +17,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
         tags: true
         all_branches: true
 
-Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably what you are trying to upload
+Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
 You can always use the Travis CI command line client set everything up for you:
 
