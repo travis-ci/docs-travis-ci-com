@@ -141,7 +141,7 @@ It defaults to the latter, but you can change that via the **strategy** option:
 
 The main differences:
 
-* Anvil will run the [buildpack](https://devcenter.heroku.com/articles/buildpacks) compilation step on the Travis CI VM, whereas the Git strategy will run it on a Heroku dyno, which provides the same environment the application will then run under and might be slightly faster.
+* Anvil will run the [buildpack](https://devcenter.heroku.com/articles/buildpacks) compilation step on the Anvil server, whereas the Git strategy will run it on a Heroku dyno.
 * The Git strategy allows using *user* and *password* instead of *api_key* (though *api_key* works fine with Git too).
 * When using Git, Heroku might send you an email for every deploy, as it adds a temporary SSH key to your account.
 
