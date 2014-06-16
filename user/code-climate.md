@@ -14,8 +14,7 @@ integrates neatly with Travis CI.
 Code Climate supports Ruby and JavaScript projects, with [support for PHP on the
 horizon](https://codeclimate.com/php).
 
-Note that for measuring test coverage, you need a paid subscription for Code
-Climate. As a Travis CI customer, [you get 20% off for your first three
+As a Travis CI customer, [you get 20% off for your first three
 months](https://codeclimate.com/partners/travisci)!
 
 ## Measuring Test Coverage with Code Climate
