@@ -89,7 +89,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * PostgreSQL 9.1.x, 9.2.x and 9.3.x
 * SQLite 3.7.x
 * MongoDB 2.4.x
-* Redis 2.8.2 (on travis-ci.org, available in the Ruby, PHP and Java environments), Redis 2.6.x everywhere else
+* Redis 2.8.x
 * Riak 1.2.x
 * Apache Cassandra 2.0.x
 * Neo4J Community Edition 1.7.x
