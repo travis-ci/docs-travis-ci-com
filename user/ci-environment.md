@@ -169,6 +169,24 @@ depends on the language you're using.
 
 apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means `apt-get install -qq` can be used without the -y flag.
 
+### Group membership
+
+The user executing the build (`$USER`) belongs to one primary group derived from that user.
+If your project needs extra memberships to run the build, follow these steps:
+
+1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
+    1. Set up and export environment variables.
+    1. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+    You may modify the user's primary group with `-g`.
+1. Your `script` would look something like:
+
+```bash
+script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
+```
+This will pass the environment variables down to a `bash` process which runs as `$USER`,
+while retaining the environment variables defined
+and belonging to secondary groups given above in `usermod`.
+
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
 ### JDK
