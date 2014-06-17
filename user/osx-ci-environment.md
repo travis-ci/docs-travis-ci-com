@@ -103,7 +103,10 @@ projects that may need one of those runtimes during the build.
 Additionally, Travis CI sets environment variables you can use in your build,
 e.g.  to tag the build, or to run post-build deployments.
 
-* `TRAVIS_BRANCH`: The name of the branch currently being built.
+* `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
+  name of the branch currently being built; whereas for builds triggered
+  by a pull request this is the name of the branch targeted by the pull
+  request (in many cases this will be `master`).
 * `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
   being built has been copied on the worker.
 * `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
