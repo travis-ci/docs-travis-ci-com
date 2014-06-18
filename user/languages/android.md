@@ -65,7 +65,7 @@ In your `.travis.yml` you can optionally define the SDK **components** to be ins
         - android-sdk-license-bcbbd656
         - '.*intel.+'
 
-The exact component names must be specified, while the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically interact with the interactive prompts).
+The exact component names must be specified, while the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically interact with the interactive prompts). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended`.
 
 If no license is specified, Travis CI will only accept `android-sdk-license-bcbbd656` by default:
 
