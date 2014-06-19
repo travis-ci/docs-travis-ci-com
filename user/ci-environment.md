@@ -125,7 +125,10 @@ Language-specific workers have multiple runtimes for their respective language (
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
-* `TRAVIS_BRANCH`: The name of the branch currently being built.
+* `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
+  name of the branch currently being built; whereas for builds triggered
+  by a pull request this is the name of the branch targeted by the pull
+  request (in many cases this will be `master`).
 * `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
   being built has been copied on the worker.
 * `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
@@ -168,6 +171,24 @@ depends on the language you're using.
 ### apt configuration
 
 apt is configured to not require confirmation (assume -y switch by default) using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means `apt-get install -qq` can be used without the -y flag.
+
+### Group membership
+
+The user executing the build (`$USER`) belongs to one primary group derived from that user.
+If your project needs extra memberships to run the build, follow these steps:
+
+1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
+    1. Set up and export environment variables.
+    1. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+    You may modify the user's primary group with `-g`.
+1. Your `script` would look something like:
+
+```bash
+script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
+```
+This will pass the environment variables down to a `bash` process which runs as `$USER`,
+while retaining the environment variables defined
+and belonging to secondary groups given above in `usermod`.
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 

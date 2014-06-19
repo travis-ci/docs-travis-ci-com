@@ -42,6 +42,34 @@ cloudControl and Heroku, your `deploy` section would look something like this:
       - provider: heroku
         api_key "YOUR HEROKU API KEY"
 
+### Common Options to All Providers
+
+Deployment can be controlled by setting the `on:` for each deployment provider.
+
+    deploy:
+      provider: s3
+      access_key_id: "YOUR AWS ACCESS KEY"
+      secret_access_key: "YOUR AWS SECRET KEY"
+      bucket: "S3 Bucket"
+      skip_cleanup: true
+      on:
+        branch: release
+        condition: $MY_ENV = super_awesome
+
+When all conditions specified in the `on:` section are met, deployment for this
+provider will be peformed.
+
+Common options are:
+
+1. `repo`: Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+1. `branch`: Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
+  `all_branches: true` _instead of_ `branch: **` and use other conditions to control your deployment.
+1. `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: For language runtimes that support multiple versions,
+  you can limit the deployment to happen only on the job that matches the desired version.
+1. `condition`: You may set arbitrary bash condition with this option. It can be complex, but there can be only one.
+1. `tags`: When set to `true`, the application is deployed when a tag is applied to the commit.
+  (Due to a [known issue](https://github.com/travis-ci/travis-ci/issues/1675), you should also set `all_branches: true`.)
+
 ### Other Providers
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).

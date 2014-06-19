@@ -2113,6 +2113,68 @@ synchronizing: ... <span class="k">done</span>
 
 <p>This request always needs to be authenticated.</p>
 
+<h1 id="other-endpoints">Other Endpoints</h1>
+
+<h2 id="linting">Linting</h2>
+<pre class="highlight http"><span class="nf">PUT</span> <span class="nn">/lint/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/yaml</span>
+
+language: ruby
+jdk: default
+</pre>
+<pre class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"lint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"jdk"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"specified jdk, but ruby does not include jruby"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<pre class="highlight shell"><span class="gp">$ </span>travis lint example.yml
+Warnings <span class="k">for </span>example.yml:
+<span class="o">[</span>x] dropping jdk section: specified jdk, but ruby does not include jruby
+</pre>
+<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'travis'</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">YAML</span><span class="sh">
+  language: ruby
+  jdk: default
+</span><span class="no">YAML</span>
+
+<span class="no">Travis</span><span class="p">.</span><span class="nf">lint</span><span class="p">(</span><span class="n">content</span><span class="p">).</span><span class="nf">warnings</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">warning</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="s2">"%p: %s"</span> <span class="o">%</span> <span class="o">[</span><span class="n">warning</span><span class="p">.</span><span class="nf">key</span><span class="p">,</span> <span class="n">warning</span><span class="p">.</span><span class="nf">message</span><span class="o">]</span>
+<span class="k">end</span>
+</pre>
+
+<p><code class="prettyprint">POST /lint</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content</td>
+<td></td>
+<td>content of the <code class="prettyprint">.travis.yml</code></td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">PUT /lint</code></p>
+
+<p>This is an alternative endpoint to the <code class="prettyprint">POST</code> with parameter, to make it work well with tools like <code class="prettyprint">curl</code> (<code class="prettyprint">curl -T .travis.yml api.travis-ci.org/lint</code>). The request body can contain the YAML file directly.</p>
+
 <h1 id="api-clients">API Clients</h1>
 
 <p>There are a few API clients out there you can use for interacting with the Travis API, rather than manually triggering HTTP requests and parsing the responses.</p>

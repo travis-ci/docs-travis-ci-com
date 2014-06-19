@@ -1584,6 +1584,66 @@ Triggers a new sync with GitHub. Might return status `409` if the user is curren
 
 This request always needs to be authenticated.
 
+# Other Endpoints
+
+## Linting
+
+``` http
+PUT /lint/ HTTP/1.1
+User-Agent: MyClient/1.0.0
+Accept: application/vnd.travis-ci.2+json
+Host: api.travis-ci.org
+Content-Type: text/yaml
+
+language: ruby
+jdk: default
+```
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "lint": {
+    "warnings": [
+      {
+        "key": ["jdk"],
+        "message": "specified jdk, but ruby does not include jruby"
+      }
+    ]
+  }
+}
+```
+
+``` shell
+$ travis lint example.yml
+Warnings for example.yml:
+[x] dropping jdk section: specified jdk, but ruby does not include jruby
+```
+
+``` ruby
+require 'travis'
+
+content = <<-YAML
+  language: ruby
+  jdk: default
+YAML
+
+Travis.lint(content).warnings.each do |warning|
+  puts "%p: %s" % [warning.key, warning.message]
+end
+```
+
+`POST /lint`
+
+Parameter     | Default | Description
+------------- | ------- | -----------
+content       |         | content of the `.travis.yml`
+
+`PUT /lint`
+
+This is an alternative endpoint to the `POST` with parameter, to make it work well with tools like `curl` (`curl -T .travis.yml api.travis-ci.org/lint`). The request body can contain the YAML file directly.
+
 # API Clients
 
 There are a few API clients out there you can use for interacting with the Travis API, rather than manually triggering HTTP requests and parsing the responses.
