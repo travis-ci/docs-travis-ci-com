@@ -22,11 +22,12 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get the latest version.
 
     language: go
-    
+
     go:
       - 1.0
       - 1.1
       - 1.2
+      - 1.3
       - tip
 
 ## Dependency Management
