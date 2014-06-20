@@ -84,7 +84,7 @@ Note that when you're updating the `$PATH` environment variable, that part can't
 To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
 
     install: 
-      - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz -O /tmp/protobuf-2.4.1.tar.bz
+      - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
       - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && make install
 
