@@ -94,7 +94,7 @@ This script lends itself nicely to be extracted into a shell script, let's name 
     set -ex
     wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz -O /tmp/protobuf-2.4.1.tar.bz
     tar -xzvf protobuf-2.4.1.tar.gz
-    cd protobuf-2.4.1 && ./configure --prefix=/usr && make && make install
+    cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 
 Once it's added to the repository, you can run it from your .travis.yml:
 
