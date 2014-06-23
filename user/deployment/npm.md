@@ -74,35 +74,8 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 
 ### Conditional releases
 
-it is possible to make releases conditional using the **on** option:
-
-    deploy:
-      provider: npm
-      email: ...
-      api_key: ...
-      on:
-        branch: staging
-        node: 0.10
-
-The above configuration will trigger a release if the staging branch is passing on NodeJS 0.10.
-
-You can also add custom conditions:
-
-    deploy:
-      provider: npm
-      email: ...
-      api_key: ...
-      on:
-        condition: "$cc = gcc"
-
-The available conditions are:
-
-* **all_branches** - when set to true, trigger release from any branch if passing
-* **branch** - branch or list of branches to release from if passing
-* **tags** - when set to true, Travis CI only deploys on tagged builds
-* **condition** - custom condition or list of custom conditions
-* **node** - nodejs version to release from if passing
-* **repo** - only trigger a build for the given repository, to play nice with forks
+You can deploy only when certain conditions are met.
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after release
 
