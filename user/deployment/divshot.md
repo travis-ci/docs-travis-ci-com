@@ -63,32 +63,10 @@ Maybe that is not what you want, as you might generate some artifacts (think ass
       api_key: "YOUR API KEY"
       skip_cleanup: true
 
-### Conditional Deploys
+### Conditional releases
 
-It is possible to make deployments conditional using the **on** option:
-
-    deploy:
-      provider: divshot
-      api_key: "YOUR API KEY"
-      on:
-        branch: staging
-        node: 0.11
-
-The above configuration will trigger a deploy if the staging branch is passing on NodeJS 0.11.
-
-Available conditions are:
-
-* **all_branches** - when set to true, trigger deploy from any branch if passing
-* **branch** - branch or list of branches to deploy from if passing
-* **tags** - when set to true, Travis CI only deploys on tagged builds
-* **condition** - custom condition or list of custom conditions
-* **jdk** - JDK version to deploy from if passing
-* **node** - NodeJS version to deploy from if passing
-* **perl** - Perl version to deploy from if passing
-* **php** - PHP version to deploy from if passing
-* **python** - Python version to deploy from if passing
-* **ruby** - Ruby version to deploy from if passing
-* **repo** - only trigger a build for the given repository, to play nice with forks
+You can deploy only when certain conditions are met.
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after deploy
 

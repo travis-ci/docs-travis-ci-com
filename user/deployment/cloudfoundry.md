@@ -39,3 +39,8 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
 This can be easily accomplished using the Travis gem above and running:
 
     travis encrypt --add deploy.password
+
+### Conditional releases
+
+You can deploy only when certain conditions are met.
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).

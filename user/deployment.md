@@ -45,7 +45,7 @@ cloudControl and Heroku, your `deploy` section would look something like this:
       - provider: heroku
         api_key "YOUR HEROKU API KEY"
 
-### Common Options to All Providers
+### Conditional Releases with `on:`
 
 Deployment can be controlled by setting the `on:` for each deployment provider.
 
@@ -64,14 +64,50 @@ provider will be peformed.
 
 Common options are:
 
-1. `repo`: Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
-1. `branch`: Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
+1. **`repo`** Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+1. **`branch`** Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
   `all_branches: true` _instead of_ `branch: **` and use other conditions to control your deployment.
-1. `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: For language runtimes that support multiple versions,
+1. **`jdk`**, **`node`**, **`perl`**, **`php`**, **`python`**, **`ruby`**, **`scala`**, **`go`**: For language runtimes that support multiple versions,
   you can limit the deployment to happen only on the job that matches the desired version.
-1. `condition`: You may set arbitrary bash condition with this option. It can be complex, but there can be only one.
-1. `tags`: When set to `true`, the application is deployed when a tag is applied to the commit.
+1. **`condition`**: You may set arbitrary bash condition with this option. It can be complex, but there can be only one.
+  For example, `$CC = gcc`.
+1. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit.
   (Due to a [known issue](https://github.com/travis-ci/travis-ci/issues/1675), you should also set `all_branches: true`.)
+
+#### Examples of Conditional Releases using `on:`
+
+This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
+
+    deploy:
+      provider: nodejitsu
+      user: ...
+      api_key: ...
+      on:
+        branch: staging
+        node: 0.11
+
+The next example deploys to S3 only when `$CC` is set to `gcc`.
+
+    deploy:
+      provider: s3
+      access_key_id: "YOUR AWS ACCESS KEY"
+      secret_access_key: "YOUR AWS SECRET KEY"
+      skip_cleanup: true
+      bucket: "S3 Bucket"
+      on:
+        condition: "$CC = gcc"
+
+This example deploys to GitHub Releases when a tag is set and the Ruby version is 2.0.0.
+
+    deploy:
+      provider: releases
+      api-key: "GITHUB OAUTH TOKEN"
+      file: "FILE TO UPLOAD"
+      skip_cleanup: true
+      on:
+        tags: true
+        all_branches: true
+        rvm: 2.0.0
 
 ### Other Providers
 

@@ -29,4 +29,4 @@ Keep in mind that the above command has to run in your project directory, so it 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Common Options to All Providers](/user/deployment#Common-Options-to-All-Providers)
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).

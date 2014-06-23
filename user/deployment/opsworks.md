@@ -12,10 +12,10 @@ For a minimal configuration, all you need to do is add the following to your `.t
       provider: opsworks
       access-key-id: ACCESS-KEY-ID
       secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID     
+      app-id: APP-ID
 
 You can obtain your AWS Access Key Id and your AWS Secret Access Key from [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt your AWS Secret Access Key. Assuming you have the `travis` client installed, you can do it like this:
-    
+
     $ travis encrypt SECRET-ACCESS-KEY --add deploy.secret-access-key
 
 You can also have the `travis` tool set up everything for you:
@@ -33,7 +33,7 @@ If you want to migrate your rails database on travis to AWS OpsWorks, add the `m
       access-key-id: ACCESS-KEY-ID
       secret-access-key: SECRET-ACCESS-KEY
       app-id: APP-ID
-      migrate: true    
+      migrate: true
 
 ### Branch to deploy from
 
@@ -45,7 +45,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
       provider: opsworks
       access-key-id: ACCESS-KEY-ID
       secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID     
+      app-id: APP-ID
       on: production
 
 Alternatively, you can also configure it to deploy from all branches:
@@ -54,7 +54,7 @@ Alternatively, you can also configure it to deploy from all branches:
       provider: opsworks
       access-key-id: ACCESS-KEY-ID
       secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID     
+      app-id: APP-ID
       on:
         all_branches: true
 
@@ -70,7 +70,7 @@ Maybe that is not what you want, as you might generate some artifacts (think ass
       provider: opsworks
       access-key-id: ACCESS-KEY-ID
       secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID     
+      app-id: APP-ID
       skip_cleanup: true
 
 ### Waiting for Deployments
@@ -89,34 +89,10 @@ option:
 Travis CI will wait up to 10 minutes for the deploy to complete, and log
 whether it succeeded.
 
-### Conditional Deploys
+### Conditional releases
 
-It is possible to make deployments conditional using the **on** option:
-
-    deploy:
-      provider: opsworks
-      access-key-id: ACCESS-KEY-ID
-      secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID     
-      on:
-        branch: staging
-        node: 0.11
-
-The above configuration will trigger a deploy if the staging branch is passing on NodeJS 0.11.
-
-Available conditions are:
-
-* **all_branches** - when set to true, trigger deploy from any branch if passing
-* **branch** - branch or list of branches to deploy from if passing
-* **tags** - when set to true, Travis CI only deploys on tagged builds
-* **condition** - custom condition or list of custom conditions
-* **jdk** - JDK version to deploy from if passing
-* **node** - NodeJS version to deploy from if passing
-* **perl** - Perl version to deploy from if passing
-* **php** - PHP version to deploy from if passing
-* **python** - Python version to deploy from if passing
-* **ruby** - Ruby version to deploy from if passing
-* **repo** - only trigger a build for the given repository, to play nice with forks
+You can deploy only when certain conditions are met.
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after deploy
 
