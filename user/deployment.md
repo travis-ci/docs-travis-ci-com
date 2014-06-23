@@ -26,6 +26,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Ninefold](/user/deployment/ninefold)
 * [Engine Yard](/user/deployment/engineyard)
 * [GitHub Releases](/user/deployment/releases)
+* [Hackage](/user/deployment/hackage)
 * [Google Cloud Storage](/user/deployment/gcs)
 * [Custom deployment via after_success hook](/user/deployment/custom)
 
