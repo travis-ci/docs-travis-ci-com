@@ -61,7 +61,7 @@ from going to folks not registered on Travis CI.
 The email address is then determined based on the email address in the commit,
 but only if it matches one of the email addresses in our database. We
 synchronize all your email addresses from GitHub, solely for the purpose of
-build notifications. 
+build notifications.
 
 The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
@@ -259,6 +259,18 @@ If you want to send HTML notifications you need to add `format: html` like this
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
         format: html
 
+### `From` value in notifications
+
+When a V1 token is used, the notification is posted by "Travis CI".
+
+With a V2 token, this value is set by the token's Label.
+Create a special-purpose room notification token ("Tokens" under the room's "Administration" section)
+with a desired label, and use this token.
+
+<figure>
+  <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
+</figure>
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
@@ -346,7 +358,7 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-    
+
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -416,10 +428,10 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	require 'sinatra'
 	require 'json'
 	require 'digest/sha2'
-	
+
 	class TravisWebhook < Sinatra::Base
 	  set :token, ENV['TRAVIS_USER_TOKEN']
-	
+
 	  post '/' do
 	    if not valid_request?
 	      puts "Invalid payload request for repository #{repo_slug}"
@@ -428,16 +440,16 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 	      puts "Received valid payload for repository #{repo_slug}"
 	    end
 	  end
-	
+
 	  def valid_request?
 	    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
 	    digest.to_s == authorization
 	  end
-	
+
 	  def authorization
 	    env['HTTP_AUTHORIZATION']
 	  end
-	
+
 	  def repo_slug
 	    env['HTTP_TRAVIS_REPO_SLUG']
 	  end
