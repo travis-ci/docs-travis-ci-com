@@ -22,63 +22,104 @@ By setting
 
     language: android
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK](http://developer.android.com/sdk) 22.6.2 with following preinstalled components:
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 23 (June 2014).
+
+An example of `.travis.yml` file for Android projects would look like this:
+
+    language: android
+    android:
+      components:
+        # Uncomment the lines below if you want to
+        # use the latest revision of Android SDK Tools
+        # - platform-tools
+        # - tools
+
+        # The BuildTools version used by your project
+        - build-tools-19.1.0
+
+        # The SDK version used to compile your project
+        - android-19
+
+        # Additional components
+        - extra-google-google_play_services
+        - extra-google-m2repository
+        - extra-android-m2repository
+        - addon-google_apis-google-19
+
+        # Specify at least one system image,
+        # if you need to run emulator(s) during your tests
+        - sys-img-armeabi-v7a-android-19
+        - sys-img-x86-android-17
+
+
+### How to install Android SDK components
+
+In your `.travis.yml` you can define the list of SDK components to be installed, as illustrated in the following example:
+
+    language: android
+    android:
+      components:
+        - build-tools-18.1.1
+        - android-18
+        - extra
+
+The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended`.
+
+By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
+
+    language: android
+    android:
+      components:
+        - build-tools-20.0.0
+        - android-L
+        - sys-img-x86-android-tv-l
+        - add-on
+        - extra
+      licenses:
+        - 'android-sdk-preview-license-52d11cd2'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+
+
+For more flexibility, the licenses can be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically interact with the interactive prompts).
+
+
+### Pre-installed components
+
+**TODO: proper deprecated warning** -> Proposal: Strongly recommend to no longer rely on these preinstalled components, as we plan to remove them in the next build environment upgrade (this breaking change will be announced in the changelog/blog). Experience feedbacks about increase of build time would also be appreciated in order to fine tune the VM image setup in the future.
+
+During this beta phase some components were initially preinstalled in the virtual machine image used for Travis CI build environment.
 
 - platform-tools
 - android-19
-- sysimg-19 (ARM)
+- sys-img-armeabi-v7a-android-19
 - android-18
-- sysimg-18 (ARM)
+- sys-img-armeabi-v7a-android-18
 - android-17
-- sysimg-17 (ARM)
+- sys-img-armeabi-v7a-android-17
 - android-16
-- sysimg-16 (ARM)
+- sys-img-armeabi-v7a-android-16
 - android-15
-- sysimg-15 (ARM)
+- sys-img-armeabi-v7a-android-15
 - android-10
 - extra-android-support
 - extra-google-google_play_services
 - extra-google-m2repository
 - extra-android-m2repository
 
-If your project does not require any additional dependencies or component updates, a minimalistic `.travis.yml` file would look like this:
-
-    language: android
-    android:
-      components:
-        - build-tools-19.0.2
-
-Note that `build-tools-x.y.z` components are intentionally **not pre-installed** in the Travis CI Android environment.
-
-### How to install or update Android SDK components
-
-In your `.travis.yml` you can optionally define the SDK **components** to be installed (or updated) with the **licenses** to be accepted, as illustrated in the following example:
-
-    language: android
-    android:
-      components:
-        - build-tools-19.0.3
-        - android-19
-        - sysimg-19
-        - extra-android-support
-      licenses:
-        - android-sdk-license-bcbbd656
-        - '.*intel.+'
-
-The exact component names must be specified, while the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically interact with the interactive prompts). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended`.
-
-If no license is specified, Travis CI will only accept `android-sdk-license-bcbbd656` by default:
-
-    language: android
-    android:
-      components:
-        - build-tools-18.1.1
-        - android-8
-
 ### How to Create and Start an Emulator
 
-At the moment, these steps are not supported by Travis CI Android builder.
-Basically you'll need to ship a script like [`wait_for_emulator`](https://github.com/andrewhr/rxjava-android-example/blob/master/ci/wait_for_emulator) and adapt your [`.travis.yml`](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml) in order to make the emulator available for your tests.
+At the moment, these steps are not fully supported by Travis CI Android builder.
+
+Basically you'll need to rely on the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests, as illustrated below:
+
+    # Emulator Management: Create, Start and Wait
+    before_script:
+      - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+      - emulator -avd test -no-skin -no-audio -no-window &
+      - android-wait-for-emulator
+      - adb shell input keyevent 82 &
+
 
 ## Dependency Management
 
