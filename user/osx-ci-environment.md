@@ -35,6 +35,15 @@ Travis CI uses OS X 10.9.2.
 Homebrew is installed and updated every time the VMs are updated. It is
 recommended that you run `brew update` before installing anything with Homebrew.
 
+#### Note on `brew update X`
+
+The command `brew update` can be invoked with an opitonal package name.
+In this invocation, `brew update X` fails if the most up-to-date version
+of the software is already present on the system.
+
+See [this GitHub ticket](https://github.com/Homebrew/homebrew/issues/30939)
+for details.
+
 ### Compilers & Build toolchain
 
 * apple-gcc42 4.2.1-5666.3
