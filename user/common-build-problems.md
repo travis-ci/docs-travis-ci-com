@@ -192,3 +192,11 @@ This can be done with the follow addition to your `.travis.yml`:
 
 The above addition will reinstall the en\_US language pack, as well as the de\_DE
 language pack.
+
+## Linux: apt fails to install package with 404 error.
+
+This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
+
+    before_install:
+      - sudo apt-get update
+

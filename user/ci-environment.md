@@ -373,6 +373,7 @@ Is supported.
 * 2.7
 * 3.2
 * 3.3
+* 3.4
 * pypy
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.

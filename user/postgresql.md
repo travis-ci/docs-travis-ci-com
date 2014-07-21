@@ -57,3 +57,43 @@ Your build needs to enable the extension, which isn't done by default. Here's an
     before_script:
       - psql -U postgres -c "create extension postgis"
 
+## PostgreSQL and Locales
+
+The default set of available locales is limited, so depending on your language needs, you may need to install them.
+
+Here are the steps to install the Spanish language pack. Note that you need to remove the PostgreSQL version from the `addons` section of your .travis.yml:
+
+    before_install:
+      - sudo apt-get update
+      - sudo apt-get install language-pack-es
+      - sudo /etc/init.d/postgresql stop
+      - sudo /etc/init.d/postgresql start 9.3
+
+Here's a list of locales currently installed on the system by default:
+
+    C
+    C.UTF-8
+    en_AG
+    en_AG.utf8
+    en_AU.utf8
+    en_BW.utf8
+    en_CA.utf8
+    en_DK.utf8
+    en_GB.utf8
+    en_HK.utf8
+    en_IE.utf8
+    en_IN
+    en_IN.utf8
+    en_NG
+    en_NG.utf8
+    en_NZ.utf8
+    en_PH.utf8
+    en_SG.utf8
+    en_US.utf8
+    en_ZA.utf8
+    en_ZM
+    en_ZM.utf8
+    en_ZW.utf8
+    POSIX
+
+All language packs currently available for Ubuntu 12.04 can be [found on the packages site.](http://packages.ubuntu.com/search?keywords=language-pack&searchon=names&suite=precise&section=all)
