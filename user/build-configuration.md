@@ -332,11 +332,11 @@ If you need a native dependency that is not available from the official Ubuntu r
 More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/), search for [available PPAs on Launchpad](https://launchpad.net/ubuntu/+ppas).
 
 
-## Build Timeouts
+## Job Timeouts
 
-Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run, the build will be forcefully terminated and you will see a message about this in your build log.
+Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run, the job will be forcefully terminated and you will see a message about this in your build log.
 
-With our current timeouts, a build will be terminated if it's still running
+With our current timeouts, a job will be terminated if it's still running
 after 50 minutes (respectively 70 on travis-ci.com), or if there hasn't been any log output in 10 minutes.
 
 Some common reasons why test suites may hang up:
@@ -344,6 +344,8 @@ Some common reasons why test suites may hang up:
 * Waiting for keyboard input or other kind of human interaction
 * Concurrency issues (deadlocks, livelocks and so on)
 * Installation of native extensions that take very long time to compile
+
+There is no such timeout for a build; a build will run as long as all the jobs do.
 
 ## Specify branches to build
 
