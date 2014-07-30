@@ -49,11 +49,9 @@ If you decide to use apt anyway, note that Python system packages only include P
 
 ### PyPy Support
 
-We provide the most recent stable release of PyPy via [PyPy Team's Releases PPA](https://launchpad.net/~pypy/+archive/ppa). For pure Python projects,
-it works well. Native libraries won't install on PyPy due to known issues with the development (header) packages. We have notified
-PyPy package maintainers as well as PyPy core team members about the issue and waiting for it to be resolved.
+Travis CI supports PyPy and PyPy3.
 
-To test your project against PyPy, add "pypy" to the list of Pythons in your `.travis.yml`:
+To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons in your `.travis.yml`:
 
     language: python
     python:
@@ -69,7 +67,7 @@ To test your project against PyPy, add "pypy" to the list of Pythons in your `.t
       - pip install .
       - pip install -r requirements.txt
     # command to run tests
-    script: nosetests 
+    script: nosetests
 
 
 ## Default Python Version
