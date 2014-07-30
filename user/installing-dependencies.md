@@ -38,7 +38,7 @@ For some packages, you may find an existing repository, which isn't yet set up o
 Say you require RethinkDB as part of your build. They have an [Launchpad PPA available](http://www.rethinkdb.com/docs/install/ubuntu). You can add this repository to your build by adding the following steps to your .travis.yml:
 
     before_script:
-      - sudo add-apt-repository ppa:rethinkdb/ppa
+      - sudo add-apt-repository ppa:rethinkdb/ppa -y
       - sudo apt-get update -q
       - sudo apt-get install rethinkdb
 
