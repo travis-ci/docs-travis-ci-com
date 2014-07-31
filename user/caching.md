@@ -55,6 +55,50 @@ In the above example, you could also omit the install step and instead define [b
     bundler_args: --without development --deployment
     cache: bundler
 
+### CocoaPods
+
+On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapods.org) can take up a good portion of your build. Caching the compiled Pods between builds helps reduce this time.
+
+#### Enabling CocoaPods caching
+
+You can enable CocoaPods caching for your repository by adding this to your
+*.travis.yml*:
+
+    language: objective-c
+    cache: cocoapods
+
+If you want to enable both Bundler caching and CocoaPods caching, you can list
+them both:
+
+    language: objective-c
+    cache:
+      - bundler
+      - cocoapods
+
+Note that CocoaPods caching won't have any effect if you are already vendoring
+the Pods directory in your Git repository.
+
+#### Determining the Podfile path
+
+By default, Travis CI will assume that your Podfile is in the root of the
+repository. If this is not the case, you can specify where the Podfile is like
+this:
+
+    language: objective-c
+    podfile: path/to/Podfile
+
+#### With a custom install step
+
+CocoaPods caching will not automatically work if you override the install step.
+You can instead sue the [arbitrary directory caching
+method](#Arbitrary-directories) described below:
+
+    language: objective-c
+    install: bundle exec pod install
+    cache:
+      directories:
+        - path/to/Podfile
+
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
