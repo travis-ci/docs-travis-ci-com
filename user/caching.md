@@ -97,7 +97,7 @@ method](#Arbitrary-directories) described below:
     install: bundle exec pod install
     cache:
       directories:
-        - path/to/Podfile
+        - path/to/Pods
 
 ### Arbitrary directories
 
