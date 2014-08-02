@@ -88,9 +88,7 @@ For more flexibility, the licenses can also be referenced with regular expressio
 
 ### Pre-installed components
 
-**TODO: proper deprecated warning** -> Proposal: Strongly recommend to no longer rely on these preinstalled components, as we plan to remove them in the next build environment upgrade (this breaking change will be announced in the changelog/blog). Experience feedbacks about increase of build time would also be appreciated in order to fine tune the VM image setup in the future.
-
-During this beta phase some components were initially preinstalled in the virtual machine image used for Travis CI build environment.
+While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
 - platform-tools
 - android-19
