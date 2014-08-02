@@ -22,7 +22,7 @@ By setting
 
     language: android
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 23 (June 2014).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 23.0.2 (July 2014).
 
 An example of `.travis.yml` file for Android projects would look like this:
 
