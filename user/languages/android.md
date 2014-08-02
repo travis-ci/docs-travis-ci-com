@@ -24,7 +24,7 @@ By setting
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 23.0.2 (July 2014).
 
-An example of `.travis.yml` file for Android projects would look like this:
+Here is an example `.travis.yml` for an Android project:
 
     language: android
     android:
@@ -63,7 +63,9 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
         - android-18
         - extra
 
-The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended`.
+The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
+
+#### Dealing with Licenses
 
 By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
 
@@ -81,7 +83,7 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
         - 'google-gdk-license-.+'
 
 
-For more flexibility, the licenses can be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically interact with the interactive prompts).
+For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
 
 
 ### Pre-installed components
@@ -109,9 +111,9 @@ During this beta phase some components were initially preinstalled in the virtua
 
 ### How to Create and Start an Emulator
 
-At the moment, these steps are not fully supported by Travis CI Android builder.
+**Warning:** At the moment, these steps are not fully supported by Travis CI Android builder.
 
-Basically you'll need to rely on the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests, as illustrated below:
+If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
 
     # Emulator Management: Create, Start and Wait
     before_script:
