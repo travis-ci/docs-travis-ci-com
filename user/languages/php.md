@@ -165,7 +165,9 @@ There are some common PHP extensions preinstalled with PECL on Travis CI:
 * [xdebug.so](http://xdebug.org)
 * [redis.so](http://pecl.php.net/package/redis)
 
-Please note that these extensions are not enabled by default, you will have to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version). So the easiest way to do this is by using phpenv to add a custom config file which enables and eventually configure the extension:
+Please note that these extensions are not enabled by default with the exception of xdebug.
+You need to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version).
+The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
 
     before_script: phpenv config-add myconfig.ini
 
@@ -178,6 +180,10 @@ And myconfig.ini:
 You can also use this one line command:
 
     echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+To disable xdebug, add this to `before_script`:
+
+    phpenv config-rm xdebug.ini
 
 ### Installing additional PHP extensions
 
