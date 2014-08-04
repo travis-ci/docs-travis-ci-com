@@ -75,8 +75,14 @@ The default command run by Travis CI is:
 
     pod install
 
-Note that this is only run when we detect a Podfile in the proejct's root
-directory.
+Note that this is only run when we detect a Podfile in the project's root
+directory. If the Podfile is in a different directory, you can use the `podfile`
+setting in the *.travis.yml*:
+
+    podfile: path/to/Podfile
+
+Also, `pod install` is not run if the Pods directory is vendored and there have
+been no changes to the Podfile.lock file.
 
 If you want to use a different means of handling your project's dependencies,
 you can override the `install` command.
