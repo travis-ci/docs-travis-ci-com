@@ -183,7 +183,8 @@ You can also use this one line command:
 
 To disable xdebug, add this to `before_script`:
 
-    phpenv config-rm xdebug.ini
+    before_script:
+      - phpenv config-rm xdebug.ini
 
 ### Installing additional PHP extensions
 
