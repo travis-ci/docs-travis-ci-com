@@ -181,7 +181,7 @@ You can also use this one line command:
 
     echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
-To disable xdebug, add this to `before_script`:
+To disable xdebug, add this to your configuration:
 
     before_script:
       - phpenv config-rm xdebug.ini
