@@ -1449,7 +1449,7 @@ older_than    |         | list requests before `older_than` (with `older_than` b
 
 You have to either provide `repository_id` or `slug`.
 
-## Settings
+## Settings: General
 
 ``` http
 GET /repos/82/settings HTTP/1.1
@@ -1515,6 +1515,106 @@ This request always needs to be authenticated.
 Parameter                   | Default | Description
 --------------------------- | ------- | -----------
 settings                    | `{}`    | Hash map of settings that should be updated and their new values (see Attributes)
+
+This request always needs to be authenticated.
+
+## Settings: Environment Variables
+
+``` http
+GET /settings/env_vars?repository_id=124920 HTTP/1.1
+User-Agent: MyClient/1.0.0
+Accept: application/vnd.travis-ci.2+json
+Authorization: token YOUR TRAVIS ACCESS TOKEN
+Host: api.travis-ci.org
+```
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "env_vars":[
+    {
+      "id": "018e66f2-cd3a-4295-aa1d-018fe9aa0fb4",
+      "name": "example",
+      "value": "foobar",
+      "public": true,
+      "repository_id": 124920
+    },
+    {
+      "id": "ec9423da-9658-4cd6-b282-fd0e5f6ed2df",
+      "name": "secret_example",
+      "public": false,
+      "repository_id": 124920
+    }
+  ]
+}
+```
+
+``` shell
+$ travis env list
+example=foobar
+secret_example=[secure]
+```
+
+``` ruby
+require 'travis'
+Travis.access_token  = 'YOUR TRAVIS ACCESS TOKEN'
+repo                 = Travis::Repository.find('my/repo')
+repo.env_vars['foo'] = bar
+```
+
+### Attributes
+
+Attribute            | Description
+-------------------- | -----------
+id                   | env var id
+repository_id        | repository id
+name                 | env var name (exported)
+value                | env var value (exported, only included if public is true)
+public               | whether or not value is public
+
+### List Variables
+
+`GET /repos/settings/?repository_id={repository.id}`
+
+This request always needs to be authenticated.
+
+### Fetch Variable
+
+`GET /repos/settings/{env_var.id}`
+
+This request always needs to be authenticated.
+
+### Add Variable
+
+`POST /repos/settings/?repository_id={repository.id}`
+
+Parameter                   | Default | Description
+--------------------------- | ------- | -----------
+env_var                     |         | Hash map of env var variable (see below)
+env_var.name                |         | Name of the new env var (string)
+env_var.value               |         | Value of the new env var (string)
+env_var.public              | false   | whether or not to display the value
+
+This request always needs to be authenticated.
+
+### Update Variable
+
+`PATCH /repos/settings/{env_var.id}`
+
+Parameter                   | Default       | Description
+--------------------------- | ------------- | -----------
+env_var                     |               | Hash map of env var variable (see below)
+env_var.name                | current value | Name of the new env var (string)
+env_var.value               | current value | Value of the new env var (string)
+env_var.public              | current value | whether or not to display the value
+
+This request always needs to be authenticated.
+
+### Delete Variable
+
+`DELETE /repos/settings/{env_var.id}`
 
 This request always needs to be authenticated.
 
