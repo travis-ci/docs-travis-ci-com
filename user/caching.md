@@ -145,7 +145,13 @@ Currently Pull Requests will use the cache of the branch they are supposed to be
 
 ### Clearing Caches
 
-Sometimes you ruin your cache by storing bad data in one of the cached directories. Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+Sometimes you spoil your cache by storing bad data in one of the cached directories.
+
+Caches can also become invalid if language runtimes change and the cache contains
+native extensions.
+(This often manifests as segmentation faults.)
+
+Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
 
 <figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
