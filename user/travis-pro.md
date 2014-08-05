@@ -1,177 +1,37 @@
 ---
-title: Travis Pro
+title: Travis Pro - Frequently Asked Questions
 layout: en
 permalink: travis-pro/
 ---
-
-## Travis Pro Frequently Asked Questions
 
 <div id="toc"></div>
 
 Note: These issues are related to [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
-### How can I configure Travis Pro to use private GitHub repositories as dependencies?
-
-By default Travis CI focuses its build efforts around a single repository. We set
-up a private deploy key for every repository that's enabled to build on Travis
-Pro and assign that to the repository. That means we can't pull in dependent
-repositories, e.g. from your Gemfile or for your Composer setup, without some
-additional setup. The key can only be assigned to the single repository and not
-be reused throughout all of GitHub.
-
-If you need to pull in Git submodules or dependent repositories, that's still
-easy to achieve, though. You can either specify the dependencies using GitHub's
-https URL scheme, which can include username and password, e.g.
-`https://user:password@github.com/organization/repo.git`.
-Ideally the user is a separate user in your organization that only has read
-access to the required repository.
-
-As this doesn't work in all cases, e.g. with Composer, there's another way.
-It still requires setting up a separate user with pull access to the relevant
-repositories, but instead of specifying the username and passwords in for
-instance your Gemfile, you use an SSH key: you add the public key for this user
-on GitHub and store the the private key into your `.travis.yml`.
-
-In order to do this, follow these steps:
-
-1. Create a new user on GitHub, add it to your organization, and give it pull
-  permission to the relevant repositories.
-1. Create an SSH key for the user: `ssh-keygen -f id_username_travisci`.
-  Note: this must be a password-less key for Travis CI to be able to use it.
-1. Add the public SSH key (`id_username_travisci.pub`) to the user on GitHub.
-1. Add a Base64-encoded version of the private key (`id_username_travisci`) to
-  your .travis.yml. On a Mac, you can run `base64 id_username_travisci |
-  pbcopy` to copy the encoded version of the key to the clipboard.
-1. Add a the encoded private key to your main repositories' `.travis.yml` file:
-  `source_key: `. (This value should be the encoded version of the private SSH
-  key in double quotes and on a single line.)
-
-Travis CI will automatically prefer the key specified in your `.travis.yml` to the
-deploy key for a repository, so all repositories you're pulling in for the build
-to succeed automatically use this key.
-
-__Note__: This only works on [Travis Pro](http://travis-ci.com), the open source
-version of [Travis CI](http://travis-ci.org) doesn't support private
-repositories.
-
-##### Technicalities
-
-These steps are necessary due to the way Git and the underlying transport SSH
-authenticate with a remote service. For example, when you specify more than one
-key that you want SSH to use, it will still use the first one that authenticates
-successfully. After authentication, GitHub checks if this key is authorized to
-access the repository requested. Given that you rely on SSH to use the second
-key you have configured (e.g. by adding it to an ssh-agent), it will fail
-because it will try the first one every time, successfully authenticate, but
-fail to authorize access, failing the entire git clone operation.
-
-Submodles should be specified using the SSH URL; e.g.,
-
-    git@github.com:<username>/<repo>.git
-
-Using the HTTPS URL may fail due to the reason described above.
-
-### Can I use pull request testing on Travis Pro?
+## Can I use pull request testing on Travis Pro?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
 post](http://blog.travis-ci.com/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis CI.
 
-### How can I encrypt files that include sensitive data?
+## Who has access to the builds?
 
-Some customers have files in their repositories that contain sensitive data,
-like passwords or API credentials, all of which are important for your build to
-succeed. But it's data you don't want to give everyone access to. You still want
-to be able to give the source code to folks on your team without giving them
-access to this kind of data.
+Access rights on Travis CI is based on the access rights on GitHub:
 
-While we're working on a solution that allows you to encrypt sensitive data as
-environment variables, there's a simple trick you can deploy on Travis Pro in
-the meantime. [Luke Patterson](https://twitter.com/lukewpatterson) came up with
-this little trick, thanks for sharing it!
+* Users that can access a repository on GitHub can see the build status and logs on Travis CI.
+* Users that can push to a repository on Github can trigger, cancel and restart builds.
+* Users that have admin access to a repository on GitHub can change enable/disable it on Travis CI and change its settings.
 
-It utilizes the private key we generate for each repository so we can clone the
-code on our build machines. That key is kept on Travis CI's end only, so no external
-party has access to it. What you do have access to is the public key on GitHub.
-You can download that public key and make it part of your project to keep
-it around. Due to the nature of asymmetric key cryptography, though, the file
-needs to be encrypted with a symmetric key (e.g. using AES 256), and then the
-secret used to encrypt that file is encrypted using the public key.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "sync now" button on the profile page or `travis sync --pro` in the CLI to force a sync.
 
-After data is encrypted locally you can store the files in Git and run a set of
-commands to decrypt it on the continuous integration machine, using the SSH
-private key that we already store on the machine.
+## Is it save to give Travis CI access to my private code?
 
-Below are the steps required to encrypt and decrypt data.
+Security is our major concern when it comes to your source code. At Travis CI, we make sure our infrastructure is protected and secure so that your most valuable asset is safe and protected from unauthorized access.
 
-* Download the key from GitHub and store it in a file. E.g. `id_travis.pub`.
-  Unfortunately, you can't get the public key from the user interface, but you
-  can fetch it via the API:
-  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys`
-  Look for a key named travis-ci.com in the JSON output and copy the string that
-  contains the public key into a file `id_travis.pub`. Here's a handy one-liner
-  that does it for you:
-  `curl -u <username> https://api.github.com/repos/<username>/<repo>/keys | grep -B 4 travis-ci\\.com | grep '"key":' | perl -pe 's/^[ ]+"key": //; s/^"//; s/",$//' > id_travis.pub`
-* Extract a public key certificate from the public key:
-  `ssh-keygen -e -m PKCS8 -f id_travis.pub > id_travis.pub.pem`
-* Encrypt a file using a passphrase generated from a SHA hash of /dev/urandom
-output:
+You can find more information on this topic in our [Security Statement](https://billing.travis-ci.com/pages/security).
 
-      password=`cat /dev/urandom | head -c 10000 | openssl sha1`
-      openssl aes-256-cbc -k "$password" -in config.xml -out config.xml.enc -a
+## How can I encrypt files that include sensitive data?
 
-* Now you can encrypt the key, let's call it `secret`:
-  `echo "$password" | openssl rsautl -encrypt -pubin -inkey id_travis.pub.pem -out secret`
-* Add the encrypted file and the secret to your Git repository.
-* For the build to decrypt the file, add a `before_script` section to your
-  `.travis.yml` that runs the opposite command of the above:
-
-      before_script:
-        - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
-        - openssl aes-256-cbc -k "$secret" -in config.xml.enc -d -a -out config.xml
-
-It must be noted that this scenario is still not perfectly secure. While it
-prevents project collaborators being able to access sensitive data on a
-daily basis, a malicious collaborator could tamper with the
-build scripts to output the sensitive data to your build log. The upshot is that
-you'll know who's responsible for this from the commit history.
-
-#### Note on Mac OS X
-The system default `openssl` command may be out of date, which can cause problems.
-Be sure to use an up-to-date version.
-For example, if you use Homebrew, you can use:
-
-    `brew --prefix openssl`/bin/openssl
-
-### Combine Encryption and Deploy Keys For Private Dependencies for Extra Strength
-
-You can combine the encryption outlined above with build dependencies that are
-private GitHub repositories. The approach outlined above, putting the deploy key
-into your `.travis.yml` might not be a favorable solution for everyone.
-
-What you can do instead is generate a custom deploy key using `ssh-keygen`,
-assign it to a user, and then encrypt the private key using the encryption
-scheme outlined above. Instead of encrypting a config.xml, you encrypt a
-`id_private` key and store it in your repository together with the secret.
-
-Then you replace the SSH key currently registered with the SSH agent running on
-the virtual machine with this new key in your .travis.yml. Below are the
-additional steps that need to be added to a `before_install` or `before_script`
-step:
-
-    before_install:
-      - secret=`openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in secret`
-      - openssl aes-256-cbc -k "$secret" -in id_private.enc -d -a -out id_private
-      - ssh-add -D
-      - chmod 600 id_private
-      - ssh-add ./id_private
-
-This way, the deploy key is never exposed to parties you don't want it exposed
-to. The same note as with the encryption scheme applies here too: when a
-malicious party tampers with your build script, the key could still be exposed.
-
-It also must be noted that subsequent accesses to the original processes, should
-they be required by your build, won't be possible without assigning the
-secondary deploy key to the original repository as well.
+You can follow our guide for [encrypting files](/user/encrypting-files/).

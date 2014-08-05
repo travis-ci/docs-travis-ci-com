@@ -3,3 +3,5 @@ markdown: rdiscount
 permalink: :title
 safe: true
 relative_permalinks: true
+syntax-highlighting:
+  enabled: true
