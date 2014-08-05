@@ -55,6 +55,50 @@ In the above example, you could also omit the install step and instead define [b
     bundler_args: --without development --deployment
     cache: bundler
 
+### CocoaPods
+
+On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapods.org) can take up a good portion of your build. Caching the compiled Pods between builds helps reduce this time.
+
+#### Enabling CocoaPods caching
+
+You can enable CocoaPods caching for your repository by adding this to your
+*.travis.yml*:
+
+    language: objective-c
+    cache: cocoapods
+
+If you want to enable both Bundler caching and CocoaPods caching, you can list
+them both:
+
+    language: objective-c
+    cache:
+      - bundler
+      - cocoapods
+
+Note that CocoaPods caching won't have any effect if you are already vendoring
+the Pods directory in your Git repository.
+
+#### Determining the Podfile path
+
+By default, Travis CI will assume that your Podfile is in the root of the
+repository. If this is not the case, you can specify where the Podfile is like
+this:
+
+    language: objective-c
+    podfile: path/to/Podfile
+
+#### With a custom install step
+
+CocoaPods caching will not automatically work if you override the install step.
+You can instead sue the [arbitrary directory caching
+method](#Arbitrary-directories) described below:
+
+    language: objective-c
+    install: bundle exec pod install
+    cache:
+      directories:
+        - path/to/Pods
+
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
@@ -101,7 +145,13 @@ Currently Pull Requests will use the cache of the branch they are supposed to be
 
 ### Clearing Caches
 
-Sometimes you ruin your cache by storing bad data in one of the cached directories. Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+Sometimes you spoil your cache by storing bad data in one of the cached directories.
+
+Caches can also become invalid if language runtimes change and the cache contains
+native extensions.
+(This often manifests as segmentation faults.)
+
+Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
 
 <figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)

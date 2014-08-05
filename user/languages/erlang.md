@@ -14,6 +14,7 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
 
     language: erlang
     otp_release:
+       - 17.1
        - 17.0
        - R16B03-1
        - R16B03

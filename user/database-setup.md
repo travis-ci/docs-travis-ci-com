@@ -76,6 +76,18 @@ You might have to create the `myapp_test` database first. Run this as part of yo
       username: travis
       encoding: utf8
 
+#### Note on `test` database
+
+In older versions of MySQL, Ubuntu package provided the `test` database by default.
+This is no longer the case as of version 5.5.37 due to security concerns
+(See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.37-0ubuntu0.12.04.1/changelog)).
+
+If you need it, you must create one yourself; e.g.,
+
+```yaml
+before_install:
+  - mysql -e "create database IF NOT EXISTS test;" -uroot
+```
 
 ### PostgreSQL
 

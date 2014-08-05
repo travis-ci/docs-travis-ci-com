@@ -14,23 +14,27 @@ Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide sev
 
     language: perl
     perl:
-      - "5.16"
-      - "5.14"
+      - "5.20"
+      - "5.18"
 
 A more extensive example:
 
     language: perl
     perl:
+      - "5.20"
+      - "5.18"
       - "5.16"
       - "5.14"
-      - "5.12"
-      - "5.10"
-      - "5.8"
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
 For full up-to-date list of provided Perl versions, see our [CI environment guide](/user/ci-environment/).
 
 *Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
+
+### Perl runtimes with `-Duseshrplib`
+
+Additionally, Perl 5.18 and 5.20 with `-Duseshrplib` are available as
+`5.20-shrplib` and `5.18-shrplib`, respectively.
 
 ## Default Perl Version
 
