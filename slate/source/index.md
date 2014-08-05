@@ -1908,3 +1908,4 @@ Besides the official clients, there is a range of third party client available, 
 * **[travis-api-wrapper](https://github.com/cmaujean/travis-api-wrapper)**: Asynchronous Node.js wrapper
 * **[travis-ci](https://github.com/mmalecki/node-travis-ci)**: Thin Node.js wrapper
 * **[TravisMiner](https://github.com/smcintosh/travisminer)**: Ruby library for mining the Travis API
+* **[TravisPy](http://travispy.readthedocs.org/en/latest/)**: Python library trying to closely mimic the official Ruby client
