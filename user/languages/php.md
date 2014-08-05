@@ -204,6 +204,9 @@ If you need specific version of preinstalled extension, you need to force instal
 
     pecl install -f mongo-1.2.12
 
+#### Note on `pecl install`
+
+Note that `pecl install` can fail if the requested version of the package is already installed.
 
 ### Chef Cookbooks for PHP
 
