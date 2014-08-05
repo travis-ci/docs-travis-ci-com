@@ -1457,7 +1457,7 @@ Using worker: ...
 
 <h3 id="chunked-attributes">Chunked Attributes</h3>
 
-<p>You can retrieve the chunked attributes instead of the normal attributes by adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
+<p>You can retrieve the chunked attributes instead of the normal attributes b adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
 
 <table><thead>
 <tr>
@@ -1586,7 +1586,8 @@ Using worker: ...
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-  </span><span class="s2">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN RSA PUBLIC KEY-----\\nMIGJAoGBAOcx131amMqIzm5+FbZz+DhIgSDbFzjKKpzaN5UWVCrLSc57z64xxTV6\\nkaOTZmjCWz6WpaPkFZY+czfL7lmuZ/Y6UNm0vupvdZ6t27SytFFGd1/RJlAe89tu\\nGcIrC1vtEvQu2frMLvHqFylnGd5Gy64qkQT4KRhMsfZctX4z5VzTAgMBAAE=\\n-----END RSA PUBLIC KEY-----\\n"</span><span class="w">
+  </span><span class="s2">"public_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN RSA PUBLIC KEY-----\\nMIGJAoGBAOcx131amMqIzm5+FbZz+DhIgSDbFzjKKpzaN5UWVCrLSc57z64xxTV6\\nkaOTZmjCWz6WpaPkFZY+czfL7lmuZ/Y6UNm0vupvdZ6t27SytFFGd1/RJlAe89tu\\nGcIrC1vtEvQu2frMLvHqFylnGd5Gy64qkQT4KRhMsfZctX4z5VzTAgMBAAE=\\n-----END RSA PUBLIC KEY-----\\n"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef:39:56:6e:2a:09:a2:10:2e:b5:39:ac:3d:3e:e1:05"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 <pre class="highlight shell"><span class="gp">$ </span>travis pubkey -r travis-ci/travis-api
@@ -1599,12 +1600,16 @@ gr8ch3mNHZ16x6cvSMjc6cURZt9Hav6gz03P5+9e5Vw1ztm3hvPR+IJsyOV/CSsY
 f1Cgboj6ZJ7tr3xOJXcqcMVfiGiG7Km6/psRdn0jrjTpU/qcru8Wx3zbQEf5NuXQ
 yMVHmnl8/5w0WPV/UwIDAQAB
 -----END RSA PUBLIC KEY-----
+
+<span class="gp">$ </span>travis pubkey --fingerprint -r travis-ci/travis-api
+99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f
 </pre>
 <pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="n">repo</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'travis-ci/travis-api'</span><span class="p">)</span>
 
-<span class="nb">puts</span> <span class="s2">"SSH format:"</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_ssh</span>
-<span class="nb">puts</span> <span class="s2">"PEM format:"</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_s</span>
+<span class="nb">puts</span> <span class="s2">"SSH format:  "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_ssh</span>
+<span class="nb">puts</span> <span class="s2">"PEM format:  "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_s</span>
+<span class="nb">puts</span> <span class="s2">"Fingerprint: "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">fingerprint</span>
 <span class="nb">puts</span> <span class="n">repository</span><span class="p">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
 </pre>
 
@@ -1617,6 +1622,10 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <tr>
 <td>key</td>
 <td>public key</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>fingerprint for the public key</td>
 </tr>
 </tbody></table>
 
@@ -1934,7 +1943,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 
 <p>You have to either provide <code class="prettyprint">repository_id</code> or <code class="prettyprint">slug</code>.</p>
 
-<h2 id="settings">Settings</h2>
+<h2 id="settings:-general">Settings: General</h2>
 <pre class="highlight http"><span class="nf">GET</span> <span class="nn">/repos/82/settings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
@@ -1948,7 +1957,8 @@ yMVHmnl8/5w0WPV/UwIDAQAB
   </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"builds_only_with_travis_yml"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"build_pushes"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"build_pull_requests"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="s2">"build_pull_requests"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maximum_number_of_builds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
@@ -1957,6 +1967,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <span class="o">[</span>-] builds_only_with_travis_yml    Only run builds with a .travis.yml
 <span class="o">[</span>+] build_pushes                   Build pushes
 <span class="o">[</span>+] build_pull_requests            Build pull requests
+  0 maximum_number_of_builds       Maximum number of concurrent builds
 
 <span class="gp">$ </span>travis settings build_pull_requests --enable
 </pre>
@@ -1987,6 +1998,10 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <td>build_pull_requests</td>
 <td>&ldquo;build pull requests&rdquo; setting (<code class="prettyprint">true</code> or <code class="prettyprint">false</code>)</td>
 </tr>
+<tr>
+<td>maximum_number_of_builds</td>
+<td>&ldquo;maximum number of concurrent builds&rdquo; setting (integer)</td>
+</tr>
 </tbody></table>
 
 <h3 id="retrieve-settings">Retrieve Settings</h3>
@@ -2012,6 +2027,255 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <td>Hash map of settings that should be updated and their new values (see Attributes)</td>
 </tr>
 </tbody></table>
+
+<p>This request always needs to be authenticated.</p>
+
+<h2 id="settings:-environment-variables">Settings: Environment Variables</h2>
+<pre class="highlight http"><span class="nf">GET</span> <span class="nn">/settings/env_vars?repository_id=124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
+</pre>
+<pre class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"env_vars"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"018e66f2-cd3a-4295-aa1d-018fe9aa0fb4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foobar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"repository_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124920</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec9423da-9658-4cd6-b282-fd0e5f6ed2df"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secret_example"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"public"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"repository_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124920</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<pre class="highlight shell"><span class="gp">$ </span>travis env list
+<span class="nv">example</span><span class="o">=</span>foobar
+<span class="nv">secret_example</span><span class="o">=[</span>secure]
+</pre>
+<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'travis'</span>
+<span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span>  <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
+<span class="n">repo</span>                 <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
+<span class="n">repo</span><span class="p">.</span><span class="nf">env_vars</span><span class="o">[</span><span class="s1">'foo'</span><span class="o">]</span> <span class="o">=</span> <span class="n">bar</span>
+</pre>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>env var id</td>
+</tr>
+<tr>
+<td>repository_id</td>
+<td>repository id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>env var name (exported)</td>
+</tr>
+<tr>
+<td>value</td>
+<td>env var value (exported, only included if public is true)</td>
+</tr>
+<tr>
+<td>public</td>
+<td>whether or not value is public</td>
+</tr>
+</tbody></table>
+
+<h3 id="list-variables">List Variables</h3>
+
+<p><code class="prettyprint">GET /repos/settings/?repository_id={repository.id}</code></p>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="fetch-variable">Fetch Variable</h3>
+
+<p><code class="prettyprint">GET /repos/settings/{env_var.id}</code></p>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="add-variable">Add Variable</h3>
+
+<p><code class="prettyprint">POST /repos/settings/?repository_id={repository.id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>env_var</td>
+<td></td>
+<td>Hash map of env var variable (see below)</td>
+</tr>
+<tr>
+<td>env_var.name</td>
+<td></td>
+<td>Name of the new env var (string)</td>
+</tr>
+<tr>
+<td>env_var.value</td>
+<td></td>
+<td>Value of the new env var (string)</td>
+</tr>
+<tr>
+<td>env_var.public</td>
+<td>false</td>
+<td>whether or not to display the value</td>
+</tr>
+</tbody></table>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="update-variable">Update Variable</h3>
+
+<p><code class="prettyprint">PATCH /repos/settings/{env_var.id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>env_var</td>
+<td></td>
+<td>Hash map of env var variable (see below)</td>
+</tr>
+<tr>
+<td>env_var.name</td>
+<td>current value</td>
+<td>Name of the new env var (string)</td>
+</tr>
+<tr>
+<td>env_var.value</td>
+<td>current value</td>
+<td>Value of the new env var (string)</td>
+</tr>
+<tr>
+<td>env_var.public</td>
+<td>current value</td>
+<td>whether or not to display the value</td>
+</tr>
+</tbody></table>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="delete-variable">Delete Variable</h3>
+
+<p><code class="prettyprint">DELETE /repos/settings/{env_var.id}</code></p>
+
+<p>This request always needs to be authenticated.</p>
+
+<h2 id="settings:-ssh-key">Settings: SSH Key</h2>
+
+<p><aside class="notice">
+This API is only available on Travis Pro.
+</aside></p>
+<pre class="highlight http"><span class="nf">GET</span> <span class="nn">/settings/ssh_key/124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
+</pre>
+<pre class="highlight http"><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"ssh_key"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my custom key"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre>
+<pre class="highlight shell"><span class="gp">$ </span>travis sshkey
+No custom SSH key installed.
+</pre>
+<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'travis/pro'</span>
+<span class="no">Travis</span><span class="o">::</span><span class="no">Pro</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
+<span class="nb">puts</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Pro</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">).</span><span class="nf">ssh_key</span><span class="p">.</span><span class="nf">description</span>
+</pre>
+
+<h3 id="attributes">Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ssh key id (corresponds to repository id)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>key description</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>key fingerprint</td>
+</tr>
+</tbody></table>
+
+<h3 id="fetch-key">Fetch Key</h3>
+
+<p><code class="prettyprint">GET /settings/ssh_key/#{ssh_key.id}</code></p>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="update-or-create-key">Update or Create Key</h3>
+
+<p><code class="prettyprint">PATCH /settings/ssh_key/#{ssh_key.id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ssh_key</td>
+<td></td>
+<td>Hash map of ssh key data (see below)</td>
+</tr>
+<tr>
+<td>ssh_key.description</td>
+<td>current value or empty</td>
+<td>key description</td>
+</tr>
+<tr>
+<td>ssh_key.value</td>
+<td></td>
+<td>private key (required)</td>
+</tr>
+</tbody></table>
+
+<p>This request always needs to be authenticated.</p>
+
+<h3 id="delete-key">Delete Key</h3>
+
+<p><code class="prettyprint">DELETE /settings/ssh_key/#{ssh_key.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
@@ -2265,6 +2529,7 @@ Supply a <code class="prettyprint">callback</code> parameter to use this.</p>
 <li><strong><a href="https://github.com/cmaujean/travis-api-wrapper">travis-api-wrapper</a></strong>: Asynchronous Node.js wrapper</li>
 <li><strong><a href="https://github.com/mmalecki/node-travis-ci">travis-ci</a></strong>: Thin Node.js wrapper</li>
 <li><strong><a href="https://github.com/smcintosh/travisminer">TravisMiner</a></strong>: Ruby library for mining the Travis API</li>
+<li><strong><a href="http://travispy.readthedocs.org/en/latest/">TravisPy</a></strong>: Python library trying to closely mimic the official Ruby client</li>
 </ul>
 
         
