@@ -1224,7 +1224,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "public_key": "-----BEGIN RSA PUBLIC KEY-----\\nMIGJAoGBAOcx131amMqIzm5+FbZz+DhIgSDbFzjKKpzaN5UWVCrLSc57z64xxTV6\\nkaOTZmjCWz6WpaPkFZY+czfL7lmuZ/Y6UNm0vupvdZ6t27SytFFGd1/RJlAe89tu\\nGcIrC1vtEvQu2frMLvHqFylnGd5Gy64qkQT4KRhMsfZctX4z5VzTAgMBAAE=\\n-----END RSA PUBLIC KEY-----\\n"
+  "public_key": "-----BEGIN RSA PUBLIC KEY-----\\nMIGJAoGBAOcx131amMqIzm5+FbZz+DhIgSDbFzjKKpzaN5UWVCrLSc57z64xxTV6\\nkaOTZmjCWz6WpaPkFZY+czfL7lmuZ/Y6UNm0vupvdZ6t27SytFFGd1/RJlAe89tu\\nGcIrC1vtEvQu2frMLvHqFylnGd5Gy64qkQT4KRhMsfZctX4z5VzTAgMBAAE=\\n-----END RSA PUBLIC KEY-----\\n",
+  "fingerprint": "ef:39:56:6e:2a:09:a2:10:2e:b5:39:ac:3d:3e:e1:05"
 }
 ```
 
@@ -1239,20 +1240,25 @@ gr8ch3mNHZ16x6cvSMjc6cURZt9Hav6gz03P5+9e5Vw1ztm3hvPR+IJsyOV/CSsY
 f1Cgboj6ZJ7tr3xOJXcqcMVfiGiG7Km6/psRdn0jrjTpU/qcru8Wx3zbQEf5NuXQ
 yMVHmnl8/5w0WPV/UwIDAQAB
 -----END RSA PUBLIC KEY-----
+
+$ travis pubkey --fingerprint -r travis-ci/travis-api
+99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f
 ```
 
 ``` ruby
 require 'travis'
 repo = Travis::Repository.find('travis-ci/travis-api')
 
-puts "SSH format:", repo.key.to_ssh
-puts "PEM format:", repo.key.to_s
+puts "SSH format:  ", repo.key.to_ssh
+puts "PEM format:  ", repo.key.to_s
+puts "Fingerprint: ", repo.key.fingerprint
 puts repository.encrypt("example")
 ```
 
 Attribute           | Description
 ------------------- | -----------
 key                 | public key
+fingerprint         | fingerprint for the public key
 
 This key can be used to encrypt (but not decrypt) secure env vars.
 
