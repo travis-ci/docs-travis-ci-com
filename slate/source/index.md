@@ -955,7 +955,6 @@ committer_name      | committer name
 committer_email     | committer email
 compare_url         | link to diff on GitHub
 
-
 ## Hooks
 
 ``` http
@@ -1468,7 +1467,8 @@ Content-Type: application/json
   "settings": {
     "builds_only_with_travis_yml": true,
     "build_pushes": true,
-    "build_pull_requests": true
+    "build_pull_requests": true,
+    "maximum_number_of_builds": 0
   }
 }
 ```
@@ -1479,6 +1479,7 @@ Settings for travis-ci/travis-api:
 [-] builds_only_with_travis_yml    Only run builds with a .travis.yml
 [+] build_pushes                   Build pushes
 [+] build_pull_requests            Build pull requests
+  0 maximum_number_of_builds       Maximum number of concurrent builds
 
 $ travis settings build_pull_requests --enable
 ```
@@ -1499,6 +1500,7 @@ Attribute                   | Description
 builds_only_with_travis_yml | "builds only with .travis.yml" setting (`true` or `false`)
 build_pushes                | "build pushes" setting (`true` or `false`)
 build_pull_requests         | "build pull requests" setting (`true` or `false`)
+maximum_number_of_builds    | "maximum number of concurrent builds" setting (integer)
 
 ### Retrieve Settings
 
