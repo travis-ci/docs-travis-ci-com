@@ -154,7 +154,6 @@ Assumptions:
 
 * The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 * You know the credentials for a user account that has at least read access to all three repositories.
-* You have a clone of the repository locally and run commands from a terminal where the copy is the current working directory (this is needed to make `travis encrypt --add` work).
 
 To pull in dependencies with a password, you will have to use the user name and password in the Git HTTPS URL: `https://ci-user:mypassword123@github.com/myorg/lib1.git`.
 
@@ -169,7 +168,7 @@ machine github.com
 You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`.
 
 {% highlight console %}
-$ travis encrypt CI_USER_PASSWORD=mypassword123 --add
+$ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 {% endhighlight %}
 
 {% highlight console %}
@@ -201,7 +200,6 @@ Assumptions:
 
 * The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 * You know the credentials for a user account that has at least read access to all three repositories.
-* You have a clone of the repository locally and run commands from a terminal where the copy is the current working directory (this is needed to make `travis encrypt --add` work).
 
 This approach works just like the [password](#Password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
 
@@ -219,7 +217,7 @@ You can also use it in URLs directly: `https://the-generated-token@github.com/my
 Use the `encrypt` command to add the token to your `.travis.yml`.
 
 {% highlight console %}
-$ travis encrypt CI_USER_TOKEN=the-generated-token --add
+$ travis env set CI_USER_TOKEN the-generated-token --private -r myorg/main
 {% endhighlight %}
 
 You can then have Travis CI write to the `~/.netrc` on every build.
