@@ -1618,6 +1618,75 @@ This request always needs to be authenticated.
 
 This request always needs to be authenticated.
 
+## Settings: SSH Key
+
+<aside class="notice">
+This API is only available on Travis Pro.
+</aside>
+
+``` http
+GET /settings/ssh_key/124920 HTTP/1.1
+User-Agent: MyClient/1.0.0
+Accept: application/vnd.travis-ci.2+json
+Authorization: token YOUR TRAVIS ACCESS TOKEN
+Host: api.travis-ci.com
+```
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "ssh_key": {
+    "description": "my custom key",
+    "fingerprint": "99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f"
+  }
+}
+```
+
+``` shell
+$ travis sshkey
+No custom SSH key installed.
+```
+
+``` ruby
+require 'travis/pro'
+Travis::Pro.access_token = 'YOUR TRAVIS ACCESS TOKEN'
+puts Travis::Pro::Repository.find('my/repo').ssh_key.description
+```
+
+### Attributes
+
+Attribute            | Description
+-------------------- | -----------
+id                   | ssh key id (corresponds to repository id)
+description          | key description
+fingerprint          | key fingerprint
+
+### Fetch Key
+
+`GET /settings/ssh_key/#{ssh_key.id}`
+
+This request always needs to be authenticated.
+
+### Update or Create Key
+
+`PATCH /settings/ssh_key/#{ssh_key.id}`
+
+Parameter                   | Default                | Description
+--------------------------- | ---------------------- | -----------
+ssh_key                     |                        | Hash map of ssh key data (see below)
+ssh_key.description         | current value or empty | key description
+ssh_key.value               |                        | private key (required)
+
+This request always needs to be authenticated.
+
+### Delete Key
+
+`DELETE /settings/ssh_key/#{ssh_key.id}`
+
+This request always needs to be authenticated.
+
 ## Users
 
 ``` http
