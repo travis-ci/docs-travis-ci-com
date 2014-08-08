@@ -272,8 +272,10 @@ Scons 2.x.
 
 ### Perl versions
 
-* 5.19
+* 5.20
+* 5.20-shrplib
 * 5.18
+* 5.18-shrplib
 * 5.16
 * 5.14
 * 5.12
@@ -281,6 +283,8 @@ Scons 2.x.
 * 5.8
 
 installed via [Perlbrew](http://perlbrew.pl/).
+Those runtimes that end with the `-shrplib` suffix have been compiled with
+`-Duseshrplib` flag.
 
 ### cpanm
 
