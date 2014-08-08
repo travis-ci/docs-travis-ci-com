@@ -37,12 +37,31 @@ recommended that you run `brew update` before installing anything with Homebrew.
 
 #### A note on upgrading packages
 
-When upgrading a package with `brew upgrade`, the command will fail if the most up-to-date version of the package is already installed (so an upgrade didn't occur). This is intended behaviour from Homebrew's side, but you can get around it by running first checking if the command needs an upgrade with `brew outdated`, like this:
+When upgrading a package with `brew upgrade`, the command will fail if the most up-to-date version of the package is already installed (so an upgrade didn't occur).
+
+Depending on how you are upgrading the package, it could cause the build to error:
+
+```
+$ brew upgrade xctool
+Error: xctool-0.1.16 already installed
+The command "brew upgrade xctool" failed and exited with 1 during .
+
+Your build has been stopped.
+```
+
+Or it can result in the command not found:
+
+```
+xctool: command not found
+```
+
+
+This is intended behaviour from Homebrew's side, but you can get around it by running first checking if the command needs an upgrade with `brew outdated`, like this:
 
     before_install:
       - brew update
       - if brew outdated | grep -qx <package-name>; then brew upgrade <package-name>; fi
-      
+
 For example, if you always want the latest version of xctool, you can run this:
 
     before_install:
