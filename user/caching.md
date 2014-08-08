@@ -90,7 +90,7 @@ this:
 #### With a custom install step
 
 CocoaPods caching will not automatically work if you override the install step.
-You can instead sue the [arbitrary directory caching
+You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
     language: objective-c
