@@ -4,7 +4,7 @@ layout: en
 permalink: private-dependencies/
 ---
 
-*The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
+*Some of the features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
 
 When testing a private repository, you might need to pull in other private repositories as dependencies. Whether it's via [git submodules](http://git-scm.com/book/en/Git-Tools-Submodules), a custom script, or a dependency management tool, like [Bundler](http://bundler.io/) or [Composer](https://getcomposer.org/).
 
@@ -35,6 +35,8 @@ However, using deploy keys is complicated by the fact that GitHub does not allow
 You could include a different private key for every dependency in the repository, possibly [encrypting them](encrypt_file.md). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#User-Key) instead.
 
 ## User Key
+
+*Custom SSH keys are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
 
 You can add SSH keys to user accounts on GitHub. Most users have probably already done this to be able to clone the repositories locally.
 
