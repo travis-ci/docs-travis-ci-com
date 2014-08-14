@@ -77,6 +77,10 @@ To give you an idea of what speedup are we talking about, I've tried running tes
 on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
 jobs.
 
+## Paralellizing your build on multiple VMs
+
+If you want to parallel RSpec tests on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. You can use our matrix feature to setup knapsack, more [details here](https://github.com/ArturT/knapsack#info-for-travis-users).
+
 ## Caching the dependencies
 
 Installing the dependencies for a project can take quite some time for bigger projects. In
