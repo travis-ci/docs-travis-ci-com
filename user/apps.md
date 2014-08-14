@@ -11,7 +11,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 * **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows)
 * **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 * **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-* **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP)
+* **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python)
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
 
@@ -166,6 +166,19 @@ By Konstantin Haase
 
 * [website](http://rkh.github.io/travis-encrypt/public/index.html)
 * [source code](https://github.com/rkh/travis-encrypt)
+</figcation>
+</figure>
+
+<figure class="app">
+![travis-cron](/images/apps/tron.png)
+<figcation>
+### Tron CI
+
+Cron jobs for your Travis CI projects<br>
+By Fabio Menegazzo
+
+* [website](https://tron-ci.herokuapp.com/)
+* [source code](https://github.com/menegazzo/tron-ci)
 </figcation>
 </figure>
 
@@ -681,3 +694,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## PHP
 
 * [php-travis-client](https://github.com/l3l0/php-travis-client) by Leszek Prabucki
+
+## Python
+
+* [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
