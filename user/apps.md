@@ -169,6 +169,19 @@ By Konstantin Haase
 </figcation>
 </figure>
 
+<figure class="app">
+![travis-cron](/images/apps/tron.png)
+<figcation>
+### Tron CI
+
+Cron jobs for your Travis CI projects<br>
+By Fabio Menegazzo
+
+* [website](https://tron-ci.herokuapp.com/)
+* [source code](https://github.com/menegazzo/tron-ci)
+</figcation>
+</figure>
+
 <a name='mobile'></a>
 # Mobile Applications
 
