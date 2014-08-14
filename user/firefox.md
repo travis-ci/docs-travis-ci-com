@@ -6,7 +6,7 @@ permalink: firefox/
 
 ### Selecting a Firefox version
 
-Our VMs come preinstalled with some recent version of Firefox, currently 19.0,
+Our VMs come preinstalled with some recent version of Firefox, currently 24.5.0esr,
 but sometimes you need a specific version to be installed. The Firefox addon
 allows you to specify any version of Firefox and the binary will be downloaded
 and installed before running your build script (as a part of the
