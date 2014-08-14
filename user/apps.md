@@ -681,3 +681,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## PHP
 
 * [php-travis-client](https://github.com/l3l0/php-travis-client) by Leszek Prabucki
+
+## Python
+
+* [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
