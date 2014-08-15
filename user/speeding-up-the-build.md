@@ -77,9 +77,9 @@ To give you an idea of what speedup are we talking about, I've tried running tes
 on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
 jobs.
 
-## Parallelizing on multiple VMs
+## Parallelizing RSpec tests on multiple VMs
 
-If you want to parallel RSpec tests on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run comparable time on each VM. You can use our matrix feature to setup knapsack, here is an example:
+If you want to parallel RSpec tests on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run comparable time on each VM. You can use our matrix feature to set up knapsack. Here is an example:
 
     script: "bundle exec rake knapsack:rspec"
     env:
