@@ -26,7 +26,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 
 To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "sync now" button on the profile page or `travis sync --pro` in the CLI to force a sync.
 
-## Is it save to give Travis CI access to my private code?
+## Is it safe to give Travis CI access to my private code?
 
 Security is our major concern when it comes to your source code. At Travis CI, we make sure our infrastructure is protected and secure so that your most valuable asset is safe and protected from unauthorized access.
 
