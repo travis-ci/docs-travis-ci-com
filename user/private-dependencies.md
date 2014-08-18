@@ -44,12 +44,19 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 ### Using an existing key
 
+<figure class="small right">
+  [ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png)
+  <figcaption>Adding an SSH key via the web interface.</figcaption>
+</figure>
+
 Assumptions:
 
 * The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 * You have a key already set up on your machine, for instance under `~/.ssh/id_rsa` (default on Unix systems).
 
-You can use the following command to add the key to Travis CI:
+You can add a new key using the repository settings. Paste the contents of `~/.ssh/id_rsa` into the "Private Key" text field and give it a nice description.
+
+Alternatively, you can use the following [CLI](https://github.com/travis-ci/travis.rb) command to add the key to Travis CI:
 
 {% highlight console %}
 $ travis sshkey --upload ~/.ssh/id_rsa -r myorg/main
