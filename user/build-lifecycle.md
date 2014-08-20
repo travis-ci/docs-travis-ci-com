@@ -44,8 +44,8 @@ The complete lifecycle is as follows:
 2. `install`
 3. `before_script`
 4. `script`
-5. `after_script`
-6. `after_success` or `after_failure`
+5. `after_success` or `after_failure`
+6. `after_script`
 
 ### Breaking the Build
 
