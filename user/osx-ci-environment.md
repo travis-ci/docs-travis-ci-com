@@ -80,6 +80,7 @@ For example, if you always want the latest version of xctool, you can run this:
 * subversion 1.8.5 1.8.8
 * wget 1.14 1.15
 * xctool 0.1.14
+* cmake
 
 ### Languages
 
