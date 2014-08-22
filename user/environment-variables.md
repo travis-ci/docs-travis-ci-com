@@ -89,7 +89,9 @@ Besides the **.travis.yml**, you can also use the **repository settings** to set
 
 To do so, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
 
-By default, these variables will be [secure](#Secure-Variables), check the "public" flag if you don't want it to.
+By default, the value of these new environment variables will be hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Secure-Variables) in your .travis.yml.
+
+Similarly, we do not expose these values to untrusted builds, triggered by pull requests from another repository.
 
 As an alternative to the web interface, you can also use the CLI's [`env`](https://github.com/travis-ci/travis.rb#env) command.
 
