@@ -14,7 +14,7 @@ Travis CI offers two different places for defining environment variables: In the
 
 Variables in the **.travis.yml** are bound to a certain commit. Changing them requires a new commit, restarting an old build will use the old values. They will also be available automatically on forks of the repository.
 
-On the other hand, variables defined in the **repository settings** are the same for all builds. When you restart an old build, it will use the latest variables. The variables are not automatically available to forks.
+On the other hand, variables defined in the **repository settings** are the same for all builds. When you restart an old build, it will use the latest values. These variables are not automatically available to forks.
 
 Keep this in mind when choosing where to store which variable.
 
