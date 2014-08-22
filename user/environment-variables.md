@@ -29,6 +29,8 @@ Examples for using **repository settings**:
 * Variables that have to differ per repository.
 * Variables that contain sensitive data, such as third-party credentials.
 
+If you define a variable with the same name in both places, the one from the .travis.yml will override the one from the repository settings.
+
 ## Variables in the `.travis.yml`
 
 To specify an environment variable in your `.travis.yml`, add the following line:
