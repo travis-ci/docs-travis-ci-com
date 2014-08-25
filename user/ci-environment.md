@@ -66,7 +66,7 @@ curl, wget, OpenSSL, rsync
 
 ### Go
 
-Go compiler/build tools 1.0.3, 1.1.1, and 1.2
+Go compiler/build tools 1.3.1.
 
 
 ### Runtimes
@@ -90,11 +90,11 @@ Language-specific workers have multiple runtimes for their respective language (
 * SQLite 3.7.x
 * MongoDB 2.4.x
 * Redis 2.8.x
-* Riak 1.2.x
+* Riak 1.4.x
 * Apache Cassandra 2.0.x
 * Neo4J Community Edition 1.7.x
-* ElasticSearch 1.1.x
-* CouchDB 1.3.x
+* ElasticSearch 1.3.x
+* CouchDB 1.6.x
 
 ### Messaging Technology
 
@@ -190,6 +190,17 @@ This will pass the environment variables down to a `bash` process which runs as 
 while retaining the environment variables defined
 and belonging to secondary groups given above in `usermod`.
 
+## Go VM images
+
+The following additional Go runtimes are installed:  1.0.3, 1.1.2, 1.2.2.
+
+The following aliases are available, and are recommended
+in order to minimize frictions when images are updated:
+
+* `go1`, `go1.0` → 1.0.3
+* `go1.1` → 1.1.2
+* `go1.2` → 1.2.2
+
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
 ### JDK
@@ -197,7 +208,7 @@ and belonging to secondary groups given above in `usermod`.
 * Oracle JDK 7u6 (oraclejdk7)
 * OpenJDK 7 (openjdk7)
 * OpenJDK 6 (openjdk6)
-* Oracle JDK 8 EA (oraclejdk8)
+* Oracle JDK 8 (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
@@ -208,20 +219,22 @@ Stock Apache Maven 3. Maven is configured to use Central and oss.sonatype.org mi
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein` and Leiningen 2.3.x at `/usr/local/bin/lein2`.
+travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
+The default is 2.4.x; `/usr/local/bin/lein` is a symbolic link to `/usr/local/bin/lein2`.
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.2 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
 
 ### Gradle version
 
-Gradle 1.11.
+Gradle 2.0.
 
 ## Erlang VM images
 
 ### Erlang/OTP releases
 
+* 17.1
 * 17.0
 * R16B
 * R16B01
@@ -379,6 +392,7 @@ Is supported.
 * 3.3
 * 3.4
 * pypy
+* pypy3
 
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
@@ -389,18 +403,23 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 * nose
 * py.test
 * mock
+* wheel
+
+On all versions except pypy and pypy3 have `numpy` as well.
 
 ## Ruby (aka common) VM images
 
 ### Ruby versions/implementations
 
+* 2.1.2
+* 2.1.1
 * 2.0.0
 * 1.9.3 (default)
 * 1.9.2
-* jruby-18mode (1.7.8 in Ruby 1.8 mode)
-* jruby-19mode (1.7.8 in Ruby 1.9 mode)
-* ruby-head  (upgraded every time CI passes)
-* jruby-head (upgraded every time CI passes)
+* jruby-18mode (1.7.13 in Ruby 1.8 mode)
+* jruby-19mode (1.7.13 in Ruby 1.9 mode)
+* ruby-head  (upgraded every time [CI](https://travis-ci.org/ruby/ruby) passes)
+* jruby-head (upgraded every time [CI](https://travis-ci.org/jruby/jruby) passes)
 * 1.8.7
 * ree (2012.02)
 
@@ -414,7 +433,7 @@ versions on demand. For example, to test against Rubinius 2.2.1, you can use
 
 ### Bundler version
 
-Recent 1.3.x version (usually the most recent)
+Recent 1.7.x version (usually the most recent)
 
 ### Gems in the global gem set
 

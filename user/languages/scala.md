@@ -26,7 +26,7 @@ Thanks to sbt ability to perform actions against multiple Scala versions, it is 
     scala:
        - 2.9.3
        - 2.10.4
-       - 2.11.0
+       - 2.11.2
 
 ### Default Test Command
 

@@ -10,9 +10,10 @@ This guide covers build environment and configuration topics specific to Clojure
 
 ## CI Environment for Clojure Projects
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both [Leiningen](http://leiningen.org) 1.7.x and 2.3.x.
+Travis CI environment provides a large set of build tools for JVM languages with
+[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both [Leiningen](http://leiningen.org) 1.7.x and 2.4.x.
 
-Clojure projects on Travis CI assume you use Leiningen 1.7.x by default.
+Clojure projects on Travis CI assume you use Leiningen 2.4.x by default.
 
 ## Dependency Management
 
@@ -54,20 +55,20 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 
-## Using Leiningen 2
+## Using Leiningen 1
 
-Leiningen 2 is provided side by side with 1.7. To use it, specify `lein` key in `.travis.yml`:
+Leiningen 1 is provided side by side with 2.4.x. To use it, specify `lein` key in `.travis.yml`:
 
-    lein: lein2
+    lein: lein1
 
-In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein2`:
+In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein1`:
 
     before_install:
-      - lein2 bootstrap
+      - lein1 bootstrap
 
 Task chaining requires using the `do` task:
 
-    script: lein2 do javac, test
+    script: lein1 do javac, test
 
 ## Testing Against Multiple JDKs
 
@@ -85,7 +86,7 @@ As for any JVM language, it is also possible to [test against multiple JDKs](/us
 
 ### With Leiningen 1
 
-Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of 
+Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of
 Clojure (for example, 1.3, 1.4 and alphas/betas/snapshots of the most recent development version). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
 there is no need for runtime switchers (like RVM) for Clojure.
 
@@ -93,7 +94,7 @@ To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, t
 override `script:` to run `lein multi test` instead of default `lein test`:
 
     language: clojure
-    script: lein multi test
+    script: lein1 multi test
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
@@ -101,14 +102,14 @@ For a real world example, see [Monger](https://github.com/michaelklishin/monger)
 ### With Leiningen 2
 
 Leiningen 2 has a core feature that replaces `lein-multi`: [Profiles](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md). To run your tests against
-multiple profiles (and thus, multiple dependency sets or Clojure versions), use `lein2 with-profile` command like so:
+multiple profiles (and thus, multiple dependency sets or Clojure versions), use `lein with-profile` command like so:
 
 
-    lein: lein2
-    script: lein2 with-profile dev:1.4 test
+    lein: lein
+    script: lein with-profile dev:1.4 test
 
-where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein2 profiles` to list your project's profiles
-and `lein2 help with-profile` to learn more about the `with-profiles` task.
+where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
+and `lein help with-profile` to learn more about the `with-profiles` task.
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
