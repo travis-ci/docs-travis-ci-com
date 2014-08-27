@@ -49,7 +49,7 @@ Most services work normally when talking to the local host by either `localhost`
 
 All VM images have the following pre-installed
 
- * A (very) recent Git release from the [Peter van der Does' Git PPA](https://launchpad.net/~pdoes/+archive/ppa)
+ * A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
