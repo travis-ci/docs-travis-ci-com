@@ -229,6 +229,15 @@ to your `.travis.yml`.
 
 Cassandra is provided via [Datastax Community Edition](http://www.datastax.com/products/community) and uses stock configuration (available on 127.0.0.1).
 
+#### Older version
+
+If you need an older version of Cassandra, you can add a command like the following to your `.travis.yml`:
+
+```yaml
+before_install:
+  - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
+```
+
 ### Neo4J
 
 Neo4J Server (Community Edition) is **not started on boot**. To make Travis CI start the service for you, add
