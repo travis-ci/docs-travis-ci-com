@@ -194,10 +194,10 @@ and belonging to secondary groups given above in `usermod`.
 
 ### JDK
 
-* Oracle JDK 7u6 (oraclejdk7)
+* Oracle JDK 7 (oraclejdk7)
 * OpenJDK 7 (openjdk7)
 * OpenJDK 6 (openjdk6)
-* Oracle JDK 8 EA (oraclejdk8)
+* Oracle JDK 8 (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
