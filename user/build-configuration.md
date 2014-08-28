@@ -180,7 +180,7 @@ One of the key features of Travis CI is the ease of running your test suite agai
 
 ### Clojure
 
-Currently Clojure projects can be tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
+Currently Clojure projects can be tested against Oracle JDK 8, Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Clojure flagship build tool, Leiningen, supports testing against multiple Clojure versions:
 
 * In Leiningen 1.x, via [lein-multi plugin](https://github.com/maravillas/lein-multi)
 * In upcoming Leiningen 2.0, via Leiningen Profiles
@@ -202,13 +202,13 @@ Learn more about [.travis.yml options for Erlang projects](/user/languages/erlan
 
 ### Groovy
 
-Groovy projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
+Groovy projects can be currently tested against Oracle JDK 8, Oracle JDK 7, OpenJDK 7 and OpenJDK 6.
 
 Learn more in our [Groovy guide](/user/languages/groovy/).
 
 ### Java
 
-Java projects can be currently tested against Oracle JDK 7, OpenJDK 7 and OpenJDK 6. Support for multiple JDKs will be added eventually.
+Java projects can be currently tested against Oracle JDK 8, Oracle JDK 7, OpenJDK 7 and OpenJDK 6.
 
 Learn more in our [Java guide](/user/languages/java/).
 
