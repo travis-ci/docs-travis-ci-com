@@ -49,7 +49,7 @@ Most services work normally when talking to the local host by either `localhost`
 
 All VM images have the following pre-installed
 
- * A (very) recent Git release from the [Peter van der Does' Git PPA](https://launchpad.net/~pdoes/+archive/ppa)
+ * A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
@@ -205,7 +205,7 @@ in order to minimize frictions when images are updated:
 
 ### JDK
 
-* Oracle JDK 7u6 (oraclejdk7)
+* Oracle JDK 7 (oraclejdk7)
 * OpenJDK 7 (openjdk7)
 * OpenJDK 6 (openjdk6)
 * Oracle JDK 8 (oraclejdk8)

@@ -271,7 +271,7 @@ It is possible to test projects against multiple JDKs, namely
 
  * OpenJDK 7
  * Oracle JDK 7
- * Oracle JDK 8 EA
+ * Oracle JDK 8
  * OpenJDK 6
 
 To do so, use the `jdk` key in your `.travis.yml`, for example:
@@ -280,11 +280,12 @@ To do so, use the `jdk` key in your `.travis.yml`, for example:
       - oraclejdk7
       - openjdk7
 
-or all 3:
+or all 4:
 
     jdk:
       - openjdk7
       - oraclejdk7
+      - oraclejdk8
       - openjdk6
 
 Each JDK you test against will create permutations with all other

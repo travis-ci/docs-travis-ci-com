@@ -172,6 +172,7 @@ Learn more about [.travis.yml options for Groovy projects](/user/languages/groov
 
     language: java
     jdk:
+      - oraclejdk8
       - oraclejdk7
       - openjdk7
       - openjdk6
