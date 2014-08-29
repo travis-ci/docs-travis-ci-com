@@ -235,6 +235,7 @@ If you need an older version of Cassandra, you can add a command like the follow
 
 ```yaml
 before_install:
+  - sudo rm -rf /var/lib/cassandra/*
   - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
 ```
 
