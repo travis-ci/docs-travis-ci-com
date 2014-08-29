@@ -8,23 +8,29 @@ Travis CI supports uploading to Deis.
 
 A minimal configuration is:
 
-    deploy:
-      provider: deis
-      controller: deis.deisapps.com
-      username: "Deis User Name"
-      password: "Deis Password"
-      app: App_name
+{% highlight yaml %}
+deploy:
+  provider: deis
+  controller: deis.deisapps.com
+  username: "Deis User Name"
+  password: "Deis Password"
+  app: App_name
+{% endhighlight %}
 
-It is recommended to encrypt password.
+It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-    travis encrypt --add deploy.password
+{% highlight console %}
+$ travis encrypt "YOUR DEIS PASSWORD" --add deploy.password
+{% endhighlight %}
 
 You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-    $ travis setup deis
+{% highlight console %}
+$ travis setup deis
+{% endhighlight %}
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
