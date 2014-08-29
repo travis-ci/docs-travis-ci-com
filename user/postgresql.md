@@ -16,7 +16,7 @@ You can easily choose a different version by way of your .travis.yml.
 
 We have PostgreSQL 9.1, 9.2 and 9.3 installed, usually with their latest patch releases. We install them from the official [PostgreSQL APT repository](http://apt.postgresql.org).
 
-Currently, you'll find the **following versions installed: 9.1.11, 9.2.6 and 9.3.2**, respectively.
+Currently, you'll find the **following versions installed: 9.1.14, 9.2.9 and 9.3.5**, respectively.
 
 To select a different version than the default, use the following setting in your .travis.yml:
 
@@ -42,7 +42,7 @@ For a Rails application, you can now use the following database.yml configuratio
       adapter: postgresql
       database: travis_ci_test
       username: postgres
- 
+
 Should your local test setup use different credentials or settings to access the local test database, we recommend putting these settings in a database.yml.travis in your repository and copying that over as part of your build:
 
     before_script:

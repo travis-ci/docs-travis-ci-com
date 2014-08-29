@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Haskell
 
 ## Overview
 
-We currently have GHC 7.8.2, 7.6.3, 7.4.2 and 7.0.4 installed, with 7.6.3 being the default.
+We currently have GHC 7.8.3, 7.6.3, 7.4.2 and 7.0.4 installed, with 7.6.3 being the default.
 
 For full up-to-date list of provided tools, see
 our [CI environment guide](/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
