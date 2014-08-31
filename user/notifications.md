@@ -382,7 +382,7 @@ You can define webhooks to be notified about build results the same way:
     notifications:
       webhooks: http://your-domain.com/notifications
 
-Or multiple channels:
+Or multiple URLs:
 
     notifications:
       webhooks:
