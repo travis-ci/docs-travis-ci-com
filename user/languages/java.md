@@ -95,7 +95,7 @@ To test against OpenJDK 7 and Oracle JDK 7:
       - openjdk7
       - oraclejdk7
 
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and OpenJDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
+Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
