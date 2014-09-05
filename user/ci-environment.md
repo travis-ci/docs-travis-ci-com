@@ -160,6 +160,7 @@ depends on the language you're using.
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
 * `TRAVIS_RUBY_VERSION`
+* `TRAVIS_RUST_VERSION`
 * `TRAVIS_SCALA_VERSION`
 
 The following environment variables are available for Objective-C builds.
