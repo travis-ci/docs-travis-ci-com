@@ -294,9 +294,9 @@ Scons 2.x.
 ### Perl versions
 
 * 5.20
-* 5.20-shrplib
+* 5.20-extras
 * 5.18
-* 5.18-shrplib
+* 5.18-extras
 * 5.16
 * 5.14
 * 5.12
@@ -304,12 +304,24 @@ Scons 2.x.
 * 5.8
 
 installed via [Perlbrew](http://perlbrew.pl/).
-Those runtimes that end with the `-shrplib` suffix have been compiled with
-`-Duseshrplib` flag.
+Those runtimes that end with the `-extras` suffix have been compiled with
+`-Duseshrplib` and `-Duseithreads` flags.
+These also have aliases with the `-shrplib` suffix.
 
-### cpanm
+### Pre-installed modules
 
-cpanm (App::cpanminus) version 1.5007
+cpanm (App::cpanminus)
+Dist::Zilla
+Dist::Zilla::Plugin::Bootstrap::lib
+ExtUtils::MakeMaker
+LWP
+Module::Install
+Moose
+Test::Exception
+Test::Kwalitee
+Test::Most
+Test::Pod
+Test::Pod::Coverage
 
 ## PHP VM images
 
