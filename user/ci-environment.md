@@ -162,6 +162,13 @@ depends on the language you're using.
 * `TRAVIS_RUBY_VERSION`
 * `TRAVIS_SCALA_VERSION`
 
+The following environment variables are available for Objective-C builds.
+
+* `TRAVIS_XCODE_SDK`
+* `TRAVIS_XCODE_SCHEME`
+* `TRAVIS_XCODE_PROJECT`
+* `TRAVIS_XCODE_WORKSPACE`
+
 ### Libraries
 
 * OpenSSL
