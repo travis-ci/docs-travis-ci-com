@@ -27,9 +27,8 @@ Or if you want a more complete guide to a particular language, pick one of these
    ```yaml
    language: ruby
    rvm:
-    - "1.8.7"
-    - "1.9.2"
-    - "1.9.3"
+    - 2.2
+    - jruby
     - rbx
    # uncomment this line if your project needs to run something other than `rake`:
    # script: bundle exec rspec spec
@@ -240,12 +239,9 @@ Learn more about [.travis.yml options for R projects](/user/languages/r/)
 
     language: ruby
     rvm:
-      - "1.8.7"
-      - "1.9.2"
-      - "1.9.3"
-      - jruby-18mode # JRuby in 1.8 mode
-      - jruby-19mode # JRuby in 1.9 mode
-      - rbx
+      - 2.2
+      - jruby
+      - rbx-2
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
 

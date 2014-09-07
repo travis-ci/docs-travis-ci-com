@@ -268,12 +268,12 @@ When you combine the three main configuration options of *Runtime*, *Environment
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* builds.
 
     rvm:
-      - 1.8.7
-      - 1.9.2
       - 1.9.3
-      - rbx-2
-      - jruby
+      - 2.0.0
+      - 2.2
       - ruby-head
+      - jruby
+      - rbx-2
       - ree
     gemfile:
       - gemfiles/Gemfile.rails-2.3.x
@@ -288,7 +288,7 @@ You can also define exclusions to the build matrix:
 
     matrix:
       exclude:
-        - rvm: 1.8.7
+        - rvm: 1.9.3
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
         - rvm: jruby
