@@ -155,7 +155,7 @@ This can be overridden as described in the [general build configuration](/user/b
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default it will use
 
-    ant debug installt test
+    ant debug install test
 
 to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
