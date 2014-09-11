@@ -51,9 +51,9 @@ The complete lifecycle is as follows:
 
 If any of the commands in the first four stages above returns a non-zero exit code, Travis CI considers the build to be broken.
 
-When any of the steps in the `before_install` or `install` stages fails with a non-zero exit code, the build will be marked as **errored**.
+When any of the steps in the `before_install`, `install` or `before_script` stages fails with a non-zero exit code, the build will be marked as **errored**.
 
-When any of the steps in the `before_script`, `script` or `after_script` stages fails with a non-zero exit code, the build will be marked as **failed**.
+When any of the steps in the  `script` stage fails with a non-zero exit code, the build will be marked as **failed**.
 
 Please note that the `script` section has different semantics than the other
 steps. When a step defined in `script` fails, the build doesn't end right away,
@@ -66,6 +66,8 @@ Currently, neither the `after_success` nor `after_failure` have any influence on
 An optional phase in the build lifecycle is deployment.
 
 This step can't be overridden, but is defined by using one of our continuous deployment providers to deploy code to Heroku, Engine Yard, or a different supported platform.
+
+You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
