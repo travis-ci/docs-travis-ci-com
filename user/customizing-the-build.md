@@ -70,7 +70,7 @@ Consider a simple scenario where you want to run more complex test scenarios, bu
     #!/bin/bash
     set -ev
     bundle exec rake:units
-    if [ "${TRAVIS_PULL_REQUEST}" -ne "false" ]; then
+    if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
       bundle exec rake test:integration
     fi
 
