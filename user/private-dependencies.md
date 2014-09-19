@@ -23,11 +23,10 @@ You can use a [dedicated CI user account](#Dedicated-User-Account) for all but t
 
 ## Deploy Key
 
-GitHub allows to set up read-only SSH keys for a repository. These deploy keys have some great advantages:
+GitHub allows to set up SSH keys for a repository. These deploy keys have some great advantages:
 
 * They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 * They do not give access to other, unrelated repositories.
-* Deploy keys only have read access.
 * The same key can be used for dependencies not stored on GitHub.
 
 However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
