@@ -229,22 +229,24 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 Notifications can be sent to your HipChat chat rooms using the following format:
 
     notifications:
-      hipchat: [api token]@[room name]
+      hipchat: [api token]@[room id or name]
 
 
 * *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
-* *room name*: name of the room you want to notify.
+* *room id or name*: id or name of the room you want to notify.
+
+If your room name contains spaces then use the room id.
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
-    travis encrypt api_token@room_name --add notifications.hipchat.rooms
+    travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
     notifications:
       hipchat:
         rooms:
-          - [api token]@[room name]
+          - [api token]@[room id or name]
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 
@@ -254,7 +256,7 @@ If you want to send HTML notifications you need to add `format: html` like this
     notifications:
       hipchat:
         rooms:
-          - [api token]@[room name]
+          - [api token]@[room id or name]
         template:
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
         format: html
