@@ -8,50 +8,30 @@ Travis CI can automatically deploy your [cloudControl](https://www.cloudcontrol.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-    deploy:
-      provider: cloudcontrol
-      email: "YOUR CLOUDCONTROL EMAIL"
-      password: "YOUR CLOUDCONTROL PASSWORD"
-      deployment: "APP_NAME/DEP_NAME"
+{% highlight yaml %}
+deploy:
+  provider: cloudcontrol
+  email: "YOUR CLOUDCONTROL EMAIL"
+  password: "YOUR CLOUDCONTROL PASSWORD"
+  deployment: "APP_NAME/DEP_NAME"
+{% endhighlight %}
 
 You can sign up for an account on [their website](https://www.cloudcontrol.com) or using the [cctrl
 tool](https://www.cloudcontrol.com/dev-center/Quickstart#create-a-user-account-if-you-haven39t-already).
 
-To store the password in your .travis.yml securely, use our travis command line
-tool.
+It is recommended that you encrypt your password. Assuming you have the Travis CI command line client installed, you can do it like this:
 
-$ travis encrypt <password> --add deploy.password
+{% highlight console %}
+$ travis encrypt "YOUR CLOUDCONTROL PASSWORD" --add deploy.password
+{% endhighlight %}
 
 You can also have the `travis` tool set up everything for you:
 
-    $ travis setup cloudcontrol
+{% highlight console %}
+$ travis setup cloudcontrol
+{% endhighlight %}
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Branch to deploy from
-
-By default, Travis CI will only deploy from your **master** branch.
-
-You can explicitly specify the branch to deploy from with the **on** option:
-
-    deploy:
-      provider: cloudcontrol
-      email: ...
-      password: ...
-      deployment: ...
-      on: production
-
-Alternatively, you can also configure it to deploy from all branches:
-
-    deploy:
-      provider: cloudcontrol
-      email: ...
-      password: ...
-      deployment: ...
-      on:
-        all_branches: true
-
-Builds triggered from pull requests will never trigger a deploy.
 
 ### Deploying build artifacts
 
@@ -59,12 +39,14 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
-    deploy:
-      provider: cloudcontrol
-      email: ...
-      password: ...
-      deployment: ...
-      skip_cleanup: true
+{% highlight yaml %}
+deploy:
+  provider: cloudcontrol
+  email: ...
+  password: ...
+  deployment: ...
+  skip_cleanup: true
+{% endhighlight %}
 
 ### Conditional Deploys
 
@@ -75,9 +57,11 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-    before_deploy: "echo 'ready?'"
-    deploy:
-      ..
-    after_deploy:
-      - ./after_deploy_1.sh
-      - ./after_deploy_2.sh
+{% highlight yaml %}
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+{% endhighlight %}
