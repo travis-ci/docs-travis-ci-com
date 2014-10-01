@@ -26,7 +26,7 @@ environment*.
 
 ## CI environment OS
 
-Travis CI uses OS X 10.9.2.
+Travis CI uses OS X 10.9.5.
 
 ## Environment common to all VM images
 
@@ -77,15 +77,15 @@ For example, if you always want the latest version of xctool, you can run this:
 * maven 3.2.1
 * mercurial 2.8 2.9 2.9.1
 * pkg-config 0.28
-* subversion 1.8.5 1.8.8
-* wget 1.14 1.15
-* xctool 0.1.14
+* subversion 1.8.10
+* wget 1.15
+* xctool 0.2
 * cmake
 
 ### Languages
 
-* go 1.1.2 1.2 1.2.1
-* node 0.10.26
+* go 1.3.1
+* node 0.10.32
 
 ### Services
 
@@ -120,7 +120,7 @@ For example, if you always want the latest version of xctool, you can run this:
 
 ### Xcode
 
-Xcode 5.1 is installed with the iOS 6.1, 7.0 and 7.1 simulators and SDKs.
+Xcode 6.0 is installed with the iOS 7.0, 7.1 and 8.0 simulators and SDKs.
 Command Line Tools are also installed.
 
 ### Runtimes
@@ -171,6 +171,8 @@ Stock Apache Maven 3.
 * system (2.0.0) -- You need to use `sudo` to install gems with this ruby
 * 1.9.3
 * 2.0.0 (default)
+* 2.1.1
+* 2.1.2
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
