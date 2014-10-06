@@ -44,7 +44,7 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 Bundler caching will not automatically work if you override the install step. You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
     language: ruby
-    install: bundle install --without development --deployment
+    install: bundle install --without development --deployment --jobs=3 --retry=3
     cache:
       directories:
       - vendor/bundle
@@ -52,7 +52,7 @@ Bundler caching will not automatically work if you override the install step. Yo
 In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
 
     language: ruby
-    bundler_args: --without development --deployment
+    bundler_args: --without development --deployment --jobs=3 --retry=3
     cache: bundler
 
 ### CocoaPods
