@@ -4,13 +4,6 @@ layout: en
 permalink: multi-os/
 ---
 
-## We are not currently accepting multi-OS requests
-We are at capacity with Mac workers in both .org and .com
-environments.
-Consequently, we are not accepting requests for the multi-OS
-feature at this time.
-As more capacity is added, we will resume accepting requests.
-
 ### This is a beta feature
 The feature described in this document is considered beta.
 Some features may not work as described.
