@@ -241,7 +241,7 @@ Learn more about [.travis.yml options for Python projects](/user/languages/pytho
       - jruby-19mode # JRuby in 1.9 mode
       - rbx
     # uncomment this line if your project needs to run something other than `rake`:
-    # script: bundle exec rspec spec
+    # script: bundle exec rake
 
 Learn more about [.travis.yml options for Ruby projects](/user/languages/ruby/)
 
