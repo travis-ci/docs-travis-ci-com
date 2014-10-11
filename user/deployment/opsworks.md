@@ -4,7 +4,7 @@ layout: en
 permalink: opsworks/
 ---
 
-Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build.
+Travis CI can automatically trigger a deploy of your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build. This will not send code from Travis to OpsWorks. You will need to [configure OpsWorks to pull in your code](http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-source) from source control, S3, or an HTTP bundle.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
@@ -59,19 +59,6 @@ Alternatively, you can also configure it to deploy from all branches:
         all_branches: true
 
 Builds triggered from Pull Requests will never trigger a deploy.
-
-### Deploying build artifacts
-
-After your tests run and before the deploy stage, Travis CI will clean up any additional files and changes you made.
-
-Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
-
-    deploy:
-      provider: opsworks
-      access-key-id: ACCESS-KEY-ID
-      secret-access-key: SECRET-ACCESS-KEY
-      app-id: APP-ID
-      skip_cleanup: true
 
 ### Waiting for Deployments
 
