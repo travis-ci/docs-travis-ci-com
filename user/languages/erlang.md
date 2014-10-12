@@ -29,7 +29,7 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
 
 ## Default Test Script
 
-Travis CI by default assumes your project is built using [Rebar](https://github.com/basho/rebar) and uses EUnit. The exact command Erlang builder will use by default is
+Travis CI by default assumes your project is built using [Rebar](https://github.com/rebar/rebar) and uses EUnit. The exact command Erlang builder will use by default is
 
     rebar compile && rebar skip_deps=true eunit
 
