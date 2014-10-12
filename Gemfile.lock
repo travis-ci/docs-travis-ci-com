@@ -105,6 +105,7 @@ GEM
     pygments.rb (0.6.0)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
+    rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -131,3 +132,4 @@ DEPENDENCIES
   github-pages (= 28)
   html-proofer
   json
+  rake
