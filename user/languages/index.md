@@ -16,5 +16,5 @@ languages:
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
 * [Ruby](/user/languages/ruby)
-* [Rust](/usr/languages/rust)
+* [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
