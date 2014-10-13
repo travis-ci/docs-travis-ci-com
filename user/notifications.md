@@ -308,7 +308,7 @@ pops up in your streams.
 
 The default looks like this:
 
-![](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
+![Sqwiggle notification example](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
 
 To customize it, add a template definition to your .travis.yml.
 
