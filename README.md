@@ -22,7 +22,7 @@ In order to run a local Web server that will serve documentation site, run:
 
     ./bin/jekyll serve
 
-and then open [localhost:4000](http://localhost:4000/) in your browser. 
+and then open [localhost:4000](http://localhost:4000/) in your browser.
 
 To regenerate the HTML pages automatically when you make changes to Markdown source files, use
 
@@ -30,6 +30,20 @@ To regenerate the HTML pages automatically when you make changes to Markdown sou
 
 Note that quoted entities may be escaped or unescaped depending on the Ruby
 version (1.8 vs. 1.9) used. It is normal.
+
+## Validating the site
+
+It's important that our links stay up-to-date and unbroken. To ensure this,
+we validate the resulting HTML with a tool called [HTML
+Proofer](https://github.com/gjtorikian/html-proofer). This is also run when
+you submit a pull request via a Travis post-push hook.
+
+To run the validator, run:
+
+    bundle exec rake test
+
+Ensuring it passes before submitting your pull request may result in its
+more speedy acceptance.
 
 ## License
 
