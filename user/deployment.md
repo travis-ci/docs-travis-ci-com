@@ -101,7 +101,7 @@ This example deploys to GitHub Releases when a tag is set and the Ruby version i
 
     deploy:
       provider: releases
-      api-key: "GITHUB OAUTH TOKEN"
+      api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
       skip_cleanup: true
       on:
