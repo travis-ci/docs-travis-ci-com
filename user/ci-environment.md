@@ -66,7 +66,7 @@ curl, wget, OpenSSL, rsync
 
 ### Go
 
-Go compiler/build tools 1.3.1.
+Go compiler/build tools 1.3.3.
 
 
 ### Runtimes
