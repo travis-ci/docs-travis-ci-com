@@ -261,6 +261,15 @@ to your `.travis.yml`.
 
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
 
+#### Using a specific version of ElasticSearch
+
+You can overwrite the installed ElasticSearch with the version you need (e.g., 1.2.4) with the following:
+
+```yaml
+before_install:
+  - wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb
+```
+
 #### Note
 
 When ElasticSearch is started, you may see a mangled message such as this:

@@ -6,14 +6,6 @@ layout: en
 
 <div id="toc"></div>
 
-## Update ElasticSearch to a specific version
-
-This replaces the currently installed version of ElasticSearch with 1.0.1.
-Change the version with the one desired for your build (e.g. 0.90.10)
-
-    before_install:
-      - wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.deb && sudo dpkg -i elasticsearch-1.0.1.deb && sudo service elasticsearch restart
-
 ## Update/Downgrade Maven
 
 The newer Maven isn't always stable compared to previous ones, potentially
