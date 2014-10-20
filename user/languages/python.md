@@ -18,6 +18,7 @@ Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4.
       - "2.7"
       - "3.2"
       - "3.3"
+      - "3.4"
     # command to install dependencies
     install: "pip install -r requirements.txt"
     # command to run tests
@@ -31,6 +32,7 @@ A more extensive example:
       - "2.7"
       - "3.2"
       - "3.3"
+      - "3.4"
     # command to install dependencies
     install:
       - "pip install ."
@@ -59,6 +61,7 @@ To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons 
       - "2.7"
       - "3.2"
       - "3.3"
+      - "3.4"
       # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
       # maintainers to fix their pypy-dev package.
       - "pypy"
