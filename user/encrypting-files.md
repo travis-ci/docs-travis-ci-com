@@ -65,6 +65,13 @@ Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.
 {% endhighlight %}
 
+### Caveats
+
+There are a couple of known issues for `encrypt-file` command.
+
+1. There is a report of this function not working on a local Windows machine. Please use a Linux or OS X machine.
+1. You can encrypt only one file. See https://github.com/travis-ci/travis.rb/issues/239
+
 ## Manual Encryption
 
 Assumptions:
