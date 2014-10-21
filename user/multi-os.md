@@ -8,6 +8,12 @@ permalink: multi-os/
 The feature described in this document is considered beta.
 Some features may not work as described.
 
+### Manual intervention required
+This feature needs to be enabled manually.
+If you wish to take advantage of this feature, please send
+email to support@travis-ci.com, indicating which repository
+you would like to have it enabled.
+
 ## Introduction
 If your code is intended to be used on multiple operating systems
 (e.g., a Ruby gem, a Python library, a JVM application),
