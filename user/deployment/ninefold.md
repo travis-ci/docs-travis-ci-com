@@ -42,7 +42,7 @@ Alternatively, you can also configure it to deploy from all branches:
       provider: ninefold
       auth-token: "NINEFOLD AUTH TOKEN"
       app-id: "NINEFOLD APP ID"
-      on:**
+      on:
         all_branches: true
 
 Builds triggered from Pull Requests will never trigger a deploy.
