@@ -21,7 +21,7 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
 
 This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases.
 
-0.10 is an alias for "the most recent 0.10.x release" and so on. Please note that using exact versions (for example, 0.10.2) is highly discouraged because as versions change, your .travis.yml will get outdated and things will break.
+0.10 is an alias for "the most recent 0.10.x release" and so on. If you don't need to test specific version, we encourage to specify it this way as it will run the newest stable release.
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
