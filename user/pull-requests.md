@@ -56,7 +56,7 @@ The environment variable `${TRAVIS_PULL_REQUEST}` is set to `"false"`
 when the build is for a normal branch commit. When the build is for a
 pull request, it will contain the pull request's number.
 
-### My Pull Request isn't being build
+### My Pull Request isn't being built
 
 If a pull request isn't built or doesn't show up in Travis CI's user interface,
 that usually means that it can't be merged. We rely on the merge commit that
