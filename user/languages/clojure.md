@@ -47,6 +47,16 @@ If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-m
 
     script: lein midje
 
+For Leiningen 1 add `:dev-dependencies` to `project.clj`:
+
+    :dev-dependencies [[midje "1.4.0"]
+                       [lein-midje "1.0.10"]])
+
+Leiningen 2 replaces `:dev-dependencies` with profiles:
+
+    :profiles {:dev {:dependencies [[midje "1.6.3"]]
+                     :plugins [[lein-midje "3.0.0"]]}}
+
 Please note that for projects that only support Clojure 1.3.0 and later versions, you may need to exclude transient `org.clojure/clojure` for Midje in project.clj:
 
     :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
