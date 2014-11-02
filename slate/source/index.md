@@ -1576,19 +1576,19 @@ public               | whether or not value is public
 
 ### List Variables
 
-`GET /repos/settings/?repository_id={repository.id}`
+`GET /repos/settings/env_vars?repository_id={repository.id}`
 
 This request always needs to be authenticated.
 
 ### Fetch Variable
 
-`GET /repos/settings/{env_var.id}`
+`GET /repos/settings/env_vars/{env_var.id}?repository_id={repository.id}`
 
 This request always needs to be authenticated.
 
 ### Add Variable
 
-`POST /repos/settings/?repository_id={repository.id}`
+`POST /repos/settings/env_vars?repository_id={repository.id}`
 
 Parameter                   | Default | Description
 --------------------------- | ------- | -----------
@@ -1601,7 +1601,7 @@ This request always needs to be authenticated.
 
 ### Update Variable
 
-`PATCH /repos/settings/{env_var.id}`
+`PATCH /repos/settings/env_vars/{env_var.id}`
 
 Parameter                   | Default       | Description
 --------------------------- | ------------- | -----------
@@ -1614,7 +1614,7 @@ This request always needs to be authenticated.
 
 ### Delete Variable
 
-`DELETE /repos/settings/{env_var.id}`
+`DELETE /repos/settings/env_vars/{env_var.id}`
 
 This request always needs to be authenticated.
 

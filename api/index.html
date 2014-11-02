@@ -2100,19 +2100,19 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="list-variables">List Variables</h3>
 
-<p><code class="prettyprint">GET /repos/settings/?repository_id={repository.id}</code></p>
+<p><code class="prettyprint">GET /repos/settings/env_vars?repository_id={repository.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
 <h3 id="fetch-variable">Fetch Variable</h3>
 
-<p><code class="prettyprint">GET /repos/settings/{env_var.id}</code></p>
+<p><code class="prettyprint">GET /repos/settings/env_vars/{env_var.id}?repository_id={repository.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
 <h3 id="add-variable">Add Variable</h3>
 
-<p><code class="prettyprint">POST /repos/settings/?repository_id={repository.id}</code></p>
+<p><code class="prettyprint">POST /repos/settings/env_vars?repository_id={repository.id}</code></p>
 
 <table><thead>
 <tr>
@@ -2147,7 +2147,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="update-variable">Update Variable</h3>
 
-<p><code class="prettyprint">PATCH /repos/settings/{env_var.id}</code></p>
+<p><code class="prettyprint">PATCH /repos/settings/env_vars/{env_var.id}</code></p>
 
 <table><thead>
 <tr>
@@ -2182,7 +2182,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="delete-variable">Delete Variable</h3>
 
-<p><code class="prettyprint">DELETE /repos/settings/{env_var.id}</code></p>
+<p><code class="prettyprint">DELETE /repos/settings/env_vars/{env_var.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
