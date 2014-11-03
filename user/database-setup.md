@@ -240,7 +240,7 @@ before_install:
 ```
 
 <div class="note-box">
-Note that <pre>sudo</pre> is not available for builds that are sent to the <a href="/user/workers/docker">Docker workers</a>.
+Note that <pre>sudo</pre> is not available for builds that are running on the <a href="/user/workers/docker">Docker workers</a>.
 </div>
 
 ### Neo4J
