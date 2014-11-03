@@ -23,6 +23,10 @@ scratch.
 To set up the system for your build, you can use the `sudo` command to install
 packages, to change configuration, create users, and so on.
 
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are sent to <a href="/user/docker">Docker workers</a>.
+</div>
+
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 

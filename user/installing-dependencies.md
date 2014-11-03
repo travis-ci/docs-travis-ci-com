@@ -13,12 +13,16 @@ You have full control over the virtual machine your tests are running on, so you
 
 Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages. That are available from its package repository, including security and backports.
 
+<div class="note-box">
+Note that this feature is not available for builds that are sent to <a href="/user/docker">Docker workers</a>.
+</div>
+
 To install Ubuntu packages, add something like the example below to your .travis.yml:
 
     before_install:
       - sudo apt-get update -qq
       - sudo apt-get install -y libxml2-dev
- 
+
 There are two things to note. Before installing a package, make sure to run 'apt-get update'. While we regularly update our build environment to include the latest security patches and updates, new package updates are released regularly, causing our packages indexes to be out of date. Updating the index before installing a Ubuntu package is recommended to avoid breaking your build should the package receive an update.
 
 Second thing to note is the use of the `-y` parameter when running apt-get install. As your build runs without any means for human interaction or intervention, you should make sure that it won't stall with apt-get asking for input. Specifying this flag ensures that it'll do what it'd normally ask your permission for.
@@ -83,7 +87,7 @@ Note that when you're updating the `$PATH` environment variable, that part can't
 
 To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
 
-    install: 
+    install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
       - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && make install

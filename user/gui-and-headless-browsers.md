@@ -84,6 +84,9 @@ Add a `before_script` to start a server, for example:
 
 If you need web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports greater than 1024, using `sudo` is not necessary (and not recommended).
 
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are sent to <a href="/user/docker">Docker workers</a>.
+</div>
 
 
 ## Using PhantomJS
