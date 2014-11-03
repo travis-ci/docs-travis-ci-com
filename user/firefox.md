@@ -25,4 +25,4 @@ Please note that this downloads binaries that are only compatible with our
 ### Use of the addon on Docker workers
 
 Note that the use of non-default version of Firefox requires `sudo`, and
-is not allowed on [Docker workers](/user/docker).
+is not allowed on [Docker workers](/user/workers/docker).

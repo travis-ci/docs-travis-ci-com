@@ -231,7 +231,7 @@ In your .travis.yml:
        - sudo service apache2 restart
 
 <div class="note-box">
-Note that <code>sudo</code> is not available for builds that are sent to <a href="/user/docker">Docker workers</a>.
+Note that <code>sudo</code> is not available for builds that are sent to the <a href="/user/workers/docker">Docker workers</a>.
 </div>
 
 You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
