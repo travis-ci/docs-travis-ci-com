@@ -288,7 +288,12 @@ and so on. `travis-lint` is your friend, use it.
 
 Once GitHub hook is set up, push your commit that adds .travis.yml to your repository. That should add a build into one of the queues on [Travis CI](http://travis-ci.org) and your build will start as soon as one worker for your language is available.
 
-To start a build you can either commit and push something to your repository, or you can go to your GitHub Webhooks & Services page and use the "Test Hook" button for Travis CI. Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
+To start a build, perform one of the following:
+
+1. Commit and push something to your repository
+1. Go to your repository's settings page, click on "Webhooks & Services" on the left menu, choose "Travis CI" in the "Services",  and use the "Test service" button.
+
+Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
 
 ### Step five: Tweaking your build configuration
 
