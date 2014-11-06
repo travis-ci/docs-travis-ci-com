@@ -22,7 +22,7 @@ If you need version 17.0 of Firefox to be installed, add the following to your
 Please note that this downloads binaries that are only compatible with our
 64-bit Linux VMs, so this won't work on our Mac VMs.
 
-### Use of the addon on Docker workers
+### Use of the addon on container-based workers
 
 Note that the use of non-default version of Firefox requires `sudo`, and
-is not allowed on [Docker workers](/user/workers/docker).
+is not allowed on [container-based workers](/user/container-based-infrastructure).
