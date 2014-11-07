@@ -83,7 +83,7 @@ like this:
     node_js:
       - "0.10"
     before_install:
-      - "curl -L http://git.io/3l-rRA | /bin/sh"
+      - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
     services:
       - mongodb
     env:
@@ -101,7 +101,7 @@ For example, you can use the following `.travis.yml` file .
     node_js:
       - "0.10"
     before_install:
-      - "curl -L http://git.io/ejPSng | /bin/sh"
+      - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
 
 The `before_install` script will make sure the required dependencies are installed.
 
