@@ -28,6 +28,7 @@ Multiple versions:
 
 ```
 ghc:
+  - 7.8
   - 7.6
   - 7.4
 ```
