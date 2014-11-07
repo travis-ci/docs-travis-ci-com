@@ -91,7 +91,12 @@ For more flexibility, the licenses can also be referenced with regular expressio
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
 - platform-tools
+- build-tools-21.0.2
 - build-tools-20.0.0
+- android-21
+- sys-img-armeabi-v7a-android-21
+- android-20
+- sys-img-armeabi-v7a-android-wear-20
 - android-19
 - sys-img-armeabi-v7a-android-19
 - android-18
