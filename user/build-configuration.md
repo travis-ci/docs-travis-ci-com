@@ -298,7 +298,7 @@ It also does not mean that Travis CI builders execute operations as root.
 ### Using 3rd-party PPAs
 
 If you need a native dependency that is not available from the official Ubuntu repositories, possibly there are [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas)
-(personal package archives) that you can use: they need to provide packages for 32-bit Ubuntu 12.04.
+(personal package archives) that you can use: they need to provide packages for 64-bit Ubuntu 12.04.
 
 More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/), search for [available PPAs on Launchpad](https://launchpad.net/ubuntu/+ppas).
 
