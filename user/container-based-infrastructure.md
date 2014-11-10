@@ -15,7 +15,7 @@ Jobs running on container-based infrastructure:
 
 1. start up faster
 2. allow use of [caches](/user/caching)
-3. aisallow use of `sudo`, setuid and setgid executables, as well as [Firefox addon](/user/firefox)
+3. disallow use of `sudo`, `setuid` and `setgid` executables, as well as [Firefox addon](/user/firefox)
   and `hhvm-nightly` (which uses `sudo` under the hood to install additional software).
 
 
