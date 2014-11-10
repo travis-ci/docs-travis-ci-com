@@ -15,8 +15,7 @@ Jobs running on container-based infrastructure:
 
 1. start up faster
 2. allow use of [caches](/user/caching)
-3. aisallow use of `sudo`, setuid and setgid executables, as well as [Firefox addon](/user/firefox)
-  and `hhvm-nightly` (which uses `sudo` under the hood to install additional software).
+3. disallow use of `sudo`, setuid and setgid executables.
 
 
 ## Routing Your Build to Container-based infrastructure
@@ -32,7 +31,5 @@ routed to container-based infrastructure.
 
 ## Reporting issues
 
-If you run into problems, check our [issue tracker](https://github.com/travis-ci/travis-ci)
-(in particular, [Docker-specific issues](https://github.com/travis-ci/travis-ci/labels/docker))
-first.
+If you run into problems, be sure to check our [issue tracker](https://github.com/travis-ci/travis-ci).
 If it is not reported, please open a new issue.
