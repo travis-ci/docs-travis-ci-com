@@ -6,8 +6,8 @@ permalink: container-based-infrastructure/
 
 <div id="toc"></div>
 
-This document describes how to build your projects on the newer
-container-based infrastructure.
+This document describes Travis CI's newer container-based infrastructure
+and how to build your projects on it.
 
 This infrastructure differs from the current one in the following ways.
 
