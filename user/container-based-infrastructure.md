@@ -14,8 +14,8 @@ This infrastructure differs from the current one in the following ways.
 Jobs running on container-based infrastructure:
 
 1. start up faster
-2. allow use of [caches](/user/caching)
-3. disallow use of `sudo`, setuid and setgid executables.
+2. allow the use of [caches](/user/caching)
+3. disallow the use of `sudo`, setuid and setgid executables.
 
 
 ## Routing Your Build to Container-based infrastructure
