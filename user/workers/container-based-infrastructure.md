@@ -14,8 +14,8 @@ This infrastructure differs from the current default in following ways.
 Jobs running on container-based infrastructure:
 
 1. start up faster
-2. allow the use of [caches](/user/caching)
-3. disallow the use of `sudo`, setuid and setgid executables.
+2. allow the use of [caches](/user/caching) for public repositories
+3. disallow the use of `sudo`, setuid and setgid executables
 
 
 ## Routing your build to container-based infrastructure
