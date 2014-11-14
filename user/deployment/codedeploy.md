@@ -1,10 +1,10 @@
 ---
-title: Amazon CodeDeploy
+title: AWS CodeDeploy
 layout: en
 permalink: codedeploy/
 ---
 
-Travis CI can automatically trigger a new Deployment on [Amazon CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
+Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 

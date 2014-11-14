@@ -11,7 +11,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Appfog](/user/deployment/appfog)
 * [Cloud 66](/user/deployment/cloud66)
 * [Heroku](/user/deployment/heroku)
-* [Amazon CodeDeploy](/user/deployment/codedeploy)
+* [AWS CodeDeploy](/user/deployment/codedeploy)
 * [Modulus](/user/deployment/modulus)
 * [Nodejitsu](/user/deployment/nodejitsu)
 * [OpenShift](/user/deployment/openshift)
