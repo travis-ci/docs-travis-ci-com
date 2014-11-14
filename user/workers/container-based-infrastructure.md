@@ -9,7 +9,7 @@ permalink: container-based-infrastructure/
 This document describes Travis CI's newer container-based infrastructure
 and how to build your projects on it.
 
-This infrastructure differs from the current one in the following ways.
+This infrastructure differs from the current default in following ways.
 
 Jobs running on container-based infrastructure:
 
@@ -18,7 +18,7 @@ Jobs running on container-based infrastructure:
 3. disallow the use of `sudo`, setuid and setgid executables.
 
 
-## Routing Your Build to Container-based infrastructure
+## Routing your build to container-based infrastructure
 
 To send your builds to container-based infrastructure, add this to the top level of `.travis.yml`:
 
@@ -27,7 +27,7 @@ sudo: false
 ```
 
 Also, [Education Pack](https://education.travis-ci.com/) users' builds are
-routed to container-based infrastructure.
+routed to this container-based infrastructure.
 
 ## Reporting issues
 
