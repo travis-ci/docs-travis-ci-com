@@ -1,7 +1,7 @@
 ---
-title: Using legacy infrastructure
+title: Using standard infrastructure
 layout: en
-permalink: legacy-infrastructure/
+permalink: standard-infrastructure/
 ---
 
 <div id="toc"></div>
