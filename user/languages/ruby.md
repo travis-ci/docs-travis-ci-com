@@ -137,7 +137,7 @@ dependencies.
 
 The default command run by Travis CI is:
 
-    bundle install
+    bundle install --jobs=3 --retry=3
 
 Note that this is only run when we detect a Gemfile in the project's root
 directory, or if the Gemfile specified via the build matrix exists.
