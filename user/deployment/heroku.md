@@ -130,22 +130,22 @@ You can either use a shorthand for the [default buildpacks](https://devcenter.he
 
 ### Deploy Strategy
 
-Travis CI knows two different ways for deploying to Heroku: Via [Git](https://devcenter.heroku.com/articles/git#deploying-code) or via [Anvil](https://github.com/ddollar/anvil).
+Travis CI supports different mechanisms for deploying to Heroku:
 
-It defaults to the latter, but you can change that via the **strategy** option:
+* **api:** Uses Heroku's [Build API](https://devcenter.heroku.com/articles/build-and-release-using-the-api). This is the default strategy.
+* **anvil:** Uses an [unofficial build server](https://github.com/ddollar/anvil), which accepts archives of the application you want to deploy.
+* **git:** Does a `git push` over HTTPS.
+* **git-ssh:** Does a `git push` over SSH. This will generate a new key on every deployment.
+* **git-deploy-key:** Does a `git push` over SSH. It will reuse the same key on every deployment. This is only available for private projects.
+
+It defaults to **api**, but you can change that via the **strategy** option:
 
     deploy:
       provider: heroku
       api_key: ...
       strategy: git
 
-The main differences:
-
-* Anvil will run the [buildpack](https://devcenter.heroku.com/articles/buildpacks) compilation step on the Anvil server, whereas the Git strategy will run it on a Heroku dyno.
-* The Git strategy allows using *user* and *password* instead of *api_key* (though *api_key* works fine with Git too).
-* When using Git, Heroku might send you an email for every deploy, as it adds a temporary SSH key to your account.
-
-As a rule of thumb, you should switch to the Git strategy if you run into issues with Anvil or if you're using the [user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) plugin.
+Note that the **anvil**, **git-ssh** and **git-deploy-key** strategies are considered **deprecated**. Please contact us if you have issues switching away from these.
 
 ### Running commands before and after deploy
 
