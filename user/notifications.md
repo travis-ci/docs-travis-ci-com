@@ -231,8 +231,13 @@ Notifications can be sent to your HipChat chat rooms using the following format:
     notifications:
       hipchat: [api token]@[room id or name]
 
+If you are running HipChat Server, then you can specify the hostname like this:
+
+    notifications:
+      hipchat: [api token]@[hostname]/[room id or name]
 
 * *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
+* *hostname*: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances
 * *room id or name*: id or name of the room you want to notify.
 
 If your room name contains spaces then use the room id.
