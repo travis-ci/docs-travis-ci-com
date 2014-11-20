@@ -426,6 +426,7 @@ Additionally a message will be present in the `status_message`/`result_message` 
 * *Passed*: The build completed successfully
 * *Fixed*: The build completed successfully after a previously failed build
 * *Broken*: The build completed in failure after a previously successful build
+* *Failed*: The build is the first build for a new branch and has failed
 * *Still Failing*: The build completed in failure after a previously failed build
 
 For pull requests, the `type` field will have the value `pull_request`, and a `pull_request_number` field is included too, pointing to the pull request's issue number on GitHub.
