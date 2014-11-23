@@ -71,15 +71,15 @@ For example, if you always want the latest version of xctool, you can run this:
 
 ### Compilers & Build toolchain
 
-* apple-gcc42 4.2.1-5666.3
+* apple-gcc42
 * autoconf 2.69
-* automake 1.14 1.14.1
-* maven 3.2.1
-* mercurial 2.8 2.9 2.9.1
+* automake 1.14
+* maven 3.2
+* mercurial 2.9
 * pkg-config 0.28
 * subversion 1.8.10
 * wget 1.15
-* xctool 0.2
+* xctool 0.2.1
 * cmake
 
 ### Languages
@@ -89,38 +89,12 @@ For example, if you always want the latest version of xctool, you can run this:
 
 ### Services
 
-* postgis 2.1.1 2.1.2
-* postgresql 9.3.3 9.3.4
-
-### Libraries
-
-* freexl 1.0.0g
-* gdal 1.10.1 1.10.1_1
-* geos 3.4.2
-* giflib 4.1.6
-* gpp 2.24
-* jpeg 8d
-* json-c 0.11
-* libgeotiff 1.4.0
-* libgpg-error 1.12
-* libksba 1.3.0
-* liblwgeom 2.1.1
-* libpng 1.5.17 1.6.10
-* libspatialite 4.1.1
-* libtiff 4.0.3
-* libtool 2.4.2
-* libxml2 2.9.1
-* libyaml 0.1.4 0.1.5 0.1.6
-* lzlib 1.5
-* openssl 1.0.1e 1.0.1f
-* ossp-uuid 1.6.2
-* proj 4.8.0
-* readline 6.2.4
-* sqlite 3.8.1 3.8.3 3.8.4.2
+* postgis 2.1.3
+* postgresql 9.3.5
 
 ### Xcode
 
-Xcode 6.0 is installed with the iOS 7.0, 7.1 and 8.0 simulators and SDKs.
+Xcode 6.1 is installed with the iOS 7.0, 7.1 and 8.1 simulators and SDKs.
 Command Line Tools are also installed.
 
 ### Runtimes
@@ -171,17 +145,17 @@ Stock Apache Maven 3.
 * system (2.0.0) -- You need to use `sudo` to install gems with this ruby
 * 1.9.3
 * 2.0.0 (default)
-* 2.1.1
 * 2.1.2
+* 2.1.3
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
 ### Bundler version
 
-Recent 1.6 version (usually the most recent)
+Recent 1.7 version (usually the most recent)
 
 ### Gems in the global gem set
 
 * bundler
 * rake
-
+* cocoapods
