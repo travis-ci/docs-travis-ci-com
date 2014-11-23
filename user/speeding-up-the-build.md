@@ -87,9 +87,10 @@ If you want to parallel RSpec or Cucumber tests on multiple VMs to get faster fe
     env:
       global:
         - MY_GLOBAL_VAR=123
+        - CI_NODE_TOTAL=2
       matrix:
-        - CI_NODE_TOTAL=2 CI_NODE_INDEX=0
-        - CI_NODE_TOTAL=2 CI_NODE_INDEX=1
+        - CI_NODE_INDEX=0
+        - CI_NODE_INDEX=1
 
 Such configuration will generate matrix with 2 following ENV rows:
 
@@ -102,9 +103,10 @@ Such configuration will generate matrix with 2 following ENV rows:
     env:
       global:
         - MY_GLOBAL_VAR=123
+        - CI_NODE_TOTAL=2
       matrix:
-        - CI_NODE_TOTAL=2 CI_NODE_INDEX=0
-        - CI_NODE_TOTAL=2 CI_NODE_INDEX=1
+        - CI_NODE_INDEX=0
+        - CI_NODE_INDEX=1
 
 ### RSpec & Cucumber parallel
 
