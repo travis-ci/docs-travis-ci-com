@@ -31,7 +31,7 @@ routed to this container-based infrastructure.
 
 ## File system
 
-The container-based images use BTRFS.
+The container-based images use AUFS.
 
 ## Reporting issues
 
