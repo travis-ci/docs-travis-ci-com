@@ -1,5 +1,5 @@
 ---
-title: Using Artifacts on Travis CI
+title: Uploading Artifacts on Travis CI
 layout: en
 permalink: uploading-artifacts/
 ---
