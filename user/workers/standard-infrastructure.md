@@ -19,3 +19,10 @@ This backend has following characteristics:
 
 For technical reasons, booting the VM takes a little longer
 than [the container-based ones](container-based-infrastructure).
+
+## File System
+
+The VMs use `simfs` file system.
+It is case-sensitive, and the entities within a directory
+may be returned in random order.
+

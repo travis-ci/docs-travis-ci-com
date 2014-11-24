@@ -37,11 +37,23 @@ but there's no fixed limit per build. Builds have up to two cores available (bur
 
 ## CI environment OS
 
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit.
+Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit,
+with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
+
+## Virtualization environments
+
+There are currently three distinct virtual environments in which your builds run.
+
+They are explained in separated documents.
+
+1. [Standard](/user/workers/standard-infrastructure)
+1. [Container-based](/user/workers/container-based-infrastructure)
+1. [OS X](/user/workers/os-x-infrastructure) (This is synonymous with Objective-C build environment.)
 
 ## Networking
 
-The containers running the tests have IPv6 enabled. They don't have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The virtual machines running the tests have IPv6 enabled.
+They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
