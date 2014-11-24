@@ -35,5 +35,6 @@ The container-based images use BTRFS.
 
 ## Reporting issues
 
-If you run into problems, be sure to check our [issue tracker](https://github.com/travis-ci/travis-ci/issues).
+If you run into problems, be sure to check our
+[issue tracker](https://github.com/travis-ci/travis-ci/issues?q=is%3Aissue+is%3Aopen+label%3Adocker+).
 If it is not reported, please open a new issue.
