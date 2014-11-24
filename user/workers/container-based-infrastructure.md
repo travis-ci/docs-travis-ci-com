@@ -29,7 +29,11 @@ sudo: false
 Also, [Education Pack](https://education.travis-ci.com/) users' builds are
 routed to this container-based infrastructure.
 
+## File system
+
+The container-based images use BTRFS.
+
 ## Reporting issues
 
-If you run into problems, be sure to check our [issue tracker](https://github.com/travis-ci/travis-ci).
+If you run into problems, be sure to check our [issue tracker](https://github.com/travis-ci/travis-ci/issues).
 If it is not reported, please open a new issue.
