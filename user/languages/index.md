@@ -11,6 +11,7 @@ languages:
 * [Groovy](/user/languages/groovy)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
+* [Julia](/user/languages/julia)
 * [Objective-C](/user/languages/objective-c)
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)

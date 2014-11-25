@@ -18,6 +18,7 @@ GitHub and offers first class support for:
 * [Haskell](/user/languages/haskell)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
+* [Julia](/user/languages/julia)
 * [Objective-C](/user/languages/objective-c)
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)
@@ -179,6 +180,15 @@ Learn more about [.travis.yml options for Groovy projects](/user/languages/groov
 
 
 Learn more about [.travis.yml options for Java projects](/user/languages/java/)
+
+#### Julia
+
+    language: julia
+    julia:
+      - release
+      - nightly
+
+Learn more about [.travis.yml options for Julia projects](/user/languages/julia/)
 
 #### Node.js
 
