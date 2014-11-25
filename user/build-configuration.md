@@ -283,6 +283,10 @@ Learn more in our [Scala guide](/user/languages/scala/).
 
 ## Installing Packages Using apt
 
+<div class="note-box">
+Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
 
     before_install:

@@ -230,6 +230,10 @@ In your .travis.yml:
        - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
        - sudo service apache2 restart
 
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
 You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
 
 ```

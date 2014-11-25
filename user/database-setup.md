@@ -239,6 +239,10 @@ before_install:
   - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
 ```
 
+<div class="note-box">
+Note that <pre>sudo</pre> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
 ### Neo4J
 
 Neo4J Server (Community Edition) is **not started on boot**. To make Travis CI start the service for you, add

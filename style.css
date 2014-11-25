@@ -539,7 +539,7 @@ footer a:visited {
 #berlin-sticker {
   margin  : 0;
   float   : right;
-  display : block; 
+  display : block;
 }
 
 #footer-nav {
@@ -801,18 +801,18 @@ input[type=email] {
 ::-webkit-input-placeholder {
  text-transform : uppercase;
  color          : #819699;
-}  
+}
 ::-moz-placeholder { /* Firefox 18- */
   text-transform : uppercase;
-  color          : #819699;  
+  color          : #819699;
 }
 ::-moz-placeholder {  /* Firefox 19+ */
  text-transform : uppercase;
- color          : #819699;  
+ color          : #819699;
 }
-::-ms-input-placeholder {  
+::-ms-input-placeholder {
  text-transform : uppercase;
- color          : #819699;  
+ color          : #819699;
 }
 
 .blog-post h3 a {
@@ -858,13 +858,22 @@ input[type=email] {
   letter-spacing        : 1px;
   font-size             : 2em;
   padding               : 20px 50px;
-  text-decoration       : none;        
+  text-decoration       : none;
 }
 
 .get-started-button:hover {
   background-color : #d93f3c;
   color            : #ffffff;
   text-decoration  : none;
+}
+
+.note-box {
+  background-color: #E3E3E3;
+  padding: 10px;
+  border-bottom-left-radius  : 8px 8px;
+  border-bottom-right-radius : 8px 8px;
+  border-top-left-radius     : 8px 8px;
+  border-top-right-radius    : 8px 8px;
 }
 
 .language-docs {

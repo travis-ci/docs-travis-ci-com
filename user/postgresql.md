@@ -69,6 +69,11 @@ Here are the steps to install the Spanish language pack. Note that you need to r
       - sudo /etc/init.d/postgresql stop
       - sudo /etc/init.d/postgresql start 9.3
 
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
+
 Here's a list of locales currently installed on the system by default:
 
     C

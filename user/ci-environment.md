@@ -23,6 +23,10 @@ scratch.
 To set up the system for your build, you can use the `sudo` command to install
 packages, to change configuration, create users, and so on.
 
+<div class="note-box">
+Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
@@ -33,11 +37,23 @@ but there's no fixed limit per build. Builds have up to two cores available (bur
 
 ## CI environment OS
 
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit.
+Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit,
+with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
+
+## Virtualization environments
+
+There are currently three distinct virtual environments in which your builds run.
+
+They are explained in separated documents.
+
+1. [Standard](/user/workers/standard-infrastructure)
+1. [Container-based](/user/workers/container-based-infrastructure)
+1. [OS X](/user/workers/os-x-infrastructure) (This is synonymous with Objective-C build environment.)
 
 ## Networking
 
-The containers running the tests have IPv6 enabled. They don't have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The virtual machines running the tests have IPv6 enabled.
+They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
