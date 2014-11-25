@@ -18,13 +18,15 @@ GitHub and offers first class support for:
 * [Haskell](/user/languages/haskell)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
-* [Julia](/user/languages/julia)
 * [Objective-C](/user/languages/objective-c)
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
 * [Ruby](/user/languages/ruby)
 * [Scala](/user/languages/scala)
+
+Community-contributed support is available for:
+* [Julia](/user/languages/julia)
 
 
 Travis CI's build environment provides different runtimes for different
