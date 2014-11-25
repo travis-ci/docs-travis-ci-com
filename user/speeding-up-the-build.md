@@ -77,7 +77,7 @@ To give you an idea of what speedup are we talking about, I've tried running tes
 on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
 jobs.
 
-## Parallelizing RSpec & Cucumber on multiple VMs
+## Parallelizing RSpec and Cucumber on multiple VMs
 
 If you want to parallel RSpec or Cucumber tests on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
 
@@ -108,7 +108,7 @@ Such configuration will generate matrix with 2 following ENV rows:
         - CI_NODE_INDEX=0
         - CI_NODE_INDEX=1
 
-### RSpec & Cucumber parallel
+### RSpec and Cucumber parallelization example
 
 If you want to parallelize RSpec and Cucumber tests at the same time then define script in `.travis.yml` this way:
 
