@@ -60,13 +60,13 @@ This is intended behaviour from Homebrew's side, but you can get around it by ru
 
     before_install:
       - brew update
-      - if brew outdated | grep -qx <package-name>; then brew upgrade <package-name>; fi
+      - brew outdated <package-name> || brew upgrade <package-name>
 
 For example, if you always want the latest version of xctool, you can run this:
 
     before_install:
       - brew update
-      - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+      - brew outdated xctool || brew upgrade xctool
 
 
 ### Compilers & Build toolchain
