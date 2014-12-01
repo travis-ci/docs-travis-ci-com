@@ -266,6 +266,16 @@ If you want to send HTML notifications you need to add `format: html` like this
           - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
         format: html
 
+With the V2 API, you can trigger a user notification by setting `notify: true`:
+
+    notifications:
+      hipchat:
+        rooms:
+          - [api token]@[room id or name]
+        template:
+          - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+        notify: true
+
 ### `From` value in notifications
 
 When a V1 token is used, the notification is posted by "Travis CI".
