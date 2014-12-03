@@ -108,6 +108,14 @@ Then you can use phpcs like the phpunit command
 
 ### Installing Composer packages
 
+<div class="note-box">
+<p>
+Note that we update composer every time we update the PHP build environment, which is every 30-60 days.  Because
+composer has a time-based update warning, you may see messages such as this, which may be safely ignored:
+</p>
+<pre>Warning: This development build of composer is over 30 days old. It is recommended to update it by running "/home/travis/.phpenv/versions/5.6/bin/composer self-update" to get the latest version.</pre>
+</div>
+
 You can also install [Composer](http://packagist.org/) packages into the Travis CI PHP environment. The composer
 command comes pre-installed, use the following:
 
