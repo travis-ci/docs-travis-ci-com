@@ -6,7 +6,9 @@ permalink: build-environment-updates/
 December 2014 and later
 
 <ul>
-{% for post in site.categories.build_env_updates %}
-	<li>{{ post.title }}</li>
+{% for page in site.pages %}
+{% if page.category == "build_env_updates" %}
+	<li><a href="{{ page.permalink }}">{{ page.permalink }}</a></li>
+{% endif %}
 {% endfor %}
 </ul>

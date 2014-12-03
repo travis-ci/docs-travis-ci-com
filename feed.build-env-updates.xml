@@ -8,14 +8,16 @@ layout: none
 		<description>Travis CI Build Environment Updates</description>
 		<link>https://travis-ci.com</link>
 		<atom:link href="https://docs.travis-ci.com/feed.build-env-updates.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.categories.build_env_updates limit:10 %}
+		{% for page in site.pages %}
+		{% if page.category == "build_env_updates" %}
 			<item>
-				<title>{{ post.title | xml_escape }}</title>
-				<description>{{ post.content | xml_escape }}</description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>https://docs.travis-ci.com/{{ post.url }}</link>
-				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+				<title>{{ page.title | xml_escape }}</title>
+				<description>{{ page.content | xml_escape }}</description>
+				<pubDate>{{ page.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+				<link>https://docs.travis-ci.com/{{ page.url }}</link>
+				<guid isPermaLink="true">{{ site.url }}{{ page.url }}</guid>
 			</item>
+		{% endif %}
 		{% endfor %}
 	</channel>
 </rss>
