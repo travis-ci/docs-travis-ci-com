@@ -3,7 +3,7 @@ title: Build Environment Update History
 layout: en
 permalink: build-environment-updates/
 ---
-December 2014 and later
+### December 2014 and later
 
 <ul>
 {% for page in site.pages %}
@@ -12,3 +12,6 @@ December 2014 and later
 {% endif %}
 {% endfor %}
 </ul>
+
+### Atom feed
+<a href="/feed.build-env-updates.xml">Atom feed</a> is also availabe.
