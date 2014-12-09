@@ -239,7 +239,7 @@ it reached End of Life in fall 2012.
 
 ### Maven version
 
-Stock Apache Maven 3. Maven is configured to use Central and oss.sonatype.org mirrors at http://maven.travis-ci.org
+Stock Apache Maven 3.2.x. Maven is configured to use Central and oss.sonatype.org mirrors at http://maven.travis-ci.org
 
 ### Leiningen versions
 
