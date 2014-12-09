@@ -237,7 +237,7 @@ travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT)
 
 ### Gradle version
 
-Gradle 2.0.
+Gradle 2.2.1
 
 ## Erlang VM images
 
