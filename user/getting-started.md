@@ -25,6 +25,9 @@ GitHub and offers first class support for:
 * [Ruby](/user/languages/ruby)
 * [Scala](/user/languages/scala)
 
+Community-contributed support is available for:
+* [Julia](/user/languages/julia)
+
 
 Travis CI's build environment provides different runtimes for different
 languages, for instance multiple versions of Ruby, PHP, Node.js. It also comes
@@ -179,6 +182,15 @@ Learn more about [.travis.yml options for Groovy projects](/user/languages/groov
 
 
 Learn more about [.travis.yml options for Java projects](/user/languages/java/)
+
+#### Julia
+
+    language: julia
+    julia:
+      - release
+      - nightly
+
+Learn more about [.travis.yml options for Julia projects](/user/languages/julia/)
 
 #### Node.js
 
