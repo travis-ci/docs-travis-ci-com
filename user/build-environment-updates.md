@@ -15,3 +15,6 @@ permalink: build-environment-updates/
 
 ### Atom feed
 <a href="/feed.build-env-updates.xml">Atom feed</a> is also availabe.
+
+### Mailing List
+You can also sign up to the <a href="http://eepurl.com/9OCsP">announcement mailing list</a>.
