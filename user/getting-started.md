@@ -12,7 +12,9 @@ GitHub and offers first class support for:
 * [C](/user/languages/c)
 * [C++](/user/languages/cpp)
 * [Clojure](/user/languages/clojure)
+* [C#](/user/languages/csharp/)
 * [Erlang](/user/languages/erlang)
+* [F#](/user/languages/csharp/)
 * [Go](/user/languages/go)
 * [Groovy](/user/languages/groovy)
 * [Haskell](/user/languages/haskell)
@@ -24,6 +26,7 @@ GitHub and offers first class support for:
 * [Python](/user/languages/python)
 * [Ruby](/user/languages/ruby)
 * [Scala](/user/languages/scala)
+* [Visual Basic](/user/languages/csharp/)
 
 Community-contributed support is available for:
 * [Julia](/user/languages/julia)
@@ -133,6 +136,13 @@ For projects using Leiningen 2:
 
 Learn more about [.travis.yml options for Clojure projects](/user/languages/clojure/)
 
+#### C#, F#, and Visual Basic
+
+    language: csharp
+    solution: solution-name.sln
+
+Learn more about [.travis.yml options for C# projects](/user/languages/csharp/)
+
 #### Erlang
 
     language: erlang
@@ -143,7 +153,6 @@ Learn more about [.travis.yml options for Clojure projects](/user/languages/cloj
       - R14B03
 
 Learn more about [.travis.yml options for Erlang projects](/user/languages/erlang/)
-
 
 #### Haskell
 
