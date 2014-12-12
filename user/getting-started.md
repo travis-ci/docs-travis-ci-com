@@ -13,6 +13,7 @@ GitHub and offers first class support for:
 * [C++](/user/languages/cpp)
 * [Clojure](/user/languages/clojure)
 * [C#](/user/languages/csharp/)
+* [D](/user/languages/d)
 * [Erlang](/user/languages/erlang)
 * [F#](/user/languages/csharp/)
 * [Go](/user/languages/go)
@@ -20,16 +21,15 @@ GitHub and offers first class support for:
 * [Haskell](/user/languages/haskell)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
+* [Julia](/user/languages/julia)
 * [Objective-C](/user/languages/objective-c)
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
 * [Ruby](/user/languages/ruby)
+* [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
 * [Visual Basic](/user/languages/csharp/)
-
-Community-contributed support is available for:
-* [Julia](/user/languages/julia)
 
 
 Travis CI's build environment provides different runtimes for different
