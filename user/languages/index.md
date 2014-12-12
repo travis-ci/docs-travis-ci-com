@@ -6,9 +6,16 @@ layout: en
 Here's a list of tutorials for using Travis CI with different programming
 languages:
 
+* [C](/user/languages/c)
+* [C++](/user/languages/cpp)
 * [Clojure](/user/languages/clojure)
+* [C#](/user/languages/csharp/)
+* [D](/user/languages/d)
 * [Erlang](/user/languages/erlang)
+* [F#](/user/languages/csharp/)
+* [Go](/user/languages/go)
 * [Groovy](/user/languages/groovy)
+* [Haskell](/user/languages/haskell)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
 * [Julia](/user/languages/julia)
@@ -17,5 +24,6 @@ languages:
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
 * [Ruby](/user/languages/ruby)
-* [Rust](/usr/languages/rust)
+* [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
+* [Visual Basic](/user/languages/csharp/)
