@@ -168,6 +168,7 @@ Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
 depends on the language you're using.
 
+* `TRAVIS_DART_VERSION`
 * `TRAVIS_GO_VERSION`
 * `TRAVIS_JDK_VERSION`
 * `TRAVIS_JULIA_VERSION`
