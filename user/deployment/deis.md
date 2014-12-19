@@ -4,7 +4,7 @@ layout: en
 permalink: deis/
 ---
 
-Travis CI supports uploading to Deis.
+Travis CI supports uploading to [Deis](http://deis.io/).
 
 A minimal configuration is:
 
