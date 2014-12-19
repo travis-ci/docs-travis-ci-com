@@ -51,18 +51,44 @@ reporter library](https://www.npmjs.org/package/codeclimate-test-reporter)
 Coverage data should be generated in the Lcov format, for instance using the
 [istanbul library.]
 
-You can specify the repository token in your .travis.yml, it'll automatically be
-exported as an environment variable:
+If you use istanbul, make sure that you set it up in the package.json for your
+module. Here is an example, using the 
+[faucet](https://www.npmjs.com/package/faucet) module: 
 
-    addons:
-      code_climate:
-        repo_token: aff33f...
+```json
+  "scripts": {
+    "test": "istanbul cover spec/test.js | node_modules/.bin/faucet"
+  }
+```
 
-To report the coverage data to Code Climate, you just need to run the following
-after your tests:
+In order to report the coverage data to Code Climate, you should add the 
+following to your .travis.yml file. You can specify the repository token in the `addons` section, where it'll automatically be exported as an environment variable, and has the added benefit of being encrypted.
 
-    after_script:
-      - cat lcov.info | codeclimate
+```yml
+before_install:
+  - "npm install -g codeclimate-test-reporter"
+  - "npm install -g istanbul"
+
+addons:
+  code_climate:
+    repo_token: aff33f...
+  
+after_script:
+  - codeclimate < lcov.info
+```
+
+The `before_install` section will make sure that Travis sets up the right
+environment before running tests, while the `after_script` will
+ensure that the lcov.info is sent to the correct Code Climate account.
+
+You should also specify your Node version, like so:
+
+```yml
+language: node_js
+node_js:
+  - '0.10'
+```
+
 
 ### PHP
 
