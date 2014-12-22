@@ -4,7 +4,7 @@ layout: en
 permalink: hackage/
 ---
 
-Travis CI supports uploading to Hackage.
+Travis CI supports uploading to [Hackage](https://hackage.haskell.org/).
 
 A minimal configuration is:
 
