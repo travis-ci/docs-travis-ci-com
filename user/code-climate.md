@@ -46,10 +46,10 @@ settings on Code Climate. Then you can add it to your `.travis.yml`:
 ### JavaScript
 
 JavaScript projects can measure test coverage using [Code Climate's JavaScript
-reporter library](https://www.npmjs.org/package/codeclimate-test-reporter)
+reporter library](https://www.npmjs.org/package/codeclimate-test-reporter).
 
 Coverage data should be generated in the Lcov format, for instance using the
-[istanbul library.]
+[istanbul library](https://www.npmjs.com/package/istanbul).
 
 You can specify the repository token in your .travis.yml, it'll automatically be
 exported as an environment variable:
