@@ -24,6 +24,20 @@ You can change this behaviour using the following options:
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
+### Note on HTTPS
+
+When posting notifications over HTTPS, be mindful of what ciphers are accepted.
+Notifications will fail if none of the ciphers work.
+
+Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
+are known to work:
+
+AES-128 AES-128-CBC AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-ECB AES-128-OFB AES-192 AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-ECB AES-192-OFB AES-256 AES-256-CBC AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-ECB AES-256-OFB BF BF-CBC BF-CFB BF-CFB1 BF-CFB8 BF-ECB BF-OFB BLOWFISH CAST CAST-CBC CAST5 CAST5-CBC CAST5-CFB CAST5-CFB1 CAST5-CFB8 CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-CFB1 DES-EDE-CFB8 DES-EDE-ECB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-ECB DES-EDE3-OFB DES-OFB RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-CFB1 RC2-CFB8 RC2-ECB RC2-OFB RC4 RC4-40
+
+Also, consult [cipher suite names mapping](https://www.openssl.org/docs/apps/ciphers.html).
+
+If none of the ciphers listed above works, please open a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
+
 ## Email notifications
 
 You can specify recipients that will be notified about build results like so:
