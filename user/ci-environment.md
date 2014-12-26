@@ -72,7 +72,7 @@ All VM images have the following pre-installed
 
 ### Compilers & Build toolchain
 
-GCC 4.6.x, Clang 3.2.x, make, autotools, cmake, scons.
+GCC, Clang, make, autotools, cmake, scons.
 
 
 ### Networking tools
@@ -82,7 +82,7 @@ curl, wget, OpenSSL, rsync
 
 ### Go
 
-Go compiler/build tools 1.3.3.
+Go compiler/build tools.
 
 
 ### Runtimes
@@ -101,26 +101,26 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Data Stores
 
-* MySQL 5.5.x
-* PostgreSQL 9.1.x, 9.2.x and 9.3.x
-* SQLite 3.7.x
-* MongoDB 2.4.x
-* Redis 2.8.x
-* Riak 1.4.x
-* Apache Cassandra 2.0.x
-* Neo4J Community Edition 1.7.x
-* ElasticSearch 1.3.x
-* CouchDB 1.6.x
+* MySQL
+* PostgreSQL
+* SQLite
+* MongoDB
+* Redis
+* Riak
+* Apache Cassandra
+* Neo4J Community Edition
+* ElasticSearch
+* CouchDB
 
 ### Messaging Technology
 
-* [RabbitMQ](http://rabbitmq.com) 3.x
-* [ZeroMQ](http://zeromq.org/) 2.1.x
+* [RabbitMQ](http://rabbitmq.com)
+* [ZeroMQ](http://zeromq.org/)
 
 ### Headless Browser Testing Tools
 
 * [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/) 1.9.7
+* [PhantomJS](http://phantomjs.org/)
 
 ### Environment variables
 
@@ -215,9 +215,12 @@ This will pass the environment variables down to a `bash` process which runs as 
 while retaining the environment variables defined
 and belonging to secondary groups given above in `usermod`.
 
-## Go VM images
+### Build system information
 
-The following additional Go runtimes are installed:  1.0.3, 1.1.2, 1.2.2.
+In the build log, relevant software versions (including the available language versions)
+is show in the "Build system information".
+
+## Go VM images
 
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
@@ -259,21 +262,6 @@ Gradle 2.0.
 
 ### Erlang/OTP releases
 
-* 17.1
-* 17.0
-* R16B
-* R16B01
-* R16B02
-* R16B03
-* R16B03-1
-* R15B03
-* R15B02
-* R15B01
-* R15B
-* R14B04
-* R14B03
-* R14B02
-
 Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 
@@ -287,17 +275,11 @@ be used instead of the preprovisioned version.
 
 ### Node.js versions
 
-* 0.10.x (latest stable release)
-* 0.8.x
-* 0.6.x
-* 0.11.x (latest development release, may be unstable)
-
 Node runtimes are built using [nvm](https://github.com/creationix/nvm).
 
 ### SCons
 
-Scons 2.x.
-
+Scons
 
 ## Haskell VM images
 
@@ -310,17 +292,7 @@ Scons 2.x.
 
 ### Perl versions
 
-* 5.20
-* 5.20-extras
-* 5.18
-* 5.18-extras
-* 5.16
-* 5.14
-* 5.12
-* 5.10
-* 5.8
-
-installed via [Perlbrew](http://perlbrew.pl/).
+Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
 Those runtimes that end with the `-extras` suffix have been compiled with
 `-Duseshrplib` and `-Duseithreads` flags.
 These also have aliases with the `-shrplib` suffix.
@@ -344,13 +316,10 @@ Test::Pod::Coverage
 
 ### PHP versions
 
-* 5.6
-* 5.5
-* 5.4
-* 5.3
-* [hhvm](https://github.com/facebook/hhvm)
-
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
+
+[hhvm](https://github.com/facebook/hhvm) is also available.
+and the nighly builds are installed on-demand (as `hhvm-nightly`).
 
 ### XDebug
 
@@ -423,14 +392,6 @@ Is supported.
 
 ### Python versions
 
-* 2.6
-* 2.7
-* 3.2
-* 3.3
-* 3.4
-* pypy
-* pypy3
-
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
@@ -447,18 +408,6 @@ On all versions except pypy and pypy3 have `numpy` as well.
 ## Ruby (aka common) VM images
 
 ### Ruby versions/implementations
-
-* 2.1.2
-* 2.1.1
-* 2.0.0
-* 1.9.3 (default)
-* 1.9.2
-* jruby-18mode (1.7.13 in Ruby 1.8 mode)
-* jruby-19mode (1.7.13 in Ruby 1.9 mode)
-* ruby-head  (upgraded every time [CI](https://travis-ci.org/ruby/ruby) passes)
-* jruby-head (upgraded every time [CI](https://travis-ci.org/jruby/jruby) passes)
-* 1.8.7
-* ree (2012.02)
 
 [Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
