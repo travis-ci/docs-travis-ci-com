@@ -27,7 +27,8 @@ A more extensive example:
       - "5.14"
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
-For full up-to-date list of provided Perl versions, see our [CI environment guide](/user/ci-environment/).
+
+For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
 *Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
 

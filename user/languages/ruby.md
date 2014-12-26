@@ -15,22 +15,18 @@ configuration](/user/build-configuration/) guides first.
 
 ### Supported Ruby Versions
 
-Currently pre-installed on our systems are recent patch-level releases of the
-following Rubies:
+The Ruby VM provides recent versions of:
 
-- Ruby 2.1.1, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
-- JRuby 1.7.11 (1.8 and 1.9 mode)
+- Ruby 2.2.x, 2.1.x, 2.0.c, 1.9.3, 1.9.2 and 1.8.7
+- JRuby 1.7.x (1.8 and 1.9 mode)
 - Ruby Enterprise Edition 1.8.7 2012.02
 
 Pre-compiled versions are downloaded on demand from our [Ruby version cache](http://rubies.travis-ci.org).
-These include:
-
-- Ruby 2.1.2, 2.1.0, as well as newer patch-level releases (if any) and latest master
-- JRuby latest master
-- Ruby Enterprise Edition 1.8.7 2011.12
 
 Pre-compiled Rubinius versions are downloaded on demand from [binaries.rubini.us](http://rubies.travis-ci.org/rubinius).
 Older versions of Ruby and JRuby are made available by [RVM](https://rvm.io/binaries/) and the [JRuby team](http://www.jruby.org/download).
+
+For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
 ### Choosing Ruby versions and implementations to test against
 

@@ -41,7 +41,8 @@ A more extensive example:
     script: nosetests
 
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
-For the full up-to-date list of provided Python versions, see our [CI environment guide](/user/ci-environment/).
+
+For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
 ### Travis CI Uses Isolated virtualenvs
 

@@ -12,7 +12,7 @@ This guide covers build environment and configuration topics specific to Go proj
 
 Travis CI VMs are 64 bit and currently provide
 
- * any tagged version of Go (via gvm)
+ * recent versions of Go
  * core GNU build toolchain (autotools, make), cmake, scons
 
 Go projects on travis-ci.org assume you use Make or straight Go build tool by default.
@@ -24,11 +24,10 @@ Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get 
     language: go
 
     go:
-      - 1.0
-      - 1.1
-      - 1.2
       - 1.3
       - tip
+
+For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
 ## Dependency Management
 

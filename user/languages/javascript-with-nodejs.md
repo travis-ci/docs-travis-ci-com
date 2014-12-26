@@ -27,12 +27,13 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
 ## Provided Node.js Versions
 
-* 0.10.x (latest stable release)
+* 0.10.x (recent stable release)
 * 0.8.x
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
 
-For full up-to-date list of provided Node versions, see our [CI environment guide](/user/ci-environment/).
+For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+
 
 ## Default Test Script
 

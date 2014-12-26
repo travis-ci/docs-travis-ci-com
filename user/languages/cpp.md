@@ -10,13 +10,15 @@ This guide covers build environment and configuration topics specific to C++ pro
 
 ## CI environment for C++ Projects
 
-Travis CI's VMs are 64 bit and currently provide
+Travis CI VMs are 64-bit and provide versions of:
 
- * gcc 4.6
- * clang 3.4
+ * gcc
+ * clang
  * core GNU build toolchain (autotools, make), cmake, scons
 
 C++ projects on travis-ci.org assume you use Autotools and Make by default.
+
+For precise versions on the VM, please consulte "Build system information" in the build log.
 
 
 ## Dependency Management
