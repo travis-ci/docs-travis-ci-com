@@ -21,8 +21,8 @@ and cc @a14n @devoncarew and @sethladd.
 ## Choosing Dart versions to test against
 
 Dart workers on travis-ci.org download and install the binary of Dart,
-either the _stable_ version, the _dev_ version or any specified version build
-with apt (See [Dart SDK for Debian and Ubuntu with Apt](https://www.dartlang.org/tools/debian.html)).
+either the _stable_ version, the _dev_ version or any archived version
+(See [Dart Download Archive](https://www.dartlang.org/tools/download-archive/)).
 To select one or more versions, use the `dart:` key in your `.travis.yml` file,
 for example:
 
@@ -31,6 +31,8 @@ for example:
       - stable
       - dev
       - "1.8.0-1"
+
+*WARNING*: Only _dev_ and _stable_ are supported for now.
 
 ## Default Dart Version
 
@@ -44,12 +46,13 @@ to install any dependencies of the package.
 
 ## Default Test Script
 
-If your repository follows the [Pub Package Layout Conventions](https://www.dartlang.org/tools/pub/package-layout.html)
-then the following default script will be run:
+The tests are done by
+[Dart Test Runner](https://pub.dartlang.org/packages/test_runner). This tool
+will automatically detect and run all the tests in your Dart project in the
+correct environment.
 
-    if [ -f test/all_test.dart ]; then
-      dart test/all_test.dart
-    fi
+*WARNING*: Only _VM_ tests are supported for now. _Browser_ tests will not be
+run.
 
 ## Build Matrix
 
