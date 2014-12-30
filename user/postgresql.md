@@ -1,7 +1,7 @@
 ---
 title: Using PostgreSQl on Travis CI
 layout: en
-permalink: using-postgresql/
+permalink: /user/postgresql/
 ---
 <div id="toc">
 </div>

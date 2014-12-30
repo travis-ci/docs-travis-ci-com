@@ -1,7 +1,7 @@
 ---
 title: My builds is timing out
 layout: en
-permalink: build-timeouts/
+permalink: /user/build-timeouts/
 ---
 <div id="toc"></div>
 

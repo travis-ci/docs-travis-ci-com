@@ -1,7 +1,7 @@
 ---
 title: Building a Go Project
 layout: en
-permalink: go/
+permalink: /user/languages/go/
 ---
 
 ### What This Guide Covers

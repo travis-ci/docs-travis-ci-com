@@ -2,6 +2,5 @@ exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
 markdown: rdiscount
 permalink: :title
 safe: true
-relative_permalinks: true
 syntax-highlighting:
   enabled: true

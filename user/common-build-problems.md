@@ -1,7 +1,7 @@
 ---
 title: Common Build Problems
 layout: en
-permalink: common-build-problems/
+permalink: /user/common-build-problems/
 ---
 
 <div id="toc"></div>

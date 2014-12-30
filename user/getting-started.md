@@ -1,7 +1,7 @@
 ---
 title: Getting started
 layout: en
-permalink: getting-started/
+permalink: /user/getting-started/
 ---
 
 ### Travis CI Overview

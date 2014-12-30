@@ -1,7 +1,7 @@
 ---
 title: Building an Objective-C Project
 layout: en
-permalink: objective-c/
+permalink: /user/languages/objective-c/
 ---
 <div id="toc">
 </div>

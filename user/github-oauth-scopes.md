@@ -1,7 +1,7 @@
 ---
 title: Travis CI's use of GitHub API Scopes
 layout: en
-permalink: github-oauth-scopes/
+permalink: /user/github-oauth-scopes/
 ---
 When you sign in on Travis CI, we ask for a few permissions to access your data.
 

@@ -1,6 +1,6 @@
 ---
 title: The Lifecycle of a Travis CI Build
-permalink: build-lifecycle/
+permalink: /user/build-lifecycle/
 layout: en
 ---
 Travis CI defines a couple of sensible defaults for all first class languages.

@@ -1,7 +1,7 @@
 ---
 title: Building an Android Project (beta)
 layout: en
-permalink: android/
+permalink: /user/languages/android/
 ---
 
 ### Warning

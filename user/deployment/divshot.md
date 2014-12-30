@@ -1,7 +1,7 @@
 ---
 title: Divshot.io Deployment
 layout: en
-permalink: divshot/
+permalink: /user/deployment/divshot/
 ---
 
 Travis CI can automatically deploy your [Divshot](http://www.divshot.com) application after a successful build.

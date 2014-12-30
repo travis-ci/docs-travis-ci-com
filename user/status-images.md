@@ -1,7 +1,7 @@
 ---
 title: Status Images
 layout: en
-permalink: status-images/
+permalink: /user/status-images/
 ---
 With Travis CI, you can embed little status icons into your project's README or
 general documentation. That way, visitors of your projects or site can

@@ -1,7 +1,7 @@
 ---
 title: Configuring your build
 layout: en
-permalink: build-configuration/
+permalink: /user/build-configuration/
 ---
 
 <div id="toc"></div>

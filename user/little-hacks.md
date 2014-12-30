@@ -1,6 +1,6 @@
 ---
 title: Build Hacks
-permalink: build-hacks/
+permalink: /user/little-hacks/
 layout: en
 ---
 

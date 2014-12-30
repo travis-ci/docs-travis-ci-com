@@ -1,7 +1,7 @@
 ---
 title: Using standard infrastructure
 layout: en
-permalink: standard-infrastructure/
+permalink: /user/workers/standard-infrastructure/
 ---
 
 <div id="toc"></div>

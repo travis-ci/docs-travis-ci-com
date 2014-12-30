@@ -1,7 +1,7 @@
 ---
 title: Using CCMenu with Travis CI
 layout: en
-permalink: cc-menu/
+permalink: /user/cc-menu/
 ---
 <figure class="small right">
   <img src="http://s3itch.paperplanes.de/Backstop_Menubar_20140305_155352_20140305_155425.jpg"/>

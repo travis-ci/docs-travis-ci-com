@@ -1,7 +1,7 @@
 ---
 title: Building a Ruby Project
 layout: en
-permalink: ruby/
+permalink: /user/languages/ruby/
 ---
 <div id="toc">
 </div>

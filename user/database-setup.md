@@ -1,7 +1,7 @@
 ---
 title: Databases and other services
 layout: en
-permalink: database-setup/
+permalink: /user/database-setup/
 ---
 
 ### What This Guide Covers

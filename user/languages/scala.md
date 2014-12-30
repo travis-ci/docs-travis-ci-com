@@ -1,7 +1,7 @@
 ---
 title: Building a Scala project
 layout: en
-permalink: scala/
+permalink: /user/languages/scala/
 ---
 
 ### What This Guide Covers

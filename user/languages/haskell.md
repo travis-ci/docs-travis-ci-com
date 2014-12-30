@@ -1,7 +1,7 @@
 ---
 title: Building a Haskell Project
 layout: en
-permalink: haskell/
+permalink: /user/languages/haskell/
 ---
 
 ### What This Guide Covers

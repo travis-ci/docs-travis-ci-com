@@ -1,7 +1,7 @@
 ---
 title: Validate your .travis.yml
 layout: en
-permalink: travis-lint/
+permalink: /user/travis-lint/
 ---
 
 ### What This Guide Covers

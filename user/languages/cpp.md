@@ -1,7 +1,7 @@
 ---
 title: Building a C++ Project
 layout: en
-permalink: cpp/
+permalink: /user/languages/cpp/
 ---
 
 ### What This Guide Covers

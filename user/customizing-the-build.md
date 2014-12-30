@@ -1,7 +1,7 @@
 ---
 title: Customizing the Build
 layout: en
-permalink: customizing-the-build/
+permalink: /user/customizing-the-build/
 ---
 
 <div id="toc"></div>

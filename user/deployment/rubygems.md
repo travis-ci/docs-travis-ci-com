@@ -1,7 +1,7 @@
 ---
 title: RubyGems Deployment
 layout: en
-permalink: rubygems/
+permalink: /user/deployment/rubygems/
 ---
 
 Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems.org/) after a successful build.

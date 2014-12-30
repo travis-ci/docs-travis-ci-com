@@ -1,7 +1,7 @@
 ---
 title: Testing Pull Requests
 layout: en
-permalink: pull-requests/
+permalink: /user/pull-requests/
 ---
 Pull requests are an essential feature of Travis CI. For a project that has
 testing via Travis CI enabled, whenever a pull request is opened for the

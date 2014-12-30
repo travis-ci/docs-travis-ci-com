@@ -1,7 +1,7 @@
 ---
 title: cloudControl Deployment
 layout: en
-permalink: cloudcontrol/
+permalink: /user/deployment/cloudcontrol/
 ---
 
 Travis CI can automatically deploy your [cloudControl](https://www.cloudcontrol.com/) application after a successful build.

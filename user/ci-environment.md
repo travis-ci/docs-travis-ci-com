@@ -1,7 +1,7 @@
 ---
 title: The Build Environment
 layout: en
-permalink: ci-environment/
+permalink: /user/ci-environment/
 ---
 
 ### What This Guide Covers

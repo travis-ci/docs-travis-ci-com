@@ -1,7 +1,7 @@
 ---
 title: Building a Node.js project
 layout: en
-permalink: javascript-with-nodejs/
+permalink: /user/languages/javascript-with-nodejs/
 ---
 
 ### What This Guide Covers

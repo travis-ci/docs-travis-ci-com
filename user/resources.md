@@ -1,7 +1,7 @@
 ---
 title: Resources
 layout: en
-permalink: resources/
+permalink: /user/resources/
 ---
 
 ### Blog posts

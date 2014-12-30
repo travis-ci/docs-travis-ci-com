@@ -1,7 +1,7 @@
 ---
 title: Deployment
 layout: en
-permalink: deployment/
+permalink: /user/deployment/
 ---
 
 ### Supported Providers

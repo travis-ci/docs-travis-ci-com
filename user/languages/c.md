@@ -1,7 +1,7 @@
 ---
 title: Building a C Project
 layout: en
-permalink: c/
+permalink: /user/languages/c/
 ---
 
 ### What This Guide Covers

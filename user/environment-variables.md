@@ -1,7 +1,7 @@
 ---
 title: Environment Variables
 layout: en
-permalink: environment-variables/
+permalink: /user/environment-variables/
 ---
 
 A common way to customize the build process is to use environment variables. These can be accessed from any stage in your build process.

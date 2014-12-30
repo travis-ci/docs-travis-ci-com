@@ -1,7 +1,7 @@
 ---
 title: Using Code Climate with Travis CI
 layout: en
-permalink: code-climate/
+permalink: /user/code-climate/
 ---
 [Code Climate](https://www.codeclimate.com) is a hosted platform to continuously
 measure and monitor code quality.

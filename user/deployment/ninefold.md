@@ -1,7 +1,7 @@
 ---
 title: Ninefold Deployment
 layout: en
-permalink: ninefold/
+permalink: /user/deployment/ninefold/
 ---
 
 Travis CI can automatically deploy your [Ninefold](https://ninefold.com/) application after a successful build.

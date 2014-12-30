@@ -1,7 +1,7 @@
 ---
 title: Adding to SSH Known Hosts
 layout: en
-permalink: ssh-known-hosts/
+permalink: /user/ssh-known-hosts/
 ---
 <div id="toc">
 </div>

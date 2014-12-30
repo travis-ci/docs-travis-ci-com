@@ -1,7 +1,7 @@
 ---
 title: Configuring Build Notifications
 layout: en
-permalink: notifications/
+permalink: /user/notifications/
 ---
 
 <div id="toc"></div>

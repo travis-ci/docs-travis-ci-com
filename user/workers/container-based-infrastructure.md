@@ -1,7 +1,7 @@
 ---
 title: Using container-based infrastructure
 layout: en
-permalink: container-based-infrastructure/
+permalink: /user/workers/container-based-infrastructure/
 ---
 
 <div id="toc"></div>

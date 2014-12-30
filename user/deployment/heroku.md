@@ -1,7 +1,7 @@
 ---
 title: Heroku Deployment
 layout: en
-permalink: heroku/
+permalink: /user/deployment/heroku/
 ---
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.

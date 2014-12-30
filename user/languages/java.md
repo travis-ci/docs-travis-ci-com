@@ -1,7 +1,7 @@
 ---
 title: Building a Java project
 layout: en
-permalink: java/
+permalink: /user/languages/java/
 ---
 
 ### What This Guide Covers

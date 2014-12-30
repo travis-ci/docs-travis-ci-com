@@ -1,7 +1,7 @@
 ---
 title: Travis Pro - Frequently Asked Questions
 layout: en
-permalink: travis-pro/
+permalink: /user/travis-pro/
 ---
 
 <div id="toc"></div>

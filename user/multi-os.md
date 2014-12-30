@@ -1,7 +1,7 @@
 ---
 title: Testing Your Project on Multiple Operating Systems
 layout: en
-permalink: multi-os/
+permalink: /user/multi-os/
 ---
 
 ### This is a beta feature

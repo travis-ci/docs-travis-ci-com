@@ -1,7 +1,7 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: releases/
+permalink: /user/deployment/releases/
 ---
 
 Travis CI can automatically upload assets to your git tags on your GitHub repository.

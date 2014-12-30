@@ -1,7 +1,7 @@
 ---
 title: The OS X Build Environment
 layout: en
-permalink: osx-ci-environment/
+permalink: /user/osx-ci-environment/
 ---
 
 ### What This Guide Covers

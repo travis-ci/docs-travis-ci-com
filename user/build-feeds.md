@@ -1,7 +1,7 @@
 ---
 title: Atom Build Feeds
 layout: en
-permalink: build-feeds/
+permalink: /user/build-feeds/
 ---
 One of the means to get updates on builds are Atom feeds.
 

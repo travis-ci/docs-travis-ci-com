@@ -1,7 +1,7 @@
 ---
 title: Modulus Deployment
 layout: en
-permalink: modulus/
+permalink: /user/deployment/modulus/
 ---
 
 Travis CI can automatically deploy your [Modulus](https://modulus.io/) application after a successful build.

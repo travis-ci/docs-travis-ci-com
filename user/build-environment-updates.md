@@ -1,7 +1,7 @@
 ---
 title: Build Environment Update History
 layout: en
-permalink: build-environment-updates/
+permalink: /user/build-environment-updates/
 ---
 ### December 2014 and later
 

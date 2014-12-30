@@ -1,7 +1,7 @@
 ---
 title: Nodejitsu Deployment
 layout: en
-permalink: nodejitsu/
+permalink: /user/deployment/nodejitsu/
 ---
 
 Travis CI can automatically deploy your [Nodejitsu](https://www.nodejitsu.com/) application after a successful build.
