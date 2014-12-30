@@ -1,7 +1,7 @@
 ---
 title: Running jobs on Mac OS X infrastructure
 layout: en
-permalink: /user/workers/os-x-infrastrucure/
+permalink: /user/workers/os-x-infrastructure/
 ---
 
 <div id="toc"></div>
