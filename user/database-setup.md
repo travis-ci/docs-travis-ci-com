@@ -91,7 +91,7 @@ before_install:
 
 ### PostgreSQL
 
-[Using PostgreSQL is covered in a separate guide](/user/using-postgresql).
+[Using PostgreSQL is covered in a separate guide](/user/postgresql).
 
 ### SQLite3
 

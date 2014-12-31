@@ -9,5 +9,5 @@ moved:
 
 * [Sauce Connect](/user/sauce-connect)
 * [Custom Host Names](/user/hosts/)
-* [PostgreSQL](/user/using-postgresql/)
+* [PostgreSQL](/user/postgresql/)
 * [Firefox](/user/firefox/)
