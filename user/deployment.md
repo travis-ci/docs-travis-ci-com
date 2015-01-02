@@ -30,6 +30,7 @@ Continuous Deployment to the following providers are currently supported out of 
 * [Deis](/user/deployment/deis)
 * [Hackage](/user/deployment/hackage)
 * [Google Cloud Storage](/user/deployment/gcs)
+* [Elastic Beanstalk](/user/deployment/elastic-beanstalk)
 * [Custom deployment via after_success hook](/user/deployment/custom)
 
 ### Deploying to Multiple Providers
