@@ -4,7 +4,8 @@ layout: en
 permalink: /user/deployment/packagecloud/
 ---
 
-Travis CI can automatically push your package to [packagecloud.io](https://packagecloud.io/) after a successful build.
+Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build
+artifacts to [packagecloud.io](https://packagecloud.io/) after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
