@@ -47,7 +47,7 @@ Bundler caching will not automatically work if you override the install step. Yo
     install: bundle install --without development --deployment --jobs=3 --retry=3
     cache:
       directories:
-      - vendor/bundle
+        - vendor/bundle
 
 In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
 
@@ -105,8 +105,8 @@ You can cache arbitrary directories between builds by listing them in your *.tra
 
     cache:
       directories:
-      - .autoconf
-      - $HOME/.m2
+        - .autoconf
+        - $HOME/.m2
 
 As you can see, it is also possible to use environment variables in the directories.
 
@@ -216,8 +216,8 @@ This does not when caching [arbitrary directories](#Arbitrary-directories). If y
     cache:
       bundler: true
       directories:
-      - vendor/something
-      - .autoconf
+        - vendor/something
+        - .autoconf
 
 ### Explicitly disabling caching
 
