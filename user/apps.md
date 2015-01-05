@@ -115,6 +115,10 @@ By Divshot, Inc.
 * [source code](https://github.com/divshot/ducksboard-travis)
 </figcation>
 </figure>
+
+<figure class="app">
+![ci-status](/images/apps/ci-status.png)
+<figcation>
 ### CI Status
 
 Travis CI dashboard<br>
