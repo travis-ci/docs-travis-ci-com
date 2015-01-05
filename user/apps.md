@@ -116,6 +116,19 @@ By Divshot, Inc.
 </figcation>
 </figure>
 
+<figure class="app">
+![ci-status](/images/apps/ci-status.png)
+<figcation>
+### CI Status
+
+Travis CI dashboard<br>
+By Piwik.
+
+* [website](https://ci-status.com/)
+* [source code](https://github.com/piwik/ci-status)
+</figcation>
+</figure>
+
 ## Tools
 
 <figure class="app official">
