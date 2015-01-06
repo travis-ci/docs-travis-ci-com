@@ -1,7 +1,7 @@
 ---
 title: Uploading Artifacts on Travis CI
 layout: en
-permalink: /user/artifacts/
+permalink: /user/uploading-artifacts/
 ---
 <div id="toc">
 </div>
