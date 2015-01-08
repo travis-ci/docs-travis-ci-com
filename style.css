@@ -488,12 +488,6 @@ footer p {
   color : #a53230;
 }
 
-#travis-logo {
-  float   : left;
-  margin  : 0 20px 0 0;
-  display : inline-block;
-}
-
 #travis-address {
   clear       : all;
   display     : inline-block;
@@ -989,4 +983,40 @@ input[type=email] {
 .highlight .vg { color: #aa0000 } /* Name.Variable.Global */
 .highlight .vi { color: #aa0000 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+#top {
+  height: 55px;
+  line-height: 60px;
+  background: #404650;
+  font-size: 14px; }
+  #top #home {
+    float: left;
+    width: 123px;
+    height: 55px;
+    margin-right: 14px;
+    text-indent: -9999px;
+    background: #dc4136 url("/images/ui/travis-logo.svg") no-repeat 20px 18px; }
+  #top ul {
+    line-height: 60px;
+    margin: 0;
+    list-style-type: none; }
+  #top a, #top span {
+    color: #ffffff;
+    text-decoration: none; }
+  #top li {
+    display: inline-block; }
+    #top li a, #top li span {
+      display: block;
+      padding: 0 12px; }
+      #top li a:hover, #top li span:hover {
+        color: #ADC7D0; }
+  #top a.werehiring {
+    background-color: #31363d;
+    border-radius: 4px;
+    padding: 8px 16px;
+    line-height: 20px;
+    margin-right: 80px;
+    display: inline; }
+  #top li.traviscicom a {
+    padding-left: 0px; }
 
