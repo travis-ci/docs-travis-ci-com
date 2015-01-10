@@ -25,8 +25,11 @@ commits, like so:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
 
-You can retrieve your api key by running `npm login`. Your api key will now be present in your ~/.npmrc. It is recommended to encrypt that key.
-Assuming you have the Travis CI command line client installed, you can do it like this:
+You can get your api key by running the following command, filling in `username` and `password` with your npm credentials:
+
+    echo -n "username:password" | base64
+
+It is recommended to encrypt that key. Assuming you have the Travis CI command line client installed, you can do it like this:
 
     travis encrypt --add deploy.api_key
 
