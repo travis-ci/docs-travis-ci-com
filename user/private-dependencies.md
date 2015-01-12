@@ -181,7 +181,7 @@ $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 
 {% highlight console %}
 before_install:
-- echo "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
+- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
 {% endhighlight %}
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
@@ -232,7 +232,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 
 {% highlight yaml %}
 before_install:
-- echo "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 {% endhighlight %}
 
 It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
