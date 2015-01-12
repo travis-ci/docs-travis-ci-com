@@ -130,7 +130,7 @@ By Piwik.
 </figure>
 
 <figure class="app">
-![travis-wall](/images/apps/node-build-monitor.jpg)
+![node-build-monitor](/images/apps/node-build-monitor.jpg)
 <figcation>
 ### node-build-monitor
 
