@@ -8,7 +8,7 @@ permalink: /user/build-environment-updates/
 <ul>
 {% for page in site.pages %}
 {% if page.category == "build_env_updates" %}
-	<li><a href="{{ page.permalink }}">{{ page.permalink }}</a></li>
+	<li><a href="{{ page.permalink }}">{{ page.permalink | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
 {% endif %}
 {% endfor %}
 </ul>
