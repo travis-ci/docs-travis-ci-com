@@ -120,3 +120,7 @@ If you contribute to or experiment with the [deploy tool](https://github.com/tra
     deploy:
       provider: awesome-experimental-provider
       edge: true
+
+### Pull Requests
+
+Note that pull request builds skip deployment step altogether.
