@@ -22,7 +22,7 @@ By setting
 
     language: android
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 24.0.0 (December 2014).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 24.0.2 (December 2014).
 
 Here is an example `.travis.yml` for an Android project:
 
@@ -91,11 +91,10 @@ For more flexibility, the licenses can also be referenced with regular expressio
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
 - platform-tools
-- build-tools-21.1.1
+- build-tools-21.1.2
 - android-21
 - sys-img-armeabi-v7a-android-21
 - android-20
-- sys-img-armeabi-v7a-android-wear-20
 - android-19
 - sys-img-armeabi-v7a-android-19
 - android-18
