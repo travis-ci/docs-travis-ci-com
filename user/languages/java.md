@@ -104,6 +104,16 @@ JDK 7 is backwards compatible, we think it's time for all projects to start test
 For Java projects, `env` and `jdk` can be given as arrays
 to construct a build matrix.
 
+## Switching JDKs Within One Job
+
+If your build needs to switch JDKs during a job, you can do so with `jdk_switcher use …`.
+
+    script:
+      - jdk_switcher use oraclejdk8
+      - # do stuff with Java 8
+      - jdk_switcher use oraclejdk7
+      - # do stuff with Java 7
+
 ## Examples
 
 * [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
