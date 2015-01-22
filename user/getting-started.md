@@ -4,66 +4,52 @@ layout: en
 permalink: /user/getting-started/
 ---
 
-### Travis CI Overview
+The very short guide to using Travis CI. You need to sign up for a [GitHub 
+account](https://github.com/) if you do not already have one. 
 
-Travis CI is a hosted continuous integration service. It is integrated with
-GitHub and offers first class support for:
+This short guide uses a PHP project as an example. If you prefer a different 
+language, check the longer guides for each language:
 
-* [C](/user/languages/c)
-* [C++](/user/languages/cpp)
-* [Clojure](/user/languages/clojure)
-* [C#](/user/languages/csharp/)
-* [D](/user/languages/d)
-* [Erlang](/user/languages/erlang)
-* [F#](/user/languages/csharp/)
-* [Go](/user/languages/go)
-* [Groovy](/user/languages/groovy)
-* [Haskell](/user/languages/haskell)
-* [Java](/user/languages/java)
-* [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
-* [Julia](/user/languages/julia)
-* [Objective-C](/user/languages/objective-c)
-* [Perl](/user/languages/perl)
-* [PHP](/user/languages/php)
-* [Python](/user/languages/python)
-* [Ruby](/user/languages/ruby)
-* [Rust](/user/languages/rust)
-* [Scala](/user/languages/scala)
-* [Visual Basic](/user/languages/csharp/)
+[C](/user/languages/c)| [C++](/user/languages/cpp)| [Clojure](/user/languages/clojure)| [C#](/user/languages/csharp/)| [D](/user/languages/d)| [Erlang](/user/languages/erlang)| [F#](/user/languages/csharp/)| [Go](/user/languages/go)| [Groovy](/user/languages/groovy)| [Haskell](/user/languages/haskell)| [Java](/user/languages/java)| [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)| [Julia](/user/languages/julia)| [Objective-C](/user/languages/objective-c)| [Perl](/user/languages/perl)| [PHP](/user/languages/php)| [Python](/user/languages/python)| [Ruby](/user/languages/ruby)| [Rust](/user/languages/rust)| [Scala](/user/languages/scala)| [Visual Basic](/user/languages/csharp/)
 
+### To get started with Travis CI:
 
-Travis CI's build environment provides different runtimes for different
-languages, for instance multiple versions of Ruby, PHP, Node.js. It also comes
-preinstalled with a variety of data stores and common tools like message
-brokers.
+1. On GitHub, fork the 
+[example PHP repository](https://github.com/plaindocs/travis-broken-example).
 
-You can easily test your project against one or more versions of languages and
-even data stores.
+1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account.
+GitHub asks you for a set of [access permissions](/user/github-oauth-scopes) 
+on our behalf.
 
-### Step one: Sign in
+2. Once you're signed in, and we've synchronized your repositories from
+GitHub, go to your [profile page](https://travis-ci.org/profile) and 
+flip the switch to *ON* for your fork of the `travis-broken-example` repository.
 
-To get started with Travis CI, sign in with your GitHub account. Go to [Travis
-CI](http://travis-ci.org) and follow the Sign In link at the top.
+	Note: You can only enable Travis CI Builds for repositories you have admin 
+	access to.  
 
-Note that **on <https://travis-ci.org>, you'll currently only see your public
-repositories**, whereas **on <https://travis-ci.com>, you can find your private
-projects**.
+2. Take a look at `.travis.yml` while you're waiting for the repository to 
+build:
 
-While signing in, GitHub will ask you for a set of access permissions on our
-behalf. We've [outlined them and their use in more
-detail](/user/github-oauth-scopes).
+		language: php
+		php:
+		- 5.5
+		- 5.4
+		- hhvm
 
-### Step two: Activate GitHub Webhook
+	This file tells Travis CI that this project is written in PHP, and to test 
+	the code against PHP versions 5.5, 5.4 and HVVM.  
+	
+	Note: The default test for PHP code is PHPUnit. 
 
-Once you're signed in, and we've initially synchronized your repositories from
-GitHub, go to your [profile page for open source](https://travis-ci.org/profile)
-or [for your private projects](https://magnum.travis-ci.com/profile).
+5. Wait for Travis CI to build your fork of `travis-broken-example` repository, 
+and notice that the tests fail. 
 
-You'll see all the organizations you're a member of and all the repositories you
-have access to. The ones you have administrative access to are the ones you can
-enable the service hook for.
+2. Fix the code, by making sure that `2=1+1` in `Test.php`, commit and push to 
+GitHub. Travis CI automatically 
 
-Flip switch to on for all repositories you'd like to enable.
+<!-- TODO: FIX this, travis only tests AFTER commit -->
+
 
 ###  Step three: Add .travis.yml file to your repository
 
