@@ -5,6 +5,10 @@ permalink: /user/build-environment-updates/
 ---
 ### December 2014 and later
 
+Roughly, environments will be updated during the first week of the 'even' month
+(February, April, June, August, October, December).
+Language-specific updates may be released as needed.
+
 <ul>
 {% for page in site.pages %}
 {% if page.category == "build_env_updates" %}
