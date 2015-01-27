@@ -23,11 +23,9 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
 
 This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases, as well as [io.js](https://iojs.org/) builds.
 
-0.10 is an alias for "the most recent 0.10.x release" and so on. If you don't need to test specific version, we encourage to specify it this way as it will run the newest stable release. 
+0.10 is an alias for "the most recent 0.10.x release" and so on. If you don't need to test specific version, we encourage to specify it this way as it will run the newest stable release.  For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
-For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
-
-[nvm](https://github.com/creationix/nvm) handles version resolution, so any version of Node or io.js that nvm can install is available.
+[nvm](https://github.com/creationix/nvm) handles version resolution, so any version of Node or io.js that nvm can install is available. You can [use aliases](https://github.com/creationix/nvm#usage) of `stable`, `unstable`, `node` (currently same as `stable`) or `iojs` for convenience.
 
 ## Provided Node.js Versions
 
