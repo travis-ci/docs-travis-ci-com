@@ -4,4 +4,3 @@
 _site
 bin
 source/tmp/*
-Gemfile.lock
