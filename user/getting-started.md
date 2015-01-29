@@ -17,64 +17,55 @@ language, check the longer guides for each language:
 1. On GitHub, fork the 
 [example PHP repository](https://github.com/plaindocs/travis-broken-example).
 
-1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account.
-GitHub asks you for a set of [access permissions](/user/github-oauth-scopes) 
-on our behalf.
+2. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub
+[access permissions confirmation](/user/github-oauth-scopes).
 
 2. Once you're signed in, and we've synchronized your repositories from
-GitHub, go to your [profile page](https://travis-ci.org/profile) and 
-flip the switch to *ON* for your fork of the `travis-broken-example` repository.
+GitHub, go to your [profile page](https://travis-ci.org/profile) and enable 
+Travis CI builds for your fork of the `travis-broken-example` repository.
 
-	Note: You can only enable Travis CI Builds for repositories you have admin 
+	Note: You can only enable Travis CI builds for repositories you have admin 
 	access to.  
 
-2. Take a look at `.travis.yml` while you're waiting for the repository to 
-build:
+2. Take a look at `.travis.yml`, the file which tells Travis CI what to do:
 
-		language: php
-		php:
-		- 5.5
-		- 5.4
-		- hhvm
+	```yaml
+	language: php
+	php:
+	- 5.5
+	- 5.4
+	- hhvm
+	script: phpunit Test.php
+	```
 
 	This file tells Travis CI that this project is written in PHP, and to test 
-	the code against PHP versions 5.5, 5.4 and HVVM.  
-	
-	Note: The default test for PHP code is PHPUnit. 
+	`Test.php` with phpunit against PHP versions 5.5, 5.4 and HVVM.  
 
-5. Wait for Travis CI to build your fork of `travis-broken-example` repository, 
-and notice that the tests fail. 
+2. Edit the empty `NewUser.txt` file by adding your name. Add the file to git, commit and push, to trigger a Travis CI build:
 
-2. Fix the code, by making sure that `2=1+1` in `Test.php`, commit and push to 
-GitHub. Travis CI automatically 
+	```bash
+	$ git add -A
+	$ git commit -m 'Testing Travis CI'
+	$ git push
+	```
 
-<!-- TODO: FIX this, travis only tests AFTER commit -->
+	Note: Travis only runs a build on the commits you push after adding the repository to Travis.
+	Wait for Travis CI to run a build your fork of `travis-broken-example` repository, and notice that the tests fail. 
 
+2. Fix the code by making sure that `2=1+1` in `Test.php`, commit and push to 
+GitHub. This time, the build will pass the tests.
 
-###  Step three: Add .travis.yml file to your repository
+	```bash
+	$ git add -A
+	$ git commit -m 'Testing Travis CI: fixing the build'
+	$ git push
+	```
 
-In order for Travis CI to build your project, you need to tell the system a
-little bit about it. You'll need to add a file named `.travis.yml` to the root
-of your repository.
+Congratulations, you have added a GitHub repository to Travis and learnt the basics of configuring builds, and running 
+passing and failing tests.
+<!-- TODO: More info on PHP, more info on config? -->
 
-We will only cover basic .travis.yml options in this guide. The most important
-one is the **language** key. It tells Travis CI which language environment to
-select for your project.
-
-Ruby projects typically use different build tools and
-practices than Clojure or PHP projects do, so Travis CI needs to know what to
-do.
-
-If `.travis.yml` is not in the repository, is misspelled or is not [valid
-YAML](http://yaml-online-parser.appspot.com/), Travis CI will ignore it,
-assume Ruby as the language and use default values for everything.
-
-#### Note
-
-The `language` value is case-sensitive.
-If you set `language: C`, for example, your project will be considered a Ruby project.
-
-Here are some basic **.travis.yml** examples:
+### Some basic **.travis.yml** examples:
 
 
 #### C
