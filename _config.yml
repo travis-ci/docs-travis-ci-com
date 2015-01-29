@@ -1,6 +1,13 @@
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
-markdown: rdiscount
+markdown: redcarpet
 permalink: :title
 safe: true
 syntax-highlighting:
   enabled: true
+redcarpet:
+  extensions:
+    - hard_wrap
+    - no_intra_emphasis
+    - autolink
+    - strikethrough
+    - fenced_code_blocks
