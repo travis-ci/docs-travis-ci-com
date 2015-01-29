@@ -14,6 +14,7 @@ GitHub and offers first class support for:
 * [Clojure](/user/languages/clojure)
 * [C#](/user/languages/csharp/)
 * [D](/user/languages/d)
+* [Dart](/user/languages/dart)
 * [Erlang](/user/languages/erlang)
 * [F#](/user/languages/csharp/)
 * [Go](/user/languages/go)
@@ -142,6 +143,16 @@ Learn more about [.travis.yml options for Clojure projects](/user/languages/cloj
     solution: solution-name.sln
 
 Learn more about [.travis.yml options for C# projects](/user/languages/csharp/)
+
+#### Dart
+
+    language: dart
+    dart:
+      - stable
+      - dev
+      - "1.8.0"
+
+Learn more about [.travis.yml options for Dart projects](/user/languages/dart/)
 
 #### Erlang
 
