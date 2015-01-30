@@ -6,6 +6,8 @@ permalink: /user/deployment/releases/
 
 Travis CI can automatically upload assets to your git tags on your GitHub repository.
 
+**Please note that deploying GitHub Releases works only for tags, not for branches.**
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
     deploy:
@@ -18,6 +20,8 @@ For a minimal configuration, all you need to do is add the following to your `.t
         all_branches: true
 
 Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
+
+Note that the section at the end of the .travis.yml above is required to make sure that your tags get deployed.
 
 You can always use the Travis CI command line client set everything up for you:
 
