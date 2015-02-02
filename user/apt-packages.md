@@ -8,7 +8,7 @@ permalink: /user/apt-packages/
 
 When using the [container based infrastructure](/user/workers/container-based-infrastructure/), there is a limitation on
 the use of `sudo` without a password, as is required to install packages with `apt-get`.  In order to have Travis CI do
-this on your behalf prior to `sudo` privileges being disabled, use the `addons.apt_packages` key, e.g.:
+this on your behalf before `sudo` privileges is removed, use the `addons.apt_packages` key, e.g.:
 
     addons:
       apt_packages:
