@@ -19,7 +19,7 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 ## Specifying a Go version to use
 
-Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get the latest version.
+You can use any tagged version of Go or use `tip` to get the latest version.
 
     language: go
 
