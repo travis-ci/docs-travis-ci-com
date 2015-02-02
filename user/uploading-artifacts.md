@@ -11,26 +11,15 @@ Travis CI can automatically upload your build artifacts to S3.
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
     addons:
-      artifacts:
-        key: "YOUR AWS ACCESS KEY"
-        secret: "YOUR AWS SECRET KEY"
-        bucket: "S3 Bucket"
+      artifacts: true
 
-You can find your AWS Access Keys
-[here](https://console.aws.amazon.com/iam/home?#security_credential). It
-is recommended to encrypt that key.  Assuming you have the Travis CI
-command line client installed, you can do it like this:
+and add the following environment variables in the repository settings:
 
-    travis encrypt --add addons.artifacts.key
+    ARTIFACTS_KEY=(AWS access key id)
+    ARTIFACTS_SECRET=(AWS secret access key)
+    ARTIFACTS_BUCKET=(S3 bucket name)
 
-You will be prompted to enter your api key on the command line.
-
-You can also have the `travis` tool set up everything for you:
-
-    travis setup artifacts
-
-Keep in mind that the above command has to run in your project
-directory, so it can modify the `.travis.yml` for you.
+You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential).
 
 ### Deploy specific paths
 
@@ -47,6 +36,11 @@ the `addons.artifacts.paths` key like so:
         - $(ls /var/log/*.log | tr "\n" ":")
         - $HOME/some/other/thing.log
 
+or as an environment variable in repository settings:
+
+    # ':'-delimited paths, e.g.
+    ARTIFACTS_PATHS="./logs:./build:/var/log"
+
 ### Debugging
 
 If you'd like to see more detail about what the artifacts addon is
@@ -57,3 +51,7 @@ on debug logging.
       artifacts:
         # ...
         debug: true
+
+or define this as a repository settings environment variable, or in the `env.global` section:
+
+    ARTIFACTS_DEBUG=1
