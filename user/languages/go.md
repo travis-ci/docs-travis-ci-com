@@ -6,7 +6,8 @@ permalink: /user/languages/go/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
 ## CI environment for Go Projects
 
@@ -27,15 +28,19 @@ You can use any tagged version of Go or use `tip` to get the latest version.
       - 1.3
       - tip
 
+All go version management is handled by [gimme](https://github.com/meatballhat/gimme).
+
 For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
 ## Dependency Management
 
-Because there is no dominant [convention in the community about dependency management](https://groups.google.com/forum/?fromgroups#!topic/golang-nuts/t01qsI40ms4), Travis CI uses
+By default the install step defers to `go get ./...` or `go get -t ./...` if the version of go is greater than or equal
+to `1.2`.  If any of the following files are present, the default install step will be simply `true`:
 
-    go get -d -v ./... && go build -v ./...
-
-to build Go project's dependencies by default.
+* `GNUMakefile`
+* `Makefile`
+* `BSDmakefile`
+* `makefile`
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
@@ -48,6 +53,17 @@ It is also possible to specify a list of operations, for example, to `go get` re
       - go get github.com/mrb/hob
 
 See [general build configuration guide](/user/build-configuration/) to learn more.
+
+### `godep` support
+
+There is support included for [godep](https://github.com/tools/godep) when used with vendored dependencies such that the
+`GOPATH` will be prefixed with `${TRAVIS_BUILD_DIR}/Godeps/_workspace` and `PATH` will be prefixed with
+`${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin`.  Additionally, if the `Godeps/_workspace/src` directory does not exist,
+`godep` will be installed and a `godep restore` will be run.
+
+It is important to note that using the older style `Godeps.json` at the top level is not supported.
+
+All of the `godep` integration steps are performed prior to the separate `go get` and makefile steps listed above.
 
 ### Installing Private Dependencies
 
@@ -89,8 +105,8 @@ set only for the owner. That's a requirement for it to be read from curl.
 
 ## Default Test Script
 
-Go projects on travis-ci.org assume that either Make or Go build tool are used by default. In case there is a Makefile in the repository root,
-the default command Travis CI will use to run your project test suite is
+Go projects on travis-ci.org assume that either Make or Go build tool are used by default. In case there is a Makefile
+in the repository root, the default command Travis CI will use to run your project test suite is
 
     make
 
@@ -104,10 +120,19 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: go
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example, to omit the `-v` flag,
-override the `script:` key in `.travis.yml` like this:
+This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example,
+to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 
     script: go test ./...
+
+The arguments passed to the default `go test` command may be overridden by specifying `gobuild_args:` at the top level
+of the config, e.g.:
+
+    go_build: -x -ldflags "-X main.VersionString v1.2.3"
+
+which will result in the script step being:
+
+    go test -x -ldflags "-X main.VersionString v1.2.3" ./...
 
 To build by running Scons without arguments, use this:
 
