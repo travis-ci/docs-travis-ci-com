@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Node.js
 
 ## Choosing Node versions to test against
 
-Historically Node.js projects were built on Ruby workers but in November 2011 Node.js support was improved to be "first class": testing against multiple Node.js versions on a separate set of VMs. We recommend that you use them to test your Node.js project. Add the following to .travis.yml:
+You can choose Node.js and io.js versions to run your tests by adding the following to .travis.yml:
 
     language: node_js
     node_js:
@@ -18,8 +18,11 @@ Historically Node.js projects were built on Ruby workers but in November 2011 No
       - "0.10"
       - "0.8"
       - "0.6"
+      - iojs
+      - iojs-v1.0.2
 
-This will make Travis CI run your tests against the latest (as provided by Travis CI maintainers, not necessary the absolutely the latest) 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases.
+This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases,
+as well as the latest io.js version release and io.js v1.0.2.
 
 0.10 is an alias for "the most recent 0.10.x release" and so on. If you don't need to test specific version, we encourage to specify it this way as it will run the newest stable release.
 
@@ -31,6 +34,7 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 * 0.8.x
 * 0.6.x
 * 0.11.x (latest development release, may be unstable)
+* iojs (recent stable release of io.js)
 
 For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
