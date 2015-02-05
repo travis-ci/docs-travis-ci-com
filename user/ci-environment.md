@@ -44,11 +44,55 @@ with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
 
 There are currently three distinct virtual environments in which your builds run.
 
-They are explained in separated documents.
+<div class="header-row header-column">
+<table><thead>
+<tr>
+<th></th>
+<th>Standard</th>
+<th>Container-based</th>
+<th>OS X</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>.travis.yml</td>
+<td><em>this is the default</em></td>
+<td><code>sudo: false</code></td>
+<td><code>language: objective-c</code> or <code>os: osx</code></td>
+</tr>
+<tr>
+<td>allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
+<td>yes</td>
+<td>no</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>boot time</td>
+<td>slightly slower then Container-based</td>
+<td>slightl faster that Standard</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>file system</td>
+<td>SIMFS, which is case sensitive and can return directory entities in random order</td>
+<td>AUFS</td>
+<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>private only</td>
+<td>public only</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>OXS</td>
+</tr>
+</tbody></table>
+</div>
 
-1. [Standard](/user/workers/standard-infrastructure)
-1. [Container-based](/user/workers/container-based-infrastructure)
-1. [OS X](/user/workers/os-x-infrastructure) (This is synonymous with Objective-C build environment.)
+All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure. 
 
 ## Networking
 
