@@ -4,7 +4,13 @@ layout: en
 permalink: /user/getting-started/
 ---
 
-The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead. Or if you want a more complete guide to a particular language, pick one of these: [C](/user/languages/c)| [C++](/user/languages/cpp)| [Clojure](/user/languages/clojure)| [C#](/user/languages/csharp/)| [D](/user/languages/d)| [Erlang](/user/languages/erlang)| [F#](/user/languages/csharp/)| [Go](/user/languages/go)| [Groovy](/user/languages/groovy)| [Haskell](/user/languages/haskell)| [Java](/user/languages/java)| [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)| [Julia](/user/languages/julia)| [Objective-C](/user/languages/objective-c)| [Perl](/user/languages/perl)| [PHP](/user/languages/php)| [Python](/user/languages/python)| [Ruby](/user/languages/ruby)| [Rust](/user/languages/rust)| [Scala](/user/languages/scala)| [Visual Basic](/user/languages/csharp/).
+The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead. 
+
+Or if you want a more complete guide to a particular language, pick one of these: 
+{{ site.data.lists.languages }}
+<!-- 
+[C](/user/languages/c) | [C++](/user/languages/cpp) | [Clojure](/user/languages/clojure) | [C#](/user/languages/csharp/) | [D](/user/languages/d) | [Erlang](/user/languages/erlang) | [F#](/user/languages/csharp/) | [Go](/user/languages/go) | [Groovy](/user/languages/groovy) | [Haskell](/user/languages/haskell) | [Java](/user/languages/java) | [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs) | [Julia](/user/languages/julia) | [Objective-C](/user/languages/objective-c) | [Perl](/user/languages/perl) | [PHP](/user/languages/php) | [Python](/user/languages/python) | [Ruby](/user/languages/ruby) | [Rust](/user/languages/rust) | [Scala](/user/languages/scala) | [Visual Basic](/user/languages/csharp/).
+-->
 
 ### To get started with Travis CI:
 
