@@ -17,32 +17,20 @@ Travis CI runs builds in isolated virtual machines that offer a vanilla build
 environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests can run in an environment built from
-scratch.
-
-To set up the system for your build, you can use the `sudo` command to install
-packages, to change configuration, create users, and so on.
-
-<div class="note-box">
-Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
-</div>
+slate and making sure that your tests run in an environment built from scratch.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## The Build Machine
-
-On the Linux platform, builds have 3 GB of memory available. Disk space is limited,
-but there's no fixed limit per build. Builds have up to two cores available (bursted).
-
-## CI environment OS
-
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit,
-with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
-
 ## Virtualization environments
 
-There are currently three distinct virtual environments in which your builds run.
+Each build runs in one of the following three virtual environments:
+
+* Standard (the default environment)
+* Container-based (the newer environment in which `sudo` commands are not available.
+* OSX for Objective-C projects
+
+The following table summarizes the differences between the virtual environments:
 
 <div class="header-row header-column">
 <table><thead>
@@ -60,34 +48,46 @@ There are currently three distinct virtual environments in which your builds run
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
 </tr>
 <tr>
-<td>allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
+<td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
 <td>yes</td>
 <td>no</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>boot time</td>
+<td>Boot Time</td>
 <td>slightly slower then Container-based</td>
 <td>slightl faster that Standard</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>file system</td>
+<td>File System</td>
 <td>SIMFS, which is case sensitive and can return directory entities in random order</td>
 <td>AUFS</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
-<td>cache</td>
+<td>Cache available</td>
 <td>private only</td>
 <td>public only</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>OS</td>
+<td>Operating System</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
-<td>OXS</td>
+<td>OS X Mavericks</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>3 GB</td>
+<td>3 GB</td>
+<td></td>
+</tr>
+<tr>
+<td>Cores</td>
+<td>Up to 2, bursted</td>
+<td>Up to 2, bursted</td>
+<td></td>
 </tr>
 </tbody></table>
 </div>
@@ -105,7 +105,7 @@ Most services work normally when talking to the local host by either `localhost`
 
 ## Environment common to all VM images
 
-### Git, etc
+### Version control
 
 All VM images have the following pre-installed
 
