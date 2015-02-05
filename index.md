@@ -4,13 +4,20 @@ layout: en
 permalink: /
 ---
 
-### Getting Started
+### New to Travis CI?
 
 Read these first.
 
+* [What is Travis CI](/user/what-is-travis)
+* [Travis CI for Complete Beginners](/user/for-beginners)
+
+### Getting Started
+
+Learn how to configure your repository to use Travis CI here.
+
 * [Getting Started](/user/getting-started)
-* [Configuring your build](/user/build-configuration)
 * [Validating .travis.yml files](/user/travis-lint) 
+* [Configuring your build](/user/build-configuration)
 
 ### Language-specific Guides
 
