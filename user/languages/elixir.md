@@ -37,6 +37,21 @@ otp_release:
 For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
 to construct a build matrix.
 
+## Default commands
+
+By default, the install command is
+
+```shell
+mix local.hex --force
+mix deps.get
+```
+
+and the script command is
+
+```shell
+mix test
+```
+
 ## Environment Variables
 
 The version of Elixir a job is using is available as:
