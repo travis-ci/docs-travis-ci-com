@@ -22,7 +22,7 @@ language: elixir
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version, and it is the user's responsibility to ensure
-that this requirement is met.
+that these requirements are met.
 
 This is handled by adding the `otp_release` as follows:
 
