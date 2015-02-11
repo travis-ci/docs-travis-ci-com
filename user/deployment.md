@@ -74,8 +74,7 @@ Common options are:
   you can limit the deployment to happen only on the job that matches the desired version.
 1. **`condition`**: You may set arbitrary bash condition with this option. It can be complex, but there can be only one.
   For example, `$CC = gcc`.
-1. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit.
-  (Due to a [known issue](https://github.com/travis-ci/travis-ci/issues/1675), you should also set `all_branches: true`.)
+1. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit. This causes the `branch` condition to be ignored.
 
 #### Examples of Conditional Releases using `on:`
 
