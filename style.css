@@ -287,7 +287,7 @@ div#main {
 
 #main ul,
 #main ul li {
-  color           : #a53f3f;
+  /*color           : #a53f3f;*/
   list-style-type : disc;
 }
 
