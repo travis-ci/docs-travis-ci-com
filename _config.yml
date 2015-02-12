@@ -12,3 +12,6 @@ redcarpet:
     - strikethrough
     - fenced_code_blocks
     - tables
+gems:
+  - jekyll-redirect-from
+
