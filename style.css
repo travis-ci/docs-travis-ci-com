@@ -1,5 +1,13 @@
 /* ---( = begin global reset thanks to eric meyer elements )------------------------------- */
 
+*, 
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -413,26 +421,22 @@ div#sidebar {
   float       : right;
   width       : 325px;
   overflow    : hidden;
-  padding-top : 0;
+  padding: 0 0 0 4rem;
 }
 
 #sidebar ul {
   margin  : 0 0 1.5em 0;
   padding : 0;
+  list-style: none;
 }
-
+#sidebar li:first-child ul {
+  margin-top: .5em;
+}
 #sidebar p {
-  margin  : 0;
-  padding : 0;
-}
-
-#sidebar p,
-#sidebar ul li p,
-#sidebar ul li a,
-#sidebar ul li a:visited {
   display         : block;
   text-decoration : none;
-  padding         : 6px 0 6px 20px;
+  margin  : 0;
+  padding : 0 0 0 1rem;
   border-top      : 1px solid #efefef;
 }
 
@@ -449,34 +453,32 @@ div#sidebar {
   padding-left : 20px;
 }
 
-#sidebar ul li ul {
-  border-bottom   : 0;
-  list-style-type : disc;
-  margin-bottom   : 0.5em;
+div#sidebar h2,
+#sidebar ul > li {
+  color          : #939386;
+  text-transform : uppercase;
 }
-
-#sidebar ul li ul li {
-  border-bottom   : 0;
-  list-style-type : disc;
-  margin-left     : 1.5em;
+div#sidebar h2 {
+  margin         : 40px 0 5px 0;
+  letter-spacing : .5px;
+  font-size      : 1.2em;
 }
-
-#sidebar ul li ul li a,
-#sidebar ul li ul li a:visited,
-#sidebar ul li.selected ul li a,
-#sidebar ul li.selected ul li a:visited {
-  display         : block;
+#sidebar > ul:first-of-type > li {
+  padding: .5rem 1rem;
+}
+#sidebar ul li a {
+  display: block;
+  font-size: 15px;
+  padding: .5em 0;
   text-decoration : none;
-  padding         : 0;
-  border-top      : 0;
-  font-weight     : normal;
-  color           : #2b4b6b;
+  text-transform: none;
+  border-bottom : 1px solid #efefef;
 }
-
-#sidebar ul li ul li.selected a,
-#sidebar ul li ul li.selected a:visited {
-  color       : #444;
-  font-weight : normal;
+#sidebar > ul:not(:first-of-type) > li {
+  padding: 0 1rem;
+}
+#sidebar li:last-child a {
+  border: none;
 }
 
 footer {
@@ -677,14 +679,6 @@ div#header p {
   border-bottom : 1px solid #ccc;
 }
 
-div#sidebar h2 {
-  color          : #939386;
-  font-size      : 1.2em;
-  letter-spacing : .5px;
-  text-transform : uppercase;
-  margin         : 40px 20px 5px 20px;
-}
-
 /*.highlight pre {
   font-family : 'Bitstream Vera Sans Mono', 'Courier', monospace;
   padding     : 0 1.5em;
@@ -767,15 +761,12 @@ hr {
 body form input.st-search-input {
   background-color      : #f2f2f2;
   display               : inline-block;
-  width                 : 253px;
-  height                : 24px;
+  width                 : 100%;
+  height                : 30px;
   padding               : 3px 7px 3px 27px;
   margin-right          : 6px;
   border                : none 0px;
-  -moz-border-radius    : 5px;
-  -webkit-border-radius : 5px;
   border-radius         : 5px;
-  -webkit-box-shadow    : none;
   box-shadow            : none;
 }
 
