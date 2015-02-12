@@ -9,9 +9,9 @@ While you can use them, you have full control over every single step of the buil
 
 We'll cover a build's lifecycle and give an overview of where you can hook into.
 
-<div id="toc"/></div>
+<div id="toc"></div>
 
-### The Build Lifecycle
+## The Build Lifecycle
 
 A build on Travis CI follows two simple steps: first, install any dependencies required, then run a script that effectively runs the build or the tests.
 
@@ -47,7 +47,7 @@ The complete lifecycle is as follows:
 5. `after_success` or `after_failure`
 6. `after_script`
 
-### Breaking the Build
+## Breaking the Build
 
 If any of the commands in the first four stages above returns a non-zero exit code, Travis CI considers the build to be broken.
 
@@ -61,7 +61,7 @@ it continues to run the remaining steps before it fails the build.
 
 Currently, neither the `after_success` nor `after_failure` have any influence on the build result. We have plans to change this behaviour.
 
-### Deployment
+## Deployment
 
 An optional phase in the build lifecycle is deployment.
 
@@ -71,6 +71,6 @@ You can run steps before a deploy by using the `before_deploy` phase. A non-zero
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
-### Customizing Build Steps
+## Customizing Build Steps
 
 You can override any of the existing steps or add new ones. Our [guide on customizing your build](/user/customizing-the-build) covers these topics.
