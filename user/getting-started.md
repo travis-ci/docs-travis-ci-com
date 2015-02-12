@@ -30,14 +30,12 @@ Or if you want a more complete guide to a particular language, pick one of these
       - "1.8.7"
       - "1.9.2"
       - "1.9.3"
-      - jruby-18mode # JRuby in 1.8 mode
-      - jruby-19mode # JRuby in 1.9 mode
       - rbx
     # uncomment this line if your project needs to run something other than `rake`:
     # script: bundle exec rspec spec
     ```
 
-    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby, two versions of JRuby and Rubinius.
+    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
 
 2. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
