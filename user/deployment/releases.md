@@ -17,7 +17,6 @@ For a minimal configuration, all you need to do is add the following to your `.t
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
@@ -43,7 +42,6 @@ You can also authenticate with your GitHub username and password using the `user
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 ### Uploading Multiple Files
 
@@ -58,7 +56,6 @@ You can upload multiple files using yml array notation. This example uploads two
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 
 ### Conditional releases

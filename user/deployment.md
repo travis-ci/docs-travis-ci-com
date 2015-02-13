@@ -108,7 +108,6 @@ This example deploys to GitHub Releases when a tag is set and the Ruby version i
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
         rvm: 2.0.0
 
 ### Other Providers
