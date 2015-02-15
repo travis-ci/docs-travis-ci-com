@@ -12,7 +12,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     deploy:
       provider: releases
-      api-key: "GITHUB OAUTH TOKEN"
+      api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
       skip_cleanup: true
       on:
