@@ -34,9 +34,9 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
 ## Provided Node.js Versions
 
-* 0.12.x (recent stable release)
+* 0.12.x (support provided on demand)
 * 0.11.x (latest development release, may be unstable)
-* 0.10.x
+* 0.10.x (recent stable release)
 * 0.8.x
 * 0.6.x
 * iojs (recent stable release of io.js)
