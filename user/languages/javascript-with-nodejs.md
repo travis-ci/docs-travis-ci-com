@@ -14,26 +14,31 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 
     language: node_js
     node_js:
+      - "0.12"
       - "0.11"
       - "0.10"
       - "0.8"
       - "0.6"
       - iojs
-      - iojs-v1.0.2
 
-This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x and 0.11.x branch releases,
-as well as the latest io.js version release and io.js v1.0.2.
+This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, and 0.12.x branch releases,
+as well as the latest io.js version release.
 
-0.10 is an alias for "the most recent 0.10.x release" and so on. If you don't need to test specific version, we encourage to specify it this way as it will run the newest stable release.
+Specifying `node` or `stable` will run using the latest stable Node.js release and specifying `iojs` will run using the latest stable io.js release.
+
+Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version.
+
+If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases.
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
 ## Provided Node.js Versions
 
-* 0.10.x (recent stable release)
+* 0.12.x (recent stable release)
+* 0.11.x (latest development release, may be unstable)
+* 0.10.x
 * 0.8.x
 * 0.6.x
-* 0.11.x (latest development release, may be unstable)
 * iojs (recent stable release of io.js)
 
 For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
@@ -86,7 +91,7 @@ like this:
 
     language: node_js
     node_js:
-      - "0.10"
+      - "0.12"
     before_install:
       - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
     services:
@@ -104,7 +109,7 @@ For example, you can use the following `.travis.yml` file .
 
     language: node_js
     node_js:
-      - "0.10"
+      - "0.12"
     before_install:
       - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
 
