@@ -51,8 +51,8 @@ The tests are done by
 will automatically detect and run all the tests in your Dart project in the
 correct environment.
 
-*WARNING*: Only _VM_ tests are supported for now. _Browser_ tests will not be
-run.
+Only _VM_ tests are run by default. _Browser_ tests will also be run if you set
+`with_content_shell: true` in your `.travis.yml`.
 
 ## Build Matrix
 
