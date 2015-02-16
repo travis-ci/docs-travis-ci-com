@@ -20,10 +20,9 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
       - "0.8"
       - "0.6"
       - iojs
-      - iojs-v1.0.2
 
 This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, and 0.12.x branch releases,
-as well as the latest io.js version release and io.js v1.0.2.
+as well as the latest io.js version release.
 
 Specifying `node` or `stable` will run using the latest stable Node.js release and specifying `iojs` will run using the latest stable io.js release.
 
@@ -41,7 +40,6 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 * 0.8.x
 * 0.6.x
 * iojs (recent stable release of io.js)
-* iojs-v1.0.2
 
 For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
