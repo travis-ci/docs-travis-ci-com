@@ -127,8 +127,8 @@ OpenShift can be configured to deploy from a branch different from the default `
 If you've done this to your application, specify this desired branch with `deployment_branch`:
 
 {% highlight yaml %}
-    deploy:
-      provider: openshift
-      ...
-      deployment_branch: mybranch
+deploy:
+  provider: openshift
+  ...
+  deployment_branch: mybranch
 {% endhighlight %}
