@@ -42,7 +42,10 @@ on dependencies in a previous list.
 
 * `apt_packages`: A list of packages to install via `apt-get`. Common examples
   here include entries in `SystemRequirements` (such as curl or XML
-  libraries). This option is ignored on OSX builds.
+  libraries). This option is ignored on non-linux builds.
+
+* `brew_packages`: A list of packages to install via `brew`. This option is
+  ignored on non-OSX builds.
 
 * `r_binary_packages`: A list of R packages to install as binary packages on
   linux builds, via Michael Rutter's
