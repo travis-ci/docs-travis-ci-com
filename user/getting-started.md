@@ -27,6 +27,7 @@ GitHub and offers first class support for:
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
+* [R](/user/languages/r)
 * [Ruby](/user/languages/ruby)
 * [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
@@ -261,6 +262,12 @@ Learn more about [.travis.yml options for PHP projects](/user/languages/php/)
     script:  PLEASE CHANGE ME
 
 Learn more about [.travis.yml options for Python projects](/user/languages/python/)
+
+#### R
+
+    language: r
+
+Learn more about [.travis.yml options for R projects](/user/languages/r/)
 
 #### Ruby
 

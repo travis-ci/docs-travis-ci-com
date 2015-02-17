@@ -24,6 +24,7 @@ languages:
 * [Perl](/user/languages/perl)
 * [PHP](/user/languages/php)
 * [Python](/user/languages/python)
+* [R](/user/languages/r)
 * [Ruby](/user/languages/ruby)
 * [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
