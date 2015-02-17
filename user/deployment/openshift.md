@@ -103,3 +103,16 @@ Sometimes you want to run commands before or after deploying. You can use the `b
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
+
+### Deployment branch
+
+OpenShift can be configured to deploy from a branch different from the default `master` via `rhc app-configure --deployment-branch mybranch`.
+
+If you've done this to your application, specify this desired branch with `deployment_branch`:
+
+{% highlight yaml %}
+    deploy:
+      provider: openshift
+      ...
+      deployment_branch: mybranch
+{% endhighlight %}
