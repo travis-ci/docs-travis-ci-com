@@ -19,6 +19,7 @@ commits, like so:
 
     deploy:
       provider: npm
+      email: "YOUR EMAIL ADDRESS"
       api_key: "YOUR API KEY"
       on:
         tags: true
