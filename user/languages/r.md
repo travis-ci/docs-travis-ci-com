@@ -22,10 +22,17 @@ and cc [@craigcitro](https://github.com/craigcitro),
 
 ## Basic configuration
 
-If your R repository doesn't need any dependencies beyond those specified in
-your `DESCRIPTION` file, your `.travis.yml` can simply be
+R support in Travis CI is designed to make it easy to test
+[R packages](http://cran.r-project.org/doc/manuals/R-exts.html). If your R
+package doesn't need any dependencies beyond those specified in your
+`DESCRIPTION` file, your `.travis.yml` can simply be
 
     language: r
+
+The R environment comes with LaTeX and
+[pandoc](http://johnmacfarlane.net/pandoc/) preinstalled, making it easier to
+use packages like [RMarkdown](http://rmarkdown.rstudio.com/) or
+[knitr](http://yihui.name/knitr/).
 
 ## Configuration options
 
@@ -33,16 +40,23 @@ Travis CI supports a number of configuration options for your R package.
 
 ### Dependencies
 
-By default, Travis CI will install all R packages listed as dependencies in
-your package `DESCRIPTION` file. However, it's often necessary or desirable to
-install additional dependencies, or newer versions of those dependencies.
-Adding an entry to one of the lists below will install before building your
-package; note that these lists are processed in order, so entries can depend
-on dependencies in a previous list.
+By default, Travis CI will find all R packages listed as dependencies in your
+package's `DESCRIPTION` file, and install them from CRAN. It's sometimes
+necessary to augment this, for a variety of reasons:
+
+* system-wide dependencies used by R packages (eg crypto or XML libraries)
+* binary installs of dependencies (to speed up builds)
+* development versions of packages from github (useful for testing upcoming
+  releases, or picking up not-yet-released bugfixes)
+
+Each of the names below is a list of packages you can optionally specify as a
+top-level entry in your `.travis.yml`; entries in these lists will be
+installed before building and testing your package. Note that these lists are
+processed in order, so entries can depend on dependencies in a previous list.
 
 * `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements` (such as curl or XML
-  libraries). This option is ignored on non-linux builds.
+  here include entries in `SystemRequirements`. This option is ignored on
+  non-linux builds.
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OSX builds.
@@ -106,12 +120,6 @@ the following `.travis.yml`:
 
 ### Miscellaneous
 
-* `pandoc`: If `true`, a recent version of
-  [pandoc](http://johnmacfarlane.net/pandoc/) will be installed and available
-  in your `$PATH`. This is particularly useful for packages using
-  [RMarkdown](http://rmarkdown.rstudio.com/) or
-  [knitr](http://yihui.name/knitr/).
-
 * `cran`: CRAN mirror to use for fetching packages. Defaults to
   `http://cran.rstudio.com/`.
 
@@ -119,7 +127,7 @@ the following `.travis.yml`:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
-## Complex examples
+## A complex example
 
 Here we provide a more complex examples using several options above.
 
