@@ -1,17 +1,12 @@
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
-markdown: redcarpet
+markdown: kramdown
 permalink: :title
 safe: true
 syntax-highlighting:
   enabled: true
-redcarpet:
-  extensions:
-    - hard_wrap
-    - no_intra_emphasis
-    - autolink
-    - strikethrough
-    - fenced_code_blocks
-    - tables
+kramdown:
+  input: GFM
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
 gems:
   - jekyll-redirect-from
 
