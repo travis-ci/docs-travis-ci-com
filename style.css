@@ -1011,3 +1011,21 @@ input[type=email] {
   #top li.traviscicom a {
     padding-left: 0px; }
 
+
+table td,
+table th {
+  padding: 0.7em;
+}
+
+.header-row thead tr th:not(:empty) {
+  background: #F2F2F2;
+  text-align: center;
+  font-size: 13px;
+}
+tbody tr {
+  border-bottom: #e2e2e2 solid 1px;
+}
+.header-column tbody tr > td:first-child {
+  background: #F2F2F2;
+  text-align: right;
+}
