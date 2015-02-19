@@ -105,6 +105,16 @@ Learn more about [.travis.yml options for Clojure projects](/user/languages/cloj
 
 Learn more about [.travis.yml options for C# projects](/user/languages/csharp/)
 
+#### Dart
+
+    language: dart
+    dart:
+      - stable
+      - dev
+      - "1.8.0"
+
+Learn more about [.travis.yml options for Dart projects](/user/languages/dart/)
+
 #### Erlang
 
     language: erlang

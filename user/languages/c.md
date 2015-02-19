@@ -23,8 +23,8 @@ For precise versions on the VM, please consulte "Build system information" in th
 
 ## Dependency Management
 
-Because there is no dominant convention in the community about dependency management, Travis CI skips dependency installation
-for C projects.
+There is no dominant convention in the community about dependency management, but there are some dependency management tools available. 
+Travis CI has support for [biicode](https://www.biicode.com/), a C and C++ dependency manager. Check [how to deploy with biicode](http://docs.travis-ci.com/user/deployment/biicode/).
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 

@@ -6,18 +6,21 @@ permalink: /user/deployment/releases/
 
 Travis CI can automatically upload assets to your git tags on your GitHub repository.
 
+**Please note that deploying GitHub Releases works only for tags, not for branches.**
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
     deploy:
       provider: releases
-      api-key: "GITHUB OAUTH TOKEN"
+      api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
+
+Note that the section at the end of the .travis.yml above is required to make sure that your tags get deployed.
 
 You can always use the Travis CI command line client set everything up for you:
 
@@ -39,7 +42,6 @@ You can also authenticate with your GitHub username and password using the `user
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 ### Uploading Multiple Files
 
@@ -54,7 +56,6 @@ You can upload multiple files using yml array notation. This example uploads two
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
 
 
 ### Conditional releases
