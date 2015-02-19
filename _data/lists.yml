@@ -1,5 +1,4 @@
 languages:  |
-    <div markdown="1" class="langlist">
     * [Android](/user/languages/android/)
     * [C#](/user/languages/csharp)
     * [C++](/user/languages/cpp/)
@@ -22,7 +21,6 @@ languages:  |
     * [Rust](/user/languages/rust/)
     * [Scala](/user/languages/scala/)
     * [Visual Basic](/user/languages/csharp/)
-    </div>
 deployments: |
     * [Appfog](/user/deployment/appfog)
     * [Cloud 66](/user/deployment/cloud66)
