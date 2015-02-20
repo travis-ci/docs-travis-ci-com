@@ -6,8 +6,6 @@ permalink: /user/caching/
 
 The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**. These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
-Also note that caching is only avaiable in the Linux build environment at this time, so caching is not available for Objective-C builds.
-
 <div id="toc"></div>
 
 ## Caching directories (Bundler, dependencies)

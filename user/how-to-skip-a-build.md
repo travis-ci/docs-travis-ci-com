@@ -23,9 +23,3 @@ Commits that have `[ci skip]` anywhere in the commit messages will be ignored.
 it without polluting your project's history.
 
 Alternatively, you can also use `[skip ci]`.
-
-## Example
-
-Here is an example:
-
-![ci skip example](https://img.skitch.com/20111013-pu5e4gijiw4416m4y4uc29fxwa.jpg)

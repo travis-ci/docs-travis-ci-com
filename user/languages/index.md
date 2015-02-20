@@ -11,6 +11,7 @@ languages:
 * [Clojure](/user/languages/clojure)
 * [C#](/user/languages/csharp/)
 * [D](/user/languages/d)
+* [Dart](/user/languages/dart)
 * [Erlang](/user/languages/erlang)
 * [F#](/user/languages/csharp/)
 * [Go](/user/languages/go)

@@ -254,6 +254,10 @@ to your `.travis.yml`.
 
 Neo4J Server uses default configuration (localhost, port 7474).
 
+<div class="note-box">
+  Neo4j fails to start on container builds. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https://github.com/travis-ci/travis-ci/issues/3243</a>
+</div>
+
 ### ElasticSearch
 
 ElasticSearch is **not started on boot**. To make Travis CI start the service for you, add

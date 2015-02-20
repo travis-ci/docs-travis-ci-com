@@ -8,11 +8,13 @@ Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) 
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-    deploy:
-      provider: openshift
-      user: "YOU USER NAME"
-      password: "YOUR PASSWORD" # can be encrypted
-      domain: "YOUR OPENSHIFT DOMAIN"
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  user: "YOU USER NAME"
+  password: "YOUR PASSWORD" # can be encrypted
+  domain: "YOUR OPENSHIFT DOMAIN"
+{% endhighlight %}
 
 Currently it is not possible to use a token instead of the password, as these tokens expire too quickly. We are working with the OpenShift team on a solution.
 
@@ -30,31 +32,37 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-    deploy:
-      provider: openshift
-      ...
-      app: my-app-123
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  app: my-app-123
+{% endhighlight %}
 
 It is also possible to deploy different branches to different applications:
 
-    deploy:
-      provider: openshift
-      ...
-      app:
-        master: my-app-staging
-        production: my-app-production
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  app:
+    master: my-app-staging
+    production: my-app-production
+{% endhighlight %}
 
 If these apps belong to different OpenShift domains, you will have to do the same for the domain:
 
-    deploy:
-      provider: openshift
-      ...
-      domain:
-        master: ...
-        production: ...
-      app:
-        master: my-app-staging
-        production: my-app-production
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  domain:
+    master: ...
+    production: ...
+  app:
+    master: my-app-staging
+    production: my-app-production
+{% endhighlight %}
 
 ### Branch to deploy from
 
@@ -62,18 +70,22 @@ If you have branch specific options, as [shown above](#Application-to-deploy), T
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-    deploy:
-      provider: openshift
-      ...
-      on: production
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  on: production
+{% endhighlight %}
 
 Alternatively, you can also configure it to deploy from all branches:
 
-    deploy:
-      provider: openshift
-      ...
-      on:
-        all_branches: true
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  on:
+    all_branches: true
+{% endhighlight %}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -83,10 +95,12 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
-    deploy:
-      provider: openshift
-      ...
-      skip_cleanup: true
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  skip_cleanup: true
+{% endhighlight %}
 
 ### Conditional releases
 
@@ -97,9 +111,24 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-    before_deploy: "echo 'ready?'"
-    deploy:
-      ..
-    after_deploy:
-      - ./after_deploy_1.sh
-      - ./after_deploy_2.sh
+{% highlight yaml %}
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+{% endhighlight %}
+
+### Deployment branch
+
+OpenShift can be configured to deploy from a branch different from the default `master` via `rhc app-configure --deployment-branch mybranch`.
+
+If you've done this to your application, specify this desired branch with `deployment_branch`:
+
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  ...
+  deployment_branch: mybranch
+{% endhighlight %}

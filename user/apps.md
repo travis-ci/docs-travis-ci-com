@@ -129,6 +129,19 @@ By Piwik.
 </figcation>
 </figure>
 
+<figure class="app">
+![node-build-monitor](/images/apps/node-build-monitor.jpg)
+<figcation>
+### node-build-monitor
+
+Simple and extensible Build Monitor written in Node.js<br>
+By Marcell Spies
+
+* [website](http://marcells.github.io/node-build-monitor)
+* [source code](https://github.com/marcells/node-build-monitor)
+</figcation>
+</figure>
+
 ## Tools
 
 <figure class="app official">

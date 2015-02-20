@@ -14,17 +14,18 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
 
     language: php
     php:
-      - 5.5
       - 5.4
+      - 5.5
+      - 5.6
       - hhvm
 
 This will make Travis CI run your tests using
 
     phpunit
 
-by default against the latest 5.4.x and 5.5.x releases, and the latest release of HHVM. 5.4 and 5.5 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis CI maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
+by default against the latest 5.4.x, 5.5.x, and 5.6.x releases, and the latest release of HHVM. 5.4, 5.5, and 5.6 are aliases for "the most recent x.y.z release" of any given line. Note that "most recent" means "as provided by the Travis CI maintainers", not necessarily the very latest official php.net release. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
-Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis CI.
+Also note that specifying exact versions like 5.3.8 is discouraged as your .travis.yml file may become out of date and break your build when we update PHP versions on Travis CI. You may, however, select 5.5.9 as a version because we exlusively support that specific version because it's the version of php that's shipped with Ubuntu 14.04 LTS.
 
 For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
@@ -131,13 +132,12 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-* For unmaintained PHP versions we provide (5.2.x, 5.3.3), OpenSSL extension is disabled because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/). Recent PHP 5.3.x and 5.4.x releases we provide do have OpenSSL extension support.
-* Pyrus is not available for PHP 5.2.x.
+* Note that the OpenSSL extension is disabled on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
 * Different SAPIs:
 
-  * 5.2.x and 5.3.3 come with php-cgi only.
-  * 5.3.x (last version in the 5.3 branch) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
-  * 5.4.x and 5.5.x come with php-cgi *and* php-fpm.
+  * 5.3.3 comes with php-cgi only.
+  * 5.3.x (5.3.29) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
+  * 5.4.x, 5.5.x, and 5.6.x come with php-cgi *and* php-fpm.
 
 ## Custom PHP configuration
 

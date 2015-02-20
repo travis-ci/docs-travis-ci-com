@@ -68,14 +68,19 @@ provider will be peformed.
 Common options are:
 
 1. **`repo`** Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+
 1. **`branch`** Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
   `all_branches: true` _instead of_ `branch: **` and use other conditions to control your deployment.
+
 1. **`jdk`**, **`node`**, **`perl`**, **`php`**, **`python`**, **`ruby`**, **`scala`**, **`go`**: For language runtimes that support multiple versions,
   you can limit the deployment to happen only on the job that matches the desired version.
-1. **`condition`**: You may set arbitrary bash condition with this option. It can be complex, but there can be only one.
-  For example, `$CC = gcc`.
-1. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit.
-  (Due to a [known issue](https://github.com/travis-ci/travis-ci/issues/1675), you should also set `all_branches: true`.)
+
+1. **`condition`**: You may set bash condition with this option.
+This must be a string value, which will be pasted into a bash expression of the form
+`if [[ <condition> ]]; then <deploy>; fi`
+It can be complex, but there can be only one. For example, `$CC = gcc`.
+
+1. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit. This causes the `branch` condition to be ignored.
 
 #### Examples of Conditional Releases using `on:`
 
@@ -109,7 +114,6 @@ This example deploys to GitHub Releases when a tag is set and the Ruby version i
       skip_cleanup: true
       on:
         tags: true
-        all_branches: true
         rvm: 2.0.0
 
 ### Other Providers
