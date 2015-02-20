@@ -34,6 +34,10 @@ The R environment comes with LaTeX and
 use packages like [RMarkdown](http://rmarkdown.rstudio.com/) or
 [knitr](http://yihui.name/knitr/).
 
+Note that R support in Travis CI currently requires `sudo`, which means it
+can't be used with
+[container-based builds](/user/workers/container-based-infrastructure/).
+
 ## Configuration options
 
 Travis CI supports a number of configuration options for your R package.
@@ -93,10 +97,6 @@ when building and checking your package:
 * `r_check_args`: additional arguments to pass to `R CMD check`, as a single
   string. Defaults to `--as-cran`.
 
-* `r_check_cran_incoming`: if `true`, sets the value of the
-  `_R_CHECK_CRAN_INCOMING_` environment variable, which forces additional
-  CRAN-readiness checks.
-
 ### BioConductor
 
 If your package is detected as a BioConductor package, Travis CI will first
@@ -134,7 +134,6 @@ Here we provide a more complex examples using several options above.
     language: r
 
     # Be strict when checking our package
-    r_check_cran_incoming: true
     warnings_are_errors: true
 
     # System dependencies for HTTP calling
