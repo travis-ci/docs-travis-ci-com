@@ -1,5 +1,5 @@
 ---
-title: Using PostgreSQl on Travis CI
+title: Using PostgreSQL on Travis CI
 layout: en
 permalink: /user/using-postgresql/
 ---
