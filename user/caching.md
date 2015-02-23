@@ -97,6 +97,18 @@ method](#Arbitrary-directories) described below:
       directories:
         - path/to/Pods
 
+### pip cache
+
+If you do not override the `install` phase of the build,
+
+{% highlight yaml %}
+language: python
+
+cache: pip
+{% endhighlight %}
+
+caches `$HOME/.cache/pip`.
+
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
