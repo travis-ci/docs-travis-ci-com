@@ -109,6 +109,19 @@ cache: pip
 
 caches `$HOME/.cache/pip`.
 
+### ccache cache
+
+If you do not override the `install` build phase,
+
+{% highlight yaml %}
+language: c # or other C/C++ variants
+
+cache: ccache
+{% endhighlight %}
+
+caches `$HOME/.ccache`.
+
+
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
