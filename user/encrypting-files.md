@@ -67,28 +67,12 @@ Commit all changes to your .travis.yml.
 
 ### Encrypting multiple files
 
-Note that this method works only with one file. (https://github.com/travis-ci/travis.rb/issues/239)
+Note that this method [works only with one file](https://github.com/travis-ci/travis.rb/issues/239).
 
-If you need to encrypt multiple files, there are a couple of options.
+If you need to encrypt multiple files, you will need to create an archive of sensitive files,
+then decrypt and expand it during the build.
 
-#### Workaround 1
-
-Reuse the `key` and `iv` values.
-
-{% highlight console %}
-$ K=$(ruby -rsecurerandom -e 'puts SecureRandom.hex(32).chomp')
-$ IV=$(ruby -rsecurerandom -e 'puts SecureRandom.hex(16).chomp')
-$ for f in foo bar; do travis encrypt-file $f -K $K --iv $IV; done
-$ git add foo.enc bar.enc
-$ git commit -m 'encrypt foo and bar with the same key'
-$ git push
-{% endhighlight %}
-
-Note that you'll have to remember these values, or re-encrypt all the files every time you make a change to one.
-
-#### Workaround 2
-
-Create an archive of sensitive files, and encrypt this archive. In your `before_install` section, you'd decrypt it, and expand the archive.
+Suppose we have sensitive files `foo` and `bar`.
 
 {% highlight console %}
 $ tar cvf secrets.tar foo bar
@@ -104,6 +88,8 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
 {% endhighlight %}
+
+(Adjust `$*_key` and `$*_iv` according to your needs.)
 
 ### Caveat
 
