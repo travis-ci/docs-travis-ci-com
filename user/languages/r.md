@@ -127,6 +127,15 @@ the following `.travis.yml`:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+## Converting from r-travis
+
+If you've already been using
+[r-travis](https://github.com/craigcitro/r-travis) to test your R package,
+you're encouraged to switch to using the native support described here. We've
+written a
+[porting guide](https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis)
+to help you modify your `.travis.yml`.
+
 ## A complex example
 
 Here we provide a more complex examples using several options above.
