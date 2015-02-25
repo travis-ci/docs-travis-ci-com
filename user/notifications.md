@@ -308,9 +308,9 @@ Notifications can also be sent via [Pushover](https://pushover.net/) via the fol
 
     notifications:
       pushover:
-	    api_key: [api token]
-	    users:
-		  - [user key]
+        api_key: [api token]
+        users:
+          - [user key]
 
 
 * *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
@@ -318,18 +318,18 @@ Notifications can also be sent via [Pushover](https://pushover.net/) via the fol
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository:
 
-    travis encrypt api_token --add notifications.pushover.api_key
-    travis encrypt user_key --append notifications.pushover.users
+    travis encrypt [api_token] --add notifications.pushover.api_key
+    travis encrypt [user_key] --add notifications.pushover.users
 
 You can also customise the notifications, like with IRC notifications:
 
     notifications:
     pushover:
-	    api_key: [api token]
-        users:
-          - [user key]
-		  - [user key]
-        template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+      api_key: [api token]
+      users:
+        - [user key]
+        - [user key]
+      template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
