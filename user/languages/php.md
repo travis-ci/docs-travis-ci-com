@@ -18,6 +18,8 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
       - 5.5
       - 5.6
       - hhvm
+      - nightly
+
 
 This will make Travis CI run your tests using
 
@@ -271,6 +273,35 @@ You will need to have ``build/travis-ci-apache`` file that will configure your v
 </VirtualHost>
 ```
 
+## PHP nightly builds
+
+Travis CI offers ability to test your PHP applications with a recent build of
+[PHP](https://github.com/php/php-src/).
+
+You can specify this with:
+
+{% highlight yaml %}
+language: php
+
+php:
+  - nightly
+{% endhighlight %}
+
+This installation includes PHPUnit and Composer, but does not include any extension
+mentioned above or xdebug.
+
+### PHP 7
+
+Until PHP 7 is officially released and pre-installed on our PHP VMs,
+
+{% highlight yaml %}
+language: php
+
+php:
+  - '7' # or '7.0'
+{% endhighlight %}
+
+can be used as aliases to `nightly`.
 
 ## Build Matrix
 
