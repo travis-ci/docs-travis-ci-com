@@ -152,4 +152,13 @@ Here we provide a more complex examples using several options above.
 
 ## Examples
 
-`TODO(craigcitro)`: Add a few examples once we've tested R support.
+(coming soon)
+
+## Acknowledgements
+
+R support for Travis CI was originally based on the
+[r-travis](https://github.com/craigcitro/r-travis) project, and thanks are due
+to all the
+[contributors](https://github.com/craigcitro/r-travis/graphs/contributors).
+For more information on moving from r-travis to native support, see the
+[porting guide](https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis).
