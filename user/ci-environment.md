@@ -177,6 +177,7 @@ depends on the language you're using.
 * `TRAVIS_PERL_VERSION`
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
+* `TRAVIS_R_VERSION`
 * `TRAVIS_RUBY_VERSION`
 * `TRAVIS_RUST_VERSION`
 * `TRAVIS_SCALA_VERSION`
@@ -426,4 +427,3 @@ Recent 1.7.x version (usually the most recent)
 
 * bundler
 * rake
-
