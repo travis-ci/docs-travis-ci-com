@@ -303,6 +303,9 @@ php:
 
 can be used as aliases to `nightly`.
 
+Note that [PECL extensions listed above](#Preinstalled-PHP-extensions) are not installed on nightly builds.
+If you need these, you need to install them with `pecl`.
+
 ## Build Matrix
 
 For PHP projects, `env` and `php` can be given as arrays
