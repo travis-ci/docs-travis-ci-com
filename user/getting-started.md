@@ -4,93 +4,53 @@ layout: en
 permalink: /user/getting-started/
 ---
 
-### Travis CI Overview
+The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead. 
 
-Travis CI is a hosted continuous integration service. It is integrated with
-GitHub and offers first class support for:
+Or if you want a more complete guide to a particular language, pick one of these: 
 
-* [C](/user/languages/c)
-* [C++](/user/languages/cpp)
-* [Clojure](/user/languages/clojure)
-* [C#](/user/languages/csharp/)
-* [D](/user/languages/d)
-* [Dart](/user/languages/dart)
-* [Erlang](/user/languages/erlang)
-* [F#](/user/languages/csharp/)
-* [Go](/user/languages/go)
-* [Groovy](/user/languages/groovy)
-* [Haskell](/user/languages/haskell)
-* [Java](/user/languages/java)
-* [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
-* [Julia](/user/languages/julia)
-* [Objective-C](/user/languages/objective-c)
-* [Perl](/user/languages/perl)
-* [PHP](/user/languages/php)
-* [Python](/user/languages/python)
-* [R](/user/languages/r)
-* [Ruby](/user/languages/ruby)
-* [Rust](/user/languages/rust)
-* [Scala](/user/languages/scala)
-* [Visual Basic](/user/languages/csharp/)
+{{ site.data.lists.languages }}
 
+<!-- 
+[C](/user/languages/c) | [C++](/user/languages/cpp) | [Clojure](/user/languages/clojure) | [C#](/user/languages/csharp/) | [D](/user/languages/d) | [Erlang](/user/languages/erlang) | [F#](/user/languages/csharp/) | [Go](/user/languages/go) | [Groovy](/user/languages/groovy) | [Haskell](/user/languages/haskell) | [Java](/user/languages/java) | [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs) | [Julia](/user/languages/julia) | [Objective-C](/user/languages/objective-c) | [Perl](/user/languages/perl) | [PHP](/user/languages/php) | [Python](/user/languages/python) | [Ruby](/user/languages/ruby) | [Rust](/user/languages/rust) | [Scala](/user/languages/scala) | [Visual Basic](/user/languages/csharp/).
+-->
 
-Travis CI's build environment provides different runtimes for different
-languages, for instance multiple versions of Ruby, PHP, Node.js. It also comes
-preinstalled with a variety of data stores and common tools like message
-brokers.
+### To get started with Travis CI:
 
-You can easily test your project against one or more versions of languages and
-even data stores.
+1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmation](/user/github-oauth-scopes).
 
-### Step one: Sign in
+2. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the repository you want to build.
 
-To get started with Travis CI, sign in with your GitHub account. Go to [Travis
-CI](http://travis-ci.org) and follow the Sign In link at the top.
+	> Note: You can only enable Travis CI builds for repositories you have admin access to.  
 
-Note that **on <https://travis-ci.org>, you'll currently only see your public
-repositories**, whereas **on <https://travis-ci.com>, you can find your private
-projects**.
+2. Add a `.travis.yml` file to your repository to tell Travis CI what to build:
 
-While signing in, GitHub will ask you for a set of access permissions on our
-behalf. We've [outlined them and their use in more
-detail](/user/github-oauth-scopes).
+	```yaml
+    language: ruby
+    rvm:
+      - "1.8.7"
+      - "1.9.2"
+      - "1.9.3"
+      - rbx
+    # uncomment this line if your project needs to run something other than `rake`:
+    # script: bundle exec rspec spec
+    ```
 
-### Step two: Activate GitHub Webhook
+    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
 
-Once you're signed in, and we've initially synchronized your repositories from
-GitHub, go to your [profile page for open source](https://travis-ci.org/profile)
-or [for your private projects](https://magnum.travis-ci.com/profile).
+2. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
-You'll see all the organizations you're a member of and all the repositories you
-have access to. The ones you have administrative access to are the ones you can
-enable the service hook for.
+	> Note: Travis only runs a build on the commits you push after adding the repository to Travis.
+	> Note: If your project already has a `.travis.yml` file, you need to push another commit to trigger a build.
 
-Flip switch to on for all repositories you'd like to enable.
+2. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails.
 
-###  Step three: Add .travis.yml file to your repository
+You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](user/ci-environment/)?
 
-In order for Travis CI to build your project, you need to tell the system a
-little bit about it. You'll need to add a file named `.travis.yml` to the root
-of your repository.
+For any kind of questions feel free to join our IRC channel [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis).
 
-We will only cover basic .travis.yml options in this guide. The most important
-one is the **language** key. It tells Travis CI which language environment to
-select for your project.
+<!--
 
-Ruby projects typically use different build tools and
-practices than Clojure or PHP projects do, so Travis CI needs to know what to
-do.
-
-If `.travis.yml` is not in the repository, is misspelled or is not [valid
-YAML](http://yaml-online-parser.appspot.com/), Travis CI will ignore it,
-assume Ruby as the language and use default values for everything.
-
-#### Note
-
-The `language` value is case-sensitive.
-If you set `language: C`, for example, your project will be considered a Ruby project.
-
-Here are some basic **.travis.yml** examples:
+### Some basic **.travis.yml** examples:
 
 
 #### C
@@ -298,60 +258,4 @@ Learn more about [.travis.yml options for Ruby projects](/user/languages/ruby/)
 
 Learn more about [.travis.yml options for Scala projects](/user/languages/scala/)
 
-#### Validate Your .travis.yml
-
-We recommend you use [travis-lint](http://github.com/travis-ci/travis-lint) (command-line tool) or [.travis.yml validation Web app](http://lint.travis-ci.org) to validate your `.travis.yml` file.
-
-`travis-lint` requires Ruby 1.8.7+ and RubyGems installed. Get it with
-
-    gem install travis-lint
-
-and run it on your `.travis.yml`:
-
-    # inside a repository with .travis.yml
-    travis-lint
-
-    # from any directory
-    travis-lint [path to your .travis.yml]
-
-`travis-lint` will check things like
-
-* The `.travis.yml` file is [valid YAML](http://yaml-online-parser.appspot.com/)
-* The `language` key is present
-* The runtime versions (Ruby, PHP, OTP, etc) specified are supported in the [Travis CI Environment](/user/ci-environment/)
-* That you are not using deprecated features or runtime aliases
-
-and so on. `travis-lint` is your friend, use it.
-
-### Step four: Trigger Your First Build With a Git Push
-
-Once GitHub hook is set up, push your commit that adds .travis.yml to your repository. That should add a build into one of the queues on [Travis CI](http://travis-ci.org) and your build will start as soon as one worker for your language is available.
-
-To start a build, perform one of the following:
-
-1. Commit and push something to your repository
-1. Go to your repository's settings page, click on "Webhooks & Services" on the left menu, choose "Travis CI" in the "Services",  and use the "Test service" button.
-
-Please note that **you cannot trigger your first build using Test Hook button**. It has to be triggered by a push to your repository.
-
-### Step five: Tweaking your build configuration
-
-Chances are, your project requires some customization to the build process.
-Maybe you need to create a database before running your tests or you use build
-tools different from what Travis CI's defaults are. Worry not. Travis CI lets
-you override almost everything.
-
-Learn how to [customize your build](/user/customizing-the-build) or [how to
-install dependencies for your project.](/user/installing-dependencies)
-
-After making some changes to the `.travis.yml`, don't forget to check that it is [valid YAML](http://yaml-online-parser.appspot.com/) and run `travis-lint` to validate it.
-
-### Step six: Learn more
-
-A Travis CI worker comes with a good number of services you might depend on, including MySQL, PostgreSQL, MongoDB, Redis, CouchDB, RabbitMQ, memcached and others.
-
-See [Database setup](/user/database-setup/) to learn how to configure a database connection for your test suite. More information about our test environment can be found [in a separate guide](/user/ci-environment/).
-
-### Step seven: We are here to help!
-
-For any kind of questions feel free to join our IRC channel [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis). We're there to help :)
+-->

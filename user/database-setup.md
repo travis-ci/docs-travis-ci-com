@@ -1,18 +1,15 @@
 ---
-title: Databases and other services
+title: Setting up Databases 
 layout: en
 permalink: /user/database-setup/
 ---
 
-### What This Guide Covers
+This guide covers setting up the most popular databases and other services in the Travis CI environemnt. Looking for information on [configuring multiple databases?](/user/database-setup/#Multiple-database-systems).
 
-This guide covers data stores and other services (e.g. RabbitMQ) offered in the Travis [CI environment](/user/ci-environment/) and what users and settings projects hosted on travis-ci.org can rely on. Most of the content is applicable to any technology but there are subtle aspects in the behavior of some database drivers that this guide will try to cover. We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/build-configuration/) guides before reading this one.
-
-## Services (data stores, messaging brokers, etc) in the Travis CI Environment
-
-[Travis CI Environment](/user/ci-environment/) has multiple popular data stores preinstalled. Some of the services available are:
+The following services are available, all of them use default settings, with the exception of some added users and relaxed security settings:
 
 * [MySQL](#MySQL)
+* [SQLite3](#SQLite3)
 * [PostgreSQL](#PostgreSQL)
 * [MongoDB](#MongoDB)
 * [CouchDB](#CouchDB)
@@ -24,49 +21,32 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * [Neo4J](#Neo4J)
 * [ElasticSearch](#ElasticSearch)
 * [Kestrel](#Kestrel)
-* [SQLite3](#SQLite3)
 
-All of these data stores use the default settings, with one exception: When it
-makes sense, new users are added and the security settings are relaxed for ease
-of use. One example of this is PostgreSQL which normally has very strict
-default access settings.
 
-## Configure Your Projects to Use Services in Tests
+## Starting Services
 
-Here is how to configure your project to use databases in its tests. This assumes you have already read the [Build configuration](/user/build-configuration/) documentation.
-
-### Enabling Services
-
-Most services are not started on boot to make more RAM available to project test suites.
-
-If your project needs, say, MongoDB running, you can add the following to your `.travis.yml`:
+Most services are not started on boot to make more RAM available to test suites, so you need to tell Travis CI to start them
+using the `services` entry in `.travis.yml`:
 
     services: mongodb
 
-or if you need several services, you can use the following:
+or to start several services:
 
     services:
-      - riak     # will start riak
-      - rabbitmq # will start rabbitmq-server
-      - memcached # will start memcached
+      - riak      # start riak
+      - rabbitmq  # start rabbitmq-server
+      - memcached # start memcached
 
-This allows us to provide nice aliases for each service and normalize common differences between names, like RabbitMQ for example. Note that this feature only
-works for services we provision in our [CI environment](/user/ci-environment/). If you download, say, Apache Jackrabbit and
-start it manually in a `before_install` step, you will still have to do it the same way.
-
-
+> Note that this feature only works for services we provision in our [CI environment](/user/ci-environment/). If you download Apache Jackrabbit you
+> you still have to start it in a `before_install` step.
 
 ### MySQL
 
-MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  Note that the "travis" user does not have full MySQL privileges that the "root" user does.
+MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  
 
-You might have to create the `myapp_test` database first. Run this as part of your build script:
+>Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 
-    # .travis.yml
-    before_script:
-      - mysql -e 'create database myapp_test;'
-
-#### config/database.yml Example
+#### Using MySQL with ActiveRecord
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
@@ -76,13 +56,19 @@ You might have to create the `myapp_test` database first. Run this as part of yo
       username: travis
       encoding: utf8
 
+You might have to create the `myapp_test` database first. Run this as part of your build script:
+
+    # .travis.yml
+    before_script:
+      - mysql -e 'create database myapp_test;'
+
 #### Note on `test` database
 
 In older versions of MySQL, Ubuntu package provided the `test` database by default.
 This is no longer the case as of version 5.5.37 due to security concerns
 (See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.37-0ubuntu0.12.04.1/changelog)).
 
-If you need it, you must create one yourself; e.g.,
+If you need it, create it using the following `before_install` line:
 
 ```yaml
 before_install:
@@ -98,7 +84,7 @@ before_install:
 Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases,
 in memory SQLite might be the best option.
 
-#### Ruby Projects
+#### SQLite3 in Ruby Projects
 
 For Ruby projects, ensure that you have the sqlite3 ruby bindings in your bundle:
 
@@ -123,18 +109,16 @@ If you're not using a `config/database.yml` file to configure ActiveRecord, you 
 
 ### MongoDB
 
-MongoDB is **not started on boot**. To make Travis CI start the service for you, add
+MongoDB is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - mongodb
 
-to your `.travis.yml`.
+MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front. If you add an admin user, authentication will be enabled, since `mongod` is started with the `--auth` argument.
 
-MongoDB binds to 127.0.0.1 and requires no authentication or database creation up front. If you add an admin user, authentication will be enabled, since mongod is started with the `--auth` argument.
+> Note: Admin users are users created on the admin database.
 
-Note: Admin users are users created on the admin database.
-
-In cases you need to create users for your database, you can do it using a `before_script` in your `.travis.yml` file:
+To create users for your database, add a `before_script` to your `.travis.yml` file:
 
     # .travis.yml
     before_script:
@@ -154,14 +138,12 @@ inject artificial wait before making the first connection:
 
 ### CouchDB
 
-CouchDB is **not started on boot**. To make Travis CI start the service for you, add
+CouchDB is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - couchdb
 
-to your `.travis.yml`.
-
-CouchDB binds to 127.0.0.1, uses stock configuration and requires no authentication (it runs in admin party).
+CouchDB binds to 127.0.0.1, uses stock configuration and does not require authentication (in CouchDB speak it runs in admin party).
 
 You have to create the database as part of your build process:
 
@@ -172,60 +154,50 @@ You have to create the database as part of your build process:
 
 ### RabbitMQ
 
-RabbitMQ is **not started on boot**. To make Travis CI start the service for you, add
+RabbitMQ is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - rabbitmq
 
-to your `.travis.yml`.
-
-RabbitMQ uses stock configuration, so default vhost (`/`), username (`guest`) and password (`guest`) can be relied on.
+RabbitMQ uses the default configuration of vhost (`/`), username (`guest`) and password (`guest`). 
 You can set up more vhosts and roles via a `before_script` if needed (for example, to test authentication).
 
 
 ### Riak
 
-Riak is **not started on boot**. To make Travis CI start the service for you, add
+Riak is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - riak
-
-to your `.travis.yml`.
 
 Riak uses stock configuration with one exception: it is configured to use [LevelDB storage backend](http://docs.basho.com/riak/latest/ops/advanced/backends/leveldb/).
 Riak Search is enabled.
 
 ### Memcached
 
-Memcached is **not started on boot**. To make Travis CI start the service for you, add
+Memcached is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - memcached
-
-to your `.travis.yml`.
 
 Memcached uses stock configuration and binds to localhost.
 
 ### Redis
 
-Redis is **not started on boot**. To make Travis CI start the service for you, add
+Redis is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - redis-server
-
-to your `.travis.yml`.
 
 Redis uses stock configuration and is available on localhost.
 
 
 ### Cassandra
 
-Cassandra is **not started on boot**. To make Travis CI start the service for you, add
+Cassandra is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - cassandra
-
-to your `.travis.yml`.
 
 Cassandra is provided via [Datastax Community Edition](http://www.datastax.com/products/community) and uses stock configuration (available on 127.0.0.1).
 
@@ -239,33 +211,25 @@ before_install:
   - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
 ```
 
-<div class="note-box">
-Note that <pre>sudo</pre> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
-</div>
+> `sudo` is not available on [Container-based workers](/user/ci-environment/#Virtualization-environments).
 
 ### Neo4J
 
-Neo4J Server (Community Edition) is **not started on boot**. To make Travis CI start the service for you, add
+Neo4J Server (Community Edition) is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - neo4j
 
-to your `.travis.yml`.
-
 Neo4J Server uses default configuration (localhost, port 7474).
 
-<div class="note-box">
-  Neo4j fails to start on container builds. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https://github.com/travis-ci/travis-ci/issues/3243</a>
-</div>
+> Neo4j does not start on container-based workers. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https://github.com/travis-ci/travis-ci/issues/3243</a>
 
 ### ElasticSearch
 
-ElasticSearch is **not started on boot**. To make Travis CI start the service for you, add
+ElasticSearch is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - elasticsearch
-
-to your `.travis.yml`.
 
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
 
@@ -277,10 +241,11 @@ You can overwrite the installed ElasticSearch with the version you need (e.g., 1
 before_install:
   - wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb
 ```
+> `sudo` is not available on [Container-based workers](/user/ci-environment/#Virtualization-environments).
 
-#### Note
+#### Garbled Output
 
-When ElasticSearch is started, you may see a mangled message such as this:
+When ElasticSearch starts, you may see a mangled message such as this:
 
 ```
 $ sudo service elasticsearch start
@@ -293,36 +258,30 @@ The message is harmless, and the service is functional.
 
 ### Kestrel
 
-Kestrel is **not started on boot**. To make Travis CI start the service for you, add
+Kestrel is **not started on boot**. Add it to `.travis.yml` to start it:
 
     services:
       - kestrel
 
-to your `.travis.yml`.
 
+### Multiple Database Systems
 
-
-
-### Multiple database systems
-
-If your project's tests need to run multiple times using different databases, this can be configured on Travis CI using a technique
-with env variables. The technique is just a convention and requires a `before_script` or `before_install` line to work.
+To run builds using multiple different databases, use env variables in your `before_script` or `before_install` lines.
 
 #### Using ENV variables and before_script steps
 
-Now you use the "DB" environment variable to specify the name of the database configuration you want to use. Locally, you would run this as:
+Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
     $ DB=postgres [commands to run your tests]
 
-On Travis CI you want to create a matrix of three builds each having the `DB` variable exported with a different value, and for that you can use the "env" option:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
 
-    # .travis.yml
     env:
       - DB=sqlite
       - DB=mysql
       - DB=postgres
 
-Then you can use those values in a `before_install` (or `before_script`) step or more to set up each database. For example:
+Then you can use those values in a `before_install` (or `before_script`) step to set up each database. For example:
 
     before_script:
       - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
@@ -331,18 +290,16 @@ Then you can use those values in a `before_install` (or `before_script`) step or
       - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
       - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
 
-When doing this, please read and understand everything about the build matrix described in [Build configuration](/user/build-configuration/).
 
-Note: **Travis CI does not have any special support for these variables**, it just creates three builds with different exported values. It is up to your
+> Travis CI does not have any special support for these variables, it just creates three builds with different exported values. It is up to your
 test suite or `before_install`/`before_script` steps to make use of them.
 
 For a real example, see [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
 
 #### A Ruby-specific Approach
 
-Another approach that is Ruby-specific is put all database configurations in one YAML file, like ActiveRecord does:
+Another approach that is Ruby-specific is put all database configurations in one YAML file (`test/database.yml` for example), like ActiveRecord does:
 
-    # test/database.yml
     sqlite:
       adapter: sqlite3
       database: ":memory:"
@@ -365,8 +322,3 @@ Then, in your test suite, read that data into a configurations hash:
     db_name = ENV['DB'] || 'sqlite'
     ActiveRecord::Base.establish_connection(db_name)
     ActiveRecord::Base.default_timezone = :utc
-
-
-### Conclusion
-
-[Travis CI Environment](/user/ci-environment/) provides several popular open source data stores that hosted projects can use. In the majority of cases, said data stores use stock configuration. When it is not the case, the purpose of customizing the configuration is usually to minimize the amount of work developers have to do to use them. Often this means relaxing security settings, which is OK for continuous integration environments.
