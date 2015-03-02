@@ -41,7 +41,7 @@ the form `iphonesimulatorX.Y` where `X.Y` is the version you want to test
 against.
 
 If you are using a workspace instead of a project, use the `xcode_workspace`
-key in you .travis.yml instead of `xcode_project`.
+key in your .travis.yml instead of `xcode_project`.
 
 In order to your run tests on Travis CI, you also need to create a Shared
 Scheme for your application target, and ensure that all dependencies (such as
