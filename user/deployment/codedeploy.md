@@ -64,6 +64,19 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
 
 Builds triggered from Pull Requests will never trigger a release.
 
+### S3 deployment or GitHub deployment
+
+If you specify `bucket` key, the deployment strategy defaults to S3.
+If you want to override this behavior and use GitHub integration, you can specify it with
+
+{% highlight yaml %}
+deploy:
+  provider: codedeploy
+  ⋮
+  bucket: "S3 Bucket"
+  revision_type: github
+{% endhighlight %}
+
 ### Conditional deployments
 
 You can deploy only when certain conditions are met.
