@@ -8,6 +8,7 @@ permalink: /user/deployment/
 
 Continuous Deployment to the following providers are currently supported out of the box:
 
+* [TestFairy](/user/deployment/testfairy)
 * [Appfog](/user/deployment/appfog)
 * [biicode](/user/deployment/biicode)
 * [Cloud 66](/user/deployment/cloud66)
