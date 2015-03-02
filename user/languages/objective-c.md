@@ -13,14 +13,15 @@ Objective-C projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/build-configuration/) guides first.
 
-## Supported iOS SDK versions
+## Supported OS X/iOS SDK versions
 
 Currently pre-installed on our systems are the following SDKs for Xcode:
 
-- iOS 8.0 (simulator and device)
+- iOS 8.1 (simulator and device)
 - iOS 7.1 (simulator)
 - iOS 7.0 (simulator)
-- OS X 10.9
+- OS X 10.10
+- OS X 10.9
 
 The device SDKs are needed if you want to build a binary to distribute to
 devices. Testing on devices is currently not possible.
