@@ -21,24 +21,24 @@ Travis CI builds for your fork of the `travis-broken-example` repository.
 
 2. Take a look at `.travis.yml`, the file which tells Travis CI what to do:
 
-	```yaml
-	language: php
-	php:
-	- 5.5
-	- 5.4
-	- hhvm
-	script: phpunit Test.php
-	```
+   ```yaml
+   language: php
+   php:
+   - 5.5
+   - 5.4
+   - hhvm
+   script: phpunit Test.php
+   ```
 
-	This file tells Travis CI that this project is written in PHP, and to test `Test.php` with phpunit against PHP versions 5.5, 5.4 and HVVM.
+   This file tells Travis CI that this project is written in PHP, and to test `Test.php` with phpunit against PHP versions 5.5, 5.4 and HVVM.
 
 2. Edit the empty `NewUser.txt` file by adding your name to the empty file. Add the file to git, commit and push, to trigger a Travis CI build:
 
-	```bash
-	$ git add -A
-	$ git commit -m 'Testing Travis CI'
-	$ git push
-	```
+   ```bash
+   $ git add -A
+   $ git commit -m 'Testing Travis CI'
+   $ git push
+   ```
 
 	> Note: Travis only runs a build on the commits you push after adding the repository to Travis.
 
@@ -46,10 +46,10 @@ Travis CI builds for your fork of the `travis-broken-example` repository.
 
 2. Fix the code by making sure that `2=1+1` in `Test.php`, commit and push to GitHub. This time, the build does not fail.
 
-	```bash
-	$ git add -A
-	$ git commit -m 'Testing Travis CI: fixing the build'
-	$ git push
-	```
+   ```bash
+   $ git add -A
+   $ git commit -m 'Testing Travis CI: fixing the build'
+   $ git push
+   ```
 
 Congratulations, you have added a GitHub repository to Travis and learnt the basics of configuring builds and testing code. 

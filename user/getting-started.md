@@ -24,18 +24,18 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 2. Add a `.travis.yml` file to your repository to tell Travis CI what to build:
 
-	```yaml
-    language: ruby
-    rvm:
-      - "1.8.7"
-      - "1.9.2"
-      - "1.9.3"
-      - rbx
-    # uncomment this line if your project needs to run something other than `rake`:
-    # script: bundle exec rspec spec
-    ```
-
-    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
+   ```yaml
+   language: ruby
+   rvm:
+    - "1.8.7"
+    - "1.9.2"
+    - "1.9.3"
+    - rbx
+   # uncomment this line if your project needs to run something other than `rake`:
+   # script: bundle exec rspec spec
+   ```
+   
+   This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
 
 2. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
