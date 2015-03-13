@@ -94,3 +94,7 @@ script:
 #### Other test frameworks
 
 If you're using other test frameworks the process is similar. Please note that the MSTest framework is not supported, as it only works on Windows/Visual Studio.
+
+### Addons
+
+The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
