@@ -72,7 +72,14 @@ mono:
 ...
 {% endhighlight %}
 
-You can choose from the versions available from Mono's [snapshot repositories](http://www.mono-project.com/docs/getting-started/install/linux/#accessing-older-releases), i.e. 3.8.0 and later. To make it easier for you to test against the versions that ship with Ubuntu 12.04 and 14.04, we also support `2.10.8` and `3.2.8`. Other earlier versions are not supported. Note that those special cases also don't provide NuGet and PCL reference assemblies.
+You can choose from the following Mono versions:
+
+| Version          | Installed Packages                                               |
+|------------------|------------------------------------------------------------------|
+| 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
+| 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
+| 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
+| 2.10.8           | mono-complete, mono-vbnc                                         |
 
 ### Build Matrix
 
