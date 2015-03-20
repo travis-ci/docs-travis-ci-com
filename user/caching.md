@@ -47,7 +47,7 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 
 #### With a custom install step
 
-Bundler caching will not automatically work if you override the install step. You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+Bundler caching will not automatically work if you [override the install step](/user/build-configuration/#install). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
     language: ruby
     install: bundle install --without development --deployment --jobs=3 --retry=3
@@ -95,7 +95,7 @@ this:
 
 #### With a custom install step
 
-CocoaPods caching will not automatically work if you override the install step.
+CocoaPods caching will not automatically work if you [override the install step](/user/build-configuration/#install).
 You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
@@ -107,7 +107,7 @@ method](#Arbitrary-directories) described below:
 
 ### pip cache
 
-If you do not override the `install` phase of the build,
+If you have not overridden the default [install step](/user/build-configuration/#install), use:
 
 {% highlight yaml %}
 language: python
@@ -117,9 +117,15 @@ cache: pip
 
 caches `$HOME/.cache/pip`.
 
+Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
+    cache:
+      directories:
+        - $HOME/.cache/pip
+
 ### ccache cache
 
-If you do not override the `install` build phase,
+If you have not overridden the default [install step](/user/build-configuration/#install), use:
 
 {% highlight yaml %}
 language: c # or other C/C++ variants
@@ -129,6 +135,11 @@ cache: ccache
 
 caches `$HOME/.ccache`.
 
+Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
+    cache:
+      directories:
+        - $HOME/.ccache
 
 ### Arbitrary directories
 
