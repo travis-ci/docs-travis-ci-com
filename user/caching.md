@@ -200,7 +200,15 @@ Caches can also become invalid if language runtimes change and the cache contain
 native extensions.
 (This often manifests as segmentation faults.)
 
-Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+You can access caches in one of the two ways.
+Each method also gives you a means of deleting caches.
+
+1. On the web https://github.com/OWNER/REPOSITORY/caches, which is accessible from the Settings
+menu
+
+    ![](/images/caches-item.png)
+
+2. With [command line client](https://github.com/travis-ci/travis#readme):
 
 <figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
