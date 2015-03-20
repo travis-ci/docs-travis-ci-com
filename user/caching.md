@@ -4,7 +4,11 @@ layout: en
 permalink: /user/caching/
 ---
 
-The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**. These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
+The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
+
+Note that [APT caching](#Caching-Ubuntu-packages) is not available for the container-based infrastructure.
+
+These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
 
@@ -206,6 +210,10 @@ Currently it is not possible to clear the cache via the web interface, but you c
 There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
 
 ## Caching Ubuntu packages
+
+<div class="note-box">
+This feature is available only for private repositories.
+</div>
 
 A network-local APT cache is available, allowing for more reliable download
 speeds compared to the Ubuntu mirrors.
