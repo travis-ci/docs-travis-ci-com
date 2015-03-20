@@ -12,6 +12,10 @@ The features described here are currently **only available for private repositor
 
 Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
 
+Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
+run.
+Note that the failure to upload the cache does not mark the job a failure.
+
 ### Bundler
 
 On Ruby projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
@@ -181,6 +185,8 @@ cache:
 before_cache:
   - rm -f $CACHE_DIR/.tiny_tiny_marker
 {% endhighlight %}
+
+Failures in this stage does not mark the job a failure.
 
 ### Clearing Caches
 
