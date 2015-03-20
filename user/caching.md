@@ -166,6 +166,22 @@ we'll see about adding your custom source to our cache.
 
 Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
+### `before_cache` stage
+
+Some utilities touch a tiny file when you work with the dependencies.
+This renders your carefully crafted cache invalid and the entire cache
+will have to be upload.
+If you want to perform cleanup tasks before the cache is uploaded, use the
+`before_cache` stage:
+
+{% highlight yaml%}
+cache:
+  directories:
+    - $CACHE_DIR
+before_cache:
+  - rm -f $CACHE_DIR/.tiny_tiny_marker
+{% endhighlight %}
+
 ### Clearing Caches
 
 Sometimes you spoil your cache by storing bad data in one of the cached directories.
