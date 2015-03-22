@@ -121,7 +121,7 @@ script:
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 {% endhighlight %}
 
-#### Using solution-level nuget package
+#### Using solution-level NuGet package
 
 Another way is to add the console testrunner of your choice as a solution-level nuget package.
 
