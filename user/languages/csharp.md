@@ -122,19 +122,16 @@ script:
 {% endhighlight %}
 
 #### Using solution-level nuget package
+
 Another way is to add the console testrunner of your choice as a solution-level nuget package.
 
-For many .net projects this will be the file found at:
-
-  ./.nuget/packages.config
+For many .NET projects this will be the file found at ``` ./.nuget/packages.config ```.
 
 nuget restore solution-name.sln will then install that package as well.
 
 {% highlight yaml %}
 language: csharp
 solution: solution-name.sln
-install:
-  - nuget restore solution-name.sln
 script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/xunit.runners.*/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
