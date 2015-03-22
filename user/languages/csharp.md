@@ -125,7 +125,7 @@ script:
 
 Another way is to add the console testrunner of your choice as a solution-level nuget package.
 
-For many .NET projects this will be the file found at ``` ./.nuget/packages.config ```.
+For many .NET projects this will be the file found at ` ./.nuget/packages.config `.
 
 nuget restore solution-name.sln will then install that package as well.
 
