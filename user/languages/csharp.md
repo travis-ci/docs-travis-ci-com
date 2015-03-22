@@ -138,7 +138,7 @@ script:
 
 {% endhighlight %}
 
-Notice the use of filename expansion (the *) in order to avoid having to hard code the version of the test runner
+Notice the use of filename expansion (the ```*```) in order to avoid having to hard code the version of the test runner.
 
 #### Other test frameworks
 
