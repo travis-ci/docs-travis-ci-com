@@ -41,7 +41,6 @@ By default, the worker performs the build as following:
 3. Checkout commit for this build
 4. Run `before_install` commands
    * Use this to prepare the system to install prerequisites or dependencies
-   * e.g. `sudo apt-get update`
 5. Run `install` commands
    * Use this to install any prerequisites or dependencies necessary to run your build
 6. Run `before_script` commands
@@ -284,14 +283,20 @@ Learn more in our [Scala guide](/user/languages/scala/).
 ## Installing Packages Using apt
 
 <div class="note-box">
-Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+Note that this feature is not available for builds that are running on the <a
+href="/user/workers/container-based-infrastructure">container-based workers</a>,
+although the <a href="/user/apt-packages/">APT package addon</a> may be used.
 </div>
 
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
 
     before_install:
-     - sudo apt-get update -qq
-     - sudo apt-get install -qq [packages list]
+      - sudo apt-get update -qq
+      - sudo apt-get install -qq [packages list]
+
+The use of `sudo` will automatically route your project to the [standard Linux
+infrastructure](/user/workers/standard-infrastructure/).  Alternatively, you may choose to make this explicit by
+specifying `sudo: required` at the top level of `.travis.yml`.
 
 The reason why travis-ci.org can afford to provide passwordless sudo is that virtual machines your test suite is executed in are
 snapshotted and rolled back to their pristine state after each build.
