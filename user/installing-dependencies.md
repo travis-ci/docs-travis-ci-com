@@ -14,7 +14,7 @@ You have full control over the virtual machine your tests are running on, so you
 Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages. That are available from its package repository, including security and backports.
 
 <div class="note-box">
-Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>, although the <a href="/user/apt-packages/">APT packages addon</a> may be used.
 </div>
 
 To install Ubuntu packages, add something like the example below to your .travis.yml:

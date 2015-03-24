@@ -9,8 +9,8 @@ permalink: /user/workers/standard-infrastructure/
 This document describes running builds on the current (November 2014)
 default infrastracture.
 
-Without specifying `sudo: false` in `.travis.yml`, your builds are
-sent to this infrastructure.
+Your builds are sent to this infrastructure when specifying `sudo: required` or
+using `sudo` within a build stage in `.travis.yml`.
 
 This backend has following characteristics:
 

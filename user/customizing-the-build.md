@@ -20,12 +20,11 @@ You can specify your own script to run to install whatever dependencies your pro
 
     install: ./install-dependencies.sh
 
-You can also provide multiple steps, for instance to install a Ubuntu package as part of your build:
+You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
     install:
-      - sudo apt-get update -qq
-      - sudo apt-get install
       - bundle install --path vendor/bundle
+      - npm install
 
 When one of the steps fails, the build stops immediately and is marked as errored.
 
