@@ -7,8 +7,8 @@ permalink: /user/apt-packages/
 </div>
 
 When using the [container based infrastructure](/user/workers/container-based-infrastructure/), `sudo` is disabled in
-user-defined build phases such as `before_install`. This prohibits installation of APT packages via `apt-get`.  In order
-to have Travis CI do this on your behalf before `sudo` privilege is removed, use the `addons.apt_packages` key, e.g.:
+user-defined build phases such as `before_install`. This prevents installation of APT packages via `apt-get`.  To
+install packages before your custom build steps, use the `addons.apt_packages` key, e.g.:
 
 ``` yaml
 addons:

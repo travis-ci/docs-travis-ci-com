@@ -7,11 +7,10 @@ permalink: /user/apt-sources/
 </div>
 
 When using the [container based infrastructure](/user/workers/container-based-infrastructure/), `sudo` is disabled in
-user-defined build phases such as `before_install`. This prohibits the addition of APT sources such as one might do with
+user-defined build phases such as `before_install`. This prevents the addition of APT sources such as one might do with
 `apt-add-repository`.
 
-In order to have Travis CI do this on your behalf before `sudo` privilege is removed, use the `addons.apt_sources` key,
-e.g.:
+To add APT sources before your custom build steps, use the `addons.apt_sources` key, e.g.:
 
 ``` yaml
 addons:
