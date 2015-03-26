@@ -184,6 +184,14 @@ Any name surrounded with `/` in the list of branches is treated as a regular exp
 Options that are specified after the last `/` (e.g., `i` for case insensitive matching) are not supported but can be given inline instead.  For example, `/^(?i:deploy)-.*$/` matches `Deploy-2014-06-01` and other
 branches and tags that start with `deploy-` in any combination of cases.
 
+## Skipping a build
+
+If you don't want to run a build for a particular commit, because all you are
+changing is the README for example, add `[ci skip]` to the git commit message. 
+
+Commits that have `[ci skip]` anywhere in the commit messages are ignored by 
+Travis CI.
+
 ## Build Matrix
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations. 
@@ -360,6 +368,18 @@ Doing so will run the risk of terminating the build process without giving Travi
 perform subsequent tasks.
 
 Using `exit` inside a custom script which will be invoked from during a build is fine. 
+
+## Custom Hostnames
+
+If your build requires setting up custom hostnames, you can specify a single host or a
+list of them in your .travis.yml. Travis CI will automatically setup the
+hostnames in `/etc/hosts` for both IPv4 and IPv6.
+
+    addons:
+      hosts:
+        - travis.dev
+        - joshkalderimis.com
+
 
 ## Build FAQ
 

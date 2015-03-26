@@ -156,6 +156,22 @@ Language-specific workers have multiple runtimes for their respective language (
 * ElasticSearch
 * CouchDB
 
+### Firefox
+
+All virtual environments have recent version of Firefox installed, currently
+31.0 for Linux environments and 25.0 for OSX.
+
+If you need a specific version of Firefox, use the Firefox addon to install
+it during the `before_install` stage of the build.
+
+For example, to install version 17.0, add the following to your
+`.travis.yml` file:
+
+    addons:
+      firefox: "17.0"
+
+Please note that the addon only works in 64-bit Linux environments.
+
 ### Messaging Technology
 
 * [RabbitMQ](http://rabbitmq.com)
