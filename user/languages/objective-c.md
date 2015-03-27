@@ -20,7 +20,6 @@ Currently pre-installed on our systems are the following SDKs for Xcode:
 - iOS 8.1 (simulator and device)
 - iOS 7.1 (simulator)
 - iOS 7.0 (simulator)
-- OS X 10.10
 - OS X 10.9
 
 The device SDKs are needed if you want to build a binary to distribute to
