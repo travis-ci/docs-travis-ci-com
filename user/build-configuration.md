@@ -285,7 +285,7 @@ Learn more in our [Scala guide](/user/languages/scala/).
 <div class="note-box">
 Note that this feature is not available for builds that are running on the <a
 href="/user/workers/container-based-infrastructure">container-based workers</a>,
-although the <a href="/user/apt-packages/">APT packages addon</a> may be used.
+although the <a href="/user/apt/">APT addon</a> may be used.
 </div>
 
 If your dependencies need native libraries to be available, **you can use passwordless sudo to install them** with
