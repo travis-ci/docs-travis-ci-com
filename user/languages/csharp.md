@@ -134,7 +134,7 @@ language: csharp
 solution: solution-name.sln
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/xunit.runners.*/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./packages/xunit.runners.*/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 
 {% endhighlight %}
 
