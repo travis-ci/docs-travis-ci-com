@@ -267,6 +267,11 @@ ElasticSearch is **not started on boot**. To make Travis CI start the service fo
 
 to your `.travis.yml`.
 
+ElasticSearch may take few seconds to start and may not be available when the script is executed. In that case, we can make Travis CI wait with the ``sleep`` command
+
+    before_script:
+      - sleep 10
+
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
 
 #### Using a specific version of ElasticSearch
