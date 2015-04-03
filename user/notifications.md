@@ -429,7 +429,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [true|false] # default: false
+        on_start: [always|never|change] # default: always
 
 ### Webhooks Delivery Format
 
