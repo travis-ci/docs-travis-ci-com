@@ -121,6 +121,25 @@ script:
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 {% endhighlight %}
 
+#### Using solution-level NuGet package
+
+Another way is to add the console testrunner of your choice as a solution-level nuget package.
+
+For many .NET projects this will be the file found at ` ./.nuget/packages.config `.
+
+nuget restore solution-name.sln will then install that package as well.
+
+{% highlight yaml %}
+language: csharp
+solution: solution-name.sln
+script:
+  - xbuild /p:Configuration=Release solution-name.sln
+  - mono ./packages/xunit.runners.*/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+
+{% endhighlight %}
+
+Notice the use of filename expansion (the ```*```) in order to avoid having to hard code the version of the test runner.
+
 #### Other test frameworks
 
 If you're using other test frameworks the process is similar. Please note that the MSTest framework is not supported, as it only works on Windows/Visual Studio.
