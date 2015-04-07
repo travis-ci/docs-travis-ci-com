@@ -999,12 +999,12 @@ input[type=email] {
       text-decoration: underline; }
   @media only screen and (max-width: 50em) {
     .topbar .navigation {
-      height: 0;
+      /*height: 0;*/
       overflow: hidden; }
       .topbar .navigation.is-open {
         height: auto; }
       .topbar .navigation a {
-        padding: 0.5em 1em; }
+        padding: 0.5em 0; }
  }
 .topbar .navigation, .topbar .navigation-nested {
   margin: 0;
