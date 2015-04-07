@@ -17,6 +17,7 @@ languages:
 * [Go](/user/languages/go)
 * [Groovy](/user/languages/groovy)
 * [Haskell](/user/languages/haskell)
+* [Haxe](/user/languages/haxe)
 * [Java](/user/languages/java)
 * [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs)
 * [Julia](/user/languages/julia)
