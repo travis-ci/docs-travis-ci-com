@@ -62,7 +62,7 @@ To report the coverage data to Code Climate, you just need to run the following
 after your tests:
 
     after_script:
-      - cat lcov.info | codeclimate
+      - codeclimate < lcov.info
 
 ### PHP
 
