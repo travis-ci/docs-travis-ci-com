@@ -47,7 +47,7 @@ However, unlike `haxe:`, you can provide only one value (not an array) to `neko:
 
 ## Test Configuration
 
-If your project make use of the standard hxml files for building, you can specify
+If your project makes use of the standard hxml files for building, you can specify
 the list of hxml files using the `hxml:` key, for example:
 
     language: haxe
