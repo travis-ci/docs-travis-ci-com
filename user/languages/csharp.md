@@ -118,8 +118,10 @@ install:
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 {% endhighlight %}
+
+*Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
 #### Using solution-level NuGet package
 
@@ -134,7 +136,7 @@ language: csharp
 solution: solution-name.sln
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 
 {% endhighlight %}
 
