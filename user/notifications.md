@@ -24,10 +24,11 @@ You can change this behaviour using the following options:
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
-### Note on HTTPS
+### Note on SSL/TLS Ciphers
 
-When posting notifications over HTTPS, be mindful of what ciphers are accepted.
-Notifications will fail if none of the ciphers work.
+When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
+by the receiving server.
+Notifications will fail if none of the server's ciphers work.
 
 Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
 are known to work:
