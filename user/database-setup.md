@@ -14,6 +14,7 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 
 * [MySQL](#MySQL)
 * [PostgreSQL](#PostgreSQL)
+* [SQLite3](#SQLite3)
 * [MongoDB](#MongoDB)
 * [CouchDB](#CouchDB)
 * [Redis](#Redis)
@@ -23,7 +24,6 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * [Cassandra](#Cassandra)
 * [Neo4J](#Neo4J)
 * [ElasticSearch](#ElasticSearch)
-* [SQLite3](#SQLite3)
 
 All of these data stores use the default settings, with one exception: When it
 makes sense, new users are added and the security settings are relaxed for ease
