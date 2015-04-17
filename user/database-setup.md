@@ -23,7 +23,6 @@ This guide covers data stores and other services (e.g. RabbitMQ) offered in the 
 * [Cassandra](#Cassandra)
 * [Neo4J](#Neo4J)
 * [ElasticSearch](#ElasticSearch)
-* [Kestrel](#Kestrel)
 * [SQLite3](#SQLite3)
 
 All of these data stores use the default settings, with one exception: When it
@@ -295,18 +294,6 @@ $ sudo service elasticsearch start
 This is due to a [recent change in ElasticSearch](https://github.com/elasticsearch/elasticsearch/issues/4397),
 as reported [here](https://github.com/elasticsearch/elasticsearch/issues/4978).
 The message is harmless, and the service is functional.
-
-### Kestrel
-
-Kestrel is **not started on boot**. To make Travis CI start the service for you, add
-
-    services:
-      - kestrel
-
-to your `.travis.yml`.
-
-
-
 
 ### Multiple database systems
 
