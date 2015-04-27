@@ -56,6 +56,15 @@ You can change this behavior by using a little bit of shell magic to run all com
 
 This example (note the `&&`) will fail immediately when `bundle exec rake build` fails.
 
+### Note on $?
+
+Each command in `script` is processed by a special bash function.
+This function manipulates `$?` to produce logs suitable for display.
+Consequently, you should not rely on the value of `$?` in `script` section to
+alter the build behavior.
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/3771)
+for a more technical discussion.
+
 ## Implementing Complex Build Steps
 
 For some builds and test runs, a more complex build environment is needed than what Travis CI's default setup offers. Complex dependencies are required, configuration files need to be patch, extra services need to be started.
