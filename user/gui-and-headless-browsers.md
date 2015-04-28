@@ -144,7 +144,7 @@ This can be fixed by applying a custom Firefox profile with the option turned of
 
 ### Karma and Firefox inactivity timeouts
 
-When testing with Karma aond Firefox, you may encounter build errors as a result of browser inactivity timeouts. When this occurs, Karma will output an error similar to:
+When testing with Karma and Firefox, you may encounter build errors as a result of browser inactivity timeouts. When this occurs, Karma will output an error similar to:
 
     WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 10000 ms.
 
