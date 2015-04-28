@@ -92,7 +92,7 @@ This example deploys to Nodejistu only from the `staging` branch when the test h
       api_key: ...
       on:
         branch: staging
-        node: 0.11
+        node: '0.11' # this should be quoted; otherwise, 0.10 would not work
 
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
