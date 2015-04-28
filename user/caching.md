@@ -214,7 +214,9 @@ native extensions.
 You can access caches in one of the two ways.
 Each method also gives you a means of deleting caches.
 
-1. On the web https://github.com/OWNER/REPOSITORY/caches, which is accessible from the Settings
+1. On the web https://magnum.travis-ci.com/OWNER/REPOSITORY/caches for private repositories
+or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories, 
+which is accessible from the Settings
 menu
 
     ![](/images/caches-item.png)
