@@ -177,7 +177,9 @@ Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
 depends on the language you're using.
 
+* `TRAVIS_DART_VERSION`
 * `TRAVIS_GO_VERSION`
+* `TRAVIS_HAXE_VERSION`
 * `TRAVIS_JDK_VERSION`
 * `TRAVIS_JULIA_VERSION`
 * `TRAVIS_NODE_VERSION`
@@ -185,6 +187,7 @@ depends on the language you're using.
 * `TRAVIS_PERL_VERSION`
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
+* `TRAVIS_R_VERSION`
 * `TRAVIS_RUBY_VERSION`
 * `TRAVIS_RUST_VERSION`
 * `TRAVIS_SCALA_VERSION`

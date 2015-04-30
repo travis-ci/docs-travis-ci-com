@@ -51,14 +51,11 @@ You can specify your own script to run to install whatever dependencies your pro
 
 > When using custom scripts they should be executable (for example, using `chmod +x`) and contain a valid shebang line such as `/usr/bin/env sh`, `/usr/bin/env ruby`, or `/usr/bin/env python`. 
 
-You can also provide multiple steps, for instance to install a Ubuntu package as part of your build:
+You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
-```yml
-install:
-	- sudo apt-get update -qq
-	- sudo apt-get install
-	- bundle install --path vendor/bundle
-```
+    install:
+      - bundle install --path vendor/bundle
+      - npm install
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
 
@@ -87,6 +84,15 @@ You can change this behavior by using a little bit of shell magic to run all com
     script: bundle exec rake build && bundle exec rake builddoc
 
 This example (note the `&&`) fails immediately when `bundle exec rake build` fails.
+
+### Note on $?
+
+Each command in `script` is processed by a special bash function.
+This function manipulates `$?` to produce logs suitable for display.
+Consequently, you should not rely on the value of `$?` in `script` section to
+alter the build behavior.
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/3771)
+for a more technical discussion.
 
 ## Breaking the Build
 

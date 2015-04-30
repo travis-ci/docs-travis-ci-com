@@ -30,12 +30,12 @@ language: csharp
 solution: solution-name.sln
 {% endhighlight %}
 
-When the `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
+When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
 
 ### Script
 
 By default Travis will run `xbuild /p:Configuration=Release solution-name.sln`. Xbuild is a build tool designed to be an implementation for Microsoft's MSBuild (the tool that Visual Studio uses to build your projects).
-To override this, you can set the `script` attribute like this:
+To override this, you can set the `script` key like this:
 
 {% highlight yaml %}
 language: csharp
@@ -58,6 +58,36 @@ install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore solution-name.sln
 {% endhighlight %}
+
+### Choosing Mono version to test against
+
+By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in .travis.yml. For example, to test against latest, 3.12.0 and 3.10.0:
+
+{% highlight yaml %}
+language: csharp
+mono:
+  - latest
+  - 3.12.0
+  - 3.10.0
+...
+{% endhighlight %}
+
+You can choose from the following Mono versions:
+
+| Version          | Installed Packages                                               |
+|------------------|------------------------------------------------------------------|
+| 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
+| 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
+| 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
+| 2.10.8           | mono-complete, mono-vbnc                                         |
+
+### Build Matrix
+
+For C#, F#, and Visual Basic projects, `mono` can be given as an array to construct a build matrix.
+
+### Addons
+
+The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
 
 ### Running unit tests (NUnit, xunit, etc.)
 
@@ -88,8 +118,29 @@ install:
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 {% endhighlight %}
+
+*Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
+
+#### Using solution-level NuGet package
+
+Another way is to add the console testrunner of your choice as a solution-level nuget package.
+
+For many .NET projects this will be the file found at ` ./.nuget/packages.config `.
+
+nuget restore solution-name.sln will then install that package as well.
+
+{% highlight yaml %}
+language: csharp
+solution: solution-name.sln
+script:
+  - xbuild /p:Configuration=Release solution-name.sln
+  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+
+{% endhighlight %}
+
+Notice the use of filename expansion (the ```*```) in order to avoid having to hard code the version of the test runner.
 
 #### Other test frameworks
 

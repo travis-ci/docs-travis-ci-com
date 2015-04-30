@@ -4,13 +4,21 @@ layout: en
 permalink: /user/caching/
 ---
 
-The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**. These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
+The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
+
+Note that [APT caching](#Caching-Ubuntu-packages) is not available for the container-based infrastructure.
+
+These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
 
 ## Caching directories (Bundler, dependencies)
 
 Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+
+Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
+run.
+Note that the failure to upload the cache does not mark the job a failure.
 
 ### Bundler
 
@@ -39,7 +47,7 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 
 #### With a custom install step
 
-Bundler caching will not automatically work if you override the install step. You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+Bundler caching will not automatically work if you [override the install step](/user/build-configuration/#install). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
     language: ruby
     install: bundle install --without development --deployment --jobs=3 --retry=3
@@ -87,7 +95,7 @@ this:
 
 #### With a custom install step
 
-CocoaPods caching will not automatically work if you override the install step.
+CocoaPods caching will not automatically work if you [override the install step](/user/build-configuration/#install).
 You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
@@ -99,7 +107,7 @@ method](#Arbitrary-directories) described below:
 
 ### pip cache
 
-If you do not override the `install` phase of the build,
+If you have not overridden the default [install step](/user/build-configuration/#install), use:
 
 {% highlight yaml %}
 language: python
@@ -109,9 +117,15 @@ cache: pip
 
 caches `$HOME/.cache/pip`.
 
+Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
+    cache:
+      directories:
+        - $HOME/.cache/pip
+
 ### ccache cache
 
-If you do not override the `install` build phase,
+If you have not overridden the default [install step](/user/build-configuration/#install), use:
 
 {% highlight yaml %}
 language: c # or other C/C++ variants
@@ -121,6 +135,11 @@ cache: ccache
 
 caches `$HOME/.ccache`.
 
+Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
+    cache:
+      directories:
+        - $HOME/.ccache
 
 ### Arbitrary directories
 
@@ -166,6 +185,24 @@ we'll see about adding your custom source to our cache.
 
 Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
+### `before_cache` stage
+
+Some utilities touch a tiny file when you work with the dependencies.
+This renders your carefully crafted cache invalid and the entire cache
+will have to be upload.
+If you want to perform cleanup tasks before the cache is uploaded, use the
+`before_cache` stage:
+
+{% highlight yaml%}
+cache:
+  directories:
+    - $CACHE_DIR
+before_cache:
+  - rm -f $CACHE_DIR/.tiny_tiny_marker
+{% endhighlight %}
+
+Failures in this stage does not mark the job a failure.
+
 ### Clearing Caches
 
 Sometimes you spoil your cache by storing bad data in one of the cached directories.
@@ -174,7 +211,17 @@ Caches can also become invalid if language runtimes change and the cache contain
 native extensions.
 (This often manifests as segmentation faults.)
 
-Currently it is not possible to clear the cache via the web interface, but you can use our [command line client](https://github.com/travis-ci/travis#readme) to [clear the cache](https://github.com/travis-ci/travis#cache):
+You can access caches in one of the two ways.
+Each method also gives you a means of deleting caches.
+
+1. On the web https://magnum.travis-ci.com/OWNER/REPOSITORY/caches for private repositories
+or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories, 
+which is accessible from the Settings
+menu
+
+    ![](/images/caches-item.png)
+
+2. With [command line client](https://github.com/travis-ci/travis#readme):
 
 <figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
@@ -184,6 +231,10 @@ Currently it is not possible to clear the cache via the web interface, but you c
 There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
 
 ## Caching Ubuntu packages
+
+<div class="note-box">
+This feature is available only for private repositories.
+</div>
 
 A network-local APT cache is available, allowing for more reliable download
 speeds compared to the Ubuntu mirrors.

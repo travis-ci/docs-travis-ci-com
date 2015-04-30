@@ -152,6 +152,15 @@ Learn more about [.travis.yml options for Go projects](/user/languages/go/)
 
 Learn more about [.travis.yml options for Groovy projects](/user/languages/groovy/)
 
+#### Haxe
+
+    language: haxe
+    haxe:
+      - "3.1.3"
+      - development
+
+Learn more about [.travis.yml options for Haxe projects](/user/languages/haxe/)
+
 #### Java
 
     language: java

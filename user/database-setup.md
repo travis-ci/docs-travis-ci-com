@@ -11,6 +11,7 @@ The following services are available, all of them use default settings, with the
 * [MySQL](#MySQL)
 * [SQLite3](#SQLite3)
 * [PostgreSQL](#PostgreSQL)
+* [SQLite3](#SQLite3)
 * [MongoDB](#MongoDB)
 * [CouchDB](#CouchDB)
 * [Redis](#Redis)
@@ -20,8 +21,6 @@ The following services are available, all of them use default settings, with the
 * [Cassandra](#Cassandra)
 * [Neo4J](#Neo4J)
 * [ElasticSearch](#ElasticSearch)
-* [Kestrel](#Kestrel)
-
 
 ## Starting Services
 
@@ -330,6 +329,11 @@ ElasticSearch is **not started on boot**. Add it to `.travis.yml` to start it:
     services:
       - elasticsearch
 
+ElasticSearch may take few seconds to start and may not be available when the script is executed. In that case, we can make Travis CI wait with the ``sleep`` command
+
+    before_script:
+      - sleep 10
+
 ElasticSearch is provided via official Debian packages and uses stock configuration (available on 127.0.0.1).
 
 #### Using a specific version of ElasticSearch
@@ -338,7 +342,7 @@ You can overwrite the installed ElasticSearch with the version you need (e.g., 1
 
 ```yaml
 before_install:
-  - wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb
+  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb
 ```
 > `sudo` is not available on [Container-based workers](/user/ci-environment/#Virtualization-environments).
 
@@ -355,17 +359,10 @@ This is due to a [recent change in ElasticSearch](https://github.com/elasticsear
 as reported [here](https://github.com/elasticsearch/elasticsearch/issues/4978).
 The message is harmless, and the service is functional.
 
-### Kestrel
+### Multiple database systems
 
-Kestrel is **not started on boot**. Add it to `.travis.yml` to start it:
-
-    services:
-      - kestrel
-
-
-### Multiple Database Systems
-
-To run builds using multiple different databases, use env variables in your `before_script` or `before_install` lines.
+If your project's tests need to run multiple times using different databases, this can be configured on Travis CI using a technique
+with env variables. The technique is just a convention and requires a `before_script` or `before_install` line to work.
 
 #### Using ENV variables and before_script steps
 

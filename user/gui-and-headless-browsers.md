@@ -142,3 +142,14 @@ This can be fixed by applying a custom Firefox profile with the option turned of
       Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
     end
 
+### Karma and Firefox inactivity timeouts
+
+When testing with Karma and Firefox, you may encounter build errors as a result of browser inactivity timeouts. When this occurs, Karma will output an error similar to:
+
+    WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 10000 ms.
+
+In that case, you should increase the browser inactivity timeout to a higher value in `karma.conf.js`, e.g.:
+
+    browserNoActivityTimeout: 30000,
+
+For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/0.12/config/configuration-file.html) documentation.

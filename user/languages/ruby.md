@@ -17,7 +17,7 @@ configuration](/user/build-configuration/) guides first.
 
 The Ruby VM provides recent versions of:
 
-- Ruby 2.2.x, 2.1.x, 2.0.c, 1.9.3, 1.9.2 and 1.8.7
+- Ruby 2.2.x, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
 - JRuby 1.7.x (1.8 and 1.9 mode)
 - Ruby Enterprise Edition 1.8.7 2012.02
 

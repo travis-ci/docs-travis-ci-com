@@ -24,10 +24,11 @@ You can change this behaviour using the following options:
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
-### Note on HTTPS
+### Note on SSL/TLS Ciphers
 
-When posting notifications over HTTPS, be mindful of what ciphers are accepted.
-Notifications will fail if none of the ciphers work.
+When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
+by the receiving server.
+Notifications will fail if none of the server's ciphers work.
 
 Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
 are known to work:
@@ -429,7 +430,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [true|false] # default: false
+        on_start: [always|never|change] # default: always
 
 ### Webhooks Delivery Format
 

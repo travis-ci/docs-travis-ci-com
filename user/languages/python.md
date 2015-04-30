@@ -19,6 +19,7 @@ Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4.
       - "3.2"
       - "3.3"
       - "3.4"
+      - "nightly"
     # command to install dependencies
     install: "pip install -r requirements.txt"
     # command to run tests
@@ -33,6 +34,7 @@ A more extensive example:
       - "3.2"
       - "3.3"
       - "3.4"
+      - "nightly"
     # command to install dependencies
     install:
       - "pip install ."
@@ -129,6 +131,13 @@ and then use ENV variable values in your dependencies installation scripts, test
       - python setup.py -q install
 
 The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
+
+## Nightly build support
+
+Travis CI supports a special version name `nightly`, which points to
+a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
+
+It also has the [packages above](#Pre-installed-packages) pre-installed.
 
 ## Build Matrix
 

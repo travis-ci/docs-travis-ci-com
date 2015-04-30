@@ -16,8 +16,7 @@ and rolled back at the end of it. This offers a number of benefits:
 
 * Host OS is not affected by test suites
 * No state persists between runs
-* Passwordless sudo is available (so you can install dependencies using apt and
-  so on)
+* Passwordless sudo is available
 * It is possible for test suites to create databases, add RabbitMQ vhosts/users
   and so on
 
