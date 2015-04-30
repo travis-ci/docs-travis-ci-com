@@ -137,6 +137,7 @@ Language-specific workers have multiple runtimes for their respective language (
 * `RACK_ENV=test`
 * `MERB_ENV=test`
 * `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
+* `JAVA_HOME` is set to the appropriate value.
 
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
@@ -243,6 +244,8 @@ in order to minimize frictions when images are updated:
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
+
+The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
 ### Maven version
 
