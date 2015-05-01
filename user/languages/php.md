@@ -231,6 +231,7 @@ Currently Travis CI does not support mod_php for apache, but you can configure p
 In your .travis.yml:
 
     before_script:
+       - sudo apt-get update
        - sudo apt-get install apache2 libapache2-mod-fastcgi
        # enable php-fpm
        - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
