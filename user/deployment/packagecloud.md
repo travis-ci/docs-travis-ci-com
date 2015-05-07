@@ -11,6 +11,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     deploy:
       provider: packagecloud
+      repository: "YOUR REPO"
       username: "YOUR USERNAME"
       token: "YOUR TOKEN"
       dist: "YOUR DIST" # like 'ubuntu/precise', or 'centos/5', if pushing deb or rpms
