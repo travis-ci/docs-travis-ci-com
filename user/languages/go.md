@@ -79,7 +79,7 @@ instance.
 Go to your [GitHub account](https://github.com/settings/applications) and create
 a personal access token.
 
-![](/images/personal-token.jpg)
+![Creating a personal token on GitHub for use with Go.](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
