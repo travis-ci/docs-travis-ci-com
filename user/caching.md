@@ -22,7 +22,7 @@ Note that the failure to upload the cache does not mark the job a failure.
 
 ### Bundler
 
-On Ruby projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
+On Ruby and Objctive-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
 
 The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
 
@@ -215,7 +215,7 @@ You can access caches in one of the two ways.
 Each method also gives you a means of deleting caches.
 
 1. On the web https://magnum.travis-ci.com/OWNER/REPOSITORY/caches for private repositories
-or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories, 
+or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
 which is accessible from the Settings
 menu
 

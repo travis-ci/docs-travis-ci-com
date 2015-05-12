@@ -146,6 +146,7 @@ The following default environment variables are available to all builds.
 * `RACK_ENV=test`
 * `MERB_ENV=test`
 * `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
+* `JAVA_HOME` is set to the appropriate value.
 
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.

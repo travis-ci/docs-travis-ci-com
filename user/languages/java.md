@@ -114,6 +114,8 @@ If your build needs to switch JDKs during a job, you can do so with `jdk_switche
       - jdk_switcher use oraclejdk7
       - # do stuff with Java 7
 
+Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
+
 ## Examples
 
 * [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
