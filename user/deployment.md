@@ -8,7 +8,7 @@ permalink: /user/deployment/
 
 Continuous Deployment to the following providers are currently supported out of the box:
 
-{{ site.data.lists.languages }}
+{{ site.data.lists.deployments}}
 
 ### Deploying to Multiple Providers
 
