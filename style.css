@@ -572,6 +572,7 @@ h2, h3, h4, h5, h6 {
   padding     : 0;
   font-weight : bold;
   color       : #607a84;
+  margin-top  : 10px;
 }
 
 h1 {
@@ -865,9 +866,13 @@ input[type=email] {
   font-size      : 1.2em;
   text-transform : uppercase;
   text-align     : center;
+  list-style-type: none;
   width          : 500px;
   margin         : 0 auto;
   line-height    : 1.8em;
+  -webkit-columns: 3; /* Chrome, Safari, Opera */
+  -moz-columns: 3; /* Firefox */
+  columns: 3;
 }
 
 .language-docs a,
