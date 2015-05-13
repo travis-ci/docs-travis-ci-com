@@ -873,6 +873,11 @@ input[type=email] {
   -webkit-columns: 3; /* Chrome, Safari, Opera */
   -moz-columns: 3; /* Firefox */
   columns: 3;
+  margin:0;
+}
+
+.language-docs ul {
+  margin:0;
 }
 
 .language-docs a,
