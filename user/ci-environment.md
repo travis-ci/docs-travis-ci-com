@@ -238,9 +238,10 @@ in order to minimize frictions when images are updated:
 ### JDK
 
 * Oracle JDK 7 (oraclejdk7)
-* OpenJDK 7 (openjdk7)
-* OpenJDK 6 (openjdk6)
 * Oracle JDK 8 (oraclejdk8)
+* OpenJDK 6 (openjdk6)
+* OpenJDK 7 (openjdk7)
+* OpenJDK 8 (openjdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
@@ -262,7 +263,7 @@ travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT)
 
 ### Gradle version
 
-Gradle 2.0.
+Gradle 2.2.1
 
 ## Erlang VM images
 
