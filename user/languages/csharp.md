@@ -81,6 +81,8 @@ You can choose from the following Mono versions:
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
 | 2.10.8           | mono-complete, mono-vbnc                                         |
 
+**Alpha and Beta Channel**: To install and test against upcoming Mono versions specify `alpha` or `beta` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
+
 ### Build Matrix
 
 For C#, F#, and Visual Basic projects, `mono` can be given as an array to construct a build matrix.
