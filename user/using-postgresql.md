@@ -14,9 +14,9 @@ By default, the build environment will have version 9.1 running already.
 
 You can easily choose a different version by way of your .travis.yml.
 
-We have PostgreSQL 9.1, 9.2 and 9.3 installed, usually with their latest patch releases. We install them from the official [PostgreSQL APT repository](http://apt.postgresql.org).
+We have PostgreSQL 9.1, 9.2, 9.3 and 9.4 installed, usually with their latest patch releases. We install them from the official [PostgreSQL APT repository](http://apt.postgresql.org).
 
-Currently, you'll find the **following versions installed: 9.1.14, 9.2.9 and 9.3.5**, respectively.
+Currently, you'll find the **following versions (or later) installed: 9.1.15, 9.2.10, 9.3.6 and 9.4.1**, respectively.
 
 To select a different version than the default, use the following setting in your .travis.yml:
 
@@ -25,7 +25,7 @@ To select a different version than the default, use the following setting in you
 
 This selects PostgreSQL 9.3 as the version your build expects to be running.
 
-**Available selections are "9.1", "9.2" and "9.3"**. Make sure to only specify the major and the minor version, without the patch release.
+**Available selections are "9.1", "9.2", "9.3" and "9.4"**. Make sure to only specify the major and the minor version, without the patch release.
 
 ## Using PostgreSQL in your Builds
 
