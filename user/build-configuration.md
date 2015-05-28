@@ -316,8 +316,11 @@ More on PPAs [in this article](http://www.makeuseof.com/tag/ubuntu-ppa-technolog
 
 Because it is very common to see test suites or before scripts to hang up, Travis CI has hard time limits. If a script or test suite takes longer to run, the job will be forcefully terminated and you will see a message about this in your build log.
 
-With our current timeouts, a job will be terminated if it's still running
-after 50 minutes (120 minutes on travis-ci.com), or if there hasn't been any log output in 10 minutes.
+With our current timeouts, a job will be terminated if there hasn't been any log output in 10 minutes, or
+if it's still running after:
+
+  * 50 minutes, if it's a public project, or an MacOSX project
+  * 120 minutes, it it's a private Linux project
 
 Some common reasons why test suites may hang up:
 
