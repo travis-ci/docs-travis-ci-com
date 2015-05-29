@@ -15,7 +15,7 @@ This is where the community-supported languages come in.
 
 The community-supported lanugages are those programming languages the support
 of which is provided by self-identified experts in the langugages'
-respoective community.
+respective community.
 
 Following the process described below, your favorite language could be
 the next community-supported language on Travis CI!
