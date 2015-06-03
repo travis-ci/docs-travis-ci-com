@@ -1,0 +1,42 @@
+%reset-ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+%bottom-border-grey
+  border-bottom: solid $cream-dark 2px
+
+%header-link
+  a
+    color: $grey-medium
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+%grey-heading
+  @extend %header-link
+  color: $grey-dark
+  font-size: $font-size-l
+  font-weight: 400
+  line-height: 1
+
+%blue-heading
+  @extend %header-link
+  color: $teal-dark
+  font-size: $font-size-m
+  margin-top: 2.3em
+  font-weight: 600
+
+%green-hading
+  @extend %header-link
+  color: #35a764
+  font-size: $font-size-ml
+  margin-top: 2.5em
+  font-weight: 400
+
+%ul-styles
+  @extend %reset-ul
+  color: $grey-darker
+  line-height: 30px
+  a
+    text-decoration: none

@@ -120,7 +120,7 @@ If there are any steps you'd like to run after the deployment, you can use the `
 
 One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Specify what languages and runtimes to run your test suite against in the `.travis.yml` file:
 
-{{ site.data.lists.languages }}
+{% include languages.html %}
 
 ## Installing Packages Using apt
 

@@ -8,7 +8,7 @@ The very short guide to using Travis CI with your GitHub hosted code repository.
 
 Or if you want a more complete guide to a particular language, pick one of these: 
 
-{{ site.data.lists.languages }}
+{% include languages.html %}
 
 <!-- 
 [C](/user/languages/c) | [C++](/user/languages/cpp) | [Clojure](/user/languages/clojure) | [C#](/user/languages/csharp/) | [D](/user/languages/d) | [Erlang](/user/languages/erlang) | [F#](/user/languages/csharp/) | [Go](/user/languages/go) | [Groovy](/user/languages/groovy) | [Haskell](/user/languages/haskell) | [Java](/user/languages/java) | [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs) | [Julia](/user/languages/julia) | [Objective-C](/user/languages/objective-c) | [Perl](/user/languages/perl) | [PHP](/user/languages/php) | [Python](/user/languages/python) | [Ruby](/user/languages/ruby) | [Rust](/user/languages/rust) | [Scala](/user/languages/scala) | [Visual Basic](/user/languages/csharp/).

@@ -8,19 +8,7 @@ This guide covers setting up the most popular databases and other services in th
 
 The following services are available, all of them use default settings, with the exception of some added users and relaxed security settings:
 
-* [MySQL](#MySQL)
-* [SQLite3](#SQLite3)
-* [PostgreSQL](#PostgreSQL)
-* [SQLite3](#SQLite3)
-* [MongoDB](#MongoDB)
-* [CouchDB](#CouchDB)
-* [Redis](#Redis)
-* [Riak](#Riak)
-* [RabbitMQ](#RabbitMQ)
-* [Memcached](#Memcached)
-* [Cassandra](#Cassandra)
-* [Neo4J](#Neo4J)
-* [ElasticSearch](#ElasticSearch)
+{% include databases.html %}
 
 ## Starting Services
 

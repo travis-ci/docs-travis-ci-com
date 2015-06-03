@@ -19,4 +19,6 @@ $(function(){
       list.append("<li><a href=\"#" + encodeURIComponent(id) + "\">" + text + "</a></li>");
     }
   });
+
+  $('#toc').addClass('toc');
 });

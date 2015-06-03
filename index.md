@@ -2,37 +2,53 @@
 title: Travis CI Documentation
 layout: en
 permalink: /
+no_header: true
 ---
 
-<a class="get-started-button" href="/user/getting-started">Getting Started</a>
+<section class="index-intro">
+  <figure>
+    <img src="images/ui/docs-desktop.svg" alt="">
+  </figure>
+  <h1>New around here? Let's get you going.</h1>
+  <p><a class="get-started-button" href="/user/getting-started">Getting Started</a></p>
+</section>
 
-## Already know the basics?
+<div class="row index-main">
+  <div class="columns large-6">
+    <section>
+      <h2>Already know the basics?</h2>
+      <ul>
+        <li><a href="/user/travis-lint">Validating .travis.yml files</a></li>
+        <li><a href="/user/customizing-the-build">Customizing your build</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Deployment Guides</h2>
+      <p>Learn how to deploy to your hosting provider using Travis CI.</p>
+      <ul>
+        <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        <li><a href="/user/deployment">more deployment guides</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Common Questions</h2>
+      <ul>
+        <li><a href="/user/speeding-up-the-build">How can I make my build faster?</a></li>
+        <li><a href="/user/pull-requests">How are pull requests tested?</a></li>
+      </ul>
+    </section>
+  </div>
+  <div class="columns large-6">
+    <section>
+      <h2>Language-specific Guides</h2>
+      <p>Learn about using Travis CI with your favourite programming language.</p>
+      <div class="language-docs" >
 
-  <ul>
-    <li><a href="/user/travis-lint">Validating .travis.yml files</a></li>
-	<li><a href="/user/customizing-the-build">Customizing your build</a></li>
-    </ul>
+      {% include languages.html %}
 
-## Language-specific Guides
-
-Learn about using Travis CI with your favourite programming language.
-
-<div class="language-docs" markdown="1">
-
-{{ site.data.lists.languages }}
-
+      </div>
+    </section>
+  </div>
 </div>
-
-## Deployment Guides
-
-Learn how to deploy to your hosting provider using Travis CI.
-
-* [Heroku](/user/deployment/heroku/)
-* [AWS CodeDeploy](/user/deployment/codedeploy/)
-* [OpenShift](/user/deployment/openshift/)
-* [...more deployment guides...](/user/deployment)
-
-## Common Questions
-
-* [How can I make my build faster?](/user/speeding-up-the-build)
-* [How are pull requests tested?](/user/pull-requests)
