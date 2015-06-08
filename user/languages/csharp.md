@@ -81,6 +81,8 @@ You can choose from the following Mono versions:
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
 | 2.10.8           | mono-complete, mono-vbnc                                         |
 
+**Alpha, Beta, and Nightly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `nightly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
+
 ### Build Matrix
 
 For C#, F#, and Visual Basic projects, `mono` can be given as an array to construct a build matrix.
@@ -93,7 +95,7 @@ The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](http://docs.travis-ci.com/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
-The following examples show how you'd override `install` and `script` to install a test runner and pass your test assemblies to it for running the tests. 
+The following examples show how you'd override `install` and `script` to install a test runner and pass your test assemblies to it for running the tests.
 
 #### NUnit
 

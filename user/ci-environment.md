@@ -413,7 +413,7 @@ On all versions except pypy and pypy3 have `numpy` as well.
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
 
-These are only the pre-installed versions of Ruby. RVM is able to install other
+RVM is able to install other
 versions on demand. For example, to test against Rubinius 2.2.1, you can use
 `rbx-2.2.1` and RVM will download binaries on-demand.
 

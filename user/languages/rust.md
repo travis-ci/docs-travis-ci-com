@@ -15,20 +15,24 @@ and [general build configuration](/user/build-configuration/) guides first.
 ### Supported Rust versions
 
 We currently download the requested version of Rust (by default the latest
-nightly), and as a result we support any released version of Rust as well as the
-latest nightly.
+stable), and as a result we support any released version of Rust as well as the
+latest nightly and beta.
 
 We also download and install the latest version of [Cargo](http://crates.io)
 
 ### Choosing the Rust version to test against
 
-By default, we download and install the latest Rust nightly at the start of the
+By default, we download and install the latest Rust stable at the start of the
 build, but you can also select a Rust version to test against with the `rust`
 setting:
 
 
     language: rust
-    rust: 0.11.0
+    rust: beta # or nightly
+
+The chosen version is passed to the official `rustup.sh` script as the value of the
+`--spec` option - and therefore supports any channel name (such as beta and nightly) in
+addition to other selection criteria supported by `rustup.sh`.
 
 The Rust version that is specified in the .travis.yml is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
