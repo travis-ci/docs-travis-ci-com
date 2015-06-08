@@ -1,0 +1,111 @@
+
+.row
+  max-width: 1200px
+
+.wrapper.is-fixed
+  height: 95vh
+  overflow: hidden
+
+.main
+  font-size: $font-size-sm
+  padding: 0 $column-gutter/2
+  margin-bottom: 5em
+
+  @media #{$large-up}
+    @include grid-column(9)
+    padding: 0 $column-gutter/2 0 3rem
+
+  h1
+    @extend %grey-heading
+    margin: 1.2em 0 1em
+  h2
+    @extend %green-hading
+  h3
+    @extend %blue-heading
+
+.sidebar
+  position: absolute
+  z-index: 99
+  padding: 0 $column-gutter/2 5em
+  background-color: $white
+  transition: transform 200ms ease
+  will-change: transform
+  transform: translateX(-100%)
+  @include grid-column(10)
+  max-width: 400px
+  height: 95vh
+  overflow-y: scroll
+
+  h2
+    @extend %blue-heading
+    @extend %bottom-border-grey
+    padding-bottom: .2em
+
+  &.is-open
+    transform: translateX(0)
+    -webkit-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+    box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+
+
+  @media #{$large-up}
+    @include grid-column(3)
+    position: static
+    transform: none
+    margin-bottom: 5em
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+    max-width: auto
+    height: auto
+    overflow-y: auto
+    &.is-open
+      transform: translateX(0)
+      -webkit-box-shadow: none
+      -moz-box-shadow: none
+      box-shadow: none
+
+  ul
+    @extend %ul-styles
+    font-size: 13px
+
+.swiftype-widget
+  .autocomplete 
+    ul
+      li
+        border-color: $cream-dark
+        box-shadow: none
+        p.title
+          color: $teal-dark
+          font-weight: 400
+          font-size: $font-size-s
+          line-height: 18px
+          margin-bottom: .2em
+          em
+            font-weight: 600
+            color: $teal-dark
+        p.sections
+          color: $grey-medium
+          font-weight: 300
+          font-size: $font-size-xs
+          line-height: 15px
+          em
+            font-weight: 600
+            color: $grey-medium
+        &.active
+          background: $cream-dark
+          border-color: $cream-dark
+          box-shadow: none
+          p.title
+            color: $teal-dark
+            text-shadow: none
+            em
+              font-weight: 600
+              color: $teal-dark
+          p.sections
+            color: $grey-medium
+            text-shadow: none
+            em
+              font-weight: 600
+              color: $grey-medium
+

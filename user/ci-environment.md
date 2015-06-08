@@ -17,38 +17,82 @@ Travis CI runs builds in isolated virtual machines that offer a vanilla build
 environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests can run in an environment built from
-scratch.
-
-To set up the system for your build, you can use the `sudo` command to install
-packages, to change configuration, create users, and so on.
-
-<div class="note-box">
-Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
-</div>
+slate and making sure that your tests run in an environment built from scratch.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## The Build Machine
-
-On the Linux platform, builds have 3 GB of memory available. Disk space is limited,
-but there's no fixed limit per build. Builds have up to two cores available (bursted).
-
-## CI environment OS
-
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit,
-with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
-
 ## Virtualization environments
 
-There are currently three distinct virtual environments in which your builds run.
+Each build runs in one of the following three virtual environments:
 
-They are explained in separated documents.
+* Standard (the default environment)
+* Container-based (the newer environment in which `sudo` commands are not available.
+* OSX for Objective-C projects
 
-1. [Standard](/user/workers/standard-infrastructure)
-1. [Container-based](/user/workers/container-based-infrastructure)
-1. [OS X](/user/workers/os-x-infrastructure) (This is synonymous with Objective-C build environment.)
+The following table summarizes the differences between the virtual environments:
+
+<div class="header-row header-column">
+<table><thead>
+<tr>
+<th></th>
+<th>Standard</th>
+<th>Container-based</th>
+<th>OS X</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>.travis.yml</td>
+<td><em>this is the default</em></td>
+<td><code>sudo: false</code></td>
+<td><code>language: objective-c</code> or <code>os: osx</code></td>
+</tr>
+<tr>
+<td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
+<td>yes</td>
+<td>no</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Boot Time</td>
+<td>slightly slower then Container-based</td>
+<td>slightl faster that Standard</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>File System</td>
+<td>SIMFS, which is case sensitive and can return directory entities in random order</td>
+<td>AUFS</td>
+<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
+</tr>
+<tr>
+<td>Cache available</td>
+<td>private only</td>
+<td>public only</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>OS X Mavericks</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>3 GB</td>
+<td>3 GB</td>
+<td></td>
+</tr>
+<tr>
+<td>Cores</td>
+<td>Up to 2, bursted</td>
+<td>Up to 2, bursted</td>
+<td></td>
+</tr>
+</tbody></table>
+</div>
+
+All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure. 
 
 ## Networking
 
@@ -61,7 +105,7 @@ Most services work normally when talking to the local host by either `localhost`
 
 ## Environment common to all VM images
 
-### Git, etc
+### Version control
 
 All VM images have the following pre-installed
 
@@ -112,6 +156,22 @@ Language-specific workers have multiple runtimes for their respective language (
 * ElasticSearch
 * CouchDB
 
+### Firefox
+
+All virtual environments have recent version of Firefox installed, currently
+31.0 for Linux environments and 25.0 for OSX.
+
+If you need a specific version of Firefox, use the Firefox addon to install
+it during the `before_install` stage of the build.
+
+For example, to install version 17.0, add the following to your
+`.travis.yml` file:
+
+    addons:
+      firefox: "17.0"
+
+Please note that the addon only works in 64-bit Linux environments.
+
 ### Messaging Technology
 
 * [RabbitMQ](http://rabbitmq.com)
@@ -124,78 +184,12 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Environment variables
 
-* `CI=true`
-* `TRAVIS=true`
-* `CONTINUOUS_INTEGRATION=true`
-* `DEBIAN_FRONTEND=noninteractive`
-* `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-* `USER=travis` (**do not depend on this value**)
-* `HOME=/home/travis` (**do not depend on this value**)
-* `LANG=en_US.UTF-8`
-* `LC_ALL=en_US.UTF-8`
-* `RAILS_ENV=test`
-* `RACK_ENV=test`
-* `MERB_ENV=test`
-* `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
-* `JAVA_HOME` is set to the appropriate value.
-
-Additionally, Travis CI sets environment variables you can use in your build, e.g.
-to tag the build, or to run post-build deployments.
-
-* `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
-  name of the branch currently being built; whereas for builds triggered
-  by a pull request this is the name of the branch targeted by the pull
-  request (in many cases this will be `master`).
-* `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
-  being built has been copied on the worker.
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
-* `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
-* `TRAVIS_COMMIT`: The commit that the current build is testing.
-* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
-  or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
-* `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
-  request, "false" if it's not a pull request.
-* `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
-  used. This value is either "true" or "false".
-* `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
-  repository currently being built. (for example, "travis-ci/travis-build").
-* `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
-* `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
-
-Language-specific builds expose additional environment variables representing
-the current version being used to run the build. Whether or not they're set
-depends on the language you're using.
-
-* `TRAVIS_DART_VERSION`
-* `TRAVIS_GO_VERSION`
-* `TRAVIS_HAXE_VERSION`
-* `TRAVIS_JDK_VERSION`
-* `TRAVIS_JULIA_VERSION`
-* `TRAVIS_NODE_VERSION`
-* `TRAVIS_OTP_RELEASE`
-* `TRAVIS_PERL_VERSION`
-* `TRAVIS_PHP_VERSION`
-* `TRAVIS_PYTHON_VERSION`
-* `TRAVIS_R_VERSION`
-* `TRAVIS_RUBY_VERSION`
-* `TRAVIS_RUST_VERSION`
-* `TRAVIS_SCALA_VERSION`
-
-The following environment variables are available for Objective-C builds.
-
-* `TRAVIS_XCODE_SDK`
-* `TRAVIS_XCODE_SCHEME`
-* `TRAVIS_XCODE_PROJECT`
-* `TRAVIS_XCODE_WORKSPACE`
+There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment. 
 
 ### Libraries
 
 * OpenSSL
 * ImageMagick
-
 
 ### apt configuration
 
@@ -431,3 +425,4 @@ Recent 1.7.x version (usually the most recent)
 
 * bundler
 * rake
+

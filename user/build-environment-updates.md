@@ -9,7 +9,7 @@ Roughly, environments will be updated during the first week of the 'even' month
 (February, April, June, August, October, December).
 Language-specific updates may be released as needed.
 
-<ul>
+<ul class="list--blank">
 {% for page in site.pages %}
 {% if page.category == "build_env_updates" %}
 	<li><a href="{{ page.permalink }}">{{ page.permalink | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>

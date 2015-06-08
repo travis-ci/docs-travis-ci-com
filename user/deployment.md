@@ -8,31 +8,7 @@ permalink: /user/deployment/
 
 Continuous Deployment to the following providers are currently supported out of the box:
 
-* [Appfog](/user/deployment/appfog)
-* [biicode](/user/deployment/biicode)
-* [Cloud 66](/user/deployment/cloud66)
-* [Heroku](/user/deployment/heroku)
-* [AWS CodeDeploy](/user/deployment/codedeploy)
-* [Modulus](/user/deployment/modulus)
-* [Nodejitsu](/user/deployment/nodejitsu)
-* [OpenShift](/user/deployment/openshift)
-* [cloudControl](/user/deployment/cloudcontrol)
-* [CloudFoundry](/user/deployment/cloudfoundry)
-* [RubyGems](/user/deployment/rubygems)
-* [AWS OpsWorks](/user/deployment/opsworks)
-* [PyPI](/user/deployment/pypi)
-* [Divshot.io](/user/deployment/divshot)
-* [Rackspace Cloud Files](/user/deployment/cloudfiles)
-* [npm](/user/deployment/npm)
-* [S3](/user/deployment/s3)
-* [Ninefold](/user/deployment/ninefold)
-* [Engine Yard](/user/deployment/engineyard)
-* [GitHub Releases](/user/deployment/releases)
-* [Deis](/user/deployment/deis)
-* [Hackage](/user/deployment/hackage)
-* [Google Cloud Storage](/user/deployment/gcs)
-* [packagecloud.io](/user/deployment/packagecloud)
-* [Custom deployment via after_success hook](/user/deployment/custom)
+{% include deployments.html %}
 
 ### Deploying to Multiple Providers
 

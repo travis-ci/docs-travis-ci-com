@@ -1,0 +1,92 @@
+a
+  color: $grey-darker
+  text-decoration: underline
+  &:hover
+    color: $teal-dark
+
+p
+  font-size: $font-size-sm
+  color: #888
+  line-height: 1.5em
+
+
+%code-styles
+  border: 1px solid $grey-light
+  border-radius: 4px
+  font-family: monaco, monospace
+  font-size: $font-size-xs
+  color: $grey-dark
+  font-style: normal
+  background: $cream-light
+
+
+code
+  @extend %code-styles
+  display: inline-block
+  margin: 0 0 0 .3em
+  padding: 0em 0.4em
+  line-height: 1.7
+
+pre
+  @extend %code-styles
+  margin-top: 1em
+  padding: 1em 1.5em
+  line-height: 1.5em
+  overflow-x: scroll
+
+  code
+    border: none
+
+blockquote
+  margin-left: 0
+  margin-right: 0
+  padding: .4em 1em
+  font-size: $font-size-m
+  border-radius: 4px
+  font-style: italic
+  background-color: #e7eeee
+  color: #3e8987
+  strong
+    text-transform: uppercase
+    font-style: normal
+  code
+    color: #267c8d
+    border-color: #267c8d
+    background-color: $white
+
+
+ol, ul
+  margin: 0
+  padding: 0
+  list-style-position: inside
+
+li ul
+  padding-left: 2.5em
+  list-style-position: outside
+
+table
+  width: 100%
+
+  td, th
+    padding: 0.8em 0.6em 0.5em
+
+  tr
+    border-bottom: 1px solid $cream-dark
+
+.header-row 
+  thead
+    background-color: $cream-light
+    color: $grey-dark
+    border-bottom: 1px solid $cream-dark
+  th
+    text-transform: uppercase
+    font-weight: 400
+
+.header-column
+  tbody
+    tr
+      td:first-child
+        background-color: $cream-light
+        color: $grey-dark
+        border-right: 1px $cream-dark solid
+
