@@ -46,7 +46,7 @@ the latest Rakudo Perl 6.
 
 By default, the following command will be used to run the project's tests:
 
-    PERL6LIB=lib prove --exec=perl6 -r t
+    panda-test
 
 ## Dependency Management
 
