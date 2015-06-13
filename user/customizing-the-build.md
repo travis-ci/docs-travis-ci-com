@@ -154,7 +154,7 @@ Some common reasons why builds might hang:
 
 ## Building Specific Branches
 
-Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches suing blacklists or whitelists.
+Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blacklists or whitelists.
 
 ### Whitelisting or blacklisting branches
 
