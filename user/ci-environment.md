@@ -56,7 +56,7 @@ The following table summarizes the differences between the virtual environments:
 <tr>
 <td>Boot Time</td>
 <td>slightly slower then Container-based</td>
-<td>slightl faster that Standard</td>
+<td>slightly faster that Standard</td>
 <td>N/A</td>
 </tr>
 <tr>
