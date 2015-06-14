@@ -44,7 +44,7 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 2. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails.
 
-You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](user/ci-environment/)?
+You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](/user/ci-environment/)?
 
 For any kind of questions feel free to join our IRC channel [#travis on chat.freenode.net](irc://chat.freenode.net/%23travis).
 
