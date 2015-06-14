@@ -55,13 +55,13 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>slightly slower then Container-based</td>
-<td>slightly faster that Standard</td>
+<td>slightly slower than Container-based</td>
+<td>slightly faster than Standard</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>File System</td>
-<td>SIMFS, which is case sensitive and can return directory entities in random order</td>
+<td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
 <td>AUFS</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
