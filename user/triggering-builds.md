@@ -1,10 +1,8 @@
 ---
 title: Triggering builds through the API
-permalink: /user/triggering-builds
+permalink: /user/triggering-builds/
 layout: en
 ---
-
-
 Requesting a build through the Travis-CI API can be done by sending a POST request to a `/repo/{slug|id}/requests` path. This endpoint works on API v3 only.
 
 Here is a script for sending a minimal request to the master branch of the `travis-ci/travis-core` repository:
