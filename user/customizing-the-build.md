@@ -4,6 +4,7 @@ layout: en
 permalink: /user/customizing-the-build/
 redirect_from:
   - /user/build-configuration/
+  - /user/build-lifecycle/
 ---
 
 <div id="toc"></div>
@@ -30,7 +31,7 @@ In a `before_install` step, you can install additional dependencies required by 
 
 You can perform additional steps when your build succeeds or fails using  the `after_success` (such as building documentation, or deploying to a custom server) or `after_failure` (such as uploading log files) options. In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
 
-The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing the the repository directory, is:
+The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
 1. `before_install`
 2. `install`
