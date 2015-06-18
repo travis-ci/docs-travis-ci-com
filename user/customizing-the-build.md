@@ -5,6 +5,7 @@ permalink: /user/customizing-the-build/
 redirect_from:
   - /user/build-configuration/
   - /user/build-lifecycle/
+  - /user/how-to-skip-a-build/
 ---
 
 <div id="toc"></div>
