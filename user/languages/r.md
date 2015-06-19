@@ -28,6 +28,7 @@ package doesn't need any dependencies beyond those specified in your
 `DESCRIPTION` file, your `.travis.yml` can simply be
 
     language: r
+    sudo: required
 
 The R environment comes with LaTeX and
 [pandoc](http://johnmacfarlane.net/pandoc/) preinstalled, making it easier to
