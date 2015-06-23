@@ -201,8 +201,8 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    1. Set up and export environment variables.
-    1. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+    - Set up and export environment variables.
+    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
     You may modify the user's primary group with `-g`.
 1. Your `script` would look something like:
 
