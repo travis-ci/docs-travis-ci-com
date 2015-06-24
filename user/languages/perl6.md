@@ -94,7 +94,7 @@ Travis CI Perl 6 builder) locations and they won't load.
 ## Build Matrix
 
 For Perl 6 projects, `env` and `perl6` can be given as arrays to construct a
-build matrix.
+build matrix. (As yet untested).
 
 ## Environment Variable
 
