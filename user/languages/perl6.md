@@ -58,7 +58,6 @@ either downloading and installing your dependencies as part of the `install`
 step, or you could use [panda](https://github.com/tadzik/panda) (the Perl 6
 module package manager) like so:
 
-### When Overriding Build Commands, Do Not Use sudo
     install:
         - rakudobrew build-panda
         - panda install <Module1> <Module2>
@@ -84,6 +83,7 @@ Further information about overriding dependency installation commands is
 described in the [general build configuration](/user/build-configuration/)
 guide.
 
+### When overriding build commands, do not use sudo
 
 When overriding the `install:` key to tweak dependency installation
 commands, do not use sudo.  Travis CI Environment has Perl 6 versions
