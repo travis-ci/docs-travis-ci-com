@@ -50,13 +50,40 @@ By default, the following command will be used to run the project's tests:
 
 ## Dependency Management
 
-### Travis CI uses panda
+### There is currently no automated dependency management
 
-By default Travis CI uses `panda` to manage your project's dependencies. It
-is possible to override dependency installation command as described in the
-[general build configuration](/user/build-configuration/) guide.
+At present, by default Travis CI does not automatically manage your
+project's dependencies.  It is possible to manage dependencies yourself by
+either downloading and installing your dependencies as part of the `install`
+step, or you could use [panda](https://github.com/tadzik/panda) (the Perl 6
+module package manager) like so:
 
 ### When Overriding Build Commands, Do Not Use sudo
+    install:
+        - rakudobrew build-panda
+        - panda install <Module1> <Module2>
+
+this will install the latest `panda` version.
+
+It is sometimes necessary to match the `panda` version to that of Rakudo;
+new Rakudo features could be used in the most up to date `panda` which
+aren't available in the version of Rakudo you are using.  For instance, to
+test a module against Rakudo 2015.04, you would have a `.travis.yml` which
+looks something like this:
+
+    language: perl6
+    perl6:
+        - 2015.04
+    install:
+        - rakudobrew panda-install 2015.04
+
+Now your `panda` will match your Rakudo version and should install
+the relevant dependencies successfully.
+
+Further information about overriding dependency installation commands is
+described in the [general build configuration](/user/build-configuration/)
+guide.
+
 
 When overriding the `install:` key to tweak dependency installation
 commands, do not use sudo.  Travis CI Environment has Perl 6 versions
