@@ -104,3 +104,31 @@ The Perl 6 version a job is using is available via:
 
 ## Examples
 
+### Build and test with the latest Rakudo
+
+    language: perl6
+
+### Build and test with multiple Rakudo versions
+
+    language: perl6
+    perl6:
+        - 2015.06
+        - 2015.05
+
+### Build and test with matching Rakudo and panda versions
+
+    language: perl6
+    perl6:
+        - 2015.03
+    install:
+        - rakudobrew build-panda 2015.03
+
+### Build and test with the latest Rakudo, but with non-standard lib and test dirs
+
+Use e.g. `src/` for the module library code, and `tests/` as the test
+directory.  Please note that it is standard practice to put the module
+library code under `lib/` and the tests under `t/`.
+
+    language: perl6
+    script:
+        - PERL6LIB=src prove -v -r --exec=perl6 tests/
