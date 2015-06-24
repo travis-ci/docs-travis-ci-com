@@ -20,9 +20,11 @@ Jobs running on container-based infrastructure:
 
 ## Routing your build to container-based infrastructure
 
-The default behavior when no `sudo` usage is detected is to send Linux builds to
-this infrastructure.  If you prefer to explicitly send your builds to the
-container-based infrastructure, add this to the top level of `.travis.yml`:
+The default behavior, when no `sudo` usage is detected in any customizable build phases, depends on the date when the repository is first recognized by Travis CI:
+- For repos we recognize before 2015-01-01, linux builds are sent to our standard infrastructure. 
+- For repos we recognize on or after 2015-01-01, linux builds are sent to our container-based infrastructure.  
+
+If you prefer to explicitly send your builds to the container-based infrastructure, add this to the top level of `.travis.yml`:
 
 ```yaml
 sudo: false
