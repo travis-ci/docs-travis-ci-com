@@ -40,8 +40,8 @@ backend.  Future support for the
 
 ## Default Perl 6 Version
 
-If you leave the `perl6` key out of your `.travis.yml`, Travis CI will use
-the latest Rakudo Perl 6.
+If you leave the `perl6` key out of your `.travis.yml`, Travis CI will build
+Rakudo Perl 6 from the latest commit from the project's `nom` branch.
 
 ## Default Test Script
 
