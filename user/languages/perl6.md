@@ -20,6 +20,7 @@ versions that your projects can be tested against. To specify them, use the
     language: perl6
     perl6:
       - latest
+      - 2015.06
       - 2015.05
       - 2015.04
 
