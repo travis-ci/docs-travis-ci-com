@@ -23,7 +23,7 @@ versions that your projects can be tested against. To specify them, use the
       - 2015.05
       - 2015.04
 
-As time goes, new releases come out and we upgrade both rakudobrew and
+Over time, new releases come out and we upgrade both rakudobrew and
 Perls, aliases like `2015.04` will float and point to different exact
 versions, patch levels and so on.
 
