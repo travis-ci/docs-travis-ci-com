@@ -91,9 +91,9 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && make install
+      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 
-This script lends itself nicely to be extracted into a shell script, let's name it `install-protobuf.sh`:
+These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
     #!/bin/sh
     set -ex
