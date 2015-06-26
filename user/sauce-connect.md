@@ -73,5 +73,3 @@ Ruby's [selenium-webdriver][ruby-bindings] bindings:
     })
 
 [ruby-bindings]: https://code.google.com/p/selenium/wiki/RubyBindings
-
-#
