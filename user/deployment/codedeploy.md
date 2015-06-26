@@ -92,3 +92,19 @@ Sometimes you want to run commands before or after triggering a deployment. You 
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
+
+### AWS region to deploy to
+
+You can explicitly specify the AWS region to deploy to with the **region** option:
+
+{% highlight yaml %}
+    deploy:
+      provider: codedeploy
+      access_key_id: "YOUR AWS ACCESS KEY"
+      secret_access_key: "YOUR AWS SECRET KEY"
+      bucket: "S3 Bucket"
+      key: latest/MyApp.zip
+      application: MyApp
+      deployment_group: MyDeploymentGroup
+      region: us-west-1
+{% endhighlight %}
