@@ -71,7 +71,7 @@ By default, a build email is sent to the committer and the author, but only if
 they have access to the repository the commit was pushed to. This prevents forks
 active on Travis CI from notifying the upstream repository's owners when they're
 pushing any upstream changes to their fork. It also prevents build notifications
-from going to folks not registered on Travis CI.
+from going to forks not registered on Travis CI.
 
 The email address is then determined based on the email address in the commit,
 but only if it matches one of the email addresses in our database. We
