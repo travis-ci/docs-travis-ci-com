@@ -176,7 +176,7 @@ Specify which branches to build using a whitelist, or blacklist branches that yo
         - master
         - stable
 
-If you specify both, `only` takes precedence over `except`. By default, `gh-pages` branch are not built unless you add it to the whitelist.
+If you specify both, `only` takes precedence over `except`. By default, `gh-pages` branch is not built unless you add it to the whitelist.
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
