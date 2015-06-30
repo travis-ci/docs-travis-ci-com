@@ -36,8 +36,8 @@ the support team is unavailable.
 
 ### Code
 
-There are a few repositories (only 1 is required) that realize support
-for builds in a new language.
+There are a few repositories (only [travis-build](https://github.com/travis-ci/travis-build) is required) that
+realize support for builds in a new language.
 
 1. [travis-build](https://github.com/travis-ci/travis-build)
 
