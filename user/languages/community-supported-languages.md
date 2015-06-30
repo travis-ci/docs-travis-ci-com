@@ -107,8 +107,10 @@ execute (we recommend doing this on a virtual machine) to aid your development.
 In alphabetical order, they are:
 
 1. [C#](../csharp)
+1. [Crystal](../crystal)
 1. [D](../d)
 1. [Dart](../dart)
 1. [Haxe](../haxe)
 1. [Julia](../julia)
+1. [Perl 6](../perl6)
 1. [R](../r)
