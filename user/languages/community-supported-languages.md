@@ -76,9 +76,9 @@ realize support for builds in a new language.
     to have this information visible to the end user.
 
     To make this happen, you need to tell `travis-web` to pick up the value
-    from the job's data and display it.
-
-    See [this PR](https://github.com/travis-ci/travis-web/pull/313) for an example.
+    from the job's data and display it.  Clone the `travis-web` repository,
+    add your language to the `app/utils/keys-map.coffee` file and submit a
+    pull request for this change.
 
 
 It is important to note that languages are configured at build time,
