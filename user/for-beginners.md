@@ -30,7 +30,7 @@ Travis CI builds for your fork of the `travis-broken-example` repository.
    script: phpunit Test.php
    ```
 
-   This file tells Travis CI that this project is written in PHP, and to test `Test.php` with phpunit against PHP versions 5.5, 5.4 and HVVM.
+   This file tells Travis CI that this project is written in PHP, and to test `Test.php` with phpunit against PHP versions 5.5, 5.4 and HHVM.
 
 2. Edit the empty `NewUser.txt` file by adding your name to the empty file. Add the file to git, commit and push, to trigger a Travis CI build:
 
