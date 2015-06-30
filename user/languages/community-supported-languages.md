@@ -36,17 +36,17 @@ the support team is unavailable.
 
 ### Code
 
-There are a few repositories (only 1 is required) that realizes support
-for builds in a new languages.
+There are a few repositories (only [travis-build](https://github.com/travis-ci/travis-build) is required) that
+realize support for builds in a new language.
 
 1. [travis-build](https://github.com/travis-ci/travis-build)
 
-    This is the only repository required for the new language support.
+    This is the only repository required to support the new language.
 
     Create a new class, inheriting from `Travis::Build::Script`, that implements
     reasonable defaults for your language's build stages.
 
-    Basic build follows these stages:
+    A basic build follows these stages:
 
     `configure` → `setup` → `announce` → `install` → `script`
 
@@ -72,17 +72,17 @@ for builds in a new languages.
 
 1. [travis-web](https://github.com/travis-ci/travis-web)
 
-    If the language does provide the build matrix expansion, it would be nice
+    If the language provides build matrix expansion, it would be nice
     to have this information visible to the end user.
 
     To make this happen, you need to tell `travis-web` to pick up the value
-    from the job's data, and display it.
+    from the job's data and display it.
 
     See [this PR](https://github.com/travis-ci/travis-web/pull/313) for an example.
 
 
-It is important to note that languages are configured at the build time,
-so that components are downloaded every time a job runs.
+It is important to note that languages are configured at build time,
+thus components are downloaded every time a job runs.
 
 To save build time, you should limit your language resource usage to a minimum.
 
@@ -99,7 +99,7 @@ Optionally, you can use
 [`travis-build` as an addon](https://github.com/travis-ci/travis-build/blob/master/README.md#use-as-addon-for-cli)
 to [the CLI](https://github.com/travis-ci/travis.rb) utility.
 This allows you to compile the `travis-build` code you are working on
-into a Bash script, which you can then check syntax (`bash -n`) and
+into a Bash script, which you can then check for correct syntax (`bash -n`) and
 execute (we recommend doing this on a virtual machine) to aid your development.
 
 ## List of community-supported languages
