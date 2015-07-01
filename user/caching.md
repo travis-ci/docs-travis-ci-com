@@ -14,11 +14,31 @@ These features are also still experimental, please [contact us](mailto:support@t
 
 ## Caching directories (Bundler, dependencies)
 
-Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+With caches, Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+
+### Build phases
 
 Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
 run.
 Note that the failure to upload the cache does not mark the job a failure.
+
+#### `before_cache` phase
+
+When using caches, it may be useful to run command just prior to uploading
+the new cache archive.
+For example, the dependency management utility may write log files into the directory
+you are watching, and you would do well to ignore these.
+
+For this purpose, you can use `before_cache` phase.
+
+{% highlight yaml %}
+cache:
+  directories:
+    - $HOME/.cache/pip
+⋮
+before_cache:
+  - rm -f $HOME/.cache/pip/log/debug.log
+{% endhighlight %}
 
 ### Bundler
 
