@@ -48,7 +48,7 @@ Here is an example `.travis.yml` for an Android project:
 
         # Specify at least one system image,
         # if you need to run emulator(s) during your tests
-        - sys-img-armeabi-v7a-android-19
+        - sys-img-armeabi-v7a-android-21
         - sys-img-x86-android-17
 
 
@@ -120,7 +120,7 @@ If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-fo
 
     # Emulator Management: Create, Start and Wait
     before_script:
-      - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+      - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
       - emulator -avd test -no-skin -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
