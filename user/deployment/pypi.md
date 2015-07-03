@@ -24,7 +24,7 @@ commits, like so:
       on:
         tags: true
 
-If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
+If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
 Assuming you have the Travis CI command line client installed, you can encrypt your password like this:
 
@@ -80,7 +80,7 @@ If you would like to upload different distributions, specify them using the `dis
       provider: pypi
       user: ...
       password: ...
-      distributions: "sdist bdist_wheel" # Your distribtuions here
+      distributions: "sdist bdist_wheel" # Your distributions here
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
 
