@@ -4,7 +4,7 @@ layout: en
 permalink: /user/database-setup/
 ---
 
-This guide covers setting up the most popular databases and other services in the Travis CI environemnt. Looking for information on [configuring multiple databases?](/user/database-setup/#Multiple-database-systems).
+This guide covers setting up the most popular databases and other services in the Travis CI environment. Looking for information on [configuring multiple databases?](/user/database-setup/#Multiple-database-systems).
 
 The following services are available, all of them use default settings, with the exception of some added users and relaxed security settings:
 

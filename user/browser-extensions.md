@@ -10,7 +10,7 @@ permalink: /user/browser-extensions/
 
 [travis-ci.org Build Status Extension for Chrome](https://chrome.google.com/webstore/detail/klbmicjanlggbmanmpneloekhajhhbfb) displays the build status icon next to the project name on GitHub.
 
-[Universal Build Status Extenstion for Chrome](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp) displays the latest build status from GitHub's statuses API next to the project name.
+[Universal Build Status Extension for Chrome](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp) displays the latest build status from GitHub's statuses API next to the project name.
 
 ### Firefox
 

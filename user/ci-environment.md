@@ -319,7 +319,7 @@ Test::Pod::Coverage
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
 [hhvm](https://github.com/facebook/hhvm) is also available.
-and the nighly builds are installed on-demand (as `hhvm-nightly`).
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
 
 ### XDebug
 
