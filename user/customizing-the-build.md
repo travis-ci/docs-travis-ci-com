@@ -430,7 +430,7 @@ If your project uses Git submodules, make sure you use public Git URLs. For exam
 
 use
 
-    git://github.com/someuser/somelibrary.git
+    https://github.com/someuser/somelibrary.git
 
 Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
 
