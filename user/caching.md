@@ -22,24 +22,6 @@ Travis CI attempts to upload cache after the script, but before either `after_su
 run.
 Note that the failure to upload the cache does not mark the job a failure.
 
-#### `before_cache` phase
-
-When using caches, it may be useful to run command just prior to uploading
-the new cache archive.
-For example, the dependency management utility may write log files into the directory
-you are watching, and you would do well to ignore these.
-
-For this purpose, you can use `before_cache` phase.
-
-{% highlight yaml %}
-cache:
-  directories:
-    - $HOME/.cache/pip
-⋮
-before_cache:
-  - rm -f $HOME/.cache/pip/log/debug.log
-{% endhighlight %}
-
 ### Bundler
 
 On Ruby and Objective-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
@@ -225,20 +207,22 @@ we'll see about adding your custom source to our cache.
 
 Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
-### `before_cache` stage
+### `before_cache` phase
 
-Some utilities touch a tiny file when you work with the dependencies.
-This renders your carefully crafted cache invalid and the entire cache
-will have to be upload.
-If you want to perform cleanup tasks before the cache is uploaded, use the
-`before_cache` stage:
+When using caches, it may be useful to run command just prior to uploading
+the new cache archive.
+For example, the dependency management utility may write log files into the directory
+you are watching, and you would do well to ignore these.
 
-{% highlight yaml%}
+For this purpose, you can use `before_cache` phase.
+
+{% highlight yaml %}
 cache:
   directories:
-    - $CACHE_DIR
+    - $HOME/.cache/pip
+⋮
 before_cache:
-  - rm -f $CACHE_DIR/.tiny_tiny_marker
+  - rm -f $HOME/.cache/pip/log/debug.log
 {% endhighlight %}
 
 Failures in this stage does not mark the job a failure.
