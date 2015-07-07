@@ -74,4 +74,22 @@ Ruby's [selenium-webdriver][ruby-bindings] bindings:
 
 [ruby-bindings]: https://code.google.com/p/selenium/wiki/RubyBindings
 
-#
+## Additional options
+
+Sometimes you may need to pass additional options to Sauce Connect. Currently
+supported parameters are
+
+  * `direct_domains`
+  * `no_ssl_bump_domains`
+  * `tunnel_domains`
+
+As an example, you may need `--direct-domains` option in case [some HTTPS domains
+fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/articles/2005359-some-https-sites-don-t-work-correctly-under-sauce-connect):
+
+    addons:
+      sauce_connect:
+        username: "Your Sauce Labs username"
+        access_key:
+          secure: "The secure string output by `travis encrypt`"
+        direct_domains: example.org,*.foobar.com
+
