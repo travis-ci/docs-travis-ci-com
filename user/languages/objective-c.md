@@ -18,6 +18,11 @@ configuration](/user/build-configuration/) guides first.
 We have a few different build images with different versions of Xcode and SDKs
 installed.
 
+At this time we are unable to provide pre-release versions of Xcode due to the
+NDA imposed on them. We do test them internally, and our goal is to make new
+versions available the same day they come out. If you have any further questions
+about Xcode pre-release availability, send us an email at support@travis-ci.com.
+
 ### Xcode 6.4
 
 Xcode 6.4 is available by adding `osx_image: xcode6.4` to your .travis.yml.
