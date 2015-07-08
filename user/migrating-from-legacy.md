@@ -7,7 +7,7 @@ permalink: /user/migrating-from-legacy/
 <div id="toc">
 </div>
 
-## What benefits does this new infrastructure have?
+## What benefits does container-based infrastructure have?
 
 ### Builds start in seconds
 
@@ -15,27 +15,21 @@ Rather than wait for builds to start for a long time, your builds now start in l
 
 ### Faster builds
 
-We've been helping projects move over to this new stack, and we've seen much better build times for most of them. The mileage may still vary based on how heavy your builds are on I/O, but most projects should see an improvement. We'd love to hear from your if you don't or if you see slower build times.
+Mileage may vary based on how heavy your builds are on I/O, but most projects should see an improvement in build times. We'd love to hear from your if you don't or if you see slower build times.
 
 ### More available resources in a build container
 
-The build containers in our legacy build infrastructure have had 1.5 cores (with burst capacity) and 3GB of memory. The CPU resources are now guaranteed, which means less impact by noisy neighbors on the same host machine. Build times throughout the day should be much more consistent on the new container stack.
-
-The new containers have 2 dedicated cores available and 4 GB of memory.
+The new containers have 2 dedicated cores available and 4 GB of memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed. which means less impact by noisy neighbors on the same host machine. Build times throughout the day should be much more consistent on the new container stack.
 
 ### Better network capacity, availability and throughput
 
-Our new stack is running on EC2, which means much faster network access to most services, especially those hosted on EC2 as well. Access to S3 is now also a ton faster than on our legacy stack.
+Our container-based stack is running on EC2, which means much faster network access to most services, especially those hosted on EC2 as well. Access to S3 is now also a ton faster than on our legacy stack.
 
 ### Caching available for open source projects
 
 The best news for open source projects is that our build caching is now available for them too. That means faster build speeds by caching dependencies. Make sure to read the docs before trying it out.
 
-For Ruby projects, it's as simple as adding cache: bundler to your .travis.yml.
-
-### Easier to scale
-
-This might not be a direct benefit to our users and customers, but it is one for us. We can now respond to demand much quicker and increase our build capacity in mere minutes. That allows us to ensure that open source projects are less likely to hit capacity peaks and wait in line for too long until they run.
+For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml.
 
 ## How can I use it?
 
@@ -51,11 +45,11 @@ Our new container stack uses Docker under the hood. This has a lot of benefits l
 
 At this point, it's not possible to use any command requiring sudo in your builds.
 
-If you require sudo, for instance to install Ubuntu packages, a workaround is to use precompiled binaries, uploading them to S3 and downloading them as part of your build, installing them into a non-root directory.
+If you require sudo, for instance to install Ubuntu packages, a workaround is to use precompiled binaries, uploading them to S3 and downloading them as part of your build,then installing them into a non-root directory.
 
 #### Databases don't run off a memory disk
 
-On our legacy and legacy legacy stack, both MySQL and PostgreSQL ran off a memory disk to greatly increase transaction and query speed. This can impact projects depending on their use of transaction, fixtures and general database usage, but the impact generally shouldn't be negative.
+On our legacy stack, both MySQL and PostgreSQL run off a memory disk to greatly increase transaction and query speed. This can impact projects depending on their use of transaction, fixtures and general database usage, but the impact generally shouldn't be negative.
 
 ## How do I install APT sources and packages?
 
@@ -76,8 +70,7 @@ addons:
 ```
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result
-in a log message indicating how to submit sources for approval.
+[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result in a log message indicating how to submit sources for approval.
 
 ### Adding APT Packages
 
@@ -91,8 +84,7 @@ addons:
     - time
 ```
 
-The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts
-to install disallowed packages will result in a log message detailing the package approval process.
+The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
 
 ## How Do I Install Custom Software?
 
