@@ -20,6 +20,8 @@ installed.
 
 ### Xcode 6.4
 
+Xcode 6.4 is available by adding `osx_image: xcode6.4` to your .travis.yml.
+
 Our Xcode 6.4 image has the following SDKs preinstalled:
 
 - macosx10.9
@@ -81,9 +83,10 @@ In addition, the following simulators are installed:
   - Resizable iPhone
   - Resizable iPad
 
-This image is available by adding `osx_image: xcode6.4` to your .travis.yml.
 
 ### Xcode 6.3.1
+
+Xcode 6.3.1 is available by adding `osx_image: beta-xcode6.3` to your .travis.yml.
 
 Our Xcode 6.3.1 image has the following SDKs preinstalled:
 
@@ -136,9 +139,10 @@ In addition, the following simulators are installed:
   - Resizable iPad
 
 
-This image is available by adding `osx_image: beta-xcode6.3` to your .travis.yml.
 
 ### Xcode 6.2
+
+Xcode 6.2 is available by adding `osx_image: beta-xcode6.2` to your .travis.yml.
 
 Our Xcode 6.2 image has the following SDKs preinstalled:
 
@@ -179,9 +183,11 @@ In addition, the following simulators are installed:
   - Resizable iPhone
   - Resizable iPad
 
-This image is available by adding `osx_image: beta-xcode6.2` to your .travis.yml.
 
 ### Xcode 6.1
+
+Xcode 6.1 is the default Xcode version if you don't specify an `osx_image`
+setting in your .travis.yml.
 
 Our Xcode 6.1 image has the following SDKs preinstalled:
 
@@ -220,7 +226,6 @@ In addition, the following simulators are installed:
   - Resizable iPhone
   - Resizable iPad
 
-This image is the default image if you don't specify an `osx_image` setting in your .travis.yml.
 
 ## Default Test Script
 
