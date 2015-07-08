@@ -53,3 +53,16 @@ curl -s -X POST \
   -d "$body" \
   https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
 ```
+
+### Requests triggered with API and webhooks
+
+Due to a way we use tokens for webhooks authentication, a token needs to be
+passed manually as a param for webhooks to work properly. An example request
+with token passed as a param would look like:
+
+```json
+"request": {
+  "branch": "master",
+  "token": "a-token"
+}
+```
