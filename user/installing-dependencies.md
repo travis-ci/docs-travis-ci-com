@@ -3,7 +3,7 @@ title: Installing Dependencies
 layout: en
 permalink: /user/installing-dependencies/
 ---
-Some builds need more than a set of language libraries, they need extra services or libraries not installed by default. To learn about the default setup of our build environment, please refer to The Build Environment.
+Some builds need more than a set of language libraries, they need extra services or libraries not installed by default. To learn about the default setup of our build environment, please refer to <a href="/user/ci-environment">The Build Environment</a>.
 
 You have full control over the virtual machine your tests are running on, so you can customize it to your needs.
 
