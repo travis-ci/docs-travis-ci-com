@@ -15,15 +15,222 @@ configuration](/user/build-configuration/) guides first.
 
 ## Supported OS X/iOS SDK versions
 
-Currently pre-installed on our systems are the following SDKs for Xcode:
+We have a few different build images with different versions of Xcode and SDKs
+installed.
 
-- iOS 8.1 (simulator and device)
-- iOS 7.1 (simulator)
-- iOS 7.0 (simulator)
-- OS X 10.9
+At this time we are unable to provide pre-release versions of Xcode due to the
+NDA imposed on them. We do test them internally, and our goal is to make new
+versions available the same day they come out. If you have any further questions
+about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
-The device SDKs are needed if you want to build a binary to distribute to
-devices. Testing on devices is currently not possible.
+### Xcode 6.4
+
+Xcode 6.4 is available by adding `osx_image: xcode6.4` to your .travis.yml.
+
+Our Xcode 6.4 image has the following SDKs preinstalled:
+
+- macosx10.9
+- macosx10.10
+- iphoneos8.4
+- iphonesimulator8.4
+
+In addition, the following simulators are installed:
+
+- iOS 7.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.3
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.3
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+
+
+### Xcode 6.3.1
+
+Xcode 6.3.1 is available by adding `osx_image: beta-xcode6.3` to your .travis.yml.
+
+Our Xcode 6.3.1 image has the following SDKs preinstalled:
+
+- macosx10.9
+- macosx10.10
+- iphoneos8.3
+- iphonesimulator8.3
+
+In addition, the following simulators are installed:
+
+- iOS 7.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.3
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+
+
+
+### Xcode 6.2
+
+Xcode 6.2 is available by adding `osx_image: beta-xcode6.2` to your .travis.yml.
+
+Our Xcode 6.2 image has the following SDKs preinstalled:
+
+- macosx10.9
+- macosx10.10
+- iphoneos8.2
+- iphonesimulator8.2
+
+In addition, the following simulators are installed:
+
+- iOS 7.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+- iOS 8.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+
+
+### Xcode 6.1
+
+Xcode 6.1 is the default Xcode version if you don't specify an `osx_image`
+setting in your .travis.yml.
+
+Our Xcode 6.1 image has the following SDKs preinstalled:
+
+- macosx10.9
+- macosx10.10
+- iphoneos8.1
+- iphonesimulator7.0
+- iphonesimulator7.1
+- iphonesimulator8.1
+
+In addition, the following simulators are installed:
+
+- iOS 7.0
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 7.1 --
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6 Plus
+  - iPhone 6
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - Resizable iPhone
+  - Resizable iPad
+
 
 ## Default Test Script
 
