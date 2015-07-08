@@ -33,7 +33,9 @@ For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml
 
 ## How can I use it?
 
-Using our new container-based stack only requires one additional line in your .travis.yml:
+If you see this on your log `This job is running on container-based infrastructure` it means you are already running on our container-based stack.
+
+Otherwise, using our container-based stack only requires one additional line in your .travis.yml:
 
 `sudo: false`
 
@@ -106,7 +108,7 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
+      - cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -114,9 +116,45 @@ These three commands can be extracted into a shell script, let's name it `instal
     set -ex
     wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
     tar -xzvf protobuf-2.4.1.tar.gz
-    cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
+    cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
 
-Once it's added to the repository, you can run it from your .travis.yml:
+Once it's added to the repository, you can run it from your `.travis.yml`:
 
     before_install:
       - ./install-protobuf.sh
+
+We can also add a `script` command to list the contect of the protobuf folder to make sure it's been installed:
+
+    script:
+      - ls -R $HOME/protobuf
+
+## How Do I Cache Dependencies and Directories?
+
+In the example above, to avoid having to download and compile the protobuf library each time we run a build, we can cache its directory.
+
+We add the following to our `.travis.yml`:
+
+    cache:
+      directories:
+      - $HOME/protobuf
+
+And then change our shell script to only compile and install if the cached directory is not empty:
+
+    #!/bin/sh
+    set -ex
+    # check to see if protobuf folder is empty
+    if [ ! -d "$HOME/protobuf/lib" ]; then
+      wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
+      tar -xzvf protobuf-2.4.1.tar.gz
+      cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+    else
+      echo 'Using cached directory.'
+    fi
+
+See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
+
+More information about using caching can be found in our [Caching Directories and Dependencies](http://docs.travis-ci.com/user/caching/) doc.
+
+## Need Help?
+
+Email [support](mailto: support@travis-ci.com) or create a GitHub issue.
