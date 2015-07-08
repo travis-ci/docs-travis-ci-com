@@ -113,7 +113,7 @@ To install something from source, you can follow similar steps. Here's an exampl
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
     #!/bin/sh
-    set -ex
+    set -e
     wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
     tar -xzvf protobuf-2.4.1.tar.gz
     cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
@@ -141,7 +141,7 @@ We add the following to our `.travis.yml`:
 And then change our shell script to only compile and install if the cached directory is not empty:
 
     #!/bin/sh
-    set -ex
+    set -e
     # check to see if protobuf folder is empty
     if [ ! -d "$HOME/protobuf/lib" ]; then
       wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
@@ -157,4 +157,4 @@ More information about using caching can be found in our [Caching Directories an
 
 ## Need Help?
 
-Email [support](mailto: support@travis-ci.com) or create a GitHub issue.
+Please feel free to contact us via our [support](mailto: support@travis-ci.com) email address, or create a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
