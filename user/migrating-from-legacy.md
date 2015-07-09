@@ -132,7 +132,7 @@ Add the following to your `.travis.yml`:
       directories:
       - $HOME/protobuf
 
-And then change our shell script to only compile and install if the cached directory is not empty:
+And then change the shell script to only compile and install if the cached directory is not empty:
 
     #!/bin/sh
     set -e
