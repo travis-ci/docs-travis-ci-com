@@ -121,7 +121,7 @@ These three commands can be extracted into a shell script, let's name it `instal
 Once it's added to the repository, you can run it from your `.travis.yml`:
 
     before_install:
-      - ./install-protobuf.sh
+      - bash install-protobuf.sh
 
 We can also add a `script` command to list the contect of the protobuf folder to make sure it's been installed:
 
