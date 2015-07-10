@@ -14,7 +14,7 @@ Here is a script for sending a minimal request to the master branch of the `trav
 body='{
 "request": {
   "branch":"master"
-}'
+}}'
 
 curl -s -X POST \
   -H "Content-Type: application/json" \
