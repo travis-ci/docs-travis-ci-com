@@ -138,11 +138,11 @@ And then change the shell script to only compile and install if the cached direc
     set -e
     # check to see if protobuf folder is empty
     if [ ! -d "$HOME/protobuf/lib" ]; then
-      wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
-      tar -xzvf protobuf-2.4.1.tar.gz
-      cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+      wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz;
+      tar -xzvf protobuf-2.4.1.tar.gz;
+      cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install;
     else
-      echo 'Using cached directory.'
+      echo 'Using cached directory.';
     fi
 
 See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
