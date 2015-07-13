@@ -316,12 +316,9 @@ By CCNet and ThoughtWorks Inc.
 * [website](http://www.cruisecontrolnet.org/projects/cctray)
 * [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
 * [tutorial](/user/cc-menu/)
-</figcation>
-</figure>
 
-<figure class="app">
-![Siren of Shame](/images/apps/siren-windows.jpg)
-<figcation>
+![Siren of Shame](/images/apps/siren-windows.jpg){:.app}
+
 ### Siren of Shame (Windows 8)
 
 Gamification for your builds<br>
@@ -329,8 +326,6 @@ By Automated Architecture
 
 * [website](http://sirenofshame.com/)
 * [windows 8 store](http://apps.microsoft.com/windows/en-US/app/siren-of-shame/1af0feaf-0801-4ad3-8a95-3f1226e313b9)
-</figcation>
-</figure>
 
 <a name='commandline'></a>
 # Command Line Tools
