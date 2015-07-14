@@ -236,7 +236,7 @@ You can also define exclusions to the build matrix:
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
 
-> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you *actually need*.
+> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
 ### Excluding Builds 
 
@@ -300,7 +300,7 @@ It is also possible to include entries into the matrix with `matrix.include`:
 
 This adds a particular job to the build matrix which has already been populated.
 
-This is useful if you want to, only test the latest version of a dependency together with the latest version of the runtime.
+This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
 You can use this method to create a job matrix containing only specific combinations. 
 For example,
@@ -319,7 +319,7 @@ For example,
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-### Rows that are Allowed To Fail
+### Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
@@ -333,7 +333,7 @@ Define allowed failures in the build matrix as key/value pairs:
       allow_failures:
         - rvm: 1.9.3
 
-### Fast finishing
+### Fast Finishing
 
 If some rows in the build matrix that are allowed to fail, the build won't be marked as finished until they have completed.
 
