@@ -149,6 +149,7 @@ You can interpolate the following variables:
 * *commit*: shortened commit SHA
 * *author*: commit author name
 * *commit_message*: commit message of build
+* *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
 * *duration*: duration of the build
