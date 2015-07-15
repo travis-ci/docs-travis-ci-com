@@ -7,6 +7,12 @@ permalink: /user/migrating-from-legacy/
 <div id="toc">
 </div>
 
+## tl;dr ##
+
+Not using sudo? Containers sound cool? Add `sudo: false` to travis.yml and you're set.
+
+For more details check out the awesome information below.
+
 ## Why migrate to container-based infrastructure?
 
 ### Builds start in seconds
