@@ -314,12 +314,13 @@ Notifications can also be sent via [Pushover](https://pushover.net/) via the fol
 
 
 * *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
-* *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). Multiple are supported.
+* *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). A list of multiple users is supported.
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository:
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
+> and append the specified user_key to the list of users.
 
     travis encrypt [api_token] --add notifications.pushover.api_key
-    travis encrypt [user_key] --add notifications.pushover.users
+    travis encrypt [user_key] --add notifications.pushover.users --append
 
 You can also customise the notifications, like with IRC notifications:
 
