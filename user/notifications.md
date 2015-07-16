@@ -304,6 +304,38 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+## Pushover notification
+
+Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
+
+    notifications:
+      pushover:
+        api_key: [api token]
+        users:
+          - [user key]
+
+
+* *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
+* *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). A list of multiple users is supported.
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
+> and append the specified user_key to the list of users.
+
+    travis encrypt [api_token] --add notifications.pushover.api_key
+    travis encrypt [user_key] --add notifications.pushover.users --append
+
+You can also customise the notifications, like with IRC notifications:
+
+    notifications:
+    pushover:
+      api_key: [api token]
+      users:
+        - [user key]
+        - [user key]
+      template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+
+Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
