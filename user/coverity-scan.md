@@ -58,7 +58,7 @@ From your project page on Coverity Scan, select the Travis CI tab. You'll see a 
 
     env:
       global:
-        # COVERITY_SCAN_TOKE
+        # COVERITY_SCAN_TOKEN
         # ** specific to your project **
         - secure: "xxxx"
 
