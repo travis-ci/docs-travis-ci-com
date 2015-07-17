@@ -20,16 +20,25 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
       - "0.8"
       - "0.6"
       - "iojs"
-      - "iojs-v1.0.4" 
+      - "iojs-v1.0.4"
 
 This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, and 0.12.x branch releases,
 as well as the io.js 1.0.4 and the latest io.js stable release.
 
 Specifying `node` or `stable` will run using the latest stable Node.js release and specifying `iojs` will run using the latest stable io.js release.
 
-Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version. If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases. [nvm](https://github.com/creationix/nvm) handles version resolution, so any version or [alias](https://github.com/creationix/nvm#usage) of Node or io.js that nvm can install is available. 
+Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version. If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases. [nvm](https://github.com/creationix/nvm) handles version resolution, so any version or [alias](https://github.com/creationix/nvm#usage) of Node or io.js that nvm can install is available.
 
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
+
+### Using `.nvmrc`
+
+Optionally, your repository can contain `.nvmrc` file in the repository root to specify which
+version of Node.js to run your tests.
+This file will be consulted _only when_ the `node_js` key does not specify the version as above,
+and the environment variable `$TRAVIS_NODE_VERSION` will be set to the content of this file.
+
+See [nvm documentation](https://github.com/creationix/nvm#usage) for more information on `.nvmrc`.
 
 ## Provided Node.js Versions
 
