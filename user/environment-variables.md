@@ -19,6 +19,9 @@ A common way to customize the build process is to use environment variables, whi
 	+ differ per repository.
 	+ contain sensitive data, such as third-party credentials.
 
+> Notice that the values are not escaped when your builds are executed. Special characters (for bash) should be
+escaped accordingly.
+
 * Use [Encrypted variables](#Encrypted-Variables) for sensitive data such as authentication tokens.
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable as both encrypted and unencrypted, the one defined later in the file takes precedence.
