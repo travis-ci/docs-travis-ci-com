@@ -33,6 +33,7 @@ deployments: |
     * [Nodejitsu](/user/deployment/nodejitsu)
     * [OpenShift](/user/deployment/openshift)
     * [cloudControl](/user/deployment/cloudcontrol)
+    * [ExoScale](/user/deployment/exoscale)
     * [CloudFoundry](/user/deployment/cloudfoundry)
     * [RubyGems](/user/deployment/rubygems)
     * [AWS OpsWorks](/user/deployment/opsworks)
