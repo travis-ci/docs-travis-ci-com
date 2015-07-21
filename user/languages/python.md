@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Python 
 
 ## Choosing Python versions to test against
 
-Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4.
+Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4, as well as a limited number of 3.5 development releases.
 
     language: python
     python:
@@ -19,6 +19,8 @@ Travis CI support Python versions 2.6, 2.7, 3.2, 3.3 and 3.4.
       - "3.2"
       - "3.3"
       - "3.4"
+      - "3.5.0b3"
+      - "3.5-dev"
       - "nightly"
     # command to install dependencies
     install: "pip install -r requirements.txt"
@@ -138,6 +140,12 @@ Travis CI supports a special version name `nightly`, which points to
 a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
 
 It also has the [packages above](#Pre-installed-packages) pre-installed.
+
+## On-demand installations
+
+For a limited number of Python development releases, on-demand installation is available.
+
+Currently, these are: `3.5.0b2`, `3.5.0b3`, and `3.5-dev` (built nightly).
 
 ## Build Matrix
 
