@@ -6,10 +6,12 @@ permalink: /user/deployment/
 
 ### Supported Providers
 
-Continuous Deployment to the following providers are currently supported out of
-the box:
+Continuous Deployment to the following providers is supported:
 
 {% include deployments.html %}
+
+To deploy to a custom or unsupported provider, use the [after-success build
+stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
 ### Uploading Files
 
@@ -102,7 +104,7 @@ This example deploys to GitHub Releases when a tag is set and the Ruby version i
         tags: true
         rvm: 2.0.0
 
-### Other Providers
+### Adding a Provider
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 
