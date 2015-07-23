@@ -10,19 +10,37 @@ permalink: /user/notifications/
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
 
-By default, email notifications will be sent to the committer and the commit
+By default, email notifications are sent to the committer and the commit
 author, if they are members of the repository (that is, they have push or admin
 permissions for public repositories, or if they have pull, push or admin
 permissions for private repositories).
 
-And it will by default send emails when, on the given branch:
+Emails are sent when, on the given branch:
 
 * a build was just broken or still is broken
 * a previously broken build was just fixed
 
-You can change this behaviour using the following options:
+If you add another notification channel, ie hipchat, slack or any other, the
+same default conditions apply:
 
-> Note: Items in brackets are placeholders. Brackets should be omitted.
+* send notification if a build was just broken or still is broken
+* send notification if a previously broken build was just fixed
+
+You can change the conditions for each of the channels by setting the
+`on_success` on `on_failure` flag on that medium to one of:
+
+* `always`: always send a notification.
+* `never`: never send a notification.
+* `change`: send a notifiaction when the build status changes.
+
+For example, to always send slack notifications on sucessful builds:
+
+	notifications:
+	  slack:
+	    on_success: always
+
+Read the relevant section below for information on configuring each
+notification channel.
 
 ### Note on SSL/TLS Ciphers
 
@@ -41,19 +59,19 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 ## Email notifications
 
-You can specify recipients that will be notified about build results like so:
+Specify recipients that will be notified about build results:
 
     notifications:
       email:
         - one@example.com
         - other@example.com
 
-And you can entirely turn off email notifications:
+Turn off email notifications entirely:
 
     notifications:
       email: false
 
-Also, you can specify when you want to get notified:
+Specify when you want to get notified:
 
     notifications:
       email:
@@ -62,6 +80,8 @@ Also, you can specify when you want to get notified:
           - other@example.com
         on_success: [always|never|change] # default: change
         on_failure: [always|never|change] # default: always
+
+> Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
