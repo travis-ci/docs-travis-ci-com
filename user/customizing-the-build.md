@@ -156,6 +156,20 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
+## Limiting Concurrent Builds
+
+The maximum number of concurrent builds depends on the total system load, but
+one situation in which you might want to set a particular limit is:
+
+* if your build depends on an external resource and might run into a race
+  condition with concurrent builds.
+
+You can set the number of builds in the settings pane for each repository, or
+using the command line client:
+
+	$ travis settings maximum_number_of_builds --set 1
+
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blacklists or whitelists.
