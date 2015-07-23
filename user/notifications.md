@@ -21,10 +21,7 @@ Emails are sent when, on the given branch:
 * a previously broken build was just fixed
 
 If you add another notification channel, ie hipchat, slack or any other, the
-same default conditions apply:
-
-* send notification if a build was just broken or still is broken
-* send notification if a previously broken build was just fixed
+default is to send a notification on every build.
 
 You can change the conditions for each of the channels by setting the
 `on_success` on `on_failure` flag on that medium to one of:
