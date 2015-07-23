@@ -164,8 +164,8 @@ one situation in which you might want to set a particular limit is:
 * if your build depends on an external resource and might run into a race
   condition with concurrent builds.
 
-You can set the number of builds in the settings pane for each repository, or
-using the command line client:
+You can set the maximum number of concurrent builds in the settings pane for
+each repository, or using the command line client:
 
 	$ travis settings maximum_number_of_builds --set 1
 
