@@ -15,8 +15,9 @@ stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
 ### Uploading Files
 
-When deploying files to a provider, prevent Travis CI from deleting all files
-created during the build with:
+When deploying files to a provider, prevent Travis CI from resetting your
+working directory and deleting all changes made during the build ( `git stash
+--all`) by adding `skip_cleanup` to your `.travis.yml`:
 
 	deploy:
 		skip_cleanup: true
