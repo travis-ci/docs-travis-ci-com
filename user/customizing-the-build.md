@@ -114,7 +114,15 @@ Currently, neither the `after_success` nor `after_failure` have any influence on
 
 ## Deploying your Code
 
-An optional phase in the build lifecycle is deployment. This step can't be overridden, but is defined by using one of our continuous deployment providers to deploy code to Heroku, Engine Yard, or a different supported platform.
+An optional phase in the build lifecycle is deployment. This step can't be
+overridden, but is defined by using one of our continuous deployment providers
+to deploy code to Heroku, Engine Yard, or a different supported platform.
+
+When deploying files to a provider, prevent Travis CI from deleting all files
+created during the build with:
+
+	deploy:
+		skip_cleanup: true
 
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 

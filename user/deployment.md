@@ -6,9 +6,19 @@ permalink: /user/deployment/
 
 ### Supported Providers
 
-Continuous Deployment to the following providers are currently supported out of the box:
+Continuous Deployment to the following providers are currently supported out of
+the box:
 
 {% include deployments.html %}
+
+### Uploading Files
+
+When deploying files to a provider, prevent Travis CI from deleting all files
+created during the build with:
+
+	deploy:
+		skip_cleanup: true
+
 
 ### Deploying to Multiple Providers
 
