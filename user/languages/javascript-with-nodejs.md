@@ -123,7 +123,6 @@ For example, you can use the following `.travis.yml` file .
     before_script:
       - "export PATH=$HOME/.meteor:$PATH"
 
-
 The `before_install` script will make sure the required dependencies are installed.
 
 The related source code can be found at the [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages) repository.
