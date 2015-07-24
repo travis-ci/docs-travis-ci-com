@@ -13,14 +13,15 @@ the addition of APT sources such as one might do with `apt-add-repository`.
  > Note: When using APT sources and packages together, you need to make
  > sure they are under the same key space in the YAML file. e.g.
 
- > ``` yaml
- > addons:
- >  apt:
- >    sources:
- >    - ubuntu-toolchain-r-test
- >    packages:
- >    - gcc-4.8
- >    - g++-4.8
+``` yaml
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+```
 
 ## Adding APT Sources
 
