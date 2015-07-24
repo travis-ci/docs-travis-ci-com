@@ -81,6 +81,8 @@ You can choose from the following Mono versions:
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
 | 2.10.8           | mono-complete, mono-vbnc                                         |
 
+*Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
+
 **Alpha, Beta, and Nightly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `nightly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
 ### Build Matrix
