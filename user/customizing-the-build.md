@@ -165,9 +165,15 @@ one situation in which you might want to set a particular limit is:
   condition with concurrent builds.
 
 You can set the maximum number of concurrent builds in the settings pane for
-each repository, or using the command line client:
+each repository.  
+
+![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png) 
+
+Or using the command line client:
 
 	$ travis settings maximum_number_of_builds --set 1
+
+
 
 
 ## Building Specific Branches
