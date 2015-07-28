@@ -292,6 +292,16 @@ By ThoughtWorks Inc.
 * [app store](https://itunes.apple.com/us/app/ccmenu/id603117688?mt=12&ign-mpt=uo%3D4)
 * [tutorial](/user/cc-menu/)
 
+![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
+
+### Screensaver Ninja
+
+Screensaver that displays websites with the ability to have custom CSS and JavaScript.<br>
+By [Carousel Apps](https://carouselapps.com)
+
+* [website](https://Screensaver.Ninja)
+* [CSS recipe for Travis CI](https://screensaver.ninja/knowledge-base/travis-ci/)
+
 ## Linux
 
 ![BuildNotify](/images/apps/buildnotify.jpg){:.app}
