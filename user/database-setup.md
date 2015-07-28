@@ -6,6 +6,8 @@ permalink: /user/database-setup/
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment. Looking for information on [configuring multiple databases?](/user/database-setup/#Multiple-database-systems).
 
+These databases are available on our [container-based infrastructure](/user/workers/container-based-infrastructure/) and our [legacy infrastructure](/user/workers/standard-infrastructure/).
+
 The following services are available, all of them use default settings, with the exception of some added users and relaxed security settings:
 
 {% include databases.html %}
