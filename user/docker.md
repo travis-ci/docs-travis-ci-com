@@ -9,18 +9,11 @@ permalink: /user/docker/
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
 
-<!-- @joshk -->
-
-If you don't already have access to the beta workers running Ubuntu Trusty
-Tahr, please [contact support](mailto:support@travis-ci.com) and let them know
-which repository you'd like to use Docker in.
-
-To use Docker you need the following settings in your `.travis.yml`:
+To use Docker add the following setting to your `.travis.yml`:
 
 ```
-sudo: required
-
-dist: trusty
+services:
+  - docker
 ```
 
 Then you can add `- docker` commands to your build as shown in the following
@@ -34,9 +27,8 @@ Docker containers built from the same image:
 * a Sinatra application
 * the Sinatra application test suite
 
-After specifying that the `.travis.yml` is using ruby, on the legacy
-environment, using the beta Ubuntu Trusty Tahr image, the `before_install`
-build step pulls a Docker image from
+After specifying in the `.travis.yml` that the worker is using ruby and the
+Docker service, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
 ```
@@ -52,9 +44,8 @@ The full `.travis.yml` looks like this
 ```
 language: ruby
 
-sudo: required
-
-dist: trusty
+services:
+  - docker
 
 before_install:
 - docker pull carlad/sinatra
@@ -106,9 +97,8 @@ The full `.travis.yml` looks like this
 ```
 language: ruby
 
-sudo: required
-
-dist: trusty
+services:
+  - docker
 
 before_install:
 - docker build -t carlad/sinatra .
