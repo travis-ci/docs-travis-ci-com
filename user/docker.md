@@ -9,9 +9,11 @@ permalink: /user/docker/
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
 
-To use Docker add the following setting to your `.travis.yml`:
+To use Docker add the following settings to your `.travis.yml`:
 
 ```
+sudo: required
+
 services:
   - docker
 ```
@@ -27,8 +29,9 @@ Docker containers built from the same image:
 * a Sinatra application
 * the Sinatra application test suite
 
-After specifying in the `.travis.yml` that the worker is using ruby and the
-Docker service, the `before_install` build step pulls a Docker image from
+After specifying in the `.travis.yml` that the worker is using the legacy
+environment (with `sudo: required`) and is using ruby and the Docker service, the
+`before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
 ```
@@ -42,6 +45,8 @@ refresher on how to user Docker.
 The full `.travis.yml` looks like this
 
 ```
+sudo: required
+
 language: ruby
 
 services:
@@ -95,6 +100,8 @@ To build the Dockerfile in the current directory, and give it the same
 The full `.travis.yml` looks like this
 
 ```
+sudo: required
+
 language: ruby
 
 services:
