@@ -7,7 +7,7 @@ permalink: /user/uploading-artifacts/
 </div>
 
 Travis CI can automatically upload your build artifacts to S3. Unless you
-programatically generate unique filenames and folders, artefacts are
+programatically generate unique filenames and folders, artifacts are
 overwritten every build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
