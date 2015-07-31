@@ -16,7 +16,9 @@ For a minimal configuration, all you need to do is add the following to your `.t
       token: "YOUR TOKEN"
       dist: "YOUR DIST" # like 'ubuntu/precise', or 'centos/5', if pushing deb or rpms
 
-You can retrieve your api key by logging in and visiting the [API Token](https://packagecloud.io/api_token) page under Account Settings.
+Take note that your repository name should not have a forward slash in it. For example if your repository appears as `username / repo` on packagecloud.io, you should only put `repo` in the `repository:` option and put `username` in the `username:` option.
+
+You can retrieve your api token by logging in and visiting the [API Token](https://packagecloud.io/api_token) page under Account Settings.
 
 This is the list of [supported distributions](https://packagecloud.io/docs#os_distro_version) for the 'dist' option.
 
