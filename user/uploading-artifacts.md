@@ -14,6 +14,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     addons:
       artifacts: true
+      s3_region: (AWS S3 Region)
 
 and add the following environment variables in the repository settings:
 
