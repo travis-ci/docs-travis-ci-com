@@ -58,6 +58,15 @@
   margin: 3em 0
   ul
     @extend %ul-styles
+  li:before
+    content: ""
+    width: 5px
+    height: 5px
+    display: inline-block
+    background-color: $teal-light
+    border-radius: 50%
+    vertical-align: middle
+    margin-right: 0.4em
 
 .toc-list
   @extend %ul-styles
