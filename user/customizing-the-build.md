@@ -114,7 +114,16 @@ Currently, neither the `after_success` nor `after_failure` have any influence on
 
 ## Deploying your Code
 
-An optional phase in the build lifecycle is deployment. This step can't be overridden, but is defined by using one of our continuous deployment providers to deploy code to Heroku, Engine Yard, or a different supported platform.
+An optional phase in the build lifecycle is deployment. This step can't be
+overridden, but is defined by using one of our continuous deployment providers
+to deploy code to Heroku, Engine Yard, or a different supported platform.
+
+When deploying files to a provider, prevent Travis CI from resetting your
+working directory and deleting all changes made during the build ( `git stash
+--all`) by adding `skip_cleanup` to your `.travis.yml`:
+
+	deploy:
+		skip_cleanup: true
 
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
@@ -155,6 +164,26 @@ Some common reasons why builds might hang:
 * Installation of native extensions that take very long time to compile
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
+
+## Limiting Concurrent Builds
+
+The maximum number of concurrent builds depends on the total system load, but
+one situation in which you might want to set a particular limit is:
+
+* if your build depends on an external resource and might run into a race
+  condition with concurrent builds.
+
+You can set the maximum number of concurrent builds in the settings pane for
+each repository.  
+
+![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png) 
+
+Or using the command line client:
+
+	$ travis settings maximum_number_of_builds --set 1
+
+
+
 
 ## Building Specific Branches
 
