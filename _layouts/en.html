@@ -10,11 +10,9 @@
     <script src="{{ "/assets/javascripts/site.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
     <script src="{{ "/assets/javascripts/main.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
     <link rel="alternate" type="application/atom+xml" href="/blog.xml">
-
     {% for tag in page.swiftypetags %}
 	   <meta class="swiftype" name="tags" data-type="string" content="{{tag}}" />
     {% endfor %}
-
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-24868285-6']);
