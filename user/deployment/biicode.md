@@ -4,6 +4,11 @@ layout: en
 permalink: /user/deployment/biicode/
 ---
 
+<div class="note-box">
+Note that the biicode provider requires <code>sudo</code>.
+Consequently, it is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
+</div>
+
 Travis CI can automatically publish your [biicode](https://www.biicode.com) blocks after a successful deploy.
 
 For a minimal configuration, all you need to do is add the following to you `.travis.yml`:
@@ -110,10 +115,10 @@ install
 
 ### A simple biicode deployment example step by step
 
-Let's say you have a C++ math library called *CppMath*. It's hosted in github and you are running some unit tests via Travis CI.  
+Let's say you have a C++ math library called *CppMath*. It's hosted in github and you are running some unit tests via Travis CI.
 Deploy your CppMath library to biicode, a C and C++ dependency manager, make it available for everybody to use via an `#include`!
 
-Use Travis CI with biicode to automate the process: 
+Use Travis CI with biicode to automate the process:
 
   - Run some unit tests on the library
   - Use `bii publish` command to deploy to biicode.
@@ -127,7 +132,7 @@ install:
   - wget http://apt.biicode.com/install.sh && chmod +x install.sh && ./install.sh #Install biicode
   - bii setup:cpp #Install biicode required C/C++ tools (GCC, cmake, etc)
 script:
-  - bii find --update #Find biicode dependencies 
+  - bii find --update #Find biicode dependencies
   - bii cpp:configure #Configure block for building
   - bii cpp:build #Build block
   - ./bin/developer_cppmath_tests --reporter=info #Run tests
@@ -142,5 +147,5 @@ deploy:
 
 `install:` installs biicode and configures C++ tools. `script:` creates, builds and runs the project. If it's a success Travis CI executes deploy publishing the `developer/cppmath` block.
 
->**Tip**  
+>**Tip**
 >biicode generates an executable `user_blockname_sourcefilename` for each source file with a `main()` function. In the example it would be `developer_cppmath_tests`.
