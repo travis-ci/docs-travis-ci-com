@@ -35,7 +35,7 @@ build in the `TRAVIS_RUST_VERSION` environment variable.
 
 You can also test against a particular Rust release:
 
-````yaml
+```yaml
 language: rust
 rust:
   - 1.0.0

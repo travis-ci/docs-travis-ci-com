@@ -4,7 +4,7 @@ layout: en
 permalink: /user/languages/javascript-with-nodejs/
 ---
 
-### What This Guide Covers
+<div id="toc"></div>
 
 This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
 
@@ -62,7 +62,7 @@ to run your test suite.
 
 ### Using Vows
 
-You can tell npm how to run your test suite by adding a line in package.json. For example, to test using Vows:
+You can tell npm how to run your test suite by adding a line in `package.json`. For example, to test using Vows:
 
     "scripts": {
       "test": "vows --spec"
@@ -71,13 +71,23 @@ You can tell npm how to run your test suite by adding a line in package.json. Fo
 
 ### Using Expresso
 
-To test using Expresso:
+To test using Expresso, add the following lines to `package.json`:
 
     "scripts": {
       "test": "expresso test/*"
     },
 
-Keeping the test script configuration in package.json makes it easy for other people to collaborate on your project, all they need to remember is the `npm test` convention.
+
+## Using Gulp
+
+If you already use Gulp to manage your tests, install it and run the default
+`gulpfile.js` by adding the following lines to your `.travis.yml`:
+
+```
+before_script:
+  - npm install -g gulp
+script: gulp
+```
 
 ## Dependency Management
 
