@@ -28,7 +28,7 @@ You can change the conditions for each of the channels by setting the
 
 * `always`: always send a notification.
 * `never`: never send a notification.
-* `change`: send a notifiaction when the build status changes.
+* `change`: send a notification when the build status changes.
 
 For example, to always send slack notifications on sucessful builds:
 
