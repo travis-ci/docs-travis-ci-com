@@ -120,3 +120,18 @@ script:
 <!--
 ### Pushing a Docker Image to a Registry
 -->
+
+### Using Docker Compose
+
+As [Docker Compose](https://docs.docker.com/compose/) is not preinstalled at the moment, you can install it manually:
+
+```yaml
+  before_install:
+ - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
+```
+## Examples
+
+* [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
+* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
