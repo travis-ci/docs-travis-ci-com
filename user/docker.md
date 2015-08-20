@@ -29,9 +29,9 @@ Docker containers built from the same image:
 * a Sinatra application
 * the Sinatra application test suite
 
-After specifying in the `.travis.yml` that the worker is using the legacy
-environment (with `sudo: required`) and is using ruby and the Docker service, the
-`before_install` build step pulls a Docker image from
+After specifying in the `.travis.yml` that the worker is using the Docker
+enabled environment (with `sudo: required` AND `services: - docker`) and is
+using ruby, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
 ```
@@ -108,13 +108,13 @@ services:
   - docker
 
 before_install:
-- docker build -t carlad/sinatra .
-- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
-- docker ps -a
-- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+  - docker build -t carlad/sinatra .
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
 script:
-- bundle exec rake test
+  - bundle exec rake test
 ```
 
 <!--
@@ -123,15 +123,18 @@ script:
 
 ### Using Docker Compose
 
-As [Docker Compose](https://docs.docker.com/compose/) is not preinstalled at the moment, you can install it manually:
+[Docker Compose](https://docs.docker.com/compose/) is not preinstalled, so to
+you use it you need to install it manually by adding the following
+`before_install` step to `.travis.yml`:
 
 ```yaml
-  before_install:
- - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
- - chmod +x docker-compose
- - sudo mv docker-compose /usr/local/bin
+before_install:
+  - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 ```
-## Examples
+
+#### Examples
 
 * [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
 * [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
