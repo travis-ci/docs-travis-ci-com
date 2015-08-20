@@ -2,7 +2,7 @@
 title: Building a Go Project
 layout: en
 permalink: /user/languages/go/
-swiftypetags: golang, go lang, go
+swiftypetags: golang
 ---
 
 ### What This Guide Covers
