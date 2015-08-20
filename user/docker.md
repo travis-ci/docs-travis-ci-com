@@ -123,9 +123,9 @@ script:
 
 ### Using Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) is not preinstalled, so to
-you use it you need to install it manually by adding the following
-`before_install` step to `.travis.yml`:
+[Docker Compose](https://docs.docker.com/compose/) is not preinstalled, so
+install it manually by adding the following `before_install` step to
+`.travis.yml`:
 
 ```yaml
 before_install:
