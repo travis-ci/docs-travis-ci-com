@@ -1,5 +1,6 @@
 Appfog: "/user/deployment/appfog"
 biicode: "/user/deployment/biicode"
+bintray: "/user/deployment/bintray"
 Cloud 66: "/user/deployment/cloud66"
 Heroku: "/user/deployment/heroku"
 AWS CodeDeploy: "/user/deployment/codedeploy"
