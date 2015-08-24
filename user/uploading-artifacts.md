@@ -14,6 +14,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 
     addons:
       artifacts: true
+      s3_region: "us-west-1" # defaults to "us-east-1"
 
 and add the following environment variables in the repository settings:
 
