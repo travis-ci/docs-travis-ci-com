@@ -130,6 +130,8 @@ For example, you can use the following `.travis.yml` file .
       - "0.12"
     before_install:
       - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+    before_script:
+      - "export PATH=$HOME/.meteor:$PATH"
 
 The `before_install` script will make sure the required dependencies are installed.
 
