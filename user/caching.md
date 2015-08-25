@@ -156,7 +156,7 @@ language: c # or other C/C++ variants
 cache: ccache
 {% endhighlight %}
 
-caches `$HOME/.ccache`.
+caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
 Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
