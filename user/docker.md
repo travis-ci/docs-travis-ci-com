@@ -93,13 +93,13 @@ respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile)
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:
 
-```
-- docker build -t carlad/sinatra .
+``` bash
+docker build -t carlad/sinatra .
 ```
 
 The full `.travis.yml` looks like this
 
-```
+``` yaml
 sudo: required
 
 language: ruby
@@ -117,9 +117,34 @@ script:
   - bundle exec rake test
 ```
 
-<!--
 ### Pushing a Docker Image to a Registry
--->
+
+In order to push an image to a registry, one must first authenticate via `docker
+login`.  The email, username, and password used for login should be stored in
+the repository settings environment variables, which may be set up through the
+web or locally via the Travis CLI, e.g.:
+
+``` bash
+travis env set DOCKER_EMAIL me@example.com
+travis env set DOCKER_USERNAME myusername
+travis env set DOCKER_PASSWORD secretsecret
+```
+
+Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
+`docker pull` of a private image, e.g.:
+
+``` bash
+docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```
+
+#### Private Registry Login
+
+When pushing to a private registry, be sure to specify the hostname in the
+`docker login` command, e.g.:
+
+``` bash
+docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+```
 
 ### Using Docker Compose
 
