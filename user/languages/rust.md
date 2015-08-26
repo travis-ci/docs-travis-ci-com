@@ -52,7 +52,7 @@ rust:
   - beta
   - nightly
 matrix:
-  allow_failure:
+  allow_failures:
     - rust: nightly
 ```
 
