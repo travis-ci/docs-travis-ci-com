@@ -79,6 +79,13 @@ You can specify which directory to scan from with the `local-dir` option. This e
       token: ...
       local-dir: build
 
+Alternately, you may wish to specify the `package_glob` argument to restrict which files to scan. It defaults to `**/*` (recursively finding all package files) but this may pick up other artifacts you don't want to release. For example, if you only want to push gems in the top level directory:
+
+    deploy:
+      provider: packagecloud
+      username: ...
+      token: ...
+      package_glob: *.gem
 
 ### A note about Debian source packages
 
