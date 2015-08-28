@@ -440,12 +440,14 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+        on_start: [always|never|change]   # default: always
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
 
-    travis encrypt "<account>:<token>" --add notifications.slack
+    travis encrypt "<account>:<token>" --add notifications.slack.rooms
 
 Once everything's setup, push a new commit and you should see something like the
 screenshot below:
@@ -456,6 +458,7 @@ screenshot below:
 
 Slack will be notified both for normal branch builds and for pull requests as
 well.
+
 
 ## Webhook notification
 
