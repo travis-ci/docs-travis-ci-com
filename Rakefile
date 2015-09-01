@@ -22,10 +22,12 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer do
-  # seems like the build does not render `%3A`,
+  # seems like the build does not render `%3*`,
   # so let's remove them for the check
   href_swap = {
-    /on%3A/ => 'on'
+    /%3A\z/ => '',
+    /%3F\z/ => '',
+    /-\.travis\.yml/ => '-travisyml'
   }
 
   tester = HTML::Proofer.new('./_site', {
