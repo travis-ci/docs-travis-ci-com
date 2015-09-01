@@ -22,8 +22,14 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer do
-  # test your out dir!
+  # seems like the build does not render `%3A`,
+  # so let's remove them for the check
+  href_swap = {
+    /on%3A/ => 'on'
+  }
+
   tester = HTML::Proofer.new('./_site', {
+                              :href_swap => href_swap,
                               :connecttimeout => 600,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true }
                             })
