@@ -82,7 +82,7 @@ triggers builds with the following `env` rows:
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
 
 <figure>
-  <img src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
+  <img alt="Screenshot of environment variables in settings" src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
