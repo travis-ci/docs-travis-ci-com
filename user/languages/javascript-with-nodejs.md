@@ -101,6 +101,11 @@ By default, Travis CI will run
 
 to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no npm packages installed at the beginning of your build).
 
+### Using shrinkwrapped git dependencies
+
+Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD
+changed. The shrinkwrap process is unable to catch this reference update.
+
 ## Meteor Apps
 
 You can build your **Meteor Apps** on Travis CI and test against
