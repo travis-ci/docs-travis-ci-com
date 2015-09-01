@@ -6,7 +6,7 @@ permalink: /user/languages/php/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing PHP versions to test against
 
@@ -43,7 +43,7 @@ By default Travis CI will run your tests using
 
 for every PHP version you specify.
 
-If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/build-configuration/) you want.
+If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/customizing-the-build/) you want.
 
 ### Working with atoum
 

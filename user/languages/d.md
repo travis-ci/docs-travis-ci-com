@@ -8,7 +8,7 @@ permalink: /user/languages/d/
 
 This guide covers build environment and configuration topics specific to D projects. Please make
 sure to read our [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Beta Warning
 
@@ -58,7 +58,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: d
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/)
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
 
     script: make test
@@ -71,7 +71,7 @@ key in your `.travis.yml`:
 
     install: make get-deps
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 ## Build Matrix
 

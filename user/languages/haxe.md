@@ -9,7 +9,7 @@ permalink: /user/languages/haxe/
 This guide covers build environment and configuration topics specific to
 [Haxe](http://haxe.org/) projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -60,7 +60,7 @@ the worker will run `haxe $hxml` for each of the provided values.
 
 You can replace the default *install* and *script* behavior by using the
 `install:` and `script:` keys, respectively, as described
-in the [general build configuration](/user/build-configuration/) guide.
+in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Build Matrix
 

@@ -10,7 +10,7 @@ The features described here are still in development and are subject to change w
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI Environment for Android Projects
 
@@ -141,7 +141,7 @@ If your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn install -B
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Default Test Command for Gradle
 
@@ -153,7 +153,7 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
 
     ./gradlew build connectedCheck
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Default Test Command
 
@@ -161,7 +161,7 @@ If Travis CI could not detect Maven or Gradle files, Travis CI Android builder w
 
     ant debug install test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Testing Against Multiple JDKs
 

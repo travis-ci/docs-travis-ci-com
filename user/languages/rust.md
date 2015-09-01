@@ -10,7 +10,7 @@ permalink: /user/languages/rust/
 
 This guide covers build environment and configuration topics specific to Rust
 projects. Please make sure to read our [Getting started](/user/getting-started/)
-and [general build configuration](/user/build-configuration/) guides first.
+and [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Supported Rust versions
 

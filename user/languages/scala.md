@@ -6,7 +6,7 @@ permalink: /user/languages/scala/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
@@ -34,7 +34,7 @@ By default, Travis CI will use
 
     sbt ++$TRAVIS_SCALA_VERSION test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 

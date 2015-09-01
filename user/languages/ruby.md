@@ -11,7 +11,7 @@ permalink: /user/languages/ruby/
 This guide covers build environment and configuration topics specific to Ruby
 projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
-configuration](/user/build-configuration/) guides first.
+configuration](/user/customizing-the-build/) guides first.
 
 ### Supported Ruby Versions
 
@@ -283,7 +283,7 @@ or all 4:
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
 you need to add some matrix excludes (described in our general [Build
-Configuration guide](/user/build-configuration/)):
+Configuration guide](/user/customizing-the-build/)):
 
     language: ruby
     rvm:
