@@ -30,7 +30,7 @@ Private repositories use a different URL scheme, served from a different [API en
 
 Private repositories require an authenticated URL with a token in it. You can find the token in your profile:
 
-![](/images/token.jpg)
+![Travis CI user token](/images/token.jpg)
 
 ### Using the CC feed with accounts
 

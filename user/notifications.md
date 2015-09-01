@@ -558,7 +558,7 @@ Use this to ensure Travis CI is the one making requests to your webhook.
 
 The Travis CI token used to authenticate the webhooks is the user token, which you can find on your profile page.
 
-![](/images/token.jpg)
+![Travis CI user token](/images/token.jpg)
 
 It's the token for the user who originally set up the repository on Travis CI.
 If you're uncertain who that was, you can find the user's name on the service
