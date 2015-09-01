@@ -4,22 +4,9 @@ layout: en
 permalink: /user/multi-os/
 ---
 
-## We are not currently accepting multi-OS requests
-We are at capacity with Mac workers in both .org and .com
-environments.
-Consequently, we are not accepting requests for the multi-OS
-feature at this time.
-As more capacity is added, we will resume accepting requests.
-
 ### This is a beta feature
 The feature described in this document is considered beta.
 Some features may not work as described.
-
-### Manual intervention required
-This feature needs to be enabled manually.
-If you wish to take advantage of this feature, please send
-email to support@travis-ci.com, indicating which repository
-you would like to have it enabled.
 
 ## Introduction
 If your code is intended to be used on multiple operating systems

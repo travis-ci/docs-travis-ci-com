@@ -10,19 +10,34 @@ permalink: /user/notifications/
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
 
-By default, email notifications will be sent to the committer and the commit
+By default, email notifications are sent to the committer and the commit
 author, if they are members of the repository (that is, they have push or admin
 permissions for public repositories, or if they have pull, push or admin
 permissions for private repositories).
 
-And it will by default send emails when, on the given branch:
+Emails are sent when, on the given branch:
 
 * a build was just broken or still is broken
 * a previously broken build was just fixed
 
-You can change this behaviour using the following options:
+If you add another notification channel, ie hipchat, slack or any other, the
+default is to send a notification on every build.
 
-> Note: Items in brackets are placeholders. Brackets should be omitted.
+You can change the conditions for each of the channels by setting the
+`on_success` on `on_failure` flag on that medium to one of:
+
+* `always`: always send a notification.
+* `never`: never send a notification.
+* `change`: send a notification when the build status changes.
+
+For example, to always send slack notifications on sucessful builds:
+
+	notifications:
+	  slack:
+	    on_success: always
+
+Read the relevant section below for information on configuring each
+notification channel.
 
 ### Note on SSL/TLS Ciphers
 
@@ -41,19 +56,19 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 ## Email notifications
 
-You can specify recipients that will be notified about build results like so:
+Specify recipients that will be notified about build results:
 
     notifications:
       email:
         - one@example.com
         - other@example.com
 
-And you can entirely turn off email notifications:
+Turn off email notifications entirely:
 
     notifications:
       email: false
 
-Also, you can specify when you want to get notified:
+Specify when you want to get notified:
 
     notifications:
       email:
@@ -62,6 +77,8 @@ Also, you can specify when you want to get notified:
           - other@example.com
         on_success: [always|never|change] # default: change
         on_failure: [always|never|change] # default: always
+
+> Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
 
@@ -149,6 +166,7 @@ You can interpolate the following variables:
 * *commit*: shortened commit SHA
 * *author*: commit author name
 * *commit_message*: commit message of build
+* *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
 * *duration*: duration of the build
@@ -303,6 +321,38 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+## Pushover notification
+
+Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
+
+    notifications:
+      pushover:
+        api_key: [api token]
+        users:
+          - [user key]
+
+
+* *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
+* *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). A list of multiple users is supported.
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
+> and append the specified user_key to the list of users.
+
+    travis encrypt [api_token] --add notifications.pushover.api_key
+    travis encrypt [user_key] --add notifications.pushover.users --append
+
+You can also customise the notifications, like with IRC notifications:
+
+    notifications:
+    pushover:
+      api_key: [api token]
+      users:
+        - [user key]
+        - [user key]
+      template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+
+Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
@@ -390,12 +440,14 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+        on_start: [always|never|change]   # default: always
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
 
-    travis encrypt "<account>:<token>" --add notifications.slack
+    travis encrypt "<account>:<token>" --add notifications.slack.rooms
 
 Once everything's setup, push a new commit and you should see something like the
 screenshot below:
@@ -406,6 +458,7 @@ screenshot below:
 
 Slack will be notified both for normal branch builds and for pull requests as
 well.
+
 
 ## Webhook notification
 

@@ -26,9 +26,7 @@ commits, like so:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
 
-You can get your api key by running the following command, filling in `username` and `password` with your npm credentials:
-
-    echo -n "username:password" | base64
+You can find your api key in `~/.npmrc`.
 
 It is recommended to encrypt that key. Assuming you have the Travis CI command line client installed, you can do it like this:
 

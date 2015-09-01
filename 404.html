@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Travis CI Docs - 404 Page not found</title>
+    <title>Travis CI Documentation - 404 Page not found</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800">
     <style>
 
@@ -21,7 +21,7 @@
 
       .logo {
         position: relative;
-        margin: 0 1.5rem 0 1.3rem;
+        margin: 0 1.5rem 0 0.9375rem;
         float: left; }
         .logo a {
           display: block;
@@ -40,6 +40,8 @@
         background-color: #eff0ec; }
 
       .topbar {
+        max-width: 1200px;
+        margin: auto;
         font-size: 16px;
         background-color: #eff0ec;
         color: #A6ADAD; }
@@ -51,8 +53,8 @@
           overflow: hidden; }
         .topbar a {
           display: block;
-          color: #898989;
-          font-size: 16px;
+          color: #969496;
+          font-size: 15px;
           cursor: pointer;
           height: 55px;
           line-height: 57px;
@@ -73,10 +75,6 @@
             overflow: visible; }
             .centered .topbar .navigation li.signing-in {
               margin-right: 0; }
-            .topbar .navigation a,
-            .topbar .navigation .navigation-handle span:not(.sync-spinner) {
-              padding: 0 0.2em; }
-            }
 
       .error {
         min-height: 100%;
@@ -128,7 +126,7 @@
       }
 
       .error-text h1 {
-        margin: 1em 0 0.4em;
+        margin: 1.5em 0 0.5em;
         font-weight: 600;
         color: #357389;
         font-size: 40px;
@@ -170,6 +168,36 @@
           background-size: auto 60vh;
         }
       }
+
+
+      .searchbox {
+        width:  20em;
+        margin: 1.5rem auto 0;
+      }
+
+      .searchbox-input {
+        display: inline-block;
+        width: 100%;
+        padding: .4em .6em;
+        font-size: 14px;
+        color: #969496;
+        border: 2px solid #EFF0EC;
+        border-radius: 4px;
+        background-image: url(../../images/ui/search.svg);
+        background-repeat: no-repeat;
+        background-size: 1.4rem;
+        background-position: 98% 48%;
+      }
+      .swiftype-widget .autocomplete ul li { border-color: #EFF0EC; box-shadow: none; }
+      .swiftype-widget .autocomplete ul li p.title { color: #5aa4a3; font-weight: 400; font-size: 14px; line-height: 18px; margin-bottom: 0.2em; }
+      .swiftype-widget .autocomplete ul li p.title em { font-weight: 600; color: #5aa4a3; }
+      .swiftype-widget .autocomplete ul li p.sections { color: #969496; font-weight: 300; font-size: 12px; line-height: 15px; }
+      .swiftype-widget .autocomplete ul li p.sections em { font-weight: 600; color: #969496; }
+      .swiftype-widget .autocomplete ul li.active { background: #EFF0EC; border-color: #EFF0EC; box-shadow: none; }
+      .swiftype-widget .autocomplete ul li.active p.title { color: #5aa4a3; text-shadow: none; }
+      .swiftype-widget .autocomplete ul li.active p.title em { font-weight: 600; color: #5aa4a3; }
+      .swiftype-widget .autocomplete ul li.active p.sections { color: #969496; text-shadow: none; }
+      .swiftype-widget .autocomplete ul li.active p.sections em { font-weight: 600; color: #969496; }
 
     </style>
     <link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="http://docs.travis-ci.com/feed.build-env-updates.xml">
@@ -215,6 +243,23 @@
         <div class="error-text">
           <h1>404: Something's Missing</h1>
           <p>We're sorry! It seems like this page cannot be found.</p>
+          <div class="searchbox">
+            <form>
+              <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+            </form>
+            <script type="text/javascript">
+            var Swiftype = window.Swiftype || {};
+              (function() {
+                Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+                /** DO NOT EDIT BELOW THIS LINE **/
+                var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+                script.src = "//swiftype.com/embed.js";
+                var entry = document.getElementsByTagName('script')[0];
+                document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+              }());
+            </script>
+          </div>
         </div>
       </main>
     </div>

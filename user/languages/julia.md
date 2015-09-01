@@ -20,15 +20,22 @@ and cc @tkelman @ninjin @staticfloat.
 
 ## Choosing Julia versions to test against
 
-Julia workers on travis-ci.org download and install the latest binary of Julia,
-either the most recent release version or the latest nightly build, from
-https://status.julialang.org. To select one or more versions, use the `julia:`
-key in your `.travis.yml` file, for example:
+Julia workers on travis-ci.org download and install a binary of Julia.
+You can select the most recent release version, the latest nightly build
+(downloaded from https://status.julialang.org), or a specific version number
+(downloaded from https://s3.amazonaws.com/julialang). To select one or more
+versions, use the `julia:` key in your `.travis.yml` file, for example:
 
     language: julia
     julia:
       - release
       - nightly
+      - 0.3
+      - 0.3.10
+
+If the version number contains one `.`, then the latest release for that minor version
+is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
+or 0.2.0 for [OS X](/user/multi-os/).
 
 ## Default Julia Version
 
@@ -43,7 +50,7 @@ If your repository follows the structure of a Julia package created by
     julia -e 'Pkg.clone(pwd())'
     julia -e 'Pkg.build("$name")'
     if [ -f test/runtests.jl ]; then
-      julia --check-bounds=yes -e 'Pkg.test("$name")'
+      julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
     fi
 
 The package name `$name` is determined based on the repository name, removing

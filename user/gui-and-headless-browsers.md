@@ -12,7 +12,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 [Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to more than 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
 
-Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/addons/#Sauce-Connect) makes this easy, just add this to your .travis.yml:
+Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/sauce-connect) makes this easy, just add this to your .travis.yml:
 
     addons:
       sauce_connect:
@@ -46,13 +46,7 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 
 You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
 
-Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_install`, like this:
-
-    before_install:
-      - "export DISPLAY=:99.0"
-      - "sh -e /etc/init.d/xvfb start"
-
-This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary among testing tools and programming languages.
+Use `-a` option to `xvfb-run` so that it selects a free display automatically and starts the server. Do not start `xfvb` manually, this will cause problems with concurrent runs of `xfvb-run`.
 
 ### Configuring xvfb screen size and more
 

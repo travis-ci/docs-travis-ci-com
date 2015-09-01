@@ -28,6 +28,8 @@ if your project has `pom.xml` file in the repository root but no `build.gradle`,
 
 to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
 
+Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
+
 ### Dependency Management
 
 Before running tests, Java builder will execute

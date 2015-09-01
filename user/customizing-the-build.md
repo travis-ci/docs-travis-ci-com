@@ -2,6 +2,10 @@
 title: Customizing the Build
 layout: en
 permalink: /user/customizing-the-build/
+redirect_from:
+  - /user/build-configuration/
+  - /user/build-lifecycle/
+  - /user/how-to-skip-a-build/
 ---
 
 <div id="toc"></div>
@@ -28,7 +32,7 @@ In a `before_install` step, you can install additional dependencies required by 
 
 You can perform additional steps when your build succeeds or fails using  the `after_success` (such as building documentation, or deploying to a custom server) or `after_failure` (such as uploading log files) options. In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
 
-The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing the the repository directory, is:
+The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
 1. `before_install`
 2. `install`
@@ -36,9 +40,9 @@ The complete build lifecycle, including three optional deployment steps and afte
 4. `script`
 5. `after_success` or `after_failure`
 6. `after_script`
-7. OPTIONAL `before_deployment`
-8. OPTIONAL `deployment`
-9. OPTIONAL `after_deployment`
+7. OPTIONAL `before_deploy`
+8. OPTIONAL `deploy`
+9. OPTIONAL `after_deploy`
 
 
 ## Customizing the Installation Step
@@ -110,7 +114,16 @@ Currently, neither the `after_success` nor `after_failure` have any influence on
 
 ## Deploying your Code
 
-An optional phase in the build lifecycle is deployment. This step can't be overridden, but is defined by using one of our continuous deployment providers to deploy code to Heroku, Engine Yard, or a different supported platform.
+An optional phase in the build lifecycle is deployment. This step can't be
+overridden, but is defined by using one of our continuous deployment providers
+to deploy code to Heroku, Engine Yard, or a different supported platform.
+
+When deploying files to a provider, prevent Travis CI from resetting your
+working directory and deleting all changes made during the build ( `git stash
+--all`) by adding `skip_cleanup` to your `.travis.yml`:
+
+	deploy:
+		skip_cleanup: true
 
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
@@ -152,9 +165,29 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
+## Limiting Concurrent Builds
+
+The maximum number of concurrent builds depends on the total system load, but
+one situation in which you might want to set a particular limit is:
+
+* if your build depends on an external resource and might run into a race
+  condition with concurrent builds.
+
+You can set the maximum number of concurrent builds in the settings pane for
+each repository.  
+
+![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png) 
+
+Or using the command line client:
+
+	$ travis settings maximum_number_of_builds --set 1
+
+
+
+
 ## Building Specific Branches
 
-Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches suing blacklists or whitelists.
+Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blacklists or whitelists.
 
 ### Whitelisting or blacklisting branches
 
@@ -172,7 +205,7 @@ Specify which branches to build using a whitelist, or blacklist branches that yo
         - master
         - stable
 
-If you specify both, `only` takes precedence over `except`. By default, `gh-pages` branch are not built unless you add it to the whitelist.
+If you specify both, `only` takes precedence over `except`. By default, `gh-pages` branch is not built unless you add it to the whitelist.
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
@@ -232,7 +265,7 @@ You can also define exclusions to the build matrix:
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
 
-> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify an as big matrix as you *actually need*.
+> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
 ### Excluding Builds 
 
@@ -296,7 +329,7 @@ It is also possible to include entries into the matrix with `matrix.include`:
 
 This adds a particular job to the build matrix which has already been populated.
 
-This is useful if you want to, only test the latest version of a dependency together with the latest version of the runtime.
+This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
 You can use this method to create a job matrix containing only specific combinations. 
 For example,
@@ -315,7 +348,7 @@ For example,
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-### Rows that are Allowed To Fail
+### Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
@@ -329,7 +362,7 @@ Define allowed failures in the build matrix as key/value pairs:
       allow_failures:
         - rvm: 1.9.3
 
-### Fast finishing
+### Fast Finishing
 
 If some rows in the build matrix that are allowed to fail, the build won't be marked as finished until they have completed.
 
@@ -426,7 +459,7 @@ If your project uses Git submodules, make sure you use public Git URLs. For exam
 
 use
 
-    git://github.com/someuser/somelibrary.git
+    https://github.com/someuser/somelibrary.git
 
 Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
 

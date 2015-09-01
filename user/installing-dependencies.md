@@ -3,7 +3,7 @@ title: Installing Dependencies
 layout: en
 permalink: /user/installing-dependencies/
 ---
-Some builds need more than a set of language libraries, they need extra services or libraries not installed by default. To learn about the default setup of our build environment, please refer to The Build Environment.
+Some builds need more than a set of language libraries, they need extra services or libraries not installed by default. To learn about the default setup of our build environment, please refer to <a href="/user/ci-environment">The Build Environment</a>.
 
 You have full control over the virtual machine your tests are running on, so you can customize it to your needs.
 
@@ -11,7 +11,7 @@ You have full control over the virtual machine your tests are running on, so you
 
 ## Installing Ubuntu packages
 
-Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages. That are available from its package repository, including security and backports.
+Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages that are available from its package repository, including security and backports.
 
 <div class="note-box">
 Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>, although the
@@ -91,9 +91,9 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && make install
+      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 
-This script lends itself nicely to be extracted into a shell script, let's name it `install-protobuf.sh`:
+These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
     #!/bin/sh
     set -ex

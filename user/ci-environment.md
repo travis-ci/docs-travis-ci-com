@@ -55,13 +55,13 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>slightly slower then Container-based</td>
-<td>slightl faster that Standard</td>
+<td>slightly slower than Container-based</td>
+<td>slightly faster than Standard</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>File System</td>
-<td>SIMFS, which is case sensitive and can return directory entities in random order</td>
+<td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
 <td>AUFS</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
@@ -201,8 +201,8 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    1. Set up and export environment variables.
-    1. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+    - Set up and export environment variables.
+    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
     You may modify the user's primary group with `-g`.
 1. Your `script` would look something like:
 
@@ -319,7 +319,7 @@ Test::Pod::Coverage
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
 [hhvm](https://github.com/facebook/hhvm) is also available.
-and the nighly builds are installed on-demand (as `hhvm-nightly`).
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
 
 ### XDebug
 

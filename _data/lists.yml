@@ -26,6 +26,7 @@ languages:  |
 deployments: |
     * [Appfog](/user/deployment/appfog)
     * [biicode](/user/deployment/biicode)
+    * [bintray](/user/deployment/bintray)
     * [Cloud 66](/user/deployment/cloud66)
     * [Heroku](/user/deployment/heroku)
     * [AWS CodeDeploy](/user/deployment/codedeploy)
@@ -48,4 +49,5 @@ deployments: |
     * [Hackage](/user/deployment/hackage)
     * [Google Cloud Storage](/user/deployment/gcs)
     * [packagecloud.io](/user/deployment/packagecloud)
+    * [Script](/user/deployment/script)
     * [Custom deployment via after_success hook](/user/deployment/custom)

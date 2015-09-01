@@ -15,7 +15,7 @@ deploy:
   password: "YOUR PASSWORD" # should be encrypted
 {% endhighlight %}
 
-It is reccomended that you encrypt your password.
+It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 {% highlight console %}

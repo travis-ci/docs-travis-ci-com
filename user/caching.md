@@ -12,9 +12,16 @@ These features are also still experimental, please [contact us](mailto:support@t
 
 <div id="toc"></div>
 
+## Cache content can be accessed by pull requests
+
+Do note that cache content will be available to any build on the repository, including Pull Requests.
+Do exercise caution not to put any sensitive information in the cache, lest malicious attacker may expose it.
+
 ## Caching directories (Bundler, dependencies)
 
-Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+With caches, Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+
+### Build phases
 
 Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
 run.
@@ -22,7 +29,7 @@ Note that the failure to upload the cache does not mark the job a failure.
 
 ### Bundler
 
-On Ruby and Objctive-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
+On Ruby and Objective-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
 
 The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
 
@@ -32,8 +39,10 @@ The logic for fetching and storing the cache is [described below](#Fetching-and-
 
 You can also explicitly enable it in your *.travis.yml*:
 
-    language: ruby
-    cache: bundler
+{% highlight yaml %}
+language: ruby
+cache: bundler
+{% endhighlight %}
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -49,17 +58,21 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 
 Bundler caching will not automatically work if you [override the install step](/user/build-configuration/#install). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-    language: ruby
-    install: bundle install --without development --deployment --jobs=3 --retry=3
-    cache:
-      directories:
-      - vendor/bundle
+{% highlight yaml %}
+language: ruby
+install: bundle install --without development --deployment --jobs=3 --retry=3
+cache:
+  directories:
+  - vendor/bundle
+{% endhighlight %}
 
 In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
 
-    language: ruby
-    bundler_args: --without development --deployment --jobs=3 --retry=3
-    cache: bundler
+{% highlight yaml %}
+language: ruby
+bundler_args: --without development --deployment --jobs=3 --retry=3
+cache: bundler
+{% endhighlight %}
 
 ### CocoaPods
 
@@ -70,16 +83,20 @@ On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapod
 You can enable CocoaPods caching for your repository by adding this to your
 *.travis.yml*:
 
-    language: objective-c
-    cache: cocoapods
+{% highlight yaml %}
+language: objective-c
+cache: cocoapods
+{% endhighlight %}
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
 
-    language: objective-c
-    cache:
-      - bundler
-      - cocoapods
+{% highlight yaml %}
+language: objective-c
+cache:
+  - bundler
+  - cocoapods
+{% endhighlight %}
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -90,8 +107,10 @@ By default, Travis CI will assume that your Podfile is in the root of the
 repository. If this is not the case, you can specify where the Podfile is like
 this:
 
-    language: objective-c
-    podfile: path/to/Podfile
+{% highlight yaml %}
+language: objective-c
+podfile: path/to/Podfile
+{% endhighlight %}
 
 #### With a custom install step
 
@@ -99,11 +118,13 @@ CocoaPods caching will not automatically work if you [override the install step]
 You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
-    language: objective-c
-    install: bundle exec pod install
-    cache:
-      directories:
-        - path/to/Pods
+{% highlight yaml %}
+language: objective-c
+install: bundle exec pod install
+cache:
+  directories:
+    - path/to/Pods
+{% endhighlight %}
 
 ### pip cache
 
@@ -119,9 +140,11 @@ caches `$HOME/.cache/pip`.
 
 Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-    cache:
-      directories:
-        - $HOME/.cache/pip
+{% highlight yaml %}
+cache:
+  directories:
+    - $HOME/.cache/pip
+{% endhighlight %}
 
 ### ccache cache
 
@@ -133,22 +156,26 @@ language: c # or other C/C++ variants
 cache: ccache
 {% endhighlight %}
 
-caches `$HOME/.ccache`.
+caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
 Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-    cache:
-      directories:
-        - $HOME/.ccache
+{% highlight yaml %}
+cache:
+  directories:
+    - $HOME/.ccache
+{% endhighlight %}
 
 ### Arbitrary directories
 
 You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
 
-    cache:
-      directories:
-      - .autoconf
-      - $HOME/.m2
+{% highlight yaml %}
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
+{% endhighlight %}
 
 As you can see, it is also possible to use environment variables in the directories.
 
@@ -185,20 +212,22 @@ we'll see about adding your custom source to our cache.
 
 Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
-### `before_cache` stage
+### `before_cache` phase
 
-Some utilities touch a tiny file when you work with the dependencies.
-This renders your carefully crafted cache invalid and the entire cache
-will have to be upload.
-If you want to perform cleanup tasks before the cache is uploaded, use the
-`before_cache` stage:
+When using caches, it may be useful to run command just prior to uploading
+the new cache archive.
+For example, the dependency management utility may write log files into the directory
+you are watching, and you would do well to ignore these.
 
-{% highlight yaml%}
+For this purpose, you can use `before_cache` phase.
+
+{% highlight yaml %}
 cache:
   directories:
-    - $CACHE_DIR
+    - $HOME/.cache/pip
+⋮
 before_cache:
-  - rm -f $CACHE_DIR/.tiny_tiny_marker
+  - rm -f $HOME/.cache/pip/log/debug.log
 {% endhighlight %}
 
 Failures in this stage does not mark the job a failure.
@@ -241,7 +270,9 @@ speeds compared to the Ubuntu mirrors.
 
 To enable APT caching, add the following to your .travis.yml:
 
-    cache: apt
+{% highlight yaml %}
+cache: apt
+{% endhighlight %}
 
 Subsequently, all Ubuntu packages will be downloaded by way of our
 cache or added to the cache for future use.
@@ -281,29 +312,37 @@ beta-testing the new cache until it is.
 
 When you want to enable multiple caching features, you can list them as an array:
 
-    cache:
-    - bundler
-    - apt
+{% highlight yaml %}
+cache:
+- bundler
+- apt
+{% endhighlight %}
 
 This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
 
-    cache:
-      bundler: true
-      directories:
-      - vendor/something
-      - .autoconf
+{% highlight yaml %}
+cache:
+  bundler: true
+  directories:
+  - vendor/something
+  - .autoconf
+{% endhighlight %}
 
 ### Explicitly disabling caching
 
 You can explicitly disable all caching by setting the `cache` option to `false` in your *.travis.yml*:
 
-    cache: false
+{% highlight yaml %}
+cache: false
+{% endhighlight %}
 
 It is also possible to disable a single caching mode:
 
-    cache:
-      bundler: false
-      apt: true
+{% highlight yaml %}
+cache:
+  bundler: false
+  apt: true
+{% endhighlight %}
 
 ## How does the caching work?
 

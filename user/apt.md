@@ -10,6 +10,19 @@ When using the [container based infrastructure](/user/workers/container-based-in
 user-defined build phases such as `before_install`. This prevents installation of APT packages via `apt-get` as well as
 the addition of APT sources such as one might do with `apt-add-repository`.
 
+ > Note: When using APT sources and packages together, you need to make
+ > sure they are under the same key space in the YAML file. e.g.
+
+``` yaml
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+```
+
 ## Adding APT Sources
 
 To add APT sources before your custom build steps, use the `addons.apt.sources` key, e.g.:
