@@ -24,7 +24,6 @@ desc 'Runs the html-proofer test'
 task :run_html_proofer do
   # test your out dir!
   tester = HTML::Proofer.new('./_site', {
-                              :href_ignore => "#",
                               :connecttimeout => 600,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true }
                             })
