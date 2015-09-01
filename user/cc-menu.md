@@ -34,7 +34,7 @@ Private repositories require an authenticated URL with a token in it. You can fi
 
 ### Using the CC feed with accounts
 
-The above technique only allows you to add one repository at a time, which can be unwieldy for team members of organizations with several repositories they're working on. Rather than specify the owner and the repository, you can simply specify the owner and select a subset of projects. 
+The above technique only allows you to add one repository at a time, which can be unwieldy for team members of organizations with several repositories they're working on. Rather than specify the owner and the repository, you can simply specify the owner and select a subset of projects.
 
 * For open source projects use `https://api.travis-ci.org/repos/<owner>.xml`
 * For closed source projects use `https://api.travis-ci.com/repos/<owner>.xml?token=<token>`.

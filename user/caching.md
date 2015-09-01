@@ -248,7 +248,7 @@ or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
 which is accessible from the Settings
 menu
 
-    ![](/images/caches-item.png)
+    ![Image of cache UI](/images/caches-item.png)
 
 2. With [command line client](https://github.com/travis-ci/travis#readme):
 
