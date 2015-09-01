@@ -18,7 +18,7 @@ This backend has following characteristics:
 2. For private repositories, allows use of [caches](/user/caching)
 
 For technical reasons, booting the VM takes a little longer
-than [the container-based ones](container-based-infrastructure).
+than [the container-based ones](/user/workers/container-based-infrastructure).
 
 ## File System
 
