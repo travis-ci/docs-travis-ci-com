@@ -131,7 +131,7 @@ to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 The arguments passed to the default `go test` command may be overridden by specifying `gobuild_args:` at the top level
 of the config, e.g.:
 
-    go_build: -x -ldflags "-X main.VersionString v1.2.3"
+    gobuild_args: -x -ldflags "-X main.VersionString v1.2.3"
 
 which will result in the script step being:
 
