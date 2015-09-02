@@ -66,6 +66,8 @@ It is important to note that using the older style `Godeps.json` at the top leve
 
 All of the `godep` integration steps are performed prior to the separate `go get` and makefile steps listed above.
 
+Note that the `godep` support is only activated if a custom `install` step is not specified.
+
 ### Installing Private Dependencies
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
