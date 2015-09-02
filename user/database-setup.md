@@ -172,6 +172,8 @@ addons:
 
 For valid values, see [MariaDB web page](https://downloads.mariadb.org/).
 
+The version number is exported as `TRAVIS_MARIADB_VERSION`.
+
 ### SQLite3
 
 Probably the easiest and simplest solution for your relation database needs. If you don't specifically want to test how your code behaves with other databases,
