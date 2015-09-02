@@ -1,5 +1,5 @@
 ---
-title: Setting up Databases 
+title: Setting up Databases
 layout: en
 permalink: /user/database-setup/
 ---
@@ -29,7 +29,7 @@ or to start several services:
 
 ### MySQL
 
-MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  
+MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
 
 >Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 
@@ -160,10 +160,17 @@ Here's a list of locales currently installed on the system by default:
 
 All language packs currently available for Ubuntu 12.04 can be [found on the packages site.](http://packages.ubuntu.com/search?keywords=language-pack&searchon=names&suite=precise&section=all)
 
+### MariaDB
 
+MariaDB is a community-developed fork of MySQL. It is available as an addon on Travis CI.
+Pass the major-minor version string to indicate MariaDB version, like so:
 
+{% highlight yaml %}
+addons:
+  mariadb: '10.0'
+{% endhighlight %}
 
-
+For valid values, see [MariaDB web page](https://downloads.mariadb.org/).
 
 ### SQLite3
 
@@ -245,7 +252,7 @@ RabbitMQ is **not started on boot**. Add it to `.travis.yml` to start it:
     services:
       - rabbitmq
 
-RabbitMQ uses the default configuration of vhost (`/`), username (`guest`) and password (`guest`). 
+RabbitMQ uses the default configuration of vhost (`/`), username (`guest`) and password (`guest`).
 You can set up more vhosts and roles via a `before_script` if needed (for example, to test authentication).
 
 
