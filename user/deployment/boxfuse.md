@@ -32,8 +32,9 @@ By default Boxfuse will detect the app and the version automatically from the na
       user: "YOUR BOXFUSE CLIENT USER"
       secret: "YOUR BOXFUSE CLIENT SECRET"
       payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
-      app: "YOUR BOXFUSE APP"
-      version: "THE VERSION TO GIVE TO THE IMAGE"
+      image: "YOUR BOXFUSE APP AND VERSION (ex.: myapp:1.23)"
+
+You can also use Travis CI [environment variables](/user/environment-variables) like `TRAVIS_BUILD_NUMBER` to assign a version to the image. Ex.: `image: "myapp:$TRAVIS_BUILD_NUMBER"`
 
 ### Specifying the Boxfuse environment
 
