@@ -5,3 +5,4 @@ rvm:
 branches:
   only:
       - gh-pages
+cache: bundler
