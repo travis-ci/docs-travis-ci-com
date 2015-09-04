@@ -19,7 +19,7 @@ It is not recommended that you put your Azure Deployment credentials unencrypted
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section. As an alternative to the web interface, you can also use the CLI's [`env`](https://github.com/travis-ci/travis.rb#env) command.
 
 <figure>
-  <img src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
+  <img alt="Travis CI Settings" src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 

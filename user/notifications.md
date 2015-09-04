@@ -367,7 +367,7 @@ Next you need to figure out with rooms to send the notifications to.
 
 You can use the room's name in the URL or you can use the room's identifier,
 which can currently be [fetched from the
-API](https://www.sqwiggle.com/docs/endpoints/rooms#listallrooms).
+API](https://www.sqwiggle.com/docs/endpoints/streams#listallstreams)
 
 Now you can add the details to your .travis.yml:
 

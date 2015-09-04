@@ -17,7 +17,7 @@ deploy:
 {% endhighlight %}
 
 You can sign up for an account on [their website](https://www.cloudcontrol.com) or using the [cctrl
-tool](https://www.cloudcontrol.com/dev-center/Quickstart#create-a-user-account-if-you-haven39t-already).
+tool](https://www.cloudcontrol.com/dev-center/quickstart#create-a-user-account-if-you-havent-already)
 
 It is recommended that you encrypt your password. Assuming you have the Travis CI command line client installed, you can do it like this:
 
