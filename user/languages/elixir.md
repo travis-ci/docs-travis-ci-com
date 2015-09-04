@@ -10,7 +10,7 @@ The features described here are still in development and are subject to change w
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI Environment for Elixir Projects
 

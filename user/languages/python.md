@@ -6,7 +6,7 @@ permalink: /user/languages/python/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing Python versions to test against
 
@@ -101,7 +101,7 @@ In case `script` key is not provided in `.travis.yml` for Python projects, Pytho
 
 ### Travis CI uses pip
 
-By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide.
+By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 The exact default command is
 

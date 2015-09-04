@@ -6,7 +6,7 @@ permalink: /user/languages/java/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
@@ -26,7 +26,7 @@ if your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
 
@@ -50,7 +50,7 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
 
     ./gradlew check
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 
@@ -72,7 +72,7 @@ If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will
 
     ant test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 

@@ -9,7 +9,7 @@ permalink: /user/languages/r/
 This guide covers build environment and configuration topics specific to R
 projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 

@@ -11,7 +11,7 @@ permalink: /user/languages/objective-c/
 This guide covers build environment and configuration topics specific to
 Objective-C projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
-configuration](/user/build-configuration/) guides first.
+configuration](/user/customizing-the-build/) guides first.
 
 ## Supported OS X/iOS SDK versions
 

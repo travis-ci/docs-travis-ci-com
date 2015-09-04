@@ -8,7 +8,7 @@ permalink: /user/languages/perl6/
 
 This guide covers build environment and configuration topics specific to
 Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
-and [general build configuration](/user/build-configuration/) guides first.
+and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing Perl 6 versions to test against
 
@@ -80,7 +80,7 @@ Now your `panda` will match your Rakudo version and should install
 the relevant dependencies successfully.
 
 Further information about overriding dependency installation commands is
-described in the [general build configuration](/user/build-configuration/)
+described in the [general build configuration](/user/customizing-the-build/)
 guide.
 
 ### When overriding build commands, do not use sudo

@@ -12,7 +12,7 @@ that can be done to improve build times even more.
 
 To speed up a test suite, you can break it up into several parts using
 Travis CI's [build
-matrix](/user/build-configuration/#The-Build-Matrix)
+matrix](/user/customizing-the-build/#Build-Matrix)
 feature.
 
 Say you want to split up your unit tests and your integration tests into two

@@ -29,7 +29,7 @@ The token must be appended to the URL as the `token` parameter. You can find the
 token in [your profile](https://magnum.travis-ci.com/profile/) under the
 "Profile" tab.
 
-![](/images/token.jpg)
+![Travis CI user token](/images/token.jpg)
 
 An example URL would be
 `https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>`

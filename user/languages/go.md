@@ -11,7 +11,7 @@ swiftypetags:
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+[Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for Go Projects
 
@@ -56,7 +56,7 @@ It is also possible to specify a list of operations, for example, to `go get` re
       - go get github.com/bmizerany/assert
       - go get github.com/mrb/hob
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 ### `godep` support
 
@@ -75,7 +75,7 @@ Note that the `godep` support is only activated if a custom `install` step is no
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
 requires a different workaround from our [recommended way of handling private
-dependencies](/user/travis-pro/#How-can-I-configure-Travis-Pro-to-use-private-GitHub-repositories-as-dependencies%3F).
+dependencies](/user/private-dependencies).
 
 When cloning via HTTPS, git uses curl under the covers, which in turn allows you
 to specify a [.netrc](http://linux.die.net/man/5/netrc) file, where you can
@@ -85,7 +85,7 @@ instance.
 Go to your [GitHub account](https://github.com/settings/applications) and create
 a personal access token.
 
-![](/images/personal-token.jpg)
+![Screenshot of GitHub personal token](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
@@ -126,7 +126,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: go
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example,
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example,
 to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 
     script: go test ./...

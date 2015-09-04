@@ -9,7 +9,7 @@ permalink: /user/languages/julia/
 This guide covers build environment and configuration topics specific to
 [Julia](http://julialang.org) projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -64,7 +64,7 @@ If your Julia package has a `deps/build.jl` file, then `Pkg.build("$name")`
 will run that file to install any dependencies of the package. If you need
 to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
-in the [general build configuration](/user/build-configuration/) guide.
+in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Build Matrix
 

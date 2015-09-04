@@ -6,7 +6,7 @@ permalink: /user/languages/c/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to C projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to C projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C Projects
 
@@ -30,7 +30,7 @@ If you need to perform special tasks before your tests can run, override the `in
 
     install: make get-deps
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 
 ## Default Test Script
@@ -44,7 +44,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: c
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example, to build
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example, to build
 by running Scons without arguments, override the `script:` key in `.travis.yml` like this:
 
     script: scons

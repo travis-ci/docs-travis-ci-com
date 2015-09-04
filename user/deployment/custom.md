@@ -4,7 +4,7 @@ layout: en
 permalink: /user/deployment/custom/
 ---
 
-You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/build-configuration/#Define-custom-build-lifecycle-commands) step.
+You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
 
 You may choose the [Script provider](/user/deployment/script/) instead, as it provides
 easier flexibility with conditional deployment.

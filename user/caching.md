@@ -56,7 +56,7 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 
 #### With a custom install step
 
-Bundler caching will not automatically work if you [override the install step](/user/build-configuration/#install). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+Bundler caching will not automatically work if you [override the install step](/user/customizing-the-build/). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
 {% highlight yaml %}
 language: ruby
@@ -114,7 +114,7 @@ podfile: path/to/Podfile
 
 #### With a custom install step
 
-CocoaPods caching will not automatically work if you [override the install step](/user/build-configuration/#install).
+CocoaPods caching will not automatically work if you [override the install step](/user/customizing-the-build/).
 You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
@@ -128,7 +128,7 @@ cache:
 
 ### pip cache
 
-If you have not overridden the default [install step](/user/build-configuration/#install), use:
+If you have not overridden the default [install step](/user/customizing-the-build/), use:
 
 {% highlight yaml %}
 language: python
@@ -148,7 +148,7 @@ cache:
 
 ### ccache cache
 
-If you have not overridden the default [install step](/user/build-configuration/#install), use:
+If you have not overridden the default [install step](/user/customizing-the-build/), use:
 
 {% highlight yaml %}
 language: c # or other C/C++ variants
@@ -248,7 +248,7 @@ or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
 which is accessible from the Settings
 menu
 
-    ![](/images/caches-item.png)
+    ![Image of cache UI](/images/caches-item.png)
 
 2. With [command line client](https://github.com/travis-ci/travis#readme):
 

@@ -6,7 +6,7 @@ permalink: /user/languages/perl/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing Perl versions to test against
 
@@ -59,14 +59,14 @@ If neither Module::Build nor EUMM build files are found, Travis CI will fall bac
 
     make test
 
-It is possible to override test command as described in the [general build configuration](/user/build-configuration/) guide.
+It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 
 ## Dependency Management
 
 ### Travis CI uses cpanm
 
-By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide.
+By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 The exact default command is
 

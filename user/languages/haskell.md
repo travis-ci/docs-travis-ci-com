@@ -6,7 +6,7 @@ permalink: /user/languages/haskell/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
@@ -43,7 +43,7 @@ Default test script Travis CI Haskell builder will use is
 
     cabal configure --enable-tests && cabal build && cabal test
 
-It is possible to override test command as described in the [general build configuration](/user/build-configuration/) guide, for example:
+It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide, for example:
 
     script:
       - cabal configure --enable-tests -fFOO && cabal build && cabal test
@@ -59,7 +59,7 @@ The exact default command is
 
     cabal install --only-dependencies --enable-tests
 
-It is possible to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide,
+It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide,
 for example:
 
     install:

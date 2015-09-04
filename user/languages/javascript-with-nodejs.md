@@ -6,7 +6,7 @@ permalink: /user/languages/javascript-with-nodejs/
 
 <div id="toc"></div>
 
-This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing Node versions to test against
 
