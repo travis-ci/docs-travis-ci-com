@@ -173,7 +173,7 @@ There are some common PHP extensions preinstalled with PECL on Travis CI:
 * [memcached.so](http://php.net/memcached)
 * [mongo.so](http://php.net/mongo)
 * [amqp.so](http://php.net/amqp)
-* [zmq.so](http://php.zero.mq/)
+* [zmq.so](http://zeromq.org/bindings:php)
 * [xdebug.so](http://xdebug.org)
 * [redis.so](http://pecl.php.net/package/redis)
 
