@@ -23,6 +23,14 @@ To define variables in Repository Settings, make sure you're logged in, navigate
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
+### Fetch Deployment Progress and Logs
+
+The Azure Web App provider can print Azure's deployment progress to your Travis log using the `verbose` option. However, Git will print your password if the authentication fails (it will not if you provide a correct user/password combination).
+
+    deploy:  
+      provider: azure_web_apps
+      verbose: true
+
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
