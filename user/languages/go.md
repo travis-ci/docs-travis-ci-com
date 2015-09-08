@@ -36,6 +36,12 @@ All go version management is handled by [gimme](https://github.com/meatballhat/g
 
 For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
 
+## Go Import Path
+
+The project source code will be placed in `GOPATH/src/github.com/user/repo` by default, but if [vanity imports](https://golang.org/cmd/go/#hdr-Remote_import_paths) are necessary (especially for [`internal` package imports](https://golang.org/cmd/go/#hdr-Internal_Directories)), `go_import_path:` may be specified at the top level of the config, e.g.:
+
+    go_import_path: example.org/pkg/foo
+
 ## Dependency Management
 
 By default the install step defers to `go get ./...` or `go get -t ./...` if the version of go is greater than or equal
