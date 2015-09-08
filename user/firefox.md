@@ -22,9 +22,9 @@ add the following to your `.travis.yml` file:
 ### `latest` aliases
 
 In addition, there are 3 special aliases
-[`latest`](http://releases.mozilla.org/pub/firefox/releases/latest/linux-x86_64/en-US/en-US/),
-[`latest-esr`](http://releases.mozilla.org/pub/firefox/releases/latest-esr/linux-x86_64/en-US/en-US/), and
-[`latest-beta`](http://releases.mozilla.org/pub/firefox/releases/latest-beta/linux-x86_64/en-US/en-US/).
+[`latest`](http://releases.mozilla.org/pub/firefox/releases/latest/linux-x86_64/en-US/),
+[`latest-esr`](http://releases.mozilla.org/pub/firefox/releases/latest-esr/linux-x86_64/en-US/), and
+[`latest-beta`](http://releases.mozilla.org/pub/firefox/releases/latest-beta/linux-x86_64/en-US/).
 
 ### Linux only
 
