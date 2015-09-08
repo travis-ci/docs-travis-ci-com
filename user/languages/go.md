@@ -78,7 +78,7 @@ requires a different workaround from our [recommended way of handling private
 dependencies](/user/private-dependencies).
 
 When cloning via HTTPS, git uses curl under the covers, which in turn allows you
-to specify a [.netrc](http://linux.die.net/man/5/netrc) file, where you can
+to specify a [.netrc](http://manpages.ubuntu.com/manpages/precise/man5/netrc.5.html) file, where you can
 store custom authentication credentials for specific domains, github.com for
 instance.
 
