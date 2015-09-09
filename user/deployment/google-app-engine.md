@@ -23,14 +23,9 @@ It is *strongly* recommended that you encrypt your key before committing it to a
 
 The --add command automatically adds the decryption step to the .travis file.
 
-More detailed instructions for encrypting keys using Travis can be found [here](http://docs.travis-ci.com/user/encrypting-files/).
-
-The keyfile defaults to `service-account.json` if you omit the configuration line.
-
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-See [this link](https://github.com/googlecloudplatform/continuous-deployment-demo/tree/appengine_travis_deploy) for an example
-App Engine app with a Travis deployment configured.
+More detailed instructions for encrypting keys using Travis can be found [here](http://docs.travis-ci.com/user/encrypting-files/).
 
 
 ### Project to deploy
@@ -80,6 +75,12 @@ credentials to deploy. If so, you want to avoid the Travis cleanup step that wil
     deploy:
         provider: gae
         skip_cleanup: true
+
+### Example Repo
+
+See [this link](https://github.com/googlecloudplatform/continuous-deployment-demo/tree/appengine_travis_deploy) for an example
+App Engine app with a Travis deployment configured. See the other branches in the project for Managed VMs examples, and examples
+without using this provider.
 
 ### Other Available Configuration Options
 * **project**: [Project ID](https://developers.google.com/console/help/new/#projectnumber) used to identify the project on Google Cloud.
