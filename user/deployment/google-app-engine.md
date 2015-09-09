@@ -23,6 +23,8 @@ It is *strongly* recommended that you encrypt your key before committing it to a
 
 The --add command automatically adds the decryption step to the .travis file.
 
+More detailed instructions for encrypting keys using Travis can be found [here](http://docs.travis-ci.com/user/encrypting-files/).
+
 The keyfile defaults to `service-account.json` if you omit the configuration line.
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
