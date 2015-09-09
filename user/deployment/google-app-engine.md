@@ -14,16 +14,16 @@ For a minimal configuration, all you need to do is add the following to your `.t
       default: true
       project: "YOUR PROJECT ID"
 
-You can create a Service Account by going to the [Google Cloud Console](console.developers.google.com), go to "APIs & auth" -> "Credentials",
+You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
 then click "Add Credential" and "Service Account", finally clicking "JSON" to downloa dthe JSON key.
 
-You must then encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
+It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
 
     travis encrypt-file client-secret.json --add
 
 The --add command automatically adds the decryption step to the .travis file.
 
-The key file command default to `service-account.json` if you omit it.
+The keyfile defaults to `service-account.json` if you omit the configuration line.
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -33,7 +33,7 @@ App Engine app with a Travis deployment configured.
 
 ### Project to deploy
 
-By default, we will try to deploy to the project by the same name as the repository. Usually, you will want to explicilty configure the **project** option to match the project ID found in your Cloud console (note that this is sometimes, but not always, the same as the project name).
+By default, the project will be deployed with the same name as the repository. Usually, you will want to explicilty configure the **project** option to match the project ID found in your Cloud console (note that this is sometimes, but not always, the same as the project name).
 
 You can explicitly set the name via the **project** option:
 
@@ -44,7 +44,7 @@ You can explicitly set the name via the **project** option:
 
 ### Version to deploy
 
-Either the **version** flag or the **default** option must be set. If default is true, the default version will be deployed to, which will be http://your-project-id.appspot.com. If the **version** flag is set instead, it will eploy to http://version-dot-your-project-id.appspot.com.
+Either the **version** flag or the **default** option must be set. If default is true, the default version will be deployed to, which will be http://your-project-id.appspot.com. If the **version** flag is set instead, it will deploy to http://version-dot-your-project-id.appspot.com.
 
 
 ### Branch to deploy from
