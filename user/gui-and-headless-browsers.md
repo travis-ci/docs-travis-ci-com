@@ -46,7 +46,7 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 
 You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
 
-Use `-a` option to `xvfb-run` so that it selects a free display automatically and starts the server. Do not start `xfvb` manually, this will cause problems with concurrent runs of `xfvb-run`.
+Use `-a` option to `xvfb-run` so that it selects a free display automatically and starts the server. Do not start `xvfb` manually, this will cause problems with concurrent runs of `xvfb-run`.
 
 ### Configuring xvfb screen size and more
 
