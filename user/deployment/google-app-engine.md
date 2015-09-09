@@ -15,13 +15,13 @@ For a minimal configuration, all you need to do is add the following to your `.t
       project: "YOUR PROJECT ID"
 
 You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
-then click "Add Credential" and "Service Account", finally clicking "JSON" to downloa dthe JSON key.
+then click "Add Credential" and "Service Account", finally clicking "JSON" to download the JSON key.
 
 It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
 
     travis encrypt-file client-secret.json --add
 
-The --add command automatically adds the decryption step to the .travis file.
+The `--add` flag automatically adds the decryption step to the .travis file.
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -32,7 +32,7 @@ More detailed instructions for encrypting keys using Travis can be found [here](
 
 By default, the project will be deployed with the same name as the repository. Usually, you will want to explicilty configure the **project** option to match the project ID found in your Cloud console (note that this is sometimes, but not always, the same as the project name).
 
-You can explicitly set the name via the **project** option:
+You can explicitly set the project id via the **project** option:
 
     deploy:
       provider: gae
