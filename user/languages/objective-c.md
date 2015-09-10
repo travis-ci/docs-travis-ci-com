@@ -23,6 +23,70 @@ NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
 about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
+### Xcode 7
+
+Xcode 7 GM is available by adding `osx_image: xcode7` to your .travis.yml.
+
+Our Xcode 7 image has the following SDKs preinstalled:
+
+- macosx10.11
+- iphoneos9.0
+- iphonesimulator9.0
+- watchos2.0
+- watchsimulator2.0
+
+In addition, the following simulators are installed:
+
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.3
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.4
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 9.0
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - iPad Air 2
+- watchOS 2.0
+  - Apple Watch - 38mm
+  - Apple Watch - 42mm
+
 ### Xcode 6.4
 
 Xcode 6.4 is available by adding `osx_image: xcode6.4` to your .travis.yml.
