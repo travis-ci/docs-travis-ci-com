@@ -5,7 +5,7 @@ $(function(){
 
   var list;
   if ( $("#toc").length ) {
-    list = $("<ul />");
+    list = $("<ul class=\"list-language\" />");
     $("#toc").append(list);
   }
 
