@@ -42,7 +42,7 @@ Because Travis CI Scala builder assumes sbt dependency management is used by def
 
 ### Custom sbt Arguments
 
-Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt-extras/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt-extras/templates/default/jvmopts.erb) options should work fine.
+Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/jvmopts.erb) options should work fine.
 
 If needed, you can override SBT and JVM options in [many different ways](https://github.com/paulp/sbt-extras#sbt--h) by passing extra arguments to `sbt`.
 For example

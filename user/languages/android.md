@@ -116,7 +116,7 @@ While the following components are preinstalled, the exact list may change witho
 
 **Warning:** At the moment, these steps are not fully supported by Travis CI Android builder.
 
-If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
+If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
 
     # Emulator Management: Create, Start and Wait
     before_script:

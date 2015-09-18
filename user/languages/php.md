@@ -130,7 +130,7 @@ To ensure that everything works, use http(s) URLs on [Packagist](http://packagis
 
 ## PHP installation
 
-You'll find the default configure options used to build the different PHP versions used on Travis CI [here](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis CI's PHP installation.
+You'll find the default configure options used to build the different PHP versions used on Travis CI [here](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis CI's PHP installation.
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
@@ -162,7 +162,7 @@ You can also use this one line command:
 
 ### Core extensions
 
-See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
 
 ### Preinstalled PHP extensions
 
@@ -222,7 +222,7 @@ Note that `pecl install` can fail if the requested version of the package is alr
 
 ### Chef Cookbooks for PHP
 
-If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment).
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/precise-stable/ci_environment).
 
 ### Apache + PHP
 
