@@ -14,6 +14,7 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 
     language: node_js
     node_js:
+      - "4"
       - "0.12"
       - "0.11"
       - "0.10"
