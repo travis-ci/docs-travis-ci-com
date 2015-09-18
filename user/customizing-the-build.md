@@ -63,6 +63,12 @@ You can also provide multiple steps, for instance to install both ruby and node 
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
 
+### Skipping the Installation Step
+
+You can skip the installation step entirely by adding the following to your `.travis.yml`:
+
+	install: true
+
 ## Customizing the Build Step
 
 The default build command depends on the project language. Ruby projects use `rake`, the common denominator for most Ruby projects.
