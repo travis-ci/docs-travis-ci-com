@@ -55,9 +55,9 @@ public and private repositories.
 We currently have a custom **mega** image that we are building, which
 contains a number of common language runtimes, tools, and data services.
 
-*Note: the **mega** image does not currently contain all the common
+_Note: the **mega** image does not currently contain all the common
 tools and services present in our Precise images. This is something
-we'll be expanding over the next couple of months*
+we'll be expanding over the next couple of months_
 
 ### Version control
 
