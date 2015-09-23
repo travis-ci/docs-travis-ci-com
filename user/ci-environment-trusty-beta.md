@@ -100,24 +100,25 @@ section for more details on our Docker beta and its usage.
 with it.
 
 
-- jruby-9.0.0.0.pre1 [ x86_64 ]
+- jruby-9.0.0.0 [ x86_64 ]
 - ruby-1.8.7-p374 [ x86_64 ]
 - ruby-1.9.3-p551 [ x86_64 ]
-- ruby-2.0.0-p645 [ x86_64 ]
-- ruby-2.1.6 [ x86_64 ]
-- ruby-2.2.2 [ x86_64 ]
+- ruby-2.0.0-p647 [ x86_64 ]
+- ruby-2.1.7 [ x86_64 ]
+- ruby-2.2.3 [ x86_64 ]
 
 #### Python
 
 We pre-install the following python versions
 
-- pypy 2.6.0
-- pypy3 3.2.4.0
+- pypy 2.6.1
+- pypy3 2.4.0
 - python 2.6.9
 - python 2.7.10
 - python 3.2.6
 - python 3.3.6
 - python 3.4.3
+- python 3.5.0
 
 [pyenv]() is also installed.
 
@@ -129,10 +130,10 @@ with it
 - iojs-v1.6.4
 - v0.6.21
 - v0.8.28
-- v0.10.18
-- v0.10.39
+- v0.10.40
 - v0.11.16
-- v0.12.6
+- v0.12.7
+- 4.0.0
 
 #### Go
 
@@ -144,10 +145,13 @@ with it
 - go 1.2.2
 - go 1.3.3
 - go 1.4.2
+- go 1.5.1
 
 #### JVM
 
-- Java 1.7.0_80 is installed.
+- We install the latest versions OpenJDK versions from the official Ubuntu
+Trusty packages.
+- We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher]() is installed if you need another version.
 - gradle 2.5 is installed.
 - Maven 3.3.3 is installed.
