@@ -15,7 +15,7 @@ the Trusty beta, read on ...
 
 ### What This Guide Covers
 
-This guide explain what packages, tools and settings are available in
+This guide explains what packages, tools and settings are available in
 the Trusty beta environment.
 
 A couple of important points to note:
@@ -61,7 +61,7 @@ we'll be expanding over the next couple of months_
 
 ### Version control
 
-All VM images have the following pre-installed
+All VM images have the following pre-installed:
 
  * A Git 1.9.x release (official Ubuntu packages)
  * Mercurial (official Ubuntu packages)
