@@ -96,7 +96,7 @@ section for more details on our Docker beta and its usage.
 
 #### Ruby
 
-[rvm]() is installed and we've pre-installed the following Ruby versions
+[rvm](https://rvm.io/rvm/about) is installed and we've pre-installed the following Ruby versions
 with it.
 
 
@@ -120,11 +120,11 @@ We pre-install the following python versions
 - python 3.4.3
 - python 3.5.0
 
-[pyenv]() is also installed.
+[pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is also installed.
 
 #### Node.JS
 
-[nvm]() is installed and we've pre-installed the following Node versions
+[nvm](https://github.com/creationix/nvm#installation) is installed and we've pre-installed the following Node versions
 with it
 
 - iojs-v1.6.4
@@ -137,7 +137,7 @@ with it
 
 #### Go
 
-[gimme]() is installed and we've pre-installed the following Go versions
+[gimme](https://github.com/travis-ci/gimme#gimme) is installed and we've pre-installed the following Go versions
 with it
 
 - go 1.0.3
@@ -152,7 +152,7 @@ with it
 - We install the latest versions OpenJDK versions from the official Ubuntu
 Trusty packages.
 - We install the latest Oracle JDK versions from Oracle.
-- [jdk_switcher]() is installed if you need another version.
+- [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is) is installed if you need another version.
 - gradle 2.5 is installed.
 - Maven 3.3.3 is installed.
 - leiningen 2.5.1 is installed.
@@ -161,7 +161,9 @@ Trusty packages.
 #### PHP
 
 We do not currently have any PHP versions pre-installed in the **mega**
-image but [phpenv]() is available to install versions.
+image. This is at the top of our list for our next update.
+
+You can manually install[phpenv](https://github.com/phpenv/phpenv#phpenv---php-multi-version-installation-and-management-for-humans) and then it will e available to install any PHP versions you need.
 
 #### Other runtimes
 
