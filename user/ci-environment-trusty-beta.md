@@ -163,7 +163,7 @@ Trusty packages.
 We do not currently have any PHP versions pre-installed in the **mega**
 image. This is at the top of our list for our next update.
 
-You can manually install[phpenv](https://github.com/phpenv/phpenv#phpenv---php-multi-version-installation-and-management-for-humans) and then it will e available to install any PHP versions you need.
+You can manually install[phpenv](https://github.com/phpenv/phpenv#phpenv---php-multi-version-installation-and-management-for-humans) and then it will be available to install any PHP versions you need.
 
 #### Other runtimes
 
