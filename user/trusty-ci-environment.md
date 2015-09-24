@@ -1,14 +1,13 @@
 ---
 title: The Trusty beta Build Environment
 layout: en
-permalink: /user/ci-environment-trusty-beta/
+permalink: /user/trusty-ci-environment/
 ---
 
 ## tl;dr - Using Trusty
 
 If you just want to get started using our Trusty beta, then add `dist:
-trusty` to your `.travis.yml`. This is enabled for both public and
-private repositories.
+trusty` to your `.travis.yml`. This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of
 the Trusty beta, read on ...
@@ -24,7 +23,7 @@ A couple of important points to note:
   changes you wish to the images using our various `before_*:`
   keys or custom scripts.
 
-- The Trusty images are what our [Docker beta](http://docs.travis-ci.com/user/docker/)
+- The Trusty images are what our [Docker beta](/user/docker/)
   runs on as well.
 
 <div id="toc"></div>
@@ -85,11 +84,11 @@ Docker 1.8.2 is installed. We use the official [Docker apt
 repository](https://blog.docker.com/2015/07/new-apt-and-yum-repos/), so
 you can easily install another version with `apt-get` if needed.
 
-`[docker-compose](https://docs.docker.com/compose/)`
-[1.4.2](https://github.com/docker/compose/releases/tag/1.4.2) is also
+[docker-compose](https://docs.docker.com/compose/)
+version [1.4.2](https://github.com/docker/compose/releases/tag/1.4.2) is also
 installed.
 
-See our [Using Docker in Builds](http://docs.travis-ci.com/user/docker/)
+See our [Using Docker in Builds](/user/docker/)
 section for more details on our Docker beta and its usage.
 
 ### Runtimes
@@ -163,8 +162,6 @@ Trusty packages.
 We do not currently have any PHP versions pre-installed in the **mega**
 image. This is at the top of our list for our next update.
 
-You can manually install[phpenv](https://github.com/phpenv/phpenv#phpenv---php-multi-version-installation-and-management-for-humans) and then it will e available to install any PHP versions you need.
-
 #### Other runtimes
 
 Other runtimes are available to install using `apt-get` and the official
@@ -173,9 +170,7 @@ manually setup in your `.travis.yml`
 
 ### Data Stores
 
-We pre-install the following services and they can be activated with the
-built-ini `[services:](http://docs.travis-ci.com/user/database-setup/)`
-support.
+We pre-install the following services and they can be activated with the built-in [services](/user/database-setup/) support.
 
 * MySQL
 * PostgreSQL
