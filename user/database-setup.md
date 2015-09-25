@@ -26,7 +26,7 @@ or to start several services:
       - rabbitmq  # start rabbitmq-server
       - memcached # start memcached
 
-> Note that this feature only works for services we provision in our [CI environment](/user/ci-environment/). If you download Apache Jackrabbit you
+> Note that this feature only works for services we provision in our [CI environment](/user/ci-environment/). If you download Apache Jackrabbit
 > you still have to start it in a `before_install` step.
 
 ### Multiple database systems
