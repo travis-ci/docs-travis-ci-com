@@ -6,8 +6,14 @@ permalink: /user/trusty-ci-environment/
 
 ## tl;dr - Using Trusty
 
-If you just want to get started using our Trusty beta, then add `dist:
-trusty` to your `.travis.yml`. This is enabled for both public and private repositories.
+If you just want to get started using our Trusty beta, then add the following to your `.travis.yml`.
+
+``` yaml
+sudo: required
+dist: trusty
+```
+
+This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of
 the Trusty beta, read on ...
@@ -39,6 +45,18 @@ slate and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
+
+## Image differences from Precise
+
+In our Precise based environments, we've traditionally built a library
+of images based on common language runtimes like `ruby`, `go`, `php`,
+`python`, etc.
+
+For our Trusty beta, in part due to the architecture and speed of GCE,
+we're only making two images. A **minimal** image which contains no
+runtimes or services and a **mega** image which will container all our
+commonly supported runtimes and services.
+
 ## Distibution release
 
 Our Ubuntu 14.04 Trusty Tahr images are based on the
@@ -46,8 +64,13 @@ Our Ubuntu 14.04 Trusty Tahr images are based on the
 
 ## Using the Trusty beta
 
-Add `dist: trusty` to your `.travis.yml` file. This works for both
+Add the following to your `.travis.yml` file. This works for both
 public and private repositories.
+
+``` yaml
+sudo: required
+dist: trusty
+```
 
 ## Environment common to all VM images
 
