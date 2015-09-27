@@ -47,6 +47,8 @@ matrix:
       otp_release: 18.0
 {% endhighlight %}
 
+Note that at the time of writing, Elixir 1.2 has not been released, so that build will fail.
+
 ## Build Matrix
 
 For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
