@@ -32,6 +32,21 @@ otp_release:
   - 17.4
 {% endhighlight %}
 
+Multiple Elixir versions with different OTP release versions can be achieved like this:
+
+{% highlight yaml %}
+language: elixir
+
+elixir:
+  - 1.0.5
+otp_release: 17.4
+
+matrix:
+  include:
+    - elixir: 1.2
+      otp_release: 18.0
+{% endhighlight %}
+
 ## Build Matrix
 
 For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
