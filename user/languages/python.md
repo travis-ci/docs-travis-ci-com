@@ -128,7 +128,7 @@ It also has the [packages above](#Pre-installed-packages) pre-installed.
 
 For a limited number of Python development releases, on-demand installation is available.
 
-Currently, these are: `3.5.0b2`, `3.5.0b3`, and `3.5-dev` (built nightly).
+Currently, these are: `3.5-dev` (built nightly), `3.5`/`3.5.0`.
 
 ## Build Matrix
 
