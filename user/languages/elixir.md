@@ -21,15 +21,21 @@ language: elixir
 {% endhighlight %}
 
 Note that Elixir has requirements regarding the underlying
-Erlang OTP Release version, and it is the user's responsibility to ensure
-that these requirements are met.
+Erlang OTP Release version.
 
-This is handled by adding the `otp_release` as follows:
+If the specified OTP Release version (implicity or explicitly)
+does not meet this requirement, Travis CI will choose one
+for you.
+
+You can also override this OTP Release choice by adding the `otp_release`.
+For example:
 
 {% highlight yaml %}
 language: elixir
+elixir:
+  - 1.1.0
 otp_release:
-  - 17.4
+  - 18.0
 {% endhighlight %}
 
 ## Build Matrix
