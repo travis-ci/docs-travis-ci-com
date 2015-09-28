@@ -302,7 +302,8 @@ php:
   - '7' # or '7.0'
 {% endhighlight %}
 
-can be used as aliases to `nightly`.
+can be used.
+This is a recent build of the `PHP-7.0` branch of [PHP](https://github.com/php/php-src/).
 
 Note that [PECL extensions listed above](#Preinstalled-PHP-extensions) are not installed on nightly builds.
 If you need these, you need to install them with `pecl`.
