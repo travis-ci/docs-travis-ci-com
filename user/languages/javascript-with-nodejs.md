@@ -26,7 +26,7 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 These values are passed on to [`nvm`](https://github.com/creationix/nvm);
 newer releases not shown above may be used if `nvm` recognizes them.
 
-This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, 0.12.x, 4.0, and 4.1.x branch releases,
+This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, 0.12.x, 4.0.x, and 4.1.x branch releases,
 as well as the io.js 1.0.4 and the latest io.js stable release.
 
 Specifying `node` or `stable` will run using the latest stable Node.js release and specifying `iojs` will run using the latest stable io.js release.
