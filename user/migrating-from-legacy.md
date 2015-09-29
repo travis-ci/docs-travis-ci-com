@@ -157,4 +157,4 @@ More information about caching can be found in our [Caching Directories and Depe
 
 ## Need Help?
 
-Please feel free to contact us via our [support](mailto: support@travis-ci.com) email address, or create a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
+Please feel free to contact us via our [support](mailto:support@travis-ci.com) email address, or create a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
