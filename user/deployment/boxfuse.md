@@ -45,7 +45,7 @@ By default Boxfuse will deploy to your `test` environment. You can override this
       user: "YOUR BOXFUSE CLIENT USER"
       secret: "YOUR BOXFUSE CLIENT SECRET"
       payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
-      env: "YOUR BOXFUSE ENVIRONMENT"
+      env: "YOUR BOXFUSE ENVIRONMENT (default: test)"
 
 ### Using alternative configuration files
 
@@ -54,6 +54,14 @@ You can also fully configure Boxfuse by placing a `boxfuse.conf` file in the roo
     deploy:
       provider: boxfuse
       configfile: "YOUR BOXFUSE CONFIGURATION FILE"
+
+### Specifying custom arguments
+
+If the [Boxfuse Client](https://boxfuse.com/docs/commandline) functionality you need is not included here, you can pass additional arguments to the Boxfuse executable by using the `extra_args` parameter:
+
+    deploy:
+      provider: boxfuse
+      extra_args: "YOUR EXTRA ARGS (ex.: -X)"
 
 ### Further information
 
