@@ -24,7 +24,7 @@ and cc [@asterite](https://github.com/asterite),
 ## Basic configuration
 
 If your Crystal project doesn't need any dependencies beyond those specified in
-your `Projectfile`, your `.travis.yml` can simply be
+your `shard.yml`, your `.travis.yml` can simply be
 
     language: crystal
 
