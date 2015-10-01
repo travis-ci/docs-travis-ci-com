@@ -8,6 +8,8 @@ permalink: /user/languages/python/
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+<div id="toc"></div>
+
 ## Choosing Python versions to test against
 
 Travis CI support Python versions 2.6, 2.7, 3.2, 3.3, 3.4, and 3.5, as well as nightly.
@@ -67,35 +69,43 @@ If you leave the `python` key out of your `.travis.yml`, Travis CI will use Pyth
 
 ## Specifying Test Script
 
-Python projects need to provide `script` key in their `.travis.yml` to specify what command to run tests with. For example, if your project is tested by running nosetests, specify it like this:
+Python projects need to provide the `script` key in their `.travis.yml` to
+specify what command to run tests with.
+
+For example, if your project uses nosetests:
 
     # command to run tests
     script: nosetests
 
-if you need to run `make test` instead:
+if it uses `make test` instead:
 
     script: make test
 
-and so on.
-
-In case `script` key is not provided in `.travis.yml` for Python projects, Python builder will print a message and fail the build.
+If you do not provide a `script` key in a Python project, Travis CI prints a
+message and fails the build.
 
 ## Dependency Management
 
-### Travis CI uses pip
+### pip
 
-By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
+By default Travis CI uses `pip` to manage python dependencies. If you have a
+`requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
+during the `install` phase of the build.
 
-The exact default command is
+Note: If you're running in the container-based infrastructure without access to
+`sudo` you need to install dependencies in the home dirctory instead:
 
-    pip install -r requirements.txt
+	install: pip install --user -r requirements.txt
 
-which is very similar to what [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) uses.
+###	Custom Dependency Management
+
+To override the default `pip` dependency management, alter the `before_install`
+step as described in [general build
+configuration](customizing-the-build/#Customizing-the-Installation-Step) guide.
 
 ### Pre-installed packages
 
-Travis CI pre-installs a few packages in each virtualenv by default to
-ease running tests:
+Travis CI installs the following packages by default in each virtualenv:
 
 - pytest
 - nose
