@@ -101,7 +101,7 @@ Note: If you're running in the container-based infrastructure without access to
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](../../customizing-the-build/#Customizing-the-Installation-Step) guide.
 
 ### Pre-installed packages
 
