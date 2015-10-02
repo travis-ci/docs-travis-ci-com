@@ -40,16 +40,16 @@ If you need to upgrade a very specific package, you can run a normal 'apt-get in
 
 For some packages, you may find an existing repository, which isn't yet set up on our build environment by default. You can easily add custom repositories and Launchpad PPAs as part of your build.
 
-Say you require RethinkDB as part of your build. They have an [Launchpad PPA available](http://www.rethinkdb.com/docs/install/ubuntu). You can add this repository to your build by adding the following steps to your .travis.yml:
+For example, to install gcc from the ubuntu-toolchain ppa
 
-    before_script:
-      - sudo add-apt-repository ppa:rethinkdb/ppa -y
-      - sudo apt-get update -q
-      - sudo apt-get install rethinkdb
+```
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y
+```
 
-For repositories not hosted on Launchpad, you'll most likely have to add a GnuPG key as part of setting it up.
-
-If a project runs their own APT repository, like [Varnish](http://varnish-cache.org), you need an extra step of adding the repository's GnuPG key.
+For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
 This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the locally available list of APT sources and then installs the `varnish` package.
 
