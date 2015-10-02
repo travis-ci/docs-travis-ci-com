@@ -4,9 +4,15 @@ layout: en
 permalink: /user/languages/groovy/
 ---
 
-### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Groovy projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+## What This Guide Covers
+
+This guide covers build environment and configuration topics specific to Groovy
+projects. Please make sure to read our [Getting
+Started](/user/getting-started/) and [general build
+configuration](/user/customizing-the-build/) guides first.
+
+<div id="toc"></div>
 
 ## Overview
 
@@ -34,6 +40,19 @@ Before running tests, Groovy builder will execute
     gradle assemble
 
 to install your project's dependencies with Gradle.
+
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
 
 ## Projects Using Maven
 

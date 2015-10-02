@@ -12,6 +12,8 @@ The features described here are still in development and are subject to change w
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+<div id="toc"></div>
+
 ## CI Environment for Android Projects
 
 ### Overview
@@ -154,6 +156,19 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
     ./gradlew build connectedCheck
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
 
 ## Default Test Command
 

@@ -8,6 +8,8 @@ permalink: /user/languages/java/
 
 This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+<div id="toc"></div>
+
 ## Overview
 
 Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8.
@@ -58,10 +60,22 @@ Before running tests, Java builder will execute
 
     gradle assemble
 
-
 to install your project's dependencies with Gradle. Again, if you include the wrapper script, the command will be defaulted to
 
     ./gradlew assemble
+
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
 
 
 ## Projects Using Ant
