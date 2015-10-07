@@ -93,7 +93,7 @@ By default Travis CI uses `pip` to manage python dependencies. If you have a
 during the `install` phase of the build.
 
 Note: If you're running in the container-based infrastructure without access to
-`sudo` you need to install dependencies in the home dirctory instead:
+`sudo` you need to install dependencies in the home directory instead:
 
 	install: pip install --user -r requirements.txt
 
