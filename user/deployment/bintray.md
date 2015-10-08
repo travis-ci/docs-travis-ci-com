@@ -25,11 +25,6 @@ It is recommended that you encrypt your api key. You can encrypt this key using 
 $ travis encrypt BINTRAY-API-KEY --add deploy.key
 {% endhighlight %}
 
-You can also have the `travis` tool set up everything for you:
-{% highlight yaml %}
-$ travis setup bintray
-{% endhighlight %}
-
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
