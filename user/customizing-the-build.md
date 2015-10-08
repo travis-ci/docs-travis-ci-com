@@ -53,7 +53,7 @@ You can specify your own script to run to install whatever dependencies your pro
 
     install: ./install-dependencies.sh
 
-> When using custom scripts they should be executable (for example, using `chmod +x`) and contain a valid shebang line such as `/usr/bin/env sh`, `/usr/bin/env ruby`, or `/usr/bin/env python`. 
+> When using custom scripts they should be executable (for example, using `chmod +x`) and contain a valid shebang line such as `/usr/bin/env sh`, `/usr/bin/env ruby`, or `/usr/bin/env python`.
 
 You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
@@ -106,17 +106,13 @@ for a more technical discussion.
 
 ## Breaking the Build
 
-If any of the commands in the first four stages returns a non-zero exit code, Travis CI considers the build to be broken.
+If any of the commands in the first four stages of the build return a non-zero exit code, the build is broken:
 
-When any of the steps in the `before_install`, `install` or `before_script` stages fails with a non-zero exit code, the build is marked as **errored**.
+* If `before_install`, `install` or `before_script` return a non-zero exit code,
+the build is **errored** and stops immediately.
+* If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-When any of the steps in the  `script` stage fails with a non-zero exit code, the build is marked as **failed**.
-
-> Note that the `script` section has different semantics to the other
-steps. When a step defined in `script` fails, the build doesn't end right away,
-it continues to run the remaining steps before it fails the build.
-
-Currently, neither the `after_success` nor `after_failure` have any influence on the build result. We have plans to change this behaviour.
+The `after_success`, `after_failure`, `after_script` and subsequent steps do not affect the the build result.
 
 ## Deploying your Code
 
@@ -153,7 +149,7 @@ before_install:
 
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/ci-environment/#Virtualization-environments)
 
-All virtual machines are snapshotted and returned to their intial state after each build. 
+All virtual machines are snapshotted and returned to their intial state after each build.
 
 ### Using 3rd-party PPAs
 
@@ -182,7 +178,7 @@ one situation in which you might want to set a particular limit is:
 You can set the maximum number of concurrent builds in the settings pane for
 each repository.  
 
-![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png) 
+![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
 
 Or using the command line client:
 
@@ -232,14 +228,14 @@ branches and tags that start with `deploy-` in any combination of cases.
 ## Skipping a build
 
 If you don't want to run a build for a particular commit, because all you are
-changing is the README for example, add `[ci skip]` to the git commit message. 
+changing is the README for example, add `[ci skip]` to the git commit message.
 
-Commits that have `[ci skip]` anywhere in the commit messages are ignored by 
+Commits that have `[ci skip]` anywhere in the commit messages are ignored by
 Travis CI.
 
 ## Build Matrix
 
-When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations. 
+When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
 
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* builds.
 
@@ -273,7 +269,7 @@ You can also define exclusions to the build matrix:
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
-### Excluding Builds 
+### Excluding Builds
 
 If the builds you want to exclude from the matrix share the same matrix
 parameters, you can specify only those and omit the varying parts.
@@ -337,7 +333,7 @@ This adds a particular job to the build matrix which has already been populated.
 
 This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
-You can use this method to create a job matrix containing only specific combinations. 
+You can use this method to create a job matrix containing only specific combinations.
 For example,
 
     language: python
@@ -382,8 +378,8 @@ Now, a build will finish as soon as a job has failed, or when the only jobs left
 
 ## Implementing Complex Build Steps
 
-If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script. 
-The script can be a part of your repository and can easily be called from the `.travis.yml`. 
+If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script.
+The script can be a part of your repository and can easily be called from the `.travis.yml`.
 
 Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
 
@@ -412,7 +408,7 @@ When overriding these steps, do not use `exit` shell built-in command.
 Doing so will run the risk of terminating the build process without giving Travis a chance to
 perform subsequent tasks.
 
-Using `exit` inside a custom script which will be invoked from during a build is fine. 
+Using `exit` inside a custom script which will be invoked from during a build is fine.
 
 ## Custom Hostnames
 
@@ -468,4 +464,3 @@ use
     https://github.com/someuser/somelibrary.git
 
 Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
-
