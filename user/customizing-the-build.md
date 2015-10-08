@@ -106,13 +106,13 @@ for a more technical discussion.
 
 ## Breaking the Build
 
-If any of the commands in the first four stages of the build return a non-zero exit code, the build is broken:
+If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
 
 * If `before_install`, `install` or `before_script` return a non-zero exit code,
 the build is **errored** and stops immediately.
 * If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-The `after_success`, `after_failure`, `after_script` and subsequent steps do not affect the the build result.
+The `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the the build result.
 
 ## Deploying your Code
 
