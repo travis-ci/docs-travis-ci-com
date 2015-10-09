@@ -3,30 +3,32 @@ title: Building a Ruby Project
 layout: en
 permalink: /user/languages/ruby/
 ---
+
 <div id="toc">
 </div>
 
-### What This Guide Covers
+## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Ruby
 projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-### Supported Ruby Versions
+## Supported Ruby Versions and RVM
 
 The Ruby VM provides recent versions of:
 
-- Ruby 2.2.x, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
-- JRuby 1.7.x (1.8 and 1.9 mode)
-- Ruby Enterprise Edition 1.8.7 2012.02
+- Ruby: 2.2.x, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
+- JRuby: 1.7.x (1.8 and 1.9 mode)
+- Ruby Enterprise Edition: 1.8.7 2012.02
 
 Pre-compiled versions are downloaded on demand from our [Ruby version cache](http://rubies.travis-ci.org).
 
-Pre-compiled Rubinius versions are downloaded on demand from [binaries.rubini.us](http://rubies.travis-ci.org/rubinius).
-Older versions of Ruby and JRuby are made available by [RVM](https://rvm.io/binaries/) and the [JRuby team](http://www.jruby.org/download).
+Pre-compiled Rubinius versions are downloaded on demand from [binaries.rubini.us](http://rubies.travis-ci.org/rubinius). Older versions of
+Ruby and JRuby are made available by [RVM](https://rvm.io/binaries/) and the [JRuby team](http://www.jruby.org/download).
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For exact version information, consult the "Build system information" section of
+the build log.
 
 ### Choosing Ruby versions and implementations to test against
 
@@ -42,22 +44,14 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
       - jruby-19mode # JRuby in 1.9 mode
       - rbx-2.1.1
       - 1.8.7
-
-A more extensive example:
-
-    language: ruby
-    rvm:
-      - 2.1.0
-      - jruby-18mode
-      - jruby-19mode
-      - rbx-2
-      - ruby-head
-      - jruby-head
       - ree
 
-As time goes, new releases come out and we upgrade both RVM and Rubies, aliases
-like `1.9.3` or `jruby` will float and point to different exact versions, patch
-levels and so on. For full up-to-date list of provided Rubies, see our [CI
+> Note that the `rvm:` key is only available in Ruby Build Environments, not in other
+images containing a ruby implementation.
+
+As we upgrade both RVM and Rubies, aliases like `1.9.3` or `jruby` point to different exact versions, patch levels and so on.
+
+For full up-to-date list of provided Rubies, see our [CI
 environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
@@ -66,9 +60,9 @@ When using Rubinius, there's currently an issue with selecting the correct versi
 in RVM in our build environment, but only when specifying `rbx` as your version. As
 a workaround, specify `rbx-2` instead.
 
-#### Using `.ruby-version`
+### Using `.ruby-version`
 
-If the ruby version is not dictated by the `rvm` key as described above, Travis CI
+If the ruby version is not specified by the `rvm` key as described above, Travis CI
 will consult `.ruby-version` in the root of the repository and use the indicated
 Ruby runtime.
 
@@ -155,7 +149,7 @@ cache, making `bundle install` only take seconds to run.
 
 Note that this feature is currently only available for private projects.
 
-### Speed up your build by excluding non-essential dependencies
+### Speeding up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`
 in their default set of gems.
@@ -209,16 +203,17 @@ For example, to install and use the pre-release version of bundler:
 
     before_install: gem install bundler --pre
 
-### Testing against multiple versions of dependencies (Ruby on Rails, EventMachine, etc)
+### Testing against multiple versions of dependencies
 
 Many projects need to be tested against multiple versions of Rack, EventMachine,
-HAML, Sinatra, Ruby on Rails, you name it. It is easy with Travis CI. What you
-have to do is this:
+HAML, Sinatra, Ruby on Rails,etc.
 
-* Create a directory in your project's repository root where you will keep
-  gemfiles (./gemfiles is a commonly used name)
-* Add one or more gemfiles to it
-* Instruct Travis CI to use those gemfiles using the *gemfile* option in your
+To test against multiple versions of dependencies:
+
+1. Create a directory in your project's repository root where you will keep
+   gemfiles (./gemfiles is a commonly used name)
+2. Add one or more gemfiles to it
+3. Instruct Travis CI to use those gemfiles using the *gemfile* option in your
   .travis.yml
 
 For example, amqp gem is [tested against EventMachine 0.12.x and 1.0
@@ -254,8 +249,8 @@ versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
       - CHEF_VERSION=0.10.2
       - CHEF_VERSION=0.10.4
 
-Same technique is often applied to test against multiple databases, templating
-engines, [hosted] service providers and so on.
+The same technique is often applied to test against multiple databases, templating
+engines, hosted service providers and so on.
 
 ## Testing against multiple JDKs (JRuby)
 
