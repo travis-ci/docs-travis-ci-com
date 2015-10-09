@@ -155,6 +155,17 @@ All virtual machines are snapshotted and returned to their intial state after ea
 
 If you need a native dependency that is not available from the official Ubuntu repositories, there might be a [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas) that you can use.
 
+## Installing a Second Programming language
+
+If you need to install a second programming language in your current build environment, for example installing a more recent version of Ruby than the default version present in all build environments you can do so in the `before_install` stage of the build:
+
+```yml
+before_install:
+   - rvm install 2.1.5
+```
+
+You can also use other installation methods such as `apt-get`.
+
 ## Build Timeouts
 
 Because it is very common for test suites or build scripts to hang, Travis CI has specific time limits for each job. If a script or test suite takes longer than 50 minutes (or 120 minutes on travis-ci.com), or if there is not log output for 10 minutes, it is terminated, and a message is written to the build log.
