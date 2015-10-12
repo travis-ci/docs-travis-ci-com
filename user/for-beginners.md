@@ -6,7 +6,7 @@ permalink: /user/for-beginners/
 
 If you're not familiar with continuous integration and don't already have a repository that you want to build, this guide will show you what it is all about.
 
-You need to sign up for a [GitHub account](https://github.com/) if you do not already have one. 
+You need to sign up for a [GitHub account](https://github.com/) if you do not already have one.
 
 ### To get started with Travis CI:
 
@@ -46,10 +46,13 @@ Travis CI builds for your fork of the `travis-broken-example` repository.
 
 2. Fix the code by making sure that `2=1+1` in `Test.php`, commit and push to GitHub. This time, the build does not fail.
 
+
    ```bash
    $ git add -A
    $ git commit -m 'Testing Travis CI: fixing the build'
    $ git push
    ```
 
-Congratulations, you have added a GitHub repository to Travis and learnt the basics of configuring builds and testing code. 
+Congratulations, you have added a GitHub repository to Travis and learnt the basics of configuring builds and testing code.
+
+> Note there is no need to make a pull request to the original repository, the build is run on your fork.
