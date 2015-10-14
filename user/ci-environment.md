@@ -54,15 +54,15 @@ The following table summarizes the differences between the virtual environments:
 <td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
 <td>yes</td>
 <td>no</td>
-<td>N/A</td>
+<td>yes</td>
 <td>yes</td>
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>slightly slower than Container-based</td>
-<td>slightly faster than Standard</td>
-<td>N/A</td>
-<td>Approximately twice the speed of Standard</td>
+<td>50-145s</td>
+<td>1-6s</td>
+<td>60-90s</td>
+<td>20-52s</td>
 </tr>
 <tr>
 <td>File System</td>
@@ -74,8 +74,8 @@ The following table summarizes the differences between the virtual environments:
 <tr>
 <td>Cache available</td>
 <td>private only</td>
-<td>public only</td>
-<td>N/A</td>
+<td>private &amp; public</td>
+<td>private only</td>
 <td>private only</td>
 </tr>
 <tr>
@@ -87,19 +87,17 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Memory</td>
-<td>3 GB</td>
-<td>4 GB</td>
+<td>~3 GB</td>
+<td>4 GB max</td>
 <td>3 GB</td>
 <td>7.5 GB</td>
-<td></td>
 </tr>
 <tr>
 <td>Cores</td>
-<td>Up to 2, bursted</td>
-<td>Up to 2, bursted</td>
+<td>~2, bursted</td>
 <td>2</td>
-<td>2 (GCE n1-standard-2)</td>
-<td></td>
+<td>2</td>
+<td>2</td>
 </tr>
 </tbody></table>
 </div>
