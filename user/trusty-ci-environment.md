@@ -53,9 +53,12 @@ of images based on common language runtimes like `ruby`, `go`, `php`,
 `python`, etc.
 
 For our Trusty beta, in part due to the architecture and speed of GCE,
-we're only making two images. A **minimal** image which contains no
-runtimes or services and a **mega** image which will container all our
-commonly supported runtimes and services.
+we're only making two images.
+
+- A **minimal** image which contains no runtimes or services. This image
+  is only used for `language: generic` at this time.
+- A **mega** image which will contains almost all of (soon to be all)
+  our commonly supported runtimes and services.
 
 ## Distibution release
 
@@ -96,6 +99,8 @@ GCC, Clang, make, autotools, cmake, scons.
 - Essentially everything from `build-essential` and **clang** from the
 `llvm-3.4` Ubuntu package.
 
+- gcc 4.8.4
+- llvm clang 3.5.0
 
 ### Networking tools
 
@@ -122,8 +127,7 @@ section for more details on our Docker beta and its usage.
 with it.
 
 
-- jruby-9.0.0.0 [ x86_64 ]
-- ruby-1.8.7-p374 [ x86_64 ]
+- jruby-9.0.1.0 [ x86_64 ]
 - ruby-1.9.3-p551 [ x86_64 ]
 - ruby-2.0.0-p647 [ x86_64 ]
 - ruby-2.1.7 [ x86_64 ]
@@ -155,7 +159,7 @@ with it
 - v0.10.40
 - v0.11.16
 - v0.12.7
-- 4.0.0
+- 4.1.2
 
 #### Go
 
@@ -172,18 +176,31 @@ with it
 #### JVM
 
 - We install the latest versions OpenJDK versions from the official Ubuntu
-Trusty packages.
+  Trusty packages. (1.8.0_60 as of 2015-10-13)
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is) is installed if you need another version.
 - gradle 2.5 is installed.
-- Maven 3.3.3 is installed.
+- Maven 3.1.1 is installed.
 - leiningen 2.5.1 is installed.
-- sbt 0.13.8
+- sbt 0.13.9
 
 #### PHP
 
 We do not currently have any PHP versions pre-installed in the **mega**
 image. This is at the top of our list for our next update.
+
+
+But we do have [phpenv](https://github.com/phpenv/phpenv) installed and
+it's able to install the following PHP versions.
+
+- PHP 5.3
+- PHP 5.4
+- PHP 5.5
+- PHP 5.6
+- PHP 7.0.0 RCs
+
+_Note: We're unable to build **PHP 5.2** on Trusty so far, so trying to use
+it will result in a build failure when phpenv fails to compile it_
 
 #### Other runtimes
 
@@ -195,16 +212,16 @@ manually setup in your `.travis.yml`
 
 We pre-install the following services and they can be activated with the built-in [services](/user/database-setup/) support.
 
-* MySQL
-* PostgreSQL
-* SQLite
-* Redis
+* PostgreSQL 9.4.5
+* SQLite 3.8.2
+* Redis 3.0.4
 
 *Note: The following services that are included with our Precise images
 are **not included** in the Trusty **mega** images at this time but will
 be added in the coming months. You'll need to install them manually for
 the time being.*
 
+- MySQL
 - Riak
 - ElasticSearch
 - Apache Cassandra
