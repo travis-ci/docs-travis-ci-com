@@ -62,7 +62,7 @@ The following table summarizes the differences between the virtual environments:
 <td>slightly slower than Container-based</td>
 <td>slightly faster than Standard</td>
 <td>N/A</td>
-<td>Approximately twice the speed of Legacy</td>
+<td>Approximately twice the speed of Standard</td>
 </tr>
 <tr>
 <td>File System</td>
@@ -90,7 +90,7 @@ The following table summarizes the differences between the virtual environments:
 <td>3 GB</td>
 <td>4 GB</td>
 <td>3 GB</td>
-<td>3.5 GB</td>
+<td>7.5 GB</td>
 <td></td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ The following table summarizes the differences between the virtual environments:
 <td>Up to 2, bursted</td>
 <td>Up to 2, bursted</td>
 <td>2</td>
-<td>2</td>
+<td>2 (GCE n1-standard-2)</td>
 <td></td>
 </tr>
 </tbody></table>

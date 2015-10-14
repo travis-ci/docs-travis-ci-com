@@ -88,7 +88,7 @@ we'll be expanding over the next couple of months_
 
 All VM images have the following pre-installed:
 
- * A Git 1.9.x release (official Ubuntu packages)
+ * A Git 1.9.x release
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
@@ -127,11 +127,11 @@ section for more details on our Docker beta and its usage.
 with it.
 
 
-- jruby-9.0.1.0 [ x86_64 ]
-- ruby-1.9.3-p551 [ x86_64 ]
-- ruby-2.0.0-p647 [ x86_64 ]
-- ruby-2.1.7 [ x86_64 ]
-- ruby-2.2.3 [ x86_64 ]
+- jruby-9.0.1.0
+- ruby-1.9.3-p551
+- ruby-2.0.0-p647
+- ruby-2.1.7
+- ruby-2.2.3
 
 #### Python
 
@@ -175,7 +175,7 @@ with it
 
 #### JVM
 
-- We install the latest versions OpenJDK versions from the official Ubuntu
+- We install the latest OpenJDK versions from the official Ubuntu
   Trusty packages. (1.8.0_60 as of 2015-10-13)
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is) is installed if you need another version.
@@ -217,9 +217,9 @@ We pre-install the following services and they can be activated with the built-i
 * Redis 3.0.4
 
 *Note: The following services that are included with our Precise images
-are **not included** in the Trusty **mega** images at this time but will
-be added in the coming months. You'll need to install them manually for
-the time being.*
+are **not included** in the Trusty **mega** images at this time but some
+will/may be added in the coming months. 
+You'll need to install them manually for the time being.*
 
 - MySQL
 - Riak
