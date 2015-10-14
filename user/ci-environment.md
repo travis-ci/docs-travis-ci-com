@@ -29,6 +29,7 @@ Each build runs in one of the following three virtual environments:
 * Standard (the default environment)
 * Container-based (the newer environment in which `sudo` commands are not available.
 * OSX for Objective-C projects
+* Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
 The following table summarizes the differences between the virtual environments:
 
@@ -39,6 +40,7 @@ The following table summarizes the differences between the virtual environments:
 <th>Standard</th>
 <th>Container-based</th>
 <th>OS X</th>
+<th>Trusty beta</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -46,64 +48,83 @@ The following table summarizes the differences between the virtual environments:
 <td><em>this is the default</em></td>
 <td><code>sudo: false</code></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
+<td><code>sudo: required</code> **and** <code>dist: trusty</code></td>
 </tr>
 <tr>
 <td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
 <td>yes</td>
 <td>no</td>
 <td>N/A</td>
+<td>yes</td>
 </tr>
 <tr>
 <td>Boot Time</td>
 <td>slightly slower than Container-based</td>
 <td>slightly faster than Standard</td>
 <td>N/A</td>
+<td>Approximately twice the speed of Standard</td>
 </tr>
 <tr>
 <td>File System</td>
 <td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
 <td>AUFS</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
+<td>ext4</td>
 </tr>
 <tr>
 <td>Cache available</td>
 <td>private only</td>
 <td>public only</td>
 <td>N/A</td>
+<td>private only</td>
 </tr>
 <tr>
 <td>Operating System</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
 <td>OS X Mavericks</td>
+<td>Ubuntu 14.04 LTS Server Edition 64 bit</td>
 </tr>
 <tr>
 <td>Memory</td>
 <td>3 GB</td>
+<td>4 GB</td>
 <td>3 GB</td>
+<td>7.5 GB</td>
 <td></td>
 </tr>
 <tr>
 <td>Cores</td>
 <td>Up to 2, bursted</td>
 <td>Up to 2, bursted</td>
+<td>2</td>
+<td>2 (GCE n1-standard-2)</td>
 <td></td>
 </tr>
 </tbody></table>
 </div>
 
-All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure. 
+All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure.
 
 ## Networking
 
-The virtual machines running the tests have IPv6 enabled.
-They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The container-based, OSX, and Trusty builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
 Most services work normally when talking to the local host by either `localhost` or `127.0.0.1`.
 
-## Environment common to all VM images
+## Environment common to all Precise images
+
+Below you will find a list of the things common to our Precise based
+images.
+
+For other images, see the list below:
+
+
+- [OS X CI Environment](/user/osx-ci-environment)
+- [Trusty CI Environment](/user/trusty-ci-environment)
 
 ### Version control
 
