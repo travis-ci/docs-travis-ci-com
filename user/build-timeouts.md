@@ -1,5 +1,5 @@
 ---
-title: My builds is timing out
+title: My builds are timing out
 layout: en
 permalink: /user/build-timeouts/
 ---
