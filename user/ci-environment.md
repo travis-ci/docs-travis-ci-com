@@ -45,8 +45,8 @@ The following table summarizes the differences between the virtual environments:
 </thead><tbody>
 <tr>
 <td>.travis.yml</td>
-<td><em>this is the default</em></td>
-<td><code>sudo: false</code></td>
+<td><code>sudo: required</code> <em>default for repositories enabled before 2015</em></td>
+<td><code>sudo: false</code> <em>default for repositories enabled in 2015 or later</em></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
 <td><code>sudo: required</code> **and** <code>dist: trusty</code></td>
 </tr>
