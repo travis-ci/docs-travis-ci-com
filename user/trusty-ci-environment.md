@@ -60,7 +60,7 @@ we're only making two images.
 - A **mega** image which will contains almost all of (soon to be all)
   our commonly supported runtimes and services.
 
-## Distibution release
+## Distribution release
 
 Our Ubuntu 14.04 Trusty Tahr images are based on the
 **ubuntu-1404-trusty-v20150909a** Google Compute Engine image, which itself is based on [2015-09-08 revision of 14.04.3](https://cloud-images.ubuntu.com/releases/14.04.3/release-20150908/)
