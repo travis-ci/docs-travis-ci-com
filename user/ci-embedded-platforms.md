@@ -4,6 +4,8 @@ layout: en
 permalink: /user/ci-embedded-platforms/
 ---
 
+<div id="toc"></div>
+
 ## Overview
 
 [PlatformIO](http://platformio.org/) is a cross-platform code builder and the
@@ -72,14 +74,19 @@ language: python
 python:
     - "2.7"
 
+# Cache PlatformIO packages using Travis CI container-based infrastructure
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+
 env:
     - PLATFORMIO_CI_SRC=path/to/test/file.c
     - PLATFORMIO_CI_SRC=examples/file.ino
     - PLATFORMIO_CI_SRC=path/to/test/directory
 
 install:
-    # install the latest stable PlatformIO
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+    - pip install -U platformio
 
 script:
     - platformio ci --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
@@ -106,20 +113,20 @@ There 2 options to test source code with dependent libraries:
 
 ```
 install:
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+    - pip install -U platformio
 
-    # OneWire Library with ID=1 http://platformio.org/#!/lib/show/1/OneWire
+    #
+    # Libraries from PlatformIO Library Registry:
+    #
+    # http://platformio.org/#!/lib/show/1/OneWire
     platformio lib install 1
-
-script:
-    - platformio ci --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
 
 #### Manually download dependent library and include in build process via `--lib` option
 
 ```
 install:
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+    - pip install -U platformio
 
     # download library to the temporary directory
     wget https://github.com/PaulStoffregen/OneWire/archive/master.zip -O /tmp/onewire_source.zip
@@ -135,22 +142,15 @@ PlatformIO allows to specify own build flags using
 [PLATFORMIO_BUILD_FLAGS](http://docs.platformio.org/en/latest/envvars.html#envvar-PLATFORMIO_BUILD_FLAGS) environment
 
 ```
-language: python
-python:
-    - "2.7"
-
 env:
     - PLATFORMIO_CI_SRC=path/to/test/file.c PLATFORMIO_BUILD_FLAGS="-D SPECIFIC_MACROS_PER_TEST_ENV -I/extra/inc"
     - PLATFORMIO_CI_SRC=examples/file.ino
     - PLATFORMIO_CI_SRC=path/to/test/directory
 
 install:
-    - python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+    - pip install -U platformio
 
     export PLATFORMIO_BUILD_FLAGS=-D GLOBAL_MACROS_FOR_ALL_TEST_ENV
-
-script:
-    - platformio ci --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 
 ```
 
