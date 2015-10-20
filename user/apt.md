@@ -36,8 +36,12 @@ addons:
 ```
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result
-in a log message indicating how to submit sources for approval.
+[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources
+will result in a warning.
+
+Unfortunately, we are unable to process requests for adding package sources at this time.
+If you would like to use packages from other sources, use [legacy infrastructure](/user/workers/standard-infrastructure/)
+or [Trusty beta](/user/trusty-ci-environment/) instead.
 
 ## Adding APT Packages
 
