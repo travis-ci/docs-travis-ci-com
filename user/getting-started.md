@@ -154,7 +154,7 @@ Learn more about [.travis.yml options for Groovy projects](/user/languages/groov
 
     language: haxe
     haxe:
-      - "3.2.0"
+      - "3.2.1"
       - development
 
 Learn more about [.travis.yml options for Haxe projects](/user/languages/haxe/)

@@ -26,13 +26,13 @@ key in your `.travis.yml` file, for example:
 
     language: haxe
     haxe:
-      - "3.2.0"
+      - "3.2.1"
       - development
 
 ## Default Haxe Version
 
 If you leave the `haxe:` key out of your `.travis.yml`, Travis CI will use
-Haxe 3.2.0.
+Haxe 3.2.1.
 
 ## Default Neko Version
 
