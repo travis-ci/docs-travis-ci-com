@@ -4,26 +4,24 @@ layout: en
 permalink: /user/deployment/heroku/
 ---
 
+<div id="toc"></div>
+
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+To use the default configuration, add your encrpyted Heroku api key to your `.travis.yml`:
 
     deploy:
       provider: heroku
-      api_key: "YOUR API KEY"
+      api_key:
+        secure: "YOUR ENCRYPTED API KEY"
 
-You can retrieve your api key by running `heroku auth:token`. It is recommended to encrypt that key.
-Assuming you have the Heroku and Travis CI command line clients installed, you can do it like this:
+If you have both the [Heroku](https://toolbelt.heroku.com/) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
 
     travis encrypt $(heroku auth:token) --add deploy.api_key
 
-You can also have the `travis` tool set up everything for you:
+You can also use the Travis CI command line setup tool `travis setup heroku`.
 
-    $ travis setup heroku
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Application to deploy
+## Deploying Custom Application Names
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Heroku app named *travis-chat*.
 
@@ -54,7 +52,7 @@ If these apps belong to different Heroku accounts, you will have to do the same 
         master: my-app-staging
         production: my-app-production
 
-### Branch to deploy from
+## Deploying Specific Branches
 
 If you have branch specific options, as [shown above](#Application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
@@ -75,7 +73,7 @@ Alternatively, you can also configure it to deploy from all branches:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Running commands
+## Running Commands
 
 In some setups, you might want to run a command on Heroku after a successful deploy. You can do this with the **run** option:
 
@@ -93,7 +91,15 @@ It also accepts a list of commands:
         - "rake db:migrate"
         - "rake cleanup"
 
-#### Restarting
+### Error Logs for Custom Commands
+
+Custom Heroku commands do not affect the Travis CI build status or trigger Travis CI notifications.
+
+Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail) or [Logentries](https://elements.heroku.com/addons/logentries) to get notifications for `rake db:migrate` or other commands.
+
+These add-ons have email notification systems that can be triggered when certain string matches occur in your logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".  
+
+### Restarting Applications
 
 Sometimes you want to restart your Heroku application between or after commands. You can easily do so by adding a "restart" command:
 
@@ -105,7 +111,7 @@ Sometimes you want to restart your Heroku application between or after commands.
         - restart
         - "rake cleanup"
 
-### Deploying build artifacts
+## Deploying build artifacts
 
 After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
 
