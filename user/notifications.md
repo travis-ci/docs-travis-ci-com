@@ -125,22 +125,22 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 You can also specify notifications sent to an IRC channel:
 
     notifications:
-      irc: "chat.freenode.net#my-channel"
+      irc: "chat.freenode.org#my-channel"
 
 Or multiple channels:
 
     notifications:
       irc:
-        - "chat.freenode.net#my-channel"
-        - "chat.freenode.net#some-other-channel"
+        - "chat.freenode.org#my-channel"
+        - "chat.freenode.org#some-other-channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#my-channel"
-          - "chat.freenode.net#some-other-channel"
+          - "chat.freenode.org#my-channel"
+          - "chat.freenode.org#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
@@ -149,8 +149,8 @@ You also have the possibility to customize the message that will be sent to the 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#my-channel"
-          - "chat.freenode.net#some-other-channel"
+          - "chat.freenode.org#my-channel"
+          - "chat.freenode.org#some-other-channel"
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
           - "Build details: %{build_url}"
@@ -187,8 +187,8 @@ If you want the bot to use notices instead of regular messages the `use_notice` 
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#my-channel"
-          - "chat.freenode.net#some-other-channel"
+          - "chat.freenode.org#my-channel"
+          - "chat.freenode.org#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
         use_notice: true
@@ -198,8 +198,8 @@ and if you want the bot to not join before the messages are sent, and part after
     notifications:
       irc:
         channels:
-          - "chat.freenode.net#my-channel"
-          - "chat.freenode.net#some-other-channel"
+          - "chat.freenode.org#my-channel"
+          - "chat.freenode.org#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
         use_notice: true
