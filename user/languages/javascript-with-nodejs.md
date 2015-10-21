@@ -45,8 +45,10 @@ See [nvm documentation](https://github.com/creationix/nvm#usage) for more inform
 
 ## Provided Node.js Versions
 
+* 4.1.x (support provided on demand)
+* 4.0.x (support provided on demand)
 * 0.12.x (support provided on demand)
-* 0.11.x (latest development release, may be unstable)
+* 0.11.x
 * 0.10.x (recent stable release)
 * 0.8.x
 * 0.6.x
