@@ -34,6 +34,7 @@ task :run_html_proofer do
                               :href_swap => href_swap,
                               :connecttimeout => 600,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
+                              :href_ignore => ["https://www.appfog.com/"],
                               :file_ignore => ["./_site/api/index.html", "./_site/user/apps/index.html", "./_site/user/languages/erlang/index.html"] 
                             })
   tester.run
