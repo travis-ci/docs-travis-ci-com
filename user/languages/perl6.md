@@ -60,7 +60,7 @@ module package manager) like so:
 
     install:
         - rakudobrew build-panda
-        - panda install <Module1> <Module2>
+        - panda installdeps .
 
 this will install the latest `panda` version.
 
