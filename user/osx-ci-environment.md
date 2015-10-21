@@ -84,7 +84,6 @@ For example, if you always want the latest version of xctool, you can run this:
 ### Languages
 
 * go 1.3.1
-* node 0.10.32
 
 ### Services
 
