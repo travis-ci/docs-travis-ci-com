@@ -148,13 +148,17 @@ docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" regi
 
 ### Using Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) is not preinstalled, so
-install it manually by adding the following `before_install` step to
-`.travis.yml`:
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
+
+If needed, you can easily replace this preinstalled version of `docker-compose` by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
+env:
+  DOCKER_COMPOSE_VERSION: 1.4.2
+
 before_install:
-  - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
