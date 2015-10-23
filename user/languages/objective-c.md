@@ -26,7 +26,7 @@ installed.
 - [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
 - [Xcode 7.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
 
-_ Note: At this time we are unable to provide pre-release versions of Xcode due to the
+_Note: At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
 about Xcode pre-release availability, send us an email at support@travis-ci.com._
