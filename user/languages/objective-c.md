@@ -30,12 +30,12 @@ Xcode 7.1 GM is available by adding `osx_image: xcode7.1` to your .travis.yml.
 Our Xcode 7 image has the following SDKs preinstalled:
 
 - macosx10.11
-- iphoneos9.0
-- iphonesimulator9.0
+- iphoneos9.1
 - iphonesimulator9.1
 - tvos9.0
 - watchos2.0
 - watchsimulator2.0
+- appletvsimulator9.0
 
 In addition, the following simulators are installed:
 
