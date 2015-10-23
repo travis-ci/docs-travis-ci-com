@@ -6,7 +6,7 @@ permalink: /user/languages/objective-c/
 <div id="toc">
 </div>
 
-### What This Guide Covers
+## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 Objective-C projects. Please make sure to read our [Getting
@@ -18,10 +18,18 @@ configuration](/user/customizing-the-build/) guides first.
 We have a few different build images with different versions of Xcode and SDKs
 installed.
 
-At this time we are unable to provide pre-release versions of Xcode due to the
+**Supported Xcode versions**
+- [Xcode 7.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
+- [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode`
+- [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
+- [Xcode 6.3.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.3.1) -- `osx_image: beta-xcode6.3`
+- [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
+- [Xcode 7.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
+
+_ Note: At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
-about Xcode pre-release availability, send us an email at support@travis-ci.com.
+about Xcode pre-release availability, send us an email at support@travis-ci.com._
 
 ### Xcode 7.1
 
