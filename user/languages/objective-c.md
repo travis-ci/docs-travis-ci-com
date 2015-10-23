@@ -33,9 +33,9 @@ Our Xcode 7 image has the following SDKs preinstalled:
 - iphoneos9.1
 - iphonesimulator9.1
 - tvos9.0
+- appletvsimulator9.0
 - watchos2.0
 - watchsimulator2.0
-- appletvsimulator9.0
 
 In addition, the following simulators are installed:
 
@@ -81,6 +81,8 @@ In addition, the following simulators are installed:
   - iPhone 5s
   - iPhone 6
   - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
   - iPad 2
   - iPad Retina
   - iPad Air
@@ -91,6 +93,8 @@ In addition, the following simulators are installed:
   - iPhone 5s
   - iPhone 6
   - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
   - iPad 2
   - iPad Retina
   - iPad Air
@@ -163,6 +167,10 @@ In addition, the following simulators are installed:
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
+- tvOS 9.0
+  - Apple TV 1080p
+
+
 
 ### Xcode 6.4
 
