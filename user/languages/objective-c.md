@@ -19,12 +19,14 @@ We have a few different build images with different versions of Xcode and SDKs
 installed.
 
 **Supported Xcode versions**
+
 - [Xcode 7.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode`
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
 - [Xcode 6.3.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.3.1) -- `osx_image: beta-xcode6.3`
 - [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
 - [Xcode 7.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
+
 
 _Note: At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
