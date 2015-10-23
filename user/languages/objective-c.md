@@ -25,7 +25,7 @@ installed.
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
 - [Xcode 6.3.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.3.1) -- `osx_image: beta-xcode6.3`
 - [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
-- [Xcode 7.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
+- [Xcode 6.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
 
 
 _Note: At this time we are unable to provide pre-release versions of Xcode due to the
