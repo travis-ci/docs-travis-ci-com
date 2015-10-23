@@ -103,6 +103,9 @@ In addition, the following simulators are installed:
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
+- tvOS 9.0
+  - Apple TV 1080p
+
 
 ### Xcode 7
 
@@ -167,8 +170,6 @@ In addition, the following simulators are installed:
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
-- tvOS 9.0
-  - Apple TV 1080p
 
 
 
