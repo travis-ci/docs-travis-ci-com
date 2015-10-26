@@ -18,7 +18,7 @@ Travis CI support for Smalltalk is contributed by the community and may be remov
 altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:smalltalk)
 and cc [@bahnfahren](https://github.com/bahnfahren),
-[@christopher](https://github.com/christopher),
+[@chistopher](https://github.com/chistopher),
 [@fniephaus](https://github.com/fniephaus),
 [@jchromik](https://github.com/jchromik), and
 [@Nef10](https://github.com/Nef10) in the issue.
