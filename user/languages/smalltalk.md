@@ -20,8 +20,8 @@ altered at any time. If you run into any problems, please report them in the
 
 ## Basic configuration
 
-For a minimum configuration you need to specify two parameters, the language which is smalltalk
-and your project specific baseline.
+For a minimum configuration you need to specify two parameters, the language
+and the baseline of your project.
 
 ```yaml
     language: smalltalk
@@ -43,15 +43,6 @@ the `SqueakTrunk`:
       - SqueakTrunk
     env:
       - BASELINE=MyProjectBaseline
-```
-
-Also you can specify on which operating systems your project is build
-by setting the os key.
-
-```yaml
-    os:
-      - linux
-      - osx
 ```
 
 ## Further information
