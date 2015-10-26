@@ -29,4 +29,5 @@ languages:
 * [Ruby](/user/languages/ruby)
 * [Rust](/user/languages/rust)
 * [Scala](/user/languages/scala)
+* [Smalltalk](/user/languages/smalltalk)
 * [Visual Basic](/user/languages/csharp/)
