@@ -16,7 +16,7 @@ We currently just support [Squeak/Smalltalk](http://squeak.org/).
 
 Travis CI support for Smalltalk is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:crystal)
+[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:crystal).
 
 ## Basic configuration
 
@@ -31,10 +31,10 @@ and your project specific baseline.
 
 ## Configuration options
 
-By default Travis CI will use Squeak5.0 release. It is also possible
-to test projects against the SqueakTrunk, Squeak4.6 and Squeak4.5. To do so, set the
-`smalltalk` key in `.travis.yml`. For example, to test against both Squeak5.0 and
-the SqueakTrunk:
+By default Travis CI will use `Squeak5.0` release. It is also possible
+to test projects against the `SqueakTrunk`, `Squeak4.6` and `Squeak4.5`. To do so, set the
+`smalltalk` key in `.travis.yml`. For example, to test against both `Squeak5.0` and
+the `SqueakTrunk`:
 
 ```yaml
     language: smalltalk
@@ -56,5 +56,5 @@ by setting the os key.
 
 ## Further information
 
-We are using [filetreeCI](https://github.com/hpi-swa/filetreeCI) for building Smalltalk projects.
-Additional configuration options can be found at filetreeCI's GitHub repository.
+We are using filetreeCI for building Smalltalk projects.
+Additional configuration options can be found at [filetreeCI's GitHub repository](https://github.com/hpi-swa/filetreeCI).
