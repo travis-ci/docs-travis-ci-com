@@ -23,9 +23,11 @@ altered at any time. If you run into any problems, please report them in the
 For a minimum configuration you need to specify two parameters, the language which is smalltalk
 and your project specific baseline.
 
+```yaml
     language: smalltalk
     env:
       - BASELINE=MyProjectBaseline
+```
 
 ## Configuration options
 
@@ -34,19 +36,23 @@ to test projects against the SqueakTrunk, Squeak4.6 and Squeak4.5. To do so, set
 `smalltalk` key in `.travis.yml`. For example, to test against both Squeak5.0 and
 the SqueakTrunk:
 
+```yaml
     language: smalltalk
     smalltalk:
       - Squeak5.0
       - SqueakTrunk
     env:
       - BASELINE=MyProjectBaseline
+```
 
 Also you can specify on which operating systems your project is build
 by setting the os key.
 
+```yaml
     os:
       - linux
       - osx
+```
 
 ## Further information
 
