@@ -32,7 +32,7 @@ and your project specific baseline.
 ## Configuration options
 
 By default Travis CI will use `Squeak5.0` release. It is also possible
-to test projects against the `SqueakTrunk`, `Squeak4.6` and `Squeak4.5`. To do so, set the
+to test projects against `SqueakTrunk`, `Squeak4.6` and `Squeak4.5`. To do so, set the
 `smalltalk` key in `.travis.yml`. For example, to test against both `Squeak5.0` and
 the `SqueakTrunk`:
 
