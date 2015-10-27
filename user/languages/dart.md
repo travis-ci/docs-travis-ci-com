@@ -46,6 +46,8 @@ to install any dependencies of the package.
 
 ## Default Test Script
 
+### Tests written with unittest package
+
 The tests are done by
 [Dart Test Runner](https://pub.dartlang.org/packages/test_runner). This tool
 will automatically detect and run all the tests in your Dart project in the
@@ -53,6 +55,17 @@ correct environment.
 
 Only _VM_ tests are run by default. _Browser_ tests will also be run if you set
 `with_content_shell: true` in your `.travis.yml`.
+
+### Tests written with test package
+
+The tests are done by the
+[test package](https://pub.dartlang.org/packages/test). This tool
+will automatically detect and run all the tests in your Dart project in the
+correct environment.
+
+Only _VM_ tests are run by default. If you set
+`with_content_shell: true` in your `.travis.yml` then the tests for plateforms
+`vm`, `content-shell` and `firefox` will be run.
 
 ## Build Matrix
 
