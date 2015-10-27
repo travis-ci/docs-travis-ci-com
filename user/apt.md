@@ -6,9 +6,11 @@ permalink: /user/apt/
 <div id="toc">
 </div>
 
-When using the [container based infrastructure](/user/workers/container-based-infrastructure/), `sudo` is disabled in
-user-defined build phases such as `before_install`. This prevents installation of APT packages via `apt-get` as well as
-the addition of APT sources such as one might do with `apt-add-repository`.
+APT packages can be installed through the APT addon, which is avaliable in all infrastructures. When using the
+[container based infrastructure](/user/workers/container-based-infrastructure/), `sudo` is disabled in user-defined build
+phases such as `before_install`. This prevents installation of APT packages via `apt-get` as well as the addition of APT
+sources such as one might do with `apt-add-repository`. To circumvent this issue, one may use the APT addon, which is
+documented below.
 
  > Note: When using APT sources and packages together, you need to make
  > sure they are under the same key space in the YAML file. e.g.
