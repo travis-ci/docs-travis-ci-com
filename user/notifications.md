@@ -207,6 +207,8 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+### Channel key
+
 If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
 
     notifications:
@@ -214,6 +216,18 @@ If you want the bot to send messages to channels protected with a channel key (i
         channels:
           - "irc.freenode.org#my-channel"
         channel_key: 'password'
+
+### Password protected servers
+
+You may also authenticate to an IRC server with user:
+
+    notifications:
+      irc:
+        channels:
+          - "irc.freenode.org#my-channel"
+        channel_key: 'password'
+        nick: travisci
+        password: super_secret
 
 ## Campfire notification
 
