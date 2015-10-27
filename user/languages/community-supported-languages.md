@@ -114,3 +114,4 @@ In alphabetical order, they are:
 1. [Julia](../julia)
 1. [Perl 6](../perl6)
 1. [R](../r)
+1. [Smalltalk](../smalltalk)
