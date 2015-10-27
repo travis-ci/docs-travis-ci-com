@@ -39,10 +39,10 @@ The complete build lifecycle, including three optional deployment steps and afte
 3. `before_script`
 4. `script`
 5. `after_success` or `after_failure`
-6. `after_script`
-7. OPTIONAL `before_deploy`
-8. OPTIONAL `deploy`
-9. OPTIONAL `after_deploy`
+6. OPTIONAL `before_deploy`
+7. OPTIONAL `deploy`
+8. OPTIONAL `after_deploy`
+9. `after_script`
 
 
 ## Customizing the Installation Step
