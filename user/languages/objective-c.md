@@ -20,7 +20,7 @@ installed.
 
 **Supported Xcode versions**
 
-- [Xcode 7.1 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2-Beta) -- `osx_image: xcode7.2b1`
+- [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2-Beta) -- `osx_image: xcode7.2b1`
 - [Xcode 7.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
