@@ -20,6 +20,7 @@ installed.
 
 **Supported Xcode versions**
 
+- [Xcode 7.1 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2-Beta) -- `osx_image: xcode7.2b1`
 - [Xcode 7.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
@@ -33,11 +34,99 @@ NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
 about Xcode pre-release availability, send us an email at support@travis-ci.com._
 
+### Xcode 7.2 Beta
+
+Xcode 7.2 Beta is available by adding `osx_image: xcode7.2b1` to your .travis.yml.
+
+*Note: This is also our first Xcode image on OS X 10.11, as well as having the Xcode 7.2 beta.*
+
+Our Xcode 7.2 Beta image has the following SDKs preinstalled:
+
+- macosx10.11
+- macosx10.11
+- iphoneos9.2
+- iphoneos9.1
+- iphonesimulator9.2
+- iphonesimulator9.1
+- tvos9.0
+- appletvsimulator9.0
+- watchos2.0
+- watchsimulator2.0
+
+In addition, the following simulators are installed:
+
+- iOS 8.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.3
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 8.4
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+- iOS 9.0
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - iPad Air 2
+- iOS 9.1
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - iPad Air 2
+  - iPad Pro
+- watchOS 2.0
+  - Apple Watch - 38mm
+  - Apple Watch - 42mm
+- tvOS 9.0
+  - Apple TV 1080p
+
 ### Xcode 7.1
 
 Xcode 7.1 GM is available by adding `osx_image: xcode7.1` to your .travis.yml.
 
-Our Xcode 7 image has the following SDKs preinstalled:
+Our Xcode 7.1 image has the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.1
