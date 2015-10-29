@@ -98,7 +98,7 @@ Because there is no single standard way of installing project dependencies with 
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
+To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 and 8 and OpenJDK 6:
 
     jdk:
       - oraclejdk8
@@ -106,12 +106,6 @@ To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
       - openjdk6
 
 > Note that testing against multiple Java versions is not supported on OSX.
-
-To test against OpenJDK 7 and Oracle JDK 7:
-
-    jdk:
-      - openjdk7
-      - oraclejdk7
 
 Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
 
