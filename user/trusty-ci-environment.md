@@ -202,11 +202,9 @@ it's able to install the following PHP versions.
 _Note: We're unable to build **PHP 5.2** on Trusty so far, so trying to use
 it will result in a build failure when phpenv fails to compile it_
 
-#### Other runtimes
+#### Other software
 
-Other runtimes are available to install using `apt-get` and the official
-Ubuntu packages, any third party PPAs or custom scripts that you
-manually setup in your `.travis.yml`
+You can install other Ubuntu packages using `apt-get`, or add third party PPAs or custom scripts.
 
 ### Data Stores
 
@@ -215,13 +213,10 @@ We pre-install the following services and they can be activated with the built-i
 * PostgreSQL 9.4.5
 * SQLite 3.8.2
 * Redis 3.0.4
+* MySQL 5.5.44
 
-*Note: The following services that are included with our Precise images
-are **not included** in the Trusty **mega** images at this time but some
-will/may be added in the coming months. 
-You'll need to install them manually for the time being.*
+The following services that are included with our Precise images are **not included** in the Trusty **mega** images but some may be added in the coming months, in the meantime install them manually if you need them:
 
-- MySQL
 - Riak
 - ElasticSearch
 - Apache Cassandra
