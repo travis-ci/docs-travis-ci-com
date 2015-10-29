@@ -8,6 +8,8 @@ permalink: /user/languages/erlang/
 
 This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Erlang builds are not available on the OSX environment.
+
 ## Choosing OTP releases to test against
 
 Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:

@@ -10,6 +10,8 @@ This guide covers build environment and configuration topics specific to
 Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
+Perl 6 builds are not available on the OSX environment.
+
 ## Choosing Perl 6 versions to test against
 
 Perl 6 workers on travis-ci.org use

@@ -4,13 +4,14 @@ layout: en
 permalink: /user/languages/groovy/
 ---
 
-
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Groovy
 projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
+
+Groovy builds are not available on the OSX environment.
 
 <div id="toc"></div>
 

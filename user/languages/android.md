@@ -12,6 +12,8 @@ The features described here are still in development and are subject to change w
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Android builds are not available on the OSX environment.
+
 <div id="toc"></div>
 
 ## CI Environment for Android Projects

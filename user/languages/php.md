@@ -8,6 +8,8 @@ permalink: /user/languages/php/
 
 This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+PHP builds are not available on the OSX environment.
+
 ## Choosing PHP versions to test against
 
 PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM. A minimalistic `.travis.yml` file would look like this:

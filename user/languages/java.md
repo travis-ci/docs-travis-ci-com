@@ -105,6 +105,8 @@ To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
       - oraclejdk7
       - openjdk6
 
+> Note that testing against multiple Java versions is not supported on OSX.
+
 To test against OpenJDK 7 and Oracle JDK 7:
 
     jdk:

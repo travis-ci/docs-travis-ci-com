@@ -8,6 +8,8 @@ permalink: /user/languages/scala/
 
 This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Scala builds are not available on the OSX environment.
+
 ## Overview
 
 Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and [sbt](http://www.scala-sbt.org).
@@ -89,4 +91,3 @@ The version of Scala a job is using is available as:
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
 * [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/scalaz-seven/.travis.yml)
 * [spray/spray](https://github.com/spray/spray/blob/master/.travis.yml) (using a custom [`.jvmopts`](https://github.com/spray/spray/blob/master/.jvmopts) to override Travis CI defaults)
-

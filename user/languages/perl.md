@@ -8,6 +8,8 @@ permalink: /user/languages/perl/
 
 This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Perl builds are not available on the OSX environment.
+
 ## Choosing Perl versions to test against
 
 Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use `perl:` key in your `.travis.yml` file, for example:

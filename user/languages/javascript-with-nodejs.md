@@ -8,6 +8,8 @@ permalink: /user/languages/javascript-with-nodejs/
 
 This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Node.js builds are not available on the OSX environment.
+
 ## Choosing Node versions to test against
 
 You can choose Node.js and io.js versions to run your tests by adding the following to .travis.yml:

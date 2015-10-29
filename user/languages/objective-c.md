@@ -13,6 +13,8 @@ Objective-C projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
+Objective-C builds are not available on the Linux environments.
+
 ## Supported OS X/iOS SDK versions
 
 We have a few different build images with different versions of Xcode and SDKs

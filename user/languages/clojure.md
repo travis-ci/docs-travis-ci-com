@@ -8,6 +8,8 @@ permalink: /user/languages/clojure/
 
 This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Clojure builds are not available on the OSX environment.
+
 ## CI Environment for Clojure Projects
 
 Travis CI environment provides a large set of build tools for JVM languages with
@@ -27,8 +29,6 @@ If you need to perform special tasks before your tests can run, you should set u
     install: lein protobuf install
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
-
-
 
 ## Default Test Script
 
