@@ -148,7 +148,7 @@ before_install:
 ```
 
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/ci-environment/#Virtualization-environments).
-> Look into [using the `apt` plug-in](/user/apt/) instead.
+> Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
 
 All virtual machines are snapshotted and returned to their intial state after each build.
 
