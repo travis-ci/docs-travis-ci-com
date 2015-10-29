@@ -6,18 +6,11 @@ redirect_from:
   - /user/apt/
 ---
 
-If you need more than a standard set of language libraries, you can install extra services or libraries. For a list of what exactly is installed in each build environment refer to one of:
-
-*  <a href="/user/ci-environment">standard infrastructure</a>.
-*  <a href="/user/osx-ci-environment">OSX infrastructure</a>.
-*  <a href="/user/trusty-ci-environment">trusty infrastructure</a>.
-*  <a href="/user/workers/container-based-infrastructure">container based infrastructure</a>.
-
 <div id="toc"></div>
 
 ## Installing Packages on Standard or Trusty Infrastructure
 
-To install Ubuntu packages use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/) or [trusty](/user/trusty-ci-environment/) use apt-get in the `before_install` step of your `.travis.yml`:
 
     before_install:
       - sudo apt-get -qq update
@@ -107,7 +100,7 @@ addons:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages on container-based-infrastructure you need to use the APT addon, as sudo apt-get is not available.
+To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
 
 ### Adding APT Sources
 
@@ -148,13 +141,7 @@ addons:
 
 ## Installing Packages on OSX
 
-On our Mac platform, you have all the developer tools available to install packages from scratch, if you need to.
-
-First and foremost, you should look at what's available on [Homebrew](http://brew.sh), as it's already preinstalled and ready to use.
-
-Using Homebrew over installing from scratch has several benefits. For a lot of packages, it has binary packages available, removing the need to compile packages when installing them. However, should one of them need to be compiled from source, Homebrew can also manage dependencies and the installation process for you. Using it helps keep your `.travis.yml` to a minimum.
-
-Say you need to install beanstalk for your tests, you can use the following set of commands in your .travis.yml:
+To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
     before_install:
       - brew update
