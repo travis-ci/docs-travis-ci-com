@@ -23,6 +23,9 @@ To select a different version than the default, use the following setting in you
     addons:
       postgresql: "9.3"
 
+    services:
+      - postgresql
+
 This selects PostgreSQL 9.3 as the version your build expects to be running.
 
 **Available selections are "9.1", "9.2", "9.3" and "9.4"**. Make sure to only specify the major and the minor version, without the patch release.
