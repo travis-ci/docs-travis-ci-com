@@ -91,7 +91,14 @@ Then, in your test suite, read that data into a configurations hash:
 
 ## MySQL
 
-MySQL on Travis CI is **started on boot**, binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
+To use MySQL include the following `services` entry in `.travis.yml`:
+
+    services:
+      - mysql
+
+Note: MySQL on Travis CI is currently **started on boot** however this may not always be the case.
+
+MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  
 
 >Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 
@@ -126,10 +133,14 @@ before_install:
 
 ## PostgreSQL
 
+To use PostgreSQL include the following `services` entry in `.travis.yml`:
 
-### Selecting a PostgreSQL Version
+    services:
+      - postgresql
 
-By default, the build environment will have version 9.1 running already.
+#### Selecting a PostgreSQL Version
+
+By default, the build environment will have version 9.1 installed.
 
 You can easily choose a different version by way of your .travis.yml.
 
@@ -417,4 +428,3 @@ $ sudo service elasticsearch start
 This is due to a [recent change in ElasticSearch](https://github.com/elasticsearch/elasticsearch/issues/4397),
 as reported [here](https://github.com/elasticsearch/elasticsearch/issues/4978).
 The message is harmless, and the service is functional.
-
