@@ -118,8 +118,8 @@ Travis CI installs the following packages by default in each virtualenv:
 If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
     env:
-      - DJANGO_VERSION=1.2.7
-      - DJANGO_VERSION=1.3.1
+      - DJANGO_VERSION=1.7.8
+      - DJANGO_VERSION=1.8.2
 
 and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
 
