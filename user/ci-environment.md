@@ -27,7 +27,7 @@ can install anything that's required for them to run.
 Each build runs in one of the following three virtual environments:
 
 * Standard (the default environment)
-* Container-based (the newer environment in which `sudo` commands are not available.
+* Container-based (the newer environment in which `sudo` commands are not available)
 * OSX for Objective-C projects
 * Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
