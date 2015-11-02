@@ -44,6 +44,9 @@ or as an environment variable in repository settings:
     # ':'-delimited paths, e.g.
     ARTIFACTS_PATHS="./logs:./build:/var/log"
 
+Please keep in mind that in the example above, colon (`:`) is used as a
+delimiter which means file names cannot contain this character.
+
 ### Debugging
 
 If you'd like to see more detail about what the artifacts addon is
