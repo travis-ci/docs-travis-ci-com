@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Smallta
 projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
-We currently just support [Squeak/Smalltalk](http://squeak.org/).
+We currently support [Squeak/Smalltalk](http://squeak.org/) and [Pharo](http://pharo.org/).
 
 ### Community-Supported Warning
 
@@ -25,32 +25,34 @@ and cc [@bahnfahren](https://github.com/bahnfahren),
 
 ## Basic configuration
 
-For a minimum configuration you need to specify two parameters, the language
+For a minimum configuration, you need to specify two parameters, the language
 and the baseline of your project.
 
 ```yaml
-    language: smalltalk
-    env:
-      - BASELINE=MyProjectBaseline
+language: smalltalk
+env:
+  global:
+    - BASELINE=MyProjectBaseline
 ```
 
 ## Configuration options
 
-By default Travis CI will use `Squeak5.0` release. It is also possible
-to test projects against `SqueakTrunk`, `Squeak4.6` and `Squeak4.5`. To do so, set the
-`smalltalk` key in `.travis.yml`. For example, to test against both `Squeak5.0` and
-the `SqueakTrunk`:
+Travis CI will use `Squeak-5.0` by default. In order to specify the image(s)
+you want your tests to run against, set the `smalltalk` key in your `.travis.yml`.
+A list of all images supported can be found [here](https://github.com/hpi-swa/smalltalkCI#images).
+For example, to test against both, `Squeak-trunk` and `Squeak-5.0`, use:
 
 ```yaml
-    language: smalltalk
-    smalltalk:
-      - Squeak5.0
-      - SqueakTrunk
-    env:
-      - BASELINE=MyProjectBaseline
+language: smalltalk
+smalltalk:
+  - Squeak-trunk
+  - Squeak-5.0
+env:
+  global:
+    - BASELINE=MyProjectBaseline
 ```
 
 ## Further information
 
-We are using filetreeCI for building Smalltalk projects.
-Additional configuration options can be found at [filetreeCI's GitHub repository](https://github.com/hpi-swa/filetreeCI).
+We are using smalltalkCI for building Smalltalk projects.
+Additional configuration options can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#templates).
