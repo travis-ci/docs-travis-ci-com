@@ -37,8 +37,11 @@ and the baseline of your project.
 ## Configuration options
 
 By default Travis CI will use `Squeak5.0` release. It is also possible
-to test projects against `SqueakTrunk`, `Squeak4.6` and `Squeak4.5`. To do so, set the
-`smalltalk` key in `.travis.yml`. For example, to test against both `Squeak5.0` and
+to test projects against other versions of Squeak or Pharo (a complete list of
+supported images can be found at
+[smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
+To do so, set the `smalltalk` key in `.travis.yml`. For example,
+to test against both `Squeak5.0` and
 the `SqueakTrunk`:
 
 ```yaml
@@ -52,5 +55,5 @@ the `SqueakTrunk`:
 
 ## Further information
 
-We are using filetreeCI for building Smalltalk projects.
-Additional configuration options can be found at [filetreeCI's GitHub repository](https://github.com/hpi-swa/filetreeCI).
+We are using smalltalkCI for building Smalltalk projects.
+Additional configuration options can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI).
