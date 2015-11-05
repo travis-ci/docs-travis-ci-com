@@ -35,7 +35,7 @@ For a minimum configuration you need to specify two parameters, the language and
 
 ## Configuration options
 
-Next to the standard image it is also possible to test projects against other versions of Squeak or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
+Next to the default image it is also possible to test projects against other versions of Squeak or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
 To do so, set the `smalltalk` key in `.travis.yml`. For example,
 to test against both `Squeak5.0` and
 the `SqueakTrunk`:
