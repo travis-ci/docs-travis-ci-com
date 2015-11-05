@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Smallta
 projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
-We currently just support [Squeak/Smalltalk](http://squeak.org/).
+We currently support [Squeak](http://squeak.org/) and [Pharo](http://pharo.org) images.
 
 ### Community-Supported Warning
 
@@ -35,7 +35,7 @@ For a minimum configuration you need to specify two parameters, the language and
 
 ## Configuration options
 
-Besides Squeak5.0 is the standard image it is also possible to test projects against other versions of Squeak or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
+Next to the standard image it is also possible to test projects against other versions of Squeak or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
 To do so, set the `smalltalk` key in `.travis.yml`. For example,
 to test against both `Squeak5.0` and
 the `SqueakTrunk`:
