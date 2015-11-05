@@ -25,8 +25,7 @@ and cc [@bahnfahren](https://github.com/bahnfahren),
 
 ## Basic configuration
 
-For a minimum configuration you need to specify two parameters, the language
-and the baseline of your project.
+For a minimum configuration you need to specify two parameters, the language and the baseline of your project. Default build configuration is a Squeak5.0 image on Linux.
 
 ```yaml
     language: smalltalk
@@ -36,10 +35,7 @@ and the baseline of your project.
 
 ## Configuration options
 
-By default Travis CI will use `Squeak5.0` release. It is also possible
-to test projects against other versions of Squeak or Pharo (a complete list of
-supported images can be found at
-[smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
+Besides Squeak5.0 is the standard image it is also possible to test projects against other versions of Squeak or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI)).
 To do so, set the `smalltalk` key in `.travis.yml`. For example,
 to test against both `Squeak5.0` and
 the `SqueakTrunk`:
