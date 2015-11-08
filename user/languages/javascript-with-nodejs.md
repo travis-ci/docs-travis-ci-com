@@ -16,6 +16,8 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 
     language: node_js
     node_js:
+      - "5.0"
+      - "4.2"
       - "4.1"
       - "4.0"
       - "0.12"
@@ -47,6 +49,8 @@ See [nvm documentation](https://github.com/creationix/nvm#usage) for more inform
 
 ## Provided Node.js Versions
 
+* 5.0.x (support provided on demand)
+* 4.2.x (support provided on demand)
 * 4.1.x (support provided on demand)
 * 4.0.x (support provided on demand)
 * 0.12.x (support provided on demand)
