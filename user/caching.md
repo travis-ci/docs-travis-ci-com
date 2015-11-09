@@ -252,10 +252,8 @@ menu
 
 2. With [command line client](https://github.com/travis-ci/travis#readme):
 
-<figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
-</figure>
 
 There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
 
