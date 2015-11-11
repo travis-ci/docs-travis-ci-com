@@ -38,11 +38,13 @@ about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ### Xcode 7.2 Beta
 
-Xcode 7.2 Beta is available by adding `osx_image: xcode7.2b1` to your .travis.yml.
+Xcode 7.2 Beta 3 is available by adding `osx_image: xcode7.2b3` to your .travis.yml.
+
+Xcode 7.2 Beta 1 is available by adding `osx_image: xcode7.2b1` to your .travis.yml.
 
 *Note: This is also our first Xcode image on OS X 10.11, as well as having the Xcode 7.2 beta.*
 
-Our Xcode 7.2 Beta image has the following SDKs preinstalled:
+Our Xcode 7.2 Beta images have the following SDKs preinstalled:
 
 - macosx10.11
 - macosx10.11
