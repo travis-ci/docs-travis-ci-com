@@ -65,18 +65,21 @@ overwriting the `at_exit` handler of another RubyGem, in this case RSpec's.
 The workaround is to install this `at_exit` handler in your code, as pointed out
 in [this article](http://www.davekonopka.com/2013/rspec-exit-code.html).
 
-    if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
-      module Kernel
-        alias :__at_exit :at_exit
-        def at_exit(&block)
-          __at_exit do
-            exit_status = $!.status if $!.is_a?(SystemExit)
-            block.call
-            exit exit_status if exit_status
-          end
-        end
+
+```ruby
+if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
+  module Kernel
+    alias :__at_exit :at_exit
+    def at_exit(&block)
+      __at_exit do
+        exit_status = $!.status if $!.is_a?(SystemExit)
+        block.call
+        exit exit_status if exit_status
       end
     end
+  end
+end
+```
 
 If your project is using the [Code Climate integration](/user/code-climate/) or
 Simplecov, this issue can also come up with the 0.8 branch of Simplecov. The fix
