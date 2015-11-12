@@ -24,7 +24,7 @@ add the following to your `.travis.yml` file:
 In addition, there are 3 special aliases
 [`latest`](http://releases.mozilla.org/pub/firefox/releases/latest/linux-x86_64/en-US/),
 [`latest-esr`](http://releases.mozilla.org/pub/firefox/releases/latest-esr/linux-x86_64/en-US/), and
-[`latest-beta`](http://releases.mozilla.org/pub/firefox/releases/latest-beta/linux-x86_64/en-US/){: data-proofer-ignore=""}.
+[`latest-beta`](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US).
 
 ### Linux only
 
