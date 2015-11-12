@@ -16,8 +16,7 @@ projects. Please make sure to read our
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:r)
-and cc [@craigcitro](https://github.com/craigcitro),
-[@eddelbuettel](https://github.com/eddelbuettel), and
+and cc [@craigcitro](https://github.com/craigcitro) and
 [@hadley](https://github.com/hadley).
 
 ## Basic configuration
