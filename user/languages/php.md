@@ -33,7 +33,7 @@ Also note that specifying exact versions like 5.3.8 is discouraged as your .trav
 
 For example, see [travis-ci-php-example .travis.yml](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml).
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 ## Default Test Script
 
