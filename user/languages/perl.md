@@ -16,6 +16,7 @@ Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide sev
 
     language: perl
     perl:
+      - "5.22"
       - "5.20"
       - "5.18"
 
@@ -23,6 +24,7 @@ A more extensive example:
 
     language: perl
     perl:
+      - "5.22"
       - "5.20"
       - "5.18"
       - "5.16"
