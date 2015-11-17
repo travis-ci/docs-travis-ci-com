@@ -8,7 +8,7 @@ permalink: /user/deployment/heroku/
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
-To use the default configuration, add your encrpyted Heroku api key to your `.travis.yml`:
+To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
 
     deploy:
       provider: heroku
