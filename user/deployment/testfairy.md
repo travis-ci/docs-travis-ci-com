@@ -4,30 +4,30 @@ layout: en
 permalink: /user/deployment/testfairy/
 ---
 
-Travis CI can automatically deploy your Android/iOS Apps to [TestFairy](https://www.testfairy.com/).
+Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following `deploy` key to your `.travis.yml`:
 
-{% highlight yaml %}
+``` yaml
 deploy:
   provider: testfairy
   api-key: "TESTFAIRY API KEY"
   app-file: Path to the app file (APK/IPA)
-{% endhighlight %}
+```
 
-You can find your API key on [TestFairy settings page](https://app.testfairy.com/settings/). 
-It is recommended that you encrypt your api-key.
-Assuming you have the Travis CI command line client installed, you can run the following command in your report folder:
+You can find your API key on [TestFairy settings page](https://app.testfairy.com/settings/).
 
-{% highlight console %}
+It is recommended that you encrypt your api-key. If you have the Travis CI command line client installed, you can run the following command in your repository directory:
+
+``` console
 $ travis encrypt "YOUR API KEY" --add deploy.api-key
-{% endhighlight %}
+```
 
-## For Android
+## Android
 
-You required to specify you keystore certificate.
+To deploy your Android application you need to specify your keystore certificate:
 
-{% highlight yaml %}
+``` yaml
 deploy:
   provider: testfairy
   api-key: "TESTFAIRY API KEY"
@@ -35,38 +35,35 @@ deploy:
   keystore-file: Path to your keystore-file
   storepass: storepass
   alias: alias
-{% endhighlight %}
+```
 
-Use [Travis encrypting files](http://docs.travis-ci.com/user/encrypting-files/) to protect your keystore file.
+Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore file.
 
 
-### Symbols file
+## Symbols file
 
-Attach your symbols mapping file so TestFairy will de-obfuscate or symbolicate crash reports automatically. Point
-*symbols-file* to your *proguard_mapping.txt* file (or similar) or to a zipped *.dSYM file*.
+Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
 
-{% highlight yaml %}
+``` yaml
 deploy:
   provider: testfairy
   ..
   symbols-file: Path to the symbols file
-{% endhighlight %}
+```
 
+## Invite testers automatically
 
-### Invite testers automatically
+To automatically invite testers upon build upload, specify a comma-seperated list of groups in the `testers-groups` key. Set the `notify` key to `true` if you want to notify them via email:
 
-Testers can be invited upon build upload. Specify a comma-seperated list of testers groups to invite. Use *notify* to 
-send changelog and invitations via email. 
-
-{% highlight yaml %}
+``` yaml
 deploy:
   provider: testfairy
   ..
   notify: false
   testers-groups: qa-stuff,friends
-{% endhighlight %}
+```
 
-### More Options 
+## More Options
 
 * **auto-update**: Upgrade previous installations to this version automatically.
 * **max-duration**: Maximum session recording length, eg "60m". Default is "10m".
@@ -79,9 +76,9 @@ deploy:
 * **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](http://docs.testfairy.com/Upload_API.html).
 * **advanced-options**: Additional settings (eg shake,anonymous).
 
-For example: 
+For example:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: testfairy
   api-key: "TESTFAIRY API KEY"
@@ -99,4 +96,4 @@ deploy:
   data-only-wifi: true
   metrics: cpu,memory,network,phone-signal,logcat,gps,battery
   advanced-options: shake,anonymous
-{% endhighlight %}
+```
