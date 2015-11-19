@@ -12,7 +12,7 @@ Perl builds are not available on the OSX environment.
 
 ## Choosing Perl versions to test against
 
-Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use `perl:` key in your `.travis.yml` file, for example:
+Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
 
     language: perl
     perl:
@@ -32,7 +32,7 @@ A more extensive example:
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 *Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
 
