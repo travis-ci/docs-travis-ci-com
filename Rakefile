@@ -40,3 +40,9 @@ task :run_html_proofer do
                             })
   tester.run
 end
+
+namespace :assets do
+  task :precompile do
+    puts `bundle exec jekyll build`
+  end
+end
