@@ -33,6 +33,7 @@ task :run_html_proofer do
   tester = HTML::Proofer.new('./_site', {
                               :href_swap => href_swap,
                               :connecttimeout => 600,
+                              :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
                               :url_ignore => ["https://www.appfog.com/",
                                               /coverity.com/],
