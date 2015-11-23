@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem "github-pages"
 gem "rake"
 
-group :test do
-  gem 'html-proofer',  '~> 2.0'
-end
+gem 'rack-jekyll'
+gem 'rack-ssl-enforcer'
+gem 'puma'
+
+gem 'html-proofer',  '~> 2.0'
