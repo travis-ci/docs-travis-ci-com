@@ -150,6 +150,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   html-proofer (~> 2.0)
+  jekyll-redirect-from
   puma
   rack-jekyll
   rack-ssl-enforcer

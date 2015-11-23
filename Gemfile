@@ -4,6 +4,7 @@ gem "github-pages"
 gem "rake"
 
 gem 'rack-jekyll'
+gem 'jekyll-redirect-from'
 gem 'rack-ssl-enforcer'
 gem 'puma'
 
