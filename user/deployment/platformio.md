@@ -15,15 +15,15 @@ includes compiler, debugger, uploader, etc:
 
     + Atmel AVR
     + Espressif
-    + Nordic nRF51
     + Teensy
+    + ST STM32
     + [Full list](http://platformio.org/#!/platforms) at PlatformIO
 
 * *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
 
     + Arduino
     + libOpenCM3
-    + SPL
+    + mbed
     + [Full list](http://platformio.org/#!/frameworks) at PlatformIO
 
 * *Embedded* - pre-defined compilation profiles for a variety of embedded
