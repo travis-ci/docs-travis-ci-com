@@ -1,5 +1,5 @@
 ---
-title: CI for Embedded Platforms
+title: PlatformIO
 layout: en
 permalink: /user/ci-embedded-platforms/
 ---
@@ -8,11 +8,7 @@ permalink: /user/ci-embedded-platforms/
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code builder and the
-missing library manager for embedded development. PlatformIO is written in
-pure Python and doesn't depend on any additional libraries/toolchains from an
-operation system. Thanks to it, you can test your embedded projects on
-[Multiple Operating Systems](/user/multi-os/).
+[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies.
 
 ## Supported Embedded Platforms, Frameworks and Boards
 
