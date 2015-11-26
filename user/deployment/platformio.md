@@ -1,71 +1,44 @@
 ---
-title: PlatformIO
+title: PlatformIO Deployment
 layout: en
-permalink: /user/ci-embedded-platforms/
+permalink: /user/deployment/platformio/
 ---
 
 <div id="toc"></div>
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies.
+[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. By deploying to PlatformIO you can test on multiple platforms, frameworks and boards:
 
-## Supported Embedded Platforms, Frameworks and Boards
+* *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
+includes compiler, debugger, uploader, etc:
 
-### Embedded Platforms
+    + Atmel AVR
+    + Espressif
+    + Nordic nRF51
+    + Teensy
+    + [Full list](http://platformio.org/#!/platforms) at PlatformIO
 
-PlatformIO has pre-built different development platforms for the most popular
-host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
-includes compiler, debugger, uploader and many other useful tools.
+* *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
 
-<ul class="list-language">
-  <li>Atmel AVR</li>
-  <li>Atmel SAM</li>
-  <li>Espressif</li>
-  <li>Freescale Kinetis</li>
-  <li>Nordic nRF51</li>
-  <li>NXP LPC</li>
-  <li>Silicon Labs EFM32</li>
-  <li>ST STM32</li>
-  <li>Teensy</li>
-  <li>TI MSP430</li>
-  <li>TI TIVA</li>
-</ul>
+    + Arduino
+    + libOpenCM3
+    + SPL
+    + [Full list](http://platformio.org/#!/frameworks) at PlatformIO
 
-For the actual list, please follow to
-[PlatformIO Development Platforms](http://platformio.org/#!/platforms).
+* *Embedded* - pre-defined compilation profiles for a variety of embedded
+boards.
+    + [Full list](http://platformio.org/#!/boards) at PlatformIO
 
-### Embedded Frameworks
+## .travis.yml Settings
 
-PlatformIO has pre-configured build scripts for the popular embedded frameworks.
+Please read the official
+[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before deploying to PLatformIO.
 
-<ul class="list-language">
-  <li>Arduino</li>
-  <li>CMSIS</li>
-  <li>libOpenCM3</li>
-  <li>Energia</li>
-  <li>SPL</li>
-  <li>mbed</li>
-</ul>
-
-For the actual list, please follow to
-[PlatformIO Frameworks](http://platformio.org/#!/frameworks).
-
-### Embedded Boards
-
-PlatformIO has pre-defined compilation profiles for a variety of embedded
-boards. For more details, please follow to
-[PlatformIO Embedded Boards Explorer](http://platformio.org/#!/boards).
-
-## Setting `.travis.yml`
-
-Please make sure to read official
-[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation first.
-
-PlatformIO is written in Python and is recommended to be run within [Travis CI
+PlatformIO is written in Python and is recommended to be run within a [Travis CI
 Python isolated environment](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs):
 
-```
+```yaml
 language: python
 python:
     - "2.7"
@@ -89,25 +62,27 @@ script:
 
 ```
 
-For the board types please go to [Embedded Boards](#Embedded-Boards) section.
+### Testing Libraries
 
-### Project as a library
+If the project you are testing is a library, please use the  `--lib="."` option for the [platformio ci](http://docs.platformio.org/en/latest/userguide/cmd_ci.html#cmdoption-platformio-ci-l) command
 
-When project is written as a library (where own examples or testing code use
-it), please use `--lib="."` option for [platformio ci](http://docs.platformio.org/en/latest/userguide/cmd_ci.html#cmdoption-platformio-ci-l) command
-
-```
+```yaml
 script:
     - platformio ci --lib="." --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
 
-### Library dependecies
+### Managing dependencies
 
-There 2 options to test source code with dependent libraries:
+There are two options for testing projects with external dependencies:
 
-#### Install dependent library using [PlatformIO Library Manager](http://platformio.org/#!/lib)
+* using the PlatformIO Library Manager
+* installing dependencies manually
 
-```
+#### PlatformIO Library Manager
+
+For the dependencies available in the PlatformIO Library Registry:
+
+```yaml
 install:
     - pip install -U platformio
 
@@ -118,9 +93,11 @@ install:
     platformio lib install 1
 ```
 
-#### Manually download dependent library and include in build process via `--lib` option
+#### Installing dependencies manually
 
-```
+For the dependencies not available in the PlatformIO Library Registry:
+
+```yaml
 install:
     - pip install -U platformio
 
@@ -134,10 +111,10 @@ script:
 
 ### Custom Build Flags
 
-PlatformIO allows to specify own build flags using
-[PLATFORMIO_BUILD_FLAGS](http://docs.platformio.org/en/latest/envvars.html#envvar-PLATFORMIO_BUILD_FLAGS) environment
+To specify custom build flags using the
+[PLATFORMIO_BUILD_FLAGS](http://docs.platformio.org/en/latest/envvars.html#envvar-PLATFORMIO_BUILD_FLAGS) environment:
 
-```
+```yaml
 env:
     - PLATFORMIO_CI_SRC=path/to/test/file.c PLATFORMIO_BUILD_FLAGS="-D SPECIFIC_MACROS_PER_TEST_ENV -I/extra/inc"
     - PLATFORMIO_CI_SRC=examples/file.ino
@@ -145,27 +122,23 @@ env:
 
 install:
     - pip install -U platformio
-
     export PLATFORMIO_BUILD_FLAGS=-D GLOBAL_MACROS_FOR_ALL_TEST_ENV
 
 ```
 
-For the more details, please follow to [available build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
+More details available at [build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
 
 
 ### Advanced configuration
 
-PlatformIO allows to configure multiple build environments for the single
-source code using Project Configuration File [platformio.ini](http://docs.platformio.org/en/latest/projectconf.html).
+You can configure multiple build environments using a [platformio.ini](http://docs.platformio.org/en/latest/projectconf.html) Project Configuration file, and specifying a [--project-conf](http://docs.platformio.org/en/latest/userguide/cmd_ci.html#cmdoption-platformio-ci--project-conf) instead of `--board`.
 
-Instead of `--board` option, please use [platformio ci --project-conf](http://docs.platformio.org/en/latest/userguide/cmd_ci.html#cmdoption-platformio-ci--project-conf).
-
-```
+```yaml
 script:
     - platformio ci --project-conf=/path/to/platoformio.ini
 ```
 
-## Examples `.travis.yml`
+## Examples
 
 - [Custom build flags #1](https://github.com/felis/USB_Host_Shield_2.0/blob/master/.travis.yml)
 - [Custom build flags #2](https://github.com/z3t0/Arduino-IRremote/blob/master/.travis.yml)
