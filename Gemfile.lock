@@ -152,3 +152,6 @@ DEPENDENCIES
   rack-jekyll
   rack-ssl-enforcer
   rake
+
+BUNDLED WITH
+   1.10.6
