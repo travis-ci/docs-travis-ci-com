@@ -154,3 +154,19 @@ The related source code can be found at the [travis-ci-meteor-packages](https://
 
 For JavaScript/Node.js projects, `env` and `node_js` can be given as arrays
 to construct a build matrix.
+
+## Node.js v4 (or io.js v3) compiler requirements
+
+To compile addons for io.js v3 or Node.js v4, gcc/g++ 4.8 or higher is required. Here is how you can update the gcc/g++ compiler to version 4.8 in your `.travis.yml` file:
+
+    language: node_js
+    node_js:
+      - "4"
+    env:
+      - CXX=g++-4.8
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-4.8
