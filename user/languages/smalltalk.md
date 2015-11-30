@@ -33,9 +33,8 @@ baseline: MyProjectBaseline
 
 ## Configuration options
 
-Next to the default image it is also possible to test projects against other versions of Squeak/Smalltalk or Pharo (an exhaustive list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#images)). Also you can test multiple baselines at once.
-To do so, set the `smalltalk`and `baseline` key in `.travis.yml`. For example,
-to test against both `Squeak-5.0` and `Squeak-trunk` for each baseline:
+As well as using the default image you can also test projects against other versions of Squeak/Smalltalk or Pharo (a full list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#images)).  
+Furthermore you can use multiple baselines at once.
 
 ```yaml
 language: smalltalk
