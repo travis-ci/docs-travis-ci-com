@@ -213,7 +213,6 @@ We pre-install the following services and they can be activated with the built-i
 * PostgreSQL 9.4.5
 * SQLite 3.8.2
 * Redis 3.0.4
-* MySQL 5.5.44
 
 The following services that are included with our Precise images are **not included** in the Trusty **mega** images but some may be added in the coming months, in the meantime install them manually if you need them:
 

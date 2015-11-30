@@ -32,18 +32,6 @@ Our official web interface, written in [Ember.js](http://www.emberjs.com)
 * [travis-ci.com](https://travis-ci.org)
 * [source code](https://github.com/travis-ci/travis-web)
 
-
-### Travis Lite
-
-![travis-lite](/images/apps/travis-lite.jpg){:.app}
-
-Client that works without JavaScript<br>
-By Henrik Hodne
-
-* [travis-lite.com](http://travis-lite.com/)
-* [source code](https://github.com/henrikhodne/travis-lite)
-
-
 ### Mantis CI (web)
 
 ![mantis](/images/apps/mantis.jpg){:.app}
@@ -194,19 +182,6 @@ By Hari Menon
 * [website](http://floydpink.github.io/Mantis-CI/)
 * [play store](https://play.google.com/store/apps/details?id=com.floydpink.android.travisci)
 * [source code](https://github.com/floydpink/Mantis-CI)
-
-
-### Travis Jr.
-
-![travis-jr](/images/apps/travis-jr.jpg){:.app}
-
-A mobile client for Android<br>
-By Lahiru Sahan Jayasinghe
-
-* [website](http://sahan.me/Travis-Jr/)
-* [play store](https://play.google.com/store/apps/details?id=com.lonepulse.travisjr)
-* [source code](https://github.com/sahan/Travis-Jr)
-
 
 ### Comrade Travis
 
@@ -385,15 +360,6 @@ Display build status in your terminal<br>
 By Jiri Pospisil
 
 * [website](https://github.com/mekishizufu/bickle#readme)
-
-### Falken
-
-![falken](/images/apps/falken.jpg){:.app}
-
-Bickle clone in PHP<br>
-By Anthony Sterling
-
-* [website](https://github.com/AnthonySterling/falken#readme)
 
 ### Travis Inside
 

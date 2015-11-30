@@ -36,7 +36,7 @@ You can use any tagged version of Go or use `tip` to get the latest version.
 
 All go version management is handled by [gimme](https://github.com/meatballhat/gimme).
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 ## Go Import Path
 

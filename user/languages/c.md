@@ -18,7 +18,7 @@ Travis CI VMs are 64-bit and provide versions of:
 
 C projects on travis-ci.org assume you use Autotools and Make by default.
 
-For precise versions on the VM, please consulte "Build system information" in the build log.
+For precise versions on the VM, please consult "Build system information" in the build log.
 
 
 ## Dependency Management
