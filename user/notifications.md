@@ -367,6 +367,15 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_build_requests: false
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
@@ -470,9 +479,14 @@ screenshot below:
   <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
 </figure>
 
-Slack will be notified both for normal branch builds and for pull requests as
-well.
+### Notifications of PR builds
 
+By default, Slack will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      slack:
+        on_build_requests: false
 
 ## Webhook notification
 
