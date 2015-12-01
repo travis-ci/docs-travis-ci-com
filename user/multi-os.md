@@ -16,8 +16,7 @@ you can benefit from testing on intended targets.
 Travis CI can help by offering testing on Linux and OS X.
 
 ## Setting `.travis.yml`
-In the repository for which the multi-OS feature is enabled,
-add the following:
+Testing on Linux and OSX is as easy as adding the following to your `.travis.yml`:
 
 ```yaml
 os:
