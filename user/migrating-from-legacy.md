@@ -9,7 +9,7 @@ permalink: /user/migrating-from-legacy/
 
 ## tl;dr ##
 
-Not using sudo? Containers sound cool? Add `sudo: false` to travis.yml and you're set.
+Not using sudo? Containers sound cool? Add `sudo: false` to `.travis.yml` and you're set.
 
 For more details check out the awesome information below.
 
