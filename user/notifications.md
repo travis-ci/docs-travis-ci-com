@@ -374,7 +374,7 @@ The PR build notifications can be disabled with the following:
 
     notifications:
       hipchat:
-        on_build_requests: false
+        on_pull_requests: false
 
 ## Sqwiggle notifications
 
@@ -486,7 +486,7 @@ The PR build notifications can be disabled with the following:
 
     notifications:
       slack:
-        on_build_requests: false
+        on_pull_requests: false
 
 ## Webhook notification
 
