@@ -1,14 +1,14 @@
 ---
-title: PlatformIO Deployment
+title: Embedded Builds with PlatformIO
 layout: en
-permalink: /user/deployment/platformio/
+permalink: /user/integration/platformio/
 ---
 
 <div id="toc"></div>
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. By deploying to PlatformIO you can test on multiple platforms, frameworks and boards:
+[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can test your code on multiple platforms, frameworks and boards:
 
 * *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
 includes compiler, debugger, uploader, etc:
@@ -33,7 +33,7 @@ boards.
 ## .travis.yml Settings
 
 Please read the official
-[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before deploying to PLatformIO.
+[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PLatformIO.
 
 PlatformIO is written in Python and is recommended to be run within a [Travis CI
 Python isolated environment](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs):
