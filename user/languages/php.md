@@ -10,6 +10,15 @@ This guide covers build environment and configuration topics specific to PHP pro
 
 PHP builds are not available on the OSX environment.
 
+|---
+|   | Legacy | Docker | OSX
+|---
+| PHP | 5.4, 5.5, 5.6, hhvm,  nightly | * 5.3, 5.4, 5.5, 5.6, 7.0.0 RCs | N/A
+| XDebug |yes | yes | N/A
+|---
+
+\* using PHPENV only
+
 ## Choosing PHP versions to test against
 
 PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM. A minimalistic `.travis.yml` file would look like this:
