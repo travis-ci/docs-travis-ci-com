@@ -35,9 +35,9 @@ The logic for fetching and storing the cache is [described below](#Fetching-and-
 
 #### Enabling Bundler caching
 
-<s>Bundler caching is automatically enabled for Ruby projects that include a Gemfile.lock.</s> *([not yet](https://github.com/travis-ci/travis-build/pull/148) enabled)*
+<s>Bundler caching is automatically enabled for Ruby projects that include a Gemfile.lock.</s> *(Bundler caching is [not yet](https://github.com/travis-ci/travis-build/pull/148) enabled automatically)*
 
-You can also explicitly enable it in your *.travis.yml*:
+You can explicitly enable Bundler caching in your *.travis.yml*:
 
 {% highlight yaml %}
 language: ruby

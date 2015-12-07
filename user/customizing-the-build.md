@@ -188,7 +188,7 @@ one situation in which you might want to set a particular limit is:
   condition with concurrent builds.
 
 You can set the maximum number of concurrent builds in the settings pane for
-each repository.  
+each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
 

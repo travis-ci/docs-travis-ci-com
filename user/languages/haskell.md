@@ -14,7 +14,7 @@ Haskell builds are not available on the OSX environment.
 
 The Haskell VM has recent versions of GHC pre-installed.
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 For full up-to-date list of provided tools, see
 our [CI environment guide](/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have

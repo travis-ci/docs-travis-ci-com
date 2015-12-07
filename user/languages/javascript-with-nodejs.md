@@ -154,3 +154,43 @@ The related source code can be found at the [travis-ci-meteor-packages](https://
 
 For JavaScript/Node.js projects, `env` and `node_js` can be given as arrays
 to construct a build matrix.
+
+## Node.js v4 (or io.js v3) compiler requirements
+
+To compile native modules for io.js v3 or Node.js v4, a
+[C++11 standard](https://en.wikipedia.org/wiki/C%2B%2B11)-compilant compiler is required.
+More specifically, either gcc 4.8 (or later), or clang 3.5 (or later) works.
+
+Our Trusty images have gcc and clang that meet this requirement, but the Precise image does not.
+
+To update these compilers to a newer version.
+For example, `gcc/g++` to version 4.8, add the following in your `.travis.yml`:
+
+    language: node_js
+    node_js:
+      - "4"
+    env:
+      - CXX=g++-4.8
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-4.8
+
+For clang 3.6:
+
+    language: node_js
+    node_js:
+      - "4"
+    compiler: clang-3.6
+    env:
+      - CXX=clang-3.6
+    addons:
+      apt:
+        sources:
+          - llvm-toolchain-precise-3.6
+          - ubuntu-toolchain-r-test
+        packages:
+          - clang-3.6
+          - g++-4.8

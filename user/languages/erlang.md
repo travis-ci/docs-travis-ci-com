@@ -19,7 +19,7 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
        - 17.1
        - R14B02
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 
 ## Default Test Script

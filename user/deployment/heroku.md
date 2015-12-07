@@ -8,7 +8,7 @@ permalink: /user/deployment/heroku/
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
-To use the default configuration, add your encrpyted Heroku api key to your `.travis.yml`:
+To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
 
     deploy:
       provider: heroku
@@ -95,9 +95,9 @@ It also accepts a list of commands:
 
 Custom Heroku commands do not affect the Travis CI build status or trigger Travis CI notifications.
 
-Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail) or [Logentries](https://elements.heroku.com/addons/logentries) to get notifications for `rake db:migrate` or other commands.
+Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail){: data-proofer-ignore=""} or [Logentries](https://elements.heroku.com/addons/logentries){: data-proofer-ignore=""} to get notifications for `rake db:migrate` or other commands.
 
-These add-ons have email notification systems that can be triggered when certain string matches occur in your logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".  
+These add-ons have email notification systems that can be triggered when certain string matches occur in your Heroku logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".  
 
 ### Restarting Applications
 

@@ -125,22 +125,22 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 You can also specify notifications sent to an IRC channel:
 
     notifications:
-      irc: "irc.freenode.org#my-channel"
+      irc: "chat.freenode.net#my-channel"
 
 Or multiple channels:
 
     notifications:
       irc:
-        - "irc.freenode.org#my-channel"
-        - "irc.freenode.org#some-other-channel"
+        - "chat.freenode.net#my-channel"
+        - "chat.freenode.net#some-other-channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
-          - "irc.freenode.org#some-other-channel"
+          - "chat.freenode.net#my-channel"
+          - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
 
@@ -149,8 +149,8 @@ You also have the possibility to customize the message that will be sent to the 
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
-          - "irc.freenode.org#some-other-channel"
+          - "chat.freenode.net#my-channel"
+          - "chat.freenode.net#some-other-channel"
         template:
           - "%{repository} (%{commit}) : %{message} %{foo} "
           - "Build details: %{build_url}"
@@ -187,8 +187,8 @@ If you want the bot to use notices instead of regular messages the `use_notice` 
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
-          - "irc.freenode.org#some-other-channel"
+          - "chat.freenode.net#my-channel"
+          - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
         use_notice: true
@@ -198,8 +198,8 @@ and if you want the bot to not join before the messages are sent, and part after
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
-          - "irc.freenode.org#some-other-channel"
+          - "chat.freenode.net#my-channel"
+          - "chat.freenode.net#some-other-channel"
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
         use_notice: true
@@ -214,7 +214,7 @@ If you want the bot to send messages to channels protected with a channel key (i
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
+          - "chat.freenode.net#my-channel"
         channel_key: 'password'
 
 ### Password protected servers
@@ -224,7 +224,7 @@ You may also authenticate to an IRC server with user:
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
+          - "chat.freenode.net#my-channel"
         channel_key: 'password'
         nick: travisci
         password: super_secret
@@ -367,6 +367,15 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_pull_requests: false
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
@@ -470,9 +479,14 @@ screenshot below:
   <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
 </figure>
 
-Slack will be notified both for normal branch builds and for pull requests as
-well.
+### Notifications of PR builds
 
+By default, Slack will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      slack:
+        on_pull_requests: false
 
 ## Webhook notification
 
