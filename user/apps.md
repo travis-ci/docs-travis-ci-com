@@ -123,17 +123,6 @@ Validates your .travis.yml
 * [source code](https://github.com/travis-ci/travis-yaml)
 
 
-### Travalizit
-
-![travalizit](/images/apps/travalizit.jpg){:.app}
-
-Visualize build data<br>
-By Stefan Judis
-
-* [travalizit.org](http://travalizit.org/)
-* [source code](https://github.com/stefanjudis/travalizit)
-
-
 ### Travis Cron
 
 ![travis-cron](/images/apps/cron.jpg){:.app}
