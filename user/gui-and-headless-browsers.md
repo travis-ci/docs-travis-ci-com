@@ -37,8 +37,10 @@ This is all you need to get your Selenium tests running on Sauce Labs. However, 
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
-    capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
-    capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
+```
+capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
+capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
+```
 
 For travis-web, our very own website, we use Sauce Labs to run browser tests on multiple browsers. We use environment variables in our [.travis.yml](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15) to split up the build into multiple jobs, and then pass the desired browser into Sauce Labs using [desired capabilities](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13). On the Travis CI side, it ends up looking like [this](https://travis-ci.org/travis-ci/travis-web/builds/12857641).
 
@@ -48,9 +50,11 @@ To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, Firefox is
 installed on all Travis CI environments.
 
+### On Linux
+
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
-```
+```yaml
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -66,13 +70,31 @@ previous example.
 
 For example, to set the screen resolution to `1280x1024x16`:
 
-```
+```yaml
 before_install:
 	- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 ```
 
-See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
+See the [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
+### On OSX
+
+Start `xvfb` in the `before_script` section of your `.travis.yml`:
+
+```yaml
+before_script:
+  - "sudo Xvfb :99 -ac -screen 0 1024x768x8 &"
+```
+
+Note: to avoid errors related to the amount of open files on OSX, try adding the following to your `.travis.yml`:
+
+```
+before_install:
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      ulimit -n 4096;  # bump osx ulimit
+    fi
+```
 
 ### Starting a Web Server
 
@@ -82,14 +104,16 @@ three options.
 
 Add a `before_script` to start a server, for example:
 
-    before_script:
-      - "export DISPLAY=:99.0"
-      - "sh -e /etc/init.d/xvfb start"
-      - sleep 3 # give xvfb some time to start
-      - rackup  # start a Web server
-      - sleep 3 # give Web server some time to bind to sockets, etc
+```yaml
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup  # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
+```
 
-If you need web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports greater than 1024, using `sudo` is not necessary (and not recommended).
+If you need web server to be listening on port 80, remember to use `sudo` (Linux does not allow non-privileged process to bind to port 80). For ports greater than 1024, using `sudo` is not necessary or recommended.
 
 <div class="note-box">
 Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
