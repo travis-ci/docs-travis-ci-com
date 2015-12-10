@@ -23,12 +23,12 @@ installed.
 **Supported Xcode versions**
 
 - [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2-Beta) -- `osx_image: xcode7.2b3`
-- [Xcode 7.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
+- [Xcode 7.1.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
 - [Xcode 6.3.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.3.1) -- `osx_image: beta-xcode6.3`
 - [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
-- [Xcode 6.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specificed**
+- [Xcode 6.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specified**
 
 
 _Note: At this time we are unable to provide pre-release versions of Xcode due to the
@@ -128,9 +128,9 @@ In addition, the following simulators are installed:
 
 ### Xcode 7.1
 
-Xcode 7.1 GM is available by adding `osx_image: xcode7.1` to your .travis.yml.
+Xcode 7.1.1 GM is available by adding `osx_image: xcode7.1` to your .travis.yml.
 
-Our Xcode 7.1 image has the following SDKs preinstalled:
+Our Xcode 7.1.1 image has the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.1
