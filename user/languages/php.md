@@ -16,9 +16,10 @@ PHP VM images on travis-ci.org provide several PHP versions including XDebug as 
 
     language: php
     php:
-      - 5.4
-      - 5.5
-      - 5.6
+      - '5.4'
+      - '5.5'
+      - '5.6'
+      - '7.0'
       - hhvm
       - nightly
 
@@ -168,7 +169,18 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 ### Preinstalled PHP extensions
 
-There are some common PHP extensions preinstalled with PECL on Travis CI:
+#### PHP 7.0
+
+These extensions are preinstalled with PECL for PHP 7.0:
+
+* [memcached.so](http://php.net/memcached)
+* [mongo.so](http://php.net/mongo)
+* [xdebug.so](http://xdebug.org)
+* [redis.so](http://pecl.php.net/package/redis)
+
+#### PHP 5.6 and below
+
+For PHP versions up to 5.6, these extensions are available.
 
 * [apc.so](http://php.net/apc)
 * [memcache.so](http://php.net/memcache)
@@ -292,23 +304,6 @@ php:
 
 This installation includes PHPUnit and Composer, but does not include any extension
 mentioned above or xdebug.
-
-### PHP 7
-
-Until PHP 7 is officially released and pre-installed on our PHP VMs,
-
-{% highlight yaml %}
-language: php
-
-php:
-  - '7' # or '7.0'
-{% endhighlight %}
-
-can be used.
-This is a recent build of the `PHP-7.0` branch of [PHP](https://github.com/php/php-src/).
-
-Note that [PECL extensions listed above](#Preinstalled-PHP-extensions) are not installed on nightly builds.
-If you need these, you need to install them with `pecl`.
 
 ## Build Matrix
 
