@@ -168,7 +168,7 @@ cache:
 
 ### Arbitrary directories
 
-You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
+You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
 
 {% highlight yaml %}
 cache:
