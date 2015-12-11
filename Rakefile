@@ -36,6 +36,7 @@ task :run_html_proofer do
                               :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
                               :url_ignore => ["https://www.appfog.com/",
+                                              /nodejitsu.com/,
                                               /coverity.com/],
                               :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html"]
                             })
