@@ -22,7 +22,7 @@ installed.
 
 **Supported Xcode versions**
 
-- [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2-Beta) -- `osx_image: xcode7.2b3`
+- [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2) -- `osx_image: xcode7.2`
 - [Xcode 7.1.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
 - [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
@@ -36,17 +36,14 @@ NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
 about Xcode pre-release availability, send us an email at support@travis-ci.com._
 
-### Xcode 7.2 Beta
+### Xcode 7.2
 
-Xcode 7.2 Beta 3 is available by adding `osx_image: xcode7.2b3` to your .travis.yml.
+Xcode 7.2 GM is available by adding `osx_image: xcode7.2` to your .travis.yml.
 
-Xcode 7.2 Beta 1 is available by adding `osx_image: xcode7.2b1` to your .travis.yml.
-
-*Note: This is also our first Xcode image on OS X 10.11, as well as having the Xcode 7.2 beta.*
+*Note: This is also our first Xcode image on OS X 10.11, as well as having Xcode 7.2.*
 
 Our Xcode 7.2 Beta images have the following SDKs preinstalled:
 
-- macosx10.11
 - macosx10.11
 - iphoneos9.2
 - iphoneos9.1
