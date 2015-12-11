@@ -42,7 +42,7 @@ Xcode 7.2 GM is available by adding `osx_image: xcode7.2` to your .travis.yml.
 
 *Note: This is also our first Xcode image on OS X 10.11, as well as having Xcode 7.2.*
 
-Our Xcode 7.2 Beta images have the following SDKs preinstalled:
+Our Xcode 7.2 images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.2
