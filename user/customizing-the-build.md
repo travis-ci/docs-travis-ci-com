@@ -124,9 +124,10 @@ When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
 --all`) by adding `skip_cleanup` to your `.travis.yml`:
 
-	deploy:
-		skip_cleanup: true
-
+```yml
+deploy:
+	skip_cleanup: true
+```
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
@@ -194,9 +195,22 @@ each repository.
 
 Or using the command line client:
 
-	$ travis settings maximum_number_of_builds --set 1
+```sh
+$ travis settings maximum_number_of_builds --set 1
+```
 
+## Git Clone Depth
 
+Travis CI clones repositories to a depth of 50 commits, which is only really useful if you are performing git operations.
+
+> Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
+
+You can set the depth in `.travis.yml`:
+
+```yml
+git:
+  depth: 3
+```
 
 
 ## Building Specific Branches
@@ -207,19 +221,21 @@ Travis CI uses the `.travis.yml` file from the branch specified by the git commi
 
 Specify which branches to build using a whitelist, or blacklist branches that you do not want to be built:
 
-    # blacklist
-    branches:
-      except:
-        - legacy
-        - experimental
+```yml
+# blacklist
+branches:
+  except:
+    - legacy
+    - experimental
 
-    # whitelist
-    branches:
-      only:
-        - master
-        - stable
+# whitelist
+branches:
+  only:
+    - master
+    - stable
+```
 
-If you specify both, `only` takes precedence over `except`. By default, `gh-pages` branch is not built unless you add it to the whitelist.
+If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the whitelist.
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
