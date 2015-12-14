@@ -46,13 +46,11 @@ Our Xcode 7.2 images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.2
-- iphoneos9.1
 - iphonesimulator9.2
-- iphonesimulator9.1
-- tvos9.0
-- appletvsimulator9.0
-- watchos2.0
-- watchsimulator2.0
+- tvos9.1
+- appletvsimulator9.1
+- watchos2.1
+- watchsimulator2.1
 
 In addition, the following simulators are installed:
 
@@ -117,10 +115,28 @@ In addition, the following simulators are installed:
   - iPad Air
   - iPad Air 2
   - iPad Pro
+- iOS 9.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - iPad Air 2
+  - iPad Pro
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
+- watchOS 2.1
+  - Apple Watch - 38mm
+  - Apple Watch - 42mm
 - tvOS 9.0
+  - Apple TV 1080p
+- tvOS 9.1
   - Apple TV 1080p
 
 ### Xcode 7.1
