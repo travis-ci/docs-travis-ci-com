@@ -67,33 +67,75 @@ matrix:
 
 ## Example Multi OS Build Matrix
 
-This example `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. Custom requirements are installed in `./.travis./install.sh` below.
+Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/customizing-the-build/#The-Build-Lifecycle) to use [Graphviz](http://www.graphviz.org/) in both Linux and OS X.
 
 ```yaml
 
-sudo: required
+language: c
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - gcc
+  - clang
+
+addons:
+  apt:
+    packages:
+      - graphviz
+
+before install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install graphviz; fi
+
+script:
+  - cd src
+  - make all
+```
+
+There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty beta build environment](user/trusty-ci-environment) and to an [OS X image using Xcode 7.2](https://docs.travis-ci.com/user/languages/objective-c#Supported-OS-X-iOS-SDK-versions):
+
+```yaml
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
+      osx_image: xcode7.2
+```
+
+### Python example (unsupported languages)
+
+For example, this `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. It also takes advantage of `language: generic` to test Python in OS X. Custom requirements are installed in `./.travis./install.sh` below.
+
+```yaml
 
 language: python
 
 matrix:
     include:
-        - python: 3.2
-          os: linux
+        - os: linux
+          sudo: required
+          python: 3.2
           env: TOXENV=py32
-        - python: 3.3
-          os: linux
+        - os: linux
+          sudo: required
+          python: 3.3
           env: TOXENV=py33
-        - language: generic
-          os: osx
+        - os: osx
+          language: generic
           env: TOXENV=py32
-        - language: generic
-          os: osx
+        - os: osx
+          language: generic
           env: TOXENV=py33
 install:
     - ./.travis/install.sh
 script: make test
 ```
-This custom install script (pseudo code only) uses the `$TRAVIS_OS_NAME` and `$TOXENV` variables to install prerequisites specific to OS X, Linux and each specific python version.
+This custom install script (pseudo code only) uses the `$TRAVIS_OS_NAME` and `$TOXENV` variables to install (Python) prerequisites specific to OS X, Linux and each specific python version.
 
 ```bash
 #!/bin/bash
@@ -101,6 +143,7 @@ This custom install script (pseudo code only) uses the `$TRAVIS_OS_NAME` and `$T
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 
     # Install some custom requirements on OS X
+    # e.g. brew install pyenv-virtualenv
 
     case "${TOXENV}" in
         py32)
