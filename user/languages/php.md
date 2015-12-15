@@ -183,9 +183,8 @@ as they are not updated for PHP 7 compatibility.
 For PHP versions up to 5.6, these extensions are available.
 
 * [apc.so](http://php.net/apc)
-* [memcache.so](http://php.net/memcache)
-* [memcached.so](http://php.net/memcached)
-* [mongo.so](http://php.net/mongo)
+* [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+* [mongo.so](http://php.net/mongo) or [mongodb.so](https://php.net/mongodb)
 * [amqp.so](http://php.net/amqp)
 * [zmq.so](http://zeromq.org/bindings:php)
 * [xdebug.so](http://xdebug.org)
