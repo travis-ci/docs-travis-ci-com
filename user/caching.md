@@ -205,12 +205,11 @@ we'll see about adding your custom source to our cache.
 
 ### Fetching and storing caches
 
-* We fetch the repo's cache on every build, including feature branches and pull requests.
-* There is one cache per branch and language version/compiler version/JDK version/Gemfile location/etc.
-* If a branch does not have its own cache yet, it will fetch the master branch cache.
+* Travis CI fetches the cache for every build, including feature branches and pull requests.
+* There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
+* Pull requests use the cache of the target of the pull request.
+* If a branch does not have its own cache yet, it uses the master branch cache (unless it is a pull request, see above).
 * Only modifications made to the cached directories from normal pushes are stored.
-
-Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
 
 ### `before_cache` phase
 
