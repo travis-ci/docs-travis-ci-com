@@ -44,7 +44,7 @@ The shell environment in our build system provides a function that helps to work
 If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment.
 
     install: travis_wait mvn install
-    
+
 `travis_wait` writes a short line to the build log every minutes for 20 minutes, extending the amount of time your command has to finish.
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.

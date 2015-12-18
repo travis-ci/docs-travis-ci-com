@@ -4,13 +4,13 @@ layout: en
 permalink: /user/getting-started/
 ---
 
-The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead. 
+The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead.
 
-Or if you want a more complete guide to a particular language, pick one of these: 
+Or if you want a more complete guide to a particular language, pick one of these:
 
 {% include languages.html %}
 
-<!-- 
+<!--
 [C](/user/languages/c) | [C++](/user/languages/cpp) | [Clojure](/user/languages/clojure) | [C#](/user/languages/csharp/) | [D](/user/languages/d) | [Erlang](/user/languages/erlang) | [F#](/user/languages/csharp/) | [Go](/user/languages/go) | [Groovy](/user/languages/groovy) | [Haskell](/user/languages/haskell) | [Java](/user/languages/java) | [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs) | [Julia](/user/languages/julia) | [Objective-C](/user/languages/objective-c) | [Perl](/user/languages/perl) | [PHP](/user/languages/php) | [Python](/user/languages/python) | [Ruby](/user/languages/ruby) | [Rust](/user/languages/rust) | [Scala](/user/languages/scala) | [Visual Basic](/user/languages/csharp/).
 -->
 
@@ -20,7 +20,7 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 2. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the repository you want to build.
 
-	> Note: You can only enable Travis CI builds for repositories you have admin access to.  
+	> Note: You can only enable Travis CI builds for repositories you have admin access to.
 
 2. Add a `.travis.yml` file to your repository to tell Travis CI what to build:
 
@@ -34,7 +34,7 @@ Or if you want a more complete guide to a particular language, pick one of these
    # uncomment this line if your project needs to run something other than `rake`:
    # script: bundle exec rspec spec
    ```
-   
+
    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
 
 2. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:

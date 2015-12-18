@@ -4,13 +4,13 @@ layout: en
 permalink: /user/deployment/npm/
 ---
 
-Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/) 
+Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/)
 or another npm-like registry after a successful build. By default Travis CI will
-publish to npmjs.org, however if you have a `publishConfig.registry` key in your 
+publish to npmjs.org, however if you have a `publishConfig.registry` key in your
 `package.json` then Travis CI will push to that registry instead.
 
-For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your 
-`.npmrc` you should see a line similar to `//registry.npmjs.org/:_authToken=YOUR_API_KEY`. 
+For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your
+`.npmrc` you should see a line similar to `//registry.npmjs.org/:_authToken=YOUR_API_KEY`.
 A minimal configuration for publishing to npmjs.org with npm version 2+ looks like:
 
     deploy:
@@ -21,7 +21,7 @@ For npm version ~1 your `~/.npmrc` file will look more like:
 
     _auth=YOUR_API_KEY
     email=YOUR_EMAIL_ADDRESS
-    
+
 And you can deploy with the npm provider by adding:
 
     deploy:
@@ -29,7 +29,7 @@ And you can deploy with the npm provider by adding:
       email: "YOUR_EMAIL_ADDRESS"
       api_key: "YOUR_API_KEY"
 
-It is recommended to encrypt your api_key. Assuming you have the Travis CI command 
+It is recommended to encrypt your api_key. Assuming you have the Travis CI command
 line client installed, you can do it like this:
 
     $ travis encrypt YOUR_API_KEY --add deploy.api_key
@@ -38,7 +38,7 @@ You can also have the `travis` tool set up everything for you:
 
     $ travis setup npm
 
-Keep in mind that the above command has to run in your project directory, so 
+Keep in mind that the above command has to run in your project directory, so
 it can modify the `.travis.yml` for you.
 
 ### What to release
@@ -52,7 +52,7 @@ commits, like so:
       on:
         tags: true
 
-If you tag a commit locally, remember to run `git push --tags` to ensure that 
+If you tag a commit locally, remember to run `git push --tags` to ensure that
 your tags are uploaded to Github.
 
 You can explicitly specify the branch to release from with the **on** option:

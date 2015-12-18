@@ -23,7 +23,7 @@ For precise versions on the VM, please consult "Build system information" in the
 
 ## Dependency Management
 
-There is no dominant convention in the community about dependency management, but there are some dependency management tools available. 
+There is no dominant convention in the community about dependency management, but there are some dependency management tools available.
 Travis CI has support for [biicode](https://www.biicode.com/), a C and C++ dependency manager. Check [how to deploy with biicode](http://docs.travis-ci.com/user/deployment/biicode/).
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
