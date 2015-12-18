@@ -34,16 +34,13 @@ baseline: MyProjectBaseline
 ## Configuration options
 
 As well as using the default image you can also test projects against other versions of Squeak/Smalltalk or Pharo (a full list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#images)).  
-Furthermore you can use multiple baselines at once.
 
 ```yaml
 language: smalltalk
 smalltalk:
   - Squeak-5.0
   - Squeak-trunk
-baseline:
-  - MyFirstBaseline
-  - MySecondBaseline
+baseline: MyBaseline
 ```
 
 ## Further information
