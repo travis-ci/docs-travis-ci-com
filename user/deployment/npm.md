@@ -83,8 +83,10 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 
 ### Conditional releases
 
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+[A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
+reported when multiple attempts are made.
+We recommend deploying from only one job with
+[Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after release
 
