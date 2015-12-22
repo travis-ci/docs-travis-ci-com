@@ -4,7 +4,7 @@ layout: en
 permalink: /user/deployment/atlas/
 ---
 
-Travis CI can automatically deploy your [Atlas](https://atlas.hashicorp.com/) application after a successful build.
+Travis CI can automatically deploy your application to [Atlas](https://atlas.hashicorp.com/) after a successful build.
 
 To deploy your application to Atlas:
 
@@ -24,10 +24,23 @@ To deploy your application to Atlas:
 You can include and exclude files by adding the `include` and `exclude` entries to `.travis.yml`. Both are glob patterns of files or directories to include or exclude, and may be specified multiple times. If there is a conflict, excludes have precedence over includes.
 
 ```yaml
+deploy:
+  provider: atlas
   exclude: "*.log"
   include:
    - "build/*"
    - "bin/*"
+```
+
+### Using your Version Control System
+
+Get the lists of files to exclude and include from your version control system (Git, Mercurial or Subversion):
+
+```yaml
+deploy:
+  provider: atlas
+  vcs: true
+
 ```
 
 ## Other Deployment Options
@@ -35,6 +48,8 @@ You can include and exclude files by adding the `include` and `exclude` entries 
 ### Specifying the Address of the Atlas Server:
 
 ```yaml
+deploy:
+   provider: atlas
    address: "URL OF THE ATLAS SERVER"
 ```
 
@@ -43,6 +58,8 @@ You can include and exclude files by adding the `include` and `exclude` entries 
 Add one or more items of metadata:
 
 ```yaml
+deploy:
+  provider: atlas
   metadata:
     - "custom_name=Jane"
     - "custom_surname=Doe"
