@@ -11,7 +11,6 @@ For a minimal configuration, all you need to do is add the following to your `.t
     deploy:
       provider: gae
       keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
-      default: true
       project: "YOUR PROJECT ID"
 
 You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
@@ -66,6 +65,26 @@ Alternatively, you can also configure it to deploy from all branches:
         all_branches: true
 
 Builds triggered from Pull Requests will never trigger a deploy.
+
+### Deploying without Promoting
+
+By default, when your application is deployed it will be promoted to receive all traffic. You can disable that using the `no_promote` option:
+
+    deploy:
+      provider: gae
+      keyfile: ...
+      project: continuous-deployment-demo
+      no_promote: true
+
+In addition to that, and according to the [Google Cloud SDK changelog](https://cloud.google.com/sdk/release_notes#0981_20151007), _"in a future Cloud SDK release, deployments that promote the new version to receive all traffic will stop the previous version by default"_.
+
+You can prevent that from happening by setting the option `no_stop_previous_version`:
+
+    deploy:
+      provider: gae
+      keyfile: ...
+      project: continuous-deployment-demo
+      no_stop_previous_version: true
 
 ### Skipping Cleanup
 
