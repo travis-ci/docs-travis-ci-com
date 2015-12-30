@@ -1,5 +1,6 @@
 anynines: "/user/deployment/anynines"
 Appfog: "/user/deployment/appfog"
+Atlas: "/user/deployment/atlas/"
 AWS CodeDeploy: "/user/deployment/codedeploy"
 AWS OpsWorks: "/user/deployment/opsworks"
 Azure Web Apps: "/user/deployment/azure-web-apps"
