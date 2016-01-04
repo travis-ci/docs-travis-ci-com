@@ -136,3 +136,33 @@ order to make it faster, you may try caching the dependencies.
 You can either use our [built-in caching](/user/caching/) or roll your own on S3. If you
 want to roll your own and you use Ruby with Bundler, check out [the great WAD project](https://github.com/Fingertips/WAD).
 For other languages, you can use s3 tools directly to upload and download the dependencies.
+
+## Environment-specific ways to speed up your build
+
+In addition to the optimizations implemented by Travis, there are also
+several environment-specific ways you may consider increasing the speed of
+your tests.
+
+### PHP optimisations
+
+PHP VM images on travis-ci.org provide several PHP versions which include
+XDebug. The XDebug extension is useful if you wish to generate code coverage
+reports in your Travis builds, but it has been shown to have a negative effect
+upon performance.
+
+You may wish to consider
+[disabling the PHP XDebug extension](/user/languages/php#Disabling-preinstalled-PHP-extensions) for your
+builds if:
+
+- you are not generating code coverage reports in your Travis tests; or
+- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
+which may be faster.
+
+#### Using phpdbg example
+
+    before_script:
+      - phpenv config-rm xdebug.ini
+      - composer install
+
+    script:
+      - phpdbg -qrr phpunit
