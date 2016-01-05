@@ -111,17 +111,6 @@ By default, Travis CI will run
 
 to install your dependencies. Note that dependency installation in Travis CI environment always happens from scratch (there are no npm packages installed at the beginning of your build).
 
-### Overriding npm version with `package.json`
-
-By default, Travis CI uses the version of `npm` pre-packaged with the Node.js runtime in use.
-Optionally, it is possible to override this by specifying `engines.npm` in `package.json`:
-
-{% highlight json %}
-{ "engines" : { "npm" : "~3.5.2" } }
-{% endhighlight %}
-
-See [`npm` documentation](https://docs.npmjs.com/files/package.json#engines) for more details.
-
 ### Using shrinkwrapped git dependencies
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD
