@@ -132,7 +132,7 @@ env:
   global:
     secure: ... encoded secret ...
 before_install:
-  - echo $super_secret_password | gpg super_secret.txt.gpg
+  - echo $super_secret_password | gpg --pass-phrase-fd 0 super_secret.txt.gpg
 {% endhighlight %}
 
 The encrypted file is called `super_secret.txt.gpg` and has to be committed to the repository.
