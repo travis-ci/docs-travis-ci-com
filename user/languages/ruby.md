@@ -84,8 +84,7 @@ extra 60 seconds or more to your build.
 
 ### Rubinius
 
-[Rubinius](http://rubini.us) releases frequent updates which can be found on the
-Rubinius [downloads](http://rubini.us/downloads/) page. Binaries for Travis CI
+[Rubinius](http://rubini.us) releases frequent updates. Binaries for Travis CI
 should be available for every release from 2.1.1 onwards. To test against a
 release of Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z
 specifies a Rubinius release.
