@@ -191,6 +191,9 @@ For PHP versions up to 5.6, these extensions are available.
 * [redis.so](http://pecl.php.net/package/redis)
 
 Please note that these extensions are not enabled by default with the exception of xdebug.
+
+### Enabling preinstalled PHP extensions
+
 You need to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version).
 The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
 
@@ -205,6 +208,8 @@ And myconfig.ini:
 You can also use this one line command:
 
     echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+### Disabling preinstalled PHP extensions
 
 To disable xdebug, add this to your configuration:
 
