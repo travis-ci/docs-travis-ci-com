@@ -77,3 +77,13 @@ to construct a build matrix.
 
 OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a reasonably small value (say, 4).
 OpenMP detects the cores on the hosting hardware, rather than the VM on which your tests run.
+
+### MPI projects
+
+The default environment variable `$CC` is known to interfere with MPI projects.
+In this case, we recommend unsetting it:
+
+{% highlight yaml %}
+before_install:
+  - test -n $CC && unset CC
+{% endhighlight %}
