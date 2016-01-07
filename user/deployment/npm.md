@@ -88,6 +88,20 @@ reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+### Note on `.gitignore`
+
+Notice that `npm` deployment honors `.gitignore` if `.npmignore` does not exist.
+This means that if your build creates artifacts in places listed in `.gitignore`,
+they will not be included in the uploaded package.
+
+See [`npm` documentation](https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package)
+for more details.
+
+If your `.gitignore` file matches something that your build creates, use
+[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+its content, or create (potentially empty) `.npmignore` file
+to override it.
+
 ### Running commands before and after release
 
 Sometimes you want to run commands before or after releasing a package. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
