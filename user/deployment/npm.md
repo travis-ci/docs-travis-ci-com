@@ -102,6 +102,15 @@ If your `.gitignore` file matches something that your build creates, use
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 
-### Running commands before and after release
+### Running commands before and after deploy
 
-Sometimes you want to run commands before or after releasing a package. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+{% highlight yaml %}
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+{% endhighlight %}
