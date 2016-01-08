@@ -28,7 +28,7 @@ You can always use the Travis CI command line client set everything up for you:
 
 ###  Authenticating with an Oauth token
 
-The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+The recommended way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
 
 ### Authentication with a Username and Password
 
