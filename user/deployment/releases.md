@@ -66,6 +66,17 @@ You can upload multiple files using yml array notation. This example uploads two
         tags: true
 
 
+You can also enable wildcards by setting `file_glob` to `true`. This example will include all files in a given directory.
+
+    deploy:
+      provider: releases
+      api-key: "GITHUB OAUTH TOKEN"
+      file_glob: true
+      file: directory/*
+      skip_cleanup: true
+      on:
+        tags: true
+
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
