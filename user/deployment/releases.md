@@ -43,6 +43,14 @@ You can also authenticate with your GitHub username and password using the `user
       on:
         tags: true
 
+### Authentication with GitHub Enterprise
+
+If you are using an on-premises GitHub Enterprise installation, you need to specify your GitHub API Endpoint by setting the `OCTOKIT_API_ENDPOINT` environment variable.
+
+    env:
+      global:
+        - OCTOKIT_API_ENDPOINT="http://github.yourdomain.com/api/v3"
+
 ### Uploading Multiple Files
 
 You can upload multiple files using yml array notation. This example uploads two files.
