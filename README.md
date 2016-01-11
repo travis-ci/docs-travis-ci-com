@@ -33,4 +33,4 @@ version (1.8 vs. 1.9) used. It is normal.
 
 ## License
 
-Distributed under the MIT license, the same as other Travis CI projects.
+Distributed under the [MIT license](https://opensource.org/licenses/MIT); the same as other Travis CI projects.
