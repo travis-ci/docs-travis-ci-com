@@ -76,7 +76,7 @@ It can be complex, but there can be only one. For example, `$CC = gcc`.
 This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
 
     deploy:
-      provider: nodejitsu
+      provider: appfog
       user: ...
       api_key: ...
       on:
