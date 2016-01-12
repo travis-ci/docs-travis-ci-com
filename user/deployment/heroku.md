@@ -153,6 +153,15 @@ It defaults to **api**, but you can change that via the **strategy** option:
 
 Note that the **anvil**, **git-ssh** and **git-deploy-key** strategies are considered **deprecated**. Please contact us if you have issues switching away from these.
 
+#### Using `.gitignore` on `git` strategy
+
+When you use any of the `git` strategies, be mindful that the deployment will
+honor `.gitignore`.
+
+If your `.gitignore` file matches something that your build creates, use
+[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+its content.
+
 ### Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
