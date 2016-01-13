@@ -52,7 +52,7 @@ Deployment can be controlled by setting the `on:` for each deployment provider.
         condition: $MY_ENV = super_awesome
 
 When all conditions specified in the `on:` section are met, deployment for this
-provider will be peformed.
+provider will be performed.
 
 Common options are:
 
