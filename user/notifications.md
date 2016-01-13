@@ -58,25 +58,30 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 Specify recipients that will be notified about build results:
 
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
-
+```yml
+notifications:
+  email:
+    - one@example.com
+    - other@example.com
+```
 Turn off email notifications entirely:
 
-    notifications:
-      email: false
+```yml
+notifications:
+  email: false
+```
 
 Specify when you want to get notified:
 
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
+```yml
+notifications:
+  email:
+    recipients:
+      - one@example.com
+      - other@example.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+```
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
@@ -101,14 +106,15 @@ The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
 there, rather than to the committer and author.
 
-### How can I change the email address for build notifications?
+### Changing the email address for build notifications
 
-The email addresses are pulled from GitHub. All emails registered there for your
-user account are available in Travis CI as well.
+Travis CI only sends build notifications to email addresses registered on GitHub.
+If you have multiple address registered you can set the email address for a specific
+ repository using `git`:
 
-You can change the build email address by setting a different email address for
-a specific repository. Running `git config user.email my@email.com` sets a
-different email address than the default for your repository.
+```sh
+git config user.email mynew@email.com
+```
 
 Note that we currently don't respect the [detailed notifications
 settings](https://github.com/settings/notifications) on
