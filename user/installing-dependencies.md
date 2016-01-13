@@ -2,41 +2,25 @@
 title: Installing Dependencies
 layout: en
 permalink: /user/installing-dependencies/
+redirect_from:
+  - /user/apt/
 ---
-Some builds need more than a set of language libraries, they need extra services or libraries not installed by default. To learn about the default setup of our build environment, please refer to <a href="/user/ci-environment">The Build Environment</a>.
-
-You have full control over the virtual machine your tests are running on, so you can customize it to your needs.
 
 <div id="toc"></div>
 
-## Installing Ubuntu packages
+## Installing Packages on Standard or Trusty Infrastructure
 
-Our Linux environment is currently based on Ubuntu 12.04 LTS. You can install all packages that are available from its package repository, including security and backports.
-
-<div class="note-box">
-Note that this feature is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>, although the
-<a href="/user/apt/">APT</a> addon may be used.
-</div>
-
-To install Ubuntu packages, add something like the example below to your .travis.yml:
+To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/) or [trusty](/user/trusty-ci-environment/) use apt-get in the `before_install` step of your `.travis.yml`:
 
     before_install:
-      - sudo apt-get update -qq
+      - sudo apt-get -qq update
       - sudo apt-get install -y libxml2-dev
 
-There are two things to note. Before installing a package, make sure to run 'apt-get update'. While we regularly update our build environment to include the latest security patches and updates, new package updates are released regularly, causing our packages indexes to be out of date. Updating the index before installing a Ubuntu package is recommended to avoid breaking your build should the package receive an update.
+> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
 
-Second thing to note is the use of the `-y` parameter when running apt-get install. As your build runs without any means for human interaction or intervention, you should make sure that it won't stall with apt-get asking for input. Specifying this flag ensures that it'll do what it'd normally ask your permission for.
+> Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
-### A word on apt-get upgrade
-
-We recommend you avoid running apt-get upgrade, as it will upgrade every single package for which apt-get can find a newer version. As we install quite a few packages by default, this could end up downloading and installing up to 500MB of packages.
-
-This extends your build time quite significantly, so we generally recommend you avoid using it in your builds.
-
-If you need to upgrade a very specific package, you can run a normal 'apt-get install', which will install the latest version available.
-
-## Installing Packages from a custom APT repository
+### Installing Packages from a custom APT repository
 
 For some packages, you may find an existing repository, which isn't yet set up on our build environment by default. You can easily add custom repositories and Launchpad PPAs as part of your build.
 
@@ -51,6 +35,8 @@ before_install:
 
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
+If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
+
 This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the locally available list of APT sources and then installs the `varnish` package.
 
     before_script:
@@ -59,9 +45,11 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
       - sudo apt-get update -qq
       - sudo apt-get install varnish
 
-## Installing Packages without an APT Repository
+### Installing Packages without an APT Repository
 
 For some projects, there may be a Debian/Ubuntu package available, but no corresponding APT repository. These are still easy to install, but require the extra step of downloading.
+
+If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
 
 Say your project requires the pngquant tool to compress PNG files, here's how to download and install the .deb file:
 
@@ -69,7 +57,97 @@ Say your project requires the pngquant tool to compress PNG files, here's how to
       - wget http://pngquant.org/pngquant_1.7.1-1_i386.deb
       - sudo dpkg -i pngquant_1.7.1-1_i386.deb
 
-If you're installing packages this way, make sure they're available for Ubuntu 12.04, our current Linux platform.
+### Installing Packages with the APT Addon
+
+You can also use the APT addon.
+
+#### Adding APT Sources
+
+To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+
+``` yaml
+addons:
+  apt:
+    sources:
+    - deadsnakes
+    - ubuntu-toolchain-r-test
+```
+
+#### Adding APT Packages
+
+To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+
+``` yaml
+addons:
+  apt:
+    packages:
+    - cmake
+    - time
+```
+
+> Note: When using APT sources and packages together, you need to make
+> sure they are under the same key space in the YAML file. e.g.
+
+``` yaml
+addons:
+ apt:
+   sources:
+   - ubuntu-toolchain-r-test
+   packages:
+   - gcc-4.8
+   - g++-4.8
+```
+
+## Installing Packages on Container Based Infrastructure
+
+To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
+
+### Adding APT Sources
+
+To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+
+``` yaml
+addons:
+  apt:
+    sources:
+    - deadsnakes
+    - ubuntu-toolchain-r-test
+```
+
+### Adding APT Packages
+
+To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+
+``` yaml
+addons:
+  apt:
+    packages:
+    - cmake
+    - time
+```
+
+> Note: When using APT sources and packages together, you need to make
+> sure they are under the same key space in the YAML file. e.g.
+
+``` yaml
+addons:
+ apt:
+   sources:
+   - ubuntu-toolchain-r-test
+   packages:
+   - gcc-4.8
+   - g++-4.8
+```
+
+## Installing Packages on OSX
+
+To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+
+    before_install:
+      - brew update
+      - brew install beanstalk
+
+Use `brew update` to update the local Homebrew package list.
 
 ## Installing Projects from Source
 
@@ -105,19 +183,3 @@ Once it's added to the repository, you can run it from your .travis.yml:
 
     before_install:
       - ./install-protobuf.sh
-
-## Installing Mac Packages
-
-On our Mac platform, you have all the developer tools available to install packages from scratch, if you need to.
-
-First and foremost, you should look at what's available on [Homebrew](http://brew.sh), as it's already preinstalled and ready to use.
-
-Using Homebrew over installing from scratch has several benefits. For a lot of packages, it has binary packages available, removing the need to compile packages when installing them. However, should one of them need to be compiled from source, Homebrew can also manage dependencies and the installation process for you. Using it helps keep your .travis.yml to a minimum.
-
-Say you need to install beanstalk for your tests, you can use the following set of commands in your .travis.yml:
-
-    before_install:
-      - brew update
-      - brew install beanstalk
-
-Note the addition command `brew update`, which, similar to `apt-get update`, ensures that the local Homebrew installation has the most recent packages in its index.
