@@ -30,7 +30,7 @@ You can change the conditions for each of the channels by setting the
 * `never`: never send a notification.
 * `change`: send a notification when the build status changes.
 
-For example, to always send slack notifications on sucessful builds:
+For example, to always send slack notifications on successful builds:
 
 	notifications:
 	  slack:
@@ -81,6 +81,8 @@ Specify when you want to get notified:
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+
+Pull Request builds do not trigger email notifications.
 
 ### How is the build email receiver determined?
 
@@ -207,6 +209,8 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+Pull Request builds do not trigger IRC notifications.
+
 ### Channel key
 
 If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
@@ -257,6 +261,8 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+Pull Request builds do not trigger Campfire notifications.
+
 ## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
@@ -270,6 +276,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
     travis encrypt api_token --add notifications.flowdock
+
+Pull Request builds do not trigger Flowdock notifications.
 
 ## HipChat notification
 
@@ -335,6 +343,15 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_pull_requests: false
+
 ## Pushover notification
 
 Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
@@ -367,14 +384,7 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
-### Notifications of PR builds
-
-By default, Hipchat will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
-
-    notifications:
-      hipchat:
-        on_pull_requests: false
+Pull Request builds do not trigger Pushover notifications.
 
 ## Sqwiggle notifications
 
@@ -421,6 +431,8 @@ To customize it, add a template definition to your .travis.yml.
         template: '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 
 It's recommended to encrypt the credentials.
+
+Pull Request builds do not trigger Sqwiggle notifications.
 
 ## Slack notifications
 

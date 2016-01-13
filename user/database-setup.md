@@ -98,7 +98,7 @@ To use MySQL include the following `services` entry in `.travis.yml`:
 
 Note: MySQL on Travis CI is currently **started on boot** however this may not always be the case.
 
-MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.  
+MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
 
 >Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 

@@ -34,6 +34,9 @@ Specifying `node` or `stable` will run using the latest stable Node.js release a
 
 Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version. If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases. [nvm](https://github.com/creationix/nvm) handles version resolution, so any version or [alias](https://github.com/creationix/nvm#usage) of Node or io.js that nvm can install is available.
 
+If the version of Node.js cannot be used (because `nvm` cannot install it, and a suitable version is not locally installed),
+the job will error immediately.
+
 For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
 
 ### Using `.nvmrc`

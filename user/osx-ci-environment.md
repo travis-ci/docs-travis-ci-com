@@ -68,7 +68,7 @@ For example, if you always want the latest version of xctool, you can run this:
       - brew outdated xctool || brew upgrade xctool
 
 
-### Compilers & Build toolchain
+### Compilers and Build toolchain
 
 * apple-gcc42
 * autoconf 2.69

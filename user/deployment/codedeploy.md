@@ -94,6 +94,15 @@ In this case, S3 deployment provider is not required.
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+### Note on `.gitignore`
+
+As this deployment strategy relies on `git`, be mindful that the deployment will
+honor `.gitignore`.
+
+If your `.gitignore` file matches something that your build creates, use
+[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+its content.
+
 ### Running commands before and after deployment
 
 Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
@@ -105,6 +114,19 @@ Sometimes you want to run commands before or after triggering a deployment. You 
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
+{% endhighlight %}
+
+### Running commands before and after deploy
+
+Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+{% highlight yaml %}
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
 {% endhighlight %}
 
 ### AWS region to deploy to

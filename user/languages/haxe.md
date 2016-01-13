@@ -55,7 +55,7 @@ the list of hxml files using the `hxml:` key, for example:
       - build.hxml
 
 In the *install* phase, the worker will run `yes | haxelib install $hxml` for
-each of the provided values. Similarly, in the *script* (test) phase, 
+each of the provided values. Similarly, in the *script* (test) phase,
 the worker will run `haxe $hxml` for each of the provided values.
 
 You can replace the default *install* and *script* behavior by using the
