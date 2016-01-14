@@ -141,3 +141,32 @@ deploy:
   ...
   deployment_branch: mybranch
 {% endhighlight %}
+
+### Deploying from a distribution directory
+
+When using travis to deploy build artifacts to your openshift deployment, you will need to perform a **git commit** in the `after_success:` section of your configuration. 
+
+In the example below, we will assume that your distribution files will be located in a foler called **dist**
+
+**deploy**
+
+{% highlight yaml %}
+deploy:
+  provider: openshift
+  user: "OPENSHIFT USERNAME"
+  password: "OPENSHIFT PASSWORD"
+  skip_cleanup: true
+  domain: "OPENSHIFT DOMAIN"
+{% endhighlight %}
+
+**after_success**
+
+{% highlight yaml %}
+after_success:
+  - cd dist
+  - git init
+  - git config --global user.email "travis@localhost.localdomain"
+  - git config --global user.name "Travis CI"
+  - git add --all
+  - git commit -am "Travis change"
+{% endhighlight %}
