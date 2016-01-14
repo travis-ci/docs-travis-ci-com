@@ -394,7 +394,7 @@ Define allowed failures in the build matrix as key/value pairs:
 
 ### Fast Finishing
 
-If some rows in the build matrix that are allowed to fail, the build won't be marked as finished until they have completed.
+If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
 To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
