@@ -64,16 +64,15 @@ after_deploy:
 {% endhighlight %}
 
 ### Descriptor file example
-{% highlight yaml %}
-{
-    /* Bintray package information.
-       In case the package already exists on Bintray, only the name, repo and subject
-       fields are mandatory. */
 
+The descriptor is in JSON file format in three sections:
+
+{% highlight js %}
+{
     "package": {
-        "name": "auto-upload", // Bintray package name
-        "repo": "myRepo", // Bintray repository name
-        "subject": "myBintrayUser", // Bintray subject (user or organization)
+        "name": "auto-upload",
+        "repo": "myRepo",
+        "subject": "myBintrayUser",
         "desc": "I was pushed completely automatically",
         "website_url": "www.jfrog.com",
         "issue_tracker_url": "https://github.com/bintray/bintray-client-java/issues",
@@ -89,9 +88,6 @@ after_deploy:
                        {"name": "att5", "values" : ["2014-12-28T19:43:37+0100"], "type": "date"}]
     },
 
-    /* Package version information.
-       In case the version already exists on Bintray, only the name fields is mandatory. */
-
     "version": {
         "name": "0.5",
         "desc": "This is a version",
@@ -103,30 +99,44 @@ after_deploy:
         "gpgSign": false
     },
 
-    /* Configure the files you would like to upload to Bintray and their upload path.
-    You can define one or more groups of patterns.
-    Each group contains three patterns:
-
-    includePattern: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
-    excludePattern: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
-    uploadPattern: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
-
-    In the example below, the following files are uploaded,
-    1. All gem files located under build/bin/ (including sub directories),
-    except for files under a the do-not-deploy directory.
-    The files will be uploaded to Bintray under the gems folder.
-    2. All files under build/docs. The files will be uploaded to Bintray under the docs folder.
-
-    Note: Regular expressions defined as part of the includePattern and excludePattern properties must be wrapped with brackets. */
-
     "files":
         [
-        {"includePattern": "build/bin(.*)*/(.*\.gem)", "excludePattern": ".*/do-not-deploy/.*", "uploadPattern": "gems/$2"},
+        {"includePattern": "build/bin(.*)*/(.*\\.gem)", "excludePattern": ".*/do-not-deploy/.*", "uploadPattern": "gems/$2"},
         {"includePattern": "build/docs/(.*)", "uploadPattern": "docs/$1"}
         ],
     "publish": true
 }
 {% endhighlight %}
+
+#### Package Section
+
+Bintray package information. In case the package already exists on Bintray, only the name, repo and subject fields are mandatory.
+
+* `name` is the Bintray package name
+* `repo` is the Bintray repository name
+* `subject` is the Bintray subject, which is either a user or an organization
+
+#### Version Section
+
+Package version information. In case the version already exists on Bintray, only the name field is mandatory.
+
+#### Files Section
+
+Configure the files you would like to upload to Bintray and their upload path.
+
+You can define one or more groups of patterns. Each group contains three patterns:
+
+* `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
+* `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
+* `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
+
+In the example above, the following files are uploaded:
+
+1. All gem files located under build/bin/ (including sub directories), except for files under a the do-not-deploy directory.  The files will be uploaded to Bintray under the gems folder.
+2. All files under build/docs. The files will be uploaded to Bintray under the docs folder.
+
+**Note:** Regular expressions defined as part of the includePattern and excludePattern properties must be wrapped with brackets.
+
 
 #### Debian Upload
 
