@@ -141,13 +141,26 @@ In the example above, the following files are uploaded:
 #### Debian Upload
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
-{% highlight yaml %}
+{% highlight js %}
 "files":
     [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
     "matrixParams": {
         "deb_distribution": "vivid",
         "deb_component": "main",
         "deb_architecture": "amd64"}
+    }
+]
+{% endhighlight %}
+
+#### Overwriting Existing Files
+
+If an artifact by a given name already exists in the Bintray repository, then by default it is not overwritten. If you want to replace the existing file, define the `override` key in your matrix properties:
+
+{% highlight js %}
+"files":
+    [{"includePattern": "build/bin/(myfile.bin)", "uploadPattern": "$1",
+    "matrixParams": {
+        "override": 1 }
     }
 ]
 {% endhighlight %}
