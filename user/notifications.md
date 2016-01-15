@@ -112,8 +112,16 @@ Travis CI only sends build notifications to email addresses registered on GitHub
 If you have multiple address registered you can set the email address for a specific
  repository using `git`:
 
+> Note that this also changes the commit email address, not just the Travis CI notification settings.
+
 ```sh
-git config user.email mynew@email.com
+git config user.email "mynewemail@example.com"
+```
+
+Or set the email for all of your git repositories:
+
+```sh
+git config --global user.email "mynewemail@example.com"
 ```
 
 Note that we currently don't respect the [detailed notifications
