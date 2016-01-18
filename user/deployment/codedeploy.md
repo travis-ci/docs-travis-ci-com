@@ -89,6 +89,19 @@ deploy:
 
 In this case, S3 deployment provider is not required.
 
+### Waiting for Deployments
+
+By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
+
+```yaml
+deploy:
+  provider: codedeploy
+    ⋮
+    wait-until-deployed: true
+```
+
+Travis CI will wait for the deploy to complete, and log whether it succeeded.
+
 ### Conditional deployments
 
 You can deploy only when certain conditions are met.
