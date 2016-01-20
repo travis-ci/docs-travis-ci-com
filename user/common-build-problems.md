@@ -297,3 +297,24 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 `travis_wait` writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
+
+## Troubleshooting Locally in a Docker Image
+
+If you're having trouble tracking down the exact problem in a build it often helps to run the build locally. To do this you need to be using our container based infrastructure, and to download the same Docker image you are using on Travis CI.
+
+### Running a Container Based Docker Image Locally
+
+1. Download and install the Docker Engine:
+  * [Windows](https://docs.docker.com/installation/windows)
+  * [OS X](https://docs.docker.com/installation/mac)
+  * [Ubuntu Linux](https://docs.docker.com/installation/ubuntulinux/)
+2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language specific image pick `travis-ruby`. Open a terminal and run an interactive Docker session using the image URL:
+
+   ```bash
+   docker run -it quay.io/travisci/travis-ruby /bin/bash
+su - travis
+   ```
+
+3. Clone your git repository into the `/` folder of the image.
+4. Manually install any dependencies such as `rake` and your gems.
+5. Manually run your Travis CI build command.
