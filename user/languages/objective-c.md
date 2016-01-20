@@ -22,7 +22,7 @@ installed.
 
 **Supported Xcode versions**
 
-- [Xcode 7.3 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.3) -- `osx_image: xcode7.3b1`
+- [Xcode 7.3 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.3) -- `osx_image: xcode7.3`
 - [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2) -- `osx_image: xcode7.2`
 - [Xcode 7.1.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
 - [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
@@ -39,9 +39,7 @@ about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ### Xcode 7.3
 
-Xcode 7.3 Beta is available by adding `osx_image: xcode7.2` to your .travis.yml.
-
-*Note: This is also our first Xcode image on OS X 10.11, as well as having Xcode 7.2.*
+Xcode 7.3 Beta is available by adding `osx_image: xcode7.3` to your .travis.yml.
 
 Our Xcode 7.3 Beta images have the following SDKs preinstalled:
 
