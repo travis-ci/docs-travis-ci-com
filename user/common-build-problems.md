@@ -300,7 +300,7 @@ We recommend careful use of `travis_wait`, as overusing it can extend your build
 
 ## Troubleshooting Locally in a Docker Image
 
-If you're having trouble tracking down the exact problem in a build it often helps to run the build locally. To do this you need to be using our container based infrastructure, and to download the same Docker image you are using on Travis CI.
+If you're having trouble tracking down the exact problem in a build it often helps to run the build locally. To do this you need to be using our container based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
@@ -308,13 +308,18 @@ If you're having trouble tracking down the exact problem in a build it often hel
   * [Windows](https://docs.docker.com/installation/windows)
   * [OS X](https://docs.docker.com/installation/mac)
   * [Ubuntu Linux](https://docs.docker.com/installation/ubuntulinux/)
-2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language specific image pick `travis-ruby`. Open a terminal and run an interactive Docker session using the image URL:
+2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language-specific image pick `travis-ruby`. Open a terminal and start an interactive Docker session using the image URL:
 
    ```bash
    docker run -it quay.io/travisci/travis-ruby /bin/bash
-su - travis
+   ```
+
+3. Switch to the `travis` user:
+
+   ```bash
+   su - travis
    ```
 
 3. Clone your git repository into the `/` folder of the image.
-4. Manually install any dependencies such as `rake` and your gems.
+4. Manually install any dependencies.
 5. Manually run your Travis CI build command.
