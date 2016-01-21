@@ -171,12 +171,15 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 #### PHP 7.0
 
-These extensions are preinstalled with PECL for PHP 7.0:
+These extensions are preinstalled for PHP 7.0 and nightly builds.
 
+* [apc.so](http://php.net/apc)
+* [memcached.so](http://php.net/memcached)
+* [mongodb.so](https://php.net/mongodb)
+* [amqp.so](http://php.net/amqp)
+* [zmq.so](http://zeromq.org/bindings:php)
 * [xdebug.so](http://xdebug.org)
-
-Other extensions available for PHP 5.6 and below are not yet available for PHP 7,
-as they are not updated for PHP 7 compatibility.
+* [redis.so](http://pecl.php.net/package/redis)
 
 #### PHP 5.6 and below
 
@@ -306,8 +309,8 @@ php:
   - nightly
 {% endhighlight %}
 
-This installation includes PHPUnit and Composer, but does not include any extension
-mentioned above or xdebug.
+This installation includes PHPUnit and Composer, and also has
+[some extensions](#PHP-7.0).
 
 ## Build Matrix
 
