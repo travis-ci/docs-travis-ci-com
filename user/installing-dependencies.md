@@ -139,6 +139,34 @@ addons:
    - g++-4.8
 ```
 
+#### Identifying the source for missing package
+
+You see a message like this when you add `packages` but it is not found:
+
+```
+Installing APT Packages (BETA)
+⋮
+E: Unable to locate package libcxsparse3.1.2
+E: Couldn't find any package by regex 'libcxsparse3.1.2'
+```
+
+This means that the non-default APT package source needs to be added.
+
+To identify which source needs to be added, follow these steps:
+
+1. Search for the PR that added the package on GitHub. For example,
+[this search](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+would yield [https://github.com/travis-ci/apt-package-whitelist/pull/1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+
+1. Click on the link to the test we ran prior to opening the PR. Continuing the example above,
+we have [https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
+Look for the phrase "Fetching source package for …".
+This shows which source had the package we tested.
+
+1. Match that source against the shortcut name shown in
+[the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
+With our example, it is "lucid".
+
 ## Installing Packages on OSX
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
