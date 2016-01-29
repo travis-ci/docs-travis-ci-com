@@ -85,3 +85,5 @@ On <https://travis-ci.com> we ask for the following permissions:
 
     Grants read and write access to code, commit statuses, collaborators, and
     deployment statuses for public and private repositories and organizations.
+
+    We need this level of access because GitHub does not provide the `read:org` (read-only) scope for private repositories.
