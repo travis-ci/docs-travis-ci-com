@@ -45,9 +45,8 @@ Our Xcode 7.3 Beta images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.3
-- iphoneos9.2
 - iphonesimulator9.3
-- tvos9.2
+- appletvos9.2
 - appletvsimulator9.2
 - watchos2.2
 - watchsimulator2.2
@@ -131,7 +130,12 @@ In addition, the following simulators are installed:
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
+- watchOS 2.2
+  - Apple Watch - 38mm
+  - Apple Watch - 42mm
 - tvOS 9.0
+  - Apple TV 1080p
+- tvOS 9.2
   - Apple TV 1080p
 
 ### Xcode 7.2
