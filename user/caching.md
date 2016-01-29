@@ -63,7 +63,7 @@ language: ruby
 install: bundle install --without development --deployment --jobs=3 --retry=3
 cache:
   directories:
-  - vendor/bundle
+    - vendor/bundle
 {% endhighlight %}
 
 In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
