@@ -33,9 +33,9 @@ For example:
 {% highlight yaml %}
 language: elixir
 elixir:
-  - 1.1.0
+  - 1.2.2
 otp_release:
-  - 18.0
+  - 18.2.1
 {% endhighlight %}
 
 ## Build Matrix
