@@ -6,7 +6,7 @@ permalink: /user/deployment/appfog/
 
 Travis CI can automatically deploy your [Appfog](https://www.appfog.com/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to you `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
