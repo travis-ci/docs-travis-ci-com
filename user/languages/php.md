@@ -299,12 +299,12 @@ Travis CI offers ability to test your PHP applications with a recent build of
 
 You can specify this with:
 
-{% highlight yaml %}
+```yaml
 language: php
 
 php:
   - nightly
-{% endhighlight %}
+```
 
 This installation includes PHPUnit and Composer, but does not include any extension
 mentioned above or xdebug.

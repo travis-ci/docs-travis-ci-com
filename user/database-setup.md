@@ -259,10 +259,10 @@ All language packs currently available for Ubuntu 12.04 can be [found on the pac
 MariaDB is a community-developed fork of MySQL. It is available as an addon on Travis CI.
 Pass the major-minor version string to indicate MariaDB version, like so:
 
-{% highlight yaml %}
+```yaml
 addons:
   mariadb: '10.0'
-{% endhighlight %}
+```
 
 For valid values, see [MariaDB web page](https://downloads.mariadb.org/).
 

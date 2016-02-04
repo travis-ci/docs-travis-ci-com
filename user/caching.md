@@ -39,10 +39,10 @@ The logic for fetching and storing the cache is [described below](#Fetching-and-
 
 You can explicitly enable Bundler caching in your *.travis.yml*:
 
-{% highlight yaml %}
+```yaml
 language: ruby
 cache: bundler
-{% endhighlight %}
+```
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -58,21 +58,21 @@ Otherwise it will automatically add the *--path* option. In this case it will ei
 
 Bundler caching will not automatically work if you [override the install step](/user/customizing-the-build/). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-{% highlight yaml %}
+```yaml
 language: ruby
 install: bundle install --without development --deployment --jobs=3 --retry=3
 cache:
   directories:
   - vendor/bundle
-{% endhighlight %}
+```
 
 In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
 
-{% highlight yaml %}
+```yaml
 language: ruby
 bundler_args: --without development --deployment --jobs=3 --retry=3
 cache: bundler
-{% endhighlight %}
+```
 
 ### CocoaPods
 
@@ -83,20 +83,20 @@ On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapod
 You can enable CocoaPods caching for your repository by adding this to your
 *.travis.yml*:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 cache: cocoapods
-{% endhighlight %}
+```
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 cache:
   - bundler
   - cocoapods
-{% endhighlight %}
+```
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -107,10 +107,10 @@ By default, Travis CI will assume that your Podfile is in the root of the
 repository. If this is not the case, you can specify where the Podfile is like
 this:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 podfile: path/to/Podfile
-{% endhighlight %}
+```
 
 #### With a custom install step
 
@@ -118,64 +118,64 @@ CocoaPods caching will not automatically work if you [override the install step]
 You can instead use the [arbitrary directory caching
 method](#Arbitrary-directories) described below:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 install: bundle exec pod install
 cache:
   directories:
     - path/to/Pods
-{% endhighlight %}
+```
 
 ### pip cache
 
 If you have not overridden the default [install step](/user/customizing-the-build/), use:
 
-{% highlight yaml %}
+```yaml
 language: python
 
 cache: pip
-{% endhighlight %}
+```
 
 caches `$HOME/.cache/pip`.
 
 Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
     - $HOME/.cache/pip
-{% endhighlight %}
+```
 
 ### ccache cache
 
 If you have not overridden the default [install step](/user/customizing-the-build/), use:
 
-{% highlight yaml %}
+```yaml
 language: c # or other C/C++ variants
 
 cache: ccache
-{% endhighlight %}
+```
 
 caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
 Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
     - $HOME/.ccache
-{% endhighlight %}
+```
 
 ### Arbitrary directories
 
 You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
   - .autoconf
   - $HOME/.m2
-{% endhighlight %}
+```
 
 As you can see, it is also possible to use environment variables in the directories.
 
@@ -220,14 +220,14 @@ you are watching, and you would do well to ignore these.
 
 For this purpose, you can use `before_cache` phase.
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
     - $HOME/.cache/pip
 ⋮
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
-{% endhighlight %}
+```
 
 Failures in this stage does not mark the job a failure.
 
@@ -267,9 +267,9 @@ speeds compared to the Ubuntu mirrors.
 
 To enable APT caching, add the following to your .travis.yml:
 
-{% highlight yaml %}
+```yaml
 cache: apt
-{% endhighlight %}
+```
 
 Subsequently, all Ubuntu packages will be downloaded by way of our
 cache or added to the cache for future use.
@@ -309,37 +309,37 @@ beta-testing the new cache until it is.
 
 When you want to enable multiple caching features, you can list them as an array:
 
-{% highlight yaml %}
+```yaml
 cache:
 - bundler
 - apt
-{% endhighlight %}
+```
 
 This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
 
-{% highlight yaml %}
+```yaml
 cache:
   bundler: true
   directories:
   - vendor/something
   - .autoconf
-{% endhighlight %}
+```
 
 ### Explicitly disabling caching
 
 You can explicitly disable all caching by setting the `cache` option to `false` in your *.travis.yml*:
 
-{% highlight yaml %}
+```yaml
 cache: false
-{% endhighlight %}
+```
 
 It is also possible to disable a single caching mode:
 
-{% highlight yaml %}
+```yaml
 cache:
   bundler: false
   apt: true
-{% endhighlight %}
+```
 
 ## How does the caching work?
 

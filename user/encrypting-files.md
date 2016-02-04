@@ -35,7 +35,7 @@ Assumptions:
 
 The `travis encrypt-file` command will encrypt a file for you using a symmetric encryption (AES-256), and it will store the secret in a secure variable. It will output the command you can use in your build script to decrypt the file.
 
-{% highlight console %}
+```bash
 $ travis encrypt-file super_secret.txt
 encrypting super_secret.txt for rkh/travis-encrypt-file-example
 storing result as super_secret.txt.enc
@@ -50,11 +50,11 @@ Pro Tip: You can add it automatically by running with --add.
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.
-{% endhighlight %}
+```
 
 You can also use `--add` to have it automatically add the decrypt command to your `.travis.yml`
 
-{% highlight console %}
+```bash
 $ travis encrypt-file super_secret.txt --add
 encrypting super_secret.txt for rkh/travis-encrypt-file-example
 storing result as super_secret.txt.enc
@@ -63,7 +63,7 @@ storing secure env variables for decryption
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.
-{% endhighlight %}
+```
 
 ### Encrypting multiple files
 
@@ -74,20 +74,20 @@ then decrypt and expand it during the build.
 
 Suppose we have sensitive files `foo` and `bar`.
 
-{% highlight console %}
+```bash
 $ tar cvf secrets.tar foo bar
 $ travis encrypt-file secrets.tar
 $ vi .travis.yml
 $ git add secrets.tar.enc .travis.yml
 $ git commit -m 'use secret archive'
 $ git push
-{% endhighlight %}
+```
 
-{% highlight yaml %}
+```yaml
 before_install:
   - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
-{% endhighlight %}
+```
 
 (Adjust `$*_key` and `$*_iv` according to your needs.)
 
@@ -119,21 +119,21 @@ Be sure to add `super_secret.txt` to your `.gitignore` list, and to commit both 
 
 Set up:
 
-{% highlight console %}
+```bash
 $ travis encrypt super_secret_password=ahduQu9ushou0Roh --add
 $ gpg -c super_secret.txt
 (will prompt you for the password twice, use the same value as for super_secret_password above)
-{% endhighlight %}
+```
 
 Contents of the `.travis.yml` (besides whatever else you might have in there):
 
-{% highlight yaml %}
+```yaml
 env:
   global:
     secure: ... encoded secret ...
 before_install:
   - echo $super_secret_password | gpg --pass-phrase-fd 0 super_secret.txt.gpg
-{% endhighlight %}
+```
 
 The encrypted file is called `super_secret.txt.gpg` and has to be committed to the repository.
 
@@ -142,20 +142,20 @@ The encrypted file is called `super_secret.txt.gpg` and has to be committed to t
 
 Set up:
 
-{% highlight console %}
+```bash
 $ travis encrypt super_secret_password=ahduQu9ushou0Roh --add
 $ openssl aes-256-cbc -k "ahduQu9ushou0Roh" -in super_secret.txt -out super_secret.txt.enc
 (keep in mind to replace the password with the proper value)
-{% endhighlight %}
+```
 
 Contents of the `.travis.yml` (besides whatever else you might have in there):
 
-{% highlight yaml %}
+```yaml
 env:
   global:
     secure: ... encoded secret ...
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in super_secret.txt.enc -out super_secret.txt -d
-{% endhighlight %}
+```
 
 The encrypted file is called `super_secret.txt.enc` and has to be committed to the repository.

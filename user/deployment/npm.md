@@ -106,11 +106,11 @@ to override it.
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-{% highlight yaml %}
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
-{% endhighlight %}
+```

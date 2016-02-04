@@ -13,24 +13,24 @@ Travis CI can automatically publish your [biicode](https://www.biicode.com) bloc
 
 For a minimal configuration, all you need to do is add the following to you `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: biicode
   user: "YOUR_USER"
   password: "YOUR_PASSWORD" # should be encrypted
-{% endhighlight %}
+```
 
 Install Travis CI command line client to encrypt your password like this:
 
-{% highlight console %}
+```bash
 $ travis encrypt "YOUR PASSWORD" --add deploy.password
-{% endhighlight %}
+```
 
 You can also have the `travis` tool set everything up for you:
 
-{% highlight console %}
+```bash
 $ travis setup biicode
-{% endhighlight %}
+```
 
 Keep in mind that the setup command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -38,24 +38,24 @@ Keep in mind that the setup command has to run in your project directory, so it 
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: biicode
   user: ...
   password: ...
   on: production
-{% endhighlight %}
+```
 
 Alternatively, you can also configure Travis CI to deploy from all branches:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: biicode
   user: ...
   password: ...
   on:
     all_branches: true
-{% endhighlight %}
+```
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -65,13 +65,13 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts that are supposed to be deployed too (like dependencies' data). There is an option to skip the clean up:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: biicode
   user: ...
   password: ...
   skip_cleanup: true
-{% endhighlight %}
+```
 
 ### Conditional Deploys
 
@@ -82,23 +82,23 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 
 You can use the `before_deploy` and `after_deploy` stages to run commands just before and after the deploy is done. These will only be triggered if Travis CI is actually deploying.
 
-{% highlight yaml %}
+```yaml
 before_deploy: "echo 'ready to publish?'"
 deploy:
   ..
   after_deploy:
     - bii deps --detail
-{% endhighlight %}
+```
 
 ### Using biicode in your deploy
 
 Add this to your `install:` entry to install biicode in your build machine:
 
-{% highlight yaml %}
+```yaml
 install:
   - wget http://apt.biicode.com/install.sh && chmod +x install.sh && ./install.sh
   - bii setup:cpp
-{% endhighlight %}
+```
 
 This downloads a script to install biicode on Debian-based distros, as explained in [biicode docs](http://docs.biicode.com/c++/installation.html#alternative-install-debian) and executes a biicode command to set up required tools for C/C++ development. It actually installs CMake.
 
@@ -106,11 +106,11 @@ Now you're ready to use biicode in the build virtual machine. All biicode comman
 
 It's a good practice to check biicode's version after installing:
 
-{% highlight yaml %}
+```yaml
 install
   ...
   - bii --version
-{% endhighlight %}
+```
 
 
 ### A simple biicode deployment example step by step
@@ -127,7 +127,7 @@ Here's [CppMath example code](https://github.com/Manu343726/CppMath/), it's stru
 
 Supposing your biicode account is `developer`, create a `.travis.yml` file to automate deploy and publish like this:
 
-{% highlight yaml %}
+```yaml
 install:
   - wget http://apt.biicode.com/install.sh && chmod +x install.sh && ./install.sh #Install biicode
   - bii setup:cpp #Install biicode required C/C++ tools (GCC, cmake, etc)
@@ -143,7 +143,7 @@ deploy:
     secure: encrypted password here
   on:
     repo: developer/cppmath #GitHub repo
-{% endhighlight %}
+```
 
 `install:` installs biicode and configures C++ tools. `script:` creates, builds and runs the project. If it's a success Travis CI executes deploy publishing the `developer/cppmath` block.
 

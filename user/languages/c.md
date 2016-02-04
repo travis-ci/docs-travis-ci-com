@@ -83,7 +83,7 @@ OpenMP detects the cores on the hosting hardware, rather than the VM on which yo
 The default environment variable `$CC` is known to interfere with MPI projects.
 In this case, we recommend unsetting it:
 
-{% highlight yaml %}
+```yaml
 before_install:
   - test -n $CC && unset CC
-{% endhighlight %}
+```

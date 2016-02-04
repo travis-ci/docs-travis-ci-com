@@ -9,13 +9,13 @@ You can deploy your application using a custom script.
 This provides a more streamlined custom deployment strategy than
 using the `after_success`.
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: script
   script: scripts/deploy.sh
   on:
   	branch: develop
-{% endhighlight %}
+```
 
 This example executes `scripts/deploy.sh` on the `develop` branch
 if the tests pass.
