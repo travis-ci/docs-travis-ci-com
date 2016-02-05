@@ -39,9 +39,9 @@ about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ### Xcode 7.3
 
-Xcode 7.3 Beta is available by adding `osx_image: xcode7.3` to your .travis.yml.
+Xcode 7.3 Beta 2 is available by adding `osx_image: xcode7.3` to your .travis.yml.
 
-Our Xcode 7.3 Beta images have the following SDKs preinstalled:
+Our Xcode 7.3 Beta 2 images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.3
@@ -140,7 +140,7 @@ In addition, the following simulators are installed:
 
 ### Xcode 7.2
 
-Xcode 7.2 GM is available by adding `osx_image: xcode7.2` to your .travis.yml.
+Xcode 7.2.1 is available by adding `osx_image: xcode7.2` to your .travis.yml.
 
 *Note: This is also our first Xcode image on OS X 10.11, as well as having Xcode 7.2.*
 
@@ -151,10 +151,10 @@ Our Xcode 7.2 images have the following SDKs preinstalled:
 - iphoneos9.1
 - iphonesimulator9.2
 - iphonesimulator9.1
-- tvos9.0
-- appletvsimulator9.0
-- watchos2.0
-- watchsimulator2.0
+- tvos9.1
+- appletvsimulator9.1
+- watchos2.1
+- watchsimulator2.1
 
 In addition, the following simulators are installed:
 
