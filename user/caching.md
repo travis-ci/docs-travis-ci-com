@@ -166,6 +166,19 @@ cache:
     - $HOME/.ccache
 ```
 
+### R package cache
+If you have not overridden the default [install step](/user/customizing-the-build/), use:
+
+```yaml
+language: R
+
+cache: packages
+```
+
+caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
+
+Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+
 ### Arbitrary directories
 
 You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
