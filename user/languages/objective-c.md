@@ -39,9 +39,9 @@ about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ### Xcode 7.3
 
-Xcode 7.3 Beta 2 is available by adding `osx_image: xcode7.3` to your .travis.yml.
+Xcode 7.3 Beta 3 is available by adding `osx_image: xcode7.3` to your .travis.yml.
 
-Our Xcode 7.3 Beta 2 images have the following SDKs preinstalled:
+Our Xcode 7.3 Beta 3 images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.3
@@ -114,6 +114,19 @@ In addition, the following simulators are installed:
   - iPad Air
   - iPad Air 2
   - iPad Pro
+- iOS 9.2
+  - iPhone 4s
+  - iPhone 5
+  - iPhone 5s
+  - iPhone 6
+  - iPhone 6 Plus
+  - iPhone 6s
+  - iPhone 6s Plus
+  - iPad 2
+  - iPad Retina
+  - iPad Air
+  - iPad Air 2
+  - iPad Pro
 - iOS 9.3
   - iPhone 4s
   - iPhone 5
@@ -130,10 +143,15 @@ In addition, the following simulators are installed:
 - watchOS 2.0
   - Apple Watch - 38mm
   - Apple Watch - 42mm
+- watchOS 2.1
+  - Apple Watch - 38mm
+  - Apple Watch - 42mm
 - watchOS 2.2
   - Apple Watch - 38mm
   - Apple Watch - 42mm
 - tvOS 9.0
+  - Apple TV 1080p
+- tvOS 9.1
   - Apple TV 1080p
 - tvOS 9.2
   - Apple TV 1080p
