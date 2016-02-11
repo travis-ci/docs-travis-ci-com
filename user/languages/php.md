@@ -173,10 +173,15 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 These extensions are preinstalled with PECL for PHP 7.0:
 
+* [apc.so](http://php.net/apc)
+* [memcached.so](http://php.net/memcached)
+* [mongodb.so](https://php.net/mongodb)
+* [amqp.so](http://php.net/amqp)
+* [zmq.so](http://zeromq.org/bindings:php)
 * [xdebug.so](http://xdebug.org)
+* [redis.so](http://pecl.php.net/package/redis)
 
-Other extensions available for PHP 5.6 and below are not yet available for PHP 7,
-as they are not updated for PHP 7 compatibility.
+Please note that these extensions are not enabled by default with the exception of xdebug.
 
 #### PHP 5.6 and below
 
