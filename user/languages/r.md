@@ -96,6 +96,17 @@ before_install:
   - tlmgr install fullpage.sty
 ```
 
+### Pandoc ###
+
+The default pandoc version installed is `1.15.2`. Alternative [pandoc
+releases](https://github.com/jgm/pandoc/release] can be installed by setting
+the `pandoc_version` to the required version.
+
+```yaml
+language: R
+pandoc_version: 1.16
+```
+
 ### Package check options
 
 You can use the following top-level options to control what options are used
