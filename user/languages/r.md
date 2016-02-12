@@ -50,9 +50,9 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions ###
 
-Travis CI supports R versions 3.1.3, 3.2.3 and devel on Linux Precise builds.
-'oldrel' and '3.1' are aliased to '3.1.2' and 'release' and '3.2' are aliased
-to 3.2.3. Matrix builds are not currently supported.
+Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise builds.
+The names `oldrel` and `3.1` are aliased to '3.1.2' and the names `release` and `3.2` are aliased
+to `3.2.3`. Matrix builds are not currently supported.
 
 ```yaml
 language: R
@@ -61,7 +61,7 @@ r: devel
 
 As new minor releases are released, aliases will float and point to the most current minor release.
 
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
+For exact versions used for a build, please consult "Build system information" in the build log.
 
 ### Dependencies
 
@@ -97,8 +97,8 @@ indicates the package group you need to install.
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
-releases](https://github.com/jgm/pandoc/release] can be installed by setting
-the `pandoc_version` to the required version.
+releases](https://github.com/jgm/pandoc/release) can be installed by setting
+the `pandoc_version` to the desired version.
 
 ```yaml
 language: R
@@ -130,7 +130,7 @@ CRAN repo when installing dependencies.
 There are two ways to signal to Travis CI that your package is a Bioconductor
 package:
 
-* If `bioc_packages` is nonempty, your package will install dependencies from
+* If `bioc_packages` is nonempty, your package will install those dependencies from
   Bioconductor.
 
 * If the variable `bioc_required` is set to `true`, your package will install
@@ -147,7 +147,7 @@ bioc_required: true
 ### Miscellaneous
 
 * `cran`: CRAN mirror to use for fetching packages. Defaults to
-  `http://cran.rstudio.com/`.
+  `https://cloud.r-project.org`.
 
 * `repos`: Dictionary of repositories to pass to `options(repos)`. If `CRAN` is
   not given in the dictionary the value of the `cran` option is used.
@@ -155,7 +155,7 @@ bioc_required: true
 
 ```yaml
 repos:
-  CRAN: http://cran.rstudio.com
+  CRAN: https://cloud.r-project.org
   ropensci: http://packages.ropensci.org
 ```
 
@@ -166,8 +166,8 @@ repos:
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
-your `.travis.yml`. However for backwards compatability with earlier version of
-R in Travis and rare cases the following fields are supported.
+your `.travis.yml`. However for backwards ravis rare cases the following fields
+are supported.
 
 Each of the names below is a list of packages you can optionally specify as a
 top-level entry in your `.travis.yml`; entries in these lists will be
@@ -209,7 +209,7 @@ these two lines are sufficient.
 language: R
 cache: packages
 ```
-However if you do not see a message like `This
+However if you do _not_ see a message like `This
 job is running on container-based infrastructure, which does not allow use of
 'sudo', setuid and setguid executables.` near the top of your build report your
 build is _not_ using the container based builds (and cannot take advantage of
