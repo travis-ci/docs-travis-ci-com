@@ -24,16 +24,23 @@ and cc [@craigcitro](https://github.com/craigcitro),
 
 R support in Travis CI is designed to make it easy to test
 [R packages](http://cran.r-project.org/doc/manuals/R-exts.html). If your R
-package doesn't need any dependencies beyond those specified in your
+package doesn't need any system dependencies beyond those specified in your
 `DESCRIPTION` file, your `.travis.yml` can simply be
-
 
 ```yaml
 language: R
 ```
 
+However caching the R package dependencies can significantly speed up build times and
+is recommended for most builds.
+
+```yaml
+language: R
+cache: packages
+```
+
 The R environment comes with [LaTeX](https://www.tug.org/texlive/) and
-[pandoc](http://johnmacfarlane.net/pandoc/) preinstalled, making it easier to
+[pandoc](http://johnmacfarlane.net/pandoc/) pre-installed, making it easier to
 use packages like [RMarkdown](http://rmarkdown.rstudio.com/) or
 [knitr](http://yihui.name/knitr/).
 
@@ -41,46 +48,32 @@ use packages like [RMarkdown](http://rmarkdown.rstudio.com/) or
 
 Travis CI supports a number of configuration options for your R package.
 
+### R Versions ###
+
+Travis CI supports R versions 3.1.3, 3.2.3 and devel on Linux Precise builds.
+'oldrel' and '3.1' are aliased to '3.1.2' and 'release' and '3.2' are aliased
+to 3.2.3. Matrix builds are not currently supported.
+
+```yaml
+language: R
+r: devel
+```
+
+As new minor releases are released, aliases will float and point to the most current minor release.
+
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
+
 ### Dependencies
 
 By default, Travis CI will find all R packages listed as dependencies in your
-package's `DESCRIPTION` file, and install them from CRAN. It's sometimes
-necessary to augment this, for a variety of reasons:
+package's `DESCRIPTION` file, and install them from CRAN. You can include
+development dependencies by listing them in the `Remotes:` field in your
+`DESCRIPTION`. See the [Remotes
+Vignette](https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes)
+for more information on using remotes in your package.
 
-* system-wide dependencies used by R packages (eg crypto or XML libraries)
-* binary installs of dependencies (to speed up builds)
-* development versions of packages from GitHub (useful for testing upcoming
-  releases, or picking up not-yet-released bugfixes)
-
-Each of the names below is a list of packages you can optionally specify as a
-top-level entry in your `.travis.yml`; entries in these lists will be
-installed before building and testing your package. Note that these lists are
-processed in order, so entries can depend on dependencies in a previous list.
-
-* `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds.
-
-* `brew_packages`: A list of packages to install via `brew`. This option is
-  ignored on non-OS X builds.
-
-* `r_binary_packages`: A list of R packages to install as binary packages on
-  linux builds, via Michael Rutter's
-  [cran2deb4ubuntu PPA](https://launchpad.net/~marutter/+archive/ubuntu/c2d4u).
-  These installs will be faster than source installs, but may not always be
-  the most recent version. Specify the name just as you would when installing
-  from CRAN. On OS X builds and builds without `sudo: required`, these packages
-  are installed from source.
-
-* `r_packages`: A list of R packages to install via `install.packages`.
-
-* `bioc_packages`: A list of [Bioconductor](http://www.bioconductor.org/)
-  packages to install.
-
-* `r_github_packages`: A list of packages to install directly from GitHub,
-  using `devtools::install_github` from the
-  [devtools package](https://github.com/hadley/devtools). The package names
-  here should be of the form `user/repo`.
+Most of the time you should not need to specify any additional dependencies in
+your `.travis.yml`.
 
 ### LaTeX/TexLive Packages
 
@@ -93,8 +86,13 @@ your vignettes require additional TexLive packages you can install them using
 language: R
 
 before_install:
-  - tlmgr install fullpage.sty
+  - tlmgr install index
 ```
+
+The best way to figure out what packages you may need is to look at the
+packages listed in the LaTeX error message and search for them on
+[CTAN](https://www.ctan.org/). Packages often have a `Contained in` field that
+indicates the package group you need to install.
 
 ### Pandoc ###
 
@@ -165,6 +163,59 @@ repos:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+### Additional Dependency Fields ###
+
+For most packages you should not need to specify any additional dependencies in
+your `.travis.yml`. However for backwards compatability with earlier version of
+R in Travis and rare cases the following fields are supported.
+
+Each of the names below is a list of packages you can optionally specify as a
+top-level entry in your `.travis.yml`; entries in these lists will be
+installed before building and testing your package. Note that these lists are
+processed in order, so entries can depend on dependencies in a previous list.
+
+* `apt_packages`: A list of packages to install via `apt-get`. Common examples
+  here include entries in `SystemRequirements`. This option is ignored on
+  non-linux builds and will not work if `sudo: false`.
+
+* `brew_packages`: A list of packages to install via `brew`. This option is
+  ignored on non-OS X builds.
+
+* `r_binary_packages`: A list of R packages to install as binary packages on
+  linux builds, via Michael Rutter's
+  [cran2deb4ubuntu PPA](https://launchpad.net/~marutter/+archive/ubuntu/c2d4u).
+  These installs will be faster than source installs, but may not always be
+  the most recent version. Specify the name just as you would when installing
+  from CRAN. On OS X builds and builds without `sudo: required`, these packages
+  are installed from source.
+
+* `r_packages`: A list of R packages to install via `install.packages`.
+
+* `bioc_packages`: A list of [Bioconductor](http://www.bioconductor.org/)
+  packages to install.
+
+* `r_github_packages`: A list of packages to install directly from GitHub,
+  using `devtools::install_github` from the
+  [devtools package](https://github.com/hadley/devtools). The package names
+  here should be of the form `user/repo`.
+
+## Examples
+
+If you are using the [container based builds][container] you can take advantage
+of the package cache to speed up subsequent build times. For most projects
+these two lines are sufficient.
+
+```yaml
+language: R
+cache: packages
+```
+However if you do not see a message like `This
+job is running on container-based infrastructure, which does not allow use of
+'sudo', setuid and setguid executables.` near the top of your build report your
+build is _not_ using the container based builds (and cannot take advantage of
+package caching). In this case you will need to explicitly set `sudo: false` in
+your `.travis.yml`.
+
 ## Converting from r-travis
 
 If you've already been using
@@ -173,40 +224,6 @@ you're encouraged to switch to using the native support described here. We've
 written a
 [porting guide](https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis)
 to help you modify your `.travis.yml`.
-
-## Examples
-
-If you are using the [container based builds][container] you can take advantage
-of the package cache to speed up subsequent build times.
-
-
-```yaml
-language: R
-cache: packages
-```
-
-Here we provide a more complex example using several options above.
-
-```yaml
-language: R
-sudo: required
-
-# Be strict when checking our package
-warnings_are_errors: true
-
-# System dependencies for HTTP calling
-apt_packages:
- - libcurl4-openssl-dev
- - libxml2-dev
-r_binary_packages:
- - RUnit
- - testthat
-
-# Install the bleeding edge version of a package from GitHub (eg to pick
-# up a not-yet-released bugfix)
-r_github_packages:
- - hadley/httr
-```
 
 ## Acknowledgements
 
