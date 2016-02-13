@@ -420,7 +420,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="nt">&lt;/script&gt;</span>
 </pre>
 
-<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_to</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
+<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_uri</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
 
 <p>There is an alternative version of this that will try to run the handshake in a hidden iframe and using <code class="prettyprint">window.postMessage</code> to hand the token to the website embedding the iframe. <strong>This endpoint will only work for whitelisted websites.</strong></p>
 
