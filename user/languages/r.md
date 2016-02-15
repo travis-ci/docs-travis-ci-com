@@ -31,13 +31,21 @@ package doesn't need any system dependencies beyond those specified in your
 language: R
 ```
 
-However caching the R package dependencies can significantly speed up build times and
+Using the package cache to store R package dependencies can significantly speed up build times and
 is recommended for most builds.
 
 ```yaml
 language: R
 cache: packages
 ```
+
+If you do _not_ see
+```
+This job is running on container-based infrastructure, which does not allow use of
+'sudo', setuid and setguid executables.
+```
+
+You will need to set `sudo: false` in order to use the container based builds and use package caching.
 
 The R environment comes with [LaTeX](https://www.tug.org/texlive/) and
 [pandoc](http://johnmacfarlane.net/pandoc/) pre-installed, making it easier to
@@ -51,7 +59,7 @@ Travis CI supports a number of configuration options for your R package.
 ### R Versions ###
 
 Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise builds.
-The names `oldrel` and `3.1` are aliased to '3.1.2' and the names `release` and `3.2` are aliased
+The names `oldrel` and `3.1` are aliased to `3.1.2` and the names `release` and `3.2` are aliased
 to `3.2.3`. Matrix builds are not currently supported.
 
 ```yaml
@@ -59,7 +67,7 @@ language: R
 r: devel
 ```
 
-As new minor releases are released, aliases will float and point to the most current minor release.
+As new minor versions are released, aliases will float and point to the most current minor release.
 
 For exact versions used for a build, please consult "Build system information" in the build log.
 
@@ -67,10 +75,10 @@ For exact versions used for a build, please consult "Build system information" i
 
 By default, Travis CI will find all R packages listed as dependencies in your
 package's `DESCRIPTION` file, and install them from CRAN. You can include
-development dependencies by listing them in the `Remotes:` field in your
+dependencies on packages in development by listing them in the `Remotes:` field in your
 `DESCRIPTION`. See the [Remotes
 Vignette](https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes)
-for more information on using remotes in your package.
+for more information on using development remotes in your package.
 
 Most of the time you should not need to specify any additional dependencies in
 your `.travis.yml`.
@@ -91,13 +99,13 @@ before_install:
 
 The best way to figure out what packages you may need is to look at the
 packages listed in the LaTeX error message and search for them on
-[CTAN](https://www.ctan.org/). Packages often have a `Contained in` field that
+[CTAN](https://www.ctan.org/). Packages often have a `Contained in:` field that
 indicates the package group you need to install.
 
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
-releases](https://github.com/jgm/pandoc/release) can be installed by setting
+releases](https://github.com/jgm/pandoc/releases) can be installed by setting
 the `pandoc_version` to the desired version.
 
 ```yaml
@@ -123,6 +131,13 @@ when building and checking your package:
 
 ### Bioconductor
 
+A simple Bioconductor package should generally only need the following `.travis.yml`:
+
+```yaml
+language: R
+bioc_required: true
+```
+
 If your package is detected as a Bioconductor package, Travis CI will first
 configure Bioconductor, and then use a Bioconductor repo in place of the usual
 CRAN repo when installing dependencies.
@@ -130,19 +145,16 @@ CRAN repo when installing dependencies.
 There are two ways to signal to Travis CI that your package is a Bioconductor
 package:
 
-* If `bioc_packages` is nonempty, your package will install those dependencies from
-  Bioconductor.
-
 * If the variable `bioc_required` is set to `true`, your package will install
   dependencies from Bioconductor.
 
-A simple Bioconductor package should generally be able to use Travis CI with
-the following `.travis.yml`:
+* If `bioc_packages` is nonempty, your package will install those dependencies from
+  Bioconductor.
 
-```yaml
-language: R
-bioc_required: true
-```
+If you want to test with the Bioconductor devel branch you can set the variable
+`bioc_use_devel: true`. *Note* Bioconductor branches are tied to [specific R
+versions](https://www.bioconductor.org/developers/how-to/useDevel), so you may
+also have to use `r: devel` to use the devel version of R.
 
 ### Miscellaneous
 
@@ -166,7 +178,7 @@ repos:
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
-your `.travis.yml`. However for backwards ravis rare cases the following fields
+your `.travis.yml`. However for rare cases the following fields
 are supported.
 
 Each of the names below is a list of packages you can optionally specify as a
@@ -209,12 +221,6 @@ these two lines are sufficient.
 language: R
 cache: packages
 ```
-However if you do _not_ see a message like `This
-job is running on container-based infrastructure, which does not allow use of
-'sudo', setuid and setguid executables.` near the top of your build report your
-build is _not_ using the container based builds (and cannot take advantage of
-package caching). In this case you will need to explicitly set `sudo: false` in
-your `.travis.yml`.
 
 ## Converting from r-travis
 
