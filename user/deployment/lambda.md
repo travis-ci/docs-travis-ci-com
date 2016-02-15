@@ -8,7 +8,7 @@ Travis CI supports uploading to [AWS Lambda](https://aws.amazon.com/lambda/).
 
 A minimal configuration is:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: lambda
   function_name: "lambda-test"
@@ -16,14 +16,14 @@ deploy:
   handler_name: "index.handler"
   access_key_id: "AWS ACCESS KEY ID"
   secret_access_key: "AWS SECRET ACCESS KEY"
-{% endhighlight %}
+```
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-{% highlight console %}
+```bash
 $ travis encrypt "AWS SECRET ACCESS KEY" --add deploy.secret_access_key
-{% endhighlight %}
+```
 
 You will be prompted to enter your secret access key on the command line.
 

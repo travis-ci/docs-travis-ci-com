@@ -14,10 +14,12 @@ Erlang builds are not available on the OSX environment.
 
 Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
 
-    language: erlang
-    otp_release:
-       - 17.1
-       - R14B02
+```yaml
+language: erlang
+otp_release:
+  - 18.2.1
+  - 17.5
+```
 
 For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 

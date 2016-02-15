@@ -8,7 +8,7 @@ Travis CI can automatically deploy your build artifacts to [Bintray](https://bin
 
 All you need to do is add the following to your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: bintray
   file: "Path to a descriptor file, containing information for the Bintray upload"
@@ -16,33 +16,33 @@ deploy:
   key: "Bintray API key"
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
   dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
-{% endhighlight %}
+```
 
 ### Encrypt your API key
 
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
-{% highlight yaml %}
+```yaml
 $ travis encrypt BINTRAY-API-KEY --add deploy.key
-{% endhighlight %}
+```
 
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
 
 You can explicitly specify the branch to deploy from with the **on** option:
-{% highlight yaml %}
+```yaml
 deploy:
   ..
   on: production
-{% endhighlight %}
+```
 
 Alternatively, you can also configure it to deploy from all branches:
-{% highlight yaml %}
+```yaml
 deploy:
   ..
   on:
     all_branches: true
-{% endhighlight %}
+```
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -54,20 +54,20 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 ### Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
-{% highlight yaml %}
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
-{% endhighlight %}
+```
 
 ### Descriptor file example
 
 The descriptor is in JSON file format in three sections:
 
-{% highlight js %}
+```js
 {
     "package": {
         "name": "auto-upload",
@@ -106,7 +106,7 @@ The descriptor is in JSON file format in three sections:
         ],
     "publish": true
 }
-{% endhighlight %}
+```
 
 #### Package Section
 
@@ -141,7 +141,7 @@ In the example above, the following files are uploaded:
 #### Debian Upload
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
-{% highlight js %}
+```js
 "files":
     [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
     "matrixParams": {
@@ -150,17 +150,17 @@ When artifacts are uploaded to a Debian repository on Bintray using the Automati
         "deb_architecture": "amd64"}
     }
 ]
-{% endhighlight %}
+```
 
 #### Overwriting Existing Files
 
 If an artifact by a given name already exists in the Bintray repository, then by default it is not overwritten. If you want to replace the existing file, define the `override` key in your matrix properties:
 
-{% highlight js %}
+```js
 "files":
     [{"includePattern": "build/bin/(myfile.bin)", "uploadPattern": "$1",
     "matrixParams": {
         "override": 1 }
     }
 ]
-{% endhighlight %}
+```

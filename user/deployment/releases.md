@@ -43,6 +43,19 @@ You can also authenticate with your GitHub username and password using the `user
       on:
         tags: true
 
+### Deploying to GitHub Enterprise
+
+If you wish to upload assets to a GitHub Enterprise repository, you must override the `$OCTOKIT_API_ENDPOINT` environment variable with your GitHub Enterprise API endpoint:
+```
+http(s)://"GITHUB ENTERPRISE HOSTNAME"/api/v3/
+```
+
+You can configure this in [Repository Settings](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings) or via your `.travis.yml`:
+
+    env:
+      global:
+        - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+
 ### Uploading Multiple Files
 
 You can upload multiple files using yml array notation. This example uploads two files.
