@@ -15,24 +15,25 @@ projects. Please make sure to read our
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:r)
+[Travis CI issue
+tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:r)
 and cc [@craigcitro](https://github.com/craigcitro),
 [@hadley](https://github.com/hadley), and
 [@jimhester](https://github.com/jimhester).
 
 ## Basic configuration
 
-R support in Travis CI is designed to make it easy to test
-[R packages](http://cran.r-project.org/doc/manuals/R-exts.html). If your R
-package doesn't need any system dependencies beyond those specified in your
+R support in Travis CI is designed to make it easy to test [R
+packages](http://cran.r-project.org/doc/manuals/R-exts.html). If your R package
+doesn't need any system dependencies beyond those specified in your
 `DESCRIPTION` file, your `.travis.yml` can simply be
 
 ```yaml
 language: r
 ```
 
-Using the package cache to store R package dependencies can significantly speed up build times and
-is recommended for most builds.
+Using the package cache to store R package dependencies can significantly speed
+up build times and is recommended for most builds.
 
 ```yaml
 language: r
@@ -45,7 +46,8 @@ This job is running on container-based infrastructure, which does not allow use 
 'sudo', setuid and setguid executables.
 ```
 
-You will need to set `sudo: false` in order to use the container based builds and use package caching.
+You will need to set `sudo: false` in order to use the container based builds
+and package caching.
 
 The R environment comes with [LaTeX](https://www.tug.org/texlive/) and
 [pandoc](http://johnmacfarlane.net/pandoc/) pre-installed, making it easier to
@@ -58,10 +60,10 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions ###
 
-Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise builds.
-The names `oldrel` and `3.1` are aliased to `3.1.2` and the names `release` and `3.2` are aliased
-to `3.2.3`. Matrix builds _are_ supported for R builds. However both instances
-of `r` must be in _lowercase_.
+Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise
+builds. The names `oldrel` and `3.1` are aliased to `3.1.2` and the names
+`release` and `3.2` are aliased to `3.2.3`. Matrix builds _are_ supported for R
+builds, however both instances of `r` must be in _lowercase_.
 
 ```yaml
 language: r
@@ -71,9 +73,11 @@ r:
   - devel
 ```
 
-As new minor versions are released, aliases will float and point to the most current minor release.
+As new minor versions are released, aliases will float and point to the most
+current minor release.
 
-For exact versions used for a build, please consult "Build system information" in the build log.
+For exact versions used for a build, please consult "Build system information"
+in the build log.
 
 ### Dependencies
 
