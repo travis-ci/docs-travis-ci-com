@@ -28,14 +28,14 @@ package doesn't need any system dependencies beyond those specified in your
 `DESCRIPTION` file, your `.travis.yml` can simply be
 
 ```yaml
-language: R
+language: r
 ```
 
 Using the package cache to store R package dependencies can significantly speed up build times and
 is recommended for most builds.
 
 ```yaml
-language: R
+language: r
 cache: packages
 ```
 
@@ -95,7 +95,7 @@ your vignettes require additional TexLive packages you can install them using
 `tlmgr install` in the `before_install` step.
 
 ```yaml
-language: R
+language: r
 
 before_install:
   - tlmgr install index
@@ -113,7 +113,7 @@ releases](https://github.com/jgm/pandoc/releases) can be installed by setting
 the `pandoc_version` to the desired version.
 
 ```yaml
-language: R
+language: r
 pandoc_version: 1.16
 ```
 
@@ -138,7 +138,7 @@ when building and checking your package:
 A simple Bioconductor package should generally only need the following `.travis.yml`:
 
 ```yaml
-language: R
+language: r
 bioc_required: true
 ```
 
@@ -222,7 +222,7 @@ of the package cache to speed up subsequent build times. For most projects
 these two lines are sufficient.
 
 ```yaml
-language: R
+language: r
 cache: packages
 ```
 
