@@ -1,4 +1,3 @@
-  username: postgres
 ---
 title: Setting up Databases
 layout: en
