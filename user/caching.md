@@ -54,26 +54,6 @@ If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-argu
 
 Otherwise it will automatically add the *--path* option. In this case it will either use the value of the environment variable *BUNDLE_PATH* or, if it is missing, *vendor/bundle*.
 
-#### With a custom install step
-
-Bundler caching will not automatically work if you [override the install step](/user/customizing-the-build/). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
-
-```yaml
-language: ruby
-install: bundle install --without development --deployment --jobs=3 --retry=3
-cache:
-  directories:
-  - vendor/bundle
-```
-
-In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
-
-```yaml
-language: ruby
-bundler_args: --without development --deployment --jobs=3 --retry=3
-cache: bundler
-```
-
 ### CocoaPods
 
 On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapods.org) can take up a good portion of your build. Caching the compiled Pods between builds helps reduce this time.
@@ -112,23 +92,9 @@ language: objective-c
 podfile: path/to/Podfile
 ```
 
-#### With a custom install step
-
-CocoaPods caching will not automatically work if you [override the install step](/user/customizing-the-build/).
-You can instead use the [arbitrary directory caching
-method](#Arbitrary-directories) described below:
-
-```yaml
-language: objective-c
-install: bundle exec pod install
-cache:
-  directories:
-    - path/to/Pods
-```
-
 ### pip cache
 
-If you have not overridden the default [install step](/user/customizing-the-build/), use:
+For caching `pip` files, use:
 
 ```yaml
 language: python
@@ -138,17 +104,10 @@ cache: pip
 
 caches `$HOME/.cache/pip`.
 
-Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
-
-```yaml
-cache:
-  directories:
-    - $HOME/.cache/pip
-```
 
 ### ccache cache
 
-If you have not overridden the default [install step](/user/customizing-the-build/), use:
+For caching `ccache` files, use:
 
 ```yaml
 language: c # or other C/C++ variants
@@ -158,16 +117,9 @@ cache: ccache
 
 caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
-Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
-
-```yaml
-cache:
-  directories:
-    - $HOME/.ccache
-```
 
 ### R package cache
-If you have not overridden the default [install step](/user/customizing-the-build/), use:
+For caching R pacakges, use:
 
 ```yaml
 language: R
@@ -175,9 +127,7 @@ language: R
 cache: packages
 ```
 
-caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
-
-Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
 ### Arbitrary directories
 
