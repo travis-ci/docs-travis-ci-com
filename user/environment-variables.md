@@ -175,7 +175,7 @@ to tag the build, or to run post-build deployments.
 	repository currently being built. (for example, "travis-ci/travis-build").
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
-* `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build). 
+* `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
 * `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
 
 Language-specific builds expose additional environment variables representing
@@ -196,6 +196,10 @@ depends on the language you're using.
 * `TRAVIS_RUBY_VERSION`
 * `TRAVIS_RUST_VERSION`
 * `TRAVIS_SCALA_VERSION`
+
+Other software specific environment variables are set when the software or service is installed or started, and contain the version number:
+
+* `TRAVIS_MARIADB_VERSION`
 
 The following environment variables are available for Objective-C builds.
 
