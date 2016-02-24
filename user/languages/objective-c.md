@@ -39,9 +39,9 @@ about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ### Xcode 7.3
 
-Xcode 7.3 Beta 3 is available by adding `osx_image: xcode7.3` to your .travis.yml.
+Xcode 7.3 Beta 4 is available by adding `osx_image: xcode7.3` to your .travis.yml.
 
-Our Xcode 7.3 Beta 3 images have the following SDKs preinstalled:
+Our Xcode 7.3 Beta 4 images have the following SDKs preinstalled:
 
 - macosx10.11
 - iphoneos9.3
