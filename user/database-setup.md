@@ -348,8 +348,8 @@ RabbitMQ is **not started on boot**. Add it to `.travis.yml` to start it:
     services:
       - rabbitmq
 
-RabbitMQ uses the default configuration of vhost (`/`), username (`guest`) and password (`guest`).
-You can set up more vhosts and roles via a `before_script` if needed (for example, to test authentication).
+RabbitMQ uses the default configuration of vhost (`/`), username (`guest`) and password (`guest`).  
+You can set up more vhosts and roles via a `before_script` if needed (for example, to test authentication). Notice that since `rabbitmqctl` is supposed to have `setuid`, this is only possible when Travis configuration contains `sudo: required` (that is to say not in container-based infrastructure). 
 
 
 ## Riak
