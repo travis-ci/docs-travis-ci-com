@@ -41,6 +41,15 @@ To define an environment variable in your `.travis.yml`, add the `env` line, for
 > PACKAGE_VERSION="1.0.*"
 > ````
 
+> Note that environment variables are expected to be in the form:
+>
+> ```
+> env:
+>   - VAR=VAL
+> ```
+>
+> If multiple values are given, each will be defined.
+
 ### Defining Multiple Variables per Item
 
 When you specify multiple variables per item in the `env` array (matrix variables), one build is triggered per item.
@@ -175,7 +184,7 @@ to tag the build, or to run post-build deployments.
 	repository currently being built. (for example, "travis-ci/travis-build").
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
-* `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build). 
+* `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
 * `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
 
 Language-specific builds expose additional environment variables representing
