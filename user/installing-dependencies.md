@@ -98,6 +98,8 @@ addons:
    - g++-4.8
 ```
 
+> Note: If `apt-get install` fails, the build is marked an error.
+
 ## Installing Packages on Container Based Infrastructure
 
 To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
@@ -138,6 +140,8 @@ addons:
    - gcc-4.8
    - g++-4.8
 ```
+
+> Note: If `apt-get install` fails, the build is marked an error.
 
 ## Installing Packages on OSX
 
