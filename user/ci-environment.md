@@ -24,7 +24,7 @@ can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following three virtual environments:
+Each build runs in one of the following four virtual environments:
 
 * Standard (the default environment)
 * Container-based (the newer environment in which `sudo` commands are not available)
