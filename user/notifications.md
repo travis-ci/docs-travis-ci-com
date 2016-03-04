@@ -493,7 +493,7 @@ You can specify multiple channels as well.
           - <account>:<token>#general
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change]   # default: always
+        on_start: [always|never|change]   # default: never
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -539,7 +539,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change] # default: always
+        on_start: [always|never|change] # default: never
 
 ### Webhooks Delivery Format
 
