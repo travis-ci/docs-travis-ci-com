@@ -304,6 +304,21 @@ cache:
   apt: true
 ```
 
+### Setting the timeout
+
+Caching has a timeout set to 5 minutes by default. The timeout is there in order
+to guard against any issues that may result in a stuck build. Such issues may be
+caused by a network issue between worker servers and S3 or even by a cache being
+to big to pack it and upload it in timely fashion. There are, however,
+situations when you might want to set a bigger timeout, especially if you need
+to cache large amount. In order to change the timeout you can use the `timeout`
+property with a desired time in seconds:
+
+```yaml
+cache:
+  timeout: 1000
+```
+
 ## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
