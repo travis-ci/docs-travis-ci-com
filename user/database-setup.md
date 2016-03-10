@@ -138,18 +138,18 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.1 by default, but also have 9.2 and 9.3
-installed. To use a version other than the default, specify the *major.minor* version in your `.travis.yml`:
+The Travis CI build environments use version 9.4 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the *major.minor* version in your `.travis.yml`:
 
 ```yaml
 addons:
-  postgresql: "9.3"
+  postgresql: "9.1"
 ```
 
-PostgreSQL is installed with patch releases from the official [PostgreSQL APT repository](http://apt.postgresql.org). Patch releases currently installed are:
+The following patch releases are available:
 
 * 9.1.15
 * 9.2.10
+* 9.3.6
 * 9.4.1
 
 ### Using PostGIS
@@ -310,7 +310,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OSX or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`). 
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OSX or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
 
 Start RabbitMQ in your `.travis.yml`:
 
