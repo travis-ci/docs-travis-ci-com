@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Smallta
 projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
-We currently support [Squeak/Smalltalk](http://squeak.org/) and [Pharo](http://pharo.org) images.
+
 
 ### Community-Supported Warning
 
@@ -22,28 +22,54 @@ and cc [@bahnfahren](https://github.com/bahnfahren),
 [@jchromik](https://github.com/jchromik), and
 [@Nef10](https://github.com/Nef10) in the issue.
 
+Travis uses [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) made by [fniephaus](https://github.com/fniephaus) to support Smalltalk.
+ 
 ## Basic configuration
 
-For a minimum configuration, you need to specify two parameters, the language and the baseline of your project. Default build configuration is a Squeak-5.0 image on Linux.
+For basic configuration you need a .yml and a .ston.
 
+That is how your .travis.yml should look like:
 ```yaml
 language: smalltalk
-baseline: MyProjectBaseline
-```
+sudo: false
 
-## Configuration options
+# Select operating system(s)
+os:
+  - linux
+  - osx
 
-As well as using the default image you can also test projects against other versions of Squeak/Smalltalk or Pharo (a full list of supported images can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#images)).  
-
-```yaml
-language: smalltalk
+# Select compatible Smalltalk image(s)
 smalltalk:
-  - Squeak-5.0
   - Squeak-trunk
-baseline: MyBaseline
+  - Squeak-5.0
+  - Squeak-4.6
+  - Squeak-4.5
+
+  - Pharo-alpha
+  - Pharo-stable
+  - Pharo-5.0
+  - Pharo-4.0
+  - Pharo-3.0
+
+  - GemStone-3.3.0
+  - GemStone-3.2.12
+  - GemStone-3.1.0.6
 ```
 
-## Further information
+This is a minimal .smalltalk.ston:
+```javascript
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'MyProject',
+      #directory : 'packages',
+      #platforms : [ #squeak, #pharo, #gemstone ]
+    }
+  ]
+}
+```
 
-We are using smalltalkCI for building Smalltalk projects.
-Additional configuration options can be found at [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#templates).
+## Configuration
+
+This documentation is just a minimal example and not as exhaustive as SmalltalkCI's readme. 
+Please visit [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#templates) for further details.
