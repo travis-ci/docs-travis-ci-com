@@ -6,7 +6,7 @@ permalink: /user/cron-jobs/
 
 **Please note that cron jobs are not enabled by default.
 Please ask us to unlock it for your repository:
-CONTACT INFORMATION HERE**
+[support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)**
 
 <div id="toc"></div>
 
@@ -16,9 +16,9 @@ Travis CI supports building projects time-controlled every day,
 week or month no matter if there was a push on this repository or not.
 This feature is not enables by default. Please contact us if you need it:
 
-CONTACT INFORMATION HERE
+[support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
 
-After activation, a section called "Cron Jobs" appears in your settings page.
+After activation, a section called "Cron Builds" appears in your settings page.
 
 <figure>
   <img alt="settings page with cron section" src="/images/cron-section.png"/>
