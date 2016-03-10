@@ -1,12 +1,14 @@
 ---
-title: Travis Pro - Frequently Asked Questions
+title: Travis Pro
 layout: en
 permalink: /user/travis-pro/
+redirect_from:
+  - /user/pricing/
 ---
 
 <div id="toc"></div>
 
-Note: These issues are related to [Travis Pro](http://travis-ci.com), our hosted
+Learn more about [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
 ## Can I use pull request testing on Travis Pro?
@@ -35,3 +37,10 @@ You can find more information on this topic in our [Security Statement](https://
 ## How can I encrypt files that include sensitive data?
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
+
+## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+
+Travis CI is, and always will be, free for open source projects.
+
+For a list of plans and prices for private repositories, look at
+[travis-ci.com/plans](https://travis-ci.com/plans).

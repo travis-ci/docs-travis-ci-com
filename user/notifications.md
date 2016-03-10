@@ -30,7 +30,7 @@ You can change the conditions for each of the channels by setting the
 * `never`: never send a notification.
 * `change`: send a notification when the build status changes.
 
-For example, to always send slack notifications on sucessful builds:
+For example, to always send slack notifications on successful builds:
 
 	notifications:
 	  slack:
@@ -58,29 +58,36 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 Specify recipients that will be notified about build results:
 
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
-
+```yml
+notifications:
+  email:
+    - one@example.com
+    - other@example.com
+```
 Turn off email notifications entirely:
 
-    notifications:
-      email: false
+```yml
+notifications:
+  email: false
+```
 
 Specify when you want to get notified:
 
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
+```yml
+notifications:
+  email:
+    recipients:
+      - one@example.com
+      - other@example.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+```
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+
+Pull Request builds do not trigger email notifications.
 
 ### How is the build email receiver determined?
 
@@ -99,14 +106,23 @@ The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
 there, rather than to the committer and author.
 
-### How can I change the email address for build notifications?
+### Changing the email address for build notifications
 
-The email addresses are pulled from GitHub. All emails registered there for your
-user account are available in Travis CI as well.
+Travis CI only sends build notifications to email addresses registered on GitHub.
+If you have multiple address registered you can set the email address for a specific
+ repository using `git`:
 
-You can change the build email address by setting a different email address for
-a specific repository. Running `git config user.email my@email.com` sets a
-different email address than the default for your repository.
+> Note that this also changes the commit email address, not just the Travis CI notification settings.
+
+```sh
+git config user.email "mynewemail@example.com"
+```
+
+Or set the email for all of your git repositories:
+
+```sh
+git config --global user.email "mynewemail@example.com"
+```
 
 Note that we currently don't respect the [detailed notifications
 settings](https://github.com/settings/notifications) on
@@ -133,6 +149,8 @@ Or multiple channels:
       irc:
         - "chat.freenode.net#my-channel"
         - "chat.freenode.net#some-other-channel"
+				- "irc://chat.freenode.net:8000/#plaintext_channel"
+				- "ircs://chat.freenode.net:7070/#ssl_tls_channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
@@ -207,6 +225,8 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+Pull Request builds do not trigger IRC notifications.
+
 ### Channel key
 
 If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
@@ -257,6 +277,8 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+Pull Request builds do not trigger Campfire notifications.
+
 ## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
@@ -270,6 +292,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
     travis encrypt api_token --add notifications.flowdock
+
+Pull Request builds do not trigger Flowdock notifications.
 
 ## HipChat notification
 
@@ -335,6 +359,15 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_pull_requests: false
+
 ## Pushover notification
 
 Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
@@ -366,6 +399,8 @@ You can also customise the notifications, like with IRC notifications:
       template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+
+Pull Request builds do not trigger Pushover notifications.
 
 ## Sqwiggle notifications
 
@@ -413,6 +448,8 @@ To customize it, add a template definition to your .travis.yml.
 
 It's recommended to encrypt the credentials.
 
+Pull Request builds do not trigger Sqwiggle notifications.
+
 ## Slack notifications
 
 Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
@@ -456,7 +493,7 @@ You can specify multiple channels as well.
           - <account>:<token>#general
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change]   # default: always
+        on_start: [always|never|change]   # default: never
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -470,9 +507,14 @@ screenshot below:
   <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
 </figure>
 
-Slack will be notified both for normal branch builds and for pull requests as
-well.
+### Notifications of PR builds
 
+By default, Slack will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      slack:
+        on_pull_requests: false
 
 ## Webhook notification
 
@@ -497,7 +539,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change] # default: always
+        on_start: [always|never|change] # default: never
 
 ### Webhooks Delivery Format
 

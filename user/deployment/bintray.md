@@ -8,7 +8,7 @@ Travis CI can automatically deploy your build artifacts to [Bintray](https://bin
 
 All you need to do is add the following to your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: bintray
   file: "Path to a descriptor file, containing information for the Bintray upload"
@@ -16,33 +16,33 @@ deploy:
   key: "Bintray API key"
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
   dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
-{% endhighlight %}
+```
 
 ### Encrypt your API key
 
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
-{% highlight yaml %}
+```yaml
 $ travis encrypt BINTRAY-API-KEY --add deploy.key
-{% endhighlight %}
+```
 
 ### Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
 
 You can explicitly specify the branch to deploy from with the **on** option:
-{% highlight yaml %}
+```yaml
 deploy:
   ..
   on: production
-{% endhighlight %}
+```
 
 Alternatively, you can also configure it to deploy from all branches:
-{% highlight yaml %}
+```yaml
 deploy:
   ..
   on:
     all_branches: true
-{% endhighlight %}
+```
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -54,17 +54,17 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 ### Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
-{% highlight yaml %}
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
-{% endhighlight %}
+```
 
 ### Descriptor file example
-{% highlight yaml %}
+```yaml
 {
     /* Bintray package information.
        In case the package already exists on Bintray, only the name, repo and subject
@@ -117,7 +117,7 @@ after_deploy:
     The files will be uploaded to Bintray under the gems folder.
     2. All files under build/docs. The files will be uploaded to Bintray under the docs folder.
 
-    Note: Regular expressions defined as part of the includePattern and excludePattern properties must be wrapped with brackets. */
+    Note: Regular expressions defined as part of the includePattern property must be wrapped with brackets. */
 
     "files":
         [
@@ -126,12 +126,12 @@ after_deploy:
         ],
     "publish": true
 }
-{% endhighlight %}
+```
 
 #### Debian Upload
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
-{% highlight yaml %}
+```yaml
 "files":
     [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
     "matrixParams": {
@@ -140,4 +140,4 @@ When artifacts are uploaded to a Debian repository on Bintray using the Automati
         "deb_architecture": "amd64"}
     }
 ]
-{% endhighlight %}
+```

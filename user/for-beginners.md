@@ -17,7 +17,7 @@ You need to sign up for a [GitHub account](https://github.com/) if you do not al
 2. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable
 Travis CI builds for your fork of the `travis-broken-example` repository.
 
-	> Note: You can only enable Travis CI builds for repositories you have admin access to.  
+	> Note: You can only enable Travis CI builds for repositories you have admin access to.
 
 2. Take a look at `.travis.yml`, the file which tells Travis CI what to do:
 

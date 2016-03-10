@@ -52,7 +52,7 @@ Deployment can be controlled by setting the `on:` for each deployment provider.
         condition: $MY_ENV = super_awesome
 
 When all conditions specified in the `on:` section are met, deployment for this
-provider will be peformed.
+provider will be performed.
 
 Common options are:
 
@@ -76,7 +76,7 @@ It can be complex, but there can be only one. For example, `$CC = gcc`.
 This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
 
     deploy:
-      provider: nodejitsu
+      provider: appfog
       user: ...
       api_key: ...
       on:

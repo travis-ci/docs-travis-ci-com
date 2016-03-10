@@ -24,7 +24,7 @@ can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following three virtual environments:
+Each build runs in one of the following four virtual environments:
 
 * Standard (the default environment)
 * Container-based (the newer environment in which `sudo` commands are not available)
@@ -203,7 +203,7 @@ Please note that the addon only works in 64-bit Linux environments.
 
 ### Environment variables
 
-There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment. 
+There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment.
 
 ### Libraries
 

@@ -1,5 +1,5 @@
 ---
-title: Testing Pull Requests
+title: Building Pull Requests
 layout: en
 permalink: /user/pull-requests/
 ---
