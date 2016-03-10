@@ -206,6 +206,10 @@ depends on the language you're using.
 * `TRAVIS_RUST_VERSION`
 * `TRAVIS_SCALA_VERSION`
 
+Other software specific environment variables are set when the software or service is installed or started, and contain the version number:
+
+* `TRAVIS_MARIADB_VERSION`
+
 The following environment variables are available for Objective-C builds.
 
 * `TRAVIS_XCODE_SDK`
