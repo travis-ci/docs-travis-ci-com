@@ -171,7 +171,13 @@ You can also use other installation methods such as `apt-get`.
 
 ## Build Timeouts
 
-Because it is very common for test suites or build scripts to hang, Travis CI has specific time limits for each job. If a script or test suite takes longer than 50 minutes (or 120 minutes on travis-ci.com), or if there is not log output for 10 minutes, it is terminated, and a message is written to the build log.
+It is very common for test suites or build scripts to hang.
+Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
+
+- A job takes longer than 50 minutes on travis-ci.org
+- A job takes longer than 120 minutes on travis-ci.com
+- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
+- A job produces no log output for 10 minutes
 
 Some common reasons why builds might hang:
 
