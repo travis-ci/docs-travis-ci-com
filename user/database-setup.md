@@ -310,6 +310,8 @@ before_script:
 
 ## RabbitMQ
 
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OSX or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`). 
+
 Start RabbitMQ in your `.travis.yml`:
 
 ```yaml
@@ -318,11 +320,12 @@ services:
 ```
 
 RabbitMQ uses the default configuration:
+
 * vhost: `/`
 * username: `guest`
 * password: `guest`
 
-You can set up more vhosts and roles in the `before_script` of your `.travis.yml` if you need to.
+You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
 
 ## Riak
 
