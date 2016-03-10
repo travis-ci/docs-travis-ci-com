@@ -14,21 +14,13 @@ projects. Please make sure to read our
 
 ### Community-Supported Warning
 
-Travis CI support for Smalltalk is contributed by the community and may be removed or altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:smalltalk)
-and cc [@bahnfahren](https://github.com/bahnfahren),
-[@chistopher](https://github.com/chistopher),
-[@fniephaus](https://github.com/fniephaus),
-[@jchromik](https://github.com/jchromik), and
-[@Nef10](https://github.com/Nef10) in the issue.
-
-Travis uses [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) made by [fniephaus](https://github.com/fniephaus) to support Smalltalk.
+Travis CI support for Smalltalk is provided by [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) and contributed by the community and may be removed or altered at any time. If you run into any problems, please report them [here](https://github.com/hpi-swa/smalltalkCI/issues).
  
 ## Basic configuration
 
-For basic configuration you need a .yml and a .ston.
+In order to set up CI testing for your Smalltalk project, you need a `.travis.yml` and a `.ston` configuration file for SmalltalkCI.
 
-That is how your .travis.yml should look like:
+That is how your `.travis.yml` could look like:
 ```yaml
 language: smalltalk
 sudo: false
@@ -56,7 +48,7 @@ smalltalk:
   - GemStone-3.1.0.6
 ```
 
-This is a minimal .smalltalk.ston:
+This is a minimal `.smalltalk.ston` for loading your project with [Metacello](https://github.com/dalehenrich/metacello-work) and testing it on all supported platforms:
 ```javascript
 SmalltalkCISpec {
   #loading : [
@@ -71,5 +63,4 @@ SmalltalkCISpec {
 
 ## Configuration
 
-This documentation is just a minimal example and not as exhaustive as SmalltalkCI's readme. 
-Please visit [smalltalkCI's GitHub repository](https://github.com/hpi-swa/smalltalkCI#templates) for further details.
+This documentation is just a minimal example and not as exhaustive as [SmalltalkCI's `README.md`](https://github.com/hpi-swa/smalltalkCI#templates).
