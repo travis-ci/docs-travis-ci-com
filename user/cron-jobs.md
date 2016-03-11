@@ -18,7 +18,7 @@ This feature is not enables by default. Please contact us if you need it:
 
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
 
-After activation, a section called "Cron Builds" appears in your settings page.
+After activation, a section called "Cron Jobs" appears in your settings page.
 
 <figure>
   <img alt="settings page with cron section" src="/images/cron-section.png"/>
