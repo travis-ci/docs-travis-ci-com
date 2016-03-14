@@ -4,12 +4,17 @@ layout: en
 permalink: /user/ip-addresses/
 ---
 
-For some it might be necessary to know the public IP addresses of build machines in order to whitelist them to access some internal resources. We run builds in a variety of different infrastructures, so which one you use determines which IP range you need to whitelist.
+For some it might be necessary to know the public IP addresses of build machines in order to whitelist them to access some internal resources. We run builds in a variety of different infrastructures, so which ones you use determines which IP ranges you need to whitelist.
 
-For jobs running on the container-based infrastructure, the ranges are `54.172.141.90/32` and `52.3.133.20/32` for travis-ci.com (private repositories), and `52.0.240.122/32` and `52.22.60.255/32` for travis-ci.org (public repositories).
+Infrastructure | IP ranges
+-------------- | ---------
+Container-based (travis-ci.com) | `nat-com.aws-us-east-1.travisci.net` (`54.172.141.90/32`, `52.3.133.20/32` as of March 14th, 2016)
+Container-based (travis-ci.org) | `nat-org.aws-us-east-1.travisci.net` (`52.0.240.122/32`, `52.22.60.255/32` as of March 14th, 2016)
+OS X | `208.78.110.192/27`
+Sudo-enabled Linux | N/A (see below)
 
-For jobs running on our Mac infrastructure, the ranges are 208.78.110.192/27.
+If we need to add more capacity to the network stack of our container-based infrastructure, we might add more IP addresses
 
-For jobs runing on the Linux infrastructure with sudo enabled, we currently do not have static public IP addresses available. We recommend using one of the other infrastructures if you need static IP addresses.
+We do not have static public IP addresses available for jobs running on the sudo-enabled Linux infrastructure at this time. We recommend using one of the other infrastructures if you need static IP addresses.
 
-Please do note that these ranges can change in the future.
+Note that these ranges can change in the future.
