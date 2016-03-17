@@ -272,7 +272,7 @@ Travis CI.
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
 
-Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* builds.
+Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
     rvm:
       - 1.8.7
@@ -304,9 +304,9 @@ You can also define exclusions to the build matrix:
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
-### Excluding Builds
+### Excluding Jobs
 
-If the builds you want to exclude from the matrix share the same matrix
+If the jobs you want to exclude from the build matrix share the same matrix
 parameters, you can specify only those and omit the varying parts.
 
 Suppose you have:
@@ -354,7 +354,7 @@ matrix:
 		env: DB=mysql
 ```
 
-### Explicity Including Builds
+### Explicity Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
@@ -368,7 +368,7 @@ This adds a particular job to the build matrix which has already been populated.
 
 This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
-You can use this method to create a job matrix containing only specific combinations.
+You can use this method to create a build matrix containing only specific combinations.
 For example,
 
     language: python
