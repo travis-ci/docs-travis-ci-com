@@ -1,7 +1,36 @@
 osx_images:
+  - image: xcode7.3
+    xcode: "7.3"
+    osx_version: "10.11"
+    xcode_full_version: "7.3 Beta 5"
+    sdks:
+      - macosx10.11
+      - iphoneos9.3
+      - iphonesimulator9.3
+      - appletvos9.2
+      - appletvsimulator9.2
+      - watchos2.2
+      - watchsimulator2.2
+    simulators:
+      - "iOS 8.1"
+      - "iOS 8.2"
+      - "iOS 8.3"
+      - "iOS 8.4"
+      - "iOS 9.0"
+      - "iOS 9.1"
+      - "iOS 9.2"
+      - "iOS 9.3"
+      - "watchOS 2.0"
+      - "watchOS 2.1"
+      - "watchOS 2.2"
+      - "tvOS 9.0"
+      - "tvOS 9.1"
+      - "tvOS 9.2"
   - image: xcode7.2
     xcode: "7.2"
-    full_version: "7.2 GM"
+    osx_version: "10.11"
+    xcode_full_version: "7.2.1"
+    image_note: "**Please note that this is our first image based on OS X 10.11.**"
     sdks:
       - macosx10.11
       - iphoneos9.2
@@ -23,6 +52,7 @@ osx_images:
       - "tvOS 9.0"
   - image: xcode7.1
     xcode: "7.1"
+    osx_version: "10.10"
     xcode_full_version: "7.1.1 GM"
     sdks:
       - macosx10.11
@@ -43,6 +73,7 @@ osx_images:
       - "tvOS 9.0"
   - image: xcode7
     xcode: "7"
+    osx_version: "10.10"
     full_version: "7.0.1 GM"
     sdks:
       - macosx10.11
@@ -59,6 +90,7 @@ osx_images:
       - "watchOS 2.0"
   - image: xcode6.4
     xcode: "6.4"
+    osx_version: "10.10"
     full_version: "6.4"
     sdks:
       - macosx10.9
@@ -67,7 +99,8 @@ osx_images:
       - iphonesimulator8.4
     simulators:
   - image: beta-xcode6.3
-    xcode: "6.3.1"
+    xcode: "6.3"
+    osx_version: "10.10"
     full_version: "6.3.1"
     sdks:
       - macosx10.9
@@ -81,6 +114,7 @@ osx_images:
       - "iOS 8.3"
   - image: beta-xcode6.2
     xcode: "6.2"
+    osx_version: "10.9"
     full_version: "6.2"
     sdks:
       - macosx10.9
@@ -93,6 +127,8 @@ osx_images:
       - "iOS 8.2"
   - image: beta-xcode6.1
     xcode: "6.1"
+    osx_version: "10.9"
+    default: true
     full_version: "6.1"
     sdks:
       - macosx10.9
@@ -190,10 +226,52 @@ simulators:
       - iPad Air
       - iPad Air 2
       - iPad Pro
+  - name: "iOS 9.2"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+  - name: "iOS 9.3"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
   - name: "watchOS 2.0"
     devices:
       - Apple Watch - 38mm
       - Apple Watch - 42mm
+  - name: "watchOS 2.1"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
+  - name: "watchOS 2.2"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
   - name: "tvOS 9.0"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 9.1"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 9.2"
     devices:
       - Apple TV 1080p

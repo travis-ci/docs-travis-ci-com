@@ -22,31 +22,35 @@ installed.
 
 **Supported Xcode versions**
 
-- [Xcode 7.3 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.3) -- `osx_image: xcode7.3`
-- [Xcode 7.2 (10.11.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.2) -- `osx_image: xcode7.2`
-- [Xcode 7.1.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7.1) -- `osx_image: xcode7.1`
-- [Xcode 7.0.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-7) -- `osx_image: xcode7`
-- [Xcode 6.4 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.4) -- `osx_image: xcode6.4`
-- [Xcode 6.3.1 (10.10.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.3.1) -- `osx_image: beta-xcode6.3`
-- [Xcode 6.2 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.2) -- `osx_image: beta-xcode6.2`
-- [Xcode 6.1 (10.9.x)](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-6.1) -- **Default when no other `osx_image:` is specified**
-
+{% for image in site.data.xcodes.osx_images %}
+- [Xcode {{ image.xcode }} (OS X {{ image.osx_version}})](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-{{image.xcode}}) -- `osx_image: {{image.image}}` {% if image.default == true %} -- **Default when no other `osx_image:` is specified** {% endif %}
+{% endfor %}
 
 _Note: At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
 about Xcode pre-release availability, send us an email at support@travis-ci.com._
 
-
-{% for image in site.data.images %}
+{% for image in site.data.xcodes.osx_images %}
 ### Xcode {{ image.xcode }}
 
-Xcode {{ image.full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
+Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 
-Our Xcode {{ image.full_version }} images have the following SDKs preinstalled:
+{% if image.default == true %} -- **Default when no other `osx_image:` is specified** {% endif %}
+
+{% if image.image_note != nil %}
+{{image.image_note}}
+{% endif %}
+
+Our Xcode {{ image.xcode_full_version }} images have the following SDKs preinstalled:
 
 {% for sdk in image.sdks %}
 - {{ sdk }}
+{% endfor %}
+
+The Xcode {{ image.xcode_full_version }} image also comes with the following simulators:
+{% for simulator in image.simulators %}
+- {{ simulator }}
 {% endfor %}
 
 {% endfor %}
@@ -119,3 +123,15 @@ you can override the `install` command.
 
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
+
+## Simulators
+{% for simulator in site.data.xcodes.simulators %}
+### {{ simulator.name }}
+
+The following devices are provided by the {{ simulator.name }} simulator:
+
+{% for device in simulator.devices %}
+- {{ device }}
+{% endfor %}
+
+{% endfor %}
