@@ -130,7 +130,6 @@ Validates your .travis.yml
 Trigger builds on a regular schedule<br>
 By Filippo Valsorda
 
-* [website](http://traviscron.pythonanywhere.com/)
 * [source code](https://github.com/FiloSottile/travis-cron)
 
 
