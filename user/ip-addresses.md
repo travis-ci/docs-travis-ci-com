@@ -4,7 +4,7 @@ layout: en
 permalink: /user/ip-addresses/
 ---
 
-For some it might be necessary to know the public IP addresses of build machines in order to whitelist them to access some internal resources. We run builds in a variety of different infrastructures, so which ones you use determines which IP ranges you need to whitelist.
+Knowing the IP addresses of the build machines Travis CI uses can be helpful when you need them whitelisted to access your internal resources. Since builds run in a variety of different infrastructures, the IP ranges to whitelist depend on the infrastructure your builds are running on:
 
 Infrastructure | IP ranges
 -------------- | ---------
@@ -16,3 +16,5 @@ Sudo-enabled Linux | N/A (see below)
 We do not have static public IP addresses available for jobs running on the sudo-enabled Linux infrastructure at this time. We recommend using one of the other infrastructures if you need static IP addresses.
 
 Note that these ranges can change in the future.
+
+More details about our different infrastructures are available on the [virtualization environments page](/user/ci-environment/#Virtualization-environments).
