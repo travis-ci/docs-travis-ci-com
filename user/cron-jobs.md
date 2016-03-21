@@ -12,13 +12,14 @@ Please ask us to unlock it for your repository:
 
 ## Preparation
 
-Travis CI supports building projects time-controlled every day,
-week or month no matter if there was a push on this repository or not.
+Travis CI lets you schedule builds at regular intervals independently of whether
+any commits were pushed to the repository.
 This feature is not enables by default. Please contact us if you need it:
 
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
 
-After activation, a section called "Cron Jobs" appears in your settings page.
+If this feature is enabled for your repository, there is a "Cron Jobs" settings
+tab on your Travis CI page.
 
 <figure>
   <img alt="settings page with cron section" src="/images/cron-section.png"/>
@@ -41,7 +42,6 @@ Thereafter the cron job is displayed above:
 
 ## Deleting Cron Jobs
 
-Deleting is even easier than adding a cron job.
 Just click on the small trash can on the right hand side:
 
 <figure>
