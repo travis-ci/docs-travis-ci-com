@@ -138,7 +138,7 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.4 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the *major.minor* version in your `.travis.yml`:
+The Travis CI build environments use version 9.4 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the **major.minor** version in your `.travis.yml`:
 
 ```yaml
 addons:
@@ -147,10 +147,12 @@ addons:
 
 The following patch releases are available:
 
-* 9.1.15
-* 9.2.10
-* 9.3.6
-* 9.4.1
+| Version | yaml in `.travis.yml`
+| ------- | :-------------------:
+| 9.1.15  | `postgresql: "9.1"`
+| 9.2.10  | `postgresql: "9.2"`
+| 9.3.6   | `postgresql: "9.3"`
+| 9.4.1   | `postgresql: "9.4"`
 
 ### Using PostGIS
 
