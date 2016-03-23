@@ -2,7 +2,7 @@ osx_images:
   - image: xcode7.3
     xcode: "7.3"
     osx_version: "10.11"
-    xcode_full_version: "7.3 Beta 5"
+    xcode_full_version: "7.3 GA"
     sdks:
       - macosx10.11
       - iphoneos9.3
