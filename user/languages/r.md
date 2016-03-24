@@ -177,6 +177,17 @@ repos:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+### Environment Variables ###
+R-Travis sets the following additional environment variables from the [Travis
+defaults](/user/environment-variables/#Default-Environment-Variables).
+
+- `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
+- `R_LIBS_USER=~/R/Library`
+- `R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/lib/R/site-library`
+- `_R_CHECK_CRAN_INCOMING_=false`
+- `NOT_CRAN=true`
+- `R_PROFILE=~/.Rprofile.site`
+
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
