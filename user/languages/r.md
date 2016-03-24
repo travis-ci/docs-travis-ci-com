@@ -133,30 +133,23 @@ when building and checking your package:
 
 ### Bioconductor
 
-A simple Bioconductor package should generally only need the following `.travis.yml`:
+A typical [Bioconductor][bioconductor] package should only need to specify the
+Bioconductor version they want to test against in their `.travis.yml`.
 
 ```yaml
 language: r
-bioc_required: true
+r: bioc-devel
 ```
 
-If your package is detected as a Bioconductor package, Travis CI will first
-configure Bioconductor, and then use the Bioconductor repositories in place of
-the usual CRAN repository when installing dependencies.
+Or if you want to test against the release branch
 
-There are two ways to signal to Travis CI that your package is a Bioconductor
-package:
+```yaml
+language: r
+r: bioc-release
+```
 
-* If the variable `bioc_required` is set to `true`, your package will install
-  dependencies from Bioconductor.
-
-* If `bioc_packages` is nonempty, your package will install those dependencies from
-  Bioconductor.
-
-If you want to test with the Bioconductor devel branch you can set the variable
-`bioc_use_devel: true`. *Note* Bioconductor branches are tied to [specific R
-versions][bioconductor], so you may also have to use `r: devel` to use the
-devel version of R.
+Travis CI will use the proper R version for that version of Bioconductor and
+configure Bioconductor appropriately for installing dependencies.
 
 ### Miscellaneous
 
@@ -205,7 +198,7 @@ processed in order, so entries can depend on dependencies in a previous list.
 
 * `r_packages`: A list of R packages to install via `install.packages`.
 
-* `bioc_packages`: A list of [Bioconductor][bioconductor 2]
+* `bioc_packages`: A list of [Bioconductor][bioconductor]
   packages to install.
 
 * `r_github_packages`: A list of packages to install directly from GitHub,
@@ -236,8 +229,7 @@ R support for Travis CI was originally based on the [r-travis][] project, and
 thanks are due to all the [contributors][github 10]. For more information on
 moving from r-travis to native support, see the [porting guide][github 9].
 
-[bioconductor]: https://www.bioconductor.org/developers/how-to/useDevel
-[bioconductor 2]: http://www.bioconductor.org/
+[bioconductor]: https://www.bioconductor.org/
 [container]: /user/workers/container-based-infrastructure/
 [ctan]: https://www.ctan.org/
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
