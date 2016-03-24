@@ -5,6 +5,7 @@ permalink: /user/deployment/launchpad/
 ---
 
 Travis CI can get [Launchpad](https://launchpad.net/) to automatically import your code from GitHub after a successful build.
+This is useful to, for example, build and host Debian packages.
 
 To automatically trigger an import:
 
@@ -20,7 +21,7 @@ deploy:
   oauth_token_secret: "YOUR OAUTH_TOKEN_SECRET"
 ```
 
-Note that `oauth_token` and `oauth_token_secret` are stored **unencrypted** in a your (potentially public) GitHub repository. See below for encryption options.  
+It is recommended to encrypt both your `oauth_token` and your `oauth_token_secret` as shown [below](/user/deployment/launchpad/#Encrypting-your-OAUTH-tokens).  
 The `slug` contains user or team name, project name, and branch name, and is formatted like `~user-name/project-name/branch-name`. You can find yor project's slug in the header (and the url) of it's `code.launchpad.net` page.
 
 <figure>
