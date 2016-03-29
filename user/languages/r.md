@@ -183,7 +183,8 @@ processed in order, so entries can depend on dependencies in a previous list.
 
 * `apt_packages`: A list of packages to install via `apt-get`. Common examples
   here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds and will not work if `sudo: false`.
+  non-linux builds and will not work if `sudo: false`. An option that works also
+  with `sudo: false` is the [APT addon][apt-addon].
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
@@ -249,3 +250,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 [tug]: https://www.tug.org/texlive/
 [yihui]: http://yihui.name/knitr/
+[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon
