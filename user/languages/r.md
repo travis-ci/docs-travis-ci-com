@@ -217,6 +217,16 @@ language: r
 cache: packages
 ```
 
+### Package in a subdirectory
+If your package is in a subdirectory of the repository you simply need to
+change to the subdirectory prior to running the `install` or `script` steps.
+
+```yaml
+language: r
+before_install:
+  - cd subdirectory
+```
+
 ## Converting from r-travis
 
 If you've already been using [r-travis][] to test your R package, you're
