@@ -12,7 +12,7 @@ Before using the Travis CI API you need to use the [command line client](https:/
 
 ```bash
 travis login --org
-travis token
+travis token --org
 ```
 
 If you are using Travis CI with a private repository use `--pro` instead of `--org`
