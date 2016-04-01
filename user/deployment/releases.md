@@ -22,7 +22,7 @@ Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all
 
 Note that the section at the end of the .travis.yml above is required to make sure that your tags get deployed.
 
-You can always use the Travis CI command line client set everything up for you:
+You can always use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) set everything up for you:
 
     $ travis setup releases
 
