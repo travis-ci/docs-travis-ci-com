@@ -172,20 +172,22 @@ You can also use other installation methods such as `apt-get`.
 ## Build Timeouts
 
 It is very common for test suites or build scripts to hang.
+
 Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
 
 - A job takes longer than 50 minutes on travis-ci.org
 - A job takes longer than 120 minutes on travis-ci.com
-- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
+- A job takes longer than 50 minutes on OSX infrastructure on travis-ci.org or travis-ci.com
 - A job produces no log output for 10 minutes
+
+> A build is a set of jobs. Each job has a time limit as described above, but there is no time limit for the build as a whole, as long as each individual job does not time out.
 
 Some common reasons why builds might hang:
 
 * Waiting for keyboard input or other kind of human interaction
 * Concurrency issues (deadlocks, livelocks and so on)
-* Installation of native extensions that take very long time to compile
+* Installation of native extensions that take a long time to compile
 
-> There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
 ## Limiting Concurrent Builds
 
