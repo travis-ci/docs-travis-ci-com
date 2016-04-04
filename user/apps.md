@@ -8,7 +8,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 
 * **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
 * **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-* **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows)
+* **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows), [Cross Platform](#Cross-Platform)
 * **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 * **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
 * **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python)
@@ -322,6 +322,17 @@ By Automated Architecture
 
 * [website](http://sirenofshame.com/)
 * [windows 8 store](http://apps.microsoft.com/windows/en-US/app/siren-of-shame/1af0feaf-0801-4ad3-8a95-3f1226e313b9)
+
+## Cross Platform
+
+### Build Checker App
+
+![BuildCheckerApp](/images/apps/build-checker-app.png){:.app}
+
+Check CI-server build statuses<br>
+By Will Mendes.
+
+* [website](https://github.com/willmendesneto/build-checker-app#readme)
 
 <a name='commandline'></a>
 
