@@ -184,7 +184,15 @@ processed in order, so entries can depend on dependencies in a previous list.
 * `apt_packages`: A list of packages to install via `apt-get`. Common examples
   here include entries in `SystemRequirements`. This option is ignored on
   non-linux builds and will not work if `sudo: false`. An option that works also
-  with `sudo: false` is the [APT addon][apt-addon].
+  with `sudo: false` is the [APT addon][apt-addon].  The snippet below installs
+  a prerequisite for the R package `xml2`:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - libxml2-dev
+```
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
