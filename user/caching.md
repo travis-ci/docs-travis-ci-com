@@ -6,8 +6,6 @@ permalink: /user/caching/
 
 The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
 
-Note that [APT caching](#Caching-Ubuntu-packages) is not available for the container-based infrastructure.
-
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
@@ -218,53 +216,6 @@ menu
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 
 There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
-
-## Caching Ubuntu packages
-
-<div class="note-box">
-This feature is available only for private repositories.
-</div>
-
-A network-local APT cache is available, allowing for more reliable download
-speeds compared to the Ubuntu mirrors.
-
-To enable APT caching, add the following to your .travis.yml:
-
-```yaml
-cache: apt
-```
-
-Subsequently, all Ubuntu packages will be downloaded by way of our
-cache or added to the cache for future use.
-
-The package repositories are currently limited to a pre-selected set. If you
-need to install packages from a repository not available in the list below,
-[please shoot us an email](mailto:support@travis-ci.com?subject=Please add this
-APT repository), and we'll add it for you.
-
-- ppa.launchpad.net
-- apt.postgresql.org
-- apt.basho.com
-- www.rabbitmq.com
-- downloads-distro.mongodb.org
-- download.oracle.com
-- archive.cloudera.com
-- packages.erlang-solutions.com
-- repo.varnish-cache.org
-- packages.ros.org
-- dl.hhvm.com
-- dev.mysql.com
-- llvm.org
-- repo.percona.com
-- packages.elasticsearch.org
-- debian.neo4j.org
-- packages.osrfoundation.org
-- dl.google.com
-
-The standard Ubuntu repositories are included by default.
-
-Caching Ubuntu packages will soon be enabled by default, but we're still
-beta-testing the new cache until it is.
 
 ## Configuration
 
