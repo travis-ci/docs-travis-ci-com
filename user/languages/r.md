@@ -115,6 +115,32 @@ language: r
 pandoc_version: 1.16
 ```
 
+### APT packages
+
+Use the [APT addon][apt-addon] (currently in beta)
+to install APT packages on both container-based (`sudo: false`)
+and standard (`sudo: required`) infrastructures.
+The snippet below installs a prerequisite for the R package `xml2`:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - libxml2-dev
+```
+
+Note that the APT package needs to be white-listed for this to work
+on container-based infrastructure.
+This option is ignored on non-Linux builds.
+
+An alternative that works only on standard infrastructure is
+the `apt_packages` field:
+
+```yaml
+apt_packages:
+  - libxml2-dev
+```
+
 ### Package check options
 
 You can use the following top-level options to control what options are used
@@ -181,18 +207,7 @@ top-level entry in your `.travis.yml`; entries in these lists will be
 installed before building and testing your package. Note that these lists are
 processed in order, so entries can depend on dependencies in a previous list.
 
-* `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds and will not work if `sudo: false`. An option that works also
-  with `sudo: false` is the [APT addon][apt-addon].  The snippet below installs
-  a prerequisite for the R package `xml2`:
-
-```yaml
-addons:
-  apt:
-    packages:
-      - libxml2-dev
-```
+* `apt_packages`: See above
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
