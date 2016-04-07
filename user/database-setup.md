@@ -424,6 +424,7 @@ You can overwrite the installed ElasticSearch with the version you need (e.g., 1
 
 ```yaml
 before_install:
+  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb && sudo service elasticsearch restart
 ```
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 
