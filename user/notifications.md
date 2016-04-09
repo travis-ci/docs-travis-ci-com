@@ -188,7 +188,7 @@ You can interpolate the following variables:
 * *result*: result of build
 * *message*: travis message to the build
 * *duration*: total duration of all builds in the matrix
-* *elapsed_time*: wall time between build start and finish
+* *elapsed_time*: time between build start and finish
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
@@ -495,14 +495,6 @@ You can specify multiple channels as well.
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
         on_start: [always|never|change]   # default: never
-
-You also have the possibility to customize the message that will be sent to the channel(s) with a template:
-
-    notifications:
-      slack:
-        template:
-          - 'Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{elapsed_time}'
-          - '%{pull_request_url} %{commit_subject}'
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
