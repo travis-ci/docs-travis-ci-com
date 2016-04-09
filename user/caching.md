@@ -21,7 +21,7 @@ With caches, Travis CI can persist directories between builds. This is especiall
 
 ### Build phases
 
-Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
+Travis CI attempts to upload cache after `script`, but before either `after_success` or `after_failure` is
 run.
 Note that the failure to upload the cache does not mark the job a failure.
 
@@ -117,7 +117,7 @@ caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
 
 ### R package cache
-For caching R pacakges, use:
+For caching R packages, use:
 
 ```yaml
 language: R
