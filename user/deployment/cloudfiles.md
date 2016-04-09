@@ -11,7 +11,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
     deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
 
@@ -20,7 +20,7 @@ This example is almost certainly not ideal, as you probably want to upload your 
     deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
@@ -28,7 +28,7 @@ This example is almost certainly not ideal, as you probably want to upload your 
 It is recommended encrypt that you encrypt your Rackspace api key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-    travis encrypt --add deploy.api-key
+    travis encrypt --add deploy.api_key
 
 You will be prompted to enter your api key on the command line.
 
@@ -47,7 +47,7 @@ You can tell Travis CI only to deploy on tags, like this:
 	deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
@@ -62,7 +62,7 @@ Often, you don't want to upload your entire project to Cloud Files. You can tell
 	deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
@@ -74,13 +74,13 @@ If you want to upload to multiple containers, you can do this:
     deploy:
       - provider: cloudfiles
         username: "RACKSPACE USERNAME"
-        api-key: "RACKSPACE API KEY"
+        api_key: "RACKSPACE API KEY"
         region: "CLOUDFILE REGION"
         container: "CLOUDFILES CONTAINER NAME"
         skip_cleanup: true
       - provider: cloudfiles
         username: "RACKSPACE USERNAME"
-        api-key: "RACKSPACE API KEY"
+        api_key: "RACKSPACE API KEY"
         region: "CLOUDFILE REGION"
         container: "CLOUDFILES CONTAINER NAME"
         skip_cleanup: true
@@ -92,7 +92,7 @@ You can explicitly specify the branch to release from with the **on** option:
     deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
@@ -104,7 +104,7 @@ Alternatively, you can also configure Travis CI to release from all branches:
     deploy:
       provider: cloudfiles
       username: "RACKSPACE USERNAME"
-      api-key: "RACKSPACE API KEY"
+      api_key: "RACKSPACE API KEY"
       region: "CLOUDFILE REGION"
       container: "CLOUDFILES CONTAINER NAME"
       skip_cleanup: true
