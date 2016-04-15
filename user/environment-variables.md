@@ -130,7 +130,7 @@ To automatically add the encrypted environment variable to your `.travis.yml`:
 
     travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
 
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will have different keys to the original.
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will have different keys than the original.
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
