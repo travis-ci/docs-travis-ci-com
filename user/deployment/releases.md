@@ -86,3 +86,12 @@ Sometimes you want to run commands before or after releasing a gem. You can use 
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
+
+### Pre-releases
+
+You can mark releases as pre-releases.
+
+    deploy:
+      provider: releases
+      prerelease: true
+      ..
