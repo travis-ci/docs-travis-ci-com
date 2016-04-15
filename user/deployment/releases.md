@@ -62,7 +62,7 @@ You can upload multiple files using yml array notation. This example uploads two
 
     deploy:
       provider: releases
-      api-key: "GITHUB OAUTH TOKEN"
+      api_key: "GITHUB OAUTH TOKEN"
       file:
         - "FILE 1"
         - "FILE 2"
