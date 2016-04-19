@@ -187,7 +187,8 @@ You can interpolate the following variables:
 * *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
-* *duration*: duration of the build
+* *duration*: total duration of all builds in the matrix
+* *elapsed_time*: time between build start and finish
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
