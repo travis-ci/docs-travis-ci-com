@@ -187,7 +187,7 @@ Please note that these extensions are not enabled by default with the exception 
 
 For PHP versions up to 5.6, these extensions are available.
 
-* [apc.so](http://php.net/apc)
+* [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
 * [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
 * [mongo.so](http://php.net/mongo) or [mongodb.so](https://php.net/mongodb)
 * [amqp.so](http://php.net/amqp)
