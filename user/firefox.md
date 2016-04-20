@@ -8,9 +8,9 @@ Our 64-bit Linux VMs include a recent version of Firefox, currently 31.0esr.
 
 ## Selecting a Firefox version
 
-To install a specific version of Firefox, use the Firefox addon to download and  install before running your build script (as part of the `before_install` stage).
+To install a specific version of Firefox, you can use the Firefox addon. The addon will download and install Firefox before running your build script.
 
-For example, to install version 39.0 of Firefox, add the following to your `.travis.yml` file:
+For example, to install version 39.0 of Firefox, add the following at the top-level of your `.travis.yml` file:
 
     addons:
       firefox: "39.0"
