@@ -17,8 +17,9 @@ and rolled back at the end of it. This offers a number of benefits:
 * Host OS is not affected by test suites
 * No state persists between runs
 * Passwordless sudo is available
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users
-  and so on
+* It is possible for test suites to install various services via `brew`
+  and then customize the configuration of those services at the
+  beginning of each build.
 
 The environment available to test suites is known as the *Travis CI
 environment*.
