@@ -5,7 +5,7 @@ permalink: /user/cron-jobs/
 ---
 
 **Please note that cron jobs are not enabled by default.
-Please ask us to unlock it for your repository:
+Please ask us to unlock this feature for your repository:
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)**
 
 <div id="toc"></div>
@@ -14,7 +14,7 @@ Please ask us to unlock it for your repository:
 
 Travis CI lets you schedule builds at regular intervals independently of whether
 any commits were pushed to the repository.
-This feature is not enables by default. Please contact us if you need it:
+This feature is not enabled by default. Please contact us if you need it:
 
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
 
