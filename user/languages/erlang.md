@@ -38,11 +38,13 @@ if your project has `rebar.config` or `Rebar.config` files in the repository roo
 
 ## Dependency Management
 
-The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and uses
+The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and runs
 
-    rebar get-deps
+```
+rebar get-deps
+```
 
-to installs [project dependencies ](https://github.com/basho/riak/blob/master/rebar.config) as listed in the rebar.config file.
+to install [project dependencies ](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
 
 
 ## Build Matrix
