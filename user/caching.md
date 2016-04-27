@@ -13,7 +13,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 ## Cache content can be accessed by pull requests
 
 Do note that cache content will be available to any build on the repository, including Pull Requests.
-Do exercise caution not to put any sensitive information in the cache, lest malicious attacker may expose it.
+Do exercise caution not to put any sensitive information in the cache, lest a malicious attacker potentially expose it.
 
 ## Caching directories (Bundler, dependencies)
 
