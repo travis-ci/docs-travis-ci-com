@@ -155,11 +155,11 @@ Stock Apache Maven 3.
 
 ## Ruby versions/implementations
 
-* system (2.0.0) -- You need to use `sudo` to install gems with this ruby
+* system (depends on OS X version)
 * 1.9.3
 * 2.0.0 (default)
-* 2.1.2
-* 2.1.3
+* 2.1.5
+* 2.2.1
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
