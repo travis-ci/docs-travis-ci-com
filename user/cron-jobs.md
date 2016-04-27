@@ -21,29 +21,21 @@ This feature is not enabled by default. Please contact us if you need it:
 If this feature is enabled for your repository, there is a "Cron Jobs" settings
 tab on your Travis CI page.
 
-<figure>
-  <img alt="settings page with cron section" src="/images/cron-section.png"/>
-</figure>
+![settings page with cron section](/images/cron-section.png "settings page with cron section")
 
 ## Adding Cron Jobs
 
 After optionally customizing the cron job's properties
 you can click on "Add" which creates the cron job.
 
-<figure>
-  <img alt="adding a cron job" src="/images/cron-adding.png"/>
-</figure>
+![adding a cron job](/images/cron-adding.png "adding a cron job")
 
 Thereafter the cron job is displayed above:
 
-<figure>
-  <img alt="cron job created" src="/images/cron-created.png"/>
-</figure>
+![cron job created](/images/cron-created.png "cron job created")
 
 ## Deleting Cron Jobs
 
 Just click on the small trash can on the right hand side:
 
-<figure>
-  <img alt="deleting a cron job" src="/images/cron-deleting.png"/>
-</figure>
+![deleting a cron job](/images/cron-deleting.png "deleting a cron job")
