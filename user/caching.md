@@ -127,6 +127,17 @@ cache: packages
 
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
+### Rust Cargo cache
+For caching Cargo packages, use:
+
+```yaml
+language: rust
+
+cache: cargo
+```
+
+This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
+
 ### Arbitrary directories
 
 You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
