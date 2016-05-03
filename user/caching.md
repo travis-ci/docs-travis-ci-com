@@ -4,8 +4,6 @@ layout: en
 permalink: /user/caching/
 ---
 
-The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
-
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
@@ -13,7 +11,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 ## Cache content can be accessed by pull requests
 
 Do note that cache content will be available to any build on the repository, including Pull Requests.
-Do exercise caution not to put any sensitive information in the cache, lest a malicious attacker potentially expose it.
+Do exercise caution not to put any sensitive information in the cache, lest a malicious attacker potentially exposes it.
 
 ## Caching directories (Bundler, dependencies)
 
