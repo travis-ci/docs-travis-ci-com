@@ -4,7 +4,7 @@ layout: en
 permalink: /user/cron-jobs/
 ---
 
-**Please note that cron jobs are not enabled by default.
+**Please note that cron jobs are not enabled by default and are only available for open source repositories (i.e. on [travis-ci.org](https://travis-ci.org)) at this time.
 Please ask us to unlock this feature for your repository:
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)**
 
