@@ -56,9 +56,9 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions ###
 
-Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise
-builds. The names `oldrel` and `3.1` are aliased to `3.1.2` and the names
-`release` and `3.2` are aliased to `3.2.3`. Matrix builds _are_ supported for R
+Travis CI supports R versions above `3.1.3`  on Linux Precise
+builds.  The names `oldrel` and `3.1` are aliased to `3.1.2` and the names
+`release` and `3.2` are aliased to `3.2.4revisied`. The `devel` version is aliased to "R-devel" (currently `3.4`) built off of the git mirror (https://travis-ci.org/wch/r-source) of the R SVN repository and is updated hourly. Matrix builds _are_ supported for R
 builds, however both instances of `r` must be in _lowercase_.
 
 ```yaml
@@ -70,10 +70,10 @@ r:
 ```
 
 As new minor versions are released, aliases will float and point to the most
-current minor release.
+current minor release. 
 
 For exact versions used for a build, please consult "Build system information"
-in the build log.
+in the build log. The the R version output is included in the 'R session information' tab.
 
 ### Dependencies
 
