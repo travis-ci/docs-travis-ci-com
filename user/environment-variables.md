@@ -8,21 +8,22 @@ A common way to customize the build process is to use environment variables, whi
 
 <div id="toc"></div>
 
-* Variables defined in [.travis.yml](#Defining-Variables-in-.travis.yml) are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository. Define variables in `.travis.yml` that:
+There are two main ways to define environment variables: in [.travis.yml](#Defining-Variables-in-.travis.yml) or in a repository's settings.
+Variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository. Define variables in `.travis.yml` that:
 
-	+ are needed for the build to run and that don't contain sensitive data. For instance, a test suite for a Ruby application might require `$RACK_ENV` to be set to `test`.
-	+ differ per branch.
-	+ differ per job.
+* are needed for the build to run and that don't contain sensitive data. For instance, a test suite for a Ruby application might require `$RACK_ENV` to be set to `test`.
+* differ per branch.
+* differ per job.
 
-* Variables defined in [repository settings](#Defining-Variables-in-Repository-Settings) are the same for all builds. When you restart an old build, it uses the latest values. These variables are not automatically available to forks. Define variables in the Repository Settings that:
+Variables defined in [repository settings](#Defining-Variables-in-Repository-Settings) are the same for all builds. When you restart an old build, it uses the latest values. These variables are not automatically available to forks. Define variables in the Repository Settings that:
 
-	+ differ per repository.
-	+ contain sensitive data, such as third-party credentials.
+* differ per repository.
+* contain sensitive data, such as third-party credentials.
 
 > Notice that the values are not escaped when your builds are executed. Special characters (for bash) should be
 escaped accordingly.
 
-* Use [Encrypted variables](#Encrypted-Variables) for sensitive data such as authentication tokens.
+Use [Encrypted variables](#Encrypted-Variables) for sensitive data such as authentication tokens.
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
