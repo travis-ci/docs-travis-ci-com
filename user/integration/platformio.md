@@ -135,7 +135,7 @@ You can configure multiple build environments using a [platformio.ini](http://do
 
 ```yaml
 script:
-    - platformio ci --project-conf=/path/to/platoformio.ini
+    - platformio ci --project-conf=/path/to/platformio.ini
 ```
 
 ## Examples
