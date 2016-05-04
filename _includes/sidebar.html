@@ -53,8 +53,16 @@
 
       </ul>
       <h3>Languages</h3>
+      <ul>
+      {% for language in site.data.languages %}
+        <li><a href="{{language[1]}}">{{language[0]}}</a></li>
+      {% endfor %}
+      </ul>
       <h3>Deployments and Uploads</h3>
       <ul>
+        {% for deployment in site.data.deployments %}
+          <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
+        {% endfor %}
       <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
     </ul>
       <h3>CI Environment</h3>
