@@ -192,12 +192,10 @@ Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image
 Our Xcode {{ image.xcode_full_version }} images have the following SDKs preinstalled:
 
 {% for sdk in image.sdks %}
-- {{ sdk }}
-{% endfor %}
+- {{ sdk }}{% endfor %}
 
 The Xcode {{ image.xcode_full_version }} image also comes with the following simulators:
 {% for simulator in image.simulators %}
-- {{ simulator }}
-{% endfor %}
+- {{ simulator }}{% endfor %}
 
 {% endfor %}
