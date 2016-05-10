@@ -41,7 +41,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: clojure
 
-### Using Midje on travis-ci.org
+### Using Midje or Speclj on travis-ci.org
 
 If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your `project.clj` development dependencies list and override `script:` in `.travis.yml` to run Midje task:
 
@@ -64,6 +64,17 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
+If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this line in `.travis.yml`:
+
+    script: lein spec
+
+For Leiningen 1, make sure Speclj is listed under `:dev-dependencies` in `project.clj`:
+
+    :dev-dependencies [[speclj "3.3.1"]]
+
+Leiningen 2 replaces `:dev-dependencies` with profiles:
+
+    :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 
 ## Using Leiningen 1
 
