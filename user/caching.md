@@ -301,10 +301,15 @@ that to happen outside of the build, giving faster build feedback.
 
 ### Cache and the build matrix
 
-When caching is enabled in a build with multiple jobs, we take care to avoid inappropriate
-sharing of caches within the build matrix.
+When caching is enabled in a build with multiple jobs, we take care to avoid
+inappropriate sharing of caches within the build matrix, because caches often
+contain binary files which are not compatible when used on an incompatible
+system.
 
-To do this, we use the following characteristics of each job to construct a string
+Care should be taken not to mix OS, OS version, and other factors that may
+influence the composition of the cache.
+
+We use the following characteristics of each job to construct a string
 that identifies the job:
 
 1. The OS the job is running on
