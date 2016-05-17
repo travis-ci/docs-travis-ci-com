@@ -282,7 +282,7 @@ cache:
 ## Caches and build matrices
 
 When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
-some characteristics of each job are used to identify the cache eacho of the
+some characteristics of each job are used to identify the cache each of the
 jobs should use.
 
 These factors are:
