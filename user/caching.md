@@ -279,6 +279,32 @@ cache:
   timeout: 1000
 ```
 
+## Caches and build matrices
+
+When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
+some characteristics of each job are used to identify the cache eacho of the
+jobs should use.
+
+These factors are:
+
+1. OS name (currently, `linux` or `osx`)
+1. OS distribution (for Linux, `precise` or `trusty`)
+1. OS X image name (e.g., `xcode7.2`)
+1. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+1. Language runtime version (for the language specified in the `language` key) if applicable
+1. For Bundler-aware jobs, the name of the `Gemfile` used
+
+If these characteristics are shared by more than one job in a build matrix,
+they will share the same URL on the network.
+This could corrupt the cache, or the cache may contain files that are not
+usable in all jobs using it.
+In this case, we advise you to add a defining public environment variable
+name; e.g.,
+
+    CACHE_NAME=JOB1
+
+to `.travis.yml`.
+
 ## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
