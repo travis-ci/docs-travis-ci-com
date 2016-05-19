@@ -226,10 +226,10 @@ When you want to enable multiple caching features, you can list them as an array
 ```yaml
 cache:
 - bundler
-- apt
+- pip
 ```
 
-This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
+This does not work when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
 
 ```yaml
 cache:
@@ -252,7 +252,7 @@ It is also possible to disable a single caching mode:
 ```yaml
 cache:
   bundler: false
-  apt: true
+  pip: true
 ```
 
 ### Setting the timeout
