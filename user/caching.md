@@ -157,21 +157,12 @@ The cache's purpose is to make installing language-specific dependencies easy
 and fast, so everything related to tools like Bundler, pip, Composer, npm,
 Gradle, Maven, is what should go into the cache.
 
-For other things, the cache won't be an improvement. Installing them usually
-takes only short amounts of time, but downloading them will be the same speed
-when pulled from the cache as it will be from their original source. You
-possibly won't see a speedup putting them into the cache.
-
-Things like:
+Large files that are quick to install but slow to download do not benefit from caching, as they take as long to download from the cache as from the original source:
 
 * Android SDKs
 * Debian packages
 * JDK packages
 * Compiled binaries
-
-Anything that's commonly not changing is better suited for something like our APT
-caching proxy. Please shoot us an [email](mailto:support@travis-ci.com) and
-we'll see about adding your custom source to our cache.
 
 ### Fetching and storing caches
 
