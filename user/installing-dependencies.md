@@ -61,21 +61,33 @@ Say your project requires the pngquant tool to compress PNG files, here's how to
 
 You can also use the APT addon.
 
+This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+
+If your requirements goes beyond the normal installation, please use another method described above.
+
 #### Adding APT Sources
 
-To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+To add APT sources, you can use one of the following three types of entries:
+
+1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
+1. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
+1. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
+
+The following snippet shows these three types of APT sources
 
 ``` yaml
 addons:
   apt:
     sources:
     - deadsnakes
-    - ubuntu-toolchain-r-test
+    - sourceline: 'ppa:ubuntu-toolchain-r/test'
+    - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
+      key_url: 'https://packagecloud.io/gpg.key'
 ```
 
 #### Adding APT Packages
 
-To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+List APT packages under the `addons.apt.packages` key:
 
 ``` yaml
 addons:
@@ -98,9 +110,11 @@ addons:
    - g++-4.8
 ```
 
+> Note: If `apt-get install` fails, the build is marked an error.
+
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
+To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -138,6 +152,7 @@ addons:
    - gcc-4.8
    - g++-4.8
 ```
+> Note: If `apt-get install` fails, the build is marked an error.
 
 #### Identifying the source for missing package
 

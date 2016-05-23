@@ -35,6 +35,7 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
+1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
 1. `before_install`
 2. `install`
 3. `before_script`
@@ -171,7 +172,13 @@ You can also use other installation methods such as `apt-get`.
 
 ## Build Timeouts
 
-Because it is very common for test suites or build scripts to hang, Travis CI has specific time limits for each job. If a script or test suite takes longer than 50 minutes (or 120 minutes on travis-ci.com), or if there is not log output for 10 minutes, it is terminated, and a message is written to the build log.
+It is very common for test suites or build scripts to hang.
+Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
+
+- A job takes longer than 50 minutes on travis-ci.org
+- A job takes longer than 120 minutes on travis-ci.com
+- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
+- A job produces no log output for 10 minutes
 
 Some common reasons why builds might hang:
 
@@ -266,15 +273,15 @@ Travis CI.
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
 
-Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* builds.
+Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
     rvm:
-      - 1.8.7
-      - 1.9.2
       - 1.9.3
-      - rbx-2
-      - jruby
+      - 2.0.0
+      - 2.2
       - ruby-head
+      - jruby
+      - rbx-2
       - ree
     gemfile:
       - gemfiles/Gemfile.rails-2.3.x
@@ -289,7 +296,7 @@ You can also define exclusions to the build matrix:
 
     matrix:
       exclude:
-        - rvm: 1.8.7
+        - rvm: 1.9.3
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
         - rvm: jruby
@@ -298,9 +305,9 @@ You can also define exclusions to the build matrix:
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
-### Excluding Builds
+### Excluding Jobs
 
-If the builds you want to exclude from the matrix share the same matrix
+If the jobs you want to exclude from the build matrix share the same matrix
 parameters, you can specify only those and omit the varying parts.
 
 Suppose you have:
@@ -348,7 +355,7 @@ matrix:
 		env: DB=mysql
 ```
 
-### Explicity Including Builds
+### Explicity Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
@@ -362,7 +369,7 @@ This adds a particular job to the build matrix which has already been populated.
 
 This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
-You can use this method to create a job matrix containing only specific combinations.
+You can use this method to create a build matrix containing only specific combinations.
 For example,
 
     language: python

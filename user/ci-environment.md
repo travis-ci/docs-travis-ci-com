@@ -24,7 +24,7 @@ can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following three virtual environments:
+Each build runs in one of the following four virtual environments:
 
 * Standard (the default environment)
 * Container-based (the newer environment in which `sudo` commands are not available)
@@ -59,7 +59,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>50-145s</td>
+<td>20-52s</td>
 <td>1-6s</td>
 <td>60-90s</td>
 <td>20-52s</td>
@@ -73,10 +73,10 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private only</td>
+<td>private &amp; public</td>
 <td>private &amp; public</td>
 <td>private only</td>
-<td>private only</td>
+<td>private &amp; public</td>
 </tr>
 <tr>
 <td>Operating System</td>
@@ -87,7 +87,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Memory</td>
-<td>~3 GB</td>
+<td>7.5 GB</td>
 <td>4 GB max</td>
 <td>3 GB</td>
 <td>7.5 GB</td>
@@ -96,8 +96,8 @@ The following table summarizes the differences between the virtual environments:
 <td>Cores</td>
 <td>~2, bursted</td>
 <td>2</td>
-<td>2</td>
-<td>2</td>
+<td>1</td>
+<td>~2, bursted</td>
 </tr>
 </tbody></table>
 </div>

@@ -23,8 +23,7 @@ For precise versions on the VM, please consult "Build system information" in the
 
 ## Dependency Management
 
-There is no dominant convention in the community about dependency management, but there are some dependency management tools available.
-Travis CI has support for [biicode](https://www.biicode.com/), a C and C++ dependency manager. Check [how to deploy with biicode](http://docs.travis-ci.com/user/deployment/biicode/).
+Because there is no dominant convention in the community about dependency management, Travis CI skips dependency installation for C projects.
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
@@ -83,7 +82,7 @@ OpenMP detects the cores on the hosting hardware, rather than the VM on which yo
 The default environment variable `$CC` is known to interfere with MPI projects.
 In this case, we recommend unsetting it:
 
-{% highlight yaml %}
+```yaml
 before_install:
   - test -n $CC && unset CC
-{% endhighlight %}
+```

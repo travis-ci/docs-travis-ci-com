@@ -420,7 +420,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="nt">&lt;/script&gt;</span>
 </pre>
 
-<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_to</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
+<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_uri</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
 
 <p>There is an alternative version of this that will try to run the handshake in a hidden iframe and using <code class="prettyprint">window.postMessage</code> to hand the token to the website embedding the iframe. <strong>This endpoint will only work for whitelisted websites.</strong></p>
 
@@ -1457,7 +1457,7 @@ Using worker: ...
 
 <h3 id="chunked-attributes">Chunked Attributes</h3>
 
-<p>You can retrieve the chunked attributes instead of the normal attributes b adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
+<p>You can retrieve the chunked attributes instead of the normal attributes by adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
 
 <table><thead>
 <tr>
@@ -1828,7 +1828,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <span class="k">end</span>
 </pre>
 
-<p>Requests can be used to see if and why a GitHub even has or has not triggered a new build.</p>
+<p>Requests can be used to see if and why a GitHub event has or has not triggered a new build.</p>
 
 <h3 id="attributes">Attributes</h3>
 
