@@ -43,6 +43,35 @@ You can see an [example of version number aliaes ](https://github.com/travis-ci/
 
 > Specifying exact versions like 5.3.8 is discouraged as it may break your build when we update PHP versions on Travis CI. PHP version *5.5.9* is supported, however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
 
+### HHVM versions
+
+Travis CI can test your PHP applications with HHVM.
+
+Without specifying further, the latest version of HHVM available for the Ubuntu release
+your job is running on is used.
+
+In addition, depending on the Ubuntu release, you can test with more HHVM versions.
+
+#### HHVM versions on Precise
+
+```yaml
+language: php
+php:
+  - hhvm-3.3
+```
+
+#### HHVM versions on Trusty
+
+```yaml
+language: php
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-nightly
+```
+
 ## Default Test Script
 
 The default test script is `phpunit`.
