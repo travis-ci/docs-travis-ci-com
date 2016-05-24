@@ -293,7 +293,7 @@ before_script:
 You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
 
 ```
-<VirtualHost *:80>
+<VirtualHost *:8080>
   # [...]
 
   DocumentRoot %TRAVIS_BUILD_DIR%
