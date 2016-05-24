@@ -62,8 +62,14 @@ php:
 
 #### HHVM versions on Trusty
 
+Note: Currently, PHP is [not officially supported on Trusty](https://docs.travis-ci.com/user/trusty-ci-environment#PHP).
+However, you can use the "edge" image to test it.
+
 ```yaml
 language: php
+sudo: required
+dist: trusty
+group: edge
 php:
   - hhvm-3.3
   - hhvm-3.6
