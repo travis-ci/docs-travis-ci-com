@@ -185,7 +185,7 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
+      - pushd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install && popd
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -199,3 +199,5 @@ Once it's added to the repository, you can run it from your .travis.yml:
 
     before_install:
       - ./install-protobuf.sh
+
+Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.
