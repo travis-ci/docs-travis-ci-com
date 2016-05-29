@@ -4,7 +4,11 @@ layout: en
 permalink: /user/deployment/
 ---
 
+<<<<<<< HEAD
+## Supported Providers
+=======
 ### Supported Providers
+>>>>>>> gh-pages
 
 Continuous Deployment to the following providers is supported:
 
