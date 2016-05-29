@@ -4,11 +4,7 @@ layout: en
 permalink: /user/deployment/
 ---
 
-<<<<<<< HEAD
-## Supported Providers
-=======
 ### Supported Providers
->>>>>>> gh-pages
 
 Continuous Deployment to the following providers is supported:
 
@@ -25,6 +21,7 @@ working directory and deleting all changes made during the build ( `git stash
 
 	deploy:
 		skip_cleanup: true
+
 
 ### Deploying to Multiple Providers
 
