@@ -23,60 +23,6 @@
   h3
     @extend %blue-heading
 
-.sidebar
-  position: absolute
-  z-index: 99
-  padding: 0 $column-gutter/2 5em
-  background-color: $white
-  transition: transform 200ms ease
-  -webkit-transition: -webkit-transform 200ms ease
-  will-change: transform
-  -webkit-transform: translateX(-100%)
-  transform: translateX(-100%)
-  @include grid-column(10)
-  max-width: 400px
-  height: 95vh
-  overflow-y: scroll
-
-  h2
-    @extend %blue-heading
-    @extend %bottom-border-grey
-    padding-bottom: .2em
-
-  &.is-open
-    -webkit-transform: translateX(0)
-    transform: translateX(0)
-    -webkit-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
-    -moz-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
-    box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
-
-
-  @media #{$large-up}
-    @include grid-column(3)
-    position: static
-    -webkit-transform: none
-    transform: none
-    margin-bottom: 5em
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    box-shadow: none
-    max-width: auto
-    height: auto
-    overflow-y: auto
-    &.is-open
-      -webkit-transform: translateX(0)
-      transform: translateX(0)
-      -webkit-box-shadow: none
-      -moz-box-shadow: none
-      box-shadow: none
-
-  ul
-    @extend %ul-styles
-    font-size: 13px
-
-  p
-    font-size: 13px
-
 .swiftype-widget
   .autocomplete 
     ul

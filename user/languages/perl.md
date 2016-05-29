@@ -39,7 +39,7 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 ### Perl runtimes with `-Duseshrplib`
 
 Additionally, Perl 5.18 and 5.20 with `-Duseshrplib` are available as
-`5.20-shrplib` and `5.18-shrplib`, respectively.
+`5.18-shrplib` and `5.20-shrplib`, respectively.
 
 ## Default Perl Version
 

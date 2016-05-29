@@ -36,7 +36,7 @@ Haxe 3.2.1.
 
 ## Default Neko Version
 
-By default, [Neko](http://nekovm.org/) 2.0.0 will also be downloaded and installed.
+By default, [Neko](http://nekovm.org/) 2.1.0 will also be downloaded and installed.
 Use the `neko:` key in your `.travis.yml` file to specify a different Neko version,
 for example:
 
@@ -55,7 +55,7 @@ the list of hxml files using the `hxml:` key, for example:
       - build.hxml
 
 In the *install* phase, the worker will run `yes | haxelib install $hxml` for
-each of the provided values. Similarly, in the *script* (test) phase, 
+each of the provided values. Similarly, in the *script* (test) phase,
 the worker will run `haxe $hxml` for each of the provided values.
 
 You can replace the default *install* and *script* behavior by using the

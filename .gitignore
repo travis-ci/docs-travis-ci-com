@@ -4,3 +4,6 @@
 _site
 bin
 source/tmp/*
+.sass-cache
+.ruby-version
+tmp/

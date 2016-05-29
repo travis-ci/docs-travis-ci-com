@@ -75,5 +75,7 @@ to construct a build matrix.
 
 ## Examples
 
-* [spockz/TravisHSTest](https://github.com/spockz/TravisHSTest/blob/master/.travis.yml)
-* [ZeusWPI/12Urenloop](https://github.com/ZeusWPI/12Urenloop/blob/master/.travis.yml)
+* [jgm/pandoc](https://github.com/jgm/pandoc/blob/master/.travis.yml)
+* [hspec/hspec](https://github.com/hspec/hspec/blob/master/.travis.yml)
+* [commercialhaskell/stack](https://github.com/commercialhaskell/stack/blob/master/.travis.yml)
+* [lwm/es-api](https://github.com/lwm/es-api/blob/master/.travis.yml)

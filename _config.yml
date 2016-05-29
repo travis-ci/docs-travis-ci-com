@@ -10,5 +10,7 @@ kramdown:
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
 gems:
   - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
 sass:
   sass_dir: assets/stylesheets

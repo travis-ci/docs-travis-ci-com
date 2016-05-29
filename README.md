@@ -22,7 +22,7 @@ In order to run a local Web server that will serve documentation site, run:
 
     ./bin/jekyll serve
 
-and then open [localhost:4000](http://localhost:4000/) in your browser. 
+and then open [localhost:4000](http://localhost:4000/) in your browser.
 
 To regenerate the HTML pages automatically when you make changes to Markdown source files, use
 
@@ -33,4 +33,4 @@ version (1.8 vs. 1.9) used. It is normal.
 
 ## License
 
-Distributed under the MIT license, the same as other Travis CI projects.
+Distributed under the [MIT license](https://opensource.org/licenses/MIT); the same as other Travis CI projects.
