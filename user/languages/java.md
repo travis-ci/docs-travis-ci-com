@@ -22,9 +22,9 @@ in your `.travis.yml` file.
 
 ## Projects Using Maven
 
-### Default Test Command
+### Default `script` Command
 
-if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
+If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
 
     mvn test
 
@@ -32,17 +32,17 @@ to run your test suite. This can be overridden as described in the [general buil
 
 Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
 Before running tests, Java builder will execute
 
-    mvn install -DskipTests=true
+    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 to install your project's dependencies with Maven.
 
 ## Projects Using Gradle
 
-### Default Test Command
+### Default `script` Command
 
 if your project has `build.gradle` file in the repository root, Travis CI Java builder will use Gradle to build it. By default it will use
 
@@ -54,7 +54,7 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
 Before running tests, Java builder will execute
 
@@ -80,7 +80,7 @@ cache:
 
 ## Projects Using Ant
 
-### Default Test Command
+### Default `script` Command
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will use Ant to build it. By default it will use
 
@@ -88,7 +88,7 @@ If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will
 
 to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
 Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 

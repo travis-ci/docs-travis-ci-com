@@ -23,8 +23,7 @@ For precise versions on the VM, please consult "Build system information" in the
 
 ## Dependency Management
 
-There is no dominant convention in the community about dependency management, but there are some dependency management tools available. 
-Travis CI has support for [biicode](https://www.biicode.com/), a C and C++ dependency manager. Check [how to deploy with biicode](http://docs.travis-ci.com/user/deployment/biicode/).
+Because there is no dominant convention in the community about dependency management, Travis CI skips dependency installation for C++ projects.
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
@@ -83,3 +82,14 @@ to construct a build matrix.
 
 OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a reasonably small value (say, 4).
 OpenMP detects the cores on the hosting hardware, rather than the VM on which your tests run.
+
+### MPI projects
+
+The default environment variables `$CC` and `$CXX` are known to interfere with MPI projects.
+In this case, we recommend unsetting it:
+
+```yaml
+before_install:
+  - test -n $CC  && unset CC
+  - test -n $CXX && unset CXX
+```

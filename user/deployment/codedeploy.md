@@ -8,7 +8,7 @@ Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://
 
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
     deploy:
       - provider: s3
         ⋮ # rest of S3 deployment for MyApp.zip
@@ -19,7 +19,7 @@ For a minimal configuration with S3, add the following to your `.travis.yml`:
         key: latest/MyApp.zip
         application: MyApp
         deployment_group: MyDeploymentGroup
-{% endhighlight %}
+```
 
 A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
@@ -44,7 +44,7 @@ This command will also offer to set up [S3 deployment](http://docs.travis-ci.com
 
 You can explicitly specify the branch to deploy from with the **on** option:
 
-{% highlight yaml %}
+```yaml
     deploy:
       provider: codedeploy
       access_key_id: "YOUR AWS ACCESS KEY"
@@ -55,11 +55,11 @@ You can explicitly specify the branch to deploy from with the **on** option:
       deployment_group: MyDeploymentGroup
       on:
         branch: production
-{% endhighlight %}
+```
 
 Alternatively, you can also configure Travis CI to deploy from all branches:
 
-{% highlight yaml %}
+```yaml
     deploy:
       provider: codedeploy
       access_key_id: "YOUR AWS ACCESS KEY"
@@ -70,7 +70,7 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
       deployment_group: MyDeploymentGroup
       on:
         all_branches: true
-{% endhighlight %}
+```
 
 Builds triggered from Pull Requests will never trigger a release.
 
@@ -79,39 +79,74 @@ Builds triggered from Pull Requests will never trigger a release.
 If you specify `bucket` key, the deployment strategy defaults to S3.
 If you want to override this behavior and use GitHub integration, you can specify it with
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: codedeploy
   ⋮
   bucket: "S3 Bucket"
   revision_type: github
-{% endhighlight %}
+```
 
 In this case, S3 deployment provider is not required.
+
+### Waiting for Deployments
+
+By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
+
+```yaml
+deploy:
+  provider: codedeploy
+    ⋮
+    wait-until-deployed: true
+```
+
+Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
 ### Conditional deployments
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+### Note on `.gitignore`
+
+As this deployment strategy relies on `git`, be mindful that the deployment will
+honor `.gitignore`.
+
+If your `.gitignore` file matches something that your build creates, use
+[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+its content.
+
 ### Running commands before and after deployment
 
 Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
-{% highlight yaml %}
+```yaml
     before_deploy: "echo 'ready?'"
     deploy:
       ..
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
-{% endhighlight %}
+```
+
+### Running commands before and after deploy
+
+Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+```yaml
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+```
 
 ### AWS region to deploy to
 
 You can explicitly specify the AWS region to deploy to with the **region** option:
 
-{% highlight yaml %}
+```yaml
     deploy:
       provider: codedeploy
       access_key_id: "YOUR AWS ACCESS KEY"
@@ -121,4 +156,4 @@ You can explicitly specify the AWS region to deploy to with the **region** optio
       application: MyApp
       deployment_group: MyDeploymentGroup
       region: us-west-1
-{% endhighlight %}
+```

@@ -25,10 +25,10 @@ It is based on the ECMA C# and CLR standards but might not be a perfect replacem
 
 The setup for C#, F#, and Visual Basic projects looks like this:
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
-{% endhighlight %}
+```
 
 When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
 
@@ -37,40 +37,40 @@ When the optional `solution` key is present, Travis will run NuGet package resto
 By default Travis will run `xbuild /p:Configuration=Release solution-name.sln`. Xbuild is a build tool designed to be an implementation for Microsoft's MSBuild (the tool that Visual Studio uses to build your projects).
 To override this, you can set the `script` key like this:
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
 script:    # the following commands are just examples, use whatever your build process requires
   - ./build.sh
   - ./test.sh
   - grep "Test Results" build.log
-{% endhighlight %}
+```
 
 ### NuGet
 
 By default, Travis will run `nuget restore solution-name.sln` in the `install` step, which restores all NuGet packages from your solution file.
 To override this (e.g. if you want to install additional packages), you can set the `install` attribute like this:
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
 install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore solution-name.sln
-{% endhighlight %}
+```
 
 ### Choosing Mono version to test against
 
 By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in .travis.yml. For example, to test against latest, 3.12.0 and 3.10.0:
 
-{% highlight yaml %}
+```yaml
 language: csharp
 mono:
   - latest
   - 3.12.0
   - 3.10.0
 ...
-{% endhighlight %}
+```
 
 You can choose from the following Mono versions:
 
@@ -101,7 +101,7 @@ The following examples show how you'd override `install` and `script` to install
 
 #### NUnit
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
 install:
@@ -110,11 +110,11 @@ install:
 script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
-{% endhighlight %}
+```
 
 #### xunit
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
 install:
@@ -123,7 +123,7 @@ install:
 script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
-{% endhighlight %}
+```
 
 *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
@@ -135,14 +135,14 @@ For many .NET projects this will be the file found at ` ./.nuget/packages.config
 
 nuget restore solution-name.sln will then install that package as well.
 
-{% highlight yaml %}
+```yaml
 language: csharp
 solution: solution-name.sln
 script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
 
-{% endhighlight %}
+```
 
 Notice the use of filename expansion (the ```*```) in order to avoid having to hard code the version of the test runner.
 

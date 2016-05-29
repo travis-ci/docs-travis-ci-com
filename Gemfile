@@ -1,8 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem "github-pages"
 gem "rake"
 
-group :test do
-  gem 'html-proofer',  '~> 2.0'
-end
+gem 'rack-jekyll'
+gem 'jekyll-redirect-from'
+gem 'rack-ssl-enforcer'
+gem 'puma'
+
+gem 'html-proofer',  '~> 2.0'

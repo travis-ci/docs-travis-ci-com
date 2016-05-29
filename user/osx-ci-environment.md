@@ -9,6 +9,8 @@ permalink: /user/osx-ci-environment/
 This guide explains what packages, tools and settings are available in the
 Travis OS X CI environment (often referred to as the “CI environment”).
 
+<div id="toc"></div>
+
 ## Overview
 
 Travis CI runs builds in virtual machines that are snapshotted before each build
@@ -17,24 +19,41 @@ and rolled back at the end of it. This offers a number of benefits:
 * Host OS is not affected by test suites
 * No state persists between runs
 * Passwordless sudo is available
-* It is possible for test suites to create databases, add RabbitMQ vhosts/users
-  and so on
+* It is possible for test suites to install various services via `brew`
+  and then customize the configuration of those services at the
+  beginning of each build.
 
 The environment available to test suites is known as the *Travis CI
 environment*.
 
-## CI environment OS
+## OS X Version
 
-Travis CI uses OS X 10.9.5.
+Travis CI uses OS X 10.9.5 (and Xcode 6.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
-## Environment common to all VM images
+<table>
 
-### Homebrew
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
+{% for image in site.data.xcodes.osx_images %}
+<tr>
+  <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
+  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td>OS X {{ image.osx_version}}
+  </td></tr>
+{% endfor %}
+</table>
+
+>At this time we are unable to provide pre-release versions of Xcode due to the
+NDA imposed on them. We do test them internally, and our goal is to make new
+versions available the same day they come out. If you have any further questions
+about Xcode pre-release availability, send us an email at support@travis-ci.com.
+
+
+## Homebrew
 
 Homebrew is installed and updated every time the VMs are updated. It is
 recommended that you run `brew update` before installing anything with Homebrew.
 
-#### A note on upgrading packages
+### A note on upgrading packages
 
 When upgrading a package with `brew upgrade`, the command will fail if the most up-to-date version of the package is already installed (so an upgrade didn't occur).
 
@@ -68,7 +87,7 @@ For example, if you always want the latest version of xctool, you can run this:
       - brew outdated xctool || brew upgrade xctool
 
 
-### Compilers & Build toolchain
+## Compilers and Build toolchain
 
 * apple-gcc42
 * autoconf 2.69
@@ -81,26 +100,22 @@ For example, if you always want the latest version of xctool, you can run this:
 * xctool 0.2.1
 * cmake
 
-### Languages
+## Languages
 
 * go 1.3.1
 
-### Services
+## Services
 
 * postgis 2.1.3
 * postgresql 9.3.5
 
-### Xcode
 
-Xcode 6.1 is installed with the iOS 7.0, 7.1 and 8.1 simulators and SDKs.
-Command Line Tools are also installed.
-
-### Runtimes
+## Runtimes
 
 Every worker has at least one version of Ruby, Java and Python to accommodate
 projects that may need one of those runtimes during the build.
 
-### Environment variables
+## Environment variables
 
 * `CI=true`
 * `TRAVIS=true`
@@ -134,26 +149,53 @@ e.g.  to tag the build, or to run post-build deployments.
 * `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
 
 
-### Maven version
+## Maven version
 
 Stock Apache Maven 3.
 
-### Ruby versions/implementations
+## Ruby versions/implementations
 
-* system (2.0.0) -- You need to use `sudo` to install gems with this ruby
+* system (depends on OS X version) -- You need to use `sudo` to install gems with this ruby
 * 1.9.3
 * 2.0.0 (default)
-* 2.1.2
-* 2.1.3
+* 2.1.5
+* 2.2.1
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
-### Bundler version
+## Bundler version
 
 Recent 1.7 version (usually the most recent)
 
-### Gems in the global gem set
+## Gems in the global gem set
 
 * bundler
 * rake
 * cocoapods
+
+## Xcode version
+
+Xcode 6.1 is installed with the iOS 7.0, 7.1 and 8.1 simulators and SDKs.
+Command Line Tools are also installed.
+
+{% for image in site.data.xcodes.osx_images %}
+### Xcode {{ image.xcode }}
+
+Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
+
+{% if image.default == true %} -- **Default when no other `osx_image:` is specified** {% endif %}
+
+{% if image.image_note != nil %}
+{{image.image_note}}
+{% endif %}
+
+Our Xcode {{ image.xcode_full_version }} images have the following SDKs preinstalled:
+
+{% for sdk in image.sdks %}
+- {{ sdk }}{% endfor %}
+
+The Xcode {{ image.xcode_full_version }} image also comes with the following simulators:
+{% for simulator in image.simulators %}
+- {{ simulator }}{% endfor %}
+
+{% endfor %}
