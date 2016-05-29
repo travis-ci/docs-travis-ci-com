@@ -1,6 +1,16 @@
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate]
-markdown: rdiscount
+exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor]
+markdown: kramdown
 permalink: :title
 safe: true
 syntax-highlighting:
   enabled: true
+kramdown:
+  hard_wrap: false
+  input: GFM
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+gems:
+  - jekyll-redirect-from
+whitelist:
+  - jekyll-redirect-from
+sass:
+  sass_dir: assets/stylesheets

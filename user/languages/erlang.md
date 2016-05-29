@@ -6,19 +6,25 @@ permalink: /user/languages/erlang/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Erlang builds are not available on the OSX environment.
 
 ## Choosing OTP releases to test against
 
 Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
 
-    language: erlang
-    otp_release:
-       - 17.1
-       - R14B02
+```yaml
+language: erlang
+otp_release:
+  - 18.2.1
+  - 18.1
+  - 18.0
+  - 17.5
+  - R16B03
+```
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
-
+Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1 .  
 
 ## Default Test Script
 
@@ -32,11 +38,13 @@ if your project has `rebar.config` or `Rebar.config` files in the repository roo
 
 ## Dependency Management
 
-Because Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar). is used by default, it naturally uses
+The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and runs
 
-    rebar get-deps
+```
+rebar get-deps
+```
 
-to installs project's [dependencies as listed in the rebar.config file](https://github.com/basho/riak/blob/master/rebar.config).
+to install [project dependencies ](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
 
 
 ## Build Matrix

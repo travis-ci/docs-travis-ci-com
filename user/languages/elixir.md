@@ -10,27 +10,33 @@ The features described here are still in development and are subject to change w
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI Environment for Elixir Projects
 
 To choose the Elixir VM, declare in your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 language: elixir
-{% endhighlight %}
+```
 
 Note that Elixir has requirements regarding the underlying
-Erlang OTP Release version, and it is the user's responsibility to ensure
-that these requirements are met.
+Erlang OTP Release version.
 
-This is handled by adding the `otp_release` as follows:
+If the specified OTP Release version (implicity or explicitly)
+does not meet this requirement, Travis CI will choose one
+for you.
 
-{% highlight yaml %}
+You can also override this OTP Release choice by adding the `otp_release`.
+For example:
+
+```yaml
 language: elixir
+elixir:
+  - 1.2.2
 otp_release:
-  - 17.4
-{% endhighlight %}
+  - 18.2.1
+```
 
 ## Build Matrix
 

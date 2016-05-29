@@ -10,7 +10,11 @@ The features described here are still in development and are subject to change w
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Android builds are not available on the OSX environment.
+
+<div id="toc"></div>
 
 ## CI Environment for Android Projects
 
@@ -116,12 +120,12 @@ While the following components are preinstalled, the exact list may change witho
 
 **Warning:** At the moment, these steps are not fully supported by Travis CI Android builder.
 
-If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
+If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
 
     # Emulator Management: Create, Start and Wait
     before_script:
       - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
-      - emulator -avd test -no-skin -no-audio -no-window &
+      - emulator -avd test -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
 
@@ -141,7 +145,7 @@ If your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn install -B
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Default Test Command for Gradle
 
@@ -153,7 +157,20 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
 
     ./gradlew build connectedCheck
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
 
 ## Default Test Command
 
@@ -161,7 +178,7 @@ If Travis CI could not detect Maven or Gradle files, Travis CI Android builder w
 
     ant debug install test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Testing Against Multiple JDKs
 

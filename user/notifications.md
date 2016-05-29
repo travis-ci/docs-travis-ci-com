@@ -10,29 +10,45 @@ permalink: /user/notifications/
 
 Travis CI can notify you about your build results through email, IRC and/or webhooks.
 
-By default, email notifications will be sent to the committer and the commit
+By default, email notifications are sent to the committer and the commit
 author, if they are members of the repository (that is, they have push or admin
 permissions for public repositories, or if they have pull, push or admin
 permissions for private repositories).
 
-And it will by default send emails when, on the given branch:
+Emails are sent when, on the given branch:
 
 * a build was just broken or still is broken
 * a previously broken build was just fixed
 
-You can change this behaviour using the following options:
+If you add another notification channel, ie hipchat, slack or any other, the
+default is to send a notification on every build.
 
-> Note: Items in brackets are placeholders. Brackets should be omitted.
+You can change the conditions for each of the channels by setting the
+`on_success` on `on_failure` flag on that medium to one of:
 
-### Note on HTTPS
+* `always`: always send a notification.
+* `never`: never send a notification.
+* `change`: send a notification when the build status changes.
 
-When posting notifications over HTTPS, be mindful of what ciphers are accepted.
-Notifications will fail if none of the ciphers work.
+For example, to always send slack notifications on successful builds:
 
-Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
+	notifications:
+	  slack:
+	    on_success: always
+
+Read the relevant section below for information on configuring each
+notification channel.
+
+### Note on SSL/TLS Ciphers
+
+When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
+by the receiving server.
+Notifications will fail if none of the server's ciphers work.
+
+Currently, the following ciphers (as defined by the [openssl gem](http://ruby-doc.org/stdlib-2.1.6/libdoc/openssl/rdoc/OpenSSL.html))
 are known to work:
 
-AES-128 AES-128-CBC AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-ECB AES-128-OFB AES-192 AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-ECB AES-192-OFB AES-256 AES-256-CBC AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-ECB AES-256-OFB BF BF-CBC BF-CFB BF-CFB1 BF-CFB8 BF-ECB BF-OFB BLOWFISH CAST CAST-CBC CAST5 CAST5-CBC CAST5-CFB CAST5-CFB1 CAST5-CFB8 CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-CFB1 DES-EDE-CFB8 DES-EDE-ECB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-ECB DES-EDE3-OFB DES-OFB RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-CFB1 RC2-CFB8 RC2-ECB RC2-OFB RC4 RC4-40
+AES-128-CBC AES-128-CBC-HMAC-SHA1 AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-CTR AES-128-ECB AES-128-OFB AES-128-XTS AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-CTR AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CBC-HMAC-SHA1 AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-CTR AES-256-ECB AES-256-OFB AES-256-XTS AES128 AES192 AES256 BF BF-CBC BF-CFB BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB1 CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB1 CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB1 CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-cbc CAST5-CBC CAST5-CFB CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-OFB DES-OFB DES3 DESX DESX-CBC RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-ECB RC2-OFB RC4 RC4-40 RC4-HMAC-MD5 SEED SEED-CBC SEED-CFB SEED-ECB SEED-OFB
 
 Also, consult [cipher suite names mapping](https://www.openssl.org/docs/apps/ciphers.html).
 
@@ -40,29 +56,38 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 ## Email notifications
 
-You can specify recipients that will be notified about build results like so:
+Specify recipients that will be notified about build results:
 
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
+```yml
+notifications:
+  email:
+    - one@example.com
+    - other@example.com
+```
+Turn off email notifications entirely:
 
-And you can entirely turn off email notifications:
+```yml
+notifications:
+  email: false
+```
 
-    notifications:
-      email: false
+Specify when you want to get notified:
 
-Also, you can specify when you want to get notified:
+```yml
+notifications:
+  email:
+    recipients:
+      - one@example.com
+      - other@example.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+```
 
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
+> Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+
+Pull Request builds do not trigger email notifications.
 
 ### How is the build email receiver determined?
 
@@ -81,14 +106,23 @@ The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
 there, rather than to the committer and author.
 
-### How can I change the email address for build notifications?
+### Changing the email address for build notifications
 
-The email addresses are pulled from GitHub. All emails registered there for your
-user account are available in Travis CI as well.
+Travis CI only sends build notifications to email addresses registered on GitHub.
+If you have multiple address registered you can set the email address for a specific
+ repository using `git`:
 
-You can change the build email address by setting a different email address for
-a specific repository. Running `git config user.email my@email.com` sets a
-different email address than the default for your repository.
+> Note that this also changes the commit email address, not just the Travis CI notification settings.
+
+```sh
+git config user.email "mynewemail@example.com"
+```
+
+Or set the email for all of your git repositories:
+
+```sh
+git config --global user.email "mynewemail@example.com"
+```
 
 Note that we currently don't respect the [detailed notifications
 settings](https://github.com/settings/notifications) on
@@ -115,6 +149,8 @@ Or multiple channels:
       irc:
         - "chat.freenode.net#my-channel"
         - "chat.freenode.net#some-other-channel"
+				- "irc://chat.freenode.net:8000/#plaintext_channel"
+				- "ircs://chat.freenode.net:7070/#ssl_tls_channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
@@ -148,9 +184,11 @@ You can interpolate the following variables:
 * *commit*: shortened commit SHA
 * *author*: commit author name
 * *commit_message*: commit message of build
+* *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
-* *duration*: duration of the build
+* *duration*: total duration of all builds in the matrix
+* *elapsed_time*: time between build start and finish
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
@@ -188,13 +226,29 @@ and if you want the bot to not join before the messages are sent, and part after
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
 
+Pull Request builds do not trigger IRC notifications.
+
+### Channel key
+
 If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
 
     notifications:
       irc:
         channels:
-          - "irc.freenode.org#my-channel"
+          - "chat.freenode.net#my-channel"
         channel_key: 'password'
+
+### Password protected servers
+
+You may also authenticate to an IRC server with user:
+
+    notifications:
+      irc:
+        channels:
+          - "chat.freenode.net#my-channel"
+        channel_key: 'password'
+        nick: travisci
+        password: super_secret
 
 ## Campfire notification
 
@@ -224,6 +278,8 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+Pull Request builds do not trigger Campfire notifications.
+
 ## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
@@ -237,6 +293,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
     travis encrypt api_token --add notifications.flowdock
+
+Pull Request builds do not trigger Flowdock notifications.
 
 ## HipChat notification
 
@@ -302,6 +360,49 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_pull_requests: false
+
+## Pushover notification
+
+Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
+
+    notifications:
+      pushover:
+        api_key: [api token]
+        users:
+          - [user key]
+
+
+* *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
+* *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). A list of multiple users is supported.
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
+> and append the specified user_key to the list of users.
+
+    travis encrypt [api_token] --add notifications.pushover.api_key
+    travis encrypt [user_key] --add notifications.pushover.users --append
+
+You can also customise the notifications, like with IRC notifications:
+
+    notifications:
+    pushover:
+      api_key: [api token]
+      users:
+        - [user key]
+        - [user key]
+      template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+
+Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+
+Pull Request builds do not trigger Pushover notifications.
+
 ## Sqwiggle notifications
 
 With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
@@ -316,7 +417,7 @@ Next you need to figure out with rooms to send the notifications to.
 
 You can use the room's name in the URL or you can use the room's identifier,
 which can currently be [fetched from the
-API](https://www.sqwiggle.com/docs/endpoints/rooms#listallrooms).
+API](https://www.sqwiggle.com/docs/endpoints/streams#listallstreams)
 
 Now you can add the details to your .travis.yml:
 
@@ -337,7 +438,7 @@ pops up in your streams.
 
 The default looks like this:
 
-![](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
+![Screenshot of default Sqwiggle notifications](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
 
 To customize it, add a template definition to your .travis.yml.
 
@@ -347,6 +448,8 @@ To customize it, add a template definition to your .travis.yml.
         template: '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 
 It's recommended to encrypt the credentials.
+
+Pull Request builds do not trigger Sqwiggle notifications.
 
 ## Slack notifications
 
@@ -358,7 +461,7 @@ integration](https://my.slack.com/services/new/travis). Select a channel,
 and you'll find the details to paste into your .travis.yml.
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
+  <img alt="Screenshot of adding Slack integration" src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
 </figure>
 
 The channel name in the Slack settings can be overridden in Travis CI's
@@ -389,22 +492,30 @@ You can specify multiple channels as well.
         rooms:
           - <account>:<token>#development
           - <account>:<token>#general
-
+        on_success: [always|never|change] # default: always
+        on_failure: [always|never|change] # default: always
+        on_start: [always|never|change]   # default: never
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
 
-    travis encrypt "<account>:<token>" --add notifications.slack
+    travis encrypt "<account>:<token>" --add notifications.slack.rooms
 
 Once everything's setup, push a new commit and you should see something like the
 screenshot below:
 
 <figure>
-  <img src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
+  <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
 </figure>
 
-Slack will be notified both for normal branch builds and for pull requests as
-well.
+### Notifications of PR builds
+
+By default, Slack will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      slack:
+        on_pull_requests: false
 
 ## Webhook notification
 
@@ -429,7 +540,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [true|false] # default: false
+        on_start: [always|never|change] # default: never
 
 ### Webhooks Delivery Format
 
@@ -504,7 +615,7 @@ Use this to ensure Travis CI is the one making requests to your webhook.
 
 The Travis CI token used to authenticate the webhooks is the user token, which you can find on your profile page.
 
-![](/images/token.jpg)
+![Travis CI user token](/images/token.jpg)
 
 It's the token for the user who originally set up the repository on Travis CI.
 If you're uncertain who that was, you can find the user's name on the service

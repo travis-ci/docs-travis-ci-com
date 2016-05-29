@@ -6,7 +6,9 @@ permalink: /user/languages/java/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+<div id="toc"></div>
 
 ## Overview
 
@@ -20,25 +22,27 @@ in your `.travis.yml` file.
 
 ## Projects Using Maven
 
-### Default Test Command
+### Default `script` Command
 
-if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
+If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
 
     mvn test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
+
+### Dependency Management with Default `install`
 
 Before running tests, Java builder will execute
 
-    mvn install -DskipTests=true
+    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 to install your project's dependencies with Maven.
 
 ## Projects Using Gradle
 
-### Default Test Command
+### Default `script` Command
 
 if your project has `build.gradle` file in the repository root, Travis CI Java builder will use Gradle to build it. By default it will use
 
@@ -48,31 +52,43 @@ to run your test suite. If your project also includes the `gradlew` wrapper scri
 
     ./gradlew check
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
 Before running tests, Java builder will execute
 
     gradle assemble
 
-
 to install your project's dependencies with Gradle. Again, if you include the wrapper script, the command will be defaulted to
 
     ./gradlew assemble
 
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
+
 
 ## Projects Using Ant
 
-### Default Test Command
+### Default `script` Command
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will use Ant to build it. By default it will use
 
     ant test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
 Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
@@ -82,18 +98,14 @@ Because there is no single standard way of installing project dependencies with 
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
+To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 and 8 and OpenJDK 6:
 
     jdk:
       - oraclejdk8
       - oraclejdk7
       - openjdk6
 
-To test against OpenJDK 7 and Oracle JDK 7:
-
-    jdk:
-      - openjdk7
-      - oraclejdk7
+> Note that testing against multiple Java versions is not supported on OSX.
 
 Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
 
@@ -113,6 +125,8 @@ If your build needs to switch JDKs during a job, you can do so with `jdk_switche
       - # do stuff with Java 8
       - jdk_switcher use oraclejdk7
       - # do stuff with Java 7
+
+Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
 
 ## Examples
 

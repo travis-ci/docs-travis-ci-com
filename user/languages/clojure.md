@@ -6,7 +6,9 @@ permalink: /user/languages/clojure/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Clojure builds are not available on the OSX environment.
 
 ## CI Environment for Clojure Projects
 
@@ -26,9 +28,7 @@ If you need to perform special tasks before your tests can run, you should set u
 
     install: lein protobuf install
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
-
-
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 ## Default Test Script
 
@@ -64,6 +64,19 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
+### Using Speclj on travis-ci.org
+
+If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this `script:` line in `.travis.yml`:
+
+    script: lein spec
+
+For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
+
+    :dev-dependencies [[speclj "3.3.1"]]
+
+Leiningen 2 replaces `:dev-dependencies` with profiles:
+
+    :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 
 ## Using Leiningen 1
 
@@ -136,6 +149,5 @@ to construct a build matrix.
 * [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/master/.travis.yml)
 * [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
 * [neocons' .travis.yml](https://github.com/michaelklishin/neocons/blob/master/.travis.yml)
-* [momentum's .travis.yml](https://github.com/momentumclj/momentum/blob/master/.travis.yml)
 * [Knockbox's .travis.yml](https://github.com/reiddraper/knockbox/blob/master/.travis.yml)
 * [Sumo's .travis.yml](https://github.com/reiddraper/sumo/blob/master/.travis.yml)

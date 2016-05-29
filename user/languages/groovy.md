@@ -4,9 +4,16 @@ layout: en
 permalink: /user/languages/groovy/
 ---
 
-### What This Guide Covers
+## What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Groovy projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Groovy
+projects. Please make sure to read our [Getting
+Started](/user/getting-started/) and [general build
+configuration](/user/customizing-the-build/) guides first.
+
+Groovy builds are not available on the OSX environment.
+
+<div id="toc"></div>
 
 ## Overview
 
@@ -25,7 +32,7 @@ if your project has `build.gradle` file in the repository root, Travis CI Groovy
 
     gradle check
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 
@@ -35,6 +42,19 @@ Before running tests, Groovy builder will execute
 
 to install your project's dependencies with Gradle.
 
+### Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+
+```
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+```
+
 ## Projects Using Maven
 
 ### Default Test Command
@@ -43,7 +63,7 @@ if your project has `pom.xml` file in the repository root but no `build.gradle`,
 
     mvn test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 
@@ -61,7 +81,7 @@ If Travis CI could not detect Maven or Gradle files, Travis CI Groovy builder wi
 
     ant test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 
 ### Dependency Management

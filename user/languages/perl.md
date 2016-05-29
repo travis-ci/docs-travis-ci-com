@@ -6,14 +6,17 @@ permalink: /user/languages/perl/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Perl builds are not available on the OSX environment.
 
 ## Choosing Perl versions to test against
 
-Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use `perl:` key in your `.travis.yml` file, for example:
+Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
 
     language: perl
     perl:
+      - "5.22"
       - "5.20"
       - "5.18"
 
@@ -21,6 +24,7 @@ A more extensive example:
 
     language: perl
     perl:
+      - "5.22"
       - "5.20"
       - "5.18"
       - "5.16"
@@ -28,14 +32,14 @@ A more extensive example:
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 *Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
 
 ### Perl runtimes with `-Duseshrplib`
 
 Additionally, Perl 5.18 and 5.20 with `-Duseshrplib` are available as
-`5.20-shrplib` and `5.18-shrplib`, respectively.
+`5.18-shrplib` and `5.20-shrplib`, respectively.
 
 ## Default Perl Version
 
@@ -59,14 +63,14 @@ If neither Module::Build nor EUMM build files are found, Travis CI will fall bac
 
     make test
 
-It is possible to override test command as described in the [general build configuration](/user/build-configuration/) guide.
+It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 
 ## Dependency Management
 
 ### Travis CI uses cpanm
 
-By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/build-configuration/) guide.
+By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 The exact default command is
 

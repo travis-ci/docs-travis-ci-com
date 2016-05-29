@@ -6,34 +6,21 @@ permalink: /user/deployment/
 
 ### Supported Providers
 
-Continuous Deployment to the following providers are currently supported out of the box:
+Continuous Deployment to the following providers is supported:
 
-* [TestFairy](/user/deployment/testfairy)
-* [Appfog](/user/deployment/appfog)
-* [biicode](/user/deployment/biicode)
-* [Cloud 66](/user/deployment/cloud66)
-* [Heroku](/user/deployment/heroku)
-* [AWS CodeDeploy](/user/deployment/codedeploy)
-* [Modulus](/user/deployment/modulus)
-* [Nodejitsu](/user/deployment/nodejitsu)
-* [OpenShift](/user/deployment/openshift)
-* [cloudControl](/user/deployment/cloudcontrol)
-* [CloudFoundry](/user/deployment/cloudfoundry)
-* [RubyGems](/user/deployment/rubygems)
-* [AWS OpsWorks](/user/deployment/opsworks)
-* [PyPI](/user/deployment/pypi)
-* [Divshot.io](/user/deployment/divshot)
-* [Rackspace Cloud Files](/user/deployment/cloudfiles)
-* [npm](/user/deployment/npm)
-* [S3](/user/deployment/s3)
-* [Ninefold](/user/deployment/ninefold)
-* [Engine Yard](/user/deployment/engineyard)
-* [GitHub Releases](/user/deployment/releases)
-* [Deis](/user/deployment/deis)
-* [Hackage](/user/deployment/hackage)
-* [Google Cloud Storage](/user/deployment/gcs)
-* [packagecloud.io](/user/deployment/packagecloud)
-* [Custom deployment via after_success hook](/user/deployment/custom)
+{% include deployments.html %}
+
+To deploy to a custom or unsupported provider, use the [after-success build
+stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
+
+### Uploading Files
+
+When deploying files to a provider, prevent Travis CI from resetting your
+working directory and deleting all changes made during the build ( `git stash
+--all`) by adding `skip_cleanup` to your `.travis.yml`:
+
+	deploy:
+		skip_cleanup: true
 
 ### Deploying to Multiple Providers
 
@@ -64,7 +51,7 @@ Deployment can be controlled by setting the `on:` for each deployment provider.
         condition: $MY_ENV = super_awesome
 
 When all conditions specified in the `on:` section are met, deployment for this
-provider will be peformed.
+provider will be performed.
 
 Common options are:
 
@@ -88,12 +75,12 @@ It can be complex, but there can be only one. For example, `$CC = gcc`.
 This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
 
     deploy:
-      provider: nodejitsu
+      provider: appfog
       user: ...
       api_key: ...
       on:
         branch: staging
-        node: 0.11
+        node: '0.11' # this should be quoted; otherwise, 0.10 would not work
 
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
@@ -110,14 +97,14 @@ This example deploys to GitHub Releases when a tag is set and the Ruby version i
 
     deploy:
       provider: releases
-      api-key: "GITHUB OAUTH TOKEN"
+      api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
       skip_cleanup: true
       on:
         tags: true
         rvm: 2.0.0
 
-### Other Providers
+### Adding a Provider
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 

@@ -2,12 +2,18 @@
 title: Building a Go Project
 layout: en
 permalink: /user/languages/go/
+swiftypetags:
+  - golang
+  - go lang
+  - go
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+[Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Go builds are not available on the OSX environment.
 
 ## CI environment for Go Projects
 
@@ -30,7 +36,13 @@ You can use any tagged version of Go or use `tip` to get the latest version.
 
 All go version management is handled by [gimme](https://github.com/meatballhat/gimme).
 
-For precise versions pre-installed on the VM, please consulte "Build system information" in the build log.
+For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
+
+## Go Import Path
+
+The project source code will be placed in `GOPATH/src/github.com/user/repo` by default, but if [vanity imports](https://golang.org/cmd/go/#hdr-Remote_import_paths) are necessary (especially for [`internal` package imports](https://golang.org/cmd/go/#hdr-Internal_Directories)), `go_import_path:` may be specified at the top level of the config, e.g.:
+
+    go_import_path: example.org/pkg/foo
 
 ## Dependency Management
 
@@ -52,7 +64,7 @@ It is also possible to specify a list of operations, for example, to `go get` re
       - go get github.com/bmizerany/assert
       - go get github.com/mrb/hob
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 ### `godep` support
 
@@ -65,21 +77,23 @@ It is important to note that using the older style `Godeps.json` at the top leve
 
 All of the `godep` integration steps are performed prior to the separate `go get` and makefile steps listed above.
 
+Note that the `godep` support is only activated if a custom `install` step is not specified.
+
 ### Installing Private Dependencies
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
 requires a different workaround from our [recommended way of handling private
-dependencies](/user/travis-pro/#How-can-I-configure-Travis-Pro-to-use-private-GitHub-repositories-as-dependencies%3F).
+dependencies](/user/private-dependencies).
 
 When cloning via HTTPS, git uses curl under the covers, which in turn allows you
-to specify a [.netrc](http://linux.die.net/man/5/netrc) file, where you can
+to specify a [.netrc](http://manpages.ubuntu.com/manpages/precise/man5/netrc.5.html) file, where you can
 store custom authentication credentials for specific domains, github.com for
 instance.
 
 Go to your [GitHub account](https://github.com/settings/applications) and create
 a personal access token.
 
-![](/images/personal-token.jpg)
+![Screenshot of GitHub personal token](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
@@ -120,7 +134,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: go
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example,
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example,
 to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 
     script: go test ./...
@@ -128,7 +142,7 @@ to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 The arguments passed to the default `go test` command may be overridden by specifying `gobuild_args:` at the top level
 of the config, e.g.:
 
-    go_build: -x -ldflags "-X main.VersionString v1.2.3"
+    gobuild_args: -x -ldflags "-X main.VersionString v1.2.3"
 
 which will result in the script step being:
 

@@ -1,12 +1,14 @@
 ---
-title: Travis Pro - Frequently Asked Questions
+title: Travis Pro
 layout: en
 permalink: /user/travis-pro/
+redirect_from:
+  - /user/pricing/
 ---
 
 <div id="toc"></div>
 
-Note: These issues are related to [Travis Pro](http://travis-ci.com), our hosted
+Learn more about [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
 ## Can I use pull request testing on Travis Pro?
@@ -21,7 +23,7 @@ accompanying the launch of pull requests for Travis CI.
 Access rights on Travis CI is based on the access rights on GitHub:
 
 * Users that can access a repository on GitHub can see the build status and logs on Travis CI.
-* Users that can push to a repository on Github can trigger, cancel and restart builds.
+* Users that can push to a repository on GitHub can trigger, cancel and restart builds.
 * Users that have admin access to a repository on GitHub can change enable/disable it on Travis CI and change its settings.
 
 To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "sync now" button on the profile page or `travis sync --pro` in the CLI to force a sync.
@@ -35,3 +37,10 @@ You can find more information on this topic in our [Security Statement](https://
 ## How can I encrypt files that include sensitive data?
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
+
+## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+
+Travis CI is, and always will be, free for open source projects.
+
+For a list of plans and prices for private repositories, look at
+[travis-ci.com/plans](https://travis-ci.com/plans).

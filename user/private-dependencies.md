@@ -31,7 +31,7 @@ GitHub allows to set up SSH keys for a repository. These deploy keys have some g
 
 However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](encrypt_file.md). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#User-Key) instead.
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#User-Key) instead.
 
 ## User Key
 
@@ -43,10 +43,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 ### Using an existing key
 
-<figure class="small right">
-  [ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png)
-  <figcaption>Adding an SSH key via the web interface.</figcaption>
-</figure>
+[ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png){:.small}{:.right}
 
 Assumptions:
 
@@ -57,12 +54,12 @@ You can add a new key using the repository settings. Paste the contents of `~/.s
 
 Alternatively, you can use the following [CLI](https://github.com/travis-ci/travis.rb) command to add the key to Travis CI:
 
-{% highlight console %}
+```bash
 $ travis sshkey --upload ~/.ssh/id_rsa -r myorg/main
 Key description: Key to clone myorg/lib1 and myorg/lib2
 updating ssh key for myorg/main with key from ~/.ssh/id_rsa
 Current SSH key: Key to clone myorg/lib1 and myorg/lib2
-{% endhighlight %}
+```
 
 You can omit the `-r myorg/main` if your current working directory is a clone of the "myorg/main" repository.
 
@@ -77,7 +74,7 @@ The `travis` command line tool can generate a new key for you and set it up on b
 
 The credentials will only be used to access GitHub and will not be stored or shared with any other service.
 
-{% highlight console %}
+```bash
 $ travis sshkey --generate -r myorg/main
 We need the GitHub login for the account you want to add the key to.
 This information will not be sent to Travis CI, only to api.github.com.
@@ -94,7 +91,7 @@ You can store the private key to reuse it for other repositories (travis sshkey 
 Store private key? |no|
 
 Current SSH key: key for fetching dependencies for myorg/main
-{% endhighlight %}
+```
 
 You can omit the `-r myorg/main` if your current working directory is a clone of the "myorg/main" repository.
 
@@ -112,7 +109,7 @@ This is absolutely optional, nothing keeps you from generating new keys for all 
 
 You follow the [steps above](#generating-a-new-key), but choose to store the key. It will ask you for a path to store it under.
 
-{% highlight console %}
+```bash
 $ travis sshkey --generate -r myorg/main --description "CI dependencies"
 We need the GitHub login for the account you want to add the key to.
 This information will not be sent to Travis CI, only to api.github.com.
@@ -130,21 +127,21 @@ Store private key? |no| yes
 Path: |id_travis_rsa| myorg_key
 
 Current SSH key: CI dependencies
-{% endhighlight %}
+```
 
 And as always, you can omit the `-r myorg/main` if your current working directory is a clone of the "myorg/main" repository.
 
 You can then [upload](#using-an-existing-key) the key for myorg/main2:
 
-{% highlight console %}
+```bash
 $ travis sshkey --upload myorg_key -r myorg/main2 --description "CI dependencies"
 updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
-{% endhighlight %}
+```
 
 Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for for "main" and "main2", but all repositories under the "myorg" organization.
 
-{% highlight console %}
+```bash
 $ travis repos --active --owner myorg --pro | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
 updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
@@ -154,7 +151,7 @@ updating ssh key for myorg/lib1 with key from myorg_key
 Current SSH key: CI dependencies
 updating ssh key for myorg/lib2 with key from myorg_key
 Current SSH key: CI dependencies
-{% endhighlight %}
+```
 
 ## Password
 
@@ -175,18 +172,18 @@ machine github.com
 
 You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`.
 
-{% highlight console %}
+```bash
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
-{% endhighlight %}
+```
 
-{% highlight console %}
+```bash
 before_install:
 - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
-{% endhighlight %}
+```
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
 
-{% highlight ruby %}
+```ruby
 source 'https://rubygems.org'
 gemspec
 
@@ -200,7 +197,7 @@ end
 
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
-{% endhighlight %}
+```
 
 ## API Token
 
@@ -224,20 +221,20 @@ You can also use it in URLs directly: `https://the-generated-token@github.com/my
 
 Use the `encrypt` command to add the token to your `.travis.yml`.
 
-{% highlight console %}
+```bash
 $ travis env set CI_USER_TOKEN the-generated-token --private -r myorg/main
-{% endhighlight %}
+```
 
 You can then have Travis CI write to the `~/.netrc` on every build.
 
-{% highlight yaml %}
+```yaml
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-{% endhighlight %}
+```
 
 It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
 
-{% highlight ruby %}
+```ruby
 source 'https://rubygems.org'
 gemspec
 
@@ -251,7 +248,7 @@ end
 
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
-{% endhighlight %}
+```
 
 ## Dedicated User Account
 

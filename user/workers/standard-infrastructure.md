@@ -9,8 +9,8 @@ permalink: /user/workers/standard-infrastructure/
 This document describes running builds on the current (November 2014)
 default infrastracture.
 
-Without specifying `sudo: false` in `.travis.yml`, your builds are
-sent to this infrastructure.
+Your builds are sent to this infrastructure when specifying `sudo: required` or
+using `sudo` within a build stage in `.travis.yml`.
 
 This backend has following characteristics:
 
@@ -18,7 +18,7 @@ This backend has following characteristics:
 2. For private repositories, allows use of [caches](/user/caching)
 
 For technical reasons, booting the VM takes a little longer
-than [the container-based ones](container-based-infrastructure).
+than [the container-based ones](/user/workers/container-based-infrastructure).
 
 ## File System
 

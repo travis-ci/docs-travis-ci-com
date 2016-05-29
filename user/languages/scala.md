@@ -6,7 +6,9 @@ permalink: /user/languages/scala/
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+
+Scala builds are not available on the OSX environment.
 
 ## Overview
 
@@ -34,7 +36,7 @@ By default, Travis CI will use
 
     sbt ++$TRAVIS_SCALA_VERSION test
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/build-configuration/) guide.
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
 ### Dependency Management
 
@@ -42,7 +44,7 @@ Because Travis CI Scala builder assumes sbt dependency management is used by def
 
 ### Custom sbt Arguments
 
-Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt-extras/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/master/ci_environment/sbt-extras/templates/default/jvmopts.erb) options should work fine.
+Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/sbtopts.erb) and [JVM](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/jvmopts.erb) options should work fine.
 
 If needed, you can override SBT and JVM options in [many different ways](https://github.com/paulp/sbt-extras#sbt--h) by passing extra arguments to `sbt`.
 For example
@@ -89,4 +91,3 @@ The version of Scala a job is using is available as:
 * [novus/salat](https://github.com/novus/salat/blob/master/.travis.yml)
 * [scalaz/scalaz](https://github.com/scalaz/scalaz/blob/scalaz-seven/.travis.yml)
 * [spray/spray](https://github.com/spray/spray/blob/master/.travis.yml) (using a custom [`.jvmopts`](https://github.com/spray/spray/blob/master/.jvmopts) to override Travis CI defaults)
-

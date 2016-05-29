@@ -26,10 +26,10 @@ On Travis CI Pro, for private repositories, you'll need a token to subscribe to
 the feed. The [API endpoint](https://api.travis-ci.com) is different too.
 
 The token must be appended to the URL as the `token` parameter. You can find the
-token in [your profile](https://magnum.travis-ci.com/profile/) under the
+token in [your profile](https://travis-ci.com/profile/) under the
 "Profile" tab.
 
-![](/images/token.jpg)
+![Travis CI user token](/images/token.jpg)
 
 An example URL would be
 `https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>`

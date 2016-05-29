@@ -9,26 +9,33 @@ permalink: /user/languages/julia/
 This guide covers build environment and configuration topics specific to
 [Julia](http://julialang.org) projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc @tkelman @ninjin @staticfloat.
+and cc @tkelman @ninjin @staticfloat @simonbyrne.
 
 ## Choosing Julia versions to test against
 
-Julia workers on travis-ci.org download and install the latest binary of Julia,
-either the most recent release version or the latest nightly build, from
-https://status.julialang.org. To select one or more versions, use the `julia:`
-key in your `.travis.yml` file, for example:
+Julia workers on travis-ci.org download and install a binary of Julia.
+You can select the most recent release version, the latest nightly build
+(downloaded from https://status.julialang.org), or a specific version number
+(downloaded from https://s3.amazonaws.com/julialang). To select one or more
+versions, use the `julia:` key in your `.travis.yml` file, for example:
 
     language: julia
     julia:
       - release
       - nightly
+      - 0.3
+      - 0.3.10
+
+If the version number contains one `.`, then the latest release for that minor version
+is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
+or 0.2.0 for [OS X](/user/multi-os/).
 
 ## Default Julia Version
 
@@ -43,7 +50,7 @@ If your repository follows the structure of a Julia package created by
     julia -e 'Pkg.clone(pwd())'
     julia -e 'Pkg.build("$name")'
     if [ -f test/runtests.jl ]; then
-      julia --check-bounds=yes -e 'Pkg.test("$name")'
+      julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
     fi
 
 The package name `$name` is determined based on the repository name, removing
@@ -57,7 +64,7 @@ If your Julia package has a `deps/build.jl` file, then `Pkg.build("$name")`
 will run that file to install any dependencies of the package. If you need
 to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
-in the [general build configuration](/user/build-configuration/) guide.
+in the [general build configuration](/user/customizing-the-build/) guide.
 
 ## Build Matrix
 

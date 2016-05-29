@@ -4,20 +4,21 @@ layout: en
 permalink: /user/firefox/
 ---
 
-### Selecting a Firefox version
+Our 64-bit Linux VMs include a recent version of Firefox, currently 31.0esr.
 
-Our VMs come preinstalled with some recent version of Firefox, currently 31.0esr.
+## Selecting a Firefox version
 
-If you need a specific version to be installed, the Firefox addon
-allows you to specify any version of Firefox and the binary will be downloaded
-and installed before running your build script (as a part of the
-`before_install` stage).
+To install a specific version of Firefox, you can use the Firefox addon. The addon will download and install Firefox before running your build script.
 
-If you need version 17.0 of Firefox to be installed, add the following to your
-.travis.yml file:
+For example, to install version 39.0 of Firefox, add the following at the top level of your `.travis.yml` file:
 
     addons:
-      firefox: "17.0"
+      firefox: "39.0"
 
-Please note that this downloads binaries that are only compatible with our
-64-bit Linux VMs, so this won't work on our Mac VMs.
+## Version aliases
+
+In addition to specific version numbers, there are 3 special aliases you can use:
+
+* [`latest`](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
+* [`latest-esr`](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
+* [`latest-beta`](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US)

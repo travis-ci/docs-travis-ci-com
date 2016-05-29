@@ -6,7 +6,9 @@ permalink: /user/uploading-artifacts/
 <div id="toc">
 </div>
 
-Travis CI can automatically upload your build artifacts to S3.
+Travis CI can automatically upload your build artifacts to S3. Unless you
+programatically generate unique filenames and folders, artifacts are
+overwritten every build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
@@ -18,6 +20,12 @@ and add the following environment variables in the repository settings:
     ARTIFACTS_KEY=(AWS access key id)
     ARTIFACTS_SECRET=(AWS secret access key)
     ARTIFACTS_BUCKET=(S3 bucket name)
+
+The region defaults to `us-east-1`. For any other region, either define the `ARTIFACTS_REGION` environment variable or add it under the artifacts configuration key:
+    
+    addons:
+      artifacts:
+        s3_region: "us-west-1" # defaults to "us-east-1"
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential).
 

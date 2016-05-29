@@ -1,13 +1,29 @@
 ---
-title: Validate your .travis.yml
+title: Validating .travis.yml files
 layout: en
 permalink: /user/travis-lint/
 ---
 
-### What This Guide Covers
+Validating your `.travis.yml` file before committing it reduces common build errors such as
 
-This guide covers [travis-lint](https://github.com/travis-ci/travis-yaml), a small tool that validates your `.travis.yml`file to help you discover common issues. If you are looking for info about putting your project on travis-ci.org, start with the [Getting Started](/user/getting-started/) guide.
+* invalid [YAML](http://yaml-online-parser.appspot.com/)
+* missing `language` key
+* unsupported [runtime versions](/user/ci-environment/) of Ruby, PHP, OTP, etc
+* deprecated features or runtime aliases
 
-## Using lint.travis-ci.org
+## Online Validation
 
-[.travis.yml validation Web app](http://lint.travis-ci.org) is the easiest way to to validate your `.travis.yml` file.
+Validate your `.travis.yml` [online](http://lint.travis-ci.org) by entering your
+github repository or by pasting the contents of your `.travis.yml` into the form.
+
+## Command line Validation
+
+To install the [command line client](https://github.com/travis-ci/travis.rb#installation),
+ which requires Ruby 1.9.3 and RubyGems:
+
+    gem install travis --no-rdoc --no-ri
+
+To run the command line [lint](https://github.com/travis-ci/travis.rb#lint) tool:
+
+    # from any directory
+    travis lint [path to your .travis.yml]

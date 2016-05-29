@@ -40,7 +40,7 @@ It's probably overkill to run static analysis on each and every commit of your p
 
 1. Assuming the project is properly registered via GitHub, you'll see a tab for `Configure Travis CI`. Visit that panel.
 
-1. On the Travis CI Confuration page, you'll see a sample `.travis-yml` file. It will have auto-generated several of the necessary project-specific fields, including the encrypted Coverity Scan token (necessary to upload results). Copy the configuration from there into your `.travis.yml` file, making the changes in the next steps.
+1. On the Travis CI Configuration page, you'll see a sample `.travis-yml` file. It will have auto-generated several of the necessary project-specific fields, including the encrypted Coverity Scan token (necessary to upload results). Copy the configuration from there into your `.travis.yml` file, making the changes in the next steps.
 
 1. Fill in `build_command_prepend` with any configuration commands that are necessary to prepare your project to be built. For example `build_command_prepend: ./configure`
 
@@ -58,7 +58,7 @@ From your project page on Coverity Scan, select the Travis CI tab. You'll see a 
 
     env:
       global:
-        # COVERITY_SCAN_TOKE
+        # COVERITY_SCAN_TOKEN
         # ** specific to your project **
         - secure: "xxxx"
 

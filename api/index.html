@@ -10,10 +10,10 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>Travis CI - API Reference</title>
 
-    <link href="stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <link href="/api/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/api/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="javascripts/all.js" type="text/javascript"></script>
+    <script src="/api/javascripts/all.js" type="text/javascript"></script>
 
     <script>
       $(function() {
@@ -39,21 +39,21 @@
           toc.setOption("showEffectSpeed", 180);
         },50);
         setupLanguages([
-          
-            
-              
+
+
+
                 'http',
-              
-            
-              
+
+
+
                 'shell',
-              
-            
-              
+
+
+
                 'ruby',
-              
-            
-          
+
+
+
         ]);
       });
     </script>
@@ -61,23 +61,23 @@
 
   <body class="index">
     <div class="tocify-wrapper">
-      <p><img src="images/logo.png" /></p>
+      <p><img src="/api/images/logo.png" alt="The Travis CI logo"/></p>
       <div id="toc">
       </div>
-      
+
       <ul class="toc-footer">
-        
+
           <li><a href='https://travis-ci.org'>Travis CI for Open Source</a></li>
-        
+
           <li><a href='https://travis-ci.com'>Travis CI for Private Projects</a></li>
-        
+
       </ul>
       <div class="toc-copyright">
-        &copy; 2014 Travis CI GmbH<br>
-        Prinzessinnenstr. 20,<br>
-        10969 Berlin, Germany
+        &copy; 2015 Travis CI GmbH<br>
+        Rigaerstr. 8,<br>
+        10247 Berlin, Germany
       </div>
-      
+
     </div>
     <div class="page-wrapper">
       <div class="content">
@@ -144,7 +144,7 @@
 <ul>
 <li><strong>Travis CI for open source:</strong> For open source projects tested on <a href="https://travis-ci.org">travis-ci.org</a>, use <strong><a href="https://api.travis-ci.org">https://api.travis-ci.org</a></strong>.</li>
 <li><strong>Travis Pro:</strong> For private projects tested on <a href="https://travis-ci.com">travis-ci.com</a>, use <strong><a href="https://api.travis-ci.com">https://api.travis-ci.com</a></strong>.</li>
-<li><strong>Travis Enterprise:</strong> For projects running on a custom setup, use <strong><a href="#">https://travis.example.com/api</a></strong> (where you replace travis.example.com with the domain Travis CI is running on).</li>
+<li><strong>Travis Enterprise:</strong> For projects running on a custom setup, use <strong><a href="https://travis.example.com/api">https://travis.example.com/api</a></strong> (where you replace travis.example.com with the domain Travis CI is running on).</li>
 </ul>
 
 <p>Note that both Pro and Enterprise will require almost all API calls to be <a href="#authentication">authenticated</a>.</p>
@@ -420,7 +420,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="nt">&lt;/script&gt;</span>
 </pre>
 
-<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_to</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
+<p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_uri</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
 
 <p>There is an alternative version of this that will try to run the handshake in a hidden iframe and using <code class="prettyprint">window.postMessage</code> to hand the token to the website embedding the iframe. <strong>This endpoint will only work for whitelisted websites.</strong></p>
 
@@ -1457,7 +1457,7 @@ Using worker: ...
 
 <h3 id="chunked-attributes">Chunked Attributes</h3>
 
-<p>You can retrieve the chunked attributes instead of the normal attributes b adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
+<p>You can retrieve the chunked attributes instead of the normal attributes by adding the attribute <code class="prettyprint">chunked=true</code> to the mime-type specified in the <code class="prettyprint">Accept</code> header.</p>
 
 <table><thead>
 <tr>
@@ -1828,7 +1828,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <span class="k">end</span>
 </pre>
 
-<p>Requests can be used to see if and why a GitHub even has or has not triggered a new build.</p>
+<p>Requests can be used to see if and why a GitHub event has or has not triggered a new build.</p>
 
 <h3 id="attributes">Attributes</h3>
 
@@ -2100,19 +2100,19 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="list-variables">List Variables</h3>
 
-<p><code class="prettyprint">GET /repos/settings/env_vars?repository_id={repository.id}</code></p>
+<p><code class="prettyprint">GET /settings/env_vars?repository_id={repository.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
 <h3 id="fetch-variable">Fetch Variable</h3>
 
-<p><code class="prettyprint">GET /repos/settings/env_vars/{env_var.id}?repository_id={repository.id}</code></p>
+<p><code class="prettyprint">GET /settings/env_vars/{env_var.id}?repository_id={repository.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
 <h3 id="add-variable">Add Variable</h3>
 
-<p><code class="prettyprint">POST /repos/settings/env_vars?repository_id={repository.id}</code></p>
+<p><code class="prettyprint">POST /settings/env_vars?repository_id={repository.id}</code></p>
 
 <table><thead>
 <tr>
@@ -2147,7 +2147,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="update-variable">Update Variable</h3>
 
-<p><code class="prettyprint">PATCH /repos/settings/env_vars/{env_var.id}</code></p>
+<p><code class="prettyprint">PATCH /settings/env_vars/{env_var.id}?repository_id={repository.id}</code></p>
 
 <table><thead>
 <tr>
@@ -2182,7 +2182,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 
 <h3 id="delete-variable">Delete Variable</h3>
 
-<p><code class="prettyprint">DELETE /repos/settings/env_vars/{env_var.id}</code></p>
+<p><code class="prettyprint">DELETE /settings/env_vars/{env_var.id}?repository_id={repository.id}</code></p>
 
 <p>This request always needs to be authenticated.</p>
 
@@ -2532,25 +2532,25 @@ Supply a <code class="prettyprint">callback</code> parameter to use this.</p>
 <li><strong><a href="http://travispy.readthedocs.org/en/latest/">TravisPy</a></strong>: Python library trying to closely mimic the official Ruby client</li>
 </ul>
 
-        
+
       </div>
       <div class="dark-box">
         <div id="lang-selector">
-          
-            
-              
-                <a href="#" data-language-name="http">http</a>
-              
-            
-              
-                <a href="#" data-language-name="shell">shell</a>
-              
-            
-              
-                <a href="#" data-language-name="ruby">ruby</a>
-              
-            
-          
+
+
+
+                <a href="#" data-language-name="http" data-proofer-ignore>http</a>
+
+
+
+                <a href="#" data-language-name="shell" data-proofer-ignore>shell</a>
+
+
+
+                <a href="#" data-language-name="ruby" data-proofer-ignore>ruby</a>
+
+
+
         </div>
       </div>
     </div>

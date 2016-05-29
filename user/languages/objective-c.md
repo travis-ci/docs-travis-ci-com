@@ -6,24 +6,38 @@ permalink: /user/languages/objective-c/
 <div id="toc">
 </div>
 
-### What This Guide Covers
+## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 Objective-C projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
-configuration](/user/build-configuration/) guides first.
+configuration](/user/customizing-the-build/) guides first.
 
-## Supported iOS SDK versions
+Objective-C builds are not available on the Linux environments.
 
-Currently pre-installed on our systems are the following SDKs for Xcode:
+## Supported Xcode versions
 
-- iOS 8.0 (simulator and device)
-- iOS 7.1 (simulator)
-- iOS 7.0 (simulator)
-- OS X 10.9
+Travis CI uses Xcode 6.1 (and OS X 10.9.5) by default . You can use another version of Xcode (and OS X) by specifying the corresponding `osx_image` key from the following table:
 
-The device SDKs are needed if you want to build a binary to distribute to
-devices. Testing on devices is currently not possible.
+<table>
+
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
+{% for image in site.data.xcodes.osx_images %}
+<tr>
+  <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
+  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
+  <td>OS X {{ image.osx_version}}
+  </td></tr>
+{% endfor %}
+</table>
+
+> Detailed iOS SDK versions are available in the [OS X CI environment reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
+
+At this time we are unable to provide pre-release versions of Xcode due to the
+NDA imposed on them. We do test them internally, and our goal is to make new
+versions available the same day they come out. If you have any further questions
+about Xcode pre-release availability, send us an email at support@travis-ci.com.
+
 
 ## Default Test Script
 
@@ -41,7 +55,7 @@ the form `iphonesimulatorX.Y` where `X.Y` is the version you want to test
 against.
 
 If you are using a workspace instead of a project, use the `xcode_workspace`
-key in you .travis.yml instead of `xcode_project`.
+key in your .travis.yml instead of `xcode_project`.
 
 In order to your run tests on Travis CI, you also need to create a Shared
 Scheme for your application target, and ensure that all dependencies (such as
@@ -93,3 +107,15 @@ you can override the `install` command.
 
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
+
+## Simulators
+{% for simulator in site.data.xcodes.simulators %}
+### {{ simulator.name }}
+
+The following devices are provided by the {{ simulator.name }} simulator:
+
+{% for device in simulator.devices %}
+- {{ device }}
+{% endfor %}
+
+{% endfor %}

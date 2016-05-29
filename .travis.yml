@@ -1,0 +1,16 @@
+language: ruby
+sudo: false
+rvm:
+  - 2.0.0
+branches:
+  only:
+      - gh-pages
+cache: bundler
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "jwYeg8E1Nl+yQXuUTEEOArzZOOaHx0q0gXQpG/A2849KCGbV6/LHUnrp3uAI2bYdGZlxeFjGCmkStVM9A4BZ5CsakJhopcpUuy2fSLGtwspUMTJYmD05bQaU+P3zY+lh3Nws5oOuigIta1qKIrx6KVZXLTR1pXdsoxlTf+PWxFw="
+  app: 'docs-travis-ci-com'
+  on:
+    branch: 'gh-pages'

@@ -1,0 +1,115 @@
+<div id="sidebar" class="sidebar">
+  <div>
+    <!-- <h2>Search</h2> -->
+    <div class="searchbox">
+      <form>
+        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+      </form>
+      <script type="text/javascript">
+      var Swiftype = window.Swiftype || {};
+        (function() {
+          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+      Swiftype.searchSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          Swiftype.autocompleteSearchFields = {
+            "page": ["title, body, tags"]
+          };
+          /** DO NOT EDIT BELOW THIS LINE **/
+          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+          script.src = "//swiftype.com/embed.js";
+          var entry = document.getElementsByTagName('script')[0];
+          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+        }());
+      </script>
+    </div>
+  </div>
+
+  <section class="sidebar-navigation">
+    <nav>
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="/user/getting-started/">Getting started</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing Your Build</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
+        <li><a href="/user/pull-requests">Building Pull Requests</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/travis-pro/">Travis CI for Private Projects</a></li>
+        <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+        <li><a href="/user/travis-lint/">Validating .travis.yml files</a></li>
+      </ul>
+      <h3>Installing Dependencies</h3>
+      <ul>
+        <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
+        <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
+
+      </ul>
+      <h3>Programming Languages</h3>
+      <ul>
+      {% for language in site.data.languages %}
+        <li><a href="{{language[1]}}">{{language[0]}}</a></li>
+      {% endfor %}
+      </ul>
+      <h3>Deployments and Uploads</h3>
+      <ul>
+        {% for deployment in site.data.deployments %}
+          <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
+        {% endfor %}
+      <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+    </ul>
+      <h3>CI Environment Reference</h3>
+      <ul>
+      <li><a href="/user/ci-environment/">CI Environment Reference</a></li>
+      <li><a href="/user/osx-ci-environment/">OSX CI Environment Reference</a></li>
+      <li><a href="/user/trusty-ci-environment/">Trusty CI Environment</a><li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+          <li><a href="/user/migrating-from-legacy/">Migrating to Container-Based Infrastructure</a></li>
+          <li><a href="/user/build-environment-updates">Build Environment Updates (December 2014 and later)</a></li>
+    </ul>
+    <h3>Encrypting Files and Data</h3>
+    <ul>
+      <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+      <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+      <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+
+    </ul>
+      <h3>Integrations and Notifications</h3>
+      <ul>
+        <li><a href="/user/notifications/">Configuring Notifications</a></li>
+        <li><a href="/user/status-images/">Showing Build Status Images</a></li>
+        <li><a href="/user/code-climate/">Code Climate</a></li>
+        <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
+        <li><a href="/user/build-feeds/">Atom Feeds</a></li>
+        <li><a href="/user/cc-menu">CCMenu / CCTray Feeds</a></li>
+        <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+      </ul>
+
+      <h3>Developer Program</h3>
+      <ul>
+        <li><a href="/api">The API</a></li>
+        <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
+        <li><a href="/user/triggering-builds">Triggering Builds through the API</a></li>
+      </ul>
+      <h3>3rd Party Tools and Resources</h3>
+      <ul>
+        <li><a href="/user/apps/">Apps, Clients and Tools</a></li>
+        <li><a href="/user/resources/">Links and Resources</a></li>
+        <li><a href="https://scan.coverity.com/travis_ci">Coverity Scan</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="sidebar-notice">
+    <p>This documentation site is open source.
+      The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+  </section>
+
+</div><!-- /#sidebar -->

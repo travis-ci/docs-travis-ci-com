@@ -1,0 +1,50 @@
+@mixin linkStyle
+  a
+    text-decoration: none
+    border-bottom: 1px solid #bfc0c1
+    padding-bottom: 0.1em
+    transition: color 200ms ease, border 200ms ease
+    &:hover,
+    &:active
+      color: #303030
+      text-decoration: none
+      border-color: transparent
+
+%reset-ul
+  margin: 0
+  padding: 0
+  list-style: none
+
+%bottom-border-grey
+  border-bottom: solid $cream-dark 2px
+
+%header-link
+  @include linkStyle
+
+%grey-heading
+  @extend %header-link
+  color: $asphalt-grey
+  font-size: $font-size-l
+  font-weight: 400
+  line-height: 1
+
+%blue-heading
+  @extend %header-link
+  color: $oxide-blue
+  font-size: $font-size-m
+  margin-top: 2.3em
+  font-weight: 600
+
+%green-hading
+  @extend %header-link
+  color: $turf-green
+  font-size: $font-size-ml
+  margin-top: 2.5em
+  font-weight: 400
+
+%ul-styles
+  @extend %reset-ul
+  color: $asphalt-grey
+  line-height: 30px
+  a
+    text-decoration: none

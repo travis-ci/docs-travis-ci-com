@@ -1,18 +1,18 @@
 ---
-title: GUI & Headless browser testing
+title: GUI and Headless Browser Testing
 layout: en
 permalink: /user/gui-and-headless-browsers/
 ---
 
 ## What This Guide Covers
 
-This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/ci-environment/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/build-configuration/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/ci-environment/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
 ## Using Sauce Labs
 
 [Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to more than 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
 
-Once you've signed up, you need to set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/addons/#Sauce-Connect) makes this easy, just add this to your .travis.yml:
+Once you've signed up, set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/sauce-connect) makes this easy, just add this to your .travis.yml:
 
     addons:
       sauce_connect:
@@ -42,32 +42,39 @@ To make the test results on Sauce Labs a little more easy to navigate, you may w
 
 For travis-web, our very own website, we use Sauce Labs to run browser tests on multiple browsers. We use environment variables in our [.travis.yml](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15) to split up the build into multiple jobs, and then pass the desired browser into Sauce Labs using [desired capabilities](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13). On the Travis CI side, it ends up looking like [this](https://travis-ci.org/travis-ci/travis-web/builds/12857641).
 
-## Using xvfb to Run Tests That Require GUI (e.g. a Web browser)
+## Using xvfb to Run Tests That Require a GUI
 
-You can run test suites that require GUI (like a web browser) on Travis CI. The environment has `xvfb` (X Virtual Framebuffer) and Firefox installed. Roughly speaking, `xvfb` imitates a monitor and lets you run a real GUI application or web browser on a headless machine, as if a proper display were attached.
+To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
+Virtual Framebuffer) to imitate a display. If you need a browser, Firefox is
+installed on all Travis CI environments.
 
-Before `xvfb` can be used, it needs to be started. Typically an optimal place to do it is `before_install`, like this:
+Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
-    before_install:
-      - "export DISPLAY=:99.0"
-      - "sh -e /etc/init.d/xvfb start"
+```
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+```
 
-This starts `xvfb` on display port :99.0. The display port is set directly in the `/etc/init.d` script. Second, when you run your tests, you need to tell your testing tool process (e.g. Selenium) about that display port, so it knows where to start Firefox. This will vary among testing tools and programming languages.
+Note: Don't run `xvfb` directly, as it does not handle multiple concurrent
+instances that way.
 
-### Configuring xvfb screen size and more
+If you need to set the screen size and pixel depth, you need to start `xvfb`
+with the `start-stop-daemon` utility and not with the init script in the
+previous example.
 
-It is possible to set xvfb screen size and pixel depth. Because xvfb is a virtual screen, it can emulate virtually any resolution. When doing so, you need to start
-xvfb directly or via the `start-stop-daemon` utility and not via the init script:
+For example, to set the screen resolution to `1280x1024x16`:
 
-    before_install:
-      - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-
-In the example above, we are setting screen resolution to `1280x1024x16`.
+```
+before_install:
+	- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+```
 
 See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
 
-## Starting a Web Server
+### Starting a Web Server
 
 If your project requires a web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based web servers
 that serve HTML pages used to run test suites. Because every travis-ci.org VM provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
@@ -142,3 +149,14 @@ This can be fixed by applying a custom Firefox profile with the option turned of
       Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
     end
 
+### Karma and Firefox inactivity timeouts
+
+When testing with Karma and Firefox, you may encounter build errors as a result of browser inactivity timeouts. When this occurs, Karma will output an error similar to:
+
+    WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 10000 ms.
+
+In that case, you should increase the browser inactivity timeout to a higher value in `karma.conf.js`, e.g.:
+
+    browserNoActivityTimeout: 30000,
+
+For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/0.12/config/configuration-file.html) documentation.

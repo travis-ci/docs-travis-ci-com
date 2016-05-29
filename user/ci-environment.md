@@ -17,51 +17,114 @@ Travis CI runs builds in isolated virtual machines that offer a vanilla build
 environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests can run in an environment built from
-scratch.
-
-To set up the system for your build, you can use the `sudo` command to install
-packages, to change configuration, create users, and so on.
-
-<div class="note-box">
-Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
-</div>
+slate and making sure that your tests run in an environment built from scratch.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## The Build Machine
-
-On the Linux platform, builds have 3 GB of memory available. Disk space is limited,
-but there's no fixed limit per build. Builds have up to two cores available (bursted).
-
-## CI environment OS
-
-Travis CI virtual machines are based on Ubuntu 12.04 LTS Server Edition 64 bit,
-with the exception of Objective-C builds, which runs on Mac OS X Mavericks.
-
 ## Virtualization environments
 
-There are currently three distinct virtual environments in which your builds run.
+Each build runs in one of the following four virtual environments:
 
-They are explained in separated documents.
+* Standard (the default environment)
+* Container-based (the newer environment in which `sudo` commands are not available)
+* OSX for Objective-C projects
+* Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
-1. [Standard](/user/workers/standard-infrastructure)
-1. [Container-based](/user/workers/container-based-infrastructure)
-1. [OS X](/user/workers/os-x-infrastructure) (This is synonymous with Objective-C build environment.)
+The following table summarizes the differences between the virtual environments:
+
+<div class="header-row header-column">
+<table><thead>
+<tr>
+<th></th>
+<th>Standard</th>
+<th>Container-based</th>
+<th>OS X</th>
+<th>Trusty beta</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>.travis.yml</td>
+<td><code>sudo: required</code> <em>default for repositories enabled before 2015</em></td>
+<td><code>sudo: false</code> <em>default for repositories enabled in 2015 or later</em></td>
+<td><code>language: objective-c</code> or <code>os: osx</code></td>
+<td><code>sudo: required</code> **and** <code>dist: trusty</code></td>
+</tr>
+<tr>
+<td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Boot Time</td>
+<td>20-52s</td>
+<td>1-6s</td>
+<td>60-90s</td>
+<td>20-52s</td>
+</tr>
+<tr>
+<td>File System</td>
+<td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
+<td>AUFS</td>
+<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
+<td>ext4</td>
+</tr>
+<tr>
+<td>Cache available</td>
+<td>private &amp; public</td>
+<td>private &amp; public</td>
+<td>private only</td>
+<td>private &amp; public</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>OS X Mavericks</td>
+<td>Ubuntu 14.04 LTS Server Edition 64 bit</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>7.5 GB</td>
+<td>4 GB max</td>
+<td>3 GB</td>
+<td>7.5 GB</td>
+</tr>
+<tr>
+<td>Cores</td>
+<td>~2, bursted</td>
+<td>2</td>
+<td>1</td>
+<td>~2, bursted</td>
+</tr>
+</tbody></table>
+</div>
+
+All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure.
 
 ## Networking
 
-The virtual machines running the tests have IPv6 enabled.
-They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The container-based, OSX, and Trusty builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
 Most services work normally when talking to the local host by either `localhost` or `127.0.0.1`.
 
-## Environment common to all VM images
+## Environment common to all Precise images
 
-### Git, etc
+Below you will find a list of the things common to our Precise based
+images.
+
+For other images, see the list below:
+
+
+- [OS X CI Environment](/user/osx-ci-environment)
+- [Trusty CI Environment](/user/trusty-ci-environment)
+
+### Version control
 
 All VM images have the following pre-installed
 
@@ -112,6 +175,22 @@ Language-specific workers have multiple runtimes for their respective language (
 * ElasticSearch
 * CouchDB
 
+### Firefox
+
+All virtual environments have recent version of Firefox installed, currently
+31.0 for Linux environments and 25.0 for OSX.
+
+If you need a specific version of Firefox, use the Firefox addon to install
+it during the `before_install` stage of the build.
+
+For example, to install version 17.0, add the following to your
+`.travis.yml` file:
+
+    addons:
+      firefox: "17.0"
+
+Please note that the addon only works in 64-bit Linux environments.
+
 ### Messaging Technology
 
 * [RabbitMQ](http://rabbitmq.com)
@@ -124,76 +203,12 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Environment variables
 
-* `CI=true`
-* `TRAVIS=true`
-* `CONTINUOUS_INTEGRATION=true`
-* `DEBIAN_FRONTEND=noninteractive`
-* `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-* `USER=travis` (**do not depend on this value**)
-* `HOME=/home/travis` (**do not depend on this value**)
-* `LANG=en_US.UTF-8`
-* `LC_ALL=en_US.UTF-8`
-* `RAILS_ENV=test`
-* `RACK_ENV=test`
-* `MERB_ENV=test`
-* `JRUBY_OPTS="--server -Dcext.enabled=false -Xcompile.invokedynamic=false"`
-
-Additionally, Travis CI sets environment variables you can use in your build, e.g.
-to tag the build, or to run post-build deployments.
-
-* `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
-  name of the branch currently being built; whereas for builds triggered
-  by a pull request this is the name of the branch targeted by the pull
-  request (in many cases this will be `master`).
-* `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
-  being built has been copied on the worker.
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
-* `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
-* `TRAVIS_COMMIT`: The commit that the current build is testing.
-* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
-  or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
-* `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
-  request, "false" if it's not a pull request.
-* `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
-  used. This value is either "true" or "false".
-* `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
-  repository currently being built. (for example, "travis-ci/travis-build").
-* `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
-* `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
-
-Language-specific builds expose additional environment variables representing
-the current version being used to run the build. Whether or not they're set
-depends on the language you're using.
-
-* `TRAVIS_DART_VERSION`
-* `TRAVIS_GO_VERSION`
-* `TRAVIS_JDK_VERSION`
-* `TRAVIS_JULIA_VERSION`
-* `TRAVIS_NODE_VERSION`
-* `TRAVIS_OTP_RELEASE`
-* `TRAVIS_PERL_VERSION`
-* `TRAVIS_PHP_VERSION`
-* `TRAVIS_PYTHON_VERSION`
-* `TRAVIS_R_VERSION`
-* `TRAVIS_RUBY_VERSION`
-* `TRAVIS_RUST_VERSION`
-* `TRAVIS_SCALA_VERSION`
-
-The following environment variables are available for Objective-C builds.
-
-* `TRAVIS_XCODE_SDK`
-* `TRAVIS_XCODE_SCHEME`
-* `TRAVIS_XCODE_PROJECT`
-* `TRAVIS_XCODE_WORKSPACE`
+There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment.
 
 ### Libraries
 
 * OpenSSL
 * ImageMagick
-
 
 ### apt configuration
 
@@ -205,8 +220,8 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    1. Set up and export environment variables.
-    1. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+    - Set up and export environment variables.
+    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
     You may modify the user's primary group with `-g`.
 1. Your `script` would look something like:
 
@@ -242,6 +257,8 @@ in order to minimize frictions when images are updated:
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
+
+The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
 ### Maven version
 
@@ -321,7 +338,7 @@ Test::Pod::Coverage
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
 [hhvm](https://github.com/facebook/hhvm) is also available.
-and the nighly builds are installed on-demand (as `hhvm-nightly`).
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
 
 ### XDebug
 
@@ -415,7 +432,7 @@ On all versions except pypy and pypy3 have `numpy` as well.
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
 
-These are only the pre-installed versions of Ruby. RVM is able to install other
+RVM is able to install other
 versions on demand. For example, to test against Rubinius 2.2.1, you can use
 `rbx-2.2.1` and RVM will download binaries on-demand.
 
@@ -427,3 +444,4 @@ Recent 1.7.x version (usually the most recent)
 
 * bundler
 * rake
+

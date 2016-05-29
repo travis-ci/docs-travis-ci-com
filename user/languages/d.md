@@ -8,7 +8,7 @@ permalink: /user/languages/d/
 
 This guide covers build environment and configuration topics specific to D projects. Please make
 sure to read our [Getting Started](/user/getting-started/) and
-[general build configuration](/user/build-configuration/) guides first.
+[general build configuration](/user/customizing-the-build/) guides first.
 
 ### Beta Warning
 
@@ -20,18 +20,28 @@ community-supported language. If you run into any problems, please report them i
 
 ## Choosing compilers to test against
 
-By default Travis CI will use the latest dmd release. It is also possible to test projects against
-specific versions of dmd, ldc or gdc. To do so, specify the compiler using the `d:` key in
-`.travis.yml`. For example, to build with dmd:
+By default Travis CI will use the latest dmd version. It is also possible to test projects against
+gdc or ldc and to choose specific compiler versions. To do
+so, specify the compiler using the `d:` key in `.travis.yml`.
 
-    d: dmd-2.065.0
+Examples:
 
-or to use dmd, gdc and ldc:
-
-    d:
-      - dmd-2.066.1
-      - gdc-4.8.2
-      - ldc-0.14.0
+```yml
+d: dmd-2.066.1
+```
+```yml
+# latest dmd, gdc and ldc
+d:
+  - dmd
+  - gdc
+  - ldc
+```
+```yml
+# latest dmd and ldc-0.15.1
+d:
+  - dmd
+  - ldc-0.15.1
+```
 
 Testing against multiple compilers will create one row in your build matrix for each compiler. The
 Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` or `gdc` and the
@@ -48,7 +58,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
     language: d
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/)
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
 
     script: make test
@@ -61,7 +71,7 @@ key in your `.travis.yml`:
 
     install: make get-deps
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
 ## Build Matrix
 

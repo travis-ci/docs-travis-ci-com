@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="nodocs">
+
+      {% include header.html %}
+
+      <div id="content" class="row">
+
+        {% include sidebar.html %}
+
+        <main class="main main--nodocs" role="main">
+          <img src="/images/ui/cones.svg" alt="Image of traffic cones" width="360" height="auto">
+          {% unless page.no_header %}
+            <h1>Looking for Documentation about <br> Using {{ page.title }} with Travis CI?</h1>
+          {% endunless %}
+
+            <p>We don't have any just yet, but we are working on it!</p>
+
+            <p>It would be really helpful if you could <a href="https://github.com/travis-ci/docs-travis-ci-com/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+{{ page.title }}">raise an issue</a> on GitHub <br>detailing anything you think we need to cover about {{ page.title }}.</a>
+
+            {{ content }}
+          </div>
+        </main>
+      </div><!-- /#content -->
+
+      {% include footer.html %}
+
+    </div>
+  </body>
+
+</html>
