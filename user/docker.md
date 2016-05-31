@@ -137,6 +137,20 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 ```
 
+#### Branch Based Registry Pushes
+
+Using `after_success` it is also possible to push an image to a registry based
+on the branch:
+
+```yaml
+
+    after_success:
+      - if [ "$TRAVIS_BRANCH" == "master" ]; then
+          docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+          docker push USER/REPO;
+        fi
+```
+
 #### Private Registry Login
 
 When pushing to a private registry, be sure to specify the hostname in the
