@@ -172,8 +172,8 @@ More specifically, either gcc 4.8 (or later), or clang 3.5 (or later) works.
 
 Our Trusty images have gcc and clang that meet this requirement, but the Precise image does not.
 
-To update these compilers to a newer version.
-For example, `gcc/g++` to version 4.8, add the following in your `.travis.yml`:
+To update these compilers to a newer version, for example, `gcc/g++` to version 4.8,
+add the following in your `.travis.yml`:
 
     language: node_js
     node_js:
@@ -185,21 +185,4 @@ For example, `gcc/g++` to version 4.8, add the following in your `.travis.yml`:
         sources:
           - ubuntu-toolchain-r-test
         packages:
-          - g++-4.8
-
-For clang 3.6:
-
-    language: node_js
-    node_js:
-      - "4"
-    compiler: clang-3.6
-    env:
-      - CXX=clang-3.6
-    addons:
-      apt:
-        sources:
-          - llvm-toolchain-precise-3.6
-          - ubuntu-toolchain-r-test
-        packages:
-          - clang-3.6
           - g++-4.8
