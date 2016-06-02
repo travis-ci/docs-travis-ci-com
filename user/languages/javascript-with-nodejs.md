@@ -186,3 +186,7 @@ add the following in your `.travis.yml`:
           - ubuntu-toolchain-r-test
         packages:
           - g++-4.8
+
+Due to recent decision by the LLVM team to remove APT support, it is currently not possible
+to update clang on Travis CI via `apt-get` or the `apt` addon.
+See https://github.com/travis-ci/travis-ci/issues/6120.
