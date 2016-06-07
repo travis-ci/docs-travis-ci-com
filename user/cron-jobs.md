@@ -38,3 +38,7 @@ Thereafter the cron job is displayed above:
 Just click on the small trash can on the right hand side:
 
 ![deleting a cron job](/images/cron-deleting.png "deleting a cron job")
+
+## Detection
+
+If you want to check whether the current build is triggered by cron, you can examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
