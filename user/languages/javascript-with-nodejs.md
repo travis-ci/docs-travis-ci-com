@@ -16,9 +16,24 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 
     language: node_js
     node_js:
+      - "6"
+      - "6.1"
       - "5"
+      - "5.11"
+      - "5.10"
+      - "5.9"
+      - "5.8"
+      - "5.7"
+      - "5.6"
+      - "5.5"
+      - "5.4"
+      - "5.3"
+      - "5.2"
       - "5.1"
+      - "5.0"
       - "4"
+      - "4.4"
+      - "4.3"
       - "4.2"
       - "4.1"
       - "4.0"
@@ -32,7 +47,7 @@ You can choose Node.js and io.js versions to run your tests by adding the follow
 These values are passed on to [`nvm`](https://github.com/creationix/nvm);
 newer releases not shown above may be used if `nvm` recognizes them.
 
-This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, 0.12.x, 4.0.x, 4.1.x, 4.2.x, and 5.1.x branch releases, as well as the latest io.js stable release. Choosing "5" or "4" will use the latest version available in the 5.x or 4.x releases.
+This will make Travis CI run your tests against the latest version 0.6.x, 0.8.x, 0.10.x, 0.11.x, 0.12.x, 4.x, 5.x, and 6.x branch releases, as well as the latest io.js stable release. Choosing "6", "5" or "4" will use the latest version available in the 6.x, 5.x or 4.x releases.
 
 Specifying `node` will run using the latest stable Node.js release and specifying `iojs` will run using the latest stable io.js release.
 
@@ -54,7 +69,22 @@ See [nvm documentation](https://github.com/creationix/nvm#usage) for more inform
 
 ## Provided Node.js Versions
 
+* 6.1.x
+* 6.0.x
+* 5.11.x
+* 5.10.x
+* 5.9.x
+* 5.8.x
+* 5.7.x
+* 5.6.x
+* 5.5.x
+* 5.4.x
+* 5.3.x
+* 5.2.x
 * 5.1.x
+* 5.0.x
+* 4.4.x
+* 4.3.x
 * 4.2.x
 * 4.1.x
 * 4.0.x
