@@ -9,13 +9,8 @@ permalink: /user/cron-jobs/
 
 <div id="toc"></div>
 
-## Preparation
-
-Travis CI lets you schedule builds at regular intervals independently of whether
+Cron jobs run builds at regular scheduled intervals independently of whether
 any commits were pushed to the repository.
-This feature is not enabled by default. Please contact us if you need it:
-
-[support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
 
 If this feature is enabled for your repository, there is a "Cron Jobs" settings
 tab on your Travis CI page.
@@ -24,21 +19,20 @@ tab on your Travis CI page.
 
 ## Adding Cron Jobs
 
-After optionally customizing the cron job's properties
-you can click on "Add" which creates the cron job.
+Select the branch to run the build on, how often to run the build, and whether to to run the build if there were commits since the last cron build, then click "Add":
 
 ![adding a cron job](/images/cron-adding.png "adding a cron job")
 
-Thereafter the cron job is displayed above:
+Confirm that the cron job is displayed in your settings tab:
 
 ![cron job created](/images/cron-created.png "cron job created")
 
 ## Deleting Cron Jobs
 
-Just click on the small trash can on the right hand side:
+Click the small trash icon on the right hand side of the page:
 
 ![deleting a cron job](/images/cron-deleting.png "deleting a cron job")
 
-## Detection
+## Detecting if a Build was Triggered by Cron
 
-If you want to check whether the current build is triggered by cron, you can examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
+To check whether a build was triggered by cron, examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
