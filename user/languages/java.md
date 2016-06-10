@@ -128,6 +128,8 @@ If your build needs to switch JDKs during a job, you can do so with `jdk_switche
 
 Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
 
+However, because `jdk_switcher` is not currently available for [OS X builds](/user/osx-ci-environment/), if you need a different JDK on an OS X build we recommend changing your [OS X (and Xcode)](/user/osx-ci-environment/#OS-X-Version) version to one that includes a JDK that supports your requirements.  
+
 ## Examples
 
 * [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
