@@ -70,7 +70,8 @@ A peculiarity of dependency caching in Gradle means that to avoid uploading the 
 
 ```
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
     - $HOME/.gradle/caches/
