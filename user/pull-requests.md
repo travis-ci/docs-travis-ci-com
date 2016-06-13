@@ -50,7 +50,7 @@ environment variables are available, or disable them for pull requests entirely.
 Here's an example of how to structure a build command for this purpose:
 
     script:
-      - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || false'
+      - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || true'
 
 The environment variable `${TRAVIS_PULL_REQUEST}` is set to `"false"`
 when the build is for a normal branch commit. When the build is for a
