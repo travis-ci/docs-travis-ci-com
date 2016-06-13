@@ -49,12 +49,11 @@ To work around this, you could restrict these tests only to situations where the
 environment variables are available, or disable them for pull requests entirely.
 Here's an example of how to structure a build command for this purpose:
 
-    script:
-      - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle exec rake tests:integration || false'
-
-The environment variable `${TRAVIS_PULL_REQUEST}` is set to `"false"`
-when the build is for a normal branch commit. When the build is for a
-pull request, it will contain the pull request's number.
+```yaml
+script:
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then bash ./travis/run_on_pull_requests; fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
+```
 
 ### My Pull Request isn't being built
 
