@@ -117,7 +117,7 @@ pandoc_version: 1.16
 
 ### APT packages
 
-Use the [APT addon][apt-addon] (currently in beta)
+Use the [APT addon][apt-addon]
 to install APT packages on both container-based (`sudo: false`)
 and standard (`sudo: required`) infrastructures.
 The snippet below installs a prerequisite for the R package `xml2`:
