@@ -142,7 +142,7 @@ script:
   - # do stuff with Java 7
 ```
 
-Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
+Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ## Examples
 
