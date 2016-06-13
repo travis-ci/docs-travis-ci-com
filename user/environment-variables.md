@@ -68,7 +68,7 @@ env:
     - TIMEOUT=1000
   matrix:
     - USE_NETWORK=true
-      - USE_NETWORK=false
+    - USE_NETWORK=false
 ```
 
 triggers builds with the following `env` rows:
