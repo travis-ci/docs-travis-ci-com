@@ -87,6 +87,11 @@ For example, if you always want the latest version of xctool, you can run this:
       - brew outdated xctool || brew upgrade xctool
 
 
+## JDK and OS X
+
+The JDK available in the OS X environment is tied to the OS X version. As such, `jdk_switcher` is not yet available on OS X - instead, please consider using a different [OS X Version](#OS-X-Version). 
+
+
 ## Compilers and Build toolchain
 
 * apple-gcc42

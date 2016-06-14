@@ -126,9 +126,7 @@ If your build needs to switch JDKs during a job, you can do so with `jdk_switche
       - jdk_switcher use oraclejdk7
       - # do stuff with Java 7
 
-Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
-
-However, because `jdk_switcher` is not currently available for [OS X builds](/user/osx-ci-environment/), if you need a different JDK on an OS X build we recommend changing your [OS X (and Xcode)](/user/osx-ci-environment/#OS-X-Version) version to one that includes a JDK that supports your requirements.  
+Use of `jdk_switcher` will update `$JAVA_HOME` appropriately. Please note, however, that `jdk_switcher` is not currently available on [OS X builds](/user/osx-ci-environment/#JDK-and-OS-X).  
 
 ## Examples
 
