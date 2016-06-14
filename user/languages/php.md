@@ -379,7 +379,7 @@ php:
 ```
 
 This installation includes PHPUnit and Composer, and also has
-[some extensions](#PHP-7.0).
+[some extensions](#PHP-7.0){: data-proofer-ignore=""}.
 
 ## Build Matrix
 
