@@ -8,28 +8,28 @@ Travis CI can automatically deploy your [cloudControl](https://www.cloudcontrol.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: cloudcontrol
   email: "YOUR CLOUDCONTROL EMAIL"
   password: "YOUR CLOUDCONTROL PASSWORD"
   deployment: "APP_NAME/DEP_NAME"
-{% endhighlight %}
+```
 
 You can sign up for an account on [their website](https://www.cloudcontrol.com) or using the [cctrl
 tool](https://www.cloudcontrol.com/dev-center/quickstart#create-a-user-account-if-you-havent-already)
 
 It is recommended that you encrypt your password. Assuming you have the Travis CI command line client installed, you can do it like this:
 
-{% highlight console %}
+```bash
 $ travis encrypt "YOUR CLOUDCONTROL PASSWORD" --add deploy.password
-{% endhighlight %}
+```
 
 You can also have the `travis` tool set up everything for you:
 
-{% highlight console %}
+```bash
 $ travis setup cloudcontrol
-{% endhighlight %}
+```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -39,14 +39,14 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: cloudcontrol
   email: ...
   password: ...
   deployment: ...
   skip_cleanup: true
-{% endhighlight %}
+```
 
 ### Conditional Deploys
 
@@ -66,11 +66,11 @@ its content.
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-{% highlight yaml %}
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
-{% endhighlight %}
+```

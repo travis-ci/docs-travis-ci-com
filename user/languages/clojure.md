@@ -64,6 +64,19 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
+### Using Speclj on travis-ci.org
+
+If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this `script:` line in `.travis.yml`:
+
+    script: lein spec
+
+For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
+
+    :dev-dependencies [[speclj "3.3.1"]]
+
+Leiningen 2 replaces `:dev-dependencies` with profiles:
+
+    :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 
 ## Using Leiningen 1
 

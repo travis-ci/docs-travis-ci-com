@@ -40,7 +40,7 @@ cd /root/sinatra; bundle exec foreman start;
 
 in a container built from that image after mapping some ports and paths. Read
 the [Docker User Guide](https://docs.docker.com/userguide/) if you need a
-refresher on how to user Docker.
+refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
 
@@ -135,6 +135,20 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 
 ``` bash
 docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```
+
+#### Branch Based Registry Pushes
+
+To push a particular branch of your repository to a remote registry,
+use the `after_success` section of your `.travis.yml`:
+
+```yaml
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push USER/REPO;
+    fi
 ```
 
 #### Private Registry Login

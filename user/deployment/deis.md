@@ -8,29 +8,29 @@ Travis CI supports uploading to [Deis](http://deis.io/).
 
 A minimal configuration is:
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: deis
   controller: deis.deisapps.com
   username: "Deis User Name"
   password: "Deis Password"
   app: App_name
-{% endhighlight %}
+```
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-{% highlight console %}
+```bash
 $ travis encrypt "YOUR DEIS PASSWORD" --add deploy.password
-{% endhighlight %}
+```
 
 You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-{% highlight console %}
+```bash
 $ travis setup deis
-{% endhighlight %}
+```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -52,11 +52,11 @@ its content.
 
 Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
-{% highlight yaml %}
+```yaml
     before_deploy: "echo 'ready?'"
     deploy:
       ..
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
-{% endhighlight %}
+```

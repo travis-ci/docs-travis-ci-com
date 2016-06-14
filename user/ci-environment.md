@@ -24,7 +24,7 @@ can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following three virtual environments:
+Each build runs in one of the following four virtual environments:
 
 * Standard (the default environment)
 * Container-based (the newer environment in which `sudo` commands are not available)
@@ -59,7 +59,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>50-145s</td>
+<td>20-52s</td>
 <td>1-6s</td>
 <td>60-90s</td>
 <td>20-52s</td>
@@ -73,10 +73,10 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private only</td>
+<td>private &amp; public</td>
 <td>private &amp; public</td>
 <td>private only</td>
-<td>private only</td>
+<td>private &amp; public</td>
 </tr>
 <tr>
 <td>Operating System</td>
@@ -87,7 +87,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Memory</td>
-<td>~3 GB</td>
+<td>7.5 GB</td>
 <td>4 GB max</td>
 <td>3 GB</td>
 <td>7.5 GB</td>
@@ -96,8 +96,8 @@ The following table summarizes the differences between the virtual environments:
 <td>Cores</td>
 <td>~2, bursted</td>
 <td>2</td>
-<td>2</td>
-<td>2</td>
+<td>1</td>
+<td>~2, bursted</td>
 </tr>
 </tbody></table>
 </div>
@@ -107,7 +107,7 @@ All [Education Pack](https://education.travis-ci.com/) builds use Container-base
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
-The container-based, OSX, and Trusty builds do not currently have IPv6 connectivity.
+The container-based, OSX, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 

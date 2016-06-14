@@ -6,6 +6,7 @@ redirect_from:
   - /user/build-configuration/
   - /user/build-lifecycle/
   - /user/how-to-skip-a-build/
+  - /user/repository-providers/
 ---
 
 <div id="toc"></div>
@@ -34,6 +35,7 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
+1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
 1. `before_install`
 2. `install`
 3. `before_script`
@@ -170,7 +172,13 @@ You can also use other installation methods such as `apt-get`.
 
 ## Build Timeouts
 
-Because it is very common for test suites or build scripts to hang, Travis CI has specific time limits for each job. If a script or test suite takes longer than 50 minutes (or 120 minutes on travis-ci.com), or if there is not log output for 10 minutes, it is terminated, and a message is written to the build log.
+It is very common for test suites or build scripts to hang.
+Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
+
+- A job takes longer than 50 minutes on travis-ci.org
+- A job takes longer than 120 minutes on travis-ci.com
+- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
+- A job produces no log output for 10 minutes
 
 Some common reasons why builds might hang:
 
@@ -265,15 +273,15 @@ Travis CI.
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
 
-Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* builds.
+Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
     rvm:
-      - 1.8.7
-      - 1.9.2
       - 1.9.3
-      - rbx-2
-      - jruby
+      - 2.0.0
+      - 2.2
       - ruby-head
+      - jruby
+      - rbx-2
       - ree
     gemfile:
       - gemfiles/Gemfile.rails-2.3.x
@@ -288,7 +296,7 @@ You can also define exclusions to the build matrix:
 
     matrix:
       exclude:
-        - rvm: 1.8.7
+        - rvm: 1.9.3
           gemfile: gemfiles/Gemfile.rails-2.3.x
           env: ISOLATED=true
         - rvm: jruby
@@ -297,9 +305,9 @@ You can also define exclusions to the build matrix:
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
-### Excluding Builds
+### Excluding Jobs
 
-If the builds you want to exclude from the matrix share the same matrix
+If the jobs you want to exclude from the build matrix share the same matrix
 parameters, you can specify only those and omit the varying parts.
 
 Suppose you have:
@@ -347,7 +355,7 @@ matrix:
 		env: DB=mysql
 ```
 
-### Explicity Including Builds
+### Explicity Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
@@ -361,7 +369,7 @@ This adds a particular job to the build matrix which has already been populated.
 
 This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
-You can use this method to create a job matrix containing only specific combinations.
+You can use this method to create a build matrix containing only specific combinations.
 For example,
 
     language: python
@@ -449,46 +457,14 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
         - travis.dev
         - joshkalderimis.com
 
+## What git Repository Providers can I use         
 
-## Build FAQ
+Build and test your open source projects hosted on Github on [travis-ci.org](https://travis-ci.org/).
 
-### Travis CI Preserves No State Between Builds
+Build and test your private repositories hosted on Github on [travis-ci.com](https://travis-ci.com/).
 
-Travis CI uses virtual machine snapshotting to make sure no state is left between builds. If you modify CI environment by writing something to a data store, creating files or installing a package via apt, it won't affect subsequent builds.
+Travis CI currently does not support repositories hosted on Bitbucket, Gitlab or Atlassian Stash.
 
-### SSH
+## Troubleshooting
 
-Travis CI runs all commands over SSH in isolated virtual machines. Commands that modify SSH session state are "sticky" and persist throughout the build.
-For example, if you `cd` into a particular directory, all the following commands will be executed from it. This may be used for good (e.g. building subprojects one
-after another) or affect tools like `rake` or `mvn` that may be looking for files in the current directory.
-
-### Git Submodules
-
-Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository.
-
-This can be turned off by setting:
-
-    git:
-      submodules: false
-
-If your project requires some specific option for your Git submodules which Travis CI does not support out of the box, then you can turn the automatic integration off and use the `before_install` hook to initializes and update them.
-
-For example:
-
-    before_install:
-      - git submodule update --init --recursive
-
-This will include nested submodules (submodules of submodules), in case there are any.
-
-
-### Use Public URLs For Submodules
-
-If your project uses Git submodules, make sure you use public Git URLs. For example, on GitHub, instead of
-
-    git@github.com:someuser/somelibrary.git
-
-use
-
-    https://github.com/someuser/somelibrary.git
-
-Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
+Check out the list of [common build problems](/user/common-build-problems/).

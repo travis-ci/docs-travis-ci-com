@@ -62,20 +62,15 @@ Note that during the trial on <https://travis-ci.com> for private repositories, 
 one concurrent build available, so you'll unlikely be seeing improvements until you're
 signed up for a paid subscription.
 
-## Parallelizing your build on one VM
+## Parallelizing your build on one virtual machine
 
-Travis CI VMs run on 1.5 virtual cores. This is not exactly a concurrency, which allows
-to parallelize a lot, but it can give a nice speedup depending on your use case.
+Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
-Parallelizing the test suite on one VM depends on the language and test runner,
-which you use, so you will have to research your options. At Travis CI we use
-mainly Ruby and RSpec, which means that we can use [parallel_tests](https://github.com/grosser/parallel_tests)
-gem. If you use Java, you may use the built in feature [to run tests in parallel
+* For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
+* For Java, use the built in feature [to run tests in parallel
 using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
-To give you an idea of what speedup are we talking about, I've tried running tests in parallel
-on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
-jobs.
+To give you an idea of the speedup are we talking about, I've tried running tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
 
 ## Parallelizing RSpec, Cucumber and Minitest on multiple VMs
 
