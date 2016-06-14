@@ -1,4 +1,20 @@
 osx_images:
+  - image: xcode8
+    xcode: "8"
+    osx_version: "10.11"
+    xcode_full_version: "8beta"
+    sdks:
+      - macosx10.11
+      - iphoneos10.0
+      - iphonesimulator10.0
+      - appletvos10.0
+      - appletvsimulator10.0
+      - watchos3.0
+      - watchsimulator3.0
+    simulators:
+      - "iOS 10.0"
+      - "watchOS 3.0"
+      - "tvOS 10.0"
   - image: xcode7.3
     xcode: "7.3"
     osx_version: "10.11"
@@ -254,6 +270,19 @@ simulators:
       - iPad Air
       - iPad Air 2
       - iPad Pro
+  - name: "iOS 10.0"
+    devices:
+      - iPhone SE
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro (9.7 inch)
+      - iPad Pro (12.9 inch)
   - name: "watchOS 2.0"
     devices:
       - Apple Watch - 38mm
@@ -266,6 +295,10 @@ simulators:
     devices:
       - Apple Watch - 38mm
       - Apple Watch - 42mm
+  - name: "watchOS 3.0"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
   - name: "tvOS 9.0"
     devices:
       - Apple TV 1080p
@@ -273,5 +306,8 @@ simulators:
     devices:
       - Apple TV 1080p
   - name: "tvOS 9.2"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 10.0"
     devices:
       - Apple TV 1080p
