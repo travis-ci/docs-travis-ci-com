@@ -87,7 +87,7 @@ For example, if you always want the latest version of xctool, you can run this:
 
 ## JDK and OS X
 
-The JDK available in the OS X environment is tied to the OS X version. As such, `jdk_switcher` is not currently available on OS X. Instead, you can try using a different [OS X Version](#OS-X-Version) which has a different JDK. 
+The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need. 
 
 ## Compilers and Build toolchain
 
