@@ -3,7 +3,7 @@ title: The Build Environment
 layout: en
 permalink: /user/ci-environment/
 redirect_from:
-  - /workers/container-based-infrastructure/
+  - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/
   - /user/workers/os-x-infrastructure/
 ---
