@@ -86,6 +86,11 @@ For example, if you always want the latest version of xctool, you can run this:
       - brew update
       - brew outdated xctool || brew upgrade xctool
 
+## File System
+
+VMs running OS X use the default file system, HFS+.
+This file system is case-insensitive, and returns entities within a
+directory alphabetically.
 
 ## Compilers and Build toolchain
 
