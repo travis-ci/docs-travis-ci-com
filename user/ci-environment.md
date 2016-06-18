@@ -445,3 +445,21 @@ Recent 1.7.x version (usually the most recent)
 * bundler
 * rake
 
+## Public Docker Images
+
+The following is a list of public Docker images Travis uses for our
+container based builds. You can grab them with `docker pull
+quay.io/travisci/travis-$lang`.
+- Do note that they are large in size, 800MB - 1.8G
+
+Images:
+- https://quay.io/repository/travisci/travis-android
+- https://quay.io/repository/travisci/travis-erlang
+- https://quay.io/repository/travisci/travis-go
+- https://quay.io/repository/travisci/travis-haskell
+- https://quay.io/repository/travisci/travis-jvm
+- https://quay.io/repository/travisci/travis-node-js
+- https://quay.io/repository/travisci/travis-perl
+- https://quay.io/repository/travisci/travis-php
+- https://quay.io/repository/travisci/travis-python
+- https://quay.io/repository/travisci/travis-ruby
