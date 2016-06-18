@@ -6,18 +6,8 @@ layout: null
 	<channel>
 		<title>Travis CI Build Environment Updates</title>
 		<description>Travis CI Build Environment Updates</description>
-		<link>https://travis-ci.com</link>
+		<link>https://travis-ci.org/xaxadmin/docs-travis-ci-com.svg?branch=master</link>
 		<atom:link href="http://docs.travis-ci.com/feed.build-env-updates.xml" rel="self" type="application/rss+xml" />
-		{% for page in site.pages %}
-		{% if page.category == "build_env_updates" %}
-			<item>
-				<title>{{ page.title | xml_escape }}</title>
-				<description>{{ page.content | xml_escape }}</description>
-				<pubDate>{{ page.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>http://docs.travis-ci.com/{{ page.url }}</link>
-				<guid isPermaLink="true">{{ site.url }}{{ page.url }}</guid>
-			</item>
-		{% endif %}
-		{% endfor %}
+		
 	</channel>
 </rss>
