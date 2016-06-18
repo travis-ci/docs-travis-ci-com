@@ -121,6 +121,51 @@ npm install
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
 
+## Ember Apps
+You can build your Ember Apps on Travis CI and can automate test. By default ember comes with [`Qunit`](http://qunitjs.com/) as testing framework
+
+```yaml
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+language: node_js
+node_js:
+  - "0.12"
+env:
+    - EMBER_VERSION=default
+    # - EMBER_VERSION=release
+    # - EMBER_VERSION=beta
+    # - EMBER_VERSION=canary
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION=release
+    # - env: EMBER_VERSION=beta
+    # - env: EMBER_VERSION=canary
+
+before_install:
+    - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - "npm config set spin false"
+    - "npm install -g npm@^2"
+install:
+    - mkdir travis-phantomjs
+    - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+    - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+    - export PATH=$PWD/travis-phantomjs:$PATH
+    - npm install -g bower
+    - npm install
+    - bower install
+script:
+    - ember test --server
+
+```
+
 ## Meteor Apps
 
 You can build your Meteor Apps on Travis CI and test against
@@ -139,6 +184,7 @@ env:
 ```
 
 More info on [testing against laika](https://github.com/arunoda/travis-ci-laika).
+
 
 ## Meteor Packages
 
