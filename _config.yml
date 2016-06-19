@@ -1,6 +1,7 @@
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor]
 markdown: kramdown
 permalink: :title
+safe: true
 syntax-highlighting:
   enabled: true
 kramdown:

@@ -12,76 +12,65 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-The Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
+Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8.
+Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant,
+so quite often you won't have to configure anything beyond
 
-To use the Java environment add the following to your `.travis.yml`:
+    language: java
 
-```yaml
-language: java
-```
+in your `.travis.yml` file.
 
 ## Projects Using Maven
 
-### Default script Command
+### Default `script` Command
 
-If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI builds your project with Maven 3:
+If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
 
-```bash
-mvn test
-```
+    mvn test
 
-> The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
-Before running the build, Travis CI installs dependencies:
+Before running tests, Java builder will execute
 
-```bash
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-```
+    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+to install your project's dependencies with Maven.
 
 ## Projects Using Gradle
 
-### Default script Command
+### Default `script` Command
 
-If your project has `build.gradle` file in the repository root, Travis CI builds your project with Gradle:
+if your project has `build.gradle` file in the repository root, Travis CI Java builder will use Gradle to build it. By default it will use
 
-```bash
-gradle check
-```
+    gradle check
 
-If your project also includes the `gradlew` wrapper script in the repository root, Travis CI uses that instead:
+to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Java builder will try to use it instead. The default command will become:
 
-```bash
-./gradlew check
-```
+    ./gradlew check
 
-To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-### Dependency Management
+### Dependency Management with Default `install`
 
-Before running the build, Travis CI installs dependencies:
+Before running tests, Java builder will execute
 
-```bash
-gradle assemble
-```
+    gradle assemble
 
-or
+to install your project's dependencies with Gradle. Again, if you include the wrapper script, the command will be defaulted to
 
-```bash
-./gradlew assemble
-```
+    ./gradlew assemble
 
 ### Caching
 
 A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
 
-```yaml
+```
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
   directories:
     - $HOME/.gradle/caches/
@@ -91,33 +80,30 @@ cache:
 
 ## Projects Using Ant
 
-### Default script Command
+### Default `script` Command
 
-If Travis CI does not detect Maven or Gradle files it runs Ant:
+If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will use Ant to build it. By default it will use
 
-```bash
-ant test
-```
+    ant test
 
-### Dependency Management
+to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-Because there is no single standard way of installing project dependencies with Ant, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+### Dependency Management with Default `install`
 
-```yaml
-language: java
-install: ant deps
-```
+Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+
+    language: java
+    install: ant deps
+
 
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 and 8 and OpenJDK 6:
 
-```yaml
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk6
-```
+    jdk:
+      - oraclejdk8
+      - oraclejdk7
+      - openjdk6
 
 > Note that testing against multiple Java versions is not supported on OSX.
 
@@ -134,15 +120,13 @@ to construct a build matrix.
 
 If your build needs to switch JDKs during a job, you can do so with `jdk_switcher use …`.
 
-```yaml
-script:
-  - jdk_switcher use oraclejdk8
-  - # do stuff with Java 8
-  - jdk_switcher use oraclejdk7
-  - # do stuff with Java 7
-```
+    script:
+      - jdk_switcher use oraclejdk8
+      - # do stuff with Java 8
+      - jdk_switcher use oraclejdk7
+      - # do stuff with Java 7
 
-Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
+Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
 
 ## Examples
 

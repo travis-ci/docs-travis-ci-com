@@ -61,33 +61,21 @@ Say your project requires the pngquant tool to compress PNG files, here's how to
 
 You can also use the APT addon.
 
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
-
-If your requirements goes beyond the normal installation, please use another method described above.
-
 #### Adding APT Sources
 
-To add APT sources, you can use one of the following three types of entries:
-
-1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
-1. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
-1. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
-
-The following snippet shows these three types of APT sources
+To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
 
 ``` yaml
 addons:
   apt:
     sources:
     - deadsnakes
-    - sourceline: 'ppa:ubuntu-toolchain-r/test'
-    - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
-      key_url: 'https://packagecloud.io/gpg.key'
+    - ubuntu-toolchain-r-test
 ```
 
 #### Adding APT Packages
 
-List APT packages under the `addons.apt.packages` key:
+To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
 
 ``` yaml
 addons:
@@ -114,7 +102,7 @@ addons:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
 
 ### Adding APT Sources
 
@@ -185,7 +173,7 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - pushd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install && popd
+      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -199,5 +187,3 @@ Once it's added to the repository, you can run it from your .travis.yml:
 
     before_install:
       - ./install-protobuf.sh
-
-Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.

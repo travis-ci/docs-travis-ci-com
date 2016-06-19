@@ -157,12 +157,21 @@ The cache's purpose is to make installing language-specific dependencies easy
 and fast, so everything related to tools like Bundler, pip, Composer, npm,
 Gradle, Maven, is what should go into the cache.
 
-Large files that are quick to install but slow to download do not benefit from caching, as they take as long to download from the cache as from the original source:
+For other things, the cache won't be an improvement. Installing them usually
+takes only short amounts of time, but downloading them will be the same speed
+when pulled from the cache as it will be from their original source. You
+possibly won't see a speedup putting them into the cache.
+
+Things like:
 
 * Android SDKs
 * Debian packages
 * JDK packages
 * Compiled binaries
+
+Anything that's commonly not changing is better suited for something like our APT
+caching proxy. Please shoot us an [email](mailto:support@travis-ci.com) and
+we'll see about adding your custom source to our cache.
 
 ### Fetching and storing caches
 
@@ -226,10 +235,10 @@ When you want to enable multiple caching features, you can list them as an array
 ```yaml
 cache:
 - bundler
-- pip
+- apt
 ```
 
-This does not work when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
+This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
 
 ```yaml
 cache:
@@ -252,7 +261,7 @@ It is also possible to disable a single caching mode:
 ```yaml
 cache:
   bundler: false
-  pip: true
+  apt: true
 ```
 
 ### Setting the timeout
@@ -269,32 +278,6 @@ property with a desired time in seconds:
 cache:
   timeout: 1000
 ```
-
-## Caches and build matrices
-
-When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
-some characteristics of each job are used to identify the cache each of the
-jobs should use.
-
-These factors are:
-
-1. OS name (currently, `linux` or `osx`)
-1. OS distribution (for Linux, `precise` or `trusty`)
-1. OS X image name (e.g., `xcode7.2`)
-1. Names and values of visible environment variables set in `.travis.yml` or Settings panel
-1. Language runtime version (for the language specified in the `language` key) if applicable
-1. For Bundler-aware jobs, the name of the `Gemfile` used
-
-If these characteristics are shared by more than one job in a build matrix,
-they will share the same URL on the network.
-This could corrupt the cache, or the cache may contain files that are not
-usable in all jobs using it.
-In this case, we advise you to add a defining public environment variable
-name; e.g.,
-
-    CACHE_NAME=JOB1
-
-to `.travis.yml`.
 
 ## How does the caching work?
 

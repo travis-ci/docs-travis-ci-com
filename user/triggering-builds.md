@@ -39,8 +39,7 @@ This request triggers a build of the most recent commit on the master branch of 
 You can also add to or override configuration in the `.travis.yml` file, or change the commit message.
 
 The following script passes a `message` attribute, and adds to the build configuration by passing environment variables and a script command. Here the config from the `.travis.yml` file is merged with the config from the request body.
-
-> Keys in the request's config override any keys existing in the `.travis.yml`.
+Keys in the request's config override any keys existing in the `.travis.yml`.
 
 ```bash
 body='{
