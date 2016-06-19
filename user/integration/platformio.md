@@ -33,7 +33,7 @@ boards.
 ## .travis.yml Settings
 
 Please read the official
-[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PLatformIO.
+[PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PlatformIO.
 
 PlatformIO is written in Python and is recommended to be run within a [Travis CI
 Python isolated environment](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs):

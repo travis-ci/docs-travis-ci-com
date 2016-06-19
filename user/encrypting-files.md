@@ -8,21 +8,15 @@ permalink: /user/encrypting-files/
 
 <div id="toc"></div>
 
-## Preparation
+## Prerequisites
 
-To follow along the examples in this guide you will need the Travis CI [Command Line Client](https://github.com/travis-ci/travis.rb#readme) installed:
+Before following the examples in this guide, make sure you have already
 
-    $ gem install travis
+* installed the Travis CI [Command Line Client](https://github.com/travis-ci/travis.rb#readme) by running `$ gem install travis`
+* [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI
+using `$ travis login` or `$ travis login --pro`
 
-Make sure you are [logged in](https://github.com/travis-ci/travis.rb#login):
-
-    $ travis login
-
-If you are using Travis Pro, you will have to login with the `--pro` flag:
-
-    $ travis login --pro
-
-See its [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information.
+See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
 
 ## Automated Encryption
 
@@ -40,6 +34,7 @@ $ travis encrypt-file super_secret.txt
 encrypting super_secret.txt for rkh/travis-encrypt-file-example
 storing result as super_secret.txt.enc
 storing secure env variables for decryption
+```
 
 Please add the following to your build script (before_install stage in your .travis.yml, for instance):
 
@@ -50,7 +45,6 @@ Pro Tip: You can add it automatically by running with --add.
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.
-```
 
 You can also use `--add` to have it automatically add the decrypt command to your `.travis.yml`
 
@@ -67,12 +61,11 @@ Commit all changes to your .travis.yml.
 
 ### Encrypting multiple files
 
-Note that this method [works only with one file](https://github.com/travis-ci/travis.rb/issues/239).
+The Command Line Client [overrides encrypted entries](https://github.com/travis-ci/travis.rb/issues/239) if you use it to encrypt multiple files.
 
-If you need to encrypt multiple files, you will need to create an archive of sensitive files,
-then decrypt and expand it during the build.
+If you need to encrypt multiple files, first create an archive of sensitive files, then decrypt and expand it during the build.
 
-Suppose we have sensitive files `foo` and `bar`.
+Suppose we have sensitive files `foo` and `bar`, run the following commands:
 
 ```bash
 $ tar cvf secrets.tar foo bar
@@ -83,13 +76,13 @@ $ git commit -m 'use secret archive'
 $ git push
 ```
 
+And add the decryption step to your `.travis.yml`, adjusting `$*_key` and `$*_iv` according to your needs:
+
 ```yaml
 before_install:
   - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
 ```
-
-(Adjust `$*_key` and `$*_iv` according to your needs.)
 
 ### Caveat
 
