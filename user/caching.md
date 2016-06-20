@@ -164,40 +164,47 @@ Large files that are quick to install but slow to download do not benefit from c
 * JDK packages
 * Compiled binaries
 
-### Fetching and storing caches
+## Fetching and storing caches
 
-* Travis CI fetches the cache for every build, including feature branches and pull requests.
+* Travis CI fetches the cache for every build, including branches and pull requests.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
-* Pull requests use the cache of the target of the pull request.
-* If a branch does not have its own cache yet, it uses the master branch cache (unless it is a pull request, see above).
+* If a branch does not have its own cache yet, it uses the master branch cache.
 * Only modifications made to the cached directories from normal pushes are stored.
 
-### `before_cache` phase
+### Pull request builds and caches
 
-When using caches, it may be useful to run command just prior to uploading
+Pull request builds check the following cache locations:
+
+* The pull request cache.
+* The pull request target branch cache.
+* The repository default branch cache.
+
+If none of the previous locations contain a valid cache, the build creates a new pull request cache after the build.
+
+> Note that if a repository has "build pushes" set to "off", neither the target branch nor the master branch can ever be cached.
+
+### before_cache phase
+
+When using caches, it may be useful to run a command just before uploading
 the new cache archive.
-For example, the dependency management utility may write log files into the directory
-you are watching, and you would do well to ignore these.
 
-For this purpose, you can use `before_cache` phase.
+For example, the dependency management utility may write log files into the directory you are caching and you do not want them to affect the cache. Use the `before_cache` phase to delete the log files:
 
 ```yaml
 cache:
   directories:
     - $HOME/.cache/pip
-⋮
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
 
-Failures in this stage does not mark the job a failure.
+Failure in this phase does not mark the job as failed.
 
 ### Clearing Caches
 
 Sometimes you spoil your cache by storing bad data in one of the cached directories.
 
-Caches can also become invalid if language runtimes change and the cache contains
-native extensions.
+Caches can also become invalid if language runtimes change and the cache contains native extensions.
 (This often manifests as segmentation faults.)
 
 You can access caches in one of the two ways.
