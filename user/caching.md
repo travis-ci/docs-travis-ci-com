@@ -173,7 +173,7 @@ Large files that are quick to install but slow to download do not benefit from c
 
 ### Pull request builds and caches
 
-Pull request builds check the following cache locations:
+Pull request builds check the following cache locations in order, using the first one present:
 
 * The pull request cache.
 * The pull request target branch cache.
