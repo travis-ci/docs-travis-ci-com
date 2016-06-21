@@ -48,6 +48,7 @@ to construct a build matrix.
 By default, the install command is
 
 ```shell
+mix local.rebar --force # for Elixir 1.3.0 and up
 mix local.hex --force
 mix deps.get
 ```
