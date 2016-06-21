@@ -202,27 +202,20 @@ Failure in this phase does not mark the job as failed.
 
 ### Clearing Caches
 
-Sometimes you spoil your cache by storing bad data in one of the cached directories.
+Sometimes you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
 
-Caches can also become invalid if language runtimes change and the cache contains native extensions.
-(This often manifests as segmentation faults.)
+Use one of the following ways to access your cache and delete it if necessary:
 
-You can access caches in one of the two ways.
-Each method also gives you a means of deleting caches.
-
-1. On the web https://travis-ci.com/OWNER/REPOSITORY/caches for private repositories
-or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
-which is accessible from the Settings
-menu
+* The settings page of your repository on [https://travis-ci.org](https://travis-ci.org) (or .com if you're using a private repository)
 
     ![Image of cache UI](/images/caches-item.png)
 
-2. With [command line client](https://github.com/travis-ci/travis#readme):
+* The [command line client](https://github.com/travis-ci/travis#readme)
 
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 
-There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
+* The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
 
