@@ -122,9 +122,10 @@ npm install
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
 
 ## Ember Apps
-You can build your Ember Apps on Travis CI and can automate test. By default ember comes with [`Qunit`](http://qunitjs.com/) as testing framework
+You can build your Ember Apps on Travis CI and can automate test. By default ember comes with [`Qunit`](http://qunitjs.com/) as testing framework. This is an example using different ember versions.
 
 ```yaml
+sudo: required
 dist: trusty
 addons:
   apt:
@@ -137,18 +138,20 @@ node_js:
   - "0.12"
 env:
     - EMBER_VERSION=default
-    # - EMBER_VERSION=release
-    # - EMBER_VERSION=beta
-    # - EMBER_VERSION=canary
+    - EMBER_VERSION=release
+    - EMBER_VERSION=beta
+    - EMBER_VERSION=canary
 matrix:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
-    # - env: EMBER_VERSION=beta
-    # - env: EMBER_VERSION=canary
+    - env: EMBER_VERSION=beta
+    - env: EMBER_VERSION=canary
 
 before_install:
+    # setting the path for phantom.js 2.0.0
     - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - "npm config set spin false"
@@ -182,9 +185,7 @@ services:
 env:
   - LAIKA_OPTIONS="-t 5000"
 ```
-
 More info on [testing against laika](https://github.com/arunoda/travis-ci-laika).
-
 
 ## Meteor Packages
 
