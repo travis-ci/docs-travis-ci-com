@@ -235,6 +235,7 @@ This does not work when caching [arbitrary directories](#Arbitrary-directories).
 cache:
   bundler: true
   directories:
+  - node_modules # NPM packages
   - vendor/something
   - .autoconf
 ```
