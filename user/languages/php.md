@@ -260,7 +260,7 @@ You need to enable them by adding an `extension="<extension>.so"` line to a PHP 
 The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
 
 ```yaml
-before_script: phpenv config-add myconfig.ini
+before_install: phpenv config-add myconfig.ini
 ```
 
 > Make sure that your config file does not start with a dot (`.`) or a hyphen (`-`) as this will prevent PHP loading your custom settings.
@@ -276,7 +276,7 @@ extension="mongo.so"
 You can also use this one line command:
 
 ```yaml
-before_script: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+before_install: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 ```
 
 ### Disabling preinstalled PHP extensions
