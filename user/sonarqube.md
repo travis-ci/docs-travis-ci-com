@@ -7,28 +7,39 @@ permalink: /user/sonarqube/
 
 SonarQube.com is free for open-source projects. The only requirement is to have a GitHub account to connect to the service. It is then up to you to trigger the analysis, and this is where this Travis CI add-on simplifies your user experience.
 
-## Activate the add-on
+## Trigger an analysis
 
-Simply add the following lines to your `.travis.yml` file:
+Triggering the analysis is done thanks to a **SonarQube Scanner** - just like everyone would do for any SonarQube analysis. Depending on the build technology that you are using, you will use one SonarQube Scanner or another. Please refer to the [online documentation for SonarQube Scanners](http://redirect.sonarsource.com/doc/analyzing-source-code.html) in order to have more details.  
+
+### Using the SonarQube Scanner
+
+Most projects will use the SonarQube Scanner, and here is the simplest `.travis.yml` file to trigger the analysis in this case:
 
     addons:
       sonarqube: true
-
-This will set up everything required to simply trigger the SonarQube analysis later on.
-
-## Trigger the analysis
-
-Triggering the analysis is done thanks to a **SonarQube Scanner** - just like everyone would do for any SonarQube analysis. Depending on the build technology that you are using, you will use [one SonarQube Scanner or another](http://redirect.sonarsource.com/doc/analyzing-source-code.html).  
-
-For example, using the standard [SonarQube Scanner](http://redirect.sonarsource.com/doc/install-configure-scanner.html), you can simply trigger the analysis this way:
+    env:
+      global:
+        - secure: ********* # defines SONAR_TOKEN=abcdef0123456789
 
     script:
+      # other script steps might be done before running the actual SonarQube analysis
       - sonar-scanner -Dsonar.login=$SONAR_TOKEN
 
-The `sonar-scanner` executable is installed and configured by the SonarQube add-on, nothing to do!
+The `SONAR_TOKEN` parameter is a user token that you will have created for your account on your SonarQube.com. Note that you might as well have defined it an environment variable in the Travis settings of your project instead of putting it right into the `.travis.yml` file.
 
-The `sonar.login` parameter is a user token that you will have created for your account on your SonarQube.com. In this example, you pass it as a `$SONAR_TOKEN` environment variable that you might have set in the Travis settings of your project or specified in the `.travis.yml` file using `travis encrypt` to secure it.
+### Using the SonarQube Scanner for Maven
 
+Lost of Java projects build with Maven. In that case, a simple `.travis.yml` file would look like:
+
+    addons:
+      sonarqube: true
+    env:
+      global:
+        - secure: ********* # defines SONAR_TOKEN=abcdef0123456789
+
+    script:
+      # the following command line builds the project, runs the tests with coverage and then execute the SonarQube analysis
+      - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.login=$SONAR_TOKEN
 
 ## Upcoming improvements
 
