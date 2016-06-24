@@ -13,7 +13,7 @@ Triggering the analysis is done thanks to a **SonarQube Scanner** - just like ev
 
 ### Using the SonarQube Scanner
 
-Most projects will use the SonarQube Scanner, and here is the simplest `.travis.yml` file to trigger the analysis in this case:
+Most projects will use the SonarQube Scanner. Provided that you have previously created a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)), here is the simplest `.travis.yml` file to trigger the analysis:
 
     addons:
       sonarqube: true
@@ -29,7 +29,7 @@ The `SONAR_TOKEN` parameter is a user token that you will have created for your 
 
 ### Using the SonarQube Scanner for Maven
 
-Lost of Java projects build with Maven. In that case, a simple `.travis.yml` file would look like:
+Lost of Java projects build with Maven. In that case, a simple `.travis.yml` file like the following one would do the job:
 
     addons:
       sonarqube: true
