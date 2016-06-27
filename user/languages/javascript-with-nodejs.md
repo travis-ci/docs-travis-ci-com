@@ -122,7 +122,8 @@ npm install
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
 
 ## Ember Apps
-You can build your Ember Apps on Travis CI and can automate test. By default ember comes with [`Qunit`](http://qunitjs.com/) as testing framework. This is an example using different ember versions.
+
+You can build your Ember applications on Travis CI. The default test framework is [`Qunit`](http://qunitjs.com/). The following example shows how to build and test against different Ember versions.
 
 ```yaml
 sudo: required
