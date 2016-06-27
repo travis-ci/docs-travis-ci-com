@@ -152,11 +152,12 @@ addons:
    - gcc-4.8
    - g++-4.8
 ```
+
 > Note: If `apt-get install` fails, the build is marked an error.
 
-#### Identifying the source for missing package
+#### Identifying the source for a missing package
 
-You see a message like this when you add `packages` but it is not found:
+If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
 
 ```
 Installing APT Packages (BETA)
@@ -165,22 +166,29 @@ E: Unable to locate package libcxsparse3.1.2
 E: Couldn't find any package by regex 'libcxsparse3.1.2'
 ```
 
-This means that the non-default APT package source needs to be added.
+To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
 
-To identify which source needs to be added, follow these steps:
+1. Search for the pull request that added the package on GitHub. For example,
+[searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
 
-1. Search for the PR that added the package on GitHub. For example,
-[this search](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
-would yield [https://github.com/travis-ci/apt-package-whitelist/pull/1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+1. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
 
-1. Click on the link to the test we ran prior to opening the PR. Continuing the example above,
-we have [https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
-Look for the phrase "Fetching source package for …".
-This shows which source had the package we tested.
+1. Search the build log for the phrase "Fetching source package for …" and expand the section.
 
-1. Match that source against the shortcut name shown in
+1. Match that source against the `alias` name shown in
 [the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
-With our example, it is "lucid".
+
+In our example, the source alias is "lucid":
+
+``` yaml
+addons:
+ apt:
+   sources:
+   - lucid
+   packages:
+   - libcxsparse3.1.2
+```
 
 ## Installing Packages on OSX
 
