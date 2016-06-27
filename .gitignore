@@ -6,3 +6,4 @@ bin
 source/tmp/*
 .sass-cache
 tmp/
+.jekyll-metadata
