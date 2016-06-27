@@ -4,11 +4,11 @@ layout: en
 permalink: /user/deployment/releases/
 ---
 
-Travis CI can automatically upload assets to your git tags on your GitHub repository.
+Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to your git tags on your GitHub repository.
 
 **Please note that deploying GitHub Releases works only for tags, not for branches.**
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
@@ -26,17 +26,17 @@ The `on: tags: true` section at the end of the `.travis.yml` above is required t
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to set everything up for you:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure `.travis.yml`:
 
-```sh
-$ travis setup releases
+```bash
+travis setup releases
 ```
 
-###  Authenticating with an Oauth token
+##  Authenticating with an Oauth token
 
 The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
 
-### Authentication with a Username and Password
+## Authentication with a Username and Password
 
 You can also authenticate with your GitHub username and password using the `user` and `password` options. This is not recommended as it allows full access to your GitHub account but is simplest to setup. It is recommended to encrypt your password using `travis encrypt "GITHUB PASSWORD" --add deploy.password`. This example authenticates using  a username and password.
 
@@ -51,7 +51,7 @@ deploy:
     tags: true
 ```
 
-### Deploying to GitHub Enterprise
+## Deploying to GitHub Enterprise
 
 If you wish to upload assets to a GitHub Enterprise repository, you must override the `$OCTOKIT_API_ENDPOINT` environment variable with your GitHub Enterprise API endpoint:
 
@@ -67,7 +67,7 @@ env:
     - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
 ```
 
-### Uploading Multiple Files
+## Uploading Multiple Files
 
 You can upload multiple files using yml array notation. This example uploads two files.
 
@@ -83,12 +83,12 @@ deploy:
     tags: true
 ```
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-### Running commands before and after release
+## Running commands before or after release
 
 Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 

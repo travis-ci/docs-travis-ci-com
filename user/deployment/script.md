@@ -14,7 +14,7 @@ deploy:
   provider: script
   script: scripts/deploy.sh
   on:
-  	branch: develop
+    branch: develop
 ```
 
 `script` must be a scalar pointing to an executable file or command.

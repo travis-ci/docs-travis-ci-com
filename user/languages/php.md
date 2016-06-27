@@ -33,6 +33,7 @@ The previous example uses `phpunit`, the default build script, to build against 
 * 5.4.x
 * 5.5.x
 * 5.6.x
+* 7.0.x
 * hhvm
 * nightly
 
@@ -41,6 +42,41 @@ which are specified using aliases for the "most recent x.y.z release" provided o
 You can see an [example of version number aliaes ](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
 
 > Specifying exact versions like 5.3.8 is discouraged as it may break your build when we update PHP versions on Travis CI. PHP version *5.5.9* is supported, however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
+
+### HHVM versions
+
+Travis CI can test your PHP applications with HHVM.
+
+Without specifying further, the latest version of HHVM available for the Ubuntu release
+your job is running on is used.
+
+In addition, depending on the Ubuntu release, you can test with more HHVM versions.
+
+#### HHVM versions on Precise
+
+```yaml
+language: php
+php:
+  - hhvm-3.3
+```
+
+#### HHVM versions on Trusty
+
+Note: Currently, PHP is [not officially supported on Trusty](https://docs.travis-ci.com/user/trusty-ci-environment#PHP).
+However, you can use the "edge" image to test it.
+
+```yaml
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-nightly
+```
 
 ## Default Test Script
 
@@ -52,20 +88,26 @@ If your project uses something other than PHPUnit, [you can override our default
 
 Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
-    before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
-    script: php mageekguy.atoum.phar
+```yaml
+before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+script: php mageekguy.atoum.phar
+```
 
 ## Dependency Management (a.k.a. vendoring)
 
 Before Travis CI can run your test suite, it may be necessary to pull down your project dependencies. It can be done using a PHP script, a shell script or anything you need. Define one or more commands you want Travis CI to use with the *install* option in your .travis.yml, for example:
 
-    install: php vendor/vendors.php
+```yaml
+install: php vendor/vendors.php
+```
 
 or, if you need to run multiple commands sequentially:
 
-    install:
-      - ./bin/ci/install_dependencies.sh
-      - php vendor/vendors.php
+```yaml
+install:
+  - ./bin/ci/install_dependencies.sh
+  - php vendor/vendors.php
+```
 
 Even though installed dependencies will be wiped out between builds (VMs we run tests in are snapshotted), please be reasonable about the amount of time and network bandwidth it takes to install them.
 
@@ -83,12 +125,16 @@ and then use ENV variable values in any later script like your dependencies inst
 
 Here is an example using the above ENV variable to modify the dependencies when using the composer package manager to run the tests against the 2 different versions of Symfony as defined above.
 
-    install:
-       - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+```yaml
+install:
+   - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+```
 
 Here we use DB variable value to pick phpunit configuration file:
 
+```yaml
     script: phpunit --configuration $DB.phpunit.xml
+```
 
 The same technique is often used to test projects against multiple databases and so on.
 
@@ -158,7 +204,7 @@ before_script: phpenv config-add myconfig.ini
 
 And `myconfig.ini`:
 
-```
+```ini
 extension = "mongo.so"
 date.timezone = "Europe/Paris"
 default_socket_timeout = 120
@@ -181,7 +227,7 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 #### PHP 7.0
 
-These extensions are preinstalled with PECL for PHP 7.0:
+The following extensions are preinstalled for PHP 7.0 and nightly builds:
 
 * [apc.so](http://php.net/apc)
 * [memcached.so](http://php.net/memcached)
@@ -193,9 +239,10 @@ These extensions are preinstalled with PECL for PHP 7.0:
 
 Please note that these extensions are not enabled by default with the exception of xdebug.
 
+
 #### PHP 5.6 and below
 
-For PHP versions up to 5.6, these extensions are available.
+For PHP versions up to 5.6, the following extensions are available:
 
 * [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
 * [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
@@ -213,14 +260,14 @@ You need to enable them by adding an `extension="<extension>.so"` line to a PHP 
 The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
 
 ```yaml
-before_script: phpenv config-add myconfig.ini
+before_install: phpenv config-add myconfig.ini
 ```
 
 > Make sure that your config file does not start with a dot (`.`) or a hyphen (`-`) as this will prevent PHP loading your custom settings.
 
 And `myconfig.ini`:
 
-```
+```ini
 extension="mongo.so"
 # some other mongo specific configuration directives
 # or general custom PHP settings...
@@ -229,7 +276,7 @@ extension="mongo.so"
 You can also use this one line command:
 
 ```yaml
-before_script: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+before_install: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 ```
 
 ### Disabling preinstalled PHP extensions
@@ -292,7 +339,7 @@ before_script:
 
 You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
 
-```
+```apacheconf
 <VirtualHost *:80>
   # [...]
 
@@ -331,8 +378,8 @@ php:
   - nightly
 ```
 
-This installation includes PHPUnit and Composer, but does not include any extension
-mentioned above or xdebug.
+This installation includes PHPUnit and Composer, and also has
+[some extensions](#PHP-7.0){: data-proofer-ignore=""}.
 
 ## Build Matrix
 
