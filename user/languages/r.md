@@ -109,6 +109,9 @@ packages listed in the LaTeX error message and search for them on [CTAN][ctan].
 Packages often have a `Contained in:` field that indicates the package group
 you need to install.
 
+If LaTeX is not needed, installation can be disabled using `latex: false`.
+
+
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
@@ -119,6 +122,8 @@ desired version.
 language: r
 pandoc_version: 1.16
 ```
+
+If Pandoc is not needed, installation can be disabled using `pandoc: false`.
 
 ### APT packages
 
