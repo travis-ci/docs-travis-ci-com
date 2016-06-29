@@ -37,6 +37,8 @@ curl -s -X POST \
 This request triggers a build of the most recent commit on the master branch of the `travis-ci/travis-core` repository, using the `.travis.yml` file in the master branch.
 
 You can also add to or override configuration in the `.travis.yml` file, or change the commit message.
+Please not that overriding any of the sections overrides the full section, the
+contents of the .travis.yml file will not be merged with the request.
 
 The following script passes a `message` attribute, and adds to the build configuration by passing environment variables and a script command. Here the config from the `.travis.yml` file is merged with the config from the request body.
 
