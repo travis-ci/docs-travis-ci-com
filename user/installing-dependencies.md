@@ -43,7 +43,7 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
       - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
       - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
       - sudo apt-get update -qq
-      - sudo apt-get install varnish
+      - sudo apt-get install varnish -y
 
 ### Installing Packages without an APT Repository
 
