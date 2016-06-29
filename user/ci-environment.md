@@ -2,6 +2,10 @@
 title: The Build Environment
 layout: en
 permalink: /user/ci-environment/
+redirect_from:
+  - /user/workers/container-based-infrastructure/
+  - /user/workers/standard-infrastructure/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -73,7 +77,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private &amp; public</td>
+<td>private only</td>
 <td>private &amp; public</td>
 <td>private only</td>
 <td>private &amp; public</td>

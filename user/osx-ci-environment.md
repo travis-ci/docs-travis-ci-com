@@ -85,9 +85,17 @@ For example, if you always want the latest version of xctool, you can run this:
       - brew update
       - brew outdated xctool || brew upgrade xctool
 
+## File System
+
+VMs running OS X use the default file system, HFS+.
+This file system is case-insensitive, and returns entities within a
+directory alphabetically.
+
+
 ## JDK and OS X
 
-The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need. 
+The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need.
+
 
 ## Compilers and Build toolchain
 
