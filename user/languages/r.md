@@ -38,6 +38,7 @@ cache: packages
 ```
 
 If you do _not_ see
+
 ```
 This job is running on container-based infrastructure, which does not allow use of
 'sudo', setuid and setguid executables.
