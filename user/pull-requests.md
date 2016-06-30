@@ -42,7 +42,7 @@ their builds. All data that's considered confidential will not be added to the
 build's environment.
 
 If your build relies on these to run, for instance to run Selenium tests with
-Sauce Labs, your build needs to take this into account. You won't be able to run
+[BrowserStack](https://www.browserstack.com) or Sauce Labs, your build needs to take this into account. You won't be able to run
 these tests for pull requests from external contributors.
 
 To work around this, you could restrict these tests only to situations where the
