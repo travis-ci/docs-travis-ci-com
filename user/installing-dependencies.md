@@ -155,6 +155,41 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+#### Identifying the source for a missing package
+
+If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
+
+```
+Installing APT Packages (BETA)
+⋮
+E: Unable to locate package libcxsparse3.1.2
+E: Couldn't find any package by regex 'libcxsparse3.1.2'
+```
+
+To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
+
+1. Search for the pull request that added the package on GitHub. For example,
+[searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+
+1. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
+
+1. Search the build log for the phrase "Fetching source package for …" and expand the section.
+
+1. Match that source against the `alias` name shown in
+[the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
+
+In our example, the source alias is "lucid":
+
+``` yaml
+addons:
+ apt:
+   sources:
+   - lucid
+   packages:
+   - libcxsparse3.1.2
+```
+
 ## Installing Packages on OSX
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
