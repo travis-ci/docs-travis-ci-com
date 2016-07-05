@@ -27,6 +27,10 @@ Confirm that the cron job is displayed in your settings tab:
 
 ![cron job created](/images/cron-created.png "cron job created")
 
+## Skipping Cron Jobs
+
+Currently, a new cron job looks to the most recent commit for whether [`[ci skip]` or `[skip ci]`](/user/customizing-the-build.md) is included in the commit message. If the commit message contains at least one of these, the cron job will not be run. 
+
 ## Deleting Cron Jobs
 
 Click the small trash icon on the right hand side of the page:
@@ -36,3 +40,4 @@ Click the small trash icon on the right hand side of the page:
 ## Detecting Builds Triggered by Cron
 
 To check whether a build was triggered by cron, examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
+
