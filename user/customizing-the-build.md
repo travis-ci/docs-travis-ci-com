@@ -223,33 +223,33 @@ git:
 
 ## Building Specific Branches
 
-Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blacklists or whitelists.
+Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blocklists or safelists.
 
-### Whitelisting or blacklisting branches
+### Safelisting or blocklisting branches
 
-Specify which branches to build using a whitelist, or blacklist branches that you do not want to be built:
+Specify which branches to build using a safelist, or blocklist branches that you do not want to be built:
 
 ```yml
-# blacklist
+# blocklist
 branches:
   except:
     - legacy
     - experimental
 
-# whitelist
+# safelist
 branches:
   only:
     - master
     - stable
 ```
 
-If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the whitelist.
+If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the safelist.
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
 ### Using regular expressions ###
 
-You can use regular expressions to whitelist or blacklist branches:
+You can use regular expressions to safelist or blocklist branches:
 
     branches:
       only:
