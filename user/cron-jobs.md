@@ -29,7 +29,7 @@ Confirm that the cron job is displayed in your settings tab:
 
 ## Skipping Cron Jobs
 
-Currently, a new cron job looks to the most recent commit for whether [`[ci skip]` or `[skip ci]`](/user/customizing-the-build.md) is included in the commit message. If the commit message contains at least one of these, the cron job will not be run. 
+Currently, a new cron job looks to the most recent commit for whether [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build) is included in the commit message. If the commit message contains at least one of these, the cron job will not be run. 
 
 ## Deleting Cron Jobs
 
