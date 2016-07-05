@@ -3,7 +3,7 @@ title: Using SonarQube.com with Travis CI
 layout: en
 permalink: /user/sonarqube/
 ---
-[SonarQube.com](https://sonarqube.com) is the cloud service based on [SonarQube](http://www.sonarqube.org), the widely adopted "continuous inspection" open source platform that allows developers to detect bugs, vulnerabilities and code smells in more than 20 different languages.
+[SonarQube.com](https://sonarqube.com) is a cloud service offered by [SonarSource](https://sonarsource.com) and based on [SonarQube](http://www.sonarqube.org). SonarQube is a widely open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages.
 
 Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/doc/analyzing-source-code.html) for more details on how to configure different scanners.
 
