@@ -251,8 +251,8 @@ engines, hosted service providers and so on.
 ### `$BUNDLE_GEMFILE` environment variable
 
 When `gemfile` is thus defined *and* the file exists in the repository,
-we define the environment variable `$BUNDLE_GEMFILE`, so that `bundle install`
-respects this.
+we define the environment variable `$BUNDLE_GEMFILE`, which `bundle install`
+uses to resolve dependencies.
 
 If you need to work with multiple Gemfiles within a single job, some care is
 required for the alternate `bunlde` invocation.
