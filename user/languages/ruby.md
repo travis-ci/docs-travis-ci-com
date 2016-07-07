@@ -248,10 +248,10 @@ versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 The same technique is often applied to test against multiple databases, templating
 engines, hosted service providers and so on.
 
-### `$BUNLDE_GEMFILE` environment variable
+### `$BUNDLE_GEMFILE` environment variable
 
 When `gemfile` is thus defined *and* the file exists in the repository,
-we define the environment variable `$BUNLDE_GEMFILE`, so that `bundle install`
+we define the environment variable `$BUNDLE_GEMFILE`, so that `bundle install`
 respects this.
 
 If you need to work with multiple Gemfiles within a single job, some care is
@@ -259,7 +259,7 @@ required for the alternate `bunlde` invocation.
 
 Either:
 
-1. Define `$BUNLDE_GEMFILE` while invoking `bundle` explicitly
+1. Define `$BUNDLE_GEMFILE` while invoking `bundle` explicitly
 
     env BUNDLE_GEMFILE=my_gemfile bundle install
 
