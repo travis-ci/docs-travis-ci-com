@@ -19,13 +19,13 @@ and cc @domenkozar @garbas and @matthewbauer .
 
 ## Overview
 
-To set up Travis to provide the Nix environment, add the following line to `.travis.yml`:
+To install the Nix store and set up a basic single-user profile, set the `language` key in `.travis.yml` to `nix`.
 
 ```yaml
 language: nix
 ```
 
-This will install the Nix store and set up a basic single-user profile. The default channel for "nixpkgs" will be "nixpkgs-unstable". More information on configuring channels is provided in the manual below.
+The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
 ## Provided Tools
 
@@ -37,11 +37,13 @@ The following command line tools are available in the Nix environment:
 * nix-store
 * nix-channel
 
-More information on writing Nix expression and how each of the above tools works is available in the [Nix manual](https://NixOS.org/nix/manual/).
+## Default Nix Version
+
+Currently, only version "1.11.2" of Nix is provided. In the future, it may be possible to configure different versions with `.travis.yml`.
 
 ## Default Target
 
-In addition, the default script will attempt to build all derivations in "default.nix" in the root of the repository using the "nix-build" tool. This can be overridden by adding a "script" key to the .yaml file:
+The default build script is `nix-build` which builds everything in the `default.nix` file of the repository root. This can be overridden by setting the `script` key in the `.travis.yml` file. For example,
 
 ```yaml
 language: nix
@@ -50,6 +52,10 @@ script: nix-build -A tarball release.nix
 
 The above configuration will attempt to build the attribute "tarball" from the Nix expression in release.nix.
 
-## Default Nix Version
+## Nix manual
 
-Currently, only version "1.11.2" of Nix is provided. In the future, it may be possible to configure different versions with .travis.yml.
+More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
+
+## Examples
+
+* [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)
