@@ -254,16 +254,8 @@ When `gemfile` is thus defined *and* the file exists in the repository,
 we define the environment variable `$BUNDLE_GEMFILE`, which `bundle install`
 uses to resolve dependencies.
 
-If you need to work with multiple Gemfiles within a single job, some care is
-required for the alternate `bunlde` invocation.
-
-Either:
-
-1. Define `$BUNDLE_GEMFILE` while invoking `bundle` explicitly
-
-    env BUNDLE_GEMFILE=my_gemfile bundle install
-
-1. Pass `--gemfile=` flag
+If you need to work with multiple Gemfiles within a single job, you would
+need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
 
     bundle install --gemfile=my_gemfile
 
