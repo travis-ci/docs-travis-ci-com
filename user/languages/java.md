@@ -30,6 +30,12 @@ If your project has `pom.xml` file in the repository root but no `build.gradle`,
 mvn test
 ```
 
+If your project also includes the `mvnw` wrapper script in the repository root, Travis CI uses that instead:
+
+```bash
+./mvnw test
+```
+
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
 
 To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
@@ -40,6 +46,12 @@ Before running the build, Travis CI installs dependencies:
 
 ```bash
 mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+```
+
+or if your project uses the `mvnw` wrapper script:
+
+```bash
+./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
 ## Projects Using Gradle
