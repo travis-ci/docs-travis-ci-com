@@ -117,6 +117,7 @@ In alphabetical order, they are:
 1. [Dart](../dart)
 1. [Haxe](../haxe)
 1. [Julia](../julia)
+1. [Nix](../nix)
 1. [Perl 6](../perl6)
 1. [R](../r)
 1. [Smalltalk](../smalltalk)
