@@ -33,21 +33,6 @@ Choose whether you want to store your access key as plain text or in a secure/en
 storing the access key in a secure form so that pull requests cannot use the keys stored in your .travis.yml. 
 For more information see the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests).
 
-
-### Plain Text Access Key
-
-
-To store your access key in plain text format, add the following configuration to your .travis.yml file:
-
-    addons:
-      browserstack:
-        username: "Your BrowserStack username"
-        access_key: "Your BrowserStack access key"
-        
-
-Note: Other users that have access to your repository can read and use your plain text
-access keys to test on BrowserStack. If you want to prevent this you should encrypt your access key as explained below.
-
 ### Encrypted Access Key
 
 To encrypt your access key for use in .travis.yml you can use `travis encrypt "your BrowserStack access key"`. 
@@ -59,6 +44,18 @@ Once your access key is encrypted you can add the secure string:
       access_key:
         secure: "The secure string output of `travis encrypt`"
 
+
+### Plain Text Access Key
+
+To store your access key in plain text format, add the following configuration to your .travis.yml file:
+
+    addons:
+      browserstack:
+        username: "Your BrowserStack username"
+        access_key: "Your BrowserStack access key"
+        
+We **strongly** recommend storing your BrowserStack access keys in encrypted format, since other users that have access to your repository 
+can read and use your plain text access keys to test on BrowserStack.
 
 ### Local Identifier
 
@@ -87,21 +84,7 @@ Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel 
 gets the right requests.  
 
-## Additional Features
-
-### Folder Testing
-
-Local testing also allows you to test HTML in local folders. To enable folder testing you need to set the 
-name of the local folders as:
-
-    addons:
-      browserstack: "Your BrowserStack username"
-      access_key:
-        secure: "The secure string output of `travis encrypt`"
-      folder: "Absolute path of the folder containing HTML files"
-
-You can then access the HTML files via the url 
-`http://$BROWSERSTACK_USERNAME.browserstack.com/"Path to your HTML file with respect to the folder set."`
+## Additional Options
 
 ### Proxy
 
@@ -112,10 +95,10 @@ through which all urls will be resolved:
       browserstack: "Your BrowserStack username"
       access_key:
         secure: "The secure string output of `travis encrypt`"
-      proxy_host: "Proxy server host"
-      proxy_port: "Proxy server port"
-      proxy_user: "User to use when accessing proxy server"
-      proxy_pass: "Password to use when accessing proxy server"
+      proxyHost: "Proxy server host"
+      proxyPort: "Proxy server port"
+      proxyUser: "User to use when accessing proxy server"
+      proxyPass: "Password to use when accessing proxy server"
 
 
 ### More Options
@@ -130,7 +113,7 @@ Sample usage,
       browserstack: "Your BrowserStack username"
       access_key:
         secure: "The secure string output of `travis encrypt`"
-      force_local: true
+      forcelocal: true
       only: dev.example.com,80,0,*.example.org,80,0
 
 The format for the **only** flag is, `"Host pattern,Host Port,Flag for SSL True(1)/False(0)" and repeat.
