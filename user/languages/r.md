@@ -256,6 +256,9 @@ processed in order, so entries can depend on dependencies in a previous list.
   using `devtools::install_github` from the
   [devtools package][github 8]. The package names
   here should be of the form `user/repo`.
+  If the package is installed in a folder of the GitHub, use `user/repo/folder`.
+  An alternative is to add `user/repo` or `user/repo/folder` to
+  the `Remotes` section of the `DESCRIPTION` file of your package
 
 ## Examples
 
