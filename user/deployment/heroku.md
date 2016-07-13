@@ -97,7 +97,7 @@ Custom Heroku commands do not affect the Travis CI build status or trigger Travi
 
 Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail){: data-proofer-ignore=""} or [Logentries](https://elements.heroku.com/addons/logentries){: data-proofer-ignore=""} to get notifications for `rake db:migrate` or other commands.
 
-These add-ons have email notification systems that can be triggered when certain string matches occur in your Heroku logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".  
+These add-ons have email notification systems that can be triggered when certain string matches occur in your Heroku logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".
 
 ### Restarting Applications
 
@@ -152,6 +152,15 @@ It defaults to **api**, but you can change that via the **strategy** option:
       strategy: git
 
 Note that the **anvil**, **git-ssh** and **git-deploy-key** strategies are considered **deprecated**. Please contact us if you have issues switching away from these.
+
+#### Using `.gitignore` on `git` strategy
+
+When you use any of the `git` strategies, be mindful that the deployment will
+honor `.gitignore`.
+
+If your `.gitignore` file matches something that your build creates, use
+[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+its content.
 
 ### Running commands before and after deploy
 

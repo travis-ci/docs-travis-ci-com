@@ -14,7 +14,7 @@ Python builds are not available on the OSX environment.
 
 ## Choosing Python versions to test against
 
-Travis CI support Python versions 2.6, 2.7, 3.2, 3.3, 3.4, and 3.5, as well as nightly.
+Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, and 3.5, as well as nightly.
 
     language: python
     python:
@@ -103,7 +103,7 @@ Note: If you're running in the container-based infrastructure without access to
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](../../customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
 
 ### Pre-installed packages
 

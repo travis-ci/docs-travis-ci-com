@@ -42,7 +42,7 @@ It is also possible to deploy different branches to different applications:
         master: my-app
         foo: my-foo
 
-This is branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
+This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
     deploy:
       provider: engineyard

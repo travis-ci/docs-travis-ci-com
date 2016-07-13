@@ -16,9 +16,9 @@ This guide covers build environment and configuration topics specific to Elixir 
 
 To choose the Elixir VM, declare in your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 language: elixir
-{% endhighlight %}
+```
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
@@ -30,13 +30,13 @@ for you.
 You can also override this OTP Release choice by adding the `otp_release`.
 For example:
 
-{% highlight yaml %}
+```yaml
 language: elixir
 elixir:
-  - 1.1.0
+  - 1.2.2
 otp_release:
-  - 18.0
-{% endhighlight %}
+  - 18.2.1
+```
 
 ## Build Matrix
 
@@ -48,6 +48,7 @@ to construct a build matrix.
 By default, the install command is
 
 ```shell
+mix local.rebar --force # for Elixir 1.3.0 and up
 mix local.hex --force
 mix deps.get
 ```

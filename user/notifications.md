@@ -30,7 +30,7 @@ You can change the conditions for each of the channels by setting the
 * `never`: never send a notification.
 * `change`: send a notification when the build status changes.
 
-For example, to always send slack notifications on sucessful builds:
+For example, to always send slack notifications on successful builds:
 
 	notifications:
 	  slack:
@@ -45,10 +45,10 @@ When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
 by the receiving server.
 Notifications will fail if none of the server's ciphers work.
 
-Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
+Currently, the following ciphers (as defined by the [openssl gem](http://ruby-doc.org/stdlib-2.1.6/libdoc/openssl/rdoc/OpenSSL.html))
 are known to work:
 
-AES-128-CBC AES-128-CFB AES-128-CFB8 AES-128-ECB AES-128-OFB AES-192-CBC AES-192-CFB AES-192-CFB8 AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CFB AES-256-CFB8 AES-256-ECB AES-256-OFB AES128 AES192 AES256 BF BF-CBC BF-CFB BF-CFB8 BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-CBC CAST5-CBC CAST5-CFB CAST5-CFB8 CAST5-ECB CAST5-OFB CAST6-CBC CAST6-CFB CAST6-CFB8 CAST6-ECB CAST6-OFB DES DES-CBC DES-CFB DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB8 DES-EDE3-ECB DES-EDE3-OFB DES-OFB DES3 RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-CFB8 RC2-ECB RC2-OFB RC4 RC4-40 SEED SEED-CBC SEED-CFB SEED-CFB8 SEED-ECB SEED-OFB
+AES-128-CBC AES-128-CBC-HMAC-SHA1 AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-CTR AES-128-ECB AES-128-OFB AES-128-XTS AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-CTR AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CBC-HMAC-SHA1 AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-CTR AES-256-ECB AES-256-OFB AES-256-XTS AES128 AES192 AES256 BF BF-CBC BF-CFB BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB1 CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB1 CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB1 CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-cbc CAST5-CBC CAST5-CFB CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-OFB DES-OFB DES3 DESX DESX-CBC RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-ECB RC2-OFB RC4 RC4-40 RC4-HMAC-MD5 SEED SEED-CBC SEED-CFB SEED-ECB SEED-OFB
 
 Also, consult [cipher suite names mapping](https://www.openssl.org/docs/apps/ciphers.html).
 
@@ -58,29 +58,36 @@ If none of the ciphers listed above works, please open a [GitHub issue](https://
 
 Specify recipients that will be notified about build results:
 
-    notifications:
-      email:
-        - one@example.com
-        - other@example.com
-
+```yml
+notifications:
+  email:
+    - one@example.com
+    - other@example.com
+```
 Turn off email notifications entirely:
 
-    notifications:
-      email: false
+```yml
+notifications:
+  email: false
+```
 
 Specify when you want to get notified:
 
-    notifications:
-      email:
-        recipients:
-          - one@example.com
-          - other@example.com
-        on_success: [always|never|change] # default: change
-        on_failure: [always|never|change] # default: always
+```yml
+notifications:
+  email:
+    recipients:
+      - one@example.com
+      - other@example.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
+```
 
 > Note: Items in brackets are placeholders. Brackets should be omitted.
 
 `always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+
+Pull Request builds do not trigger email notifications.
 
 ### How is the build email receiver determined?
 
@@ -99,14 +106,23 @@ The default can be overridden in the `.travis.yml` as shown above. If there's a
 setting specified, Travis CI only sends an emails to the addresses specified
 there, rather than to the committer and author.
 
-### How can I change the email address for build notifications?
+### Changing the email address for build notifications
 
-The email addresses are pulled from GitHub. All emails registered there for your
-user account are available in Travis CI as well.
+Travis CI only sends build notifications to email addresses registered on GitHub.
+If you have multiple address registered you can set the email address for a specific
+ repository using `git`:
 
-You can change the build email address by setting a different email address for
-a specific repository. Running `git config user.email my@email.com` sets a
-different email address than the default for your repository.
+> Note that this also changes the commit email address, not just the Travis CI notification settings.
+
+```sh
+git config user.email "mynewemail@example.com"
+```
+
+Or set the email for all of your git repositories:
+
+```sh
+git config --global user.email "mynewemail@example.com"
+```
 
 Note that we currently don't respect the [detailed notifications
 settings](https://github.com/settings/notifications) on
@@ -133,6 +149,8 @@ Or multiple channels:
       irc:
         - "chat.freenode.net#my-channel"
         - "chat.freenode.net#some-other-channel"
+				- "irc://chat.freenode.net:8000/#plaintext_channel"
+				- "ircs://chat.freenode.net:7070/#ssl_tls_channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
@@ -169,7 +187,8 @@ You can interpolate the following variables:
 * *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
-* *duration*: duration of the build
+* *duration*: total duration of all builds in the matrix
+* *elapsed_time*: time between build start and finish
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
@@ -206,6 +225,8 @@ and if you want the bot to not join before the messages are sent, and part after
         skip_join: true
 
 If you enable `skip_join`, remember to remove the `NO_EXTERNAL_MSGS` flag (n) on the IRC channel(s) the bot notifies.
+
+Pull Request builds do not trigger IRC notifications.
 
 ### Channel key
 
@@ -257,6 +278,8 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
+Pull Request builds do not trigger Campfire notifications.
+
 ## Flowdock notification
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
@@ -270,6 +293,8 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
     travis encrypt api_token --add notifications.flowdock
+
+Pull Request builds do not trigger Flowdock notifications.
 
 ## HipChat notification
 
@@ -335,6 +360,15 @@ with a desired label, and use this token.
   <img src="/images/hipchat_token_screen.png" alt="HipChat Room Notification Tokens screenshot" width="550px" />
 </figure>
 
+### Notifications of PR builds
+
+By default, Hipchat will be notified both for push builds and pull request builds.
+The PR build notifications can be disabled with the following:
+
+    notifications:
+      hipchat:
+        on_pull_requests: false
+
 ## Pushover notification
 
 Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
@@ -367,14 +401,7 @@ You can also customise the notifications, like with IRC notifications:
 
 Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
 
-### Notifications of PR builds
-
-By default, Hipchat will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
-
-    notifications:
-      hipchat:
-        on_pull_requests: false
+Pull Request builds do not trigger Pushover notifications.
 
 ## Sqwiggle notifications
 
@@ -422,6 +449,8 @@ To customize it, add a template definition to your .travis.yml.
 
 It's recommended to encrypt the credentials.
 
+Pull Request builds do not trigger Sqwiggle notifications.
+
 ## Slack notifications
 
 Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
@@ -465,7 +494,6 @@ You can specify multiple channels as well.
           - <account>:<token>#general
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change]   # default: always
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
@@ -511,7 +539,7 @@ As with other notification types you can specify when webhook payloads will be s
           - http://hooks.mydomain.com/events
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change] # default: always
+        on_start: [always|never|change] # default: never
 
 ### Webhooks Delivery Format
 
