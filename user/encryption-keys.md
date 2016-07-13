@@ -65,7 +65,8 @@ We want to add campfire notifications to our .travis.yml file, but we don't want
 The entry should be in this format:
 
     notifications:
-      campfire: [subdomain]:[api token]@[room id]
+      campfire: 
+        rooms: [subdomain]:[api token]@[room id]
 
 For us, that is somedomain:abcxyz@14.
 

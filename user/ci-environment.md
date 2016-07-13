@@ -2,6 +2,10 @@
 title: The Build Environment
 layout: en
 permalink: /user/ci-environment/
+redirect_from:
+  - /user/workers/container-based-infrastructure/
+  - /user/workers/standard-infrastructure/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -73,7 +77,7 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private &amp; public</td>
+<td>private only</td>
 <td>private &amp; public</td>
 <td>private only</td>
 <td>private &amp; public</td>
@@ -262,7 +266,7 @@ The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the J
 
 ### Maven version
 
-Stock Apache Maven 3.2.x. Maven is configured to use Central and oss.sonatype.org mirrors at http://maven.travis-ci.org
+Stock Apache Maven 3.2.x, configured to use [Central](http://search.maven.org/) and [Sonatype](https://oss.sonatype.org/) mirrors.
 
 ### Leiningen versions
 
@@ -444,4 +448,3 @@ Recent 1.7.x version (usually the most recent)
 
 * bundler
 * rake
-

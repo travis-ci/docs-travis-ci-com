@@ -21,7 +21,11 @@ During the build, we update the status of the commits to one of:
 Travis CI builds a pull request when it is first opened, and when commits are
 added to the pull request .
 
-Rather than build the commits from the branches the pull request is sent from, we build the merge between the origin and the upstream branch.
+Rather than test the commits that have been pushed to the branch the pull request 
+is from, we test the merge between the origin and the upstream branch. To only
+build on push events, you can disable **Build on Pull Requests** from your
+repository settings.
+
 
 ## Pull Requests and Security Restrictions
 

@@ -8,8 +8,6 @@ permalink: /user/languages/javascript-with-nodejs/
 
 This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-> Node.js builds are not available on the OSX environment.
-
 ## Choosing Node versions to test against
 
 You can choose Node.js and io.js versions to run your tests by adding them to the `node_js` section of your  `.travis.yml`:
@@ -121,6 +119,55 @@ npm install
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
 
+## Ember Apps
+
+You can build your Ember applications on Travis CI. The default test framework is [`Qunit`](http://qunitjs.com/). The following example shows how to build and test against different Ember versions.
+
+```yaml
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+language: node_js
+node_js:
+  - "0.12"
+env:
+    - EMBER_VERSION=default
+    - EMBER_VERSION=release
+    - EMBER_VERSION=beta
+    - EMBER_VERSION=canary
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION=release
+    - env: EMBER_VERSION=beta
+    - env: EMBER_VERSION=canary
+
+before_install:
+    # setting the path for phantom.js 2.0.0
+    - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - "npm config set spin false"
+    - "npm install -g npm@^2"
+install:
+    - mkdir travis-phantomjs
+    - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+    - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+    - export PATH=$PWD/travis-phantomjs:$PATH
+    - npm install -g bower
+    - npm install
+    - bower install
+script:
+    - ember test --server
+
+```
+
 ## Meteor Apps
 
 You can build your Meteor Apps on Travis CI and test against
@@ -137,7 +184,6 @@ services:
 env:
   - LAIKA_OPTIONS="-t 5000"
 ```
-
 More info on [testing against laika](https://github.com/arunoda/travis-ci-laika).
 
 ## Meteor Packages

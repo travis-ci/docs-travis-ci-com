@@ -164,58 +164,58 @@ Large files that are quick to install but slow to download do not benefit from c
 * JDK packages
 * Compiled binaries
 
-### Fetching and storing caches
+## Fetching and storing caches
 
-* Travis CI fetches the cache for every build, including feature branches and pull requests.
+* Travis CI fetches the cache for every build, including branches and pull requests.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
-* Pull requests use the cache of the target of the pull request.
-* If a branch does not have its own cache yet, it uses the master branch cache (unless it is a pull request, see above).
+* If a branch does not have its own cache, Travis CI fetches the master branch cache.
 * Only modifications made to the cached directories from normal pushes are stored.
 
-### `before_cache` phase
+### Pull request builds and caches
 
-When using caches, it may be useful to run command just prior to uploading
+Pull request builds check the following cache locations in order, using the first one present:
+
+* The pull request cache.
+* The pull request target branch cache.
+* The repository default branch cache.
+
+If none of the previous locations contain a valid cache, the build creates a new pull request cache after the build.
+
+> Note that if a repository has "build pushes" set to "off", neither the target branch nor the master branch can ever be cached.
+
+### before_cache phase
+
+When using caches, it may be useful to run a command just before uploading
 the new cache archive.
-For example, the dependency management utility may write log files into the directory
-you are watching, and you would do well to ignore these.
 
-For this purpose, you can use `before_cache` phase.
+For example, the dependency management utility may write log files into the directory you are caching and you do not want them to affect the cache. Use the `before_cache` phase to delete the log files:
 
 ```yaml
 cache:
   directories:
     - $HOME/.cache/pip
-⋮
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
 
-Failures in this stage does not mark the job a failure.
+Failure in this phase does not mark the job as failed.
 
 ### Clearing Caches
 
-Sometimes you spoil your cache by storing bad data in one of the cached directories.
+Sometimes you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
 
-Caches can also become invalid if language runtimes change and the cache contains
-native extensions.
-(This often manifests as segmentation faults.)
+Use one of the following ways to access your cache and delete it if necessary:
 
-You can access caches in one of the two ways.
-Each method also gives you a means of deleting caches.
-
-1. On the web https://travis-ci.com/OWNER/REPOSITORY/caches for private repositories
-or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
-which is accessible from the Settings
-menu
+* The settings page of your repository on [https://travis-ci.org](https://travis-ci.org) (or .com if you're using a private repository)
 
     ![Image of cache UI](/images/caches-item.png)
 
-2. With [command line client](https://github.com/travis-ci/travis#readme):
+* The [command line client](https://github.com/travis-ci/travis#readme)
 
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 
-There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
+* The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
 
@@ -235,6 +235,7 @@ This does not work when caching [arbitrary directories](#Arbitrary-directories).
 cache:
   bundler: true
   directories:
+  - node_modules # NPM packages
   - vendor/something
   - .autoconf
 ```
@@ -257,7 +258,7 @@ cache:
 
 ### Setting the timeout
 
-Caching has a timeout set to 5 minutes by default. The timeout is there in order
+Caching has a timeout set to 3 minutes by default. The timeout is there in order
 to guard against any issues that may result in a stuck build. Such issues may be
 caused by a network issue between worker servers and S3 or even by a cache being
 to big to pack it and upload it in timely fashion. There are, however,

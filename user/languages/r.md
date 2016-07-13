@@ -38,6 +38,7 @@ cache: packages
 ```
 
 If you do _not_ see
+
 ```
 This job is running on container-based infrastructure, which does not allow use of
 'sudo', setuid and setguid executables.
@@ -109,6 +110,9 @@ packages listed in the LaTeX error message and search for them on [CTAN][ctan].
 Packages often have a `Contained in:` field that indicates the package group
 you need to install.
 
+If LaTeX is not needed, installation can be disabled using `latex: false`.
+
+
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
@@ -118,6 +122,34 @@ desired version.
 ```yaml
 language: r
 pandoc_version: 1.16
+```
+
+If Pandoc is not needed, installation can be disabled using `pandoc: false`.
+
+### APT packages
+
+Use the [APT addon][apt-addon]
+to install APT packages on both container-based (`sudo: false`)
+and standard (`sudo: required`) infrastructures.
+The snippet below installs a prerequisite for the R package `xml2`:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - libxml2-dev
+```
+
+Note that the APT package needs to be white-listed for this to work
+on container-based infrastructure.
+This option is ignored on non-Linux builds.
+
+An alternative that works only on standard infrastructure is
+the `apt_packages` field:
+
+```yaml
+apt_packages:
+  - libxml2-dev
 ```
 
 ### Package check options
@@ -175,6 +207,10 @@ repos:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+* `disable_homebrew`: if `true` this removes the preinstalled homebrew 
+  installation on OS X. Useful to test if the package builds on a vanilla OS X
+  machine, such as the CRAN mac builder.
+
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
@@ -186,9 +222,7 @@ top-level entry in your `.travis.yml`; entries in these lists will be
 installed before building and testing your package. Note that these lists are
 processed in order, so entries can depend on dependencies in a previous list.
 
-* `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds and will not work if `sudo: false`.
+* `apt_packages`: See above
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
@@ -264,3 +298,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 [tug]: https://www.tug.org/texlive/
 [yihui]: http://yihui.name/knitr/
+[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon
