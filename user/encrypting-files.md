@@ -4,7 +4,7 @@ layout: en
 permalink: /user/encrypting-files/
 ---
 
-**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Security-Restrictions-when-testing-Pull-Requests).**
+**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
 
 <div id="toc"></div>
 
