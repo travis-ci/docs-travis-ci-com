@@ -71,7 +71,7 @@ reporter](https://github.com/codeclimate/php-test-reporter) to collect code cove
 data.
 
 To set it up for your project, follow the instructions in the
-[README](https://github.com/codeclimate/php-test-reporter#usage)
+[README](https://github.com/codeclimate/php-test-reporter#usage).
 
 The repository token can be specified in your .travis.yml
 
@@ -84,6 +84,20 @@ data to Code Climate requires adding the following to your .travis.yml:
 
     after_script:
       - vendor/bin/test-reporter
+
+### Python
+
+Python projects can use [Code Climate's Python
+reporter](https://github.com/codeclimate/python-test-reporter) to collect code coverage
+data.
+
+To set it up for your project, you'll need to:
+1. specify the repository token in your `.travis.yml` OR configure the repo token in the environment through your CI settings,
+2. generate a test report with `coverage.py`: [https://coverage.readthedocs.io](https://coverage.readthedocs.io),
+3. run the `codeclimate-test-reporter` command (either with the token passed as an argument, or as a stored env variable).
+
+You can find additional setup, installation, and troubleshooting information here in the
+[README](https://github.com/codeclimate/python-test-reporter#codeclimate-test-reporter).
 
 ## Common Problems
 

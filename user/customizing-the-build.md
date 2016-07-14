@@ -114,7 +114,8 @@ If any of the commands in the first four stages of the build lifecycle return a 
 the build is **errored** and stops immediately.
 * If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-The `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the the build result.
+The exit code of `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the the build result.
+However, if one of these stages times out, the build is marked as a failure.
 
 ## Deploying your Code
 
