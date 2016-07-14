@@ -21,7 +21,7 @@ and cc @a14n @devoncarew and @sethladd.
 ## Choosing Dart versions to test against
 
 Dart workers on travis-ci.org download and install the Dart SDK binaries.
-(See [Dart Download Archive](https://www.dartlang.org/tools/download-archive/)).
+(See [Dart Download Archive](https://www.dartlang.org/install/archive/)).
 
 To select one or more versions, use the `dart:` key in your `.travis.yml` file.
 For example:
