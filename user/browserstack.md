@@ -104,7 +104,7 @@ through which all urls will be resolved:
 ### More Options
 
 Some other options that are supported by the add on -
-  * **force_local**: If this is set to true then all URLs will be resolved via the Travis container that your build is running in. 
+  * **forcelocal**: If this is set to true then all URLs will be resolved via the Travis container that your build is running in. 
   * **only**: restricts Local testing access to the specified local servers and/or folders.
 
 Sample usage,
