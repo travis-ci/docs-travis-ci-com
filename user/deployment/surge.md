@@ -37,7 +37,7 @@ If you would like to deploy content thats generated during the Travis CI run you
 - A) generate it during the "test" step. A failed script will give a failed travis run
 - B) generate it at the "before_deploy" step. A failed script will still give a successful travis run
 
-If you use A) you must ask Travis to keep the generated files instead of resetting the repo before deploy:
+Please note that you must **ask Travis to keep the generated files** instead of resetting the repo before deploy:
 
 ```yaml
 deploy:
