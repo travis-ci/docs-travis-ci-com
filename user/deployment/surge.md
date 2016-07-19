@@ -32,18 +32,18 @@ deploy:
 
 ### Generated content
 
-If you would like to deploy content thats generated during the Travis CI run you have two options: 
-
-- A) generate it during the "test" step. A failed script will give a failed travis run
-- B) generate it at the "before_deploy" step. A failed script will still give a successful travis run
-
-If you use A) you must ask Travis to keep the generated files instead of resetting the repo before deploy:
+If you are generating files for deploy you must tell the `deploy` step to keep your changes:
 
 ```yaml
 deploy:
   ... 
   skip_cleanup: true
 ```
+
+It is suggested that you generate your files during the `script` step or the `before_deploy` step.
+
+- When generating files during the `script` step a failed build will give a failed travis run
+- When generating files during the `before_deploy` step a failed build will not affect if travis run is marked as successful
 
 
 ### Branches
