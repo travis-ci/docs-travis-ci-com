@@ -60,8 +60,8 @@ You can specify your own script to run to install whatever dependencies your pro
 You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
     install:
-      - bundle install --path vendor/bundle
-      - npm install
+    - bundle install --path vendor/bundle
+    - npm install
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
 
@@ -82,8 +82,8 @@ You can overwrite the default build step in `.travis.yml`:
 You can specify multiple script commands as well:
 
     script:
-      - bundle exec rake build
-      - bundle exec rake builddoc
+    - bundle exec rake build
+    - bundle exec rake builddoc
 
 When one of the build commands returns a non-zero exit code, the Travis CI build runs the subsequent commands as well, and accumulates the build result.
 
@@ -129,7 +129,7 @@ working directory and deleting all changes made during the build ( `git stash
 
 ```yml
 deploy:
-	skip_cleanup: true
+  skip_cleanup: true
 ```
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
@@ -147,8 +147,8 @@ If your dependencies need native libraries to be available, you can use **passwo
 
 ```yml
 before_install:
-	- sudo apt-get update -qq
-	- sudo apt-get install -qq [packages list]
+- sudo apt-get update -qq
+- sudo apt-get install -qq [packages list]
 ```
 
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/ci-environment/#Virtualization-environments).
@@ -166,7 +166,7 @@ If you need to install a second programming language in your current build envir
 
 ```yml
 before_install:
-   - rvm install 2.1.5
+- rvm install 2.1.5
 ```
 
 You can also use other installation methods such as `apt-get`.
@@ -234,14 +234,14 @@ Specify which branches to build using a safelist, or blocklist branches that you
 # blocklist
 branches:
   except:
-    - legacy
-    - experimental
+  - legacy
+  - experimental
 
 # safelist
 branches:
   only:
-    - master
-    - stable
+  - master
+  - stable
 ```
 
 If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the safelist.
@@ -254,8 +254,8 @@ You can use regular expressions to safelist or blocklist branches:
 
     branches:
       only:
-        - master
-        - /^deploy-.*$/
+      - master
+      - /^deploy-.*$/
 
 Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain any quantifiers, anchors or character classes supported by [Ruby regular expressions](http://www.ruby-doc.org/core-1.9.3/Regexp.html).
 
@@ -277,32 +277,32 @@ When you combine the three main configuration options of *Runtime*, *Environment
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
     rvm:
-      - 1.9.3
-      - 2.0.0
-      - 2.2
-      - ruby-head
-      - jruby
-      - rbx-2
-      - ree
+    - 1.9.3
+    - 2.0.0
+    - 2.2
+    - ruby-head
+    - jruby
+    - rbx-2
+    - ree
     gemfile:
-      - gemfiles/Gemfile.rails-2.3.x
-      - gemfiles/Gemfile.rails-3.0.x
-      - gemfiles/Gemfile.rails-3.1.x
-      - gemfiles/Gemfile.rails-edge
+    - gemfiles/Gemfile.rails-2.3.x
+    - gemfiles/Gemfile.rails-3.0.x
+    - gemfiles/Gemfile.rails-3.1.x
+    - gemfiles/Gemfile.rails-edge
     env:
-      - ISOLATED=true
-      - ISOLATED=false
+    - ISOLATED=true
+    - ISOLATED=false
 
 You can also define exclusions to the build matrix:
 
     matrix:
       exclude:
-        - rvm: 1.9.3
-          gemfile: gemfiles/Gemfile.rails-2.3.x
-          env: ISOLATED=true
-        - rvm: jruby
-          gemfile: gemfiles/Gemfile.rails-2.3.x
-          env: ISOLATED=true
+      - rvm: 1.9.3
+        gemfile: gemfiles/Gemfile.rails-2.3.x
+        env: ISOLATED=true
+      - rvm: jruby
+        gemfile: gemfiles/Gemfile.rails-2.3.x
+        env: ISOLATED=true
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
@@ -316,18 +316,18 @@ Suppose you have:
 ```yml
 language: ruby
 rvm:
-	- 1.9.3
-	- 2.0.0
-	- 2.1.0
+- 1.9.3
+- 2.0.0
+- 2.1.0
 env:
-	- DB=mongodb
-	- DB=redis
-	- DB=mysql
+- DB=mongodb
+- DB=redis
+- DB=mysql
 gemfile:
-	- Gemfile
-	- gemfiles/rails4.gemfile
-	- gemfiles/rails31.gemfile
-	- gemfiles/rails32.gemfile
+- Gemfile
+- gemfiles/rails4.gemfile
+- gemfiles/rails31.gemfile
+- gemfiles/rails32.gemfile
 ```
 
 This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` value `2.0.0` *and*
@@ -335,25 +335,25 @@ This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` val
 
 ```yml
 matrix:
-	exclude:
-	- rvm: 2.0.0
-		gemfile: Gemfile
+  exclude:
+  - rvm: 2.0.0
+    gemfile: Gemfile
 ```
 
 Which is equivalent to:
 
 ```yml
 matrix:
-	exclude:
-	- rvm: 2.0.0
-		gemfile: Gemfile
-		env: DB=mongodb
-	- rvm: 2.0.0
-		gemfile: Gemfile
-		env: DB=redis
-	- rvm: 2.0.0
-		gemfile: Gemfile
-		env: DB=mysql
+  exclude:
+  - rvm: 2.0.0
+    gemfile: Gemfile
+    env: DB=mongodb
+  - rvm: 2.0.0
+    gemfile: Gemfile
+    env: DB=redis
+  - rvm: 2.0.0
+    gemfile: Gemfile
+    env: DB=mysql
 ```
 
 ### Explicity Including Jobs
@@ -362,9 +362,9 @@ It is also possible to include entries into the matrix with `matrix.include`:
 
     matrix:
       include:
-        - rvm: ruby-head
-          gemfile: gemfiles/Gemfile.rails-3.2.x
-          env: ISOLATED=false
+      - rvm: ruby-head
+        gemfile: gemfiles/Gemfile.rails-3.2.x
+        env: ISOLATED=false
 
 This adds a particular job to the build matrix which has already been populated.
 
@@ -376,12 +376,12 @@ For example,
     language: python
     matrix:
       include:
-        - python: "2.7"
-          env: TEST_SUITE=suite_2_7
-        - python: "3.3"
-          env: TEST_SUITE=suite_3_3
-        - python: "pypy"
-          env: TEST_SUITE=suite_pypy
+      - python: "2.7"
+        env: TEST_SUITE=suite_2_7
+      - python: "3.3"
+        env: TEST_SUITE=suite_3_3
+      - python: "pypy"
+        env: TEST_SUITE=suite_pypy
     script: ./test.py $TEST_SUITE
 
 creates a build matrix with 3 jobs, which runs test suite for each version
@@ -399,7 +399,7 @@ Define allowed failures in the build matrix as key/value pairs:
 
     matrix:
       allow_failures:
-        - rvm: 1.9.3
+      - rvm: 1.9.3
 
 ### Fast Finishing
 
@@ -455,8 +455,8 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 
     addons:
       hosts:
-        - travis.dev
-        - joshkalderimis.com
+      - travis.dev
+      - joshkalderimis.com
 
 ## What git Repository Providers can I use         
 
