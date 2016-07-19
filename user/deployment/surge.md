@@ -19,9 +19,9 @@ You will need to set 2 environment variables in your travis settings and set the
 
 - If your project folder is not the repo root you can set the deploy option `project` to define a path relative to repo root to deploy.
 
-- If you do not have a `CNAME` file with the name of the domain to publish to you can set the deploy option `domain` with the domain to deploy to. 
+- If you do not have a `CNAME` file with the name of the domain to publish to you can set the deploy option `domain` with the domain to deploy to.
 
-Example: 
+Example:
 
 ```yaml
 deploy:
@@ -32,18 +32,18 @@ deploy:
 
 ### Generated content
 
-If you are generating files for deploy you must tell the `deploy` step to keep your changes:
+If you are generating files for deployment you must tell the `deploy` step to keep your changes:
 
 ```yaml
 deploy:
-  ... 
+  ...
   skip_cleanup: true
 ```
 
 It is suggested that you generate your files during the `script` step or the `before_deploy` step.
 
-- When generating files during the `script` step a failed build will give a failed travis run
-- When generating files during the `before_deploy` step a failed build will not affect if travis run is marked as successful
+- When generating files during the `script` step, an error results in a failed build.
+- When generating files during the `before_deploy` step, an error does *not* result in a failed build.
 
 
 ### Branches
