@@ -17,7 +17,7 @@ For this to work the JWT addon needs to be enabled in the `.travis.yml` file,
 and the third-party need to have integrated with the JWT service and allow
 token-based authentication.
 
-<img src="/user/images/travis_jwt.svg">
+<img src="/user/images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
 
 
 ### .travis.yml
