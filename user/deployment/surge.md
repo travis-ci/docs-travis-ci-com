@@ -32,7 +32,7 @@ deploy:
 
 ### Generated content
 
-You must ask Travis to keep the generated files instead of resetting the repo before deploy:
+If you are generating files for deploy you must tell the `deploy` step to keep your changes:
 
 ```yaml
 deploy:
@@ -40,10 +40,10 @@ deploy:
   skip_cleanup: true
 ```
 
-It is suggested that you build during the `script` step or the `before_deploy` step
+It is suggested that you generate your files during the `script` step or the `before_deploy` step.
 
-- When generating content during the `script` step a failed build will give a failed travis run
-- When generating content during the `before_deploy` step a failed build will not affect if travis run is marked as successful
+- When generating files during the `script` step a failed build will give a failed travis run
+- When generating files during the `before_deploy` step a failed build will not affect if travis run is marked as successful
 
 
 ### Branches
