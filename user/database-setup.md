@@ -441,6 +441,24 @@ This is due to a [recent change in ElasticSearch](https://github.com/elasticsear
 as reported [here](https://github.com/elasticsearch/elasticsearch/issues/4978).
 The message is harmless, and the service is functional.
 
+## RethinkDB
+
+To use RethinkDB with Travis CI, list it as an addon in the `.travis.yml` configuration file, specifying the version number as a string.
+
+```yaml
+addons:
+  rethinkdb: '2.3.4'
+```
+
+If you specify a partial version number, the addon will install and run the latest version that matches. For example, `'2.3'` will match the latest RethinkDB version in the `2.3.x` line.
+
+Two environment variables are exported:
+
+* `TRAVIS_RETHINKDB_VERSION` is the version specified in the configuration (e.g., `'2.3.4'`, or `'2.3'`).
+* `TRAVIS_RETHINKDB_PACKAGE_VERSION` is the full version of the package that was installed (e.g., `'2.3.4+1~0precise'`).
+
+When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
+
 ## Multiple Database Builds
 
 If you need to run multiple builds using different databases, you can configure environment variables
