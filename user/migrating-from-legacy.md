@@ -74,7 +74,7 @@ addons:
 ```
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result in a log message indicating how to submit sources for approval.
+[safelist](https://github.com/travis-ci/apt-source-safelist), and any attempts to add disallowed sources will result in a log message indicating how to submit sources for approval.
 
 ### Adding APT Packages
 
@@ -88,7 +88,7 @@ addons:
     - time
 ```
 
-The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
+The allowed packages are managed in a [safelist](https://github.com/travis-ci/apt-package-safelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
 
 ## How Do I Install Custom Software?
 
