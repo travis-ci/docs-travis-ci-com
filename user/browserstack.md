@@ -114,7 +114,7 @@ addons:
 
 Some other options that are supported by the add on are,
 
-- **forcelocal**: If this is set to true then all your network traffic will be resolved via the machine where your [BrowserStack Local binary][local-binary] is running (Travis container in this case).
+- **forcelocal**: If this is set to true then all your network traffic will be resolved via the machine where your [BrowserStackLocal binary][local-binary] is running (Travis container in this case).
 - **only**: restricts Local testing access to the specified local servers and/or folders.
 
 Sample usage,
