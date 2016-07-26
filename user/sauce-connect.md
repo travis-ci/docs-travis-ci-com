@@ -9,7 +9,8 @@ mobile testing platform. It integrates well with Selenium, for instance.
 The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
-Note that due to security restrictions, the Sauce Labs addon is not available on pull request builds. See the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests) for full details on why it is disabled.
+Note that due to security restrictions, the Sauce Labs addon is not available on pull 
+request builds unless you use the [JWT Addon](../jwt).
 
 ## Setting up Sauce Connect
 
@@ -52,8 +53,8 @@ all you need to add to your .travis.yml file is this:
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
-[jwt]: http://docs.travis-ci.com/user/jwt/
+[encryption-keys]: ../encryption-keys/
+[jwt]: ../jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
