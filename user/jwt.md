@@ -101,15 +101,15 @@ A code sample which illustrates how to add JWT token authentication to third par
 
 In this example we assume the authentication credentials (using env variables e.g. `SERVICE_USERNAME` + `SERVICE_ACCESS_KEY`) of a RESTful API will be sent as HTTP BASIC AUTH header:
 
-```
+{% highlight none %}
 Authorization: Basic am9obmRvZTpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUow\nY21GMmFYTXRZMmt1YjNKbklpd2ljMngxWnlJNkluUnlZWFpwY3kxamFTOTBjbUYyYVhNdFkya2lM\nQ0p3ZFd4c0xYSmxjWFZsYzNRaU9pSWlMQ0psZUhBaU9qVTBNREFzSW1saGRDSTZNSDAuc29RSmdI\nUjZjR05yOUxqX042eUwyTms1U1F1Zy1oWEdVUGVuSnkxUVRWYw==
-```
+{% endhighlight %}
 
 The HTTP BASIC AUTH header's payload is base64 encoded which will decode to string as follows.
 
-```
+{% highlight none %}
 johndoe:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0cmF2aXMtY2kub3JnIiwic2x1ZyI6InRyYXZpcy1jaS90cmF2aXMtY2kiLCJwdWxsLXJlcXVlc3QiOiIiLCJleHAiOjU0MDAsImlhdCI6MH0.soQJgHR6cGNr9Lj_N6yL2Nk5SQug-hXGUPenJy1QTVc
-```
+{% endhighlight %}
 
 The colon separated string contains the username before the colon and the JWT
 token after the colon. The username is used to retrieve the user object from
