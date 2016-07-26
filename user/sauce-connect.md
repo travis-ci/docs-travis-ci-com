@@ -36,13 +36,14 @@ file:
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
-for more information on encryption), and add the secure string as such:
+for more information on encryption), and add the pull request safe secure (See [JWT Addon][jwt])
+string as such:
 
     addons:
       sauce_connect:
         username: "Your Sauce Labs username"
-        access_key:
-          secure: "The secure string output by `travis encrypt`"
+      jwt:
+        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
@@ -52,6 +53,7 @@ all you need to add to your .travis.yml file is this:
       sauce_connect: true
 
 [encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+[jwt]: http://docs.travis-ci.com/user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -89,6 +91,6 @@ fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/a
     addons:
       sauce_connect:
         username: "Your Sauce Labs username"
-        access_key:
-          secure: "The secure string output by `travis encrypt`"
         direct_domains: example.org,*.foobar.com
+      jwt:
+        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
