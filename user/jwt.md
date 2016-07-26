@@ -22,25 +22,33 @@ token-based authentication.
 
 ### .travis.yml
 
-Add the encrypted key to the `jwt` section of the `.travis.yml`
-file. For example:
+Add the encrypted key to the `jwt` section of the `.travis.yml` file.
+This can be done manually or using the `travis encrypt` command
 
-```yml
+Travis Encrypt:
+
+`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key`
+
+Manually:
+
+{% highlight yaml %}
 addons:
   jwt:
      secure: <SAUCE_ACCESS_KEY ENCRYPTED>
-```
+{% endhighlight %}
 
-You can also configure several services:
+This can also support several services:
 
-```yml
+`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key THIRDPARTY_SHARED_SECRET=another-key`
+
+Manually:
+
+{% highlight yaml %}
 addons:
   jwt:
-     saucelabs:
-        secure: <SAUCE_ACCESS_KEY ENCRYPTED>
-     thirdparty:
-        secure: <THIRDPARTY_SHARED_SECRET ENCRYPTED>
-```
+    - secure: <SAUCE_ACCESS_KEY ENCRYPTED>
+    - secure: <THIRDPARTY_SHARED_SECRET ENCRYPTED>
+{% endhighlight %}
 
 ### Use the Encrypted Key
 
@@ -49,6 +57,10 @@ environment variables containing the JWT tokens instead of the original values.
 
 For example, using the previous configuration `SAUCE_ACCESS_KEY` and
 `THIRDPARTY_SHARED_SECRET` will be available as environment variables.
+
+### How secure is this addon?
+
+Very Secure. The token produced is only valid for 90 minutes, and is signed by but does not contain your secret information.
 
 ### Troubleshooting
 
@@ -70,7 +82,8 @@ In most language JWT compliant libraries are available, making the implementatio
 ### Payload
 
 An example payload used to generate the JWT token:
-```
+
+{% highlight javascript %}
 {
   "iss": "travis-ci.org",
   "slug": "<SLUG>",
@@ -78,7 +91,7 @@ An example payload used to generate the JWT token:
   "exp": <now+5400>,
   "iat": <now>
 }
-```
+{% endhighlight %}
 
 ### Third Party Service Provider Code Sample 
 
@@ -107,7 +120,7 @@ matter whether a JWT token or an access key is passed into the function.
 However, service providers will have to add the JWT auth attempt to an already
 existing authentication mechanism.
 
-```python
+{% highlight python %}
 import jwt
 
 def authenticate(user, access_key):
@@ -125,7 +138,7 @@ def authenticate(user, access_key):
         return bool(jwt.decode(access_key, user['access_key']))
     except (jwt.DecodeError, jwt.ExpiredSignature):
         return False
-```
+{% endhighlight %}
 
 ## List of Third-Party Services Integrated with the JWT Addon
 
@@ -133,11 +146,11 @@ def authenticate(user, access_key):
 
 Add your `SAUCE_USERNAME` as a normal environment variable, and your `SAUCE_ACCESS_KEY` as a JWT token:
 
-```yml
+{% highlight yaml %}
 env:
   - SAUCE_USERNAME=example_username
 addons:
   jwt:
      saucelabs:
         secure: <SAUCE_ACCESS_KEY ENCRYPTED>
-```
+{% endhighlight %}
