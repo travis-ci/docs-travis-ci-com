@@ -136,7 +136,7 @@ and `lein help with-profile` to learn more about the `with-profiles` task.
 
 #### Using a more recent versions of Leiningen
 
-If your CLojure project requires a more recent version of Leiningen, you can specify it with:
+If your Clojure project requires a more recent version of Leiningen, you can specify it with:
 
 ````yaml
 language: clojure
