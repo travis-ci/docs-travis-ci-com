@@ -147,6 +147,8 @@ lein: 2.6.1 # version 2 and up
 The job will install the specified version of Leiningen if it is not pre-installed,
 and move on to install your project's dependencies.
 
+## Example
+
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 ## Build Matrix
