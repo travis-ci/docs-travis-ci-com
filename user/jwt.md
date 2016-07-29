@@ -6,9 +6,10 @@ permalink: /user/jwt/
 
 Integration between Travis-CI and third-party services like Sauce Labs relies
 on [encrypted variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables)
-which works well for trusted branches and committers. For security reasons,
-encrypted variables are not exposed to untrusted pull requests, so third-party
-integrations do not work for pull requests.
+which works well for trusted branches and committers.
+For security reasons, encrypted variables are not exposed to untrusted pull requests,
+so pull requests for third-party integrations will not work.
+
 
 The JWT addon replaces encrypted variables with a time-limited authentication
 token, which is exposed to pull requests without security consequences.
@@ -60,11 +61,12 @@ For example, using the previous configuration `SAUCE_ACCESS_KEY` and
 
 ### How secure is this addon?
 
-Very Secure. The token produced is only valid for 90 minutes, and is signed by but does not contain your secret information.
+Very Secure. The token produced is only valid for 90 minutes. It is signed in such a way to uniquely securely
+pass your secret information without worrying that information is leaked.
 
 ### Troubleshooting
 
-1. Check if the third-party service is supported in the list below.
+1. Check if the third-party service is [supported](#List-of-Third-Party-Services-Integrated-with-the-JWT-Addon)
 2. Contact the third-party support and provide them with the encrypted token (echo the key in your test script), and link to the Travis job.
 
 ## Third-Party Service Integration
@@ -73,11 +75,7 @@ Third-party service needs to implement a new authentication method on the server
 
 ### JWT Libraries
 
-In most language JWT compliant libraries are available, making the implementation straightforward:
-
-- python: https://pypi.python.org/pypi/PyJWT/1.3.0
-- ruby: https://rubygems.org/gems/jwt
-- Check http://jwt.io/ for more
+[JWT.io](https://jwt.io) has a complete list of [supported languages](https://jwt.io/#libraries-io) and documentation on how everything works
 
 ### Payload
 
@@ -99,7 +97,8 @@ A code sample which illustrates how to add JWT token authentication to third par
 
 #### Python
 
-In this example we assume the authentication credentials (using env variables e.g. `SERVICE_USERNAME` + `SERVICE_ACCESS_KEY`) of a RESTful API will be sent as HTTP BASIC AUTH header:
+In this example we assume the authentication credentials (using environment variables
+e.g. `SERVICE_USERNAME` + `SERVICE_ACCESS_KEY`) of a RESTful API will be sent as HTTP BASIC AUTH header:
 
 ```
 Authorization: Basic am9obmRvZTpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUow\nY21GMmFYTXRZMmt1YjNKbklpd2ljMngxWnlJNkluUnlZWFpwY3kxamFTOTBjbUYyYVhNdFkya2lM\nQ0p3ZFd4c0xYSmxjWFZsYzNRaU9pSWlMQ0psZUhBaU9qVTBNREFzSW1saGRDSTZNSDAuc29RSmdI\nUjZjR05yOUxqX042eUwyTms1U1F1Zy1oWEdVUGVuSnkxUVRWYw==
