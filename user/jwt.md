@@ -31,11 +31,11 @@ Travis Encrypt:
 
 Manually:
 
-{% highlight yaml %}
+```yaml
 addons:
   jwt:
      secure: <SAUCE_ACCESS_KEY ENCRYPTED>
-{% endhighlight %}
+```
 
 This can also support several services:
 
@@ -43,12 +43,12 @@ This can also support several services:
 
 Manually:
 
-{% highlight yaml %}
+```yaml
 addons:
   jwt:
     - secure: <SAUCE_ACCESS_KEY ENCRYPTED>
     - secure: <THIRDPARTY_SHARED_SECRET ENCRYPTED>
-{% endhighlight %}
+```
 
 ### Use the Encrypted Key
 
@@ -83,7 +83,7 @@ In most language JWT compliant libraries are available, making the implementatio
 
 An example payload used to generate the JWT token:
 
-{% highlight javascript %}
+```javascript
 {
   "iss": "travis-ci.org",
   "slug": "<SLUG>",
@@ -91,7 +91,7 @@ An example payload used to generate the JWT token:
   "exp": <now+5400>,
   "iat": <now>
 }
-{% endhighlight %}
+```
 
 ### Third Party Service Provider Code Sample 
 
@@ -101,15 +101,15 @@ A code sample which illustrates how to add JWT token authentication to third par
 
 In this example we assume the authentication credentials (using env variables e.g. `SERVICE_USERNAME` + `SERVICE_ACCESS_KEY`) of a RESTful API will be sent as HTTP BASIC AUTH header:
 
-{% highlight none %}
+```
 Authorization: Basic am9obmRvZTpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUow\nY21GMmFYTXRZMmt1YjNKbklpd2ljMngxWnlJNkluUnlZWFpwY3kxamFTOTBjbUYyYVhNdFkya2lM\nQ0p3ZFd4c0xYSmxjWFZsYzNRaU9pSWlMQ0psZUhBaU9qVTBNREFzSW1saGRDSTZNSDAuc29RSmdI\nUjZjR05yOUxqX042eUwyTms1U1F1Zy1oWEdVUGVuSnkxUVRWYw==
-{% endhighlight %}
+```
 
 The HTTP BASIC AUTH header's payload is base64 encoded which will decode to string as follows.
 
-{% highlight none %}
+```
 johndoe:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0cmF2aXMtY2kub3JnIiwic2x1ZyI6InRyYXZpcy1jaS90cmF2aXMtY2kiLCJwdWxsLXJlcXVlc3QiOiIiLCJleHAiOjU0MDAsImlhdCI6MH0.soQJgHR6cGNr9Lj_N6yL2Nk5SQug-hXGUPenJy1QTVc
-{% endhighlight %}
+```
 
 The colon separated string contains the username before the colon and the JWT
 token after the colon. The username is used to retrieve the user object from
@@ -120,7 +120,7 @@ matter whether a JWT token or an access key is passed into the function.
 However, service providers will have to add the JWT auth attempt to an already
 existing authentication mechanism.
 
-{% highlight python %}
+```python
 import jwt
 
 def authenticate(user, access_key):
@@ -138,7 +138,7 @@ def authenticate(user, access_key):
         return bool(jwt.decode(access_key, user['access_key']))
     except (jwt.DecodeError, jwt.ExpiredSignature):
         return False
-{% endhighlight %}
+```
 
 ## List of Third-Party Services Integrated with the JWT Addon
 
@@ -146,11 +146,11 @@ def authenticate(user, access_key):
 
 Add your `SAUCE_USERNAME` as a normal environment variable, and your `SAUCE_ACCESS_KEY` as a JWT token:
 
-{% highlight yaml %}
+```yaml
 env:
   - SAUCE_USERNAME=example_username
 addons:
   jwt:
      saucelabs:
         secure: <SAUCE_ACCESS_KEY ENCRYPTED>
-{% endhighlight %}
+```
