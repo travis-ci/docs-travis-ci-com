@@ -8,7 +8,7 @@ Integration between Travis-CI and third-party services like Sauce Labs relies
 on [encrypted variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables)
 which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
-so pull requests for third-party integrations will not work.
+so builds of pull requests do not have access to third party integrations.
 
 
 The JWT addon replaces encrypted variables with a time-limited authentication
@@ -61,8 +61,8 @@ For example, using the previous configuration `SAUCE_ACCESS_KEY` and
 
 ### How secure is this addon?
 
-Very Secure. The token produced is only valid for 90 minutes. It is signed in such a way to uniquely securely
-pass your secret information without worrying that information is leaked.
+The JWT token is only valid for 90 minutes. It is signed in a way that lets you securely
+transmit your secret information without worrying that it is leaked.
 
 ### Troubleshooting
 
