@@ -27,28 +27,30 @@ $(document).ready(function () {
     var storageContent = window.localStorage.getItem(sectionStorageId);
     var linkStorageId = 'travis-docs-current';
     var linkStorageContent = window.localStorage.getItem(linkStorageId);
-    var anchorWithStoragePath = $('.sidebar-navigation a:contains('+ linkStorageContent +')');
+    var anchorWithStoragePath = $('.sidebar-navigation a[href="'+ linkStorageContent +'"]');
     var currentPath = window.location.pathname;
     var anchorWithCurrentPath = $('a[href="'+ currentPath +'"]');
 
-    var highlightLink = function (node) {
-      return node.addClass('is-active');
-    };
-
     if (currentPath !== '/') {
       if (linkStorageContent && storageContent) {
-        if (anchorWithStoragePath.attr('href') === anchorWithCurrentPath.attr('href')) {
-          highlightLink(anchorWithStoragePath);
+
+        if (anchorWithCurrentPath !== undefined) {
+          if (anchorWithStoragePath.attr('href') === anchorWithCurrentPath.attr('href')) {
+            anchorWithStoragePath.addClass('is-active');
+            $('.sidebar-navigation h3:contains('+ storageContent +')').addClass('is-open');
+            $('.sidebar-navigation h3:contains('+ storageContent +')').next('ul').addClass('is-open');
+          } else {
+            anchorWithCurrentPath.addClass('is-active');
+            anchorWithCurrentPath.parents('ul').addClass('is-open');
+          }      
+        } else {
+          anchorWithStoragePath.addClass('is-active');
           $('.sidebar-navigation h3:contains('+ storageContent +')').addClass('is-open');
           $('.sidebar-navigation h3:contains('+ storageContent +')').next('ul').addClass('is-open');
-        } else {
-          highlightLink(anchorWithCurrentPath);
-          anchorWithCurrentPath.parents('ul').addClass('is-open');
-        }      
-      } else {
-        highlightLink(anchorWithCurrentPath);
-        anchorWithCurrentPath.parents('ul').addClass('is-open');
+        }
+
       }
+      
     } else {
       $('.sidebar-navigation h3:first-of-type').addClass('is-open');
       $('.sidebar-navigation ul:first-of-type').addClass('is-open');
@@ -58,6 +60,7 @@ $(document).ready(function () {
       ev.preventDefault();
       if ($(ev.target).hasClass('is-open')) {
         $('.sidebar-navigation .is-open').removeClass('is-open');
+        window.localStorage.setItem(sectionStorageId, "");
       } else {
         window.localStorage.setItem(sectionStorageId, $(ev.target).text());
         $('.sidebar-navigation .is-open').removeClass('is-open');
@@ -71,7 +74,7 @@ $(document).ready(function () {
     });
 
     $('.sidebar-navigation a').click(function(ev) {
-      window.localStorage.setItem(linkStorageId, $(ev.target).text());
+      window.localStorage.setItem(linkStorageId, $(ev.target).attr('href'));
       $('.sidebar-navigation a.is-active').removeClass('is-active');
       $(this).addClass('is-active');
     });
