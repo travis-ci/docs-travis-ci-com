@@ -7,8 +7,7 @@ Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross 
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
 
-This add-on automatically sets up [BrowserStack Local][local-testing] which allows you to test your private servers, alongside public
-URLs, using the BrowserStack cloud. To do this it uses the [BrowserStackLocal binary][local-binary] for your build platform.
+This add-on automatically sets up [BrowserStack Local][local-testing] which allows you to test your private servers alongside public URLs, using the BrowserStack cloud. To do this it uses the [BrowserStackLocal binary][local-binary] for your build platform.
 
 [BrowserStack Local][local-testing] establishes a secure connection between your Travis build container/VM
 and BrowserStack servers. Local Testing also has support for firewalls, proxies and Active Directory.
@@ -114,7 +113,7 @@ addons:
 
 Some other options that are supported by the add on are,
 
-- **forcelocal**: If this is set to true then all your network traffic will be resolved via the machine where your [BrowserStackLocal binary][local-binary] is running (Travis container in this case).
+- **forcelocal**: If this is set to true then all network traffic will be resolved via the Travis CI container/VM.
 - **only**: restricts Local testing access to the specified local servers and/or folders.
 
 Sample usage,
