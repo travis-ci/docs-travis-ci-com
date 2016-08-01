@@ -33,24 +33,18 @@ $(document).ready(function () {
 
     if (currentPath !== '/') {
       if (linkStorageContent && storageContent) {
-
-        if (anchorWithCurrentPath !== undefined) {
-          if (anchorWithStoragePath.attr('href') === anchorWithCurrentPath.attr('href')) {
-            anchorWithStoragePath.addClass('is-active');
-            $('.sidebar-navigation h3:contains('+ storageContent +')').addClass('is-open');
-            $('.sidebar-navigation h3:contains('+ storageContent +')').next('ul').addClass('is-open');
-          } else {
-            anchorWithCurrentPath.addClass('is-active');
-            anchorWithCurrentPath.parents('ul').addClass('is-open');
-          }      
-        } else {
+        if (anchorWithStoragePath.attr('href') === anchorWithCurrentPath.attr('href')) {
           anchorWithStoragePath.addClass('is-active');
           $('.sidebar-navigation h3:contains('+ storageContent +')').addClass('is-open');
           $('.sidebar-navigation h3:contains('+ storageContent +')').next('ul').addClass('is-open');
-        }
-
+        } else {
+          anchorWithCurrentPath.addClass('is-active');
+          anchorWithCurrentPath.parents('ul').addClass('is-open');
+        }      
+      } else {
+        anchorWithCurrentPath.addClass('is-active');
+        anchorWithCurrentPath.parents('ul').addClass('is-open');
       }
-      
     } else {
       $('.sidebar-navigation h3:first-of-type').addClass('is-open');
       $('.sidebar-navigation ul:first-of-type').addClass('is-open');
