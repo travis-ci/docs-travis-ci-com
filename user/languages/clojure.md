@@ -134,8 +134,22 @@ multiple profiles (and thus, multiple dependency sets or Clojure versions), use 
 where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
 and `lein help with-profile` to learn more about the `with-profiles` task.
 
-For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
+#### Using a more recent versions of Leiningen
 
+If your Clojure project requires a more recent version of Leiningen, you can specify it with:
+
+````yaml
+language: clojure
+
+lein: 2.6.1 # version 2 and up
+```
+
+The job will install the specified version of Leiningen if it is not pre-installed,
+and move on to install your project's dependencies.
+
+## Example
+
+For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 ## Build Matrix
 

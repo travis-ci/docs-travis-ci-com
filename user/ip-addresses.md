@@ -4,7 +4,7 @@ layout: en
 permalink: /user/ip-addresses/
 ---
 
-Knowing the IP addresses of the build machines Travis CI uses can be helpful when you need them whitelisted to access your internal resources. Since builds run in a variety of different infrastructures, the IP ranges to whitelist depend on the infrastructure your builds are running on:
+Knowing the IP addresses of the build machines Travis CI uses can be helpful when you need them safelisted to access your internal resources. Since builds run in a variety of different infrastructures, the IP ranges to safelist depend on the infrastructure your builds are running on:
 
 Infrastructure | IP ranges
 -------------- | ---------
