@@ -55,13 +55,18 @@ $(document).ready(function () {
     }
 
     $('.sidebar-navigation nav h3').click(function(ev) {
-      window.localStorage.setItem(sectionStorageId, $(ev.target).text());
-      $('.sidebar-navigation .is-open').removeClass('is-open');
-      $(this).addClass('is-open');
-      $(this).next('ul').addClass('is-open');
-      
-      if ($(ev.target).offset().top < $(window).scrollTop()) {
-        $('body').animate({scrollTop: $(ev.target).offset().top});
+      ev.preventDefault();
+      if ($(ev.target).hasClass('is-open')) {
+        $('.sidebar-navigation .is-open').removeClass('is-open');
+      } else {
+        window.localStorage.setItem(sectionStorageId, $(ev.target).text());
+        $('.sidebar-navigation .is-open').removeClass('is-open');
+        $(this).addClass('is-open');
+        $(this).next('ul').addClass('is-open');
+        
+        if ($(ev.target).offset().top < $(window).scrollTop()) {
+          $('body').animate({scrollTop: $(ev.target).offset().top});
+        }
       }
     });
 
@@ -70,6 +75,7 @@ $(document).ready(function () {
       $('.sidebar-navigation a.is-active').removeClass('is-active');
       $(this).addClass('is-active');
     });
+
   }();
 
   
