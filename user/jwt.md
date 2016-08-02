@@ -83,7 +83,7 @@ An example payload used to generate the JWT token:
 
 ```javascript
 {
-  "iss": "travis-ci.org",
+  "iss": "Travis CI, GmbH",
   "slug": "<SLUG>",
   "pull-request": "<PR>",
   "exp": <now+5400>,
