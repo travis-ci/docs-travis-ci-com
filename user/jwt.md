@@ -84,12 +84,19 @@ An example payload used to generate the JWT token:
 ```javascript
 {
   "iss": "Travis CI, GmbH",
-  "slug": "<SLUG>",
-  "pull-request": "<PR>",
-  "exp": <now+5400>,
-  "iat": <now>
+  "slug": "saucelabs-sample-test-frameworks/Java-TestNG-Selenium",
+  "pull-request": 15,
+  "exp": 1470111801,
+  "iat": 1470106401
 }
 ```
+
+Where:
+
+ * `slug` will be the travis link slug
+ * `pull-request` will be empty(`""`) or the pull request integer
+ * `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
+ * `iat` is the issued at time (now)
 
 ### Third Party Service Provider Code Sample 
 
