@@ -86,7 +86,7 @@ addons:
     packages:
       - graphviz
 
-before install:
+before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install graphviz; fi
 
