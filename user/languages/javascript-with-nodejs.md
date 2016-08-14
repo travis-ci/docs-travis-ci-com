@@ -212,7 +212,7 @@ to construct a build matrix.
 
 ## Node.js v4 (or io.js v3) compiler requirements
 
-To compile native modules for io.js v3 or Node.js v4, a
+To compile native modules for io.js v3 or Node.js v4 or later, a
 [C++11 standard](https://en.wikipedia.org/wiki/C%2B%2B11)-compliant compiler is required. More specifically, either gcc 4.8 (or later), or clang 3.5 (or later) works.
 
 Our Trusty images have gcc and clang that meet this requirement, but the Precise image does not.
