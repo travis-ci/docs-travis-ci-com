@@ -2,7 +2,7 @@ osx_images:
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
-    xcode_full_version: "8beta4"
+    xcode_full_version: "8beta6"
     sdks:
       - macosx10.11
       - iphoneos10.0
