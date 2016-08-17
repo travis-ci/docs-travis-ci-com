@@ -103,6 +103,13 @@ The following table summarizes the differences between the virtual environments:
 <td>1</td>
 <td>~2, bursted</td>
 </tr>
+<tr>
+<td>Disk</td>
+<td>30 Gb (Available: 22 Gb)</td>
+<td>19 Gb (Available: 13 Gb)</td>
+<td>40 Gb (Available: 10 Gb)</td>
+<td>30 Gb (Available: 12 Gb)</td>
+</tr>
 </tbody></table>
 </div>
 
