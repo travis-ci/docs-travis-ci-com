@@ -104,7 +104,7 @@ The following table summarizes the differences between the virtual environments:
 <td>~2, bursted</td>
 </tr>
 <tr>
-<td>Disk</td>
+<td>Disk<sup>*</sup></td>
 <td>30 GB (Available: 22 GB)</td>
 <td>19 GB (Available: 13 GB)</td>
 <td>40 GB (Available: 10 GB)</td>
@@ -112,6 +112,9 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 </tbody></table>
 </div>
+
+<sup>*</sup> The available space will differ between language runtimes. These
+figures were taken with `language: ruby`.
 
 All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure.
 
