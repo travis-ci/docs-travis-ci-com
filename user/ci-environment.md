@@ -105,10 +105,10 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Disk</td>
-<td>30 Gb (Available: 22 Gb)</td>
-<td>19 Gb (Available: 13 Gb)</td>
-<td>40 Gb (Available: 10 Gb)</td>
-<td>30 Gb (Available: 12 Gb)</td>
+<td>30 GB (Available: 22 GB)</td>
+<td>19 GB (Available: 13 GB)</td>
+<td>40 GB (Available: 10 GB)</td>
+<td>30 GB (Available: 12 GB)</td>
 </tr>
 </tbody></table>
 </div>
