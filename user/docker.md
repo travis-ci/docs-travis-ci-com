@@ -180,4 +180,4 @@ before_install:
 #### Examples
 
 * [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
-* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
+* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)

@@ -141,17 +141,20 @@ The Travis CI build environments use version 9.1 by default, but other versions 
 
 ```yaml
 addons:
-  postgresql: "9.1"
+  postgresql: "9.4"
 ```
 
-The following patch releases are available:
+XXX: OSX
+The following versions are available:
 
-| Version | yaml in `.travis.yml`
-| ------- | :-------------------:
-| 9.1.15  | `postgresql: "9.1"`
-| 9.2.10  | `postgresql: "9.2"`
-| 9.3.6   | `postgresql: "9.3"`
-| 9.4.1   | `postgresql: "9.4"`
+PostgreSQL  | sudo enabled precise | sudo enabled trusty | container precise
+----------------------------------------------------------------------------
+9.1         | yes                  | yes                 | yes      
+9.2         | yes                  | yes                 | yes      
+9.3         | yes                  | yes                 | yes      
+9.4         | yes                  | yes                 | yes      
+9.5         |                      | yes                 |          
+
 
 ### Using PostGIS
 
