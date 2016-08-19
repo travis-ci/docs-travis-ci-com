@@ -144,16 +144,28 @@ addons:
   postgresql: "9.4"
 ```
 
-XXX: OSX
-The following versions are available:
+The following versions are available on Linux builds:
 
 PostgreSQL  | sudo enabled precise | sudo enabled trusty | container precise
 ----------------------------------------------------------------------------
-9.1         | yes                  | yes                 | yes      
-9.2         | yes                  | yes                 | yes      
-9.3         | yes                  | yes                 | yes      
-9.4         | yes                  | yes                 | yes      
-9.5         |                      | yes                 |          
+9.1         | yes                  | yes                 | yes              
+9.2         | yes                  | yes                 | yes              
+9.3         | yes                  | yes                 | yes              
+9.4         | yes                  | yes                 | yes              
+9.5         |                      | yes                 |                  
+
+
+On OSX, the following versions are installed:
+
+image    | version
+------------------
+xcode61  | 9.3
+xcode6.4 | 9.4
+xcode7   | 9.4
+xcode7.1 | 9.4
+xcode7.2 | 9.5
+xcode7.3 | 9.5
+xcode8   | 9.5
 
 
 ### Using PostGIS
