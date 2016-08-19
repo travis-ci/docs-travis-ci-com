@@ -52,7 +52,7 @@ Here's an example of how to structure a build command for this purpose:
 
 ```yaml
 script:
-   - 'if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then bash ./travis/run_on_pull_requests; fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
 ```
 
