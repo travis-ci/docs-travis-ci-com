@@ -38,6 +38,7 @@ cache: packages
 ```
 
 If you do _not_ see
+
 ```
 This job is running on container-based infrastructure, which does not allow use of
 'sudo', setuid and setguid executables.
@@ -56,10 +57,15 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions ###
 
-Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise
-builds. The names `oldrel` and `3.1` are aliased to `3.1.2` and the names
-`release` and `3.2` are aliased to `3.2.3`. Matrix builds _are_ supported for R
-builds, however both instances of `r` must be in _lowercase_.
+Travis CI supports R versions `3.1.3` and above on Linux Precise
+builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
+addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
+`3.3.0`. `devel` is built off of the [R git
+mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
+hourly).
+
+Matrix builds _are_ supported for R builds, however both instances of `r` must
+be in _lowercase_.
 
 ```yaml
 language: r
@@ -72,8 +78,8 @@ r:
 As new minor versions are released, aliases will float and point to the most
 current minor release.
 
-For exact versions used for a build, please consult "Build system information"
-in the build log.
+The exact R version used for each build is included in the 'R session information'
+fold within the build log.
 
 ### Dependencies
 
@@ -104,6 +110,9 @@ packages listed in the LaTeX error message and search for them on [CTAN][ctan].
 Packages often have a `Contained in:` field that indicates the package group
 you need to install.
 
+If LaTeX is not needed, installation can be disabled using `latex: false`.
+
+
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
@@ -113,6 +122,34 @@ desired version.
 ```yaml
 language: r
 pandoc_version: 1.16
+```
+
+If Pandoc is not needed, installation can be disabled using `pandoc: false`.
+
+### APT packages
+
+Use the [APT addon][apt-addon]
+to install APT packages on both container-based (`sudo: false`)
+and standard (`sudo: required`) infrastructures.
+The snippet below installs a prerequisite for the R package `xml2`:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - libxml2-dev
+```
+
+Note that the APT package needs to be white-listed for this to work
+on container-based infrastructure.
+This option is ignored on non-Linux builds.
+
+An alternative that works only on standard infrastructure is
+the `apt_packages` field:
+
+```yaml
+apt_packages:
+  - libxml2-dev
 ```
 
 ### Package check options
@@ -170,6 +207,22 @@ repos:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+* `disable_homebrew`: if `true` this removes the preinstalled homebrew
+  installation on OS X. Useful to test if the package builds on a vanilla OS X
+  machine, such as the CRAN mac builder.
+
+
+### Environment Variables ###
+R-Travis sets the following additional environment variables from the [Travis
+defaults](/user/environment-variables/#Default-Environment-Variables).
+
+- `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
+- `R_LIBS_USER=~/R/Library`
+- `R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/lib/R/site-library`
+- `_R_CHECK_CRAN_INCOMING_=false`
+- `NOT_CRAN=true`
+- `R_PROFILE=~/.Rprofile.site`
+
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
@@ -181,9 +234,7 @@ top-level entry in your `.travis.yml`; entries in these lists will be
 installed before building and testing your package. Note that these lists are
 processed in order, so entries can depend on dependencies in a previous list.
 
-* `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds and will not work if `sudo: false`.
+* `apt_packages`: See above
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
@@ -205,6 +256,9 @@ processed in order, so entries can depend on dependencies in a previous list.
   using `devtools::install_github` from the
   [devtools package][github 8]. The package names
   here should be of the form `user/repo`.
+  If the package is installed in a subdirectory, use `user/repo/subdirectory`.
+  An alternative is to add `user/repo` or `user/repo/folder` to
+  the `Remotes` section of the `DESCRIPTION` file of your package
 
 ## Examples
 
@@ -225,6 +279,34 @@ change to the subdirectory prior to running the `install` or `script` steps.
 language: r
 before_install:
   - cd subdirectory
+```
+
+### Remote package
+
+If your package depends on another repository you can use `r_github_packages` in this way:
+
+```yaml
+r_github_packages: user/repo
+```
+
+An alternative is to add the following line to your `DESCRIPTION` file:
+
+```yaml
+Remotes: user/repo
+```
+
+### Remote package in a subdirectory
+
+If your package depends on another repository which holds the package in a subdirectory, you can use `r_github_packages` in this way:
+
+```yaml
+r_github_packages: user/repo/folder
+```
+
+An alternative is to add the following line to your `DESCRIPTION` file:
+
+```yaml
+Remotes: user/repo/folder
 ```
 
 ## Converting from r-travis
@@ -259,3 +341,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 [tug]: https://www.tug.org/texlive/
 [yihui]: http://yihui.name/knitr/
+[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon

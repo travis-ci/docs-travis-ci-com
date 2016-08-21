@@ -42,7 +42,7 @@ Here is an example `.travis.yml` for an Android project:
         - build-tools-19.1.0
 
         # The SDK version used to compile your project
-        - android-19
+        - android-22
 
         # Additional components
         - extra-google-google_play_services
@@ -52,7 +52,7 @@ Here is an example `.travis.yml` for an Android project:
 
         # Specify at least one system image,
         # if you need to run emulator(s) during your tests
-        - sys-img-armeabi-v7a-android-19
+        - sys-img-armeabi-v7a-android-22
         - sys-img-x86-android-17
 
 
@@ -95,7 +95,9 @@ For more flexibility, the licenses can also be referenced with regular expressio
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
 - platform-tools
-- build-tools-21.1.1
+- build-tools-22.0.1
+- android-22
+- sys-img-armeabi-v7a-android-22
 - android-21
 - sys-img-armeabi-v7a-android-21
 - android-20
@@ -124,7 +126,7 @@ If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-fo
 
     # Emulator Management: Create, Start and Wait
     before_script:
-      - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+      - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
       - emulator -avd test -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
@@ -190,7 +192,7 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 
 ## Examples
 
-* [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml) (Google Guice on Android)
+* [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml) (Google Guide on Android)
 * [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml) (A platform for developing apps using JRuby on Android)
 * [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 * [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml) (the wait for the emulator must be fixed)

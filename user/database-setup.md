@@ -130,7 +130,6 @@ test:
 
 If your local test setup uses different credentials or settings to access the local test database, we recommend putting these settings in a `database.yml.travis` in your repository and copying that over as part of your build:
 
-  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb
 ```yaml
 before_script:
   - cp config/database.yml.travis config/database.yml
@@ -142,17 +141,35 @@ The Travis CI build environments use version 9.1 by default, but other versions 
 
 ```yaml
 addons:
-  postgresql: "9.1"
+  postgresql: "9.4"
 ```
 
-The following patch releases are available:
+The following versions are available on Linux builds:
 
-| Version | yaml in `.travis.yml`
-| ------- | :-------------------:
-| 9.1.15  | `postgresql: "9.1"`
-| 9.2.10  | `postgresql: "9.2"`
-| 9.3.6   | `postgresql: "9.3"`
-| 9.4.1   | `postgresql: "9.4"`
+|PostgreSQL  | sudo enabled precise | sudo enabled trusty | container precise|
+|    :---:   |       :--------:     |   :-------------:   |     :-------:    |
+|9.1         | yes                  | yes                 | yes              |
+|9.2         | yes                  | yes                 | yes              |
+|9.3         | yes                  | yes                 | yes              |
+|9.4         | yes                  | yes                 | yes              |
+|9.5         |                      | yes                 |                  |
+
+
+On OSX, the following versions are installed:
+
+|    image     | version|
+|    :---:     |  :---: |
+|xcode61       | 9.3    |
+|beta-xcode6.3 | 9.4    |
+|beta-xcode6.2 | 9.4    |
+|beta-xcode6.1 | 9.3    |
+|xcode6.4      | 9.4    |
+|xcode7        | 9.4    |
+|xcode7.1      | 9.4    |
+|xcode7.2      | 9.5    |
+|xcode7.3      | 9.5    |
+|xcode8        | 9.5    |
+
 
 ### Using PostGIS
 

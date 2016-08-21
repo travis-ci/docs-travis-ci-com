@@ -248,6 +248,17 @@ versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 The same technique is often applied to test against multiple databases, templating
 engines, hosted service providers and so on.
 
+### `$BUNDLE_GEMFILE` environment variable
+
+When `gemfile` is thus defined *and* the file exists in the repository,
+we define the environment variable `$BUNDLE_GEMFILE`, which `bundle install`
+uses to resolve dependencies.
+
+If you need to work with multiple Gemfiles within a single job, you would
+need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
+
+    bundle install --gemfile=my_gemfile
+
 ## Testing against multiple JDKs (JRuby)
 
 It is possible to test projects against multiple JDKs, namely

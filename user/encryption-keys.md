@@ -11,7 +11,7 @@ to encrypt information which you will want to put into the `.travis.yml` file an
 still keep it private. Currently we allow encryption of
 [environment variables](/user/environment-variables/), notification settings, and deploy api keys.
 
-**Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#Security-Restrictions-when-testing-Pull-Requests).**
+**Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
 
 ## Usage
 
@@ -65,7 +65,8 @@ We want to add campfire notifications to our .travis.yml file, but we don't want
 The entry should be in this format:
 
     notifications:
-      campfire: [subdomain]:[api token]@[room id]
+      campfire: 
+        rooms: [subdomain]:[api token]@[room id]
 
 For us, that is somedomain:abcxyz@14.
 

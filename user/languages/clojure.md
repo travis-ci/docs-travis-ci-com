@@ -64,6 +64,19 @@ Please note that for projects that only support Clojure 1.3.0 and later versions
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
+### Using Speclj on travis-ci.org
+
+If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this `script:` line in `.travis.yml`:
+
+    script: lein spec
+
+For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
+
+    :dev-dependencies [[speclj "3.3.1"]]
+
+Leiningen 2 replaces `:dev-dependencies` with profiles:
+
+    :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 
 ## Using Leiningen 1
 
@@ -121,8 +134,22 @@ multiple profiles (and thus, multiple dependency sets or Clojure versions), use 
 where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
 and `lein help with-profile` to learn more about the `with-profiles` task.
 
-For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
+#### Using a more recent versions of Leiningen
 
+If your Clojure project requires a more recent version of Leiningen, you can specify it with:
+
+````yaml
+language: clojure
+
+lein: 2.6.1 # version 2 and up
+```
+
+The job will install the specified version of Leiningen if it is not pre-installed,
+and move on to install your project's dependencies.
+
+## Example
+
+For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 ## Build Matrix
 

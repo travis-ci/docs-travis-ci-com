@@ -46,6 +46,10 @@ $(document).ready(function() {
       $('.sidebar-navigation .is-open').removeClass('is-open');
       $(this).addClass('is-open');
       $(this).next('ul').addClass('is-open');
+      
+      if ($(ev.target).offset().top < $(window).scrollTop()) {
+        $('body').animate({scrollTop: $(ev.target).offset().top});
+      }
     });
 
     $('.sidebar-navigation a').click(function(ev) {

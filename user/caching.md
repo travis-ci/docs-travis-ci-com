@@ -4,8 +4,6 @@ layout: en
 permalink: /user/caching/
 ---
 
-The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
-
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
@@ -13,7 +11,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 ## Cache content can be accessed by pull requests
 
 Do note that cache content will be available to any build on the repository, including Pull Requests.
-Do exercise caution not to put any sensitive information in the cache, lest malicious attacker may expose it.
+Do exercise caution not to put any sensitive information in the cache, lest a malicious attacker potentially exposes it.
 
 ## Caching directories (Bundler, dependencies)
 
@@ -127,6 +125,17 @@ cache: packages
 
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
+### Rust Cargo cache
+For caching Cargo packages, use:
+
+```yaml
+language: rust
+
+cache: cargo
+```
+
+This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
+
 ### Arbitrary directories
 
 You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
@@ -148,74 +157,65 @@ The cache's purpose is to make installing language-specific dependencies easy
 and fast, so everything related to tools like Bundler, pip, Composer, npm,
 Gradle, Maven, is what should go into the cache.
 
-For other things, the cache won't be an improvement. Installing them usually
-takes only short amounts of time, but downloading them will be the same speed
-when pulled from the cache as it will be from their original source. You
-possibly won't see a speedup putting them into the cache.
-
-Things like:
+Large files that are quick to install but slow to download do not benefit from caching, as they take as long to download from the cache as from the original source:
 
 * Android SDKs
 * Debian packages
 * JDK packages
 * Compiled binaries
 
-Anything that's commonly not changing is better suited for something like our APT
-caching proxy. Please shoot us an [email](mailto:support@travis-ci.com) and
-we'll see about adding your custom source to our cache.
+## Fetching and storing caches
 
-### Fetching and storing caches
-
-* Travis CI fetches the cache for every build, including feature branches and pull requests.
+* Travis CI fetches the cache for every build, including branches and pull requests.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
-* Pull requests use the cache of the target of the pull request.
-* If a branch does not have its own cache yet, it uses the master branch cache (unless it is a pull request, see above).
+* If a branch does not have its own cache, Travis CI fetches the master branch cache.
 * Only modifications made to the cached directories from normal pushes are stored.
 
-### `before_cache` phase
+### Pull request builds and caches
 
-When using caches, it may be useful to run command just prior to uploading
+Pull request builds check the following cache locations in order, using the first one present:
+
+* The pull request cache.
+* The pull request target branch cache.
+* The repository default branch cache.
+
+If none of the previous locations contain a valid cache, the build creates a new pull request cache after the build.
+
+> Note that if a repository has "build pushes" set to "off", neither the target branch nor the master branch can ever be cached.
+
+### before_cache phase
+
+When using caches, it may be useful to run a command just before uploading
 the new cache archive.
-For example, the dependency management utility may write log files into the directory
-you are watching, and you would do well to ignore these.
 
-For this purpose, you can use `before_cache` phase.
+For example, the dependency management utility may write log files into the directory you are caching and you do not want them to affect the cache. Use the `before_cache` phase to delete the log files:
 
 ```yaml
 cache:
   directories:
     - $HOME/.cache/pip
-⋮
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
 
-Failures in this stage does not mark the job a failure.
+Failure in this phase does not mark the job as failed.
 
 ### Clearing Caches
 
-Sometimes you spoil your cache by storing bad data in one of the cached directories.
+Sometimes you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
 
-Caches can also become invalid if language runtimes change and the cache contains
-native extensions.
-(This often manifests as segmentation faults.)
+Use one of the following ways to access your cache and delete it if necessary:
 
-You can access caches in one of the two ways.
-Each method also gives you a means of deleting caches.
-
-1. On the web https://travis-ci.com/OWNER/REPOSITORY/caches for private repositories
-or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
-which is accessible from the Settings
-menu
+* The settings page of your repository on [https://travis-ci.org](https://travis-ci.org) (or .com if you're using a private repository)
 
     ![Image of cache UI](/images/caches-item.png)
 
-2. With [command line client](https://github.com/travis-ci/travis#readme):
+* The [command line client](https://github.com/travis-ci/travis#readme)
 
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 
-There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
+* The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
 
@@ -226,15 +226,16 @@ When you want to enable multiple caching features, you can list them as an array
 ```yaml
 cache:
 - bundler
-- apt
+- pip
 ```
 
-This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
+This does not work when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
 
 ```yaml
 cache:
   bundler: true
   directories:
+  - node_modules # NPM packages
   - vendor/something
   - .autoconf
 ```
@@ -252,12 +253,12 @@ It is also possible to disable a single caching mode:
 ```yaml
 cache:
   bundler: false
-  apt: true
+  pip: true
 ```
 
 ### Setting the timeout
 
-Caching has a timeout set to 5 minutes by default. The timeout is there in order
+Caching has a timeout set to 3 minutes by default. The timeout is there in order
 to guard against any issues that may result in a stuck build. Such issues may be
 caused by a network issue between worker servers and S3 or even by a cache being
 to big to pack it and upload it in timely fashion. There are, however,
@@ -269,6 +270,32 @@ property with a desired time in seconds:
 cache:
   timeout: 1000
 ```
+
+## Caches and build matrices
+
+When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
+some characteristics of each job are used to identify the cache each of the
+jobs should use.
+
+These factors are:
+
+1. OS name (currently, `linux` or `osx`)
+1. OS distribution (for Linux, `precise` or `trusty`)
+1. OS X image name (e.g., `xcode7.2`)
+1. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+1. Language runtime version (for the language specified in the `language` key) if applicable
+1. For Bundler-aware jobs, the name of the `Gemfile` used
+
+If these characteristics are shared by more than one job in a build matrix,
+they will share the same URL on the network.
+This could corrupt the cache, or the cache may contain files that are not
+usable in all jobs using it.
+In this case, we advise you to add a defining public environment variable
+name; e.g.,
+
+    CACHE_NAME=JOB1
+
+to `.travis.yml`.
 
 ## How does the caching work?
 

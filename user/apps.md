@@ -280,13 +280,6 @@ By ThoughtWorks Inc.
 
 ![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
 
-### Screensaver Ninja
-
-Screensaver that displays websites with the ability to have custom CSS and JavaScript.<br>
-By [Carousel Apps](https://carouselapps.com)
-
-* [website](https://Screensaver.Ninja)
-* [CSS recipe for Travis CI](https://screensaver.ninja/knowledge-base/travis-ci/)
 
 ## Linux
 
@@ -333,6 +326,16 @@ Check CI-server build statuses<br>
 By Will Mendes.
 
 * [website](https://github.com/willmendesneto/build-checker-app#readme)
+
+### CatLight
+
+![CatLight Build Status](/images/apps/catlight-tray.png){:.app}
+
+Shows build status in tray / menu bar<br>
+By catlight.io
+
+* [website](https://catlight.io)
+
 
 <a name='commandline'></a>
 

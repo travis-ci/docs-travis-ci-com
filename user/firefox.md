@@ -6,6 +6,9 @@ permalink: /user/firefox/
 
 Our 64-bit Linux VMs include a recent version of Firefox, currently 31.0esr.
 
+While Firefox is not pre-installed on OS X images, you can use this addon to set it up for use
+on your builds.
+
 ## Selecting a Firefox version
 
 To install a specific version of Firefox, you can use the Firefox addon. The addon will download and install Firefox before running your build script.

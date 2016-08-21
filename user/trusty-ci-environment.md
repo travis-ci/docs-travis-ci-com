@@ -210,7 +210,12 @@ You can install other Ubuntu packages using `apt-get`, or add third party PPAs o
 
 We pre-install the following services and they can be activated with the built-in [services](/user/database-setup/) support.
 
-* PostgreSQL 9.4.5
+* PostgreSQL
+  - 9.1.23 (default)
+  - 9.2.18
+  - 9.3.14
+  - 9.4.9
+  - 9.5.4
 * SQLite 3.8.2
 * Redis 3.0.4
 
@@ -221,6 +226,7 @@ The following services that are included with our Precise images are **not inclu
 - Apache Cassandra
 - CouchDB
 - Neo4J
+- MongoDB
 
 ### Firefox
 
