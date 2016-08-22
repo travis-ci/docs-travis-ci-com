@@ -355,7 +355,7 @@ services:
   - riak
 ```
 
-Riak uses the default configuration apart from the storage backend, which is [LevelDB](http://docs.basho.com/riak/latest/ops/advanced/backends/leveldb/).
+Riak uses the default configuration apart from the storage backend, which is [LevelDB](http://docs.basho.com/riak/kv/2.1.4/setup/planning/backend/leveldb/).
 
 Riak Search is enabled.
 
