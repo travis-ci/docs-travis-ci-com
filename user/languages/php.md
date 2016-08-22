@@ -89,8 +89,8 @@ If your project uses something other than PHPUnit, [you can override our default
 Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
 ```yaml
-before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
-script: php mageekguy.atoum.phar
+before_script: composer require atoum/atoum
+script: vendor/bin/atoum
 ```
 
 ## Dependency Management (a.k.a. vendoring)
