@@ -212,7 +212,7 @@ iOS version of Mantis CI<br>
 By Hari Menon
 
 * [website](http://floydpink.github.io/Mantis-CI/)
-* [app store](https://itunes.apple.com/us/app/travis-ci-mobile/id665742482?mt=8&ign-mpt=uo%3D4)
+* [app store](https://itunes.apple.com/us/app/travis-ci-mobile/id665742482)
 * [source code](https://github.com/floydpink/Mantis-CI-iOS)
 
 
@@ -223,7 +223,7 @@ By Hari Menon
 iPhone app that monitors public and private builds<br>
 By Dimitri Roche
 
-* [app store](https://itunes.apple.com/us/app/project-monitor/id857272990?ls=1&mt=8)
+* [app store](https://itunes.apple.com/us/app/project-monitor/id857272990)
 * [source code](https://github.com/dimroc/iOS.ProjectMonitor)
 
 ### Siren of Shame (iOS)
@@ -234,7 +234,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 * [website](http://sirenofshame.com/)
-* [app store](https://itunes.apple.com/us/app/siren-of-shame/id637677118?ls=1&mt=8)
+* [app store](https://itunes.apple.com/us/app/siren-of-shame/id637677118)
 
 ## Windows Phone
 
@@ -275,7 +275,7 @@ OS X status bar app<br>
 By ThoughtWorks Inc.
 
 * [website](http://ccmenu.org/)
-* [app store](https://itunes.apple.com/us/app/ccmenu/id603117688?mt=12&ign-mpt=uo%3D4)
+* [app store](https://itunes.apple.com/us/app/ccmenu/id603117688)
 * [tutorial](/user/cc-menu/)
 
 ![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
