@@ -5,6 +5,8 @@ branches:
   only:
   - gh-pages
 cache: bundler
+before_install:
+- curl -SLi 'https://itunes.apple.com/us/app/ccmenu/id603117688'
 
 deploy:
   provider: heroku
