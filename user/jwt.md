@@ -18,7 +18,7 @@ For this to work the JWT addon needs to be enabled in the `.travis.yml` file,
 and the third-party need to have integrated with the JWT service and allow
 token-based authentication.
 
-<img src="../images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
+<img src="/user/images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
 
 
 ### .travis.yml
@@ -98,7 +98,7 @@ Where:
  * `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
  * `iat` is the issued at time (now)
 
-### Third Party Service Provider Code Sample 
+### Third Party Service Provider Code Sample
 
 A code sample which illustrates how to add JWT token authentication to third party services.
 
