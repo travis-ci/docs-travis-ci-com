@@ -9,7 +9,8 @@ mobile testing platform. It integrates well with Selenium, for instance.
 The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
-Note that due to security restrictions, the Sauce Labs addon is not available on pull request builds. See the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests) for full details on why it is disabled.
+Note that due to security restrictions, the Sauce Labs addon is not available on pull 
+request builds unless you use the [JWT Addon](../jwt).
 
 ## Setting up Sauce Connect
 
@@ -36,13 +37,14 @@ file:
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
-for more information on encryption), and add the secure string as such:
+for more information on encryption), and add the pull request safe secure (See [JWT Addon][jwt])
+string as such:
 
     addons:
       sauce_connect:
         username: "Your Sauce Labs username"
-        access_key:
-          secure: "The secure string output by `travis encrypt`"
+      jwt:
+        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
@@ -51,7 +53,8 @@ all you need to add to your .travis.yml file is this:
     addons:
       sauce_connect: true
 
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+[encryption-keys]: ../encryption-keys/
+[jwt]: ../jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -89,6 +92,6 @@ fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/a
     addons:
       sauce_connect:
         username: "Your Sauce Labs username"
-        access_key:
-          secure: "The secure string output by `travis encrypt`"
         direct_domains: example.org,*.foobar.com
+      jwt:
+        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
