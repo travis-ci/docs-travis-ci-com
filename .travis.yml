@@ -1,9 +1,6 @@
 language: ruby
 sudo: false
 rvm: 2.3.1
-branches:
-  only:
-  - gh-pages
 cache: bundler
 
 addons:
