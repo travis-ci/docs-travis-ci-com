@@ -403,54 +403,6 @@ Other flags, like `on_success` and `on_failure` also work like the IRC notificat
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Sqwiggle notifications
-
-With [Sqwiggle](https://www.sqwiggle.com), you can combine Travis CI build
-notifications with the joys of seeing your team mates faces when they break or
-fix the build.
-
-To get started, you need to create an [API token for the Sqwiggle
-API](https://www.sqwiggle.com/company/clients). It's sufficient to create a
-stream client only, as that will have the least permissions.
-
-Next you need to figure out with rooms to send the notifications to.
-
-You can use the room's name in the URL or you can use the room's identifier,
-which can currently be [fetched from the
-API](https://www.sqwiggle.com/docs/endpoints/streams#listallstreams)
-
-Now you can add the details to your .travis.yml:
-
-    notifications:
-      sqwiggle: <api_token>@room
-
-If you'd like to notify multiple rooms, you can specify a list of token/room
-combinations.
-
-    notifications:
-      sqwiggle:
-        rooms:
-          - <api_token>@mainhall
-          - <api_token>@developers
-
-Sqwiggle notifications support templating, so you can customize how the message
-pops up in your streams.
-
-The default looks like this:
-
-![Screenshot of default Sqwiggle notifications](http://s3itch.paperplanes.de/sqwiggle_20140212_101412.jpg_20140213_103612.jpg)
-
-To customize it, add a template definition to your .travis.yml.
-
-    notifications:
-      sqwiggle:
-        rooms: <api_token>@mainhall
-        template: '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
-
-It's recommended to encrypt the credentials.
-
-Pull Request builds do not trigger Sqwiggle notifications.
-
 ## Slack notifications
 
 Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
