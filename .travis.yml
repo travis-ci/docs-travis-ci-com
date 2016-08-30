@@ -3,13 +3,6 @@ sudo: false
 rvm: 2.3.1
 cache: bundler
 
-addons:
-  apt:
-    sources:
-      - git-core
-    packages:
-      - git
-
 deploy:
   provider: heroku
   api_key:
