@@ -618,7 +618,10 @@ payload.
 [WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
 is a small Sinatra app which shows you how this works.
 
-### Authorization for Webhooks
+### Authorization for Webhooks (Deprecated)
+
+**Note: this method of authorizing webhooks will be deprecated on
+November 1, 2016**
 
 When Travis CI makes the POST request, a header named `Authorization` is included.
 Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
