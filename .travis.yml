@@ -6,10 +6,18 @@ branches:
   - gh-pages
 cache: bundler
 
+addons:
+  apt:
+    sources:
+      - git-core
+    packages:
+      - git
+
 deploy:
   provider: heroku
   api_key:
     secure: "jwYeg8E1Nl+yQXuUTEEOArzZOOaHx0q0gXQpG/A2849KCGbV6/LHUnrp3uAI2bYdGZlxeFjGCmkStVM9A4BZ5CsakJhopcpUuy2fSLGtwspUMTJYmD05bQaU+P3zY+lh3Nws5oOuigIta1qKIrx6KVZXLTR1pXdsoxlTf+PWxFw="
   app: 'docs-travis-ci-com'
+  strategy: git
   on:
     branch: 'gh-pages'
