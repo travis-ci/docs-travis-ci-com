@@ -599,6 +599,25 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 
 To quickly identify the repository involved, we include a `Travis-Repo-Slug` header, with a format of `account/repository`, so for instance `travis-ci/travis-ci`.
 
+### Verifying the Webhook requests
+
+To ensure the integrity of your workflow, we strongly encourage you to
+verify the POST request before acting on it.
+
+The POST request comes with the custom HTTP header `Signature`.
+Using the published SSL public key, you can verify the signature of the
+payload.
+
+1. Pick up the `payload` data from the HTTP request's body.
+1. Obtain the `Signature` header value.
+1. Obtain the public key corresponding to the private key that signed
+   the payload. This is available at the `/config` endpoint's
+   `config.notifications.webhook.public_key` on the relevant API server.
+1. Verify the signature using the public key and SHA1 digest.
+
+[WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
+is a small Sinatra app which shows you how this works.
+
 ### Authorization for Webhooks
 
 When Travis CI makes the POST request, a header named `Authorization` is included.
