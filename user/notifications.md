@@ -468,7 +468,7 @@ The PR build notifications can be disabled with the following:
       slack:
         on_pull_requests: false
 
-## Webhook notification
+## Webhook notifications
 
 You can define webhooks to be notified about build results the same way:
 
@@ -482,7 +482,7 @@ Or multiple URLs:
         - http://your-domain.com/notifications
         - http://another-domain.com/notifications
 
-As with other notification types you can specify when webhook payloads will be sent:
+As with other notifications types you can specify when webhook payloads will be sent:
 
     notifications:
       webhooks:
@@ -551,7 +551,30 @@ Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the r
 
 To quickly identify the repository involved, we include a `Travis-Repo-Slug` header, with a format of `account/repository`, so for instance `travis-ci/travis-ci`.
 
-### Authorization for Webhooks
+### Verifying Webhook requests
+
+To ensure the integrity of your workflow, we strongly encourage you to
+verify the POST request before acting on it.
+
+The POST request comes with the custom HTTP header `Signature`.
+Using the published SSL public key, you can verify the signature of the
+payload.
+
+1. Pick up the `payload` data from the HTTP request's body.
+1. Obtain the `Signature` header value, and base64-decode it.
+1. Obtain the public key corresponding to the private key that signed
+   the payload. This is available at the `/config` endpoint's
+   `config.notifications.webhook.public_key` on the relevant API server.
+   (e.g., [https://api.travis-ci.org/config](https://api.travis-ci.org/config))
+1. Verify the signature using the public key and SHA1 digest.
+
+[WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
+is a small Sinatra app which shows you how this works.
+
+### Authorization for Webhooks (Deprecated)
+
+**Note: The `Authorization` header value described here is deprecated
+and will be discontinued on November 1, 2016**
 
 When Travis CI makes the POST request, a header named `Authorization` is included.
 Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
