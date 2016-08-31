@@ -468,7 +468,7 @@ The PR build notifications can be disabled with the following:
       slack:
         on_pull_requests: false
 
-## Webhook notification
+## Webhook notifications
 
 You can define webhooks to be notified about build results the same way:
 
@@ -482,7 +482,7 @@ Or multiple URLs:
         - http://your-domain.com/notifications
         - http://another-domain.com/notifications
 
-As with other notification types you can specify when webhook payloads will be sent:
+As with other notifications types you can specify when webhook payloads will be sent:
 
     notifications:
       webhooks:
