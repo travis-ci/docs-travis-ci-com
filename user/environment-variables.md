@@ -191,7 +191,7 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
 * `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
-* `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
+* `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
