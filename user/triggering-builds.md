@@ -56,7 +56,7 @@ body='{
     },
     "script": "echo FOO"
   }
-}'
+}}'
 
 curl -s -X POST \
   -H "Content-Type: application/json" \
