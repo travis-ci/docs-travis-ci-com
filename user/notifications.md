@@ -573,8 +573,8 @@ is a small Sinatra app which shows you how this works.
 
 ### Authorization for Webhooks (Deprecated)
 
-**Note: this method of authorizing webhooks is deprecated and will be
-removed on November 1, 2016**
+**Note: The `Authorization` header value described here is deprecated
+and will be discontinued on November 1, 2016**
 
 When Travis CI makes the POST request, a header named `Authorization` is included.
 Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
