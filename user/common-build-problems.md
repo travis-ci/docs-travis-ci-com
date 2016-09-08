@@ -210,7 +210,7 @@ This is often caused by old package database and can be fixed by adding the foll
 
 Travis CI uses virtual machine snapshotting to make sure no state is preserved between
 builds. If you modify CI environment by writing something to a data store, creating
-files or installing a package via apt, it does affect subsequent builds.
+files or installing a package via apt, it does not affect subsequent builds.
 
 ## SSH is not working as expected
 
