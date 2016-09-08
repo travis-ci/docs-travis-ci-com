@@ -571,6 +571,9 @@ payload.
 [WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
 is a small Sinatra app which shows you how this works.
 
+[Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
+is an example Django view which implements this in Python.
+
 ### Authorization for Webhooks (Deprecated)
 
 **Note: The `Authorization` header value described here is deprecated
