@@ -201,7 +201,7 @@ You can minimise build times by caching your packrat packages with:
 
 ```yaml
 cache:
-  directories: /home/travis/build/<username>/<repository>/packrat/
+  directories: $TRAVIS_BUILD_DIR/packrat/
   packages: true
 ```
 
