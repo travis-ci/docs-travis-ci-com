@@ -106,8 +106,6 @@ The following table summarizes the differences between the virtual environments:
 </tbody></table>
 </div>
 
-All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure.
-
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
