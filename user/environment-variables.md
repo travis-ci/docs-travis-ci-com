@@ -4,41 +4,41 @@ layout: en
 permalink: /user/environment-variables/
 ---
 
-A common way to customize the build process is to use environment variables, which can be accessed from any stage in your build process.
+A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
 
 <div id="toc"></div>
 
-When you need to define environment variables you can do so in:
+The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-* [.travis.yml](#Defining-Variables-in-.travis.yml), which are tied to a particular commit.
-* [repository settings](#Defining-Variables-in-Repository-Settings), if they are needed for the build to run and don't contain sensitive data.
-* [.travis.yml and encrypted](#Encrypted-Variables), for sensitive data such as authentication tokens.
+* if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#Defining-Variables-in-travisyml)
+* if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#Encrypted-Variables)
+* if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#Defining-Variables-in-Repository-Settings)
 
-> If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable as both encrypted and unencrypted, the one defined later in the file takes precedence.
+## Defining public variables in .travis.yml
+{: #Defining-Variables-in-travisyml}
 
-There is also a [complete list of default environment variables](#Default-Environment-Variables) which are present in all Travis CI environments.
+Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
-## Defining Variables in .travis.yml
-
-Variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository. Define variables in `.travis.yml` that:
+Define variables in `.travis.yml` that:
 
 * are needed for the build to run and that don't contain sensitive data. For instance, a test suite for a Ruby application might require `$RACK_ENV` to be set to `test`.
 * differ per branch.
 * differ per job.
 
-To define an environment variable in your `.travis.yml`, add the `env` line, for example:
+Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`):
 
 ```yaml
 env:
 - DB=postgres
 - SH=bash
+- PACKAGE_VERSION="1.0.*"
 ```
 
-> Note that environment variable values may need quoting. For example, if they have asterisks (`*`) in them `PACKAGE_VERSION="1.0.*"`
+> If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
 ### Defining Multiple Variables per Item
 
-When you specify multiple variables per item in the `env` array (matrix variables), one build is triggered per item.
+When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
 
 ```yaml
 rvm:
@@ -78,9 +78,52 @@ USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```
 
+
+## Defining encrypted variables in .travis.yml
+{: #Encrypted-Variables}
+
+Before adding sensitive data such as API credentials to your `.travis.yml` you need to encrypt it. Encrypted variables are not available to untrusted builds such as pull requests coming from another repository.
+
+A `.travis.yml` file containing encrypted variables looks like this:
+
+```yaml
+env:
+  global:
+    - secure: mcUCykGm4bUZ3CaW6AxrIMFzuAYjA98VIz6YmYTmM0/8sp/B/54JtQS/j0ehCD6B5BwyW6diVcaQA2c7bovI23GyeTT+TgfkuKRkzDcoY51ZsMDdsflJ94zV7TEIS31eCeq42IBYdHZeVZp/L7EXOzFjVmvYhboJiwnsPybpCfpIH369fjYKuVmutccD890nP8Bzg8iegssVldgsqDagkuLy0wObAVH0FKnqiIPtFoMf3mDeVmK2AkF1Xri1edsPl4wDIu1Ko3RCRgfr6NxzuNSh6f4Z6zmJLB4ONkpb3fAa9Lt+VjJjdSjCBT1OGhJdP7NlO5vSnS5TCYvgFqNSXqqJx9BNzZ9/esszP7DJBe1yq1aNwAvJ7DlSzh5rvLyXR4VWHXRIR3hOWDTRwCsJQJctCLpbDAFJupuZDcvqvPNj8dY5MSCu6NroXMMFmxJHIt3Hdzr+hV9RNJkQRR4K5bR+ewbJ/6h9rjX6Ot6kIsjJkmEwx1jllxi4+gSRtNQ/O4NCi3fvHmpG2pCr7Jz0+eNL2d9wm4ZxX1s18ZSAZ5XcVJdx8zL4vjSnwAQoFXzmx0LcpK6knEgw/hsTFovSpe5p3oLcERfSd7GmPm84Qr8U4YFKXpeQlb9k5BK9MaQVqI4LyaM2h4Xx+wc0QlEQlUOfwD4B2XrAYXFIq1PAEic=
+  matrix:
+    - USE_NETWORK=true
+    - USE_NETWORK=false
+    - secure: <you can also put encrypted vars inside matrix>
+```
+
+> Encrypted environment variables are not available to pull requests from forks due to the security risk of exposing such information to unknown code.
+
+> If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
+
+### Encrypting environment variables
+
+Encrypt environment variables with the public key attached to your repository using the `travis` gem:
+
+1. If you do not have the `travis` gem installed, run `gem install travis`.
+
+2. In your repository directory, run:
+
+   ```sh
+   travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
+   ```
+
+3. Commit the changes to your `.travis.yml`.
+
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* access to the encrypted variables.
+
+The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
+
+
 ## Defining Variables in Repository Settings
 
-Variables defined in repository settings are the same for all builds. When you restart an old build, it uses the latest values. These variables are not automatically available to forks. Define variables in the Repository Settings that:
+Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
+
+Define variables in the Repository Settings that:
 
 * differ per repository.
 * contain sensitive data, such as third-party credentials.
@@ -100,51 +143,14 @@ Similarly, we do not provide these values to untrusted builds, triggered by pull
 
 As an alternative to the web interface, you can also use the CLI's [`env`](https://github.com/travis-ci/travis.rb#env) command.
 
-## Encrypted Variables
+> If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence.
 
-Variables can be encrypted so that their content is not shown in the corresponding `export` line in the build. This is used to provide sensitive data, like API credentials, to the Travis CI build. Encrypted variables are not added to untrusted builds such as pull requests coming from another repository.
-
-A `.travis.yml` file containing encrypted variables looks like this:
-
-```yaml
-env:
-  global:
-    - secure: <long encrypted string here>
-    - TIMEOUT=1000
-  matrix:
-    - USE_NETWORK=true
-    - USE_NETWORK=false
-    - secure: <you can also put encrypted vars inside matrix>
-```
-
-> Encrypted environment variables are not available to pull requests from forks due to the security risk of exposing such information to unknown code.
-
-### Encrypting Variables Using a Public Key
-
-Encrypt environment variables using the public key attached to your repository using the travis gem:
-
-```sh
-gem install travis
-cd my_project
-travis encrypt MY_SECRET_ENV=super_secret
-```
-
-To automatically add the encrypted environment variable to your `.travis.yml`:
-
-```sh
-travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
-```
-
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will have different keys than the original.
-
-The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
-
-### Convenience Variables
+## Convenience Variables
 
 To make using encrypted environment variables easier, the following environment variables are available:
 
-* `TRAVIS_SECURE_ENV_VARS` "true" or "false" depending on the availability of environment variables
-* `TRAVIS_PULL_REQUEST` the pull request number if the current job is a pull request, or "false" if it's not a pull request.
+* `TRAVIS_SECURE_ENV_VARS` is set to `true` if you have defined any encrypted variables, including variables defined in the Repository Settings, and `false` if you have not.
+* `TRAVIS_PULL_REQUEST` is set to the pull request number if the current job is a pull request build, or `false` if it's not.
 
 ## Default Environment Variables
 
@@ -191,7 +197,7 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
 * `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
-* `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
+* `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set

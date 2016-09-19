@@ -13,10 +13,14 @@ addons:
 deploy:
   provider: heroku
   api_key:
-    secure: "jwYeg8E1Nl+yQXuUTEEOArzZOOaHx0q0gXQpG/A2849KCGbV6/LHUnrp3uAI2bYdGZlxeFjGCmkStVM9A4BZ5CsakJhopcpUuy2fSLGtwspUMTJYmD05bQaU+P3zY+lh3Nws5oOuigIta1qKIrx6KVZXLTR1pXdsoxlTf+PWxFw="
-  app: 'docs-travis-ci-com'
+    secure: jwYeg8E1Nl+yQXuUTEEOArzZOOaHx0q0gXQpG/A2849KCGbV6/LHUnrp3uAI2bYdGZlxeFjGCmkStVM9A4BZ5CsakJhopcpUuy2fSLGtwspUMTJYmD05bQaU+P3zY+lh3Nws5oOuigIta1qKIrx6KVZXLTR1pXdsoxlTf+PWxFw=
+  app: docs-travis-ci-com
   strategy: git
   edge:
     branch: ha-heroku-git
   on:
     all_branches: true
+notifications:
+  slack:
+    secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
+    on_success: never

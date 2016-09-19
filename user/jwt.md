@@ -151,7 +151,7 @@ def authenticate(user, access_key):
 ### Sauce Labs
 
 Add your `SAUCE_USERNAME` as a normal environment variable, and your `SAUCE_ACCESS_KEY` as a JWT token
-(See [sauce-connect](../sauce-connect/) for more details):
+(See [sauce-connect](/user/sauce-connect/) for more details):
 
 ```yaml
 env:

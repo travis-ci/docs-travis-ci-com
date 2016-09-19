@@ -117,4 +117,4 @@ If you contribute to or experiment with the [deploy tool](https://github.com/tra
 
 ### Pull Requests
 
-Note that pull request builds skip deployment step altogether.
+Note that pull request builds skip the deployment step altogether.

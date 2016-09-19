@@ -34,6 +34,8 @@ curl -s -X POST \
   https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
 ```
 
+> The %2F in the request URL is required so that the owner and repository name in the repository slug are interpreted as a single URL segment.
+
 This request triggers a build of the most recent commit on the master branch of the `travis-ci/travis-core` repository, using the `.travis.yml` file in the master branch.
 
 You can also add to or override configuration in the `.travis.yml` file, or change the commit message.
@@ -56,7 +58,7 @@ body='{
     },
     "script": "echo FOO"
   }
-}'
+}}'
 
 curl -s -X POST \
   -H "Content-Type: application/json" \

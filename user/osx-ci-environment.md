@@ -156,7 +156,7 @@ e.g.  to tag the build, or to run post-build deployments.
   repository currently being built. (for example, "travis-ci/travis-build").
 * `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
-* `TRAVIS_TAG`: If the current build for a tag, this includes the tag's name.
+* `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
 
 ## Maven version

@@ -2,7 +2,7 @@ osx_images:
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
-    xcode_full_version: "8beta6"
+    xcode_full_version: "8gm"
     sdks:
       - macosx10.11
       - iphoneos10.0
@@ -11,10 +11,30 @@ osx_images:
       - appletvsimulator10.0
       - watchos3.0
       - watchsimulator3.0
+      - iphoneos9.3
+      - iphonesimulator9.3
+      - appletvos9.2
+      - appletvsimulator9.2
+      - watchos2.2
+      - watchsimulator2.2
     simulators:
       - "iOS 10.0"
       - "watchOS 3.0"
       - "tvOS 10.0"
+      - "iOS 8.1"
+      - "iOS 8.2"
+      - "iOS 8.3"
+      - "iOS 8.4"
+      - "iOS 9.0"
+      - "iOS 9.1"
+      - "iOS 9.2"
+      - "iOS 9.3"
+      - "watchOS 2.0"
+      - "watchOS 2.1"
+      - "watchOS 2.2"
+      - "tvOS 9.0"
+      - "tvOS 9.1"
+      - "tvOS 9.2"
   - image: xcode7.3
     xcode: "7.3"
     osx_version: "10.11"
