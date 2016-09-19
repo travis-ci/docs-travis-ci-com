@@ -10,6 +10,9 @@ addons:
     packages:
       - git
 
+before_deploy:
+  - git config --global sendpack.sideband true
+
 deploy:
   provider: heroku
   api_key:
