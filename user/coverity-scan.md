@@ -98,6 +98,16 @@ The COVERITY_SCAN_TOKEN is encrypted and is obtained by using the [Travis CI CLI
 
 Then copy the resulting line as shown in the YAML example.
 
+### Environment Variables
+
+When defined, the following environment variables overrides their
+corresponding configuration values in `.travis.yml`:
+
+1. COVERITY_SCAN_NOTIFICATION_EMAIL
+1. COVERITY_SCAN_BUILD_COMMAND
+1. COVERITY_SCAN_BUILD_COMMAND_PREPEND
+1. COVERITY_SCAN_BRANCH_PATTERN
+
 ### Execution
 
 The next time you commit to the appropriate branch, the Coverity Scan build process will automatically run analysis and upload the results. Please note that this analysis takes the place of the normal CI run. You should merge the same changes to another branch to run your tests.
