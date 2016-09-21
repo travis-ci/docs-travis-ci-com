@@ -103,10 +103,10 @@ Then copy the resulting line as shown in the YAML example.
 When defined, the following environment variables overrides their
 corresponding configuration values in `.travis.yml`:
 
-1. COVERITY_SCAN_NOTIFICATION_EMAIL
-1. COVERITY_SCAN_BUILD_COMMAND
-1. COVERITY_SCAN_BUILD_COMMAND_PREPEND
-1. COVERITY_SCAN_BRANCH_PATTERN
+1. `COVERITY_SCAN_NOTIFICATION_EMAIL`
+1. `COVERITY_SCAN_BUILD_COMMAND`
+1. `COVERITY_SCAN_BUILD_COMMAND_PREPEND`
+1. `COVERITY_SCAN_BRANCH_PATTERN`
 
 ### Execution
 
