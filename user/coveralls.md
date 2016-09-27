@@ -22,8 +22,7 @@ Using Coveralls with Ruby on Travis CI is one of the configurations Coveralls su
 ### 1. Add your repository to Coveralls
 
 1. [Sign in to Coveralls](https://coveralls.io/authorize/github)  with your *GitHub* account.
-1. Click [ADD REPOS](https://coveralls.io/repos/new) in the menu.
-
+1. Click *ADD REPOS* in the menu.
 1. Click the ![Add your repository to Coveralls](/images/coveralls-button.png) button next to your repository.
 
 ### 2. Install the Coveralls Gem
@@ -65,7 +64,6 @@ service_name: travis-pro
 
 Coveralls have documentation for many other [programming languages](https://coveralls.zendesk.com/hc/en-us/sections/200330349-Languages):
 
-[.Net](/hc/en-us/articles/203488028--Net)
 [C / C++](/hc/en-us/articles/201342798-C-C-)
 [D](/hc/en-us/articles/204189714-D)
 [Elixir](/hc/en-us/articles/206207885-Elixir)
