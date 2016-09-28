@@ -280,7 +280,7 @@ Below is an example configuration for a build matrix that expands to *56 individ
     - 2.2
     - ruby-head
     - jruby
-    - rbx-2
+    - rbx
     - ree
     gemfile:
     - gemfiles/Gemfile.rails-2.3.x
