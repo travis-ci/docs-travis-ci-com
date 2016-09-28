@@ -179,7 +179,7 @@ Pull request builds check the following cache locations in order, using the firs
 * The pull request target branch cache.
 * The repository default branch cache.
 
-If none of the previous locations contain a valid cache, the build will continue without a cache.
+If none of the previous locations contain a valid cache, the build continues without a cache.
 
 After the first pull request build is run, it creates a new pull request cache.
 
