@@ -80,5 +80,4 @@ Coveralls have documentation for many other [programming languages](https://cove
 * [Python](https://coveralls.zendesk.com/hc/en-us/articles/201342869-Python)
 * [R](https://coveralls.zendesk.com/hc/en-us/articles/203487909)
 * [Ruby / Rails](https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails)
-* [Scala](https://coveralls.zendesk.com/hc/en-us/articles/201342879-Scala)
 * [Swift](https://coveralls.zendesk.com/hc/en-us/articles/208113436)
