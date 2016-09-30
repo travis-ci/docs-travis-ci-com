@@ -193,7 +193,7 @@ to tag the build, or to run post-build deployments.
 * `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 * `TRAVIS_PULL_REQUEST_BRANCH`: If the current job is a pull request,
-  the name of the branch from which the PR orginated. `""` if the
+  the name of the branch from which the PR originated. `""` if the
   current job is a push build.
 * `TRAVIS_PULL_REQUEST_SHA`: If the current job is a pull request,
   the commit SHA of the HEAD commit of the PR.
