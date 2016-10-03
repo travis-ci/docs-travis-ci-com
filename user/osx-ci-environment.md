@@ -28,7 +28,7 @@ environment*.
 
 ## OS X Version
 
-Travis CI uses OS X 10.9.5 (and Xcode 6.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
@@ -99,25 +99,24 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Compilers and Build toolchain
 
-* apple-gcc42
 * autoconf 2.69
-* automake 1.14
-* maven 3.2
-* mercurial 2.9
-* pkg-config 0.28
-* subversion 1.8.10
-* wget 1.15
-* xctool 0.2.1
-* cmake
+* automake 1.15
+* maven 3.3,9
+* mercurial 3.9.1
+* pkg-config 0.29.1
+* subversion 
+* wget 1.18
+* xctool 0.2.9
+* cmake 3.6.2
 
 ## Languages
 
-* go 1.3.1
+* go 1.7,1
 
 ## Services
 
-* postgis 2.1.3
-* postgresql 9.3.5
+* postgis 2.2.2_1
+* postgresql 9.5.4
 
 
 ## Runtimes
@@ -166,10 +165,22 @@ Stock Apache Maven 3.
 ## Ruby versions/implementations
 
 * system (depends on OS X version) -- You need to use `sudo` to install gems with this ruby
-* 1.9.3
-* 2.0.0 (default)
-* 2.1.5
-* 2.2.1
+
+- jruby-1.7.19
+- jruby-1.7.23
+- jruby-1.7.25
+- jruby-9.0.5.0
+- jruby-9.1.0.0
+- ruby-1.9.3-p551
+- ruby-2.0.0-p643
+- ruby-2.0.0-p648 (default)
+- ruby-2.1.10
+- ruby-2.1.5
+-  ruby-2.2.1
+- ruby-2.2.4
+- ruby-2.2.5
+- ruby-2.3.0
+- ruby-2.3.1
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
@@ -185,7 +196,7 @@ Recent 1.7 version (usually the most recent)
 
 ## Xcode version
 
-Xcode 6.1 is installed with the iOS 7.0, 7.1 and 8.1 simulators and SDKs.
+Xcode 7.3.1 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
