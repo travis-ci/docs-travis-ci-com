@@ -113,7 +113,7 @@ matrix:
           packages:
             - g++-4.9
       env:
-         - MATRIX_EVAL="CXX=g++-4.9"
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
     - os: linux
       addons:
@@ -123,7 +123,7 @@ matrix:
           packages:
             - g++-5
       env:
-         - MATRIX_EVAL="CXX=g++-5"
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
     - os: linux
       addons:
@@ -133,7 +133,7 @@ matrix:
           packages:
             - g++-6
       env:
-        - MATRIX_EVAL="CXX=g++-6"
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
 before_install:
     - eval "${MATRIX_EVAL}"
