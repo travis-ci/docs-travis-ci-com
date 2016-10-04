@@ -452,6 +452,10 @@ As always, it's recommended to encrypt the credentials with our
 
     travis encrypt "<account>:<token>" --add notifications.slack.rooms
 
+Similarly, you can use the channel override syntax with encrypted credentials as well. 
+
+    travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
+
 Once everything's setup, push a new commit and you should see something like the
 screenshot below:
 
