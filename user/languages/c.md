@@ -86,3 +86,5 @@ In this case, we recommend unsetting it:
 before_install:
   - test -n $CC && unset CC
 ```
+
+{% include_relative _includes/modern-c-cpp-toolchain.md %}
