@@ -194,6 +194,13 @@ Recent 1.7 version (usually the most recent)
 * rake
 * cocoapods
 
+## Python related tools
+- pyenv (via homebrew)
+- virtualenv (via pip)
+- numpy (via pip)
+- scipy (via pip)
+- tox (via pip)
+
 ## Xcode version
 
 Xcode 7.3.1 is installed with all available simulators and SDKs.
