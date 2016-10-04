@@ -104,7 +104,7 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 * maven 3.3,9
 * mercurial 3.9.1
 * pkg-config 0.29.1
-* subversion 
+* subversion 1.9.4
 * wget 1.18
 * xctool 0.2.9
 * cmake 3.6.2
@@ -115,7 +115,7 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Services
 
-* postgis 2.2.2_1
+* postgis 2.2.2_3
 * postgresql 9.5.4
 
 
@@ -166,21 +166,21 @@ Stock Apache Maven 3.
 
 * system (depends on OS X version) -- You need to use `sudo` to install gems with this ruby
 
+- ruby-1.9.3-p551
+- ruby-2.0.0-p643
+- ruby-2.0.0-p648 (default)
+- ruby-2.1.5
+- ruby-2.1.10
+- ruby-2.2.1
+- ruby-2.2.4
+- ruby-2.2.5
+- ruby-2.3.0
+- ruby-2.3.1
 - jruby-1.7.19
 - jruby-1.7.23
 - jruby-1.7.25
 - jruby-9.0.5.0
 - jruby-9.1.0.0
-- ruby-1.9.3-p551
-- ruby-2.0.0-p643
-- ruby-2.0.0-p648 (default)
-- ruby-2.1.10
-- ruby-2.1.5
--  ruby-2.2.1
-- ruby-2.2.4
-- ruby-2.2.5
-- ruby-2.3.0
-- ruby-2.3.1
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
