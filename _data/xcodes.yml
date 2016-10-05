@@ -36,8 +36,9 @@ osx_images:
       - "tvOS 9.1"
       - "tvOS 9.2"
   - image: xcode7.3
-    xcode: "7.3"
+    xcode: "7.3.1"
     osx_version: "10.11"
+    default: true
     xcode_full_version: "7.3.1"
     sdks:
       - macosx10.11
@@ -164,7 +165,6 @@ osx_images:
   - image: beta-xcode6.1
     xcode: "6.1"
     osx_version: "10.9"
-    default: true
     full_version: "6.1"
     sdks:
       - macosx10.9
