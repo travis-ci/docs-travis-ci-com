@@ -39,7 +39,7 @@ cd /root/sinatra; bundle exec foreman start;
 ```
 
 in a container built from that image after mapping some ports and paths. Read
-the [Docker User Guide](https://docs.docker.com/userguide/) if you need a
+the [Docker User Guide](https://docs.docker.com/) if you need a
 refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
