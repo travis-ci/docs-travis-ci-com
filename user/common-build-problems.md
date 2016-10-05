@@ -312,10 +312,10 @@ If you're having trouble tracking down the exact problem in a build it often hel
 
 ### Running a Container Based Docker Image Locally
 
-1. Download and install the Docker Engine:
-  * [Windows](https://docs.docker.com/installation/windows)
-  * [OS X](https://docs.docker.com/installation/mac)
-  * [Ubuntu Linux](https://docs.docker.com/installation/ubuntulinux/)
+1. Download and install Docker:
+  * [Windows](https://docs.docker.com/docker-for-windows/)
+  * [OS X](https://docs.docker.com/docker-for-mac/)
+  * [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language-specific image pick `travis-ruby`. Open a terminal and start an interactive Docker session using the image URL:
 
    ```bash
