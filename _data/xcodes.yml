@@ -111,7 +111,7 @@ osx_images:
   - image: xcode7
     xcode: "7"
     osx_version: "10.10"
-    full_version: "7.0.1 GM"
+    xcode_full_version: "7.0.1 GM"
     sdks:
       - macosx10.11
       - iphoneos9.0
@@ -128,7 +128,7 @@ osx_images:
   - image: xcode6.4
     xcode: "6.4"
     osx_version: "10.10"
-    full_version: "6.4"
+    xcode_full_version: "6.4"
     sdks:
       - macosx10.9
       - macosx10.10
@@ -138,7 +138,7 @@ osx_images:
   - image: beta-xcode6.3
     xcode: "6.3"
     osx_version: "10.10"
-    full_version: "6.3.1"
+    xcode_full_version: "6.3.1"
     sdks:
       - macosx10.9
       - macosx10.10
@@ -152,7 +152,7 @@ osx_images:
   - image: beta-xcode6.2
     xcode: "6.2"
     osx_version: "10.9"
-    full_version: "6.2"
+    xcode_full_version: "6.2"
     sdks:
       - macosx10.9
       - macosx10.10
@@ -165,7 +165,7 @@ osx_images:
   - image: beta-xcode6.1
     xcode: "6.1"
     osx_version: "10.9"
-    full_version: "6.1"
+    xcode_full_version: "6.1"
     sdks:
       - macosx10.9
       - macosx10.10
