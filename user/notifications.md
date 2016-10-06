@@ -472,6 +472,47 @@ The PR build notifications can be disabled with the following:
       slack:
         on_pull_requests: false
 
+### Customizing slack notifications
+
+Customize the notification message by editing the template, as in this example:
+
+```yaml
+notifications:
+  slack:
+    template:
+      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "Build details: %{build_url}"
+```
+
+The following variables are available:
+
+* *repository_slug*: your GitHub repo identifier (like ```svenfuchs/minimal```)
+* *repository_name*: the slug without the username
+* *build_number*: build number
+* *build_id*: build id
+* *branch*: branch build name
+* *commit*: shortened commit SHA
+* *author*: commit author name
+* *commit_message*: commit message of build
+* *commit_subject*: first line of the commit message
+* *result*: result of build
+* *message*: Travis CI message to the build
+* *duration*: total duration of all builds in the matrix
+* *elapsed_time*: time between build start and finish
+* *compare_url*: commit change view URL
+* *build_url*: URL of the build detail
+
+The default template is:
+
+```yaml
+notifications:
+  slack:
+    template:
+      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+      - "Change view : %{compare_url}"
+      - "Build details : %{build_url}"
+```
+
 ## Webhook notifications
 
 You can define webhooks to be notified about build results the same way:
