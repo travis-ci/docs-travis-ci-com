@@ -53,10 +53,6 @@ environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
 
-When using Rubinius, there's currently an issue with selecting the correct version
-in RVM in our build environment, but only when specifying `rbx` as your version. As
-a workaround, specify `rbx` instead.
-
 ### Using `.ruby-version`
 
 If the ruby version is not specified by the `rvm` key as described above, Travis CI
