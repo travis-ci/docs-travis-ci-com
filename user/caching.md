@@ -147,7 +147,12 @@ cache:
   - $HOME/.m2
 ```
 
-As you can see, it is also possible to use environment variables in the directories. Paths that do not start with a `/` are relative to `$TRAVIS_BUILD_DIR`. When, after possible variable expansion, the path starts with a `/`, that absolute path is used. Please be aware that the `travis` user needs to have write permissions in this directory.
+As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
+
+*   do **not** start with a `/` are relative to `$TRAVIS_BUILD_DIR`.
+*   start with a `/` are absolute.
+
+Please be aware that the `travis` user needs to have write permissions to this directory.
 
 The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
 
