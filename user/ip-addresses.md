@@ -13,7 +13,7 @@ Container-based (travis-ci.org) | `nat-org.aws-us-east-1.travisci.net` (`52.0.24
 OS X | `208.78.110.192/27`
 Sudo-enabled Linux | N/A (see below)
 
-We do not have static public IP addresses available for jobs running on the sudo-enabled Linux infrastructure at this time. We recommend using one of the other infrastructures if you need static IP addresses.
+We do not have static public IP addresses available for jobs running on the sudo-enabled Linux infrastructure at this time, although Google has some further [information on how to get those ranges here](https://cloud.google.com/compute/docs/faq#ipranges). We recommend using one of the other infrastructures if you need static IP addresses.
 
 Note that these ranges can change in the future.
 
