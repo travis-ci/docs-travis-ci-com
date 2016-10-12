@@ -4,6 +4,8 @@ layout: en
 permalink: /user/cron-jobs/
 ---
 
+> Update 2016-08-02: We are not enabling cron jobs for new organizations/repositories for the time being and we unfortunately don't have an ETA regarding when we will restart enabling them. Sorry for the inconvenience.
+
 **Please note that cron jobs are not enabled by default. Set "Build pushes" to `on` in your settings, then ask us to unlock this feature for your repository:
 [support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)**
 
