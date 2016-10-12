@@ -39,7 +39,7 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 
 ### AWS permissions
 
-The AWS user that Travis runs as must have the following IAM permissions in order to deploy:
+The AWS user that Travis deploys as must have the following IAM permissions in order to deploy:
 
 ```json
 {
