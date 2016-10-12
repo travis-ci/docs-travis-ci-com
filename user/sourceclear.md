@@ -5,42 +5,32 @@ permalink: /user/sourceclear/
 ---
 [SourceClear](https://www.sourceclear.com) is security for open-source code.
 
-When you add SourceClear to your TravisCI projects you'll get automated security analysis inside every build. You’ll get complete analysis of your open-source dependencies, including security vulnerabilities, out-of-date libraries, and license reports. Here is how to do it!
+When you add SourceClear to your TravisCI projects you'll get automated security
+analysis inside every build. You’ll get complete analysis of your open-source
+dependencies, including security vulnerabilities, out-of-date libraries, and
+license reports.
 
 ## Creating your Authentication Token
 
 In order to set up the SourceClear agent for Travis-CI, you must be
-logged into [SourceClear](http://srcclr.com/login), and then perform the
+logged into [SourceClear](http://sourceclear.com/login), and then perform the
 following steps:
 
-----------------------
+**1.** From the left sidebar, select **Agents**, then **New Agent**.
 
-**NOTE:** By default, the agent you create will not be visible to team members.
-In order to allow visibility, you must go to the agent page and select a group
-from the *Groups dropdown. After you have done so, members of the selected
-group will be able to view the agent information.
+**2.** In the agent setup page, select **Travis-CI**
 
-----------------------
-
-**1.** From the left sidebar, select the team for which you wish to create the
-agent for and then select **Agents**, and then **New Agent**
-
-**2.** In the agent setup page, select **Travis-CI** under the **Continuous
-Integration** header.
-
-**3.** Select **Create Authentication Token**, and then copy the value which
-appears. You will use this to authenticate with SourceClear during scans.
+**3.** Select **Create Authentication Token**, and copy it to your clipboard. You will use this to authenticate with SourceClear during scans.
 
 ## Setting the Environment Variable
 
-Setting an environment variable in Travis-CI occurs on a per repository basis, and can be performed by following these steps:
+Setting an environment variable in Travis-CI occurs on a per repository basis:
 
 **1.** Select the repository you wish to scan from your Travis-CI environment >
 **More Options** > **Settings**
 
-**2.** You will be taken to a page with the heading **Environment Variables**.
-Here you will add `SRCCLR_API_TOKEN` as the name and then paste your agent API
-token for the value. Make sure to toggle the button labeled *Display value in
+**2.** On the Environment Variables page, add `SRCCLR_API_TOKEN` and assign your
+authentication token to it. Make sure to toggle the button labeled *Display value in
 build log* to the **OFF** position to ensure your token is kept secret.
 
 <img src="/images/srcclr-travis.png" width="100%"/>
