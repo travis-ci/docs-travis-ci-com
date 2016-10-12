@@ -26,7 +26,7 @@ Setting an environment variable in Travis-CI occurs on a per repository basis:
 
 **2.** On the Environment Variables page, add `SRCCLR_API_TOKEN` and assign your authentication token to it. Make sure to toggle the button labeled *Display value in build log* to the **OFF** position to ensure your token is kept secret.
 
-<img src="/images/srcclr-travis.png" width="100%"/>
+<img src="/images/srcclr-travis.png" alt="SourceClear" width="100%"/>
 
 ## Configuring your Travis-CI repository
 
