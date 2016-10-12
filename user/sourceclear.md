@@ -5,16 +5,11 @@ permalink: /user/sourceclear/
 ---
 [SourceClear](https://www.sourceclear.com) is security for open-source code.
 
-When you add SourceClear to your TravisCI projects you'll get automated security
-analysis inside every build. You’ll get complete analysis of your open-source
-dependencies, including security vulnerabilities, out-of-date libraries, and
-license reports.
+When you add SourceClear to your TravisCI projects you'll get automated security analysis inside every build. You’ll get complete analysis of your open-source dependencies, including security vulnerabilities, out-of-date libraries, and license reports.
 
 ## Creating your Authentication Token
 
-In order to set up the SourceClear agent for Travis-CI, you must be
-logged into [SourceClear](http://sourceclear.com/login), and then perform the
-following steps:
+In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](http://sourceclear.com/login), and then perform the following steps:
 
 **1.** From the left sidebar, select **Agents**, then **New Agent**.
 
@@ -29,9 +24,7 @@ Setting an environment variable in Travis-CI occurs on a per repository basis:
 **1.** Select the repository you wish to scan from your Travis-CI environment >
 **More Options** > **Settings**
 
-**2.** On the Environment Variables page, add `SRCCLR_API_TOKEN` and assign your
-authentication token to it. Make sure to toggle the button labeled *Display value in
-build log* to the **OFF** position to ensure your token is kept secret.
+**2.** On the Environment Variables page, add `SRCCLR_API_TOKEN` and assign your authentication token to it. Make sure to toggle the button labeled *Display value in build log* to the **OFF** position to ensure your token is kept secret.
 
 <img src="/images/srcclr-travis.png" width="100%"/>
 
