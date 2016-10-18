@@ -8,20 +8,28 @@ These features are also still experimental, please [contact us](mailto:support@t
 
 <div id="toc"></div>
 
-## Cache content can be accessed by pull requests
+Travis CI can cache content that does not often change, to speed up your build process.
+**To use the caching feature**, in your repository settings, set "Build pushes" to
+"ON".
 
-Do note that cache content will be available to any build on the repository, including Pull Requests.
-Do exercise caution not to put any sensitive information in the cache, lest a malicious attacker potentially exposes it.
+* Travis CI fetches the cache for every build, including branches and pull requests.
+* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
+* Only modifications made to the cached directories from normal pushes are stored.
+
+> Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
 
 ## Caching directories (Bundler, dependencies)
 
-With caches, Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+Caches lets Travis CI store directories between builds, which is useful for storing
+dependencies that take longer to compile or download.
 
 ### Build phases
 
-Travis CI attempts to upload cache after `script`, but before either `after_success` or `after_failure` is
-run.
-Note that the failure to upload the cache does not mark the job a failure.
+Travis CI uploads the cache after the `script` phase of the build, but before
+either `after_success` or `after_failure`.
+
+> Failure to upload the cache does *not* mark the job as failed.
 
 ### Bundler
 
@@ -154,9 +162,7 @@ As you can see, you can use environment variables as part of the directory path.
 
 Please be aware that the `travis` user needs to have write permissions to this directory.
 
-The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
-
-### Things not to cache
+## Things not to cache
 
 The cache's purpose is to make installing language-specific dependencies easy
 and fast, so everything related to tools like Bundler, pip, Composer, npm,
@@ -169,14 +175,7 @@ Large files that are quick to install but slow to download do not benefit from c
 * JDK packages
 * Compiled binaries
 
-## Fetching and storing caches
-
-* Travis CI fetches the cache for every build, including branches and pull requests.
-* There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
-* Only modifications made to the cached directories from normal pushes are stored.
-
-### Pull request builds and caches
+## Pull request builds and caches
 
 Pull request builds check the following cache locations in order, using the first one present:
 
@@ -236,7 +235,9 @@ cache:
 - pip
 ```
 
-This does not work when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
+This does not work when caching [arbitrary directories](#Arbitrary-directories).
+
+To combine directory caches with other caching modes, use a hash map:
 
 ```yaml
 cache:
@@ -304,7 +305,7 @@ name; e.g.,
 
 to `.travis.yml`.
 
-## How does the caching work?
+## How does caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
 them to S3, using a secure and protected URL, ensuring security and privacy of
