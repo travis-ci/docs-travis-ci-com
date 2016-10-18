@@ -227,6 +227,7 @@ The following services that are included with our Precise images are **not inclu
 - CouchDB
 - Neo4J
 - MongoDB
+- MySQL
 
 ### Firefox
 
