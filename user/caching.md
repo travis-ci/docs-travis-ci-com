@@ -187,7 +187,10 @@ If none of the previous locations contain a valid cache, the build continues wit
 
 After the first pull request build is run, it creates a new pull request cache.
 
-> Note that if a repository has "build pushes" set to "off", neither the target branch nor the master branch can ever be cached.
+Two important things to note about caching for pull requests:
+
+* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If the cache found is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 
 ### before_cache phase
 
