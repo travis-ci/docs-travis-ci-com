@@ -35,8 +35,6 @@ either `after_success` or `after_failure`.
 
 On Ruby and Objective-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
 
-The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
-
 #### Enabling Bundler caching
 
 <s>Bundler caching is automatically enabled for Ruby projects that include a Gemfile.lock.</s> *(Bundler caching is [not yet](https://github.com/travis-ci/travis-build/pull/148) enabled automatically)*
