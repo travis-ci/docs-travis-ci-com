@@ -1,0 +1,255 @@
+---
+title: S3 Deployment
+layout: en
+permalink: /user/deployment/s3/
+---
+
+Travis CI can automatically upload your build to Amazon S3 after a successful build.
+
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+```
+
+You can find your [AWS Access Keys](https://console.aws.amazon.com/iam/home?#security_credential) in your Amazon Console. You should probably encrypt the secret key with the Travis CI command line:
+
+```bash
+$ travis encrypt --add deploy.secret_access_key
+```
+
+The previous example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set `skip_cleanup` to `true` to prevent Travis CI from deleting your build artifacts.
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+```
+
+> Note that deploying to S3 only adds files to your bucket, it does not remove them. If you need to remove deprecated files you can do that manually in your Amazon S3 console.
+
+Instead of adding your Amazon S3 configuration to your `.travis.yml` you can run the Travis CI command line in your project directory to set it up:
+
+```bash
+$ travis setup s3
+```
+
+Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+
+### S3 ACL via option
+
+You can set the acl of your uploaded files via the `acl` option like this:
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  acl: public_read
+```
+
+Valid ACL values are: `private`, `public_read`, `public_read_write`, `authenticated_read`, `bucket_owner_read`, `bucket_owner_full_control`. The ACL defaults to `private`.
+
+Note that, in order to set `acl`, the bucket's policy must allow such operations via the `s3:PutObjectAcl` action.
+An example policy might look like this:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "PRINCIPAL_ID"
+            },
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::BUCKET_NAME/*"
+        }
+    ]
+}
+```
+
+Be sure to set up the principal and resources according to your needs.
+
+### S3 ACL with bucket policy
+
+Another way to set ACL for your artifacts is via a S3 bucket policy.
+
+This bucket policy grants the public read permission:
+
+```json
+{
+  "Version": "2014-09-25",
+  "Statement":[{
+    "Sid":"AllowPublicRead",
+        "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::"YOUR BUCKET NAME"/*"
+      ]
+    }
+  ]
+}
+```
+
+
+### S3 bucket regions
+
+By default the region `us-east-1` is used when deploying to S3. If your bucket is hosted in a different region, deploying using the default region results in the following error.
+
+    The bucket you are attempting to access must be addressed using the specified endpoint.
+    Please send all future requests to this endpoint. (AWS::S3::Errors::PermanentRedirect)
+
+This can be resolved by specifying your bucket's region using the `region` configuration. For example, this example uses the `eu-west-1` region.
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  region: eu-west-1
+```
+
+### Deploy From Only One Folder
+
+Often, you don't want to upload your entire project to S3. You can tell Travis CI to only upload a single folder to S3. You can use the `local_dir` option to do so. This example uploads the `build` directory of your project to S3:
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  local_dir: build
+```
+
+### Deploy to a Specific S3 Folder
+
+Often, you want to upload only to a specific S3 Folder. You can use the `upload-dir` option to set the S3 destination folder. This example uploads to the `travis-builds` folder of your s3 bucket.
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  upload-dir: travis-builds
+```
+
+### Deploy to a S3 hosted website:
+
+To upload to a S3 hosted website, to use this template to upload to your website.
+
+```yaml
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  region: "Bucket region"
+```
+
+Remember that you need to set the bucket to have an ACL of `public` for anybody to be able to see your website.
+
+### Deploy to Multiple Buckets:
+
+If you want to upload to multiple buckets, you can do this:
+
+```yaml
+deploy:
+  - provider: s3
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    bucket: "S3 Bucket"
+    skip_cleanup: true
+ - provider: s3
+   access_key_id: "YOUR AWS ACCESS KEY"
+   secret_access_key: "YOUR AWS SECRET KEY"
+   bucket: "Second S3 Bucket"
+   skip_cleanup: true
+```
+
+### Conditional releases
+
+You can deploy only when certain conditions are met.
+See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+
+### Running commands before and after release
+
+Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+
+```yaml
+    before_deploy: "echo 'ready?'"
+    deploy:
+      ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
+```
+
+### Setting `Content-Encoding` header
+
+S3 uploads can optionally set HTTP header `Content-Encoding`.
+This header allows files to be sent compressed while retaining file extensions and
+the associated MIME types.
+
+To enable this feature, add:
+
+```yaml
+deploy:
+  provider: s3
+  ..
+  detect_encoding: true # <== default is false
+```
+
+If the file is compressed with `gzip` or `compress`, it will be uploaded with
+the appropriate header.
+
+### Setting `charset` on `Content-Type` header
+
+S3 can take a content-type header. Normally this doesn't include a character set as well. If you would like to add a character set, add the `default_text_charset` option with what you want it to be. For example:
+
+```yaml
+deploy:
+  provider: s3
+  ..
+  default_text_charset: 'utf-8'  # Default is ''
+```
+
+### HTTP cache control
+
+S3 uploads can optionally set  `Cache-Control` and `Expires` HTTP headers.
+
+Set HTTP header `Cache-Control` to suggest that the browser cache the file. Defaults to `no-cache`. Valid options are `no-cache`, `no-store`, `max-age=<seconds>`, `s-maxage=<seconds> no-transform`, `public`, `private`.
+
+`Expires` sets the date and time that the cached object is no longer cacheable. Defaults to not set. The date must be in the format `YYYY-MM-DD HH:MM:SS -ZONE`.
+
+```yaml
+deploy:
+  provider: s3
+  ..
+  cache_control: "max-age=31536000"
+  expires: "2012-12-21 00:00:00 -0000"
+```

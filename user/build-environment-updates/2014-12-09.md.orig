@@ -1,0 +1,61 @@
+---
+title: Build Environment Update History
+layout: en
+permalink: /user/build-environment-updates/2014-12-09/
+category: build_env_updates
+date: 2014-12-09
+---
+
+## 2014-12-09
+
+### Schedule
+
+1. [2014-12-09 15:00 UTC](http://everytimezone.com/#2014-12-9,180,cn3) — travis-ci.org rollout
+1. [2014-12-11 15:00 UTC](http://everytimezone.com/#2014-12-10,180,cn3) — travis-ci.com rollout
+
+### Additions
+
+1. [`jq`](http://stedolan.github.io/jq/)
+
+### Updates
+
+#### All Environments
+
+- ElasticSearch to 1.4.0
+- Node.js to 0.10.33
+- Ruby to 1.9.3-p551
+- RVM to 1.26.3
+
+#### Android VM
+
+- SDK Tools to 23.0.5
+- Build Tools to 21.1.1
+- `wait-for-emulator` script is fixed
+
+#### PHP VM
+
+- PHP to 5.4.35, 5.5.19, 5.6.3
+- HHVM to 3.4.0
+
+#### Python VM
+
+- PyPy3 to 2.4.0
+
+#### Ruby VM
+
+- Ruby to 1.9.3-p551, 2.0.0-p598, 2.1.5, 2.2.0-preview2
+- JRuby to 1.7.16.1
+
+### Build System Information
+
+![Screenshot of build output](https://cloud.githubusercontent.com/assets/25666/5291272/2f7983e0-7b1e-11e4-8868-e02c576310f9.png)
+
+Starting with this update, pertinent information about the build image will be available.
+Such information is displayed in a fold near the top of the log, shown as `system_info`.
+
+Information such as Ubuntu Release name, compiler versions, pre-installed
+language runtimes and Android components will be shown here.
+
+--------
+
+← Back to [environment update history](..)

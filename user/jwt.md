@@ -10,7 +10,6 @@ which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
 so builds of pull requests do not have access to third party integrations.
 
-
 The JWT addon replaces encrypted variables with a time-limited authentication
 token, which is exposed to pull requests without security consequences.
 
@@ -19,7 +18,6 @@ and the third-party need to have integrated with the JWT service and allow
 token-based authentication.
 
 <img src="/user/images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
-
 
 ### .travis.yml
 
@@ -93,10 +91,10 @@ An example payload used to generate the JWT token:
 
 Where:
 
- * `slug` will be the travis link slug
- * `pull-request` will be empty(`""`) or the pull request integer
- * `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
- * `iat` is the issued at time (now)
+- `slug` will be the travis link slug
+- `pull-request` will be empty(`""`) or the pull request integer
+- `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
+- `iat` is the issued at time (now)
 
 ### Third Party Service Provider Code Sample
 
@@ -160,4 +158,3 @@ addons:
   jwt:
     secure: <SAUCE_ACCESS_KEY ENCRYPTED>
 ```
-

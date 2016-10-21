@@ -1,0 +1,32 @@
+---
+title: Build Environment Update History
+layout: en
+permalink: /user/build-environment-updates/2014-12-16/
+category: build_env_updates
+date: 2014-12-16
+---
+
+This update affects only Go and Python VMs.
+
+## 2014-12-16
+
+### Schedule
+
+1. [2014-12-16 19:00 UTC](http://everytimezone.com/#2014-12-16,420,cn3)
+
+### Updates
+
+#### Go VM
+
+- Go 1.4 is pre-installed, but not the default. If you wish to use it, specify `go: '1.4'`.
+
+Note: Go 1.4 is not pre-installed on VMs for other languages.
+
+#### Python VM
+
+- Python 2.7.8 → 2.7.9
+- Python 3.4.0, PyPy 2.3.1, and PyPy3 2.3.1 are removed.
+
+--------
+
+← Back to [environment update history](..)
