@@ -3,6 +3,7 @@ title: Using Sauce Labs with Travis CI
 layout: en
 permalink: /user/sauce-connect/
 ---
+
 Travis CI integrates with [Sauce Labs](https://saucelabs.com), a browser and
 mobile testing platform. It integrates well with Selenium, for instance.
 
@@ -26,13 +27,17 @@ First, [sign up][sauce-sign-up] with Sauce Labs if you haven't already (it's
 [account page][sauce-account]. Once you have that, add this to your .travis.yml
 file:
 
-    addons:
-      sauce_connect:
-        username: "Your Sauce Labs username"
-        access_key: "Your Sauce Labs access key"
+```
+addons:
+  sauce_connect:
+    username: "Your Sauce Labs username"
+    access_key: "Your Sauce Labs access key"
+```
 
 [sauce-sign-up]: https://saucelabs.com/signup/plan/free
+
 [sauce-account]: https://saucelabs.com/account
+
 [open-sauce]: https://saucelabs.com/signup/plan/OSS
 
 If you don't want your access key publicly available in your repository, you
@@ -40,20 +45,25 @@ can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][en
 for more information on encryption), and add the pull request safe secure (See [JWT Addon][jwt])
 string as such:
 
-    addons:
-      sauce_connect:
-        username: "Your Sauce Labs username"
-      jwt:
-        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
+```
+addons:
+  sauce_connect:
+    username: "Your Sauce Labs username"
+  jwt:
+    secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
+```
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
 all you need to add to your .travis.yml file is this:
 
-    addons:
-      sauce_connect: true
+```
+addons:
+  sauce_connect: true
+```
 
 [encryption-keys]: ../encryption-keys/
+
 [jwt]: ../jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
@@ -67,13 +77,15 @@ or it will not be able to connect to the server running on the VM.
 How this looks will depend on the client library you're using, in
 Ruby's [selenium-webdriver][ruby-bindings] bindings:
 
-    caps = Selenium::WebDriver::Remote::Capabilities.firefox({
-      'tunnel-identifier' => ENV['TRAVIS_JOB_NUMBER']
-    })
-    driver = Selenium::WebDriver.for(:remote, {
-      url: 'http://username:access_key@ondemand.saucelabs.com/wd/hub',
-      desired_capabilities: caps
-    })
+```
+caps = Selenium::WebDriver::Remote::Capabilities.firefox({
+  'tunnel-identifier' => ENV['TRAVIS_JOB_NUMBER']
+})
+driver = Selenium::WebDriver.for(:remote, {
+  url: 'http://username:access_key@ondemand.saucelabs.com/wd/hub',
+  desired_capabilities: caps
+})
+```
 
 [ruby-bindings]: https://code.google.com/p/selenium/wiki/RubyBindings
 
@@ -82,16 +94,18 @@ Ruby's [selenium-webdriver][ruby-bindings] bindings:
 Sometimes you may need to pass additional options to Sauce Connect. Currently
 supported parameters are
 
-  * `direct_domains`
-  * `no_ssl_bump_domains`
-  * `tunnel_domains`
+- `direct_domains`
+- `no_ssl_bump_domains`
+- `tunnel_domains`
 
 As an example, you may need `--direct-domains` option in case [some HTTPS domains
 fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/articles/2005359-some-https-sites-don-t-work-correctly-under-sauce-connect):
 
-    addons:
-      sauce_connect:
-        username: "Your Sauce Labs username"
-        direct_domains: example.org,*.foobar.com
-      jwt:
-        secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
+```
+addons:
+  sauce_connect:
+    username: "Your Sauce Labs username"
+    direct_domains: example.org,*.foobar.com
+  jwt:
+    secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
+```

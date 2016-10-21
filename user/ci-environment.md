@@ -30,10 +30,10 @@ can install anything that's required for them to run.
 
 Each build runs in one of the following four virtual environments:
 
-* Standard (the default environment)
-* Container-based (the newer environment in which `sudo` commands are not available)
-* OSX for Objective-C projects
-* Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
+- Standard (the default environment)
+- Container-based (the newer environment in which `sudo` commands are not available)
+- OSX for Objective-C projects
+- Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
 The following table summarizes the differences between the virtual environments:
 
@@ -122,7 +122,6 @@ images.
 
 For other images, see the list below:
 
-
 - [OS X CI Environment](/user/osx-ci-environment)
 - [Trusty CI Environment](/user/trusty-ci-environment)
 
@@ -130,35 +129,31 @@ For other images, see the list below:
 
 All VM images have the following pre-installed
 
- * A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
- * Mercurial (official Ubuntu packages)
- * Subversion (official Ubuntu packages)
-
+- A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
+- Mercurial (official Ubuntu packages)
+- Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
 
 GCC, Clang, make, autotools, cmake, scons.
 
-
 ### Networking tools
 
 curl, wget, OpenSSL, rsync
-
 
 ### Go
 
 Go compiler/build tools.
 
-
 ### Runtimes
 
 Every worker has at least one version of
 
-* Ruby
-* OpenJDK
-* Python
-* Node.js
-* Go compiler/build tool
+- Ruby
+- OpenJDK
+- Python
+- Node.js
+- Go compiler/build tool
 
 to accommodate projects that may need one of those runtimes during the build.
 
@@ -166,21 +161,21 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Data Stores
 
-* MySQL
-* PostgreSQL
-* SQLite
-* MongoDB
-* Redis
-* Riak
-* Apache Cassandra
-* Neo4J Community Edition
-* ElasticSearch
-* CouchDB
+- MySQL
+- PostgreSQL
+- SQLite
+- MongoDB
+- Redis
+- Riak
+- Apache Cassandra
+- Neo4J Community Edition
+- ElasticSearch
+- CouchDB
 
 ### Firefox
 
 All virtual environments have recent version of Firefox installed, currently
-31.0 for Linux environments and 25.0 for OSX.
+31\.0 for Linux environments and 25.0 for OSX.
 
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.
@@ -188,20 +183,22 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-    addons:
-      firefox: "17.0"
+```
+addons:
+  firefox: "17.0"
+```
 
 Please note that the addon only works in 64-bit Linux environments.
 
 ### Messaging Technology
 
-* [RabbitMQ](http://rabbitmq.com)
-* [ZeroMQ](http://zeromq.org/)
+- [RabbitMQ](http://rabbitmq.com)
+- [ZeroMQ](http://zeromq.org/)
 
 ### Headless Browser Testing Tools
 
-* [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/)
+- [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
+- [PhantomJS](http://phantomjs.org/)
 
 ### Environment variables
 
@@ -209,8 +206,8 @@ There is a [list of default environment variables](/user/environment-variables#D
 
 ### Libraries
 
-* OpenSSL
-* ImageMagick
+- OpenSSL
+- ImageMagick
 
 ### apt configuration
 
@@ -222,14 +219,15 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    - Set up and export environment variables.
-    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
-    You may modify the user's primary group with `-g`.
-1. Your `script` would look something like:
+   - Set up and export environment variables.
+   - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+     You may modify the user's primary group with `-g`.
+2. Your `script` would look something like:
 
 ```bash
 script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
 ```
+
 This will pass the environment variables down to a `bash` process which runs as `$USER`,
 while retaining the environment variables defined
 and belonging to secondary groups given above in `usermod`.
@@ -244,18 +242,18 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-* `go1`, `go1.0` → 1.0.3
-* `go1.1` → 1.1.2
-* `go1.2` → 1.2.2
+- `go1`, `go1.0` → 1.0.3
+- `go1.1` → 1.1.2
+- `go1.2` → 1.2.2
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
 ### JDK
 
-* Oracle JDK 7 (oraclejdk7)
-* OpenJDK 7 (openjdk7)
-* OpenJDK 6 (openjdk6)
-* Oracle JDK 8 (oraclejdk8)
+- Oracle JDK 7 (oraclejdk7)
+- OpenJDK 7 (openjdk7)
+- OpenJDK 6 (openjdk6)
+- Oracle JDK 8 (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
@@ -285,12 +283,10 @@ Gradle 2.0.
 
 Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
-
 ### Rebar
 
 travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
-
 
 ## Node.js VM images
 
@@ -307,7 +303,6 @@ Scons
 ### Haskell Platform Version
 
 [Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
-
 
 ## Perl VM images
 
@@ -348,66 +343,68 @@ Is supported.
 
 ### Extensions
 
-    [PHP Modules]
-    bcmath
-    bz2
-    Core
-    ctype
-    curl
-    date
-    dom
-    ereg
-    exif
-    fileinfo
-    filter
-    ftp
-    gd
-    gettext
-    hash
-    iconv
-    intl
-    json
-    libxml
-    mbstring
-    mcrypt
-    mysql
-    mysqli
-    mysqlnd
-    openssl
-    pcntl
-    pcre
-    PDO
-    pdo_mysql
-    pdo_pgsql
-    pdo_sqlite
-    pgsql
-    Phar
-    posix
-    readline
-    Reflection
-    session
-    shmop
-    SimpleXML
-    soap
-    sockets
-    SPL
-    sqlite3
-    standard
-    sysvsem
-    sysvshm
-    tidy
-    tokenizer
-    xdebug
-    xml
-    xmlreader
-    xmlrpc
-    xmlwriter
-    xsl
-    zip
-    zlib
+```
+[PHP Modules]
+bcmath
+bz2
+Core
+ctype
+curl
+date
+dom
+ereg
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+hash
+iconv
+intl
+json
+libxml
+mbstring
+mcrypt
+mysql
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+pgsql
+Phar
+posix
+readline
+Reflection
+session
+shmop
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+sysvsem
+sysvshm
+tidy
+tokenizer
+xdebug
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+zip
+zlib
 
-    [Zend Modules]
-    Xdebug
+[Zend Modules]
+Xdebug
+```
 
 ## Python VM images
 
@@ -419,10 +416,10 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 ### Preinstalled pip packages
 
-* nose
-* py.test
-* mock
-* wheel
+- nose
+- py.test
+- mock
+- wheel
 
 On all versions except pypy and pypy3 have `numpy` as well.
 
@@ -444,5 +441,5 @@ Recent 1.7.x version (usually the most recent)
 
 ### Gems in the global gem set
 
-* bundler
-* rake
+- bundler
+- rake

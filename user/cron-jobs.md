@@ -40,4 +40,3 @@ Click the small trash icon on the right hand side of the page:
 ## Detecting Builds Triggered by Cron
 
 To check whether a build was triggered by cron, examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
-
