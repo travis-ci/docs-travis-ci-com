@@ -50,6 +50,9 @@ MySQL binds to 127.0.0.1 and requires authentication. You can connect using the 
 
 >Note that the "travis" user does not have full MySQL privileges that the "root" user does.
 
+> If you are using the Trusty image (to use Docker or for some other reason) you must
+> use the MySQL 5.6 instructions.
+
 ### Using MySQL with ActiveRecord
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
