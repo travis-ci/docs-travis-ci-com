@@ -55,9 +55,10 @@ To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons 
       - "3.2"
       - "3.3"
       - "3.4"
-      # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-      # maintainers to fix their pypy-dev package.
+      # PyPy versions 
       - "pypy"
+      - "pypy-5.4"
+      - "pypy3.3-5.2-alpha1"
     # command to install dependencies
     install:
       - pip install .
