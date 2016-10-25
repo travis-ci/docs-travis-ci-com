@@ -26,15 +26,15 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 ## Specifying a Go version to use
 
-You can use any tagged version of Go or use `tip` to get the latest version.
+You can use any tagged version of Go or use `master` to get the latest version.
 
     language: go
 
     go:
       - 1.3
-      - tip
+      - master
 
-All go version management is handled by [gimme](https://github.com/meatballhat/gimme).
+All go version management is handled by [gimme](https://github.com/travis-ci/gimme).
 
 For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
