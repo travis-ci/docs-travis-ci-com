@@ -10,6 +10,34 @@ We'll be using a subset (TBD) of the full [list of checks][checks].
 [bear]:   https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst  "MarkdownBear"
 [checks]: https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst#settings "MarkdownBear checks"
 
+### Headings
+
+For historical reasons, the top level heading in Jekyll markdown files is level 2 (##) not level 1 (#).
+
+We use ATX style headings, and do not use the optional closing hashes:
+
+```markdown
+## This is an H2
+
+### This is an H3
+
+#### This is an H4
+```
+
+We do not use underline style headings:
+
+```
+Do not use this style heading
+=============================
+```
+
+### TOC
+
+Add a table of contents to a page with the following html snipped:
+
+```html
+<div id="toc"></div>
+```
 
 ### GUI
 
@@ -36,27 +64,27 @@ The [link](http://www.example.com "Example URL") in the text
 
 All function names, filenames, etc should be marked with `back-ticks`.
 
+### Blockquotes / Notes / Warnings
+
+As we have no use for blockquotes we use `>` to indicate notes and warnings:
+
+```markdown
+> Note this important info!
+
+```
+
 ### Code blocks
 
 Code blocks should be fenced with triple back-ticks "\`\`\`" and named according to [prism.js][prism] for syntax highlighting.
 
-````markdown
-```markdown
-your code here
-```
-````
-
 [prism]:  http://prismjs.com/#languages-list  "Prism language list"
 
-## Text
-
-### Titles
-
-Should be in normal sentence case
+  ```markdown
+  your code here
+  ```
 
 ### Common misspellings and words to avoid
 
 * Always refer to *Travis CI* and never to Travis.
-
 
 ## Images
