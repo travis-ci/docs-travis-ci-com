@@ -292,13 +292,16 @@ simulators:
       - iPad Pro
   - name: "iOS 10.0"
     devices:
-      - iPhone SE
       - iPhone 5
       - iPhone 5s
       - iPhone 6
       - iPhone 6 Plus
       - iPhone 6s
       - iPhone 6s Plus
+      - iPhone 7
+      - iPhone 7 Plus
+      - iPhone SE
+      - iPad Retina
       - iPad Air
       - iPad Air 2
       - iPad Pro (9.7 inch)
