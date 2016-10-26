@@ -77,9 +77,9 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private only</td>
 <td>private &amp; public</td>
-<td>private only</td>
+<td>private &amp; public</td>
+<td>private &amp; public</td>
 <td>private &amp; public</td>
 </tr>
 <tr>
