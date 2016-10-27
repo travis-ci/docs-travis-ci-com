@@ -41,7 +41,7 @@ Add a table of contents to a page with the following HTML snippet:
 
 ### GUI
 
-Make sure all references to items in a GUI matches the case of the UI, and is marked with *asterisks*.
+Make sure all references to items in a GUI match the case of the UI, and are marked with *asterisks*.
 
 ### Links
 
