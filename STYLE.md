@@ -33,7 +33,7 @@ Do not use this style heading
 
 ### TOC
 
-Add a table of contents to a page with the following html snipped:
+Add a table of contents to a page with the following HTML snippet:
 
 ```html
 <div id="toc"></div>
@@ -63,6 +63,10 @@ The [link](http://www.example.com "Example URL") in the text
 ### Code Inline
 
 All function names, filenames, etc should be marked with `back-ticks`.
+
+If you're talking about applications or services, only the actual command should be marked as code, not the name of the service:
+
+* Start the PostgreSQL database by running `psql`.
 
 ### Blockquotes / Notes / Warnings
 
