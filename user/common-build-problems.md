@@ -264,25 +264,30 @@ There are few ways to work around that.
 
 ### Timeouts installing dependencies
 
-Bundler can time out downloading RubyGems or talking to the APIs at rubygems.org. In the same way, pip can be affected by network connectivity issues to the PyPi mirrors or CDN endpoints.
+If you are getting network timeouts when trying to download dependencies, either
+use the built in retry feature of your dependency manager or wrap your install
+commands in the `travis_retry` function.
 
-Bundler itself now has a [built-in feature to retry](http://bundler.io/v1.5/bundle_install.html#retry) gem downloads or API calls when a network error or timeout occurs.
+#### Bundler
 
-You can add the `--retry` option with the number of retries you'd like to use. *Note: this may become a default in the future on Travis CI.*
+Bundler retries three times by default, but if you need to increase that number,
+use the following syntax in your `.travis.yml`
 
-Here's what you can add to your .travis.yml:
+```bash
+bundler_args: --retry 5
+```
 
-    bundler_args: --retry 3
+#### travis_retry
 
-Beyond Bundler, you can wrap commands using the function `travis_retry` which checks the return code of a command, retrying it three times if the return code is non-zero.
+For commands which do not have a built in retry feature, use the `travis_retry`
+function to retry it up three times if the return code is non-zero:
 
-    install: travis_retry bundle install
+```sh
+install: travis_retry pip install myawesomepackage
+```
 
-Note that with Bundler, using one or the other should be sufficient to catch network timeouts affecting your build. Using the new `--retry` option has the benefit of giving you finer control about the total amount of retries.
-
-We recommend using `travis_retry` when you have commands that only install one or two RubyGems, for instance, or when they're timing out for other reasons.
-
-Most of our build-internal commands are wrapped with `travis_retry` to reduce the impact of temporary network hiccups.
+Most of our internal build commands are wrapped with `travis_retry` to reduce the
+impact of network timeouts.
 
 ### Build times out because no output was received
 
