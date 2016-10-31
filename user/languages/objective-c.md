@@ -68,12 +68,13 @@ CocoaPods) are added explicitly to the Scheme. To do so:
 3. If your target include cross-project dependencies such as CocoaPods, then
    you will need to ensure that they have been configured as explicit
    dependencies. To do so:
- 1. Highlight your application target and hit the **Edit…** button to
+
+   1. Highlight your application target and hit the **Edit…** button to
     open the Scheme editing sheet.
- 2. Click the **Build** tab in the left-hand panel of the Scheme editor.
- 3. Click the **+** button and add each dependency to the project.
+   2. Click the **Build** tab in the left-hand panel of the Scheme editor.
+   3. Click the **+** button and add each dependency to the project.
     CocoaPods will appear as a static library named **Pods**.
- 4. Drag the dependency above your test target so it is built first.
+   4. Drag the dependency above your test target so it is built first.
 
 You will now have a new file in the **xcshareddata/xcschemes** directory
 underneath your Xcode project. This is the shared Scheme that you just
