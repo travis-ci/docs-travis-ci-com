@@ -1,5 +1,6 @@
 language: ruby
-sudo: false
+sudo: required
+dist: trusty
 rvm: 2.3.1
 branches:
   only:
@@ -19,9 +20,8 @@ notifications:
     on_success: never
 install:
   - bundle install
-  - python -V
-  - pip install --upgrade pip
-  - pip install coala-bears
+  - sudo pip install --upgrade pip
+  - sudo pip install coala-bears
   - npm install remark-cli@2
 script:
   - rake test
