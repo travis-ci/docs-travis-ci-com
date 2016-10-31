@@ -151,8 +151,8 @@ Or multiple channels:
       irc:
         - "chat.freenode.net#my-channel"
         - "chat.freenode.net#some-other-channel"
-				- "irc://chat.freenode.net:8000/#plaintext_channel"
-				- "ircs://chat.freenode.net:7070/#ssl_tls_channel"
+        - "irc://chat.freenode.net:8000/#plaintext_channel"
+        - "ircs://chat.freenode.net:7070/#ssl_tls_channel"
 
 As with other notification types you can specify when IRC notifications will be sent:
 
