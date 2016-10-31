@@ -2,6 +2,8 @@ language: ruby
 sudo: required
 dist: trusty
 rvm: 2.3.1
+python:
+  - "3.5"
 branches:
   only:
   - gh-pages
