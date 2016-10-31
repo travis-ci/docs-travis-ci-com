@@ -138,7 +138,7 @@ and `lein help with-profile` to learn more about the `with-profiles` task.
 
 If your Clojure project requires a more recent version of Leiningen, you can specify it with:
 
-````yaml
+```yaml
 language: clojure
 
 lein: 2.6.1 # version 2 and up
