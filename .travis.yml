@@ -17,5 +17,5 @@ notifications:
   slack:
     secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
     on_success: never
-install: pip3 install coala-bears; npm install remark-cli@2;
+install: bundle install; pip3 install coala-bears; npm install remark-cli@2;
 script: rake test; coala-ci
