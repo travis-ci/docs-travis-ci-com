@@ -4,6 +4,7 @@ rvm: 2.3.1
 branches:
   only:
   - gh-pages
+  - sw-coala-ci-take-2
 cache: bundler
 deploy:
   provider: heroku
