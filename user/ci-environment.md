@@ -41,7 +41,7 @@ The following table summarizes the differences between the virtual environments:
 <table><thead>
 <tr>
 <th></th>
-<th>Standard</th>
+<th>Sudo-enabled</th>
 <th>Container-based</th>
 <th>OS X</th>
 <th>Trusty beta</th>
