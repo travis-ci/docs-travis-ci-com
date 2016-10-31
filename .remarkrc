@@ -1,8 +1,0 @@
-{
-  "output": true,
-  "settings": {
-    "bullet": "-",
-    "ruleRepetition": 3,
-    "fences": false
-  }
-}
