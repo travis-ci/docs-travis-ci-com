@@ -199,10 +199,8 @@ gemfile: gemfiles/Gemfile.ci
 Unless specified, the worker will look for a file named "Gemfile" in the root of
 your project.
 
-You can also set [a
-href="http://bundler.io/v1.3/man/bundle-install.1.html"](<a
-href="http://bundler.io/v1.3/man/bundle-install.1.html">)extra arguments</a> to
-be passed to `bundle install`:
+You can also set [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
+extra arguments to be passed to `bundle install`:
 
 ```
 bundler_args: --binstubs

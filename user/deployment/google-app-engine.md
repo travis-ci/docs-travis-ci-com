@@ -45,7 +45,7 @@ deploy:
 
 ### Version to deploy
 
-Either the **version** flag or the **default** option must be set. If default is true, the default version will be deployed to, which will be <http://your-project-id.appspot.com>. If the **version** flag is set instead, it will deploy to <http://version-dot-your-project-id.appspot.com>.
+Either the **version** flag or the **default** option must be set. If default is true, the default version will be deployed to, which will be `http://your-project-id.appspot.com`. If the **version** flag is set instead, it will deploy to `http://version-dot-your-project-id.appspot.com`.
 
 ### Branch to deploy from
 
