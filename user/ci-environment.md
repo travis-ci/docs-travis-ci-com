@@ -30,8 +30,8 @@ can install anything that's required for them to run.
 
 Each build runs in one of the following four virtual environments:
 
-* Standard (the default environment)
-* Container-based (the newer environment in which `sudo` commands are not available)
+* Standard (the default environment, a sudo enabled, full VM per build)
+* Container-based (Fast boot time environment in which `sudo` commands are not available)
 * OSX for Objective-C projects
 * Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
@@ -77,9 +77,9 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>Cache available</td>
-<td>private only</td>
 <td>private &amp; public</td>
-<td>private only</td>
+<td>private &amp; public</td>
+<td>private &amp; public</td>
 <td>private &amp; public</td>
 </tr>
 <tr>
