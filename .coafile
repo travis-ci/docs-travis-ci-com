@@ -1,3 +1,4 @@
 [Default]
-bears = MarkdownBear
-files = **/*.md
+bears  = MarkdownBear
+files  = **/*.md
+ignore = **/node_modules
