@@ -8,7 +8,7 @@ permalink: /user/trusty-ci-environment/
 
 If you just want to get started using our Trusty beta, then add the following to your `.travis.yml`.
 
-``` yaml
+```yaml
 sudo: required
 dist: trusty
 ```
@@ -45,7 +45,6 @@ slate and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-
 ## Image differences from Precise
 
 In our Precise based environments, we've traditionally built a library
@@ -70,7 +69,7 @@ Our Ubuntu 14.04 Trusty Tahr images are based on the
 Add the following to your `.travis.yml` file. This works for both
 public and private repositories.
 
-``` yaml
+```yaml
 sudo: required
 dist: trusty
 ```
@@ -80,24 +79,24 @@ dist: trusty
 We currently have a custom **mega** image that we are building, which
 contains a number of common language runtimes, tools, and data services.
 
-_Note: the **mega** image does not currently contain all the common
+*Note: the **mega** image does not currently contain all the common
 tools and services present in our Precise images. This is something
-we'll be expanding over the next couple of months_
+we'll be expanding over the next couple of months*
 
 ### Version control
 
 All VM images have the following pre-installed:
 
- * A Git 1.9.x release
- * Mercurial (official Ubuntu packages)
- * Subversion (official Ubuntu packages)
-
+- A Git 1.9.x release
+- Mercurial (official Ubuntu packages)
+- Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
 
 GCC, Clang, make, autotools, cmake, scons.
+
 - Essentially everything from `build-essential` and **clang** from the
-`llvm-3.4` Ubuntu package.
+  `llvm-3.4` Ubuntu package.
 
 - gcc 4.8.4
 - llvm clang 3.5.0
@@ -125,7 +124,6 @@ section for more details on our Docker beta and its usage.
 
 [rvm](https://rvm.io/rvm/about) is installed and we've pre-installed the following Ruby versions
 with it.
-
 
 - jruby-9.0.1.0
 - ruby-1.9.3-p551
@@ -189,7 +187,6 @@ with it
 We do not currently have any PHP versions pre-installed in the **mega**
 image. This is at the top of our list for our next update.
 
-
 But we do have [phpenv](https://github.com/phpenv/phpenv) installed and
 it's able to install the following PHP versions.
 
@@ -199,8 +196,8 @@ it's able to install the following PHP versions.
 - PHP 5.6
 - PHP 7.0.0 RCs
 
-_Note: We're unable to build **PHP 5.2** on Trusty so far, so trying to use
-it will result in a build failure when phpenv fails to compile it_
+*Note: We're unable to build **PHP 5.2** on Trusty so far, so trying to use
+it will result in a build failure when phpenv fails to compile it*
 
 #### Other software
 
@@ -210,14 +207,14 @@ You can install other Ubuntu packages using `apt-get`, or add third party PPAs o
 
 We pre-install the following services and they can be activated with the built-in [services](/user/database-setup/) support.
 
-* PostgreSQL
+- PostgreSQL
   - 9.1.23 (default)
   - 9.2.18
   - 9.3.14
   - 9.4.9
   - 9.5.4
-* SQLite 3.8.2
-* Redis 3.0.4
+- SQLite 3.8.2
+- Redis 3.0.4
 
 The following services that are included with our Precise images are **not included** in the Trusty **mega** images but some may be added in the coming months, in the meantime install them manually if you need them:
 
@@ -238,13 +235,15 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-    addons:
-      firefox: "17.0"
+```
+addons:
+  firefox: "17.0"
+```
 
 ### Headless Browser Testing Tools
 
-* [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/)
+- [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
+- [PhantomJS](http://phantomjs.org/)
 
 ### Environment variables
 
@@ -260,14 +259,15 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    - Set up and export environment variables.
-    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
-    You may modify the user's primary group with `-g`.
-1. Your `script` would look something like:
+   - Set up and export environment variables.
+   - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+     You may modify the user's primary group with `-g`.
+2. Your `script` would look something like:
 
 ```bash
 script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
 ```
+
 This will pass the environment variables down to a `bash` process which runs as `$USER`,
 while retaining the environment variables defined
 and belonging to secondary groups given above in `usermod`.

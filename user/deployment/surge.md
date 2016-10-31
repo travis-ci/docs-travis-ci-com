@@ -10,8 +10,8 @@ You will need to set 2 environment variables in your travis settings and set the
 
 ### Environment variables
 
-* **SURGE_LOGIN**: Set it to the email address you use with Surge
-* **SURGE_TOKEN**: Set it to your login token (get it by doing a `surge token`)
+- **SURGE_LOGIN**: Set it to the email address you use with Surge
+- **SURGE_TOKEN**: Set it to your login token (get it by doing a `surge token`)
 
 ### Configuration of `.travis.yml`:
 
@@ -44,7 +44,6 @@ It is suggested that you generate your files during the `script` step or the `be
 
 - When generating files during the `script` step, an error results in a failed build.
 - When generating files during the `before_deploy` step, an error does *not* result in a failed build.
-
 
 ### Branches
 
