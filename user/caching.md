@@ -172,7 +172,7 @@ Large files that are quick to install but slow to download do not benefit from c
 ## Fetching and storing caches
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* There is one cache per branch and language versioan / compiler version / JDK version / Gemfile location, etc.
+* There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
 * If a branch does not have its own cache, Travis CI fetches the default branch cache.
 
 ### Pull request builds and caches
