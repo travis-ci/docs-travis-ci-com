@@ -6,14 +6,15 @@ permalink: /user/trusty-ci-environment/
 
 ## Using Trusty
 
-In order to use Ubuntu Trusty, add the following to your `.travis.yml`.
+In order to use sudo-enabled Ubuntu Trusty, add the following to your
+`.travis.yml`.
 
 ``` yaml
 dist: trusty
 sudo: required
 ```
 
-Or, if you want to route to the container-based beta, add:
+Or, if you want to route to the sudo-less  beta, add:
 
 ``` yaml
 dist: trusty
@@ -61,6 +62,12 @@ The primary disadvantage of running with `sudo: false` is the unavailability of
 passwordless `sudo` rights.  In order to account for this disadvantage, we offer
 addons [such as `apt.packages` and
 `apt.sources`](/user/installing-dependencies/).
+
+_NOTE: The allowed list of packages that may be installed varies between Precise
+and Trusty, with the Precise list being considerably larger at the time of this
+writing.  If the packages you need are not yet available on Trusty, it is
+recommended that you either target `dist: precise` or `sudo: required` depending
+on your needs._
 
 ## Image differences from Precise
 
