@@ -14,7 +14,7 @@ dist: trusty
 sudo: required
 ```
 
-Or, if you want to route to the sudo-less  beta, add:
+Or, if you want to route to the sudo-less beta, add:
 
 ``` yaml
 dist: trusty
