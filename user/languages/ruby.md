@@ -18,7 +18,7 @@ configuration](/user/customizing-the-build/) guides first.
 
 The Ruby VM provides recent versions of:
 
-- Ruby: 2.2.0, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
+- Ruby: 2.3.x, 2.2.x, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
 - JRuby: 1.7.x (1.8 and 1.9 mode)
 - Ruby Enterprise Edition: 1.8.7 2012.02
 
@@ -39,14 +39,14 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
     language: ruby
     rvm:
-      - 2.2
+      - 2.3
       - jruby
       - rbx-2
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in other
 images containing a ruby implementation.
 
-As we upgrade both RVM and Rubies, aliases like `2.2` or `jruby` point to different exact versions, patch levels and so on.
+As we upgrade both RVM and Rubies, aliases like `2.3` or `jruby` point to different exact versions, patch levels and so on.
 
 For a full up-to-date list of provided Rubies, see our [CI
 environment guide](/user/ci-environment/).
