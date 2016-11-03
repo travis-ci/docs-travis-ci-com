@@ -144,7 +144,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
- ```
+```
 
 ## Build Matrix
 
