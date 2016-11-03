@@ -686,32 +686,3 @@ is a small Sinatra app which shows you how this works.
 
 [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
-
-### Authorization for Webhooks (Deprecated)
-
-**Note: The `Authorization` header value described here is deprecated
-and will be discontinued on November 1, 2016**
-
-When Travis CI makes the POST request, a header named `Authorization` is included.
-Its value is the SHA2 hash of the GitHub username (see below), the name of the repository,
-and your Travis CI token.
-
-For instance, in Python, use this snippet:
-
-```
-from hashlib import sha256
-sha256('username/repository' + TRAVIS_TOKEN).hexdigest()
-```
-
-Use this to ensure Travis CI is the one making requests to your webhook.
-
-The Travis CI token used to authenticate the webhooks is the user token, which you can find on your profile page.
-
-![Travis CI user token](/images/token.jpg)
-
-It's the token for the user who originally set up the repository on Travis CI.
-If you're uncertain who that was, you can find the user's name on the service
-hooks page of your repository on GitHub.
-
-This process is going to be reworked in the future, as the user token isn't
-constantly reliable, but we'll announce any changes well in advance.

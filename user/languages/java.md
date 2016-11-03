@@ -136,6 +136,16 @@ Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
+Of note: OracleJDK 8 and JavaFX  projects may need to update to the latest available version from a repository. This can be accomplished by adding the following lines from [this issue comment](https://github.com/travis-ci/travis-ci/issues/3259#issuecomment-130860338) to your .travis.yml:
+
+```yaml
+sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+ ```
+
 ## Build Matrix
 
 For Java projects, `env` and `jdk` can be given as arrays

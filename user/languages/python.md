@@ -16,7 +16,7 @@ Python builds are not available on the OSX environment.
 
 Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, as well as recent development versions.
 
-```
+```yaml
 language: python
 python:
   - "2.6"
@@ -31,7 +31,7 @@ python:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: nosetests
+script: pytest
 ```
 
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
@@ -50,7 +50,7 @@ Travis CI supports PyPy and PyPy3.
 
 To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons in your `.travis.yml`:
 
-```
+```yaml
 language: python
 python:
   - "2.6"
@@ -66,7 +66,7 @@ install:
   - pip install .
   - pip install -r requirements.txt
 # command to run tests
-script: nosetests
+script: pytest
 ```
 
 ## Default Python Version
@@ -78,11 +78,11 @@ If you leave the `python` key out of your `.travis.yml`, Travis CI will use Pyth
 Python projects need to provide the `script` key in their `.travis.yml` to
 specify what command to run tests with.
 
-For example, if your project uses nosetests:
+For example, if your project uses pytest:
 
 ```
 # command to run tests
-script: nosetests
+script: pytest 
 ```
 
 if it uses `make test` instead:

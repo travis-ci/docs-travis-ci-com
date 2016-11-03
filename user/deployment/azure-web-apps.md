@@ -8,12 +8,13 @@ Travis CI can automatically deploy your [Azure Web App](https://azure.microsoft.
 
 For a minimal configuration, all you need to do is enable [Local Git Deployment](https://azure.microsoft.com/en-us/documentation/articles/app-service-deploy-local-git/) and add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: azure_web_apps
   username: azure_deployment_user       # If AZURE_WA_USERNAME isn't set
   password: azure_deployment_password   # If AZURE_WA_PASSWORD isn't set
   site: azure_deployment_sitename       # If AZURE_WA_SITE isn't set
+  slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
 ```
 
 It is not recommended that you put your Azure Deployment credentials unencrypted into your `.travis.yml`. Instead, use hidden environment variables or encrypted variables.
@@ -71,11 +72,24 @@ its content.
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
+```
+
+### Deploying to slots
+
+You might need to deploy multiple branches to different slots. You can set multiple providers to deploy to specific slots. The following configuration would deploy the `master` branch to the `myapp-staging` slot and the `develop` branch to the `myapp-develop` slot. In order to use slots you'll need to [set up staging environments for web apps in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+
+```yaml
+deploy:
+- provider: azure_web_apps
+  slot: myapp-staging
+- provider: azure_web_apps
+  slot: myapp-develop
+  on: develop
 ```

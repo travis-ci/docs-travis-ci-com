@@ -108,12 +108,12 @@ addons:
 
 ```yaml
 addons:
- apt:
-   sources:
-   - ubuntu-toolchain-r-test
-   packages:
-   - gcc-4.8
-   - g++-4.8
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
 ```
 
 > Note: If `apt-get install` fails, the build is marked an error.
@@ -151,12 +151,12 @@ addons:
 
 ```yaml
 addons:
- apt:
-   sources:
-   - ubuntu-toolchain-r-test
-   packages:
-   - gcc-4.8
-   - g++-4.8
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
 ```
 
 > Note: If `apt-get install` fails, the build is marked an error.
@@ -189,11 +189,11 @@ In our example, the source alias is "lucid":
 
 ```yaml
 addons:
- apt:
-   sources:
-   - lucid
-   packages:
-   - libcxsparse3.1.2
+  apt:
+    sources:
+    - lucid
+    packages:
+    - libcxsparse3.1.2
 ```
 
 ## Installing Packages on OSX
