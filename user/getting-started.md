@@ -26,7 +26,7 @@ Or if you want a more complete guide to a particular language, pick one of these
    rvm:
     - 2.2
     - jruby
-    - rbx-2
+    - rbx
    # uncomment and edit the following line if your project needs to run something other than `rake`:
    # script: bundle exec rspec spec
    ```

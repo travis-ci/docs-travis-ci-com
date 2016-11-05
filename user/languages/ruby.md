@@ -41,7 +41,7 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
     rvm:
       - 2.2
       - jruby
-      - rbx-2
+      - rbx
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in other
 images containing a ruby implementation.
@@ -52,10 +52,6 @@ For a full up-to-date list of provided Rubies, see our [CI
 environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
-
-When using Rubinius, there's currently an issue with selecting the correct version
-in RVM in our build environment, but only when specifying `rbx` as your version. As
-a workaround, specify `rbx-2` instead.
 
 ### Using `.ruby-version`
 
