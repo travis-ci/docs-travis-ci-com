@@ -56,9 +56,9 @@ To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons 
       - "3.3"
       - "3.4"
       # PyPy versions 
-      - "pypy"
-      - "pypy-5.4"
-      - "pypy3.3-5.2-alpha1"
+      - "pypy" # PyPy2 2.5.0
+      - "pypy3" # Pypy3 2.4.0
+      - "pypy-5.3.1"
     # command to install dependencies
     install:
       - pip install .
