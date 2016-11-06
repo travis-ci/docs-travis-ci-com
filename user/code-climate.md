@@ -27,13 +27,23 @@ free for open source.
 For Ruby projects you need to add a library to your Gemfile called
 [`code-climate-reporter`](https://github.com/codeclimate/ruby-test-reporter):
 
-    gem "codeclimate-test-reporter", group: :test, require: nil
+    group :test do
+      gem "simplecov"
+      gem "codeclimate-test-reporter", "~> 1.0.0"
+    end
 
-Next, require the reporter in your `test_helper.rb` or `spec_helper.rb`, right
-at the top:
+Next, start [SimpleCov](https://github.com/colszowka/simplecov) in your
+`test_helper.rb` or `spec_helper.rb`, right at the top:
 
-    require "codeclimate-test-reporter"
-    CodeClimate::TestReporter.start
+    require 'simplecov'
+    SimpleCov.start
+
+Next, invoke the reporter binary in your `.travis.yml` to submit the coverage
+data to Code Climate. Make sure that it follows tests:
+
+    script:
+      - bundle exec rake
+      - bundle exec codeclimate-test-reporter
 
 As a last step, you need to tell Travis CI about the token to use for
 transmitting the coverage results. You can find the token in your repository's
@@ -103,22 +113,6 @@ You can find additional setup, installation, and troubleshooting information her
 [README](https://github.com/codeclimate/python-test-reporter#codeclimate-test-reporter).
 
 ## Common Problems
-
-#### I get an error transmitting coverage results
-
-If your project is using WebMock to stub out HTTP requests, you'll need to
-explicitly whitelist the Code Climate API, otherwise you'll get an error that
-the coverage results couldn't be transmitted. Here's how you can set up WebMock
-to whitelist Code Climate:
-
-    WebMock.disable_net_connect!(allow: %w{codeclimate.com})
-
-One way to do this is to add the following to your `spec_helper.rb` file:
-
-    # whitelist codeclimate.com so test coverage can be reported
-    config.after(:suite) do
-      WebMock.disable_net_connect!(:allow => 'codeclimate.com')
-    end
 
 #### I want to use Code Climate with parallel builds
 
