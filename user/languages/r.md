@@ -188,6 +188,25 @@ r: bioc-release
 Travis CI will use the proper R version for that version of Bioconductor and
 configure Bioconductor appropriately for installing dependencies.
 
+### Packrat
+
+If you want Travis CI to use your project-specific [packrat](https://rstudio.github.io/packrat/) package library, rather than the default behaviour of downloading your package dependencies from CRAN, you can add this to your `.travis.yml`:
+
+```yaml
+install:
+  - R -e "0" --args --bootstrap-packrat
+```
+
+You can minimise build times by caching your packrat packages with:
+
+```yaml
+cache:
+  directories: $TRAVIS_BUILD_DIR/packrat/
+  packages: true
+```
+
+
+
 ### Miscellaneous
 
 * `cran`: CRAN mirror to use for fetching packages. Defaults to
