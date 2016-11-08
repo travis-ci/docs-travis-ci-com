@@ -41,67 +41,52 @@ The following table summarizes the differences between the virtual environments:
 <table><thead>
 <tr>
 <th></th>
-<th>Sudo-enabled</th>
 <th>Container-based</th>
+<th>Sudo-enabled</th>
 <th>OS X</th>
-<th>Trusty beta</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>.travis.yml</td>
-<td><code>sudo: required</code> <em>default for repositories enabled before 2015</em></td>
 <td><code>sudo: false</code> <em>default for repositories enabled in 2015 or later</em></td>
+<td><code>sudo: required</code> <em>default for repositories enabled before 2015</em></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
-<td><code>sudo: required</code> **and** <code>dist: trusty</code></td>
 </tr>
 <tr>
 <td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
-<td>yes</td>
 <td>no</td>
 <td>yes</td>
 <td>yes</td>
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>20-52s</td>
 <td>1-6s</td>
-<td>60-90s</td>
 <td>20-52s</td>
+<td>60-90s</td>
 </tr>
 <tr>
 <td>File System</td>
-<td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
 <td>AUFS</td>
-<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 <td>ext4</td>
-</tr>
-<tr>
-<td>Cache available</td>
-<td>private &amp; public</td>
-<td>private &amp; public</td>
-<td>private &amp; public</td>
-<td>private &amp; public</td>
+<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
 <td>Operating System</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
-<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
 <td>OS X Mavericks</td>
-<td>Ubuntu 14.04 LTS Server Edition 64 bit</td>
 </tr>
 <tr>
 <td>Memory</td>
-<td>7.5 GB</td>
 <td>4 GB max</td>
-<td>3 GB</td>
 <td>7.5 GB</td>
+<td>3 GB</td>
 </tr>
 <tr>
 <td>Cores</td>
-<td>~2, bursted</td>
 <td>2</td>
-<td>1</td>
 <td>~2, bursted</td>
+<td>1</td>
 </tr>
 </tbody></table>
 </div>
