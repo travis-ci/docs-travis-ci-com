@@ -33,9 +33,9 @@ not use it on a publicly available site.
 
 ## Travis CI pages show the default branch's result
 
-On the pages on Traivs CI, we show the result of the most recent
+On the pages on Travis CI, we show the result of the most recent
 build on its default branch.
-For example, for [docs-travis-ci-com](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds)),
+For example, for [docs-travis-ci-com](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds),
 this is the `gh-pages` branch.
 
 If the default branch does not have any build, the status will remain
