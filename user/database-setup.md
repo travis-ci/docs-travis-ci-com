@@ -36,7 +36,6 @@ services:
 > Note that this feature only works for services we provision in our [CI environment](/user/ci-environment/). If you download Apache Jackrabbit
 > you still have to start it in a `before_install` step.
 
-
 ## MySQL
 
 Start MySQL in your `.travis.yml`:
@@ -48,8 +47,8 @@ services:
 
 MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
 
->Note that the "travis" user does not have full MySQL privileges that the "root" user does.
-
+> Note that the "travis" user does not have full MySQL privileges that the "root" user does.
+>
 > If you are using the Trusty image (to use Docker or for some other reason) you must
 > use the MySQL 5.6 instructions.
 
@@ -57,17 +56,21 @@ MySQL binds to 127.0.0.1 and requires authentication. You can connect using the 
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
-    test:
-      adapter: mysql2
-      database: myapp_test
-      username: travis
-      encoding: utf8
+```
+test:
+  adapter: mysql2
+  database: myapp_test
+  username: travis
+  encoding: utf8
+```
 
 You might have to create the `myapp_test` database first. Run this as part of your build script:
 
-    # .travis.yml
-    before_script:
-      - mysql -e 'create database myapp_test;'
+```
+# .travis.yml
+before_script:
+  - mysql -e 'create database myapp_test;'
+```
 
 ### Note on `test` database
 
@@ -99,9 +102,9 @@ addons:
 
 Note that you'll need to use the user `root` as `travis` is not available yet.
 
-For example, if you were running: ``mysql -e 'create database your_db_name;' ``
+For example, if you were running: `mysql -e 'create database your_db_name;'`
 
-You should run instead: ``mysql -u root -e 'create database your_db_name;'``
+You should run instead: `mysql -u root -e 'create database your_db_name;'`
 
 ## PostgreSQL
 
@@ -149,30 +152,28 @@ addons:
 
 The following versions are available on Linux builds:
 
-|PostgreSQL  | sudo enabled precise | sudo enabled trusty | container precise|
-|    :---:   |       :--------:     |   :-------------:   |     :-------:    |
-|9.1         | yes                  | yes                 | yes              |
-|9.2         | yes                  | yes                 | yes              |
-|9.3         | yes                  | yes                 | yes              |
-|9.4         | yes                  | yes                 | yes              |
-|9.5         |                      | yes                 |                  |
-
+| PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise |
+| :--------: | :------------------: | :-----------------: | :---------------: |
+|     9.1    |          yes         |         yes         |        yes        |
+|     9.2    |          yes         |         yes         |        yes        |
+|     9.3    |          yes         |         yes         |        yes        |
+|     9.4    |          yes         |         yes         |        yes        |
+|     9.5    |                      |         yes         |                   |
 
 On OSX, the following versions are installed:
 
-|    image     | version|
-|    :---:     |  :---: |
-|xcode61       | 9.3    |
-|beta-xcode6.3 | 9.4    |
-|beta-xcode6.2 | 9.4    |
-|beta-xcode6.1 | 9.3    |
-|xcode6.4      | 9.4    |
-|xcode7        | 9.4    |
-|xcode7.1      | 9.4    |
-|xcode7.2      | 9.5    |
-|xcode7.3      | 9.5    |
-|xcode8        | 9.5    |
-
+|     image     | version |
+| :-----------: | :-----: |
+|    xcode61    |   9.3   |
+| beta-xcode6.3 |   9.4   |
+| beta-xcode6.2 |   9.4   |
+| beta-xcode6.1 |   9.3   |
+|    xcode6.4   |   9.4   |
+|     xcode7    |   9.4   |
+|    xcode7.1   |   9.4   |
+|    xcode7.2   |   9.5   |
+|    xcode7.3   |   9.5   |
+|     xcode8    |   9.5   |
 
 ### Using PostGIS
 
@@ -189,32 +190,32 @@ before_script:
 
 The following locales are installed on Travis CI build environements:
 
-* C
-* C.UTF-8
-* en_AG
-* en_AG.utf8
-* en_AU.utf8
-* en_BW.utf8
-* en_CA.utf8
-* en_DK.utf8
-* en_GB.utf8
-* en_HK.utf8
-* en_IE.utf8
-* en_IN
-* en_IN.utf8
-* en_NG
-* en_NG.utf8
-* en_NZ.utf8
-* en_PH.utf8
-* en_SG.utf8
-* en_US.utf8
-* en_ZA.utf8
-* en_ZM
-* en_ZM.utf8
-* en_ZW.utf8
-* POSIX
+- C
+- C.UTF-8
+- en_AG
+- en_AG.utf8
+- en_AU.utf8
+- en_BW.utf8
+- en_CA.utf8
+- en_DK.utf8
+- en_GB.utf8
+- en_HK.utf8
+- en_IE.utf8
+- en_IN
+- en_IN.utf8
+- en_NG
+- en_NG.utf8
+- en_NZ.utf8
+- en_PH.utf8
+- en_SG.utf8
+- en_US.utf8
+- en_ZA.utf8
+- en_ZM
+- en_ZM.utf8
+- en_ZW.utf8
+- POSIX
 
-You can find what language packs are currently available for Ubuntu 12.04 [on the packages site.](http://packages.ubuntu.com/search?keywords=language-pack&searchon=names&suite=precise&section=all)
+You can find what language packs are currently available for Ubuntu 12.04 [on the packages site.](http://packages.ubuntu.com/search?keywords=language-pack&searchon=names&suite=precise§ion=all)
 
 #### Installing Locales
 
@@ -235,7 +236,6 @@ before_install:
 MariaDB is a community-developed fork of MySQL. It is available as an addon on Travis CI.
 
 To use MariaDB, specify the "major.minor" version you want to use in your `.travis.yml`. Versions are listed on the [MariaDB web page](https://downloads.mariadb.org/).
-
 
 ```yaml
 addons:
@@ -343,9 +343,9 @@ services:
 
 RabbitMQ uses the default configuration:
 
-* vhost: `/`
-* username: `guest`
-* password: `guest`
+- vhost: `/`
+- username: `guest`
+- password: `guest`
 
 You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
 
@@ -418,7 +418,7 @@ services:
 
 Neo4J Server uses default configuration and binds to localhost on port 7474.
 
-> Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https://github.com/travis-ci/travis-ci/issues/3243</a>
+> Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
 
 ## ElasticSearch
 
@@ -446,6 +446,7 @@ You can overwrite the installed ElasticSearch with the version you need (e.g., 1
 before_install:
   - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb && sudo service elasticsearch restart
 ```
+
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 
 ### Truncated Output in the Build Log
@@ -474,8 +475,8 @@ If you specify a partial version number, the addon will install and run the late
 
 Two environment variables are exported:
 
-* `TRAVIS_RETHINKDB_VERSION` is the version specified in the configuration (e.g., `'2.3.4'`, or `'2.3'`).
-* `TRAVIS_RETHINKDB_PACKAGE_VERSION` is the full version of the package that was installed (e.g., `'2.3.4+1~0precise'`).
+- `TRAVIS_RETHINKDB_VERSION` is the version specified in the configuration (e.g., `'2.3.4'`, or `'2.3'`).
+- `TRAVIS_RETHINKDB_PACKAGE_VERSION` is the full version of the package that was installed (e.g., `'2.3.4+1~0precise'`).
 
 When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
 
@@ -513,7 +514,7 @@ before_script:
 ```
 
 > Travis CI does not have any special support for these variables, it just creates three builds with different exported values. It is up to your
-build script and `before_install` or `before_script` steps to make use of them.
+> build script and `before_install` or `before_script` steps to make use of them.
 
 For a real example, see [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
 

@@ -100,7 +100,6 @@ cache: pip
 
 caches `$HOME/.cache/pip`.
 
-
 ### ccache cache
 
 For caching `ccache` files, use:
@@ -113,8 +112,8 @@ cache: ccache
 
 caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
-
 ### R package cache
+
 For caching R packages, use:
 
 ```yaml
@@ -126,6 +125,7 @@ cache: packages
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
 ### Rust Cargo cache
+
 For caching Cargo packages, use:
 
 ```yaml
@@ -149,8 +149,8 @@ cache:
 
 As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
 
-*   do **not** start with a `/` are relative to `$TRAVIS_BUILD_DIR`.
-*   start with a `/` are absolute.
+- do **not** start with a `/` are relative to `$TRAVIS_BUILD_DIR`.
+- start with a `/` are absolute.
 
 Please be aware that the `travis` user needs to have write permissions to this directory.
 
@@ -164,24 +164,25 @@ Gradle, Maven, is what should go into the cache.
 
 Large files that are quick to install but slow to download do not benefit from caching, as they take as long to download from the cache as from the original source:
 
-* Android SDKs
-* Debian packages
-* JDK packages
-* Compiled binaries
+- Android SDKs
+- Debian packages
+- JDK packages
+- Compiled binaries
 
 ## Fetching and storing caches
 
-* Travis CI fetches the cache for every build, including branches and pull requests.
-* There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
-* If a branch does not have its own cache, Travis CI fetches the default branch cache.
+- Travis CI fetches the cache for every build, including branches and pull requests.
+- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
+- If a branch does not have its own cache, Travis CI fetches the default branch cache.
+- Only modifications made to the cached directories from normal pushes are stored.
 
 ### Pull request builds and caches
 
 Pull request builds check the following cache locations in order, using the first one present:
 
-* The pull request cache.
-* The pull request target branch cache.
-* The repository default branch cache.
+- The pull request cache.
+- The pull request target branch cache.
+- The repository default branch cache.
 
 If none of the previous locations contain a valid cache, the build continues without a cache.
 
@@ -212,16 +213,17 @@ Sometimes you spoil your cache by storing bad data in one of the cached director
 
 Use one of the following ways to access your cache and delete it if necessary:
 
-* The settings page of your repository on [https://travis-ci.org](https://travis-ci.org) (or .com if you're using a private repository)
+- The settings page of your repository on <https://travis-ci.org> (or .com if you're using a private repository)
 
     ![Image of cache UI](/images/caches-item.png)
 
-* The [command line client](https://github.com/travis-ci/travis#readme)
+- The [command line client](https://github.com/travis-ci/travis#readme)
 
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
+
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
 
-* The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
+- The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
 
@@ -286,11 +288,11 @@ jobs should use.
 These factors are:
 
 1. OS name (currently, `linux` or `osx`)
-1. OS distribution (for Linux, `precise` or `trusty`)
-1. OS X image name (e.g., `xcode7.2`)
-1. Names and values of visible environment variables set in `.travis.yml` or Settings panel
-1. Language runtime version (for the language specified in the `language` key) if applicable
-1. For Bundler-aware jobs, the name of the `Gemfile` used
+2. OS distribution (for Linux, `precise` or `trusty`)
+3. OS X image name (e.g., `xcode7.2`)
+4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+5. Language runtime version (for the language specified in the `language` key) if applicable
+6. For Bundler-aware jobs, the name of the `Gemfile` used
 
 If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.
@@ -299,7 +301,9 @@ usable in all jobs using it.
 In this case, we advise you to add a defining public environment variable
 name; e.g.,
 
-    CACHE_NAME=JOB1
+```
+CACHE_NAME=JOB1
+```
 
 to `.travis.yml`.
 

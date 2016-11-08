@@ -9,14 +9,14 @@ permalink: /user/trusty-ci-environment/
 In order to use sudo-enabled Ubuntu Trusty, add the following to your
 `.travis.yml`.
 
-``` yaml
+```yaml
 dist: trusty
 sudo: required
 ```
 
 Or, if you want to route to the sudo-less beta, add:
 
-``` yaml
+```yaml
 dist: trusty
 sudo: false
 group: beta
@@ -58,16 +58,11 @@ The advantage of running with `sudo: false` is dramatically reduced time between
 commit push to GitHub and the start of a job on Travis CI, which works
 especially well when one's average job duration is under 3 minutes.
 
-The primary disadvantage of running with `sudo: false` is the unavailability of
-passwordless `sudo` rights.  In order to account for this disadvantage, we offer
-addons [such as `apt.packages` and
-`apt.sources`](/user/installing-dependencies/).
-
-_NOTE: The allowed list of packages that may be installed varies between Precise
+*NOTE: The allowed list of packages that may be installed varies between Precise
 and Trusty, with the Precise list being considerably larger at the time of this
 writing.  If the packages you need are not yet available on Trusty, it is
 recommended that you either target `dist: precise` or `sudo: required` depending
-on your needs._
+on your needs.*
 
 ## Image differences from Precise
 
@@ -87,14 +82,14 @@ includes:
 Add the following to your `.travis.yml` file. This works for both public and
 private repositories.
 
-``` yaml
+```yaml
 dist: trusty
 sudo: required
 ```
 
 Or, if you want to route to the container-based beta:
 
-``` yaml
+```yaml
 dist: trusty
 sudo: false
 group: beta
@@ -102,17 +97,17 @@ group: beta
 
 ## Environment common to all Trusty images
 
-_NOTE: The Trusty images do not currently contain all the common
+*NOTE: The Trusty images do not currently contain all the common
 tools and services present in our Precise images. This is something
-we expect will change over time._
+we expect will change over time.*
 
 ### Version control
 
 All VM images have the following pre-installed:
 
- * A Git 2.x release
- * Mercurial (official Ubuntu packages)
- * Subversion (official Ubuntu packages)
+- A Git 2.x release
+- Mercurial (official Ubuntu packages)
+- Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
 
@@ -140,7 +135,7 @@ easily install another version with `apt` if needed.  When `sudo: required` is
 specified, Docker is installed as a service.  When `sudo: false` is specified,
 the Docker binaries are available for local use.
 
-_NOTE: When `sudo: false` is specified, the Docker daemon is not supported._
+*NOTE: When `sudo: false` is specified, the Docker daemon is not supported.*
 
 [docker-compose](https://docs.docker.com/compose/) is also installed.
 
@@ -197,8 +192,8 @@ least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
 versions that are not pre-installed will be dynamically installed from a local
 cache, or built via `phpenv` if unavailable.
 
-_Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it_
+*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
+result in a build failure when phpenv fails to compile it*
 
 #### Other software
 
@@ -237,13 +232,15 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-    addons:
-      firefox: "17.0"
+```
+addons:
+  firefox: "17.0"
+```
 
 ### Headless Browser Testing Tools
 
-* [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/)
+- [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
+- [PhantomJS](http://phantomjs.org/)
 
 ### Environment variables
 
@@ -265,11 +262,13 @@ by following the following steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle
    prior to the build script execution.
-    - Set up and export environment variables.
-    - Add `$USER` to desired secondary groups: `sudo usermod -a -G
-      SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
-    You may modify the user's primary group with `-g`.
-1. Your `script` would look something like:
+
+   - Set up and export environment variables.
+   - Add `$USER` to desired secondary groups: `sudo usermod -a -G
+        SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+     You may modify the user's primary group with `-g`.
+
+2. Your `script` would look something like:
 
 ```bash
 script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'

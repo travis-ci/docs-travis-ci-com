@@ -6,8 +6,10 @@ We're planning to lint the Markdown with [Coala.io][coala] and the [MarkdownBear
 
 We'll be using a subset (TBD) of the full [list of checks][checks].
 
-[coala]:  http://coala.io/  "Coala CI"
-[bear]:   https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst  "MarkdownBear"
+[coala]: http://coala.io/ "Coala CI"
+
+[bear]: https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst "MarkdownBear"
+
 [checks]: https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst#settings "MarkdownBear checks"
 
 ### Headings
@@ -57,7 +59,6 @@ or
 
 ```markdown
 The [link](http://www.example.com "Example URL") in the text
-
 ```
 
 ### Code Inline
@@ -66,7 +67,7 @@ All function names, filenames, etc should be marked with `back-ticks`.
 
 If you're talking about applications or services, only the actual command should be marked as code, not the name of the service:
 
-* Start the PostgreSQL database by running `psql`.
+- Start the PostgreSQL database by running `psql`.
 
 ### Blockquotes / Notes / Warnings
 
@@ -74,21 +75,20 @@ As we have no use for blockquotes we use `>` to indicate notes and warnings:
 
 ```markdown
 > Note this important info!
-
 ```
 
 ### Code blocks
 
 Code blocks should be fenced with triple back-ticks "\`\`\`" and named according to [prism.js][prism] for syntax highlighting.
 
-[prism]:  http://prismjs.com/#languages-list  "Prism language list"
+[prism]: http://prismjs.com/#languages-list "Prism language list"
 
-  ```markdown
-  your code here
-  ```
+```markdown
+your code here
+```
 
 ### Common misspellings and words to avoid
 
-* Always refer to *Travis CI* and never to Travis.
+- Always refer to *Travis CI* and never to Travis.
 
 ## Images

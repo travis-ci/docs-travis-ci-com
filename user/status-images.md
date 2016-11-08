@@ -13,9 +13,9 @@ For example, this badge shows the build status of the `travis-web` repository:
 The URLs for status images are shown on your Travis CI Repository page:
 
 1. Click the status image in the top right to open a dialog box containing common
-templates for the status image URL in markdown, html, etc.
+   templates for the status image URL in markdown, html, etc.
 
-	![Screenshot of repository badge](http://s3itch.paperplanes.de/statusimage_20140320_112129.jpg)
+   ![Screenshot of repository badge](http://s3itch.paperplanes.de/statusimage_20140320_112129.jpg)
 
 2. Select the branch and template in the dialog box.
 

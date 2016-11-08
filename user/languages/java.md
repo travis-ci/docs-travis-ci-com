@@ -100,7 +100,6 @@ cache:
     - $HOME/.gradle/wrapper/
 ```
 
-
 ## Projects Using Ant
 
 ### Default script Command
@@ -145,7 +144,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
- ```
+```
 
 ## Build Matrix
 
@@ -168,9 +167,9 @@ Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ## Examples
 
-* [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
-* [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
-* [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
-* [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
-* [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
-* [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+- [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
+- [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
+- [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
+- [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
+- [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
+- [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation

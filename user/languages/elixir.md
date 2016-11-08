@@ -63,8 +63,12 @@ mix test
 
 The version of Elixir a job is using is available as:
 
-    TRAVIS_ELIXIR_VERSION
+```
+TRAVIS_ELIXIR_VERSION
+```
 
 As with the Erlang VM, the version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_RELEASE
+```
+TRAVIS_OTP_RELEASE
+```

@@ -34,10 +34,10 @@ the feed. The API endpoint is different too: `https://api.travis-ci.com`
 
 1. The token is shown in [your profile](https://travis-ci.com/profile/) under the "Profile" tab.
 
-    ![Travis CI user token](/images/token.jpg)
+   ![Travis CI user token](/images/token.jpg)
 
 2. Append the `token` parameter to the URL:
 
-    ```
-    https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>
-    ```
+   ```
+   https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>
+   ```
