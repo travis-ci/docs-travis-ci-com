@@ -204,8 +204,6 @@ cache:
   packages: true
 ```
 
-
-
 ### Miscellaneous
 
 - `cran`: CRAN mirror to use for fetching packages. Defaults to
