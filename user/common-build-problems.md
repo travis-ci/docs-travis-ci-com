@@ -29,8 +29,7 @@ After figuring out which dependency was updated, lock it to the last known
 version.
 
 Additionally, we update our build environment regularly, which brings in newer
-versions of languages and the running services. Make sure to follow our
-[changelog](http://changelog.travis-ci.com) to get a hold of the latest updates.
+versions of languages and the running services.
 
 ## My build script is killed without any error
 
