@@ -94,9 +94,9 @@ Note that the syntax of `rbx-19mode` isn't supported anymore.
 
 Rubinius will be installed via a download currently.
 
-### JRuby: C extensions support is disabled
+### JRuby: C extensions are not supported
 
-Please note that **C extensions are disabled for JRuby** on Travis CI. The
+Please note that **C extensions are not supported in JRuby** on Travis CI. The
 reason for doing so is to bring it to developers attention that their project
 may have dependencies that should not be used on JRuby in production. Using C
 extensions on JRuby is technically possible but is not a good idea performance
