@@ -371,7 +371,7 @@ matrix:
     env: DB=mysql
 ```
 
-### Explicity Including Jobs
+### Explicitly Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
