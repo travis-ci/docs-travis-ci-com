@@ -50,26 +50,6 @@ Travis CI supports PyPy and PyPy3.
 
 To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons in your `.travis.yml`:
 
-<<<<<<< HEAD
-    language: python
-    python:
-      - "2.6"
-      - "2.7"
-      - "3.2"
-      - "3.3"
-      - "3.4"
-      # PyPy versions 
-      - "pypy" # PyPy2 2.5.0
-      - "pypy3" # Pypy3 2.4.0
-      - "pypy-5.3.1"
-    # command to install dependencies
-    install:
-      - pip install .
-      - pip install -r requirements.txt
-    # command to run tests
-    script: nosetests
-
-=======
 ```yaml
 language: python
 python:
@@ -78,9 +58,11 @@ python:
   - "3.2"
   - "3.3"
   - "3.4"
-  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-  # maintainers to fix their pypy-dev package.
+  # PyPy versions
   - "pypy"
+  - "pypy"  # PyPy2 2.5.0
+  - "pypy3" # Pypy3 2.4.0
+  - "pypy-5.3.1"
 # command to install dependencies
 install:
   - pip install .
@@ -88,7 +70,6 @@ install:
 # command to run tests
 script: pytest
 ```
->>>>>>> 367637b079e3bbab62c71d022bc0c5395da5434f
 
 ## Default Python Version
 
