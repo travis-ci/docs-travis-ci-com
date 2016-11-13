@@ -40,7 +40,6 @@ Get the lists of files to exclude and include from your version control system (
 deploy:
   provider: atlas
   vcs: true
-
 ```
 
 ## Other Deployment Options
