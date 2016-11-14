@@ -28,12 +28,11 @@ can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following four virtual environments:
+Each build runs in one of the following virtual environments:
 
-- Standard (the default environment, a sudo enabled, full VM per build)
+- Sudo-enabled (the default environment, a sudo enabled, full VM per build)
 - Container-based (Fast boot time environment in which `sudo` commands are not available)
 - OSX for Objective-C projects
-- Trusty Beta (a sudo enabled, full VM per build, environment which uses Ubuntu 14.04 Trusty Tahr)
 
 The following table summarizes the differences between the virtual environments:
 
@@ -48,8 +47,8 @@ The following table summarizes the differences between the virtual environments:
 </thead><tbody>
 <tr>
 <td>.travis.yml</td>
-<td><code>sudo: false</code> <em>default for repositories enabled in 2015 or later</em></td>
-<td><code>sudo: required</code> <em>default for repositories enabled before 2015</em></td>
+<td><code>sudo: false</code></td>
+<td><code>sudo: required</code></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
 </tr>
 <tr>
