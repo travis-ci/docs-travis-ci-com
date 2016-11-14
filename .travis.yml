@@ -27,4 +27,4 @@ install:
   - npm install remark-cli@2
 script:
   - rake test
-  - coala-ci
+#  - coala-ci
