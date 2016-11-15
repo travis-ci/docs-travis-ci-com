@@ -306,6 +306,22 @@ simulators:
       - iPad Air 2
       - iPad Pro (9.7 inch)
       - iPad Pro (12.9 inch)
+  - name: "iOS 10.1"
+    devices:
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s
+      - iPhone 7
+      - iPhone 7 Plus
+      - iPhone SE
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+      - iPad Pro
   - name: "watchOS 2.0"
     devices:
       - Apple Watch - 38mm
