@@ -1,4 +1,36 @@
 osx_images:
+  - image: xcode8.1
+    xcode: "8.1"
+    osx_version: "10.12"
+    xcode_full_version: "8.1"
+    image_note: "**Please note that this is our first image based on macOS 10.12.**"
+    sdks:
+      - macosx10.12
+      - iphoneos10.1
+      - iphonesimulator10.1
+      - appletvos10.0
+      - appletvsimulator10.0
+      - watchos3.1
+      - watchsimulator3.1
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.1
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
