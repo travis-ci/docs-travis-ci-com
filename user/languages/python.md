@@ -8,7 +8,7 @@ permalink: /user/languages/python/
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Python builds are not available on the OSX environment.
+Python builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -19,12 +19,20 @@ Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, as well as rece
 ```yaml
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
+  - "2.6"     # Python 2.6.9
+  - "2.7"     # Python 2.7.9 for sudo: false
+              # Python 2.7.12 for sudo: required
+  - "2.7.12"  # latest 2.7 available
+  - "3.2"     # Python 3.2.5 for sudo: false
+              # Python 3.2.6 for sudo: required
+  - "3.2.6"   # latest 3.2 available
+  - "3.3"     # Python 3.3.5 for sudo: false
+              # Python 3.3.6 for sudo: required
+  - "3.3.6"   # latest 3.3 available
+  - "3.4"     # Python 3.4.2 for sudo: false
+              # Python 3.4.4 for sudo: required
+  - "3.4.5"   # latest 3.4 available
+  - "3.5"     # Python 3.5.2
   - "3.5-dev" # 3.5 development branch
   - "3.6-dev" # 3.6 development branch
   - "nightly" # currently points to 3.7-dev
@@ -59,10 +67,10 @@ python:
   - "3.3"
   - "3.4"
   # PyPy versions
-  - "pypy"
-  - "pypy"  # PyPy2 2.5.0
-  - "pypy3" # Pypy3 2.4.0
-  - "pypy-5.3.1"
+  - "pypy"       # PyPy2.7 2.5.0 (Python 2.7.8) for sudo: false
+                 # PyPy2.7 5.3.1 (Python 2.7.10) for sudo: required
+  - "pypy3"      # Pypy3.2 2.4.0 (Python 3.2.5)
+  - "pypy-5.4.1" # latest PyPy2.7 (Python 2.7.10) available
 # command to install dependencies
 install:
   - pip install .
