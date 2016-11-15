@@ -8,9 +8,9 @@ redirect_from:
 
 <div id="toc"></div>
 
-## Installing Packages on Standard or Trusty Infrastructure
+## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/) or [trusty](/user/trusty-ci-environment/) use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```
 before_install:
@@ -37,7 +37,7 @@ before_install:
 
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
-If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
+If you're installing packages this way, make sure you download the correct version for your environment.
 
 This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the locally available list of APT sources and then installs the `varnish` package.
 
@@ -53,7 +53,7 @@ before_script:
 
 For some projects, there may be a Debian/Ubuntu package available, but no corresponding APT repository. These are still easy to install, but require the extra step of downloading.
 
-If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
+If you're installing packages this way, make sure you download the correct version for your environment.
 
 Say your project requires the pngquant tool to compress PNG files, here's how to download and install the .deb file:
 
