@@ -4,6 +4,7 @@ osx_images:
     osx_version: "10.12"
     xcode_full_version: "8.1"
     image_note: "**Please note that this is our first image based on macOS 10.12.**"
+    image_publish_date: 2016-11-15
     sdks:
       - macosx10.12
       - iphoneos10.1
