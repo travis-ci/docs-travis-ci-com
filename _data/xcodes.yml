@@ -2,7 +2,7 @@ osx_images:
   - image: xcode8.2
     xcode: "8.2"
     osx_version: "10.12"
-    xcode_full_version: "8.2 Beta 1"
+    xcode_full_version: "8.2 Beta 2"
     image_publish_date: 2016-11-16
     sdks:
       - macosx10.12
