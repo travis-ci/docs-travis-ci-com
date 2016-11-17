@@ -88,6 +88,20 @@ language: objective-c
 podfile: path/to/Podfile
 ```
 
+### yarn cache
+
+For caching with `yarn`, use:
+
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: yarn
+```
+
+This caches `$HOME/.yarn-cache`.
+
 ### pip cache
 
 For caching `pip` files, use:
