@@ -201,6 +201,7 @@ to tag the build, or to run post-build deployments.
   		repository currently being built. (for example, "travis-ci/travis-build").
 - `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
+- `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
