@@ -56,7 +56,7 @@ MySQL binds to 127.0.0.1 and requires authentication. You can connect using the 
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
-```
+```yaml
 test:
   adapter: mysql2
   database: myapp_test
@@ -66,7 +66,7 @@ test:
 
 You might have to create the `myapp_test` database first. Run this as part of your build script:
 
-```
+```yaml
 # .travis.yml
 before_script:
   - mysql -e 'create database myapp_test;'

@@ -20,7 +20,7 @@ Groovy builds are not available on the OSX environment.
 Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 8, Oracle JDK 7, Gradle 1.4, Maven 3 and Ant. Groovy project builder has reasonably good defaults for
 projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
 
-```
+```yaml
 language: groovy
 ```
 
@@ -32,7 +32,7 @@ in your `.travis.yml` file.
 
 if your project has `build.gradle` file in the repository root, Travis CI Groovy builder will use Gradle to build it. By default it will use
 
-```
+```bash
 gradle check
 ```
 
@@ -42,7 +42,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 Before running tests, Groovy builder will execute
 
-```
+```bash
 gradle assemble
 ```
 
@@ -52,7 +52,7 @@ to install your project's dependencies with Gradle.
 
 A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
 
-```
+```yaml
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
@@ -67,7 +67,7 @@ cache:
 
 if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Groovy builder will use Maven 3 to build it. By default it will use
 
-```
+```bash
 mvn test
 ```
 
@@ -77,7 +77,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 Before running tests, Groovy builder will execute
 
-```
+```bash
 mvn install -DskipTests=true
 ```
 
@@ -89,7 +89,7 @@ to install your project's dependencies with Maven.
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Groovy builder will use Ant to build it. By default it will use
 
-```
+```bash
 ant test
 ```
 
@@ -99,7 +99,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 Because there is no single standard way of installing project dependencies with Ant, Travis CI Groovy builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
 
-```
+```yaml
 language: groovy
 install: ant deps
 ```
@@ -108,7 +108,7 @@ install: ant deps
 
 To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
 
-```
+```yaml
 jdk:
   - oraclejdk7
   - openjdk6
@@ -116,7 +116,7 @@ jdk:
 
 To test against OpenJDK 7 and Oracle JDK 7:
 
-```
+```yaml
 jdk:
   - openjdk7
   - oraclejdk7

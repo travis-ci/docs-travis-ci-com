@@ -21,7 +21,7 @@ build capacity for your account.
 
 Here's an example on how to utilize this feature in your .travis.yml:
 
-```
+```yaml
 env:
   - TEST_SUITE=units
   - TEST_SUITE=integration
@@ -30,7 +30,7 @@ env:
 Then you change your script command to use the new environment variable to
 determine the script to run.
 
-```
+```yaml
 script: "bundle exec rake test:$TEST_SUITE"
 ```
 
@@ -45,7 +45,7 @@ Depending on the size and complexity of your test suite you can split it up even
 further. You could separate different concerns for integration tests into
 different subfolders and run them in separate stages of a build matrix.
 
-```
+```yaml
 env:
   - TESTFOLDER=integration/user
   - TESTFOLDER=integration/shopping_cart
@@ -55,7 +55,7 @@ env:
 
 Then you can adjust your script command to run rspec for every subfolder:
 
-```
+```yaml
 script: "bundle exec rspec $TESTFOLDER"
 ```
 
@@ -86,7 +86,7 @@ If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to
 
 ### RSpec parallelization example
 
-```
+```yaml
 script: "bundle exec rake knapsack:rspec"
 env:
   global:
@@ -106,7 +106,7 @@ MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
 
 ### Cucumber parallelization example
 
-```
+```yaml
 script: "bundle exec rake knapsack:cucumber"
 env:
   global:
@@ -118,7 +118,7 @@ env:
 
 ### Minitest parallelization example
 
-```
+```yaml
 script: "bundle exec rake knapsack:minitest"
 env:
   global:
@@ -132,7 +132,7 @@ env:
 
 If you want to parallelize test suite for RSpec, Cucumber and Minitest at the same time then define script in `.travis.yml` this way:
 
-```
+```yaml
 script:
   - "bundle exec rake knapsack:rspec"
   - "bundle exec rake knapsack:cucumber"
@@ -173,7 +173,7 @@ builds if:
 
 #### Using phpdbg example
 
-```
+```yaml
 before_script:
   - phpenv config-rm xdebug.ini
   - composer install

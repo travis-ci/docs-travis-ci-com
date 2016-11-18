@@ -60,10 +60,10 @@ install: ./install-dependencies.sh
 
 You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
-```
+```yaml
 install:
-- bundle install --path vendor/bundle
-- npm install
+  - bundle install --path vendor/bundle
+  - npm install
 ```
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
@@ -72,7 +72,7 @@ When one of the steps fails, the build stops immediately and is marked as [error
 
 You can skip the installation step entirely by adding the following to your `.travis.yml`:
 
-```
+```yaml
 install: true
 ```
 
@@ -82,13 +82,13 @@ The default build command depends on the project language. Ruby projects use `ra
 
 You can overwrite the default build step in `.travis.yml`:
 
-```
+```yaml
 script: bundle exec thor build
 ```
 
 You can specify multiple script commands as well:
 
-```
+```yaml
 script:
 - bundle exec rake build
 - bundle exec rake builddoc
@@ -102,7 +102,7 @@ If your first step is to run unit tests, followed by integration tests, you may 
 
 You can change this behavior by using a little bit of shell magic to run all commands subsequently but still have the build fail when the first command returns a non-zero exit code. Here's the snippet for your `.travis.yml`
 
-```
+```yaml
 script: bundle exec rake build && bundle exec rake builddoc
 ```
 
@@ -263,7 +263,7 @@ If you specify both, `only` takes precedence over `except`. By default, the `gh-
 
 You can use regular expressions to safelist or blocklist branches:
 
-```
+```yaml
 branches:
   only:
   - master
@@ -287,28 +287,28 @@ When you combine the three main configuration options of *Runtime*, *Environment
 
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
-```
+```yaml
 rvm:
-- 1.9.3
-- 2.0.0
-- 2.2
-- ruby-head
-- jruby
-- rbx-2
-- ree
+  - 1.9.3
+  - 2.0.0
+  - 2.2
+  - ruby-head
+  - jruby
+  - rbx-2
+  - ree
 gemfile:
-- gemfiles/Gemfile.rails-2.3.x
-- gemfiles/Gemfile.rails-3.0.x
-- gemfiles/Gemfile.rails-3.1.x
-- gemfiles/Gemfile.rails-edge
+  - gemfiles/Gemfile.rails-2.3.x
+  - gemfiles/Gemfile.rails-3.0.x
+  - gemfiles/Gemfile.rails-3.1.x
+  - gemfiles/Gemfile.rails-edge
 env:
-- ISOLATED=true
-- ISOLATED=false
+  - ISOLATED=true
+  - ISOLATED=false
 ```
 
 You can also define exclusions to the build matrix:
 
-```
+```yaml
 matrix:
   exclude:
   - rvm: 1.9.3
@@ -375,7 +375,7 @@ matrix:
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
-```
+```yaml
 matrix:
   include:
   - rvm: ruby-head
@@ -390,7 +390,7 @@ This is useful if you want to only test the latest version of a dependency toget
 You can use this method to create a build matrix containing only specific combinations.
 For example,
 
-```
+```yaml
 language: python
 matrix:
   include:
@@ -416,7 +416,7 @@ ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
-```
+```yaml
 matrix:
   allow_failures:
   - rvm: 1.9.3
@@ -428,7 +428,7 @@ If some rows in the build matrix are allowed to fail, the build won't be marked 
 
 To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
-```
+```yaml
 matrix:
   fast_finish: true
 ```
@@ -477,7 +477,7 @@ If your build requires setting up custom hostnames, you can specify a single hos
 list of them in your .travis.yml. Travis CI will automatically setup the
 hostnames in `/etc/hosts` for both IPv4 and IPv6.
 
-```
+```yaml
 addons:
   hosts:
   - travis.dev

@@ -47,7 +47,7 @@ to construct a build matrix.
 
 By default, the install command is
 
-```shell
+```bash
 mix local.rebar --force # for Elixir 1.3.0 and up
 mix local.hex --force
 mix deps.get
@@ -55,7 +55,7 @@ mix deps.get
 
 and the script command is
 
-```shell
+```bash
 mix test
 ```
 

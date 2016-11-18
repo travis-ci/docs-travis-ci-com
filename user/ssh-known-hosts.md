@@ -15,14 +15,14 @@ from domains other than `github.com`, `gist.github.com`, or
 Both hostnames and IP addresses are supported, as the keys are
 added via `ssh-keyscan`.  A single host may be specified like so:
 
-```
+```yaml
 addons:
   ssh_known_hosts: git.example.com
 ```
 
 Multiple hosts or IPs may be added as a list:
 
-```
+```yaml
 addons:
   ssh_known_hosts:
   - git.example.com

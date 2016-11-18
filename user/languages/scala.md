@@ -24,7 +24,7 @@ Thanks to [paulp/sbt-extras](https://github.com/paulp/sbt-extras) the sbt versio
 
 Thanks to sbt ability to perform actions against multiple Scala versions, it is possible to test your projects against different Scala versions. To specify Scala versions you want your project to be tested against, use the `scala` key, for example:
 
-```
+```yaml
 language: scala
 scala:
    - 2.9.3
@@ -36,7 +36,7 @@ scala:
 
 By default, Travis CI will use
 
-```
+```bash
 sbt ++$TRAVIS_SCALA_VERSION test
 ```
 
@@ -53,7 +53,7 @@ Most of the time, Travis CI default [SBT](https://github.com/travis-ci/travis-co
 If needed, you can override SBT and JVM options in [many different ways](https://github.com/paulp/sbt-extras#sbt--h) by passing extra arguments to `sbt`.
 For example
 
-```
+```yaml
 script:
   - sbt -jvm-opts travis/jvmopts.compile ... compile
   - sbt -jvm-opts travis/jvmopts.test ... test
@@ -64,13 +64,13 @@ will then run `compile` and `test` with different JVM parameters.
 With `sbt_args` key in your `.travis.yml`, you also can specify [extra arguments](https://github.com/paulp/sbt-extras#sbt--h) to be passed to the default build script.
 For example
 
-```
+```yaml
 sbt_args: -no-colors -J-Xss2m
 ```
 
 will generate
 
-```
+```bash
 script: sbt -no-colors -J-Xss2m ++$TRAVIS_SCALA_VERSION test
 ```
 

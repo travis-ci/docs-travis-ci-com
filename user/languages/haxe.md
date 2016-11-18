@@ -24,7 +24,7 @@ Haxe workers on travis-ci.org download and install the binary of Haxe.
 To select one or more versions, use the `haxe:`
 key in your `.travis.yml` file, for example:
 
-```
+```yaml
 language: haxe
 haxe:
   - "3.2.1"
@@ -42,7 +42,7 @@ By default, [Neko](http://nekovm.org/) 2.1.0 will also be downloaded and install
 Use the `neko:` key in your `.travis.yml` file to specify a different Neko version,
 for example:
 
-```
+```yaml
 language: haxe
 neko: "2.0.0"
 ```
@@ -54,7 +54,7 @@ However, unlike `haxe:`, you can provide only one value (not an array) to `neko:
 If your project makes use of the standard hxml files for building, you can specify
 the list of hxml files using the `hxml:` key, for example:
 
-```
+```yaml
 language: haxe
 hxml:
   - build.hxml

@@ -104,7 +104,7 @@ You can choose from the following .NET Core versions:
 
 You can test against both Mono and .Net Core by using `matrix.include`. This example tests against both the latest mono and .NET Core
 
-```
+```yaml
 language: csharp
 solution: travis-mono-test.sln
 

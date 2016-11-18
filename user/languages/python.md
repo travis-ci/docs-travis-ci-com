@@ -82,14 +82,14 @@ specify what command to run tests with.
 
 For example, if your project uses pytest:
 
-```
+```yaml
 # command to run tests
 script: pytest 
 ```
 
 if it uses `make test` instead:
 
-```
+```yaml
 script: make test
 ```
 
@@ -107,7 +107,7 @@ during the `install` phase of the build.
 Note: If you're running in the container-based infrastructure without access to
 `sudo` you need to install dependencies in the home directory instead:
 
-```
+```yaml
 install: pip install --user -r requirements.txt
 ```
 
@@ -129,7 +129,7 @@ Travis CI installs the following packages by default in each virtualenv:
 
 If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
-```
+```yaml
 env:
   - DJANGO_VERSION=1.7.8
   - DJANGO_VERSION=1.8.2
@@ -137,7 +137,7 @@ env:
 
 and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
 
-```
+```yaml
 install:
   - pip install -q Django==$DJANGO_VERSION
   - python setup.py -q install

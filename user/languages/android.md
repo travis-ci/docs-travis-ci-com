@@ -153,7 +153,7 @@ install: ant deps
 
 If your project has `pom.xml` file in the repository root but no `build.gradle`, Maven 3 will be used to build it. By default it will use
 
-```
+```bash
 mvn install -B
 ```
 
@@ -163,13 +163,13 @@ to run your test suite. This can be overridden as described in the [general buil
 
 If your project has `build.gradle` file in the repository root, Gradle will be used to build it. By default it will use
 
-```
+```bash
 gradle build connectedCheck
 ```
 
 to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Travis Android builder will try to use it instead. The default command will become:
 
-```
+```bash
 ./gradlew build connectedCheck
 ```
 
@@ -193,7 +193,7 @@ cache:
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default it will use
 
-```
+```bash
 ant debug install test
 ```
 

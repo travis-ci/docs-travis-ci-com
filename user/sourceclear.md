@@ -33,14 +33,14 @@ Setting an environment variable in Travis-CI occurs on a per repository basis:
 
 In order to scan using SourceClear, add the following to your `.travis.yml` file:
 
-```
+```yaml
 addons:
     srcclr: true
 ```
 
 If you want verbose output during the scan, you can add the `debug` key:
 
-```
+```yaml
 addons:
     srcclr:
         debug: true

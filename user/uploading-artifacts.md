@@ -13,14 +13,14 @@ overwritten every build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 addons:
   artifacts: true
 ```
 
 and add the following environment variables in the repository settings:
 
-```
+```bash
 ARTIFACTS_KEY=(AWS access key id)
 ARTIFACTS_SECRET=(AWS secret access key)
 ARTIFACTS_BUCKET=(S3 bucket name)
@@ -28,7 +28,7 @@ ARTIFACTS_BUCKET=(S3 bucket name)
 
 The region defaults to `us-east-1`. For any other region, either define the `ARTIFACTS_REGION` environment variable or add it under the artifacts configuration key:
 
-```
+```yaml
 addons:
   artifacts:
     s3_region: "us-west-1" # defaults to "us-east-1"
@@ -43,7 +43,7 @@ order to find any files in the git working copy that aren't tracked.
 If any additional paths need to be uploaded, they may be specified via
 the `addons.artifacts.paths` key like so:
 
-```
+```yaml
 addons:
   artifacts:
     # ...
@@ -55,7 +55,7 @@ addons:
 
 or as an environment variable in repository settings:
 
-```
+```bash
 # ':'-delimited paths, e.g.
 ARTIFACTS_PATHS="./logs:./build:/var/log"
 ```
@@ -69,7 +69,7 @@ If you'd like to see more detail about what the artifacts addon is
 doing, setting `addons.artifacts.debug` to anything non-empty will turn
 on debug logging.
 
-```
+```yaml
 addons:
   artifacts:
     # ...
@@ -78,6 +78,6 @@ addons:
 
 or define this as a repository settings environment variable, or in the `env.global` section:
 
-```
+```bash
 ARTIFACTS_DEBUG=1
 ```

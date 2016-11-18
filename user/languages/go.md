@@ -28,7 +28,7 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 You can use any tagged version of Go or use `master` to get the latest version.
 
-```
+```yaml
 language: go
 
 go:
@@ -44,7 +44,7 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 
 The project source code will be placed in `GOPATH/src/github.com/user/repo` by default, but if [vanity imports](https://golang.org/cmd/go/#hdr-Remote_import_paths) are necessary (especially for [`internal` package imports](https://golang.org/cmd/go/#hdr-Internal_Directories)), `go_import_path:` may be specified at the top level of the config, e.g.:
 
-```
+```yaml
 go_import_path: example.org/pkg/foo
 ```
 
@@ -60,13 +60,13 @@ to `1.2`.  If any of the following files are present, the default install step w
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
-```
+```yaml
 install: make get-deps
 ```
 
 It is also possible to specify a list of operations, for example, to `go get` remote dependencies:
 
-```
+```yaml
 install:
   - go get github.com/bmizerany/assert
   - go get github.com/mrb/hob
@@ -120,7 +120,7 @@ machine github.com
 
 Add this to your repository and add the following steps to your .travis.yml:
 
-```
+```yaml
 before_install:
   - cp .netrc ~
   - chmod 600 .netrc
@@ -134,13 +134,13 @@ set only for the owner. That's a requirement for it to be read from curl.
 Go projects on travis-ci.org assume that either Make or Go build tool are used by default. In case there is a Makefile
 in the repository root, the default command Travis CI will use to run your project test suite is
 
-```
+```bash
 make
 ```
 
 In case there is no Makefile, it will be
 
-```
+```bash
 go test -v ./...
 ```
 
@@ -148,33 +148,33 @@ instead.
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-```
+```yaml
 language: go
 ```
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example,
 to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 
-```
+```yaml
 script: go test ./...
 ```
 
 The arguments passed to the default `go test` command may be overridden by specifying `gobuild_args:` at the top level
 of the config, e.g.:
 
-```
+```yaml
 gobuild_args: -x -ldflags "-X main.VersionString v1.2.3"
 ```
 
 which will result in the script step being:
 
-```
+```bash
 go test -x -ldflags "-X main.VersionString v1.2.3" ./...
 ```
 
 To build by running Scons without arguments, use this:
 
-```
+```yaml
 script: scons
 ```
 

@@ -167,7 +167,7 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-```
+```yaml
 addons:
   firefox: "17.0"
 ```

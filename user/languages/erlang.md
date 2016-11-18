@@ -30,13 +30,13 @@ Get a complete list of the pre-compiled versions available on the VM by adding `
 
 Travis CI by default assumes your project is built using [Rebar](https://github.com/rebar/rebar) and uses EUnit. The exact command Erlang builder will use by default is
 
-```
+```bash
 rebar compile && rebar skip_deps=true eunit
 ```
 
 if your project has `rebar.config` or `Rebar.config` files in the repository root. If this is not the case, Erlang builder will fall back to
 
-```
+```bash
 make test
 ```
 
@@ -44,7 +44,7 @@ make test
 
 The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and runs
 
-```
+```bash
 rebar get-deps
 ```
 

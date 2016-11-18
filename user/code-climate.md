@@ -44,7 +44,7 @@ As a last step, you need to tell Travis CI about the token to use for
 transmitting the coverage results. You can find the token in your repository's
 settings on Code Climate. Then you can add it to your `.travis.yml`:
 
-```
+```yaml
 addons:
   code_climate:
     repo_token: adf08323...
@@ -61,7 +61,7 @@ Coverage data should be generated in the Lcov format, for instance using the
 You can specify the repository token in your .travis.yml, it'll automatically be
 exported as an environment variable:
 
-```
+```yaml
 addons:
   code_climate:
     repo_token: aff33f...
@@ -70,7 +70,7 @@ addons:
 To report the coverage data to Code Climate, you just need to run the following
 after your tests:
 
-```
+```yaml
 after_script:
   - codeclimate-test-reporter < lcov.info
 ```
@@ -86,7 +86,7 @@ To set it up for your project, follow the instructions in the
 
 The repository token can be specified in your .travis.yml
 
-```
+```yaml
 addons:
   code_climate:
     repo_token: aff33f...
@@ -95,7 +95,7 @@ addons:
 Assuming the reporter is part of your Composer bundle, reporting the coverage
 data to Code Climate requires adding the following to your .travis.yml:
 
-```
+```yaml
 after_script:
   - vendor/bin/test-reporter
 ```

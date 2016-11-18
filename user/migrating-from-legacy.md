@@ -96,7 +96,7 @@ Some dependencies can only be installed from a source package. The build may req
 
 Install custom software by running a script to handle the installation process. Here is an example that installs CasperJS from a binary package:
 
-```
+```yaml
 before_script:
   - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
   - tar -xvf /tmp/casper.tar.gz
@@ -105,7 +105,7 @@ before_script:
 
 To install custom software from source, you can follow similar steps. Here's an example that downloads, compiles and installs the protobufs library.
 
-```
+```yaml
 install:
   - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
   - tar -xzvf protobuf-2.4.1.tar.gz
@@ -114,7 +114,7 @@ install:
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
-```
+```bash
 #!/bin/sh
 set -e
 wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
@@ -126,14 +126,14 @@ Note that you can't update the `$PATH` environment variable in the first example
 
 Once you have added to the repository, you can run it from your `.travis.yml`:
 
-```
+```yaml
 before_install:
   - bash install-protobuf.sh
 ```
 
 We can also add a `script` command to list the content of the protobuf folder to make sure it is installed:
 
-```
+```yaml
 script:
   - ls -R $HOME/protobuf
 ```
@@ -144,7 +144,7 @@ In the previous example, to avoid having to download and compile the protobuf li
 
 Add the following to your `.travis.yml`:
 
-```
+```yaml
 cache:
   directories:
   - $HOME/protobuf
@@ -152,7 +152,7 @@ cache:
 
 And then change the shell script to only compile and install if the cached directory is not empty:
 
-```
+```bash
 #!/bin/sh
 set -e
 # check to see if protobuf folder is empty

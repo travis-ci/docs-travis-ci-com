@@ -11,7 +11,7 @@ Docker repositories or other remote storage.
 
 To use Docker add the following settings to your `.travis.yml`:
 
-```
+```yaml
 sudo: required
 
 services:
@@ -34,7 +34,7 @@ enabled environment (with `sudo: required` AND `services: - docker`) and is
 using ruby, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
-```
+```bash
 cd /root/sinatra; bundle exec foreman start;
 ```
 
@@ -44,7 +44,7 @@ refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
 
-```
+```yaml
 sudo: required
 
 language: ruby

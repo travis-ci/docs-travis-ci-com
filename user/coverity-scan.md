@@ -56,7 +56,7 @@ It's probably overkill to run static analysis on each and every commit of your p
 
 From your project page on Coverity Scan, select the Travis CI tab. You'll see a snippet of YAML to be copied over to your `.travis-ci` file. Note that this is an example, and might require some tweaking for the build to run properly.
 
-```
+```yaml
 env:
   global:
     # COVERITY_SCAN_TOKEN
@@ -94,7 +94,7 @@ The project settings should be self-explanatory, and should match the values for
 
 The COVERITY_SCAN_TOKEN is encrypted and is obtained by using the [Travis CI CLI](https://github.com/travis-ci/travis). Coverity Scan provides this information on your Project's Travis CI tab for convenience, but you may also run it manually (see [Encryption Keys](http://docs.travis-ci.com/user/encryption-keys/) for more information on encryption).
 
-```
+```bash
 gem install travis
 cd my_project
 travis encrypt COVERITY_SCAN_TOKEN=project_token_from_coverity_scan
@@ -122,13 +122,13 @@ Due to the way that Travis CI addons operate, your standard script stage (i.e. y
 
 The `COVERITY_SCAN_BRANCH` environment variable will be set to `1` when the Coverity Scan addon is in operation. Therefore, you might change your script from
 
-```
+```yaml
 script: make
 ```
 
 to
 
-```
+```bash
 script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
 ```
 
