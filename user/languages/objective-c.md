@@ -46,7 +46,7 @@ execute your tests. In order for xctool to work, you need to tell it where to
 find your project or workspace and what scheme you would like to build. For
 example:
 
-```
+```yaml
 language: objective-c
 xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MyNewProjectTests
@@ -90,7 +90,7 @@ dependencies.
 
 The default command run by Travis CI is:
 
-```
+```bash
 pod install
 ```
 
@@ -98,7 +98,7 @@ Note that this is only run when we detect a Podfile in the project's root
 directory. If the Podfile is in a different directory, you can use the `podfile`
 setting in the *.travis.yml*:
 
-```
+```yaml
 podfile: path/to/Podfile
 ```
 
@@ -108,14 +108,14 @@ been no changes to the Podfile.lock file.
 If there is a `Gemfile` in your project's root directory, the `pod` command is
 not executed, but instead Bundler is used as a wrapper to `pod` as follows:
 
-```
+```bash
 bundle exec pod install
 ```
 
 If you want to use a different means of handling your project's dependencies,
 you can override the `install` command.
 
-```
+```yaml
 install: make get-deps
 ```
 

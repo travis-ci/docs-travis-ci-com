@@ -19,19 +19,19 @@ The easiest way to encrypt something with the public key is to use Travis CLI.
 This tool is written in Ruby and published as a gem. First, you need to install
 the gem:
 
-```
+```bash
 gem install travis
 ```
 
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
-```
+```bash
 travis encrypt SOMEVAR=secretvalue
 ```
 
 This will output a string looking something like:
 
-```
+```yaml
 secure: ".... encrypted data ...."
 ```
 
@@ -56,7 +56,7 @@ contains portions of your sensitive data.
 Thus, you need to escape symbols such as braces, parentheses, backslashes, and pipe symbols.
 For example, when you want to assign the string `6&a(5!1Ab\` to `FOO`, you need to execute:
 
-```
+```bash
 travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"
 ```
 
@@ -64,7 +64,7 @@ travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"
 
 Equivalently, you can do
 
-```
+```bash
 travis encrypt 'FOO=6\&a\(5\!1AB\\'
 ```
 
@@ -74,7 +74,7 @@ We want to add campfire notifications to our .travis.yml file, but we don't want
 
 The entry should be in this format:
 
-```
+```yaml
 notifications:
   campfire: 
     rooms: [subdomain]:[api token]@[room id]
@@ -84,7 +84,7 @@ For us, that is somedomain:abcxyz@14.
 
 We encrypt this string
 
-```
+```bash
 travis encrypt somedomain:abcxyz@14
 ```
 
@@ -98,7 +98,7 @@ Please add the following to your .travis.yml file:
 
 We add to our .travis.yml file
 
-```
+```yaml
 notifications:
   campfire:
     rooms:
@@ -113,7 +113,7 @@ The secure var system takes values of the form `{ 'secure' => 'encrypted string'
 
 So
 
-```
+```yaml
 notifications:
   campfire:
     rooms:
@@ -122,7 +122,7 @@ notifications:
 
 becomes
 
-```
+```yaml
 notifications:
   campfire:
     rooms: "decrypted string"
@@ -130,7 +130,7 @@ notifications:
 
 while
 
-```
+```yaml
 notifications:
   campfire:
     rooms:
@@ -139,7 +139,7 @@ notifications:
 
 becomes
 
-```
+```yaml
 notifications:
   campfire:
     rooms:
@@ -148,14 +148,14 @@ notifications:
 
 In the case of secure env vars
 
-```
+```yaml
 env:
   - secure: "encrypted string"
 ```
 
 becomes
 
-```
+```yaml
 env:
   - "decrypted string"
 ```
@@ -171,12 +171,12 @@ https://api.travis-ci.org/repos/travis-ci/travis-ci/key
 
 You can also use the `travis` tool for retrieving said key:
 
-```
+```bash
 travis pubkey
 ```
 
 Or, if you're not in your project directory:
 
-```
+```bash
 travis pubkey -r owner/project
 ```

@@ -37,7 +37,7 @@ Ruby implementations and versions your projects can be tested against.
 
 To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
-```
+```yaml
 language: ruby
 rvm:
   - 2.2
@@ -73,7 +73,7 @@ binary installation feature.
 As long as they're available as a binary for Ubuntu 12.04, you can specify
 custom patchlevels.
 
-```
+```yaml
 language: ruby
 rvm:
   - 2.0.0-p247
@@ -123,7 +123,7 @@ dependencies.
 
 The default command run by Travis CI is:
 
-```
+```bash
 bundle install --jobs=3 --retry=3
 ```
 
@@ -136,7 +136,7 @@ If a Gemfile.lock exists in your project's root directory, we add the
 If you want to use a different means of handling your Ruby project's
 dependencies, you can override the `install` command.
 
-```
+```yaml
 install: gem install rails
 ```
 
@@ -182,7 +182,7 @@ end
 
 Adjust your Bundler arguments to explicitly exclude this group:
 
-```
+```yaml
 bundler_args: --without production
 ```
 
@@ -192,7 +192,7 @@ Enjoy a faster build, which is also less prone to compilation problems.
 
 You can specify a custom Gemfile name:
 
-```
+```yaml
 gemfile: gemfiles/Gemfile.ci
 ```
 
@@ -202,19 +202,19 @@ your project.
 You can also set [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
 extra arguments to be passed to `bundle install`:
 
-```
+```yaml
 bundler_args: --binstubs
 ```
 
 You can also define a script to be run before 'bundle install':
 
-```
+```yaml
 before_install: some_command
 ```
 
 For example, to install and use the pre-release version of bundler:
 
-```
+```yaml
 before_install: gem install bundler --pre
 ```
 
@@ -234,7 +234,7 @@ To test against multiple versions of dependencies:
 For example, amqp gem is [tested against EventMachine 0.12.x and 1.0
 pre-releases](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
 
-```
+```yaml
 gemfile:
   - Gemfile
   - gemfiles/eventmachine-pre
@@ -243,7 +243,7 @@ gemfile:
 Thoughtbot's Paperclip is [tested against multiple ActiveRecord
 versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
 
-```
+```yaml
 gemfile:
   - gemfiles/rails2.gemfile
   - gemfiles/rails3.gemfile
@@ -254,7 +254,7 @@ An alternative to this is to use environment variables and make your test runner
 use them. For example, [Sinatra is tested against multiple Tilt and Rack
 versions](https://github.com/sinatra/sinatra/blob/master/.travis.yml):
 
-```
+```yaml
 env:
   - "rack=1.3.4"
   - "rack=master"
@@ -265,7 +265,7 @@ env:
 ChefSpec is [tested against multiple Opscode Chef
 versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 
-```
+```yaml
 env:
   - CHEF_VERSION=0.9.18
   - CHEF_VERSION=0.10.2
@@ -284,7 +284,7 @@ uses to resolve dependencies.
 If you need to work with multiple Gemfiles within a single job, you would
 need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
 
-```
+```bash
 bundle install --gemfile=my_gemfile
 ```
 
@@ -299,7 +299,7 @@ It is possible to test projects against multiple JDKs, namely
 
 To do so, use the `jdk` key in your `.travis.yml`, for example:
 
-```
+```yaml
 jdk:
   - oraclejdk7
   - openjdk7
@@ -307,7 +307,7 @@ jdk:
 
 or all 4:
 
-```
+```yaml
 jdk:
   - openjdk7
   - oraclejdk7
@@ -320,7 +320,7 @@ configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
 you need to add some matrix excludes (described in our general [Build
 Configuration guide](/user/customizing-the-build/)):
 
-```
+```yaml
 language: ruby
 rvm:
   - 1.9.2
@@ -354,7 +354,7 @@ We try to keep it as up-to-date as possible.
 Should you require the latest version of RubyGems, you can add the following to
 your .travis.yml:
 
-```
+```yaml
 before_install:
   - gem update --system
   - gem --version
@@ -362,7 +362,7 @@ before_install:
 
 If you need to downgrade to a specific version, you can use the following steps:
 
-```
+```yaml
 before_install:
   - gem update --system 2.1.11
   - gem --version

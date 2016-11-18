@@ -26,7 +26,7 @@ as long as they are listed in the `project.clj` file.
 
 If you need to perform special tasks before your tests can run, you should set up the proper `:hooks` in project.clj. If for some reason you can't use hooks, it is possible to override the install step in your `.travis.yml`. For example if you use the [clojure-protobuf](https://github.com/flatland/clojure-protobuf) library:
 
-```
+```yaml
 install: lein protobuf install
 ```
 
@@ -37,13 +37,13 @@ See [general build configuration guide](/user/customizing-the-build/) to learn m
 Because Clojure projects on travis-ci.org assume [Leiningen](https://github.com/technomancy/leiningen) by default, naturally, the default command Travis CI will use to
 run your project test suite is
 
-```
+```bash
 lein test
 ```
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-```
+```yaml
 language: clojure
 ```
 
@@ -51,7 +51,7 @@ language: clojure
 
 If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your `project.clj` development dependencies list and override `script:` in `.travis.yml` to run Midje task:
 
-```
+```yaml
 script: lein midje
 ```
 
@@ -82,7 +82,7 @@ For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this `script:` line in `.travis.yml`:
 
-```
+```yaml
 script: lein spec
 ```
 
@@ -102,20 +102,20 @@ Leiningen 2 replaces `:dev-dependencies` with profiles:
 
 Leiningen 1 is provided side by side with 2.4.x. To use it, specify `lein` key in `.travis.yml`:
 
-```
+```yaml
 lein: lein1
 ```
 
 In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein1`:
 
-```
+```yaml
 before_install:
   - lein1 bootstrap
 ```
 
 Task chaining requires using the `do` task:
 
-```
+```yaml
 script: lein1 do javac, test
 ```
 
@@ -141,7 +141,7 @@ there is no need for runtime switchers (like RVM) for Clojure.
 To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
 override `script:` to run `lein multi test` instead of default `lein test`:
 
-```
+```yaml
 language: clojure
 script: lein1 multi test
 ```
@@ -153,7 +153,7 @@ For a real world example, see [Monger](https://github.com/michaelklishin/monger)
 Leiningen 2 has a core feature that replaces `lein-multi`: [Profiles](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md). To run your tests against
 multiple profiles (and thus, multiple dependency sets or Clojure versions), use `lein with-profile` command like so:
 
-```
+```yaml
 lein: lein
 script: lein with-profile dev:1.4 test
 ```

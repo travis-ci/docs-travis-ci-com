@@ -26,7 +26,9 @@ This can be done manually or using the `travis encrypt` command
 
 Travis Encrypt:
 
-`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key`
+```bash
+travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key
+```
 
 Manually:
 
@@ -38,7 +40,9 @@ addons:
 
 This can also support several services:
 
-`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key THIRDPARTY_SHARED_SECRET=another-key`
+```bash
+travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key THIRDPARTY_SHARED_SECRET=another-key
+```
 
 Manually:
 
@@ -79,7 +83,7 @@ Third-party service needs to implement a new authentication method on the server
 
 An example payload used to generate the JWT token:
 
-```javascript
+```json
 {
   "iss": "Travis CI, GmbH",
   "slug": "saucelabs-sample-test-frameworks/Java-TestNG-Selenium",

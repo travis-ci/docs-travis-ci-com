@@ -73,7 +73,7 @@ env:
 
 triggers builds with the following `env` rows:
 
-```
+```bash
 USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```

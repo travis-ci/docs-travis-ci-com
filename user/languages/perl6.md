@@ -19,7 +19,7 @@ Perl 6 workers on travis-ci.org use
 versions that your projects can be tested against. To specify them, use the
 `perl6:` key in your `.travis.yml` file, for example:
 
-```
+```yaml
 language: perl6
 perl6:
   - latest
@@ -64,7 +64,7 @@ either downloading and installing your dependencies as part of the `install`
 step, or you could use [panda](https://github.com/tadzik/panda) (the Perl 6
 module package manager) like so:
 
-```
+```yaml
 install:
     - rakudobrew build-panda
     - panda installdeps .
@@ -78,7 +78,7 @@ aren't available in the version of Rakudo you are using.  For instance, to
 test a module against Rakudo 2015.04, you would have a `.travis.yml` which
 looks something like this:
 
-```
+```yaml
 language: perl6
 perl6:
     - 2015.07
@@ -118,13 +118,13 @@ TRAVIS_PERL6_VERSION
 
 ### Build and test with the latest Rakudo
 
-```
+```yaml
 language: perl6
 ```
 
 ### Build and test with multiple Rakudo versions
 
-```
+```yaml
 language: perl6
 perl6:
     - 2015.06
@@ -133,7 +133,7 @@ perl6:
 
 ### Build and test with matching Rakudo and panda versions
 
-```
+```yaml
 language: perl6
 perl6:
     - latest
@@ -149,7 +149,7 @@ Use e.g. `src/` for the module library code, and `tests/` as the test
 directory.  Please note that it is standard practice to put the module
 library code under `lib/` and the tests under `t/`.
 
-```
+```yaml
 language: perl6
 script:
     - PERL6LIB=src prove -v -r --exec=perl6 tests/

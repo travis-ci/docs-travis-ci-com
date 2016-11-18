@@ -15,7 +15,7 @@ To install a specific version of Firefox, you can use the Firefox addon. The add
 
 For example, to install version 49.0 of Firefox, add the following at the top level of your `.travis.yml` file:
 
-```
+```yaml
 addons:
   firefox: "49.0"
 ```

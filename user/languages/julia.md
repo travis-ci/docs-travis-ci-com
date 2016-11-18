@@ -26,7 +26,7 @@ You can select the most recent release version, the latest nightly build
 (downloaded from <https://s3.amazonaws.com/julialang>). To select one or more
 versions, use the `julia:` key in your `.travis.yml` file, for example:
 
-```
+```yaml
 language: julia
 julia:
   - release
@@ -49,7 +49,7 @@ the most recent release.
 If your repository follows the structure of a Julia package created by
 `Pkg.generate("$name")`, then the following default script will be run:
 
-```
+```bash
 julia -e 'Pkg.clone(pwd())'
 julia -e 'Pkg.build("$name")'
 if [ -f test/runtests.jl ]; then

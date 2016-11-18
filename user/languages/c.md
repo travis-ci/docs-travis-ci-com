@@ -26,7 +26,7 @@ Because there is no dominant convention in the community about dependency manage
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
-```
+```yaml
 install: make get-deps
 ```
 
@@ -37,20 +37,20 @@ See [general build configuration guide](/user/customizing-the-build/) to learn m
 Because C projects on travis-ci.org assume Autotools and Make by default, naturally, the default command Travis CI will use to
 run your project test suite is
 
-```
+```bash
 ./configure && make && make test
 ```
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-```
+```yaml
 language: c
 ```
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example, to build
 by running Scons without arguments, override the `script:` key in `.travis.yml` like this:
 
-```
+```yaml
 script: scons
 ```
 
@@ -59,13 +59,13 @@ script: scons
 It is possible to test projects against either GCC or Clang, or both. To do so, specify the compiler to use using the `compiler:` key
 in `.travis.yml`. For example, to build with Clang:
 
-```
+```yaml
 compiler: clang
 ```
 
 or both GCC and Clang:
 
-```
+```yaml
 compiler:
   - clang
   - gcc
