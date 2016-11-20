@@ -1,0 +1,6 @@
+{
+  "name": "Docs-travis-ci-com",
+  "tagline": "The Travis CI Documentation",
+  "body": "# About this repository\r\n\r\nThis is the documentation site for Travis CI! (<http://docs.travis-ci.com/>)\r\n\r\n## How to contribute\r\n\r\nFork the repository, read the rest of this README file and make some changes.\r\nOnce you're done with your changes send a pull request. Thanks!\r\n\r\n## How to edit the site\r\n\r\nMake sure you have Ruby and RubyGems installed. Next install\r\n[bundler](http://bundler.io/):\r\n\r\n```\r\ngem install bundler\r\n```\r\n\r\nThen install dependencies:\r\n\r\n```\r\nbundle install --binstubs\r\n```\r\n\r\nIn order to run a local Web server that will serve documentation site, run:\r\n\r\n```\r\n./bin/jekyll serve\r\n```\r\n\r\nand then open [localhost:4000](http://localhost:4000/) in your browser.\r\n\r\nTo regenerate the HTML pages automatically when you make changes to Markdown source files, use\r\n\r\n```\r\n./bin/jekyll serve --watch\r\n```\r\n\r\nNote that quoted entities may be escaped or unescaped depending on the Ruby\r\nversion (1.8 vs. 1.9) used. It is normal.\r\n\r\n## License\r\n\r\nDistributed under the [MIT license](https://opensource.org/licenses/MIT); the same as other Travis CI projects.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

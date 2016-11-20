@@ -1,57 +1,77 @@
----
-title: Travis CI User Documentation
-layout: en
-permalink: /
-no_header: true
-short_title: true
----
-
-<section class="index-intro">
-  <figure>
-    <img src="images/ui/docs-desktop.svg" alt="Image of desktop">
-  </figure>
-  <h1>New around here? Let's get you going.</h1>
-  <p><a class="get-started-button" href="/user/getting-started">Getting Started</a></p>
-</section>
-
-<div class="row index-main">
-  <div class="columns large-6">
-    <section>
-      <h2>Already know the basics?</h2>
-      <ul>
-        <li><a href="/user/travis-lint">Validating .travis.yml files</a></li>
-        <li><a href="/user/customizing-the-build">Customizing your build</a></li>
-      </ul>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docs-travis-ci-com by chainoy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Docs-travis-ci-com</h1>
+      <h2 class="project-tagline">The Travis CI Documentation</h2>
+      <a href="https://github.com/chainoy/docs-travis-ci-com" class="btn">View on GitHub</a>
+      <a href="https://github.com/chainoy/docs-travis-ci-com/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/chainoy/docs-travis-ci-com/tarball/master" class="btn">Download .tar.gz</a>
     </section>
-    <section>
-      <h2>Deployment Guides</h2>
-      <p>Learn how to deploy to your hosting provider using Travis CI.</p>
-      <ul>
-        <li><a href="/user/deployment/heroku/">Heroku</a></li>
-        <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
-        <li><a href="/user/deployment/openshift/">OpenShift</a></li>
-        <li><a href="/user/deployment">more deployment guides</a></li>
-      </ul>
-    </section>
-    <section>
-      <h2>Common Questions</h2>
-      <ul>
-        <li><a href="/user/customizing-the-build/#What-git-Repository-Providers-can-I-use">What repository providers can I use?</a></li>
-        <li><a href="/user/trusty-ci-environment/">Can I use Ubuntu Trusty for my builds?</a><li>
-        <li><a href="/user/notifications/#Changing-the-email-address-for-build-notifications">How do I change the notification email address?</a><li>
-        <li><a href="/user/ip-addresses/">What IP addresses do the builds use?</a></li>
-      </ul>
-    </section>
-  </div>
-  <div class="columns large-6">
-    <section>
-      <h2>Language-specific Guides</h2>
-      <p>Learn about using Travis CI with your favourite programming language.</p>
-      <div class="language-docs" >
 
-      {% include languages.html %}
+    <section class="main-content">
+      <h1>
+<a id="about-this-repository" class="anchor" href="#about-this-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About this repository</h1>
 
-      </div>
+<p>This is the documentation site for Travis CI! (<a href="http://docs.travis-ci.com/">http://docs.travis-ci.com/</a>)</p>
+
+<h2>
+<a id="how-to-contribute" class="anchor" href="#how-to-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to contribute</h2>
+
+<p>Fork the repository, read the rest of this README file and make some changes.
+Once you're done with your changes send a pull request. Thanks!</p>
+
+<h2>
+<a id="how-to-edit-the-site" class="anchor" href="#how-to-edit-the-site" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to edit the site</h2>
+
+<p>Make sure you have Ruby and RubyGems installed. Next install
+<a href="http://bundler.io/">bundler</a>:</p>
+
+<pre><code>gem install bundler
+</code></pre>
+
+<p>Then install dependencies:</p>
+
+<pre><code>bundle install --binstubs
+</code></pre>
+
+<p>In order to run a local Web server that will serve documentation site, run:</p>
+
+<pre><code>./bin/jekyll serve
+</code></pre>
+
+<p>and then open <a href="http://localhost:4000/">localhost:4000</a> in your browser.</p>
+
+<p>To regenerate the HTML pages automatically when you make changes to Markdown source files, use</p>
+
+<pre><code>./bin/jekyll serve --watch
+</code></pre>
+
+<p>Note that quoted entities may be escaped or unescaped depending on the Ruby
+version (1.8 vs. 1.9) used. It is normal.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Distributed under the <a href="https://opensource.org/licenses/MIT">MIT license</a>; the same as other Travis CI projects.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/chainoy/docs-travis-ci-com">Docs-travis-ci-com</a> is maintained by <a href="https://github.com/chainoy">chainoy</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
     </section>
-  </div>
-</div>
+
+  
+  </body>
+</html>
