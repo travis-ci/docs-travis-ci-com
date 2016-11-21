@@ -121,7 +121,7 @@ Travis CI detects use of [yarn](https://yarnpkg.com/).
 
 If both `package.json` and `yarn.lock` are present in the root
 directory of the repository, we run the following command _instead of_
-`nmp install`:
+`npm install`:
 
 ```bash
 yarn
