@@ -189,7 +189,8 @@ configure Bioconductor appropriately for installing dependencies.
 
 ### Packrat
 
-If you want Travis CI to use your project-specific [packrat](https://rstudio.github.io/packrat/) package library, rather than the default behaviour of downloading your package dependencies from CRAN, you can add this to your `.travis.yml`:
+If you want Travis CI to use your project-specific packrat package library,
+rather than the default behaviour of downloading your package dependencies from CRAN, you can add this to your `.travis.yml`:
 
 ```yaml
 install:
