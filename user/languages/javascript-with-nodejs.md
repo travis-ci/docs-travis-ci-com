@@ -115,6 +115,39 @@ npm install
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
 
+### Travis CI supports yarn
+
+Travis CI detects use of [yarn](https://yarnpkg.com/).
+
+If both `package.json` and `yarn.lock` are present in the root
+directory of the repository, we run the following command _instead of_
+`nmp install`:
+
+```bash
+yarn
+```
+
+Note that `yarn` requires Node.js version 4 or later.
+If the job does not meet this requirement, `npm install` is used
+instead.
+
+#### Caching with `yarn`
+
+You can cache `$HOME/.yarn-cache` with:
+
+```yaml
+cache: yarn
+```
+
+If your caching needs to include other directives, you can use:
+
+```yaml
+cache:
+  yarn: true
+```
+
+For more information, refer to [Caching](/user/caching) documentation.
+
 ### Using shrinkwrapped git dependencies
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
