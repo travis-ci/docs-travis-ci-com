@@ -29,5 +29,5 @@ install:
   - pip install coala-bears
   - npm install remark-cli@2
 script:
-  - rake test
+  - bundle exec rake test
 #  - coala-ci
