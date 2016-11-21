@@ -12,6 +12,7 @@ cache:
   pip: true
   directories:
     - vendor/bundle
+    - node_modules
 deploy:
   provider: heroku
   api_key:
