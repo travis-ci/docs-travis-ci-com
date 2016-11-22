@@ -38,16 +38,15 @@ services:
 
 ## MySQL
 
-Start MySQL in your `.travis.yml`:
+MySQL is available and running on all Linux images, except the sudo-enabled
+Trusty image. The service will be available in a later iteration of the image.
+Please see the note on switching to MySQL 5.6 below for instructions.
 
-```yaml
-services:
-  - mysql
-```
+MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "root" and a blank password.
 
-MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
-
-> Note that the "travis" user does not have full MySQL privileges that the "root" user does.
+> Note that the "travis" is available on the precise images, its use has been
+> deprecated. Please use the user root to connect to the database, and possibly
+> set up a new user.
 >
 > If you are using the Trusty image (to use Docker or for some other reason) you must
 > use the MySQL 5.6 instructions.
@@ -60,7 +59,7 @@ MySQL binds to 127.0.0.1 and requires authentication. You can connect using the 
 test:
   adapter: mysql2
   database: myapp_test
-  username: travis
+  username: root
   encoding: utf8
 ```
 
@@ -69,25 +68,23 @@ You might have to create the `myapp_test` database first. Run this as part of yo
 ```yaml
 # .travis.yml
 before_script:
-  - mysql -e 'create database myapp_test;'
-```
-
-### Note on `test` database
-
-In older versions of MySQL, Ubuntu package provided the `test` database by default.
-This is no longer the case as of version 5.5.37 due to security concerns
-(See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
-
-If you need it, create it using the following `before_install` line:
-
-```yaml
-before_install:
-  - mysql -e "create database IF NOT EXISTS test;" -uroot
+  - mysql -uroot -e 'create database myapp_test;'
 ```
 
 ### MySQL 5.6
 
-The recommended way to get MySQL 5.6 is switching to our [Trusty CI Environment](/user/trusty-ci-environment/) and manually installing the required packages by adding the following lines to the `.travis.yml`:
+The recommended way to get MySQL 5.6 is switching to our [container-based Ubuntu
+14.04 Trusty](https://docs.travis-ci.com/user/build-environment-updates/2016-11-01/)
+image by ensuring this is in your `.travis.yml`:
+
+```yaml
+dist: trusty
+sudo: false
+```
+
+Alternatively, the [sudo enabled Trusty CI Environment](/user/trusty-ci-environment/)
+can be used. Be aware that at the moment, it is required to install the required packages by
+adding the following lines to the `.travis.yml`:
 
 ```yaml
 dist: trusty
@@ -99,12 +96,6 @@ addons:
     - mysql-client-core-5.6
     - mysql-client-5.6
 ```
-
-Note that you'll need to use the user `root` as `travis` is not available yet.
-
-For example, if you were running: `mysql -e 'create database your_db_name;'`
-
-You should run instead: `mysql -u root -e 'create database your_db_name;'`
 
 ## PostgreSQL
 
