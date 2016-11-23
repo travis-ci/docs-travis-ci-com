@@ -63,19 +63,7 @@ realize support for builds in a new language.
    to restrict deployments based on the language version, add your language
    to [`Travis::Build::Addons::Deploy::Script::VERSIONED_RUNTIMES`](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/addons/deploy/script.rb).
 
-2. [travis-core](https://github.com/travis-ci/travis-core)
-
-   If you want to support build matrix expansion based on various language
-   versions (e.g., Ruby 2.2, 2.1, etc.), `travis-core` needs to know about it.
-
-   `Build::Config::ENV_KEYS` defines which keys are possible matrix dimensions,
-   and `Build::Config::EXPANSION_KEYS_LANGUAGE` defines which keys among
-   the possible ones are actually expanded based on the `language` value.
-
-   [This PR](https://github.com/travis-ci/travis-core/pull/422) is a straightforward
-   example.
-
-3. [travis-web](https://github.com/travis-ci/travis-web)
+1. [travis-web](https://github.com/travis-ci/travis-web)
 
    If the language provides build matrix expansion, it would be nice
    to have this information visible to the end user.
@@ -84,6 +72,15 @@ realize support for builds in a new language.
    from the job's data and display it.  Clone the `travis-web` repository,
    add your language to the `app/utils/keys-map.coffee` file and submit a
    pull request for this change.
+
+1. Other bits
+
+   If you want to support build matrix expansion based on various language
+   versions (e.g., Ruby 2.2, 2.1, etc.), there is an extra bits that
+   needs to happen.
+
+   This part, unfortunately, needs to be coordinated with the Travis CI
+   team, so do let us know if you want to have this done.
 
 It is important to note that languages are configured at build time,
 thus components are downloaded every time a job runs.
