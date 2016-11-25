@@ -56,7 +56,6 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-22
-    - sys-img-x86-android-17
 ```
 
 ### How to install Android SDK components
@@ -84,7 +83,7 @@ android:
   components:
     - build-tools-20.0.0
     - android-L
-    - sys-img-x86-android-tv-l
+    - sys-img-armeabi-v7a-android-22
     - add-on
     - extra
   licenses:
