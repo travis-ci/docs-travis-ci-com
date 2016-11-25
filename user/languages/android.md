@@ -56,6 +56,7 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-22
+    - sys-img-armeabi-v7a-android-17
 ```
 
 ### How to install Android SDK components
