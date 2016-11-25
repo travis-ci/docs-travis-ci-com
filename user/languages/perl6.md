@@ -23,8 +23,8 @@ versions that your projects can be tested against. To specify them, use the
 language: perl6
 perl6:
   - latest
-  - 2015.07
-  - 2015.04
+  - '2015.07'
+  - '2015.04'
 ```
 
 Over time, new releases come out and we upgrade both rakudobrew and
@@ -81,7 +81,7 @@ looks something like this:
 ```yaml
 language: perl6
 perl6:
-    - 2015.07
+    - '2015.07'
 install:
     - rakudobrew build-panda 2015.07
 ```
@@ -127,8 +127,8 @@ language: perl6
 ```yaml
 language: perl6
 perl6:
-    - 2015.06
-    - 2015.05
+    - '2015.06'
+    - '2015.05'
 ```
 
 ### Build and test with matching Rakudo and panda versions
@@ -137,7 +137,7 @@ perl6:
 language: perl6
 perl6:
     - latest
-    - 2015.03
+    - '2015.03'
 install:
     - rakudobrew build-panda ${TRAVIS_PERL6_VERSION#latest}
     - panda installdeps .
