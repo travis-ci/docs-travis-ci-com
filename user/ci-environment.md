@@ -30,7 +30,7 @@ can install anything that's required for them to run.
 
 Each build runs in one of the following virtual environments:
 
-- Sudo-enabled (the default environment, a sudo enabled, full VM per build)
+- Sudo-enabled (a sudo enabled, full VM per build)
 - Container-based (Fast boot time environment in which `sudo` commands are not available)
 - OSX for Objective-C projects
 
@@ -47,8 +47,8 @@ The following table summarizes the differences between the virtual environments:
 </thead><tbody>
 <tr>
 <td>.travis.yml</td>
-<td><code>sudo: false</code></td>
-<td><code>sudo: required</code></td>
+<td><code>sudo: false</code><em>default for repositories enabled in 2015 or later</em></td>
+<td><code>sudo: required</code><em>default for repositories enabled before 2015</em></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
 </tr>
 <tr>
