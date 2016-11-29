@@ -279,7 +279,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
 
-Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI. 
+Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
 ## Build Matrix
 
@@ -484,13 +484,13 @@ addons:
   - joshkalderimis.com
 ```
 
-## What git Repository Providers can I use
+## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on Github on [travis-ci.org](https://travis-ci.org/).
+Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
 
-Build and test your private repositories hosted on Github on [travis-ci.com](https://travis-ci.com/).
+Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
-Travis CI currently does not support repositories hosted on Bitbucket, Gitlab or Atlassian Stash.
+Travis CI currently does not support git repositories hosted on Bitbucketc or GitLab, or other version control systems such as Mercurial.
 
 ## Troubleshooting
 
