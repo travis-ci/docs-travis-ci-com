@@ -84,7 +84,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest 
+script: pytest  # or py.test for Python versions 3.5 and below
 ```
 
 if it uses `make test` instead:
