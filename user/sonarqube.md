@@ -48,7 +48,7 @@ Please take a look at [the live Maven-based example project](https://github.com/
 
 ## Activation for branches
 
-By default, the SonarQube.com add-on will analyze and push results only for the master branch. You can activate it on branches thanks to the `branches` parameter:
+By default, the SonarQube.com add-on only analyzes the master branch. Activate it on other branches by specifying them in the `branches` parameter:
 
 ```yaml
 addons:
