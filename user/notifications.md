@@ -86,9 +86,8 @@ notifications:
     on_failure: [always|never|change] # default: always
 ```
 
-> Note: Items in brackets are placeholders. Brackets should be omitted.
-
-`always` and `never` mean that you want email notifications to be sent always or never. `change` means that you will get them when the build status changes on the given branch.
+> Note: Items in brackets are placeholders. Select one option and ommit the
+> brackets. For example `on_success: never`
 
 Pull Request builds do not trigger email notifications.
 
