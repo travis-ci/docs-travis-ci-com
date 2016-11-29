@@ -152,13 +152,14 @@ addons:
 
 The following versions are available on Linux builds:
 
-| PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise |
-| :--------: | :------------------: | :-----------------: | :---------------: |
-|     9.1    |          yes         |         yes         |        yes        |
-|     9.2    |          yes         |         yes         |        yes        |
-|     9.3    |          yes         |         yes         |        yes        |
-|     9.4    |          yes         |         yes         |        yes        |
-|     9.5    |                      |         yes         |                   |
+| PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
+| :--------: | :------------------: | :-----------------: | :---------------: | :--------------: |
+|     9.1    |          yes         |                     |        yes        |                  |
+|     9.2    |          yes         |         yes         |        yes        |        yes       |
+|     9.3    |          yes         |         yes         |        yes        |        yes       |
+|     9.4    |          yes         |         yes         |        yes        |        yes       |
+|     9.5    |          yes         |         yes         |        yes        |        yes       |
+|     9.6    |                      |         yes         |                   |        yes       |
 
 On OSX, the following versions are installed:
 
