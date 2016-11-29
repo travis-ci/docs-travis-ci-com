@@ -75,8 +75,8 @@ SonarQube.com can inspect internal pull requests of your repository and write co
 To activate analysis on pull requests, you need to follow those extra steps:
 
 1. Generate a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for the GitHub user which will be used by SonarQube.com to write the comments.
-  - Requirements for that token are listed on [that page](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin)
-2. Encrypt this token
+  - Requirements for that token are listed on [that page](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin).
+2. Encrypt this token.
 3. Add it to your `.travis.yml` file:
 
 ```yaml
@@ -94,5 +94,5 @@ script:
 
 Next versions of this add-on will provide the following features:
 
-- No need to define a third-party GitHub user for pull request analysis
-- Support for external pull requests
+- No need to define a third-party GitHub user for pull request analysis.
+- Support for external pull requests.
