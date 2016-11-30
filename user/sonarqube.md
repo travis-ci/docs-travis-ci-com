@@ -29,7 +29,7 @@ dist: trusty
 Before inspecting your code, you need to:
 
 1. [Create a user authentication token](https://sonarqube.com/account/security) for your account on SonarQube.com.
-2. [Encrypt this token](/user/encryption-keys/#Usage): `travis encrypt abcdef0123456789`
+2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
 3. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
