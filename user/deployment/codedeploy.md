@@ -119,19 +119,6 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#Running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deployment
-
-Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
-
-```yaml
-    before_deploy: "echo 'ready?'"
-    deploy:
-      ..
-    after_deploy:
-      - ./after_deploy_1.sh
-      - ./after_deploy_2.sh
-```
-
 ### Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
