@@ -79,7 +79,7 @@ The following table summarizes the differences between the virtual environments:
 <td>Memory</td>
 <td>4 GB max</td>
 <td>7.5 GB</td>
-<td>3 GB</td>
+<td>4 GB</td>
 </tr>
 <tr>
 <td>Cores</td>
