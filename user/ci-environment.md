@@ -73,7 +73,7 @@ The following table summarizes the differences between the virtual environments:
 <td>Operating System</td>
 <td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
 <td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
-<td>OS X Mavericks</td>
+<td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
 </tr>
 <tr>
 <td>Memory</td>
