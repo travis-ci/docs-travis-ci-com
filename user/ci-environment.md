@@ -85,7 +85,7 @@ The following table summarizes the differences between the virtual environments:
 <td>Cores</td>
 <td>2</td>
 <td>~2, bursted</td>
-<td>1</td>
+<td>2</td>
 </tr>
 </tbody></table>
 </div>
