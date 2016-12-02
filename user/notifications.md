@@ -6,25 +6,34 @@ permalink: /user/notifications/
 
 <div id="toc"></div>
 
-## Notifications
+Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 
-Travis CI can notify you about your build results through email, IRC and/or webhooks.
+## Default notification settings
 
 By default, email notifications are sent to the committer and the commit
-author, if they are members of the repository (that is, they have push or admin
-permissions for public repositories, or if they have pull, push or admin
-permissions for private repositories).
+author when they are members of the repository, that is they have
+
+- push or admin permissions for public repositories.
+- pull, push or admin permissions for private repositories.
 
 Emails are sent when, on the given branch:
 
-- a build was just broken or still is broken
-- a previously broken build was just fixed
+- a build was just broken or still is broken.
+- a previously broken build was just fixed.
+
+For more information, please read [default email
+addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
+address](#Changing-the-email-address-for-build-notifications) or
+[troubleshooting email
+notification](#I%E2%80%99m-not-receiving-any-build-notifications).
 
 If you add another notification channel, ie hipchat, slack or any other, the
 default is to send a notification on every build.
 
-You can change the conditions for each of the channels by setting the
-`on_success` on `on_failure` flag on that medium to one of:
+## Changing notification frequency
+
+You can change the conditions for any notification channels by setting the
+`on_success` or `on_failure` flag to one of:
 
 - `always`: always send a notification.
 - `never`: never send a notification.
@@ -38,29 +47,27 @@ notifications:
     on_success: always
 ```
 
-Read the relevant section below for information on configuring each
-notification channel.
-
 ### Note on SSL/TLS Ciphers
 
 When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
-by the receiving server.
-Notifications will fail if none of the server's ciphers work.
+by the receiving server. Notifications will fail if none of the server's ciphers work.
 
 Currently, the following ciphers (as defined by the [openssl gem](http://ruby-doc.org/stdlib-2.1.6/libdoc/openssl/rdoc/OpenSSL.html))
 are known to work:
 
+```
 AES-128-CBC AES-128-CBC-HMAC-SHA1 AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-CTR AES-128-ECB AES-128-OFB AES-128-XTS AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-CTR AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CBC-HMAC-SHA1 AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-CTR AES-256-ECB AES-256-OFB AES-256-XTS AES128 AES192 AES256 BF BF-CBC BF-CFB BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB1 CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB1 CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB1 CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-cbc CAST5-CBC CAST5-CFB CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-OFB DES-OFB DES3 DESX DESX-CBC RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-ECB RC2-OFB RC4 RC4-40 RC4-HMAC-MD5 SEED SEED-CBC SEED-CFB SEED-ECB SEED-OFB
+```
 
 Also, consult [cipher suite names mapping](https://www.openssl.org/docs/manmaster/man1/ciphers.html).
 
 If none of the ciphers listed above works, please open a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
 
-## Email notifications
+## Configuring email notifications
 
 Specify recipients that will be notified about build results:
 
-```yml
+```yaml
 notifications:
   email:
     - one@example.com
@@ -69,25 +76,22 @@ notifications:
 
 Turn off email notifications entirely:
 
-```yml
+```yaml
 notifications:
   email: false
 ```
 
-Specify when you want to get notified:
+Specify when you want to [get notified](#Changing-notification-frequency):
 
-```yml
+```yaml
 notifications:
   email:
     recipients:
       - one@example.com
       - other@example.com
-    on_success: [always|never|change] # default: change
-    on_failure: [always|never|change] # default: always
+    on_success: never # default: change
+    on_failure: always # default: always
 ```
-
-> Note: Items in brackets are placeholders. Select one option and ommit the
-> brackets. For example `on_success: never`
 
 Pull Request builds do not trigger email notifications.
 
@@ -138,7 +142,7 @@ and verified on GitHub. See above on how to change the email address to one
 that's registered or make sure to add the email address used in this repository
 to [your verified email addresses](https://github.com/settings/emails) on GitHub.
 
-## IRC notification
+## Configuring IRC notifications
 
 You can also specify notifications sent to an IRC channel:
 
@@ -166,11 +170,11 @@ notifications:
     channels:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
+    on_success: change # default: always
+    on_failure: always # default: always
 ```
 
-You also have the possibility to customize the message that will be sent to the channel(s) with a template:
+Customize the message that will be sent to the channel(s) with a template:
 
 ```yaml
 notifications:
@@ -221,12 +225,12 @@ notifications:
     channels:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
+    on_success: change # default: always
+    on_failure: always # default: always
     use_notice: true
 ```
 
-and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
+and if you want the bot not to join before sending the messages, use the `skip_join` flag:
 
 ```yaml
 notifications:
@@ -234,8 +238,8 @@ notifications:
     channels:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
+    on_success: change # default: always
+    on_failure: always # default: always
     use_notice: true
     skip_join: true
 ```
@@ -246,7 +250,14 @@ Pull Request builds do not trigger IRC notifications.
 
 ### Channel key
 
-If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
+If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), use the `channel_key` variable:
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository.
+>
+> ```bash
+> travis encrypt password --add notifications.irc.channel_key
+> ```
 
 ```yaml
 notifications:
@@ -260,6 +271,14 @@ notifications:
 
 You may also authenticate to an IRC server with user:
 
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository.
+>
+> ```bash
+> travis encrypt password --add notifications.irc.channel_key
+> travis encrypt password --add notifications.irc.password
+> ```
+
 ```yaml
 notifications:
   irc:
@@ -270,7 +289,7 @@ notifications:
     password: super_secret
 ```
 
-## Campfire notification
+## Configuring campfire notifications
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
 
@@ -283,13 +302,14 @@ notifications:
 - *api token*: is the token of the user you want to use to post the notifications.
 - *room id*: this is the room id, not the name.
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository:
+>
+> ```bash
+> travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
+> ```
 
-```bash
-travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
-```
-
-You can also customise the notifications, like with IRC notifications:
+You can also customise the notifications, like with [IRC notifications](#Configuring-IRC-notifications):
 
 ```yaml
 notifications:
@@ -301,11 +321,11 @@ notifications:
       - "Build details: %{build_url}"
 ```
 
-Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+Other flags, such as `on_success` and `on_failure` also work like they do in IRC notification configuration.
 
 Pull Request builds do not trigger Campfire notifications.
 
-## Flowdock notification
+## Configuring flowdock notifications
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
 
@@ -317,14 +337,14 @@ notifications:
 - *api token*: is your API Token for the Team Inbox you wish to notify. You may pass multiple tokens as a comma separated string or an array.
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
-
-```bash
-travis encrypt api_token --add notifications.flowdock
-```
+>
+> ```bash
+> travis encrypt api_token --add notifications.flowdock
+> ```
 
 Pull Request builds do not trigger Flowdock notifications.
 
-## HipChat notification
+## Configuring HipChat notifications
 
 Notifications can be sent to your HipChat chat rooms using the following format:
 
@@ -333,7 +353,14 @@ notifications:
   hipchat: [api token]@[room id or name]
 ```
 
-If you are running HipChat Server, then you can specify the hostname like this:
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository:
+>
+> ```bash
+> travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
+> ```
+
+If you are running HipChat Server, specify the hostname like this instead:
 
 ```yaml
 notifications:
@@ -345,12 +372,6 @@ notifications:
 - *room id or name*: id or name of the room you want to notify.
 
 If your room name contains spaces then use the room id.
-
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
-
-```bash
-travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
-```
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
@@ -388,7 +409,7 @@ notifications:
     notify: true
 ```
 
-### `From` value in notifications
+### Setting the From value in notifications
 
 When a V1 token is used, the notification is posted by "Travis CI".
 
@@ -403,7 +424,8 @@ with a desired label, and use this token.
 ### Notifications of PR builds
 
 By default, Hipchat will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
+
+Switch PR build notifications off:
 
 ```yaml
 notifications:
@@ -411,7 +433,7 @@ notifications:
     on_pull_requests: false
 ```
 
-## Pushover notification
+## Configuring Pushover notifications
 
 Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
 
@@ -426,13 +448,15 @@ notifications:
 - *api token*: API Token/Key for a Pushover Application (create this under "Your Applications" after logging in to Pushover; it's recommended to create one specific to Travis CI).
 - *user key*: The User Key for a user to be notified (this can be seen after logging in to Pushover). A list of multiple users is supported.
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) these values
+> if your .travis.yml is stored in a public repository; this will add (or
+> overwrite) your api_token,
 > and append the specified user_key to the list of users.
-
-```bash
-travis encrypt [api_token] --add notifications.pushover.api_key
-travis encrypt [user_key] --add notifications.pushover.users --append
-```
+>
+> ```bash
+> travis encrypt [api_token] --add notifications.pushover.api_key
+> travis encrypt [user_key] --add notifications.pushover.users --append
+> ```
 
 You can also customise the notifications, like with IRC notifications:
 
@@ -446,11 +470,11 @@ pushover:
   template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
 ```
 
-Other flags, like `on_success` and `on_failure` also work like the IRC notification config.
+Other flags, such as `on_success` and `on_failure` also work like the IRC notification config.
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Slack notifications
+## Configuring slack notifications
 
 Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
 build results.
@@ -467,10 +491,8 @@ The channel name in the Slack settings can be overridden in Travis CI's
 notification settings, so you can set up one integration and use it for multiple
 channels regardless of the initial setup.
 
-Just copy and paste the settings, which already include the proper token, into
+Copy and paste the settings, which already include the proper token, into
 your `.travis.yml`, and you're good to go.
-
-Easy as pie, but if you want more customization, read on.
 
 The simplest configuration requires your account name and the token you just
 generated.
@@ -480,12 +502,26 @@ notifications:
   slack: '<account>:<token>'
 ```
 
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository:
+>
+> ```bash
+> travis encrypt "<account>:<token>" --add notifications.slack.rooms
+> ```
+
+
 Overriding the channel is also possible, just add it to the configuration with a
 `#` separating them from account and token.
 
 ```yaml
 notifications:
   slack: '<account>:<token>#development'
+```
+
+Similarly, you can use the channel override syntax with encrypted credentials as well.
+
+```bash
+travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
 ```
 
 You can specify multiple channels as well.
@@ -496,21 +532,8 @@ notifications:
     rooms:
       - <account>:<token>#development
       - <account>:<token>#general
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
-```
-
-As always, it's recommended to encrypt the credentials with our
-[travis](https://github.com/travis-ci/travis#readme) command line client.
-
-```bash
-travis encrypt "<account>:<token>" --add notifications.slack.rooms
-```
-
-Similarly, you can use the channel override syntax with encrypted credentials as well.
-
-```bash
-travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
+    on_success: change # default: always
+    on_failure: always # default: always
 ```
 
 Once everything's setup, push a new commit and you should see something like the
@@ -598,9 +621,9 @@ notifications:
     urls:
       - http://hooks.mydomain.com/travisci
       - http://hooks.mydomain.com/events
-    on_success: [always|never|change] # default: always
-    on_failure: [always|never|change] # default: always
-    on_start: [always|never|change] # default: never
+    on_success: change # default: always
+    on_failure: always # default: always
+    on_start: change   # default: never
 ```
 
 ### Webhooks Delivery Format
@@ -629,7 +652,7 @@ For pull requests, the `type` field will have the value `pull_request`, and a `p
 
 Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
 
-```
+```ruby
 require 'sinatra'
 require 'json'
 require 'digest/sha2'
