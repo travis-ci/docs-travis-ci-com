@@ -8,6 +8,19 @@ permalink: /user/sonarqube/
 
 Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/doc/analyzing-source-code.html) for more details on how to configure different scanners.
 
+## Requirements
+
+You are using one of the two following environments:
+
+* [CI Environment with JVM VM image](/user/ci-environment/#JVM-%28Clojure%2C-Groovy%2C-Java%2C-Scala%29-VM-images) - for instance:
+```yaml
+language: java
+```
+* [Trusty CI Environment](/user/trusty-ci-environment/):
+```yaml
+dist: trusty
+```
+
 ## Inspecting code with the SonarQube Scanner
 
 Before inspecting your code, you need to:
