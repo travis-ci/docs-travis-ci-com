@@ -12,7 +12,7 @@ Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/do
 
 You are using one of the two following environments:
 
-* [CI Environment with JVM VM image](/user/ci-environment/#JVM-%28Clojure%2C-Groovy%2C-Java%2C-Scala%29-VM-images) - for instance:
+* [CI Environment with JVM VM image](/user/ci-environment/) - for instance:
 ```yaml
 language: java
 ```
