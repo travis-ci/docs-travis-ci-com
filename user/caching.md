@@ -289,9 +289,10 @@ cache: false
 It is also possible to disable a single caching mode:
 
 ```yaml
+language: objective-c
 cache:
   bundler: false
-  pip: true
+  cocoapods: true
 ```
 
 ### Setting the timeout
