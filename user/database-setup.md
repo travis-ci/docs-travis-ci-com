@@ -164,7 +164,7 @@ On OSX, the following versions are installed:
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS 2.1 .
+All installed versions of PostgreSQL include PostGIS.
 
 You need to activate the extension in your `.travis.yml`:
 
