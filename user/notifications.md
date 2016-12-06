@@ -25,7 +25,7 @@ For more information, please read [default email
 addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
 address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
-notification](#I%E2%80%99m-not-receiving-any-build-notifications).
+notification](#Missing-build-notifications).
 
 If you add another notification channel, ie hipchat, slack or any other, the
 default is to send a notification on every build.
@@ -134,7 +134,7 @@ Note that we currently don't respect the [detailed notifications
 settings](https://github.com/settings/notifications) on
 GitHub, as they're not exposed via an API at this point.
 
-### I'm not receiving any build notifications
+### Missing build notifications
 
 The most common cause for not receiving build notifications, beyond not having a
 user account on Travis CI, is the use of an email address that's not registered
