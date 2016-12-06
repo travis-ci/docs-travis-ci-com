@@ -29,8 +29,7 @@ After figuring out which dependency was updated, lock it to the last known
 version.
 
 Additionally, we update our build environment regularly, which brings in newer
-versions of languages and the running services. Make sure to follow our
-[changelog](http://changelog.travis-ci.com) to get a hold of the latest updates.
+versions of languages and the running services.
 
 ## My build script is killed without any error
 
@@ -43,10 +42,10 @@ are two cores available, bursted.
 
 Depending on the tool in use, this can be cause by a few things:
 
-* Ruby test suite consuming too much memory
-* Tests running in parallel using too many processes or threads (e.g. using the
+- Ruby test suite consuming too much memory
+- Tests running in parallel using too many processes or threads (e.g. using the
   `parallel_test` gem)
-* g++ needing too much memory to compile files, for instance with a lot of
+- g++ needing too much memory to compile files, for instance with a lot of
   templates included.
 
 For parallel processes running at the same time, try to reduce the number. More
@@ -66,7 +65,6 @@ overwriting the `at_exit` handler of another RubyGem, in this case RSpec's.
 
 The workaround is to install this `at_exit` handler in your code, as pointed out
 in [this article](http://www.davekonopka.com/2013/rspec-exit-code.html).
-
 
 ```ruby
 if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
@@ -99,13 +97,17 @@ set too low.
 Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
-    Capybara.default_wait_time = 15
+```
+Capybara.default_wait_time = 15
+```
 
 Poltergeist has its own setting for timeouts:
 
-    Capybara.register_driver :poltergeist do |app|
-      Capybara::Poltergeist::Driver.new(app, timeout: 15)
-    end
+```
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, timeout: 15)
+end
+```
 
 If you're still seeing timeouts after increasing it initially, set it to
 something much higher for one test run. Should the error still persist, there's
@@ -122,15 +124,17 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
-    # Gemfile
-    group :debug do
-      gem 'debugger'
-      gem 'debugger-linecache'
-      gem 'rblineprof'
-    end
+```
+# Gemfile
+group :debug do
+  gem 'debugger'
+  gem 'debugger-linecache'
+  gem 'rblineprof'
+end
 
-    # .travis.yml
-    bundler_args: --without development debug
+# .travis.yml
+bundler_args: --without development debug
+```
 
 ## Mac: Code Signing Errors
 
@@ -142,14 +146,16 @@ interaction is not allowed."
 The keychain must be marked as the default keychain, must be unlocked explicitly and the build needs to make sure that the keychain isn't locked before the critical point in the build is reached. The following set of commands takes care
 of this:
 
-    KEY_CHAIN=ios-build.keychain
-    security create-keychain -p travis $KEY_CHAIN
-    # Make the keychain the default so identities are found
-    security default-keychain -s $KEY_CHAIN
-    # Unlock the keychain
-    security unlock-keychain -p travis $KEY_CHAIN
-    # Set keychain locking timeout to 3600 seconds
-    security set-keychain-settings -t 3600 -u $KEY_CHAIN
+```
+KEY_CHAIN=ios-build.keychain
+security create-keychain -p travis $KEY_CHAIN
+# Make the keychain the default so identities are found
+security default-keychain -s $KEY_CHAIN
+# Unlock the keychain
+security unlock-keychain -p travis $KEY_CHAIN
+# Set keychain locking timeout to 3600 seconds
+security set-keychain-settings -t 3600 -u $KEY_CHAIN
+```
 
 ## Mac: Errors running CocoaPods
 
@@ -160,8 +166,10 @@ CocoaPods usage can fail for a few reasons currently.
 Most Pods now require CocoaPods 0.32.1, but we still have 0.21 preinstalled. If
 you're seeing this error, add this to your `.travis.yml`:
 
-    before_install:
-      - gem install cocoapods -v '0.32.1'
+```yaml
+before_install:
+  - gem install cocoapods -v '0.32.1'
+```
 
 ### CocoaPods can't be found
 
@@ -172,7 +180,9 @@ To work around this issue, you can either install CocoaPods manually as shown
 above, or you can switch to Ruby 1.9.3 in your `.travis.yml`, which should work
 without any issues:
 
-    rvm: 1.9.3
+```yaml
+rvm: 1.9.3
+```
 
 ### CocoaPods fails with a segmentation fault
 
@@ -181,7 +191,9 @@ On Ruby 2.0.0, CocoaPods has been seen crashing with a segmentation fault.
 You can work around the issue by using Ruby 1.9.3, which hasn't shown these
 issues. Add this to your `.travis.yml`:
 
-    rvm: 1.9.3
+```yaml
+rvm: 1.9.3
+```
 
 ## System: Required language pack isn't installed
 
@@ -192,19 +204,22 @@ run.
 
 This can be done with the follow addition to your `.travis.yml`:
 
-    before_install:
-      - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
+```yaml
+before_install:
+  - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
+```
 
-The above addition will reinstall the en\_US language pack, as well as the de\_DE
+The above addition will reinstall the en_US language pack, as well as the de_DE
 language pack.
 
 ## Linux: apt fails to install package with 404 error
 
 This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
 
-    before_install:
-      - sudo apt-get update
-
+```yaml
+before_install:
+  - sudo apt-get update
+```
 
 ## Travis CI does not Preserve State Between Builds
 
@@ -244,11 +259,15 @@ before_install:
 
 If your project uses Git submodules, make sure you use public Git URLs. For example, on GitHub, instead of
 
-    git@github.com:someuser/somelibrary.git
+```
+git@github.com:someuser/somelibrary.git
+```
 
 use
 
-    https://github.com/someuser/somelibrary.git
+```
+https://github.com/someuser/somelibrary.git
+```
 
 Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
 
@@ -264,25 +283,30 @@ There are few ways to work around that.
 
 ### Timeouts installing dependencies
 
-Bundler can time out downloading RubyGems or talking to the APIs at rubygems.org. In the same way, pip can be affected by network connectivity issues to the PyPi mirrors or CDN endpoints.
+If you are getting network timeouts when trying to download dependencies, either
+use the built in retry feature of your dependency manager or wrap your install
+commands in the `travis_retry` function.
 
-Bundler itself now has a [built-in feature to retry](http://bundler.io/v1.5/bundle_install.html#retry) gem downloads or API calls when a network error or timeout occurs.
+#### Bundler
 
-You can add the `--retry` option with the number of retries you'd like to use. *Note: this may become a default in the future on Travis CI.*
+Bundler retries three times by default, but if you need to increase that number,
+use the following syntax in your `.travis.yml`
 
-Here's what you can add to your .travis.yml:
+```bash
+bundler_args: --retry 5
+```
 
-    bundler_args: --retry 3
+#### travis_retry
 
-Beyond Bundler, you can wrap commands using the function `travis_retry` which checks the return code of a command, retrying it three times if the return code is non-zero.
+For commands which do not have a built in retry feature, use the `travis_retry`
+function to retry it up three times if the return code is non-zero:
 
-    install: travis_retry bundle install
+```sh
+install: travis_retry pip install myawesomepackage
+```
 
-Note that with Bundler, using one or the other should be sufficient to catch network timeouts affecting your build. Using the new `--retry` option has the benefit of giving you finer control about the total amount of retries.
-
-We recommend using `travis_retry` when you have commands that only install one or two RubyGems, for instance, or when they're timing out for other reasons.
-
-Most of our build-internal commands are wrapped with `travis_retry` to reduce the impact of temporary network hiccups.
+Most of our internal build commands are wrapped with `travis_retry` to reduce the
+impact of network timeouts.
 
 ### Build times out because no output was received
 
@@ -313,9 +337,11 @@ If you're having trouble tracking down the exact problem in a build it often hel
 ### Running a Container Based Docker Image Locally
 
 1. Download and install Docker:
-  * [Windows](https://docs.docker.com/docker-for-windows/)
-  * [OS X](https://docs.docker.com/docker-for-mac/)
-  * [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+
+   - [Windows](https://docs.docker.com/docker-for-windows/)
+   - [OS X](https://docs.docker.com/docker-for-mac/)
+   - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+
 2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language-specific image pick `travis-ruby`. Open a terminal and start an interactive Docker session using the image URL:
 
    ```bash
@@ -328,6 +354,6 @@ If you're having trouble tracking down the exact problem in a build it often hel
    su - travis
    ```
 
-3. Clone your git repository into the `/` folder of the image.
-4. Manually install any dependencies.
-5. Manually run your Travis CI build command.
+4. Clone your git repository into the `/` folder of the image.
+5. Manually install any dependencies.
+6. Manually run your Travis CI build command.

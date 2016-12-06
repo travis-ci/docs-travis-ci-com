@@ -15,10 +15,10 @@ Travis CI provides a default build environment and a default set of steps for ea
 very minimalistic or have a lot of customization in it. A few examples of what
 kind of information your `.travis.yml` file may have:
 
-* What programming language your project uses
-* What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
-* What command is used to run your test suite
-* Emails, Campfire and IRC rooms to notify about build failures
+- What programming language your project uses
+- What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
+- What command is used to run your test suite
+- Emails, Campfire and IRC rooms to notify about build failures
 
 ## The Build Lifecycle
 
@@ -36,16 +36,15 @@ You can perform additional steps when your build succeeds or fails using  the `a
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
 1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
-1. `before_install`
-2. `install`
-3. `before_script`
-4. `script`
-5. `after_success` or `after_failure`
-6. OPTIONAL `before_deploy`
-7. OPTIONAL `deploy`
-8. OPTIONAL `after_deploy`
-9. `after_script`
-
+2. `before_install`
+3. `install`
+4. `before_script`
+5. `script`
+6. `after_success` or `after_failure`
+7. OPTIONAL `before_deploy`
+8. OPTIONAL `deploy`
+9. OPTIONAL `after_deploy`
+10. `after_script`
 
 ## Customizing the Installation Step
 
@@ -53,15 +52,19 @@ The default dependency installation commands depend on the project language. For
 
 You can specify your own script to run to install whatever dependencies your project requires in `.travis.yml`:
 
-    install: ./install-dependencies.sh
+```
+install: ./install-dependencies.sh
+```
 
 > When using custom scripts they should be executable (for example, using `chmod +x`) and contain a valid shebang line such as `/usr/bin/env sh`, `/usr/bin/env ruby`, or `/usr/bin/env python`.
 
 You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
-    install:
-    - bundle install --path vendor/bundle
-    - npm install
+```yaml
+install:
+  - bundle install --path vendor/bundle
+  - npm install
+```
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
 
@@ -69,7 +72,9 @@ When one of the steps fails, the build stops immediately and is marked as [error
 
 You can skip the installation step entirely by adding the following to your `.travis.yml`:
 
-	install: true
+```yaml
+install: true
+```
 
 ## Customizing the Build Step
 
@@ -77,13 +82,17 @@ The default build command depends on the project language. Ruby projects use `ra
 
 You can overwrite the default build step in `.travis.yml`:
 
-    script: bundle exec thor build
+```yaml
+script: bundle exec thor build
+```
 
 You can specify multiple script commands as well:
 
-    script:
-    - bundle exec rake build
-    - bundle exec rake builddoc
+```yaml
+script:
+- bundle exec rake build
+- bundle exec rake builddoc
+```
 
 When one of the build commands returns a non-zero exit code, the Travis CI build runs the subsequent commands as well, and accumulates the build result.
 
@@ -93,7 +102,9 @@ If your first step is to run unit tests, followed by integration tests, you may 
 
 You can change this behavior by using a little bit of shell magic to run all commands subsequently but still have the build fail when the first command returns a non-zero exit code. Here's the snippet for your `.travis.yml`
 
-    script: bundle exec rake build && bundle exec rake builddoc
+```yaml
+script: bundle exec rake build && bundle exec rake builddoc
+```
 
 This example (note the `&&`) fails immediately when `bundle exec rake build` fails.
 
@@ -110,9 +121,9 @@ for a more technical discussion.
 
 If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
 
-* If `before_install`, `install` or `before_script` return a non-zero exit code,
-the build is **errored** and stops immediately.
-* If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
+- If `before_install`, `install` or `before_script` return a non-zero exit code,
+  the build is **errored** and stops immediately.
+- If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
 The exit code of `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the build result.
 However, if one of these stages times out, the build is marked as a failure.
@@ -131,6 +142,7 @@ working directory and deleting all changes made during the build ( `git stash
 deploy:
   skip_cleanup: true
 ```
+
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
@@ -183,9 +195,9 @@ Travis CI has specific time limits for each job, and will stop the build and and
 
 Some common reasons why builds might hang:
 
-* Waiting for keyboard input or other kind of human interaction
-* Concurrency issues (deadlocks, livelocks and so on)
-* Installation of native extensions that take very long time to compile
+- Waiting for keyboard input or other kind of human interaction
+- Concurrency issues (deadlocks, livelocks and so on)
+- Installation of native extensions that take very long time to compile
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
@@ -194,7 +206,7 @@ Some common reasons why builds might hang:
 The maximum number of concurrent builds depends on the total system load, but
 one situation in which you might want to set a particular limit is:
 
-* if your build depends on an external resource and might run into a race
+- if your build depends on an external resource and might run into a race
   condition with concurrent builds.
 
 You can set the maximum number of concurrent builds in the settings pane for
@@ -220,7 +232,6 @@ You can set the depth in `.travis.yml`:
 git:
   depth: 3
 ```
-
 
 ## Building Specific Branches
 
@@ -248,14 +259,16 @@ If you specify both, `only` takes precedence over `except`. By default, the `gh-
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
-### Using regular expressions ###
+### Using regular expressions
 
 You can use regular expressions to safelist or blocklist branches:
 
-    branches:
-      only:
-      - master
-      - /^deploy-.*$/
+```yaml
+branches:
+  only:
+  - master
+  - /^deploy-.*$/
+```
 
 Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain any quantifiers, anchors or character classes supported by [Ruby regular expressions](http://www.ruby-doc.org/core-1.9.3/Regexp.html).
 
@@ -266,7 +279,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
 
-Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI. 
+Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
 ## Build Matrix
 
@@ -274,33 +287,37 @@ When you combine the three main configuration options of *Runtime*, *Environment
 
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
-    rvm:
-    - 1.9.3
-    - 2.0.0
-    - 2.2
-    - ruby-head
-    - jruby
-    - rbx-2
-    - ree
-    gemfile:
-    - gemfiles/Gemfile.rails-2.3.x
-    - gemfiles/Gemfile.rails-3.0.x
-    - gemfiles/Gemfile.rails-3.1.x
-    - gemfiles/Gemfile.rails-edge
-    env:
-    - ISOLATED=true
-    - ISOLATED=false
+```yaml
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.2
+  - ruby-head
+  - jruby
+  - rbx-2
+  - ree
+gemfile:
+  - gemfiles/Gemfile.rails-2.3.x
+  - gemfiles/Gemfile.rails-3.0.x
+  - gemfiles/Gemfile.rails-3.1.x
+  - gemfiles/Gemfile.rails-edge
+env:
+  - ISOLATED=true
+  - ISOLATED=false
+```
 
 You can also define exclusions to the build matrix:
 
-    matrix:
-      exclude:
-      - rvm: 1.9.3
-        gemfile: gemfiles/Gemfile.rails-2.3.x
-        env: ISOLATED=true
-      - rvm: jruby
-        gemfile: gemfiles/Gemfile.rails-2.3.x
-        env: ISOLATED=true
+```yaml
+matrix:
+  exclude:
+  - rvm: 1.9.3
+    gemfile: gemfiles/Gemfile.rails-2.3.x
+    env: ISOLATED=true
+  - rvm: jruby
+    gemfile: gemfiles/Gemfile.rails-2.3.x
+    env: ISOLATED=true
+```
 
 > Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
 
@@ -354,15 +371,17 @@ matrix:
     env: DB=mysql
 ```
 
-### Explicity Including Jobs
+### Explicitly Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
-    matrix:
-      include:
-      - rvm: ruby-head
-        gemfile: gemfiles/Gemfile.rails-3.2.x
-        env: ISOLATED=false
+```yaml
+matrix:
+  include:
+  - rvm: ruby-head
+    gemfile: gemfiles/Gemfile.rails-3.2.x
+    env: ISOLATED=false
+```
 
 This adds a particular job to the build matrix which has already been populated.
 
@@ -371,16 +390,18 @@ This is useful if you want to only test the latest version of a dependency toget
 You can use this method to create a build matrix containing only specific combinations.
 For example,
 
-    language: python
-    matrix:
-      include:
-      - python: "2.7"
-        env: TEST_SUITE=suite_2_7
-      - python: "3.3"
-        env: TEST_SUITE=suite_3_3
-      - python: "pypy"
-        env: TEST_SUITE=suite_pypy
-    script: ./test.py $TEST_SUITE
+```yaml
+language: python
+matrix:
+  include:
+  - python: "2.7"
+    env: TEST_SUITE=suite_2_7
+  - python: "3.3"
+    env: TEST_SUITE=suite_3_3
+  - python: "pypy"
+    env: TEST_SUITE=suite_pypy
+script: ./test.py $TEST_SUITE
+```
 
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
@@ -395,9 +416,11 @@ ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
-    matrix:
-      allow_failures:
-      - rvm: 1.9.3
+```yaml
+matrix:
+  allow_failures:
+  - rvm: 1.9.3
+```
 
 ### Fast Finishing
 
@@ -405,11 +428,12 @@ If some rows in the build matrix are allowed to fail, the build won't be marked 
 
 To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
-    matrix:
-      fast_finish: true
+```yaml
+matrix:
+  fast_finish: true
+```
 
 Now, a build will finish as soon as a job has failed, or when the only jobs left allow failures.
-
 
 ## Implementing Complex Build Steps
 
@@ -433,7 +457,9 @@ The `-v` flag makes the shell print all lines in the script before executing the
 
 Assuming the script above is stored as `scripts/run-tests.sh` in your repository, and with the right permissions too (run `chmod ugo+x scripts/run-tests.sh` before checking it in), you can call it from your `.travis.yml`:
 
-    script: ./scripts/run-tests.sh
+```
+script: ./scripts/run-tests.sh
+```
 
 ### How does this work? (Or, why you should not use `exit` in build steps)
 
@@ -451,18 +477,20 @@ If your build requires setting up custom hostnames, you can specify a single hos
 list of them in your .travis.yml. Travis CI will automatically setup the
 hostnames in `/etc/hosts` for both IPv4 and IPv6.
 
-    addons:
-      hosts:
-      - travis.dev
-      - joshkalderimis.com
+```yaml
+addons:
+  hosts:
+  - travis.dev
+  - joshkalderimis.com
+```
 
-## What git Repository Providers can I use         
+## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on Github on [travis-ci.org](https://travis-ci.org/).
+Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
 
-Build and test your private repositories hosted on Github on [travis-ci.com](https://travis-ci.com/).
+Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
-Travis CI currently does not support repositories hosted on Bitbucket, Gitlab or Atlassian Stash.
+Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
 
 ## Troubleshooting
 

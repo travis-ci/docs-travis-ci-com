@@ -29,38 +29,38 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 
 ## Available Versions
 
-* 6.1.x
-* 6.0.x
-* 5.11.x
-* 5.10.x
-* 5.9.x
-* 5.8.x
-* 5.7.x
-* 5.6.x
-* 5.5.x
-* 5.4.x
-* 5.3.x
-* 5.2.x
-* 5.1.x
-* 5.0.x
-* 4.4.x
-* 4.3.x
-* 4.2.x
-* 4.1.x
-* 4.0.x
-* 0.12.x
-* 0.11.x
-* 0.10.x
-* 0.8.x
-* 0.6.x
+- 6.1.x
+- 6.0.x
+- 5.11.x
+- 5.10.x
+- 5.9.x
+- 5.8.x
+- 5.7.x
+- 5.6.x
+- 5.5.x
+- 5.4.x
+- 5.3.x
+- 5.2.x
+- 5.1.x
+- 5.0.x
+- 4.4.x
+- 4.3.x
+- 4.2.x
+- 4.1.x
+- 4.0.x
+- 0.12.x
+- 0.11.x
+- 0.10.x
+- 0.8.x
+- 0.6.x
 
 Use the following convenience versions:
 
- * `node` latest stable Node.js release
- * `iojs` latest stable io.js release
- * `6` latest 6.x release
- * `5` latest 5.x release
- * `4` latest 4.x release
+- `node` latest stable Node.js release
+- `iojs` latest stable io.js release
+- `6` latest 6.x release
+- `5` latest 5.x release
+- `4` latest 4.x release
 
 Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version. If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases. [nvm](https://github.com/creationix/nvm) handles version resolution, so any version or [alias](https://github.com/creationix/nvm#usage) of Node.js or io.js that nvm can install is available.
 
@@ -72,7 +72,7 @@ For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyap
 
 Optionally, your repository can contain a `.nvmrc` file in the repository root to specify which *single* version of Node.js to run your tests against.
 
-The `.nvmrc` file is _only read_ when `node_js` key in your `.travis.yml` files does *not* specify a nodjs version. When the `.nvmrc` file is read, `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm documentation](https://github.com/creationix/nvm#usage) for more information on `.nvmrc`.
+The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files does *not* specify a nodjs version. When the `.nvmrc` file is read, `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm documentation](https://github.com/creationix/nvm#usage) for more information on `.nvmrc`.
 
 ## Default Test Script
 
@@ -114,6 +114,39 @@ npm install
 ```
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
+
+### Travis CI supports yarn
+
+Travis CI detects use of [yarn](https://yarnpkg.com/).
+
+If both `package.json` and `yarn.lock` are present in the root
+directory of the repository, we run the following command _instead of_
+`npm install`:
+
+```bash
+yarn
+```
+
+Note that `yarn` requires Node.js version 4 or later.
+If the job does not meet this requirement, `npm install` is used
+instead.
+
+#### Caching with `yarn`
+
+You can cache `$HOME/.yarn-cache` with:
+
+```yaml
+cache: yarn
+```
+
+If your caching needs to include other directives, you can use:
+
+```yaml
+cache:
+  yarn: true
+```
+
+For more information, refer to [Caching](/user/caching) documentation.
 
 ### Using shrinkwrapped git dependencies
 
@@ -165,7 +198,6 @@ install:
     - bower install
 script:
     - ember test --server
-
 ```
 
 ## Meteor Apps
@@ -184,6 +216,7 @@ services:
 env:
   - LAIKA_OPTIONS="-t 5000"
 ```
+
 More info on [testing against laika](https://github.com/arunoda/travis-ci-laika).
 
 ## Meteor Packages
@@ -203,7 +236,6 @@ before_script:
 ```
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
-
 
 ## Build Matrix
 
@@ -234,4 +266,4 @@ addons:
 ```
 
 Due to recent decision by the LLVM team to remove APT support, it is currently not possible to update clang on Travis CI via `apt-get` or the `apt` addon.
-See [https://github.com/travis-ci/travis-ci/issues/6120](https://github.com/travis-ci/travis-ci/issues/6120).
+See <https://github.com/travis-ci/travis-ci/issues/6120>.

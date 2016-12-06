@@ -31,11 +31,11 @@ The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
 The following command line tools are available in the Nix environment:
 
-* nix-env
-* nix-build
-* nix-shell
-* nix-store
-* nix-channel
+- nix-env
+- nix-build
+- nix-shell
+- nix-store
+- nix-channel
 
 ## Default Nix Version
 
@@ -58,4 +58,4 @@ More information on writing Nix expressions and how each of the above tools work
 
 ## Examples
 
-* [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)
+- [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)

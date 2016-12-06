@@ -37,7 +37,7 @@ language: r
 cache: packages
 ```
 
-If you do _not_ see
+If you do *not* see
 
 ```
 This job is running on container-based infrastructure, which does not allow use of
@@ -55,7 +55,7 @@ pre-installed, making it easier to use packages like [RMarkdown][rstudio] or
 
 Travis CI supports a number of configuration options for your R package.
 
-### R Versions ###
+### R Versions
 
 Travis CI supports R versions `3.1.3` and above on Linux Precise
 builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
@@ -64,8 +64,8 @@ addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
 mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
 hourly).
 
-Matrix builds _are_ supported for R builds, however both instances of `r` must
-be in _lowercase_.
+Matrix builds *are* supported for R builds, however both instances of `r` must
+be in *lowercase*.
 
 ```yaml
 language: r
@@ -112,8 +112,7 @@ you need to install.
 
 If LaTeX is not needed, installation can be disabled using `latex: false`.
 
-
-### Pandoc ###
+### Pandoc
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
 releases][github 7] can be installed by setting the `pandoc_version` to the
@@ -157,15 +156,15 @@ apt_packages:
 You can use the following top-level options to control what options are used
 when building and checking your package:
 
-* `warnings_are_errors`: This option forces all `WARNINGS` from `R CMD check` to
+- `warnings_are_errors`: This option forces all `WARNINGS` from `R CMD check` to
   become build failures (default `true`). This is especially helpful when preparing
   your package for submission to CRAN, and is recommended for most packages.
   Simply set `warnings_are_errors: false` if you need to disable this feature.
 
-* `r_build_args`: additional arguments to pass to `R CMD build`, as a single
+- `r_build_args`: additional arguments to pass to `R CMD build`, as a single
   string. Defaults to empty.
 
-* `r_check_args`: additional arguments to pass to `R CMD check`, as a single
+- `r_check_args`: additional arguments to pass to `R CMD check`, as a single
   string. Defaults to `--as-cran`.
 
 ### Bioconductor
@@ -188,12 +187,30 @@ r: bioc-release
 Travis CI will use the proper R version for that version of Bioconductor and
 configure Bioconductor appropriately for installing dependencies.
 
+### Packrat
+
+If you want Travis CI to use your project-specific packrat package library,
+rather than the default behaviour of downloading your package dependencies from CRAN, you can add this to your `.travis.yml`:
+
+```yaml
+install:
+  - R -e "0" --args --bootstrap-packrat
+```
+
+You can minimise build times by caching your packrat packages with:
+
+```yaml
+cache:
+  directories: $TRAVIS_BUILD_DIR/packrat/
+  packages: true
+```
+
 ### Miscellaneous
 
-* `cran`: CRAN mirror to use for fetching packages. Defaults to
+- `cran`: CRAN mirror to use for fetching packages. Defaults to
   `https://cloud.r-project.org`.
 
-* `repos`: Dictionary of repositories to pass to `options(repos)`. If `CRAN` is
+- `repos`: Dictionary of repositories to pass to `options(repos)`. If `CRAN` is
   not given in the dictionary the value of the `cran` option is used.
   Example:
 
@@ -203,16 +220,16 @@ repos:
   ropensci: http://packages.ropensci.org
 ```
 
-* `r_check_revdep`: if `true`, also run checks on CRAN packages which depend
+- `r_check_revdep`: if `true`, also run checks on CRAN packages which depend
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
-* `disable_homebrew`: if `true` this removes the preinstalled homebrew
+- `disable_homebrew`: if `true` this removes the preinstalled homebrew
   installation on OS X. Useful to test if the package builds on a vanilla OS X
   machine, such as the CRAN mac builder.
 
+### Environment Variables
 
-### Environment Variables ###
 R-Travis sets the following additional environment variables from the [Travis
 defaults](/user/environment-variables/#Default-Environment-Variables).
 
@@ -223,7 +240,7 @@ defaults](/user/environment-variables/#Default-Environment-Variables).
 - `NOT_CRAN=true`
 - `R_PROFILE=~/.Rprofile.site`
 
-### Additional Dependency Fields ###
+### Additional Dependency Fields
 
 For most packages you should not need to specify any additional dependencies in
 your `.travis.yml`. However for rare cases the following fields
@@ -234,12 +251,12 @@ top-level entry in your `.travis.yml`; entries in these lists will be
 installed before building and testing your package. Note that these lists are
 processed in order, so entries can depend on dependencies in a previous list.
 
-* `apt_packages`: See above
+- `apt_packages`: See above
 
-* `brew_packages`: A list of packages to install via `brew`. This option is
+- `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
 
-* `r_binary_packages`: A list of R packages to install as binary packages on
+- `r_binary_packages`: A list of R packages to install as binary packages on
   linux builds, via Michael Rutter's
   [cran2deb4ubuntu PPA][launchpad].
   These installs will be faster than source installs, but may not always be
@@ -247,12 +264,12 @@ processed in order, so entries can depend on dependencies in a previous list.
   from CRAN. On OS X builds and builds without `sudo: required`, these packages
   are installed from source.
 
-* `r_packages`: A list of R packages to install via `install.packages`.
+- `r_packages`: A list of R packages to install via `install.packages`.
 
-* `bioc_packages`: A list of [Bioconductor][bioconductor]
+- `bioc_packages`: A list of [Bioconductor][bioconductor]
   packages to install.
 
-* `r_github_packages`: A list of packages to install directly from GitHub,
+- `r_github_packages`: A list of packages to install directly from GitHub,
   using `devtools::install_github` from the
   [devtools package][github 8]. The package names
   here should be of the form `user/repo`.
@@ -272,6 +289,7 @@ cache: packages
 ```
 
 ### Package in a subdirectory
+
 If your package is in a subdirectory of the repository you simply need to
 change to the subdirectory prior to running the `install` or `script` steps.
 
@@ -322,23 +340,43 @@ thanks are due to all the [contributors][github 10]. For more information on
 moving from r-travis to native support, see the [porting guide][github 9].
 
 [bioconductor]: https://www.bioconductor.org/
+
 [container]: /user/workers/container-based-infrastructure/
+
 [ctan]: https://www.ctan.org/
+
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
+
 [github 2]: https://github.com/craigcitro
+
 [github 3]: https://github.com/hadley
+
 [github 4]: https://github.com/jimhester
+
 [github 5]: https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes
+
 [github 6]: https://github.com/yihui/ubuntu-bin/blob/master/TeXLive.pkgs
+
 [github 7]: https://github.com/jgm/pandoc/releases
+
 [github 8]: https://github.com/hadley/devtools
+
 [github 9]: https://github.com/craigcitro/r-travis/wiki/Porting-to-native-R-support-in-Travis
+
 [github 10]: https://github.com/craigcitro/r-travis/graphs/contributors
+
 [johnmacfarlane]: http://johnmacfarlane.net/pandoc/
+
 [launchpad]: https://launchpad.net/~marutter/+archive/ubuntu/c2d4u
+
 [r-project]: http://cran.r-project.org/doc/manuals/R-exts.html
+
 [r-travis]: https://github.com/craigcitro/r-travis
+
 [rstudio]: http://rmarkdown.rstudio.com/
+
 [tug]: https://www.tug.org/texlive/
+
 [yihui]: http://yihui.name/knitr/
+
 [apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon

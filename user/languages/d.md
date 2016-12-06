@@ -29,6 +29,7 @@ Examples:
 ```yml
 d: dmd-2.066.1
 ```
+
 ```yml
 # latest dmd, gdc and ldc
 d:
@@ -36,6 +37,7 @@ d:
   - gdc
   - ldc
 ```
+
 ```yml
 # latest dmd and ldc-0.15.1
 d:
@@ -52,16 +54,22 @@ Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` 
 Travis CI by default assumes your project is built and tested using [dub](http://code.dlang.org) and
 runs the following command using the latest released version of dub.
 
-    dub test --compiler=${DC}
+```bash
+dub test --compiler=${DC}
+```
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-    language: d
+```yaml
+language: d
+```
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
 
-    script: make test
+```yaml
+script: make test
+```
 
 ## Dependency Management
 
@@ -69,7 +77,9 @@ Because project dependencies are already handled by dub, Travis CI skips depende
 D projects.  If you need to perform special tasks before your tests can run, override the `install:`
 key in your `.travis.yml`:
 
-    install: make get-deps
+```yaml
+install: make get-deps
+```
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 

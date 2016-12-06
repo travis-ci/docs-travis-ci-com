@@ -37,14 +37,16 @@ Ruby implementations and versions your projects can be tested against.
 
 To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
-    language: ruby
-    rvm:
-      - 2.2
-      - jruby
-      - rbx-2
+```yaml
+language: ruby
+rvm:
+  - 2.2
+  - jruby
+  - rbx-2
+```
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in other
-images containing a ruby implementation.
+> images containing a ruby implementation.
 
 As we upgrade both RVM and Rubies, aliases like `2.2` or `jruby` point to different exact versions, patch levels and so on.
 
@@ -71,9 +73,11 @@ binary installation feature.
 As long as they're available as a binary for Ubuntu 12.04, you can specify
 custom patchlevels.
 
-    language: ruby
-    rvm:
-      - 2.0.0-p247
+```yaml
+language: ruby
+rvm:
+  - 2.0.0-p247
+```
 
 Note that this binds you to potentially unsupported releases of Rubies. It also
 extends your build time as downloading and installing a custom Ruby can add an
@@ -119,7 +123,9 @@ dependencies.
 
 The default command run by Travis CI is:
 
-    bundle install --jobs=3 --retry=3
+```bash
+bundle install --jobs=3 --retry=3
+```
 
 Note that this is only run when we detect a Gemfile in the project's root
 directory, or if the Gemfile specified via the build matrix exists.
@@ -130,7 +136,9 @@ If a Gemfile.lock exists in your project's root directory, we add the
 If you want to use a different means of handling your Ruby project's
 dependencies, you can override the `install` command.
 
-    install: gem install rails
+```yaml
+install: gem install rails
+```
 
 By default, gems are installed into vendor/bundle in your project's root
 directory.
@@ -165,14 +173,18 @@ New Relic library, and the like.
 You can speed up your installation process by moving these libraries to a
 separate section in your Gemfile, e.g. `production`:
 
-    group :production do
-      gem 'unicorn'
-      gem 'newrelic_rpm'
-    end
+```
+group :production do
+  gem 'unicorn'
+  gem 'newrelic_rpm'
+end
+```
 
 Adjust your Bundler arguments to explicitly exclude this group:
 
-    bundler_args: --without production
+```yaml
+bundler_args: --without production
+```
 
 Enjoy a faster build, which is also less prone to compilation problems.
 
@@ -180,24 +192,31 @@ Enjoy a faster build, which is also less prone to compilation problems.
 
 You can specify a custom Gemfile name:
 
-    gemfile: gemfiles/Gemfile.ci
+```yaml
+gemfile: gemfiles/Gemfile.ci
+```
 
 Unless specified, the worker will look for a file named "Gemfile" in the root of
 your project.
 
-You can also set <a
-href="http://bundler.io/v1.3/man/bundle-install.1.html">extra arguments</a> to
-be passed to `bundle install`:
+You can also set [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
+extra arguments to be passed to `bundle install`:
 
-    bundler_args: --binstubs
+```yaml
+bundler_args: --binstubs
+```
 
 You can also define a script to be run before 'bundle install':
 
-    before_install: some_command
+```yaml
+before_install: some_command
+```
 
 For example, to install and use the pre-release version of bundler:
 
-    before_install: gem install bundler --pre
+```yaml
+before_install: gem install bundler --pre
+```
 
 ### Testing against multiple versions of dependencies
 
@@ -210,40 +229,48 @@ To test against multiple versions of dependencies:
    gemfiles (./gemfiles is a commonly used name)
 2. Add one or more gemfiles to it
 3. Instruct Travis CI to use those gemfiles using the *gemfile* option in your
-  .travis.yml
+   .travis.yml
 
 For example, amqp gem is [tested against EventMachine 0.12.x and 1.0
 pre-releases](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
 
-    gemfile:
-      - Gemfile
-      - gemfiles/eventmachine-pre
+```yaml
+gemfile:
+  - Gemfile
+  - gemfiles/eventmachine-pre
+```
 
 Thoughtbot's Paperclip is [tested against multiple ActiveRecord
 versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
 
-    gemfile:
-      - gemfiles/rails2.gemfile
-      - gemfiles/rails3.gemfile
-      - gemfiles/rails3_1.gemfile
+```yaml
+gemfile:
+  - gemfiles/rails2.gemfile
+  - gemfiles/rails3.gemfile
+  - gemfiles/rails3_1.gemfile
+```
 
 An alternative to this is to use environment variables and make your test runner
 use them. For example, [Sinatra is tested against multiple Tilt and Rack
 versions](https://github.com/sinatra/sinatra/blob/master/.travis.yml):
 
-    env:
-      - "rack=1.3.4"
-      - "rack=master"
-      - "tilt=1.3.3"
-      - "tilt=master"
+```yaml
+env:
+  - "rack=1.3.4"
+  - "rack=master"
+  - "tilt=1.3.3"
+  - "tilt=master"
+```
 
 ChefSpec is [tested against multiple Opscode Chef
 versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 
-    env:
-      - CHEF_VERSION=0.9.18
-      - CHEF_VERSION=0.10.2
-      - CHEF_VERSION=0.10.4
+```yaml
+env:
+  - CHEF_VERSION=0.9.18
+  - CHEF_VERSION=0.10.2
+  - CHEF_VERSION=0.10.4
+```
 
 The same technique is often applied to test against multiple databases, templating
 engines, hosted service providers and so on.
@@ -257,54 +284,62 @@ uses to resolve dependencies.
 If you need to work with multiple Gemfiles within a single job, you would
 need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
 
-    bundle install --gemfile=my_gemfile
+```bash
+bundle install --gemfile=my_gemfile
+```
 
 ## Testing against multiple JDKs (JRuby)
 
 It is possible to test projects against multiple JDKs, namely
 
- * OpenJDK 7
- * Oracle JDK 7
- * Oracle JDK 8
- * OpenJDK 6
+- OpenJDK 7
+- Oracle JDK 7
+- Oracle JDK 8
+- OpenJDK 6
 
 To do so, use the `jdk` key in your `.travis.yml`, for example:
 
-    jdk:
-      - oraclejdk7
-      - openjdk7
+```yaml
+jdk:
+  - oraclejdk7
+  - openjdk7
+```
 
 or all 4:
 
-    jdk:
-      - openjdk7
-      - oraclejdk7
-      - oraclejdk8
-      - openjdk6
+```yaml
+jdk:
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8
+  - openjdk6
+```
 
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
 you need to add some matrix excludes (described in our general [Build
 Configuration guide](/user/customizing-the-build/)):
 
-    language: ruby
-    rvm:
-      - 1.9.2
-      - jruby-18mode
-      - jruby-19mode
-      - jruby-head
-    jdk:
-      - openjdk6
-      - openjdk7
-      - oraclejdk7
-    matrix:
-      exclude:
-        - rvm: 1.9.2
-          jdk: openjdk6
-        - rvm: 1.9.2
-          jdk: openjdk7
-        - rvm: 1.9.2
-          jdk: oraclejdk7
+```yaml
+language: ruby
+rvm:
+  - 1.9.2
+  - jruby-18mode
+  - jruby-19mode
+  - jruby-head
+jdk:
+  - openjdk6
+  - openjdk7
+  - oraclejdk7
+matrix:
+  exclude:
+    - rvm: 1.9.2
+      jdk: openjdk6
+    - rvm: 1.9.2
+      jdk: openjdk7
+    - rvm: 1.9.2
+      jdk: oraclejdk7
+```
 
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
@@ -319,16 +354,19 @@ We try to keep it as up-to-date as possible.
 Should you require the latest version of RubyGems, you can add the following to
 your .travis.yml:
 
-    before_install:
-      - gem update --system
-      - gem --version
-
+```yaml
+before_install:
+  - gem update --system
+  - gem --version
+```
 
 If you need to downgrade to a specific version, you can use the following steps:
 
-    before_install:
-      - gem update --system 2.1.11
-      - gem --version
+```yaml
+before_install:
+  - gem update --system 2.1.11
+  - gem --version
+```
 
 Note that this will impact your overall test time, as additional network
 downloads and installations are required.

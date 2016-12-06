@@ -15,9 +15,10 @@ To install a specific version of Firefox, you can use the Firefox addon. The add
 
 For example, to install version 49.0 of Firefox, add the following at the top level of your `.travis.yml` file:
 
-    addons:
-      firefox: "49.0"
-
+```yaml
+addons:
+  firefox: "49.0"
+```
 
 It is also possible to specify beta versions; e.g., `50.0b6`.
 
@@ -25,6 +26,10 @@ It is also possible to specify beta versions; e.g., `50.0b6`.
 
 In addition to specific version numbers, there are 3 special aliases you can use:
 
-* [`latest`](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
-* [`latest-esr`](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
-* [`latest-beta`](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US)
+- [`latest`](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
+- [`latest-esr`](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
+- [`latest-beta`](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US)
+- [`latest-dev`](https://download.mozilla.org/?product=firefox-aurora-latest&os=linux64&lang=en-US)
+- [`latest-nightly`](https://download.mozilla.org/?product=firefox-nightly-latest&os=linux64&lang=en-US)
+
+For more information visit the [Mozilla Wiki](https://wiki.mozilla.org/Firefox/Channels#Developer_Edition_.28aka_Aurora.29).

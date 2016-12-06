@@ -47,7 +47,7 @@ to construct a build matrix.
 
 By default, the install command is
 
-```shell
+```bash
 mix local.rebar --force # for Elixir 1.3.0 and up
 mix local.hex --force
 mix deps.get
@@ -55,7 +55,7 @@ mix deps.get
 
 and the script command is
 
-```shell
+```bash
 mix test
 ```
 
@@ -63,8 +63,12 @@ mix test
 
 The version of Elixir a job is using is available as:
 
-    TRAVIS_ELIXIR_VERSION
+```
+TRAVIS_ELIXIR_VERSION
+```
 
 As with the Erlang VM, the version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_RELEASE
+```
+TRAVIS_OTP_RELEASE
+```

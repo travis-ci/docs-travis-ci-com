@@ -100,7 +100,6 @@ cache:
     - $HOME/.gradle/wrapper/
 ```
 
-
 ## Projects Using Ant
 
 ### Default script Command
@@ -137,6 +136,16 @@ Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
+Of note: OracleJDK 8 and JavaFX  projects may need to update to the latest available version from a repository. This can be accomplished by adding the following lines from [this issue comment](https://github.com/travis-ci/travis-ci/issues/3259#issuecomment-130860338) to your .travis.yml:
+
+```yaml
+sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+```
+
 ## Build Matrix
 
 For Java projects, `env` and `jdk` can be given as arrays
@@ -158,9 +167,9 @@ Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ## Examples
 
-* [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
-* [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
-* [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
-* [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
-* [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
-* [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+- [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
+- [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
+- [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
+- [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
+- [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
+- [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation

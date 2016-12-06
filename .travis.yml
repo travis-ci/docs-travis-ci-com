@@ -1,10 +1,18 @@
-language: ruby
-sudo: false
+#language: ruby
+sudo: required
+dist: trusty
+language: python
+python:
+  - "3.5"
 rvm: 2.3.1
 branches:
   only:
   - gh-pages
-cache: bundler
+cache:
+  pip: true
+  directories:
+    - vendor/bundle
+    - node_modules
 deploy:
   provider: heroku
   api_key:
@@ -16,3 +24,11 @@ notifications:
   slack:
     secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
     on_success: never
+install:
+  - bundle install --deployment
+  - pip install --upgrade pip
+  - pip install coala-bears
+  - npm install remark-cli@2
+script:
+  - bundle exec rake test
+#  - coala-ci
