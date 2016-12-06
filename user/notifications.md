@@ -476,23 +476,25 @@ Pull Request builds do not trigger Pushover notifications.
 
 ## Configuring slack notifications
 
-Travis CI supports notifying arbitrary [Slack](http://slack.com) channels about
-build results.
+Travis CI can send notifications to your [Slack](http://slack.com) channels
+about build results.
 
 On Slack, set up a [new Travis CI
-integration](https://my.slack.com/services/new/travis). Select a channel,
-and you'll find the details to paste into your .travis.yml.
+integration](https://my.slack.com/services/new/travis).
 
 <figure>
   <img alt="Screenshot of adding Slack integration" src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
 </figure>
 
-The channel name in the Slack settings can be overridden in Travis CI's
-notification settings, so you can set up one integration and use it for multiple
-channels regardless of the initial setup.
-
 Copy and paste the settings, which already include the proper token, into
 your `.travis.yml`, and you're good to go.
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
+> your .travis.yml is stored in a public repository:
+>
+> ```bash
+> travis encrypt "<account>:<token>" --add notifications.slack.rooms
+> ```
 
 The simplest configuration requires your account name and the token you just
 generated.
@@ -502,23 +504,15 @@ notifications:
   slack: '<account>:<token>'
 ```
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
-> your .travis.yml is stored in a public repository:
->
-> ```bash
-> travis encrypt "<account>:<token>" --add notifications.slack.rooms
-> ```
-
-
-Overriding the channel is also possible, just add it to the configuration with a
-`#` separating them from account and token.
+To specify a different channel, add it to the configuration with a
+`#` separating the channel from the account and token:
 
 ```yaml
 notifications:
   slack: '<account>:<token>#development'
 ```
 
-Similarly, you can use the channel override syntax with encrypted credentials as well.
+To specify a different channel when using with encrypted credentials use:
 
 ```bash
 travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
@@ -536,8 +530,7 @@ notifications:
     on_failure: always # default: always
 ```
 
-Once everything's setup, push a new commit and you should see something like the
-screenshot below:
+After you have set everything up, push a new commit then check Slack for a new notification:
 
 <figure>
   <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
@@ -595,9 +588,9 @@ notifications:
       - "Build details : %{build_url}"
 ```
 
-## Webhook notifications
+## Configuring webhook notifications
 
-You can define webhooks to be notified about build results the same way:
+You can define webhooks to be notified about build results:
 
 ```yaml
 notifications:
