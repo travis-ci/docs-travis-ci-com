@@ -10,7 +10,7 @@ Cron jobs run builds at regular scheduled intervals independently of whether any
 
 Cron job builds use the same notification settings as normal push builds.
 
-If this feature is enabled for your repository, there is a "Cron Jobs" settings tab on your Travis CI page.
+You can setup cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
 ![settings page with cron section](/images/cron-section.png "settings page with cron section")
 
