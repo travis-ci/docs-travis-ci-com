@@ -273,7 +273,7 @@ language: rust
 cache:
   cargo: true
   directories:
-    - vendor/bunlde
+    - vendor/bundle
 install:
   - bundle install --deployment # to cache vendor/bundle
 ```
