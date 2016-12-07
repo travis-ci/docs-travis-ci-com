@@ -26,13 +26,16 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 ## Specifying a Go version to use
 
-You can use any tagged version of Go or use `master` to get the latest version.
+You can use any tagged version of Go, a version with `x` in place of the minor
+or patch level, or use `master` to get the latest version.
 
 ```yaml
 language: go
 
 go:
-  - 1.3
+  - 1.x
+  - 1.6
+  - 1.7.x
   - master
 ```
 
