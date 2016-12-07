@@ -427,12 +427,14 @@ ElasticSearch uses the default configuration and is available on 127.0.0.1.
 
 ### Installing specific versions of ElasticSearch
 
-You can overwrite the installed ElasticSearch with the version you need (e.g., 1.2.4) with the following:
+You can overwrite the installed ElasticSearch with the version you need (e.g., 2.3.0) with the following:
 
 ```yaml
 before_install:
-  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb && sudo service elasticsearch restart
+  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.0/elasticsearch-2.3.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.0.deb && sudo service elasticsearch restart
 ```
+
+We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 
