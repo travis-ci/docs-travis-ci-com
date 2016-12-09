@@ -144,7 +144,7 @@ The following versions are available on Linux builds:
 |     9.2    |          yes         |         yes         |        yes        |        yes       |
 |     9.3    |          yes         |         yes         |        yes        |        yes       |
 |     9.4    |          yes         |         yes         |        yes        |        yes       |
-|     9.5    |          yes         |         yes         |        yes        |        yes       |
+|     9.5    |          yes         |         yes         |                   |        yes       |
 |     9.6    |                      |         yes         |                   |        yes       |
 
 On OSX, the following versions are installed:
