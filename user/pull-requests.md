@@ -42,7 +42,7 @@ Travis CI makes encrypted variables and data available only to pull requests com
 Pull requests sent from forked repositories do not have access to encrypted variables or data.
 
 If your build relies on these to run, for instance to run Selenium tests with
-Sauce Labs, your build needs to take this into account. You won't be able to run
+[BrowserStack](https://www.browserstack.com) or Sauce Labs, your build needs to take this into account. You won't be able to run
 these tests for pull requests from external contributors.
 
 To work around this, restrict these tests only to situations where the

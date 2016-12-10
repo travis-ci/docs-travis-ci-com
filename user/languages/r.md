@@ -256,6 +256,9 @@ processed in order, so entries can depend on dependencies in a previous list.
   using `devtools::install_github` from the
   [devtools package][github 8]. The package names
   here should be of the form `user/repo`.
+  If the package is installed in a subdirectory, use `user/repo/subdirectory`.
+  An alternative is to add `user/repo` or `user/repo/folder` to
+  the `Remotes` section of the `DESCRIPTION` file of your package
 
 ## Examples
 
@@ -276,6 +279,34 @@ change to the subdirectory prior to running the `install` or `script` steps.
 language: r
 before_install:
   - cd subdirectory
+```
+
+### Remote package
+
+If your package depends on another repository you can use `r_github_packages` in this way:
+
+```yaml
+r_github_packages: user/repo
+```
+
+An alternative is to add the following line to your `DESCRIPTION` file:
+
+```yaml
+Remotes: user/repo
+```
+
+### Remote package in a subdirectory
+
+If your package depends on another repository which holds the package in a subdirectory, you can use `r_github_packages` in this way:
+
+```yaml
+r_github_packages: user/repo/folder
+```
+
+An alternative is to add the following line to your `DESCRIPTION` file:
+
+```yaml
+Remotes: user/repo/folder
 ```
 
 ## Converting from r-travis

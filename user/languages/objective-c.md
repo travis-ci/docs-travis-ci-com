@@ -98,6 +98,11 @@ setting in the *.travis.yml*:
 Also, `pod install` is not run if the Pods directory is vendored and there have
 been no changes to the Podfile.lock file.
 
+If there is a `Gemfile` in your project's root directory, the `pod` command is
+not executed, but instead Bundler is used as a wrapper to `pod` as follows:
+
+    bundle exec pod install
+
 If you want to use a different means of handling your project's dependencies,
 you can override the `install` command.
 
