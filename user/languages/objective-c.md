@@ -15,45 +15,29 @@ configuration](/user/customizing-the-build/) guides first.
 
 Objective-C builds are not available on the Linux environments.
 
-## Supported OS X/iOS SDK versions
+## Supported Xcode versions
 
-We have a few different build images with different versions of Xcode and SDKs
-installed.
+Travis CI uses Xcode 6.1 (and OS X 10.9.5) by default . You can use another version of Xcode (and OS X) by specifying the corresponding `osx_image` key from the following table:
 
-**Supported Xcode versions**
+<table>
 
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
 {% for image in site.data.xcodes.osx_images %}
-- [Xcode {{ image.xcode }} (OS X {{ image.osx_version}})](http://docs.travis-ci.com/user/languages/objective-c/#Xcode-{{image.xcode}}) -- `osx_image: {{image.image}}` {% if image.default == true %} -- **Default when no other `osx_image:` is specified** {% endif %}
+<tr>
+  <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
+  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
+  <td>OS X {{ image.osx_version}}
+  </td></tr>
 {% endfor %}
+</table>
 
-_Note: At this time we are unable to provide pre-release versions of Xcode due to the
+> Detailed iOS SDK versions are available in the [OS X CI environment reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
+
+At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
 versions available the same day they come out. If you have any further questions
-about Xcode pre-release availability, send us an email at support@travis-ci.com._
+about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
-{% for image in site.data.xcodes.osx_images %}
-### Xcode {{ image.xcode }}
-
-Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
-
-{% if image.default == true %} -- **Default when no other `osx_image:` is specified** {% endif %}
-
-{% if image.image_note != nil %}
-{{image.image_note}}
-{% endif %}
-
-Our Xcode {{ image.xcode_full_version }} images have the following SDKs preinstalled:
-
-{% for sdk in image.sdks %}
-- {{ sdk }}
-{% endfor %}
-
-The Xcode {{ image.xcode_full_version }} image also comes with the following simulators:
-{% for simulator in image.simulators %}
-- {{ simulator }}
-{% endfor %}
-
-{% endfor %}
 
 ## Default Test Script
 

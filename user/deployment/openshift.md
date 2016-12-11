@@ -24,7 +24,7 @@ You can also have the `travis` tool set up everything for you:
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-To provide the best service possible, Travis CI has teamed up with OpenShift as a [partner](https://www.openshift.com/partners) and there is an official [Travis CI QuickStart](https://www.openshift.com/quickstarts/travis-ci-on-openshift) to get you going.
+To provide the best service possible, Travis CI has teamed up with OpenShift as a [partner](https://www.openshift.com/partners) and there is an official [Travis CI QuickStart](https://hub.openshift.com/quickstarts/26-travis-ci) to get you going.
 
 ### Application to deploy
 

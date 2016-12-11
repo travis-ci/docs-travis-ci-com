@@ -43,7 +43,7 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
       - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
       - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
       - sudo apt-get update -qq
-      - sudo apt-get install varnish
+      - sudo apt-get install varnish -y
 
 ### Installing Packages without an APT Repository
 
@@ -61,21 +61,33 @@ Say your project requires the pngquant tool to compress PNG files, here's how to
 
 You can also use the APT addon.
 
+This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+
+If your requirements goes beyond the normal installation, please use another method described above.
+
 #### Adding APT Sources
 
-To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+To add APT sources, you can use one of the following three types of entries:
+
+1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
+1. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
+1. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
+
+The following snippet shows these three types of APT sources
 
 ``` yaml
 addons:
   apt:
     sources:
     - deadsnakes
-    - ubuntu-toolchain-r-test
+    - sourceline: 'ppa:ubuntu-toolchain-r/test'
+    - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
+      key_url: 'https://packagecloud.io/gpg.key'
 ```
 
 #### Adding APT Packages
 
-To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+List APT packages under the `addons.apt.packages` key:
 
 ``` yaml
 addons:
@@ -102,7 +114,7 @@ addons:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as sudo apt-get is not available.
+To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -143,6 +155,41 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+#### Identifying the source for a missing package
+
+If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
+
+```
+Installing APT Packages (BETA)
+⋮
+E: Unable to locate package libcxsparse3.1.2
+E: Couldn't find any package by regex 'libcxsparse3.1.2'
+```
+
+To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
+
+1. Search for the pull request that added the package on GitHub. For example,
+[searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+
+1. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
+
+1. Search the build log for the phrase "Fetching source package for …" and expand the section.
+
+1. Match that source against the `alias` name shown in
+[the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
+
+In our example, the source alias is "lucid":
+
+``` yaml
+addons:
+ apt:
+   sources:
+   - lucid
+   packages:
+   - libcxsparse3.1.2
+```
+
 ## Installing Packages on OSX
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
@@ -173,7 +220,7 @@ To install something from source, you can follow similar steps. Here's an exampl
     install:
       - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
       - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
+      - pushd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install && popd
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -187,3 +234,5 @@ Once it's added to the repository, you can run it from your .travis.yml:
 
     before_install:
       - ./install-protobuf.sh
+
+Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.

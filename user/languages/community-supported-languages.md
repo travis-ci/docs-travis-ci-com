@@ -58,6 +58,11 @@ realize support for builds in a new language.
     so if you need to use `sudo` to set up your language environment
     (e.g., install Ubuntu packages), you should do that here.
 
+    If you want to support build matrix expansion based on various language
+    versions (e.g., Ruby 2.2, 2.1, etc.), and you wish to add a convenient way
+    to restrict deployments based on the language version, add your language
+    to [`Travis::Build::Addons::Deploy::Script::VERSIONED_RUNTIMES`](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/addons/deploy/script.rb).
+
 1. [travis-core](https://github.com/travis-ci/travis-core)
 
     If you want to support build matrix expansion based on various language
@@ -112,6 +117,7 @@ In alphabetical order, they are:
 1. [Dart](../dart)
 1. [Haxe](../haxe)
 1. [Julia](../julia)
+1. [Nix](../nix)
 1. [Perl 6](../perl6)
 1. [R](../r)
 1. [Smalltalk](../smalltalk)

@@ -38,6 +38,7 @@ cache: packages
 ```
 
 If you do _not_ see
+
 ```
 This job is running on container-based infrastructure, which does not allow use of
 'sudo', setuid and setguid executables.
@@ -56,10 +57,15 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions ###
 
-Travis CI supports R versions `3.1.3`, `3.2.3` and `devel` on Linux Precise
-builds. The names `oldrel` and `3.1` are aliased to `3.1.2` and the names
-`release` and `3.2` are aliased to `3.2.3`. Matrix builds _are_ supported for R
-builds, however both instances of `r` must be in _lowercase_.
+Travis CI supports R versions `3.1.3` and above on Linux Precise
+builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
+addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
+`3.3.0`. `devel` is built off of the [R git
+mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
+hourly).
+
+Matrix builds _are_ supported for R builds, however both instances of `r` must
+be in _lowercase_.
 
 ```yaml
 language: r
@@ -72,8 +78,8 @@ r:
 As new minor versions are released, aliases will float and point to the most
 current minor release.
 
-For exact versions used for a build, please consult "Build system information"
-in the build log.
+The exact R version used for each build is included in the 'R session information'
+fold within the build log.
 
 ### Dependencies
 
@@ -104,6 +110,9 @@ packages listed in the LaTeX error message and search for them on [CTAN][ctan].
 Packages often have a `Contained in:` field that indicates the package group
 you need to install.
 
+If LaTeX is not needed, installation can be disabled using `latex: false`.
+
+
 ### Pandoc ###
 
 The default pandoc version installed is `1.15.2`. Alternative [pandoc
@@ -113,6 +122,34 @@ desired version.
 ```yaml
 language: r
 pandoc_version: 1.16
+```
+
+If Pandoc is not needed, installation can be disabled using `pandoc: false`.
+
+### APT packages
+
+Use the [APT addon][apt-addon]
+to install APT packages on both container-based (`sudo: false`)
+and standard (`sudo: required`) infrastructures.
+The snippet below installs a prerequisite for the R package `xml2`:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - libxml2-dev
+```
+
+Note that the APT package needs to be white-listed for this to work
+on container-based infrastructure.
+This option is ignored on non-Linux builds.
+
+An alternative that works only on standard infrastructure is
+the `apt_packages` field:
+
+```yaml
+apt_packages:
+  - libxml2-dev
 ```
 
 ### Package check options
@@ -133,30 +170,23 @@ when building and checking your package:
 
 ### Bioconductor
 
-A simple Bioconductor package should generally only need the following `.travis.yml`:
+A typical [Bioconductor][bioconductor] package should only need to specify the
+Bioconductor version they want to test against in their `.travis.yml`.
 
 ```yaml
 language: r
-bioc_required: true
+r: bioc-devel
 ```
 
-If your package is detected as a Bioconductor package, Travis CI will first
-configure Bioconductor, and then use the Bioconductor repositories in place of
-the usual CRAN repository when installing dependencies.
+Or if you want to test against the release branch
 
-There are two ways to signal to Travis CI that your package is a Bioconductor
-package:
+```yaml
+language: r
+r: bioc-release
+```
 
-* If the variable `bioc_required` is set to `true`, your package will install
-  dependencies from Bioconductor.
-
-* If `bioc_packages` is nonempty, your package will install those dependencies from
-  Bioconductor.
-
-If you want to test with the Bioconductor devel branch you can set the variable
-`bioc_use_devel: true`. *Note* Bioconductor branches are tied to [specific R
-versions][bioconductor], so you may also have to use `r: devel` to use the
-devel version of R.
+Travis CI will use the proper R version for that version of Bioconductor and
+configure Bioconductor appropriately for installing dependencies.
 
 ### Miscellaneous
 
@@ -177,6 +207,22 @@ repos:
   on this one. This can be quite expensive, so it's not recommended to leave
   this set to `true`.
 
+* `disable_homebrew`: if `true` this removes the preinstalled homebrew
+  installation on OS X. Useful to test if the package builds on a vanilla OS X
+  machine, such as the CRAN mac builder.
+
+
+### Environment Variables ###
+R-Travis sets the following additional environment variables from the [Travis
+defaults](/user/environment-variables/#Default-Environment-Variables).
+
+- `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
+- `R_LIBS_USER=~/R/Library`
+- `R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/lib/R/site-library`
+- `_R_CHECK_CRAN_INCOMING_=false`
+- `NOT_CRAN=true`
+- `R_PROFILE=~/.Rprofile.site`
+
 ### Additional Dependency Fields ###
 
 For most packages you should not need to specify any additional dependencies in
@@ -188,9 +234,7 @@ top-level entry in your `.travis.yml`; entries in these lists will be
 installed before building and testing your package. Note that these lists are
 processed in order, so entries can depend on dependencies in a previous list.
 
-* `apt_packages`: A list of packages to install via `apt-get`. Common examples
-  here include entries in `SystemRequirements`. This option is ignored on
-  non-linux builds and will not work if `sudo: false`.
+* `apt_packages`: See above
 
 * `brew_packages`: A list of packages to install via `brew`. This option is
   ignored on non-OS X builds.
@@ -205,7 +249,7 @@ processed in order, so entries can depend on dependencies in a previous list.
 
 * `r_packages`: A list of R packages to install via `install.packages`.
 
-* `bioc_packages`: A list of [Bioconductor][bioconductor 2]
+* `bioc_packages`: A list of [Bioconductor][bioconductor]
   packages to install.
 
 * `r_github_packages`: A list of packages to install directly from GitHub,
@@ -224,6 +268,16 @@ language: r
 cache: packages
 ```
 
+### Package in a subdirectory
+If your package is in a subdirectory of the repository you simply need to
+change to the subdirectory prior to running the `install` or `script` steps.
+
+```yaml
+language: r
+before_install:
+  - cd subdirectory
+```
+
 ## Converting from r-travis
 
 If you've already been using [r-travis][] to test your R package, you're
@@ -236,8 +290,7 @@ R support for Travis CI was originally based on the [r-travis][] project, and
 thanks are due to all the [contributors][github 10]. For more information on
 moving from r-travis to native support, see the [porting guide][github 9].
 
-[bioconductor]: https://www.bioconductor.org/developers/how-to/useDevel
-[bioconductor 2]: http://www.bioconductor.org/
+[bioconductor]: https://www.bioconductor.org/
 [container]: /user/workers/container-based-infrastructure/
 [ctan]: https://www.ctan.org/
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
@@ -257,3 +310,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 [tug]: https://www.tug.org/texlive/
 [yihui]: http://yihui.name/knitr/
+[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon

@@ -70,7 +70,7 @@ You might have to create the `myapp_test` database first. Run this as part of yo
 
 In older versions of MySQL, Ubuntu package provided the `test` database by default.
 This is no longer the case as of version 5.5.37 due to security concerns
-(See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.37-0ubuntu0.12.04.1/changelog)).
+(See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
 
 If you need it, create it using the following `before_install` line:
 
@@ -138,7 +138,7 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.4 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the **major.minor** version in your `.travis.yml`:
+The Travis CI build environments use version 9.1 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the **major.minor** version in your `.travis.yml`:
 
 ```yaml
 addons:
@@ -424,6 +424,7 @@ You can overwrite the installed ElasticSearch with the version you need (e.g., 1
 
 ```yaml
 before_install:
+  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb && sudo service elasticsearch restart
 ```
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 

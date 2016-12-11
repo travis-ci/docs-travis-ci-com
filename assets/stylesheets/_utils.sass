@@ -26,11 +26,11 @@
     background-color: #696867
 
 .button--green
-  background-color: $green-dark
+  background-color: $turf-green
   &:focus,
   &:active,
   &:hover
-    background-color: $green-light
+    background-color: rgba($turf-green, 0.8)
 
 .button--teal
   @extend .button
@@ -54,6 +54,10 @@
   @extend %ul-styles
   text-transform: uppercase
 
+.list--links
+  @extend %ul-styles
+  +linkStyle
+  
 .toc
   margin: 3em 0
   ul

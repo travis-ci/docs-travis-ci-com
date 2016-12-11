@@ -39,19 +39,16 @@ To specify them, use `rvm:` key in your `.travis.yml` file, for example:
 
     language: ruby
     rvm:
-      - 1.9.3
-      - jruby-18mode # JRuby in 1.8 mode
-      - jruby-19mode # JRuby in 1.9 mode
-      - rbx-2.1.1
-      - 1.8.7
-      - ree
+      - 2.2
+      - jruby
+      - rbx-2
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in other
 images containing a ruby implementation.
 
-As we upgrade both RVM and Rubies, aliases like `1.9.3` or `jruby` point to different exact versions, patch levels and so on.
+As we upgrade both RVM and Rubies, aliases like `2.2` or `jruby` point to different exact versions, patch levels and so on.
 
-For full up-to-date list of provided Rubies, see our [CI
+For a full up-to-date list of provided Rubies, see our [CI
 environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
@@ -250,6 +247,17 @@ versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
 
 The same technique is often applied to test against multiple databases, templating
 engines, hosted service providers and so on.
+
+### `$BUNDLE_GEMFILE` environment variable
+
+When `gemfile` is thus defined *and* the file exists in the repository,
+we define the environment variable `$BUNDLE_GEMFILE`, which `bundle install`
+uses to resolve dependencies.
+
+If you need to work with multiple Gemfiles within a single job, you would
+need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
+
+    bundle install --gemfile=my_gemfile
 
 ## Testing against multiple JDKs (JRuby)
 

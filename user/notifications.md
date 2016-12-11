@@ -45,10 +45,10 @@ When posting notifications over SSL/TLS, be mindful of what ciphers are accepted
 by the receiving server.
 Notifications will fail if none of the server's ciphers work.
 
-Currently, the following ciphers (as defined by the [jruby-openssl gem](https://rubygems.org/gems/jruby-openssl))
+Currently, the following ciphers (as defined by the [openssl gem](http://ruby-doc.org/stdlib-2.1.6/libdoc/openssl/rdoc/OpenSSL.html))
 are known to work:
 
-AES-128-CBC AES-128-CFB AES-128-CFB8 AES-128-ECB AES-128-OFB AES-192-CBC AES-192-CFB AES-192-CFB8 AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CFB AES-256-CFB8 AES-256-ECB AES-256-OFB AES128 AES192 AES256 BF BF-CBC BF-CFB BF-CFB8 BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-CBC CAST5-CBC CAST5-CFB CAST5-CFB8 CAST5-ECB CAST5-OFB CAST6-CBC CAST6-CFB CAST6-CFB8 CAST6-ECB CAST6-OFB DES DES-CBC DES-CFB DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB8 DES-EDE3-ECB DES-EDE3-OFB DES-OFB DES3 RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-CFB8 RC2-ECB RC2-OFB RC4 RC4-40 SEED SEED-CBC SEED-CFB SEED-CFB8 SEED-ECB SEED-OFB
+AES-128-CBC AES-128-CBC-HMAC-SHA1 AES-128-CFB AES-128-CFB1 AES-128-CFB8 AES-128-CTR AES-128-ECB AES-128-OFB AES-128-XTS AES-192-CBC AES-192-CFB AES-192-CFB1 AES-192-CFB8 AES-192-CTR AES-192-ECB AES-192-OFB AES-256-CBC AES-256-CBC-HMAC-SHA1 AES-256-CFB AES-256-CFB1 AES-256-CFB8 AES-256-CTR AES-256-ECB AES-256-OFB AES-256-XTS AES128 AES192 AES256 BF BF-CBC BF-CFB BF-ECB BF-OFB CAMELLIA-128-CBC CAMELLIA-128-CFB CAMELLIA-128-CFB1 CAMELLIA-128-CFB8 CAMELLIA-128-ECB CAMELLIA-128-OFB CAMELLIA-192-CBC CAMELLIA-192-CFB CAMELLIA-192-CFB1 CAMELLIA-192-CFB8 CAMELLIA-192-ECB CAMELLIA-192-OFB CAMELLIA-256-CBC CAMELLIA-256-CFB CAMELLIA-256-CFB1 CAMELLIA-256-CFB8 CAMELLIA-256-ECB CAMELLIA-256-OFB CAMELLIA128 CAMELLIA192 CAMELLIA256 CAST CAST-cbc CAST5-CBC CAST5-CFB CAST5-ECB CAST5-OFB DES DES-CBC DES-CFB DES-CFB1 DES-CFB8 DES-ECB DES-EDE DES-EDE-CBC DES-EDE-CFB DES-EDE-OFB DES-EDE3 DES-EDE3-CBC DES-EDE3-CFB DES-EDE3-CFB1 DES-EDE3-CFB8 DES-EDE3-OFB DES-OFB DES3 DESX DESX-CBC RC2 RC2-40-CBC RC2-64-CBC RC2-CBC RC2-CFB RC2-ECB RC2-OFB RC4 RC4-40 RC4-HMAC-MD5 SEED SEED-CBC SEED-CFB SEED-ECB SEED-OFB
 
 Also, consult [cipher suite names mapping](https://www.openssl.org/docs/apps/ciphers.html).
 
@@ -187,7 +187,8 @@ You can interpolate the following variables:
 * *commit_subject*: first line of the commit message
 * *result*: result of build
 * *message*: travis message to the build
-* *duration*: duration of the build
+* *duration*: total duration of all builds in the matrix
+* *elapsed_time*: time between build start and finish
 * *compare_url*: commit change view URL
 * *build_url*: URL of the build detail
 
@@ -493,7 +494,6 @@ You can specify multiple channels as well.
           - <account>:<token>#general
         on_success: [always|never|change] # default: always
         on_failure: [always|never|change] # default: always
-        on_start: [always|never|change]   # default: never
 
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
