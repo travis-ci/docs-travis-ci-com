@@ -1300,7 +1300,7 @@ Content-Type: application/json
     "last_build_duration": 2542,
     "last_build_started_at": "2014-04-21T15:27:14Z",
     "last_build_finished_at": "2014-04-21T15:40:04Z",
-    "github_language": "Ruby"
+    "active": "true"
   }
 }
 ```
@@ -1324,14 +1324,14 @@ end
 | ---------------------- | ----------------------------------- |
 | id                     | repository id                       |
 | slug                   | repository slug                     |
-| description            | description on githu                |
+| description            | description on github               |
 | last_build_id          | build id of the last build          |
 | last_build_number      | build number of the last build      |
 | last_build_state       | build state of the last build       |
 | last_build_duration    | build duration of the last build    |
 | last_build_started_at  | build started at of the last build  |
 | last_build_finished_at | build finished at of the last build |
-| github_language        | language on github                  |
+| active                 | repository's active status          |
 
 ### Fetch Repository
 
