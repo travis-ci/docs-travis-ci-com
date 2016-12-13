@@ -1,7 +1,7 @@
 title: "Travis CI Documentation"
 email: "support@travis-ci.com"
 url: "https://docs.travis-ci.com"
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor]
+exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, vendor]
 markdown: kramdown
 permalink: :title
 syntax-highlighting:
