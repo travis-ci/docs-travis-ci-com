@@ -514,6 +514,15 @@ Similarly, you can use the channel override syntax with encrypted credentials as
 travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
 ```
 
+This is how a setup with encrypted credentials could look like:
+```yaml
+notifications:
+  slack:
+    rooms:
+      - secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+    on_success: always
+```
+
 Once everything's setup, push a new commit and you should see something like the
 screenshot below:
 
