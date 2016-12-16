@@ -571,16 +571,26 @@ The following variables are available:
 - *compare_url*: commit change view URL
 - *build_url*: URL of the build detail
 
-The default template is:
+The default template for push builds is:
 
 ```yaml
 notifications:
   slack:
     template:
-      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-      - "Change view : %{compare_url}"
-      - "Build details : %{build_url}"
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}"
 ```
+
+while the default template for pull request builds is:
+
+```yaml
+notifications:
+  slack:
+    template:
+    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+```
+
+See [Slack documentation](https://api.slack.com/docs/message-formatting)
+for more information on message formatting.
 
 ## Webhook notifications
 
