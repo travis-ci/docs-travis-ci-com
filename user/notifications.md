@@ -515,6 +515,7 @@ travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
 ```
 
 This is how a setup with encrypted credentials could look like:
+
 ```yaml
 notifications:
   slack:
