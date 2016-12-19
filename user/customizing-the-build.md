@@ -41,7 +41,7 @@ The complete build lifecycle, including three optional deployment steps and afte
 1. `install`
 1. `before_script`
 1. `script`
-1. OPTIONAL `before_cache` (for cleaning up [cache](/user/caching#before_cache-phase))
+1. OPTIONAL `before_cache` (for cleaning up cache)
 1. `after_success` or `after_failure`
 1. OPTIONAL `before_deploy`
 1. OPTIONAL `deploy`
