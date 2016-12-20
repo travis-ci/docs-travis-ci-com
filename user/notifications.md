@@ -365,7 +365,7 @@ notifications:
 ```
 
 If you want to send HTML notifications you need to add `format: html` like this
-(note that this disables some features like @mentions and autolinking):
+(note that this is not compatible with some features like @mentions and autolinking):
 
 ```yaml
 notifications:
@@ -404,7 +404,8 @@ with a desired label, and use this token.
 ### Notifications of PR builds
 
 By default, Hipchat will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
+
+Turn pull request notifcations off by adding `on_pull_requests: false` to the `hipchat` section of your `.travis.yml`:
 
 ```yaml
 notifications:
@@ -533,8 +534,7 @@ screenshot below:
 
 ### Notifications of PR builds
 
-By default, Slack will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
+Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:

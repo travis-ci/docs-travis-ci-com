@@ -55,9 +55,7 @@ realize support for builds in a new language.
    the Travis CI team will work with you to identify and implement the customization
    if you think it is appropriate to do so.
 
-   NOTE: The `configure` phase runs before `sudo` is disabled in the container builds,
-   so if you need to use `sudo` to set up your language environment
-   (e.g., install Ubuntu packages), you should do that here.
+   > In container builds the `configure` phase still has `sudo`  access, but subsequent phases do not, so if you need to use `sudo` to set up your language environment, for example to install packages, do that in `configure`.
 
    If you want to support build matrix expansion based on various language
    versions (e.g., Ruby 2.2, 2.1, etc.), and you wish to add a convenient way
