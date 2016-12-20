@@ -32,4 +32,4 @@ install:
   - npm install alex
 script:
   - bundle exec rake test
-  - coala-ci Language
+  - coala --non-interactive Language
