@@ -33,4 +33,3 @@ install:
 script:
   - bundle exec rake test
   - coala --non-interactive Language
-  - alex
