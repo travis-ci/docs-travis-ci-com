@@ -73,7 +73,7 @@ env:
 
 triggers builds with the following `env` rows:
 
-```
+```bash
 USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```
@@ -136,7 +136,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
 
 > These values are used directly in your build, so make sure to escape special characters (for bash) accordingly.
 
-By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`.
+By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
 Similarly, we do not provide these values to untrusted builds, triggered by pull requests from another repository.
 
@@ -173,7 +173,7 @@ The following default environment variables are available to all builds.
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
-- `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
+- `TRAVIS_BRANCH`: For builds not triggered by a pull request this is the
   name of the branch currently being built; whereas for builds triggered
   by a pull request this is the name of the branch targeted by the pull
   request (in many cases this will be `master`).
@@ -201,6 +201,7 @@ to tag the build, or to run post-build deployments.
   		repository currently being built. (for example, "travis-ci/travis-build").
 - `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
   used. This value is either "true" or "false".
+- `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 

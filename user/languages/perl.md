@@ -14,7 +14,7 @@ Perl builds are not available on the OSX environment.
 
 Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
 
-```
+```yaml
 language: perl
 perl:
   - "5.22"
@@ -24,7 +24,7 @@ perl:
 
 A more extensive example:
 
-```
+```yaml
 language: perl
 perl:
   - "5.22"
@@ -55,7 +55,7 @@ If you leave the `perl` key out of your `.travis.yml`, Travis CI will use Perl 5
 
 If your repository has Build.PL in the root, it will be used to generate the build script:
 
-```
+```bash
 perl Build.PL && ./Build test
 ```
 
@@ -63,13 +63,13 @@ perl Build.PL && ./Build test
 
 If your repository has Makefile.PL in the root, it will be used like so
 
-```
+```bash
 perl Makefile.PL && make test
 ```
 
 If neither Module::Build nor EUMM build files are found, Travis CI will fall back to running
 
-```
+```bash
 make test
 ```
 
@@ -83,7 +83,7 @@ By default Travis CI use `cpanm` to manage your project's dependencies. It is po
 
 The exact default command is
 
-```
+```bash
 cpanm --quiet --installdeps --notest .
 ```
 

@@ -27,7 +27,7 @@ First, [sign up][sauce-sign-up] with Sauce Labs if you haven't already (it's
 [account page][sauce-account]. Once you have that, add this to your .travis.yml
 file:
 
-```
+```yaml
 addons:
   sauce_connect:
     username: "Your Sauce Labs username"
@@ -45,7 +45,7 @@ can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][en
 for more information on encryption), and add the pull request safe secure (See [JWT Addon][jwt])
 string as such:
 
-```
+```yaml
 addons:
   sauce_connect:
     username: "Your Sauce Labs username"
@@ -57,7 +57,7 @@ You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
 all you need to add to your .travis.yml file is this:
 
-```
+```yaml
 addons:
   sauce_connect: true
 ```
@@ -101,7 +101,7 @@ supported parameters are
 As an example, you may need `--direct-domains` option in case [some HTTPS domains
 fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/articles/2005359-some-https-sites-don-t-work-correctly-under-sauce-connect):
 
-```
+```yaml
 addons:
   sauce_connect:
     username: "Your Sauce Labs username"

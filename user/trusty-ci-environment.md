@@ -19,7 +19,6 @@ Or, if you want to route to the sudo-less beta, add:
 ```yaml
 dist: trusty
 sudo: false
-group: beta
 ```
 
 This is enabled for both public and private repositories.
@@ -92,7 +91,6 @@ Or, if you want to route to the container-based beta:
 ```yaml
 dist: trusty
 sudo: false
-group: beta
 ```
 
 ## Environment common to all Trusty images
@@ -232,7 +230,7 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-```
+```yaml
 addons:
   firefox: "17.0"
 ```

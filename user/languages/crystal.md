@@ -26,7 +26,7 @@ and cc [@asterite](https://github.com/asterite),
 If your Crystal project doesn't need any dependencies beyond those specified in
 your `shard.yml`, your `.travis.yml` can simply be
 
-```
+```yaml
 language: crystal
 ```
 
@@ -39,7 +39,7 @@ to test projects against the nightly build of Crystal. To do so, set the
 `crystal` key in `.travis.yml`. For example, to test against both nightly and
 the latest release:
 
-```
+```yaml
 language: crystal
 crystal:
   - latest

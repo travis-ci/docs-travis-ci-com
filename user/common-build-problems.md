@@ -166,7 +166,7 @@ CocoaPods usage can fail for a few reasons currently.
 Most Pods now require CocoaPods 0.32.1, but we still have 0.21 preinstalled. If
 you're seeing this error, add this to your `.travis.yml`:
 
-```
+```yaml
 before_install:
   - gem install cocoapods -v '0.32.1'
 ```
@@ -180,7 +180,7 @@ To work around this issue, you can either install CocoaPods manually as shown
 above, or you can switch to Ruby 1.9.3 in your `.travis.yml`, which should work
 without any issues:
 
-```
+```yaml
 rvm: 1.9.3
 ```
 
@@ -191,7 +191,7 @@ On Ruby 2.0.0, CocoaPods has been seen crashing with a segmentation fault.
 You can work around the issue by using Ruby 1.9.3, which hasn't shown these
 issues. Add this to your `.travis.yml`:
 
-```
+```yaml
 rvm: 1.9.3
 ```
 
@@ -204,7 +204,7 @@ run.
 
 This can be done with the follow addition to your `.travis.yml`:
 
-```
+```yaml
 before_install:
   - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 ```
@@ -216,7 +216,7 @@ language pack.
 
 This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
 
-```
+```yaml
 before_install:
   - sudo apt-get update
 ```

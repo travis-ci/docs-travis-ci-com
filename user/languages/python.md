@@ -58,9 +58,11 @@ python:
   - "3.2"
   - "3.3"
   - "3.4"
-  # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-  # maintainers to fix their pypy-dev package.
+  # PyPy versions
   - "pypy"
+  - "pypy"  # PyPy2 2.5.0
+  - "pypy3" # Pypy3 2.4.0
+  - "pypy-5.3.1"
 # command to install dependencies
 install:
   - pip install .
@@ -80,14 +82,14 @@ specify what command to run tests with.
 
 For example, if your project uses pytest:
 
-```
+```yaml
 # command to run tests
-script: pytest 
+script: pytest  # or py.test for Python versions 3.5 and below
 ```
 
 if it uses `make test` instead:
 
-```
+```yaml
 script: make test
 ```
 
@@ -105,7 +107,7 @@ during the `install` phase of the build.
 Note: If you're running in the container-based infrastructure without access to
 `sudo` you need to install dependencies in the home directory instead:
 
-```
+```yaml
 install: pip install --user -r requirements.txt
 ```
 
@@ -127,7 +129,7 @@ Travis CI installs the following packages by default in each virtualenv:
 
 If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
-```
+```yaml
 env:
   - DJANGO_VERSION=1.7.8
   - DJANGO_VERSION=1.8.2
@@ -135,7 +137,7 @@ env:
 
 and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
 
-```
+```yaml
 install:
   - pip install -q Django==$DJANGO_VERSION
   - python setup.py -q install

@@ -2,6 +2,7 @@
 title: Community-Supported Languages
 layout: en
 permalink: /user/languages/community-supported-languages/
+swiftypetags: 'Community Supported'
 ---
 
 There are many programming languages out there, and Travis CI would like

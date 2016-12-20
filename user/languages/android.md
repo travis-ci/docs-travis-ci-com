@@ -24,7 +24,7 @@ Travis CI environment provides a large set of build tools for JVM languages with
 
 By setting
 
-```
+```yaml
 language: android
 ```
 
@@ -32,7 +32,7 @@ in your `.travis.yml` file, your project will be built in the Android environmen
 
 Here is an example `.travis.yml` for an Android project:
 
-```
+```yaml
 language: android
 android:
   components:
@@ -56,14 +56,14 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-22
-    - sys-img-x86-android-17
+    - sys-img-armeabi-v7a-android-17
 ```
 
 ### How to install Android SDK components
 
 In your `.travis.yml` you can define the list of SDK components to be installed, as illustrated in the following example:
 
-```
+```yaml
 language: android
 android:
   components:
@@ -78,13 +78,13 @@ The exact component names must be specified (filter aliases like `add-on` or `ex
 
 By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
 
-```
+```yaml
 language: android
 android:
   components:
     - build-tools-20.0.0
     - android-L
-    - sys-img-x86-android-tv-l
+    - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra
   licenses:
@@ -129,7 +129,7 @@ While the following components are preinstalled, the exact list may change witho
 
 If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
 
-```
+```yaml
 # Emulator Management: Create, Start and Wait
 before_script:
   - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
@@ -144,7 +144,7 @@ Travis CI Android builder assumes that your project is built with a JVM build to
 
 If your project is built with Ant or any other build tool that does not automatically handle dependences, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
-```
+```yaml
 language: android
 install: ant deps
 ```
@@ -153,7 +153,7 @@ install: ant deps
 
 If your project has `pom.xml` file in the repository root but no `build.gradle`, Maven 3 will be used to build it. By default it will use
 
-```
+```bash
 mvn install -B
 ```
 
@@ -163,13 +163,13 @@ to run your test suite. This can be overridden as described in the [general buil
 
 If your project has `build.gradle` file in the repository root, Gradle will be used to build it. By default it will use
 
-```
+```bash
 gradle build connectedCheck
 ```
 
 to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Travis Android builder will try to use it instead. The default command will become:
 
-```
+```bash
 ./gradlew build connectedCheck
 ```
 
@@ -179,9 +179,10 @@ This can be overridden as described in the [general build configuration](/user/c
 
 A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
 
-```
+```yaml
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
     - $HOME/.gradle/caches/
@@ -192,7 +193,7 @@ cache:
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default it will use
 
-```
+```bash
 ant debug install test
 ```
 

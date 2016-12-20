@@ -32,7 +32,7 @@ You can change the conditions for each of the channels by setting the
 
 For example, to always send slack notifications on successful builds:
 
-```
+```yaml
 notifications:
   slack:
     on_success: always
@@ -143,14 +143,14 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 
 You can also specify notifications sent to an IRC channel:
 
-```
+```yaml
 notifications:
   irc: "chat.freenode.net#my-channel"
 ```
 
 Or multiple channels:
 
-```
+```yaml
 notifications:
   irc:
     - "chat.freenode.net#my-channel"
@@ -161,7 +161,7 @@ notifications:
 
 As with other notification types you can specify when IRC notifications will be sent:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -173,7 +173,7 @@ notifications:
 
 You also have the possibility to customize the message that will be sent to the channel(s) with a template:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -205,7 +205,7 @@ You can interpolate the following variables:
 
 The default template is:
 
-```
+```yaml
 notifications:
   irc:
     template:
@@ -216,7 +216,7 @@ notifications:
 
 If you want the bot to use notices instead of regular messages the `use_notice` flag can be used:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -229,7 +229,7 @@ notifications:
 
 and if you want the bot to not join before the messages are sent, and part afterwards, use the `skip_join` flag:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -249,7 +249,7 @@ Pull Request builds do not trigger IRC notifications.
 
 If you want the bot to send messages to channels protected with a channel key (ie, set with `/mode #channel +k password`), you can use the `channel_key` variable:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -261,7 +261,7 @@ notifications:
 
 You may also authenticate to an IRC server with user:
 
-```
+```yaml
 notifications:
   irc:
     channels:
@@ -275,7 +275,7 @@ notifications:
 
 Notifications can also be sent to Campfire chat rooms, using the following format:
 
-```
+```yaml
 notifications:
   campfire: [subdomain]:[api token]@[room id]
 ```
@@ -286,13 +286,13 @@ notifications:
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
-```
+```bash
 travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
 ```
 
 You can also customise the notifications, like with IRC notifications:
 
-```
+```yaml
 notifications:
   campfire:
     rooms:
@@ -310,7 +310,7 @@ Pull Request builds do not trigger Campfire notifications.
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
 
-```
+```yaml
 notifications:
   flowdock: [api token]
 ```
@@ -319,7 +319,7 @@ notifications:
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
-```
+```bash
 travis encrypt api_token --add notifications.flowdock
 ```
 
@@ -329,14 +329,14 @@ Pull Request builds do not trigger Flowdock notifications.
 
 Notifications can be sent to your HipChat chat rooms using the following format:
 
-```
+```yaml
 notifications:
   hipchat: [api token]@[room id or name]
 ```
 
 If you are running HipChat Server, then you can specify the hostname like this:
 
-```
+```yaml
 notifications:
   hipchat: [api token]@[hostname]/[room id or name]
 ```
@@ -349,13 +349,13 @@ If your room name contains spaces then use the room id.
 
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if your .travis.yml is stored in a public repository:
 
-```
+```bash
 travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
 ```
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
-```
+```yaml
 notifications:
   hipchat:
     rooms:
@@ -367,7 +367,7 @@ notifications:
 If you want to send HTML notifications you need to add `format: html` like this
 (note that this is not compatible with some features like @mentions and autolinking):
 
-```
+```yaml
 notifications:
   hipchat:
     rooms:
@@ -379,7 +379,7 @@ notifications:
 
 With the V2 API, you can trigger a user notification by setting `notify: true`:
 
-```
+```yaml
 notifications:
   hipchat:
     rooms:
@@ -407,7 +407,7 @@ By default, Hipchat will be notified both for push builds and pull request build
 
 Turn pull request notifcations off by adding `on_pull_requests: false` to the `hipchat` section of your `.travis.yml`:
 
-```
+```yaml
 notifications:
   hipchat:
     on_pull_requests: false
@@ -417,7 +417,7 @@ notifications:
 
 Notifications can also be sent via [Pushover](https://pushover.net/) via the following format:
 
-```
+```yaml
 notifications:
   pushover:
     api_key: [api token]
@@ -431,14 +431,14 @@ notifications:
 > Note: We highly recommend you [encrypt](/user/encryption-keys/) these values if your .travis.yml is stored in a public repository; this will add (or overwrite) your api_token,
 > and append the specified user_key to the list of users.
 
-```
+```bash
 travis encrypt [api_token] --add notifications.pushover.api_key
 travis encrypt [user_key] --add notifications.pushover.users --append
 ```
 
 You can also customise the notifications, like with IRC notifications:
 
-```
+```yaml
 notifications:
 pushover:
   api_key: [api token]
@@ -477,7 +477,7 @@ Easy as pie, but if you want more customization, read on.
 The simplest configuration requires your account name and the token you just
 generated.
 
-```
+```yaml
 notifications:
   slack: '<account>:<token>'
 ```
@@ -485,14 +485,14 @@ notifications:
 Overriding the channel is also possible, just add it to the configuration with a
 `#` separating them from account and token.
 
-```
+```yaml
 notifications:
   slack: '<account>:<token>#development'
 ```
 
 You can specify multiple channels as well.
 
-```
+```yaml
 notifications:
   slack:
     rooms:
@@ -505,14 +505,24 @@ notifications:
 As always, it's recommended to encrypt the credentials with our
 [travis](https://github.com/travis-ci/travis#readme) command line client.
 
-```
+```bash
 travis encrypt "<account>:<token>" --add notifications.slack.rooms
 ```
 
 Similarly, you can use the channel override syntax with encrypted credentials as well.
 
-```
+```bash
 travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
+```
+
+This is how a setup with encrypted credentials could look like:
+
+```yaml
+notifications:
+  slack:
+    rooms:
+      - secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+    on_success: always
 ```
 
 Once everything's setup, push a new commit and you should see something like the
@@ -526,7 +536,7 @@ screenshot below:
 
 Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
-```
+```yaml
 notifications:
   slack:
     on_pull_requests: false
@@ -562,29 +572,39 @@ The following variables are available:
 - *compare_url*: commit change view URL
 - *build_url*: URL of the build detail
 
-The default template is:
+The default template for push builds is:
 
 ```yaml
 notifications:
   slack:
     template:
-      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-      - "Change view : %{compare_url}"
-      - "Build details : %{build_url}"
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}"
 ```
+
+while the default template for pull request builds is:
+
+```yaml
+notifications:
+  slack:
+    template:
+    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+```
+
+See [Slack documentation](https://api.slack.com/docs/message-formatting)
+for more information on message formatting.
 
 ## Webhook notifications
 
 You can define webhooks to be notified about build results the same way:
 
-```
+```yaml
 notifications:
   webhooks: http://your-domain.com/notifications
 ```
 
 Or multiple URLs:
 
-```
+```yaml
 notifications:
   webhooks:
     - http://your-domain.com/notifications
@@ -593,7 +613,7 @@ notifications:
 
 As with other notifications types you can specify when webhook payloads will be sent:
 
-```
+```yaml
 notifications:
   webhooks:
     urls:

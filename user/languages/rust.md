@@ -64,14 +64,14 @@ This will test all three channels, but any breakage in nightly will not fail you
 Travis CI uses Cargo to run your build and tests by default. The exact commands
 run are:
 
-```
+```bash
 $ cargo build --verbose
 $ cargo test --verbose
 ```
 
 If you wish to override this, you can use the `script` setting:
 
-```
+```yaml
 language: rust
 script: make all
 ```

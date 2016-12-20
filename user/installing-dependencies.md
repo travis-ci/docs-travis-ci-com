@@ -8,11 +8,11 @@ redirect_from:
 
 <div id="toc"></div>
 
-## Installing Packages on Standard or Trusty Infrastructure
+## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/) or [trusty](/user/trusty-ci-environment/) use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
 
-```
+```yaml
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
@@ -28,7 +28,7 @@ For some packages, you may find an existing repository, which isn't yet set up o
 
 For example, to install gcc from the ubuntu-toolchain ppa
 
-```
+```yaml
 before_install:
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -q
@@ -37,11 +37,11 @@ before_install:
 
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
-If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
+If you're installing packages this way, make sure you download the correct version for your environment.
 
 This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the locally available list of APT sources and then installs the `varnish` package.
 
-```
+```yaml
 before_script:
   - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
   - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
@@ -53,11 +53,11 @@ before_script:
 
 For some projects, there may be a Debian/Ubuntu package available, but no corresponding APT repository. These are still easy to install, but require the extra step of downloading.
 
-If you're installing packages this way, make sure you download the correct version for your environment, either 12.04 LTS for the standard environment or 14.04 LTS for the Trusty environment.
+If you're installing packages this way, make sure you download the correct version for your environment.
 
 Say your project requires the pngquant tool to compress PNG files, here's how to download and install the .deb file:
 
-```
+```yaml
 before_install:
   - wget http://pngquant.org/pngquant_1.7.1-1_i386.deb
   - sudo dpkg -i pngquant_1.7.1-1_i386.deb
@@ -200,7 +200,7 @@ addons:
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
-```
+```yaml
 before_install:
   - brew update
   - brew install beanstalk
@@ -216,7 +216,7 @@ You can easily include the build steps in either your .travis.yml or, and this i
 
 Here's a simple example that installs CasperJS from a binary package:
 
-```
+```yaml
 before_script:
   - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
   - tar -xvf /tmp/casper.tar.gz
@@ -227,7 +227,7 @@ Note that when you're updating the `$PATH` environment variable, that part can't
 
 To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
 
-```
+```yaml
 install:
   - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
   - tar -xzvf protobuf-2.4.1.tar.gz
@@ -236,7 +236,7 @@ install:
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
-```
+```bash
 #!/bin/sh
 set -ex
 wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
@@ -246,7 +246,7 @@ cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 
 Once it's added to the repository, you can run it from your .travis.yml:
 
-```
+```yaml
 before_install:
   - ./install-protobuf.sh
 ```

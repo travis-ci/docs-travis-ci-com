@@ -35,16 +35,18 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
-1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
-2. `before_install`
-3. `install`
-4. `before_script`
-5. `script`
-6. `after_success` or `after_failure`
-7. OPTIONAL `before_deploy`
-8. OPTIONAL `deploy`
-9. OPTIONAL `after_deploy`
-10. `after_script`
+1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
+1. OPTIONAL Install [`cache components`](/user/caching)
+1. `before_install`
+1. `install`
+1. `before_script`
+1. `script`
+1. OPTIONAL `before_cache` (for cleaning up cache)
+1. `after_success` or `after_failure`
+1. OPTIONAL `before_deploy`
+1. OPTIONAL `deploy`
+1. OPTIONAL `after_deploy`
+1. `after_script`
 
 ## Customizing the Installation Step
 
@@ -60,10 +62,10 @@ install: ./install-dependencies.sh
 
 You can also provide multiple steps, for instance to install both ruby and node dependencies:
 
-```
+```yaml
 install:
-- bundle install --path vendor/bundle
-- npm install
+  - bundle install --path vendor/bundle
+  - npm install
 ```
 
 When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
@@ -72,7 +74,7 @@ When one of the steps fails, the build stops immediately and is marked as [error
 
 You can skip the installation step entirely by adding the following to your `.travis.yml`:
 
-```
+```yaml
 install: true
 ```
 
@@ -82,13 +84,13 @@ The default build command depends on the project language. Ruby projects use `ra
 
 You can overwrite the default build step in `.travis.yml`:
 
-```
+```yaml
 script: bundle exec thor build
 ```
 
 You can specify multiple script commands as well:
 
-```
+```yaml
 script:
 - bundle exec rake build
 - bundle exec rake builddoc
@@ -102,7 +104,7 @@ If your first step is to run unit tests, followed by integration tests, you may 
 
 You can change this behavior by using a little bit of shell magic to run all commands subsequently but still have the build fail when the first command returns a non-zero exit code. Here's the snippet for your `.travis.yml`
 
-```
+```yaml
 script: bundle exec rake build && bundle exec rake builddoc
 ```
 
@@ -263,7 +265,7 @@ If you specify both, `only` takes precedence over `except`. By default, the `gh-
 
 You can use regular expressions to safelist or blocklist branches:
 
-```
+```yaml
 branches:
   only:
   - master
@@ -279,7 +281,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
 
-Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI. 
+Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
 ## Build Matrix
 
@@ -287,28 +289,28 @@ When you combine the three main configuration options of *Runtime*, *Environment
 
 Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
 
-```
+```yaml
 rvm:
-- 1.9.3
-- 2.0.0
-- 2.2
-- ruby-head
-- jruby
-- rbx-2
-- ree
+  - 1.9.3
+  - 2.0.0
+  - 2.2
+  - ruby-head
+  - jruby
+  - rbx-2
+  - ree
 gemfile:
-- gemfiles/Gemfile.rails-2.3.x
-- gemfiles/Gemfile.rails-3.0.x
-- gemfiles/Gemfile.rails-3.1.x
-- gemfiles/Gemfile.rails-edge
+  - gemfiles/Gemfile.rails-2.3.x
+  - gemfiles/Gemfile.rails-3.0.x
+  - gemfiles/Gemfile.rails-3.1.x
+  - gemfiles/Gemfile.rails-edge
 env:
-- ISOLATED=true
-- ISOLATED=false
+  - ISOLATED=true
+  - ISOLATED=false
 ```
 
 You can also define exclusions to the build matrix:
 
-```
+```yaml
 matrix:
   exclude:
   - rvm: 1.9.3
@@ -371,11 +373,11 @@ matrix:
     env: DB=mysql
 ```
 
-### Explicity Including Jobs
+### Explicitly Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
-```
+```yaml
 matrix:
   include:
   - rvm: ruby-head
@@ -390,7 +392,7 @@ This is useful if you want to only test the latest version of a dependency toget
 You can use this method to create a build matrix containing only specific combinations.
 For example,
 
-```
+```yaml
 language: python
 matrix:
   include:
@@ -416,7 +418,7 @@ ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
-```
+```yaml
 matrix:
   allow_failures:
   - rvm: 1.9.3
@@ -428,7 +430,7 @@ If some rows in the build matrix are allowed to fail, the build won't be marked 
 
 To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
-```
+```yaml
 matrix:
   fast_finish: true
 ```
@@ -477,20 +479,20 @@ If your build requires setting up custom hostnames, you can specify a single hos
 list of them in your .travis.yml. Travis CI will automatically setup the
 hostnames in `/etc/hosts` for both IPv4 and IPv6.
 
-```
+```yaml
 addons:
   hosts:
   - travis.dev
   - joshkalderimis.com
 ```
 
-## What git Repository Providers can I use
+## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on Github on [travis-ci.org](https://travis-ci.org/).
+Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
 
-Build and test your private repositories hosted on Github on [travis-ci.com](https://travis-ci.com/).
+Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
-Travis CI currently does not support repositories hosted on Bitbucket, Gitlab or Atlassian Stash.
+Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
 
 ## Troubleshooting
 

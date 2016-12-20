@@ -74,7 +74,7 @@ xctool: command not found
 
 This is intended behaviour from Homebrew's side, but you can get around it by running first checking if the command needs an upgrade with `brew outdated`, like this:
 
-```
+```yaml
 before_install:
   - brew update
   - brew outdated <package-name> || brew upgrade <package-name>
@@ -82,7 +82,7 @@ before_install:
 
 For example, if you always want the latest version of xctool, you can run this:
 
-```
+```yaml
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool

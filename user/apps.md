@@ -190,7 +190,6 @@ By Automated Architecture
 iPad client for Travis CI, supports private projects<br>
 By NinjaConcept GmbH
 
-- [website](http://www.ninjaconcept.com/jarvis)
 - [app store](https://itunes.apple.com/us/app/jarvis/id846922611)
 
 ### Mantis CI (iOS)

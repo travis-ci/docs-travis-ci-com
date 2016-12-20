@@ -14,7 +14,7 @@ This guide covers headless GUI & browser testing using tools provided by the Tra
 
 Once you've signed up, set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/sauce-connect) makes this easy, just add this to your .travis.yml:
 
-```
+```yaml
 addons:
   sauce_connect:
     username: "Your Sauce Labs username"
@@ -27,7 +27,7 @@ Now Sauce Labs has a way of reaching your web server, but you still need to star
 
 Finally, you need to configure your Selenium tests to run on Sauce Labs instead of locally. This is done using a [Remote WebDriver](https://code.google.com/p/selenium/wiki/RemoteWebDriver). The exact code depends on what tool/platform you're using, but for Python it would look like this:
 
-```
+```bash
 username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]
 capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
@@ -41,7 +41,7 @@ This is all you need to get your Selenium tests running on Sauce Labs. However, 
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
-```
+```bash
 capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
 capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
 ```
@@ -56,7 +56,7 @@ installed on all Travis CI environments.
 
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
-```
+```yaml
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -72,7 +72,7 @@ previous example.
 
 For example, to set the screen resolution to `1280x1024x16`:
 
-```
+```yaml
 before_install:
 	- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 ```
@@ -87,7 +87,7 @@ three options.
 
 Add a `before_script` to start a server, for example:
 
-```
+```yaml
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -110,7 +110,7 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 
 A very simple example:
 
-```
+```yaml
 script: phantomjs testrunner.js
 ```
 
