@@ -321,7 +321,7 @@ matrix:
     env: ISOLATED=true
 ```
 
-> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
+> When creating your build matrix, please remember that Travis CI is an open source service that we provide free of charge to the community. So please only specify the matrix you *actually need*.
 
 ### Excluding Jobs
 
