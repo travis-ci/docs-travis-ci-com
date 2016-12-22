@@ -79,7 +79,7 @@ By Frederik Dietz
 
 ![travis-light](/images/apps/ducksboard.jpg){:.app}
 
-Integrates Travis CI with [Ducksboard](https://ducksboard.com/)<br>
+Integrates Travis CI with Ducksboard<br>
 By Divshot, Inc.
 
 - [website](https://ducksboard-travis.herokuapp.com/)
