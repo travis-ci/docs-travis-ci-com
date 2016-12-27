@@ -180,3 +180,5 @@ Or, if you're not in your project directory:
 ```bash
 travis pubkey -r owner/project
 ```
+
+Note, travis uses `travis.slug` in your project to determine the endpoints if it exists (check by using `git config --local travis.slug`), if you rename your repo or move your repo to another user/organization, you might need to change it.
