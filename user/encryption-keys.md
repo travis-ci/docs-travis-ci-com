@@ -26,7 +26,7 @@ gem install travis
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
 ```bash
-travis encrypt SOMEVAR=secretvalue
+travis encrypt SOMEVAR="secretvalue"
 ```
 
 This will output a string looking something like:
