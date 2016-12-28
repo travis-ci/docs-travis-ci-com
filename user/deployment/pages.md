@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages Deployment
 layout: en
-permalink: /user/deployment/github-pages/
+permalink: /user/deployment/pages/
 ---
 
 Travis CI can deploy your static files to [GitHub
