@@ -354,6 +354,6 @@ If you're having trouble tracking down the exact problem in a build it often hel
    su - travis
    ```
 
-4. Clone your git repository into the `/` folder of the image.
+4. Clone your git repository into the `~` folder of the image.
 5. Manually install any dependencies.
 6. Manually run your Travis CI build command.
