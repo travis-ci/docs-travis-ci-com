@@ -30,7 +30,8 @@ deploy:
 
 You'll need to generate a [personal access
 token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
-with the `public_repo` or `repo` scope. Since the token should be private,
+with the `public_repo` or `repo` scope (`repo` is required for private
+repositories). Since the token should be private,
 you'll want to pass it to Travis securely in your [repository
 settings](https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings)
 or via [encrypted variables in
