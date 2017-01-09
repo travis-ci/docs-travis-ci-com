@@ -321,7 +321,7 @@ matrix:
     env: ISOLATED=true
 ```
 
-> When creating your build matrix, please remember that Travis CI is an open source service that we provide free of charge to the community. So please only specify the matrix you *actually need*.
+> All build matrixes are limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
 ### Excluding Jobs
 
