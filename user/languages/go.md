@@ -195,6 +195,17 @@ The version of Go a job is using is available as:
 TRAVIS_GO_VERSION
 ```
 
+Please note that this will expand to the real Go version, for example `1.7.4`,
+also when `go: 1.7.x` was specified. Comparing this value in for example the
+deploy section could look like this:
+
+```yaml
+deploy:
+  ...
+  on:
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
+```
+
 ## Examples
 
 - [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
