@@ -186,7 +186,9 @@ Large files that are quick to install but slow to download do not benefit from c
 - Debian packages
 - JDK packages
 - Compiled binaries
-- Docker
+- Docker images
+
+Docker images are not cached, because we provision a brand new virtual machine for every build.
 
 ## Fetching and storing caches
 
