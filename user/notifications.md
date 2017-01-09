@@ -646,9 +646,12 @@ Additionally a message will be present in the `status_message`/`result_message` 
 - *Failed*: The build is the first build for a new branch and has failed
 - *Still Failing*: The build completed in failure after a previously failed build
 
-For pull requests, the `type` field will have the value `pull_request`, and a `pull_request_number` field is included too, pointing to the pull request's issue number on GitHub.
+The `type` field can be used to find the event type that caused this build to
+run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull requests,
+the `type` field will have the value `pull_request`, and a `pull_request_number` field
+is included too, pointing to the pull request's issue number on GitHub.
 
-Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
+Here is a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
 
 ```
 require 'sinatra'
