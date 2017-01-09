@@ -35,16 +35,18 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
-1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
-2. `before_install`
-3. `install`
-4. `before_script`
-5. `script`
-6. `after_success` or `after_failure`
-7. OPTIONAL `before_deploy`
-8. OPTIONAL `deploy`
-9. OPTIONAL `after_deploy`
-10. `after_script`
+1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
+1. OPTIONAL Install [`cache components`](/user/caching)
+1. `before_install`
+1. `install`
+1. `before_script`
+1. `script`
+1. OPTIONAL `before_cache` (for cleaning up cache)
+1. `after_success` or `after_failure`
+1. OPTIONAL `before_deploy`
+1. OPTIONAL `deploy`
+1. OPTIONAL `after_deploy`
+1. `after_script`
 
 ## Customizing the Installation Step
 
@@ -279,7 +281,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
 
-Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI. 
+Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
 ## Build Matrix
 
@@ -319,7 +321,7 @@ matrix:
     env: ISOLATED=true
 ```
 
-> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
+> When creating your build matrix, please remember that Travis CI is an open source service that we provide free of charge to the community. So please only specify the matrix you *actually need*.
 
 ### Excluding Jobs
 
@@ -484,13 +486,13 @@ addons:
   - joshkalderimis.com
 ```
 
-## What git Repository Providers can I use
+## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on Github on [travis-ci.org](https://travis-ci.org/).
+Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
 
-Build and test your private repositories hosted on Github on [travis-ci.com](https://travis-ci.com/).
+Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
-Travis CI currently does not support repositories hosted on Bitbucket, Gitlab or Atlassian Stash.
+Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
 
 ## Troubleshooting
 

@@ -385,7 +385,7 @@ notifications:
 ```
 
 If you want to send HTML notifications you need to add `format: html` like this
-(note that this disables some features like @mentions and autolinking):
+(note that this is not compatible with some features like @mentions and autolinking):
 
 ```yaml
 notifications:
@@ -425,7 +425,8 @@ with a desired label, and use this token.
 
 By default, Hipchat will be notified both for push builds and pull request builds.
 
-Switch PR build notifications off:
+Turn pull request notifcations off by adding `on_pull_requests: false` to the `hipchat` section of your `.travis.yml`:
+
 
 ```yaml
 notifications:
@@ -530,7 +531,25 @@ notifications:
     on_failure: always # default: always
 ```
 
-After you have set everything up, push a new commit then check Slack for a new notification:
+Similarly, you can use the channel override syntax with encrypted credentials as well.
+
+```bash
+travis encrypt "<account>:<token>#channel" --add notifications.slack.rooms
+```
+
+This is how a setup with encrypted credentials could look like:
+
+```yaml
+notifications:
+  slack:
+    rooms:
+      - secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+    on_success: always
+```
+
+Once everything's setup, push a new commit and you should see something like the
+screenshot below:
+
 
 <figure>
   <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
@@ -538,8 +557,7 @@ After you have set everything up, push a new commit then check Slack for a new n
 
 ### Notifications of PR builds
 
-By default, Slack will be notified both for push builds and pull request builds.
-The PR build notifications can be disabled with the following:
+Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:
@@ -577,16 +595,27 @@ The following variables are available:
 - *compare_url*: commit change view URL
 - *build_url*: URL of the build detail
 
-The default template is:
+The default template for push builds is:
 
 ```yaml
 notifications:
   slack:
     template:
-      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
-      - "Change view : %{compare_url}"
-      - "Build details : %{build_url}"
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}"
 ```
+
+while the default template for pull request builds is:
+
+```yaml
+notifications:
+  slack:
+    template:
+    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+```
+
+
+See [Slack documentation](https://api.slack.com/docs/message-formatting)
+for more information on message formatting.
 
 ## Configuring webhook notifications
 
@@ -641,9 +670,12 @@ Additionally a message will be present in the `status_message`/`result_message` 
 - *Failed*: The build is the first build for a new branch and has failed
 - *Still Failing*: The build completed in failure after a previously failed build
 
-For pull requests, the `type` field will have the value `pull_request`, and a `pull_request_number` field is included too, pointing to the pull request's issue number on GitHub.
+The `type` field can be used to find the event type that caused this build to
+run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull requests,
+the `type` field will have the value `pull_request`, and a `pull_request_number` field
+is included too, pointing to the pull request's issue number on GitHub.
 
-Here's a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
+Here is a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
 
 ```ruby
 require 'sinatra'

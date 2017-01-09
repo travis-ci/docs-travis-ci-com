@@ -4,11 +4,10 @@ layout: en
 permalink: /user/build-environment-updates/
 ---
 
-### December 2014 and later
-
-Roughly, environments will be updated during the first week of the 'even' month
-(February, April, June, August, October, December).
-Language-specific updates may be released as needed.
+> Please note that the releases listed below are not exhaustive, and that there
+> are various means by which the behavior of a given build environment may
+> change.  When in doubt, please request clarification via a [GitHub
+> issue](https://github.com/travis-ci/travis-ci/issues).
 
 <ul class="list--links">
 {% for page in site.pages %}
@@ -20,8 +19,8 @@ Language-specific updates may be released as needed.
 
 ### Atom feed
 
-<a href="/feed.build-env-updates.xml">Atom feed</a> is also available.
+An <a href="/feed.build-env-updates.xml">atom feed</a> is also available.
 
 ### Mailing List
 
-You can also sign up to the <a href="http://eepurl.com/9OCsP">announcement mailing list</a>.
+You can also sign up for the <a href="http://eepurl.com/9OCsP">announcement mailing list</a>.

@@ -21,9 +21,13 @@ For a minimal configuration with S3, add the following to your `.travis.yml`:
         deployment_group: MyDeploymentGroup
 ```
 
+Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.  
+
 A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt that key.
+
+If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](https://docs.travis-ci.com/user/deployment/codedeploy#AWS-region-to-deploy-to)).
 
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
@@ -118,19 +122,6 @@ honor `.gitignore`.
 If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#Running-commands-before-and-after-deploy) to change
 its content.
-
-### Running commands before and after deployment
-
-Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
-
-```yaml
-    before_deploy: "echo 'ready?'"
-    deploy:
-      ..
-    after_deploy:
-      - ./after_deploy_1.sh
-      - ./after_deploy_2.sh
-```
 
 ### Running commands before and after deploy
 
