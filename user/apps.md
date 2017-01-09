@@ -75,16 +75,6 @@ By Frederik Dietz
 - [website](http://fdietz.github.io/team_dashboard/)
 - [source code](https://github.com/fdietz/team_dashboard)
 
-### Ducksboard Travis
-
-![travis-light](/images/apps/ducksboard.jpg){:.app}
-
-Integrates Travis CI with [Ducksboard](https://ducksboard.com/)<br>
-By Divshot, Inc.
-
-- [website](https://ducksboard-travis.herokuapp.com/)
-- [source code](https://github.com/divshot/ducksboard-travis)
-
 ### CI Status
 
 ![ci-status](/images/apps/ci-status.png){:.app}

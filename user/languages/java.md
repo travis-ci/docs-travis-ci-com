@@ -27,13 +27,13 @@ language: java
 If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI builds your project with Maven 3:
 
 ```bash
-mvn test
+mvn test -B
 ```
 
 If your project also includes the `mvnw` wrapper script in the repository root, Travis CI uses that instead:
 
 ```bash
-./mvnw test
+./mvnw test -B
 ```
 
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).

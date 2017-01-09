@@ -45,12 +45,12 @@ services:
   - mysql
 ```
 
-MySQL binds to 127.0.0.1 and requires authentication. You can connect using the username "travis" or "root" and a blank password.
+MySQL binds to `127.0.0.1` and a socket defined in `~travis/.my.cnf` and
+requires authentication.  You can connect using the username `travis` or `root`
+and a blank password.
 
-> Note that the "travis" user does not have full MySQL privileges that the "root" user does.
->
-> If you are using the Trusty image (to use Docker or for some other reason) you must
-> use the MySQL 5.6 instructions.
+> Note that the `travis` user does not have the heightened privileges that the
+> `root` user does.
 
 ### Using MySQL with ActiveRecord
 
@@ -64,47 +64,33 @@ test:
   encoding: utf8
 ```
 
-You might have to create the `myapp_test` database first. Run this as part of your build script:
+You might have to create the `myapp_test` database first, for example in
+the `before_install` step in `.travis.yml`:
 
 ```yaml
-# .travis.yml
-before_script:
-  - mysql -e 'create database myapp_test;'
+before_install:
+  - mysql -e 'CREATE DATABASE myapp_test;'
 ```
 
 ### Note on `test` database
 
-In older versions of MySQL, Ubuntu package provided the `test` database by default.
-This is no longer the case as of version 5.5.37 due to security concerns
-(See [change log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
+In older versions of MySQL, the Ubuntu package provided the `test` database by
+default.  This is no longer the case as of version 5.5.37 due to security
+concerns (See [change
+log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
 
-If you need it, create it using the following `before_install` line:
+The `test` database may be created if needed, for example in the
+`before_install` step in `.travis.yml`:
 
 ```yaml
 before_install:
-  - mysql -e "create database IF NOT EXISTS test;" -uroot
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 ```
 
 ### MySQL 5.6
 
-The recommended way to get MySQL 5.6 is switching to our [Trusty CI Environment](/user/trusty-ci-environment/) and manually installing the required packages by adding the following lines to the `.travis.yml`:
-
-```yaml
-dist: trusty
-sudo: required
-addons:
-  apt:
-    packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
-```
-
-Note that you'll need to use the user `root` as `travis` is not available yet.
-
-For example, if you were running: `mysql -e 'create database your_db_name;'`
-
-You should run instead: `mysql -u root -e 'create database your_db_name;'`
+The recommended way to get MySQL 5.6 is switching to our [Trusty CI
+Environment](/user/trusty-ci-environment/).
 
 ## PostgreSQL
 
@@ -158,7 +144,7 @@ The following versions are available on Linux builds:
 |     9.2    |          yes         |         yes         |        yes        |        yes       |
 |     9.3    |          yes         |         yes         |        yes        |        yes       |
 |     9.4    |          yes         |         yes         |        yes        |        yes       |
-|     9.5    |          yes         |         yes         |        yes        |        yes       |
+|     9.5    |          yes         |         yes         |                   |        yes       |
 |     9.6    |                      |         yes         |                   |        yes       |
 
 On OSX, the following versions are installed:
@@ -178,7 +164,7 @@ On OSX, the following versions are installed:
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS 2.1 .
+All installed versions of PostgreSQL include PostGIS.
 
 You need to activate the extension in your `.travis.yml`:
 
@@ -441,12 +427,14 @@ ElasticSearch uses the default configuration and is available on 127.0.0.1.
 
 ### Installing specific versions of ElasticSearch
 
-You can overwrite the installed ElasticSearch with the version you need (e.g., 1.2.4) with the following:
+You can overwrite the installed ElasticSearch with the version you need (e.g., 2.3.0) with the following:
 
 ```yaml
 before_install:
-  - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.deb && sudo dpkg -i --force-confnew elasticsearch-1.2.4.deb && sudo service elasticsearch restart
+  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.0/elasticsearch-2.3.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.0.deb && sudo service elasticsearch restart
 ```
+
+We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 
@@ -503,21 +491,24 @@ env:
   - DB=postgres
 ```
 
-Then you can use those values in a `before_install` (or `before_script`) step to set up each database. For example:
+Then you can use those values in a `before_install` (or `before_script`) step to
+set up each database. For example:
 
 ```yaml
 before_script:
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests_tmp;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database doctrine_tests_tmp;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS doctrine_tests_tmp;create database IF NOT EXISTS doctrine_tests;'; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS tests_tmp; CREATE DATABASE IF NOT EXISTS tests;'; fi"
 ```
 
-> Travis CI does not have any special support for these variables, it just creates three builds with different exported values. It is up to your
-> build script and `before_install` or `before_script` steps to make use of them.
+> Travis CI does not have any special support for these variables, it just
+> creates three builds with different exported values. It is up to your build
+> script and `before_install` or `before_script` steps to make use of them.
 
-For a real example, see [doctrine/doctrine2 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
+For a real example, see [doctrine/doctrine2
+.travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
 
 ### Using Ruby
 

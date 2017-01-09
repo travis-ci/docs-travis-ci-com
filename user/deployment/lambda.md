@@ -36,3 +36,35 @@ configuration parameters
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+
+### AWS permissions
+
+The AWS user that Travis deploys as must have the following IAM permissions in order to deploy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DeployCode",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:UploadFunction"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+           "Sid": "SetRole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::<account-id>:role/<name-of-role>"
+        }
+    ]
+}
+```
+
+It does not appear to be possible to wildcard the `DeployCode` statement such that Travis can deploy any function in a particular region by specifying the resource as `arn:aws:lambda:<region>:<account-id>:function:*` but it is possible to limit the deployment permissions on a per function basis by specifying the complete ARN to one or more functions, i.e. `arn:aws:lambda:<region>:<account-id>:function:<name>`.

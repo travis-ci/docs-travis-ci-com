@@ -136,7 +136,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
 
 > These values are used directly in your build, so make sure to escape special characters (for bash) accordingly.
 
-By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`.
+By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
 Similarly, we do not provide these values to untrusted builds, triggered by pull requests from another repository.
 

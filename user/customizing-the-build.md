@@ -35,16 +35,18 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
-1. Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
-2. `before_install`
-3. `install`
-4. `before_script`
-5. `script`
-6. `after_success` or `after_failure`
-7. OPTIONAL `before_deploy`
-8. OPTIONAL `deploy`
-9. OPTIONAL `after_deploy`
-10. `after_script`
+1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
+1. OPTIONAL Install [`cache components`](/user/caching)
+1. `before_install`
+1. `install`
+1. `before_script`
+1. `script`
+1. OPTIONAL `before_cache` (for cleaning up cache)
+1. `after_success` or `after_failure`
+1. OPTIONAL `before_deploy`
+1. OPTIONAL `deploy`
+1. OPTIONAL `after_deploy`
+1. `after_script`
 
 ## Customizing the Installation Step
 
@@ -319,7 +321,7 @@ matrix:
     env: ISOLATED=true
 ```
 
-> Please take into account that Travis CI is an open source service and we rely on worker boxes provided by the community. So please only specify as big a matrix as you *actually need*.
+> When creating your build matrix, please remember that Travis CI is an open source service that we provide free of charge to the community. So please only specify the matrix you *actually need*.
 
 ### Excluding Jobs
 

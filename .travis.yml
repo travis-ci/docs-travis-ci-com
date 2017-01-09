@@ -29,6 +29,7 @@ install:
   - pip install --upgrade pip
   - pip install coala-bears
   - npm install remark-cli@2
+  - npm install -g alex
 script:
   - bundle exec rake test
-#  - coala-ci
+  - coala --non-interactive Language
