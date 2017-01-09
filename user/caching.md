@@ -250,25 +250,39 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 ### Enabling multiple caching features
 
-When you want to enable multiple caching features, you can list them as an array:
+When you want to enable multiple caching features and the language supports them, you can list them as an array:
 
 ```yaml
+language: objective-c
 cache:
 - bundler
-- pip
+- cocoapods
 ```
 
-This does not work when caching [arbitrary directories](#Arbitrary-directories).
+This does not work when caching [arbitrary directories](#Arbitrary-directories),
+or when any of the directives is not supported by the language.
 
-To combine directory caches with other caching modes, use a hash map:
+If you want to combine that with other caching modes, use a hash map.
+Here is an example of a Ruby repository caching Node.js modules:
 
 ```yaml
+language: ruby
 cache:
   bundler: true
   directories:
   - node_modules # NPM packages
-  - vendor/something
-  - .autoconf
+```
+
+This is another example; a Rust repository caching cargo and Ruby gems:
+
+```yaml
+language: rust
+cache:
+  cargo: true
+  directories:
+    - vendor/bundle
+install:
+  - bundle install --deployment # to cache vendor/bundle
 ```
 
 ### Explicitly disabling caching
@@ -282,9 +296,10 @@ cache: false
 It is also possible to disable a single caching mode:
 
 ```yaml
+language: objective-c
 cache:
   bundler: false
-  pip: true
+  cocoapods: true
 ```
 
 ### Setting the timeout
