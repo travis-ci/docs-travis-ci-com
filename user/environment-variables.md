@@ -120,6 +120,8 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 ## Defining Variables in Repository Settings
 
+{: #Defining-Variables-in-Repository-Settings}
+
 Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
 
 Define variables in the Repository Settings that:
