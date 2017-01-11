@@ -1,3 +1,5 @@
+set :build_dir, '../api'
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
