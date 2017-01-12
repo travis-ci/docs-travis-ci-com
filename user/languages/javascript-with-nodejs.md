@@ -139,7 +139,7 @@ install: npm install
 
 #### Caching with `yarn`
 
-You can cache `$HOME/.yarn-cache` with:
+You can cache `$HOME/.cache/yarn` with:
 
 ```yaml
 cache: yarn

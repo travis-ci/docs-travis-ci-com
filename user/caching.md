@@ -106,7 +106,7 @@ node_js: '6' # or another
 cache: yarn
 ```
 
-This caches `$HOME/.yarn-cache`.
+This caches `$HOME/.cache/yarn`.
 
 ### pip cache
 
