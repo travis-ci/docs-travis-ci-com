@@ -171,7 +171,7 @@ or
 osx_image: xcode8.2
 ```
 
-The following lines can be seen in the build log:
+The following lines in your build log possibly indicate an occurence of this issue:
 
 **Example: Signing**
 ```
