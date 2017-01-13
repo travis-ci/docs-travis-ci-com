@@ -199,6 +199,9 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_PULL_REQUEST_SHA`: If the current job is a pull request,
   the commit SHA of the HEAD commit of the PR.
   If it is a push build, `""`.
+- `TRAVIS_PULL_REQUEST_SLUG`: If the current job is a pull request,
+  the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
+  If it is a push build, `""`.
 - `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
   		repository currently being built. (for example, "travis-ci/travis-build").
 - `TRAVIS_SECURE_ENV_VARS`: Whether or not encrypted environment vars are being
