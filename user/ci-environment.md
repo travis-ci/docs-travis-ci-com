@@ -21,7 +21,7 @@ Travis CI runs builds in isolated virtual machines that offer a vanilla build
 environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests run in an environment built from scratch.
+state and making sure that your tests run in an environment built from scratch.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
