@@ -203,7 +203,7 @@ Where:
 - `keychainPass` is the password of your keychain
 - `keychainName` is the name of your keychain
 
-Here's an example to put the command in context:
+Here's an example of where to put the command in context:
 
 ```bash
 # Create the keychain with a password
@@ -223,7 +223,7 @@ security import ./Provisioning/certs/distribution.p12 -k ~/Library/Keychains/ios
 security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
 ```
 
-**⚠️  IMPORTANT: It's mandatory to create a keychain with a password. ⚠️**
+**⚠️  IMPORTANT: It's mandatory to create a keychain with a password for the command `security set-key-partition-list` to work. ⚠️**
 
 ### Fastlane
 
