@@ -202,6 +202,7 @@ security set-key-partition-list -S apple-tool:,apple: -s -k keychainPass keychai
 ```
 
 Where:
+
 - `keychainPass` is the password of your keychain
 - `keychainName` is the name of your keychain
 
