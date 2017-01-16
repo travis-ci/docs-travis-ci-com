@@ -166,7 +166,7 @@ addons:
 If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
 
 ```
-Installing APT Packages (BETA)
+Installing APT Packages
 ⋮
 E: Unable to locate package libcxsparse3.1.2
 E: Couldn't find any package by regex 'libcxsparse3.1.2'
