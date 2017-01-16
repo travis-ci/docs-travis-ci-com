@@ -1,5 +1,5 @@
 ---
-title: Building an Elixir Project (beta)
+title: Building an Elixir Project
 layout: en
 permalink: /user/languages/elixir/
 ---
