@@ -174,6 +174,7 @@ osx_image: xcode8.2
 The following lines in your build log possibly indicate an occurence of this issue:
 
 **Example: Signing**
+
 ```
 ▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
 
@@ -184,6 +185,7 @@ The build has been terminated
 ```
 
 **Example: Embed Pods Frameworks**
+
 ```
 ▸ Running script '[CP] Embed Pods Frameworks'
 
