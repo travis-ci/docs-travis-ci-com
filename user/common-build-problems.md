@@ -247,7 +247,8 @@ If you are using [Fastlane](https://fastlane.tools/) to sign your app (e.g. with
     )
 ```
 
-You can also look [at the following GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904) to get more details.
+You can also have more details in [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791) starting at [this comment](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904).
+
 
 ## Mac: Errors running CocoaPods
 
