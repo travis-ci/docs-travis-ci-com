@@ -56,6 +56,20 @@ If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-argu
 
 Otherwise it will automatically add the *--path* option. In this case it will either use the value of the environment variable *BUNDLE_PATH* or, if it is missing, *vendor/bundle*.
 
+#### Cleaning up bundle
+
+When you use
+
+```yaml
+cache: bundler
+```
+
+The command `bundle clean` is executed before the cache is uploaded.
+
+In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
+to get around it.
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
+
 ### CocoaPods
 
 On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapods.org) can take up a good portion of your build. Caching the compiled Pods between builds helps reduce this time.
