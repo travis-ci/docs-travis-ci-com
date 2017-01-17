@@ -1,12 +1,8 @@
 ---
-title: Building an Android Project (beta)
+title: Building an Android Project
 layout: en
 permalink: /user/languages/android/
 ---
-
-### Warning
-
-The features described here are still in development and are subject to change without backward compatibility or migration support.
 
 ### What This Guide Covers
 
