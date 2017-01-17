@@ -4,10 +4,6 @@ layout: en
 permalink: /user/languages/elixir/
 ---
 
-### Warning
-
-The features described here are still in development and are subject to change without backward compatibility or migration support.
-
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
