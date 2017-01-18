@@ -166,7 +166,9 @@ Your build is running on macOS Sierra (10.12) if the following `osx_image` value
 ```yaml
 osx_image: xcode8.1
 ```
+
 or
+
 ```yaml
 osx_image: xcode8.2
 ```
