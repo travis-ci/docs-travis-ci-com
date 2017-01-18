@@ -98,7 +98,7 @@ language: ruby
 dist: trusty
 
 rvm:
-  - rbx-3.9
+  - rbx-3.69
 ```
 
 Note that the syntax of `rbx-19mode` is not supported anymore.
