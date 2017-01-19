@@ -43,7 +43,7 @@ before_install:
     - eval "${MATRIX_EVAL}"
 ```
 
-#### GCC on OSX
+#### GCC on OS X
 
 ```yaml
 matrix:
