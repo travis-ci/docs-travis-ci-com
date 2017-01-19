@@ -1,6 +1,6 @@
 ### C11/C++11 (and Beyond) and Toolchain Versioning
 
-If you need a more modern toolchain or more granular control over your tools, you will have to handle that yourself. Fortunately, the community has already whitelisted the [repositories](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json) and [packages](https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise) necessary for most such upgrades.
+If your project requires tools compatible with C11, C++11, or a more recent language standard, then it is likely that you will have to upgrade your compiler and/or build tools. This section covers specifically how to upgrade GCC, clang, and cmake; for other dependencies please see [Installing Dependencies](/user/installing-dependencies/).
 
 #### GCC on Linux
 
