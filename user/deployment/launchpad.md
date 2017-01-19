@@ -33,8 +33,8 @@ The `slug` contains user or team name, project name, and branch name, and is for
 It is recommended that you encrypt both OAUTH tokens using the Travis CI command line client by removing them from your `travis.yml` above and running the following commands:
 
 ```bash
-$ travis encrypt TOKEN="YOUR OAUTH_TOKEN" --add deploy.oauth_token
-$ travis encrypt TOKEN_SECRET="YOUR OAUTH_TOKEN_SECRET" --add deploy.oauth_token_secret
+$ travis encrypt "YOUR OAUTH_TOKEN" --add deploy.oauth_token
+$ travis encrypt "YOUR OAUTH_TOKEN_SECRET" --add deploy.oauth_token_secret
 ```
 
 The resulting `.travis.yml` looks like this:
