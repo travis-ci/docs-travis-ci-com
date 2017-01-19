@@ -1,4 +1,4 @@
-### Modern C/C++ and Toolchain Versioning
+### C11/C++11 (and Beyond) and Toolchain Versioning
 
 If you need a more modern toolchain or more granular control over your tools, you will have to handle that yourself. Fortunately, the community has already whitelisted the [repositories](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json) and [packages](https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise) necessary for most such upgrades.
 

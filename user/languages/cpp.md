@@ -94,4 +94,4 @@ before_install:
   - test -n $CXX && unset CXX
 ```
 
-{% include_relative _includes/modern-c-cpp-toolchain.md %}
+{% include_relative _includes/c11-cpp11-and-beyond-and-toolchains.md %}
