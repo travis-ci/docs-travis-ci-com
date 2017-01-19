@@ -13,6 +13,7 @@ To upgrade GCC to a more recent version, you will have to install the appropriat
 ```yaml
 matrix:
   include:
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -23,6 +24,7 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
 
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -33,6 +35,7 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -71,13 +74,18 @@ before_install:
     - eval "${MATRIX_EVAL}"
 ```
 
-#### LLVM
+#### Clang
 
-Be warned that the LLVM-Travis ecosystem [has faced some stability problems for over a year now](https://github.com/travis-ci/apt-source-whitelist/issues/156).
+Ubuntu 12.04 ships with Clang 3.4 and Ubuntu 14.04 ships with Clang 3.5.0.
+
+Note that [C++11 support is complete starting from Clang 3.3](http://clang.llvm.org/cxx_status.html).
+
+To upgrade Clang to a more recent version, you will have to install the appropriate version from a `llvm-toolchain-*` source (the `ubuntu-toolchain-r-test` source must also be pulled in for dependency resolution); see below for examples:
 
 ```yaml
 matrix:
   include:
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -89,6 +97,7 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
 
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -100,6 +109,7 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-3.7 && CXX=clang++-3.7"
 
+    # works on Precise and Trusty
     - os: linux
       addons:
         apt:
@@ -111,11 +121,44 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-3.8 && CXX=clang++-3.8"
 
+    # works on Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-3.9
+          packages:
+            - clang-3.9
+      env:
+        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
+
+    # works on Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+      env:
+        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+
+    # works on Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
 
-On OSX, the version of `clang` is controlled by the choice of `osx_image`.
+On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
 #### CMake
 
@@ -131,4 +174,4 @@ addons:
       - cmake
 ```
 
-On OSX, the version of `cmake` is controlled by the choice of `osx_image`.
+On OS X, the version of `cmake` is controlled by the choice of `osx_image`.
