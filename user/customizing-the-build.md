@@ -259,6 +259,13 @@ branches:
 
 If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the safelist.
 
+To have _all_ branches build:
+
+    branches:
+      only:
+        - gh-pages
+        - /.*/
+
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
 ### Using regular expressions
