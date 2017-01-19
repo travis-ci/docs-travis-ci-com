@@ -4,7 +4,11 @@ If your project requires tools compatible with C11, C++11, or a more recent lang
 
 #### GCC on Linux
 
-Ubuntu 12.04 shipped with GCC 4.6.3 and Ubuntu 14.04 shipped with GCC 4.8.2. If you need a more recent version (if you are working with C++11, you *must* do this; support for C++11 was not finished until GCC 4.9), you will want to follow these directions:
+Ubuntu 12.04 ships with GCC 4.6.3 and Ubuntu 14.04 ships with GCC 4.8.2.
+
+Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 4.8.1, but [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631).
+
+To upgrade GCC to a more recent version, you will have to install the appropriate version from the `ubuntu-toolchain-r-test` source; see below for examples:
 
 ```yaml
 matrix:
