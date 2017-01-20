@@ -10,11 +10,11 @@ This guide covers build environment and configuration topics specific to C#, F#,
 projects. Please make sure to read our [Getting started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for C#, F#, and Visual Basic is currently in beta and may be removed or altered at any time.
+ C#, F#, and Visual Basic support is community-supported in Travis CI.
 If you run into any problems, please report them in the [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new)
-and cc @joshua-anderson @akoeplinger @nterry.
+and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry]((https://github.com/nterry).
 
 ### Build Environment
 

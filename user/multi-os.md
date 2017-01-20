@@ -4,9 +4,6 @@ layout: en
 permalink: /user/multi-os/
 ---
 
-> The feature described in this document is considered beta.
-> Some features may not work as described.
-
 If your code is used on multiple operating systems it probably should be tested on
 multiple operating systems. Travis CI can test on Linux and OS X.
 

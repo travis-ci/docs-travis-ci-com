@@ -4,8 +4,6 @@ permalink: /user/triggering-builds/
 layout: en
 ---
 
-> This feature is currently in Beta.
-
 Trigger Travis CI builds using the API (*v3 only*) by sending a POST request to `/repo/{slug|id}/requests`.
 
 Before using the Travis CI API you need to use the [command line client](https://github.com/travis-ci/travis.rb#readme) to get an API token:
