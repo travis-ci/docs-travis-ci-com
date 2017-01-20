@@ -4,7 +4,7 @@ layout: en
 permalink: /user/deployment/bluemixcloudfoundry/
 ---
 
-You now have the amazing ability to deploy directly to [IBM Bluemic](https://console.ng.bluemix.net/) after a successful build on Travis CI.
+You now have the ability to deploy directly to [IBM Bluemix](https://console.ng.bluemix.net/) after a successful build on Travis CI.
 
 ## Getting on the Edge
 
@@ -14,17 +14,17 @@ Proper Bluemix CloudFoundry support is currently included only in the edge versi
 
 Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
-`travis setup bluemixcloudfoundry`
+```sh
+travis setup bluemixcloudfoundry
+```
 
-You will be asked to answer a few simple questions about your CloudFoundry setup, and Travis will take care of the rest!
-
-Open up your newly-created `.travis.yml` and add `edge: true` to enable the deploy tool.  See yml below for an example of how to do this.
+You will need the following information about your Bluemix environment: username, password, organization, space, and region. Available Bluemix regions are US South (ng) London (eu-gb), and Sydney (au-syd). Travis offers to encrypt your passwod, and will take care of the rest. Learn more about [managing organizations and spaces](https://console.ng.bluemix.net/docs/admin/orgs_spaces.html).
 
 ## The Slightly Harder Way
 
-So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running:
+You can also directly edit your `.travis.yml`. Insert the following to get up and running:
 
-```
+```yaml
  deploy:
    edge: true
    provider: bluemixcloudfoundry
@@ -39,9 +39,9 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
 
 ***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
 
-You can do this using the Travis gem above and running:
+You can do this using the Travis gem by running:
 
-```
+```sh
 travis encrypt --add deploy.password
 ```
 
