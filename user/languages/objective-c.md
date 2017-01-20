@@ -2,6 +2,8 @@
 title: Building an Objective-C Project
 layout: en
 permalink: /user/languages/objective-c/
+swiftypetags:
+  - swift
 ---
 
 <div id="toc">
@@ -10,7 +12,7 @@ permalink: /user/languages/objective-c/
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C projects. Please make sure to read our [Getting
+Objective-C and Swift projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
@@ -18,7 +20,9 @@ Objective-C builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another version of Xcode (and OS X) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another
+version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
+the following table:
 
 <table>
 
@@ -32,7 +36,8 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another ve
 {% endfor %}
 </table>
 
-> Detailed iOS SDK versions are available in the [OS X CI environment reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
+> Detailed iOS SDK versions are available in the [OS X CI environment
+> reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
 
 At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
