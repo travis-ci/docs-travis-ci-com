@@ -1,12 +1,8 @@
 ---
-title: Building an Elixir Project (beta)
+title: Building an Elixir Project
 layout: en
 permalink: /user/languages/elixir/
 ---
-
-### Warning
-
-The features described here are still in development and are subject to change without backward compatibility or migration support.
 
 ### What This Guide Covers
 

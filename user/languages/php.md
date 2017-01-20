@@ -25,6 +25,7 @@ php:
   - '5.5'
   - '5.6'
   - '7.0'
+  - '7.1'
   - hhvm
   - nightly
 ```
@@ -35,6 +36,7 @@ The previous example uses `phpunit`, the default build script, to build against 
 - 5.5.x
 - 5.6.x
 - 7.0.x
+- 7.1.x
 - hhvm
 - nightly
 
@@ -62,9 +64,6 @@ php:
 ```
 
 #### HHVM versions on Trusty
-
-Note: Currently, PHP is [not officially supported on Trusty](https://docs.travis-ci.com/user/trusty-ci-environment#PHP).
-However, you can use the "edge" image to test it.
 
 ```yaml
 language: php
@@ -194,7 +193,7 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-- Note that the OpenSSL extension is disabled on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
 - Different SAPIs:
 
   - 5.3.3 comes with php-cgi only.

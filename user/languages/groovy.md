@@ -68,7 +68,7 @@ cache:
 if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Groovy builder will use Maven 3 to build it. By default it will use
 
 ```bash
-mvn test
+mvn test -B
 ```
 
 to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
@@ -78,7 +78,7 @@ to run your test suite. This can be overridden as described in the [general buil
 Before running tests, Groovy builder will execute
 
 ```bash
-mvn install -DskipTests=true
+mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
 to install your project's dependencies with Maven.

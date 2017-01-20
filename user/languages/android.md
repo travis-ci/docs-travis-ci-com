@@ -1,12 +1,8 @@
 ---
-title: Building an Android Project (beta)
+title: Building an Android Project
 layout: en
 permalink: /user/languages/android/
 ---
-
-### Warning
-
-The features described here are still in development and are subject to change without backward compatibility or migration support.
 
 ### What This Guide Covers
 
@@ -56,7 +52,7 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-22
-    - sys-img-x86-android-17
+    - sys-img-armeabi-v7a-android-17
 ```
 
 ### How to install Android SDK components
@@ -84,7 +80,7 @@ android:
   components:
     - build-tools-20.0.0
     - android-L
-    - sys-img-x86-android-tv-l
+    - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra
   licenses:
@@ -187,6 +183,7 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
 ```
 
 ## Default Test Command

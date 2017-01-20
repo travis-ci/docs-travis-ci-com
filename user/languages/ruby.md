@@ -27,6 +27,9 @@ Pre-compiled versions are downloaded on demand from our [Ruby version cache](htt
 Pre-compiled Rubinius versions are downloaded on demand from [binaries.rubini.us](http://rubies.travis-ci.org/rubinius). Older versions of
 Ruby and JRuby are made available by [RVM](https://rvm.io/binaries/) and the [JRuby team](http://www.jruby.org/download).
 
+Rubinius [no longer supports Precise](https://github.com/rubinius/rubinius/issues/3717).
+Please use Trusty.
+
 For exact version information, consult the "Build system information" section of
 the build log.
 
@@ -42,7 +45,6 @@ language: ruby
 rvm:
   - 2.2
   - jruby
-  - rbx-2
 ```
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in other
@@ -55,9 +57,6 @@ environment guide](/user/ci-environment/).
 
 If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
 
-When using Rubinius, there's currently an issue with selecting the correct version
-in RVM in our build environment, but only when specifying `rbx` as your version. As
-a workaround, specify `rbx-2` instead.
 
 ### Using `.ruby-version`
 
@@ -85,18 +84,30 @@ extra 60 seconds or more to your build.
 
 ### Rubinius
 
-[Rubinius](http://rubini.us) releases frequent updates. Binaries for Travis CI
-should be available for every release from 2.1.1 onwards. To test against a
-release of Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z
+[Rubinius](http://rubini.us) releases frequent updates.
+To test with Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z
 specifies a Rubinius release.
+Consult [http://rubies.travis-ci.org/rubinius](http://rubies.travis-ci.org/rubinius)
+for the list of available releases.
 
-Note that the syntax of `rbx-19mode` isn't supported anymore.
+Rubinius does not support Precise. Please use Trusty instead.
+
+```yaml
+language: ruby
+
+dist: trusty
+
+rvm:
+  - rbx-3.69
+```
+
+Note that the syntax of `rbx-19mode` is not supported anymore.
 
 Rubinius will be installed via a download currently.
 
-### JRuby: C extensions support is disabled
+### JRuby: C extensions are not supported
 
-Please note that **C extensions are disabled for JRuby** on Travis CI. The
+Please note that **C extensions are not supported in JRuby** on Travis CI. The
 reason for doing so is to bring it to developers attention that their project
 may have dependencies that should not be used on JRuby in production. Using C
 extensions on JRuby is technically possible but is not a good idea performance

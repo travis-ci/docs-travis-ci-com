@@ -120,6 +120,8 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 ## Defining Variables in Repository Settings
 
+{: #Defining-Variables-in-Repository-Settings}
+
 Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
 
 Define variables in the Repository Settings that:
@@ -136,7 +138,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
 
 > These values are used directly in your build, so make sure to escape special characters (for bash) accordingly.
 
-By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`.
+By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
 Similarly, we do not provide these values to untrusted builds, triggered by pull requests from another repository.
 
@@ -196,6 +198,9 @@ to tag the build, or to run post-build deployments.
   current job is a push build.
 - `TRAVIS_PULL_REQUEST_SHA`: If the current job is a pull request,
   the commit SHA of the HEAD commit of the PR.
+  If it is a push build, `""`.
+- `TRAVIS_PULL_REQUEST_SLUG`: If the current job is a pull request,
+  the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
   If it is a push build, `""`.
 - `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
   		repository currently being built. (for example, "travis-ci/travis-build").

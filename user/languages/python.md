@@ -14,7 +14,7 @@ Python builds are not available on the OSX environment.
 
 ## Choosing Python versions to test against
 
-Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, as well as recent development versions.
+Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
 
 ```yaml
 language: python
@@ -26,7 +26,9 @@ python:
   - "3.4"
   - "3.5"
   - "3.5-dev" # 3.5 development branch
+  - "3.6"
   - "3.6-dev" # 3.6 development branch
+  - "3.7-dev" # 3.7 development branch
   - "nightly" # currently points to 3.7-dev
 # command to install dependencies
 install: "pip install -r requirements.txt"
@@ -84,7 +86,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest 
+script: pytest  # or py.test for Python versions 3.5 and below
 ```
 
 if it uses `make test` instead:

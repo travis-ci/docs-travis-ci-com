@@ -26,7 +26,7 @@ Climate documentation site:
 - [Ruby](https://docs.codeclimate.com/v1.0/docs/travis-ci-ruby-test-coverage)
 - [JavaScript](https://docs.codeclimate.com/v1.0/docs/travis-ci-javascript-test-coverage)
 - [PHP](https://docs.codeclimate.com/v1.0/docs/travis-ci-php-test-coverage)
-- [Python](https://docs.codeclimate.com/v1.0/docs/travis-ci-php-test-coverage)
+- [Python](https://docs.codeclimate.com/v1.0/docs/travis-ci-python-test-coverage)
 
 ### I want to use Code Climate with parallel builds
 

@@ -26,13 +26,17 @@ Go projects on travis-ci.org assume you use Make or straight Go build tool by de
 
 ## Specifying a Go version to use
 
-You can use any tagged version of Go or use `master` to get the latest version.
+You can use any tagged version of Go, a version with `x` in place of the minor
+or patch level to use the latest for a given major or minor version, or use
+`master` to get the latest version from source.
 
 ```yaml
 language: go
 
 go:
-  - 1.3
+  - 1.x
+  - 1.6
+  - 1.7.x
   - master
 ```
 
@@ -189,6 +193,17 @@ The version of Go a job is using is available as:
 
 ```
 TRAVIS_GO_VERSION
+```
+
+Please note that this will expand to the real Go version, for example `1.7.4`,
+also when `go: 1.7.x` was specified. Comparing this value in for example the
+deploy section could look like this:
+
+```yaml
+deploy:
+  ...
+  on:
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
 ```
 
 ## Examples
