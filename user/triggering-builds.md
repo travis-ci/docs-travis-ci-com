@@ -15,7 +15,7 @@ travis login --org
 travis token --org
 ```
 
-If you are using Travis CI with a private repository use `--pro` instead of `--org`
+If you are using Travis CI with a private repository use `--pro` instead of `--org` and use `https://api.travis-ci.com` for all endpoints.
 
 Here is a script for sending a minimal request to the master branch of the `travis-ci/travis-core` repository:
 
