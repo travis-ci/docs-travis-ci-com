@@ -22,7 +22,7 @@ deploy:
 
 ## Deploying a specific directory
 
-To deploy specific directory to BitBalloon, use the `local-dir` key:
+To deploy a specific directory to BitBalloon, use the `local-dir` key:
 
 ```yaml
 deploy:
