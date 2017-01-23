@@ -8,6 +8,13 @@ redirect_from:
 
 <div id="toc"></div>
 
+## What does beta mean on Travis CI
+
+We mark all features that are in beta like this:
+
+> BETA Awesome new feature that does some stuff.
+{: .beta}
+
 ## My tests broke but were working yesterday
 
 A very common cause when a test is suddenly breaking without any major code
