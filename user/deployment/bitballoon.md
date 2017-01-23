@@ -34,7 +34,7 @@ deploy:
   local-dir: "_build/"
 ```
 
-### Running commands before and after deploy
+## Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
