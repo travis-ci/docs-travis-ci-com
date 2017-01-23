@@ -23,7 +23,7 @@ respective community.
 
 1. Gather a group of 3 or more volunteers who will support the new language.
 2. Create pull requests in [travis-build](#Adding-a-new-language) and if
-   necessary [travis-web](#Adding-Matrix-support-%28optional%29).
+   necessary [travis-web](#Adding-Matrix-support).
 3. [Test your changes](#Testing-travis-build-changes).
 4. Work with Travis CI team to get the PRs production-ready.
 5. Provide ongoing support for the issues involving the language.
@@ -61,7 +61,7 @@ versions (e.g., Ruby 2.2, 2.1, etc.), and you wish to add a convenient way
 to restrict deployments based on the language version, add your language
 to [`Travis::Build::Addons::Deploy::Script::VERSIONED_RUNTIMES`](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/addons/deploy/script.rb).
 
-### Adding Matrix support (optional)
+### Adding Matrix support
 
 If the language provides build matrix expansion, make this information visible
 to the end user by editing [travis-web](https://github.com/travis-ci/travis-web).
