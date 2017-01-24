@@ -332,7 +332,7 @@ Continuing with the example above, to extend the wait time to 30 minutes:
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
-#### Caveat with `travis_wait`
+#### Limitations of `travis_wait`
 
 `travis_wait` works by starting a process, sending it to the background, and watching the background
 process.
