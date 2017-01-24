@@ -51,7 +51,8 @@ The AWS user that Travis deploys as must have the following IAM permissions in o
             "Action": [
                 "lambda:ListFunctions",
                 "lambda:CreateFunction",
-                "lambda:UploadFunction"
+                "lambda:UploadFunction",
+                "lambda:UpdateFunctionConfiguration"
             ],
             "Resource": [
                 "*"
