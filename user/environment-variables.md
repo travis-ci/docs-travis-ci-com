@@ -175,6 +175,7 @@ The following default environment variables are available to all builds.
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
+- `TRAVIS_ALLOW_FAILURE`: Set to `true` if the job is allowed to fail. `false` if not.
 - `TRAVIS_BRANCH`: For builds not triggered by a pull request this is the
   name of the branch currently being built; whereas for builds triggered
   by a pull request this is the name of the branch targeted by the pull
