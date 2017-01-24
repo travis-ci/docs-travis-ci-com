@@ -412,21 +412,29 @@ When a long running command or compile step regularly takes longer than 10 minut
 
 The shell environment in our build system provides a function that helps to work around that, at least for longer than 10 minutes.
 
-If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment.
+If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment. For example:
 
 ```yaml
     install: travis_wait mvn install
 ```
 
-`travis_wait` writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
+spawns a process running `mvn install`.
+`travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number. For example, to extend the wait time to 30 minutes:
+If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number.
+Continuing with the example above, to extend the wait time to 30 minutes:
 
 ```yaml
     install: travis_wait 30 mvn install
 ```
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
+
+#### Limitations of `travis_wait`
+
+`travis_wait` works by starting a process, sending it to the background, and watching the background
+process.
+If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
 ## Troubleshooting Locally in a Docker Image
 
