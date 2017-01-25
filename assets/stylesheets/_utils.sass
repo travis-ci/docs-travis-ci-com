@@ -57,7 +57,7 @@
 .list--links
   @extend %ul-styles
   +linkStyle
-  
+
 .toc
   margin: 3em 0
   ul
@@ -84,3 +84,25 @@ img.app
     float: left
     margin-right: 2em
     max-width: 190px
+
+.beta
+  font-style: normal
+  background: $haze-yellow
+  color: $dozer-yellow
+  border: 1px solid $canary-yellow
+  p
+    color: $dozer-yellow
+    &:before
+      content: ""
+      display: inline-block
+      width: 1.7em
+      height: 1.7em
+      border-radius: 50%
+      margin-right: 0.8em
+      vertical-align: middle
+      background:
+        image: url(/images/ui/icon-flag.svg)
+        color: $dozer-yellow
+        repeat: no-repeat
+        size: 70%
+        position: 72% center
