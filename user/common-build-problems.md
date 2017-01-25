@@ -12,7 +12,7 @@ redirect_from:
 
 We mark all features that are in beta like this:
 
-> Awesome new feature that does some stuff.
+> BETA Awesome new feature that does some stuff.
 {: .beta}
 
 ## My tests broke but were working yesterday
