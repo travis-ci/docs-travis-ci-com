@@ -14,7 +14,7 @@ and [general build configuration](/user/customizing-the-build/) guides first.
 
  C#, F#, and Visual Basic support is community-supported in Travis CI.
 If you run into any problems, please report them in the [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new)
-and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry]((https://github.com/nterry).
+and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry](https://github.com/nterry).
 
 ### Build Environment
 
