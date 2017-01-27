@@ -415,6 +415,29 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
+#### Explicitly Included Jobs need complete definitions
+
+When including jobs, it is important to ensure that each job defines a unique value
+to any matrix dimension that the matrix defines.
+
+For example, with a 3-job Python build matrix, each job in `matrix.include` must also
+have the `python` value defined:
+
+```yaml
+language: python
+python:
+  - '3.5'
+  - '3.4'
+  - '2.7'
+matrix:
+  include:
+    - python: '3.5'
+      env: EXTRA_TESTS=true
+    - python: '3.4'
+      env: EXTRA_TESTS=true
+script: env $EXTRA_TESTS ./test.py $TEST_SUITE
+```
+
 ### Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
