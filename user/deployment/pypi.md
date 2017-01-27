@@ -15,16 +15,16 @@ deploy:
   password: "Your password"
 ```
 
-However, that would expose your PyPI password to the world. We recommend you
+However, that exposes your PyPI password to the world. We recommend you
 encrypt your password using the Travis CI command line client:
 
 ```
 travis encrypt --add deploy.password
 ```
 
-This will prompt you to enter the password, and then print out an
-encrypted version of it which you should put in your ``.travis.yml`` file
-as described under [Encrypting Sensitive Data](/user/encryption-keys/):
+This prompts you to enter the password, and prints an encrypted version
+of it which you should put in your ``.travis.yml`` file as described
+under [Encrypting Sensitive Data](/user/encryption-keys/):
 
 ```
 deploy:
