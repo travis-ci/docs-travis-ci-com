@@ -15,7 +15,7 @@ deploy:
   password: "Your password"
 ```
 
-However, that exposes your PyPI password to the world. We recommend you
+However, this exposes your PyPI password to the world. We recommend you
 encrypt your password using the Travis CI command line client:
 
 ```
