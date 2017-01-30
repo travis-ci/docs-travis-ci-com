@@ -431,6 +431,57 @@ matrix:
   - rvm: 1.9.3
 ```
 
+#### Matching Jobs with `allow_failures`
+
+When matching jobs against the definitions given in `allow_failures`, _all_
+conditinons in `allow_failures` must be met exactly, and
+all the keys in `allow_failures` element must exist in the
+top level of the build matrix (i.e., not in `matrix.include`).
+
+##### `allow_failures` Examples
+
+Consider
+
+```yaml
+language: ruby
+
+rvm:
+- 2.0.0
+- 2.1.6
+
+env:
+  global:
+  - SECRET_VAR1=SECRET1
+  matrix:
+  - SECRET_VAR2=SECRET2
+
+matrix:
+  allow_failures:
+    - env: SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2
+```
+
+Here, no job is allowed to fail because no job has the `env` value
+`SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2`.
+
+Next,
+
+```yaml
+language: php
+php:
+- 5.6
+- 7.0
+env: # important!
+matrix:
+  include:
+  - php: 7.0
+    env: KEY=VALUE
+  allow_failures:
+  - php: 7.0
+    env: KEY=VALUE
+```
+
+Without the top-level `env`, no job will be allowed to fail.
+
 ### Fast Finishing
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
