@@ -24,9 +24,9 @@ If you need to run multiple commands, write a executable wrapper script that run
 If the script returns a nonzero status, deployment is considered
 a failure, and the build will be marked as "errored".
 
-## Passing Arguments to Script Deployments
+## Passing Arguments to the Script
 
-It's possible to pass arguments to a script deployment.
+It is possible to pass arguments to a script deployment.
 
 ```yaml
 deploy:
@@ -42,7 +42,7 @@ deploy:
       branch: master
 ```
 
-These arguments have access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
+The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
 
 ```yaml
 deploy:
