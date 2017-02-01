@@ -1,5 +1,5 @@
 #language: ruby
-sudo: required
+sudo: false
 dist: trusty
 language: python
 python:
@@ -8,6 +8,9 @@ rvm: 2.3.1
 branches:
   only:
   - gh-pages
+env:
+  global:
+    - PATH=$HOME/.local/user/bin:$PATH
 cache:
   pip: true
   directories:
@@ -26,8 +29,8 @@ notifications:
     on_success: never
 install:
   - bundle install --deployment
-  - pip install --upgrade pip
-  - pip install coala-bears
+  - pip install --upgrade pip --user
+  - pip install coala-bears --user
   - npm install remark-cli@2
   - npm install -g alex
 script:
