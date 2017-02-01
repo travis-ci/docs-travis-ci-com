@@ -29,7 +29,7 @@ notifications:
     on_success: never
 install:
   - bundle install --deployment
-  - pip install --upgrade pip --user
+  - pip install --upgrade pip
   - pip install coala-bears --user
   - npm install remark-cli@2
   - npm install -g alex
