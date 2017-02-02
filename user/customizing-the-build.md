@@ -457,7 +457,7 @@ matrix:
 #### Matching Jobs with `allow_failures`
 
 When matching jobs against the definitions given in `allow_failures`, _all_
-conditinons in `allow_failures` must be met exactly, and
+conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
 top level of the build matrix (i.e., not in `matrix.include`).
 
