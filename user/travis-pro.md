@@ -11,6 +11,10 @@ redirect_from:
 Learn more about [Travis Pro](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
+## Does Travis Pro include a trial period?
+
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis Pro](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+
 ## Can I use pull request testing on Travis Pro?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
@@ -27,6 +31,10 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that have admin access to a repository on GitHub can change enable/disable it on Travis CI and change its settings.
 
 To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "sync now" button on the profile page or `travis sync --pro` in the CLI to force a sync.
+
+## Who has access to the billing details?
+
+[Billing Admin Toggle information]
 
 ## Is it safe to give Travis CI access to my private code?
 
