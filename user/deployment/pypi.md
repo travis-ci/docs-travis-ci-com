@@ -15,6 +15,25 @@ deploy:
   password: "Your password"
 ```
 
+However, this exposes your PyPI password to the world. We recommend you
+encrypt your password using the Travis CI command line client:
+
+```
+travis encrypt --add deploy.password
+```
+
+This prompts you to enter the password, and prints an encrypted version
+of it which you should put in your ``.travis.yml`` file as described
+under [Encrypting Sensitive Data](/user/encryption-keys/):
+
+```
+deploy:
+  provider: pypi
+  user: "Your username"
+  password:
+    secure: "Your encrypted password"
+```
+
 Most likely, you would only want to deploy to PyPI when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
 commits, like so:
@@ -29,14 +48,6 @@ deploy:
 ```
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
-
-Assuming you have the Travis CI command line client installed, you can encrypt your password like this:
-
-```
-travis encrypt --add deploy.password
-```
-
-You will be prompted to enter your password on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
