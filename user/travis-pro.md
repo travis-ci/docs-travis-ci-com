@@ -30,11 +30,19 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds.
 - Users that have admin access to a repository on GitHub can change enable/disable it on Travis CI and change its settings.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "sync now" button on the profile page or `travis sync --pro` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
 
 ## Who has access to the billing details?
 
-[Billing Admin Toggle information]
+Access rights to the [billing page](https://billing.travis-ci.com) of Travis CI can be one of the following:
+
+- **Open (default)**: anyone with admin access to at least one repository belonging to the organization in GitHub has access to the billing information in Travis CI.
+
+- **Restricted**: access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their documentation about the _Permission levels for an organization_ [here](https://help.github.com/articles/permission-levels-for-an-organization/)).
+
+You can choose the access level of your organization under the organization's tab on [our billing page](https://billing.travis-ci.com) as shown below:
+
+![Billing access toggle](/images/admin_only_toggle.png "Billing access toggle")
 
 ## Is it safe to give Travis CI access to my private code?
 
