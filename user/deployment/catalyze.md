@@ -55,27 +55,17 @@ Before configuring your `.travis.yml` you need to:
        before_deploy:  echo "[git.catalyzeapps.com]:2222 ecdsa-sha2-nistp256 BBBB12abZmKlLXNo..." >> ~/.ssh/known_hosts
        ```
 
+### Deploying a subset of your Files
 
-To use the default configuration, add your encrypted TODO api key to your
+To only deploy the `build` folder, for example, set `skip_cleanup: true` and
+path: "build":
 
-
-You can also use the Travis CI command line setup tool `travis setup TODO`.
-
-## Deploying Custom Application Names
-
-By default, we will try to deploy to an application by the same name as
-the repository. For example, if you deploy an application from the GitHub
-repository
-[travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without
-explicitly specify the name of the application, Travis CI will try to
-deploy to a TODO app named *travis-chat*.
-
-You can explicitly set the name via the **app** option:
-
-```
+```yaml
 deploy:
-  provider: TODO
-  api_key: ...
+  provider: catalyze
+  target: "ssh://git@git.catalyzeapps.com:2222/app1234.git"
+  skip_cleanup: true
+  path: "build"
 ```
 
 ### Running commands before and after deploy
