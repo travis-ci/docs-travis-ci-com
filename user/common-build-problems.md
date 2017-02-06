@@ -8,11 +8,12 @@ redirect_from:
 
 <div id="toc"></div>
 
-## What does beta mean on Travis CI
+## What are beta features?
 
 We mark all features that are in beta like this:
 
-> BETA Awesome new feature that does some stuff.
+> BETA Awesome new feature that might not be enabled by default and is subject
+to change.
 {: .beta}
 
 ## My tests broke but were working yesterday

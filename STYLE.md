@@ -41,6 +41,14 @@ Add a table of contents to a page with the following HTML snippet:
 <div id="toc"></div>
 ```
 
+### Beta features
+
+Mark all beta features with a specially formatted note. Both the `> BETA` and
+the `{: beta}` are required. 
+
+> BETA Awesome new feature that might not be enabled and is subject to change.
+{: .beta}
+
 ### GUI
 
 Make sure all references to items in a GUI match the case of the UI, and are marked with *asterisks*.
