@@ -103,4 +103,4 @@ after_deploy:
 
 ## Implementation
 
-If you want to look at the implementation of this provider, you can view and contribute here:
+If you want to look at the implementation of this provider, you can view and [contribute here](https://github.com/travis-ci/dpl/).
