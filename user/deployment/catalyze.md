@@ -14,9 +14,8 @@ Before configuring your `.travis.yml` you need to:
 1. Find your Catalyze git remote:
     1. Make sure your Catalyze environment is
        [associated](https://resources.catalyze.io/paas/paas-cli-reference/#associate).
-    2. Get the git remote by running `git remote -v` from within the associated
-       repository.
-       {: #remote}
+    2. Get the git remote by running `git remote -v`{: #remote} from within the associated repository.
+
     3. Edit your `.travis.yml`:
 
        ```yaml
