@@ -312,8 +312,13 @@ r_github_packages: user/repo
 An alternative is to add the following line to your `DESCRIPTION` file:
 
 ```yaml
+Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
+
+Remember that the `Remotes:` field specifies the *source* of a package, but it does not actually make it available to the R session.
+You also have to call the package by *its name* (not necessarily the same as the repo name) in `Imports:`, `Suggests:` `Depends:` or  `LinkingTo:`.
+
 
 ### Remote package in a subdirectory
 
