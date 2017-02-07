@@ -316,8 +316,8 @@ Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
 
-Remember that the `Remotes:` field specifies the *source* of a package, but it does not actually make it available to the R session.
-You also have to call the package by *its name* (not necessarily the same as the repo name) in `Imports:`, `Suggests:` `Depends:` or  `LinkingTo:`.
+Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
 
 
 ### Remote package in a subdirectory
