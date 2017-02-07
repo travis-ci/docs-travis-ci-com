@@ -13,7 +13,7 @@ Before configuring your `.travis.yml` you need to:
 
 1. Find your Catalyze git remote:
     1. Make sure your Catalyze environment is
-       [associated](https://resources.catalyze.io/paas/paas-cli-reference/#associate).
+       [associated](https://resources.datica.com/compliant-cloud/articles/initial-setup/#sts=4. Associate to Your Environment).
     2. Get the git remote by running `git remote -v`{: #remote} from within the associated repository.
 
     3. Edit your `.travis.yml`:
@@ -42,7 +42,7 @@ Before configuring your `.travis.yml` you need to:
 
 3. Set up Catalyze as a known host for Travis CI:
     1. List your known hosts by running `cat ~/.ssh/known_hosts`.
-    2. Find and copy the line from known_hosts that includes the git remote found in [Step 1](#remote). It'll look something like
+    2. Find and copy the line from known_hosts that includes the git remote found in [Step 1](#remote){: data-proofer-ignore=""}. It'll look something like
 
        ```
        [git.catalyzeapps.com]:2222 ecdsa-sha2-nistp256 BBBB12abZmKlLXNo...
