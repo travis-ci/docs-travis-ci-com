@@ -19,10 +19,6 @@ For more details check out the awesome information below.
 
 Your builds start in less than 10 seconds. The new infrastructure makes it much easier for us to scale CPU capacity which means your builds start in seconds.
 
-### Faster builds
-
-Most projects see an improvement in build times. We'd love to hear from you if you don't.
-
 ### More available resources
 
 The new containers have 2 dedicated cores and 4GB of memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed, which means less impact from 'noisy neighbors' on the same host machine and more consistent build times throughout the day.
