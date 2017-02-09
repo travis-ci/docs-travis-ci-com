@@ -415,6 +415,29 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
+#### Explicitly Included Jobs need complete definitions
+
+When including jobs, it is important to ensure that each job defines a unique value
+to any matrix dimension that the matrix defines.
+
+For example, with a 3-job Python build matrix, each job in `matrix.include` must also
+have the `python` value defined:
+
+```yaml
+language: python
+python:
+  - '3.5'
+  - '3.4'
+  - '2.7'
+matrix:
+  include:
+    - python: '3.5'
+      env: EXTRA_TESTS=true
+    - python: '3.4'
+      env: EXTRA_TESTS=true
+script: env $EXTRA_TESTS ./test.py $TEST_SUITE
+```
+
 ### Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
@@ -430,6 +453,57 @@ matrix:
   allow_failures:
   - rvm: 1.9.3
 ```
+
+#### Matching Jobs with `allow_failures`
+
+When matching jobs against the definitions given in `allow_failures`, _all_
+conditions in `allow_failures` must be met exactly, and
+all the keys in `allow_failures` element must exist in the
+top level of the build matrix (i.e., not in `matrix.include`).
+
+##### `allow_failures` Examples
+
+Consider
+
+```yaml
+language: ruby
+
+rvm:
+- 2.0.0
+- 2.1.6
+
+env:
+  global:
+  - SECRET_VAR1=SECRET1
+  matrix:
+  - SECRET_VAR2=SECRET2
+
+matrix:
+  allow_failures:
+    - env: SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2
+```
+
+Here, no job is allowed to fail because no job has the `env` value
+`SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2`.
+
+Next,
+
+```yaml
+language: php
+php:
+- 5.6
+- 7.0
+env: # important!
+matrix:
+  include:
+  - php: 7.0
+    env: KEY=VALUE
+  allow_failures:
+  - php: 7.0
+    env: KEY=VALUE
+```
+
+Without the top-level `env`, no job will be allowed to fail.
 
 ### Fast Finishing
 
