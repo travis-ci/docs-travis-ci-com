@@ -445,13 +445,13 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-1. Download and install Docker:
+* Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-2. For Ubuntu 12.04 (precise), select an image from
+* For Ubuntu 12.04 (precise), select an image from
    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
 `{lang}` is the language you need.  If you're not using a language-specific
 image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
@@ -464,18 +464,18 @@ PID 1:
 docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
 ```
 
-3. Open a login shell in the running container
+* Open a login shell in the running container
 
 ``` bash
 docker exec -it travis-debug bash -l
 ```
 
-4. Switch to the `travis` user:
+* Switch to the `travis` user:
 
 ``` bash
 su - travis
 ```
 
-5. Clone your git repository into the `~` folder of the image.
-6. Manually install any dependencies.
-7. Manually run your Travis CI build command.
+* Clone your git repository into the `~` folder of the image.
+* Manually install any dependencies.
+* Manually run your Travis CI build command.
