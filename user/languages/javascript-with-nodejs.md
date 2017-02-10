@@ -29,7 +29,7 @@ node_js:
 ```
 
 We also have many more [versions of
-Node.js](/user/languages/javascript-with-nodejs/#Even-more-Node.js-versions).
+Node.js](/user/languages/javascript-with-nodejs/#Even-more-Node%2Ejs-versions).
 
 ## Specifying Node.js versions using .nvmrc
 
