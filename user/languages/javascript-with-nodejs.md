@@ -29,7 +29,7 @@ node_js:
 ```
 
 We also have many more [versions of
-Node.js](/user/languages/javascript-with-nodejs/#Even-more-Node%2Ejs-versions).
+Node.js](/user/languages/javascript-with-nodejs/#Even-more-Nodejs-versions).
 
 ## Specifying Node.js versions using .nvmrc
 
@@ -217,7 +217,7 @@ Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/t
 For JavaScript/Node.js projects, `env` and `node_js` can be used as arrays
 to construct a build matrix.
 
-## Even more Node.js versions
+## Even more Nodejs versions
 
 If you need more specific control of Node.js version in your build, use any of
 the following available versions. Releases not shown in this list may be used if
