@@ -273,7 +273,7 @@ client.github_auth(token)
 ```
 
 If you have a GitHub token, you can use the GitHub authentication endpoint to exchange it for an access token.
-The Travis API server will not store the token or use it for anything else then verifying the user account.
+The Travis API server will not store the token or use it for anything else than verifying the user account.
 
 Note that therefore the API cannot be used to create new user accounts. The user will have to log in at least once via the web interface before interfacing with the API by other means.
 
