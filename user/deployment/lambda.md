@@ -12,8 +12,10 @@ A minimal configuration is:
 deploy:
   provider: lambda
   function_name: "lambda-test"
+  region: "us-east-1"
   role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
-  handler_name: "index.handler"
+  runtime: "nodejs4.3"
+  handler_name: "handler"
   access_key_id: "AWS ACCESS KEY ID"
   secret_access_key: "AWS SECRET ACCESS KEY"
 ```
