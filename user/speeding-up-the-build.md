@@ -185,18 +185,18 @@ script:
 ### Makefile optimization
 
 If your makefile build consists of independent parts that can be safely
-parallelized, you can tell [`make` to run multiple recipes
+parallelized, you can [run multiple recipes
 simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
-See https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments
-to determine how many CPUs an environment normally has and set the `make` job
-parameter to a similar number (or slightly higher if your build frequently
-waits on disk I/O). Note that doing this will cause concurrent recipe output to
-become interleaved.
+See [Virtualization
+environments](/user/ci-environment/#Virtualization-environments) to determine
+how many CPUs an environment normally has and set the `make` job parameter to a
+similar number (or slightly higher if your build frequently waits on disk I/O).
+Note that doing this will cause concurrent recipe output to become interleaved.
 
 #### Makefile parallelization example
 
 ```yaml
 env:
   global:
-    - MAKEFLAGS="--jobs 2"
+    - MAKEFLAGS="-j 2"
 ```
