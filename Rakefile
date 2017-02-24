@@ -1,6 +1,6 @@
 #!/usr/bin/env rake
 
-require 'html/proofer'
+require 'html-proofer'
 
 task :default => [:test]
 
@@ -24,14 +24,14 @@ desc 'Runs the html-proofer test'
 task :run_html_proofer do
   # seems like the build does not render `%3*`,
   # so let's remove them for the check
-  href_swap = {
+  url_swap = {
     /%3A\z/ => '',
     /%3F\z/ => '',
     /-\.travis\.yml/ => '-travisyml'
   }
 
-  tester = HTML::Proofer.new('./_site', {
-                              :href_swap => href_swap,
+  tester = HTMLProofer.check_directory('./_site', {
+                              :url_swap => url_swap,
                               :connecttimeout => 600,
                               :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
