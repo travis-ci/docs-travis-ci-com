@@ -438,28 +438,44 @@ If the command you pass to `travis_wait` does not persist, then `travis_wait` do
 
 ## Troubleshooting Locally in a Docker Image
 
-If you're having trouble tracking down the exact problem in a build it often helps to run the build locally. To do this you need to be using our container based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know which Docker image you are using on Travis CI.
+If you're having trouble tracking down the exact problem in a build it often
+helps to run the build locally. To do this you need to be using our container
+based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
+which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-1. Download and install Docker:
+* Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language-specific image pick `travis-ruby`. Open a terminal and start an interactive Docker session using the image URL:
+* For Ubuntu 12.04 (precise), select an image from
+   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
+`{lang}` is the language you need.  If you're not using a language-specific
+image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
+[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
+`ci-garnet` (which differ slightly depending on language desired).  In order for
+system services to run correctly, the container must be run with `/sbin/init` as
+PID 1:
 
-   ```bash
-   docker run -it quay.io/travisci/travis-ruby /bin/bash
-   ```
+``` bash
+docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+```
 
-3. Switch to the `travis` user:
+* Open a login shell in the running container
 
-   ```bash
-   su - travis
-   ```
+``` bash
+docker exec -it travis-debug bash -l
+```
 
-4. Clone your git repository into the `~` folder of the image.
-5. Manually install any dependencies.
-6. Manually run your Travis CI build command.
+* Switch to the `travis` user:
+
+``` bash
+su - travis
+```
+
+* Clone your git repository into the `~` folder of the image.
+* Manually install any dependencies.
+* Manually run your Travis CI build command.
