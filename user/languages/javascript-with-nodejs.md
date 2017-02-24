@@ -247,6 +247,7 @@ the following available versions. Releases not shown in this list may be used if
 - 0.10.x
 - 0.8.x
 - 0.6.x
+{: .column-3}
 
 Specifying only a major and minor version (e.g., "0.12") will run using the
 latest published patch release for that version.
