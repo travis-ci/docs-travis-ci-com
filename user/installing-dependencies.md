@@ -196,6 +196,8 @@ addons:
     - libcxsparse3.1.2
 ```
 
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+
 ## Installing Packages on OSX
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
