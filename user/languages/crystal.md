@@ -24,12 +24,24 @@ and cc [@asterite](https://github.com/asterite),
 ## Basic configuration
 
 If your Crystal project doesn't need any dependencies beyond those specified in
-your `Projectfile`, your `.travis.yml` can simply be
+your `shard.yml`, your `.travis.yml` can simply be
 
-    language: crystal
+```yaml
+language: crystal
+```
 
 This will run `crystal deps` to install dependencies and then `crystal spec` to test your project.
 
 ## Configuration options
 
-Travis CI does not currently support configuration options for your Crystal project at this time.
+By default Travis CI will use the latest Crystal release. It is also possible
+to test projects against the nightly build of Crystal. To do so, set the
+`crystal` key in `.travis.yml`. For example, to test against both nightly and
+the latest release:
+
+```yaml
+language: crystal
+crystal:
+  - latest
+  - nightly
+```

@@ -3,6 +3,7 @@ title: Using CCMenu with Travis CI
 layout: en
 permalink: /user/cc-menu/
 ---
+
 <figure class="small right">
   <img alt="Screenshot of CC menu" src="http://s3itch.paperplanes.de/Backstop_Menubar_20140305_155352_20140305_155425.jpg"/>
 </figure>
@@ -36,8 +37,8 @@ Private repositories require an authenticated URL with a token in it. You can fi
 
 The above technique only allows you to add one repository at a time, which can be unwieldy for team members of organizations with several repositories they're working on. Rather than specify the owner and the repository, you can simply specify the owner and select a subset of projects.
 
-* For open source projects use `https://api.travis-ci.org/repos/<owner>.xml`
-* For closed source projects use `https://api.travis-ci.com/repos/<owner>.xml?token=<token>`.
+- For open source projects use `https://api.travis-ci.org/repos/<owner>.xml`
+- For closed source projects use `https://api.travis-ci.com/repos/<owner>.xml?token=<token>`.
 
 CCMenu will show you a list of all the available repositories you can then add in single, swift action.
 

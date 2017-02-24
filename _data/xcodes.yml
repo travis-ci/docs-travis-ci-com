@@ -1,0 +1,316 @@
+osx_images:
+  - image: xcode8.2
+    xcode: "8.2"
+    osx_version: "10.12"
+    xcode_full_version: "8.2"
+    image_publish_date: 2016-12-13
+    sdks:
+      - macosx10.12
+      - iphoneos10.2
+      - iphonesimulator10.2
+      - appletvos10.1
+      - appletvsimulator10.1
+      - watchos3.1
+      - watchsimulator3.1
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - iOS 10.2
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - tvOS 10.1
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.1
+  - image: xcode8.1
+    xcode: "8.1"
+    osx_version: "10.12"
+    xcode_full_version: "8.1"
+    image_note: "**Please note that this is our first image based on macOS 10.12.**"
+    image_publish_date: 2016-11-15
+    sdks:
+      - macosx10.12
+      - iphoneos10.1
+      - iphonesimulator10.1
+      - appletvos10.0
+      - appletvsimulator10.0
+      - watchos3.1
+      - watchsimulator3.1
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.1
+  - image: xcode8
+    xcode: "8"
+    osx_version: "10.11"
+    xcode_full_version: "8gm"
+    sdks:
+      - macosx10.11
+      - iphoneos10.0
+      - iphonesimulator10.0
+      - appletvos10.0
+      - appletvsimulator10.0
+      - watchos3.0
+      - watchsimulator3.0
+      - iphoneos9.3
+      - iphonesimulator9.3
+      - appletvos9.2
+      - appletvsimulator9.2
+      - watchos2.2
+      - watchsimulator2.2
+    simulators:
+      - "iOS 10.0"
+      - "watchOS 3.0"
+      - "tvOS 10.0"
+      - "iOS 8.1"
+      - "iOS 8.2"
+      - "iOS 8.3"
+      - "iOS 8.4"
+      - "iOS 9.0"
+      - "iOS 9.1"
+      - "iOS 9.2"
+      - "iOS 9.3"
+      - "watchOS 2.0"
+      - "watchOS 2.1"
+      - "watchOS 2.2"
+      - "tvOS 9.0"
+      - "tvOS 9.1"
+      - "tvOS 9.2"
+  - image: xcode7.3
+    xcode: "7.3.1"
+    osx_version: "10.11"
+    default: true
+    xcode_full_version: "7.3.1"
+    sdks:
+      - macosx10.11
+      - iphoneos9.3
+      - iphonesimulator9.3
+      - appletvos9.2
+      - appletvsimulator9.2
+      - watchos2.2
+      - watchsimulator2.2
+    simulators:
+      - "iOS 8.1"
+      - "iOS 8.2"
+      - "iOS 8.3"
+      - "iOS 8.4"
+      - "iOS 9.0"
+      - "iOS 9.1"
+      - "iOS 9.2"
+      - "iOS 9.3"
+      - "watchOS 2.0"
+      - "watchOS 2.1"
+      - "watchOS 2.2"
+      - "tvOS 9.0"
+      - "tvOS 9.1"
+      - "tvOS 9.2"
+  - image: xcode6.4
+    xcode: "6.4"
+    osx_version: "10.10"
+    xcode_full_version: "6.4"
+    image_note: "Please note that this image is no longer updated and will be retired on Friday, January 20th"
+    sdks:
+      - macosx10.9
+      - macosx10.10
+      - iphoneos8.4
+      - iphonesimulator8.4
+    simulators:
+
+simulators:
+  - name: "iOS 7.0"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 7.1"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 8.1"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 8.2"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 8.3"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 8.4"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+  - name: "iOS 9.0"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+  - name: "iOS 9.1"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+  - name: "iOS 9.2"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+  - name: "iOS 9.3"
+    devices:
+      - iPhone 4s
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPad 2
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+  - name: "iOS 10.0"
+    devices:
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s Plus
+      - iPhone 7
+      - iPhone 7 Plus
+      - iPhone SE
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro (9.7 inch)
+      - iPad Pro (12.9 inch)
+  - name: "iOS 10.1"
+    devices:
+      - iPhone 5
+      - iPhone 5s
+      - iPhone 6
+      - iPhone 6 Plus
+      - iPhone 6s
+      - iPhone 6s
+      - iPhone 7
+      - iPhone 7 Plus
+      - iPhone SE
+      - iPad Retina
+      - iPad Air
+      - iPad Air 2
+      - iPad Pro
+      - iPad Pro
+  - name: "watchOS 2.0"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
+  - name: "watchOS 2.1"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
+  - name: "watchOS 2.2"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
+  - name: "watchOS 3.0"
+    devices:
+      - Apple Watch - 38mm
+      - Apple Watch - 42mm
+  - name: "tvOS 9.0"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 9.1"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 9.2"
+    devices:
+      - Apple TV 1080p
+  - name: "tvOS 10.0"
+    devices:
+      - Apple TV 1080p
