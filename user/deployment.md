@@ -78,7 +78,7 @@ Common options are:
 
 #### Examples of Conditional Releases using `on:`
 
-This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
+This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
 ```
 deploy:
