@@ -61,6 +61,7 @@ In addition, depending on the Ubuntu release, you can test with more HHVM versio
 language: php
 php:
   - hhvm-3.3
+  - hhvm-3.6
 ```
 
 #### HHVM versions on Trusty
@@ -75,6 +76,8 @@ php:
   - hhvm-3.6
   - hhvm-3.9
   - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
   - hhvm-nightly
 ```
 
