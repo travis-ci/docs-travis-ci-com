@@ -12,8 +12,10 @@ A minimal configuration is:
 deploy:
   provider: lambda
   function_name: "lambda-test"
+  region: "us-east-1"
   role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
-  handler_name: "index.handler"
+  runtime: "nodejs4.3"
+  handler_name: "handler"
   access_key_id: "AWS ACCESS KEY ID"
   secret_access_key: "AWS SECRET ACCESS KEY"
 ```
@@ -46,13 +48,33 @@ The AWS user that Travis deploys as must have the following IAM permissions in o
     "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "ListExistingRolesAndPolicies",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRolePolicies",
+                "iam:ListRoles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CreateAndListFunctions",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateFunction",
+                "lambda:ListFunctions"
+            ],
+            "Resource": "*"
+        },
+        {
             "Sid": "DeployCode",
             "Effect": "Allow",
             "Action": [
-                "lambda:UploadFunction"
+                "lambda:UploadFunction",
+                "lambda:UpdateFunctionCode",
+                "lambda:UpdateFunctionConfiguration"
             ],
             "Resource": [
-                "*"
+                "arn:aws:lambda:<region>:<account-id>:function:<name-of-function>"
             ]
         },
         {
