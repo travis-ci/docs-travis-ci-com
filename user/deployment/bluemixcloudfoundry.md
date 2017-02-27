@@ -4,11 +4,7 @@ layout: en
 permalink: /user/deployment/bluemixcloudfoundry/
 ---
 
-You now have the ability to deploy directly to [IBM Bluemix](https://console.ng.bluemix.net/) after a successful build on Travis CI.
-
-## Getting on the Edge
-
-Proper Bluemix CloudFoundry support is currently included only in the edge version of Travis.  See how to enable it via the `.travis.yml` below.
+You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/) after a successful build on Travis CI.
 
 ## The Easy Way
 
@@ -18,7 +14,7 @@ Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and
 travis setup bluemixcloudfoundry
 ```
 
-You will need the following information about your Bluemix environment: username, password, organization, space, and region. Available Bluemix regions are US South (ng) London (eu-gb), and Sydney (au-syd). Travis offers to encrypt your passwod, and will take care of the rest. Learn more about [managing organizations and spaces](https://console.ng.bluemix.net/docs/admin/orgs_spaces.html).
+You will need the following information about your Bluemix environment: username, password, organization, space, and region. Available Bluemix regions are US South (ng) London (eu-gb), and Sydney (au-syd). Travis offers to encrypt your password, and will take care of the rest. Learn more about [managing organizations and spaces](http://bluemix.net/docs/admin/orgs_spaces.html).
 
 ## The Slightly Harder Way
 

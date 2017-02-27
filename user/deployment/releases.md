@@ -36,6 +36,19 @@ travis setup releases
 
 The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
 
+This results in something similar to:
+
+```yaml
+deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
+```
+
 ## Authentication with a Username and Password
 
 You can also authenticate with your GitHub username and password using the `user` and `password` options. This is not recommended as it allows full access to your GitHub account but is simplest to setup. It is recommended to encrypt your password using `travis encrypt "GITHUB PASSWORD" --add deploy.password`. This example authenticates using  a username and password.
@@ -74,7 +87,8 @@ You can upload multiple files using yml array notation. This example uploads two
 ```yaml
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
   file:
     - "FILE 1"
     - "FILE 2"

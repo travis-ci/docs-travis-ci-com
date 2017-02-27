@@ -420,15 +420,17 @@ When a long running command or compile step regularly takes longer than 10 minut
 
 The shell environment in our build system provides a function that helps to work around that, at least for longer than 10 minutes.
 
-If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment.
+If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment. For example:
 
 ```yaml
     install: travis_wait mvn install
 ```
 
-`travis_wait` writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
+spawns a process running `mvn install`.
+`travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number. For example, to extend the wait time to 30 minutes:
+If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number.
+Continuing with the example above, to extend the wait time to 30 minutes:
 
 ```yaml
     install: travis_wait 30 mvn install
@@ -436,30 +438,52 @@ If you expect the command to take more than 20 minutes, prefix `travis_wait` wit
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
+#### Limitations of `travis_wait`
+
+`travis_wait` works by starting a process, sending it to the background, and watching the background
+process.
+If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
+
 ## Troubleshooting Locally in a Docker Image
 
-If you're having trouble tracking down the exact problem in a build it often helps to run the build locally. To do this you need to be using our container based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know which Docker image you are using on Travis CI.
+If you're having trouble tracking down the exact problem in a build it often
+helps to run the build locally. To do this you need to be using our container
+based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
+which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-1. Download and install Docker:
+* Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-2. Select an image from [Quay.io](https://quay.io/organization/travisci). If you're not using a language-specific image pick `travis-ruby`. Open a terminal and start an interactive Docker session using the image URL:
+* For Ubuntu 12.04 (precise), select an image from
+   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
+`{lang}` is the language you need.  If you're not using a language-specific
+image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
+[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
+`ci-garnet` (which differ slightly depending on language desired).  In order for
+system services to run correctly, the container must be run with `/sbin/init` as
+PID 1:
 
-   ```bash
-   docker run -it quay.io/travisci/travis-ruby /bin/bash
-   ```
+``` bash
+docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+```
 
-3. Switch to the `travis` user:
+* Open a login shell in the running container
 
-   ```bash
-   su - travis
-   ```
+``` bash
+docker exec -it travis-debug bash -l
+```
 
-4. Clone your git repository into the `~` folder of the image.
-5. Manually install any dependencies.
-6. Manually run your Travis CI build command.
+* Switch to the `travis` user:
+
+``` bash
+su - travis
+```
+
+* Clone your git repository into the `~` folder of the image.
+* Manually install any dependencies.
+* Manually run your Travis CI build command.
