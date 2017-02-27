@@ -61,7 +61,6 @@ python:
   - "3.3"
   - "3.4"
   # PyPy versions
-  - "pypy"
   - "pypy"  # PyPy2 2.5.0
   - "pypy3" # Pypy3 2.4.0
   - "pypy-5.3.1"
