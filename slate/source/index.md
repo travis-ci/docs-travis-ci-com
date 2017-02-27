@@ -125,7 +125,7 @@ client.get('/repos/sinatra/sinatra')
 
 When you write your own Travis CI client, please keep the following in mind:
 
-- Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and it's current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
+- Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
 - Always set the **Accept** header to `application/vnd.travis-ci.2+json`.
 
 Any existing client library should take care of these for you.
@@ -273,7 +273,7 @@ client.github_auth(token)
 ```
 
 If you have a GitHub token, you can use the GitHub authentication endpoint to exchange it for an access token.
-The Travis API server will not store the token or use it for anything else then verifying the user account.
+The Travis API server will not store the token or use it for anything else than verifying the user account.
 
 Note that therefore the API cannot be used to create new user accounts. The user will have to log in at least once via the web interface before interfacing with the API by other means.
 

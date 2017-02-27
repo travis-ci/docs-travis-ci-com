@@ -136,7 +136,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-> These values are used directly in your build, so make sure to escape special characters (for bash) accordingly.
+> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly.
 
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
@@ -175,6 +175,7 @@ The following default environment variables are available to all builds.
 Additionally, Travis CI sets environment variables you can use in your build, e.g.
 to tag the build, or to run post-build deployments.
 
+- `TRAVIS_ALLOW_FAILURE`: Set to `true` if the job is allowed to fail. `false` if not.
 - `TRAVIS_BRANCH`: For builds not triggered by a pull request this is the
   name of the branch currently being built; whereas for builds triggered
   by a pull request this is the name of the branch targeted by the pull
@@ -184,6 +185,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
+- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.

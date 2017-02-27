@@ -646,6 +646,8 @@ notifications:
     on_success: change # default: always
     on_failure: always # default: always
     on_start: change   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
 ```
 
 ### Webhooks Delivery Format

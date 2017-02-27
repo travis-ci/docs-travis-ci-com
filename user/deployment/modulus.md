@@ -2,7 +2,10 @@
 title: Modulus Deployment
 layout: en
 permalink: /user/deployment/modulus/
+swiftypetags: nodejitsu
 ---
+
+<div id="toc"></div>
 
 Travis CI can automatically deploy your [Modulus](https://modulus.io/) application after a successful build.
 
@@ -29,7 +32,7 @@ $ travis encrypt THE-API-TOKEN --add deploy.api_key
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Branch to deploy from
+## Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -56,7 +59,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Deploying build artifacts
+## Deploying build artifacts
 
 After your tests run and before the deploy, Travis CI will clean up any additional files and changes you made.
 
@@ -70,12 +73,12 @@ deploy:
   skip_cleanup: true
 ```
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-### Running commands before and after deploy
+## Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -87,3 +90,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+
+## Nodejitsu applications
+
+If you still have Nodejitsu applications you can [transition ](https://www.nodejitsu.com/documentation/nodejitsu-modulus-transition/) them to Modulus.

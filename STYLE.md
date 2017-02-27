@@ -33,6 +33,16 @@ Do not use this style heading
 =============================
 ```
 
+### Lists
+
+If you have long lists you can wrap them into 2 (`.column-2`) or 3 (`.column-3`) columns using one of the follow CSS classes after your list item:
+
+```
+* long list item 1
+* lont list item 2
+{: .column-2 }
+```
+
 ### TOC
 
 Add a table of contents to a page with the following HTML snippet:
