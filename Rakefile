@@ -20,6 +20,19 @@ task :remove_output_dir do
   FileUtils.rm_r('_site') if File.exist?('_site')
 end
 
+def print_line_containing(file, str)
+  File.open(file).grep(/#{str}/).each do |line| puts "#{file}: #{line}" end
+end
+
+desc 'Lists files containing beta features'
+task :list_beta_files do
+  files = FileList.new('**/*.md')
+  files.exclude("_site/*", "STYLE.md")
+  for f in files do
+    print_line_containing(f, '\.beta')
+  end
+end
+
 desc 'Runs the html-proofer test'
 task :run_html_proofer do
   # seems like the build does not render `%3*`,

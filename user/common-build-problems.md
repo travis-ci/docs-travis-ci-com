@@ -8,6 +8,14 @@ redirect_from:
 
 <div id="toc"></div>
 
+## What are beta features?
+
+We mark all features that are in beta like this:
+
+> BETA Awesome new feature that might not be enabled by default and is subject
+to change.
+{: .beta}
+
 ## My tests broke but were working yesterday
 
 A very common cause when a test is suddenly breaking without any major code
