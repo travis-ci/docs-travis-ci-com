@@ -10,16 +10,15 @@ This guide covers build environment and configuration topics specific to C#, F#,
 projects. Please make sure to read our [Getting started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for C#, F#, and Visual Basic is currently in beta and may be removed or altered at any time.
+ C#, F#, and Visual Basic support is community-supported in Travis CI.
 If you run into any problems, please report them in the [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new)
-and cc @joshua-anderson @akoeplinger @nterry.
+and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry](https://github.com/nterry).
 
 ### Build Environment
 
-Currently, Travis builds your C#, F#, and Visual Basic project with the latest version of the [Mono runtime](http://www.mono-project.com/) on Linux.
-It is based on the ECMA C# and CLR standards but might not be a perfect replacement for the Microsoft .NET Framework.
+Currently, Travis builds your C#, F#, and Visual Basic project with the either the [Mono](http://www.mono-project.com/) or the [.NET Core](https://github.com/dotnet/core) runtimes on Linux or OS X. Note that these runtimes do not implement the entire .NET framework, so windows .NET framework programs may not be fully compatible and require porting.
 
 ### Overview
 
@@ -59,7 +58,7 @@ install:
   - nuget restore solution-name.sln
 ```
 
-### Choosing Mono version to test against
+### Choosing runtime and version to test against
 
 By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in .travis.yml. For example, to test against latest, 3.12.0 and 3.10.0:
 
@@ -74,8 +73,8 @@ mono:
 
 You can choose from the following Mono versions:
 
-| Version          | Installed Packages                                               |
-|------------------|------------------------------------------------------------------|
+| Version          | Installed Packages (linux only, OSX always includes everything)  |
+| ---------------- | ---------------------------------------------------------------- |
 | 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
 | 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
@@ -85,9 +84,42 @@ You can choose from the following Mono versions:
 
 **Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
+By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`:
+
+```yml
+language: csharp
+mono: none
+dotnet: 1.0.0-preview2-003121
+...
+```
+
+You can choose from the following .NET Core versions:
+
+| Codename              | Version                                         |
+| --------------------- | ----------------------------------------------- |
+| 1.0.0-preview2-003121 | Microsoft .NET Core 1.0.0 - SDK Preview 2       |
+| 1.0.0-preview2-003131 | Microsoft .NET Core 1.0.1 - SDK 1.0.0 Preview 2 |
+
+### Testing Against Mono and .NET Core
+
+You can test against both Mono and .Net Core by using `matrix.include`. This example tests against both the latest mono and .NET Core
+
+```yaml
+language: csharp
+solution: travis-mono-test.sln
+
+matrix:
+  include:
+    - dotnet: 1.0.0-preview2-003121
+      mono: none
+      env: DOTNETCORE=1
+    - mono: latest
+...
+```
+
 ### Build Matrix
 
-For C#, F#, and Visual Basic projects, `mono` can be given as an array to construct a build matrix.
+For C#, F#, and Visual Basic projects, `mono` and `dotnet` can be given as an array to construct a build matrix.
 
 ### Addons
 
@@ -109,7 +141,7 @@ install:
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 
 #### xunit
@@ -122,7 +154,7 @@ install:
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 
 *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
@@ -131,20 +163,19 @@ script:
 
 Another way is to add the console testrunner of your choice as a solution-level nuget package.
 
-For many .NET projects this will be the file found at ` ./.nuget/packages.config `.
+For many .NET projects this will be the file found at `./.nuget/packages.config`.
 
-nuget restore solution-name.sln will then install that package as well.
+`nuget restore solution-name.sln` will then install that package as well.
 
 ```yaml
 language: csharp
 solution: solution-name.sln
 script:
   - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyPoject.Tests/bin/Release/MyProject.Tests.dll
-
+  - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 
-Notice the use of filename expansion (the ```*```) in order to avoid having to hard code the version of the test runner.
+Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 
 #### Other test frameworks
 

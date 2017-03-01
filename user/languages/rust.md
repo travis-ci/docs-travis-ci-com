@@ -3,6 +3,7 @@ title: Building a Rust Project
 layout: en
 permalink: /user/languages/rust/
 ---
+
 <div id="toc">
 </div>
 
@@ -63,11 +64,14 @@ This will test all three channels, but any breakage in nightly will not fail you
 Travis CI uses Cargo to run your build and tests by default. The exact commands
 run are:
 
-    $ cargo build --verbose
-    $ cargo test --verbose
+```bash
+$ cargo build --verbose
+$ cargo test --verbose
+```
 
 If you wish to override this, you can use the `script` setting:
 
-    language: rust
-    script: make all
-
+```yaml
+language: rust
+script: make all
+```

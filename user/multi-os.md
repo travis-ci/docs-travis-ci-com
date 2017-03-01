@@ -4,9 +4,6 @@ layout: en
 permalink: /user/multi-os/
 ---
 
-> The feature described in this document is considered beta.
-Some features may not work as described.
-
 If your code is used on multiple operating systems it probably should be tested on
 multiple operating systems. Travis CI can test on Linux and OS X.
 
@@ -27,18 +24,18 @@ If you are already using a [build matrix](/user/customizing-the-build/#Build-Mat
 When you test your code on multiple operating systems, be aware of differences
 that can affect your tests:
 
-* Not all tools may be available on OS X.
+- Not all tools may be available on OS X.
 
   We are still working on building up the toolchain on the [OS X Environment](/user/osx-ci-environment/).
   Missing software may be available via Homebrew.
 
-* Language availability.
+- Language availability.
 
   Not all languages are available on all operating systems, and different versions maybe installed on different systems.
   Before you embark on the multi-os testing journey, be sure to check
   this GitHub issue [detailing what languages are available](https://github.com/travis-ci/travis-ci/issues/2320).
 
-* The file system behavior is different.
+- The file system behavior is different.
 
   The HFS+ file system on our OS X workers is case-insensitive (which is the default for OS X),
   and the files in a directory are returned sorted.
@@ -47,7 +44,7 @@ that can affect your tests:
 
    Your tests may implicitly rely on these behaviors, and could fail because of them.
 
-* They are different operating systems, after all.
+- They are different operating systems, after all.
 
   Commands may have the same name on the Mac and Linux, but they may have different flags,
   or the same flag may mean different things.
@@ -70,7 +67,6 @@ matrix:
 Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/customizing-the-build/#The-Build-Lifecycle) to use [Graphviz](http://www.graphviz.org/) in both Linux and OS X.
 
 ```yaml
-
 language: c
 
 os:
@@ -86,7 +82,7 @@ addons:
     packages:
       - graphviz
 
-before install:
+before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install graphviz; fi
 
@@ -112,7 +108,6 @@ matrix:
 For example, this `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. It also takes advantage of `language: generic` to test Python in OS X. Custom requirements are installed in `./.travis/install.sh` below.
 
 ```yaml
-
 language: python
 
 matrix:
@@ -135,6 +130,7 @@ install:
     - ./.travis/install.sh
 script: make test
 ```
+
 This custom install script (pseudo code only) uses the `$TRAVIS_OS_NAME` and `$TOXENV` variables to install (Python) prerequisites specific to OS X, Linux and each specific python version.
 
 ```bash

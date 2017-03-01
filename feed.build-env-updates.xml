@@ -14,7 +14,7 @@ layout: null
 				<title>{{ page.title | xml_escape }}</title>
 				<description>{{ page.content | xml_escape }}</description>
 				<pubDate>{{ page.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				<link>http://docs.travis-ci.com/{{ page.url }}</link>
+				<link>{{ site.url}}{{ page.url }}</link>
 				<guid isPermaLink="true">{{ site.url }}{{ page.url }}</guid>
 			</item>
 		{% endif %}

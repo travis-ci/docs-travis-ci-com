@@ -32,9 +32,22 @@ You can also use the [Travis CI command line client](https://github.com/travis-c
 travis setup releases
 ```
 
-##  Authenticating with an Oauth token
+## Authenticating with an Oauth token
 
 The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+
+This results in something similar to:
+
+```yaml
+deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
+```
 
 ## Authentication with a Username and Password
 
@@ -74,7 +87,8 @@ You can upload multiple files using yml array notation. This example uploads two
 ```yaml
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
   file:
     - "FILE 1"
     - "FILE 2"
