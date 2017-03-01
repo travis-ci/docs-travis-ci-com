@@ -34,9 +34,9 @@ otp_release:
   - 18.2.1
 ```
 
-Multiple Elixir versions with different OTP release versions can be achieved like this:
+To test multiple Elixir versions with different OTP release versions:
 
-{% highlight yaml %}
+```yaml
 language: elixir
 
 elixir:
@@ -47,9 +47,8 @@ matrix:
   include:
     - elixir: 1.2
       otp_release: 18.0
-{% endhighlight %}
+```
 
-Note that at the time of writing, Elixir 1.2 has not been released, so that build will fail.
 
 ## Build Matrix
 
