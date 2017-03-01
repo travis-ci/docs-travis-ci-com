@@ -34,6 +34,22 @@ otp_release:
   - 18.2.1
 ```
 
+To test multiple Elixir versions with different OTP release versions:
+
+```yaml
+language: elixir
+
+elixir:
+  - 1.0.5
+otp_release: 17.4
+
+matrix:
+  include:
+    - elixir: 1.2
+      otp_release: 18.0
+```
+
+
 ## Build Matrix
 
 For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
