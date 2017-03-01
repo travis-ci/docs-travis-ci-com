@@ -23,7 +23,7 @@ and cc `@nex3` and `@a14n`.
 Dart workers on travis-ci.org download and install the Dart SDK archives. See
 the [Dart Download Archive](https://www.dartlang.org/install) for the list of
 available archives. By default, the latest stable SDK version is downloaded. To
-explicitly select one or more versions, use the `dart` field. For example:
+explicitly select one or more versions, use the `dart` key. For example:
 
 ```yaml
 language: dart
@@ -38,7 +38,7 @@ dart:
 - "dev/release/1.16.0-dev.3.0"
 ```
 
-This creates a separate Travis build for each Dart version. It can be used in
+This creates a separate Travis job for each Dart version. It can be used in
 conjunction with `env` or similar fields to create a [build matrix][].
 
 [build matrix]: /user/customizing-the-build/#Build-Matrix
@@ -67,7 +67,7 @@ dart_tasks:
 - test: --platform chrome
 ```
 
-Each task creates a separate Travis build. It can be used in conjunction with
+Each task creates a separate Travis job. It can be used in conjunction with
 `env`, `dart`, or similar fields to create a [build matrix][].
 
 ### Available Browsers
