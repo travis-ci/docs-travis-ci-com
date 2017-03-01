@@ -119,6 +119,28 @@ JRuby into account. Most of popular C extensions these days also have Java
 implementations (json gem, nokogiri, eventmachine, bson gem) or Java
 alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 
+### JRuby: Installation takes a long time on Standard and Trusty environments
+
+In the [Standard and Trusty
+environments](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments),
+installing JRuby can take several minutes.
+This is due to the lack of entropy in the build VM, which can be
+eradicated by installing an entropy daemon such as
+[HAVEGED](http://www.issihosts.com/haveged/).
+
+You can use [the `apt`
+addon](https://docs.travis-ci.com/user/installing-dependencies#Installing-Packages-with-the-APT-Addon)
+as follows:
+
+    language: ruby
+    rvm: jruby-9.1.5.0
+    sudo: required
+    dist: trusty
+    addons:
+      apt:
+        packages:
+          - haveged
+
 ## Default Test Script
 
 Travis CI runs `rake` by default to execute your tests. Please note that **you
