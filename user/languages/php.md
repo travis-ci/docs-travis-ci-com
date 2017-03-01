@@ -25,21 +25,24 @@ php:
   - '5.5'
   - '5.6'
   - '7.0'
+  - '7.1'
   - hhvm
   - nightly
 ```
+
 The previous example uses `phpunit`, the default build script, to build against the following list of PHP versions:
 
-* 5.4.x
-* 5.5.x
-* 5.6.x
-* 7.0.x
-* hhvm
-* nightly
+- 5.4.x
+- 5.5.x
+- 5.6.x
+- 7.0.x
+- 7.1.x
+- hhvm
+- nightly
 
 which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
 
-You can see an [example of version number aliaes ](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
+You can see an [example of version number aliases](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
 
 > Specifying exact versions like 5.3.8 is discouraged as it may break your build when we update PHP versions on Travis CI. PHP version *5.5.9* is supported, however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
 
@@ -61,9 +64,6 @@ php:
 ```
 
 #### HHVM versions on Trusty
-
-Note: Currently, PHP is [not officially supported on Trusty](https://docs.travis-ci.com/user/trusty-ci-environment#PHP).
-However, you can use the "edge" image to test it.
 
 ```yaml
 language: php
@@ -89,8 +89,8 @@ If your project uses something other than PHPUnit, [you can override our default
 Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
 ```yaml
-before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
-script: php mageekguy.atoum.phar
+before_script: composer require atoum/atoum
+script: vendor/bin/atoum
 ```
 
 ## Dependency Management (a.k.a. vendoring)
@@ -140,25 +140,31 @@ The same technique is often used to test projects against multiple databases and
 
 To see real world examples, see:
 
-* [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
-* [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
-* [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
+- [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
+- [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
+- [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
 ### Installing PEAR packages
 
 If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
 
-    pyrus install http://phptal.org/latest.tar.gz
-    pear install pear/PHP_CodeSniffer
+```
+pyrus install http://phptal.org/latest.tar.gz
+pear install pear/PHP_CodeSniffer
+```
 
 After install you should refresh your path
 
-    phpenv rehash
+```
+phpenv rehash
+```
 
 For example, if you want to use phpcs, you should execute:
 
-    pyrus install pear/PHP_CodeSniffer
-    phpenv rehash
+```
+pyrus install pear/PHP_CodeSniffer
+phpenv rehash
+```
 
 Then you can use phpcs like the phpunit command
 
@@ -175,7 +181,9 @@ composer has a time-based update warning, you may see messages such as this, whi
 You can also install [Composer](http://packagist.org/) packages into the Travis CI PHP environment. The composer
 command comes pre-installed, use the following:
 
-    composer install
+```
+composer install
+```
 
 To ensure that everything works, use http(s) URLs on [Packagist](http://packagist.org/) and not git URLs.
 
@@ -185,12 +193,12 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-* Note that the OpenSSL extension is disabled on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
-* Different SAPIs:
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- Different SAPIs:
 
-  * 5.3.3 comes with php-cgi only.
-  * 5.3.x (5.3.29) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
-  * 5.4.x, 5.5.x, and 5.6.x come with php-cgi *and* php-fpm.
+  - 5.3.3 comes with php-cgi only.
+  - 5.3.x (5.3.29) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
+  - 5.4.x, 5.5.x, and 5.6.x come with php-cgi *and* php-fpm.
 
 ## Custom PHP configuration
 
@@ -229,28 +237,27 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 The following extensions are preinstalled for PHP 7.0 and nightly builds:
 
-* [apc.so](http://php.net/apc)
-* [memcached.so](http://php.net/memcached)
-* [mongodb.so](https://php.net/mongodb)
-* [amqp.so](http://php.net/amqp)
-* [zmq.so](http://zeromq.org/bindings:php)
-* [xdebug.so](http://xdebug.org)
-* [redis.so](http://pecl.php.net/package/redis)
+- [apc.so](http://php.net/apc)
+- [memcached.so](http://php.net/memcached)
+- [mongodb.so](https://php.net/mongodb)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
 
 Please note that these extensions are not enabled by default with the exception of xdebug.
-
 
 #### PHP 5.6 and below
 
 For PHP versions up to 5.6, the following extensions are available:
 
-* [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
-* [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
-* [mongo.so](http://php.net/mongo)
-* [amqp.so](http://php.net/amqp)
-* [zmq.so](http://zeromq.org/bindings:php)
-* [xdebug.so](http://xdebug.org)
-* [redis.so](http://pecl.php.net/package/redis)
+- [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
+- [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+- [mongo.so](http://php.net/mongo)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
 
 Please note that these extensions are not enabled by default with the exception of xdebug.
 
@@ -292,19 +299,25 @@ before_script:
 
 It is possible to install custom PHP extensions into the Travis CI environment using [PECL](http://pecl.php.net/), but they have to be built against the PHP version being tested. Here is for example how the `memcache` extension can be installed:
 
-    pecl install <extension>
+```
+pecl install <extension>
+```
 
 PECL will automatically enable the extension at the end of the installation. If you want to configure your extension, use the `phpenv config-add` command to add a custom ini configuration file in your before_script.
 
 It is also possible to do the installation "manually", but you'll have to manually enable the extension after the installation either with `phpenv config-add` and a custom ini file or with this one line command:
 
-    echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+```
+echo "extension=<extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+```
 
 See also the [full script using midgard2](https://github.com/bergie/midgardmvc_core/blob/master/tests/travis_midgard2.sh).
 
 If you need specific version of preinstalled extension, you need to force install specific version with the `-f` flag. For example:
 
-    pecl install -f mongo-1.2.12
+```
+pecl install -f mongo-1.2.12
+```
 
 #### Note on `pecl install`
 
@@ -337,7 +350,7 @@ before_script:
 
 > Note that `sudo` is not available for builds that are running on [container-based](/user/workers/container-based-infrastructure) workers.
 
-You will need to have ``build/travis-ci-apache`` file that will configure your virtual host as usual, the important part for php-fpm is this:
+You will need to have `build/travis-ci-apache` file that will configure your virtual host as usual, the important part for php-fpm is this:
 
 ```apacheconf
 <VirtualHost *:80>
@@ -388,4 +401,4 @@ to construct a build matrix.
 
 ## Examples
 
-  * [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
+- [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)

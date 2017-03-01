@@ -3,6 +3,7 @@ title: Using BrowserStack with Travis CI
 layout: en
 permalink: /user/browserstack/
 ---
+
 Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
@@ -15,11 +16,17 @@ Once the secure connection is setup, all URLs work out of the box, including you
 URLs with HTTPS.
 
 [local-testing]: https://www.browserstack.com/local-testing
+
 [local-binary]: https://www.browserstack.com/local-testing#command-line
+
 [open-source-browserstack]: https://www.browserstack.com/pricing
+
 [account-settings]: https://www.browserstack.com/accounts/settings
+
 [encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+
 [browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
+
 [travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
 
 ## Setting up BrowserStack
