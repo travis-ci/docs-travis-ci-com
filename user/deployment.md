@@ -37,7 +37,7 @@ deploy:
     password: "YOUR CLOUDCONTROL PASSWORD"
     deployment: "APP_NAME/DEP_NAME"
   - provider: heroku
-    api_key "YOUR HEROKU API KEY"
+    api_key: "YOUR HEROKU API KEY"
 ```
 
 ### Conditional Releases with `on:`
