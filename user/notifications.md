@@ -369,7 +369,7 @@ notifications:
 
 - *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
 - *hostname*: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances
-- *room id or name*: id or name of the room you want to notify.
+- *room id or name*: id or name (case-sensitive) of the room you want to notify.
 
 If your room name contains spaces then use the room id.
 
