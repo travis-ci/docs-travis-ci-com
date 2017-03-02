@@ -36,3 +36,8 @@ We'll complete this transition in the coming months, but plan to continue
 supporting V2 until the end of 2017. We'll naturally give developers ample
 notice before switching V2 off, and provide detailed instructions for making the
 transition to V3.
+
+## Ruby Library
+
+The [Ruby Library](https://github.com/travis-ci/travis#ruby-library) uses the
+API V2.

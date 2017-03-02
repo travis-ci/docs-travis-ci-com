@@ -4,70 +4,115 @@ permalink: /user/triggering-builds/
 layout: en
 ---
 
-Trigger Travis CI builds using the API (*v3 only*) by sending a POST request to `/repo/{slug|id}/requests`.
+Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
-Before using the Travis CI API you need to use the [command line client](https://github.com/travis-ci/travis.rb#readme) to get an API token:
+1. Get an API token using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme):
 
-```bash
-travis login --org
-travis token --org
-```
+   ```
+   travis login --org
+   travis token --org
+   ```
 
-If you are using Travis CI with a private repository use `--pro` instead of `--org` and use `https://api.travis-ci.com` for all endpoints.
+   You'll need the token to make most API requests.
 
-Here is a script for sending a minimal request to the master branch of the `travis-ci/travis-core` repository:
+   > If you are using Travis CI with a private repository use `--pro` instead of
+     `--org` in the previous commands, and use `https://api.travis-ci.com` in all API requests.
 
-```bash
-body='{
-"request": {
-  "branch":"master"
-}}'
+2. Send a request to the API. This example shell script sends a POST request to
+   `/repo/travis-ci/travis-core/requests` to trigger a build of the most recent
+   commit of the master branch of the `travis-ci/travis-core` repository:
 
-curl -s -X POST \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -H "Travis-API-Version: 3" \
-  -H "Authorization: token xxxxxx" \
-  -d "$body" \
-  https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
-```
+   ```bash
+   body='{
+   "request": {
+   "branch":"master"
+   }}'
 
-> The %2F in the request URL is required so that the owner and repository name in the repository slug are interpreted as a single URL segment.
+   curl -s -X POST \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json" \
+      -H "Travis-API-Version: 3" \
+      -H "Authorization: token xxxxxx" \
+      -d "$body" \
+      https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+   ```
 
-This request triggers a build of the most recent commit on the master branch of the `travis-ci/travis-core` repository, using the `.travis.yml` file in the master branch.
+   > The %2F in the request URL is required so that the owner and repository
+     name in the repository slug are interpreted as a single URL segment.
 
-You can also add to or override configuration in the `.travis.yml` file, or change the commit message.
-Please note that overriding any of the sections (like `script` or `env`) overrides the full section, the
-contents of the .travis.yml file will not be merged with the values contained in
-the request.
 
-The following script passes a `message` attribute, and adds to the build configuration by passing environment variables and a script command. Here the config from the `.travis.yml` file is merged with the config from the request body.
+   The build uses the `.travis.yml` file in the master branch, but you can add to
+   or override configuration, or change the commit message. Overriding any section
+   (like `script` or `env`) overrides the full section, the contents of the
+   `.travis.yml` file is *not* merged with the values contained in the request.
 
-> Keys in the request's config override any keys existing in the `.travis.yml`.
+3. Send a more complex request to the API. The following script triggers a build
+   and also passes a `message` attribute for the commit, and adds to the build
+   configuration by passing environment variables and a script command. Here the
+   config from the `.travis.yml` file *is* merged with the config from the request body.
 
-```bash
-body='{
-"request": {
-  "message": "Override the commit message: this is an api request",
-  "branch":"master",
-  "config": {
-    "env": {
-      "matrix": ["TEST=unit"]
-    },
-    "script": "echo FOO"
-  }
-}}'
+   > Keys in the request's config override any keys existing in the `.travis.yml`.
 
-curl -s -X POST \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -H "Travis-API-Version: 3" \
-  -H "Authorization: token xxxxxx" \
-  -d "$body" \
-  https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
-```
+   ```bash
+   body='{
+    "request": {
+    "message": "Override the commit message: this is an api request",
+    "branch":"master",
+    "config": {
+      "env": {
+        "matrix": ["TEST=unit"]
+      },
+      "script": "echo FOO"
+     }
+   }}'
 
-### Requests triggered with API and webhooks
+   curl -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -H "Travis-API-Version: 3" \
+    -H "Authorization: token xxxxxx" \
+    -d "$body" \
+    https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+   ```
+
+4. Look at the reponse body, which contains information about the build, the
+   repository and the user:
+
+   ```json
+   {
+     "@type": "pending",
+     "remaining_requests": 1,
+     "repository": {
+       "@type": "repository",
+       "@href": "/repo/39521",
+       "@representation": "minimal",
+       "id": 39521,
+       "name": "test-2",
+       "slug": "svenfuchs/test-2"
+     },
+     "request": {
+       "repository": {
+         "id": 44258138,
+         "owner_name": "svenfuchs",
+         "name": "test-2"
+       },
+       "user": {
+         "id": 3664
+       },
+       "id": 205729,
+       "message": null,
+       "branch": "master",
+       "config": {
+       }
+     },
+     "resource_type": "request"
+   }
+   ```
+
+5. Visit the [API V3 explorer](http://developer.travis-ci.com/) for more information
+   about what endpoints are available and what you can do with them.
+
+## Requests triggered with API and webhooks
 
 Due to a way we use tokens for webhooks authentication, a token needs to be
 passed manually as a param for webhooks to work properly. An example request
