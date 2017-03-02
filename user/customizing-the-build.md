@@ -509,14 +509,14 @@ Without the top-level `env`, no job will be allowed to fail.
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
-To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
+To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
 ```yaml
 matrix:
   fast_finish: true
 ```
 
-Now, a build will finish as soon as the only jobs left allow failures.
+Now, a build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
 ## Implementing Complex Build Steps
 
