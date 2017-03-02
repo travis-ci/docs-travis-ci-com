@@ -1,5 +1,5 @@
 ---
-title: Triggering builds through the API
+title: Triggering builds with API V3
 permalink: /user/triggering-builds/
 layout: en
 ---
