@@ -516,7 +516,7 @@ matrix:
   fast_finish: true
 ```
 
-Now, a build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
+Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
 ## Implementing Complex Build Steps
 
