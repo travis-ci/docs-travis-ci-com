@@ -361,7 +361,23 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
-## How does caching work?
+## Caches and read permissions
+
+It is necessary that the cached directories can be created
+(in a directory writable by the user), and are readable
+when the archive is uploaded.
+If they are not, the caching utility will report various errors when it
+invokes `tar` to create the cache archive.
+
+For example:
+
+```
+FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+```
+
+## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
 them to S3, using a secure and protected URL, ensuring security and privacy of
