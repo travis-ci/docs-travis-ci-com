@@ -346,15 +346,22 @@ Pull Request builds do not trigger Flowdock notifications.
 
 ## Configuring HipChat notifications
 
-Notifications can be sent to your HipChat chat rooms using the following format:
+Send notifications to your HipChat rooms using the following key in your
+`.travis.yml`:
 
 ```yaml
 notifications:
   hipchat: [api token]@[room id or name]
 ```
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
-> your .travis.yml is stored in a public repository:
+- `api token`: token of the user you want to post the notifications as. One of
+    * API v1 token your group administrator gives you.
+    * API v2 token you manage.
+- `hostname`: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances.
+- `room id` or `name`: id or name (case-sensitive) of the room you want to notify. If your room name contains spaces then use room id.
+
+> Always [encrypt](/user/encryption-keys/) this value if
+> your `.travis.yml` is stored in a public repository:
 >
 > ```bash
 > travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
@@ -366,12 +373,6 @@ If you are running HipChat Server, specify the hostname like this instead:
 notifications:
   hipchat: [api token]@[hostname]/[room id or name]
 ```
-
-- *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
-- *hostname*: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances
-- *room id or name*: id or name (case-sensitive) of the room you want to notify.
-
-If your room name contains spaces then use the room id.
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
@@ -423,9 +424,11 @@ with a desired label, and use this token.
 
 ### Notifications of PR builds
 
-By default, Hipchat will be notified both for push builds and pull request builds.
+By default, Hipchat will be notified both for push builds and pull request
+builds.
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `hipchat` section of your `.travis.yml`:
+Turn pull request notifcations off by adding `on_pull_requests: false` to the
+`hipchat` section of your `.travis.yml`:
 
 
 ```yaml
