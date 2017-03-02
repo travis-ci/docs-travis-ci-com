@@ -516,7 +516,7 @@ matrix:
   fast_finish: true
 ```
 
-Now, a build will finish as soon as a job has failed, or when the only jobs left allow failures.
+Now, a build will finish as soon as the only jobs left allow failures.
 
 ## Implementing Complex Build Steps
 
