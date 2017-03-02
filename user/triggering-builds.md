@@ -114,9 +114,10 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
 
 ## Requests triggered with API and webhooks
 
-Due to a way we use tokens for webhooks authentication, a token needs to be
-passed manually as a param for webhooks to work properly. An example request
-with token passed as a param would look like:
+Due to how we use tokens for webhook authentication, you need to explicitly
+pass an API token as a parameter to the API for webhooks to work properly.
+
+An example request with token passed as a parameter:
 
 ```json
 "request": {
