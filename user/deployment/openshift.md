@@ -11,7 +11,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 ```yaml
 deploy:
   provider: openshift
-  user: "YOU USER NAME"
+  user: brandon1780"YOU USER NAME"
   password: "YOUR PASSWORD" # can be encrypted
   domain: "YOUR OPENSHIFT DOMAIN"
 ```
