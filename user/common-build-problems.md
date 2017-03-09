@@ -144,6 +144,22 @@ end
 bundler_args: --without development debug
 ```
 
+## Ruby: tests frozen and cancelled after 10 minute log silence
+
+In some cases, the use of the `timecop` gem can result in seemingly sporadic
+"freezing" due to issues with ordering calls of `Timecop.return`,
+`Timecop.freeze`, and `Timecop.travel`.  For example, if using RSpec, be sure to
+have a `Timecop.return` configured to run *after* all examples:
+
+``` ruby
+# in, e.g. spec/spec_helper.rb
+RSpec.configure do |c|
+  c.after :all do
+    Timecop.return
+  end
+end
+```
+
 ## Mac: OS X Mavericks (10.9) Code Signing Errors
 
 With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
