@@ -135,7 +135,7 @@ env:
   - DJANGO_VERSION=1.8.2
 ```
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
 
 ```yaml
 install:
