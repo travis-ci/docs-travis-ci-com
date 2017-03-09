@@ -323,9 +323,9 @@ cache:
 Caching has a timeout set to 3 minutes by default. The timeout is there in order
 to guard against any issues that may result in a stuck build. Such issues may be
 caused by a network issue between worker servers and S3 or even by a cache being
-to big to pack it and upload it in timely fashion. There are, however,
+too big to pack and upload in timely fashion. There are, however,
 situations when you might want to set a bigger timeout, especially if you need
-to cache large amount. In order to change the timeout you can use the `timeout`
+to cache a large amount. In order to change the timeout you can use the `timeout`
 property with a desired time in seconds:
 
 ```yaml
