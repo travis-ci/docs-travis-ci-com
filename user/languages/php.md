@@ -237,7 +237,7 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 The following extensions are preinstalled for PHP 7.0 and nightly builds:
 
-- [apc.so](http://php.net/apc)
+- [apcu.so](http://php.net/apcu)
 - [memcached.so](http://php.net/memcached)
 - [mongodb.so](https://php.net/mongodb)
 - [amqp.so](http://php.net/amqp)
