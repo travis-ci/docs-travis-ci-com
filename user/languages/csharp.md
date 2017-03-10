@@ -81,9 +81,9 @@ You can choose from the following Mono versions:
 | 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
 | 2.10.8           | mono-complete, mono-vbnc                                         |
-| none             |                                                                  |
+| none             | *disables Mono (use this if you only want .NET Core, see below)* |
 
-*Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
+> *Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
 
 **Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
@@ -98,7 +98,7 @@ dotnet: 1.0.1
 ...
 ```
 
-*Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
+> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
 
@@ -159,7 +159,7 @@ script:
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 
-*Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
+> *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
 #### Using solution-level NuGet package
 
