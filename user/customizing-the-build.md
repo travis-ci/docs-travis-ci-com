@@ -237,7 +237,7 @@ git:
 
 ## Building Specific Branches
 
-Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blocklists or safelists.
+Travis CI uses the `.travis.yml` file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
 
 ### Safelisting or blocklisting branches
 
@@ -257,11 +257,11 @@ branches:
   - stable
 ```
 
-> Note that _safelisting_ will cause tagged commits to be _skipped_. You can use a regex to safelist tags (e.g. the regex `/^v\d+\.\d+(\.\d+)?(-\S*)?$/` matches tag `v1.0`). See more about using regural expressions below.
+> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#Using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
 
-If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the safelist.
+If you use both a safelist and a blocklist, the takes safelist takes precedence. By default, the `gh-pages` branch is not built unless you add it to the safelist.
 
-To have _all_ branches build:
+To build _all_ branches:
 
     branches:
       only:
