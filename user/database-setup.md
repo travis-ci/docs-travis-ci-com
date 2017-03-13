@@ -139,23 +139,23 @@ addons:
 The following versions are available on Linux builds:
 
 | PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
-| :--------: | :------------------: | :-----------------: | :---------------: | :--------------: |
-|     9.1    |          yes         |                     |        yes        |                  |
-|     9.2    |          yes         |         yes         |        yes        |        yes       |
-|     9.3    |          yes         |         yes         |        yes        |        yes       |
-|     9.4    |          yes         |         yes         |        yes        |        yes       |
-|     9.5    |          yes         |         yes         |                   |        yes       |
-|     9.6    |                      |         yes         |                   |        yes       |
+|:----------:|:--------------------:|:-------------------:|:-----------------:|:----------------:|
+|    9.1     |         yes          |                     |        yes        |                  |
+|    9.2     |         yes          |         yes         |        yes        |       yes        |
+|    9.3     |         yes          |         yes         |        yes        |       yes        |
+|    9.4     |         yes          |         yes         |        yes        |       yes        |
+|    9.5     |         yes          |         yes         |                   |       yes        |
+|    9.6     |                      |         yes         |                   |       yes        |
 
 On OSX, the following versions are installed:
 
 |     image     | version |
-| :-----------: | :-----: |
+|:-------------:|:-------:|
 |    xcode61    |   9.3   |
 | beta-xcode6.1 |   9.3   |
-|    xcode6.4   |   9.4   |
-|    xcode7.3   |   9.5   |
-|     xcode8    |   9.5   |
+|   xcode6.4    |   9.4   |
+|   xcode7.3    |   9.5   |
+|    xcode8     |   9.5   |
 
 ### Using PostGIS
 
@@ -432,6 +432,22 @@ before_install:
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
+
+### Installing ElasticSearch on trusty container-based infrastructure
+
+ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/trusty-ci-environment/)
+but you can install it by adding the following steps to your `.travis.yml`.
+
+```yaml
+env:
+  - ES_VERSION=5.1.1 ES_DOWNLOAD_URL=https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz
+install:
+  - wget ${ES_DOWNLOAD_URL}
+  - tar -xzf elasticsearch-${ES_VERSION}.tar.gz
+  - ./elasticsearch-${ES_VERSION}/bin/elasticsearch &
+script:
+  - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
+```
 
 ### Truncated Output in the Build Log
 
