@@ -144,6 +144,8 @@ cache: ccache
 
 caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
 
+> Note that ccache is not installed on OSX environments but you can install it with `brew install ccache`.
+
 ### R package cache
 
 For caching R packages, use:
