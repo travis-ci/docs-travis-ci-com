@@ -30,7 +30,7 @@ Remember to [encrypt](/user/encryption-keys/#Usage) the token before adding it t
 
 ## Deploying to a custom project
 
-To deploy to a different project than the one specified in the `firebase.json`, use the `poject` key in your `.travis.yml`:
+To deploy to a different project than the one specified in the `firebase.json`, use the `project` key in your `.travis.yml`:
 
 ```yaml
 deploy:
