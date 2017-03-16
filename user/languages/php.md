@@ -82,6 +82,14 @@ php:
 
 The default test script is `phpunit`.
 
+Travis CI looks for `phpuni` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
+and uses the first one found.
+
+1. `$COMPOSER_BIN_DIR/phpunit`
+1. `phpunit` found in the directory specified by `bin-dir` in `composer.json`
+1. `vendor/bin/phpunit`
+1. `phpunit`, which is found on `$PATH` (typically one that is pre-packaged with the PHP runtime)
+
 If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/customizing-the-build/) you want.
 
 ### Working with atoum
