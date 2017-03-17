@@ -82,7 +82,7 @@ php:
 
 The default test script is `phpunit`.
 
-Travis CI looks for `phpuni` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
+Travis CI looks for `phpunit` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
 and uses the first one found.
 
 1. `$COMPOSER_BIN_DIR/phpunit`
