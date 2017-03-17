@@ -162,7 +162,8 @@ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 
 The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
 
-If needed, you can easily replace this preinstalled version of `docker-compose` by adding the following `before_install` step to your `.travis.yml`:
+If needed, you can easily replace this preinstalled version of `docker-compose`
+by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
@@ -173,6 +174,19 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+```
+
+### Installing a newer Docker version
+
+The Trusty sudo-required environment comes with Docker 1.12 pre-installed.
+You can upgrade to the latest version and use any new Docker features by manually
+updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - docker --version # for verification
 ```
 
 #### Examples
