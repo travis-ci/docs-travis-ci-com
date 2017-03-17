@@ -180,7 +180,7 @@ before_install:
 
 ### Installing a newer Docker version
 
-The Trusty sudo-required environment comes with Docker 1.12 pre-installed.
+The pre-installed Docker version is possibly not the latest.
 You can upgrade to the latest version and use any new Docker features by manually
 updating `docker-engine` in the `before_install` step of your `.travis.yml`:
 
