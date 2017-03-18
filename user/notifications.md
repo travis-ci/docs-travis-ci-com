@@ -738,3 +738,25 @@ is a small Sinatra app which shows you how this works.
 
 [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
+
+## CatLight desktop notifications
+
+[CatLight](https://catlight.io) is a notifier app for Windows, Mac OS X and Linux. It shows current status of Travis CI builds in tray. CatLight icon will change color depending on the build status. When build starts or completes, the app will show a toast notification with details. 
+
+<figure>
+  <img src="/images/catlight-notification.png" alt="CatLight desktop build notification" />
+</figure>
+
+Click on the notification to see build history for this specific branch.
+
+<figure>
+  <img src="/images/catlight-build-dashboard.png" alt="CatLight build dashboard" width="567px" />
+</figure>
+
+You can click "I will investigate" on a broken build. App will notify the team that you are checking this build.
+
+To see only important notifications, you can configure CatLight to monitor only branches that have your changes.
+
+[Download CatLight for Windows, Mac OS X or Linux](https://catlight.io/downloads).
+
+
