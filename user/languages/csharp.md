@@ -62,7 +62,7 @@ install:
 
 #### Mono
 
-By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in .travis.yml. For example, to test against latest, 3.12.0 and 3.10.0:
+By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against latest, 3.12.0 and 3.10.0:
 
 ```yaml
 language: csharp
