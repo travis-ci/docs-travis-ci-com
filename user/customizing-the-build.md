@@ -188,7 +188,7 @@ You can also use other installation methods such as `apt-get`.
 ## Build Timeouts
 
 It is very common for test suites or build scripts to hang.
-Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
+Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - A job takes longer than 50 minutes on travis-ci.org
 - A job takes longer than 120 minutes on travis-ci.com
