@@ -65,8 +65,8 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>File System</td>
-<td>AUFS</td>
-<td>ext4</td>
+<td>AUFS, case sensitive</td>
+<td>ext4, case sensitive</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
