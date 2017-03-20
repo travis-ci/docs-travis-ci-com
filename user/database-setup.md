@@ -139,23 +139,23 @@ addons:
 The following versions are available on Linux builds:
 
 | PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
-| :--------: | :------------------: | :-----------------: | :---------------: | :--------------: |
-|     9.1    |          yes         |                     |        yes        |                  |
-|     9.2    |          yes         |         yes         |        yes        |        yes       |
-|     9.3    |          yes         |         yes         |        yes        |        yes       |
-|     9.4    |          yes         |         yes         |        yes        |        yes       |
-|     9.5    |          yes         |         yes         |                   |        yes       |
-|     9.6    |                      |         yes         |                   |        yes       |
+|:----------:|:--------------------:|:-------------------:|:-----------------:|:----------------:|
+|    9.1     |         yes          |                     |        yes        |                  |
+|    9.2     |         yes          |         yes         |        yes        |       yes        |
+|    9.3     |         yes          |         yes         |        yes        |       yes        |
+|    9.4     |         yes          |         yes         |        yes        |       yes        |
+|    9.5     |         yes          |         yes         |                   |       yes        |
+|    9.6     |                      |         yes         |                   |       yes        |
 
 On OSX, the following versions are installed:
 
 |     image     | version |
-| :-----------: | :-----: |
+|:-------------:|:-------:|
 |    xcode61    |   9.3   |
 | beta-xcode6.1 |   9.3   |
-|    xcode6.4   |   9.4   |
-|    xcode7.3   |   9.5   |
-|     xcode8    |   9.5   |
+|   xcode6.4    |   9.4   |
+|   xcode7.3    |   9.5   |
+|    xcode8     |   9.5   |
 
 ### Using PostGIS
 
@@ -473,7 +473,7 @@ and a `before_script` or `before_install` line to create a build matrix.
 
 Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
-```sh
+```bash
 DB=postgres [commands to run your tests]
 ```
 

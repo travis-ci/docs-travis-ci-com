@@ -108,7 +108,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 2. In your repository directory, run:
 
-   ```sh
+   ```bash
    travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
    ```
 

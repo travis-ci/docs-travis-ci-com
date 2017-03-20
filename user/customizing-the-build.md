@@ -218,7 +218,7 @@ each repository.
 
 Or using the command line client:
 
-```sh
+```bash
 $ travis settings maximum_number_of_builds --set 1
 ```
 
@@ -527,7 +527,7 @@ The script can be a part of your repository and can easily be called from the `.
 
 Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
 
-```sh
+```bash
 #!/bin/bash
 set -ev
 bundle exec rake:units
