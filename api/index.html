@@ -203,7 +203,7 @@
       </span><span class="s2">"api_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="s2">"read:org"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user:email"</span><span class="p">,</span><span class="w"> </span><span class="s2">"repo_deployment"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
+        </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="s2">"public_repo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -322,7 +322,8 @@ The Travis API server will not store the token or use it for anything else than 
 <span class="p">{</span><span class="w">
   </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"read:org"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user:email"</span><span class="p">,</span><span class="w"> </span><span class="s2">"repo_deployment"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
+    </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_repo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temporary token to auth against travis"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -335,7 +336,8 @@ The Travis API server will not store the token or use it for anything else than 
   </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.github.com/authorizations/1"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"read:org"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user:email"</span><span class="p">,</span><span class="w"> </span><span class="s2">"repo_deployment"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
+    </span><span class="s2">"repo:status"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"public_repo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"write:repo_hook"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR GITHUB TOKEN"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temporary token to auth against travis"</span><span class="w">
@@ -384,7 +386,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 
 <p>Since Travis CI will not store the GitHub token handed to it for authentication, it is possible to generate a temporary GitHub token and remove it again after the authentication handshake.</p>
 
-<p>To create and delete the GitHub token, you can either use the <a href="https://github.com/settings/applications">GitHub web interface</a> or automate it via the <a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">GitHub API</a>.</p>
+<p>To create and delete the GitHub token, you can either use the <a href="https://github.com/settings/tokens">GitHub web interface</a> or automate it via the <a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">GitHub API</a>.</p>
 
 <p>Make sure your GitHub token has the scopes <a href="#external-apis">required</a> by Travis CI.</p>
 
