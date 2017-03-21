@@ -18,7 +18,7 @@ deploy:
 However, this exposes your PyPI password to the world. We recommend you
 encrypt your password using the Travis CI command line client:
 
-```
+```bash
 travis encrypt --add deploy.password
 ```
 
@@ -51,8 +51,8 @@ If you tag a commit locally, remember to run `git push --tags` to ensure that yo
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup pypi
+```bash
+travis setup pypi
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.

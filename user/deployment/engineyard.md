@@ -8,7 +8,7 @@ Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: "YOUR API KEY"
@@ -20,7 +20,7 @@ Optional settings include: `app`, `account`, `environment` and `migrate`.
 
 You can also have the `travis` tool set up everything for you:
 
-```
+```bash
 $ travis setup engineyard
 ```
 
@@ -32,7 +32,7 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -41,7 +41,7 @@ deploy:
 
 It is also possible to deploy different branches to different applications:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -52,7 +52,7 @@ deploy:
 
 This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -67,7 +67,7 @@ If you have branch specific options, as [shown above](#Application-or-Environmen
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -76,7 +76,7 @@ deploy:
 
 Alternatively, you can also configure it to deploy from all branches:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -90,7 +90,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 You can trigger migrations by using the migrate option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...

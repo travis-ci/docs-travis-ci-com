@@ -24,7 +24,7 @@ Open up your newly-created `.travis.yml` and add `edge: true` to enable the depl
 
 So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running:
 
-```
+```yaml
  deploy:
    edge: true
    provider: cloudfoundry
@@ -39,7 +39,7 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
 
 You can do this using the Travis gem above and running:
 
-```
+```bash
 travis encrypt --add deploy.password
 ```
 

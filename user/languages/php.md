@@ -159,20 +159,20 @@ To see real world examples, see:
 
 If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
 
-```
+```bash
 pyrus install http://phptal.org/latest.tar.gz
 pear install pear/PHP_CodeSniffer
 ```
 
 After install you should refresh your path
 
-```
+```bash
 phpenv rehash
 ```
 
 For example, if you want to use phpcs, you should execute:
 
-```
+```bash
 pyrus install pear/PHP_CodeSniffer
 phpenv rehash
 ```
@@ -192,7 +192,7 @@ composer has a time-based update warning, you may see messages such as this, whi
 You can also install [Composer](http://packagist.org/) packages into the Travis CI PHP environment. The composer
 command comes pre-installed, use the following:
 
-```
+```bash
 composer install
 ```
 

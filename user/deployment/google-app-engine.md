@@ -8,7 +8,7 @@ Travis CI can automatically deploy your [Google App Engine](https://cloud.google
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
@@ -20,7 +20,7 @@ then click "Add Credential" and "Service Account", finally clicking "JSON" to do
 
 It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
 
-```
+```bash
 travis encrypt-file client-secret.json --add
 ```
 
@@ -36,7 +36,7 @@ By default, the project will be deployed with the same name as the repository. U
 
 You can explicitly set the project id via the **project** option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -53,7 +53,7 @@ By default, Travis will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -63,7 +63,7 @@ deploy:
 
 Alternatively, you can also configure it to deploy from all branches:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -78,7 +78,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 By default, when your application is deployed it will be promoted to receive all traffic. You can disable that using the `no_promote` option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -90,7 +90,7 @@ In addition to that, and according to the [Google Cloud SDK changelog](https://c
 
 You can prevent that from happening by setting the option `no_stop_previous_version`:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -103,7 +103,7 @@ deploy:
 Many App Engine apps use [pip](https://pip.pypa.io/en/latest/installing.html) to vendor library requirements into the directory, and sometimes you need build artifacts or other
 credentials to deploy. If so, you want to avoid the Travis cleanup step that will clean you working directory before the deploy.
 
-```
+```yaml
 deploy:
     provider: gae
     skip_cleanup: true

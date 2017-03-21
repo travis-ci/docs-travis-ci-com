@@ -54,7 +54,7 @@ The default dependency installation commands depend on the project language. For
 
 You can specify your own script to run to install whatever dependencies your project requires in `.travis.yml`:
 
-```
+```yaml
 install: ./install-dependencies.sh
 ```
 

@@ -12,19 +12,19 @@ Once you're done with your changes send a pull request. Thanks!
 Make sure you have Ruby and RubyGems installed. Next install
 [bundler](http://bundler.io/):
 
-```
+```bash
 gem install bundler
 ```
 
 Then install dependencies:
 
-```
+```bash
 bundle install --binstubs
 ```
 
 In order to run a local Web server that will serve documentation site, run:
 
-```
+```bash
 ./bin/jekyll serve
 ```
 
@@ -32,7 +32,7 @@ and then open [localhost:4000](http://localhost:4000/) in your browser.
 
 To regenerate the HTML pages automatically when you make changes to Markdown source files, use
 
-```
+```bash
 ./bin/jekyll serve --watch
 ```
 

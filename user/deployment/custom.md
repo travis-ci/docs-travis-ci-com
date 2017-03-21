@@ -11,7 +11,7 @@ easier flexibility with conditional deployment.
 
 ### FTP
 
-```
+```yaml
 env:
   global:
     - "FTP_USER=user"
@@ -28,7 +28,7 @@ See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to 
 
 This should also work with services you can deploy to via git.
 
-```
+```yaml
 after_success:
   - eval "$(ssh-agent -s)" #start the ssh agent
   - chmod 600 .travis/deploy_key.pem # this key should have push access
