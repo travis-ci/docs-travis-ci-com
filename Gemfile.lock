@@ -39,7 +39,7 @@ GEM
       sass (~> 3.4)
     jekyll-watch (1.4.0)
       listen (~> 3.0, < 3.1)
-    json (1.8.6)
+    json (1.8.3)
     kramdown (1.11.1)
     liquid (3.0.6)
     listen (3.0.8)
@@ -88,6 +88,3 @@ DEPENDENCIES
   rack-ssl-enforcer
   rake
   rdiscount (>= 2.2.0.1)
-
-BUNDLED WITH
-   1.13.7
