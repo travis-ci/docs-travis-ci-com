@@ -423,7 +423,7 @@ bundler_args: --retry 5
 For commands which do not have a built in retry feature, use the `travis_retry`
 function to retry it up three times if the return code is non-zero:
 
-```sh
+```bash
 install: travis_retry pip install myawesomepackage
 ```
 

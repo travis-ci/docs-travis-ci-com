@@ -120,13 +120,13 @@ If you have multiple address registered you can set the email address for a spec
 
 > Note that this also changes the commit email address, not just the Travis CI notification settings.
 
-```sh
+```bash
 git config user.email "mynewemail@example.com"
 ```
 
 Or set the email for all of your git repositories:
 
-```sh
+```bash
 git config --global user.email "mynewemail@example.com"
 ```
 

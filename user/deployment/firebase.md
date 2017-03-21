@@ -22,7 +22,7 @@ deploy:
 
 Generate your Firebase after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
-```sh
+```bash
 firebase login:ci
 ```
 
