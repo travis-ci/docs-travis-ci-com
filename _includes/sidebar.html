@@ -42,6 +42,7 @@
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
         <li><a href="/user/travis-lint/">Validating .travis.yml files</a></li>
       </ul>
+
       <h3>Installing Dependencies</h3>
       <ul>
         <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
@@ -58,14 +59,16 @@
       {% endfor %}
         <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
       </ul>
+
       <h3>Deployments and Uploads</h3>
       <ul>
         <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
         {% for deployment in site.data.deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
         {% endfor %}
-      <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
-    </ul>
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
       <h3>CI Environment Reference</h3>
       <ul>
       <li><a href="/user/ci-environment/">CI Environment Reference</a></li>
@@ -73,16 +76,24 @@
       <li><a href="/user/trusty-ci-environment/">Trusty CI Environment</a><li>
       <li><a href="/user/environment-variables/">Environment Variables</a></li>
       <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
-          <li><a href="/user/migrating-from-legacy/">Migrating to Container-Based Infrastructure</a></li>
-          <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
-    </ul>
-    <h3>Encrypting Files and Data</h3>
-    <ul>
-      <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
-      <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
-      <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+      <li><a href="/user/migrating-from-legacy/">Migrating to Container-Based Infrastructure</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      </ul>
 
-    </ul>
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+      </ul>
+
+      <h3>Beta Features</h3>
+      <ul>
+        <li><a href="/user/customizing-the-build/#Building-only-the-latest-commit">Auto-cancellation</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/trusty-ci-environment/">Trusty Environment</a></li>
+      </ul>
+
       <h3>Integrations and Notifications</h3>
       <ul>
         <li><a href="/user/notifications/">Configuring Notifications</a></li>

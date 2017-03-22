@@ -233,7 +233,7 @@ The *Auto Cancellation Setting* is in the Settings tab of each repository, and y
 
 * *pushes* which build your feature branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* wihch build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *pull requests* which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
