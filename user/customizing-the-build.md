@@ -222,6 +222,26 @@ Or using the command line client:
 $ travis settings maximum_number_of_builds --set 1
 ```
 
+## Building only the latest commit
+
+> BETA Build auto-cancellation. Please give us feedback on this new feature on [GitHub](https://github.com/travis-ci/beta-features/issues/8)
+{: .beta}
+
+If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
+
+The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
+
+* *pushes* which build your feature branch and appear in the *Build History* tab of your repository.
+
+* *pull requests* wihch build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+
+![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
+
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:  
+
+![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
+
+
 ## Git Clone Depth
 
 Travis CI clones repositories to a depth of 50 commits, which is only really useful if you are performing git operations.
