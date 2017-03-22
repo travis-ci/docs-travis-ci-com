@@ -177,12 +177,11 @@ to tag the build, or to run post-build deployments.
 
 - `TRAVIS_ALLOW_FAILURE`:
   + set to `true` if the job is allowed to fail.
-  + set to `false` is not allowed to fail.
+  + set to `false` if the job is not allowed to fail.
 - `TRAVIS_BRANCH`:
-  + for builds not triggered by a pull request this is the
-  name of the branch currently being built.
+  + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
-  request (in many cases this will be `master`).
+  request.
 
       > Note that for tags, git does not store the branch from which a commit was tagged.
 
