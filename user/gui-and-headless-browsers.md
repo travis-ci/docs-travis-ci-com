@@ -129,7 +129,7 @@ If you need a web server to serve the tests, see the previous section.
 
 Here's an example rake task that runs Rspec, Jasmine, and Cucumber tests:
 
-```
+```ruby
 task :travis do
   ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
     puts "Starting to run #{cmd}..."
@@ -149,7 +149,7 @@ If your test suite handles a modal dialog popup, for example, [a redirect to ano
 
 This can be fixed by applying a custom Firefox profile with the option turned off: (example is in Ruby using Capybara)
 
-```
+```ruby
 Capybara.register_driver :selenium do |app|
 
   custom_profile = Selenium::WebDriver::Firefox::Profile.new
@@ -171,7 +171,7 @@ WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 100
 
 In that case, you should increase the browser inactivity timeout to a higher value in `karma.conf.js`, e.g.:
 
-```
+```js
 browserNoActivityTimeout: 30000,
 ```
 

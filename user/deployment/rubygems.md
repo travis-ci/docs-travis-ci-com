@@ -8,7 +8,7 @@ Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: "YOUR API KEY"
@@ -18,7 +18,7 @@ Most likely you would only want to deploy to RubyGems when a new version of
 your package is cut. To do this, you can tell Travis CI to only deploy on
 tagged commits, like so:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: "YOUR API KEY"
@@ -31,7 +31,7 @@ If you tag a commit locally, remember to run `git push --tags` to ensure that yo
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```
+```bash
 travis encrypt --add deploy.api_key
 ```
 
@@ -39,8 +39,8 @@ You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup rubygems
+```bash
+travis setup rubygems
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
@@ -65,7 +65,7 @@ By default, we will try to release a gem by the same name as the repository. For
 
 You can explicitly set the name via the **gem** option:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: ...
@@ -74,7 +74,7 @@ deploy:
 
 It is also possible to release different branches to different gems:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: ...
@@ -85,7 +85,7 @@ deploy:
 
 If these gems belong to different RubyGems accounts, you will have to do the same for the API key:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key:
@@ -100,7 +100,7 @@ deploy:
 
 If you like, you can specify can alternate option with the `gemspec` option:
 
-```
+```yaml
 deploy:
     provider: rubygems
     api_key: ...
@@ -113,7 +113,7 @@ If you have branch specific options, as [shown above](#Gem-to-release), Travis C
 
 You can also explicitly specify the branch to release from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: ...
@@ -123,7 +123,7 @@ deploy:
 
 Alternatively, you can also configure it to release from all branches:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: ...
@@ -139,7 +139,7 @@ After your tests ran and before the release, Travis CI will clean up any additio
 
 Maybe that is not what you want, as you might generate some artifacts that are supposed to be released, too. There is now an option to skip the clean up:
 
-```
+```yaml
 deploy:
   provider: rubygems
   api_key: ...
@@ -155,7 +155,7 @@ See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with
 
 Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
