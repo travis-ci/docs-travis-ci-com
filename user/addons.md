@@ -12,4 +12,4 @@ moved:
 - [PostgreSQL](/user/database-setup/#PostgreSQL)
 - [Firefox](/user/firefox/)
 - [MariaDB](/user/database-setup/#MariaDB)
-- [RethinkDB](user/database-setup/#RethinkDB)
+- [RethinkDB](/user/database-setup/#RethinkDB)
