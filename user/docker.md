@@ -180,7 +180,6 @@ before_install:
 
 ### Installing a newer Docker version
 
-The pre-installed Docker version is possibly not the latest.
 You can upgrade to the latest version and use any new Docker features by manually
 updating `docker-engine` in the `before_install` step of your `.travis.yml`:
 
@@ -190,6 +189,8 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
   - docker --version # for verification
 ```
+
+> Check what version of Docker you're running with `docker --version`
 
 #### Examples
 
