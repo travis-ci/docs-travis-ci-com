@@ -231,7 +231,7 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your feature branch and appear in the *Build History* tab of your repository.
+* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
 
 * *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
