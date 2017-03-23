@@ -140,9 +140,9 @@ If you are using `ccache`, use:
 language: c # or other C/C++ variants
 
 cache: ccache
-```
-
-to cache `$HOME/.ccache`, and add `/usr/lib/ccache` to the front of `$PATH`.
+``
+ automatically
+to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
 #### ccache on OSX
 
