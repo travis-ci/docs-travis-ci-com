@@ -75,9 +75,9 @@ addons:
     organization: "sonarqube_com_organization_key"
     token:
       secure: *********
-  branches:
-    - master
-    - maintenance
+    branches:
+      - master
+      - maintenance
 script:
   - sonar-scanner
 ```
