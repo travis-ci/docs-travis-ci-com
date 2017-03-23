@@ -23,7 +23,7 @@ Open source repositories use the URL scheme `https://api.travis-ci.org/repos/<ow
   <img alt="Screenshot of public CC feed" src="http://s3itch.paperplanes.de/Projects_20140305_165324_20140305_165329.jpg"/>
 </figure>
 
-Private repositories use a different URL scheme, served from a different [API endpoint](https://api.travis-ci.com):
+Private repositories use a different URL scheme, served from a different [API endpoint](https://api.travis-ci.com): `https://api.travis-ci.com/repos/<owner>/<repository>/cc.xml?token=token>`.
 
 <figure>
   <img alt="Screenshot of private CC feed" src="http://s3itch.paperplanes.de/Screenshot_20140305_165022_20140305_165032.jpg"/>
