@@ -94,7 +94,7 @@ directory of the repository, we run the following command _instead of_
 `npm install`:
 
 ```bash
-yarn
+yarn --frozen-lockfile
 ```
 
 Note that `yarn` requires Node.js version 4 or later.
