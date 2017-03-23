@@ -101,12 +101,6 @@ Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
 instead.
 
-If for some reason you want to disable Yarn despite the presence of `yarn.lock` file and the Node version is 4 or later, you need to manually set the `install` step to use `npm install` instead.
-
-```
-install: npm install
-```
-
 #### Caching with `yarn`
 
 You can cache `$HOME/.cache/yarn` with:
