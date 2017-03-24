@@ -53,9 +53,26 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chorme (with the [addon](/user/chrome), on Linux Trusty or OS X).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
-Start `xvfb` in the `before_script` section of your `.travis.yml`:
+### Simple
+
+For simple cases, try wrapping your `script` call with `xvfb-run`, like so:
+
+```yaml
+script: xvfb-run make test
+```
+
+To set the screen resolution, try:
+
+```yaml
+script: xvfb-run --server-args="-screen 0 1024x768x24" make test
+```
+
+### Complex
+
+If you can't use `xvfb-run` for some reason, try calling `xvfb` itself, in the
+`before_script` section of your `.travis.yml`:
 
 ```yaml
 before_script:
