@@ -363,10 +363,10 @@ to `.travis.yml`.
 
 ## Caches and read permissions
 
-It is necessary that the cached directories can be created
-(in a directory writable by the user), and are readable
-when the archive is uploaded.
-If they are not, the caching utility will report various errors when it
+When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+ensure that the locations you specify are readable and writable by the user.
+
+If they are not, the caching utility reports errors when it
 invokes `tar` to create the cache archive.
 
 For example:
