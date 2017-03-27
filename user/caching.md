@@ -134,7 +134,7 @@ caches `$HOME/.cache/pip`.
 
 ### ccache cache
 
-For caching `ccache` files, use:
+If you are using `ccache`, use:
 
 ```yaml
 language: c # or other C/C++ variants
@@ -142,9 +142,19 @@ language: c # or other C/C++ variants
 cache: ccache
 ```
 
-caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
+to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-> Note that ccache is not installed on OSX environments but you can install it with `brew install ccache`.
+#### ccache on OSX
+
+ccache is not installed on OSX environments but you can install it by adding
+
+```yaml
+install:
+  - brew install ccache
+  - PATH=$PATH:/usr/local/opt/ccache/libexec
+```
+
+> Note that this creates wrappers around your default gcc and g++ compilers.
 
 ### R package cache
 
