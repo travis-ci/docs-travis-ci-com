@@ -58,11 +58,11 @@ run by default. This typically only runs tests on the Dart VM, but you can
 [configure it]: https://github.com/dart-lang/test/blob/master/doc/configuration.md#platforms
 
 You can also customize the arguments Travis passes to the test runner using the
-`dart_tasks` field in `.travis.yml`.
+`dart_task` field in `.travis.yml`.
 
 ```yaml
 language: dart
-dart_tasks:
+dart_task:
 - test: --platform vm
 - test: --platform chrome
 ```
@@ -81,7 +81,7 @@ particular task.
 
 ```yaml
 language: dart
-dart_tasks:
+dart_task:
 - test: --platform vm
 - test: --platform dartium
   install_dartium: true
@@ -98,7 +98,7 @@ level or for a particular task.
 
 ```yaml
 language: dart
-dart_tasks:
+dart_task:
 - test: --exclude-tags no-xvfb
 - test: --tags no-xvfb
   xvfb: false
@@ -121,7 +121,7 @@ instead of `true`.
 
 ```yaml
 language: dart
-dart_tasks:
+dart_task:
 
 # As long as you don't want any other configuration, you can just use the name
 # of a task instead of "name: true".
@@ -142,7 +142,7 @@ it'll use the `dartfmt` that comes with your Dart SDK.
 
 ```yaml
 language: dart
-dart_tasks:
+dart_task:
 - test: --platform vm
 - test: --platform chrome
 - dartfmt
