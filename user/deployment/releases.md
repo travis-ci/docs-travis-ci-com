@@ -77,7 +77,7 @@ You can configure this in [Repository Settings](https://docs.travis-ci.com/user/
 ```yaml
 env:
   global:
-    - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+    - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
 
 ## Uploading Multiple Files
