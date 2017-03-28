@@ -3,7 +3,7 @@ osx_images:
     xcode: "8.3"
     osx_version: "10.12"
     xcode_full_version: "8.3"
-    image_publish_date: 2016-12-13
+    image_publish_date: 2017-03-28
     sdks:
       - macosx10.12
       - iphoneos10.3
