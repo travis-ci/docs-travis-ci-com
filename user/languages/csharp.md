@@ -95,12 +95,19 @@ By default, Travis CI does not test against .NET Core. To test against .NET Core
 language: csharp
 mono: none
 dotnet: 1.0.1
+dist: trusty
+sudo: required
+script:
+ - dotnet restore
+ - ...
 ...
 ```
 
 > *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
 
-The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
+The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core). 
+
+Since .NET Core is not supported on all Linux distros, you should specify a supported Linux distro in your Travis CI configuration. Additionally, since .NET Core does not define default scripts, you should provide a script that invokes `dotnet` to build, test and publish your solution.
 
 ### Testing Against Mono and .NET Core
 
