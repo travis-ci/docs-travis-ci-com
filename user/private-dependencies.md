@@ -162,7 +162,7 @@ Assumptions:
 
 To pull in dependencies with a password, you will have to use the user name and password in the Git HTTPS URL: `https://ci-user:mypassword123@github.com/myorg/lib1.git`.
 
-Alternatively, you can also write the credentials to the `~.netrc` file:
+Alternatively, you can also write the credentials to the `~/.netrc` file:
 
 ```
 machine github.com
@@ -170,7 +170,8 @@ machine github.com
   password mypassword123
 ```
 
-You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`.
+
+You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`:
 
 ```bash
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
@@ -197,6 +198,22 @@ end
 
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
+```
+
+
+**Note**: In case of private git submodules, be aware that the `git submodule
+update --init recursive` command will by default run before you will have the chance
+of storing the credentials. If you are going this route, disable the loading of
+submodules first, and do this as a separate step after the credentials have been
+added:
+
+```yml
+git:
+  submodules:
+    false
+before_install:
+  - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+  - git submodule update --init --recursive
 ```
 
 ## API Token
@@ -248,6 +265,21 @@ end
 
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
+```
+
+**Note**: In case of private git submodules, be aware that the `git submodule
+update --init recursive` command will by default run before you will have the chance
+of storing the credentials. If you are going this route, disable the loading of
+submodules first, and do this as a separate step after the credentials have been
+added:
+
+```yml
+git:
+  submodules:
+    false
+before_install:
+  - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+  - git submodule update --init --recursive
 ```
 
 ## Dedicated User Account
