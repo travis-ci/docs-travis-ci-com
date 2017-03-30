@@ -15,8 +15,9 @@ deploy:
   project: "YOUR PROJECT ID"
 ```
 
-You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
-then click "Add Credential" and "Service Account", finally clicking "JSON" to download the JSON key.
+You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "API Manager" -> "Credentials",
+then click "Add Credential" and "Service account key", finally clicking "JSON" to download the JSON key.
+Also, you need to enable "Google App Engine Admin API" from the "Dashboard" or "Library" sections.
 
 It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
 
