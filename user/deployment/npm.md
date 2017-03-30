@@ -132,3 +132,36 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+
+### Troubleshooting common problems
+
+#### Skipping a deployment with the npm provider because this is not a tagged commit
+
+The most likely cause is that `git push` does not push tags. Be sure to run `git push --tags`.
+
+#### Skipping a deployment with the npm provider because this is not on the required runtime
+
+This is because the node version being used for the test does not match the version specified in the conditonal release section:
+
+```
+language: node_js
+node_js: 6  <--- version used for test
+deploy:
+  ...
+  on:
+    node: node  <--- version condition in deployment
+    tags: true
+    ...
+```
+
+If you are not testing against multiple versions of node, you can remove the `node: ` condition entirely. If you are testing your project against multiple versions of node then you probably added the version condition to the deployment to prevent Travis from attempting to publish the module multiple times in one build. In that case just make sure that the version in `deploy.on.node` is one of the versions listed in `node_js`.
+
+#### npm ERR! You need a paid account to perform this action. For more info, visit: https://www.npmjs.com/private-modules
+
+By default [scoped packages](https://docs.npmjs.com/misc/scope) are not public. If you want to publish your package publicly, you can do so manually by tacking on ` --access public` to the `npm publish` command. However, the best way is to set `access` in the `package.json` file like so:
+
+```
+  "publishConfig": {
+    "access": "public"
+  },
+```
