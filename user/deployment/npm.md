@@ -133,7 +133,9 @@ after_deploy:
   - ./after_deploy_2.sh
 ```
 
-### Troubleshooting common problems
+### Troubleshooting
+
+Did you expect a job to publish a package but it did not? Here are some common reasons that can happen and how to resolve them.
 
 #### Skipping a deployment with the npm provider because this is not a tagged commit
 
@@ -141,24 +143,24 @@ The most likely cause is that `git push` does not push tags. Be sure to run `git
 
 #### Skipping a deployment with the npm provider because this is not on the required runtime
 
-This is because the node version being used for the test does not match the version specified in the conditonal release section:
+This happens when the node version being used for a job does not match the version specified in the conditonal release section. This can result from copying and pasting from another Travis file or if you originally tested on multiple node versions and switch to just testing on one.
 
 ```
 language: node_js
-node_js: 6  <--- version used for test
+node_js: 6  # version used for job
 deploy:
   ...
   on:
-    node: node  <--- version condition in deployment
+    node: node  # version condition for deployment
     tags: true
     ...
 ```
 
-If you are not testing against multiple versions of node, you can remove the `node: ` condition entirely. If you are testing your project against multiple versions of node then you probably added the version condition to the deployment to prevent Travis from attempting to publish the module multiple times in one build. In that case just make sure that the version in `deploy.on.node` is one of the versions listed in `node_js`.
+This may be the intended behavior! If you are testing your project against multiple versions of node, then you probably should add the version condition to prevent concurrent Travis jobs from attempting to publish the same package version during a build. In this case make sure that the version in `deploy.on.node` is one of the versions listed in `node_js`, otherwise *none* of the jobs will do the deploy. If you are *not* testing against multiple versions of node, you can remove the `node: ` condition entirely.
 
 #### npm ERR! You need a paid account to perform this action. For more info, visit: https://www.npmjs.com/private-modules
 
-By default [scoped packages](https://docs.npmjs.com/misc/scope) are not public. If you want to publish your package publicly, you can do so manually by tacking on ` --access public` to the `npm publish` command. However, the best way is to set `access` in the `package.json` file like so:
+npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are private by default. You can explicitly tell npm your package is a public package and avoid this error by adding the following to your `package.json` file:
 
 ```
   "publishConfig": {
