@@ -427,7 +427,7 @@ with a desired label, and use this token.
 By default, Hipchat will be notified both for push builds and pull request
 builds.
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the
+Turn pull request notifications off by adding `on_pull_requests: false` to the
 `hipchat` section of your `.travis.yml`:
 
 
