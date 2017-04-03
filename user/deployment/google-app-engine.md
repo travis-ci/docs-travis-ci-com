@@ -6,8 +6,8 @@ permalink: /user/deployment/google-app-engine/
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
 
-For a minimal configuration, enable "Google App Engine Admin API" from the [Google Cloud Console Dashboard](http://console.developers.google.com) and add the following to your `.travis.yml`:
-
+For a minimal configuration, add the following to your `.travis.yml`:
+  
 ```yaml
 deploy:
   provider: gae
@@ -15,9 +15,10 @@ deploy:
   project: "YOUR PROJECT ID"
 ```
 
-Download your Service Account JSON file from the [Google Cloud Console](http://console.developers.google.com):
+Then go to the [Google Cloud Console Dashboard](http://console.developers.google.com) and:
 
-* Go to "API Manager" -> "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download the JSON key.
+1. Enable "Google App Engine Admin API",
+2. Go to "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download the your Service Account JSON file.
 
 It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
 
