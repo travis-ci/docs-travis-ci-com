@@ -19,9 +19,10 @@ Here is a script for sending a minimal request to the master branch of the `trav
 
 ```bash
 body='{
-"request": {
-  "branch":"master"
-}}'
+  "request": {
+    "branch":"master"
+  }
+}'
 
 curl -s -X POST \
   -H "Content-Type: application/json" \
@@ -36,36 +37,100 @@ curl -s -X POST \
 
 This request triggers a build of the most recent commit on the master branch of the `travis-ci/travis-core` repository, using the `.travis.yml` file in the master branch.
 
-You can also add to or override configuration in the `.travis.yml` file, or change the commit message.
-Please note that overriding any of the sections (like `script` or `env`) overrides the full section, the
-contents of the .travis.yml file will not be merged with the values contained in
-the request.
+### Customizing the commit message
 
-The following script passes a `message` attribute, and adds to the build configuration by passing environment variables and a script command. Here the config from the `.travis.yml` file is merged with the config from the request body.
-
-> Keys in the request's config override any keys existing in the `.travis.yml`.
+You can specify a commit message like so:
 
 ```bash
 body='{
-"request": {
-  "message": "Override the commit message: this is an api request",
-  "branch":"master",
-  "config": {
-    "env": {
-      "matrix": ["TEST=unit"]
-    },
-    "script": "echo FOO"
+  "request": {
+    "branch":"master",
+    "message": "Override the commit message: this is an api request"
   }
-}}'
-
-curl -s -X POST \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -H "Travis-API-Version: 3" \
-  -H "Authorization: token xxxxxx" \
-  -d "$body" \
-  https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+}'
 ```
+
+### Customizing the build configuration
+
+You can also customize the build configuration.
+
+For controlling how the original build configuration (in the `.travis.yml` file), and the configuration given in your API request are combined you can choose one out of 3 merge modes:
+
+* `replace` replaces the full, original build configuration with the given configuration
+* `merge` replaces sections in the original configuration with the given section (default)
+* `deep_merge` deep merges the given configuration into the build configuration
+
+For example, given that the `.travis.yml` file contains the following configuration:
+
+```yaml
+language: ruby
+env:
+  FOO: foo_from_travis_yaml
+```
+
+And given we send the following configuration as an API request:
+
+```bash
+body='{
+  "request": {
+    "config": {
+      "merge_mode": [...],
+      "env": {
+        "BAZ": "baz_from_api_request"
+      },
+      "script": "echo FOO"
+    }
+  }
+}'
+```
+
+#### Merge mode: replace
+
+With the `merge_mode` set to `replace` the resulting build configuration will be the following.
+
+```json
+{
+  "env": {
+    "BAZ": "baz_from_api_request"
+  },
+  "script": "echo FOO"
+}
+```
+
+I.e. the full configuration has been replaced by the configuration from the API request.
+
+#### Merge mode: merge (default)
+
+With the `merge_mode` set to `merge`, or not given a `merge_mode` (default), the resulting build configuration will be the following.
+
+```json
+{
+  "language": "ruby"
+  "env": {
+    "BAZ": "baz_from_api_request"
+  },
+  "script": "echo FOO"
+}
+```
+
+I.e. each of the top level sections have been replaced with the ones given in the API request, other top level sections will remain the same.
+
+#### Merge mode: deep_merge
+
+With the `merge_mode` set to `deep_merge`, the resulting build configuration will be the following.
+
+```json
+{
+  "language": "ruby"
+  "env": {
+    "FOO": "foo_from_travis_yaml",
+    "BAZ": "baz_from_api_request"
+  },
+  "script": "echo FOO"
+}
+```
+
+I.e. the `env` section from the API request has been merged into the existing section.
 
 ### Requests triggered with API and webhooks
 
