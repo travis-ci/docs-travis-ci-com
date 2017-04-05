@@ -131,16 +131,3 @@ With the `merge_mode` set to `deep_merge`, the resulting build configuration wil
 ```
 
 I.e. the `env` section from the API request has been merged into the existing section.
-
-### Requests triggered with API and webhooks
-
-Due to a way we use tokens for webhooks authentication, a token needs to be
-passed manually as a param for webhooks to work properly. An example request
-with token passed as a param would look like:
-
-```json
-"request": {
-  "branch": "master",
-  "token": "a-token"
-}
-```
