@@ -200,21 +200,19 @@ gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
 
-
-**Note**: In case of private git submodules, be aware that the `git submodule
-update --init recursive` command will by default run before you will have the chance
-of storing the credentials. If you are going this route, disable the loading of
-submodules first, and do this as a separate step after the credentials have been
-added:
-
-```yml
-git:
-  submodules:
-    false
-before_install:
-  - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
-  - git submodule update --init --recursive
-```
+> In case of private git submodules, be aware that the `git submodule
+> update --init recursive` command will by default run before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the loading of
+> submodules first, and do this as a separate explicit step after updating the credentials:
+>
+> ```yml
+> git:
+>   submodules:
+>     false
+> before_install:
+>   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+>   - git submodule update --init --recursive
+> ```
 
 ## API Token
 
@@ -267,20 +265,19 @@ gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
 
-**Note**: In case of private git submodules, be aware that the `git submodule
-update --init recursive` command will by default run before you will have the chance
-of storing the credentials. If you are going this route, disable the loading of
-submodules first, and do this as a separate step after the credentials have been
-added:
-
-```yml
-git:
-  submodules:
-    false
-before_install:
-  - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
-  - git submodule update --init --recursive
-```
+> In case of private git submodules, be aware that the `git submodule
+> update --init recursive` command will by default run before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the loading of
+> submodules first, and do this as a separate explicit step after updating the credentials:
+> 
+> ```yml
+> git:
+>   submodules:
+>     false
+> before_install:
+>   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+>   - git submodule update --init --recursive
+> ```
 
 ## Dedicated User Account
 
