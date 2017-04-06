@@ -54,7 +54,7 @@ The default dependency installation commands depend on the project language. For
 
 You can specify your own script to run to install whatever dependencies your project requires in `.travis.yml`:
 
-```
+```yaml
 install: ./install-dependencies.sh
 ```
 
@@ -188,7 +188,7 @@ You can also use other installation methods such as `apt-get`.
 ## Build Timeouts
 
 It is very common for test suites or build scripts to hang.
-Travis CI has specific time limits for each job, and will stop the build and and add an error message to the build log in the following situations:
+Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - A job takes longer than 50 minutes on travis-ci.org
 - A job takes longer than 120 minutes on travis-ci.com
@@ -218,9 +218,29 @@ each repository.
 
 Or using the command line client:
 
-```sh
+```bash
 $ travis settings maximum_number_of_builds --set 1
 ```
+
+## Building only the latest commit
+
+> BETA Build auto-cancellation. Please give us feedback on this new feature on [GitHub](https://github.com/travis-ci/beta-features/issues/8)
+{: .beta}
+
+If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
+
+The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
+
+* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+
+* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+
+![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
+
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:  
+
+![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
+
 
 ## Git Clone Depth
 
@@ -237,7 +257,7 @@ git:
 
 ## Building Specific Branches
 
-Travis CI uses the `.travis.yml` file from the branch specified by the git commit that triggers the build. You can tell Travis to build multiple branches using blocklists or safelists.
+Travis CI uses the `.travis.yml` file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
 
 ### Safelisting or blocklisting branches
 
@@ -257,9 +277,11 @@ branches:
   - stable
 ```
 
-If you specify both, `only` takes precedence over `except`. By default, the `gh-pages` branch is not built unless you add it to the safelist.
+> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#Using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
 
-To have _all_ branches build:
+If you use both a safelist and a blocklist, the safelist takes precedence. By default, the `gh-pages` branch is not built unless you add it to the safelist.
+
+To build _all_ branches:
 
     branches:
       only:
@@ -286,7 +308,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 ## Skipping a build
 
-If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
+If you don't want to run a build for a particular commit for any reason, add `[ci skip]` or `[skip ci]` to the git commit message.
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
@@ -509,14 +531,14 @@ Without the top-level `env`, no job will be allowed to fail.
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
-To set the build to finish as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
+To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
 ```yaml
 matrix:
   fast_finish: true
 ```
 
-Now, a build will finish as soon as a job has failed, or when the only jobs left allow failures.
+Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
 ## Implementing Complex Build Steps
 
@@ -525,7 +547,7 @@ The script can be a part of your repository and can easily be called from the `.
 
 Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
 
-```sh
+```bash
 #!/bin/bash
 set -ev
 bundle exec rake:units

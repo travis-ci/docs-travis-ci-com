@@ -105,8 +105,7 @@ By default Travis CI uses `pip` to manage python dependencies. If you have a
 `requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
 during the `install` phase of the build.
 
-Note: If you're running in the container-based infrastructure without access to
-`sudo` you need to install dependencies in the home directory instead:
+You can manually override this default `install` phase, for example:
 
 ```yaml
 install: pip install --user -r requirements.txt
@@ -136,7 +135,7 @@ env:
   - DJANGO_VERSION=1.8.2
 ```
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
 
 ```yaml
 install:

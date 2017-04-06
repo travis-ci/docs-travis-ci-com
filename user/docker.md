@@ -21,6 +21,8 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
+> Travis CI automatically routes builds to run on Trusty when `services: docker` is configured.
+
 ### Using a Docker Image from a Repository in a Build
 
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
@@ -162,7 +164,8 @@ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 
 The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
 
-If needed, you can easily replace this preinstalled version of `docker-compose` by adding the following `before_install` step to your `.travis.yml`:
+If needed, you can easily replace this preinstalled version of `docker-compose`
+by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
@@ -174,6 +177,19 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
+
+### Installing a newer Docker version
+
+You can upgrade to the latest version and use any new Docker features by manually
+updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+```
+
+> Check what version of Docker you're running with `docker --version`
 
 #### Examples
 

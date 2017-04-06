@@ -20,7 +20,8 @@ Furthermore, you can test against a specific Rust release by using its version n
 
 [channels]: http://doc.rust-lang.org/book/release-channels.html
 
-Travis also installs the appropriate Cargo version that comes with each Rust version.
+Travis CI also installs the appropriate language tools that come with each Rust version.
+As of Rust 1.16.0, these include `cargo`, `rustc`, `rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
 
 ### Choosing the Rust version
 

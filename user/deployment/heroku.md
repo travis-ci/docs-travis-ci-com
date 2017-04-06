@@ -10,7 +10,7 @@ Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) applic
 
 To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key:
@@ -19,7 +19,7 @@ deploy:
 
 If you have both the [Heroku](https://toolbelt.heroku.com/) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
 
-```
+```bash
 travis encrypt $(heroku auth:token) --add deploy.api_key
 ```
 
@@ -31,7 +31,7 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -40,7 +40,7 @@ deploy:
 
 It is also possible to deploy different branches to different applications:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -51,7 +51,7 @@ deploy:
 
 If these apps belong to different Heroku accounts, you will have to do the same for the API key:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key:
@@ -68,7 +68,7 @@ If you have branch specific options, as [shown above](#Deploying-Custom-Applicat
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -77,7 +77,7 @@ deploy:
 
 Alternatively, you can also configure it to deploy from all branches:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -91,7 +91,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 In some setups, you might want to run a command on Heroku after a successful deploy. You can do this with the **run** option:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -100,7 +100,7 @@ deploy:
 
 It also accepts a list of commands:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -121,7 +121,7 @@ These add-ons have email notification systems that can be triggered when certain
 
 Sometimes you want to restart your Heroku application between or after commands. You can easily do so by adding a "restart" command:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -137,7 +137,7 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -150,7 +150,7 @@ deploy:
 
 When deploying via the Anvil strategy (as described [below](#Deploy-Strategy)), you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
 
-```
+```yaml
 deploy:
   provider: heroku
   buildpack: ruby
@@ -170,7 +170,7 @@ Travis CI supports different mechanisms for deploying to Heroku:
 
 It defaults to **api**, but you can change that via the **strategy** option:
 
-```
+```yaml
 deploy:
   provider: heroku
   api_key: ...
@@ -192,7 +192,7 @@ its content.
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..

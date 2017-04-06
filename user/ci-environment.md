@@ -65,13 +65,13 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>File System</td>
-<td>AUFS</td>
-<td>ext4</td>
+<td>AUFS, case sensitive</td>
+<td>ext4, case sensitive</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
 <td>Operating System</td>
-<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
 <td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
 <td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
 </tr>

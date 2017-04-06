@@ -30,13 +30,15 @@ Before inspecting your code, you need to:
 
 1. [Create a user authentication token](https://sonarqube.com/account/security) for your account on SonarQube.com.
 2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
-3. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+3. [Find which SonarQube.com organization](https://sonarqube.com/account/organizations) you want to push your project on and get its key
+4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
 
 ```yaml
 addons:
   sonarqube:
+    organization: "sonarqube_com_organization_key" # the key of the org you chose at step #3
     token:
       secure: ********* # encrypted value of your token
 script:
@@ -53,6 +55,7 @@ Lots of Java projects build with Maven. To add a SonarQube inspection to your Ma
 ```yaml
 addons:
   sonarqube:
+    organization: "sonarqube_com_organization_key" # the key of the org you chose at step #3
     token:
       secure: ********* # encrypted value of your token
 script:
@@ -69,11 +72,12 @@ By default, the SonarQube.com add-on only analyzes the master branch. Activate i
 ```yaml
 addons:
   sonarqube:
+    organization: "sonarqube_com_organization_key"
     token:
       secure: *********
-  branches:
-    - master
-    - maintenance
+    branches:
+      - master
+      - maintenance
 script:
   - sonar-scanner
 ```
@@ -98,6 +102,7 @@ To activate analysis on pull requests, you need to follow those extra steps:
 ```yaml
 addons:
   sonarqube:
+    organization: "sonarqube_com_organization_key"
     token:
       secure: *********
     github_token:

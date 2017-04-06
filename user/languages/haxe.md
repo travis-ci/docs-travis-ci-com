@@ -34,7 +34,7 @@ haxe:
 ## Default Haxe Version
 
 If you leave the `haxe:` key out of your `.travis.yml`, Travis CI will use
-Haxe 3.4.0.
+Haxe 3.4.2.
 
 ## Default Neko Version
 

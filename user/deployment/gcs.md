@@ -8,7 +8,7 @@ Travis CI supports uploading to Google Cloud Storage (GCS).
 
 A minimal configuration is:
 
-```
+```yaml
 deploy:
   provider: gcs
   access_key_id: "GCS Interoperable Access Key ID"
@@ -18,7 +18,7 @@ deploy:
 
 This example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set `skip_cleanup` to `true` to prevent Travis CI from deleting your build artifacts.
 
-```
+```yaml
 deploy:
   provider: gcs
   access_key_id: "GCS Interoperable Access Key ID"
@@ -31,7 +31,7 @@ You can find your GCS Interoperable Access Keys [here](https://developers.google
 It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```
+```bash
 travis encrypt --add deploy.secret_access_key
 ```
 
@@ -39,8 +39,8 @@ You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup gcs
+```bash
+travis setup gcs
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
@@ -49,7 +49,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 You can set the acl of your uploaded files via the `acl` option like this:
 
-```
+```yaml
 deploy:
   provider: gcs
   access_key_id: "GCS Interoperable Access Key ID"
@@ -75,7 +75,7 @@ the associated MIME types.
 
 To enable this feature, add:
 
-```
+```yaml
 deploy:
   provider: gcs
   ...
@@ -91,7 +91,7 @@ GCS uploads can optionally set the `Cache-Control` HTTP header.
 
 Set HTTP header `Cache-Control` to suggest that the browser cache the file. Defaults to `no-cache`. Valid options are `no-cache`, `no-store`, `max-age=<seconds>`, `s-maxage=<seconds> no-transform`, `public`, `private`.
 
-```
+```yaml
 deploy:
   provider: gcs
   ...

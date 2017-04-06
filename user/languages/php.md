@@ -61,6 +61,7 @@ In addition, depending on the Ubuntu release, you can test with more HHVM versio
 language: php
 php:
   - hhvm-3.3
+  - hhvm-3.6
 ```
 
 #### HHVM versions on Trusty
@@ -75,12 +76,22 @@ php:
   - hhvm-3.6
   - hhvm-3.9
   - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
   - hhvm-nightly
 ```
 
 ## Default Test Script
 
 The default test script is `phpunit`.
+
+Travis CI looks for `phpunit` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
+and uses the first one found.
+
+1. `$COMPOSER_BIN_DIR/phpunit`
+1. `phpunit` found in the directory specified by `bin-dir` in `composer.json`
+1. `vendor/bin/phpunit`
+1. `phpunit`, which is found on `$PATH` (typically one that is pre-packaged with the PHP runtime)
 
 If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/customizing-the-build/) you want.
 
@@ -148,20 +159,20 @@ To see real world examples, see:
 
 If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
 
-```
+```bash
 pyrus install http://phptal.org/latest.tar.gz
 pear install pear/PHP_CodeSniffer
 ```
 
 After install you should refresh your path
 
-```
+```bash
 phpenv rehash
 ```
 
 For example, if you want to use phpcs, you should execute:
 
-```
+```bash
 pyrus install pear/PHP_CodeSniffer
 phpenv rehash
 ```
@@ -181,7 +192,7 @@ composer has a time-based update warning, you may see messages such as this, whi
 You can also install [Composer](http://packagist.org/) packages into the Travis CI PHP environment. The composer
 command comes pre-installed, use the following:
 
-```
+```bash
 composer install
 ```
 
@@ -237,7 +248,7 @@ See the [default configure options](https://github.com/travis-ci/travis-cookbook
 
 The following extensions are preinstalled for PHP 7.0 and nightly builds:
 
-- [apc.so](http://php.net/apc)
+- [apcu.so](http://php.net/apcu)
 - [memcached.so](http://php.net/memcached)
 - [mongodb.so](https://php.net/mongodb)
 - [amqp.so](http://php.net/amqp)

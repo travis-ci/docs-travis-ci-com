@@ -8,13 +8,6 @@ redirect_from:
 
 <div id="toc"></div>
 
-## What are beta features?
-
-We mark all features that are in beta like this:
-
-> BETA Awesome new feature that might not be enabled by default and is subject
-to change.
-{: .beta}
 
 ## My tests broke but were working yesterday
 
@@ -105,13 +98,13 @@ set too low.
 Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
-```
+```js
 Capybara.default_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
 
-```
+```js
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, timeout: 15)
 end
@@ -132,7 +125,7 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
-```
+```ruby
 # Gemfile
 group :debug do
   gem 'debugger'
@@ -142,6 +135,22 @@ end
 
 # .travis.yml
 bundler_args: --without development debug
+```
+
+## Ruby: tests frozen and cancelled after 10 minute log silence
+
+In some cases, the use of the `timecop` gem can result in seemingly sporadic
+"freezing" due to issues with ordering calls of `Timecop.return`,
+`Timecop.freeze`, and `Timecop.travel`.  For example, if using RSpec, be sure to
+have a `Timecop.return` configured to run *after* all examples:
+
+```ruby
+# in, e.g. spec/spec_helper.rb
+RSpec.configure do |c|
+  c.after :all do
+    Timecop.return
+  end
+end
 ```
 
 ## Mac: OS X Mavericks (10.9) Code Signing Errors
@@ -345,7 +354,7 @@ Travis CI automatically initializes and updates submodules when there's a `.gitm
 
 To turn this off, set:
 
-```yml
+```yaml
 git:
   submodules: false
 ```
@@ -356,7 +365,7 @@ does not support out of the box, turn off the automatic integration and use the
 
 For example, to update nested submodules:
 
-```yml
+```yaml
 before_install:
   - git submodule update --init --recursive
 ```
@@ -407,7 +416,7 @@ bundler_args: --retry 5
 For commands which do not have a built in retry feature, use the `travis_retry`
 function to retry it up three times if the return code is non-zero:
 
-```sh
+```bash
 install: travis_retry pip install myawesomepackage
 ```
 
