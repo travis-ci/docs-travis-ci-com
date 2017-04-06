@@ -8,7 +8,7 @@ layout: en
 
 ## API V3
 
-The Travis CI API V3 was released on 6th March 2017. It is a discoverable and
+The Travis CI API V3 was released on 6th April 2017. It is a discoverable and
 self-documenting RESTful API, and includes all the hypermedia features expected
 from a modern API.
 
