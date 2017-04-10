@@ -16,6 +16,7 @@ A minimal configuration for publishing to npmjs.org with npm version 2+ looks li
 ```
 deploy:
   provider: npm
+  email: "YOUR_EMAIL_ADDRESS"
   api_key: "YOUR_API_KEY"
 ```
 
