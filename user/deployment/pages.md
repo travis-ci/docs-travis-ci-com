@@ -11,6 +11,13 @@ You will need to provide a [personal access
 token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 and set the deployment provider details in `.travis.yml`.
 
+> Note that Travis CI will [`--force` push](https://github.com/travis-ci/dpl/blob/bdc795f335e23c3f470fbda89aa4a173d79dd424/lib/dpl/provider/pages.rb#L52-L62)
+> to the target branch (ie. `gh-pages`), replacing any files there and overwriting
+> the history of that branch. This should be fine if you only use the target branch
+> for deployments. It won't overwrite the source branch (ie. `master`). Can you
+> [help improve this](https://github.com/travis-ci/docs-travis-ci-com/issues/1064)
+> caveat?
+
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
