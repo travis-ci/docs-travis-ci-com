@@ -13,7 +13,7 @@ For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your
 `.npmrc` you should see a line similar to `//registry.npmjs.org/:_authToken=YOUR_API_KEY`.
 A minimal configuration for publishing to npmjs.org with npm version 2+ looks like:
 
-```
+```yaml
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
@@ -29,7 +29,7 @@ email=YOUR_EMAIL_ADDRESS
 
 And you can deploy with the npm provider by adding:
 
-```
+```yaml
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
@@ -39,13 +39,13 @@ deploy:
 It is recommended to encrypt your api_key. Assuming you have the Travis CI command
 line client installed, you can do it like this:
 
-```
+```bash
 $ travis encrypt YOUR_API_KEY --add deploy.api_key
 ```
 
 You can also have the `travis` tool set up everything for you:
 
-```
+```bash
 $ travis setup npm
 ```
 
@@ -58,7 +58,7 @@ Most likely, you would only want to deploy to npm when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
 commits, like so:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -70,7 +70,7 @@ your tags are uploaded to Github.
 
 You can explicitly specify the branch to release from with the **on** option:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -79,7 +79,7 @@ deploy:
 
 Alternatively, you can also configure Travis CI to release from all branches:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -94,7 +94,7 @@ After your tests ran and before the release, Travis CI will clean up any additio
 
 Maybe that is not what you want, as you might generate some artifacts that are supposed to be released, too. There is now an option to skip the clean up:
 
-```
+```yaml
 deploy:
   ...
   skip_cleanup: true
