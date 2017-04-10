@@ -16,3 +16,8 @@ before_and_after: |
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
   ```
+ghlimit: |
+  > In the rare event that you are constantly running builds on the **same commit
+  > or branch** over and over again, GitHub have a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > per commit.
