@@ -469,40 +469,53 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-1. Download and install Docker:
+**Download and install Docker:**
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-2. Select a docker image:
+**Select an image:**
 
-    * **Ubuntu 12.04 (precise)**, select an image from
-   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-   `{lang}` is the language you need. If you're not using a language-specific
-   image, pick `travis-ruby`.  
+* For Ubuntu 12.04 (precise), select an image from 
+[Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
+`{lang}` is the language you need.  If you're not using a language-specific
+image, pick `travis-ruby`.  
 
-   * **Ubuntu 14.04 (trusty)**, select an image from [Docker Hub](https://hub.docker.com/r/travisci/)
-   named either `ci-amethyst` or `ci-garnet`.
+* For Ubuntu 14.04 (trusty), select an image from
+[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
+`ci-garnet`  You'll need to [choose a
+tag](https://hub.docker.com/r/travisci/ci-garnet/tags/) as the `latest` tag
+doesn't exist. 
 
-3. So system services work correctly, run the container run with `/sbin/init` as PID 1:
+**Run the images**
 
-     ``` bash
-     docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-     ```
+In order for system services to run correctly, the container must be run with
+`/sbin/init` as PID 1:
 
-4. Open a login shell in the running container
+Precise: 
+``` bash
+docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+```
+
+Trusty:
+``` bash
+docker run --name travis-debug -dit travisci/ci-garnet:<tag> /sbin/init # Where <tag> is something like packer-1490989530
+```
+
+**Open a login shell in the running container**
 
     ``` bash
     docker exec -it travis-debug bash -l
     ```
 
-5. Switch to the `travis` user:
+**Switch to the `travis` user:**
 
     ``` bash
     su - travis
     ```
+**Start debugging** 
 
-6. Clone your git repository into the `~` folder of the image.
-7. Manually install any dependencies.
-8. Manually run your Travis CI build command.
+* Clone your git repository into the `~` folder of the image.
+* Manually install any dependencies.
+* Manually run your Travis CI build command.
