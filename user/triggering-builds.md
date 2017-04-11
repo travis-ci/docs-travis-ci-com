@@ -37,7 +37,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
       https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
    ```
 
-   > The %2F in the request URL is required so that the owner and repository
+   > The %2F in the request URL is required so that the owner and repositoryp
      name in the repository slug are interpreted as a single URL segment.
 
 
