@@ -128,3 +128,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+## Further configuration
+
+* `local_dir`: Directory to push to GitHub Releases, defaults to the current
+    directory
