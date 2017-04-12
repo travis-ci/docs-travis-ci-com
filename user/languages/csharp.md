@@ -96,7 +96,6 @@ language: csharp
 mono: none
 dotnet: 1.0.1
 dist: trusty
-sudo: required
 script:
  - dotnet restore
  - ...
