@@ -17,7 +17,9 @@ before_and_after: |
       - ./after_deploy_2.sh
   ```
 ghlimit: |
-  > In the rare event that you are constantly running builds on the **same commit
-  > or branch** over and over again, GitHub have a limit of
+  > If you constantly run builds on the *same commit
+  > or branch* over and over again you will notice GitHub have a limit of
   > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
-  > per commit.
+  > *per commit*, which causes the Travis CI build status displayed on GitHub
+  > to be incorrect.
+  > Avoid this problem by specifying a regularly updated branch for your API or cron trigged builds.
