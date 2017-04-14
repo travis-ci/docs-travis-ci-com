@@ -738,3 +738,6 @@ is a small Sinatra app which shows you how this works.
 
 [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
+
+[Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
+is a small webapp in Go which verifies the the hook.
