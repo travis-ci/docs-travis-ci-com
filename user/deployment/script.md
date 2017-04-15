@@ -53,11 +53,11 @@ deploy:
     all_branches: true
 ```
 
-## Deployment is executed by Ruby 1.9.3
+## Deployment is executed by Ruby 2.2.0
 
 In order to ensure that deployments are executed reliably, we use a version of Ruby that is pre-installed on all of our build images.
 
-Currently, this is Ruby 1.9.3.
+Currently, this is Ruby 2.2.0.
 
 A side effect of this is that, if you need to execute a command
 that requires a different Ruby, you need to execute it explicitly.
