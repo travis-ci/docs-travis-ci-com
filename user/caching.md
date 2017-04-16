@@ -180,6 +180,10 @@ cache: cargo
 
 This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
+### CocoaPods notes
+
+It's customary to add the CocoaPods generated `ProjectName.xcworkspace` to your gitignore. As CocoaPods caching does not run the `pod install` command when cached you will need to ensure this is included in your app's source.
+
 ### Arbitrary directories
 
 You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
