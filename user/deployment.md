@@ -76,6 +76,12 @@ Common options are:
 
 5. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit. This causes the `branch` condition to be ignored.
 
+Note: Deploying from multiple branches, say `master` and `developement`, will cause the following message to appear:
+
+`Skipping deployment with the s3 provider because this branch is not permitted to deploy`
+
+This is not an error. In the case that you have just pushed to `development`, the master branch will not be deployed which is the desired result.
+
 #### Examples of Conditional Releases using `on:`
 
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
