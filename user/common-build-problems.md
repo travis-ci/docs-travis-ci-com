@@ -58,6 +58,12 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
+## My build fails because it outputs more than 4MB
+
+Travis CI will fail a build if the output exceeds 4MB.  You may be tempted to switch off build output by redirecting it to `/dev/null`, however if no output is seen by Travis CI for more than 10 minutes the build will also fail.
+
+As a workaround, you can create a script to redirect the build output to a file and regularly send a small amount of data to the Travis CI output to keep it alive.  See [here](http://stackoverflow.com/questions/26082444/how-to-work-around-travis-cis-4mb-output-limit) for an example.
+
 ## Ruby: RSpec returns 0 even though the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
