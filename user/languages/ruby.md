@@ -62,7 +62,7 @@ If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
 
 If the ruby version is not specified by the `rvm` key as described above, Travis CI
 will consult `.ruby-version` in the root of the repository and use the indicated
-Ruby runtime.
+Ruby runtime. This is a beta feature and may be removed in the future.
 
 ### Choosing Rubies that aren't installed
 
