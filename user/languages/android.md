@@ -34,8 +34,8 @@ android:
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
-    # - platform-tools
     # - tools
+    # - platform-tools
 
     # The BuildTools version used by your project
     - build-tools-19.1.0
