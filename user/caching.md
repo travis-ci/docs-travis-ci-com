@@ -392,3 +392,24 @@ upload the updated archive back to S3.
 
 The upload is currently part of the build cycle, but we're looking into improving
 that to happen outside of the build, giving faster build feedback.
+
+### Cache and the build matrix
+
+When caching is enabled in a build with multiple jobs, care should be taken
+not to mix OS, OS version, and other factors that may influence the
+composition of the cache.
+The reason is that caches often contain binary files which are not compatible
+when used on an incompatible system.
+
+We use the following characteristics of each job to construct a string
+that identifies the job:
+
+1. The OS the job is running on
+1. The distribution of the build image (if applicable)
+1. The Xcode image name (if applicable)
+1. Visible environment variables
+1. Language runtime version (e.g., Ruby 2.1.5, Python 3.4)
+1. Language-specific special considerations (e.g., Gemfile name for Ruby)
+
+For historical reasons, if a cache with a matching name is not found, we will also
+look for a cache with the name that considers the last 2 items in the list above.
