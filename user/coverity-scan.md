@@ -133,3 +133,38 @@ script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
 ```
 
 Be sure to replace `make` with your standard CI build command.
+
+#### Execution Problems
+
+Recently, Coverity updated their site's security certificate.  This has caused a problem for some users.
+
+If Travis reports success, but nothing is sent to Coverity, look through the Travis build log for:
+
+```
+Coverity Scan configured to run on branch coverity
+Coverity Scan analysis authorized per quota.
+Downloading Coverity Scan Analysis Tool...
+ERROR: The certificate of ‘scan.coverity.com’ is not trusted.
+ERROR: The certificate of ‘scan.coverity.com’ hasn't got a known issuer.
+```
+
+If you see this, you will need to download their new certificate.  The correct way to do this is to use apt to upgrade the certificates.  Try adding this to your `.travis.yml`
+
+```yaml
+addons:
+  apt:
+    packages:
+      - ca-certificates
+```
+
+If this doesn't work, it will be necessary to update the certificate manually:
+
+```yaml
+sudo: required
+before_install:
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
+```
+
+`sudo` is required because we will be updating a system file.
+The command uses `openssl` to contact `scan.coverity.com` and download their certificate, then append it to the system's CA Certificates bundle.
+
