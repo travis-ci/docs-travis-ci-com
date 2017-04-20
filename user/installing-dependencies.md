@@ -11,11 +11,13 @@ redirect_from:
 ## Installing Packages on Standard Infrastructure
 
 To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
+google
 
 ```yaml
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
+   
 ```
 
 > Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
