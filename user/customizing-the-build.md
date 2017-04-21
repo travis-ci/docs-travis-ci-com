@@ -75,7 +75,7 @@ When one of the steps fails, the build stops immediately and is marked as [error
 You can skip the installation step entirely by adding the following to your `.travis.yml`:
 
 ```yaml
-install: true
+install: false
 ```
 
 ## Customizing the Build Step
