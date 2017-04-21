@@ -4,6 +4,8 @@ permalink: /user/triggering-builds/
 layout: en
 ---
 
+<div id="toc"></div>
+
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
 1. Get an API token using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme):
@@ -112,49 +114,9 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
 5. Visit the [API V3 explorer](http://developer.travis-ci.com/) for more information
    about what endpoints are available and what you can do with them.
 
-## Requests triggered with API and webhooks
+{{ site.data.snippets.ghlimit }}
 
-Due to how we use tokens for webhook authentication, you need to explicitly
-pass an API token as a parameter to the API for webhooks to work properly.
-
-An example request with token passed as a parameter:
-=======
-Trigger Travis CI builds using V3 of the Travis CI API by sending a POST request to `/repo/{slug|id}/requests`.
-
-Before using the Travis CI API, get an authorization token from the  [command line client](https://github.com/travis-ci/travis.rb#readme):
-
-```bash
-travis login --org
-travis token --org
-```
-
-If you are using Travis CI with a private repository use `--pro` instead of `--org` and use `https://api.travis-ci.com` for all endpoints. See the [API V3 Getting Started Guide](https://developer.travis-ci.org/gettingstarted) for more information.
-
-Here is a script for sending a minimal request to the master branch of the `travis-ci/travis-core` repository.
-
-> If you want to run any of the examples scripts yourself, change the `xxxxxx` in the example to the authentication token you generated and change the repository slug to your own repository.
-
-```bash
-body='{
-  "request": {
-    "branch":"master"
-  }
-}'
-
-curl -s -X POST \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -H "Travis-API-Version: 3" \
-  -H "Authorization: token xxxxxx" \
-  -d "$body" \
-  https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
-```
-
-> The %2F in the request URL is required so that the owner and repository name in the repository slug are interpreted as a single URL segment.
-
-This request triggers a build of the most recent commit on the master branch of the `travis-ci/travis-core` repository, using the `.travis.yml` file in the master branch.
-
-### Customizing the commit message
+## Customizing the commit message
 
 You can specify a commit message in the request body:
 
@@ -167,7 +129,7 @@ body='{
 }'
 ```
 
-### Customizing the build configuration
+## Customizing the build configuration
 
 You can also customize the build configuration.
 
@@ -201,7 +163,7 @@ body='{
 }'
 ```
 
-#### Merge mode: replace
+### Merge mode: replace
 
 With the `merge_mode` set to `replace` the resulting combined build configuration is:
 
@@ -216,7 +178,7 @@ With the `merge_mode` set to `replace` the resulting combined build configuratio
 
 The full configuration has been replaced by the configuration from the API request.
 
-#### Merge mode: merge (default)
+### Merge mode: merge (default)
 
 With the `merge_mode` set to `merge`, or not given a `merge_mode` (default), the resulting build configuration is:
 
@@ -233,7 +195,7 @@ With the `merge_mode` set to `merge`, or not given a `merge_mode` (default), the
 Each of the top level sections have been replaced with the ones from
  the API request, other top level sections remain the same.
 
-#### Merge mode: deep_merge
+### Merge mode: deep_merge
 
 With the `merge_mode` set to `deep_merge`, the resulting build configuration is:
 
