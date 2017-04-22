@@ -105,6 +105,9 @@ Note that the syntax of `rbx-19mode` is not supported anymore.
 
 Rubinius will be installed via a download currently.
 
+> Note that Rubinius can only be installed on a Trusty system; set `dist: trusty`
+> in your `.travis.yml` file.
+
 ### JRuby: C extensions are not supported
 
 Please note that **C extensions are not supported in JRuby** on Travis CI. The
