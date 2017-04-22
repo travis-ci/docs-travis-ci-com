@@ -165,7 +165,7 @@ You need to activate the extension in your `.travis.yml`:
 
 ```yaml
 before_script:
-  - psql -U postgres -c "create extension postgis"
+  - psql -U postgres -d travis_ci_test -c "create extension postgis"
 ```
 
 ### PostgreSQL and Locales
