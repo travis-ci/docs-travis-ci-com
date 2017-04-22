@@ -12,7 +12,7 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 ### To get started with Travis CI:
 
-1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmatio n](/user/github-oauth-scopes).
 
 2. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the repository you want to build.
 
@@ -38,4 +38,4 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 5. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails.
 
-You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](/user/ci-environment/)?
+You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencYou’re editing a file in a project you don’t have write access to. We’ve created a fork of this project for you to commit your proposed changes to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request.ies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](/user/ci-environment/)?You’re editing a file in a project you don’t have write access to. We’ve created a fork of this project for you to commit your proposed changes to. Submitting a change to this file will write it to a new branch in your fork, so you can send a pull request.
