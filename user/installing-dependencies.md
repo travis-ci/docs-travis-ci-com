@@ -216,7 +216,7 @@ If you're testing on both Linux amd OSX, you can use the `$TRAVIS_OS_NAME` varia
 
 ```
 install:
-- if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
 ```
 
 ## Installing Projects from Source
