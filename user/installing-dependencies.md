@@ -204,7 +204,7 @@ To install packages that are not included in the [default OSX environment](/user
 
 ```yaml
 before_install:
-  - brew update
+  - brew update
   - brew install beanstalk
 ```
 
@@ -216,8 +216,8 @@ If you're testing on both Linux amd OSX, you can use the `$TRAVIS_OS_NAME` varia
 
 ```
 install:
-  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
-``` 
+- if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+```
 
 ## Installing Projects from Source
 
