@@ -210,6 +210,15 @@ before_install:
 
 Use `brew update` to update the local Homebrew package list.
 
+## Installing Dependencies on Multiple Operating Systems
+
+If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+
+```yaml
+install:
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+```
+
 ## Installing Projects from Source
 
 Some dependencies can only be installed from a source package. The build may require a more recent version or a tool or library that's not available as a Ubuntu package.
