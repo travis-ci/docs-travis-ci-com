@@ -210,11 +210,11 @@ before_install:
 
 Use `brew update` to update the local Homebrew package list.
 
-## Handling Multiple Operating Systems
+## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux amd OSX, you can use the `$TRAVIS_OS_NAME` variable to handle them both.
+If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies seperately:
 
-```
+```yaml
 install:
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
 ```
