@@ -212,7 +212,7 @@ Use `brew update` to update the local Homebrew package list.
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies seperately:
+If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
 
 ```yaml
 install:
