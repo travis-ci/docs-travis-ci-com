@@ -170,7 +170,6 @@ osx_images:
     xcode: "6.4"
     osx_version: "10.10"
     xcode_full_version: "6.4"
-    image_note: "Please note that this image is no longer updated and will be retired on Friday, January 20th"
     sdks:
       - macosx10.9
       - macosx10.10
