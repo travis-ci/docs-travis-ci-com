@@ -115,7 +115,7 @@ there, rather than to the committer and author.
 ### Changing the email address for build notifications
 
 Travis CI only sends build notifications to email addresses registered on GitHub.
-If you have multiple address registered you can set the email address for a specific
+If you have multiple addresses registered you can set the email address for a specific
  repository using `git`:
 
 > Note that this also changes the commit email address, not just the Travis CI notification settings.
