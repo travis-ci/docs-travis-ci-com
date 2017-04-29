@@ -335,7 +335,7 @@ On Discord, head to a channel's settings and navigate to the webhooks tab.
   <img alt="Screenshot of Discord channel webhooks" src="https://i.imgur.com/mtZOWN8.png"/>
 </figure>
 
-Now create a new webhook using the "Create Webhook" and customize the name. Setting an avatar is not necessary because Travis CI supplies one.
+Now create a new webhook using the "Create Webhook" button and customize the name. Setting an avatar is not necessary because Travis CI supplies one.
 
 <figure>
   <img alt="Screenshot of Discord webhook settings" src="https://i.imgur.com/5yojW8R.png"/>
@@ -350,7 +350,7 @@ notifications:
   discord: '[id]:[token]'
 ```
 
-To specify a multiple channels (even across servers) use:
+To specify multiple channels (even across servers) use:
 
 ```yaml
 notifications:
