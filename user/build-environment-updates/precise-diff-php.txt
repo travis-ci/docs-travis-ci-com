@@ -1,29 +1,29 @@
 travis_fold:start:worker_info
 [0K[33;1mWorker information[0m
-hostname: production-4-worker-org-b-3-gce:c90d298e-eb38-4faa-8082-578392b86fa8
+hostname: production-2-worker-org-b-1-gce:1bd69e3c-c01b-4fa9-b5b8-056eb03a2beb
 version: v2.7.0 https://github.com/travis-ci/worker/tree/66fc24311e055643710f4e0567f6888c927d3ab8
-instance: testing-gce-c0f93f70-c381-4d35-8108-7e2645ec021a:travis-ci-php-precise-1480652621
-startup: 21.595042628s
+instance: testing-gce-4b56d6cd-61ae-41fc-b06d-c22725af9513:travis-ci-php-precise-1491946183
+startup: 21.72454379s
 travis_fold:end:worker_info
 [0Ktravis_fold:start:system_info
 [0K[33;1mBuild system information[0m
 Build language: php
-Build group: stable
+Build group: edge
 Build dist: precise
-Build id: 227719476
-Job id: 227719479
+Build id: 227726632
+Job id: 227726637
 travis-build version: ae844078b
 [34m[1mBuild image provisioning date and time[0m
-Fri Dec  2 04:45:39 UTC 2016
+Tue Apr 11 21:48:56 UTC 2017
 [34m[1mOperating System Details[0m
 Distributor ID:	Ubuntu
 Description:	Ubuntu 12.04.5 LTS
 Release:	12.04
 Codename:	precise
 [34m[1mLinux Version[0m
-3.13.0-103-generic
+3.13.0-115-generic
 [34m[1mCookbooks Version[0m
-9c6cd11 https://github.com/travis-ci/travis-cookbooks/tree/9c6cd11
+cc4eb5e https://github.com/travis-ci/travis-cookbooks/tree/cc4eb5e
 [34m[1mGit version[0m
 git version 1.8.5.6
 [34m[1mbash version[0m
@@ -44,21 +44,21 @@ clang version 3.4 (tags/RELEASE_34/final)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
 [34m[1mPre-installed Ruby versions[0m
-ruby-2.2.5
+ruby-2.2.6
 [34m[1mPre-installed Node.js versions[0m
 v0.10.36
 [34m[1mPre-installed Go versions[0m
-1.4.2
+1.7.4
 [34m[1mmysql --version[0m
-mysql  Ver 14.14 Distrib 5.5.53, for debian-linux-gnu (x86_64) using readline 6.2
+mysql  Ver 14.14 Distrib 5.5.54, for debian-linux-gnu (x86_64) using readline 6.2
 [34m[1mPre-installed PostgreSQL versions[0m
 9.1.24
-9.2.19
-9.3.15
-9.4.10
-9.5.5
+9.2.20
+9.3.16
+9.4.11
+9.5.6
 [34m[1mRedis version[0m
-redis-server 3.0.6
+redis-server 3.0.7
 [34m[1mriak version[0m
 2.0.2
 [34m[1mmemcached version[0m
@@ -67,12 +67,6 @@ redis-server 3.0.6
 MongoDB 2.4.14
 [34m[1mCouchDB version[0m
 couchdb 1.6.1
-[34m[1mNeo4j version[0m
-1.9.4
-[34m[1mCassandra version[0m
-2.0.9
-[34m[1mElasticSearch version[0m
-1.4.0
 [34m[1mInstalled Sphinx versions[0m
 2.0.10
 2.1.9
@@ -91,7 +85,7 @@ Maven home: /usr/local/maven
 Java version: 1.7.0_80, vendor: Oracle Corporation
 Java home: /usr/lib/jvm/java-7-oracle/jre
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "3.13.0-103-generic", arch: "amd64", family: "unix"
+OS name: "linux", version: "3.13.0-115-generic", arch: "amd64", family: "unix"
 [34m[1mphpenv versions[0m
 * system (set by /home/travis/.phpenv/version)
   5.3.29
@@ -101,93 +95,32 @@ OS name: "linux", version: "3.13.0-103-generic", arch: "amd64", family: "unix"
   5.5.29
   5.5.9
   5.6.13
-  hhvm
-  hhvm-
-  hhvm-nightly
 travis_fold:end:system_info
 [0K
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-updates/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-backports/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise/Release.gpg: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/Release.gpg: Signature by key 492EAFE8CD016A07919F1D2B9ECBEC467F0CEB10 uses weak digest algorithm (SHA1)
+W: http://security.ubuntu.com/ubuntu/dists/precise-security/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/precise/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/git-core/v1.8/ubuntu/dists/precise/Release.gpg: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak digest algorithm (SHA1)
 travis_fold:start:fix.CVE-2015-7547
 [0K$ export DEBIAN_FRONTEND=noninteractive
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-updates/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-backports/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise/Release.gpg: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://downloads-distro.mongodb.org/repo/debian-sysvinit/dists/dist/Release.gpg: Signature by key 492EAFE8CD016A07919F1D2B9ECBEC467F0CEB10 uses weak digest algorithm (SHA1)
+W: http://security.ubuntu.com/ubuntu/dists/precise-security/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/precise/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
+W: http://ppa.launchpad.net/git-core/v1.8/ubuntu/dists/precise/Release.gpg: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak digest algorithm (SHA1)
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following extra packages will be installed:
-  libc-bin libc-dev-bin libc6-dev
-Suggested packages:
-  glibc-doc
-The following packages will be upgraded:
-  libc-bin libc-dev-bin libc6 libc6-dev
-4 upgraded, 0 newly installed, 0 to remove and 118 not upgraded.
-Need to get 8,856 kB of archives.
-After this operation, 27.6 kB of additional disk space will be used.
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.18 [2,948 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.18 [84.5 kB]
-Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.18 [1,178 kB]
-Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.18 [4,646 kB]
-Fetched 8,856 kB in 0s (51.7 MB/s)
-Preconfiguring packages ...
-(Reading database ...
-(Reading database ... 5%
-(Reading database ... 10%
-(Reading database ... 15%
-(Reading database ... 20%
-(Reading database ... 25%
-(Reading database ... 30%
-(Reading database ... 35%
-(Reading database ... 40%
-(Reading database ... 45%
-(Reading database ... 50%
-(Reading database ... 55%
-(Reading database ... 60%
-(Reading database ... 65%
-(Reading database ... 70%
-(Reading database ... 75%
-(Reading database ... 80%
-(Reading database ... 85%
-(Reading database ... 90%
-(Reading database ... 95%
-(Reading database ... 100%
-(Reading database ... 82945 files and directories currently installed.)
-Preparing to replace libc6-dev 2.15-0ubuntu10.15 (using .../libc6-dev_2.15-0ubuntu10.18_amd64.deb) ...
-Unpacking replacement libc6-dev ...
-Preparing to replace libc-dev-bin 2.15-0ubuntu10.15 (using .../libc-dev-bin_2.15-0ubuntu10.18_amd64.deb) ...
-Unpacking replacement libc-dev-bin ...
-Preparing to replace libc-bin 2.15-0ubuntu10.15 (using .../libc-bin_2.15-0ubuntu10.18_amd64.deb) ...
-Unpacking replacement libc-bin ...
-Processing triggers for man-db ...
-Setting up libc-bin (2.15-0ubuntu10.18) ...
-(Reading database ...
-(Reading database ... 5%
-(Reading database ... 10%
-(Reading database ... 15%
-(Reading database ... 20%
-(Reading database ... 25%
-(Reading database ... 30%
-(Reading database ... 35%
-(Reading database ... 40%
-(Reading database ... 45%
-(Reading database ... 50%
-(Reading database ... 55%
-(Reading database ... 60%
-(Reading database ... 65%
-(Reading database ... 70%
-(Reading database ... 75%
-(Reading database ... 80%
-(Reading database ... 85%
-(Reading database ... 90%
-(Reading database ... 95%
-(Reading database ... 100%
-(Reading database ... 82945 files and directories currently installed.)
-Preparing to replace libc6 2.15-0ubuntu10.15 (using .../libc6_2.15-0ubuntu10.18_amd64.deb) ...
-Unpacking replacement libc6 ...
-Setting up libc6 (2.15-0ubuntu10.18) ...
-Setting up libc-dev-bin (2.15-0ubuntu10.18) ...
-Setting up libc6-dev (2.15-0ubuntu10.18) ...
-Processing triggers for libc-bin ...
-ldconfig deferred processing now taking place
+libc6 is already the newest version (2.15-0ubuntu10.18).
+0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
 travis_fold:end:fix.CVE-2015-7547
 [0Ktravis_fold:start:git.checkout
-[0Ktravis_time:start:00355120
+[0Ktravis_time:start:09356c22
 [0K$ git clone --depth=50 --branch=cha-gce-image-diff https://github.com/Lyoness/travis_production_test.git Lyoness/travis_production_test
 Cloning into 'Lyoness/travis_production_test'...
 remote: Counting objects: 173, done.[K
@@ -347,12 +280,12 @@ Receiving objects:  76% (132/173)
 Receiving objects:  77% (134/173)
 Receiving objects:  78% (135/173)
 Receiving objects:  79% (137/173)
-remote: Total 173 (delta 92), reused 164 (delta 88), pack-reused 0[K
 Receiving objects:  80% (139/173)
 Receiving objects:  81% (141/173)
 Receiving objects:  82% (142/173)
 Receiving objects:  83% (144/173)
 Receiving objects:  84% (146/173)
+remote: Total 173 (delta 93), reused 163 (delta 88), pack-reused 0[K
 Receiving objects:  85% (148/173)
 Receiving objects:  86% (149/173)
 Receiving objects:  87% (151/173)
@@ -369,57 +302,53 @@ Receiving objects:  97% (168/173)
 Receiving objects:  98% (170/173)
 Receiving objects:  99% (172/173)
 Receiving objects: 100% (173/173)
-Receiving objects: 100% (173/173), 29.12 KiB | 0 bytes/s, done.
-Resolving deltas:   0% (0/92)
-Resolving deltas:   1% (1/92)
-Resolving deltas:   2% (2/92)
-Resolving deltas:  20% (19/92)
-Resolving deltas:  59% (55/92)
-Resolving deltas:  60% (56/92)
-Resolving deltas:  61% (57/92)
-Resolving deltas:  63% (58/92)
-Resolving deltas:  82% (76/92)
-Resolving deltas: 100% (92/92)
-Resolving deltas: 100% (92/92), done.
+Receiving objects: 100% (173/173), 28.56 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/93)
+Resolving deltas:   3% (3/93)
+Resolving deltas:   4% (4/93)
+Resolving deltas:   5% (5/93)
+Resolving deltas:  53% (50/93)
+Resolving deltas: 100% (93/93)
+Resolving deltas: 100% (93/93), done.
 Checking connectivity... done.
 
-travis_time:end:00355120:start=1493670989608900679,finish=1493670990373934602,duration=765033923
+travis_time:end:09356c22:start=1493672475547752813,finish=1493672476358902891,duration=811150078
 [0K$ cd Lyoness/travis_production_test
-$ git checkout -qf 611ecc71b38646d429721d979d30dbdf57383d62
+$ git checkout -qf 1ee3c335f8169a893c1f8f082731bd8693a88020
 travis_fold:end:git.checkout
-[0Ktravis_time:start:08f2f53d
+[0Ktravis_time:start:248ffb90
 [0K$ phpenv global 5.5 2>/dev/null
 
-travis_time:end:08f2f53d:start=1493670990386037010,finish=1493670990405518960,duration=19481950
+travis_time:end:248ffb90:start=1493672476373984087,finish=1493672476397054087,duration=23070000
 [0K[33;1m5.5 is not pre-installed; installing[0m
 [33;1mDownloading archive: https://s3.amazonaws.com/travis-php-archives/binaries/ubuntu/12.04/x86_64/php-5.5.tar.bz2[0m
-travis_time:start:28fd8140
+travis_time:start:1c51812c
 [0K$ curl -s -o archive.tar.bz2 $archive_url && tar xjf archive.tar.bz2 --directory /
 
-travis_time:end:28fd8140:start=1493670990463187279,finish=1493671000801698682,duration=10338511403
-[0Ktravis_time:start:07854216
+travis_time:end:1c51812c:start=1493672476464878727,finish=1493672489378419521,duration=12913540794
+[0Ktravis_time:start:04f3fbd6
 [0K
-travis_time:end:07854216:start=1493671000806445552,finish=1493671000817758591,duration=11313039
-[0Ktravis_time:start:0b0270e8
+travis_time:end:04f3fbd6:start=1493672489382644723,finish=1493672489394733350,duration=12088627
+[0Ktravis_time:start:033184b4
 [0K$ phpenv global 5.5
 
-travis_time:end:0b0270e8:start=1493671000821673075,finish=1493671000838622412,duration=16949337
-[0Ktravis_time:start:06806721
+travis_time:end:033184b4:start=1493672489398930459,finish=1493672489417186975,duration=18256516
+[0Ktravis_time:start:04f27cac
 [0K$ composer self-update 1.0.0
 [30;43mYou are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug[39;49m
 Updating to version [32m1.0.0[39m (stable channel).
     Downloading: [33mConnecting...[39m    Downloading: [33m100%[39m         
 Use [32mcomposer self-update --rollback[39m to return to version 1.2.0
 
-travis_time:end:06806721:start=1493671000888625204,finish=1493671003454545828,duration=2565920624
-[0Ktravis_time:start:0d79f754
+travis_time:end:04f27cac:start=1493672489464806118,finish=1493672492061728090,duration=2596921972
+[0Ktravis_time:start:1d3f9211
 [0K$ composer self-update
 [30;43mYou are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug[39;49m
 Updating to version [32m1.4.1[39m.
     Downloading: [33mConnecting...[39m    Downloading: [33m100%[39m         
 Use [32mcomposer self-update --rollback[39m to return to version 1.0.0
 
-travis_time:end:0d79f754:start=1493671003458458174,finish=1493671005880239528,duration=2421781354
+travis_time:end:1d3f9211:start=1493672492066151993,finish=1493672494476545059,duration=2410393066
 [0K$ php --version
 PHP 5.5.38 (cli) (built: Aug 16 2016 19:19:37)
 Copyright (c) 1997-2015 The PHP Group
@@ -430,19 +359,18 @@ $ composer --version
 [32mComposer[39m version [33m1.4.1[39m 2017-03-10 09:29:45
 [0m
 travis_fold:start:install
-[0Ktravis_time:start:0cd4a07c
+[0Ktravis_time:start:00cdadc0
 [0K$ true
 
-travis_time:end:0cd4a07c:start=1493671006157349302,finish=1493671006160570938,duration=3221636
+travis_time:end:00cdadc0:start=1493672494826465147,finish=1493672494830800150,duration=4335003
 [0Ktravis_fold:end:install
-[0Ktravis_time:start:0d157232
+[0Ktravis_time:start:06ca3bde
 [0K$ dpkg --get-selections
 accountsservice					install
 acpid						install
 adduser						install
 ant						install
 ant-contrib					install
-ant-optional					install
 apparmor					deinstall
 apport						install
 apport-symptoms					install
@@ -478,7 +406,6 @@ ca-certificates					install
 ca-certificates-java				install
 ccache						install
 chromium-browser				install
-chromium-browser-l10n				install
 chromium-codecs-ffmpeg-extra			install
 cloud-init					install
 cloud-initramfs-growroot			install
@@ -486,12 +413,10 @@ cloud-initramfs-rescuevol			install
 cloud-utils					install
 cmake						install
 cmake-data					install
-cmap-adobe-japan1				install
 comerr-dev					install
 command-not-found				install
 command-not-found-data				install
 console-setup					install
-consolekit					install
 coreutils					install
 couchdb						install
 couchdb-bin					install
@@ -501,20 +426,16 @@ cpp						install
 cpp-4.6						install
 crda						deinstall
 cron						install
-cryptsetup-bin					install
 curl						install
 dash						install
 dbus						install
-dbus-x11					install
 dconf-gsettings-backend				install
 dconf-service					install
 debconf						install
 debconf-i18n					install
 debconf-utils					install
-debhelper					install
 debianutils					install
 default-jre-headless				install
-dh-apparmor					install
 diffutils					install
 dmidecode					install
 dmsetup						install
@@ -561,10 +482,8 @@ erlang-webtool					install
 erlang-xmerl					install
 ethtool						install
 euca2ools					install
-fakeroot					install
 file						install
 findutils					install
-firefox-locale-en				install
 firefox-locale-pt				install
 flex						install
 fontconfig					install
@@ -585,12 +504,9 @@ gce-imagebundle					install
 gce-startup-scripts				install
 gconf-service					install
 gconf-service-backend				install
-gconf2						install
 gconf2-common					install
 geoip-database					install
-gettext						install
 gettext-base					install
-ghostscript					install
 gir1.2-atk-1.0					install
 gir1.2-freedesktop				install
 gir1.2-gdkpixbuf-2.0				install
@@ -610,22 +526,12 @@ grub-gfxpayload-lists				install
 grub-pc						install
 grub-pc-bin					install
 grub2-common					install
-gs-cjk-resource					install
 gsfonts						install
 gsfonts-x11					install
 guile-1.8-libs					install
-gvfs						install
-gvfs-common					install
-gvfs-daemons					install
-gvfs-libs					install
 gzip						install
 hdparm						install
-hhvm						install
-hicolor-icon-theme				install
 hostname					install
-html2text					install
-icedtea-6-jre-cacao				install
-icedtea-6-jre-jamvm				install
 icedtea-6-plugin				install
 icedtea-7-plugin				install
 icedtea-netx					install
@@ -639,7 +545,6 @@ initramfs-tools-bin				install
 initscripts					install
 insserv						install
 install-info					install
-intltool-debian					install
 iproute						install
 iptables					install
 iputils-ping					install
@@ -669,19 +574,17 @@ lemon						install
 less						install
 libaccountsservice0				install
 libacl1						install
-libalgorithm-diff-perl				install
-libalgorithm-diff-xs-perl			install
-libalgorithm-merge-perl				install
 libapr1						install
 libaprutil1					install
 libapt-inst1.4					install
+libapt-inst2.0					install
 libapt-pkg4.12					install
+libapt-pkg5.0					install
 libarchive12					install
 libarmadillo2					install
 libasn1-8-heimdal				install
 libasound2					install
 libasyncns0					install
-libatasmart4					install
 libatk-wrapper-java				install
 libatk-wrapper-java-jni				install
 libatk1.0-0					install
@@ -692,19 +595,11 @@ libaudio2					install
 libavahi-client3				install
 libavahi-common-data				install
 libavahi-common3				install
-libavahi-glib1					install
 libbind9-80					install
 libbison-dev					install
 libblas3gf					install
 libblkid1					install
-libbonobo2-0					install
-libbonobo2-common				install
-libboost-filesystem1.49.0			install
 libboost-iostreams1.46.1			install
-libboost-program-options1.49.0			install
-libboost-regex1.49.0				install
-libboost-system1.49.0				install
-libboost-thread1.49.0				install
 libbsd0						install
 libbz2-1.0					install
 libbz2-dev					install
@@ -718,23 +613,17 @@ libcairo-gobject2				install
 libcairo-script-interpreter2			install
 libcairo2					install
 libcairo2-dev					install
-libcanberra-gtk3-0				install
-libcanberra-gtk3-module				install
-libcanberra0					install
 libcap-ng0					install
 libcap2						install
 libcdt4						install
 libcgraph5					install
-libck-connector0				install
 libclass-accessor-perl				install
 libclass-isa-perl				install
 libcloog-ppl0					install
 libcomerr2					install
 libcommons-daemon-java				install
 libcroco3					install
-libcryptsetup4					install
 libcups2					install
-libcupsimage2					install
 libcurl3					install
 libcurl3-gnutls					install
 libcurl4-gnutls-dev				install
@@ -749,7 +638,6 @@ libdbi-perl					install
 libdbus-1-3					install
 libdbus-glib-1-2				install
 libdconf0					install
-libdevmapper-event1.02.1			install
 libdevmapper1.02.1				install
 libdjvulibre-dev				install
 libdjvulibre-text				install
@@ -779,9 +667,6 @@ libexpat1					install
 libexpat1-dev					install
 libffi-dev					install
 libffi6						install
-libfile-basedir-perl				install
-libfile-desktopentry-perl			install
-libfile-mimeinfo-perl				install
 libfl-dev					install
 libflac8					install
 libfontconfig1					install
@@ -795,24 +680,20 @@ libfuse2					install
 libgc1c2					install
 libgcc1						install
 libgconf-2-4					install
-libgconf2-4					install
 libgcrypt11					install
 libgcrypt11-dev					install
-libgd2-noxpm					deinstall
-libgd2-xpm					install
+libgd2-noxpm					install
 libgdal1					install
 libgdbm-dev					install
 libgdbm3					install
 libgdk-pixbuf2.0-0				install
 libgdk-pixbuf2.0-common				install
 libgdk-pixbuf2.0-dev				install
-libgdu0						install
 libgeoip1					install
 libgeos-3.2.2					deinstall
 libgeos-3.3.8					install
 libgeos-c1					install
 libgeos-dev					install
-libgettextpo0					install
 libgfortran3					install
 libgif4						install
 libgirepository-1.0-1				install
@@ -830,13 +711,6 @@ libgmp-dev					install
 libgmp10					install
 libgmp3-dev					install
 libgmpxx4ldbl					install
-libgnome-keyring-common				install
-libgnome-keyring0				install
-libgnome2-0					install
-libgnome2-bin					install
-libgnome2-common				install
-libgnomevfs2-0					install
-libgnomevfs2-common				install
 libgnutls-dev					install
 libgnutls-openssl27				install
 libgnutls26					install
@@ -847,21 +721,14 @@ libgpg-error0					install
 libgpm2						install
 libgraph4					install
 libgraphviz-dev					install
-libgs9						install
-libgs9-common					install
 libgssapi-krb5-2				install
 libgssapi3-heimdal				install
 libgssrpc4					install
-libgstreamer-plugins-base0.10-0			install
-libgstreamer0.10-0				install
 libgtk-3-0					install
-libgtk-3-bin					install
 libgtk-3-common					install
 libgtk2.0-0					install
-libgtk2.0-bin					install
 libgtk2.0-common				install
 libgtk2.0-dev					install
-libgudev-1.0-0					install
 libgvc5						install
 libgvpr1					install
 libhashkit0					install
@@ -876,11 +743,8 @@ libice-dev					install
 libice6						install
 libicu-dev					install
 libicu48					install
-libidl-common					install
-libidl0						install
 libidn11					install
 libidn11-dev					install
-libijs-0.35					install
 libilmbase-dev					install
 libilmbase6					install
 libio-string-perl				install
@@ -890,7 +754,7 @@ libisccfg82					install
 libiw30						install
 libjasper-dev					install
 libjasper1					install
-libjbig2dec0					install
+libjemalloc1					install
 libjpeg-dev					install
 libjpeg-turbo8					install
 libjpeg-turbo8-dev				install
@@ -913,7 +777,6 @@ liblcms1					install
 liblcms1-dev					install
 liblcms2-2					install
 libldap-2.4-2					install
-libldap-2.4-2-dbg				install
 libldap2-dev					install
 libllvm2.9					install
 libllvm3.0					install
@@ -924,7 +787,6 @@ liblqr-1-0					install
 liblqr-1-0-dev					install
 libltdl-dev					install
 libltdl7					install
-liblvm2app2.2					install
 liblwgeom-2.2-5					install
 liblwgeom-2.3-0					install
 liblwres80					install
@@ -936,7 +798,6 @@ libmagickcore4					install
 libmagickcore4-extra				install
 libmagickwand-dev				install
 libmagickwand4					install
-libmail-sendmail-perl				install
 libmcrypt-dev					install
 libmcrypt4					install
 libmemcached-dev				install
@@ -962,7 +823,6 @@ libncursesw5-dev				install
 libneon27-gnutls				install
 libnet-daemon-perl				install
 libnetcdf6					install
-libnetpbm10					install
 libnettle4					install
 libnewt0.52					install
 libnfnetlink0					install
@@ -977,18 +837,14 @@ libnss3-1d					install
 libodbc1					install
 libogdi3.2					install
 libogg0						install
-libonig2					install
 libopenexr-dev					install
 libopenexr6					install
 libopts25					install
 libopts25-dev					install
-liborbit2					install
-liborc-0.4-0					install
 libossp-uuid-dev				install
 libossp-uuid16					install
 libp11-kit-dev					install
 libp11-kit0					install
-libpam-ck-connector				install
 libpam-modules					install
 libpam-modules-bin				install
 libpam-runtime					install
@@ -996,8 +852,6 @@ libpam0g					install
 libpam0g-dev					install
 libpango1.0-0					install
 libpango1.0-dev					install
-libpaper-utils					install
-libpaper1					install
 libparse-debianchangelog-perl			install
 libparted0debian1				install
 libpathplan4					install
@@ -1016,8 +870,6 @@ libplrpc-perl					install
 libplymouth2					install
 libpng12-0					install
 libpng12-dev					install
-libpolkit-agent-1-0				install
-libpolkit-backend-1-0				install
 libpolkit-gobject-1-0				install
 libpoppler19					install
 libpopt0					install
@@ -1038,21 +890,16 @@ libqt4-designer					install
 libqt4-dev					install
 libqt4-help					install
 libqt4-network					install
-libqt4-opengl					install
-libqt4-opengl-dev				install
 libqt4-qt3support				install
 libqt4-script					install
 libqt4-scripttools				install
 libqt4-sql					install
-libqt4-sql-mysql				install
 libqt4-svg					install
 libqt4-test					install
 libqt4-xml					install
 libqt4-xmlpatterns				install
 libqtcore4					install
 libqtgui4					install
-libqtwebkit-dev					install
-libqtwebkit4					install
 libquadmath0					install
 libreadline-dev					install
 libreadline5					install
@@ -1072,7 +919,6 @@ libsasl2-modules				install
 libsctp1					install
 libselinux1					install
 libsensors4					install
-libsgutils2-2					install
 libsigc++-2.0-0c2a				install
 libsigsegv2					install
 libslang2					install
@@ -1084,7 +930,6 @@ libsqlite3-0					install
 libsqlite3-dev					install
 libss2						install
 libssl-dev					install
-libssl-doc					install
 libssl0.9.8					install
 libssl1.0.0					install
 libstartup-notification0			install
@@ -1093,14 +938,11 @@ libstdc++6-4.6-dev				install
 libsub-name-perl				install
 libsvn1						install
 libswitch-perl					install
-libsys-hostname-long-perl			install
 libt1-5						install
 libt1-dev					install
 libt1-doc					install
 libtasn1-3					install
 libtasn1-3-dev					install
-libtbb2						install
-libtdb1						install
 libterm-readkey-perl				install
 libtext-charwidth-perl				install
 libtext-iconv-perl				install
@@ -1117,15 +959,11 @@ libtinfo-dev					install
 libtinfo5					install
 libtool						install
 libudev0					install
-libunistring0					install
-libunwind7					install
 libusb-0.1-4					install
 libusb-1.0-0					install
-libutempter0					install
 libuuid1					install
 libvorbis0a					install
 libvorbisenc2					install
-libvorbisfile3					install
 libwind0-heimdal				install
 libwmf-dev					install
 libwmf0.2-7					install
@@ -1136,10 +974,12 @@ libx11-dev					install
 libx11-doc					install
 libx11-xcb1					install
 libxapian22					install
+libxatracker1					install
 libxau-dev					install
 libxau6						install
 libxaw7						install
 libxaw7-dev					install
+libxcb-dri2-0					install
 libxcb-glx0					install
 libxcb-render0					install
 libxcb-render0-dev				install
@@ -1196,6 +1036,7 @@ libxt-dev					install
 libxt6						install
 libxtst6					install
 libxv1						install
+libxvmc1					install
 libxxf86dga1					install
 libxxf86vm1					install
 libyaml-0-2					install
@@ -1203,10 +1044,9 @@ libyaml-dev					install
 libzmq3						install
 libzmq3-dev					install
 linux-firmware					install
-linux-image-3.13.0-103-generic			install
+linux-image-3.13.0-115-generic			install
 linux-image-generic-lts-trusty			install
 linux-libc-dev					install
-lksctp-tools					install
 llvm						install
 llvm-2.9					install
 llvm-2.9-dev					install
@@ -1226,7 +1066,6 @@ make						install
 makedev						install
 man-db						install
 manpages					install
-manpages-dev					install
 mawk						install
 md5deep						install
 memcached					install
@@ -1244,7 +1083,6 @@ module-init-tools				install
 mongodb-10gen					install
 mount						install
 mountall					install
-mtools						install
 mtr-tiny					install
 multiarch-support				install
 mysql-client					install
@@ -1260,8 +1098,6 @@ ncurses-bin					install
 net-tools					install
 netbase						install
 netcat-openbsd					install
-netpbm						install
-notification-daemon				install
 ntfs-3g						install
 ntp						install
 ntpdate						install
@@ -1290,9 +1126,6 @@ pgdg-keyring					install
 pkg-config					install
 plymouth					install
 plymouth-theme-ubuntu-text			install
-po-debconf					install
-policykit-1					install
-policykit-1-gnome				install
 pollinate					install
 postgresql-9.1					install
 postgresql-9.1-postgis-2.2			install
@@ -1383,7 +1216,6 @@ python3-minimal					install
 python3.2					install
 python3.2-dev					install
 python3.2-minimal				install
-qdbus						install
 qt4-linguist-tools				install
 qt4-qmake					install
 rabbitmq-server					install
@@ -1391,6 +1223,7 @@ ragel						install
 re2c						install
 readline-common					install
 redis-server					install
+redis-tools					install
 resolvconf					install
 riak						install
 rsync						install
@@ -1404,7 +1237,6 @@ sed						install
 sensible-utils					install
 sgml-base					install
 shared-mime-info				install
-sound-theme-freedesktop				install
 sqlite3						install
 sqlite3-doc					install
 ssh-import-id					install
@@ -1433,14 +1265,12 @@ tk8.5						install
 tk8.5-dev					install
 tmux						install
 ttf-dejavu-core					install
-ttf-dejavu-extra				install
 tzdata						install
 tzdata-java					install
 ubuntu-keyring					install
 ubuntu-minimal					install
 ucf						install
 udev						install
-udisks						install
 ufw						install
 unattended-upgrades				install
 unzip						install
@@ -1478,9 +1308,7 @@ x11proto-scrnsaver-dev				install
 x11proto-xext-dev				install
 x11proto-xinerama-dev				install
 xauth						install
-xbitmaps					install
 xdg-utils					install
-xfonts-base					install
 xfonts-encodings				install
 xfonts-utils					install
 xkb-data					install
@@ -1488,7 +1316,28 @@ xml-core					install
 xorg-sgml-doctools				install
 xserver-common					install
 xserver-xorg-core				install
-xterm						install
+xserver-xorg-video-all				install
+xserver-xorg-video-ati				install
+xserver-xorg-video-cirrus			install
+xserver-xorg-video-fbdev			install
+xserver-xorg-video-intel			install
+xserver-xorg-video-mach64			install
+xserver-xorg-video-mga				install
+xserver-xorg-video-neomagic			install
+xserver-xorg-video-nouveau			install
+xserver-xorg-video-openchrome			install
+xserver-xorg-video-qxl				install
+xserver-xorg-video-r128				install
+xserver-xorg-video-radeon			install
+xserver-xorg-video-s3				install
+xserver-xorg-video-savage			install
+xserver-xorg-video-siliconmotion		install
+xserver-xorg-video-sis				install
+xserver-xorg-video-sisusb			install
+xserver-xorg-video-tdfx				install
+xserver-xorg-video-trident			install
+xserver-xorg-video-vesa				install
+xserver-xorg-video-vmware			install
 xtrans-dev					install
 xvfb						install
 xz-lzma						install
@@ -1497,7 +1346,7 @@ zip						install
 zlib1g						install
 zlib1g-dev					install
 
-travis_time:end:0d157232:start=1493671006164727277,finish=1493671006207988512,duration=43261235
+travis_time:end:06ca3bde:start=1493672494836452361,finish=1493672494889046815,duration=52594454
 [0K
 [32;1mThe command "dpkg --get-selections" exited with 0.[0m
 
