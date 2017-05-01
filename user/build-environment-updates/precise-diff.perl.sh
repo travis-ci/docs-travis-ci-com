@@ -1,20 +1,20 @@
 travis_fold:start:worker_info
 [0K[33;1mWorker information[0m
-hostname: production-5-worker-org-c-2-gce:fd934ebd-ab1e-4485-b911-fb30f01441d2
+hostname: production-4-worker-org-c-5-gce:a1d8f4b0-3c4d-4468-8d5b-96c1c4b406ed
 version: v2.7.0 https://github.com/travis-ci/worker/tree/66fc24311e055643710f4e0567f6888c927d3ab8
-instance: testing-gce-63543041-4400-4de4-9e16-4efa3a112bec:travis-ci-python-precise-1491944468
-startup: 22.0448532s
+instance: testing-gce-51b71ef8-3405-4934-82d8-9466031a9fe3:travis-ci-perl-precise-1491941419
+startup: 21.477753967s
 travis_fold:end:worker_info
 [0Ktravis_fold:start:system_info
 [0K[33;1mBuild system information[0m
-Build language: python
+Build language: perl
 Build group: edge
 Build dist: precise
 Build id: 227726632
-Job id: 227726639
+Job id: 227726642
 travis-build version: ae844078b
 [34m[1mBuild image provisioning date and time[0m
-Tue Apr 11 21:19:31 UTC 2017
+Tue Apr 11 20:33:53 UTC 2017
 [34m[1mOperating System Details[0m
 Distributor ID:	Ubuntu
 Description:	Ubuntu 12.04.5 LTS
@@ -67,12 +67,6 @@ redis-server 3.0.7
 MongoDB 2.4.14
 [34m[1mCouchDB version[0m
 couchdb 1.6.1
-[34m[1mNeo4j version[0m
-1.9.4
-[34m[1mCassandra version[0m
-2.0.9
-[34m[1mElasticSearch version[0m
-1.4.0
 [34m[1mInstalled Sphinx versions[0m
 2.0.10
 2.1.9
@@ -92,6 +86,20 @@ Java version: 1.7.0_80, vendor: Oracle Corporation
 Java home: /usr/lib/jvm/java-7-oracle/jre
 Default locale: en, platform encoding: UTF-8
 OS name: "linux", version: "3.13.0-115-generic", arch: "amd64", family: "unix"
+[34m[1mperlbrew list[0m
+  5.8 (5.8.8)
+  5.10 (5.10.1)
+  5.12 (5.12.5)
+  5.14 (5.14.4)
+  5.16 (5.16.3)
+  5.18 (5.18.4)
+  5.18-extras (5.18.4)
+  5.18-shrplib (5.18.4)
+  5.20 (5.20.3)
+  5.20-extras (5.20.3)
+  5.20-shrplib (5.20.3)
+  5.20.3
+  5.21 (5.21.0)
 travis_fold:end:system_info
 [0K
 W: http://us-central1.gce.archive.ubuntu.com/ubuntu/dists/precise-updates/InRelease: Signature by key 630239CC130E1A7FD81A27B140976EAF437D05B5 uses weak digest algorithm (SHA1)
@@ -117,7 +125,7 @@ libc6 is already the newest version (2.15-0ubuntu10.18).
 0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
 travis_fold:end:fix.CVE-2015-7547
 [0Ktravis_fold:start:git.checkout
-[0Ktravis_time:start:01b97430
+[0Ktravis_time:start:2c220a74
 [0K$ git clone --depth=50 --branch=cha-gce-image-diff https://github.com/Lyoness/travis_production_test.git Lyoness/travis_production_test
 Cloning into 'Lyoness/travis_production_test'...
 remote: Counting objects: 173, done.[K
@@ -282,7 +290,6 @@ Receiving objects:  81% (141/173)
 Receiving objects:  82% (142/173)
 Receiving objects:  83% (144/173)
 Receiving objects:  84% (146/173)
-remote: Total 173 (delta 93), reused 163 (delta 88), pack-reused 0[K
 Receiving objects:  85% (148/173)
 Receiving objects:  86% (149/173)
 Receiving objects:  87% (151/173)
@@ -295,6 +302,7 @@ Receiving objects:  93% (161/173)
 Receiving objects:  94% (163/173)
 Receiving objects:  95% (165/173)
 Receiving objects:  96% (167/173)
+remote: Total 173 (delta 93), reused 163 (delta 88), pack-reused 0[K
 Receiving objects:  97% (168/173)
 Receiving objects:  98% (170/173)
 Receiving objects:  99% (172/173)
@@ -304,30 +312,73 @@ Resolving deltas:   0% (0/93)
 Resolving deltas:   3% (3/93)
 Resolving deltas:   4% (4/93)
 Resolving deltas:   5% (5/93)
-Resolving deltas:  53% (50/93)
+Resolving deltas:  94% (88/93)
+Resolving deltas:  95% (89/93)
+Resolving deltas:  96% (90/93)
+Resolving deltas:  97% (91/93)
+Resolving deltas:  98% (92/93)
 Resolving deltas: 100% (93/93)
 Resolving deltas: 100% (93/93), done.
 Checking connectivity... done.
 
-travis_time:end:01b97430:start=1493672493894277969,finish=1493672494651740893,duration=757462924
+travis_time:end:2c220a74:start=1493672494214977491,finish=1493672494958117260,duration=743139769
 [0K$ cd Lyoness/travis_production_test
 $ git checkout -qf 1ee3c335f8169a893c1f8f082731bd8693a88020
 travis_fold:end:git.checkout
-[0Ktravis_time:start:18171f4c
-[0K$ source ~/virtualenv/python2.7/bin/activate
+[0Ktravis_time:start:0f7c7202
+[0K$ perlbrew use 5.14
 
-travis_time:end:18171f4c:start=1493672494663403460,finish=1493672494671202337,duration=7798877
-[0K$ python --version
-Python 2.7.13
-$ pip --version
-pip 9.0.1 from /home/travis/virtualenv/python2.7.13/lib/python2.7/site-packages (python 2.7)
+travis_time:end:0f7c7202:start=1493672494969177560,finish=1493672495099397121,duration=130219561
+[0K$ perl --version
+
+This is perl 5, version 14, subversion 4 (v5.14.4) built for x86_64-linux
+(with 1 registered patch, see perl -V for more detail)
+
+Copyright 1987-2013, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+$ cpanm --version
+cpanm (App::cpanminus) version 1.7039 (/home/travis/perl5/perlbrew/bin/cpanm)
+perl version 5.014004 (/home/travis/perl5/perlbrew/perls/5.14/bin/perl)
+
+  %Config:
+    archname=x86_64-linux
+    installsitelib=/home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.4
+    installsitebin=/home/travis/perl5/perlbrew/perls/5.14/bin
+    installman1dir=/home/travis/perl5/perlbrew/perls/5.14/man/man1
+    installman3dir=/home/travis/perl5/perlbrew/perls/5.14/man/man3
+    sitearchexp=/home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.4/x86_64-linux
+    sitelibexp=/home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.4
+    archlibexp=/home/travis/perl5/perlbrew/perls/5.14/lib/5.14.4/x86_64-linux
+    privlibexp=/home/travis/perl5/perlbrew/perls/5.14/lib/5.14.4
+  %ENV:
+    PERLBREW_BASHRC_VERSION=0.78
+    PERLBREW_HOME=/home/travis/.perlbrew
+    PERLBREW_MANPATH=/home/travis/perl5/perlbrew/perls/5.14/man
+    PERLBREW_PATH=/home/travis/perl5/perlbrew/bin:/home/travis/perl5/perlbrew/perls/5.14/bin
+    PERLBREW_PERL=5.14
+    PERLBREW_ROOT=/home/travis/perl5/perlbrew
+    PERLBREW_VERSION=0.73
+  @INC:
+    FatPacked::8960000=HASH(0x88b800)
+    /home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.4/x86_64-linux
+    /home/travis/perl5/perlbrew/perls/5.14/lib/site_perl/5.14.4
+    /home/travis/perl5/perlbrew/perls/5.14/lib/5.14.4/x86_64-linux
+    /home/travis/perl5/perlbrew/perls/5.14/lib/5.14.4
+    .
 travis_fold:start:install
-[0Ktravis_time:start:02f02052
+[0Ktravis_time:start:084e4b80
 [0K$ true
 
-travis_time:end:02f02052:start=1493672495505023370,finish=1493672495508235732,duration=3212362
+travis_time:end:084e4b80:start=1493672495349614791,finish=1493672495352761929,duration=3147138
 [0Ktravis_fold:end:install
-[0Ktravis_time:start:3d91a3ea
+[0Ktravis_time:start:22370d30
 [0K$ dpkg --get-selections
 accountsservice					install
 acpid						install
@@ -1277,7 +1328,7 @@ zip						install
 zlib1g						install
 zlib1g-dev					install
 
-travis_time:end:3d91a3ea:start=1493672495512380386,finish=1493672495552493808,duration=40113422
+travis_time:end:22370d30:start=1493672495356699237,finish=1493672495397024246,duration=40325009
 [0K
 [32;1mThe command "dpkg --get-selections" exited with 0.[0m
 
