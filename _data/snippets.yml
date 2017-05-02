@@ -15,4 +15,4 @@ before_and_after: |
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
-  ```  
+  ```

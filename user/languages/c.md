@@ -12,14 +12,13 @@ This guide covers build environment and configuration topics specific to C proje
 
 Travis CI VMs are 64-bit and provide versions of:
 
- * gcc
- * clang
- * core GNU build toolchain (autotools, make), cmake, scons
+- gcc
+- clang
+- core GNU build toolchain (autotools, make), cmake, scons
 
 C projects on travis-ci.org assume you use Autotools and Make by default.
 
 For precise versions on the VM, please consult "Build system information" in the build log.
-
 
 ## Dependency Management
 
@@ -27,40 +26,50 @@ Because there is no dominant convention in the community about dependency manage
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
-    install: make get-deps
+```yaml
+install: make get-deps
+```
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
-
 
 ## Default Test Script
 
 Because C projects on travis-ci.org assume Autotools and Make by default, naturally, the default command Travis CI will use to
 run your project test suite is
 
-    ./configure && make && make test
+```bash
+./configure && make && make test
+```
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-    language: c
+```yaml
+language: c
+```
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example, to build
 by running Scons without arguments, override the `script:` key in `.travis.yml` like this:
 
-    script: scons
-
+```yaml
+script: scons
+```
 
 ## Choosing compilers to test against
 
 It is possible to test projects against either GCC or Clang, or both. To do so, specify the compiler to use using the `compiler:` key
 in `.travis.yml`. For example, to build with Clang:
 
-    compiler: clang
+```yaml
+compiler: clang
+```
 
 or both GCC and Clang:
 
-    compiler:
-      - clang
-      - gcc
+```yaml
+compiler:
+  - clang
+  - gcc
+```
 
 Testing against two compilers will create (at least) 2 rows in your build matrix. For each row, Travis CI C builder will export the `CC`
 env variable to point to either `gcc` or `clang`.

@@ -21,7 +21,7 @@ and cc @a14n @devoncarew and @sethladd.
 ## Choosing Dart versions to test against
 
 Dart workers on travis-ci.org download and install the Dart SDK binaries.
-(See [Dart Download Archive](https://www.dartlang.org/tools/download-archive/)).
+(See [Dart Download Archive](https://www.dartlang.org/install)).
 
 To select one or more versions, use the `dart:` key in your `.travis.yml` file.
 For example:
@@ -58,7 +58,7 @@ The tests are done by the
 will automatically detect and run all the tests in your Dart project in the
 correct environment.
 
-Only _VM_ tests are run by default. If you set
+Only *VM* tests are run by default. If you set
 `with_content_shell: true` in your `.travis.yml` then the tests for platforms
 `vm`, `content-shell` and `firefox` will be run.
 
@@ -69,7 +69,7 @@ The tests are done by
 will automatically detect and run all the tests in your Dart project in the
 correct environment.
 
-Only _VM_ tests are run by default. _Browser_ tests will also be run if you set
+Only *VM* tests are run by default. *Browser* tests will also be run if you set
 `with_content_shell: true` in your `.travis.yml`.
 
 ## Build Matrix

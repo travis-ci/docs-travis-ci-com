@@ -30,22 +30,25 @@ Get a complete list of the pre-compiled versions available on the VM by adding `
 
 Travis CI by default assumes your project is built using [Rebar](https://github.com/rebar/rebar) and uses EUnit. The exact command Erlang builder will use by default is
 
-    rebar compile && rebar skip_deps=true eunit
+```bash
+rebar compile && rebar skip_deps=true eunit
+```
 
 if your project has `rebar.config` or `Rebar.config` files in the repository root. If this is not the case, Erlang builder will fall back to
 
-    make test
+```bash
+make test
+```
 
 ## Dependency Management
 
 The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and runs
 
-```
+```bash
 rebar get-deps
 ```
 
 to install [project dependencies ](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
-
 
 ## Build Matrix
 
@@ -56,15 +59,17 @@ to construct a build matrix.
 
 The version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_RELEASE
+```
+TRAVIS_OTP_RELEASE
+```
 
 ## Examples
 
-* [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
-* [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
-* [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
+- [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
+- [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
+- [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
 
 ## Tutorial(s)
 
-* [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
-* [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
+- [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
+- [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)

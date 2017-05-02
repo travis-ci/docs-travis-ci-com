@@ -11,7 +11,6 @@ projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-
 ### Community-Supported Warning
 
 Travis CI support for Smalltalk is provided by [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) and contributed by the community and may be removed or altered at any time. If you run into any problems, please report them [here](https://github.com/hpi-swa/smalltalkCI/issues).
@@ -22,7 +21,7 @@ To set up continuous integration for your Smalltalk project, you need a `.travis
 
 An example `.travis.yml` :
 
-````yaml
+```yaml
 language: smalltalk
 sudo: false
 
@@ -47,11 +46,11 @@ smalltalk:
   - GemStone-3.3.0
   - GemStone-3.2.12
   - GemStone-3.1.0.6
-````
+```
 
 This is a minimal `.smalltalk.ston` that uses  [Metacello](https://github.com/dalehenrich/metacello-work) to test on all supported platforms:
 
-````javascript
+```javascript
 SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
@@ -61,7 +60,7 @@ SmalltalkCISpec {
     }
   ]
 }
-````
+```
 
 ## Configuration
 

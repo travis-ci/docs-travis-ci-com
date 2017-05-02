@@ -15,6 +15,7 @@ deploy:
   username: "Deis User Name"
   password: "Deis Password"
   app: App_name
+  cli_version: vX.Y.Z  # e.g. v2.7.0 being the latest at this time
 ```
 
 It is recommended that you encrypt your password.

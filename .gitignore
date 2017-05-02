@@ -7,3 +7,4 @@ source/tmp/*
 .sass-cache
 tmp/
 .jekyll-metadata
+node_modules

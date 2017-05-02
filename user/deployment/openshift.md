@@ -20,7 +20,9 @@ Currently it is not possible to use a token instead of the password, as these to
 
 You can also have the `travis` tool set up everything for you:
 
-    $ travis setup openshift
+```
+$ travis setup openshift
+```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 

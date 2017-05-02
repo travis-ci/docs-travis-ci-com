@@ -11,7 +11,7 @@ Docker repositories or other remote storage.
 
 To use Docker add the following settings to your `.travis.yml`:
 
-```
+```yaml
 sudo: required
 
 services:
@@ -26,25 +26,25 @@ examples.
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
 Docker containers built from the same image:
 
-* a Sinatra application
-* the Sinatra application test suite
+- a Sinatra application
+- the Sinatra application test suite
 
 After specifying in the `.travis.yml` that the worker is using the Docker
 enabled environment (with `sudo: required` AND `services: - docker`) and is
 using ruby, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
-```
+```bash
 cd /root/sinatra; bundle exec foreman start;
 ```
 
 in a container built from that image after mapping some ports and paths. Read
-the [Docker User Guide](https://docs.docker.com/userguide/) if you need a
+the [Docker User Guide](https://docs.docker.com/) if you need a
 refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
 
-```
+```yaml
 sudo: required
 
 language: ruby
@@ -93,13 +93,13 @@ respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile)
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:
 
-``` bash
+```bash
 docker build -t carlad/sinatra .
 ```
 
 The full `.travis.yml` looks like this
 
-``` yaml
+```yaml
 sudo: required
 
 language: ruby
@@ -124,8 +124,7 @@ login`.  The email, username, and password used for login should be stored in
 the repository settings environment variables, which may be set up through the
 web or locally via the Travis CLI, e.g.:
 
-``` bash
-travis env set DOCKER_EMAIL me@example.com
+```bash
 travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
@@ -133,8 +132,8 @@ travis env set DOCKER_PASSWORD secretsecret
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 ```
 
 #### Branch Based Registry Pushes
@@ -143,10 +142,9 @@ To push a particular branch of your repository to a remote registry,
 use the `after_success` section of your `.travis.yml`:
 
 ```yaml
-
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push USER/REPO;
     fi
 ```
@@ -156,8 +154,8 @@ after_success:
 When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
@@ -179,5 +177,5 @@ before_install:
 
 #### Examples
 
-* [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
-* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
+- [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
+- [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)

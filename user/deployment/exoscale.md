@@ -16,9 +16,6 @@ deploy:
   deployment: "APP_NAME/DEP_NAME"
 ```
 
-You can sign up for an account on [their website](https://www.exoscale.ch/) or using the [cctrl
-tool](https://community.exoscale.ch/apps/quickstart/#Create_a_User_Account_if_you_havent_already).
-
 It is recommended that you encrypt your password. Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash

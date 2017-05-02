@@ -8,9 +8,11 @@ Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-    deploy:
-      provider: engineyard
-      api_key: "YOUR API KEY"
+```
+deploy:
+  provider: engineyard
+  api_key: "YOUR API KEY"
+```
 
 You can also use `email` and `password` instead of `api_key`. It is recommended to encrypt the key/password.
 
@@ -18,7 +20,9 @@ Optional settings include: `app`, `account`, `environment` and `migrate`.
 
 You can also have the `travis` tool set up everything for you:
 
-    $ travis setup engineyard
+```
+$ travis setup engineyard
+```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -28,28 +32,34 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      app: my-app-123
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  app: my-app-123
+```
 
 It is also possible to deploy different branches to different applications:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      app:
-        master: my-app
-        foo: my-foo
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  app:
+    master: my-app
+    foo: my-foo
+```
 
 This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      environment:
-        master: staging
-        production: production
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  environment:
+    master: staging
+    production: production
+```
 
 ### Branch to deploy from
 
@@ -57,18 +67,22 @@ If you have branch specific options, as [shown above](#Application-or-Environmen
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      on: production
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  on: production
+```
 
 Alternatively, you can also configure it to deploy from all branches:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      on:
-        all_branches: true
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  on:
+    all_branches: true
+```
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -76,10 +90,12 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 You can trigger migrations by using the migrate option:
 
-    deploy:
-      provider: engineyard
-      api_key: ...
-      migrate: "rake db:migrate"
+```
+deploy:
+  provider: engineyard
+  api_key: ...
+  migrate: "rake db:migrate"
+```
 
 ### Conditional releases
 
