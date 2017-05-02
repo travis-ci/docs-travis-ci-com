@@ -653,6 +653,16 @@ notifications:
     on_error: always # default: always
 ```
 
+### Webhook IP addresses
+
+All webhook notifications are sent through a proxy with static IP addresess to
+ensure safelist and firewall rule stability.  The current IP addresses are:
+
+```
+54.173.229.200
+54.175.230.252
+```
+
 ### Webhooks Delivery Format
 
 Webhooks are delivered with a `application/x-www-form-urlencoded` content type using HTTP POST, with the body including a `payload` parameter that contains the JSON webhook payload in a URL-encoded format.
