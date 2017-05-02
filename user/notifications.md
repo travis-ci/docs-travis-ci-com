@@ -63,6 +63,17 @@ Also, consult [cipher suite names mapping](https://www.openssl.org/docs/manmaste
 
 If none of the ciphers listed above works, please open a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
 
+### Note on IP addresses
+
+All notifications that use HTTP are sent through a proxy with static IP
+addresess to ensure safelist and firewall rule stability.  The current IP
+addresses are:
+
+```
+54.173.229.200
+54.175.230.252
+```
+
 ## Configuring email notifications
 
 Specify recipients that will be notified about build results:
@@ -651,16 +662,6 @@ notifications:
     on_start: change   # default: never
     on_cancel: always # default: always
     on_error: always # default: always
-```
-
-### Webhook IP addresses
-
-All webhook notifications are sent through a proxy with static IP addresess to
-ensure safelist and firewall rule stability.  The current IP addresses are:
-
-```
-54.173.229.200
-54.175.230.252
 ```
 
 ### Webhooks Delivery Format
