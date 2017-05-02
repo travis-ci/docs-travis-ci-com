@@ -485,7 +485,7 @@ When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
 If you need to run multiple builds using different databases, you can configure environment variables
 and a `before_script` or `before_install` line to create a build matrix.
 
-### Using environemnt variables and a before_script step
+### Using environment variables and a before_script step
 
 Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
