@@ -255,6 +255,17 @@ git:
   depth: 3
 ```
 
+## Git LFS Skip Smudge
+
+You can disable the download of LFS objects when cloning ([`git lfs smudge
+--skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
+by setting the following in `.travis.yml`:
+
+``` yml
+git:
+  lfs_skip_smudge: true
+```
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
