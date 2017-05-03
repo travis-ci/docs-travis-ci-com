@@ -9,7 +9,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build pushes* to
+**To use the caching feature**, in your repository settings, set *Build branch updates* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
@@ -235,7 +235,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
