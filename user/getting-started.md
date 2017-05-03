@@ -38,7 +38,18 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
 ## Selecting infrastructure
 
-The most straight forward way to determine what infrastructure your build runs on is to set the `language` as we did in the previous example. But sometimes you have more complex requirements that require explicitly selecting a particular infrastructure on which to run your build.
+The most straightforward way to determine what infrastructure your build runs on is to set the `language` as we did in the previous example. But sometimes you have more complex requirements that require explicitly selecting a particular environment in which to run your build:
+
+|:-----------------------------|:----------------------------------|:--------------------|
+| Container Based              | Sudo Enabled                      | OSX                 |
+| ---------------------------- | --------------------------------- | ------------------- |
+| fast booting                 | customizable, fully  virtualized  | runs macOS          |
+| ---------------------------- | --------------------------------- | ------------------- |
+| `sudo: false`                | `sudo: required`                  | `os: osx`           |
+| ---------------------------- | --------------------------------- | ------------------- |
+
+Container Based and Sudo Enabled use Ubuntu Linux Precise 12.04 by default. Switch to
+the new beta of Ubuntu Linux Trusty 14.04 by adding `dist: trusty` to your `travis.yml`.
 
 ## Selecting a programming language
 
