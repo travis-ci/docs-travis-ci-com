@@ -36,21 +36,6 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
 5. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails, according to the return status of the build command. The previous example will have three jobs, which can pass or fail independently.
 
-## Selecting infrastructure
-
-The most straightforward way to determine what infrastructure your build runs on is to set the `language` as we did in the previous example. But sometimes you have more complex requirements that require explicitly selecting a particular environment in which to run your build:
-
-|:-----------------------------|:----------------------------------|:--------------------|
-| Container Based              | Sudo Enabled                      | OSX                 |
-| ---------------------------- | --------------------------------- | ------------------- |
-| fast booting                 | customizable, fully  virtualized  | runs macOS          |
-| ---------------------------- | --------------------------------- | ------------------- |
-| `sudo: false`                | `sudo: required`                  | `os: osx`           |
-| ---------------------------- | --------------------------------- | ------------------- |
-
-Container Based and Sudo Enabled use Ubuntu Linux Precise 12.04 by default. Switch to
-the new beta of Ubuntu Linux Trusty 14.04 by adding `dist: trusty` to your `travis.yml`.
-
 ## Selecting a programming language
 
 Use one of these common languages:
@@ -65,6 +50,44 @@ language: php
 
 Or pick one from the [full list](/user/languages/).
 
+## Selecting infrastructure
+
+The most straightforward way to determine what infrastructure your build runs on
+is to set the `language` as we did in the previous example. If you do this your
+build will run on the default infrastructure, which is Container Based Ubuntu
+12.04. You can do this explicitly by adding `sudo: false` to your `.travis.yml`.
+
+* If you need a more up-to-date version of Ubuntu on the same infrastructure, use
+the beta of Ubuntu Linux Trusty 14.04:
+
+   ```yaml
+   sudo: false
+   dist: trusty
+   ```
+
+* If you need a more customizable, fully virtualized environment, use the Sudo
+Enabled infrastructure (which also has a new beta using `dist: trusty`):
+
+   ```yaml
+   sudo: enabled
+   ```
+
+   And you there is a Trus
+
+But sometimes you have more complex requirements that require explicitly selecting a particular environment in which to run your build:
+
+|:-----------------------------|:------------------------------------------------|:--------------------|
+| Container Based              | Sudo Enabled                                    | OSX                 |
+| ---------------------------- | ----------------------------------------------  | ------------------- |
+| fast booting Ubuntu 12.04    | customizable, virtualized Ubuntu 12.04          | runs macOS          |
+| ---------------------------- | ----------------------------------------------- | ------------------- |
+| `sudo: false`                | `sudo: required`                                | `os: osx`           |
+| ---------------------------- | ----------------------------------------------- | ------------------- |
+
+
+If you need a more recent environment, switch to the new beta of Ubuntu Linux
+Trusty 14.04 by adding `dist: trusty` to your `travis.yml`.
+
 ## After the build
 
 After a succesful build there are many things you can do with the results of your code:
@@ -72,6 +95,7 @@ After a succesful build there are many things you can do with the results of you
 * upload pages websites or documentation
 * run apps on Heroku
 * upload RubyGems
+* send notifications
 
 ## Further Reading
 
