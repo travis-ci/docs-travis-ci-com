@@ -77,7 +77,7 @@ Enabled infrastructure (which also has a more up-to-date `dist: trusty` version)
 Objective-C, use our OSX environment:
 
    ```yaml
-   sudo: enabled
+   os: osx
    ```
 
    > Note you do *not* necessarily need to use macOS if you develop on a Mac.
