@@ -49,6 +49,33 @@ matrix:
       otp_release: 18.0
 ```
 
+## Trusty Beta Support Recommended
+
+As of May 2017, [software updates to the hex.pm hosting provider](https://status.fastly.com/incidents/4n5jrrhh5fyh) are causing problems with Travis CI builds. Builds error out with symptoms like this:
+
+ ```
+Installing Elixir 1.3.4
+$ wget https://repo.hex.pm/builds/elixir/v1.3.4.zip
+--2017-05-03 01:06:54--  https://repo.hex.pm/builds/elixir/v1.3.4.zip
+Resolving repo.hex.pm (repo.hex.pm)... 151.101.33.5
+Connecting to repo.hex.pm (repo.hex.pm)|151.101.33.5|:443... connected.
+OpenSSL: error:1407742E:SSL routines:SSL23_GET_SERVER_HELLO:tlsv1 alert protocol version
+Unable to establish SSL connection.
+
+
+The command "wget https://repo.hex.pm/builds/elixir/v1.3.4.zip" failed and exited with 4 during .
+
+Your build has been stopped.
+```
+
+The default Ubuntu distro used on Travis (12.04) can not negotiate TLS with the upgraded hex.pm. You can work around this by requesting a newer version of Ubuntu, which you can enable by adding the following to your .travis.yml file:
+
+```
+dist: trusty
+```
+
+Please see the [warnings related to beta support for the "trusty" distro](https://docs.travis-ci.com/user/trusty-ci-environment/).
+
 
 ## Build Matrix
 
