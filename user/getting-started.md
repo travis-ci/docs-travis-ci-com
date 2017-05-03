@@ -20,7 +20,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
    This example tells Travis CI that this is a Ruby project, so unless you change the default, Travis CI uses `rake` to build it.
 
-   Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius.
+   Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius, which can all pass or fail independently.
 
    ```yaml
    language: ruby
@@ -34,7 +34,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails, according to the return status of the build command. The previous example will have three jobs, which can pass or fail independently.
+5. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails, according to the return status of the build command.
 
 ## Selecting a programming language
 
@@ -53,10 +53,9 @@ Or pick one from the [full list](/user/languages/).
 ## Selecting infrastructure
 
 The most straightforward way to determine what infrastructure your build runs on
-is to set the `language` as we did in the previous example. If you do this your
-build runs on the default infrastructure (with a few exceptions), which is
-Container Based Ubuntu 12.04. You can do this explicitly by adding `sudo: false`
-to your `.travis.yml`.
+is to set the `language`. If you do this your build runs on the default
+infrastructure (with a few exceptions), which is Container Based Ubuntu 12.04.
+You can do this explicitly by adding `sudo: false` to your `.travis.yml`.
 
 * If you need a more up-to-date version of Ubuntu on the same infrastructure, use
 the beta of Ubuntu Linux Trusty 14.04:
@@ -67,22 +66,31 @@ the beta of Ubuntu Linux Trusty 14.04:
    ```
 
 * If you need a more customizable, fully virtualized environment, use the Sudo
-Enabled infrastructure (which also has a more up-to-date `dist: trusty` version):
+Enabled infrastructure:
 
-   ```yaml
-   sudo: enabled
-   ```
+  ```yaml
+  sudo: enabled
+  ```
+
+* Sudo Enabled infrastructure also has a beta of a more up-to-date Ubuntu Linux
+Trusty 14.04:
+
+  ```yaml
+  sudo: enabled
+  dist: trusty
+  ```
 
 * If you have tests that need to run on macOS, or your project uses Swift or
 Objective-C, use our OSX environment:
 
-   ```yaml
-   os: osx
-   ```
+  ```yaml
+  os: osx
+  ```
 
-   > Note you do *not* necessarily need to use macOS if you develop on a Mac.
+  > You do *not* necessarily need to use macOS if you develop on a Mac, only if
+  > you need Swift, Objective-C or other macOS software.
 
-## After the build
+## After running tests
 
 After a succesful build there are many things you can do with the results of your code:
 
