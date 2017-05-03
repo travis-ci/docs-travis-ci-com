@@ -52,7 +52,7 @@ language: android
 language: php
 ```
 
-Or pick one from the [full list](/user/languages/index/).
+Or pick one from the [full list](/user/languages/).
 
 ## After the build
 
