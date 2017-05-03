@@ -235,7 +235,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
