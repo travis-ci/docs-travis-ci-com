@@ -54,8 +54,9 @@ Or pick one from the [full list](/user/languages/).
 
 The most straightforward way to determine what infrastructure your build runs on
 is to set the `language` as we did in the previous example. If you do this your
-build will run on the default infrastructure, which is Container Based Ubuntu
-12.04. You can do this explicitly by adding `sudo: false` to your `.travis.yml`.
+build runs on the default infrastructure (with a few exceptions), which is
+Container Based Ubuntu 12.04. You can do this explicitly by adding `sudo: false`
+to your `.travis.yml`.
 
 * If you need a more up-to-date version of Ubuntu on the same infrastructure, use
 the beta of Ubuntu Linux Trusty 14.04:
@@ -66,27 +67,20 @@ the beta of Ubuntu Linux Trusty 14.04:
    ```
 
 * If you need a more customizable, fully virtualized environment, use the Sudo
-Enabled infrastructure (which also has a new beta using `dist: trusty`):
+Enabled infrastructure (which also has a more up-to-date `dist: trusty` version):
 
    ```yaml
    sudo: enabled
    ```
 
-   And you there is a Trus
+* If you have tests that need to run on macOS, or your project uses Swift or
+Objective-C, use our OSX environment:
 
-But sometimes you have more complex requirements that require explicitly selecting a particular environment in which to run your build:
+   ```yaml
+   sudo: enabled
+   ```
 
-|:-----------------------------|:------------------------------------------------|:--------------------|
-| Container Based              | Sudo Enabled                                    | OSX                 |
-| ---------------------------- | ----------------------------------------------  | ------------------- |
-| fast booting Ubuntu 12.04    | customizable, virtualized Ubuntu 12.04          | runs macOS          |
-| ---------------------------- | ----------------------------------------------- | ------------------- |
-| `sudo: false`                | `sudo: required`                                | `os: osx`           |
-| ---------------------------- | ----------------------------------------------- | ------------------- |
-
-
-If you need a more recent environment, switch to the new beta of Ubuntu Linux
-Trusty 14.04 by adding `dist: trusty` to your `travis.yml`.
+   > Note you do *not* necessarily need to use macOS if you develop on a Mac.
 
 ## After the build
 
