@@ -9,7 +9,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build pushes* to
+**To use the caching feature**, in your repository settings, set *Build branch updates* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
