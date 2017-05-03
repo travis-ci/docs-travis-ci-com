@@ -1,6 +1,6 @@
-# About this repository #
+# About this repository [![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=gh-pages)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
 
-This is the documentation site for Travis CI! (http://docs.travis-ci.com/)
+This is the documentation site for Travis CI! (<http://docs.travis-ci.com/>)
 
 ## How to contribute
 
@@ -12,25 +12,35 @@ Once you're done with your changes send a pull request. Thanks!
 Make sure you have Ruby and RubyGems installed. Next install
 [bundler](http://bundler.io/):
 
-    gem install bundler
+```bash
+gem install bundler
+```
 
 Then install dependencies:
 
-    bundle install --binstubs
+```bash
+bundle install --binstubs
+```
 
 In order to run a local Web server that will serve documentation site, run:
 
-    ./bin/jekyll serve
+```bash
+./bin/jekyll serve
+```
 
-and then open [localhost:4000](http://localhost:4000/) in your browser. 
+and then open [localhost:4000](http://localhost:4000/) in your browser.
 
 To regenerate the HTML pages automatically when you make changes to Markdown source files, use
 
-    ./bin/jekyll serve --watch
+```bash
+./bin/jekyll serve --watch
+```
 
 Note that quoted entities may be escaped or unescaped depending on the Ruby
 version (1.8 vs. 1.9) used. It is normal.
 
 ## License
 
-Distributed under the MIT license, the same as other Travis CI projects.
+Distributed under the [MIT license](https://opensource.org/licenses/MIT); the same as other Travis CI projects.
+
+***

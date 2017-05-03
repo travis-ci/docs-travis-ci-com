@@ -8,24 +8,33 @@ permalink: /user/languages/python/
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
+Python builds are not available on the OSX environment.
+
+<div id="toc"></div>
+
 ## Choosing Python versions to test against
 
-Travis CI support Python versions 2.6, 2.7, 3.2, 3.3, 3.4, and 3.5, as well as nightly.
+Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
 
-    language: python
-    python:
-      - "2.6"
-      - "2.7"
-      - "3.2"
-      - "3.3"
-      - "3.4"
-      - "3.5"
-      - "3.5-dev" # 3.5 development branch
-      - "nightly" # currently points to 3.6-dev
-    # command to install dependencies
-    install: "pip install -r requirements.txt"
-    # command to run tests
-    script: nosetests
+```yaml
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+  - "3.5-dev" # 3.5 development branch
+  - "3.6"
+  - "3.6-dev" # 3.6 development branch
+  - "3.7-dev" # 3.7 development branch
+  - "nightly" # currently points to 3.7-dev
+# command to install dependencies
+install: "pip install -r requirements.txt"
+# command to run tests
+script: pytest
+```
 
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
 
@@ -43,23 +52,25 @@ Travis CI supports PyPy and PyPy3.
 
 To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons in your `.travis.yml`:
 
-    language: python
-    python:
-      - "2.6"
-      - "2.7"
-      - "3.2"
-      - "3.3"
-      - "3.4"
-      # does not have headers provided, please ask https://launchpad.net/~pypy/+archive/ppa
-      # maintainers to fix their pypy-dev package.
-      - "pypy"
-    # command to install dependencies
-    install:
-      - pip install .
-      - pip install -r requirements.txt
-    # command to run tests
-    script: nosetests
-
+```yaml
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  # PyPy versions
+  - "pypy"  # PyPy2 2.5.0
+  - "pypy3" # Pypy3 2.4.0
+  - "pypy-5.3.1"
+# command to install dependencies
+install:
+  - pip install .
+  - pip install -r requirements.txt
+# command to run tests
+script: pytest
+```
 
 ## Default Python Version
 
@@ -67,35 +78,48 @@ If you leave the `python` key out of your `.travis.yml`, Travis CI will use Pyth
 
 ## Specifying Test Script
 
-Python projects need to provide `script` key in their `.travis.yml` to specify what command to run tests with. For example, if your project is tested by running nosetests, specify it like this:
+Python projects need to provide the `script` key in their `.travis.yml` to
+specify what command to run tests with.
 
-    # command to run tests
-    script: nosetests
+For example, if your project uses pytest:
 
-if you need to run `make test` instead:
+```yaml
+# command to run tests
+script: pytest  # or py.test for Python versions 3.5 and below
+```
 
-    script: make test
+if it uses `make test` instead:
 
-and so on.
+```yaml
+script: make test
+```
 
-In case `script` key is not provided in `.travis.yml` for Python projects, Python builder will print a message and fail the build.
+If you do not provide a `script` key in a Python project, Travis CI prints a
+message and fails the build.
 
 ## Dependency Management
 
-### Travis CI uses pip
+### pip
 
-By default Travis CI use `pip` to manage your project's dependencies. It is possible (and common) to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
+By default Travis CI uses `pip` to manage python dependencies. If you have a
+`requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
+during the `install` phase of the build.
 
-The exact default command is
+You can manually override this default `install` phase, for example:
 
-    pip install -r requirements.txt
+```yaml
+install: pip install --user -r requirements.txt
+```
 
-which is very similar to what [Heroku build pack for Python](https://github.com/heroku/heroku-buildpack-python/) uses.
+### Custom Dependency Management
+
+To override the default `pip` dependency management, alter the `before_install`
+step as described in [general build
+configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
 
 ### Pre-installed packages
 
-Travis CI pre-installs a few packages in each virtualenv by default to
-ease running tests:
+Travis CI installs the following packages by default in each virtualenv:
 
 - pytest
 - nose
@@ -105,15 +129,19 @@ ease running tests:
 
 If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
 
-    env:
-      - DJANGO_VERSION=1.2.7
-      - DJANGO_VERSION=1.3.1
+```yaml
+env:
+  - DJANGO_VERSION=1.7.8
+  - DJANGO_VERSION=1.8.2
+```
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
 
-    install:
-      - pip install -q Django==$DJANGO_VERSION
-      - python setup.py -q install
+```yaml
+install:
+  - pip install -q Django==$DJANGO_VERSION
+  - python setup.py -q install
+```
 
 The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
@@ -137,9 +165,9 @@ to construct a build matrix.
 
 ## Examples
 
-* [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
-* [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
-* [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
-* [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
-* [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
-* [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+- [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
+- [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
+- [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
+- [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
+- [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
+- [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)

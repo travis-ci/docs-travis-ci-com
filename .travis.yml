@@ -1,8 +1,51 @@
-language: ruby
-sudo: false
-rvm:
-  - 1.9.3
+language: java
+script: mvn -Pitest -DargLine="-Dcom.basho.riak.search=true -Dcom.basho.riak.2i=true" clean verify
+notifications:
+  # Email notifications are disabled to not annoy anybody.
+  # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
+  # about configuring notification recipients and more.
+  webhooks: http://basho-engbot.herokuapp.com/travis?key=a8f477c8cdaabc8118d2a650281ff4a71eff875f
+  email: false
+services:
+  - riak
+
+#language: ruby
+sudo: true
+dist: trusty
+language: python
+python:
+  - "3.5.2"
 branches:
   only:
-      - gh-pages
-cache: bundler
+  - gh-pages
+env:
+  global:
+    - PATH=$HOME/.local/user/bin:$PATH
+cache:
+  pip: true
+  directories:
+    - vendor/bundle
+    - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: a8f477c8cdaabc8118d2a650281ff4a71eff875f
+  app: api-travis-ci-org
+  on:
+    branch: gh-pages
+notifications:
+  slack:
+    rooms:
+      secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
+    on_success: never
+install:
+  - bundle install --deployment
+  - pip install --upgrade pip
+  - pip install coala-bears
+  - npm install remark-cli@2
+  - npm install -g alex
+before_script:
+  - rvm use 2.3.1 --install
+script:
+  - bundle exec rake test
+  - coala --non-interactive Language

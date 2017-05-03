@@ -1,0 +1,25 @@
+conditional_deploy: |
+  ### Conditional Deploys
+
+  You can deploy only when certain conditions are met.
+  See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+before_and_after: |
+  ### Running commands before and after deploy
+
+  Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+  ```yaml
+  before_deploy: "echo 'ready?'"
+  deploy:
+    ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
+  ```
+ghlimit: |
+  > If your API or cron triggered builds run on the *same commit
+  > or branch* over and over again, you will notice GitHub have a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > *per commit*, which causes the Travis CI build status displayed on GitHub
+  > to be incorrect.
+  > Avoid this problem by specifying a regularly updated branch for your automated builds.

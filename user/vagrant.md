@@ -1,6 +1,5 @@
 ---
 title: Vagrant
-layout: nodocs 
+layout: nodocs
 permalink: /user/vagrant/
 ---
-

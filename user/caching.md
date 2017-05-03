@@ -4,45 +4,45 @@ layout: en
 permalink: /user/caching/
 ---
 
-The features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com) and our new [container-based infrastructure](http://docs.travis-ci.com/user/workers/container-based-infrastructure/)**.
-
-Note that [APT caching](#Caching-Ubuntu-packages) is not available for the container-based infrastructure.
-
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
 
 <div id="toc"></div>
 
-## Cache content can be accessed by pull requests
+Travis CI can cache content that does not often change, to speed up your build process.
+**To use the caching feature**, in your repository settings, set *Build pushes* to
+*ON*.
 
-Do note that cache content will be available to any build on the repository, including Pull Requests.
-Do exercise caution not to put any sensitive information in the cache, lest malicious attacker may expose it.
+* Travis CI fetches the cache for every build, including branches and pull requests.
+* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
+* Only modifications made to the cached directories from normal pushes are stored.
+
+> Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
 
 ## Caching directories (Bundler, dependencies)
 
-With caches, Travis CI can persist directories between builds. This is especially useful for dependencies that need to be downloaded and/or compiled from source.
+Caches lets Travis CI store directories between builds, which is useful for storing
+dependencies that take longer to compile or download.
 
 ### Build phases
 
-Travis CI attempts to upload cache after the script, but before either `after_success` or `after_failure` is
-run.
-Note that the failure to upload the cache does not mark the job a failure.
+Travis CI uploads the cache after the `script` phase of the build, but before
+either `after_success` or `after_failure`.
+
+> Failure to upload the cache does *not* mark the job as failed.
 
 ### Bundler
 
 On Ruby and Objective-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
 
-The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
-
 #### Enabling Bundler caching
 
-<s>Bundler caching is automatically enabled for Ruby projects that include a Gemfile.lock.</s> *([not yet](https://github.com/travis-ci/travis-build/pull/148) enabled)*
+To enable Bundler caching in your `.travis.yml`:
 
-You can also explicitly enable it in your *.travis.yml*:
-
-{% highlight yaml %}
+```yaml
 language: ruby
 cache: bundler
-{% endhighlight %}
+```
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -50,29 +50,23 @@ Whenever you update your bundle, Travis CI will also update the cache.
 
 Travis CI tries its best at determining the path bundler uses for storing dependencies.
 
-If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the *--path* option, Travis CI will use that path. If *--path* is missing but *--deployment* is present, it will use *vendor/bundle*.
+If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
 
-Otherwise it will automatically add the *--path* option. In this case it will either use the value of the environment variable *BUNDLE_PATH* or, if it is missing, *vendor/bundle*.
+Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
-#### With a custom install step
+#### Cleaning up bundle
 
-Bundler caching will not automatically work if you [override the install step](/user/customizing-the-build/). You can instead use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+When you use
 
-{% highlight yaml %}
-language: ruby
-install: bundle install --without development --deployment --jobs=3 --retry=3
-cache:
-  directories:
-  - vendor/bundle
-{% endhighlight %}
-
-In the above example, you could also omit the install step and instead define [bundler_args](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations):
-
-{% highlight yaml %}
-language: ruby
-bundler_args: --without development --deployment --jobs=3 --retry=3
+```yaml
 cache: bundler
-{% endhighlight %}
+```
+
+The command `bundle clean` is executed before the cache is uploaded.
+
+In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
+to get around it.
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
 
 ### CocoaPods
 
@@ -83,20 +77,20 @@ On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapod
 You can enable CocoaPods caching for your repository by adding this to your
 *.travis.yml*:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 cache: cocoapods
-{% endhighlight %}
+```
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 cache:
   - bundler
   - cocoapods
-{% endhighlight %}
+```
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -107,242 +101,293 @@ By default, Travis CI will assume that your Podfile is in the root of the
 repository. If this is not the case, you can specify where the Podfile is like
 this:
 
-{% highlight yaml %}
+```yaml
 language: objective-c
 podfile: path/to/Podfile
-{% endhighlight %}
+```
 
-#### With a custom install step
+### yarn cache
 
-CocoaPods caching will not automatically work if you [override the install step](/user/customizing-the-build/).
-You can instead use the [arbitrary directory caching
-method](#Arbitrary-directories) described below:
+For caching with `yarn`, use:
 
-{% highlight yaml %}
-language: objective-c
-install: bundle exec pod install
-cache:
-  directories:
-    - path/to/Pods
-{% endhighlight %}
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: yarn
+```
+
+This caches `$HOME/.cache/yarn`.
 
 ### pip cache
 
-If you have not overridden the default [install step](/user/customizing-the-build/), use:
+For caching `pip` files, use:
 
-{% highlight yaml %}
+```yaml
 language: python
 
 cache: pip
-{% endhighlight %}
+```
 
 caches `$HOME/.cache/pip`.
 
-Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
-
-{% highlight yaml %}
-cache:
-  directories:
-    - $HOME/.cache/pip
-{% endhighlight %}
-
 ### ccache cache
 
-If you have not overridden the default [install step](/user/customizing-the-build/), use:
+If you are using `ccache`, use:
 
-{% highlight yaml %}
+```yaml
 language: c # or other C/C++ variants
 
 cache: ccache
-{% endhighlight %}
+```
 
-caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
+to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-Otherwise use the [arbitrary directory caching method](#Arbitrary-directories) described below:
+#### ccache on OSX
 
-{% highlight yaml %}
-cache:
-  directories:
-    - $HOME/.ccache
-{% endhighlight %}
+ccache is not installed on OSX environments but you can install it by adding
+
+```yaml
+install:
+  - brew install ccache
+  - PATH=$PATH:/usr/local/opt/ccache/libexec
+```
+
+> Note that this creates wrappers around your default gcc and g++ compilers.
+
+### R package cache
+
+For caching R packages, use:
+
+```yaml
+language: R
+
+cache: packages
+```
+
+This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
+
+### Rust Cargo cache
+
+For caching Cargo packages, use:
+
+```yaml
+language: rust
+
+cache: cargo
+```
+
+This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
 ### Arbitrary directories
 
-You can cache arbitrary directories between builds by listing them in your *.travis.yml*:
+You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
   - .autoconf
   - $HOME/.m2
-{% endhighlight %}
+```
 
-As you can see, it is also possible to use environment variables in the directories.
+As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
 
-The logic for fetching and storing the cache is [described below](#Fetching-and-storing-caches).
+- do **not** start with a `/` are relative to `$TRAVIS_BUILD_DIR`.
+- start with a `/` are absolute.
 
-### Things not to cache
+Please be aware that the `travis` user needs to have write permissions to this directory.
+
+## Things not to cache
 
 The cache's purpose is to make installing language-specific dependencies easy
 and fast, so everything related to tools like Bundler, pip, Composer, npm,
 Gradle, Maven, is what should go into the cache.
 
-For other things, the cache won't be an improvement. Installing them usually
-takes only short amounts of time, but downloading them will be the same speed
-when pulled from the cache as it will be from their original source. You
-possibly won't see a speedup putting them into the cache.
+Large files that are quick to install but slow to download do not benefit from caching, as they take as long to download from the cache as from the original source:
 
-Things like:
+- Android SDKs
+- Debian packages
+- JDK packages
+- Compiled binaries
+- Docker images
 
-* Android SDKs
-* Debian packages
-* JDK packages
-* Compiled binaries
+Docker images are not cached, because we provision a brand new virtual machine for every build.
 
-Anything that's commonly not changing is better suited for something like our APT
-caching proxy. Please shoot us an [email](mailto:support@travis-ci.com) and
-we'll see about adding your custom source to our cache.
+## Fetching and storing caches
 
-### Fetching and storing caches
+- Travis CI fetches the cache for every build, including branches and pull requests.
+- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
+- If a branch does not have its own cache, Travis CI fetches the default branch cache.
+- Only modifications made to the cached directories from normal pushes are stored.
 
-* We fetch the repo's cache on every build, including feature branches and pull requests.
-* There is one cache per branch and language version/compiler version/JDK version/Gemfile location/etc.
-* If a branch does not have its own cache yet, it will fetch the master branch cache.
-* Only modifications made to the cached directories from normal pushes are stored.
+### Pull request builds and caches
 
-Currently Pull Requests will use the cache of the branch they are supposed to be merged into.
+Pull request builds check the following cache locations in order, using the first one present:
 
-### `before_cache` phase
+- The pull request cache.
+- The pull request target branch cache.
+- The repository default branch cache.
 
-When using caches, it may be useful to run command just prior to uploading
+If none of the previous locations contain a valid cache, the build continues without a cache.
+
+After the first pull request build is run, it creates a new pull request cache.
+
+Some important things to note about caching for pull requests:
+
+* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
+* If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
+
+### before_cache phase
+
+When using caches, it may be useful to run a command just before uploading
 the new cache archive.
-For example, the dependency management utility may write log files into the directory
-you are watching, and you would do well to ignore these.
 
-For this purpose, you can use `before_cache` phase.
+For example, the dependency management utility may write log files into the directory you are caching and you do not want them to affect the cache. Use the `before_cache` phase to delete the log files:
 
-{% highlight yaml %}
+```yaml
 cache:
   directories:
     - $HOME/.cache/pip
-⋮
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
-{% endhighlight %}
+```
 
-Failures in this stage does not mark the job a failure.
+Failure in this phase does not mark the job as failed.
 
 ### Clearing Caches
 
-Sometimes you spoil your cache by storing bad data in one of the cached directories.
+Sometimes you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
 
-Caches can also become invalid if language runtimes change and the cache contains
-native extensions.
-(This often manifests as segmentation faults.)
+Use one of the following ways to access your cache and delete it if necessary:
 
-You can access caches in one of the two ways.
-Each method also gives you a means of deleting caches.
-
-1. On the web https://magnum.travis-ci.com/OWNER/REPOSITORY/caches for private repositories
-or https://travis-ci.org/OWNER/REPOSITORY/caches for public repositories,
-which is accessible from the Settings
-menu
+- The settings page of your repository on <https://travis-ci.org> (or .com if you're using a private repository)
 
     ![Image of cache UI](/images/caches-item.png)
 
-2. With [command line client](https://github.com/travis-ci/travis#readme):
+- The [command line client](https://github.com/travis-ci/travis#readme)
 
-<figure>
   [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
+
   <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
-</figure>
 
-There is also a [corresponding API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches) for clearing the cache.
-
-## Caching Ubuntu packages
-
-<div class="note-box">
-This feature is available only for private repositories.
-</div>
-
-A network-local APT cache is available, allowing for more reliable download
-speeds compared to the Ubuntu mirrors.
-
-To enable APT caching, add the following to your .travis.yml:
-
-{% highlight yaml %}
-cache: apt
-{% endhighlight %}
-
-Subsequently, all Ubuntu packages will be downloaded by way of our
-cache or added to the cache for future use.
-
-The package repositories are currently limited to a pre-selected set. If you
-need to install packages from a repository not available in the list below,
-[please shoot us an email](mailto:support@travis-ci.com?subject=Please add this
-APT repository), and we'll add it for you.
-
-- ppa.launchpad.net
-- apt.postgresql.org
-- apt.basho.com
-- www.rabbitmq.com
-- downloads-distro.mongodb.org
-- download.oracle.com
-- archive.cloudera.com
-- packages.erlang-solutions.com
-- repo.varnish-cache.org
-- packages.ros.org
-- dl.hhvm.com
-- dev.mysql.com
-- llvm.org
-- repo.percona.com
-- packages.elasticsearch.org
-- debian.neo4j.org
-- packages.osrfoundation.org
-- dl.google.com
-
-The standard Ubuntu repositories are included by default.
-
-Caching Ubuntu packages will soon be enabled by default, but we're still
-beta-testing the new cache until it is.
+- The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
 
 ### Enabling multiple caching features
 
-When you want to enable multiple caching features, you can list them as an array:
+When you want to enable multiple caching features and the language supports them, you can list them as an array:
 
-{% highlight yaml %}
+```yaml
+language: objective-c
 cache:
 - bundler
-- apt
-{% endhighlight %}
+- cocoapods
+```
 
-This does not when caching [arbitrary directories](#Arbitrary-directories). If you want to combine that with other caching modes, you will have to use a hash map:
+This does not work when caching [arbitrary directories](#Arbitrary-directories),
+or when any of the directives is not supported by the language.
 
-{% highlight yaml %}
+If you want to combine that with other caching modes, use a hash map.
+Here is an example of a Ruby repository caching Node.js modules:
+
+```yaml
+language: ruby
 cache:
   bundler: true
   directories:
-  - vendor/something
-  - .autoconf
-{% endhighlight %}
+  - node_modules # NPM packages
+```
+
+This is another example; a Rust repository caching cargo and Ruby gems:
+
+```yaml
+language: rust
+cache:
+  cargo: true
+  directories:
+    - vendor/bundle
+install:
+  - bundle install --deployment # to cache vendor/bundle
+```
 
 ### Explicitly disabling caching
 
 You can explicitly disable all caching by setting the `cache` option to `false` in your *.travis.yml*:
 
-{% highlight yaml %}
+```yaml
 cache: false
-{% endhighlight %}
+```
 
 It is also possible to disable a single caching mode:
 
-{% highlight yaml %}
+```yaml
+language: objective-c
 cache:
   bundler: false
-  apt: true
-{% endhighlight %}
+  cocoapods: true
+```
+
+### Setting the timeout
+
+Caching has a timeout set to 3 minutes by default. The timeout is there in order
+to guard against any issues that may result in a stuck build. Such issues may be
+caused by a network issue between worker servers and S3 or even by a cache being
+too big to pack and upload in timely fashion. There are, however,
+situations when you might want to set a bigger timeout, especially if you need
+to cache a large amount. In order to change the timeout you can use the `timeout`
+property with a desired time in seconds:
+
+```yaml
+cache:
+  timeout: 1000
+```
+
+## Caches and build matrices
+
+When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
+some characteristics of each job are used to identify the cache each of the
+jobs should use.
+
+These factors are:
+
+1. OS name (currently, `linux` or `osx`)
+2. OS distribution (for Linux, `precise` or `trusty`)
+3. OS X image name (e.g., `xcode7.2`)
+4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+5. Language runtime version (for the language specified in the `language` key) if applicable
+6. For Bundler-aware jobs, the name of the `Gemfile` used
+
+If these characteristics are shared by more than one job in a build matrix,
+they will share the same URL on the network.
+This could corrupt the cache, or the cache may contain files that are not
+usable in all jobs using it.
+In this case, we advise you to add a defining public environment variable
+name; e.g.,
+
+```
+CACHE_NAME=JOB1
+```
+
+to `.travis.yml`.
+
+## Caches and read permissions
+
+When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+ensure that the locations you specify are readable and writable by the user.
+
+If they are not, the caching utility reports errors when it
+invokes `tar` to create the cache archive.
+
+For example:
+
+```
+FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+```
 
 ## How does the caching work?
 

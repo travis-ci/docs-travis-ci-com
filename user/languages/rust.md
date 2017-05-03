@@ -3,6 +3,7 @@ title: Building a Rust Project
 layout: en
 permalink: /user/languages/rust/
 ---
+
 <div id="toc">
 </div>
 
@@ -19,7 +20,8 @@ Furthermore, you can test against a specific Rust release by using its version n
 
 [channels]: http://doc.rust-lang.org/book/release-channels.html
 
-Travis also installs the appropriate Cargo version that comes with each Rust version.
+Travis CI also installs the appropriate language tools that come with each Rust version.
+As of Rust 1.16.0, these include `cargo`, `rustc`, `rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
 
 ### Choosing the Rust version
 
@@ -63,11 +65,14 @@ This will test all three channels, but any breakage in nightly will not fail you
 Travis CI uses Cargo to run your build and tests by default. The exact commands
 run are:
 
-    $ cargo build --verbose
-    $ cargo test --verbose
+```bash
+$ cargo build --verbose
+$ cargo test --verbose
+```
 
 If you wish to override this, you can use the `script` setting:
 
-    language: rust
-    script: make all
-
+```yaml
+language: rust
+script: make all
+```

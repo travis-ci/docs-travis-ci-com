@@ -11,7 +11,7 @@ Docker repositories or other remote storage.
 
 To use Docker add the following settings to your `.travis.yml`:
 
-```
+```yaml
 sudo: required
 
 services:
@@ -21,30 +21,32 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
+> Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+
 ### Using a Docker Image from a Repository in a Build
 
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
 Docker containers built from the same image:
 
-* a Sinatra application
-* the Sinatra application test suite
+- a Sinatra application
+- the Sinatra application test suite
 
 After specifying in the `.travis.yml` that the worker is using the Docker
 enabled environment (with `sudo: required` AND `services: - docker`) and is
 using ruby, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
-```
+```bash
 cd /root/sinatra; bundle exec foreman start;
 ```
 
 in a container built from that image after mapping some ports and paths. Read
-the [Docker User Guide](https://docs.docker.com/userguide/) if you need a
-refresher on how to user Docker.
+the [Docker User Guide](https://docs.docker.com/) if you need a
+refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
 
-```
+```yaml
 sudo: required
 
 language: ruby
@@ -93,13 +95,13 @@ respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile)
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:
 
-``` bash
+```bash
 docker build -t carlad/sinatra .
 ```
 
 The full `.travis.yml` looks like this
 
-``` yaml
+```yaml
 sudo: required
 
 language: ruby
@@ -124,8 +126,7 @@ login`.  The email, username, and password used for login should be stored in
 the repository settings environment variables, which may be set up through the
 web or locally via the Travis CLI, e.g.:
 
-``` bash
-travis env set DOCKER_EMAIL me@example.com
+```bash
 travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
@@ -133,8 +134,21 @@ travis env set DOCKER_PASSWORD secretsecret
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```
+
+#### Branch Based Registry Pushes
+
+To push a particular branch of your repository to a remote registry,
+use the `after_success` section of your `.travis.yml`:
+
+```yaml
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push USER/REPO;
+    fi
 ```
 
 #### Private Registry Login
@@ -142,24 +156,42 @@ docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
 
-[Docker Compose](https://docs.docker.com/compose/) is not preinstalled, so
-install it manually by adding the following `before_install` step to
-`.travis.yml`:
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
+
+If needed, you can easily replace this preinstalled version of `docker-compose`
+by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
+env:
+  DOCKER_COMPOSE_VERSION: 1.4.2
+
 before_install:
-  - curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
 
+### Installing a newer Docker version
+
+You can upgrade to the latest version and use any new Docker features by manually
+updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+```
+
+> Check what version of Docker you're running with `docker --version`
+
 #### Examples
 
-* [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
-* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
+- [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
+- [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)

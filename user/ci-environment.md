@@ -2,6 +2,10 @@
 title: The Build Environment
 layout: en
 permalink: /user/ci-environment/
+redirect_from:
+  - /user/workers/container-based-infrastructure/
+  - /user/workers/standard-infrastructure/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -17,18 +21,18 @@ Travis CI runs builds in isolated virtual machines that offer a vanilla build
 environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests run in an environment built from scratch.
+state and making sure that your tests run in an environment built from scratch.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
 ## Virtualization environments
 
-Each build runs in one of the following three virtual environments:
+Each build runs in one of the following virtual environments:
 
-* Standard (the default environment)
-* Container-based (the newer environment in which `sudo` commands are not available.
-* OSX for Objective-C projects
+- Sudo-enabled (a sudo enabled, full VM per build)
+- Container-based (Fast boot time environment in which `sudo` commands are not available)
+- OSX for Objective-C projects
 
 The following table summarizes the differences between the virtual environments:
 
@@ -36,108 +40,104 @@ The following table summarizes the differences between the virtual environments:
 <table><thead>
 <tr>
 <th></th>
-<th>Standard</th>
 <th>Container-based</th>
+<th>Sudo-enabled</th>
 <th>OS X</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>.travis.yml</td>
-<td><em>this is the default</em></td>
-<td><code>sudo: false</code></td>
+<td><code>sudo: false</code><em>default for repositories enabled in 2015 or later</em></td>
+<td><code>sudo: required</code><em>default for repositories enabled before 2015</em></td>
 <td><code>language: objective-c</code> or <code>os: osx</code></td>
 </tr>
 <tr>
 <td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
-<td>yes</td>
 <td>no</td>
-<td>N/A</td>
+<td>yes</td>
+<td>yes</td>
 </tr>
 <tr>
 <td>Boot Time</td>
-<td>slightly slower than Container-based</td>
-<td>slightly faster than Standard</td>
-<td>N/A</td>
+<td>1-6s</td>
+<td>20-52s</td>
+<td>60-90s</td>
 </tr>
 <tr>
 <td>File System</td>
-<td>SIMFS, which is case-sensitive and can return directory entities in random order</td>
-<td>AUFS</td>
+<td>AUFS, case sensitive</td>
+<td>ext4, case sensitive</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
-<td>Cache available</td>
-<td>private only</td>
-<td>public only</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>Operating System</td>
-<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
-<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
-<td>OS X Mavericks</td>
+<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
+<td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
 </tr>
 <tr>
 <td>Memory</td>
-<td>3 GB</td>
-<td>3 GB</td>
-<td></td>
+<td>4 GB max</td>
+<td>7.5 GB</td>
+<td>4 GB</td>
 </tr>
 <tr>
 <td>Cores</td>
-<td>Up to 2, bursted</td>
-<td>Up to 2, bursted</td>
-<td></td>
+<td>2</td>
+<td>~2, bursted</td>
+<td>2</td>
 </tr>
 </tbody></table>
 </div>
 
-All [Education Pack](https://education.travis-ci.com/) builds use Container-based infrastructure. 
-
 ## Networking
 
-The virtual machines running the tests have IPv6 enabled.
-They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The container-based, OSX, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
 Most services work normally when talking to the local host by either `localhost` or `127.0.0.1`.
 
-## Environment common to all VM images
+## Environment common to all Precise images
+
+Below you will find a list of the things common to our Precise based
+images.
+
+For other images, see the list below:
+
+- [OS X CI Environment](/user/osx-ci-environment)
+- [Trusty CI Environment](/user/trusty-ci-environment)
 
 ### Version control
 
 All VM images have the following pre-installed
 
- * A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
- * Mercurial (official Ubuntu packages)
- * Subversion (official Ubuntu packages)
-
+- A Git 1.8 release from the [git-core PPA](https://launchpad.net/~git-core/+archive/ubuntu/v1.8)
+- Mercurial (official Ubuntu packages)
+- Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
 
 GCC, Clang, make, autotools, cmake, scons.
 
-
 ### Networking tools
 
 curl, wget, OpenSSL, rsync
-
 
 ### Go
 
 Go compiler/build tools.
 
-
 ### Runtimes
 
 Every worker has at least one version of
 
-* Ruby
-* OpenJDK
-* Python
-* Node.js
-* Go compiler/build tool
+- Ruby
+- OpenJDK
+- Python
+- Node.js
+- Go compiler/build tool
 
 to accommodate projects that may need one of those runtimes during the build.
 
@@ -145,16 +145,16 @@ Language-specific workers have multiple runtimes for their respective language (
 
 ### Data Stores
 
-* MySQL
-* PostgreSQL
-* SQLite
-* MongoDB
-* Redis
-* Riak
-* Apache Cassandra
-* Neo4J Community Edition
-* ElasticSearch
-* CouchDB
+- MySQL
+- PostgreSQL
+- SQLite
+- MongoDB
+- Redis
+- Riak
+- Apache Cassandra
+- Neo4J Community Edition
+- ElasticSearch
+- CouchDB
 
 ### Firefox
 
@@ -167,29 +167,31 @@ it during the `before_install` stage of the build.
 For example, to install version 17.0, add the following to your
 `.travis.yml` file:
 
-    addons:
-      firefox: "17.0"
+```yaml
+addons:
+  firefox: "17.0"
+```
 
 Please note that the addon only works in 64-bit Linux environments.
 
 ### Messaging Technology
 
-* [RabbitMQ](http://rabbitmq.com)
-* [ZeroMQ](http://zeromq.org/)
+- [RabbitMQ](http://rabbitmq.com)
+- [ZeroMQ](http://zeromq.org/)
 
 ### Headless Browser Testing Tools
 
-* [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
-* [PhantomJS](http://phantomjs.org/)
+- [xvfb](http://en.wikipedia.org/wiki/Xvfb) (X Virtual Framebuffer)
+- [PhantomJS](http://phantomjs.org/)
 
 ### Environment variables
 
-There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment. 
+There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment.
 
 ### Libraries
 
-* OpenSSL
-* ImageMagick
+- OpenSSL
+- ImageMagick
 
 ### apt configuration
 
@@ -201,17 +203,20 @@ The user executing the build (`$USER`) belongs to one primary group derived from
 If your project needs extra memberships to run the build, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle prior to the build script execution.
-    - Set up and export environment variables.
-    - Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
-    You may modify the user's primary group with `-g`.
-1. Your `script` would look something like:
 
-```bash
-script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
-```
+   1. Set up and export environment variables.
+   2. Add `$USER` to desired secondary groups: `sudo usermod -a -G SECONDARY_GROUP_1,SECONDARY_GROUP_2 $USER`
+
+   You may modify the user's primary group with `-g`.
+
+2. Your `script` would look something like:
+
+   ```bash
+   script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
+   ```
+
 This will pass the environment variables down to a `bash` process which runs as `$USER`,
-while retaining the environment variables defined
-and belonging to secondary groups given above in `usermod`.
+while retaining the environment variables defined and belonging to secondary groups given above in `usermod`.
 
 ### Build system information
 
@@ -223,18 +228,18 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-* `go1`, `go1.0` → 1.0.3
-* `go1.1` → 1.1.2
-* `go1.2` → 1.2.2
+- `go1`, `go1.0` → 1.0.3
+- `go1.1` → 1.1.2
+- `go1.2` → 1.2.2
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
 ### JDK
 
-* Oracle JDK 7 (oraclejdk7)
-* OpenJDK 7 (openjdk7)
-* OpenJDK 6 (openjdk6)
-* Oracle JDK 8 (oraclejdk8)
+- Oracle JDK 7 (oraclejdk7)
+- OpenJDK 7 (openjdk7)
+- OpenJDK 6 (openjdk6)
+- Oracle JDK 8 (oraclejdk8)
 
 OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
 it reached End of Life in fall 2012.
@@ -243,7 +248,7 @@ The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the J
 
 ### Maven version
 
-Stock Apache Maven 3.2.x. Maven is configured to use Central and oss.sonatype.org mirrors at http://maven.travis-ci.org
+Stock Apache Maven 3.2.x, configured to use [Central](http://search.maven.org/) and [Sonatype](https://oss.sonatype.org/) mirrors.
 
 ### Leiningen versions
 
@@ -264,12 +269,10 @@ Gradle 2.0.
 
 Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
-
 ### Rebar
 
 travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
-
 
 ## Node.js VM images
 
@@ -286,7 +289,6 @@ Scons
 ### Haskell Platform Version
 
 [Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
-
 
 ## Perl VM images
 
@@ -327,66 +329,68 @@ Is supported.
 
 ### Extensions
 
-    [PHP Modules]
-    bcmath
-    bz2
-    Core
-    ctype
-    curl
-    date
-    dom
-    ereg
-    exif
-    fileinfo
-    filter
-    ftp
-    gd
-    gettext
-    hash
-    iconv
-    intl
-    json
-    libxml
-    mbstring
-    mcrypt
-    mysql
-    mysqli
-    mysqlnd
-    openssl
-    pcntl
-    pcre
-    PDO
-    pdo_mysql
-    pdo_pgsql
-    pdo_sqlite
-    pgsql
-    Phar
-    posix
-    readline
-    Reflection
-    session
-    shmop
-    SimpleXML
-    soap
-    sockets
-    SPL
-    sqlite3
-    standard
-    sysvsem
-    sysvshm
-    tidy
-    tokenizer
-    xdebug
-    xml
-    xmlreader
-    xmlrpc
-    xmlwriter
-    xsl
-    zip
-    zlib
+```
+[PHP Modules]
+bcmath
+bz2
+Core
+ctype
+curl
+date
+dom
+ereg
+exif
+fileinfo
+filter
+ftp
+gd
+gettext
+hash
+iconv
+intl
+json
+libxml
+mbstring
+mcrypt
+mysql
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_pgsql
+pdo_sqlite
+pgsql
+Phar
+posix
+readline
+Reflection
+session
+shmop
+SimpleXML
+soap
+sockets
+SPL
+sqlite3
+standard
+sysvsem
+sysvshm
+tidy
+tokenizer
+xdebug
+xml
+xmlreader
+xmlrpc
+xmlwriter
+xsl
+zip
+zlib
 
-    [Zend Modules]
-    Xdebug
+[Zend Modules]
+Xdebug
+```
 
 ## Python VM images
 
@@ -398,10 +402,10 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 ### Preinstalled pip packages
 
-* nose
-* py.test
-* mock
-* wheel
+- nose
+- py.test
+- mock
+- wheel
 
 On all versions except pypy and pypy3 have `numpy` as well.
 
@@ -423,6 +427,5 @@ Recent 1.7.x version (usually the most recent)
 
 ### Gems in the global gem set
 
-* bundler
-* rake
-
+- bundler
+- rake

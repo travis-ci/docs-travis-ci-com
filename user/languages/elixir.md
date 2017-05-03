@@ -1,12 +1,8 @@
 ---
-title: Building an Elixir Project (beta)
+title: Building an Elixir Project
 layout: en
 permalink: /user/languages/elixir/
 ---
-
-### Warning
-
-The features described here are still in development and are subject to change without backward compatibility or migration support.
 
 ### What This Guide Covers
 
@@ -16,9 +12,9 @@ This guide covers build environment and configuration topics specific to Elixir 
 
 To choose the Elixir VM, declare in your `.travis.yml`:
 
-{% highlight yaml %}
+```yaml
 language: elixir
-{% endhighlight %}
+```
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
@@ -30,13 +26,29 @@ for you.
 You can also override this OTP Release choice by adding the `otp_release`.
 For example:
 
-{% highlight yaml %}
+```yaml
 language: elixir
 elixir:
-  - 1.1.0
+  - 1.2.2
 otp_release:
-  - 18.0
-{% endhighlight %}
+  - 18.2.1
+```
+
+To test multiple Elixir versions with different OTP release versions:
+
+```yaml
+language: elixir
+
+elixir:
+  - 1.0.5
+otp_release: 17.4
+
+matrix:
+  include:
+    - elixir: 1.2
+      otp_release: 18.0
+```
+
 
 ## Build Matrix
 
@@ -47,14 +59,15 @@ to construct a build matrix.
 
 By default, the install command is
 
-```shell
+```bash
+mix local.rebar --force # for Elixir 1.3.0 and up
 mix local.hex --force
 mix deps.get
 ```
 
 and the script command is
 
-```shell
+```bash
 mix test
 ```
 
@@ -62,8 +75,12 @@ mix test
 
 The version of Elixir a job is using is available as:
 
-    TRAVIS_ELIXIR_VERSION
+```
+TRAVIS_ELIXIR_VERSION
+```
 
 As with the Erlang VM, the version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_RELEASE
+```
+TRAVIS_OTP_RELEASE
+```
