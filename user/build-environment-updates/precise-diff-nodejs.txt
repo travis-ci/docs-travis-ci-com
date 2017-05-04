@@ -1,541 +1,164 @@
 Worker information
-hostname: production-2-worker-org-b-3-gce:253e1c48-746c-427e-a4a6-d6d4ab8dd116
+hostname: production-5-worker-org-b-6-gce:c2fe4f76-38c5-4cb3-a183-76db93cf6c74
 version: v2.7.0 https://github.com/travis-ci/worker/tree/66fc24311e055643710f4e0567f6888c927d3ab8
-instance: testing-gce-fbb5c3bf-a838-43af-aefe-7f35aef013b6:travis-ci-sugilite-trusty-1487190572
-startup: 21.681586295s
+instance: testing-gce-343f283f-a9ae-418e-abc8-c88aa978a9b7:travis-ci-nodejs-precise-1480652647
+startup: 22.057984286s
 Build system information
-Build language: nodejs
+Build language: node_js
 Build group: deprecated-2017Q1
 Build dist: precise
-Build id: 228834063
-Job id: 228834064
+Build id: 228849362
+Job id: 228849364
 travis-build version: 66bd59b85
 Build image provisioning date and time
-Wed Feb 15 21:23:35 UTC 2017
+Fri Dec  2 04:39:02 UTC 2016
 Operating System Details
 Distributor ID:	Ubuntu
-Description:	Ubuntu 14.04.5 LTS
-Release:	14.04
-Codename:	trusty
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
 Linux Version
-4.4.0-59-generic
+3.13.0-103-generic
 Cookbooks Version
-6cad52e https://github.com/travis-ci/travis-cookbooks/tree/6cad52e
-git version
-git version 2.11.0
+9c6cd11 https://github.com/travis-ci/travis-cookbooks/tree/9c6cd11
+Git version
+git version 1.8.5.6
 bash version
-GNU bash, version 4.3.11(1)-release (x86_64-pc-linux-gnu)
-gcc version
-gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4
-Copyright (C) 2013 Free Software Foundation, Inc.
+GNU bash, version 4.2.25(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+GCC version
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-docker version
-Client:
- Version:      1.12.6
- API version:  1.24
- Go version:   go1.6.4
- Git commit:   78d1802
- Built:        Tue Jan 10 20:26:30 2017
- OS/Arch:      linux/amd64
-
-Server:
- Version:      1.12.6
- API version:  1.24
- Go version:   go1.6.4
- Git commit:   78d1802
- Built:        Tue Jan 10 20:26:30 2017
- OS/Arch:      linux/amd64
-clang version
-clang version 3.5.0 (tags/RELEASE_350/final)
+LLVM version
+clang version 3.4 (tags/RELEASE_34/final)
 Target: x86_64-unknown-linux-gnu
 Thread model: posix
-jq version
-jq-1.5
-bats version
-Bats 0.4.0
-shellcheck version
-0.4.5
-shfmt version
-v1.0.0
-ccache version
-ccache version 3.1.9
-
-Copyright (C) 2002-2007 Andrew Tridgell
-Copyright (C) 2009-2011 Joel Rosdahl
-
-This program is free software; you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation; either version 3 of the License, or (at your option) any later
-version.
-cmake version
-cmake version 3.2.2
-
-CMake suite maintained and supported by Kitware (kitware.com/cmake).
-heroku version
-heroku-toolbelt/3.43.16 (x86_64-linux) ruby/2.4.0
-heroku-cli/5.6.21-714ddf5 (linux-amd64) go1.7.5
-You have no installed plugins.
-imagemagick version
-Version: ImageMagick 6.7.7-10 2016-11-29 Q16 http://www.imagemagick.org
-md5deep version
-4.2
-mercurial version
-Mercurial Distributed SCM (version 4.1)
-(see https://mercurial-scm.org for more information)
-
-Copyright (C) 2005-2016 Matt Mackall and others
-This is free software; see the source for copying conditions. There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-mysql version
-mysql  Ver 14.14 Distrib 5.6.33, for debian-linux-gnu (x86_64) using  EditLine wrapper
-openssl version
-OpenSSL 1.0.1f 6 Jan 2014
-packer version
-Packer v0.10.1
-
-Your version of Packer is out of date! The latest version
-is 0.12.2. You can update by downloading from www.packer.io
-postgresql client version
-psql (PostgreSQL) 9.6.2
-ragel version
-Ragel State Machine Compiler version 6.8 Feb 2013
-Copyright (c) 2001-2009 by Adrian Thurston
-subversion version
-svn, version 1.8.8 (r1568071)
-   compiled Aug 20 2015, 12:51:30 on x86_64-pc-linux-gnu
-
-Copyright (C) 2013 The Apache Software Foundation.
-This software consists of contributions made by many people;
-see the NOTICE file for more information.
-Subversion is open source software, see http://subversion.apache.org/
-
-The following repository access (RA) modules are available:
-
-* ra_svn : Module for accessing a repository using the svn network protocol.
-  - with Cyrus SASL authentication
-  - handles 'svn' scheme
-* ra_local : Module for accessing a repository on local disk.
-  - handles 'file' scheme
-* ra_serf : Module for accessing a repository via WebDAV protocol using serf.
-  - using serf 1.3.3
-  - handles 'http' scheme
-  - handles 'https' scheme
-
-sudo version
-Sudo version 1.8.9p5
-Configure options: --prefix=/usr -v --with-all-insults --with-pam --with-fqdn --with-logging=syslog --with-logfac=authpriv --with-env-editor --with-editor=/usr/bin/editor --with-timeout=15 --with-password-timeout=0 --with-passprompt=[sudo] password for %p:  --without-lecture --with-tty-tickets --disable-root-mailer --enable-admin-flag --with-sendmail=/usr/sbin/sendmail --with-timedir=/var/lib/sudo --mandir=/usr/share/man --libexecdir=/usr/lib/sudo --with-sssd --with-sssd-lib=/usr/lib/x86_64-linux-gnu --with-selinux
-Sudoers policy plugin version 1.8.9p5
-Sudoers file grammar version 43
-
-Sudoers path: /etc/sudoers
-Authentication methods: 'pam'
-Syslog facility if syslog is being used for logging: authpriv
-Syslog priority to use when user authenticates successfully: notice
-Syslog priority to use when user authenticates unsuccessfully: alert
-Send mail if the user is not in sudoers
-Use a separate timestamp for each user/tty combo
-Lecture user the first time they run sudo
-Root may run sudo
-Allow some information gathering to give useful error messages
-Require fully-qualified hostnames in the sudoers file
-Visudo will honor the EDITOR environment variable
-Set the LOGNAME and USER environment variables
-Length at which to wrap log file lines (0 for no wrap): 80
-Authentication timestamp timeout: 15.0 minutes
-Password prompt timeout: 0.0 minutes
-Number of tries to enter a password: 3
-Umask to use or 0777 to use user's: 022
-Path to mail program: /usr/sbin/sendmail
-Flags for mail program: -t
-Address to send mail to: root
-Subject line for mail messages: *** SECURITY information for %h ***
-Incorrect password message: Sorry, try again.
-Path to authentication timestamp dir: /var/lib/sudo
-Default password prompt: [sudo] password for %p:
-Default user to run commands as: root
-Value to override user's $PATH with: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-Path to the editor for use by visudo: /usr/bin/editor
-When to require a password for 'list' pseudocommand: any
-When to require a password for 'verify' pseudocommand: all
-File descriptors >= 3 will be closed before executing a command
-Environment variables to check for sanity:
-	TZ
-	TERM
-	LINGUAS
-	LC_*
-	LANGUAGE
-	LANG
-	COLORTERM
-Environment variables to remove:
-	RUBYOPT
-	RUBYLIB
-	PYTHONUSERBASE
-	PYTHONINSPECT
-	PYTHONPATH
-	PYTHONHOME
-	TMPPREFIX
-	ZDOTDIR
-	READNULLCMD
-	NULLCMD
-	FPATH
-	PERL5DB
-	PERL5OPT
-	PERL5LIB
-	PERLLIB
-	PERLIO_DEBUG
-	JAVA_TOOL_OPTIONS
-	SHELLOPTS
-	GLOBIGNORE
-	PS4
-	BASH_ENV
-	ENV
-	TERMCAP
-	TERMPATH
-	TERMINFO_DIRS
-	TERMINFO
-	_RLD*
-	LD_*
-	PATH_LOCALE
-	NLSPATH
-	HOSTALIASES
-	RES_OPTIONS
-	LOCALDOMAIN
-	CDPATH
-	IFS
-Environment variables to preserve:
-	JAVA_HOME
-	TRAVIS
-	CI
-	DEBIAN_FRONTEND
-	XAUTHORIZATION
-	XAUTHORITY
-	PS2
-	PS1
-	PATH
-	LS_COLORS
-	KRB5CCNAME
-	HOSTNAME
-	HOME
-	DISPLAY
-	COLORS
-Locale to use while parsing sudoers: C
-Directory in which to store input/output logs: /var/log/sudo-io
-File in which to store the input/output log: %{seq}
-Add an entry to the utmp/utmpx file when allocating a pty
-PAM service name to use
-PAM service name to use for login shells
-Create a new PAM session for the command to run in
-Maximum I/O log sequence number: 0
-
-Local IP address and netmask pairs:
-	10.240.0.17/255.255.255.255
-	172.17.0.1/255.255.0.0
-
-Sudoers I/O plugin version 1.8.9p5
-gzip version
-gzip 1.6
-Copyright (C) 2007, 2010, 2011 Free Software Foundation, Inc.
-Copyright (C) 1993 Jean-loup Gailly.
-This is free software.  You may redistribute copies of it under the terms of
-the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
-There is NO WARRANTY, to the extent permitted by law.
-
-Written by Jean-loup Gailly.
-zip version
-Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
-This is Zip 3.0 (July 5th 2008), by Info-ZIP.
-Currently maintained by E. Gordon.  Please send bug reports to
-the authors using the web page at www.info-zip.org; see README for details.
-
-Latest sources and executables are at ftp://ftp.info-zip.org/pub/infozip,
-as of above date; see http://www.info-zip.org/ for other sites.
-
-Compiled with gcc 4.8.2 for Unix (Linux ELF) on Oct 21 2013.
-
-Zip special compilation options:
-	USE_EF_UT_TIME       (store Universal Time)
-	BZIP2_SUPPORT        (bzip2 library version 1.0.6, 6-Sept-2010)
-	    bzip2 code and library copyright (c) Julian R Seward
-	    (See the bzip2 license for terms of use)
-	SYMLINK_SUPPORT      (symbolic links supported)
-	LARGE_FILE_SUPPORT   (can read and write large files on file system)
-	ZIP64_SUPPORT        (use Zip64 to store large files in archives)
-	UNICODE_SUPPORT      (store and read UTF-8 Unicode paths)
-	STORE_UNIX_UIDs_GIDs (store UID/GID sizes/values using new extra field)
-	UIDGID_NOT_16BIT     (old Unix 16-bit UID/GID extra field not used)
-	[encryption, version 2.91 of 05 Jan 2007] (modified for Zip 3)
-
-Encryption notice:
-	The encryption code of this program is not copyrighted and is
-	put in the public domain.  It was originally written in Europe
-	and, to the best of our knowledge, can be freely distributed
-	in both source and object forms from any country, including
-	the USA under License Exception TSU of the U.S. Export
-	Administration Regulations (section 740.13(e)) of 6 June 2002.
-
-Zip environment options:
-             ZIP:  [none]
-          ZIPOPT:  [none]
-vim version
-VIM - Vi IMproved 7.4 (2013 Aug 10, compiled Nov 24 2016 16:43:18)
-Included patches: 1-52
-Extra patches: 8.0.0056
-Modified by pkg-vim-maintainers@lists.alioth.debian.org
-Compiled by buildd@
-Huge version without GUI.  Features included (+) or not (-):
-+acl             +farsi           +mouse_netterm   +syntax
-+arabic          +file_in_path    +mouse_sgr       +tag_binary
-+autocmd         +find_in_path    -mouse_sysmouse  +tag_old_static
--balloon_eval    +float           +mouse_urxvt     -tag_any_white
--browse          +folding         +mouse_xterm     -tcl
-++builtin_terms  -footer          +multi_byte      +terminfo
-+byte_offset     +fork()          +multi_lang      +termresponse
-+cindent         +gettext         -mzscheme        +textobjects
--clientserver    -hangul_input    +netbeans_intg   +title
--clipboard       +iconv           +path_extra      -toolbar
-+cmdline_compl   +insert_expand   -perl            +user_commands
-+cmdline_hist    +jumplist        +persistent_undo +vertsplit
-+cmdline_info    +keymap          +postscript      +virtualedit
-+comments        +langmap         +printer         +visual
-+conceal         +libcall         +profile         +visualextra
-+cryptv          +linebreak       +python          +viminfo
-+cscope          +lispindent      -python3         +vreplace
-+cursorbind      +listcmds        +quickfix        +wildignore
-+cursorshape     +localmap        +reltime         +wildmenu
-+dialog_con      -lua             +rightleft       +windows
-+diff            +menu            -ruby            +writebackup
-+digraphs        +mksession       +scrollbind      -X11
--dnd             +modify_fname    +signs           -xfontset
--ebcdic          +mouse           +smartindent     -xim
-+emacs_tags      -mouseshape      -sniff           -xsmp
-+eval            +mouse_dec       +startuptime     -xterm_clipboard
-+ex_extra        +mouse_gpm       +statusline      -xterm_save
-+extra_search    -mouse_jsbterm   -sun_workshop    -xpm
-   system vimrc file: "$VIM/vimrc"
-     user vimrc file: "$HOME/.vimrc"
- 2nd user vimrc file: "~/.vim/vimrc"
-      user exrc file: "$HOME/.exrc"
-  fall-back for $VIM: "/usr/share/vim"
-Compilation: gcc -c -I. -Iproto -DHAVE_CONFIG_H     -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=1
-Linking: gcc   -Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,--as-needed -o vim        -lm -ltinfo -lnsl  -lselinux  -lacl -lattr -lgpm -ldl    -L/usr/lib/python2.7/config-x86_64-linux-gnu -lpython2.7 -lpthread -ldl -lutil -lm -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
-iptables version
-iptables v1.4.21
-curl version
-curl 7.35.0 (x86_64-pc-linux-gnu) libcurl/7.35.0 OpenSSL/1.0.1f zlib/1.2.8 libidn/1.28 librtmp/2.3
-wget version
-GNU Wget 1.15 built on linux-gnu.
-rsync version
-rsync  version 3.1.0  protocol version 31
-gimme version
-v1.0.0
-nvm version
-0.33.0
-perlbrew version
-/home/travis/perl5/perlbrew/bin/perlbrew  - App::perlbrew/0.73
-phpenv version
-rbenv 1.1.0-2-g4f8925a
-rvm version
-rvm 1.29.0 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io/]
-default ruby version
-ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-linux]
-CouchDB version
-couchdb 1.6.1
-ElasticSearch version
-5.0.2
-Installed Firefox version
-firefox 50.0.2
-MongoDB version
-MongoDB 3.2.12
+Pre-installed Ruby versions
+ruby-2.2.5
+Pre-installed Node.js versions
+iojs-v1.1.0
+v0.10
+v0.10.18
+v0.10.36
+v0.11.15
+v0.6.21
+v0.8.27
+Pre-installed Go versions
+1.4.2
+mysql --version
+mysql  Ver 14.14 Distrib 5.5.53, for debian-linux-gnu (x86_64) using readline 6.2
 Pre-installed PostgreSQL versions
-9.2.20
-9.3.16
-9.4.11
-9.5.6
-9.6.2
-RabbitMQ Version
-3.6.6
+9.1.24
+9.2.19
+9.3.15
+9.4.10
+9.5.5
 Redis version
 redis-server 3.0.6
 riak version
-2.2.0
-kerl list installations
-17.0
-17.1
-17.3
-17.4
-17.5
-18.0
-18.1
-18.2
-18.2.1
-R14B02
-R14B03
-R14B04
-R15B
-R15B01
-R15B02
-R15B03
-R16B
-R16B01
-R16B02
-R16B03
-R16B03-1
-kiex list
+2.0.2
+memcached version
+1.4.13
+MongoDB version
+MongoDB 2.4.14
+CouchDB version
+couchdb 1.6.1
+Neo4j version
+1.9.4
+Cassandra version
+2.0.9
+ElasticSearch version
+1.4.0
+Installed Sphinx versions
+2.0.10
+2.1.9
+2.2.6
+Default Sphinx version
+2.2.6
+Installed Firefox version
+firefox 38.4.0esr
+PhantomJS version
+1.9.8
+ant -version
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+mvn -version
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_80, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-103-generic", arch: "amd64", family: "unix"
 
-kiex elixirs
-
-   elixir-1.0.3
-=* elixir-1.0.4
-
-# => - current
-# =* - current && default
-#  * - default
-
-rebar --version
-rebar 2.6.4 17 20160831_145136 git 2.6.4-dirty
-Pre-installed Go versions
-1.3.3
-1.4.3
-1.5.4
-1.6.4
-1.7.4
-ant version
-Apache Ant(TM) version 1.9.3 compiled on April 8 2014
-mvn version
-Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T16:41:47+00:00)
-Maven home: /usr/local/maven-3.3.9
-Java version: 1.8.0_121, vendor: Oracle Corporation
-Java home: /usr/lib/jvm/java-8-oracle/jre
-Default locale: en_US, platform encoding: UTF-8
-OS name: "linux", version: "4.4.0-59-generic", arch: "amd64", family: "unix"
-gradle version
-
-------------------------------------------------------------
-Gradle 3.2.1
-------------------------------------------------------------
-
-Build time:   2016-11-22 15:19:54 UTC
-Revision:     83b485b914fd4f335ad0e66af9d14aad458d2cc5
-
-Groovy:       2.4.7
-Ant:          Apache Ant(TM) version 1.9.6 compiled on June 29 2015
-JVM:          1.8.0_121 (Oracle Corporation 25.121-b13)
-OS:           Linux 4.4.0-59-generic amd64
-
-lein version
-WARNING: You're currently running as root; probably by accident.
-Press control-C to abort or Enter to continue as root.
-Set LEIN_ROOT to disable this warning.
-Leiningen 2.7.1 on Java 1.8.0_121 Java HotSpot(TM) 64-Bit Server VM
-Pre-installed Node.js versions
-v0.12.18
-v4.7.2
-v4.7.3
-v5.12.0
-v6.9.4
-v6.9.5
-v7.4
-v7.4.0
-perlbrew list
-  5.8 (5.8.8)
-  5.10 (5.10.1)
-  5.12 (5.12.5)
-  5.14 (5.14.4)
-  5.16 (5.16.3)
-  5.18 (5.18.4)
-  5.20 (5.20.3)
-  5.20-extras (5.20.3)
-  5.20-shrplib (5.20.3)
-  5.20.3
-  5.22 (5.22.0)
-  5.22-extras (5.22.0)
-  5.22-shrplib (5.22.0)
-  5.22.0
-phpenv versions
-  system
-  5.4
-  5.4.45
-  5.5.37
-  5.6
-* 5.6.24 (set by /home/travis/.phpenv/version)
-  7.0
-  7.0.7
-  hhvm
-  hhvm-stable
-composer --version
-Composer version 1.2.0 2016-07-19 01:28:52
-Pre-installed Ruby versions
-jruby-9.1.6.0
-ruby-2.1.10
-ruby-2.2.6
-ruby-2.3.3
-ruby-2.4.0
-
-W: http://dl.hhvm.com/ubuntu/dists/trusty/InRelease: Signature by key 36AEF64D0207E7EEE352D4875A16E7281BE7A449 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/trusty/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/builds/sphinxsearch-rel20/ubuntu/dists/trusty/Release.gpg: Signature by key 2FE7BA61B28B34B7A2B749A2B9D8946B16932B16 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/builds/sphinxsearch-rel21/ubuntu/dists/trusty/Release.gpg: Signature by key 2FE7BA61B28B34B7A2B749A2B9D8946B16932B16 uses weak digest algorithm (SHA1)
 $ export DEBIAN_FRONTEND=noninteractive
-W: http://dl.hhvm.com/ubuntu/dists/trusty/InRelease: Signature by key 36AEF64D0207E7EEE352D4875A16E7281BE7A449 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/couchdb/stable/ubuntu/dists/trusty/Release.gpg: Signature by key 15866BAFD9BCC4F3C1E0DFC7D69548E1C17EAB57 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/builds/sphinxsearch-rel20/ubuntu/dists/trusty/Release.gpg: Signature by key 2FE7BA61B28B34B7A2B749A2B9D8946B16932B16 uses weak digest algorithm (SHA1)
-W: http://ppa.launchpad.net/builds/sphinxsearch-rel21/ubuntu/dists/trusty/Release.gpg: Signature by key 2FE7BA61B28B34B7A2B749A2B9D8946B16932B16 uses weak digest algorithm (SHA1)
 Reading package lists...
 Building dependency tree...
 Reading state information...
-The following additional packages will be installed:
-  libc-dev-bin libc6-dev
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
 Suggested packages:
-  glibc-doc manpages-dev
-Recommended packages:
-  manpages-dev
+  glibc-doc
 The following packages will be upgraded:
-  libc-dev-bin libc6 libc6-dev
-3 upgraded, 0 newly installed, 0 to remove and 107 not upgraded.
-Need to get 6,715 kB of archives.
-After this operation, 28.7 kB of additional disk space will be used.
-Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu trusty-updates/main amd64 libc6-dev amd64 2.19-0ubuntu6.11 [1,912 kB]
-Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu trusty-updates/main amd64 libc-dev-bin amd64 2.19-0ubuntu6.11 [69.0 kB]
-Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu trusty-updates/main amd64 libc6 amd64 2.19-0ubuntu6.11 [4,734 kB]
-Fetched 6,715 kB in 0s (63.1 MB/s)
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 113 not upgraded.
+Need to get 8,856 kB of archives.
+After this operation, 27.6 kB of additional disk space will be used.
+Get:1 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.18 [2,948 kB]
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.18 [84.5 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.18 [1,178 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.18 [4,646 kB]
+Fetched 8,856 kB in 0s (49.9 MB/s)
 Preconfiguring packages ...
-(Reading database ... 104066 files and directories currently installed.)
-Preparing to unpack .../libc6-dev_2.19-0ubuntu6.11_amd64.deb ...
-Unpacking libc6-dev:amd64 (2.19-0ubuntu6.11) over (2.19-0ubuntu6.9) ...
-Preparing to unpack .../libc-dev-bin_2.19-0ubuntu6.11_amd64.deb ...
-Unpacking libc-dev-bin (2.19-0ubuntu6.11) over (2.19-0ubuntu6.9) ...
-Preparing to unpack .../libc6_2.19-0ubuntu6.11_amd64.deb ...
-Unpacking libc6:amd64 (2.19-0ubuntu6.11) over (2.19-0ubuntu6.9) ...
-Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
-Setting up libc6:amd64 (2.19-0ubuntu6.11) ...
-Setting up libc-dev-bin (2.19-0ubuntu6.11) ...
-Setting up libc6-dev:amd64 (2.19-0ubuntu6.11) ...
-Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
-W: --force-yes is deprecated, use one of the options starting with --allow instead.
+(Reading database ... 82140 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.15 (using .../libc6-dev_2.15-0ubuntu10.18_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.15 (using .../libc-dev-bin_2.15-0ubuntu10.18_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.15 (using .../libc-bin_2.15-0ubuntu10.18_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.18) ...
+(Reading database ... 82140 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.15 (using .../libc6_2.15-0ubuntu10.18_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.18) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.18) ...
+Setting up libc6-dev (2.15-0ubuntu10.18) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
 $ git clone --depth=50 --branch=cha-gce-image-diff https://github.com/Lyoness/travis_production_test.git Lyoness/travis_production_test
 Cloning into 'Lyoness/travis_production_test'...
 remote: Counting objects: 173, done.
-remote: Compressing objects: 100% (76/76), done.
-remote: Total 173 (delta 92), reused 163 (delta 87), pack-reused 0
-Receiving objects: 100% (173/173), 29.12 KiB | 0 bytes/s, done.
+remote: Compressing objects: 100% (85/85), done.
+remote: Total 173 (delta 92), reused 153 (delta 78), pack-reused 0
+Receiving objects: 100% (173/173), 28.89 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (92/92), done.
+Checking connectivity... done.
 
 $ cd Lyoness/travis_production_test
-$ git checkout -qf 619dc8fc2e302f74cd40d83775867d04317c62c5
-$ rvm use default
-Using /home/travis/.rvm/gems/ruby-2.4.0
+$ git checkout -qf 781b5fcd5c8b9e291b9ee9ba32003574cecdd49e
+Updating nvm
+Using nodejs version from .nvmrc
+$ nvm install $(< .nvmrc)
+Downloading and installing node v6.10.3...
+Downloading https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.xz...
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v6.10.3 (npm v3.10.10)
 
-$ export BUNDLE_GEMFILE=$PWD/Gemfile
-$ ruby --version
-ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-linux]
-$ rvm --version
-rvm 1.29.0 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io/]
-$ bundle --version
-Bundler version 1.14.4
-$ gem --version
-2.6.8
+$ node --version
+v6.10.3
+$ npm --version
+3.10.10
+$ nvm --version
+0.33.2
 $ true
 
 $ dpkg --get-selections
@@ -544,7 +167,8 @@ acpid						install
 adduser						install
 ant						install
 ant-contrib					install
-apparmor					install
+ant-optional					install
+apparmor					deinstall
 apport						install
 apport-symptoms					install
 apt						install
@@ -552,10 +176,9 @@ apt-transport-https				install
 apt-utils					install
 apt-xapian-index				install
 aptitude					install
-aptitude-common					install
 at						install
-aufs-tools					install
 autoconf					install
+autogen						install
 automake					install
 autotools-dev					install
 base-files					install
@@ -570,7 +193,6 @@ binutils-doc					install
 bison						install
 bsdmainutils					install
 bsdutils					install
-btrfs-tools					install
 build-essential					install
 busybox-initramfs				install
 busybox-static					install
@@ -579,85 +201,74 @@ bzip2						install
 bzr						install
 ca-certificates					install
 ca-certificates-java				install
-cabal-install-1.16				install
-cabal-install-1.18				install
-cabal-install-1.20				install
-cabal-install-1.22				install
-cabal-install-1.24				install
-cassandra					install
-cassandra-tools					install
 ccache						install
-cgroup-lite					install
 chromium-browser				install
+chromium-browser-l10n				install
 chromium-codecs-ffmpeg-extra			install
-cloud-guest-utils				install
 cloud-init					install
+cloud-initramfs-growroot			install
+cloud-initramfs-rescuevol			install
+cloud-utils					install
 cmake						install
 cmake-data					install
+cmap-adobe-japan1				install
 comerr-dev					install
 command-not-found				install
 command-not-found-data				install
 console-setup					install
+consolekit					install
 coreutils					install
 couchdb						install
 couchdb-bin					install
 couchdb-common					install
 cpio						install
 cpp						install
-cpp-4.8						install
-crda						install
+cpp-4.6						install
+crda						deinstall
 cron						install
-cryptsetup					install
 cryptsetup-bin					install
 curl						install
 dash						install
 dbus						install
 dbus-x11					install
-dconf-gsettings-backend:amd64			install
+dconf-gsettings-backend				install
 dconf-service					install
 debconf						install
 debconf-i18n					install
 debconf-utils					install
+debhelper					install
 debianutils					install
 default-jre-headless				install
-desktop-file-utils				install
-dh-python					install
+dh-apparmor					install
 diffutils					install
 dmidecode					install
 dmsetup						install
 dnsutils					install
-docker-engine					install
-dosemu						install
 dosfstools					install
 dpkg						install
 dpkg-dev					install
-e2fslibs:amd64					install
+e2fslibs					install
 e2fsprogs					install
-eatmydata					install
 ed						install
 eject						install
 elasticsearch					install
-emacs						install
 emacs23-bin-common				install
 emacs23-common					install
-emacs23-common-non-dfsg				install
 emacs23-nox					install
-emacs24						install
-emacs24-bin-common				install
-emacs24-common					install
-emacs24-common-non-dfsg				install
 emacsen-common					install
 erlang-asn1					install
 erlang-base					install
 erlang-corba					install
 erlang-crypto					install
+erlang-dev					install
 erlang-diameter					install
+erlang-docbuilder				install
 erlang-edoc					install
-erlang-eldap					install
 erlang-erl-docgen				install
 erlang-eunit					install
 erlang-ic					install
 erlang-inets					install
+erlang-inviso					install
 erlang-mnesia					install
 erlang-nox					install
 erlang-odbc					install
@@ -674,54 +285,47 @@ erlang-tools					install
 erlang-webtool					install
 erlang-xmerl					install
 ethtool						install
+euca2ools					install
+fakeroot					install
 file						install
 findutils					install
+firefox-locale-en				install
+firefox-locale-pt				install
 flex						install
 fontconfig					install
 fontconfig-config				install
-fonts-dejavu-core				install
-fonts-dejavu-extra				install
-fonts-liberation				install
 fonts-ubuntu-font-family-console		install
 friendly-recovery				install
 ftp						install
 fuse						install
 g++						install
-g++-4.8						install
+g++-4.6						install
 gawk						install
 gcc						install
-gcc-4.8						install
-gcc-4.8-base:amd64				install
-gcc-4.9-base:amd64				install
+gcc-4.6						install
+gcc-4.6-base					install
 gce-cloud-config				install
 gce-daemon					install
+gce-imagebundle					install
 gce-startup-scripts				install
 gconf-service					install
 gconf-service-backend				install
 gconf2						install
 gconf2-common					install
-gdisk						install
 geoip-database					install
 gettext						install
 gettext-base					install
-ghc-7.0.4					install
-ghc-7.10.3					install
-ghc-7.4.2					install
-ghc-7.6.3					install
-ghc-7.8.4					install
-ghc-8.0.2					install
+ghostscript					install
+gir1.2-atk-1.0					install
 gir1.2-freedesktop				install
 gir1.2-gdkpixbuf-2.0				install
 gir1.2-glib-2.0					install
+gir1.2-gtk-2.0					install
+gir1.2-pango-1.0				install
 gir1.2-rsvg-2.0					install
 git						install
-git-core					install
-git-lfs						install
 git-man						install
 gnupg						install
-gnupg-agent					install
-gnupg2						install
-google-chrome-stable				install
 google-cloud-sdk				install
 gpgv						install
 grep						install
@@ -731,39 +335,36 @@ grub-gfxpayload-lists				install
 grub-pc						install
 grub-pc-bin					install
 grub2-common					install
+gs-cjk-resource					install
 gsfonts						install
 gsfonts-x11					install
-gvfs:amd64					install
+guile-1.8-libs					install
+gvfs						install
 gvfs-common					install
 gvfs-daemons					install
-gvfs-libs:amd64					install
+gvfs-libs					install
 gzip						install
-haveged						install
 hdparm						install
-heroku						install
-heroku-toolbelt					install
-hhvm						deinstall
 hicolor-icon-theme				install
 hostname					install
-icedtea-6-jre-cacao:amd64			install
-icedtea-6-jre-jamvm:amd64			install
-icedtea-6-plugin:amd64				install
-icedtea-7-plugin:amd64				install
-icedtea-netx:amd64				install
+html2text					install
+icedtea-6-jre-cacao				install
+icedtea-6-jre-jamvm				install
+icedtea-6-plugin				install
+icedtea-7-plugin				install
+icedtea-netx					install
 icedtea-netx-common				install
-icu-devtools					install
 ifupdown					install
 imagemagick					install
 imagemagick-common				install
-indicator-application				install
 info						install
-init-system-helpers				install
 initramfs-tools					install
 initramfs-tools-bin				install
 initscripts					install
 insserv						install
 install-info					install
-iproute2					install
+intltool-debian					install
+iproute						install
 iptables					install
 iputils-ping					install
 iputils-tracepath				install
@@ -773,10 +374,11 @@ isc-dhcp-common					install
 iso-codes					install
 ivy						install
 java-common					install
+jsvc						install
 kbd						install
 keyboard-configuration				install
 klibc-utils					install
-kmod						install
+kpartx						install
 krb5-locales					install
 krb5-multidev					install
 landscape-client				install
@@ -787,595 +389,513 @@ language-pack-pt				install
 language-pack-pt-base				install
 language-selector-common			install
 laptop-detect					install
-lemon						install
 less						install
-libaccountsservice0:amd64			install
-libacl1:amd64					install
-libaio1:amd64					install
-libapparmor-perl				install
-libapparmor1:amd64				install
-libappindicator1				install
-libappindicator3-1				install
-libapr1:amd64					install
-libaprutil1:amd64				install
-libapt-inst1.5:amd64				install
-libapt-inst2.0:amd64				install
-libapt-pkg4.12:amd64				install
-libapt-pkg5.0:amd64				install
-libarchive-extract-perl				install
-libarchive13:amd64				install
-libarmadillo4					deinstall
-libarpack2					deinstall
-libasan0:amd64					install
-libasn1-8-heimdal:amd64				install
-libasound2:amd64				install
-libasound2-data					install
-libasprintf0c2:amd64				install
-libassuan0:amd64				install
-libasyncns0:amd64				install
-libatasmart4:amd64				install
-libatk-bridge2.0-0:amd64			install
+libaccountsservice0				install
+libacl1						install
+libalgorithm-diff-perl				install
+libalgorithm-diff-xs-perl			install
+libalgorithm-merge-perl				install
+libapr1						install
+libaprutil1					install
+libapt-inst1.4					install
+libapt-pkg4.12					install
+libarchive12					install
+libarmadillo2					install
+libasn1-8-heimdal				install
+libasound2					install
+libasyncns0					install
+libatasmart4					install
 libatk-wrapper-java				install
-libatk-wrapper-java-jni:amd64			install
-libatk1.0-0:amd64				install
+libatk-wrapper-java-jni				install
+libatk1.0-0					install
 libatk1.0-data					install
-libatomic1:amd64				install
-libatspi2.0-0:amd64				install
-libattr1:amd64					install
-libaudio2:amd64					install
-libaudit-common					install
-libaudit1:amd64					install
-libavahi-client3:amd64				install
-libavahi-common-data:amd64			install
-libavahi-common3:amd64				install
-libavahi-glib1:amd64				install
-libbind9-90					install
-libbison-dev:amd64				install
-libblkid1:amd64					install
-libbonobo2-0:amd64				install
+libatk1.0-dev					install
+libattr1					install
+libaudio2					install
+libavahi-client3				install
+libavahi-common-data				install
+libavahi-common3				install
+libavahi-glib1					install
+libbind9-80					install
+libbison-dev					install
+libblas3gf					install
+libblkid1					install
+libbonobo2-0					install
 libbonobo2-common				install
-libboost-context1.54.0:amd64			deinstall
-libboost-filesystem1.54.0:amd64			deinstall
-libboost-iostreams1.54.0:amd64			install
-libboost-program-options1.54.0:amd64		deinstall
-libboost-regex1.54.0:amd64			deinstall
-libboost-system1.54.0:amd64			deinstall
-libboost-thread1.54.0:amd64			deinstall
-libbsd0:amd64					install
-libbz2-1.0:amd64				install
-libbz2-dev:amd64				install
+libboost-iostreams1.46.1			install
+libbsd0						install
+libbz2-1.0					install
+libbz2-dev					install
 libc-bin					install
-libc-client2007e				install
-libc-client2007e-dev				install
 libc-dev-bin					install
-libc6:amd64					install
-libc6-dev:amd64					install
-libcaca0:amd64					install
-libcairo-gobject2:amd64				install
-libcairo-script-interpreter2:amd64		install
-libcairo2:amd64					install
+libc6						install
+libc6-dev					install
+libcairo-gobject2				install
+libcairo-script-interpreter2			install
+libcairo2					install
 libcairo2-dev					install
-libcanberra-gtk3-0:amd64			install
-libcanberra-gtk3-module:amd64			install
-libcanberra0:amd64				install
+libcanberra-gtk3-0				install
+libcanberra-gtk3-module				install
+libcanberra0					install
 libcap-ng0					install
-libcap2:amd64					install
-libcap2-bin					install
-libcdt5						install
-libcgmanager0:amd64				install
-libcgraph6					install
-libck-connector0:amd64				install
+libcap2						install
+libcdt4						install
+libcgraph5					install
+libck-connector0				install
 libclass-accessor-perl				install
-libcloog-isl4:amd64				install
-libcolord1:amd64				install
-libcomerr2:amd64				install
-libcroco3:amd64					install
+libclass-isa-perl				install
+libcomerr2					install
+libcommons-daemon-java				install
+libcroco3					install
 libcryptsetup4					install
-libcups2:amd64					install
-libcurl3:amd64					install
-libcurl3-gnutls:amd64				install
-libcurl4-gnutls-dev:amd64			install
+libcups2					install
+libcupsimage2					install
+libcurl3					install
+libcurl3-gnutls					install
+libcurl4-openssl-dev				install
 libcwidget3					install
-libdap11:amd64					deinstall
-libdapclient3:amd64				deinstall
-libdatrie1:amd64				install
-libdb5.3:amd64					install
+libdap11					install
+libdapclient3					install
+libdatrie1					install
+libdb4.8					install
+libdb5.1					install
 libdbd-mysql-perl				install
 libdbi-perl					install
-libdbus-1-3:amd64				install
-libdbus-glib-1-2:amd64				install
-libdbusmenu-glib4:amd64				install
-libdbusmenu-gtk3-4:amd64			install
-libdbusmenu-gtk4:amd64				install
-libdconf1:amd64					install
-libdebconfclient0:amd64				install
-libdevmapper-event1.02.1:amd64			install
-libdevmapper1.02.1:amd64			install
-libdjvulibre-dev:amd64				install
+libdbus-1-3					install
+libdbus-glib-1-2				install
+libdconf0					install
+libdevmapper-event1.02.1			install
+libdevmapper1.02.1				install
+libdjvulibre-dev				install
 libdjvulibre-text				install
-libdjvulibre21:amd64				install
-libdns100					install
-libdouble-conversion1:amd64			deinstall
+libdjvulibre21					install
+libdns81					install
 libdpkg-perl					install
-libdrm-intel1:amd64				install
-libdrm-nouveau2:amd64				install
-libdrm-radeon1:amd64				install
-libdrm2:amd64					install
-libdumbnet1					install
-libedit2:amd64					install
-libegl1-mesa:amd64				install
-libelf1:amd64					install
-libelfg0:amd64					install
-libepsilon1:amd64				deinstall
-libept1.4.12:amd64				install
+libdrm-dev					install
+libdrm-intel1					install
+libdrm-nouveau1a				install
+libdrm-nouveau2					install
+libdrm-radeon1					install
+libdrm2						install
+libedit2					install
+libelf1						install
+libepsilon0					install
+libept1.4.12					install
 liberror-perl					install
-libestr0					install
-libevent-2.0-5:amd64				install
+libevent-2.0-5					install
 libexif-dev					install
-libexif12:amd64					install
-libexpat1:amd64					install
-libexpat1-dev:amd64				install
-libffi-dev:amd64				install
-libffi6:amd64					install
-libfftw3-double3:amd64				install
-libfl-dev:amd64					install
-libflac8:amd64					install
-libfontconfig1:amd64				install
+libexif12					install
+libexpat1					install
+libexpat1-dev					install
+libffi-dev					install
+libffi6						install
+libfile-basedir-perl				install
+libfile-desktopentry-perl			install
+libfile-mimeinfo-perl				install
+libfl-dev					install
+libflac8					install
+libfontconfig1					install
 libfontconfig1-dev				install
-libfontenc1:amd64				install
-libfreetype6:amd64				install
+libfontenc1					install
+libfreetype6					install
 libfreetype6-dev				install
-libfreexl1:amd64				deinstall
-libfribidi0:amd64				install
-libfuse2:amd64					install
-libgbm1:amd64					install
-libgc1c2:amd64					install
-libgcc-4.8-dev:amd64				install
-libgcc1:amd64					install
-libgck-1-0:amd64				install
-libgconf-2-4:amd64				install
-libgconf2-4:amd64				install
-libgcr-3-common					install
-libgcr-base-3-1:amd64				install
-libgcrypt11:amd64				install
+libfreexl1					install
+libfribidi0					install
+libfuse2					install
+libgc1c2					install
+libgcc1						install
+libgconf-2-4					install
+libgconf2-4					install
+libgcrypt11					install
 libgcrypt11-dev					install
-libgd3:amd64					install
-libgdal1h					deinstall
+libgd2-noxpm					install
+libgdal1					install
 libgdbm-dev					install
-libgdbm3:amd64					install
-libgdk-pixbuf2.0-0:amd64			install
+libgdbm3					install
+libgdk-pixbuf2.0-0				install
 libgdk-pixbuf2.0-common				install
 libgdk-pixbuf2.0-dev				install
-libgeoip1:amd64					install
-libgeos++-dev					install
-libgeos-3.4.2					install
+libgdu0						install
+libgeoip1					install
+libgeos-3.2.2					deinstall
+libgeos-3.3.8					install
 libgeos-c1					install
 libgeos-dev					install
-libgflags2					deinstall
-libgfortran3:amd64				deinstall
-libgif4:amd64					install
+libgettextpo0					install
+libgfortran3					install
+libgif4						install
 libgirepository-1.0-1				install
-libgl1-mesa-dri:amd64				install
-libgl1-mesa-glx:amd64				install
-libglamor0:amd64				install
-libglapi-mesa:amd64				install
-libglib2.0-0:amd64				install
+libgl1-mesa-dev					install
+libgl1-mesa-dri					install
+libgl1-mesa-glx					install
+libglapi-mesa					install
+libglib2.0-0					install
 libglib2.0-bin					install
 libglib2.0-data					install
 libglib2.0-dev					install
-libgmp-dev:amd64				install
-libgmp10:amd64					install
-libgmp3-dev					install
-libgmpxx4ldbl:amd64				install
+libglu1-mesa					install
+libglu1-mesa-dev				install
+libgmp10					install
 libgnome-keyring-common				install
-libgnome-keyring0:amd64				install
-libgnome2-0:amd64				install
+libgnome-keyring0				install
+libgnome2-0					install
 libgnome2-bin					install
 libgnome2-common				install
-libgnomevfs2-0:amd64				install
+libgnomevfs2-0					install
 libgnomevfs2-common				install
 libgnutls-dev					install
-libgnutls-openssl27:amd64			install
-libgnutls26:amd64				install
-libgnutlsxx27:amd64				install
-libgomp1:amd64					install
-libgoogle-glog0					deinstall
+libgnutls-openssl27				install
+libgnutls26					install
+libgnutlsxx27					install
+libgomp1					install
 libgpg-error-dev				install
-libgpg-error0:amd64				install
-libgpm2:amd64					install
-libgraphite2-3:amd64				install
+libgpg-error0					install
+libgpm2						install
+libgraph4					install
 libgraphviz-dev					install
-libgssapi-krb5-2:amd64				install
-libgssapi3-heimdal:amd64			install
-libgssrpc4:amd64				install
-libgtk-3-0:amd64				install
+libgs9						install
+libgs9-common					install
+libgssapi-krb5-2				install
+libgssapi3-heimdal				install
+libgssrpc4					install
+libgstreamer-plugins-base0.10-0			install
+libgstreamer0.10-0				install
+libgtk-3-0					install
+libgtk-3-bin					install
 libgtk-3-common					install
-libgtk2.0-0:amd64				install
+libgtk2.0-0					install
+libgtk2.0-bin					install
 libgtk2.0-common				install
-libgudev-1.0-0:amd64				install
-libgvc6						install
-libgvpr2					install
-libharfbuzz0b:amd64				install
-libhashkit-dev					install
-libhashkit2:amd64				install
-libhavege1:amd64				install
-libhcrypto4-heimdal:amd64			install
-libhdf4-0-alt					deinstall
-libhdf5-7:amd64					deinstall
-libheimbase1-heimdal:amd64			install
-libheimntlm0-heimdal:amd64			install
+libgtk2.0-dev					install
+libgudev-1.0-0					install
+libgvc5						install
+libgvpr1					install
+libhashkit0					install
+libhcrypto4-heimdal				install
+libhdf4-0-alt					install
+libhdf5-serial-1.8.4				install
+libheimbase1-heimdal				install
+libheimntlm0-heimdal				install
 libhtml-template-perl				install
-libhx509-5-heimdal:amd64			install
-libice-dev:amd64				install
-libice6:amd64					install
-libicu-dev:amd64				install
-libicu52:amd64					install
+libhx509-5-heimdal				install
+libice-dev					install
+libice6						install
+libicu-dev					install
+libicu48					install
 libidl-common					install
-libidl0:amd64					install
-libidn11:amd64					install
+libidl0						install
+libidn11					install
 libidn11-dev					install
+libijs-0.35					install
 libilmbase-dev					install
-libilmbase6:amd64				install
-libindicator3-7					install
-libindicator7					install
+libilmbase6					install
 libio-string-perl				install
-libisc95					install
-libisccc90					install
-libisccfg90					install
-libisl10:amd64					install
-libitm1:amd64					install
+libisc83					install
+libisccc80					install
+libisccfg82					install
+libiw30						install
 libjasper-dev					install
-libjasper1:amd64				install
-libjbig-dev:amd64				install
-libjbig0:amd64					install
-libjemalloc1					deinstall
-libjpeg-dev:amd64				install
-libjpeg-turbo8:amd64				install
-libjpeg-turbo8-dev:amd64			install
-libjpeg8:amd64					install
-libjpeg8-dev:amd64				install
+libjasper1					install
+libjbig2dec0					install
+libjpeg-dev					install
+libjpeg-turbo8					install
+libjpeg-turbo8-dev				install
+libjpeg8					install
+libjpeg8-dev					install
 libjs-jquery					install
-libjson-c2:amd64				install
-libjson0:amd64					install
-libjsoncpp0:amd64				install
-libk5crypto3:amd64				install
-libkadm5clnt-mit9:amd64				install
-libkadm5srv-mit9:amd64				install
-libkdb5-7:amd64					install
-libkeyutils1:amd64				install
+libjson0					install
+libk5crypto3					install
+libkadm5clnt-mit8				install
+libkadm5srv-mit8				install
+libkdb5-6					install
+libkeyutils1					install
 libklibc					install
-libkml0:amd64					deinstall
-libkmod2:amd64					install
-libkrb5-26-heimdal:amd64			install
-libkrb5-3:amd64					install
+libkrb5-26-heimdal				install
+libkrb5-3					install
 libkrb5-dev					install
-libkrb5support0:amd64				install
-libksba8:amd64					install
-liblcms2-2:amd64				install
-liblcms2-dev:amd64				install
-libldap-2.4-2:amd64				install
-libldap2-dev:amd64				install
-libllvm3.4:amd64				install
+libkrb5support0					install
+liblapack3gf					install
+liblcms1					install
+liblcms1-dev					install
+liblcms2-2					install
+libldap-2.4-2					install
+libldap-2.4-2-dbg				install
+libldap2-dev					install
+libllvm2.9					install
+libllvm3.0					install
 liblocale-gettext-perl				install
 liblockfile-bin					install
-liblockfile1:amd64				install
-liblog-message-simple-perl			install
-liblqr-1-0:amd64				install
+liblockfile1					install
+liblqr-1-0					install
 liblqr-1-0-dev					install
-libltdl-dev:amd64				install
-libltdl7:amd64					install
-liblwgeom-2.3-0					deinstall
-liblwres90					install
-liblz4-1:amd64					deinstall
-liblzma-dev:amd64				install
-liblzma5:amd64					install
-liblzo2-2:amd64					install
-libm17n-0					install
-libmagic1:amd64					install
+libltdl-dev					install
+libltdl7					install
+liblvm2app2.2					install
+liblwgeom-2.2-5					install
+liblwgeom-2.3-0					install
+liblwres80					install
+liblzma-dev					install
+liblzma5					install
+libmagic1					install
 libmagickcore-dev				install
-libmagickcore5:amd64				install
-libmagickcore5-extra:amd64			install
+libmagickcore4					install
+libmagickcore4-extra				install
 libmagickwand-dev				install
-libmagickwand5:amd64				install
-libmcrypt-dev					install
-libmcrypt4					install
+libmagickwand4					install
+libmail-sendmail-perl				install
 libmemcached-dev				install
-libmemcached10:amd64				install
-libmemcachedprotocol0:amd64			install
-libmemcachedutil2:amd64				install
-libmhash-dev					install
-libmhash2:amd64					install
-libmodule-pluggable-perl			install
-libmount1:amd64					install
+libmemcached6					install
+libmemcachedprotocol0				install
+libmemcachedutil1				install
+libmng1						install
+libmount1					install
 libmozjs185-1.0					install
-libmpc3:amd64					install
-libmpdec2:amd64					install
-libmpfr4:amd64					install
+libmpc2						install
+libmpfr4					install
+libmysql++-dev					install
+libmysql++3					install
+libmysql-ruby					install
 libmysqlclient-dev				install
-libmysqlclient18:amd64				install
-libncurses5:amd64				install
-libncurses5-dev:amd64				install
-libncursesw5:amd64				install
-libncursesw5-dev:amd64				install
-libnetcdfc7					deinstall
-libnettle4:amd64				install
-libnewt0.52:amd64				install
-libnfnetlink0:amd64				install
-libnih-dbus1:amd64				install
-libnih1:amd64					install
-libnl-3-200:amd64				install
-libnl-genl-3-200:amd64				install
-libnotify4:amd64				install
-libnspr4:amd64					install
-libnss3:amd64					install
-libnss3-nssdb					install
-libnuma1:amd64					install
-libodbc1:amd64					install
-libogdi3.2					deinstall
-libogg0:amd64					install
-libonig2					deinstall
+libmysqlclient18				install
+libncurses5					install
+libncurses5-dev					install
+libncursesw5					install
+libncursesw5-dev				install
+libneon27-gnutls				install
+libnet-daemon-perl				install
+libnetcdf6					install
+libnetpbm10					install
+libnettle4					install
+libnewt0.52					install
+libnfnetlink0					install
+libnih-dbus1					install
+libnih1						install
+libnl-3-200					install
+libnl-genl-3-200				install
+libnotify4					install
+libnspr4					install
+libnss3						install
+libnss3-1d					install
+libodbc1					install
+libogdi3.2					install
+libogg0						install
 libopenexr-dev					install
-libopenexr6:amd64				install
-libopts25:amd64					install
-liborbit-2-0:amd64				install
-liborbit2:amd64					install
+libopenexr6					install
+libopts25					install
+libopts25-dev					install
+liborbit2					install
+liborc-0.4-0					install
 libossp-uuid-dev				install
 libossp-uuid16					install
-libotf0:amd64					install
 libp11-kit-dev					install
-libp11-kit0:amd64				install
-libpam-cap:amd64				install
-libpam-modules:amd64				install
+libp11-kit0					install
+libpam-ck-connector				install
+libpam-modules					install
 libpam-modules-bin				install
 libpam-runtime					install
-libpam-systemd:amd64				install
-libpam0g:amd64					install
-libpam0g-dev:amd64				install
-libpango-1.0-0:amd64				install
-libpango1.0-0:amd64				install
-libpangocairo-1.0-0:amd64			install
-libpangoft2-1.0-0:amd64				install
-libpangox-1.0-0:amd64				install
-libpangoxft-1.0-0:amd64				install
+libpam0g					install
+libpango1.0-0					install
+libpango1.0-dev					install
+libpaper-utils					install
+libpaper1					install
 libparse-debianchangelog-perl			install
-libparted0debian1:amd64				install
+libparted0debian1				install
 libpathplan4					install
-libpcap0.8:amd64				install
-libpci3:amd64					install
-libpciaccess0:amd64				install
-libpcre3:amd64					install
-libpcre3-dev:amd64				install
-libpcrecpp0:amd64				install
-libpcsclite1:amd64				install
-libpipeline1:amd64				install
-libpixman-1-0:amd64				install
+libpcap0.8					install
+libpci3						install
+libpciaccess0					install
+libpcre3					install
+libpcre3-dev					install
+libpcrecpp0					install
+libpcsclite1					install
+libpgm-5.1-0					install
+libpipeline1					install
+libpixman-1-0					install
 libpixman-1-dev					install
-libplymouth2:amd64				install
-libpng12-0:amd64				install
+libplrpc-perl					install
+libplymouth2					install
+libpng12-0					install
 libpng12-dev					install
-libpod-latex-perl				install
-libpolkit-agent-1-0:amd64			install
-libpolkit-backend-1-0:amd64			install
-libpolkit-gobject-1-0:amd64			install
-libpoppler44:amd64				deinstall
-libpopt0:amd64					install
+libpolkit-agent-1-0				install
+libpolkit-backend-1-0				install
+libpolkit-gobject-1-0				install
+libpoppler19					install
+libpopt0					install
 libpq-dev					install
-libpq5:amd64					install
-libprocps3:amd64				install
-libproj0					deinstall
-libpth20:amd64					install
-libpthread-stubs0-dev:amd64			install
-libpulse0:amd64					install
-libpython-dev:amd64				install
-libpython-stdlib:amd64				install
-libpython2.7:amd64				install
-libpython2.7-dev:amd64				install
-libpython2.7-minimal:amd64			install
-libpython2.7-stdlib:amd64			install
-libpython3-dev:amd64				install
-libpython3-stdlib:amd64				install
-libpython3.4:amd64				install
-libpython3.4-dev:amd64				install
-libpython3.4-minimal:amd64			install
-libpython3.4-stdlib:amd64			install
-libqt4-dbus:amd64				install
-libqt4-declarative:amd64			install
-libqt4-designer:amd64				install
+libpq5						install
+libproj0					install
+libpthread-stubs0				install
+libpthread-stubs0-dev				install
+libpulse0					install
+libpython2.7					install
+libpython3.2					install
+libqt4-dbus					install
+libqt4-declarative				install
+libqt4-designer					install
 libqt4-dev					install
-libqt4-dev-bin					install
-libqt4-help:amd64				install
-libqt4-network:amd64				install
-libqt4-qt3support:amd64				install
-libqt4-script:amd64				install
-libqt4-scripttools:amd64			install
-libqt4-sql:amd64				install
-libqt4-svg:amd64				install
-libqt4-test:amd64				install
-libqt4-xml:amd64				install
-libqt4-xmlpatterns:amd64			install
-libqtcore4:amd64				install
-libqtdbus4:amd64				install
-libqtgui4:amd64					install
-libquadmath0:amd64				install
-libreadline-dev:amd64				install
-libreadline5:amd64				install
-libreadline6:amd64				install
-libreadline6-dev:amd64				install
-libroken18-heimdal:amd64			install
-librsvg2-2:amd64				install
-librsvg2-common:amd64				install
+libqt4-help					install
+libqt4-network					install
+libqt4-opengl					install
+libqt4-opengl-dev				install
+libqt4-qt3support				install
+libqt4-script					install
+libqt4-scripttools				install
+libqt4-sql					install
+libqt4-sql-mysql				install
+libqt4-svg					install
+libqt4-test					install
+libqt4-xml					install
+libqt4-xmlpatterns				install
+libqtcore4					install
+libqtgui4					install
+libqtwebkit-dev					install
+libqtwebkit4					install
+libquadmath0					install
+libreadline-dev					install
+libreadline5					install
+libreadline6					install
+libreadline6-dev				install
+libroken18-heimdal				install
+librsvg2-2					install
+librsvg2-bin					install
+librsvg2-common					install
 librsvg2-dev					install
 librtmp-dev					install
-librtmp0:amd64					install
-libruby1.9.1					install
-libruby2.0:amd64				install
-libsasl2-2:amd64				install
+librtmp0					install
+libruby1.8					install
+libsasl2-2					install
 libsasl2-dev					install
-libsasl2-modules:amd64				install
-libsasl2-modules-db:amd64			install
-libsctp1:amd64					install
-libsdl1.2debian:amd64				install
-libsecret-1-0:amd64				install
-libsecret-common				install
-libselinux1:amd64				install
-libsemanage-common				install
-libsemanage1:amd64				install
-libsensors4:amd64				install
-libsepol1:amd64					install
-libserf-1-1:amd64				install
-libsigc++-2.0-0c2a:amd64			install
-libsigsegv2:amd64				install
-libslang2:amd64					install
-libsm-dev:amd64					install
-libsm6:amd64					install
-libsnappy1					deinstall
-libsndfile1:amd64				install
-libspatialite5:amd64				deinstall
-libspeechd2:amd64				install
-libspice-server1:amd64				install
-libsqlite3-0:amd64				install
-libsqlite3-dev:amd64				install
-libss2:amd64					install
-libssl-dev:amd64				install
-libssl0.9.8:amd64				install
-libssl1.0.0:amd64				install
-libstartup-notification0:amd64			install
-libstdc++-4.8-dev:amd64				install
-libstdc++6:amd64				install
+libsasl2-modules				install
+libsctp1					install
+libselinux1					install
+libsensors4					install
+libsgutils2-2					install
+libsigc++-2.0-0c2a				install
+libsigsegv2					install
+libslang2					install
+libsm-dev					install
+libsm6						install
+libsndfile1					install
+libspatialite3					install
+libsqlite3-0					install
+libsqlite3-dev					install
+libss2						install
+libssl-dev					install
+libssl-doc					install
+libssl0.9.8					install
+libssl1.0.0					install
+libstartup-notification0			install
+libstdc++6					install
+libstdc++6-4.6-dev				install
 libsub-name-perl				install
-libsvn1:amd64					install
-libsystemd-daemon0:amd64			install
-libsystemd-journal0:amd64			install
-libsystemd-login0:amd64				install
-libt1-5						install
-libt1-dev					install
-libtasn1-6:amd64				install
-libtasn1-6-dev					install
-libtbb2						deinstall
-libtcl8.6:amd64					install
-libtdb1:amd64					install
+libsvn1						install
+libswitch-perl					install
+libsys-hostname-long-perl			install
+libtasn1-3					install
+libtasn1-3-dev					install
+libtdb1						install
 libterm-readkey-perl				install
-libterm-ui-perl					install
 libtext-charwidth-perl				install
 libtext-iconv-perl				install
-libtext-soundex-perl				install
 libtext-wrapi18n-perl				install
 libthai-data					install
-libthai0:amd64					install
-libtidy-0.99-0					install
-libtidy-dev					install
-libtiff5:amd64					install
-libtiff5-dev:amd64				install
-libtiffxx5:amd64				install
+libthai0					install
+libtiff4					install
+libtiff4-dev					install
+libtiffxx0c2					install
 libtimedate-perl				install
-libtinfo-dev:amd64				install
-libtinfo5:amd64					install
-libtk8.6:amd64					install
+libtinfo-dev					install
+libtinfo5					install
 libtool						install
-libtsan0:amd64					install
-libudev1:amd64					install
-libudisks2-0:amd64				install
-libunistring0:amd64				install
-libunwind8					deinstall
-liburiparser1					deinstall
-libusb-0.1-4:amd64				install
-libusb-1.0-0:amd64				install
-libustr-1.0-1:amd64				install
+libudev0					install
+libunistring0					install
+libusb-0.1-4					install
+libusb-1.0-0					install
 libutempter0					install
-libuuid1:amd64					install
-libvorbis0a:amd64				install
-libvorbisenc2:amd64				install
-libvorbisfile3:amd64				install
-libvpx1:amd64					install
-libwayland-client0:amd64			install
-libwayland-cursor0:amd64			install
-libwayland-server0:amd64			install
-libwebp5:amd64					deinstall
-libwind0-heimdal:amd64				install
+libuuid1					install
+libvorbis0a					install
+libvorbisenc2					install
+libvorbisfile3					install
+libwind0-heimdal				install
 libwmf-dev					install
-libwmf0.2-7:amd64				install
-libwrap0:amd64					install
-libx11-6:amd64					install
+libwmf0.2-7					install
+libwrap0					install
+libx11-6					install
 libx11-data					install
-libx11-dev:amd64				install
-libx11-xcb1:amd64				install
+libx11-dev					install
+libx11-doc					install
+libx11-xcb1					install
 libxapian22					install
-libxatracker2:amd64				install
-libxau-dev:amd64				install
-libxau6:amd64					install
-libxaw7:amd64					install
-libxaw7-dev:amd64				install
-libxcb-dri2-0:amd64				install
-libxcb-dri3-0:amd64				install
-libxcb-glx0:amd64				install
-libxcb-present0:amd64				install
-libxcb-render0:amd64				install
-libxcb-render0-dev:amd64			install
-libxcb-shape0:amd64				install
-libxcb-shm0:amd64				install
-libxcb-shm0-dev:amd64				install
-libxcb-sync1:amd64				install
-libxcb-util0:amd64				install
-libxcb-xfixes0:amd64				install
-libxcb1:amd64					install
-libxcb1-dev:amd64				install
-libxcomposite1:amd64				install
-libxcursor1:amd64				install
-libxdamage1:amd64				install
-libxdmcp-dev:amd64				install
-libxdmcp6:amd64					install
+libxau-dev					install
+libxau6						install
+libxaw7						install
+libxcb-glx0					install
+libxcb-render0					install
+libxcb-render0-dev				install
+libxcb-shape0					install
+libxcb-shm0					install
+libxcb-shm0-dev					install
+libxcb-util0					install
+libxcb1						install
+libxcb1-dev					install
+libxcomposite-dev				install
+libxcomposite1					install
+libxcursor-dev					install
+libxcursor1					install
+libxdamage-dev					install
+libxdamage1					install
+libxdmcp-dev					install
+libxdmcp6					install
 libxdot4					install
-libxerces-c3.1:amd64				deinstall
+libxerces-c28					install
 libxerces2-java					install
-libxext-dev:amd64				install
-libxext6:amd64					install
-libxfixes3:amd64				install
-libxfont1:amd64					install
+libxext-dev					install
+libxext6					install
+libxfixes-dev					install
+libxfixes3					install
+libxfont1					install
 libxft-dev					install
-libxft2:amd64					install
-libxi6:amd64					install
-libxinerama1:amd64				install
-libxkbcommon0:amd64				install
-libxkbfile1:amd64				install
+libxft2						install
+libxi-dev					install
+libxi6						install
+libxinerama-dev					install
+libxinerama1					install
+libxkbfile1					install
 libxml-commons-external-java			install
 libxml-commons-resolver1.1-java			install
-libxml2:amd64					install
-libxml2-dev:amd64				install
-libxmu-dev:amd64				install
-libxmu-headers					install
-libxmu6:amd64					install
-libxmuu1:amd64					install
-libxpm-dev:amd64				install
-libxpm4:amd64					install
-libxrandr2:amd64				install
-libxrender-dev:amd64				install
-libxrender1:amd64				install
-libxshmfence1:amd64				install
-libxslt1-dev:amd64				install
-libxslt1.1:amd64				install
-libxss-dev:amd64				install
-libxss1:amd64					install
-libxt-dev:amd64					install
-libxt6:amd64					install
-libxtables10					install
-libxtst6:amd64					install
-libxv1:amd64					install
-libxvmc1:amd64					install
-libxxf86dga1:amd64				install
-libxxf86vm1:amd64				install
-libyaml-0-2:amd64				install
-libyaml-dev:amd64				install
+libxml2						install
+libxml2-dev					install
+libxml2-utils					install
+libxmlrpc-core-c3				install
+libxmu6						install
+libxmuu1					install
+libxpm4						install
+libxrandr-dev					install
+libxrandr2					install
+libxrender-dev					install
+libxrender1					install
+libxslt1-dev					install
+libxslt1.1					install
+libxss-dev					install
+libxss1						install
+libxt-dev					install
+libxt6						install
+libxtst6					install
+libxv1						install
+libxxf86dga1					install
+libxxf86vm1					install
+libyaml-0-2					install
+libyaml-dev					install
+libzmq3						install
 linux-firmware					install
-linux-image-4.4.0-59-generic			install
-linux-image-4.4.0-62-generic			install
-linux-image-extra-4.4.0-59-generic		install
-linux-image-extra-4.4.0-62-generic		install
-linux-image-generic-lts-xenial			install
-linux-libc-dev:amd64				install
+linux-image-3.13.0-103-generic			install
+linux-image-generic-lts-trusty			install
+linux-libc-dev					install
+lksctp-tools					install
 llvm						install
-llvm-3.4					install
-llvm-3.4-dev					install
-llvm-3.4-runtime				install
+llvm-2.9					install
+llvm-2.9-dev					install
+llvm-2.9-runtime				install
 llvm-runtime					install
 locales						install
 lockfile-progs					install
@@ -1386,80 +906,63 @@ lsb-release					install
 lshw						install
 lsof						install
 ltrace						install
-lvm2						install
-m17n-contrib					install
-m17n-db						install
 m4						install
 make						install
 makedev						install
 man-db						install
 manpages					install
+manpages-dev					install
 mawk						install
 md5deep						install
 memcached					install
+memtest86+					install
 mercurial					install
 mercurial-common				install
+mesa-common-dev					install
 mime-support					install
 mingw32						install
 mingw32-binutils				install
 mingw32-runtime					install
 mlocate						install
-mlock						install
 module-init-tools				install
-mongodb-org					install
-mongodb-org-mongos				install
-mongodb-org-server				install
-mongodb-org-shell				install
-mongodb-org-tools				install
+mongodb-10gen					install
 mount						install
 mountall					install
+mtools						install
 mtr-tiny					install
 multiarch-support				install
-mysql-client-5.6				install
-mysql-client-core-5.6				install
+mysql-client					install
+mysql-client-5.5				install
+mysql-client-core-5.5				install
 mysql-common					install
-mysql-common-5.6				install
-mysql-server-5.6				install
-mysql-server-core-5.6				install
+mysql-server					install
+mysql-server-5.5				install
+mysql-server-core-5.5				install
 nano						install
 ncurses-base					install
 ncurses-bin					install
-ncurses-term					install
 net-tools					install
 netbase						install
 netcat-openbsd					install
+netpbm						install
 notification-daemon				install
 ntfs-3g						install
 ntp						install
 ntpdate						install
 odbcinst					install
-odbcinst1debian2:amd64				install
-open-vm-tools					install
-openjdk-6-jdk:amd64				install
-openjdk-6-jre:amd64				install
-openjdk-6-jre-headless:amd64			install
+odbcinst1debian2				install
+openjdk-6-jdk					install
+openjdk-6-jre					install
+openjdk-6-jre-headless				install
 openjdk-6-jre-lib				install
-openjdk-7-jdk:amd64				install
-openjdk-7-jre:amd64				install
-openjdk-7-jre-headless:amd64			install
-openjdk-8-jdk:amd64				install
-openjdk-8-jdk-headless:amd64			install
-openjdk-8-jre:amd64				install
-openjdk-8-jre-headless:amd64			install
+openjdk-7-jdk					install
+openjdk-7-jre					install
+openjdk-7-jre-headless				install
 openssh-client					install
 openssh-server					install
-openssh-sftp-server				install
 openssl						install
 oracle-java7-installer				install
-oracle-java7-unlimited-jce-policy		install
-oracle-java8-installer				install
-oracle-java8-set-default			deinstall
-oracle-java8-unlimited-jce-policy		install
-oracle-java9-installer				install
-oracle-java9-set-default			install
-oracle-java9-unlimited-jce-policy		install
 os-prober					install
-overlayroot					install
 parted						install
 passwd						install
 patch						install
@@ -1468,24 +971,34 @@ perl						install
 perl-base					install
 perl-modules					install
 pgdg-keyring					install
-pinentry-gtk2					install
 pkg-config					install
 plymouth					install
 plymouth-theme-ubuntu-text			install
+po-debconf					install
 policykit-1					install
 policykit-1-gnome				install
 pollinate					install
+postgresql-9.1					install
+postgresql-9.1-postgis-2.2			install
+postgresql-9.1-postgis-2.2-scripts		install
 postgresql-9.2					install
-postgresql-9.2-postgis-2.3-scripts		install
+postgresql-9.2-postgis-2.2			install
+postgresql-9.2-postgis-2.2-scripts		install
+postgresql-9.2-postgis-2.3			install
 postgresql-9.3					install
-postgresql-9.3-postgis-2.3-scripts		install
+postgresql-9.3-postgis-2.2			install
+postgresql-9.3-postgis-2.2-scripts		install
+postgresql-9.3-postgis-2.3			install
 postgresql-9.4					install
-postgresql-9.4-postgis-2.3-scripts		install
+postgresql-9.4-postgis-2.2			install
+postgresql-9.4-postgis-2.2-scripts		install
+postgresql-9.4-postgis-2.3			install
 postgresql-9.5					install
-postgresql-9.5-postgis-2.3-scripts		install
-postgresql-9.6					install
-postgresql-9.6-postgis-2.3-scripts		install
+postgresql-9.5-postgis-2.2			install
+postgresql-9.5-postgis-2.2-scripts		install
+postgresql-9.5-postgis-2.3			install
 postgresql-client				install
+postgresql-client-9.1				install
 postgresql-client-9.2				install
 postgresql-client-9.3				install
 postgresql-client-9.4				install
@@ -1493,15 +1006,18 @@ postgresql-client-9.5				install
 postgresql-client-9.6				install
 postgresql-client-common			install
 postgresql-common				install
+postgresql-contrib-9.1				install
 postgresql-contrib-9.2				install
 postgresql-contrib-9.3				install
 postgresql-contrib-9.4				install
 postgresql-contrib-9.5				install
-postgresql-contrib-9.6				install
 powermgmt-base					install
 procps						install
+proj-bin					install
+proj-data					install
 psmisc						install
 python						install
+python-apport					install
 python-apt					install
 python-apt-common				install
 python-boto					install
@@ -1509,26 +1025,36 @@ python-bzrlib					install
 python-chardet					install
 python-cheetah					install
 python-configobj				install
+python-crypto					install
+python-dbus					install
+python-dbus-dev					install
 python-debian					install
 python-dev					install
 python-gdbm					install
-python-json-pointer				install
-python-jsonpatch				install
+python-gi					install
+python-gnupginterface				install
+python-httplib2					install
+python-keyring					install
+python-launchpadlib				install
+python-lazr.restfulclient			install
+python-lazr.uri					install
+python-m2crypto					install
 python-minimal					install
+python-newt					install
 python-oauth					install
 python-openssl					install
 python-pam					install
+python-paramiko					install
 python-pkg-resources				install
-python-prettytable				install
+python-problem-report				install
 python-pycurl					install
-python-requests					install
 python-serial					install
-python-six					install
+python-simplejson				install
+python-software-properties			install
 python-twisted-bin				install
 python-twisted-core				install
-python-twisted-names				install
 python-twisted-web				install
-python-urllib3					install
+python-wadllib					install
 python-xapian					install
 python-yaml					install
 python-zope.interface				install
@@ -1536,31 +1062,16 @@ python2.7					install
 python2.7-dev					install
 python2.7-minimal				install
 python3						install
-python3-apport					install
-python3-apt					install
-python3-commandnotfound				install
-python3-dbus					install
 python3-dev					install
-python3-distupgrade				install
-python3-gdbm:amd64				install
-python3-gi					install
 python3-minimal					install
-python3-newt					install
-python3-problem-report				install
-python3-pycurl					install
-python3-software-properties			install
-python3-update-manager				install
-python3.4					install
-python3.4-dev					install
-python3.4-minimal				install
+python3.2					install
+python3.2-dev					install
+python3.2-minimal				install
 qdbus						install
 qt4-linguist-tools				install
 qt4-qmake					install
-qtchooser					install
-qtcore4-l10n					install
 rabbitmq-server					install
 ragel						install
-re2c						install
 readline-common					install
 redis-server					install
 resolvconf					install
@@ -1568,20 +1079,15 @@ riak						install
 rsync						install
 rsyslog						install
 ruby						install
-ruby1.9.1					install
-ruby2.0						install
-rubygems-integration				install
-run-one						install
+ruby-mysql					install
+ruby1.8						install
 scons						install
 screen						install
 sed						install
 sensible-utils					install
 sgml-base					install
 shared-mime-info				install
-socat						install
-software-properties-common			install
 sound-theme-freedesktop				install
-sphinxsearch					install
 sqlite3						install
 sqlite3-doc					install
 ssh-import-id					install
@@ -1591,40 +1097,35 @@ strace						install
 subversion					install
 sudo						install
 sysstat						install
-systemd-services				install
-systemd-shim					install
 sysv-rc						install
 sysvinit-utils					install
 tar						install
 tasksel						install
 tasksel-data					install
 tcl						install
-tcl-dev:amd64					install
-tcl8.6						install
-tcl8.6-dev:amd64				install
+tcl-dev						install
+tcl8.5						install
+tcl8.5-dev					install
 tcpd						install
 tcpdump						install
 telnet						install
-thin-provisioning-tools				install
 time						install
 tk						install
-tk-dev:amd64					install
-tk8.6						install
-tk8.6-dev:amd64					install
+tk-dev						install
+tk8.5						install
+tk8.5-dev					install
 tmux						install
+ttf-dejavu-core					install
 ttf-dejavu-extra				install
 tzdata						install
 tzdata-java					install
 ubuntu-keyring					install
 ubuntu-minimal					install
-ubuntu-release-upgrader-core			install
 ucf						install
 udev						install
-udisks2						install
+udisks						install
 ufw						install
 unattended-upgrades				install
-unixodbc					install
-unixodbc-dev					install
 unzip						install
 update-manager-core				install
 update-notifier-common				install
@@ -1639,63 +1140,45 @@ vim-runtime					install
 vim-tiny					install
 w3m						install
 wamerican					install
-watershed					install
 wget						install
 whiptail					install
-wireless-regdb					install
+whoopsie					install
+wireless-tools					install
+wpasupplicant					install
 x11-common					install
 x11-utils					install
 x11-xkb-utils					install
 x11-xserver-utils				install
+x11proto-composite-dev				install
 x11proto-core-dev				install
+x11proto-damage-dev				install
+x11proto-fixes-dev				install
 x11proto-input-dev				install
 x11proto-kb-dev					install
+x11proto-randr-dev				install
 x11proto-render-dev				install
 x11proto-scrnsaver-dev				install
 x11proto-xext-dev				install
+x11proto-xinerama-dev				install
 xauth						install
 xbitmaps					install
 xdg-utils					install
+xfonts-base					install
 xfonts-encodings				install
 xfonts-utils					install
-xfsprogs					install
 xkb-data					install
 xml-core					install
 xorg-sgml-doctools				install
 xserver-common					install
 xserver-xorg-core				install
-xserver-xorg-video-all				install
-xserver-xorg-video-ati				install
-xserver-xorg-video-cirrus			install
-xserver-xorg-video-fbdev			install
-xserver-xorg-video-glamoregl			install
-xserver-xorg-video-intel			install
-xserver-xorg-video-mach64			install
-xserver-xorg-video-mga				install
-xserver-xorg-video-modesetting			install
-xserver-xorg-video-neomagic			install
-xserver-xorg-video-nouveau			install
-xserver-xorg-video-openchrome			install
-xserver-xorg-video-qxl				install
-xserver-xorg-video-r128				install
-xserver-xorg-video-radeon			install
-xserver-xorg-video-s3				install
-xserver-xorg-video-savage			install
-xserver-xorg-video-siliconmotion		install
-xserver-xorg-video-sis				install
-xserver-xorg-video-sisusb			install
-xserver-xorg-video-tdfx				install
-xserver-xorg-video-trident			install
-xserver-xorg-video-vesa				install
-xserver-xorg-video-vmware			install
 xterm						install
 xtrans-dev					install
 xvfb						install
+xz-lzma						install
 xz-utils					install
-zerofree					install
 zip						install
-zlib1g:amd64					install
-zlib1g-dev:amd64				install
+zlib1g						install
+zlib1g-dev					install
 
 
 The command "dpkg --get-selections" exited with 0.
