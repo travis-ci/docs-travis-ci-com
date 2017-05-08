@@ -7,7 +7,7 @@ permalink: /user/best-practices-security/
 ## Steps Travis CI takes to secure your data
 Travis CI Travis CI obfuscates secure environment variables and tokens displayed in the UI. Our [documentation about encryption keys](https://docs.travis-ci.com/user/encryption-keys/) outlines the build configuration we require to ensure this, however, once a VM is booted and tests are running, we have less control over what information utilities or add-ons are able to print to the VM’s standard output.
 
-In order to prevent leaks made by these components, we automatically filter secure environment variables and tokens that are longer than three characters at runtime, effectively removing them from the build log, displaying the string [secure] instead.
+In order to prevent leaks made by these components, we automatically filter secure environment variables and tokens that are longer than three characters at runtime, effectively removing them from the build log, displaying the string `[secure]` instead.
 
 
 ## Recommendations on how to avoid leaking secrets to build logs
@@ -22,14 +22,15 @@ Despite our best efforts, there are however many ways in which secure informatio
 * settings which increase command verbosity
 * testing tools or plugins that may expose secrets while operating
 
+Preventing commands from displaying any output is one way to avoid accidentally displaying any secure information. If there is a particular command that is using secure information you can redirect its output to `/dev/null` to make sure it does not accidentally publish anything, as shown in the following example:
 
-Preventing commands from displaying any output is one way to avoid accidentally displaying any secure information. If there is a particular command that is using secure information you can redirect its output to `/dev/null` to make sure it does not accidentally publish anything.
-
-`git push url-with-secret >/dev/null 2>&1`
+```sh
+git push url-with-secret >/dev/null 2>&1
+```
 
 ## If you think that you might have exposed secure information
 
-As an initial step, it’s possible to delete logs containing any secure information by clicking the “Remove log” button on the build log page of Travis CI.
+As an initial step, it’s possible to delete logs containing any secure information by clicking the *Remove log* button on the build log page of Travis CI.
 
 ![remove log button](/images/remove-log.png "remove log button")
 
@@ -45,4 +46,4 @@ Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in yo
 ## More information
 The suggestions in this document reflect general recommendations that the Travis CI team and community encourage everyone to follow. However, suggestions here are not exhaustive, and you should use your best judgement to determine security processes for your project. If you have any questions about security at Travis CI or suspect you may have found a vulnerability, please contact us at <security@travis-ci.com>.
 
-All other questions about Travis CI  should be directed to <support@travis-ci.com>.
+All other questions about Travis CI should be directed to <support@travis-ci.com>.
