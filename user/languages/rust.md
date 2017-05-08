@@ -76,3 +76,13 @@ If you wish to override this, you can use the `script` setting:
 language: rust
 script: make all
 ```
+
+For example, if your project is a [workspace](http://doc.crates.io/manifest.html#the-workspace-section),
+you should pass `-all` to the build commands to build and test all of the member crates:
+
+```yaml
+language: rust
+script:
+  - cargo build --verbose --all
+  - cargo test --verbose --all
+```  
