@@ -17,7 +17,7 @@ Despite our best efforts, there are however many ways in which secure informatio
 * displaying environment variables, by running `env` or `printenv`
 * printing secrets within the code, for example `echo $SECRET_KEY`
 * using tools that prints out secrets on error, such as `php -i`
-* git commands like git fetch or git push may expose GitHub tokens if the command fails
+* git commands like git fetch or git push may expose tokens or other secure environment variables
 * mistakes in string escaping 
 * settings which increase command verbosity
 * testing tools or plugins that may expose secrets while operating
