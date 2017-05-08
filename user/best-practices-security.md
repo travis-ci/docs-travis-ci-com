@@ -5,7 +5,7 @@ permalink: /user/best-practices-security/
 ---
 
 ## Steps Travis CI takes to secure your data
-Travis CI Travis CI obfuscates secure environment variables and tokens displayed in the UI. Our [documentation about encryption keys](https://docs.travis-ci.com/user/encryption-keys/) outlines the build configuration we require to ensure this, however, once a VM is booted and tests are running, we have less control over what information utilities or add-ons are able to print to the VM’s standard output. 
+Travis CI Travis CI obfuscates secure environment variables and tokens displayed in the UI. Our [documentation about encryption keys](https://docs.travis-ci.com/user/encryption-keys/) outlines the build configuration we require to ensure this, however, once a VM is booted and tests are running, we have less control over what information utilities or add-ons are able to print to the VM’s standard output.
 
 In order to prevent leaks made by these components, we automatically filter secure environment variables and tokens that are longer than three characters at runtime, effectively removing them from the build log, displaying the string [secure] instead.
 
@@ -18,7 +18,7 @@ Despite our best efforts, there are however many ways in which secure informatio
 * printing secrets within the code, for example `echo $SECRET_KEY`
 * using tools that print secrets on error output, such as `php -i`
 * git commands like `git fetch` or `git push` may expose tokens or other secure environment variables
-* mistakes in string escaping 
+* mistakes in string escaping
 * settings which increase command verbosity
 * testing tools or plugins that may expose secrets while operating
 
@@ -35,23 +35,9 @@ As an initial step, it’s possible to delete logs containing any secure informa
 
 If you discover a leak in one of your build logs it’s essential that you revoke the leaked token or environment variable, and update any build scripts or commands that caused the leak.
 
-## Alternative methods to delete logs that may have exposed secure information
+### Alternative methods of deleting logs
 
-### Using the Travis CI API
-
-Using the log endpoint of the Travis CI API you can delete build logs too:
-
-[For public repositories](https://developer.travis-ci.org/resource/log#delete)
-
-[For private repositories](https://developer.travis-ci.com/resource/log#delete)
-
-You can use our API to find the the Job ID or displayed in the build log after expanding "Build system information". 
-
-For this you would need to have the job IDs belonging to your organization. Those you would get from the [`build` end point](https://developer.travis-ci.com/resource/build#standard-representation).
-
-### Using the Travis Command Line Tool
-
-For instructions on how to delete build logs using the CLI please check https://github.com/travis-ci/travis.rb#logs
+Instead of deleting build logs manually, you can do so using the [Travis CI CLI](https://github.com/travis-ci/travis.rb#logs) or the [public](https://developer.travis-ci.org/resource/log#delete) or [private](https://developer.travis-ci.com/resource/log#delete) API.
 
 ## Rotate tokens and secrets periodically
 Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in your [Developer Settings](https://github.com/settings/developers) on the GitHub site. Please regularly rotate credentials for other third-party services as well.
@@ -59,4 +45,4 @@ Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in yo
 ## More information
 The suggestions in this document reflect general recommendations that the Travis CI team and community encourage everyone to follow. However, suggestions here are not exhaustive, and you should use your best judgement to determine security processes for your project. If you have any questions about security at Travis CI or suspect you may have found a vulnerability, please contact us at <security@travis-ci.com>.
 
-All other questions about Travis CI  should be directed to <support@travis-ci.com>. 
+All other questions about Travis CI  should be directed to <support@travis-ci.com>.
