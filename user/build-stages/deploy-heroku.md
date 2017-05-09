@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to Heroku"
-permalink: /user/build-stages/deploy-heroku
+permalink: /user/build-stages/deploy-heroku/
 layout: en
 ---
 
