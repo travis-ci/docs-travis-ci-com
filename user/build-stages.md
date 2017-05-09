@@ -6,16 +6,18 @@ layout: en
 
 <div id="toc"></div>
 
-Build stages let you group jobs together in a stage so that they can be run in
-parallel and the stages execute sequentially, one after another. The execution
-will stop when any stage fails.
+> Build stages are still in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
+{: .beta}
 
-This way jobs can be coordinated in such a way that, for example, one
-deployment job can be run **after several** test jobs have all completed
-successfully.
+With this new feature you can group jobs together in 'stages'. Jobs in a stage
+run in parallel, and the stages themselves run sequentially, one after another.
+The build fails when any stage fails. For example, one deployment job can be run
+**after several** test jobs have all completed successfully.
 
-Jobs can be assigned to stages by adding a stage name to the job configuration
-in the `jobs.include` section of the `.travis.yml` file, like so:
+TODO: Does a stage fail if a single job in it fails?
+
+Assign jobs to stages by adding a stage name to the job configuration
+in the `jobs.include` section of your `.travis.yml` file:
 
 ```yaml
 jobs:
@@ -28,29 +30,28 @@ jobs:
       script: ./deploy
 ```
 
-This will create a build with three jobs, two of which will start in parallel
-in the first stage (named `test`), while the third job on the second stage
-(named `deploy`) starts only after the test stage completed successfully.
+The previous yaml creates a build with three jobs, two of which start in
+parallel in the first stage (named `test`), while the third job on the second
+stage (named `deploy`) starts only after the test stage completes successfully.
 
-This screencast demonstrates how such a build would execute:
+This screencast demonstrates how the two stages work:
 
 ![](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
 
-## Stage names
+## Naming your stages
 
-Stage names are arbitrary strings, and you can include spaces or emojis. The
-first letter of a stage name will be capitalized for aestethical reasons, so
+Stage names are arbitrary strings, and can include spaces or emojis. The first
+letter of a stage name is automatically capitalized for aesthetical reasons, so
 you don't have to deal with uppercase strings in your `.travis.yml` file.
 
-The default stage name if no stage name is specified is `test`.
+The default stage is `test`. Jobs that do not have a stage name are assigned to
+the previous stage name if one exists, or the default stage name if there is no
+previous stage name. `test`. This means that if you set the stage name on the
+first job of each stage, the build will work as expected.
 
-Jobs that do not have a stage name will be assigned the previous stage name if
-existing, or fall back to the default stage name, `test`. This allows you to
-set the stage name only on the first job of each stage.
-
-For example this config is equivalent to the one above, but also adds a second
-deploy job that deploys to a different target. As you can see you only need to
-specify the stage name once:
+For example the following config is equivalent to the one above, but also adds a
+second deploy job to the `deploy` stage that deploys to a different target. As
+you can see you only need to specify the stage name once:
 
 ```yaml
 jobs:
@@ -62,7 +63,7 @@ jobs:
     - script: ./deploy target-2
 ```
 
-## How does this work with matrix expansion?
+## Build stages and build matrix expansion
 
 [Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
@@ -86,6 +87,8 @@ first, and assign these to the default stage test. The third job on the deploy
 stage starts only after the test stage has completed successfully. Be sure to
 set the env var `FOO` if your script takes it into account.
 
+TODO: might make more sense to skip the first example and just use the rvm one? I think it is clearer
+
 For example if you use `rvm` (or any other language runtime key) to specify
 runtime versions, you **must** also specify the `rvm` version on the included
 deploy job:
@@ -104,11 +107,9 @@ jobs:
       script: ./deploy
 ```
 
-## How does this work with deployments?
+## Build stages and deployments
 
-You can combine build stages with our [deployment integration](https://docs.travis-ci.com/user/deployment/).
-
-For example:
+You can combine build stages with our [deployment integration](https://docs.travis-ci.com/user/deployment/):
 
 ```yaml
 jobs:
@@ -123,16 +124,11 @@ jobs:
 ```
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](http://localhost:4000/user/languages/ruby/#Default-Test-Script)
-defined. So in many usecases you might want to overwrite the `script` by
+have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Default-Test-Script)
+defined. So in many use cases you might want to overwrite the `script` by
 specifying the keyword `skip` or `ignore`.
 
-
-## Examples
-
-You can find several usage examples on various branches in our [Demo repository](https://github.com/travis-ci/build-stages-demo).
-
-### Deploying to Heroku
+## Example: Deploying to Heroku
 
 An example with 5 stages:
 
@@ -144,7 +140,7 @@ An example with 5 stages:
 
 You can find more [details here](/user/build-stages/deploy-heroku/).
 
-### Warming up a cache with expensive dependencies
+## ExampleL Warming up a cache with expensive dependencies
 
 This example warms up a cache with expensive dependencies in order to optimize test runs:
 
