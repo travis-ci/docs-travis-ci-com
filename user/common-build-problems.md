@@ -478,7 +478,7 @@ system services to run correctly, the container must be run with `/sbin/init` as
 PID 1:
 
 ``` bash
-docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+docker run --name travis-debug --priviledged -dit quay.io/travisci/travis-ruby /sbin/init
 ```
 
 * Open a login shell in the running container
