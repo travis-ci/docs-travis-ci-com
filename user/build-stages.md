@@ -132,6 +132,15 @@ This example has two build stages:
 
 You can find more [details here](/user/build-stages/deploy-rubygems/).
 
+### Deploying to npm
+
+This example has two build stages:
+
+* Four jobs that run tests against Node versions 4 to 7
+* One job that deploys (releases) the package to npm
+
+You can find more [details here](/user/build-stages/deploy-npm/).
+
 ### Combining build stages with matrix expansion
 
 This example has two build stages:
