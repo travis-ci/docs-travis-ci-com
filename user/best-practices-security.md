@@ -15,7 +15,7 @@ Despite our best efforts, there are however many ways in which secure informatio
 
 * settings which duplicate commands to standard output, such as `set -x` or `set -v` in your bash scripts
 * displaying environment variables, by running `env` or `printenv`
-* printing secrets within the code, for example `echo $SECRET_KEY`
+* printing secrets within the code, for example `echo "$SECRET_KEY"`
 * using tools that print secrets on error output, such as `php -i`
 * git commands like `git fetch` or `git push` may expose tokens or other secure environment variables
 * mistakes in string escaping
