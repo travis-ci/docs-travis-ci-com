@@ -157,10 +157,3 @@ This uses 2 build stages, sharing files from build stage 1 in stage 2:
 * One job that uses both files from stage 1.
 
 You can find more [details here](/user/build-stages/share-files-s3/).
-
-
-
-
->>>>>>> b01dc3178bc7462f2d3add188b18f8505b67ddcf
-
-You can find more [details here](/user/build-stages/warm-cache/).
