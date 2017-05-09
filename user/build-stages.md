@@ -36,7 +36,7 @@ stage (named `deploy`) starts only after the test stage completes successfully.
 
 This screencast demonstrates how the two stages work:
 
-![](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
 
 ## Naming your stages
 
