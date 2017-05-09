@@ -30,6 +30,7 @@ notifications:
 install:
   - bundle install --deployment
   - pip install --upgrade pip
+  - pip install setuptools
   - pip install coala-bears
   - npm install remark-cli@2
   - npm install -g alex
