@@ -128,7 +128,9 @@ have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Def
 defined. So in many use cases you might want to overwrite the `script` by
 specifying the keyword `skip` or `ignore`.
 
-## Example: Deploying to Heroku
+## Examples
+
+### Deploying to Heroku
 
 An example with 5 stages:
 
@@ -140,11 +142,45 @@ An example with 5 stages:
 
 You can find more [details here](/user/build-stages/deploy-heroku/).
 
-## ExampleL Warming up a cache with expensive dependencies
+### Deploying to Rubygems
 
-This example warms up a cache with expensive dependencies in order to optimize test runs:
+This example has 2 build stages:
+
+* Two jobs that run tests against Ruby 2.2 and 2.3 respectively
+* One job that deploys (releases) the gem to rubygems.org
+
+You can find more [details here](/user/build-stages/deploy-rubygems/).
+
+### Combining build stages with matrix expansion
+
+This example has 2 build stages:
+
+* Four test jobs that have been expanded from `rvm` and `env` matrix keys.
+* One deploy job.
+
+You can find more [details here](/user/build-stages/matrix-expansion/).
+
+### Warming up a cache with expensive dependencies
+
+This uses 2 build stages in order to warm up a cache with expensive dependencies, and optimize test run times:
 
 * One job that installs dependencies and warms up the cache for the given branch.
 * Three jobs that run tests, using the cache.
+
+You can find more [details here](/user/build-stages/warm-cache/).
+
+### Sharing files between jobs via S3
+
+This uses 2 build stages, sharing files from build stage 1 in stage 2:
+
+* Two jobs that set up files on S3.
+* One job that uses both files from stage 1.
+
+You can find more [details here](/user/build-stages/share-files-s3/).
+
+
+
+
+>>>>>>> b01dc3178bc7462f2d3add188b18f8505b67ddcf
 
 You can find more [details here](/user/build-stages/warm-cache/).
