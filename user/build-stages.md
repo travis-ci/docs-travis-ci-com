@@ -11,10 +11,9 @@ layout: en
 
 With this new feature you can group jobs together in 'stages'. Jobs in a stage
 run in parallel, and the stages themselves run sequentially, one after another.
-The build fails when any stage fails. For example, one deployment job can be run
-**after several** test jobs have all completed successfully.
-
-TODO: Does a stage fail if a single job in it fails?
+The build fails when any stage fails, i.e. if any job in this stage fails. For
+example, one deployment job can be run **only after several** test jobs have
+all completed successfully.
 
 Assign jobs to stages by adding a stage name to the job configuration
 in the `jobs.include` section of your `.travis.yml` file:
@@ -71,30 +70,6 @@ means that certain top level configuration keys expand into a matrix of jobs.
 For example:
 
 ```yaml
-env:
-  - FOO=foo
-  - FOO=bar
-jobs:
-  include:
-    - stage: deploy
-      env:
-        - FOO=foo
-      script: ./deploy
-```
-
-This will run two jobs with the env vars `FOO=foo` and `FOO=bar` respectively
-first, and assign these to the default stage test. The third job on the deploy
-stage starts only after the test stage has completed successfully. Be sure to
-set the env var `FOO` if your script takes it into account.
-
-TODO: might make more sense to skip the first example and just use the rvm one? I think it is clearer
-
-For example if you use `rvm` (or any other language runtime key) to specify
-runtime versions, you **must** also specify the `rvm` version on the included
-deploy job:
-
-
-```yaml
 rvm:
   - 2.3
   - 2.4
@@ -106,6 +81,11 @@ jobs:
         - FOO=foo
       script: ./deploy
 ```
+
+This will run two jobs with on Ruby 2.3 and 2.4 respectively first, and assign
+these to the default stage test. The third job on the deploy stage starts only
+after the test stage has completed successfully. Be sure to set the set the
+`rvm` key on your included deploy job, too.
 
 ## Build stages and deployments
 
