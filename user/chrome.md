@@ -20,4 +20,4 @@ addons:
 
 ## Headless mode
 
-You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Using-Chrome-addon-in-the-headless-mode).
+You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Using-the-Chrome-addon-in-the-headless-mode).
