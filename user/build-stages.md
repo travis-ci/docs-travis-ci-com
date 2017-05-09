@@ -130,5 +130,65 @@ specifying the keyword `skip` or `ignore`.
 
 ## Examples
 
-You can find several usage examples in our [Demo repository](https://github.com/travis-ci/build-stages-demo).
+You can find several usage examples on various branches in our [Demo repository](https://github.com/travis-ci/build-stages-demo).
+
+### Overview
+
+* [Deploying to Heroku](#Deploying-to-Heroku)
+* [Deploying to Rubygems](#Deploying-to-Rubygems)
+* [Combining build stages with matrix expansion](#Combining-build-stages-with-matrix-expansion)
+* [Warming up a cache with expensive dependencies](#Warming-up-a-cache-with-expensive-dependencies)
+* [Sharing files between jobs via S3](#Sharing-files-between-jobs-via-S3)
+
+### Deploying to Heroku
+
+An example with 5 stages:
+
+* Two jobs running unit tests in parallel on stage 1.
+* One job deploying the application to Heroku staging.
+* One job testing the staging deployment on Heroku.
+* One job deploying the application to Heroku production.
+* One job testing the production deployment on Heroku.
+
+You can find more [details here](/user/build-stages/deploy-heroku/).
+
+### Deploying to Rubygems
+
+This example has 2 build stages:
+
+* Two jobs that run tests against Ruby 2.2 and 2.3 respectively
+* One job that deploys (releases) the gem to rubygems.org
+
+You can find more [details here](/user/build-stages/deploy-rubygems/).
+
+### Combining build stages with matrix expansion
+
+This example has 2 build stages:
+
+* Four test jobs that have been expanded from `rvm` and `env` matrix keys.
+* One deploy job.
+
+You can find more [details here](/user/build-stages/matrix-expansion/).
+
+### Warming up a cache with expensive dependencies
+
+This uses 2 build stages in order to warm up a cache with expensive dependencies, and optimize test run times:
+
+* One job that installs dependencies and warms up the cache for the given branch.
+* Three jobs that run tests, using the cache.
+
+You can find more [details here](/user/build-stages/warm-cache/).
+
+### Sharing files between jobs via S3
+
+This uses 2 build stages, sharing files from build stage 1 in stage 2:
+
+* Two jobs that set up files on S3.
+* One job that uses both files from stage 1.
+
+You can find more [details here](/user/build-stages/share-files-s3/).
+
+
+
+
 
