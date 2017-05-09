@@ -462,37 +462,40 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-* Download and install Docker:
+1. Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-* For Ubuntu 12.04 (precise), select an image from
+2. Select a docker image:
+
+    * **Ubuntu 12.04 (precise)**, select an image from
    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-`{lang}` is the language you need.  If you're not using a language-specific
-image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
-[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
-`ci-garnet` (which differ slightly depending on language desired).  In order for
-system services to run correctly, the container must be run with `/sbin/init` as
-PID 1:
+   `{lang}` is the language you need. If you're not using a language-specific
+   image, pick `travis-ruby`.  
 
-``` bash
-docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-```
+   * **Ubuntu 14.04 (trusty)**, select an image from [Docker Hub](https://hub.docker.com/r/travisci/)
+   named either `ci-amethyst` or `ci-garnet`.
 
-* Open a login shell in the running container
+3. So system services work correctly, run the container run with `/sbin/init` as PID 1:
 
-``` bash
-docker exec -it travis-debug bash -l
-```
+     ``` bash
+     docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+     ```
 
-* Switch to the `travis` user:
+4. Open a login shell in the running container
 
-``` bash
-su - travis
-```
+    ``` bash
+    docker exec -it travis-debug bash -l
+    ```
 
-* Clone your git repository into the `~` folder of the image.
-* Manually install any dependencies.
-* Manually run your Travis CI build command.
+5. Switch to the `travis` user:
+
+    ``` bash
+    su - travis
+    ```
+
+6. Clone your git repository into the `~` folder of the image.
+7. Manually install any dependencies.
+8. Manually run your Travis CI build command.
