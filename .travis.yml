@@ -29,12 +29,7 @@ notifications:
     on_success: never
 install:
   - bundle install --deployment
-  - pip install --upgrade pip
-  - pip install coala-bears
-  - npm install remark-cli@2
-  - npm install -g alex
 before_script:
   - rvm use 2.3.1 --install
 script:
   - bundle exec rake test
-  - coala --non-interactive Language
