@@ -1,4 +1,3 @@
-
 ---
 title: "Build Stages: Deploying to Rubygems"
 permalink: /user/build-stages/deploy-rubygems
@@ -39,4 +38,3 @@ You can find the code for this example on our [demo repository](https://github.c
 * [Branch master](https://github.com/travis-ci/build-stages-demo/tree/deploy-gem-release)
 * [.travis.yml file](https://github.com/travis-ci/build-stages-demo/blob/deploy-gem-release/.travis.yml)
 * [Build on Travis CI](https://travis-ci.org/travis-ci/build-stages-demo/builds/230329221)
-

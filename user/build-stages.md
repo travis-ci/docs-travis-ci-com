@@ -11,9 +11,10 @@ layout: en
 
 With this new feature you can group jobs together in 'stages'. Jobs in a stage
 run in parallel, and the stages themselves run sequentially, one after another.
-The build fails when any stage fails, i.e. if any job in this stage fails. For
-example, one deployment job can be run **only after several** test jobs have
-all completed successfully.
+The build fails when any stage fails, i.e. if any job in this stage fails.
+
+For example, you can configure a deployment stage to run only after several test
+jobs have all completed successfully.
 
 Assign jobs to stages by adding a stage name to the job configuration
 in the `jobs.include` section of your `.travis.yml` file:
@@ -89,7 +90,7 @@ after the test stage has completed successfully. Be sure to set the set the
 
 ## Build stages and deployments
 
-You can combine build stages with our [deployment integration](https://docs.travis-ci.com/user/deployment/):
+You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
 
 ```yaml
 jobs:
@@ -124,16 +125,16 @@ You can find more [details here](/user/build-stages/deploy-heroku/).
 
 ### Deploying to Rubygems
 
-This example has 2 build stages:
+This example has two build stages:
 
 * Two jobs that run tests against Ruby 2.2 and 2.3 respectively
-* One job that deploys (releases) the gem to rubygems.org
+* One job that publishes the gem to rubygems.org
 
 You can find more [details here](/user/build-stages/deploy-rubygems/).
 
 ### Combining build stages with matrix expansion
 
-This example has 2 build stages:
+This example has two build stages:
 
 * Four test jobs that have been expanded from `rvm` and `env` matrix keys.
 * One deploy job.
@@ -142,7 +143,7 @@ You can find more [details here](/user/build-stages/matrix-expansion/).
 
 ### Warming up a cache with expensive dependencies
 
-This uses 2 build stages in order to warm up a cache with expensive dependencies, and optimize test run times:
+This uses two build stages in order to warm up a cache with expensive dependencies, and optimize test run times:
 
 * One job that installs dependencies and warms up the cache for the given branch.
 * Three jobs that run tests, using the cache.
@@ -151,7 +152,7 @@ You can find more [details here](/user/build-stages/warm-cache/).
 
 ### Sharing files between jobs via S3
 
-This uses 2 build stages, sharing files from build stage 1 in stage 2:
+This uses two build stages, sharing files from build stage 1 in stage 2:
 
 * Two jobs that set up files on S3.
 * One job that uses both files from stage 1.
