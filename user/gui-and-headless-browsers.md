@@ -104,7 +104,7 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 </div>
 
 
-### Using Chrome addon in the headless mode
+### Using the [Chrome addon](/user/chrome) in the headless mode
 
 Starting with version 57 for Linux Trusty and version 59 on the Mac, Google Chrome can be used in the "headless"
 mode, which is suitable for driving browser-based tests using Selenium and other tools.
