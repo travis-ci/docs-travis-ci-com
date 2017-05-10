@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Warm up cache"
-permalink: /user/build-stages/warm-cache
+permalink: /user/build-stages/warm-cache/
 layout: en
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Matrix expansion"
-permalink: /user/build-stages/matrix-expansion
+permalink: /user/build-stages/matrix-expansion/
 layout: en
 ---
 
@@ -40,4 +40,3 @@ You can find the code for this example on our [demo repository](https://github.c
 * [Branch master](https://github.com/travis-ci/build-stages-demo/tree/matrix-expansion)
 * [.travis.yml file](https://github.com/travis-ci/build-stages-demo/blob/matrix-expansion/.travis.yml)
 * [Build on Travis CI](https://travis-ci.org/travis-ci/build-stages-demo/builds/230344299)
-
