@@ -473,9 +473,12 @@ which Docker image you are using on Travis CI.
     [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
     `{lang}` is the language you need.  If you're not using a language-specific
     image, pick `travis-ruby`.
-  * For Ubuntu 14.04 (trusty), select an image from
-    [Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
-    `ci-garnet` (which differ slightly depending on language desired).
+  * For Ubuntu 14.04 (trusty), select an image for the language
+    ("default" if no other name matches) using the table below:
+
+    |language|Docker Hub image|
+    |:-------|:---------------|<% JSON.parse(File.read(File.join(File.dirname(__FILE__),'..','generated-language-mapping.json'))).sort.each do |k, v| %>
+    | <%= k %> | <%= v %> |<% end %>
 
 1. Start a Docker container detached with `/sbin/init`:
   * Example 1: Ruby image on Precise
@@ -483,7 +486,6 @@ which Docker image you are using on Travis CI.
     docker run --name travis-debug --rm -dit quay.io/travisci/travis-ruby /sbin/init
     ```
   * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
-    (consult Docker Hub's ["tags"](https://hub.docker.com/r/travisci/ci-garnet/tags/) page for possible tag names.)
     ``` bash
     docker run --name travis-debug --rm -dit travisci/ci-garnet:packer-1490989530 /sbin/init
     ```
