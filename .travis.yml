@@ -7,7 +7,6 @@ python:
 branches:
   only:
   - gh-pages
-  - ha-trusty-local-debugging
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
