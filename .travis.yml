@@ -21,6 +21,7 @@ deploy:
   api_key:
     secure: fkfayYzRdc0uh9iZeQKzC5/J3cKhVnyrkLRYSJmhixWtBHt87g7yzR1kGgsOce7OjqZ42bRn5W/gxyaDIUa+UMrt7RgURPASLy3rpm5wkk3iK2csvJaCixKcodI8UTXn7kRjYkrpQYcfvO1/25AnKBQKveobxSSAN3BQ3hERe5E=
   app: docs-travis-ci-com
+  skip_cleanup: true
   on:
     branch: gh-pages
 notifications:
