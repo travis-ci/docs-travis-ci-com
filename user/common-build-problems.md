@@ -462,37 +462,56 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-* Download and install Docker:
+1. Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-* For Ubuntu 12.04 (precise), select an image from
-   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-`{lang}` is the language you need.  If you're not using a language-specific
-image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
-[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
-`ci-garnet` (which differ slightly depending on language desired).  In order for
-system services to run correctly, the container must be run with `/sbin/init` as
-PID 1:
+1. Choose a Docker image
+  * For Ubuntu 12.04 (precise), select an image from
+    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
+    `{lang}` is the language you need.  If you're not using a language-specific
+    image, pick `travis-ruby`.
+  * For Ubuntu 14.04 (trusty), select an image from
+    [Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
+    `ci-garnet` (which differ slightly depending on language desired).
 
-``` bash
-docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-```
+1. Start a Docker container detached with `/sbin/init`:
+  * Example 1: Ruby image on Precise
+    ``` bash
+    docker run --name travis-debug --rm -dit quay.io/travisci/travis-ruby /sbin/init
+    ```
+  * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
+    (consult Docker Hub's ["tags"](https://hub.docker.com/r/travisci/ci-garnet/tags/) page for possible tag names.)
+    ``` bash
+    docker run --name travis-debug --rm -dit travisci/ci-garnet:packer-1490989530 /sbin/init
+    ```
 
-* Open a login shell in the running container
+1. Open a login shell in the running container
 
-``` bash
-docker exec -it travis-debug bash -l
-```
+    ``` bash
+    docker exec -it travis-debug bash -l
+    ```
 
-* Switch to the `travis` user:
+1. Switch to the `travis` user:
 
-``` bash
-su - travis
-```
+    ``` bash
+    su - travis
+    ```
 
-* Clone your git repository into the `~` folder of the image.
-* Manually install any dependencies.
-* Manually run your Travis CI build command.
+1. Clone your git repository into the home directory.
+
+    ``` bash
+    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
+    ```
+
+1. (Optional) Check out the commit you want to test
+
+    ``` bash
+    git checkout 6b14763
+    ```
+
+1. Manually install dependencies, if any.
+
+1. Manually run your Travis CI build command.
