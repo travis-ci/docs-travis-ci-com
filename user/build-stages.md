@@ -178,3 +178,22 @@ This uses two build stages, sharing files from build stage 1 in stage 2:
 * One job that uses both files from stage 1.
 
 You can find more [details here](/user/build-stages/share-files-s3/).
+
+### Defining different steps on different stages
+
+This example has 2 build stages:
+
+* Two jobs that run different suites of tests against Ruby 2.3.1
+* One job that runs a custom deploy script that doesn't require running the default `install` or `script` steps
+
+You can find more [details here](/user/build-stages/define-steps/).
+
+### Defining steps using YAML aliases
+
+This example uses YAML aliases to define steps. It has 3 build stages:
+
+* Two jobs that run tests against Ruby 2.2 and 2.3
+* One job that deploys to staging
+* Three jobs that runs test against staging
+
+You can find more [details here](/user/build-stages/define-steps/).
