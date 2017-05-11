@@ -9,45 +9,79 @@ layout: en
 > Build stages are currently in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
 {: .beta}
 
-With this new feature you can group jobs together in 'stages'. Jobs in a stage
-run in parallel, and the stages themselves run sequentially, one after another.
-The build fails when any stage fails, i.e. if any job in this stage fails.
+# What are Build Stages?
 
-For example, you can configure a deployment stage to run only after several test
-jobs have all completed successfully.
+In the simplest and most common use case, you can now make one job run _only_
+if several other, parallel jobs have completed successfully.
 
-Assign jobs to stages by adding a stage name to the job configuration
-in the `jobs.include` section of your `.travis.yml` file:
+Let’s say you want to test a library like a Ruby gem or an npm package against
+various runtime (Ruby or Node.js) versions in [parallel](https://docs.travis-ci.com/user/customizing-the-build#Build-Matrix).
+And you want to release your gem or package **only** if all tests have passed and
+completed successfully. Build stages make this possible.
+
+Of course, there are a lot more, and a lot more complicated use cases than this
+one. You can, for example, also use build stages to warm up dependency caches
+in a single job on a first stage, then use the cache on several jobs on a
+second stage. Or, you could generate a Docker image and push it first, then
+test it on several jobs in parallel. Or, you could run unit tests, deploy to
+staging, run smoke tests and only then deploy to production.
+
+# How do Build Stages work?
+
+The concept of build stages is powerful and flexible, yet simple and
+approachable:
+
+Stages group jobs that run in parallel, while their stages run sequentially.
+
+A stage is a group of jobs that are allowed to run in parallel. However, each
+one of the stages runs one after another, and will only proceed if all jobs in
+the previous stage have passed successfully. If one job fails in one stage, all
+other jobs on the same stage will still complete, but all jobs in subsequent
+stages will be canceled, and the build fails.
+
+You can configure as many jobs per stage as you need, and you can have as many
+stages as your delivery process requires.
+
+In the following example, we are running two jobs on the first stage, called
+test, and then run a single third job on the second stage, called deploy:
+
+![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+
+# How to define Build Stages?
+
+Here’s how you’d set up the build configuration for this in your .travis.yml
+file:
 
 ```yaml
 jobs:
   include:
     - stage: test
       script: ./test 1
-    - stage: test
+    - # stage name not required, will continue to use `test`
       script: ./test 2
     - stage: deploy
       script: ./deploy
 ```
 
-The previous yaml creates a build with three jobs, two of which start in
-parallel in the first stage (named `test`), while the third job on the second
-stage (named `deploy`) starts only after the test stage completes successfully.
+This configuration creates the build from the screencast above. I.e. it creates
+a build with three jobs, two of which start in parallel in the first stage
+(named `test`), while the third job on the second stage (named `deploy`) starts
+only after the test stage completes successfully.
 
-This screencast demonstrates how the two stages work:
+## Naming your Build Stages
 
-![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+Stages are identified by their names.
 
-## Naming your stages
+You are free to pick any arbitrary names you like and include emojis.  The
+first letter of a stage name is automatically capitalized for aesthetical
+reasons, so you don't have to deal with uppercase strings in your `.travis.yml`
+file.
 
-Stage names are arbitrary strings, and can include spaces or emojis. The first
-letter of a stage name is automatically capitalized for aesthetical reasons, so
-you don't have to deal with uppercase strings in your `.travis.yml` file.
-
-The default stage is `test`. Jobs that do not have a stage name are assigned to
-the previous stage name if one exists, or the default stage name if there is no
-previous stage name. This means that if you set the stage name on the first job
-of each stage, the build will work as expected.
+Also, you do not have to specify the name on every single job (as shown in the
+example above).  The default stage is `test`. Jobs that do not have a stage
+name are assigned to the previous stage name if one exists, or the default
+stage name if there is no previous stage name. This means that if you set the
+stage name on the first job of each stage, the build will work as expected.
 
 For example the following config is equivalent to the one above, but also adds a
 second deploy job to the `deploy` stage that deploys to a different target. As
@@ -63,7 +97,7 @@ jobs:
     - script: ./deploy target-2
 ```
 
-## Build stages and build matrix expansion
+## Build Stages and Build Matrix Expansion
 
 [Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
@@ -88,7 +122,7 @@ to the default stage test. The third job on the deploy stage starts only after
 the test stage has completed successfully. Be sure to set the set the `rvm` key
 on your included deploy job, too.
 
-## Build stages and deployments
+## Build Stages and Deployments
 
 You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
 
@@ -139,7 +173,7 @@ You can find more [details here](/user/build-stages/deploy-rubygems/).
 This example has two build stages:
 
 * Four jobs that run tests against Node versions 4 to 7
-* One job that deploys (releases) the package to npm
+* One job that deploys (releases) the package to NPM
 
 You can find more [details here](/user/build-stages/deploy-npm/).
 
@@ -205,4 +239,4 @@ This example uses YAML aliases to define steps. It has 3 build stages:
 * One job that deploys to staging
 * Three jobs that runs test against staging
 
-You can find more [details here](/user/build-stages/define-steps/).
+You can find more [details here](/user/build-stages/using-yaml-aliases/).
