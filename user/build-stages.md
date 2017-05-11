@@ -205,4 +205,4 @@ This example uses YAML aliases to define steps. It has 3 build stages:
 * One job that deploys to staging
 * Three jobs that runs test against staging
 
-You can find more [details here](/user/build-stages/define-steps/).
+You can find more [details here](/user/build-stages/using-yaml-aliases/).
