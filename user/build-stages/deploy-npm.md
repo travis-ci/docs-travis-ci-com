@@ -29,7 +29,6 @@ jobs:
       deploy:
         provider: npm
         api_key: $NPM_API_KEY
-        gem: travis-build-stages-demo
         on: deploy-npm-release
 ```
 
