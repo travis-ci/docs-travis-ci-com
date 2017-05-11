@@ -46,8 +46,8 @@ you don't have to deal with uppercase strings in your `.travis.yml` file.
 
 The default stage is `test`. Jobs that do not have a stage name are assigned to
 the previous stage name if one exists, or the default stage name if there is no
-previous stage name. `test`. This means that if you set the stage name on the
-first job of each stage, the build will work as expected.
+previous stage name. This means that if you set the stage name on the first job
+of each stage, the build will work as expected.
 
 For example the following config is equivalent to the one above, but also adds a
 second deploy job to the `deploy` stage that deploys to a different target. As
@@ -83,10 +83,10 @@ jobs:
       script: ./deploy
 ```
 
-This will run two jobs with on Ruby 2.3 and 2.4 respectively first, and assign
-these to the default stage test. The third job on the deploy stage starts only
-after the test stage has completed successfully. Be sure to set the set the
-`rvm` key on your included deploy job, too.
+This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
+to the default stage test. The third job on the deploy stage starts only after
+the test stage has completed successfully. Be sure to set the set the `rvm` key
+on your included deploy job, too.
 
 ## Build stages and deployments
 
@@ -106,8 +106,10 @@ jobs:
 
 Travis CI does not set or overwrite any of your scripts, and most languages
 have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Default-Test-Script)
-defined. So in many use cases you might want to overwrite the `script` by
-specifying the keyword `skip` or `ignore`.
+defined. So in many use cases you might want to overwrite the `script` step by
+specifying the keyword `skip` or `ignore`, in other cases you might want to
+overwrite other steps, such as the `install` step that runs by default on
+several languages.
 
 ## Examples
 
