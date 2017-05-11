@@ -66,7 +66,7 @@ deploy:
 ```
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that
-your tags are uploaded to Github.
+your tags are uploaded to GitHub.
 
 You can explicitly specify the branch to release from with the **on** option:
 
