@@ -170,6 +170,15 @@ This uses two build stages in order to warm up a cache with expensive dependenci
 
 You can find more [details here](/user/build-stages/warm-cache/).
 
+### Sharing a Docker image
+
+This example has 2 build stages:
+
+* One job builds and pushes a Docker image
+* Two jobs that pull and test the image
+
+You can find more [details here](/user/build-stages/share-docker-image/).
+
 ### Sharing files between jobs via S3
 
 This uses two build stages, sharing files from build stage 1 in stage 2:

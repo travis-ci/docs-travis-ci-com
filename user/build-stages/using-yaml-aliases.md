@@ -12,7 +12,7 @@ This example has 3 build stages:
 
 Here's what the `.travis.yml` config could look like:
 
-```
+```yaml
 rvm:
   - 2.2
   - 2.3

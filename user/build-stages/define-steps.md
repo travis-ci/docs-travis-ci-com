@@ -11,7 +11,7 @@ This example has 2 build stages:
 
 Here's what the `.travis.yml` config could look like:
 
-```
+```yaml
 env:
 - TEST_SUITE=integration_tests
 - TEST_SUITE=unit_tests
