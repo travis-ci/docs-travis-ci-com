@@ -17,7 +17,7 @@ jobs:
     - script: "Running unit tests (1)"
     - script: "Running unit tests (2)"
     - stage: GitHub Release
-      script: echo "Deploying to npm ..."
+      script: echo "Deploying to GitHub releases ..."
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
