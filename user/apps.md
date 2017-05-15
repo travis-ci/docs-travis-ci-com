@@ -335,15 +335,6 @@ By Jiri Pospisil
 
 - [website](https://github.com/mekishizufu/bickle#readme)
 
-### Travis Inside
-
-![travis-inside](/images/apps/travis-inside.jpg){:.app}
-
-Check the build status from your terminal<br>
-By Benjamin Reed
-
-- [website](https://github.com/codeblooded/travis-inside#readme)
-
 ### Travis Surveillance
 
 ![travis-surveillance](/images/apps/travis-surveillance.jpg){:.app}
