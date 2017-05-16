@@ -224,9 +224,6 @@ $ travis settings maximum_number_of_builds --set 1
 
 ## Building only the latest commit
 
-> BETA Build auto-cancellation. Please give us feedback on this new feature on [GitHub](https://github.com/travis-ci/beta-features/issues/8)
-{: .beta}
-
 If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
