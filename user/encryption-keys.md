@@ -37,6 +37,11 @@ secure: ".... encrypted data ...."
 
 Now you can place it in the `.travis.yml` file.
 
+> Pro Tip: You can also have travis add it automatically by running the command as follows:
+```bash
+travis encrypt SOMEVAR="secretvalue" --add
+```
+
 Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
 
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
