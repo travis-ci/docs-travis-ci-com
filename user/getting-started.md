@@ -2,7 +2,7 @@
 title: Getting started
 layout: en
 permalink: /user/getting-started/
----
+---user/getting-started.md
 
 The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead.
 
