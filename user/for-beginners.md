@@ -1,57 +1,53 @@
 ---
-title: Travis CI for Complete Beginners
+title: Travis CI for Beginners
 layout: en
 permalink: /user/for-beginners/
 ---
 
-If you're not familiar with continuous integration and don't already have a repository that you want to build, this guide will show you what it is all about.
+Welcome to Travis CI! If you are new here or new to Continuous Integration (CI) in general, this doc will provide context and terminology used throughout the platform and documentation. 
 
-You need to sign up for a [GitHub account](https://github.com/) if you do not already have one.
+### What is Continuous Integration (CI)?
 
-### To get started with Travis CI:
+Continuous Integration is the concept and practice of merging in small code changes frequently - rather than waiting for a large integration process at the end of a development cycle. Companies and individuals may all do this process differently, but the goal is to build healthier software by developing and testing in smaller increments. This is where Travis CI can be helpful.
 
-1. On GitHub, fork the [example PHP repository](https://github.com/plaindocs/travis-broken-example).
+Travis CI, as a CI platform, supports your development process by automatically building and testing code changes, in order to provide immediate feedback on the success of the change. Travis CI also can automate some of your development process by managing deployments and notifications.  
 
-2. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+### CI builds and automation: building, testing, deploying
 
-3. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable
-   Travis CI builds for your fork of the `travis-broken-example` repository.
+Many things can happen when Travis CI runs. First, your project is brought into into our clean environment with `git clone`, then your code is compiled. Next, any tests you have are run, and their status is checked. If tests are successful, and you have set up a deployment provider, Travis CI will deploy your application. Depending on your settings, you may be notified via email, or over other platforms such as Slack. 
 
-   > Note: You can only enable Travis CI builds for repositories you have admin access to.
+One of the advantages of CI builds, is they can execute arbitrary code if you configure the build to run a custom script. This means you can setup your own notifications, upload files output during your build (artifacts), and many other processes. Travis CI can function as a basis for general automation for your development processes. 
 
-4. Take a look at `.travis.yml`, the file which tells Travis CI what to do:
+You can also customize your build into various stages, in which later stages are dependent on the result of prior stages. See our [Build Stages](../build-stages) document for details. 
 
-   ```yaml
-   language: php
-   php:
-   - 5.5
-   - 5.4
-   - hhvm
-   script: phpunit Test.php
-   ```
+### Jobs vs. builds
 
-   This file tells Travis CI that this project is written in PHP, and to test `Test.php` with phpunit against PHP versions 5.5, 5.4 and HHVM.
+The words "job" and "build" can be somewhat ambiguous in the context of CI. In the Travis CI docs and materials, they refer to the following: 
+ * *job* - a single automated process, where Travis CI starts an automated worker which clones your projects, compiles your code, runs tests, and executes any other steps, such as deployments. The status of the job depends on the success of the steps it executes. 
+ * *build* - a group of automated processes, where multiple jobs might happen in parallel. For example, a build might have two jobs, which test a project with two different versions of a language. The status of a build depends on the status of the jobs it contains. 
 
-5. Edit the empty `NewUser.txt` file by adding your name to the empty file. Add the file to git, commit and push, to trigger a Travis CI build:
+### travis-ci.org vs travis-ci.com
 
-   ```bash
-   $ git add -A
-   $ git commit -m 'Testing Travis CI'
-   $ git push
-   ```
+Travis CI originally was developed for open-source projects before being expanded to support closed-source projects at a later date. As a result, open-source projects are hosted on our [travis-ci.org](https://travis-ci.org/) platform while closed source projects are hosted on [travis-ci.com](https://travis-ci.com/). Travis CI for closed-source projects is also know as [Travis Pro](../travis-pro/).
 
-   > Note: Travis only runs a build on the commits you push after adding the repository to Travis.
 
-   Wait for Travis CI to run a build on your fork of the `travis-broken-example` repository, check the [build status](https://travis-ci.org/repositories) and notice that the build fails. (Travis CI sends you an email when this happens)
+### Breaking the Build
+--> TBD
 
-6. Fix the code by making sure that `2=1+1` in `Test.php`, commit and push to GitHub. This time, the build does not fail.
+### Infrastructure and environment notes
 
-   ```bash
-   $ git add -A
-   $ git commit -m 'Testing Travis CI: fixing the build'
-   $ git push
-   ```
+Travis CI supports a few different environment, so you have different options to use. Each job runs in exactly one of the following environments:
+ * *Sudo-enabled* - this Linux (Ubuntu) environment allows for the use of `sudo`, `setuid`, and `setgid`. It uses a full virtual machine (vm). It starts a little slower, but it has more computational resources.
+ * *Container-based* - this Linux (Ubuntu) environment does not allow for the use `sudo`, `setuid`, or `setgid`. It is run in a container. It starts faster than the sudo-enabled environment, but it's resources are a little more limited. It is the default environment for all projects that are enabled on Travis CI after 2015. 
+ * OSX - this environment uses the OSX/macOS operating system. You can chose which version of OSX/macOS from several options. This environment is useful for building projects that require the OSX/macOS toolchain, such as projects in Swift. It is not a requirement to use the OSX environment if you develop on a macOS machine. 
 
-Congratulations, you have added a GitHub repository to Travis and learnt the basics of configuring builds and testing code.
+More details are on our environments are available in our [CI Environment](../ci-environment) documentation. 
 
-> Note there is no need to make a pull request to the original repository, the build is run on your fork.
+### Pre-getting started
+To get a project started with CI, you will need the following:
+ * [GitHub](https://github.com/) login 
+ * Project hosted as a repository on GitHub. See GitHub's [documentation](https://help.github.com/categories/importing-your-projects-to-github/) for this. 
+ * Working code in your project
+ * At least one test for your code
+
+Once you have those pieces, head over to our [Getting Started](../getting-started) guide for details on setting up your first build!
