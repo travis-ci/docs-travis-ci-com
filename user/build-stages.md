@@ -111,6 +111,15 @@ specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on
 several languages.
 
+## Data persistence between stages and jobs
+
+It is important to note that jobs do not share storage.
+If your jobs need to share files (e.g., using build artifacts from the "Test" stage for deployment in the
+subsequent "Deploy" stage), you need to use an external storage mechanism such as S3 and a remote
+`scp` server.
+
+See [the S3 example](#Sharing-files-between-jobs-via-S3) below.
+
 ## Examples
 
 ### Deploying to Heroku
