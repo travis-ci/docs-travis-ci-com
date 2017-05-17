@@ -113,7 +113,7 @@ several languages.
 
 ## Data persistence between stages and jobs
 
-It is important to note that jobs do not share storage.
+It is important to note that jobs do not share storage, as each job runs in a fresh VM or container.
 If your jobs need to share files (e.g., using build artifacts from the "Test" stage for deployment in the
 subsequent "Deploy" stage), you need to use an external storage mechanism such as S3 and a remote
 `scp` server.
