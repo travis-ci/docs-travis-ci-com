@@ -61,33 +61,17 @@ PERL6LIB=lib prove -v -r --exec=perl6 t/
 At present, by default Travis CI does not automatically manage your
 project's dependencies.  It is possible to manage dependencies yourself by
 either downloading and installing your dependencies as part of the `install`
-step, or you could use [panda](https://github.com/tadzik/panda) (the Perl 6
+step, or you could use [zef](https://github.com/ugexe/zef) (the Perl 6
 module package manager) like so:
 
 ```yaml
 install:
-    - rakudobrew build-panda
-    - panda installdeps .
+    - rakudobrew build zef
+    - zef --depsonly install .
 ```
 
-this will install the latest `panda` version.
-
-It is sometimes necessary to match the `panda` version to that of Rakudo;
-new Rakudo features could be used in the most up to date `panda` which
-aren't available in the version of Rakudo you are using.  For instance, to
-test a module against Rakudo 2015.04, you would have a `.travis.yml` which
-looks something like this:
-
-```yaml
-language: perl6
-perl6:
-    - '2015.07'
-install:
-    - rakudobrew build-panda 2015.07
-```
-
-Now your `panda` will match your Rakudo version and should install
-the relevant dependencies successfully.
+this will install the latest `zef` version as well as the dependencies of the 
+project being built.
 
 Further information about overriding dependency installation commands is
 described in the [general build configuration](/user/customizing-the-build/)
