@@ -130,13 +130,17 @@ A subset of functionalities are available for you in this debug session.
 
 ### Creating a new window
 
-- `ctrl-b c`
+```
+ctrl-b c
+```
 
 The first window is indexed 0, so this will give you windows 1, 2, and so on.
 
 ### Switching to a different window
 
-- `ctrl-b 0`
+```
+ctrl-b 0
+```
 
 This switches your session's focus to the window with the given index.
 
@@ -145,7 +149,9 @@ one window while looking at the debug VM in another.
 
 ### Scrolling up and down the terminal history
 
-- `ctrl-[`
+```
+ctrl-[
+```
 
 In this mode, you can move your cursor with your arrow keys to go through the
 log history.
