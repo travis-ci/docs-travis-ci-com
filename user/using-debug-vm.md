@@ -150,6 +150,8 @@ one window while looking at the debug VM in another.
 In this mode, you can move your cursor with your arrow keys to go through the
 log history.
 
+Press `q` to exit the log scroll mode.
+
 ## Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
