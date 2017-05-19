@@ -6,14 +6,14 @@ permalink: /user/using-debug-vm/
 
 When the build failure is only observable on Travis CI, and if you suspect that there are
 critical differences between your local development environment and Travis CI's build VM,
-you can make use of debug VM to gain access to the actual VM or container (henceforth
-VM for brevity).
+you can restart builds in the debug mode to gain access to the actual VM or container
+(henceforth "debug VM").
 
-# Starting a debug VM
+# Restarting a build to debug
 
 This feature is available for private repositories and those public repositories for which
 the feature is enabled.
-For private repositories, the build build button is available on the upper right corner of
+For private repositories, the "Debug build" or "Debug job" button is available on the upper right corner of
 the build/job page.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
@@ -22,7 +22,7 @@ For public repositories, an API call is required, in addition to the feature bei
 
 ## Starting a debug VM via API
 
-In addition to the debug button, a debug build may be started via
+In addition to using the debug button, a debug build may be started via
 API (which is the only way to do it for public repositories).
 
 Here is an example for a public repository.
@@ -49,7 +49,7 @@ you see while connected to the debug VM will be reflected on the build log.
 Once the debug VM starts, it will go through the intial steps, including setting up language
 run times and installing debug utilities.
 
-When the debug VM is ready, you will see:
+When the debug VM is ready for your connection, you will see:
 
 ```
 Debug build initiated by BanzaiMan
@@ -152,6 +152,6 @@ log history.
 
 ## Getting out of the debug VM
 
-Once you exit from all the live `tmate` windows, the debug VM will finish
+Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status.
 No more stages (`before_install`, `install`, etc.) will be executed.
