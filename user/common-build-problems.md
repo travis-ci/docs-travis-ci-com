@@ -493,11 +493,11 @@ which Docker image you are using on Travis CI.
 1. Start a Docker container detached with `/sbin/init`:
   * Example 1: Ruby image on Precise
     ``` bash
-    docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+    docker run --name travis-debug --rm -dit quay.io/travisci/travis-ruby /sbin/init
     ```
   * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
     ``` bash
-    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
+    docker run --name travis-debug --rm -dit travisci/ci-garnet:packer-1490989530 /sbin/init
     ```
 
 1. Open a login shell in the running container
@@ -527,3 +527,11 @@ which Docker image you are using on Travis CI.
 1. Manually install dependencies, if any.
 
 1. Manually run your Travis CI build command.
+
+### Running debug VMs
+
+In private repositories and those public repositories for which the feature is enabled,
+it is possible to run a debug VM.
+Using the debug VM, you can interact with the VM.
+
+For more information, please consult [the debug VM document](/user/using-debug-vm/).
