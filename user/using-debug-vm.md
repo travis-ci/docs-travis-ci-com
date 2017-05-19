@@ -15,6 +15,9 @@ This feature is available for private repositories and those public repositories
 the feature is enabled.
 For private repositories, the build build button is available on the upper right corner of
 the build/job page.
+
+![Screenshot of debug build/job buttons](/images/debug_buttons.png)
+
 For public repositories, an API call is required, in addition to the feature being enabled.
 
 ## Starting a debug VM via API
