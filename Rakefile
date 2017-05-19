@@ -10,7 +10,7 @@ task :test => :build do
 end
 
 desc 'Builds the site'
-task :build => :remove_output_dir do
+task :build => [:remove_output_dir, :gen_user_erb] do
   FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -52,6 +52,23 @@ task :run_html_proofer do
                               :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html"]
                             })
   tester.run
+end
+
+PREREQ_REMOTE_FILES = [
+  'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
+]
+
+desc 'Generates ERb-templated /user documents'
+task :gen_user_erb do
+  require 'find'
+
+  PREREQ_REMOTE_FILES.each { |f| `curl -OsSfL #{f}` }
+
+  files = Find.find(File.join(File.dirname(__FILE__), 'user')) do |f|
+    if File.file?(f) && File.fnmatch('*.erb', f)
+      `erb -r json user/common-build-problems.md.erb | tee user/common-build-problems.md`
+    end
+  end
 end
 
 namespace :assets do
