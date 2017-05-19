@@ -13,6 +13,9 @@ you can restart builds in the debug mode to gain access to the actual VM or cont
 
 This feature is available for private repositories and those public repositories for which
 the feature is enabled.
+
+In addition, you need the push access to the repository is required.
+
 For private repositories, the "Debug build" or "Debug job" button is available on the upper right corner of
 the build/job page.
 
