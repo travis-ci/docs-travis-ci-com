@@ -66,7 +66,7 @@ task :gen_user_erb do
 
   files = Find.find(File.join(File.dirname(__FILE__), 'user')) do |f|
     if File.file?(f) && File.fnmatch('*.erb', f)
-      `erb -r json user/common-build-problems.md.erb | tee user/common-build-problems.md`
+      `erb -r json #{f} | tee #{f.gsub(/\.erb$/,'')}`
     end
   end
 end
