@@ -4,6 +4,8 @@ layout: en
 permalink: /user/deployment/pages/
 ---
 
+*This provider is experimental, use at your own judgement.*
+
 Travis CI can deploy your static files to [GitHub
 Pages](https://pages.github.com/) after a successful build.
 
