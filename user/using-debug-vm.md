@@ -52,7 +52,7 @@ you see while connected to the debug VM will be reflected on the build log.
 # Connecting to the debug VM
 
 Once the debug VM starts, it will go through the intial steps, including setting up language
-run times and installing debug utilities.
+run times and caches (if applicable) and installing debug utilities.
 
 When the debug VM is ready for your connection, you will see:
 
@@ -68,7 +68,7 @@ This debug build will stay alive for 30 minutes.
 
 Running the `ssh` command above will drop you in on a live VM.
 
-## Security implications of the `ssh` command
+## Security considerations
 
 At this time, there is no authentication beyond the `ssh` command displayed in
 the logs.
@@ -125,7 +125,8 @@ travis_run_after_failure
 travis_run_after_script
 ```
 
-## Using basic `tmate` features
+## 
+basic `tmate` features
 
 `tmate` is a fork of [`tmux`](https://tmux.github.io/).
 Your debug VM session uses the default configuration; thus, the command prefix is
