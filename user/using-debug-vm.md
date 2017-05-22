@@ -111,7 +111,7 @@ start.
 
 ## Convenience `bash` functions
 
-Various build phases are defined in a convenience `bash` functions named
+Various build phases are defined in convenience `bash` functions named
 `travis_run_*` (e.g., `travis_run_before_install`, `travis_run_install`).
 At the most basic level, you can simply run these build phases to observe your build:
 
