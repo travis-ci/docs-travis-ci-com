@@ -263,3 +263,24 @@ before_install:
 ```
 
 Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.
+
+<!-- REWRITE -->
+
+## Installing Packages Using apt
+
+If your dependencies need native libraries to be available, you can use **passwordless sudo to install them**:
+
+```yml
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -qq [packages list]
+```
+
+> Note that this feature is not available for builds that are running on [Container-based workers](/user/ci-environment/#Virtualization-environments).
+> Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
+
+All virtual machines are snapshotted and returned to their intial state after each build.
+
+### Using 3rd-party PPAs
+
+If you need a native dependency that is not available from the official Ubuntu repositories, there might be a [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas) that you can use.
