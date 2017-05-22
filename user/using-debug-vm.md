@@ -99,7 +99,7 @@ Warning: Permanently added 'ny2.tmate.io,104.236.9.236' (ECDSA) to the list of k
 Permission denied (publickey).
 ```
 
-If you see this, run the command `ssh-keygen` (go through the prompt), and try again.
+If you see this, run the command `ssh-keygen` (go through the prompts), and try again.
 
 # Things to do once you are inside the debug VM
 
