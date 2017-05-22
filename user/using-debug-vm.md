@@ -12,9 +12,9 @@ you can restart builds in the debug mode to gain access to the actual VM or cont
 # Restarting a build to debug
 
 > This feature is available for private repositories and those public repositories for which
-the feature is enabled.
-> To have the feature enabled on a public repository, please email us at support@travis-ci.com
-indicating which ones.
+> the feature is enabled.
+> To have the feature enabled on a public repository, please email us at
+> [support@travis-ci.com](mailto:support@travis-ci.com) indicating which ones.
 
 In addition, the push access to the repository is required.
 
@@ -125,8 +125,7 @@ travis_run_after_failure
 travis_run_after_script
 ```
 
-## 
-basic `tmate` features
+## basic `tmate` features
 
 `tmate` is a fork of [`tmux`](https://tmux.github.io/).
 Your debug VM session uses the default configuration; thus, the command prefix is
