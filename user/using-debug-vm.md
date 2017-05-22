@@ -15,8 +15,7 @@ you can restart builds in the debug mode to gain access to the actual VM or cont
 > the feature is enabled.
 > To have the feature enabled on a public repository, please email us at
 > [support@travis-ci.com](mailto:support@travis-ci.com) indicating which ones.
-
-In addition, the push access to the repository is required.
+> The push access to the repository is also required.
 
 For private repositories, the "Debug build" or "Debug job" button is available on the upper right corner of
 the build/job page.
