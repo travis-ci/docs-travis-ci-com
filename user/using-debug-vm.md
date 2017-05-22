@@ -124,7 +124,7 @@ travis_run_after_failure
 travis_run_after_script
 ```
 
-## basic `tmate` features
+## Basic `tmate` features
 
 `tmate` is a fork of [`tmux`](https://tmux.github.io/).
 Your debug VM session uses the default configuration; thus, the command prefix is
