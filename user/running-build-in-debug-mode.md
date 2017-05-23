@@ -4,6 +4,8 @@ layout: en
 permalink: /user/running-build-in-debug-mode/
 ---
 
+<div id="toc"></div>
+
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in the debug mode
