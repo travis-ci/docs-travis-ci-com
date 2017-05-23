@@ -204,11 +204,13 @@ To install packages that are not included in the [default OSX environment](/user
 
 ```yaml
 before_install:
-  - brew update
+  - brew update # see note below
   - brew install beanstalk
 ```
 
-Use `brew update` to update the local Homebrew package list.
+Note that `brew update` can take a potentially significant amount of time to execute.
+We recommend running your build without it first, to see if the Homebrew database
+on the build image has what you need.
 
 ## Installing Dependencies on Multiple Operating Systems
 
