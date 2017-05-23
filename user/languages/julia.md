@@ -29,7 +29,6 @@ versions, use the `julia:` key in your `.travis.yml` file, for example:
 ```yaml
 language: julia
 julia:
-  - release
   - nightly
   - 0.3
   - 0.3.10
