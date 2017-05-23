@@ -23,12 +23,12 @@ versions that your projects can be tested against. To specify them, use the
 language: perl6
 perl6:
   - latest
-  - '2015.07'
-  - '2015.04'
+  - '2017.05'
+  - '2017.04'
 ```
 
 Over time, new releases come out and we upgrade both rakudobrew and
-Perls, aliases like `2015.07` will float and point to different exact
+Perls, aliases like `2017.05` will float and point to different exact
 versions, patch levels and so on.
 
 For precise versions pre-installed on the VM, please consult "Build system
@@ -136,8 +136,9 @@ perl6:
 ```yaml
 language: perl6
 perl6:
-    - latest
-    - '2015.03'
+    - '2017.05'
+    - '2017.04'
+
 install:
     - rakudobrew build-panda ${TRAVIS_PERL6_VERSION#latest}
     - panda installdeps .
