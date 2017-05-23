@@ -15,7 +15,7 @@ to get shell access to the virtual machine or container.
 
 > This feature is available for private repositories and those public repositories for which
 > the feature is enabled.
-> To have the feature enabled on a public repository, please email us at
+> To have the feature enabled for a public repository, please email us at
 > [support@travis-ci.com](mailto:support@travis-ci.com) indicating which ones.
 > The push access to the repository is also required.
 
