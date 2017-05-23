@@ -43,8 +43,8 @@ $ curl -s -X POST \
 
 For private repositories, the API endpoint is `https://api.travis-ci.com/job/${id}/debug`.
 
-The JSON payload could be empty (`-d "{}"`), in which case any command input and output
-you see while connected to the debug VM will be reflected on the build log.
+To show any command input and output you see while connected to the VM running in the debug
+mode, pass an empty JSON object (`-d {}`) in the payload.
 
 # Connecting to the debug VM
 
