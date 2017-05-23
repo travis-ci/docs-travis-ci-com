@@ -528,7 +528,7 @@ which Docker image you are using on Travis CI.
 
 1. Manually run your Travis CI build command.
 
-### Running debug VMs
+## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
 it is possible to run a debug VM.

@@ -1,15 +1,15 @@
 ---
-title: Using Debug VM
+title: Running Build in Debug Mode
 layout: en
-permalink: /user/using-debug-vm/
+permalink: /user/running-build-in-debug-mode/
 ---
 
-When the build failure is only observable on Travis CI, and if you suspect that there are
-critical differences between your local development environment and Travis CI's build VM,
-you can restart builds in the debug mode to gain access to the actual VM or container
-(henceforth "debug VM").
+If you are having trouble resolving complex build errors, or you suspect there are
+significant differences between your local development environment and
+the Travis CI build environment, you can restart builds in the debug mode
+to get shell access to the virtual machine or container.
 
-# Restarting a build to debug
+# Restarting a build in the debug mode
 
 > This feature is available for private repositories and those public repositories for which
 > the feature is enabled.
@@ -26,12 +26,10 @@ For public repositories, an API call is required, in addition to the feature bei
 
 ## Starting a debug VM via API
 
-In addition to using the debug button, a debug build may be started via
-API (which is the only way to do it for public repositories).
-
-Here is an example for a public repository.
-Token should be set to your Travis CI token, and the job ID (`$id`) should point to the job you
-want to debug.
+To start a build in debug mode via API, send a `POST` request to the job's `debug` endpoint,
+along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
+As public repositories do not show the Debug button, this is the only way to restart builds
+in the debug mode.
 
 ```sh-session
 $ curl -s -X POST \
@@ -80,9 +78,16 @@ VM is live can connect to the debug VM and potentially look at your secrets.
 This is the reason that the feature is not available by default on public
 repositories.
 
-Do note that when another `ssh` connection commences, that new connection
+Do note that when another `ssh` connection starts, that new connection
 will be attached to the session you are already in.
-If you suspect nefarious activity, you can either close all your windows, or cancel
+When you are already connected to the live debug VM, and a new user connects
+to the VM using the same `ssh` command, you can see what the new user is doing.
+For example, if the new user runs `env` to list all the environment variables,
+you can see the output on your terminal as well.
+This gives a clear indication that your secrets are at risk, and you
+should take measures to mitigate any possible damage.
+
+If you suspect suspicious activity, you can either close all your windows, or cancel
 the debug job on the Web UI to disconnect the potential attacker.
 
 ## "Permission denied" error message
@@ -102,7 +107,7 @@ If you see this, run the command `ssh-keygen` (go through the prompts), and try 
 
 # Things to do once you are inside the debug VM
 
-Once inside the debug VM, you are able to poke around.
+Once inside the debug VM, you are able to explore.
 
 You are in a [`tmate`](https://tmate.io/) session, at the point
 where your `before_install` (even if it is not defined) phase is about to
@@ -112,7 +117,7 @@ start.
 
 Various build phases are defined in convenience `bash` functions named
 `travis_run_*` (e.g., `travis_run_before_install`, `travis_run_install`).
-At the most basic level, you can simply run these build phases to observe your build:
+Run these build phases to observe your build:
 
 ```
 travis_run_before_install
@@ -138,7 +143,8 @@ A subset of functionalities are available for you in this debug session.
 ctrl-b c
 ```
 
-The first window is indexed 0, so this will give you windows 1, 2, and so on.
+The first window is indexed 0. So repeating command will give you windows
+1, 2, and so on.
 
 ### Switching to a different window
 
@@ -146,7 +152,8 @@ The first window is indexed 0, so this will give you windows 1, 2, and so on.
 ctrl-b 0
 ```
 
-This switches your session's focus to the window with the given index.
+This switches your session's focus to the window with the index 0.
+You can substitute `0` with any valid index to switch to that window.
 
 Switching between windows can be helpful if you want to run long-running process in
 one window while looking at the debug VM in another.
@@ -154,10 +161,10 @@ one window while looking at the debug VM in another.
 ### Scrolling up and down the terminal history
 
 ```
-ctrl-[
+ctrl-b [
 ```
 
-In this mode, you can move your cursor with your arrow keys to go through the
+Enter the log scroll mode. Here, you can move your cursor with your arrow keys to go through the
 log history.
 
 Press `q` to exit the log scroll mode.
@@ -165,5 +172,5 @@ Press `q` to exit the log scroll mode.
 ## Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
-after resetting the job's status to the original status.
-No more stages (`before_install`, `install`, etc.) will be executed.
+after resetting the job's status to the original status before you restarted it.
+No more phases (`before_install`, `install`, etc.) will be executed.
