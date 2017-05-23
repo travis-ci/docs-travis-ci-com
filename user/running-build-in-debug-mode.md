@@ -11,7 +11,7 @@ significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in the debug mode
 to get shell access to the virtual machine or container.
 
-## Restarting a build in the debug mode
+## Restarting a job in the debug mode
 
 > This feature is available for private repositories and those public repositories for which
 > the feature is enabled.
@@ -26,9 +26,9 @@ the build/job page.
 
 For public repositories, an API call is required, in addition to the feature being enabled.
 
-### Starting a debug VM via API
+### Restarting a job in the debug mode via API
 
-To start a build in debug mode via API, send a `POST` request to the job's `debug` endpoint,
+To restart a job in the debug mode via API, send a `POST` request to the job's `debug` endpoint,
 along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
@@ -45,15 +45,17 @@ $ curl -s -X POST \
 
 For private repositories, the API endpoint is `https://api.travis-ci.com/job/${id}/debug`.
 
+#### Echoing debug session's output to the logs
+
 To show any command input and output you see while connected to the VM running in the debug
-mode, pass an empty JSON object (`{}`) in the payload.
+mode, pass an empty JSON object (`{}`) in the payload instead.
 
-## Connecting to the debug VM
+## Connecting to the job running in the debug mode
 
-Once the debug VM starts, it will go through the intial steps, including setting up language
+When the job starts in the debug mode, it will go through the intial steps, including setting up language
 run times and caches (if applicable) and installing debug utilities.
 
-When the debug VM is ready for your connection, you will see:
+When it is ready for your connection, you will see:
 
 ```
 Debug build initiated by BanzaiMan
@@ -89,8 +91,8 @@ you can see the output on your terminal as well.
 This gives a clear indication that your secrets are at risk, and you
 should take measures to mitigate any possible damage.
 
-If you suspect suspicious activity, you can either close all your windows, or cancel
-the debug job on the Web UI to disconnect the potential attacker.
+If you suspect malicious activity, you can either close all your windows, or cancel
+the debug job on the Web UI to disconnect the attacker.
 
 ### "Permission denied" error message
 
