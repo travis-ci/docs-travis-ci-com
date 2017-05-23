@@ -10,7 +10,7 @@ task :test => :build do
 end
 
 desc 'Builds the site'
-task :build => [:remove_output_dir, :gen_user_erb] do
+task :build => [:remove_output_dir, :gen_trusty_image_data] do
   FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -54,21 +54,16 @@ task :run_html_proofer do
   tester.run
 end
 
-PREREQ_REMOTE_FILES = [
-  'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
-]
+desc 'Populate Trusty image table data'
+task :gen_trusty_image_data do
+  GENERATED_LANGUAGE_MAP_JSON_FILE = 'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
 
-desc 'Generates ERb-templated /user documents'
-task :gen_user_erb do
-  require 'find'
+  `curl -OsSfL '#{GENERATED_LANGUAGE_MAP_JSON_FILE}'`
 
-  PREREQ_REMOTE_FILES.each { |f| `curl -OsSfL #{f}` }
+  json_data = JSON.load(File.read(File.basename(GENERATED_LANGUAGE_MAP_JSON_FILE)))
+  yaml_data = json_data.to_yaml
 
-  files = Find.find(File.join(File.dirname(__FILE__), 'user')) do |f|
-    if File.file?(f) && File.fnmatch('*.erb', f)
-      `erb -r json #{f} | tee #{f.gsub(/\.erb$/,'')}`
-    end
-  end
+  File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
 end
 
 namespace :assets do

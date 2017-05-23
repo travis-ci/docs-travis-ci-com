@@ -476,19 +476,9 @@ which Docker image you are using on Travis CI.
   * For Ubuntu 14.04 (trusty), select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
     ("default" if no other name matches) using the table below:
 
-    |language|Docker Hub image|
-    |:-------|:---------------|
-    | android | travisci/ci-amethyst:packer-1478744929 |
-    | default | travisci/ci-garnet:packer-1478744932 |
-    | erlang | travisci/ci-amethyst:packer-1478744929 |
-    | go | travisci/ci-garnet:packer-1478744932 |
-    | haskell | travisci/ci-amethyst:packer-1478744929 |
-    | jvm | travisci/ci-garnet:packer-1478744932 |
-    | node_js | travisci/ci-garnet:packer-1478744932 |
-    | perl | travisci/ci-amethyst:packer-1478744929 |
-    | php | travisci/ci-garnet:packer-1478744932 |
-    | python | travisci/ci-garnet:packer-1478744932 |
-    | ruby | travisci/ci-garnet:packer-1478744932 |
+    | language        | Docker Hub image |
+    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
 1. Start a Docker container detached with `/sbin/init`:
   * Example 1: Ruby image on Precise
