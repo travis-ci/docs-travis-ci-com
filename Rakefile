@@ -66,6 +66,11 @@ task :gen_trusty_image_data do
   File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
 end
 
+desc 'Start Jekyll server'
+task :serve => [:gen_trusty_image_data] do
+  sh "bundle exec jekyll serve --config=_config.yml"
+end
+
 namespace :assets do
   task :precompile do
     puts `bundle exec jekyll build`
