@@ -29,7 +29,7 @@ For public repositories, an API call is required, in addition to the feature bei
 To start a build in debug mode via API, send a `POST` request to the job's `debug` endpoint,
 along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
 As public repositories do not show the Debug button, this is the only way to restart builds
-in the debug mode.
+in the debug mode for public repositories.
 
 ```sh-session
 $ curl -s -X POST \
