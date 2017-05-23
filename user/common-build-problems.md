@@ -521,7 +521,7 @@ which Docker image you are using on Travis CI.
 ## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
-it is possible to run a debug VM.
-Using the debug VM feature, you can interact with the live build VM where your builds run.
+it is possible to run builds and jobs in the debug mode.
+Using this feature, you can interact with the live VM where your builds run.
 
 For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
