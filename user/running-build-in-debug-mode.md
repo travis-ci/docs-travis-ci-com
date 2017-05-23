@@ -9,7 +9,7 @@ significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in the debug mode
 to get shell access to the virtual machine or container.
 
-# Restarting a build in the debug mode
+## Restarting a build in the debug mode
 
 > This feature is available for private repositories and those public repositories for which
 > the feature is enabled.
@@ -24,7 +24,7 @@ the build/job page.
 
 For public repositories, an API call is required, in addition to the feature being enabled.
 
-## Starting a debug VM via API
+### Starting a debug VM via API
 
 To start a build in debug mode via API, send a `POST` request to the job's `debug` endpoint,
 along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
@@ -44,9 +44,9 @@ $ curl -s -X POST \
 For private repositories, the API endpoint is `https://api.travis-ci.com/job/${id}/debug`.
 
 To show any command input and output you see while connected to the VM running in the debug
-mode, pass an empty JSON object (`-d {}`) in the payload.
+mode, pass an empty JSON object (`{}`) in the payload.
 
-# Connecting to the debug VM
+## Connecting to the debug VM
 
 Once the debug VM starts, it will go through the intial steps, including setting up language
 run times and caches (if applicable) and installing debug utilities.
@@ -65,7 +65,7 @@ This debug build will stay alive for 30 minutes.
 
 Running the `ssh` command above will drop you in on a live VM.
 
-## Security considerations
+### Security considerations
 
 At this time, there is no authentication beyond the `ssh` command displayed in
 the logs.
@@ -90,7 +90,7 @@ should take measures to mitigate any possible damage.
 If you suspect suspicious activity, you can either close all your windows, or cancel
 the debug job on the Web UI to disconnect the potential attacker.
 
-## "Permission denied" error message
+### "Permission denied" error message
 
 Upon entering the `ssh` command, you may see an error message such as this:
 
@@ -105,7 +105,7 @@ Permission denied (publickey).
 
 If you see this, run the command `ssh-keygen` (go through the prompts), and try again.
 
-# Things to do once you are inside the debug VM
+## Things to do once you are inside the debug VM
 
 Once inside the debug VM, you are able to explore.
 
@@ -113,7 +113,7 @@ You are in a [`tmate`](https://tmate.io/) session, at the point
 where your `before_install` (even if it is not defined) phase is about to
 start.
 
-## Convenience `bash` functions
+### Convenience `bash` functions
 
 Various build phases are defined in convenience `bash` functions named
 `travis_run_*` (e.g., `travis_run_before_install`, `travis_run_install`).
@@ -129,7 +129,7 @@ travis_run_after_failure
 travis_run_after_script
 ```
 
-## Basic `tmate` features
+### Basic `tmate` features
 
 `tmate` is a fork of [`tmux`](https://tmux.github.io/).
 Your debug VM session uses the default configuration; thus, the command prefix is
@@ -137,7 +137,7 @@ Your debug VM session uses the default configuration; thus, the command prefix i
 
 A subset of functionalities are available for you in this debug session.
 
-### Creating a new window
+#### Creating a new window
 
 ```
 ctrl-b c
@@ -146,7 +146,7 @@ ctrl-b c
 The first window is indexed 0. So repeating command will give you windows
 1, 2, and so on.
 
-### Switching to a different window
+#### Switching to a different window
 
 ```
 ctrl-b 0
@@ -158,7 +158,7 @@ You can substitute `0` with any valid index to switch to that window.
 Switching between windows can be helpful if you want to run long-running process in
 one window while looking at the debug VM in another.
 
-### Scrolling up and down the terminal history
+#### Scrolling up and down the terminal history
 
 ```
 ctrl-b [
@@ -169,7 +169,7 @@ log history.
 
 Press `q` to exit the log scroll mode.
 
-## Getting out of the debug VM
+### Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
