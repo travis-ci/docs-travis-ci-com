@@ -30,8 +30,8 @@ versions, use the `julia:` key in your `.travis.yml` file, for example:
 language: julia
 julia:
   - nightly
-  - 0.3
-  - 0.3.10
+  - 0.5
+  - 0.5.2
 ```
 
 If the version number contains one `.`, then the latest release for that minor version
