@@ -534,4 +534,4 @@ In private repositories and those public repositories for which the feature is e
 it is possible to run a debug VM.
 Using the debug VM feature, you can interact with the live build VM where your builds run.
 
-For more information, please consult [the debug VM documentation](/user/using-debug-vm/).
+For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
