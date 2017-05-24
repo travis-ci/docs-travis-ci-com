@@ -9,7 +9,10 @@ layout: en
 > Build stages are currently in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
 {: .beta}
 
-# What are Build Stages?
+## What are Build Stages?
+
+Build stages is a way to group jobs, and run jobs in each stage in parallel,
+but run one stage after another sequentially.
 
 In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
@@ -26,7 +29,7 @@ second stage. Or, you could generate a Docker image and push it first, then
 test it on several jobs in parallel. Or, you could run unit tests, deploy to
 staging, run smoke tests and only then deploy to production.
 
-# How do Build Stages work?
+## How do Build Stages work?
 
 The concept of build stages is powerful and flexible, yet simple and
 approachable:
@@ -47,7 +50,7 @@ test, and then run a single third job on the second stage, called deploy:
 
 ![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
 
-# How to define Build Stages?
+## How to define Build Stages?
 
 Here’s how you’d set up the build configuration for this in your .travis.yml
 file:
@@ -72,10 +75,10 @@ only after the test stage completes successfully.
 
 Stages are identified by their names.
 
-You are free to pick any arbitrary names you like and include emojis.  The
-first letter of a stage name is automatically capitalized for aesthetical
-reasons, so you don't have to deal with uppercase strings in your `.travis.yml`
-file.
+You can use any arbitrary names you like and include emojis to your stage
+names. The first letter of a stage name is automatically capitalized for
+aesthetical reasons, so you don't have to deal with uppercase strings in your
+`.travis.yml` file.
 
 Also, you do not have to specify the name on every single job (as shown in the
 example above).  The default stage is `test`. Jobs that do not have a stage
@@ -97,7 +100,7 @@ jobs:
     - script: ./deploy target-2
 ```
 
-## Build Stages and Build Matrix Expansion
+### Build Stages and Build Matrix Expansion
 
 [Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
@@ -122,7 +125,7 @@ to the default stage test. The third job on the deploy stage starts only after
 the test stage has completed successfully. Be sure to set the set the `rvm` key
 on your included deploy job, too.
 
-## Build Stages and Deployments
+### Build Stages and Deployments
 
 You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
 
