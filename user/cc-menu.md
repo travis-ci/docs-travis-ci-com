@@ -31,7 +31,13 @@ Private repositories use a different URL scheme, served from a different [API en
 
 Private repositories require an authenticated URL with a token in it. You can find the token in your profile:
 
-![Travis CI user token](/images/token.jpg)
+![Travis CI user token](/images/user-token.png)
+
+By default, the feed will fetch the status of the default branch of the repository. To specify a different branch, use the `branch` parameter:
+
+- For open source projects use `https://api.travis-ci.org/repos/<owner>/<repository>/cc.xml?branch=<branch>`
+- For closed source projects use `https://api.travis-ci.com/repos/<owner>/<repository>/cc.xml?token=<token>&branch=<branch>`.
+
 
 ### Using the CC feed with accounts
 
