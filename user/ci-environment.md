@@ -228,9 +228,19 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-- `go1`, `go1.0` → 1.0.3
-- `go1.1` → 1.1.2
-- `go1.2` → 1.2.2
+- `go1`, `go1.0` → 1.8.1
+- 'go1.0' → 1.0.3
+- 'go1.1.x' → 1.1.2
+- 'go1.2' → 1.2.2
+- 'go1.2.x' → 1.2.2
+- 'go1.3.x' → 1.3.3
+- 'go1.4.x' → 1.4.3
+- 'go1.5.x' → 1.5.4
+- 'go1.6.x' → 1.6.4
+- 'go1.7.x' → 1.7.5
+- 'go1.8.x' → 1.8.1
+- 'go1.x' → 1.8.1
+- 'go1.x.x' → 1.8.1
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
