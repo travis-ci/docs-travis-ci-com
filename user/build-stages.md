@@ -88,6 +88,12 @@ to the default stage test. The third job on the deploy stage starts only after
 the test stage has completed successfully. Be sure to set the set the `rvm` key
 on your included deploy job, too.
 
+Notice that each job included in `jobs.include` must have a unique value to any matrix
+dimention that your build matrix otherwise defines.
+
+In the example above, without `rvm: 2.4`, the `include`d job would inherit
+`rvm: [ 2.3, 2.4]`, which is invalid for switching the Ruby runtime.
+
 ## Build stages and deployments
 
 You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
