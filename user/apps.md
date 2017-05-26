@@ -531,7 +531,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
-* [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
+- [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
 
 
 ## JavaScript
