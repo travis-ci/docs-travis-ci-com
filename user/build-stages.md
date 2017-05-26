@@ -120,8 +120,12 @@ jobs:
 
 This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
 to the default stage test. The third job on the deploy stage starts only after
-the test stage has completed successfully. Be sure to set the set the `rvm` key
-on your included deploy job, too.
+the test stage has completed successfully. 
+
+> Each job included in `jobs.include` must have a unique value to any matrix
+dimension that your build matrix otherwise defines. 
+> In the example above, without explicitly setting `rvm: 2.4`, the `included` job inherits
+`rvm: [ 2.3, 2.4]`, which is invalid for setting the Ruby runtime.
 
 ### Build Stages and Deployments
 
