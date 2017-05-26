@@ -17,8 +17,6 @@ deploy:
     branch: develop
 ```
 
-`script` must be a scalar pointing to an executable file or command.
-
 If you need to run multiple commands, write a executable wrapper script that runs them all.
 
 If the script returns a nonzero status, deployment is considered
@@ -58,8 +56,10 @@ deploy:
 To ensure that deployments run consistently, we use the version of Ruby that is
 pre-installed on all of our build images, which may change when images are updated.
 
-A side effect of this is that, if you need to run a command
-that requires a specific Ruby version, you need to set it explicitly:
+* The `travis_internal_ruby` function prints the exact pre-installed Ruby version
+
+If you need to run a command that requires a different Ruby version than the
+pre-installed default, you need to set it explicitly:
 
 
 ```yaml
