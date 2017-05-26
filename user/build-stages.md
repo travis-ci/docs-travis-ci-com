@@ -73,15 +73,13 @@ only after the test stage completes successfully.
 
 ## Naming your Build Stages
 
-Stages are identified by their names.
-
-You can use any arbitrary names you like and include emojis to your stage
-names. The first letter of a stage name is automatically capitalized for
+Stages are identified by their names, which are composed of names and emojis.
+The first letter of a stage name is automatically capitalized for
 aesthetical reasons, so you don't have to deal with uppercase strings in your
 `.travis.yml` file.
 
 Also, you do not have to specify the name on every single job (as shown in the
-example above).  The default stage is `test`. Jobs that do not have a stage
+example above). The default stage is `test`. Jobs that do not have a stage
 name are assigned to the previous stage name if one exists, or the default
 stage name if there is no previous stage name. This means that if you set the
 stage name on the first job of each stage, the build will work as expected.
