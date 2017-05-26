@@ -18,7 +18,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
 3. Add a `.travis.yml` file to your repository to tell Travis CI what to build.
 
-   This example tells Travis CI that this is a Ruby project, so unless you change the default, Travis CI uses `rake` to build it.
+   This example tells Travis CI that this is a Ruby project, so unless you change the default, Travis CI uses `bundle install` to [install dependencies](/user/customizing-the-build/#Customizing-the-Installation-Step), and `rake` to build it.
 
    Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius, which can all pass or fail independently.
 
@@ -77,7 +77,7 @@ the beta of Ubuntu Linux Trusty 14.04:
    dist: trusty
    ```
 
-* If you need a more customizable, fully virtualized environment, use the Sudo
+* If you need a more customizable environment running in a virtual machine, use the Sudo
 Enabled infrastructure:
 
   ```yaml
@@ -102,9 +102,9 @@ Objective-C, use our OSX environment:
   > You do *not* necessarily need to use OS X if you develop on a Mac, only if
   > you need Swift, Objective-C or other macOS software.
 
-## After running tests
+## More than running tests
 
-After a succesful build there are many things you can do with the results of your code:
+Travis CI isn't just for running tests, there are many others things you can do with your code:
 
 * deploy to [GitHub pages](/user/deployment/pages/)
 * run apps on [Heroku](/user/deployment/heroku/)
