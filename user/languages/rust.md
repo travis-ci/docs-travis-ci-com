@@ -7,15 +7,15 @@ permalink: /user/languages/rust/
 <div id="toc">
 </div>
 
-### What this guide covers
+## What this guide covers
 
 This guide covers build environment and configuration topics specific to Rust
 projects. Please make sure to read our [Getting started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-### Supported Rust versions
+## Supported Rust versions
 
-Travis supports all three [release channels][channels] of Rust: stable, beta, and nightly.
+Travis CI supports all three [release channels][channels] of Rust: stable, beta, and nightly.
 Furthermore, you can test against a specific Rust release by using its version number.
 
 [channels]: http://doc.rust-lang.org/book/release-channels.html
@@ -23,7 +23,7 @@ Furthermore, you can test against a specific Rust release by using its version n
 Travis CI also installs the appropriate language tools that come with each Rust version.
 As of Rust 1.16.0, these include `cargo`, `rustc`, `rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
 
-### Choosing the Rust version
+## Choosing a Rust version
 
 By default, we download and install the latest stable Rust release at the start of the
 build. If you're just testing stable, this is all that you need:
