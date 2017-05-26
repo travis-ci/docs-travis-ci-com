@@ -165,7 +165,7 @@ to construct a build matrix.
 
 ## Examples
 
-- [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
+- [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
 - [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
 - [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)

@@ -9,6 +9,7 @@ or another npm-like registry after a successful build. By default Travis CI
 publishes to npmjs.org, however if you have a `publishConfig.registry` key in your
 `package.json` then Travis CI publishes to that registry instead.
 
+
 <div id="toc"></div>
 
 For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your
@@ -34,7 +35,7 @@ Most likely, you would only want to deploy to npm when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
 commits, like so:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -42,11 +43,11 @@ deploy:
 ```
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that
-your tags are uploaded to Github.
+your tags are uploaded to GitHub.
 
 You can explicitly specify the branch to release from with the **on** option:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -55,7 +56,7 @@ deploy:
 
 Alternatively, you can also configure Travis CI to release from all branches:
 
-```
+```yaml
 deploy:
   ...
   on:
@@ -70,7 +71,7 @@ After your tests ran and before the release, Travis CI will clean up any additio
 
 Maybe that is not what you want, as you might generate some artifacts that are supposed to be released, too. There is now an option to skip the clean up:
 
-```
+```yaml
 deploy:
   ...
   skip_cleanup: true

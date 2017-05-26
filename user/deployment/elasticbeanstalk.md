@@ -39,7 +39,7 @@ To create an application without deploying it, add `only_create_app_version: "tr
 
 ## Optional settings
 
-* `zip_file`: The zip file to deploy. You also need to set `skip_cleanup` to prevent Travis CI deleting the zip file at the end of the build. If this is left unspecified, a zip file will be created from all the files that are part of the repository under test.
+* `zip_file`: The zip file to deploy. You also need to set `skip_cleanup` to prevent Travis CI deleting the zip file at the end of the build. If this is left unspecified, a zip file will be created from all the files that are part of the repository under test (determined with `git ls-files`).
 * `bucket_path`: Location within Bucket to upload app to.
 
 ## Environment variables
@@ -56,7 +56,7 @@ Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..

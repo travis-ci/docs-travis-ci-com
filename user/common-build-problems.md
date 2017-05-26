@@ -8,13 +8,6 @@ redirect_from:
 
 <div id="toc"></div>
 
-## What are beta features?
-
-We mark all features that are in beta like this:
-
-> BETA Awesome new feature that might not be enabled by default and is subject
-to change.
-{: .beta}
 
 ## My tests broke but were working yesterday
 
@@ -105,13 +98,13 @@ set too low.
 Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
-```
+```js
 Capybara.default_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
 
-```
+```js
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, timeout: 15)
 end
@@ -132,7 +125,7 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
-```
+```ruby
 # Gemfile
 group :debug do
   gem 'debugger'
@@ -151,7 +144,7 @@ In some cases, the use of the `timecop` gem can result in seemingly sporadic
 `Timecop.freeze`, and `Timecop.travel`.  For example, if using RSpec, be sure to
 have a `Timecop.return` configured to run *after* all examples:
 
-``` ruby
+```ruby
 # in, e.g. spec/spec_helper.rb
 RSpec.configure do |c|
   c.after :all do
@@ -361,7 +354,7 @@ Travis CI automatically initializes and updates submodules when there's a `.gitm
 
 To turn this off, set:
 
-```yml
+```yaml
 git:
   submodules: false
 ```
@@ -372,7 +365,7 @@ does not support out of the box, turn off the automatic integration and use the
 
 For example, to update nested submodules:
 
-```yml
+```yaml
 before_install:
   - git submodule update --init --recursive
 ```
@@ -423,7 +416,7 @@ bundler_args: --retry 5
 For commands which do not have a built in retry feature, use the `travis_retry`
 function to retry it up three times if the return code is non-zero:
 
-```sh
+```bash
 install: travis_retry pip install myawesomepackage
 ```
 
@@ -469,37 +462,66 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-* Download and install Docker:
+1. Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-* For Ubuntu 12.04 (precise), select an image from
-   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-`{lang}` is the language you need.  If you're not using a language-specific
-image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
-[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
-`ci-garnet` (which differ slightly depending on language desired).  In order for
-system services to run correctly, the container must be run with `/sbin/init` as
-PID 1:
+1. Choose a Docker image
+  * For Ubuntu 12.04 (precise), select an image from
+    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
+    `{lang}` is the language you need.  If you're not using a language-specific
+    image, pick `travis-ruby`.
+  * For Ubuntu 14.04 (trusty), select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
+    ("default" if no other name matches) using the table below:
 
-``` bash
-docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-```
+    | language        | Docker Hub image |
+    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
-* Open a login shell in the running container
+1. Start a Docker container detached with `/sbin/init`:
+  * Example 1: Ruby image on Precise
+    ``` bash
+    docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+    ```
+  * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
+    ``` bash
+    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
+    ```
 
-``` bash
-docker exec -it travis-debug bash -l
-```
+1. Open a login shell in the running container
 
-* Switch to the `travis` user:
+    ``` bash
+    docker exec -it travis-debug bash -l
+    ```
 
-``` bash
-su - travis
-```
+1. Switch to the `travis` user:
 
-* Clone your git repository into the `~` folder of the image.
-* Manually install any dependencies.
-* Manually run your Travis CI build command.
+    ``` bash
+    su - travis
+    ```
+
+1. Clone your git repository into the home directory.
+
+    ``` bash
+    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
+    ```
+
+1. (Optional) Check out the commit you want to test
+
+    ``` bash
+    git checkout 6b14763
+    ```
+
+1. Manually install dependencies, if any.
+
+1. Manually run your Travis CI build command.
+
+## Running builds in debug mode
+
+In private repositories and those public repositories for which the feature is enabled,
+it is possible to run builds and jobs in the debug mode.
+Using this feature, you can interact with the live VM where your builds run.
+
+For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).

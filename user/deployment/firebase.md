@@ -22,7 +22,7 @@ deploy:
 
 Generate your Firebase after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
-```sh
+```bash
 firebase login:ci
 ```
 
@@ -46,7 +46,7 @@ Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..

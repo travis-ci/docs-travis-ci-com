@@ -38,8 +38,8 @@ Then add the following lines to your `.travis.yml` file to trigger the analysis:
 ```yaml
 addons:
   sonarqube:
+    organization: "sonarqube_com_organization_key" # the key of the org you chose at step #3
     token:
-      organization: "sonarqube_com_organization_key" # the key of the org you chose at step #3
       secure: ********* # encrypted value of your token
 script:
   # other script steps might be done before running the actual SonarQube analysis
@@ -75,9 +75,9 @@ addons:
     organization: "sonarqube_com_organization_key"
     token:
       secure: *********
-  branches:
-    - master
-    - maintenance
+    branches:
+      - master
+      - maintenance
 script:
   - sonar-scanner
 ```

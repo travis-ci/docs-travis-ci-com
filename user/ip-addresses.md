@@ -23,7 +23,8 @@ here](https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_n
 We recommend using one of the other infrastructures if you need static IP
 addresses.
 
-Note that these ranges can change in the future.
+Note that these ranges can change in the future, and that the IP addresses used
+for [notifications](/user/notifications) are different.
 
 More details about our different infrastructures are available on the
 [virtualization environments

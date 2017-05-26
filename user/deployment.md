@@ -30,7 +30,7 @@ Deploying to multiple providers is possible by adding the different providers
 to the `deploy` section as a list. For example, if you want to deploy to both
 cloudControl and Heroku, your `deploy` section would look something like this:
 
-```
+```yaml
 deploy:
   - provider: cloudcontrol
     email: "YOUR CLOUDCONTROL EMAIL"
@@ -44,7 +44,7 @@ deploy:
 
 Deployment can be controlled by setting the `on:` for each deployment provider.
 
-```
+```yaml
 deploy:
   provider: s3
   access_key_id: "YOUR AWS ACCESS KEY"
@@ -61,7 +61,7 @@ provider will be performed.
 
 Common options are:
 
-1. **`repo`** Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+1. **`repo`** Slug of your repository (in form: `owner_name/repo_name`, e.g., `travis-ci/dpl`).
 
 2. **`branch`** Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
    `all_branches: true` *instead of* `branch: **` and use other conditions to control your deployment.
@@ -80,7 +80,7 @@ Common options are:
 
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
-```
+```yaml
 deploy:
   provider: appfog
   user: ...
@@ -92,7 +92,7 @@ deploy:
 
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
-```
+```yaml
 deploy:
   provider: s3
   access_key_id: "YOUR AWS ACCESS KEY"
@@ -105,7 +105,7 @@ deploy:
 
 This example deploys to GitHub Releases when a tag is set and the Ruby version is 2.0.0.
 
-```
+```yaml
 deploy:
   provider: releases
   api_key: "GITHUB OAUTH TOKEN"
@@ -122,7 +122,7 @@ We are working on adding support for other PaaS providers. If you host your appl
 
 If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl) make sure you use the edge version from GitHub:
 
-```
+```yaml
 deploy:
   provider: awesome-experimental-provider
   edge: true

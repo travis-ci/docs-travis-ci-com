@@ -77,7 +77,7 @@ You can configure this in [Repository Settings](https://docs.travis-ci.com/user/
 ```yaml
 env:
   global:
-    - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+    - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
 
 ## Uploading Multiple Files
@@ -128,3 +128,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+## Pushing a specific directory
+
+* `local_dir`: Directory to push to GitHub Releases, defaults to the current
+    directory

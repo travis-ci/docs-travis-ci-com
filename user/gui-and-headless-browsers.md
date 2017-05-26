@@ -51,8 +51,9 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 ## Using xvfb to Run Tests That Require a GUI
 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
-Virtual Framebuffer) to imitate a display. If you need a browser, Firefox is
-installed on all Travis CI environments.
+Virtual Framebuffer) to imitate a display. If you need a browser, you can use
+Firefox (either with the pre-installed version, or the [addon](/user/firefox))
+or Google Chorme (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
@@ -102,6 +103,43 @@ If you need web server to be listening on port 80, remember to use `sudo` (Linux
 Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
 </div>
 
+
+### Using the [Chrome addon](/user/chrome) in the headless mode
+
+Starting with version 57 for Linux Trusty and version 59 on OS X, Google Chrome can be used in "headless"
+mode, which is suitable for driving browser-based tests using Selenium and other tools.
+
+> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on OS X builds.
+
+For example, on Linux
+
+```yaml
+dist: trusty
+addons:
+  chrome: stable
+before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
+  ⋮
+```
+
+On OS X:
+
+```yaml
+language: objective-c
+addons:
+  chrome: beta
+before_install:
+  - # start your web application and listen on `localhost`
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost"
+  ⋮
+```
+
+#### Documentation
+
+* [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
+* [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
+
 ## Using PhantomJS
 
 [PhantomJS](http://phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
@@ -129,7 +167,7 @@ If you need a web server to serve the tests, see the previous section.
 
 Here's an example rake task that runs Rspec, Jasmine, and Cucumber tests:
 
-```
+```ruby
 task :travis do
   ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
     puts "Starting to run #{cmd}..."
@@ -149,7 +187,7 @@ If your test suite handles a modal dialog popup, for example, [a redirect to ano
 
 This can be fixed by applying a custom Firefox profile with the option turned off: (example is in Ruby using Capybara)
 
-```
+```ruby
 Capybara.register_driver :selenium do |app|
 
   custom_profile = Selenium::WebDriver::Firefox::Profile.new
@@ -171,7 +209,7 @@ WARN [Firefox 31.0.0 (Linux)]: Disconnected (1 times), because no message in 100
 
 In that case, you should increase the browser inactivity timeout to a higher value in `karma.conf.js`, e.g.:
 
-```
+```js
 browserNoActivityTimeout: 30000,
 ```
 

@@ -139,23 +139,23 @@ addons:
 The following versions are available on Linux builds:
 
 | PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
-| :--------: | :------------------: | :-----------------: | :---------------: | :--------------: |
-|     9.1    |          yes         |                     |        yes        |                  |
-|     9.2    |          yes         |         yes         |        yes        |        yes       |
-|     9.3    |          yes         |         yes         |        yes        |        yes       |
-|     9.4    |          yes         |         yes         |        yes        |        yes       |
-|     9.5    |          yes         |         yes         |                   |        yes       |
-|     9.6    |                      |         yes         |                   |        yes       |
+|:----------:|:--------------------:|:-------------------:|:-----------------:|:----------------:|
+|    9.1     |         yes          |                     |        yes        |                  |
+|    9.2     |         yes          |         yes         |        yes        |       yes        |
+|    9.3     |         yes          |         yes         |        yes        |       yes        |
+|    9.4     |         yes          |         yes         |        yes        |       yes        |
+|    9.5     |         yes          |         yes         |                   |       yes        |
+|    9.6     |                      |         yes         |                   |       yes        |
 
 On OSX, the following versions are installed:
 
 |     image     | version |
-| :-----------: | :-----: |
+|:-------------:|:-------:|
 |    xcode61    |   9.3   |
 | beta-xcode6.1 |   9.3   |
-|    xcode6.4   |   9.4   |
-|    xcode7.3   |   9.5   |
-|     xcode8    |   9.5   |
+|   xcode6.4    |   9.4   |
+|   xcode7.3    |   9.5   |
+|    xcode8     |   9.5   |
 
 ### Using PostGIS
 
@@ -433,6 +433,22 @@ We advise verifying the validity of the download URL [on ElasticSearch's website
 
 > `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
 
+### Installing ElasticSearch on trusty container-based infrastructure
+
+ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/trusty-ci-environment/)
+but you can install it by adding the following steps to your `.travis.yml`.
+
+```yaml
+env:
+  - ES_VERSION=5.1.1 ES_DOWNLOAD_URL=https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz
+install:
+  - wget ${ES_DOWNLOAD_URL}
+  - tar -xzf elasticsearch-${ES_VERSION}.tar.gz
+  - ./elasticsearch-${ES_VERSION}/bin/elasticsearch &
+script:
+  - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
+```
+
 ### Truncated Output in the Build Log
 
 When ElasticSearch starts, you may see a truncated error message such as:
@@ -469,11 +485,11 @@ When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
 If you need to run multiple builds using different databases, you can configure environment variables
 and a `before_script` or `before_install` line to create a build matrix.
 
-### Using environemnt variables and a before_script step
+### Using environment variables and a before_script step
 
 Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
-```sh
+```bash
 DB=postgres [commands to run your tests]
 ```
 

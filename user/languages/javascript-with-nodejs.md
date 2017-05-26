@@ -38,7 +38,7 @@ Optionally, your repository can contain a `.nvmrc` file in the repository root
 to specify which *single* version of Node.js to run your tests against.
 
 The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files
-does *not* specify a nodjs version. When the `.nvmrc` file is read,
+does *not* specify a nodejs version. When the `.nvmrc` file is read,
 `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm
 documentation](https://github.com/creationix/nvm#usage) for more information on
 `.nvmrc`.
@@ -85,6 +85,18 @@ npm install
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
 
+#### Caching with `npm`
+
+Travis CI is able to cache the `node_modules` folder:
+
+```yaml
+cache:
+  directories:
+    - "node_modules"
+```
+
+`npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
+
 ### Travis CI supports yarn
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
@@ -100,12 +112,6 @@ yarn
 Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
 instead.
-
-If for some reason you want to disable Yarn despite the presence of `yarn.lock` file and the Node version is 4 or later, you need to manually set the `install` step to use `npm install` instead.
-
-```
-install: npm install
-```
 
 #### Caching with `yarn`
 

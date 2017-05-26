@@ -31,7 +31,7 @@ If your CodeDeploy application lives in any region other than `us-east-1` please
 
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```
+```bash
 travis encrypt --add deploy.secret_access_key
 ```
 
@@ -39,8 +39,8 @@ You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup codedeploy
+```bash
+travis setup codedeploy
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.

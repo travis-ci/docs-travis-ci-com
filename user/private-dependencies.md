@@ -17,7 +17,7 @@ If the dependency is also on GitHub, there are four different ways of being able
 | **[Password](#Password)**     | HTTPS    | all repos user has access to | password can be encrypted           |
 | **[API token](#API-Token)**   | HTTPS    | all repos user has access to | token can be encrypted              |
 
-For the SSH protocol, dependency URLs need to have the format of `git@github.com/…` whereas for the HTTPS protocol, they need to start with `https://…`.
+> For the SSH protocol, dependency URLs need to have the format of `git@github.com/…` whereas for the HTTPS protocol, they need to start with `https://…`.
 
 You can use a [dedicated CI user account](#Dedicated-User-Account) for all but the deploy key approach. This will allow you to limit the access to a well defined list of repositories and read access only.
 

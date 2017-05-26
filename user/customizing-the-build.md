@@ -54,7 +54,7 @@ The default dependency installation commands depend on the project language. For
 
 You can specify your own script to run to install whatever dependencies your project requires in `.travis.yml`:
 
-```
+```yaml
 install: ./install-dependencies.sh
 ```
 
@@ -218,9 +218,26 @@ each repository.
 
 Or using the command line client:
 
-```sh
+```bash
 $ travis settings maximum_number_of_builds --set 1
 ```
+
+## Building only the latest commit
+
+If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
+
+The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
+
+* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+
+* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+
+![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
+
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:  
+
+![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
+
 
 ## Git Clone Depth
 
@@ -233,6 +250,17 @@ You can set the depth in `.travis.yml`:
 ```yml
 git:
   depth: 3
+```
+
+## Git LFS Skip Smudge
+
+You can disable the download of LFS objects when cloning ([`git lfs smudge
+--skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
+by setting the following in `.travis.yml`:
+
+``` yml
+git:
+  lfs_skip_smudge: true
 ```
 
 ## Building Specific Branches
@@ -288,7 +316,7 @@ branches and tags that start with `deploy-` in any combination of cases.
 
 ## Skipping a build
 
-If you don't want to run a build for a particular commit any reason add `[ci skip]` or `[skip ci]` to the git commit message.
+If you don't want to run a build for a particular commit for any reason, add `[ci skip]` or `[skip ci]` to the git commit message.
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
@@ -527,7 +555,7 @@ The script can be a part of your repository and can easily be called from the `.
 
 Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
 
-```sh
+```bash
 #!/bin/bash
 set -ev
 bundle exec rake:units
