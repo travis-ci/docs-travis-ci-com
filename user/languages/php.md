@@ -81,11 +81,13 @@ php:
   - hhvm-nightly
 ```
 
-## Default Test Script
+## Default Test Script (PHPUnit)
 
-The default test script is `phpunit`.
+The default test script is PHPUnit. It comes packaged with PHP, but you can also
+install a specific version in a custom location. If you do install it
+separately, make sure you invoke the correct version by using the full path.
 
-Travis CI looks for `phpunit` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
+Travis CI looks for `phpunit` in the [same order as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-)
 and uses the first one found.
 
 1. `$COMPOSER_BIN_DIR/phpunit`
@@ -93,7 +95,7 @@ and uses the first one found.
 1. `vendor/bin/phpunit`
 1. `phpunit`, which is found on `$PATH` (typically one that is pre-packaged with the PHP runtime)
 
-If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/customizing-the-build/) you want.
+If your project uses something other than PHPUnit, you can [override the default test command](/user/customizing-the-build/).
 
 ### Working with atoum
 
