@@ -190,12 +190,6 @@ or
 osx_image: xcode8.2
 ```
 
-or
-
-```yaml
-osx_image: xcode8.3
-```
-
 The following lines in your build log possibly indicate an occurence of this issue:
 
 **Example: Signing**
@@ -273,29 +267,6 @@ If you are using [Fastlane](https://fastlane.tools/) to sign your app (e.g. with
       keychain_password: ENV["MATCH_PASSWORD"],
       readonly: true
     )
-```
-
-If you are using `import_certificate` directly to import your certificates, it's mandatory to pass your keychain's password as a parameter e.g.
-
-```
-keychain_name = "ios-build.keychain"
-keychain_password = SecureRandom.base64
-
-create_keychain(
-    name: keychain_name,
-    password: keychain_password,
-    default_keychain: true,
-    unlock: true,
-    timeout: 3600,
-    add_to_search_list: true
-)
-
-import_certificate(
-    certificate_path: "fastlane/Certificates/dist.p12",
-    certificate_password: ENV["KEY_PASSWORD"],
-    keychain_name: keychain_name
-    keychain_password: keychain_password
-)
 ```
 
 You can also have more details in [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791) starting at [this comment](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904).
