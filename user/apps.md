@@ -32,16 +32,6 @@ Our official web interface, written in [Ember.js](http://www.emberjs.com)
 - [travis-ci.com](https://travis-ci.org)
 - [source code](https://github.com/travis-ci/travis-web)
 
-### Mantis CI (web)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Web client optimized for mobile use<br>
-By Hari Menon
-
-- [application](http://floydpink.github.io/Mantis-CI-www/)
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [source code](https://github.com/floydpink/Mantis-CI-www)
 
 ## Dashboards
 
@@ -141,17 +131,6 @@ By Fabio Menegazzo
 
 ## Android
 
-### Mantis CI (Android)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Android version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [play store](https://play.google.com/store/apps/details?id=com.floydpink.android.travisci)
-- [source code](https://github.com/floydpink/Mantis-CI)
-
 ### Comrade Travis
 
 ![Comrade Travis](/images/apps/comradetravis.jpg){:.app}
@@ -182,16 +161,6 @@ By NinjaConcept GmbH
 
 - [app store](https://itunes.apple.com/us/app/jarvis/id846922611)
 
-### Mantis CI (iOS)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-iOS version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [app store](https://itunes.apple.com/us/app/travis-ci-mobile/id665742482)
-- [source code](https://github.com/floydpink/Mantis-CI-iOS)
 
 ### Project Monitor
 
@@ -334,15 +303,6 @@ Display build status in your terminal<br>
 By Jiri Pospisil
 
 - [website](https://github.com/mekishizufu/bickle#readme)
-
-### Travis Inside
-
-![travis-inside](/images/apps/travis-inside.jpg){:.app}
-
-Check the build status from your terminal<br>
-By Benjamin Reed
-
-- [website](https://github.com/codeblooded/travis-inside#readme)
 
 ### Travis Surveillance
 

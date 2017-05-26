@@ -224,9 +224,6 @@ $ travis settings maximum_number_of_builds --set 1
 
 ## Building only the latest commit
 
-> BETA Build auto-cancellation. Please give us feedback on this new feature on [GitHub](https://github.com/travis-ci/beta-features/issues/8)
-{: .beta}
-
 If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
@@ -253,6 +250,17 @@ You can set the depth in `.travis.yml`:
 ```yml
 git:
   depth: 3
+```
+
+## Git LFS Skip Smudge
+
+You can disable the download of LFS objects when cloning ([`git lfs smudge
+--skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
+by setting the following in `.travis.yml`:
+
+``` yml
+git:
+  lfs_skip_smudge: true
 ```
 
 ## Building Specific Branches

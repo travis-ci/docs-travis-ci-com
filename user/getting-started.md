@@ -116,7 +116,9 @@ Travis CI isn't just for running tests, there are many others things you can do 
 Read more about
 
 * [customizing your build](/user/customizing-the-build)
+* [security best practices](/user/best-practices-security/)
 * [build stages](/user/build-stages/)
 * [build matrixes](/user/customizing-the-build/#Build-Matrix)
 * [installing dependencies](/user/installing-dependencies)
 * [setting up databases](/user/database-setup/)
+

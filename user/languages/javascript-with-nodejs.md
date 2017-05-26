@@ -38,7 +38,7 @@ Optionally, your repository can contain a `.nvmrc` file in the repository root
 to specify which *single* version of Node.js to run your tests against.
 
 The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files
-does *not* specify a nodjs version. When the `.nvmrc` file is read,
+does *not* specify a nodejs version. When the `.nvmrc` file is read,
 `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm
 documentation](https://github.com/creationix/nvm#usage) for more information on
 `.nvmrc`.

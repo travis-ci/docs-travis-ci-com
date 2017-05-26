@@ -22,7 +22,15 @@ Then install dependencies:
 bundle install --binstubs
 ```
 
-In order to run a local Web server that will serve documentation site, run:
+In order to run a local Web server that will serve documentation site, first generate files:
+
+```bash
+export LANGUAGE_FILE_JSON=https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json
+curl -O -sfSL $LANGUAGE_FILE_JSON
+erb -r json user/common-build-problems.md.erb | tee user/common-build-problems.md
+```
+
+then run Jekyll server:
 
 ```bash
 ./bin/jekyll serve

@@ -10,6 +10,7 @@ branches:
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
+    - LANGUAGE_FILE_JSON=https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json
 cache:
   pip: true
   directories:
@@ -20,6 +21,7 @@ deploy:
   api_key:
     secure: fkfayYzRdc0uh9iZeQKzC5/J3cKhVnyrkLRYSJmhixWtBHt87g7yzR1kGgsOce7OjqZ42bRn5W/gxyaDIUa+UMrt7RgURPASLy3rpm5wkk3iK2csvJaCixKcodI8UTXn7kRjYkrpQYcfvO1/25AnKBQKveobxSSAN3BQ3hERe5E=
   app: docs-travis-ci-com
+  skip_cleanup: true
   on:
     branch: gh-pages
 notifications:
@@ -29,12 +31,9 @@ notifications:
     on_success: never
 install:
   - bundle install --deployment
-  - pip install --upgrade pip
-  - pip install coala-bears
-  - npm install remark-cli@2
-  - npm install -g alex
 before_script:
   - rvm use 2.3.1 --install
+  - curl -O -sfSL $LANGUAGE_FILE_JSON
+  - erb -r json user/common-build-problems.md.erb | tee user/common-build-problems.md
 script:
   - bundle exec rake test
-  - coala --non-interactive Language

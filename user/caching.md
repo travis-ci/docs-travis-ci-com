@@ -9,7 +9,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build pushes* to
+**To use the caching feature**, in your repository settings, set *Build branch updates* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
@@ -235,7 +235,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
@@ -373,7 +373,23 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
-## How does caching work?
+## Caches and read permissions
+
+When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+ensure that the locations you specify are readable and writable by the user.
+
+If they are not, the caching utility reports errors when it
+invokes `tar` to create the cache archive.
+
+For example:
+
+```
+FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+```
+
+## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
 them to S3, using a secure and protected URL, ensuring security and privacy of
