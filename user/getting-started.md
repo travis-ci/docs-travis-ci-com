@@ -42,20 +42,32 @@ Use one of these common languages:
 
 ```yaml
 language: ruby
+```
+
+```yaml
 language: java
+```
+
+```yaml
 language: node_js
-language: android
+```
+
+```yaml
+language: python
+```
+
+```yaml
 language: php
 ```
 
 Or pick one from the [full list](/user/languages/).
 
-## Selecting infrastructure
+## Selecting infrastructure (optional)
 
 The most straightforward way to determine what infrastructure your build runs on
 is to set the `language`. If you do this your build runs on the default
 infrastructure (with a few exceptions), which is Container Based Ubuntu 12.04.
-You can do this explicitly by adding `sudo: false` to your `.travis.yml`.
+You can explicitly select the default infrastructure by adding `sudo: false` to your `.travis.yml`.
 
 * If you need a more up-to-date version of Ubuntu on the same infrastructure, use
 the beta of Ubuntu Linux Trusty 14.04:
@@ -87,24 +99,24 @@ Objective-C, use our OSX environment:
   os: osx
   ```
 
-  > You do *not* necessarily need to use macOS if you develop on a Mac, only if
+  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
   > you need Swift, Objective-C or other macOS software.
 
 ## After running tests
 
 After a succesful build there are many things you can do with the results of your code:
 
-* upload pages websites or documentation
-* run apps on Heroku
-* upload RubyGems
-* send notifications
+* deploy to [GitHub pages](/user/deployment/pages/)
+* run apps on [Heroku](/user/deployment/heroku/)
+* upload [RubyGems](/user/deployment/rubygems/)
+* send [notifications](/user/notifications/)
 
 ## Further Reading
 
 Read more about
 
 * [customizing your build](/user/customizing-the-build)
-* build stages
+* [build stages](/user/build-stages/)
+* [build matrixes](/user/customizing-the-build/#Build-Matrix)
 * [installing dependencies](/user/installing-dependencies)
 * [setting up databases](/user/database-setup/)
-* build matrixes
