@@ -245,11 +245,20 @@ Travis CI clones repositories to a depth of 50 commits, which is only really use
 
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
-You can set the depth in `.travis.yml`:
+You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml`:
 
-```yml
+```yaml
 git:
   depth: 3
+```
+
+## Git Submodules
+
+Travis CI clones git submodules by default, to avoid this set:
+
+```yaml
+git:
+  submodules: false
 ```
 
 ## Git LFS Skip Smudge
