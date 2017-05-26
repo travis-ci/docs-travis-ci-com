@@ -531,15 +531,8 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
-* [Knapsack](https://github.com/ArturT/knapsack) - deterministic test suite split.
+* [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
 
-  <br>
-  A ruby gem for that will automatically divide your tests between parallel jobs, as well as making sure each job runs in comparable time. Supports RSpec, Cucumber, Minitest, Spinach and Turnip.
-
-* [Knapsack Pro](https://github.com/KnapsackPro/knapsack_pro-ruby) - dynamic optimal test suite split.
-
-  <br>
-  Is more advanced version of knapsack gem. Knapsack Pro has automated recording of tests time execution across branches, commits and it can distribute tests across parallel jobs with predetermine split (regular mode) or in a dynamic way (queue mode) to get most optimal test suite split.
 
 ## JavaScript
 
