@@ -5,8 +5,8 @@ require 'rack-ssl-enforcer'
 use Rack::SslEnforcer, :except_environments => 'development'
 
 app = Rack::Builder.app do
-  map '/update_doc_webhook_payload' do
-    run Handler.new
+  map '/update_webhook_payload_doc' do
+    run WebhookPayloadDocHandler.new
   end
 
   run Rack::Jekyll.new

@@ -2,7 +2,7 @@ require 'net/http'
 require 'base64'
 require 'openssl'
 
-class Handler
+class WebhookPayloadDocHandler
   def call(env)
     req = Rack::Request.new(env)
     res = Rack::Response.new(["Not found"], 404)
