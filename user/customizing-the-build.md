@@ -254,20 +254,11 @@ git:
 
 ## Git Submodules
 
-Travis CI clones git submodules by default, to avoid this, set:
+Travis CI clones git submodules by default, to avoid this set:
 
 ```yaml
 git:
   submodules: false
-```
-
-## Cloning Large Git Repositories
-
-If you have a large git repository without submodules, and won't be performing any git operations, you can speed up the clone using the tarball strategy:
-
-```yaml
-git:
-  strategy: 'tarball'
 ```
 
 ## Git LFS Skip Smudge
