@@ -404,7 +404,7 @@ By excellenteasy
 
 ## Mozilla Firefox
 
-### Github+Travis
+### GitHub+Travis
 
 ![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
 
