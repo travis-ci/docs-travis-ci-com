@@ -8,7 +8,7 @@ permalink: /user/running-build-in-debug-mode/
 
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
-the Travis CI build environment, you can restart builds in the debug mode
+the Travis CI build environment, you can restart builds in debug mode
 to get shell access to the virtual machine or container.
 
 ## Restarting a job in debug mode
