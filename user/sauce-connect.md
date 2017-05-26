@@ -10,7 +10,7 @@ mobile testing platform. It integrates well with Selenium, for instance.
 The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
-Note that due to security restrictions, the Sauce Labs addon is not available on pull 
+Note that due to security restrictions, the Sauce Labs addon is not available on pull
 request builds unless you use the [JWT Addon](../jwt).
 
 ## Setting up Sauce Connect
@@ -99,7 +99,7 @@ supported parameters are
 - `tunnel_domains`
 
 As an example, you may need `--direct-domains` option in case [some HTTPS domains
-fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/articles/2005359-some-https-sites-don-t-work-correctly-under-sauce-connect):
+fail to work with Sauce Connect](https://support.saucelabs.com/hc/en-us/articles/225267468--Bad-Gateway-or-Security-Warnings-When-Using-Sauce-Connect-for-Testing-Web-Applications-over-HTTPS):
 
 ```yaml
 addons:

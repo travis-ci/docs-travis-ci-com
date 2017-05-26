@@ -53,7 +53,8 @@ This means that secret you are encrypting should not cause errors when `bash` pa
 Having incomplete data will cause `bash` to dump the error statement to the log, which
 contains portions of your sensitive data.
 
-Thus, you need to escape symbols such as braces, parentheses, backslashes, and pipe symbols.
+Thus, you need to escape [special characters](http://www.tldp.org/LDP/abs/html/special-chars.html)
+such as braces, parentheses, backslashes, and pipe symbols.
 For example, when you want to assign the string `6&a(5!1Ab\` to `FOO`, you need to execute:
 
 ```bash
@@ -76,7 +77,7 @@ The entry should be in this format:
 
 ```yaml
 notifications:
-  campfire: 
+  campfire:
     rooms: [subdomain]:[api token]@[room id]
 ```
 

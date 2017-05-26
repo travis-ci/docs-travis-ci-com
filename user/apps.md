@@ -11,7 +11,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 - **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python)
+- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -32,16 +32,6 @@ Our official web interface, written in [Ember.js](http://www.emberjs.com)
 - [travis-ci.com](https://travis-ci.org)
 - [source code](https://github.com/travis-ci/travis-web)
 
-### Mantis CI (web)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Web client optimized for mobile use<br>
-By Hari Menon
-
-- [application](http://floydpink.github.io/Mantis-CI-www/)
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [source code](https://github.com/floydpink/Mantis-CI-www)
 
 ## Dashboards
 
@@ -141,17 +131,6 @@ By Fabio Menegazzo
 
 ## Android
 
-### Mantis CI (Android)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Android version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [play store](https://play.google.com/store/apps/details?id=com.floydpink.android.travisci)
-- [source code](https://github.com/floydpink/Mantis-CI)
-
 ### Comrade Travis
 
 ![Comrade Travis](/images/apps/comradetravis.jpg){:.app}
@@ -182,16 +161,6 @@ By NinjaConcept GmbH
 
 - [app store](https://itunes.apple.com/us/app/jarvis/id846922611)
 
-### Mantis CI (iOS)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-iOS version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [app store](https://itunes.apple.com/us/app/travis-ci-mobile/id665742482)
-- [source code](https://github.com/floydpink/Mantis-CI-iOS)
 
 ### Project Monitor
 
@@ -335,15 +304,6 @@ By Jiri Pospisil
 
 - [website](https://github.com/mekishizufu/bickle#readme)
 
-### Travis Inside
-
-![travis-inside](/images/apps/travis-inside.jpg){:.app}
-
-Check the build status from your terminal<br>
-By Benjamin Reed
-
-- [website](https://github.com/codeblooded/travis-inside#readme)
-
 ### Travis Surveillance
 
 ![travis-surveillance](/images/apps/travis-surveillance.jpg){:.app}
@@ -444,7 +404,7 @@ By excellenteasy
 
 ## Mozilla Firefox
 
-### Github+Travis
+### GitHub+Travis
 
 ![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
 
@@ -531,6 +491,8 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
+- [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
+
 
 ## JavaScript
 
@@ -548,3 +510,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## Python
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
+
+## Elixir
+
+- [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz

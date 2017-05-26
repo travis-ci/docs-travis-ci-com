@@ -10,10 +10,9 @@ This guide covers build environment and configuration topics specific to D proje
 sure to read our [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for D is currently in beta and may be removed or altered at any time. It is a
-community-supported language. If you run into any problems, please report them in the
+D is a community-supported language in Travis CI. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
 [@ibuclaw](https://github.com/ibuclaw), [@klickverbot](https://github.com/klickverbot) and
 [@MartinNowak](https://github.com/MartinNowak).

@@ -6,73 +6,42 @@ permalink: /user/languages/javascript-with-nodejs/
 
 <div id="toc"></div>
 
-This guide covers build environment and configuration topics specific to Node.js projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Node.js
+projects. Please make sure to read our [Getting Started](/user/getting-started/)
+and [general build configuration](/user/customizing-the-build/) guides first.
 
-## Choosing Node versions to test against
+## Specifying Node.js versions
 
-You can choose Node.js and io.js versions to run your tests by adding them to the `node_js` section of your  `.travis.yml`:
-
-```yaml
-language: node_js
-node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
-  - "0.6"
-  - "iojs"
-```
-
-These values are passed on to [`nvm`](https://github.com/creationix/nvm);
-newer releases not shown above may be used if `nvm` recognizes them.
-
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
-
-## Available Versions
-
-- 6.1.x
-- 6.0.x
-- 5.11.x
-- 5.10.x
-- 5.9.x
-- 5.8.x
-- 5.7.x
-- 5.6.x
-- 5.5.x
-- 5.4.x
-- 5.3.x
-- 5.2.x
-- 5.1.x
-- 5.0.x
-- 4.4.x
-- 4.3.x
-- 4.2.x
-- 4.1.x
-- 4.0.x
-- 0.12.x
-- 0.11.x
-- 0.10.x
-- 0.8.x
-- 0.6.x
-
-Use the following convenience versions:
+The easiest way to specify Node.js versions is to use one or more of the latest
+releases in your `.travis.yml`:
 
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
+- `7` latest 7.x release
 - `6` latest 6.x release
 - `5` latest 5.x release
 - `4` latest 4.x release
 
-Specifying only a major and minor version (e.g., "0.12") will run using the latest published patch release for that version. If a specific version is not needed, we encourage users to specify `node` and/or `iojs` to run using the latest stable releases. [nvm](https://github.com/creationix/nvm) handles version resolution, so any version or [alias](https://github.com/creationix/nvm#usage) of Node.js or io.js that nvm can install is available.
+```yaml
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+```
 
-If the version of Node.js cannot be used (because `nvm` cannot install it, and a suitable version is not locally installed), the job will error immediately.
+We also have many more [versions of
+Node.js](/user/languages/javascript-with-nodejs/#Even-more-Nodejs-versions).
 
-For example, see [hook.io-amqp-listener .travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
+## Specifying Node.js versions using .nvmrc
 
-### Using `.nvmrc`
+Optionally, your repository can contain a `.nvmrc` file in the repository root
+to specify which *single* version of Node.js to run your tests against.
 
-Optionally, your repository can contain a `.nvmrc` file in the repository root to specify which *single* version of Node.js to run your tests against.
-
-The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files does *not* specify a nodjs version. When the `.nvmrc` file is read, `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm documentation](https://github.com/creationix/nvm#usage) for more information on `.nvmrc`.
+The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files
+does *not* specify a nodejs version. When the `.nvmrc` file is read,
+`$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm
+documentation](https://github.com/creationix/nvm#usage) for more information on
+`.nvmrc`.
 
 ## Default Test Script
 
@@ -84,7 +53,8 @@ npm test
 
 ### Using other Test Suites
 
-You can tell npm how to run your test suite by adding a line in `package.json`. For example, to test using Vows:
+You can tell npm how to run your test suite by adding a line in `package.json`.
+For example, to test using Vows:
 
 ```json
 "scripts": {
@@ -115,6 +85,18 @@ npm install
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
 
+#### Caching with `npm`
+
+Travis CI is able to cache the `node_modules` folder:
+
+```yaml
+cache:
+  directories:
+    - "node_modules"
+```
+
+`npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
+
 ### Travis CI supports yarn
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
@@ -131,15 +113,9 @@ Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
 instead.
 
-If for some reason you want to disable Yarn despite the presence of `yarn.lock` file and the Node version is 4 or later, you need to manually set the `install` step to use `npm install` instead.
-
-```
-install: npm install
-```
-
 #### Caching with `yarn`
 
-You can cache `$HOME/.yarn-cache` with:
+You can cache `$HOME/.cache/yarn` with:
 
 ```yaml
 cache: yarn
@@ -173,7 +149,7 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - "0.12"
+  - "7"
 env:
     - EMBER_VERSION=default
     - EMBER_VERSION=release
@@ -214,7 +190,7 @@ You can build your Meteor Apps on Travis CI and test against
 ```yaml
 language: node_js
 node_js:
-  - "0.12"
+  - "7"
 before_install:
   - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
 services:
@@ -234,7 +210,7 @@ The following `before_install` script installs the required dependencies:
 ```yaml
 language: node_js
 node_js:
-  - "0.12"
+  - "7"
 before_install:
   - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
 before_script:
@@ -247,6 +223,52 @@ Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/t
 
 For JavaScript/Node.js projects, `env` and `node_js` can be used as arrays
 to construct a build matrix.
+
+## Even more Nodejs versions
+
+If you need more specific control of Node.js version in your build, use any of
+the following available versions. Releases not shown in this list may be used if
+`nvm` can install them.
+
+- 7.7.x
+- 6.1.x
+- 6.0.x
+- 5.11.x
+- 5.10.x
+- 5.9.x
+- 5.8.x
+- 5.7.x
+- 5.6.x
+- 5.5.x
+- 5.4.x
+- 5.3.x
+- 5.2.x
+- 5.1.x
+- 5.0.x
+- 4.4.x
+- 4.3.x
+- 4.2.x
+- 4.1.x
+- 4.0.x
+- 0.12.x
+- 0.11.x
+- 0.10.x
+- 0.8.x
+- 0.6.x
+{: .column-3}
+
+Specifying only a major (e.g., "7") or major.minor version (e.g., "7.7") will run using the
+latest published patch release for that version such as "7.7.1".
+[nvm](https://github.com/creationix/nvm) handles version resolution, so any
+version or [alias](https://github.com/creationix/nvm#usage) of Node.js or io.js
+that nvm can install is available.
+
+If your `.travis.yml` specifies a version of Node.js that `nvm` cannot install,
+the job errors immediately. For example, see [hook.io-amqp-listener
+.travis.yml](https://github.com/scottyapp/hook.io-amqp-listener/blob/master/.travis.yml).
+
+For precise versions pre-installed on the VM, please consult "Build system
+information" in the build log.
 
 ## Node.js v4 (or io.js v3) compiler requirements
 

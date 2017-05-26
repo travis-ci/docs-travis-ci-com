@@ -8,18 +8,37 @@ Travis CI can automatically release your Python package to [PyPI](https://pypi.p
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: pypi
   user: "Your username"
   password: "Your password"
 ```
 
+However, this exposes your PyPI password to the world. We recommend you
+encrypt your password using the Travis CI command line client:
+
+```bash
+travis encrypt --add deploy.password
+```
+
+This prompts you to enter the password, and prints an encrypted version
+of it which you should put in your ``.travis.yml`` file as described
+under [Encrypting Sensitive Data](/user/encryption-keys/):
+
+```yaml
+deploy:
+  provider: pypi
+  user: "Your username"
+  password:
+    secure: "Your encrypted password"
+```
+
 Most likely, you would only want to deploy to PyPI when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
 commits, like so:
 
-```
+```yaml
 deploy:
   provider: pypi
   user: ...
@@ -30,18 +49,10 @@ deploy:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-Assuming you have the Travis CI command line client installed, you can encrypt your password like this:
-
-```
-travis encrypt --add deploy.password
-```
-
-You will be prompted to enter your password on the command line.
-
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup pypi
+```bash
+travis setup pypi
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
@@ -50,7 +61,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 You can explicitly specify the branch to release from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: pypi
   user: ...
@@ -61,7 +72,7 @@ deploy:
 
 Alternatively, you can also configure Travis CI to release from all branches:
 
-```
+```yaml
 deploy:
   provider: pypi
   api_key: ...
@@ -77,7 +88,7 @@ Builds triggered from Pull Requests will never trigger a release.
 
 If you wish to release to a different index you can do so:
 
-```
+```yaml
 deploy:
       provider: pypi
       user: ...

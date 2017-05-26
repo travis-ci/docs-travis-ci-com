@@ -14,7 +14,7 @@ Python builds are not available on the OSX environment.
 
 ## Choosing Python versions to test against
 
-Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, as well as recent development versions.
+Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
 
 ```yaml
 language: python
@@ -26,7 +26,9 @@ python:
   - "3.4"
   - "3.5"
   - "3.5-dev" # 3.5 development branch
+  - "3.6"
   - "3.6-dev" # 3.6 development branch
+  - "3.7-dev" # 3.7 development branch
   - "nightly" # currently points to 3.7-dev
 # command to install dependencies
 install: "pip install -r requirements.txt"
@@ -59,7 +61,6 @@ python:
   - "3.3"
   - "3.4"
   # PyPy versions
-  - "pypy"
   - "pypy"  # PyPy2 2.5.0
   - "pypy3" # Pypy3 2.4.0
   - "pypy-5.3.1"
@@ -104,8 +105,7 @@ By default Travis CI uses `pip` to manage python dependencies. If you have a
 `requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
 during the `install` phase of the build.
 
-Note: If you're running in the container-based infrastructure without access to
-`sudo` you need to install dependencies in the home directory instead:
+You can manually override this default `install` phase, for example:
 
 ```yaml
 install: pip install --user -r requirements.txt
@@ -135,7 +135,7 @@ env:
   - DJANGO_VERSION=1.8.2
 ```
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use DB variable value to instruct pip to install an exact version:
+and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
 
 ```yaml
 install:
@@ -165,7 +165,7 @@ to construct a build matrix.
 
 ## Examples
 
-- [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
+- [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
 - [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
 - [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)

@@ -4,6 +4,9 @@ layout: en
 permalink: /user/trusty-ci-environment/
 ---
 
+> The Trusty environment is still in BETA. Some features may change at shorter notice than our more stable environments.
+{: .beta}
+
 ## Using Trusty
 
 In order to use sudo-enabled Ubuntu Trusty, add the following to your
@@ -216,9 +219,10 @@ included** in the Trusty images, but may be installed via `apt` if necessary:
 
 - Apache Cassandra
 - CouchDB
-- ElasticSearch
 - Neo4J
 - Riak
+
+To install ElasticSearch follow the [installation instructions](/user/database-setup/#Installing-ElasticSearch-on-trusty-container-based-infrastructure).
 
 ### Firefox
 

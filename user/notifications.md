@@ -63,6 +63,17 @@ Also, consult [cipher suite names mapping](https://www.openssl.org/docs/manmaste
 
 If none of the ciphers listed above works, please open a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
 
+### Note on IP addresses
+
+All notifications that use HTTP are sent through a proxy with static IP
+addresess to ensure safelist and firewall rule stability.  The current IP
+addresses are:
+
+```
+54.173.229.200
+54.175.230.252
+```
+
 ## Configuring email notifications
 
 Specify recipients that will be notified about build results:
@@ -115,18 +126,18 @@ there, rather than to the committer and author.
 ### Changing the email address for build notifications
 
 Travis CI only sends build notifications to email addresses registered on GitHub.
-If you have multiple address registered you can set the email address for a specific
+If you have multiple addresses registered you can set the email address for a specific
  repository using `git`:
 
 > Note that this also changes the commit email address, not just the Travis CI notification settings.
 
-```sh
+```bash
 git config user.email "mynewemail@example.com"
 ```
 
 Or set the email for all of your git repositories:
 
-```sh
+```bash
 git config --global user.email "mynewemail@example.com"
 ```
 
@@ -346,15 +357,22 @@ Pull Request builds do not trigger Flowdock notifications.
 
 ## Configuring HipChat notifications
 
-Notifications can be sent to your HipChat chat rooms using the following format:
+Send notifications to your HipChat rooms using the following key in your
+`.travis.yml`:
 
 ```yaml
 notifications:
   hipchat: [api token]@[room id or name]
 ```
 
-> Note: We highly recommend you [encrypt](/user/encryption-keys/) this value if
-> your .travis.yml is stored in a public repository:
+- `api token`: token of the user you want to post the notifications as. One of
+    * API v1 token your group administrator gives you.
+    * API v2 token you manage.
+- `hostname`: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances.
+- `room id` or `name`: id or name (case-sensitive) of the room you want to notify. If your room name contains spaces then use room id.
+
+> Always [encrypt](/user/encryption-keys/) this value if
+> your `.travis.yml` is stored in a public repository:
 >
 > ```bash
 > travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
@@ -366,12 +384,6 @@ If you are running HipChat Server, specify the hostname like this instead:
 notifications:
   hipchat: [api token]@[hostname]/[room id or name]
 ```
-
-- *api token*: token of the user you want to use to post the notifications. This token can be either an API v1 token your group administrator gives you, or an API v2 token you manage.
-- *hostname*: optional, defaults to api.hipchat.com, but can be specified for HipChat Server instances
-- *room id or name*: id or name of the room you want to notify.
-
-If your room name contains spaces then use the room id.
 
 HipChat notifications support templates too, so you can customize the appearance of the notifications, e.g. reduce it to a single line:
 
@@ -423,9 +435,11 @@ with a desired label, and use this token.
 
 ### Notifications of PR builds
 
-By default, Hipchat will be notified both for push builds and pull request builds.
+By default, Hipchat will be notified both for push builds and pull request
+builds.
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `hipchat` section of your `.travis.yml`:
+Turn pull request notifications off by adding `on_pull_requests: false` to the
+`hipchat` section of your `.travis.yml`:
 
 
 ```yaml
@@ -646,6 +660,8 @@ notifications:
     on_success: change # default: always
     on_failure: always # default: always
     on_start: change   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
 ```
 
 ### Webhooks Delivery Format
@@ -669,6 +685,8 @@ Additionally a message will be present in the `status_message`/`result_message` 
 - *Broken*: The build completed in failure after a previously successful build
 - *Failed*: The build is the first build for a new branch and has failed
 - *Still Failing*: The build completed in failure after a previously failed build
+- *Canceled*: The build was canceled
+- *Errored*: The build has errored
 
 The `type` field can be used to find the event type that caused this build to
 run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull requests,
@@ -733,3 +751,6 @@ is a small Sinatra app which shows you how this works.
 
 [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
+
+[Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
+is a small webapp in Go which verifies the the hook.

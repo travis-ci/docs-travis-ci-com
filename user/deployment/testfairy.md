@@ -19,7 +19,7 @@ You can find your API key on [TestFairy settings page](https://app.testfairy.com
 
 Always encrypt your api-key. If you have the Travis CI command line client installed, run the following command in your repository directory:
 
-```console
+```bash
 $ travis encrypt "YOUR API KEY" --add deploy.api-key
 ```
 

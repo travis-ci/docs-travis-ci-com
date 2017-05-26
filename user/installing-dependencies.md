@@ -166,7 +166,7 @@ addons:
 If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
 
 ```
-Installing APT Packages (BETA)
+Installing APT Packages
 ⋮
 E: Unable to locate package libcxsparse3.1.2
 E: Couldn't find any package by regex 'libcxsparse3.1.2'
@@ -196,17 +196,28 @@ addons:
     - libcxsparse3.1.2
 ```
 
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+
 ## Installing Packages on OSX
 
 To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
 before_install:
-  - brew update
+  - brew update # see note below
   - brew install beanstalk
 ```
 
-Use `brew update` to update the local Homebrew package list.
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+
+## Installing Dependencies on Multiple Operating Systems
+
+If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+
+```yaml
+install:
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+```
 
 ## Installing Projects from Source
 

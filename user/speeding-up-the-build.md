@@ -156,7 +156,7 @@ In addition to the optimizations implemented by Travis, there are also
 several environment-specific ways you may consider increasing the speed of
 your tests.
 
-### PHP optimisations
+### PHP optimizations
 
 PHP VM images on travis-ci.org provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
@@ -180,4 +180,23 @@ before_script:
 
 script:
   - phpdbg -qrr phpunit
+```
+
+### Makefile optimization
+
+If your makefile build consists of independent parts that can be safely
+parallelized, you can [run multiple recipes
+simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
+See [Virtualization
+environments](/user/ci-environment/#Virtualization-environments) to determine
+how many CPUs an environment normally has and set the `make` job parameter to a
+similar number (or slightly higher if your build frequently waits on disk I/O).
+Note that doing this will cause concurrent recipe output to become interleaved.
+
+#### Makefile parallelization example
+
+```yaml
+env:
+  global:
+    - MAKEFLAGS="-j 2"
 ```

@@ -7,6 +7,10 @@ permalink: /user/migrating-from-legacy/
 <div id="toc">
 </div>
 
+## Outdated
+
+This document is from a switch in our default infrastructure in 2015 and may contain outdated information. 
+
 ## tl;dr
 
 Not using sudo? Containers sound cool? Add `sudo: false` to `.travis.yml` and you're set.
@@ -19,13 +23,9 @@ For more details check out the awesome information below.
 
 Your builds start in less than 10 seconds. The new infrastructure makes it much easier for us to scale CPU capacity which means your builds start in seconds.
 
-### Faster builds
-
-Most projects see an improvement in build times. We'd love to hear from you if you don't.
-
 ### More available resources
 
-The new containers have 2 dedicated cores and 4GB of memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed, which means less impact from 'noisy neighbors' on the same host machine and more consistent build times throughout the day.
+The new containers have 2 dedicated cores and 4GB maximum of shared memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed, which means less impact from 'noisy neighbors' on the same host machine and more consistent build times throughout the day.
 
 ### Better network capacity, availability and throughput
 
@@ -74,7 +74,7 @@ addons:
 ```
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result in a log message indicating how to submit sources for approval.
+[whitelist](https://github.com/travis-ci/apt-source-whitelist). If you need additional sources you must use `sudo: required`.
 
 ### Adding APT Packages
 

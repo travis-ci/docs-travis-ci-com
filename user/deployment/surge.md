@@ -47,7 +47,7 @@ It is suggested that you generate your files during the `script` step or the `be
 
 ### Branches
 
-By default, Travis CI will only deploy from your `master` branch. You can pecify what branch to deploy from with the deploy option `on`:
+By default, Travis CI will only deploy from your `master` branch. You can specify what branch to deploy from with the deploy option `on`:
 
 ```yaml
 deploy:

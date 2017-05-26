@@ -32,8 +32,6 @@ You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
 of repositories, and make sure that that access is read only.
 
-
-
 ## Deploy Key
 
 GitHub allows to set up SSH keys for a repository. These deploy keys have some great advantages:

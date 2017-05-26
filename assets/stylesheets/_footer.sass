@@ -1,50 +1,57 @@
-/*
- * Footer
- */
-
-footer
+.footer
   position: relative
   padding          : 20px 0
-  background-color : $footer-bg
+  background-color : $pebble-grey
   font-size        : 12px
   line-height      : 22px
-  color: #404650
+  color: $asphalt-grey
 
   a
-    display         : block
+    display: inline-block
     vertical-align: middle
-    color: #404650
+    color: $asphalt-grey
+    text-decoration: none
+    &:hover,
+    &:active
+      text-decoration : underline
 
-footer h3
+  ul
+    padding: 0
+    margin: 0
+    list-style: none
+
+  .inner
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+
+  .footer-elem
+    flex: 1 0 70%
+    margin-left: 1em
+  @media #{$medium-up}
+    .footer-elem
+      flex: 0 1 16%
+      margin-left: 1em
+      &:first-of-type
+        flex: 1 1 30%
+        margin-left: 0
+
+.footer-title
   font-size   : 15px
   margin  : 0 0 10px 0
   padding-top : 6px
   font-weight : 400
-  color       : $blue-grey
-  border-top  : solid 4px #ccd0d5
+  color       : $cement-grey
+  border-top  : solid 4px rgba($cement-grey, 0.15)
 
-footer .row p
-  display : inline-block
-  margin  : 0
-  line-height: 23px
-  font-size: 12px
-  color: #404650
-
-footer .row ul,
-footer .row li
-  display         : block
-  line-height     : 22px
-  padding         : 0
-  margin-top      : 0
-  list-style-type : none
-
-footer a
-  text-decoration : none
-  display         : inline-block
-
-footer a:hover,
-footer a:active
-  text-decoration : underline
+.travis-footer
+  width: 100%
+  height: 3.5rem
+  background-repeat: no-repeat
+  opacity: 0.4
+  .travis-logo
+    height: 49px
 
 .status-circle
   display      : inline-block
@@ -54,16 +61,11 @@ footer a:active
   margin-right : 5px
   border-radius: 100px
   vertical-align: middle
-
-.status-circle.none
-  background: #2fcc66
-
-.status-circle.degraded
-  background: #f1c40f
-
-.status-circle.minor
-  background: #e67e22
-
-.status-circle.major
-  background: #e74c3c
-
+  &.none
+    background: $turf-green
+  &.degraded
+    background: $dozer-yellow
+  &.minor
+    background: mix($brick-red, $dozer-yellow)
+  &.major
+    background: $brick-red
