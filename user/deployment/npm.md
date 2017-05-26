@@ -144,3 +144,15 @@ $ travis setup npm
 
 Keep in mind that the above command has to run in your project directory, so
 it can modify the `.travis.yml` for you.
+
+## Troubleshooting "npm ERR! You need a paid account to perform this action."
+
+npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are
+private by default. You can explicitly tell npm your package is a public package
+and avoid this error by adding the following to your `package.json` file:
+
+```json
+  "publishConfig": {
+    "access": "public"
+  },
+```
