@@ -11,7 +11,7 @@ significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in the debug mode
 to get shell access to the virtual machine or container.
 
-## Restarting a job in the debug mode
+## Restarting a job in debug mode
 
 > This feature is available for private repositories and those public repositories for which
 > the feature is enabled.
@@ -26,9 +26,9 @@ the build/job page.
 
 For public repositories, an API call is required, in addition to the feature being enabled.
 
-### Restarting a job in the debug mode via API
+### Restarting a job in debug mode via API
 
-To restart a job in the debug mode via API, send a `POST` request to the job's `debug` endpoint,
+To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint,
 along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
