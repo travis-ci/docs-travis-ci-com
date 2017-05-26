@@ -106,7 +106,7 @@ script:
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core). 
 
-Since .NET Core is not supported on all Linux distros, you should specify a supported Linux distro in your Travis CI configuration. Additionally, since .NET Core does not define default scripts, you should provide a script that invokes `dotnet` to build, test and publish your solution.
+Building .NET Core projects is only supported using a [Ubuntu Trusty build image](/user/trusty-ci-environment). Since .NET Core does not define default scripts, you should provide a script that invokes `dotnet` to build, test and publish your solution.
 
 ### Testing Against Mono and .NET Core
 
