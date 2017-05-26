@@ -67,7 +67,7 @@ module package manager) like so:
 ```yaml
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 this will install the latest `zef` version.
@@ -109,7 +109,7 @@ perl6:
 
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 ### Build and test with multiple Rakudo versions
@@ -123,7 +123,7 @@ perl6:
 
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 ### Build and test with the latest Rakudo, but with non-standard lib and test dirs

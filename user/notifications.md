@@ -685,6 +685,8 @@ Additionally a message will be present in the `status_message`/`result_message` 
 - *Broken*: The build completed in failure after a previously successful build
 - *Failed*: The build is the first build for a new branch and has failed
 - *Still Failing*: The build completed in failure after a previously failed build
+- *Canceled*: The build was canceled
+- *Errored*: The build has errored
 
 The `type` field can be used to find the event type that caused this build to
 run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull requests,
