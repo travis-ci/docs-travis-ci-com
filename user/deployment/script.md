@@ -53,18 +53,17 @@ deploy:
     all_branches: true
 ```
 
-## Deployment is executed by Ruby 1.9.3
+## Ruby version
 
-In order to ensure that deployments are executed reliably, we use a version of Ruby that is pre-installed on all of our build images.
+To ensure that deployments run consistently, we use the version of Ruby that is
+pre-installed on all of our build images, which may change when images are updated.
 
-Currently, this is Ruby 1.9.3.
+A side effect of this is that, if you need to run a command
+that requires a specific Ruby version, you need to set it explicitly:
 
-A side effect of this is that, if you need to execute a command
-that requires a different Ruby, you need to execute it explicitly.
-For example,
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: script
   script: rvm $TRAVIS_RUBY_VERSION do script.rb
-{% endhighlight %}
+```
