@@ -49,10 +49,9 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 
 ## Homebrew
 
-Homebrew is installed and updated every time the VMs are updated.
-Note that `brew update` can take a potentially significant amount of time to execute.
-We recommend running your build without it first, to see if the Homebrew database
-on the build image has what you need.
+Homebrew is installed and updated every time the virtual machines are updated.
+
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
 
 ### A note on upgrading packages
 

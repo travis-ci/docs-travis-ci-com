@@ -208,9 +208,7 @@ before_install:
   - brew install beanstalk
 ```
 
-Note that `brew update` can take a potentially significant amount of time to execute.
-We recommend running your build without it first, to see if the Homebrew database
-on the build image has what you need.
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
 
 ## Installing Dependencies on Multiple Operating Systems
 
