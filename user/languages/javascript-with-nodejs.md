@@ -85,6 +85,18 @@ npm install
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
 
+#### Caching with `npm`
+
+Travis CI is able to cache the `node_modules` folder:
+
+```yaml
+cache:
+  directories:
+    - "node_modules"
+```
+
+`npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
+
 ### Travis CI supports yarn
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
