@@ -82,7 +82,7 @@ android:
     - tools
 ```
 
-Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
+> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
 
 You can compile your project for Android 25 as shown in the following example:
 
