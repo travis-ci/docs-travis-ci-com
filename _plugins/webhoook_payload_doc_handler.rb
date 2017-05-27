@@ -6,7 +6,13 @@ class WebhookPayloadDocHandler
   def call(env)
     req = Rack::Request.new(env)
 
-    return res unless req.post?
+    unless req.post?
+      return Rack::Response.new(
+        [{"result" => "error", "message" => "Invalid request"}.to_json],
+        400,
+        {"Content-Type" => "application/json"}
+      )
+    end
 
     payload = JSON.load(req.body.read)['payload'].to_json
     sig = Base64.decode64 env["HTTP_SIGNATURE"]
