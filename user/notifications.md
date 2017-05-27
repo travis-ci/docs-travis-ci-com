@@ -670,7 +670,7 @@ Webhooks are delivered with a `application/x-www-form-urlencoded` content type u
 
 Here's an example of what you'll find in the `payload`:
 
-<script src="https://gist.github.com/roidrage/9272064.js"></script>
+<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js"></script>
 
 You will see one of the following values in the `status`/`result` fields that represent the state of the build.
 
