@@ -22,20 +22,20 @@ class WebhookPayloadDocHandler
 
     pkey = OpenSSL::PKey::RSA.new(public_key)
 
-    if pkey.verify(OpenSSL::Digest::SHA1.new, sig, payload)
-      # do stuff
-      Rack::Response.new(
-        [{"result" => "success", "message" => "Signature is valid"}.to_json],
-        200,
-        {"Content-Type" => "application/json"}
-      )
-    else
-      Rack::Response.new(
+    unless pkey.verify(OpenSSL::Digest::SHA1.new, sig, payload)
+      return Rack::Response.new(
         [{"result" => "error", "message" => "Signature is invalid"}.to_json],
         400,
         {"Content-Type" => "application/json"}
       )
     end
+
+    # do stuff
+    Rack::Response.new(
+      [{"result" => "success", "message" => "Signature is valid"}.to_json],
+      200,
+      {"Content-Type" => "application/json"}
+    )
   rescue
     Rack::Response.new(["Internal server error"], 500)
   end
