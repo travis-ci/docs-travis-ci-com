@@ -35,7 +35,9 @@ This will output a string looking something like:
 secure: ".... encrypted data ...."
 ```
 
-Now you can place it in the `.travis.yml` file or, add it automatically by running:
+Now you can place it in the `.travis.yml` file.
+
+You can also skip the above, and add it automatically by running:
 ```bash
 travis encrypt SOMEVAR="secretvalue" --add
 ```
