@@ -5,7 +5,6 @@ require 'openssl'
 class WebhookPayloadDocHandler
   def call(env)
     req = Rack::Request.new(env)
-    res = Rack::Response.new(["Not found"], 404)
 
     return res unless req.post?
 
@@ -19,12 +18,19 @@ class WebhookPayloadDocHandler
 
     if pkey.verify(OpenSSL::Digest::SHA1.new, sig, payload)
       # do stuff
-      res.body = ["Signature is valid"]
-      res.status = 200
+      Rack::Response.new(
+        [{"result" => "success", "message" => "Signature is valid"}.to_json],
+        200,
+        {"Content-Type" => "application/json"}
+      )
     else
-      res.body = ["Signature is invalid"]
-      res.status = 400
+      Rack::Response.new(
+        [{"result" => "error", "message" => "Signature is invalid"}.to_json],
+        400,
+        {"Content-Type" => "application/json"}
+      )
     end
-    res
+  rescue
+    Rack::Response.new(["Internal server error"], 500)
   end
 end
