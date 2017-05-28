@@ -668,7 +668,7 @@ notifications:
 
 Webhooks are delivered with a `application/x-www-form-urlencoded` content type using HTTP POST, with the body including a `payload` parameter that contains the JSON webhook payload in a URL-encoded format.
 
-Here's an example of what you'll find in the `payload`:
+Here is the payload sent to [the Travis CI documentation application](https://github.com/travis-ci/docs-travis-ci-com):
 
 <script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js"></script>
 
