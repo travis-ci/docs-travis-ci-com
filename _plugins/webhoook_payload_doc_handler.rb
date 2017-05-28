@@ -40,7 +40,7 @@ class WebhookPayloadDocHandler
       return gist_update_failure_response
     end
   rescue
-    Rack::Response.new(["Internal server error"], 500)
+    json_response(result: 'error', message: 'Internal server error', status: 500)
   end
 
   private
@@ -66,35 +66,27 @@ class WebhookPayloadDocHandler
     }.to_json
   end
 
-  def invalid_req_response
+  def json_response(result:, message:, status: 200)
     Rack::Response.new(
-      [{"result" => "error", "message" => "Invalid request"}.to_json],
-      400,
+      [{"result" => result, "message" => message}.to_json],
+      status,
       {"Content-Type" => "application/json"}
     )
+  end
+
+  def invalid_req_response
+    json_response(result: 'error', message: 'Invalid request.', status: 400)
   end
 
   def invalid_sig_response
-    Rack::Response.new(
-      [{"result" => "error", "message" => "Signature is invalid"}.to_json],
-      400,
-      {"Content-Type" => "application/json"}
-    )
+    json_response(result: 'error', message: 'Invalid signature.', status: 400)
   end
 
   def valid_sig_response
-    Rack::Response.new(
-      [{"result" => "success", "message" => "Signature is valid"}.to_json],
-      200,
-      {"Content-Type" => "application/json"}
-    )
+    json_response(result: 'success', message: 'Signature is valid.')
   end
 
   def gist_update_failure_response
-    Rack::Response.new(
-      [{"result" => "success", "message" => "Signature is valid, but gist update failed"}.to_json],
-      200,
-      {"Content-Type" => "application/json"}
-    )
+    json_response(result: 'success', message: 'Signature is valid, but gist update failed.')
   end
 end
