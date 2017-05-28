@@ -65,13 +65,13 @@ The following table summarizes the differences between the virtual environments:
 </tr>
 <tr>
 <td>File System</td>
-<td>AUFS</td>
-<td>ext4</td>
+<td>AUFS, case sensitive</td>
+<td>ext4, case sensitive</td>
 <td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
 </tr>
 <tr>
 <td>Operating System</td>
-<td>Ubuntu 12.04 LTS Server Edition 64 bit</td>
+<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
 <td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
 <td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
 </tr>
@@ -228,9 +228,19 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-- `go1`, `go1.0` → 1.0.3
-- `go1.1` → 1.1.2
+- `go1`, `go1.0` → 1.8.1
+- `go1.0` → 1.0.3
+- `go1.1.x` → 1.1.2
 - `go1.2` → 1.2.2
+- `go1.2.x` → 1.2.2
+- `go1.3.x` → 1.3.3
+- `go1.4.x` → 1.4.3
+- `go1.5.x` → 1.5.4
+- `go1.6.x` → 1.6.4
+- `go1.7.x` → 1.7.5
+- `go1.8.x` → 1.8.1
+- `go1.x` → 1.8.1
+- `go1.x.x` → 1.8.1
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 

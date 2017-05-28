@@ -34,8 +34,8 @@ android:
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
-    # - platform-tools
     # - tools
+    # - platform-tools
 
     # The BuildTools version used by your project
     - build-tools-19.1.0
@@ -69,6 +69,36 @@ android:
 ```
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
+
+### Installing a newer SDK Platform Tools revision
+
+To build your project with the SDK Platform Tools revision 24 or above, you need to define the following components in your `.travis.yml`:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+```
+
+> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
+
+You can compile your project for Android 25 as shown in the following example:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-25.0.0
+
+    # The SDK version used to compile your project
+    - android-25
+```
 
 #### Dealing with Licenses
 

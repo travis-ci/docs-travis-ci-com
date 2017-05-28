@@ -9,7 +9,7 @@ measure and monitor code quality.
 
 It keeps an eye on your [code's overall quality](https://codeclimate.com/tour),
 but it can also [track test
-coverage](https://codeclimate.com/tour/test-coverage). For that purpose, it
+coverage](https://docs.codeclimate.com/docs/getting-started-test-coverage). For that purpose, it
 integrates neatly with Travis CI.
 
 As a Travis CI customer, [you get 20% off for your first three

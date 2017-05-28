@@ -10,7 +10,7 @@ You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/
 
 Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
-```sh
+```bash
 travis setup bluemixcloudfoundry
 ```
 
@@ -37,7 +37,7 @@ You can also directly edit your `.travis.yml`. Insert the following to get up an
 
 You can do this using the Travis gem by running:
 
-```sh
+```bash
 travis encrypt --add deploy.password
 ```
 

@@ -34,7 +34,7 @@ travis setup releases
 
 ## Authenticating with an Oauth token
 
-The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+The recommended way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
 
 This results in something similar to:
 
@@ -77,7 +77,7 @@ You can configure this in [Repository Settings](https://docs.travis-ci.com/user/
 ```yaml
 env:
   global:
-    - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+    - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
 
 ## Uploading Multiple Files
@@ -97,7 +97,21 @@ deploy:
     tags: true
 ```
 
-## Conditional releases
+You can also enable wildcards by setting `file_glob` to `true`. This example
+includes all files in a given directory.
+
+```yaml
+deploy:
+  provider: releases
+  api-key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+
+### Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
@@ -114,3 +128,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+## Pushing a specific directory
+
+* `local_dir`: Directory to push to GitHub Releases, defaults to the current
+    directory

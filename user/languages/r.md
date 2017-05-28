@@ -279,6 +279,23 @@ processed in order, so entries can depend on dependencies in a previous list.
   An alternative is to add `user/repo` or `user/repo/folder` to
   the `Remotes` section of the `DESCRIPTION` file of your package
 
+### Customizing the Travis build steps
+
+For some advanced use cases, it makes sense to override the default steps used
+for building R packages. The default rules roughly amount to:
+
+```yaml
+install:
+- R -e 'devtools::install_deps(dep = T)'
+
+script:
+- R CMD build .
+- R CMD check *tar.gz
+```
+
+If you'd like to see the full details, see
+[the source code](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/r_spec.rb).
+
 ## Examples
 
 If you are using the [container based builds][container] you can take advantage
@@ -312,8 +329,13 @@ r_github_packages: user/repo
 An alternative is to add the following line to your `DESCRIPTION` file:
 
 ```yaml
+Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
+
+Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
+
 
 ### Remote package in a subdirectory
 
