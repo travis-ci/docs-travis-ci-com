@@ -55,24 +55,25 @@ Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
 or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
-### Simple
+### Less Fuss
 
-For simple cases, try wrapping your `script` call with `xvfb-run`, like so:
+`xvfb-run` is a wrapper for invoking `xvfb` so that `xvfb` can be used with
+less fuss:
 
 ```yaml
 script: xvfb-run make test
 ```
 
-To set the screen resolution, try:
+To set the screen resolution:
 
 ```yaml
 script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 ```
 
-### Complex
+### More Fuss
 
-If you can't use `xvfb-run` for some reason, try calling `xvfb` itself, in the
-`before_script` section of your `.travis.yml`:
+To use `xvfb` itself, start it in the `before_script` section of your
+`.travis.yml`:
 
 ```yaml
 before_script:
