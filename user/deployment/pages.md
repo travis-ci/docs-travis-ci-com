@@ -49,3 +49,4 @@ or via [encrypted variables in
 * `project_name`: Defaults to value of `fqdn` or repo slug, used for metadata
 * `email`: Optional, comitter info, defaults to `deploy@travis-ci.org`
 * `name`: Optional, comitter, defaults to `Deployment Bot`
+* `github_url`: Optional, the URL of the GitHub instance (Needed especially with self-hosted GitHub enterprise), defaults to `github.com`
