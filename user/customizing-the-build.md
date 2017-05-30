@@ -234,7 +234,7 @@ The *Auto Cancellation Setting* is in the Settings tab of each repository, and y
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
-For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:  
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:
 
 ![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
 
@@ -454,13 +454,15 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-#### Explicitly Included Jobs need complete definitions
+#### Explicitly Included Jobs inherits the first value in the array
 
-When including jobs, it is important to ensure that each job defines a unique value
-to any matrix dimension that the matrix defines.
+The jobs which are explicitly included inherits the first value of the expansion
+keys defined.
 
-For example, with a 3-job Python build matrix, each job in `matrix.include` must also
-have the `python` value defined:
+In this example with a 3-job Python build matrix, each job in `matrix.include`
+has the `python` value set to `'3.5'`.
+
+If this is not the desired behavior, override it in the job definition.
 
 ```yaml
 language: python
@@ -470,7 +472,7 @@ python:
   - '2.7'
 matrix:
   include:
-    - python: '3.5'
+    - python: '3.5' # this is not strictly necessary
       env: EXTRA_TESTS=true
     - python: '3.4'
       env: EXTRA_TESTS=true
