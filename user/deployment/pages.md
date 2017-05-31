@@ -19,7 +19,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  github_token: GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
 ```
