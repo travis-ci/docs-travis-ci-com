@@ -28,9 +28,16 @@ Thanks to sbt ability to perform actions against multiple Scala versions, it is 
 language: scala
 scala:
    - 2.9.3
-   - 2.10.4
-   - 2.11.2
+   - 2.10.6
+   - 2.11.11
+   - 2.12.2
 ```
+
+If using Scala 2.12.X you must override the default jdk version with the following line:
+
+``` 
+jdk: oraclejdk8
+``` 
 
 ### Default Test Command
 
