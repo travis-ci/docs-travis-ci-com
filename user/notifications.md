@@ -81,8 +81,8 @@ Specify recipients that will be notified about build results:
 ```yaml
 notifications:
   email:
-    - one@example.com
-    - other@example.com
+    - duduvillalamu@gmail.com
+    - lamutreasures@gmail.com
 ```
 
 Turn off email notifications entirely:
@@ -98,8 +98,8 @@ Specify when you want to [get notified](#Changing-notification-frequency):
 notifications:
   email:
     recipients:
-      - one@example.com
-      - other@example.com
+      - duduvillalamu@gmail.com
+      - lamutreasures@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
 ```
@@ -132,13 +132,13 @@ If you have multiple addresses registered you can set the email address for a sp
 > Note that this also changes the commit email address, not just the Travis CI notification settings.
 
 ```bash
-git config user.email "mynewemail@example.com"
+git config user.email "duduvillalamu@gmail.com"
 ```
 
 Or set the email for all of your git repositories:
 
 ```bash
-git config --global user.email "mynewemail@example.com"
+git config --global user.email "duduvillalamu@gmail.com"
 ```
 
 Note that we currently don't respect the [detailed notifications
@@ -151,7 +151,7 @@ The most common cause for not receiving build notifications, beyond not having a
 user account on Travis CI, is the use of an email address that's not registered
 and verified on GitHub. See above on how to change the email address to one
 that's registered or make sure to add the email address used in this repository
-to [your verified email addresses](https://github.com/settings/emails) on GitHub.
+to [duduvillalamu@gmail.com](https://github.com/settings/emails) on GitHub.
 
 ## Configuring IRC notifications
 
