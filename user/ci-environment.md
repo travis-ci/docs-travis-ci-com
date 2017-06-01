@@ -228,7 +228,7 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-- `go1`, `go1.0` → 1.8.1
+- `go1`, `go1.8` → 1.8.1
 - `go1.0` → 1.0.3
 - `go1.1.x` → 1.1.2
 - `go1.2` → 1.2.2
