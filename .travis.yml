@@ -6,7 +6,7 @@ python:
   - "3.5.2"
 branches:
   only:
-  - gh-pages
+  - master
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
@@ -23,7 +23,7 @@ deploy:
   skip_cleanup: true
   on:
     branch:
-    - gh-pages
+    - master
 notifications:
   slack:
     rooms:
