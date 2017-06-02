@@ -454,15 +454,14 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-#### Explicitly Included Jobs inherits the first value in the array
+#### Explicitly included jobs inherit the first value in the array
 
-The jobs which are explicitly included inherits the first value of the expansion
+The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `matrix.include`
 has the `python` value set to `'3.5'`.
-
-If this is not the desired behavior, override it in the job definition.
+You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
