@@ -33,6 +33,11 @@ notifications:
     https://docs.travis-ci.com/update_webhook_payload_doc
 install:
   - bundle install --deployment
+  - pip install --upgrade pip
+  - pip install 'setuptools==17.0'
+  - pip install coala-bears
+  - npm install remark-cli@2
+  - npm install -g alex
 before_script:
   - rvm use 2.3.1 --install
 script:
