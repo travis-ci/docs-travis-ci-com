@@ -140,12 +140,12 @@ When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
 --all`) by adding `skip_cleanup` to your `.travis.yml`:
 
-```yml
+```yaml
 deploy:
   skip_cleanup: true
 ```
 
-You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
+You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
@@ -159,7 +159,7 @@ One of the key features of Travis CI is the ease of running your test suite agai
 
 If your dependencies need native libraries to be available, you can use **passwordless sudo to install them**:
 
-```yml
+```yaml
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq [packages list]
@@ -178,7 +178,7 @@ If you need a native dependency that is not available from the official Ubuntu r
 
 If you need to install a second programming language in your current build environment, for example installing a more recent version of Ruby than the default version present in all build environments you can do so in the `before_install` stage of the build:
 
-```yml
+```yaml
 before_install:
 - rvm install 2.1.5
 ```
@@ -267,7 +267,7 @@ You can disable the download of LFS objects when cloning ([`git lfs smudge
 --skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
 by setting the following in `.travis.yml`:
 
-``` yml
+```yaml
 git:
   lfs_skip_smudge: true
 ```
@@ -280,7 +280,7 @@ Travis CI uses the `.travis.yml` file from the branch containing the git commit 
 
 Specify which branches to build using a safelist, or blocklist branches that you do not want to be built:
 
-```yml
+```yaml
 # blocklist
 branches:
   except:
@@ -300,10 +300,12 @@ If you use both a safelist and a blocklist, the safelist takes precedence. By de
 
 To build _all_ branches:
 
-    branches:
-      only:
-        - gh-pages
-        - /.*/
+```yaml
+branches:
+  only:
+  - gh-pages
+  - /.*/
+```
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
@@ -376,7 +378,7 @@ parameters, you can specify only those and omit the varying parts.
 
 Suppose you have:
 
-```yml
+```yaml
 language: ruby
 rvm:
 - 1.9.3
@@ -396,7 +398,7 @@ gemfile:
 This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` value `2.0.0` *and*
 `gemfile` value `Gemfile`, you can write:
 
-```yml
+```yaml
 matrix:
   exclude:
   - rvm: 2.0.0
@@ -405,7 +407,7 @@ matrix:
 
 Which is equivalent to:
 
-```yml
+```yaml
 matrix:
   exclude:
   - rvm: 2.0.0
@@ -579,7 +581,7 @@ The `-v` flag makes the shell print all lines in the script before executing the
 
 Assuming the script above is stored as `scripts/run-tests.sh` in your repository, and with the right permissions too (run `chmod ugo+x scripts/run-tests.sh` before checking it in), you can call it from your `.travis.yml`:
 
-```
+```yaml
 script: ./scripts/run-tests.sh
 ```
 
