@@ -89,13 +89,15 @@ You can choose from the following Mono versions:
 
 #### .NET Core
 
-By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`:
+By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`. Note that at least one `script` `<command>` is required in order to build. Using `dotnet restore` is a good default.
 
 ```yml
 language: csharp
 mono: none
-dotnet: 1.0.1
+dotnet: 1.0.3
 dist: trusty
+script:
+ - dotnet restore
 ...
 ```
 
