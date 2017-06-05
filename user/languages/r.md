@@ -294,7 +294,7 @@ script:
 ```
 
 If you'd like to see the full details, see
-[the source code](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/r_spec.rb).
+[the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
 
 ## Examples
 

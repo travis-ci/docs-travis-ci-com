@@ -6,7 +6,7 @@ python:
   - "3.5.2"
 branches:
   only:
-  - gh-pages
+  - master
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
@@ -18,12 +18,12 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: fkfayYzRdc0uh9iZeQKzC5/J3cKhVnyrkLRYSJmhixWtBHt87g7yzR1kGgsOce7OjqZ42bRn5W/gxyaDIUa+UMrt7RgURPASLy3rpm5wkk3iK2csvJaCixKcodI8UTXn7kRjYkrpQYcfvO1/25AnKBQKveobxSSAN3BQ3hERe5E=
+    secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
   app: docs-travis-ci-com
   skip_cleanup: true
   on:
     branch:
-    - gh-pages
+    - master
 notifications:
   slack:
     rooms:
