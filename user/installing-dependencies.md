@@ -196,7 +196,7 @@ addons:
     - libcxsparse3.1.2
 ```
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
 
 ## Installing Packages on OSX
 
