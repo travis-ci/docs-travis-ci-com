@@ -20,15 +20,16 @@ Or if you want a more complete guide to a particular language, pick one of these
 
 3. Add a `.travis.yml` file to your repository to tell Travis CI what to build:
 
-   ```yaml
-   language: ruby
-   rvm:
-    - 2.2
-    - jruby
-    - rbx-2
-   # uncomment and edit the following line if your project needs to run something other than `rake`:
-   # script: bundle exec rspec spec
-   ```
+```yaml
+language: ruby
+rvm:
+- 2.2
+- jruby
+- rbx-2
+# uncomment and edit the following line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
+```
+{: data-file=".travis.yml"}
 
    This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius.
 
