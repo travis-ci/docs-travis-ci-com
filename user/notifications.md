@@ -670,7 +670,7 @@ Webhooks are delivered with a `application/x-www-form-urlencoded` content type u
 
 Here is the payload sent to [the Travis CI documentation application](https://github.com/travis-ci/docs-travis-ci-com):
 
-<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js"></script>
+<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js" data-proofer-ignore></script>
 
 You will see one of the following values in the `status`/`result` fields that represent the state of the build.
 

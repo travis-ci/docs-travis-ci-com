@@ -8,7 +8,7 @@ permalink: /user/languages/php/
 
 This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-PHP builds are not available on the OSX environment.
+PHP builds are not available on the OS X environment.
 
 <div id="toc"></div>
 

@@ -32,7 +32,7 @@ Each build runs in one of the following virtual environments:
 
 - Sudo-enabled (a sudo enabled, full VM per build)
 - Container-based (Fast boot time environment in which `sudo` commands are not available)
-- OSX for Objective-C projects
+- OS X for Objective-C projects
 
 The following table summarizes the differences between the virtual environments:
 
@@ -93,7 +93,7 @@ The following table summarizes the differences between the virtual environments:
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
-The container-based, OSX, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
+The container-based, OS X, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
@@ -159,7 +159,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Firefox
 
 All virtual environments have recent version of Firefox installed, currently
-31.0 for Linux environments and 25.0 for OSX.
+31.0 for Linux environments and 25.0 for OS X.
 
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.

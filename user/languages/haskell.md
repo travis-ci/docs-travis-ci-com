@@ -8,7 +8,7 @@ permalink: /user/languages/haskell/
 
 This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Haskell builds are not available on the OSX environment.
+Haskell builds are not available on the OS X environment.
 
 ## Overview
 
