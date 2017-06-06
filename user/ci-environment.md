@@ -92,8 +92,8 @@ The following table summarizes the differences between the virtual environments:
 
 ## Networking
 
-The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
-The container-based, OSX, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
+The virtual machines in the Legacy environment running the tests do not have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
+The container-based, OSX, and GCE (both Precise and Trusty) builds have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
