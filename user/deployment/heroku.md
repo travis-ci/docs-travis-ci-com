@@ -163,7 +163,6 @@ You can either use a shorthand for the [default buildpacks](https://devcenter.he
 Travis CI supports different mechanisms for deploying to Heroku:
 
 - **api:** Uses Heroku's [Build API](https://devcenter.heroku.com/articles/build-and-release-using-the-api). This is the default strategy.
-- **anvil:** Uses an [unofficial build server](https://github.com/ddollar/anvil), which accepts archives of the application you want to deploy.
 - **git:** Does a `git push` over HTTPS.
 - **git-ssh:** Does a `git push` over SSH. This will generate a new key on every deployment.
 - **git-deploy-key:** Does a `git push` over SSH. It will reuse the same key on every deployment. This is only available for private projects.
@@ -177,7 +176,9 @@ deploy:
   strategy: git
 ```
 
-Note that the **anvil**, **git-ssh** and **git-deploy-key** strategies are considered **deprecated**. Please contact us if you have issues switching away from these.
+> Note that the `git-ssh` and `git-deploy-key` strategies are **deprecated**, and will be shut
+> down on June 26th, 2017.
+> Please contact us if you have issues switching away from these.
 
 #### Using `.gitignore` on `git` strategy
 
