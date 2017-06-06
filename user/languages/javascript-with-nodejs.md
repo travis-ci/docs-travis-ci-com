@@ -69,7 +69,7 @@ If you already use Gulp to manage your tests, install it and run the default
 
 ```yaml
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp-cli
 script: gulp
 ```
 
