@@ -51,8 +51,9 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 ## Using xvfb to Run Tests That Require a GUI
 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
-Virtual Framebuffer) to imitate a display. If you need a browser, Firefox is
-installed on all Travis CI environments.
+Virtual Framebuffer) to imitate a display. If you need a browser, you can use
+Firefox (either with the pre-installed version, or the [addon](/user/firefox))
+or Google Chorme (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
@@ -101,6 +102,43 @@ If you need web server to be listening on port 80, remember to use `sudo` (Linux
 <div class="note-box">
 Note that <code>sudo</code> is not available for builds that are running on the <a href="/user/workers/container-based-infrastructure">container-based workers</a>.
 </div>
+
+
+### Using the [Chrome addon](/user/chrome) in the headless mode
+
+Starting with version 57 for Linux Trusty and version 59 on OS X, Google Chrome can be used in "headless"
+mode, which is suitable for driving browser-based tests using Selenium and other tools.
+
+> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on OS X builds.
+
+For example, on Linux
+
+```yaml
+dist: trusty
+addons:
+  chrome: stable
+before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
+  ⋮
+```
+
+On OS X:
+
+```yaml
+language: objective-c
+addons:
+  chrome: beta
+before_install:
+  - # start your web application and listen on `localhost`
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost"
+  ⋮
+```
+
+#### Documentation
+
+* [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
+* [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
 ## Using PhantomJS
 

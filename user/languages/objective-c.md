@@ -131,15 +131,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-{% for simulator in site.data.xcodes.simulators %}
-
-### {{ simulator.name }}
-
-The following devices are provided by the {{ simulator.name }} simulator:
-
-{% for device in simulator.devices %}
-
-- {{ device }}
-  {% endfor %}
-
-{% endfor %}
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/osx-ci-environment#Xcode-version).

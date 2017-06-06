@@ -205,7 +205,7 @@ to tag the build, or to run post-build deployments.
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SHA`:
   + if the current job is a pull request, the commit SHA of the HEAD commit of the PR.
-  + if the current job is a push build, this variable is empyty (`""`).
+  + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SLUG`:
   + if the current job is a pull request, the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
