@@ -8,7 +8,7 @@ permalink: /user/languages/python/
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Python builds are not available on the OSX environment.
+Python builds are not available on the OS X environment.
 
 <div id="toc"></div>
 

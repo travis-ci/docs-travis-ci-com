@@ -150,9 +150,9 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OSX
+#### ccache on OS X
 
-ccache is not installed on OSX environments but you can install it by adding
+ccache is not installed on OS X environments but you can install it by adding
 
 ```yaml
 install:

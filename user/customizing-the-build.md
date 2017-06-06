@@ -192,7 +192,7 @@ Travis CI has specific time limits for each job, and will stop the build and add
 
 - A job takes longer than 50 minutes on travis-ci.org
 - A job takes longer than 120 minutes on travis-ci.com
-- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
+- A job takes longer than 50 minutes on OS X infrastructure or travis-ci.org or travis-ci.com
 - A job produces no log output for 10 minutes
 
 Some common reasons why builds might hang:
