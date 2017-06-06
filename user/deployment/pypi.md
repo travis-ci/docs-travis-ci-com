@@ -24,7 +24,7 @@ However, this would expose your PyPI password to the world. We recommend you
 travis encrypt --add deploy.password
 ```
 
-> Note that if your PiPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
+> Note that if your PyPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 ```yaml
 deploy:
@@ -78,9 +78,9 @@ By default, Travis CI will only release from the **master** branch.
 
 Builds triggered from Pull Requests will never trigger a release.
 
-## Releasing to a self hosted pypi
+## Releasing to a self hosted PyPI
 
-To release to a different pypi index:
+To release to a different PyPI index:
 
 ```yaml
 deploy:
