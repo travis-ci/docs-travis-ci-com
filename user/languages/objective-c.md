@@ -1,5 +1,5 @@
 ---
-title: Building an Objective-C Project
+title: Building an Objective-C or Swift Project
 layout: en
 permalink: /user/languages/objective-c/
 swiftypetags:
@@ -16,7 +16,7 @@ Objective-C and Swift projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Objective-C builds are not available on the Linux environments.
+Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
@@ -131,15 +131,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-{% for simulator in site.data.xcodes.simulators %}
-
-### {{ simulator.name }}
-
-The following devices are provided by the {{ simulator.name }} simulator:
-
-{% for device in simulator.devices %}
-
-- {{ device }}
-  {% endfor %}
-
-{% endfor %}
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/osx-ci-environment#Xcode-version).

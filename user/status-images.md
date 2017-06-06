@@ -36,10 +36,9 @@ not use it on a publicly available site.
 On the pages on Travis CI, we show the result of the most recent
 build on its default branch.
 For example, for [docs-travis-ci-com](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds),
-this is the `gh-pages` branch.
+this is the `master` branch.
 
 If the default branch does not have any build, the status will remain
 unknown, and shows:
 
 ![unknown status image](https://raw.githubusercontent.com/travis-ci/travis-api/master/public/images/result/unknown.png)
-

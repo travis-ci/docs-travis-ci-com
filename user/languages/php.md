@@ -26,7 +26,7 @@ php:
   - '5.6'
   - '7.0'
   - '7.1'
-  - hhvm
+  - hhvm # on Trusty only
   - nightly
 ```
 
@@ -37,7 +37,7 @@ The previous example uses `phpunit`, the default build script, to build against 
 - 5.6.x
 - 7.0.x
 - 7.1.x
-- hhvm
+- hhvm # on Trusty only
 - nightly
 
 which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
@@ -48,21 +48,9 @@ You can see an [example of version number aliases](https://github.com/travis-ci/
 
 ### HHVM versions
 
-Travis CI can test your PHP applications with HHVM.
+Travis CI can test your PHP applications with HHVM on Ubuntu Trusty.
 
-Without specifying further, the latest version of HHVM available for the Ubuntu release
-your job is running on is used.
-
-In addition, depending on the Ubuntu release, you can test with more HHVM versions.
-
-#### HHVM versions on Precise
-
-```yaml
-language: php
-php:
-  - hhvm-3.3
-  - hhvm-3.6
-```
+Without specifying further, the latest version of HHVM available for the Ubuntu Trusty.
 
 #### HHVM versions on Trusty
 
@@ -81,11 +69,13 @@ php:
   - hhvm-nightly
 ```
 
-## Default Test Script
+## Default Test Script (PHPUnit)
 
-The default test script is `phpunit`.
+The default test script is PHPUnit. It comes packaged with PHP, but you can also
+install a specific version in a custom location. If you do install it
+separately, make sure you invoke the correct version by using the full path.
 
-Travis CI looks for `phpunit` in the following order ([as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-))
+Travis CI looks for `phpunit` in the [same order as Composer does](https://getcomposer.org/doc/articles/vendor-binaries.md#can-vendor-binaries-be-installed-somewhere-other-than-vendor-bin-)
 and uses the first one found.
 
 1. `$COMPOSER_BIN_DIR/phpunit`
@@ -93,7 +83,7 @@ and uses the first one found.
 1. `vendor/bin/phpunit`
 1. `phpunit`, which is found on `$PATH` (typically one that is pre-packaged with the PHP runtime)
 
-If your project uses something other than PHPUnit, [you can override our default test command to be anything](/user/customizing-the-build/) you want.
+If your project uses something other than PHPUnit, you can [override the default test command](/user/customizing-the-build/).
 
 ### Working with atoum
 

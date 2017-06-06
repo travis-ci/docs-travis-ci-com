@@ -61,7 +61,7 @@ provider will be performed.
 
 Common options are:
 
-1. **`repo`** Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+1. **`repo`** Slug of your repository (in form: `owner_name/repo_name`, e.g., `travis-ci/dpl`).
 
 2. **`branch`** Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
    `all_branches: true` *instead of* `branch: **` and use other conditions to control your deployment.

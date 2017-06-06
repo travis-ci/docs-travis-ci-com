@@ -17,8 +17,6 @@ deploy:
     branch: develop
 ```
 
-`script` must be a scalar pointing to an executable file or command.
-
 If you need to run multiple commands, write a executable wrapper script that runs them all.
 
 If the script returns a nonzero status, deployment is considered
@@ -53,18 +51,19 @@ deploy:
     all_branches: true
 ```
 
-## Deployment is executed by Ruby 1.9.3
+## Ruby version
 
-In order to ensure that deployments are executed reliably, we use a version of Ruby that is pre-installed on all of our build images.
+To ensure that deployments run consistently, we use the version of Ruby that is
+pre-installed on all of our build images, which may change when images are updated.
 
-Currently, this is Ruby 1.9.3.
+* The `travis_internal_ruby` function prints the exact pre-installed Ruby version
 
-A side effect of this is that, if you need to execute a command
-that requires a different Ruby, you need to execute it explicitly.
-For example,
+If you need to run a command that requires a different Ruby version than the
+pre-installed default, you need to set it explicitly:
 
-{% highlight yaml %}
+
+```yaml
 deploy:
   provider: script
   script: rvm $TRAVIS_RUBY_VERSION do script.rb
-{% endhighlight %}
+```

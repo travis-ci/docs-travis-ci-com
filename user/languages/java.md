@@ -132,7 +132,7 @@ jdk:
 
 > Note that testing against multiple Java versions is not supported on OSX. See the [OS X Build Environment](/user/osx-ci-environment/#JDK-and-OS-X) for more details. 
 
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
+Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, spcify `dist: trusty` to make use of it.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 

@@ -204,11 +204,20 @@ To install packages that are not included in the [default OSX environment](/user
 
 ```yaml
 before_install:
-  - brew update
+  - brew update # see note below
   - brew install beanstalk
 ```
 
-Use `brew update` to update the local Homebrew package list.
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+
+## Installing Dependencies on Multiple Operating Systems
+
+If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+
+```yaml
+install:
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+```
 
 ## Installing Projects from Source
 

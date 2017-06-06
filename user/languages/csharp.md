@@ -89,18 +89,23 @@ You can choose from the following Mono versions:
 
 #### .NET Core
 
-By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`:
+By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`. Note that at least one `script` `<command>` is required in order to build. Using `dotnet restore` is a good default.
 
 ```yml
 language: csharp
 mono: none
-dotnet: 1.0.1
+dotnet: 1.0.3
+dist: trusty
+script:
+ - dotnet restore
 ...
 ```
 
 > *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
+
+You need to specify `dist: trusty` so your build will run on Ubuntu 14.04 because .NET Core doesn't work on Ubuntu 12.04 (which is the default Linux build environment on Travis right now).
 
 ### Testing Against Mono and .NET Core
 
@@ -114,6 +119,7 @@ matrix:
   include:
     - dotnet: 1.0.1
       mono: none
+      dist: trusty
       env: DOTNETCORE=1  # optional, can be used to take different code paths in your script
     - mono: latest
 ...

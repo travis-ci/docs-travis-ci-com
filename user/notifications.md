@@ -63,6 +63,17 @@ Also, consult [cipher suite names mapping](https://www.openssl.org/docs/manmaste
 
 If none of the ciphers listed above works, please open a [GitHub issue](https://github.com/travis-ci/travis-ci/issues).
 
+### Note on IP addresses
+
+All notifications that use HTTP are sent through a proxy with static IP
+addresess to ensure safelist and firewall rule stability.  The current IP
+addresses are:
+
+```
+54.173.229.200
+54.175.230.252
+```
+
 ## Configuring email notifications
 
 Specify recipients that will be notified about build results:
@@ -115,7 +126,7 @@ there, rather than to the committer and author.
 ### Changing the email address for build notifications
 
 Travis CI only sends build notifications to email addresses registered on GitHub.
-If you have multiple address registered you can set the email address for a specific
+If you have multiple addresses registered you can set the email address for a specific
  repository using `git`:
 
 > Note that this also changes the commit email address, not just the Travis CI notification settings.
@@ -427,7 +438,7 @@ with a desired label, and use this token.
 By default, Hipchat will be notified both for push builds and pull request
 builds.
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the
+Turn pull request notifications off by adding `on_pull_requests: false` to the
 `hipchat` section of your `.travis.yml`:
 
 
@@ -657,9 +668,9 @@ notifications:
 
 Webhooks are delivered with a `application/x-www-form-urlencoded` content type using HTTP POST, with the body including a `payload` parameter that contains the JSON webhook payload in a URL-encoded format.
 
-Here's an example of what you'll find in the `payload`:
+Here is the payload sent to [the Travis CI documentation application](https://github.com/travis-ci/docs-travis-ci-com):
 
-<script src="https://gist.github.com/roidrage/9272064.js"></script>
+<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js"></script>
 
 You will see one of the following values in the `status`/`result` fields that represent the state of the build.
 
@@ -674,45 +685,13 @@ Additionally a message will be present in the `status_message`/`result_message` 
 - *Broken*: The build completed in failure after a previously successful build
 - *Failed*: The build is the first build for a new branch and has failed
 - *Still Failing*: The build completed in failure after a previously failed build
+- *Canceled*: The build was canceled
+- *Errored*: The build has errored
 
 The `type` field can be used to find the event type that caused this build to
 run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull requests,
 the `type` field will have the value `pull_request`, and a `pull_request_number` field
 is included too, pointing to the pull request's issue number on GitHub.
-
-Here is a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
-
-```ruby
-require 'sinatra'
-require 'json'
-require 'digest/sha2'
-
-class TravisWebhook < Sinatra::Base
-  set :token, ENV['TRAVIS_USER_TOKEN']
-
-  post '/' do
-    if not valid_request?
-      puts "Invalid payload request for repository #{repo_slug}"
-    else
-      payload = JSON.parse(params[:payload])
-      puts "Received valid payload for repository #{repo_slug}"
-    end
-  end
-
-  def valid_request?
-    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
-    digest.to_s == authorization
-  end
-
-  def authorization
-    env['HTTP_AUTHORIZATION']
-  end
-
-  def repo_slug
-    env['HTTP_TRAVIS_REPO_SLUG']
-  end
-end
-```
 
 To quickly identify the repository involved, we include a `Travis-Repo-Slug` header, with a format of `account/repository`, so for instance `travis-ci/travis-ci`.
 
@@ -733,8 +712,17 @@ payload.
    (e.g., <https://api.travis-ci.org/config>)
 4. Verify the signature using the public key and SHA1 digest.
 
-[WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
+#### Examples
+
+1. [WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
 is a small Sinatra app which shows you how this works.
 
-[Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
+1. This documentation site receives a webhook notification, verifies the request
+and updates the Gist showing the payload example above.
+See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plugins/webhoook_payload_doc_handler.rb).
+
+1. [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
+
+1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
+is a small webapp in Go which verifies the the hook.

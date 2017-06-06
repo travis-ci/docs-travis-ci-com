@@ -64,6 +64,18 @@ ARTIFACTS_PATHS="./logs:./build:/var/log"
 Please keep in mind that in the example above, colon (`:`) is used as a
 delimiter which means file names cannot contain this character.
 
+### Working directory
+
+If you'd like to upload file from a specific directory, you can change your working directory by setting `addons.artifacts.working_dir`.
+
+
+```yaml
+addons:
+  artifacts:
+    # ...
+    working_dir: out
+```
+
 ### Debugging
 
 If you'd like to see more detail about what the artifacts addon is
@@ -82,3 +94,6 @@ or define this as a repository settings environment variable, or in the `env.glo
 ```bash
 ARTIFACTS_DEBUG=1
 ```
+
+### Travis CI Artifact Uploader
+For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts)
