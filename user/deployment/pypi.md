@@ -6,7 +6,9 @@ permalink: /user/deployment/pypi/
 
 Travis CI can automatically release your Python package to [PyPI](https://pypi.python.org/) after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+<div id="toc"></div>
+
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
@@ -15,16 +17,14 @@ deploy:
   password: "Your password"
 ```
 
-However, this exposes your PyPI password to the world. We recommend you
-encrypt your password using the Travis CI command line client:
+However, this would expose your PyPI password to the world. We recommend you
+[encrypt](/user/encryption-keys/) your password using the Travis CI command line client:
 
 ```bash
 travis encrypt --add deploy.password
 ```
 
-This prompts you to enter the password, and prints an encrypted version
-of it which you should put in your ``.travis.yml`` file as described
-under [Encrypting Sensitive Data](/user/encryption-keys/):
+> Note that if your PiPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 ```yaml
 deploy:
@@ -33,6 +33,8 @@ deploy:
   password:
     secure: "Your encrypted password"
 ```
+
+## Deploying tags
 
 Most likely, you would only want to deploy to PyPI when a new version of your
 package is cut. To do this, you can tell Travis CI to only deploy on tagged
@@ -49,15 +51,7 @@ deploy:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-You can also have the `travis` tool set up everything for you:
-
-```bash
-travis setup pypi
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Branch to release from
+## Deploying specific braches
 
 You can explicitly specify the branch to release from with the **on** option:
 
@@ -84,19 +78,19 @@ By default, Travis CI will only release from the **master** branch.
 
 Builds triggered from Pull Requests will never trigger a release.
 
-### Releasing to a different index:
+## Releasing to a self hosted pypi
 
-If you wish to release to a different index you can do so:
+To release to a different pypi index:
 
 ```yaml
 deploy:
       provider: pypi
       user: ...
-      password:...
+      password: ...
       server: https://mypackageindex.com/index
 ```
 
-### Uploading different distributions
+## Uploading different distributions
 
 By default, only a source distribution ('sdist') will be uploaded to PyPI.
 If you would like to upload different distributions, specify them using the `distributions` option, like this:
@@ -111,7 +105,7 @@ deploy:
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
 
-### Releasing build artifacts
+## Releasing build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
 
@@ -125,12 +119,12 @@ deploy:
   skip_cleanup: true
 ```
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-### Running commands before and after release
+## Running commands before and after release
 
 Sometimes you want to run commands before or after releasing a package. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
