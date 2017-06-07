@@ -40,6 +40,18 @@ deploy:
   project: "myapp-staging"
 ```
 
+## Adding a message to a deployment
+
+To add a message to describe the deployment, use the `message` key in your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: firebase
+  token:
+    secure: "YOUR ENCRYPTED token"
+  message: "your message"
+```
+
 ## Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use
