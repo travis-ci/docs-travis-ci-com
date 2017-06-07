@@ -8,7 +8,7 @@ permalink: /user/languages/php/
 
 This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-PHP builds are not available on the OSX environment.
+PHP builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -26,6 +26,7 @@ php:
   - '5.6'
   - '7.0'
   - '7.1'
+  - hhvm # on Trusty only
   - nightly
 ```
 
@@ -36,6 +37,7 @@ The previous example uses `phpunit`, the default build script, to build against 
 - 5.6.x
 - 7.0.x
 - 7.1.x
+- hhvm # on Trusty only
 - nightly
 
 which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
@@ -46,7 +48,7 @@ You can see an [example of version number aliases](https://github.com/travis-ci/
 
 ### HHVM versions
 
-Travis CI can test your PHP applications with HHVM on Trusty.
+Travis CI can test your PHP applications with HHVM on Ubuntu Trusty.
 
 Without specifying further, the latest version of HHVM available for the Ubuntu Trusty.
 

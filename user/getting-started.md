@@ -93,7 +93,7 @@ Trusty 14.04:
   ```
 
 * If you have tests that need to run on macOS, or your project uses Swift or
-Objective-C, use our OSX environment:
+Objective-C, use our OS X environment:
 
   ```yaml
   os: osx
@@ -121,4 +121,3 @@ Read more about
 * [build matrixes](/user/customizing-the-build/#Build-Matrix)
 * [installing dependencies](/user/installing-dependencies)
 * [setting up databases](/user/database-setup/)
-
