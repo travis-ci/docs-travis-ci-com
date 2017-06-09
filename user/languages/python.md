@@ -152,11 +152,16 @@ a recent development version of [CPython](https://bitbucket.org/mirror/cpython) 
 
 It also has the [packages above](#Pre-installed-packages) pre-installed.
 
-## On-demand installations
+## How Python Version is Chosen
 
-For a limited number of Python development releases, on-demand installation is available.
+When you specify Python versions, your job will first look for the runtime
+pre-installed on the image.
+If that version is not available, the job will fetch a pre-compiled
+archive that matches the version for the image the job is running on,
+and installed on demand.
 
-Currently, these are: `3.5-dev` (built nightly), `3.5`/`3.5.0`.
+For the complete list of Python runtimes available for on-demand installation,
+see [the table below](#python-runtime-list).
 
 ## Build Matrix
 
@@ -171,3 +176,55 @@ to construct a build matrix.
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 - [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 - [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+
+## Python Versions Available for On-Demand Installation
+
+These Python runtimes are available for on-demand installation.
+
+<table id="python-runtime-list">
+  <tr>
+    <th>Python</th>
+    <th>Distribution</th>
+    <th>Versions</th>
+  </tr>
+  <tr>
+    <th rowspan="{{ site.data.language_archives.python.precise | size }}" text-align="top">Python</th>
+    <th rowspan="{{ site.data.language_archives.python.precise | size }}" text-align="top">Precise</th>
+    <td>{{ site.data.language_archives.python.precise[0] }}</td>
+  </tr>
+  {% for x in site.data.language_archives.python.precise offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_archives.python.trusty | size }}" text-align="top">Python</th>
+    <th rowspan="{{ site.data.language_archives.python.trusty | size }}" text-align="top">Trusty</th>
+    <td>{{ site.data.language_archives.python.trusty[0] }}</td>
+  </tr>
+  {% for x in site.data.language_archives.python.trusty offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_archives.pypy.precise | size }}" text-align="top">PyPy</th>
+    <th rowspan="{{ site.data.language_archives.pypy.precise | size }}" text-align="top">Precise</th>
+    <td>{{ site.data.language_archives.pypy.precise[0] }}</td>
+  </tr>
+  {% for x in site.data.language_archives.pypy.precise offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_archives.pypy.trusty | size }}" text-align="top">PyPy</th>
+    <th rowspan="{{ site.data.language_archives.pypy.trusty | size }}" text-align="top">Trusty</th>
+    <td>{{ site.data.language_archives.pypy.trusty[0] }}</td>
+  </tr>
+  {% for x in site.data.language_archives.pypy.trusty offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+</table>
