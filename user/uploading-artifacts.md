@@ -64,6 +64,19 @@ ARTIFACTS_PATHS="./logs:./build:/var/log"
 Please keep in mind that in the example above, colon (`:`) is used as a
 delimiter which means file names cannot contain this character.
 
+### Deploy to speficic path on AWS S3
+
+The default target paths on S3 is the same as `addons.artifacts.paths`. If any additional S3 target paths need to be uploaded to, they may be specified via the `addons.artifacts.target_paths` key like so:
+
+```yaml
+addons:
+  artifacts:
+    # ...
+    paths:
+    - $HOME/some/other/thing.log
+    target_paths: logs
+```
+
 ### Working directory
 
 If you'd like to upload file from a specific directory, you can change your working directory by setting `addons.artifacts.working_dir`.
