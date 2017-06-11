@@ -75,8 +75,8 @@ mono:
 
 You can choose from the following Mono versions:
 
-| Version          | Installed Packages (Linux only, OSX always includes everything)  |
-| ---------------- | ---------------------------------------------------------------- |
+| Version          | Installed Packages (Linux only, OS X always includes everything) |
+|:-----------------|:-----------------------------------------------------------------|
 | 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
 | 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |

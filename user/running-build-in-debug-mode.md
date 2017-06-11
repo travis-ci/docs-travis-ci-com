@@ -52,7 +52,7 @@ mode, pass an empty JSON object (`{}`) in the payload instead.
 
 ## Connecting to the job running in the debug mode
 
-When the job starts in the debug mode, it will go through the intial steps, including setting up language
+When the job starts in the debug mode, it will go through the initial steps, including setting up language
 run times and caches (if applicable) and installing debug utilities.
 
 When it is ready for your connection, you will see:
