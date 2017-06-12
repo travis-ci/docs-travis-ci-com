@@ -182,12 +182,12 @@ before_install:
 ### Installing a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
-updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+updating `docker-ce` in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
 
 > Check what version of Docker you're running with `docker --version`
