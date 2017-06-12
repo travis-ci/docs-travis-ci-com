@@ -8,7 +8,7 @@ permalink: /user/languages/python/
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Python builds are not available on the OSX environment.
+Python builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -165,7 +165,7 @@ to construct a build matrix.
 
 ## Examples
 
-- [facebook/tornado](https://github.com/facebook/tornado/blob/master/.travis.yml)
+- [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
 - [simplejson/simplejson](https://github.com/simplejson/simplejson/blob/master/.travis.yml)
 - [fabric/fabric](http://github.com/fabric/fabric/blob/master/.travis.yml)
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)

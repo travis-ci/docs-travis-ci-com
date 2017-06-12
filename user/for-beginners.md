@@ -30,7 +30,6 @@ In the Travis CI documentation, some common words have specific meanings. For ex
 
 Travis CI originally was developed for open-source projects before being expanded to support closed-source projects at a later date. As a result, open-source projects are hosted on our [travis-ci.org](https://travis-ci.org/) platform while closed source projects are hosted on [travis-ci.com](https://travis-ci.com/). Travis CI for closed-source projects is also know as [Travis Pro](../travis-pro/).
 
-
 ## Breaking the Build
 
 The build is considered "broken" when it completes with any state that is not *passed*. The options for these non-passing states are:

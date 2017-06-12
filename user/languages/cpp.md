@@ -99,3 +99,5 @@ before_install:
   - test -n $CC  && unset CC
   - test -n $CXX && unset CXX
 ```
+
+{% include_relative _includes/c11-cpp11-and-beyond-and-toolchains.md %}

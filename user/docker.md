@@ -22,6 +22,7 @@ Then you can add `- docker` commands to your build as shown in the following
 examples.
 
 > Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+> We do not currently support use of Docker on OS X.
 
 ### Using a Docker Image from a Repository in a Build
 
@@ -181,12 +182,12 @@ before_install:
 ### Installing a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
-updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+updating `docker-ce` in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
 
 > Check what version of Docker you're running with `docker --version`

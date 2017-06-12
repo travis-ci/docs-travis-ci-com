@@ -54,6 +54,12 @@ If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-argu
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
+#### Caching and overriding `install` step
+
+Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
+In this case, observe where Bundler is installing the gems, and cache that directory using
+[cache.directories](#Arbitrary-directories).
+
 #### Cleaning up bundle
 
 When you use
@@ -144,9 +150,9 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OSX
+#### ccache on OS X
 
-ccache is not installed on OSX environments but you can install it by adding
+ccache is not installed on OS X environments but you can install it by adding
 
 ```yaml
 install:

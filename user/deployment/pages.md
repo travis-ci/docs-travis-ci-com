@@ -4,6 +4,8 @@ layout: en
 permalink: /user/deployment/pages/
 ---
 
+> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh-pages`. 
+
 Travis CI can deploy your static files to [GitHub
 Pages](https://pages.github.com/) after a successful build.
 

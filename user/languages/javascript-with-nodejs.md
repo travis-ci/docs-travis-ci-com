@@ -69,7 +69,7 @@ If you already use Gulp to manage your tests, install it and run the default
 
 ```yaml
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp-cli
 script: gulp
 ```
 
@@ -84,6 +84,18 @@ npm install
 ```
 
 > Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
+
+#### Caching with `npm`
+
+Travis CI is able to cache the `node_modules` folder:
+
+```yaml
+cache:
+  directories:
+    - "node_modules"
+```
+
+`npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
 
 ### Travis CI supports yarn
 
@@ -281,5 +293,3 @@ addons:
       - g++-4.8
 ```
 
-Due to recent decision by the LLVM team to remove APT support, it is currently not possible to update clang on Travis CI via `apt-get` or the `apt` addon.
-See <https://github.com/travis-ci/travis-ci/issues/6120>.
