@@ -54,7 +54,7 @@ Add a table of contents to a page with the following HTML snippet:
 ### Beta features
 
 Mark all beta features with a specially formatted note. Both the `> BETA` and
-the `{: beta}` are required. 
+the `{: beta}` are required.
 
 > BETA Awesome new feature that might not be enabled and is subject to change.
 {: .beta}
@@ -93,6 +93,7 @@ As we have no use for blockquotes we use `>` to indicate notes and warnings:
 
 ```markdown
 > Note this important info!
+
 ```
 
 ### Code blocks
@@ -104,6 +105,15 @@ Code blocks should be fenced with triple back-ticks "\`\`\`" and named according
 ```markdown
 your code here
 ```
+
+You can also set the filename for a code block by adding a Kramdown attribute after it:
+
+```markdown
+This code is in .travis.yml
+```
+{: data-file=".travis.yml"}
+
+
 
 ### Common misspellings and words to avoid
 
