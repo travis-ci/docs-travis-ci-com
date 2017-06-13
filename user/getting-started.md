@@ -22,6 +22,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
    Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius, which can all pass or fail independently.
 
+
    ```yaml
    language: ruby
    rvm:
@@ -29,6 +30,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
     - jruby
     - rbx-2
    ```
+   {: data-file=".travis.yml"}
 
 4. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
@@ -43,22 +45,27 @@ Use one of these common languages:
 ```yaml
 language: ruby
 ```
+{: data-file=".travis.yml"}
 
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
 ```yaml
 language: node_js
 ```
+{: data-file=".travis.yml"}
 
 ```yaml
 language: python
 ```
+{: data-file=".travis.yml"}
 
 ```yaml
 language: php
 ```
+{: data-file=".travis.yml"}
 
 Or pick one from the [full list](/user/languages/).
 
@@ -76,6 +83,7 @@ the beta of Ubuntu Linux Trusty 14.04:
    sudo: false
    dist: trusty
    ```
+   {: data-file=".travis.yml"}
 
 * If you need a more customizable environment running in a virtual machine, use the Sudo
 Enabled infrastructure:
@@ -83,6 +91,7 @@ Enabled infrastructure:
   ```yaml
   sudo: enabled
   ```
+  {: data-file=".travis.yml"}
 
 * Sudo Enabled infrastructure also has a beta of a more up-to-date Ubuntu Linux
 Trusty 14.04:
@@ -91,6 +100,7 @@ Trusty 14.04:
   sudo: enabled
   dist: trusty
   ```
+  {: data-file=".travis.yml"}
 
 * If you have tests that need to run on macOS, or your project uses Swift or
 Objective-C, use our OS X environment:
@@ -98,6 +108,7 @@ Objective-C, use our OS X environment:
   ```yaml
   os: osx
   ```
+  {: data-file=".travis.yml"}
 
   > You do *not* necessarily need to use OS X if you develop on a Mac, only if
   > you need Swift, Objective-C or other macOS software.
