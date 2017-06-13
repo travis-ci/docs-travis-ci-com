@@ -356,6 +356,17 @@ before_install:
 The above addition will reinstall the en_US language pack, as well as the de_DE
 language pack.
 
+If you are running on the container-base infrastructure and don't have access
+to the `sudo` command, install locales [using the APT addon](/user/installing-dependencies/#installing-packages-with-the-apt-addon):
+
+```yaml
+addons:
+  apt:
+    packages:
+      - language-pack-en
+      - language-pack-de
+```
+
 ## Linux: apt fails to install package with 404 error
 
 This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
