@@ -32,9 +32,11 @@ You can also use the [Travis CI command line client](https://github.com/travis-c
 travis setup releases
 ```
 
-## Authenticating with an Oauth token
+## Authenticating with an OAuth token
 
-The recommended way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+The recommended way of authentication is with a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets and must be encrypted with [`travis encrypt`](https://docs.travis-ci.com/user/encryption-keys#Notifications-Example) command.
+
+Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
 
 This results in something similar to:
 
