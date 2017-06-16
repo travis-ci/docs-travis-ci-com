@@ -36,7 +36,7 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the [build status](https://travis-ci.org/repositories) page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command.
+5. Check the [build status](https://travis-ci.org/) page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command.
 
 ## Selecting a programming language
 
