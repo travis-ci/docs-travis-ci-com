@@ -120,7 +120,7 @@ addons:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/ci-environment/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
