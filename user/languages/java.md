@@ -58,7 +58,7 @@ or if your project uses `mvnw` wrapper script but you still want to use `mvn` mo
 ```
 install: echo "skip"
 ```
-and supply new script opton in your `.travis.yml`:
+and supply new script option in your `.travis.yml`:
 ```
 script:
     - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
