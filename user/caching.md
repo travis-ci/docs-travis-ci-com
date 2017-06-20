@@ -157,7 +157,7 @@ ccache is not installed on OS X environments but you can install it by adding
 ```yaml
 install:
   - brew install ccache
-  - PATH=$PATH:/usr/local/opt/ccache/libexec
+  - PATH=/usr/local/opt/ccache/libexec:$PATH
 ```
 
 > Note that this creates wrappers around your default gcc and g++ compilers.
