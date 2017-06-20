@@ -31,22 +31,52 @@
       <h3>Getting Started</h3>
       <ul>
         <li><a href="/user/getting-started/">Getting started</a></li>
-        <li><a href="/user/customizing-the-build/">Customizing Your Build</a></li>
-        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
-        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
-        <li><a href="/user/build-stages/">Build Stages (beta)</a></li>
+        <li><a href="#Customizing-the-Build-Step">Customizing the Build Step</a></li>
         <li><a href="/user/docker/">Using Docker in your Build</a></li>
+        <li><a href="#Installing-a-Second-Programming-language">Installing a Second Programming language</a></li>
         <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
-        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
-        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
         <li><a href="/user/travis-pro/">Travis CI for Private Projects</a></li>
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
         <li><a href="/user/travis-lint/">Validating .travis.yml files</a></li>
       </ul>
 
+      <h3>Customizing the Build</h3>
+      <ul>
+        <li><a href="/user/essentials/build-lifecycle/">The Build Lifecycle</a></li>
+        <li><a href="#Breaking-the-Build">Breaking the Build</a></li>
+        <li><a href="#Implementing-Complex-Build-Steps">Implementing Complex Build Steps</a></li>
+        <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
+        <li><a href="#Build-Matrix">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages (beta)</a></li>
+        <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="#Skipping-a-build">Skipping a build</a></li>
+        <li><a href="#Build-Timeouts">Build Timeouts</a></li>
+      </ul>
+
+      <h3>Optimizing your builds</h3>
+      <ul>
+        <li><a href="#Limiting-Concurrent-Builds">Limiting Concurrent Builds</a></li>
+        <li><a href="#Building-only-the-latest-commit">Building only the latest commit</a></li>
+        <li><a href="#Building-Specific-Branches">Building Specific Branches</a></li>
+
+        <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+
+      </ul>
+
+      <h3>Debugging</h3>
+      <ul>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="#Custom-Hostnames">Custom Hostnames</a></li>
+        <li><a href="#Git-Clone-Depth">Git Clone Depth</a></li><li><a href="#Git-Submodules">Git Submodules</a></li>
+        <li><a href="#Git-LFS-Skip-Smudge">Git LFS Skip Smudge</a></li>
+        <li><a href="#What-repository-providers-or-version-control-systems-can-I-use%3F">What repository providers or version control systems can I use?</a></li>
+      </ul>
+
       <h3>Installing Dependencies</h3>
       <ul>
         <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
+        <li><a href="/user/customize/customizing-installation-step/">Customizing the Installation Step</a></li>
+        <li><a href="#Installing-Packages-Using-apt">Installing Packages Using apt</a></li>
         <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
         <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
         <li><a href="/user/caching/">Caching Dependencies</a></li>
@@ -63,6 +93,7 @@
 
       <h3>Deployments and Uploads</h3>
       <ul>
+        <li><a href="#Deploying-your-Code">Deploying your Code</a></li>
         <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
         {% for deployment in site.data.deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
