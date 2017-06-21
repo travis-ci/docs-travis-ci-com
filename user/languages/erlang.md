@@ -8,7 +8,7 @@ permalink: /user/languages/erlang/
 
 This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Erlang builds are not available on the OSX environment.
+Erlang builds are not available on the OS X environment.
 
 ## Choosing OTP releases to test against
 

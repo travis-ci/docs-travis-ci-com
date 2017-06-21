@@ -23,6 +23,7 @@ You need to sign up for a [GitHub account](https://github.com/) if you do not al
 
    ```yaml
    language: php
+   dist: trusty
    php:
    - 5.5
    - 5.4

@@ -8,7 +8,7 @@ permalink: /user/languages/perl/
 
 This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl builds are not available on the OSX environment.
+Perl builds are not available on the OS X environment.
 
 ## Choosing Perl versions to test against
 

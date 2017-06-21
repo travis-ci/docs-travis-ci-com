@@ -147,7 +147,7 @@ The following versions are available on Linux builds:
 |    9.5     |         yes          |         yes         |                   |       yes        |
 |    9.6     |                      |         yes         |                   |       yes        |
 
-On OSX, the following versions are installed:
+On OS X, the following versions are installed:
 
 |     image     | version |
 |:-------------:|:-------:|
@@ -314,7 +314,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OSX or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
 
 Start RabbitMQ in your `.travis.yml`:
 

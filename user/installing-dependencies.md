@@ -120,7 +120,7 @@ addons:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/ci-environment/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -196,11 +196,11 @@ addons:
     - libcxsparse3.1.2
 ```
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
 
-## Installing Packages on OSX
+## Installing Packages on OS X
 
-To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
 before_install:
@@ -212,7 +212,7 @@ before_install:
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+If you're testing on both Linux and OS X, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
 
 ```yaml
 install:

@@ -11,7 +11,7 @@ projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Groovy builds are not available on the OSX environment.
+Groovy builds are not available on the OS X environment.
 
 <div id="toc"></div>
 

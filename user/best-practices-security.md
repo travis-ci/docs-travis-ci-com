@@ -5,7 +5,7 @@ permalink: /user/best-practices-security/
 ---
 
 ## Steps Travis CI takes to secure your data
-Travis CI Travis CI obfuscates secure environment variables and tokens displayed in the UI. Our [documentation about encryption keys](https://docs.travis-ci.com/user/encryption-keys/) outlines the build configuration we require to ensure this, however, once a VM is booted and tests are running, we have less control over what information utilities or add-ons are able to print to the VM’s standard output.
+Travis CI obfuscates secure environment variables and tokens displayed in the UI. Our [documentation about encryption keys](https://docs.travis-ci.com/user/encryption-keys/) outlines the build configuration we require to ensure this, however, once a VM is booted and tests are running, we have less control over what information utilities or add-ons are able to print to the VM’s standard output.
 
 In order to prevent leaks made by these components, we automatically filter secure environment variables and tokens that are longer than three characters at runtime, effectively removing them from the build log, displaying the string `[secure]` instead.
 

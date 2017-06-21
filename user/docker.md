@@ -170,7 +170,7 @@ by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
-  DOCKER_COMPOSE_VERSION: 1.4.2
+  - DOCKER_COMPOSE_VERSION=1.4.2
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -182,12 +182,22 @@ before_install:
 ### Installing a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
-updating `docker-engine` in the `before_install` step of your `.travis.yml`:
+updating it in the `before_install` step of your `.travis.yml`:
 
+**Updating from apt.dockerproject.org**
 ```yaml
 before_install:
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+```
+
+**Updating from download.docker.com**
+```yaml
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y install docker-ce
 ```
 
 > Check what version of Docker you're running with `docker --version`

@@ -670,7 +670,7 @@ Webhooks are delivered with a `application/x-www-form-urlencoded` content type u
 
 Here is the payload sent to [the Travis CI documentation application](https://github.com/travis-ci/docs-travis-ci-com):
 
-<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js"></script>
+<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js" data-proofer-ignore></script>
 
 You will see one of the following values in the `status`/`result` fields that represent the state of the build.
 
@@ -719,7 +719,7 @@ is a small Sinatra app which shows you how this works.
 
 1. This documentation site receives a webhook notification, verifies the request
 and updates the Gist showing the payload example above.
-See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/gh-pages/_plugins/webhoook_payload_doc_handler.rb).
+See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plugins/webhoook_payload_doc_handler.rb).
 
 1. [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
