@@ -1,7 +1,7 @@
 ---
 title: Building Pull Requests
 layout: en
-permalink: /user/pull-requests/
+
 ---
 
 Pull requests are an essential feature of Travis CI. For a project that has

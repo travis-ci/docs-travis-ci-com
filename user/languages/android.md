@@ -1,7 +1,7 @@
 ---
 title: Building an Android Project
 layout: en
-permalink: /user/languages/android/
+
 ---
 
 ### What This Guide Covers

@@ -1,7 +1,7 @@
 ---
 title: Running Build in Debug Mode
 layout: en
-permalink: /user/running-build-in-debug-mode/
+
 ---
 
 <div id="toc"></div>

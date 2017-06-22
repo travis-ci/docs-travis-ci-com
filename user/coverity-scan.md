@@ -1,7 +1,7 @@
 ---
 title: Using Coverity Scan with Travis CI
 layout: en
-permalink: /user/coverity-scan/
+
 ---
 
 ## Coverity Scan

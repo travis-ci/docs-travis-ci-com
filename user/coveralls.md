@@ -1,7 +1,7 @@
 ---
 title: Coveralls
 layout: en
-permalink: /user/coveralls/
+
 ---
 
 [Coveralls](https://coveralls.io/) is a hosted analysis tool, providing statistics about your code coverage.

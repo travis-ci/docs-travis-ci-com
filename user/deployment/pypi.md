@@ -1,7 +1,7 @@
 ---
 title: PyPI deployment
 layout: en
-permalink: /user/deployment/pypi/
+
 ---
 
 Travis CI can automatically release your Python package to [PyPI](https://pypi.python.org/) after a successful build.

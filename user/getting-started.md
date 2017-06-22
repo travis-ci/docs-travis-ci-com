@@ -1,7 +1,7 @@
 ---
 title: Getting started
 layout: en
-permalink: /user/getting-started/
+
 ---
 
 The very short guide to using Travis CI with your GitHub hosted code repository. If you're new to continuous integration or would like some more information on what Travis CI does, start with [Travis CI for Complete Beginners](/user/for-beginners) instead.

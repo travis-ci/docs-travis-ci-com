@@ -1,7 +1,7 @@
 ---
 title: Testing Your Project on Multiple Operating Systems
 layout: en
-permalink: /user/multi-os/
+
 ---
 
 If your code is used on multiple operating systems it probably should be tested on

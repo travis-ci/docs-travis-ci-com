@@ -1,7 +1,7 @@
 ---
 title: Travis CI for Complete Beginners
 layout: en
-permalink: /user/for-beginners/
+
 ---
 
 If you're not familiar with continuous integration and don't already have a repository that you want to build, this guide will show you what it is all about.

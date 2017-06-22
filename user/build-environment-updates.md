@@ -1,7 +1,7 @@
 ---
 title: Build Environment Update History
 layout: en
-permalink: /user/build-environment-updates/
+
 ---
 
 > Please note that the releases listed below are not exhaustive, and that there

@@ -1,7 +1,7 @@
 ---
 title: Firebase Deployment
 layout: en
-permalink: /user/deployment/firebase/
+
 ---
 
 <div id="toc"></div>

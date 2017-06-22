@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to Rubygems"
-permalink: /user/build-stages/deploy-rubygems/
+
 layout: en
 ---
 

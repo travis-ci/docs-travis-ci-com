@@ -1,7 +1,7 @@
 ---
 title: Building an Elixir Project
 layout: en
-permalink: /user/languages/elixir/
+
 ---
 
 ### What This Guide Covers

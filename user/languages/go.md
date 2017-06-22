@@ -1,7 +1,7 @@
 ---
 title: Building a Go Project
 layout: en
-permalink: /user/languages/go/
+
 swiftypetags:
   - golang
   - go lang

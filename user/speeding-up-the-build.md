@@ -1,7 +1,7 @@
 ---
 title: Speeding up the build
 layout: en
-permalink: /user/speeding-up-the-build/
+
 ---
 
 Travis CI implements a few optimizations which help to speed up your build,

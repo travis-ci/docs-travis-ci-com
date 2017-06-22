@@ -1,7 +1,7 @@
 ---
 title: Using Code Climate with Travis CI
 layout: en
-permalink: /user/code-climate/
+
 ---
 
 [Code Climate](https://www.codeclimate.com) is a hosted platform to continuously

@@ -1,7 +1,7 @@
 ---
 title: The Trusty beta Build Environment
 layout: en
-permalink: /user/trusty-ci-environment/
+
 ---
 
 > The Trusty environment is still in BETA. Some features may change at shorter notice than our more stable environments.

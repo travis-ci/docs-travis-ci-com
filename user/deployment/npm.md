@@ -1,7 +1,7 @@
 ---
 title: npm Releasing
 layout: en
-permalink: /user/deployment/npm/
+
 ---
 
 Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/)

@@ -1,7 +1,7 @@
 ---
 title: AWS Elastic Beanstalk Deployment
 layout: en
-permalink: /user/deployment/elasticbeanstalk/
+
 ---
 
 <div id="toc"></div>

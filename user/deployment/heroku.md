@@ -1,7 +1,7 @@
 ---
 title: Heroku Deployment
 layout: en
-permalink: /user/deployment/heroku/
+
 ---
 
 <div id="toc"></div>
