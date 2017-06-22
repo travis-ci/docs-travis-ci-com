@@ -17,3 +17,7 @@ whitelist:
   - jekyll-redirect-from
 sass:
   sass_dir: assets/stylesheets
+collections:
+  languages:
+    output: true
+    permalink: /languages/:path/
