@@ -6,9 +6,6 @@ permalink: /user/cron-jobs/
 
 <div id="toc"></div>
 
-> Cron jobs are still in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/1).
-{: .beta}
-
 Cron jobs run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. When they run, cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and they can also be [skipped](#Skipping-Cron-Jobs). Cron jobs cannot be set to run at specific times.
 
 Cron job builds use the same notification settings as normal push builds.
