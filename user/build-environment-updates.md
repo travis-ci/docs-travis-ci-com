@@ -11,11 +11,12 @@ layout: en
 
 <ul class="list--links">
 {% for page in site.pages %}
-{% if page.category == "build_env_updates" %}
-	<li><a href="{{ page.permalink }}" title="{{ page.title }}">{{ page.permalink | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
-{% endif %}
+  {% if page.category == 'build_env_updates' %}
+    <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
+  {% endif %}
 {% endfor %}
 </ul>
+
 
 ### Atom feed
 
