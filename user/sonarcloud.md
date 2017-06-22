@@ -2,6 +2,8 @@
 title: Using SonarCloud with Travis CI
 layout: en
 permalink: /user/sonarcloud/
+redirect_from:
+  - /user/sonarqube/
 ---
 
 [SonarCloud](https://sonarcloud.io) is a cloud service offered by [SonarSource](https://sonarsource.com) and based on [SonarQube](http://www.sonarqube.org). SonarQube is a widely adopted open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages.
