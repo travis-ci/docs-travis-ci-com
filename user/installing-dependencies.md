@@ -120,9 +120,9 @@ addons:
 
 ### Installing Snap Packages
 
-It is possible to install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist. 
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist. 
 
-The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the software available on the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
 
 ```yaml
 sudo: true
