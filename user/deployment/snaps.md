@@ -1,0 +1,36 @@
+---
+title: Ubuntu Snap Store
+layout: en
+permalink: /user/deployment/snaps/
+---
+
+Travis CI can automate the continuous delivery of [snaps](https://snapcraft.io) to the Ubuntu store.
+
+Snaps are a new packaging and delivery system for Ubuntu, Debian, Fedora, openSuse and other [Linux distros](https://snapcraft.io/docs/core/install). Snaps are secure, they bundle all their dependencies and they are designed to be part of the upstream development workflow in a seamless way. This means that no distro maintainers are involved, and that the delivery to the store can be fully automated. The snaps installed in the users' machines are autoupdated, so a few hours after you push a new snap to the store, all your users will get the most recent version.
+
+You just need to [encrypt your snapcraft credential with Travis](https://docs.travis-ci.com/user/encrypting-files), and add it to the repo where you have the `snapcraft.yaml` metadata for your package.
+
+Then, add a simple script to the `.travis.yml` file. Run the `snapcraft` command to build the snap, and `snapcraft push` to get it into the store:
+
+```yaml
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: docker run -v $(pwd):$(pwd) -w $(pwd) snapcore/snapcraft sh -c "apt update && snapcraft && snapcraft push *.snap --release edge"
+  on:
+    branch: master
+```
+
+The `snapcraft enable-ci travis` command will assist you getting the credential, encrypting it and adding the right script to the deploy section of your `.travis.yml` file. Here is a [tutorial that will guide you setting up the continuous delivery from Travis CI](https://docs.google.com/document/d/1vPUMH9UNOP8AqjhcslMZ5LQHMV3xvMYYKb7slC4s_Gc/edit) on your project.
+
+Note that the `edge` channel is intended for crowdtesting with your community of early adopters. With this deployment script in Travis, every time a pull request lands into the master branch, a new snap will be published to edge. Your testers just have to install it once in any of the supported Linux distros with:
+
+```bash
+sudo snap install my-snap-name --edge
+```
+
+After that, they will be always ready to provide early feedback and help making a more stable release.
+
+You can adjust the Travis script and the `snapcraft` calls to fit your development process. For example, you could install the snap and run user acceptance tests before releasing to edge, to make sure that there are no regressions in master. Also, there are three other channels in the store: `beta`, `candidate` and `stable`. You can run different tests suites with Travis for each channel on your way to stable.
+
+There are plenty of [tutorials](https://tutorials.ubuntu.com/) and [videos](https://www.youtube.com/snapcraftio) that will help you packaging your project as a snap. This one is a very good way to get started: [https://tutorials.ubuntu.com/tutorial/create-first-snap](https://tutorials.ubuntu.com/tutorial/create-first-snap)
