@@ -134,6 +134,20 @@ For more information, refer to [Caching](/user/caching) documentation.
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
 
+### Using specific version of `npm` or `yarn`
+
+Add the following to the `before_install` phase of `.travis.yml`:
+
+```yaml
+before_install:
+  # for npm
+  - npm i -g npm@version-number
+  
+  # for yarn
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+```
+
 ## Ember Apps
 
 You can build your Ember applications on Travis CI. The default test framework is [`Qunit`](http://qunitjs.com/). The following example shows how to build and test against different Ember versions.
