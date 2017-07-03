@@ -71,6 +71,6 @@ the setting on GitHub, then resync your Travis CI account:
 GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
 how to make a repository public.
 
-2. On [Travis CI](Travis-ci.org) go to *Acccounts* and click *Sync account*.
+2. On [Travis CI](https://travis-ci.org) go to *Acccounts* and click *Sync account*.
 
 3. When you see the repository in the list, toggle the switch to *enabled*.
