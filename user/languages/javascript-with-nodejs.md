@@ -83,7 +83,16 @@ Travis CI uses [npm](http://npmjs.org/) to install your project dependencies:
 npm install
 ```
 
-> Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
+> Note that there are no npm packages installed by default in the Travis CI environment, your dependencies are downloaded and installed during each build.
+
+#### Using a specific npm version
+
+Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+
+```yaml
+before_install:
+  - npm i -g npm@version-number
+```
 
 #### Caching with `npm`
 
@@ -113,6 +122,17 @@ Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
 instead.
 
+
+#### Using a specific yarn version
+
+Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+
+```yaml
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+```
+
 #### Caching with `yarn`
 
 You can cache `$HOME/.cache/yarn` with:
@@ -133,20 +153,6 @@ For more information, refer to [Caching](/user/caching) documentation.
 ### Using shrinkwrapped git dependencies
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a branch has its HEAD changed.
-
-### Using specific version of `npm` or `yarn`
-
-Add the following to the `before_install` phase of `.travis.yml`:
-
-```yaml
-before_install:
-  # for npm
-  - npm i -g npm@version-number
-  
-  # for yarn
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
-  - export PATH="$HOME/.yarn/bin:$PATH"
-```
 
 ## Ember Apps
 
