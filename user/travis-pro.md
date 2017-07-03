@@ -61,3 +61,16 @@ Travis CI is, and always will be, free for open source projects.
 
 For a list of plans and prices for private repositories, look at
 [travis-ci.com/plans](https://travis-ci.com/plans).
+
+## Making a private repository public
+
+If you have a private repository that you'd like to make public, first change
+the setting on GitHub, then resync your Travis CI account:
+
+1. Follow the [instructions on
+GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
+how to make a repository public.
+
+2. On [Travis CI](Travis-ci.org) go to *Acccounts* and click `Sync account`.
+
+3. When you see the repository in the list, toggle the switch to **enabled**.
