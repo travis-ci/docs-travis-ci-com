@@ -1,7 +1,7 @@
 ---
 title: Google Chrome
 layout: en
-permalink: /user/chrome/
+
 ---
 
 The Google Chrome addon allows Travis CI builds to install Google Chrome at run time. To use the addon you need to be running builds on either the [Trusty build environment](/user/trusty-ci-environment/) or the [OS X build environment](/user/osx-ci-environment/).

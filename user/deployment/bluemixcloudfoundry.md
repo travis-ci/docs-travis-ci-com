@@ -1,7 +1,7 @@
 ---
 title: Bluemix CloudFoundry Deployment
 layout: en
-permalink: /user/deployment/bluemixcloudfoundry/
+
 ---
 
 You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/) after a successful build on Travis CI.

@@ -1,7 +1,7 @@
 ---
 title: Deis Deployment
 layout: en
-permalink: /user/deployment/deis/
+
 ---
 
 Travis CI supports uploading to [Deis](http://deis.io/).

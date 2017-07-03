@@ -1,7 +1,7 @@
 ---
 title: Cron Jobs
 layout: en
-permalink: /user/cron-jobs/
+
 ---
 
 <div id="toc"></div>

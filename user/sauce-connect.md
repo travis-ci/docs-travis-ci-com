@@ -1,7 +1,7 @@
 ---
 title: Using Sauce Labs with Travis CI
 layout: en
-permalink: /user/sauce-connect/
+
 ---
 
 Travis CI integrates with [Sauce Labs](https://saucelabs.com), a browser and

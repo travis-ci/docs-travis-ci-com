@@ -55,10 +55,9 @@
       </ul>
       <h3>Programming Languages</h3>
       <ul>
-      {% for language in site.data.languages %}
-        <li><a href="{{language[1]}}">{{language[0]}}</a></li>
-      {% endfor %}
-        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
+          {% for l in site.languages %}
+          <li><a href="{{ l.url }}">{{ l.title  }}</a><li>
+          {% endfor %}
       </ul>
 
       <h3>Deployments and Uploads</h3>

@@ -1,7 +1,7 @@
 ---
 title: Custom Deployment
 layout: en
-permalink: /user/deployment/custom/
+
 ---
 
 You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/customizing-the-build/) step.

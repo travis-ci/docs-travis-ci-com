@@ -1,7 +1,7 @@
 ---
 title: packagecloud Deployment
 layout: en
-permalink: /user/deployment/packagecloud/
+
 ---
 
 Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build

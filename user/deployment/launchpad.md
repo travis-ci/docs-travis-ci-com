@@ -1,7 +1,7 @@
 ---
 title: Launchpad deployment
 layout: en
-permalink: /user/deployment/launchpad/
+
 ---
 
 Travis CI can get [Launchpad](https://launchpad.net/) to automatically import your code from GitHub after a successful build, which is useful if you are building and hosting Debian packages.

@@ -1,7 +1,7 @@
 ---
 title: Validating .travis.yml files
 layout: en
-permalink: /user/travis-lint/
+
 ---
 
 Validating your `.travis.yml` file before committing it reduces common build errors such as

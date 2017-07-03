@@ -1,7 +1,7 @@
 ---
 title: Setting Custom Host Names
 layout: en
-permalink: /user/hosts/
+
 ---
 
 If your build requires setting up custom hostnames, you can specify a single host or a

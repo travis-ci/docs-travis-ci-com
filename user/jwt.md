@@ -1,7 +1,7 @@
 ---
 title: JWT addon
 layout: en
-permalink: /user/jwt/
+
 ---
 
 Integration between Travis-CI and third-party services like Sauce Labs relies

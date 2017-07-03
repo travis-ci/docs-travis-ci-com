@@ -1,6 +1,5 @@
 ---
 title: "Build Stages: Share files via S3"
-permalink: /user/build-stages/share-files-s3/
 layout: en
 ---
 
