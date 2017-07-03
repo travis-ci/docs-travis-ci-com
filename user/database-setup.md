@@ -224,7 +224,7 @@ addons:
   mariadb: '10.0'
 ```
 
-The version number is exported as the `TRAVIS_MARIADB_VERSION` environment variable.
+The version number is exported as the `TRAVIS_MARIADB_VERSION` environment variable. The dafult user is root.
 
 ## SQLite3
 
