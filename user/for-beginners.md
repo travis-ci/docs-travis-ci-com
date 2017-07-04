@@ -43,7 +43,7 @@ You need to sign up for a [GitHub account](https://github.com/) if you do not al
 
    > Note: Travis only runs a build on the commits you push after adding the repository to Travis.
 
-   Wait for Travis CI to run a build on your fork of the `travis-broken-example` repository, check the [build status](https://travis-ci.org/repositories) and notice that the build fails. (Travis CI sends you an email when this happens)
+   Wait for Travis CI to run a build on your fork of the `travis-broken-example` repository, check the [build status](https://travis-ci.org) and notice that the build fails. (Travis CI sends you an email when this happens)
 
 6. Fix the code by making sure that `2=1+1` in `Test.php`, commit and push to GitHub. This time, the build does not fail.
 
