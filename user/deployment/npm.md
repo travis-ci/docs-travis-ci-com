@@ -20,10 +20,17 @@ A minimal `.travis.yml` configuration for publishing to npmjs.org with npm versi
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
-  api_key: "YOUR_API_KEY"
+  api_key: "YOUR_AUTH_TOKEN"
 ```
 
-Always [encrypt](/user/encryption-keys/#Usage) your API key.
+Always [encrypt](/user/encryption-keys/#Usage) your API key. 
+
+## NPM Auth Token
+
+Your NPM Auth Token can be obtained by:
+
+1. Login into [npmjs.com](npmjs.com), you [generating a new token](https://www.npmjs.com/settings/tokens).
+2. Login via the CLI with [npm adduser](https://docs.npmjs.com/cli/adduser) and look at the `authToken` value in your `~/.npmrc` file.
 
 ## What to release
 
@@ -112,7 +119,7 @@ after_deploy:
 For npm version ~1 your `~/.npmrc` file will look more like:
 
 ```
-auth=YOUR_API_KEY
+auth=YOUR_AUTH_TOKEN
 email=YOUR_EMAIL_ADDRESS
 ```
 
@@ -122,14 +129,14 @@ And you can deploy with the npm provider by adding:
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
-  api_key: "YOUR_API_KEY"
+  api_key: "YOUR_AUTH_TOKEN"
 ```
 
 It is recommended to encrypt your api_key. Assuming you have the Travis CI command
 line client installed, you can do it like this:
 
 ```bash
-$ travis encrypt YOUR_API_KEY --add deploy.api_key
+$ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
 ```
 
 You can also have the `travis` tool set up everything for you:
