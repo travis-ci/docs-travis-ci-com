@@ -29,7 +29,7 @@ Always [encrypt](/user/encryption-keys/#Usage) your API key.
 
 Your NPM Auth Token can be obtained by:
 
-1. Login into [npmjs.com](npmjs.com), you [generating a new token](https://www.npmjs.com/settings/tokens).
+1. Login into [npmjs.com](http://www.npmjs.com), you [generating a new token](https://www.npmjs.com/settings/tokens).
 2. Login via the CLI with [npm adduser](https://docs.npmjs.com/cli/adduser) and look at the `authToken` value in your `~/.npmrc` file.
 
 ## What to release
