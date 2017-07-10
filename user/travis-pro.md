@@ -69,16 +69,16 @@ deactivate it on [Travis CI .com](https://travis-ci.com), change the repository
 settings on GitHub, and resync your Travis CI account:
 
 1. On [Travis CI .com](https://travis-ci.com) go to *Acccounts*, and toggle the
-   repository sync to *OFF*.
+   repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
 how to make a repository public.
 
-2. On [Travis CI .org](https://travis-ci.org) go to *Acccounts* and toggle the
-   repository to *ON*.
+2. On [Travis CI .org](https://travis-ci.org) go to *Acccounts*, click *Sync
+   Account*, then toggle the repository to *ON*.
 
-5. If you're using the [Travis CI commmandline client](https://github.com/travis-ci/travis.rb#readme)
+5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
    reset the default endpoint to public:
 
    ```sh
@@ -87,19 +87,22 @@ how to make a repository public.
 
 ## How can I make a public repository private?
 
-If you have a public repository that you'd like to make private, first change
-the setting on GitHub, then resync your Travis CI account:
+If you have a public repository that you'd like to make private, first
+deactivate it on [Travis CI .org](https://travis-ci.org), change the repository
+settings on GitHub, and resync your Travis CI account:
+
+1. On [Travis CI .org](https://travis-ci.org) go to *Acccounts*, and toggle the
+   repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
 how to make a repository public.
 
-2. On [Travis CI](https://travis-ci.com) go to *Acccounts* and click *Sync account*.
+2. On [Travis CI .org](https://travis-ci.org) go to *Acccounts*, click *Sync
+   Account*, then toggle the repository to *ON*.
 
-3. When you see the repository in the list, toggle the switch to *enabled*.
-
-5. If you're using the [Travis CI commmandline client](https://github.com/travis-ci/travis.rb#readme)
-   reset the default endpoint to public:
+5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
+   reset the default endpoint to private:
 
    ```sh
    travis endpoint --com --set-default
