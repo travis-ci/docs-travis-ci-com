@@ -23,7 +23,11 @@ deploy:
 Generate your Firebase after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
 ```bash
+# This generates a token, e.g. "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"
 firebase login:ci
+# Encrypt this token
+travis encrypt "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add
+# This command may generate a warning ("If you tried to pass the name of the repository as the first argument, you probably won't get the results you wanted"). You can ignore it.
 ```
 
 Remember to [encrypt](/user/encryption-keys/#Usage) the token before adding it to your `.travis.yml`
