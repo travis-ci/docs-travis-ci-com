@@ -1,11 +1,8 @@
 ---
-title: The Trusty beta Build Environment
+title: The Trusty Build Environment
 layout: en
 permalink: /user/trusty-ci-environment/
 ---
-
-> The Trusty environment is still in BETA. Some features may change at shorter notice than our more stable environments.
-{: .beta}
 
 ## Using Trusty
 
@@ -17,7 +14,7 @@ dist: trusty
 sudo: required
 ```
 
-Or, if you want to route to the sudo-less beta, add:
+Or, if you want to route to sudo-less, add:
 
 ```yaml
 dist: trusty
@@ -27,12 +24,12 @@ sudo: false
 This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of using
-Trusty, including details specific to the container-based beta, read on ...
+Trusty, including details specific to container-based, read on ...
 
 ### What This Guide Covers
 
 This guide provides a general overview of which packages, tools and settings are
-available in the Trusty beta environment.
+available in the Trusty environment.
 
 <div id="toc"></div>
 
@@ -76,8 +73,8 @@ includes:
 
 - A minimal image which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains (almost) all runtimes and services
-  present in Precise environments.
+- A considerably larger image which contains roughly the same runtimes and
+  services present in Precise environments.
 
 ## Routing to Trusty
 
@@ -89,7 +86,7 @@ dist: trusty
 sudo: required
 ```
 
-Or, if you want to route to the container-based beta:
+Or, if you want to route to container-based:
 
 ```yaml
 dist: trusty
@@ -98,16 +95,12 @@ sudo: false
 
 ## Environment common to all Trusty images
 
-*NOTE: The Trusty images do not currently contain all the common
-tools and services present in our Precise images. This is something
-we expect will change over time.*
-
 ### Version control
 
 All VM images have the following pre-installed:
 
-- A Git 2.x release
-- Mercurial (official Ubuntu packages)
+- Git 2.x
+- Mercurial
 - Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
@@ -146,14 +139,14 @@ See our [Using Docker in Builds](/user/docker/) section for more details.
 
 #### Ruby
 
-[rvm](https://rvm.io/rvm/about) is installed and we pre-installed at least two
-of the latest point releases such as `2.2.5` and `2.3.1`.  Any versions that are
+[rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
+the latest point releases such as `2.2.7` and `2.4.1`.  Any versions that are
 not pre-installed will be dynamically installed at runtime from a local cache.
 
 #### Python
 
 We pre-install at least two of the latest releases of CPython in the `2.x` and
-`3.x` series such as `2.7.12` and `3.5.2`, and at least one version of PyPy.
+`3.x` series such as `2.7.13` and `3.6.1`, and at least one version of PyPy.
 Any versions that are not pre-installed will be dynamically installed at runtime
 from a local cache.
 
@@ -163,15 +156,15 @@ also installed.
 #### Node.JS
 
 [nvm](https://github.com/creationix/nvm#installation) is installed and we
-pre-install at least two of the latest point releases such as `4.1.2` and
-`0.12.7`.  Any versions that are not pre-installed will be dynamically installed
+pre-install at least two of the latest point releases such as `6.9.4` and
+`7.4.0`.  Any versions that are not pre-installed will be dynamically installed
 by `nvm`.
 
 #### Go
 
 [gimme](https://github.com/travis-ci/gimme#gimme) is installed and we
-pre-install at least two of the latest point releases such as `1.6.3` and
-`1.7.3`.  Any versions that are not pre-installed will be dynamically installed
+pre-install at least two of the latest point releases such as `1.7.3` and
+`1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
 #### JVM
@@ -182,7 +175,7 @@ by `gimme`.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another version.
 - gradle
-- Maven
+- maven
 - leiningen
 - sbt
 
@@ -208,21 +201,16 @@ dependencies](/user/installing-dependencies/).
 We pre-install the following services which may be activated with the built-in
 [services](/user/database-setup/) support.
 
+- Apache Cassandra
+- CouchDB
+- ElasticSearch
 - MongoDB
+- Neo4J
 - PostgreSQL
 - RabbitMQ
 - Redis
-- SQLite
-
-The following services that are included with our Precise images are **not
-included** in the Trusty images, but may be installed via `apt` if necessary:
-
-- Apache Cassandra
-- CouchDB
-- Neo4J
 - Riak
-
-To install ElasticSearch follow the [installation instructions](/user/database-setup/#Installing-ElasticSearch-on-trusty-container-based-infrastructure).
+- SQLite
 
 ### Firefox
 
@@ -231,12 +219,12 @@ Firefox is installed by default.
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.
 
-For example, to install version 17.0, add the following to your
+For example, to install version 50.0, add the following to your
 `.travis.yml` file:
 
 ```yaml
 addons:
-  firefox: "17.0"
+  firefox: "50.0"
 ```
 
 ### Headless Browser Testing Tools
@@ -282,5 +270,5 @@ secondary groups given above in `usermod`.
 
 ### Build system information
 
-In the build log, relevant software versions (including the available language versions)
-is show in the "Build system information".
+In the build log, relevant software versions (including the available language
+versions) is show in the "Build system information".

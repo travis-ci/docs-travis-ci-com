@@ -12,18 +12,14 @@ publishes to npmjs.org, however if you have a `publishConfig.registry` key in yo
 
 <div id="toc"></div>
 
-For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your
-`.npmrc` you should see a line similar to:
-
-```
-//registry.npmjs.org/:_authToken=YOUR_API_KEY
-```
+For npm version 2+ your api_key (`_authToken`) and email address (`NPM_EMAIL`) can be found in your `~/.npmrc` file.
 
 A minimal `.travis.yml` configuration for publishing to npmjs.org with npm version 2+ looks like:
 
 ```yaml
 deploy:
   provider: npm
+  email: "YOUR_EMAIL_ADDRESS"
   api_key: "YOUR_API_KEY"
 ```
 
@@ -83,6 +79,16 @@ deploy:
 reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+
+## Tagging releases
+
+You can automatically tag releases with the `tag` option:
+
+```yaml
+deploy:
+  ...
+  tag: next
+```
 
 ## Note on `.gitignore`
 
