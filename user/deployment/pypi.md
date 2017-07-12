@@ -13,8 +13,9 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: "Your username"
-  password: "Your password"
+  password: "Your password"  
 ```
 
 However, this would expose your PyPI password to the world. We recommend you
@@ -29,6 +30,7 @@ travis encrypt --add deploy.password
 ```yaml
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: "Your username"
   password:
     secure: "Your encrypted password"
@@ -43,6 +45,7 @@ commits, like so:
 ```yaml
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: ...
   password: ...
   on:
@@ -58,6 +61,7 @@ You can explicitly specify the branch to release from with the **on** option:
 ```yaml
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: ...
   password: ...
   on:
@@ -69,6 +73,7 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   provider: pypi
+  skip_upload_docs: true
   api_key: ...
   on:
     all_branches: true
@@ -84,10 +89,11 @@ To release to a different PyPI index:
 
 ```yaml
 deploy:
-      provider: pypi
-      user: ...
-      password: ...
-      server: https://mypackageindex.com/index
+  provider: pypi
+  skip_upload_docs: true
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
 ```
 
 ## Uploading different distributions
@@ -98,9 +104,10 @@ If you would like to upload different distributions, specify them using the `dis
 ```
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: ...
   password: ...
-  distributions: "sdist bdist_wheel" # Your distributions here
+  distributions: "sdist bdist_wheel" # Your distributions here  
 ```
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
@@ -114,6 +121,7 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 ```
 deploy:
   provider: pypi
+  skip_upload_docs: true
   user: ...
   password: ...
   skip_cleanup: true
