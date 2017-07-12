@@ -20,7 +20,7 @@ deploy:
 
 ## Generating your Firebase token
 
-Generate your Firebase after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
+Generate your Firebase token after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
 ```bash
 # This generates a token, e.g. "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"
