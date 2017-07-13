@@ -1,7 +1,7 @@
 ---
 title: Bintray Deployment
 layout: en
-permalink: /user/deployment/bintray/
+
 ---
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).

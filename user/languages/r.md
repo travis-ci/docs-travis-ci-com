@@ -1,7 +1,7 @@
 ---
 title: Building an R Project
 layout: en
-permalink: /user/languages/r/
+
 ---
 
 ### What This Guide Covers

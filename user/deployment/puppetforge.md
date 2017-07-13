@@ -1,7 +1,7 @@
 ---
 title: Puppet Forge Deployment
 layout: en
-permalink: /user/deployment/puppetforge/
+
 ---
 
 <div id="toc"></div>

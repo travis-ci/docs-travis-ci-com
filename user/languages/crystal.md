@@ -1,7 +1,7 @@
 ---
 title: Building a Crystal Project
 layout: en
-permalink: /user/languages/crystal/
+
 ---
 
 ### What This Guide Covers

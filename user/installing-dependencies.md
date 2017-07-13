@@ -1,7 +1,7 @@
 ---
 title: Installing Dependencies
 layout: en
-permalink: /user/installing-dependencies/
+
 redirect_from:
   - /user/apt/
 ---
@@ -118,9 +118,27 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+### Installing Snap Packages
+
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist. 
+
+The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+
+```yaml
+sudo: true
+dist: trusty
+
+install:
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
+
+script:
+  - /snap/bin/hugo new site test-site
+```
+
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/ci-environment/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 

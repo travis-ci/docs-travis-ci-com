@@ -1,7 +1,7 @@
 ---
 title: Building a Dart Project
 layout: en
-permalink: /user/languages/dart/
+
 ---
 
 ### What This Guide Covers

@@ -1,7 +1,7 @@
 ---
 title: Building a Python Project
 layout: en
-permalink: /user/languages/python/
+
 ---
 
 ### What This Guide Covers

@@ -1,7 +1,7 @@
 ---
 title: GUI and Headless Browser Testing
 layout: en
-permalink: /user/gui-and-headless-browsers/
+
 ---
 
 ## What This Guide Covers
@@ -32,7 +32,7 @@ username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]
 capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
 hub_url = "%s:%s@localhost:4445" % (username, access_key)
-driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="http://%s/wd/hub" % hub_url)
+driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="https://%s/wd/hub" % hub_url)
 ```
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
@@ -53,7 +53,7 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chorme (with the [addon](/user/chrome), on Linux Trusty or OS X).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
@@ -119,7 +119,7 @@ addons:
   chrome: stable
 before_install:
   - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   ⋮
 ```
 
@@ -131,7 +131,7 @@ addons:
   chrome: beta
 before_install:
   - # start your web application and listen on `localhost`
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost"
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
   ⋮
 ```
 

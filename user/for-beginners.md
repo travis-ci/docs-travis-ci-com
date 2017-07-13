@@ -1,7 +1,7 @@
 ---
 title: Travis CI for Beginners
 layout: en
-permalink: /user/for-beginners/
+
 ---
 
 Welcome to Travis CI! This page provides some context and terminology used
