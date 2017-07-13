@@ -7,18 +7,17 @@ layout: en
 <div id="toc">
 </div>
 
-> We're moving all version numbers and other distro specific information over to
->  our reference pages at:
+## What This Guide Covers
+
+> Language versions and other build-environment specific
+> information are in our reference pages:
 >  * [Precise](/user/reference/precise/)
 >  * [Trusty](/user/reference/trusty/)
 >  * [OS X](/user/reference/osx/)
 
-
-## What This Guide Covers
-
-This guide covers build environment and configuration topics specific to Ruby
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+The rest of this guide covers configuring Ruby projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
 
@@ -154,14 +153,13 @@ Enjoy a faster build, which is also less prone to compilation problems.
 
 #### Custom Bundler arguments and Gemfile locations
 
-Specify a custom Gemfile name:
+The default Gemfile location is the `Gemfile` in the root of your project.
+
+To specify a custom Gemfile name or location:
 
 ```yaml
 gemfile: gemfiles/Gemfile.ci
 ```
-
-Unless specified, the build will look for a file named `Gemfile` in the root of
-your project.
 
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
@@ -181,7 +179,6 @@ To test against multiple versions of dependencies:
    gemfiles, such as `./gemfiles`.
 2. Add one or more gemfiles to it.
 3. Set the the `gemfile` key in your `.travis.yml`.
-
 
 Thoughtbot's Paperclip is [tested against multiple ActiveRecord
 versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
@@ -240,12 +237,12 @@ Test projects against multiple JDKs, by using the `jdk` key in your
 jdk:
   - oraclejdk7
   - openjdk7
+  - oraclejdk8
 ```
 
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
-you need to add some matrix excludes (described in our general [Build
-Configuration guide](/user/customizing-the-build/)):
+you need to add some matrix excludes (described in our [Build Configuration guide](/user/customizing-the-build/)):
 
 ```yaml
 language: ruby
