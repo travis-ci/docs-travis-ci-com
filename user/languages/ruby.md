@@ -19,6 +19,27 @@ The rest of this guide covers configuring Ruby projects on Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
+<div markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `bundle install --jobs=3 --retry=3`       |
+| Typical `script`  | `rake`                                    |
+| Matrix keys       | `env`, `rvm`, `gemfile`, `jdk`            |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: ruby
+rvm:
+  - 2.2
+  - jruby
+  - 2.0.0-p247
+```
+
+</div>
+
 ## Specifying Ruby versions and implementations
 
 The Ruby environment on Travis CI uses [RVM](https://rvm.io/) to provide many
