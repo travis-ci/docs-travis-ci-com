@@ -80,6 +80,16 @@ reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+## Tagging releases
+
+You can automatically tag releases with the `tag` option:
+
+```yaml
+deploy:
+  ...
+  tag: next
+```
+
 ## Note on `.gitignore`
 
 Notice that `npm` deployment honors `.gitignore` if `.npmignore` does not exist.
