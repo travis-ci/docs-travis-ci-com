@@ -1,7 +1,7 @@
 ---
 title: Installing Dependencies
 layout: en
-permalink: /user/installing-dependencies/
+
 redirect_from:
   - /user/apt/
 ---

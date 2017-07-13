@@ -1,7 +1,7 @@
 ---
 title: Apps, Clients and Tools
 layout: en
-permalink: /user/apps/
+
 ---
 
 There is a wide range of tools you can use to interact with Travis CI:

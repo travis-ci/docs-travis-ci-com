@@ -1,7 +1,7 @@
 ---
 title: Customizing the Build
 layout: en
-permalink: /user/customizing-the-build/
+
 redirect_from:
   - /user/build-configuration/
   - /user/build-lifecycle/

@@ -1,7 +1,7 @@
 ---
 title: Best Practices in Securing Your Data
 layout: en
-permalink: /user/best-practices-security/
+
 ---
 
 ## Steps Travis CI takes to secure your data

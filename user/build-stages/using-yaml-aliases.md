@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Defining steps using YAML aliases"
-permalink: /user/build-stages/using-yaml-aliases/
+
 layout: en
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: CloudFoundry Deployment
 layout: en
-permalink: /user/deployment/cloudfoundry/
+
 ---
 
 You now have the amazing ability to deploy directly to [CloudFoundry](https://run.pivotal.io/) after a successful build on Travis CI.

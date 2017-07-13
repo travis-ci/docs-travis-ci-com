@@ -1,7 +1,7 @@
 ---
 title: The Trusty Build Environment
 layout: en
-permalink: /user/trusty-ci-environment/
+
 ---
 
 ## Using Trusty

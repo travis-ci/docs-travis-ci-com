@@ -1,7 +1,7 @@
 ---
 title: Scalingo deployment
 layout: en
-permalink: /user/deployment/scalingo/
+
 ---
 
 <div id="toc"></div>
