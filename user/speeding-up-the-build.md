@@ -188,7 +188,7 @@ If your makefile build consists of independent parts that can be safely
 parallelized, you can [run multiple recipes
 simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
 See [Virtualization
-environments](/user/ci-environment/#Virtualization-environments) to determine
+environments](/user/reference/precise/#Virtualization-environments) to determine
 how many CPUs an environment normally has and set the `make` job parameter to a
 similar number (or slightly higher if your build frequently waits on disk I/O).
 Note that doing this will cause concurrent recipe output to become interleaved.

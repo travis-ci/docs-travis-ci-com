@@ -163,7 +163,7 @@ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 
 ### Using Docker Compose
 
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
 
 If needed, you can easily replace this preinstalled version of `docker-compose`
 by adding the following `before_install` step to your `.travis.yml`:

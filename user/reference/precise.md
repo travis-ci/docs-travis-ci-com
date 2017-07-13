@@ -107,8 +107,8 @@ images.
 
 For other images, see the list below:
 
-- [OS X CI Environment](/user/osx-ci-environment)
-- [Trusty CI Environment](/user/trusty-ci-environment)
+- [OS X CI Environment](/user/reference/osx)
+- [Trusty CI Environment](/user/reference/trusty)
 
 ### Version control
 
