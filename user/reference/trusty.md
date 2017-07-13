@@ -1,7 +1,8 @@
 ---
 title: The Trusty Build Environment
 layout: en
-
+redirect_from:
+  - /user/trusty-ci-environment/
 ---
 
 ## Using Trusty

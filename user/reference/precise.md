@@ -6,6 +6,7 @@ redirect_from:
   - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/
   - /user/workers/os-x-infrastructure/
+  - /user/ci-environment/
 ---
 
 ### What This Guide Covers

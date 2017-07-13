@@ -1,7 +1,8 @@
 ---
 title: The OS X Build Environment
 layout: en
-
+redirect_from:
+  - /user/osx-ci-environment/
 ---
 
 ### What This Guide Covers
