@@ -21,7 +21,7 @@ deploy:
     branch: master
 ```
 
-The `snapcraft enable-ci travis` command will assist you getting the credential, encrypting it and adding the right script to the deploy section of your `.travis.yml` file. Here is a [tutorial that will guide you setting up the continuous delivery from Travis CI](https://docs.google.com/document/d/1vPUMH9UNOP8AqjhcslMZ5LQHMV3xvMYYKb7slC4s_Gc/edit) on your project.
+The `snapcraft enable-ci travis` command will assist you getting the credential, encrypting it and adding the right script to the deploy section of your `.travis.yml` file. Here is a [tutorial that will guide you setting up the continuous delivery from Travis CI](https://tutorials.ubuntu.com/tutorial/continuous-snap-delivery-from-travis-ci#0) on your project.
 
 Note that the `edge` channel is intended for crowdtesting with your community of early adopters. With this deployment script in Travis, every time a pull request lands into the master branch, a new snap will be published to edge. Your testers just have to install it once in any of the supported Linux distros with:
 
