@@ -1,5 +1,5 @@
 ---
-title: Travis Pro
+title: Travis CI for Private Projects
 layout: en
 
 redirect_from:
