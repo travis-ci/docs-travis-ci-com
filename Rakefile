@@ -72,7 +72,6 @@ task :serve => [:gen_trusty_image_data] do
 end
 
 namespace :assets do
-  task :precompile do
-    sh "bundle exec jekyll build"
+  task :precompile => [:build] do
   end
 end
