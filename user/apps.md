@@ -85,6 +85,16 @@ By Marcell Spies
 - [website](http://marcells.github.io/node-build-monitor)
 - [source code](https://github.com/marcells/node-build-monitor)
 
+### CI Dashboard
+
+![ci-dashboard](/images/apps/ci-dashboard.jpg){:.app}
+
+Travis CI builds dashboard<br>
+By Ahmed El-Sayed
+
+- [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
+
+
 ## Tools
 
 ### Travis WebLint
