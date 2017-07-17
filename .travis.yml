@@ -35,5 +35,5 @@ install:
   - bundle install --deployment
 before_script:
   - rvm use 2.3.1 --install
-script:
-  - bundle exec rake test
+#script:
+  #- bundle exec rake test
