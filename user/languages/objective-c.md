@@ -1,7 +1,7 @@
 ---
 title: Building an Objective-C or Swift Project
 layout: en
-permalink: /user/languages/objective-c/
+
 swiftypetags:
   - swift
 ---

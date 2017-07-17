@@ -1,7 +1,7 @@
 ---
 title: IP Addresses
 layout: en
-permalink: /user/ip-addresses/
+
 ---
 
 Knowing the IP addresses of the build machines Travis CI uses can be helpful

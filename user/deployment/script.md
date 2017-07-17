@@ -1,7 +1,7 @@
 ---
 title: Script deployment
 layout: en
-permalink: /user/deployment/script/
+
 ---
 
 If your deployment needs more customization than the `after_success` method allows,

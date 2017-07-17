@@ -1,7 +1,7 @@
 ---
 title: The Build Environment
 layout: en
-permalink: /user/ci-environment/
+
 redirect_from:
   - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/

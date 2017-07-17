@@ -1,7 +1,7 @@
 ---
 title: Building a Node.js project
 layout: en
-permalink: /user/languages/javascript-with-nodejs/
+
 ---
 
 <div id="toc"></div>

@@ -1,7 +1,7 @@
 ---
 title: Hackage Deployment
 layout: en
-permalink: /user/deployment/hackage/
+
 ---
 
 Travis CI supports uploading to [Hackage](https://hackage.haskell.org/).

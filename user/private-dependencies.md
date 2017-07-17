@@ -1,7 +1,7 @@
 ---
 title: Private Dependencies
 layout: en
-permalink: /user/private-dependencies/
+
 ---
 
 *Some of the features described here are currently **only available for private

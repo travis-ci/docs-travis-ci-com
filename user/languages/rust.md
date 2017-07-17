@@ -1,7 +1,7 @@
 ---
 title: Building a Rust Project
 layout: en
-permalink: /user/languages/rust/
+
 ---
 
 <div id="toc">

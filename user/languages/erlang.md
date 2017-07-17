@@ -1,7 +1,7 @@
 ---
 title: Building a Erlang project
 layout: en
-permalink: /user/languages/erlang/
+
 ---
 
 ### What This Guide Covers

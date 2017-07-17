@@ -1,7 +1,6 @@
 ---
 title: Using SonarCloud with Travis CI
 layout: en
-permalink: /user/sonarcloud/
 redirect_from:
   - /user/sonarqube/
 ---

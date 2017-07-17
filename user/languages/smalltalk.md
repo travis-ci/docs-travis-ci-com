@@ -1,7 +1,7 @@
 ---
 title: Building a Smalltalk Project
 layout: en
-permalink: /user/languages/smalltalk/
+
 ---
 
 ### What This Guide Covers

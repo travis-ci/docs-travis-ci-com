@@ -1,7 +1,7 @@
 ---
 title: Setting up Databases
 layout: en
-permalink: /user/database-setup/
+
 redirect_from:
   - /user/using-postgresql/
 ---
