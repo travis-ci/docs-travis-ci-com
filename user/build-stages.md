@@ -1,6 +1,6 @@
 ---
 title: Build Stages
-permalink: /user/build-stages/
+
 layout: en
 ---
 

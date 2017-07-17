@@ -1,7 +1,7 @@
 ---
 title: Using BrowserStack with Travis CI
 layout: en
-permalink: /user/browserstack/
+
 ---
 
 Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device

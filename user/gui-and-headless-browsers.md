@@ -1,7 +1,7 @@
 ---
 title: GUI and Headless Browser Testing
 layout: en
-permalink: /user/gui-and-headless-browsers/
+
 ---
 
 ## What This Guide Covers

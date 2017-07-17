@@ -1,7 +1,7 @@
 ---
 title: Using Docker in Builds
 layout: en
-permalink: /user/docker/
+
 ---
 
 <div id="toc"></div>

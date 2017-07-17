@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Matrix expansion"
-permalink: /user/build-stages/matrix-expansion/
+
 layout: en
 ---
 

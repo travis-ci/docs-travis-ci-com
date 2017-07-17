@@ -1,7 +1,7 @@
 ---
 title: Google Cloud Storage (GCS) Deployment
 layout: en
-permalink: /user/deployment/gcs/
+
 ---
 
 Travis CI supports uploading to Google Cloud Storage (GCS).

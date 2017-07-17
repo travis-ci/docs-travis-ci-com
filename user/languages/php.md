@@ -1,7 +1,7 @@
 ---
 title: Building a PHP project
 layout: en
-permalink: /user/languages/php/
+
 ---
 
 ### What This Guide Covers

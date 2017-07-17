@@ -1,7 +1,7 @@
 ---
 title: Which Repository Providers Can I Use?
 layout: en
-permalink: /user/repository-providers/
+
 ---
 
 Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).

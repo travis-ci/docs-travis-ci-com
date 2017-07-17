@@ -1,7 +1,9 @@
 ---
 layout: en
 title: Imprint
+permalink: /imprint.html
 ---
+
 <article id="imprint">
   <address>
     Travis CI GmbH<br>
