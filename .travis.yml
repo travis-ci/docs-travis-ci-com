@@ -37,3 +37,4 @@ before_script:
   - rvm use 2.3.1 --install
 #script:
   #- bundle exec rake test
+script: true
