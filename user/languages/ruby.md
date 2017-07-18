@@ -15,7 +15,7 @@ The rest of this guide covers configuring Ruby projects on Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-<div markdown="block" class="ataglance">
+<aside markdown="block" class="ataglance">
 
 | Ruby                                        | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
@@ -34,7 +34,7 @@ rvm:
   - 2.0.0-p247
 ```
 
-</div>
+</aside>
 
 ## Specifying Ruby versions and implementations
 
