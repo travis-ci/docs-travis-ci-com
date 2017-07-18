@@ -40,7 +40,7 @@ The previous example uses `phpunit`, the default build script, to build against 
 - hhvm # on Trusty only
 - nightly
 
-which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/ci-environment/).
+which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/reference/precise/).
 
 You can see an [example of version number aliases](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
 
