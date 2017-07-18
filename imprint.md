@@ -1,6 +1,7 @@
 ---
 layout: en
 title: Imprint
+permalink: /imprint.html
 ---
 
 <article id="imprint">
