@@ -42,11 +42,6 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% endfor %}
 </table>
 
-> At this time we are unable to provide pre-release versions of Xcode due to the
-> NDA imposed on them. We do test them internally, and our goal is to make new
-> versions available the same day they come out. If you have any further questions
-> about Xcode pre-release availability, send us an email at support@travis-ci.com.
-
 ## Homebrew
 
 Homebrew is installed and updated every time the virtual machines are updated.
