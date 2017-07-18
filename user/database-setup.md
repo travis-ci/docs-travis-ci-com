@@ -387,7 +387,7 @@ before_install:
   - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
 ```
 
-> If you're using [Container-based infrastructure](/user/reference/precise/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
+> If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
 ## Neo4J
 
@@ -431,7 +431,7 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/reference/precise/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
