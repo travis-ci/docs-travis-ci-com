@@ -7,14 +7,6 @@ layout: en
 <div id="toc">
 </div>
 
-## What This Guide Covers
-
-{{ site.data.snippets.trusty_note }}
-
-The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
-
 <aside markdown="block" class="ataglance">
 
 | Ruby                                        | Default                                   |
@@ -35,6 +27,14 @@ rvm:
 ```
 
 </aside>
+
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note }}
+
+The rest of this guide covers configuring Ruby projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
 
