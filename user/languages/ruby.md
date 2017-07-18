@@ -9,11 +9,7 @@ layout: en
 
 ## What This Guide Covers
 
-> Language versions and other build-environment specific
-> information are in our reference pages:
->  * [Precise](/user/reference/precise/)
->  * [Trusty](/user/reference/trusty/)
->  * [OS X](/user/reference/osx/)
+{{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
