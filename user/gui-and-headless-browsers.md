@@ -213,4 +213,4 @@ In that case, you should increase the browser inactivity timeout to a higher val
 browserNoActivityTimeout: 30000,
 ```
 
-For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/0.12/config/configuration-file.html) documentation.
+For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.
