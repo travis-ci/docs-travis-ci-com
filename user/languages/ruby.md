@@ -17,12 +17,12 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <div markdown="block" class="ataglance">
 
-|                   | Default                                   |
-|:------------------|:------------------------------------------|
-| Typical `install` | `bundle install --jobs=3 --retry=3`       |
-| Typical `script`  | `rake`                                    |
-| Matrix keys       | `env`, `rvm`, `gemfile`, `jdk`            |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Ruby                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `bundle install --jobs=3 --retry=3`       |
+| [Default `script`](#Default-Build-Script)   | `rake`                                    |
+| [Matrix keys](#Build-Matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
