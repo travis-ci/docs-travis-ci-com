@@ -6,13 +6,44 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+> Language versions and other build-environment specific
+> information are in our reference pages:
+>  * [Precise](/user/reference/precise/)
+>  * [Trusty](/user/reference/trusty/)
+>
+> Python builds are not available on the OS X environment.
 
-Python builds are not available on the OS X environment.
+The rest of this guide covers configuring Python projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
+
+<div markdown="block" class="ataglance">
+|                   | Default                                        |
+|:------------------|:-----------------------------------------------|
+| Typical `install` | `pip install -r requirements.txt`              |
+| Typical `script`  | `pytest` or `make test`                        |
+| Matrix keys       | `python`                                       |
+| Support           | [Travis CI](mailto:support@travis-ci.com)      |
+
+Minimal example:
+ 
+```yaml
+  language: python
+  python:
+    - 2.6
+    - 2.7
+    - 3.5
+    - 3.6
+    - nightly
+    
+  script:
+    - pytest
+```
+</div>
 
 <div id="toc"></div>
 
-## Choosing Python versions to test against
+## Specifying Python versions
 
 Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
 
@@ -29,20 +60,22 @@ python:
   - "3.6"
   - "3.6-dev" # 3.6 development branch
   - "3.7-dev" # 3.7 development branch
-  - "nightly" # currently points to 3.7-dev
+  - "nightly"
+
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install:
+  - pip install -r requirements.txt
+
 # command to run tests
-script: pytest
+script:
+  - pytest # or py.test for Python versions 3.5 and below
 ```
 
-As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
-
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
+As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.6` will float and point to different exact versions, patch levels and so on.
 
 ### Travis CI Uses Isolated virtualenvs
 
-[CI Environment](/user/reference/precise/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
+The CI Environment uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
 If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
 
