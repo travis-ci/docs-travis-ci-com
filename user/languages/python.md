@@ -46,6 +46,12 @@ Minimal example:
 
 ## Specifying Python versions
 
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
+### Supported Python versions
+
 Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
 
 ```yaml
@@ -72,9 +78,11 @@ script:
   - pytest # or py.test for Python versions 3.5 and below
 ```
 
-As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.6` will float and point to different exact versions, patch levels and so on.
+As time goes, new releases come out and we provision more Python versions and/or
+implementations, aliases like `3.6` will float and point to different exact versions,
+patch levels and so on.
 
-### Travis CI Uses Isolated virtualenvs
+### Travis CI Uses Isolated virtualenvs - PENDING
 
 The CI Environment uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
@@ -84,7 +92,8 @@ If you decide to use apt anyway, note that Python system packages only include P
 
 Travis CI supports PyPy and PyPy3.
 
-To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons in your `.travis.yml`:
+To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons
+in your `.travis.yml`:
 
 ```yaml
 language: python
@@ -106,9 +115,17 @@ install:
 script: pytest
 ```
 
-## Default Python Version
 
-If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+### Nightly build support
+
+Travis CI supports a special version name `nightly`, which points to
+a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
+
+### Development releases support
+
+From Python 3.5, Python In Development versions are available.
+
+You can specify these in your builds with `3.5-dev`, `3.6-dev` or `3.7-dev`.
 
 ## Specifying Test Script
 
@@ -129,7 +146,9 @@ script: make test
 ```
 
 If you do not provide a `script` key in a Python project, Travis CI prints a
-message and fails the build.
+message (_"Please override the script: key in your .travis.yml to run tests."_)
+and fails the build.
+
 
 ## Dependency Management
 
@@ -161,7 +180,10 @@ Travis CI installs the following packages by default in each virtualenv:
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
-If you need to test against multiple versions of, say, Django, you can instruct Travis CI to do multiple runs with different sets or values of environment variables. Use *env* key in your .travis.yml file, for example:
+If you need to test against multiple versions of, say, Django, you can instruct 
+Travis CI to do multiple runs with different sets or values of environment variables.
+
+Use *env* key in your .travis.yml file, for example:
 
 ```yaml
 env:
@@ -169,7 +191,9 @@ env:
   - DJANGO_VERSION=1.8.2
 ```
 
-and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
+and then use ENV variable values in your dependencies installation scripts, test 
+cases or test script parameter values. Here we use ENV variable value to instruct 
+pip to install an exact version:
 
 ```yaml
 install:
@@ -177,20 +201,9 @@ install:
   - python setup.py -q install
 ```
 
-The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
+The same technique is often used to test projects against multiple databases and so on.
 
-## Nightly build support
-
-Travis CI supports a special version name `nightly`, which points to
-a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
-
-It also has the [packages above](#Pre-installed-packages) pre-installed.
-
-## On-demand installations
-
-For a limited number of Python development releases, on-demand installation is available.
-
-Currently, these are: `3.5-dev` (built nightly), `3.5`/`3.5.0`.
+For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
 ## Build Matrix
 
