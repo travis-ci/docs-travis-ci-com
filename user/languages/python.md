@@ -4,6 +4,8 @@ layout: en
 
 ---
 
+<div id="toc"></div>
+
 ### What This Guide Covers
 
 > Language versions and other build-environment specific
@@ -41,8 +43,6 @@ Minimal example:
     - pytest
 ```
 </aside>
-
-<div id="toc"></div>
 
 ## Specifying Python versions
 
