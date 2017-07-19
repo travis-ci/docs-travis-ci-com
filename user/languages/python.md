@@ -17,13 +17,14 @@ The rest of this guide covers configuring Python projects in Travis CI. If you'r
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-<div markdown="block" class="ataglance">
-|                   | Default                                        |
-|:------------------|:-----------------------------------------------|
-| Typical `install` | `pip install -r requirements.txt`              |
-| Typical `script`  | `pytest` or `make test`                        |
-| Matrix keys       | `python`                                       |
-| Support           | [Travis CI](mailto:support@travis-ci.com)      |
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `pip install -r requirements.txt`         |
+| Typical `script`  | `pytest` or `make test`                   |
+| Matrix keys       | `python`                                  |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
  
@@ -39,7 +40,7 @@ Minimal example:
   script:
     - pytest
 ```
-</div>
+</aside>
 
 <div id="toc"></div>
 
