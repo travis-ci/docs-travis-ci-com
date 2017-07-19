@@ -115,7 +115,6 @@ install:
 script: pytest
 ```
 
-
 ### Nightly build support
 
 Travis CI supports a special version name `nightly`, which points to
@@ -148,7 +147,6 @@ script: make test
 If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
 and fails the build.
-
 
 ## Dependency Management
 
