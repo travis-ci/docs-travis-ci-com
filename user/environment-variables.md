@@ -162,7 +162,7 @@ The following default environment variables are available to all builds.
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-- `USER=travis` (**do not depend on this value**)
+- `USER=travis` (**do not depend on this value**; do not override this value)
 - `HOME=/home/travis` (**do not depend on this value**)
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
