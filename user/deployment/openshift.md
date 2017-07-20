@@ -1,7 +1,7 @@
 ---
 title: OpenShift Deployment
 layout: en
-permalink: /user/deployment/openshift/
+
 ---
 
 Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) application after a successful build.

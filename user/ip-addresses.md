@@ -1,7 +1,7 @@
 ---
 title: IP Addresses
 layout: en
-permalink: /user/ip-addresses/
+
 ---
 
 Knowing the IP addresses of the build machines Travis CI uses can be helpful
@@ -28,4 +28,4 @@ for [notifications](/user/notifications) are different.
 
 More details about our different infrastructures are available on the
 [virtualization environments
-page](/user/ci-environment/#Virtualization-environments).
+page](/user/reference/precise/#Virtualization-environments).

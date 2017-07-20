@@ -1,7 +1,7 @@
 ---
 title: Caching Dependencies and Directories
 layout: en
-permalink: /user/caching/
+
 ---
 
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
@@ -157,7 +157,7 @@ ccache is not installed on OS X environments but you can install it by adding
 ```yaml
 install:
   - brew install ccache
-  - PATH=$PATH:/usr/local/opt/ccache/libexec
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
 ```
 
 > Note that this creates wrappers around your default gcc and g++ compilers.

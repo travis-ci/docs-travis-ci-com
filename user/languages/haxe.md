@@ -1,7 +1,7 @@
 ---
 title: Building a Haxe Project
 layout: en
-permalink: /user/languages/haxe/
+
 ---
 
 ### What This Guide Covers

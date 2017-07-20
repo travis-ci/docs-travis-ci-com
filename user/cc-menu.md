@@ -1,7 +1,7 @@
 ---
 title: Using CCMenu with Travis CI
 layout: en
-permalink: /user/cc-menu/
+
 ---
 
 <figure class="small right">

@@ -1,12 +1,12 @@
 ---
 title: GUI and Headless Browser Testing
 layout: en
-permalink: /user/gui-and-headless-browsers/
+
 ---
 
 ## What This Guide Covers
 
-This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/ci-environment/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
 ## Using Sauce Labs
 
@@ -32,12 +32,12 @@ username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]
 capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
 hub_url = "%s:%s@localhost:4445" % (username, access_key)
-driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="http://%s/wd/hub" % hub_url)
+driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="https://%s/wd/hub" % hub_url)
 ```
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
 
-This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/user/ci-environment/#Environment-variables) for more ways to detect if you're running on Travis CI).
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/user/reference/precise/#Environment-variables) for more ways to detect if you're running on Travis CI).
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
@@ -53,7 +53,7 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chorme (with the [addon](/user/chrome), on Linux Trusty or OS X).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
 Start `xvfb` in the `before_script` section of your `.travis.yml`:
 
@@ -119,7 +119,7 @@ addons:
   chrome: stable
 before_install:
   - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   ⋮
 ```
 
@@ -131,7 +131,7 @@ addons:
   chrome: beta
 before_install:
   - # start your web application and listen on `localhost`
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost"
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
   ⋮
 ```
 
@@ -144,7 +144,7 @@ before_install:
 
 [PhantomJS](http://phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
-[CI environment](/user/ci-environment/) provides PhantomJS pre-installed (available in PATH as `phantomjs`; don't rely on the exact location). Since it is completely headless, there is no need run `xvfb`.
+[CI environment](/user/reference/precise/) provides PhantomJS pre-installed (available in PATH as `phantomjs`; don't rely on the exact location). Since it is completely headless, there is no need run `xvfb`.
 
 A very simple example:
 
@@ -213,4 +213,4 @@ In that case, you should increase the browser inactivity timeout to a higher val
 browserNoActivityTimeout: 30000,
 ```
 
-For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/0.12/config/configuration-file.html) documentation.
+For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.

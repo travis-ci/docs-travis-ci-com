@@ -1,7 +1,7 @@
 ---
 title: Catalyze Deployment
 layout: en
-permalink: /user/deployment/catalyze/
+
 ---
 
 <div id="toc"></div>

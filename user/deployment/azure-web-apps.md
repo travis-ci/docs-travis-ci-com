@@ -1,7 +1,7 @@
 ---
 title: Azure Web App Deployment
 layout: en
-permalink: /user/deployment/azure-web-apps/
+
 ---
 
 Travis CI can automatically deploy your [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/) after a successful build.

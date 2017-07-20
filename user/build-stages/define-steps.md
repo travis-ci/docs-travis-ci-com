@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Defining different steps on different stages"
-permalink: /user/build-stages/define-steps/
+
 layout: en
 ---
 

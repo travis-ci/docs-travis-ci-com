@@ -1,7 +1,7 @@
 ---
 title: Building a Node.js project
 layout: en
-permalink: /user/languages/javascript-with-nodejs/
+
 ---
 
 <div id="toc"></div>
@@ -84,7 +84,16 @@ Travis CI uses [npm](http://npmjs.org/) to install your project dependencies:
 npm install
 ```
 
-> Note that there are no npm packages installed by default in the Travis CI environment , your dependencies are downloaded and installed every build.
+> Note that there are no npm packages installed by default in the Travis CI environment, your dependencies are downloaded and installed during each build.
+
+#### Using a specific npm version
+
+Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+
+```yaml
+before_install:
+  - npm i -g npm@version-number
+```
 
 #### Caching with `npm`
 
@@ -113,6 +122,17 @@ yarn
 Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
 instead.
+
+
+#### Using a specific yarn version
+
+Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+
+```yaml
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+```
 
 #### Caching with `yarn`
 
@@ -294,5 +314,3 @@ addons:
       - g++-4.8
 ```
 
-Due to recent decision by the LLVM team to remove APT support, it is currently not possible to update clang on Travis CI via `apt-get` or the `apt` addon.
-See <https://github.com/travis-ci/travis-ci/issues/6120>.

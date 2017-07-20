@@ -1,7 +1,7 @@
 ---
 title: Building a Nix Project
 layout: en
-permalink: /user/languages/nix/
+
 ---
 
 ### What This Guide Covers

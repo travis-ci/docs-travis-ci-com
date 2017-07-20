@@ -1,7 +1,7 @@
 ---
 title: Rackspace Cloud Files Deployment
 layout: en
-permalink: /user/deployment/cloudfiles/
+
 ---
 
 Travis CI can automatically upload your build to [Rackspace Cloud Files](https://www.rackspace.com/cloud/files/) after a successful build.

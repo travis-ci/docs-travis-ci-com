@@ -1,7 +1,7 @@
 ---
 title: Encryption keys
 layout: en
-permalink: /user/encryption-keys/
+
 ---
 
 **We have separate documentation on [encrypting files](/user/encrypting-files/).**
