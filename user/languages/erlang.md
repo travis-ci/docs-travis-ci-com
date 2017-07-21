@@ -6,9 +6,37 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+> Language versions and other build-environment specific
+> information are in our reference pages:
+>  * [Precise](/user/reference/precise/)
+>  * [Trusty](/user/reference/trusty/)
+
+The rest of this guide covers build environment and configuration topics
+specific to Erlang projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
 
 Erlang builds are not available on the OS X environment.
+
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `rebar get-deps`                          |
+| Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
+| Matrix keys       | `env`, `otp_release`                      |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: erlang
+otp_release:
+  - 19.0
+  - 18.2.1
+```
+
+</aside>
 
 ## Choosing OTP releases to test against
 
@@ -24,7 +52,7 @@ otp_release:
   - R16B03
 ```
 
-Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1 .  
+Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1 .
 
 ## Default Test Script
 
