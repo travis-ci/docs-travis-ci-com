@@ -250,6 +250,11 @@ If you need more specific control of Node.js version in your build, use any of
 the following available versions. Releases not shown in this list may be used if
 `nvm` can install them.
 
+- 8.1.x
+- 8
+- 7.10
+- 7.9
+- 7.8
 - 7.7.x
 - 6.1.x
 - 6.0.x
@@ -276,6 +281,8 @@ the following available versions. Releases not shown in this list may be used if
 - 0.8.x
 - 0.6.x
 {: .column-3}
+
+Check [Node.js releases](https://nodejs.org/en/download/releases/) for changelogs
 
 Specifying only a major (e.g., "7") or major.minor version (e.g., "7.7") will run using the
 latest published patch release for that version such as "7.7.1".
