@@ -1,7 +1,7 @@
 ---
 title: Building a Python Project
 layout: en
-permalink: /user/languages/python/
+
 ---
 
 ### What This Guide Covers
@@ -42,7 +42,7 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 
 ### Travis CI Uses Isolated virtualenvs
 
-[CI Environment](/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
+[CI Environment](/user/reference/precise/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
 If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
 

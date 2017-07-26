@@ -1,7 +1,7 @@
 ---
 title: npm Releasing
 layout: en
-permalink: /user/deployment/npm/
+
 ---
 
 Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/)
@@ -86,6 +86,16 @@ deploy:
 reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+
+## Tagging releases
+
+You can automatically tag releases with the `tag` option:
+
+```yaml
+deploy:
+  ...
+  tag: next
+```
 
 ## Note on `.gitignore`
 

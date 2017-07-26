@@ -1,6 +1,6 @@
 ---
 title: Build Stages
-permalink: /user/build-stages/
+
 layout: en
 ---
 
@@ -18,7 +18,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](https://docs.travis-ci.com/user/customizing-the-build#Build-Matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#Build-Matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
@@ -100,7 +100,7 @@ jobs:
 
 ### Build Stages and Build Matrix Expansion
 
-[Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
+[Matrix expansion](/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
 
 For example:
@@ -129,7 +129,7 @@ that defines a matrix dimension.
 
 ### Build Stages and Deployments
 
-You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
+You can combine build stages with [deployments](/user/deployment/):
 
 ```yaml
 jobs:
@@ -144,7 +144,7 @@ jobs:
 ```
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Default-Test-Script)
+have a [default test script](/user/languages/ruby/#Default-Build-Script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on

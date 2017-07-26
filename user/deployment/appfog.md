@@ -1,7 +1,7 @@
 ---
 title: Appfog deployment
 layout: en
-permalink: /user/deployment/appfog/
+
 ---
 
 Travis CI can automatically deploy your [Appfog](https://www.appfog.com/) application after a successful build.

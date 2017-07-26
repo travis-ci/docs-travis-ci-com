@@ -1,7 +1,7 @@
 ---
 title: TestFairy deployment
 layout: en
-permalink: /user/deployment/testfairy/
+
 ---
 
 Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).

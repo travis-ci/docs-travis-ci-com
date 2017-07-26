@@ -1,7 +1,7 @@
 ---
 title: Boxfuse Deployment
 layout: en
-permalink: /user/deployment/boxfuse/
+
 ---
 
 Travis CI can automatically deploy your [Boxfuse](https://boxfuse.com/) application after a successful build.

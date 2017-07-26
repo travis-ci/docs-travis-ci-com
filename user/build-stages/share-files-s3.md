@@ -1,13 +1,12 @@
 ---
 title: "Build Stages: Share files via S3"
-permalink: /user/build-stages/share-files-s3/
 layout: en
 ---
 
 This example has 2 build stages:
 
-* One job that installs dependencies and warms up the cache for the given branch.
-* Three jobs that run tests, using the cache.
+* Two jobs that set up files on S3.
+* One job that uses both files from stage 1.
 
 Here's what the `.travis.yml` config could look like:
 

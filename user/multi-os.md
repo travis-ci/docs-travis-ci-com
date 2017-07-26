@@ -1,7 +1,7 @@
 ---
 title: Testing Your Project on Multiple Operating Systems
 layout: en
-permalink: /user/multi-os/
+
 ---
 
 If your code is used on multiple operating systems it probably should be tested on
@@ -26,7 +26,7 @@ that can affect your tests:
 
 - Not all tools may be available on OS X.
 
-  We are still working on building up the toolchain on the [OS X Environment](/user/osx-ci-environment/).
+  We are still working on building up the toolchain on the [OS X Environment](/user/reference/osx/).
   Missing software may be available via Homebrew.
 
 - Language availability.
@@ -91,7 +91,7 @@ script:
   - make all
 ```
 
-There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty beta build environment](/user/trusty-ci-environment/) and to an [OS X image using Xcode 7.2](https://docs.travis-ci.com/user/languages/objective-c#Supported-OS-X-iOS-SDK-versions):
+There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty build environment](/user/reference/trusty/) and to an [OS X image using Xcode 7.2](/user/languages/objective-c#Supported-Xcode-versions):
 
 ```yaml
 matrix:
