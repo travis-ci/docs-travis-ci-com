@@ -1,7 +1,7 @@
 ---
 title: Chef Supermarket deployment
 layout: en
-permalink: /user/deployment/chefsupermarket/
+
 ---
 
 Travis CI can automatically deploy your cookbook to [Chef

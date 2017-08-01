@@ -1,7 +1,7 @@
 ---
 title: Community-Supported Languages
 layout: en
-permalink: /user/languages/community-supported-languages/
+
 swiftypetags: 'Community Supported'
 ---
 

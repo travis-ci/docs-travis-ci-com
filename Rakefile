@@ -45,6 +45,7 @@ task :run_html_proofer do
 
   tester = HTMLProofer.check_directory('./_site', {
                               :url_swap => url_swap,
+                              :internal_domains => ["docs.travis-ci.com"],
                               :connecttimeout => 600,
                               :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
@@ -53,6 +54,31 @@ task :run_html_proofer do
                             })
   tester.run
 end
+
+desc 'Runs the html-proofer test for internal links only'
+task :run_html_proofer_internal do
+  # seems like the build does not render `%3*`,
+  # so let's remove them for the check
+  url_swap = {
+    /%3A\z/ => '',
+    /%3F\z/ => '',
+    /-\.travis\.yml/ => '-travisyml'
+  }
+
+  tester = HTMLProofer.check_directory('./_site', {
+                              :url_swap => url_swap,
+                              :disable_external => true,
+                              :internal_domains => ["docs.travis-ci.com"],
+                              :connecttimeout => 600,
+                              :only_4xx => true,
+                              :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
+                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html"]
+                            })
+  tester.run
+end
+
+
+
 
 desc 'Populate Trusty image table data'
 task :gen_trusty_image_data do
@@ -72,7 +98,6 @@ task :serve => [:gen_trusty_image_data] do
 end
 
 namespace :assets do
-  task :precompile do
-    sh "bundle exec jekyll build"
+  task :precompile => [:build] do
   end
 end

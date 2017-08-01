@@ -1,7 +1,7 @@
 ---
 title: Engine Yard Deployment
 layout: en
-permalink: /user/deployment/engineyard/
+
 ---
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.

@@ -1,7 +1,7 @@
 ---
 title: Using SourceClear with Travis CI
 layout: en
-permalink: /user/sourceclear/
+
 ---
 
 [SourceClear](https://www.sourceclear.com) is security for open-source code.

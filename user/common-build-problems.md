@@ -1,7 +1,7 @@
 ---
 title: Common Build Problems
 layout: en
-permalink: /user/common-build-problems/
+
 redirect_from:
   - /user/build-timeouts/
 ---

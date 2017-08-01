@@ -1,7 +1,7 @@
 ---
 title: PyPI deployment
 layout: en
-permalink: /user/deployment/pypi/
+
 ---
 
 Travis CI can automatically release your Python package to [PyPI](https://pypi.python.org/) after a successful build.
@@ -51,7 +51,7 @@ deploy:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-## Deploying specific braches
+## Deploying specific branches
 
 You can explicitly specify the branch to release from with the **on** option:
 

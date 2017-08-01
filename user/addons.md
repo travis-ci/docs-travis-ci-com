@@ -1,7 +1,7 @@
 ---
 title: Build Addons
 layout: en
-permalink: /user/addons/
+
 ---
 
 This page is deprecated. The integrations previously listed here have been
