@@ -276,7 +276,8 @@ To create users for your database, add a `before_script` section to your `.travi
 
 ```yaml
 before_script:
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+
 ```
 
 ### MongoDB does not immediately accept connections
