@@ -29,9 +29,13 @@ If you need to overwrite existing files, add `overwrite: true` to the `deploy` s
 You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
 ```bash
-travis setup releases # for public repositories
+travis setup releases
+```
 
-travis setup releases --pro # for private repos
+Or, if you're using a private repository:
+
+```bash
+travis setup releases --pro
 ```
 
 ## Authenticating with an OAuth token
