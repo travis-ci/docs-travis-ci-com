@@ -6,7 +6,7 @@ layout: en
 
 <div id="toc"></div>
 
-> Build stages are currently in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
+> Build stages are currently in BETA.
 {: .beta}
 
 ## What are Build Stages?
