@@ -54,6 +54,17 @@ or if your project uses the `mvnw` wrapper script:
 ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
+or if your project uses `mvnw` wrapper script but you still want to use `mvn` mode:
+```
+install: echo "skip"
+```
+and supply new script option in your `.travis.yml`:
+```
+script:
+    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - mvn test -B
+```
+
 ## Projects Using Gradle
 
 ### Default script Command
