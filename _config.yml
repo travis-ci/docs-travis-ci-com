@@ -4,7 +4,7 @@ url: "https://docs.travis-ci.com"
 docs_github: "https://github.com/travis-ci/docs-travis-ci-com/"
 exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor, '*.erb']
 markdown: kramdown
-permalink: :title
+permalink: :/title/
 syntax-highlighting:
   enabled: true
 kramdown:

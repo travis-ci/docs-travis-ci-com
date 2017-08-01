@@ -1,11 +1,12 @@
 ---
 title: The Build Environment
 layout: en
-permalink: /user/ci-environment/
+
 redirect_from:
   - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/
   - /user/workers/os-x-infrastructure/
+  - /user/ci-environment/
 ---
 
 ### What This Guide Covers
@@ -106,8 +107,8 @@ images.
 
 For other images, see the list below:
 
-- [OS X CI Environment](/user/osx-ci-environment)
-- [Trusty CI Environment](/user/trusty-ci-environment)
+- [OS X CI Environment](/user/reference/osx)
+- [Trusty CI Environment](/user/reference/trusty)
 
 ### Version control
 
@@ -419,17 +420,23 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 On all versions except pypy and pypy3 have `numpy` as well.
 
-## Ruby (aka common) VM images
+## Ruby images
 
-### Ruby versions/implementations
+The Ruby images contain recent versions of:
 
-[Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+- Ruby: 2.2.0, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
+- JRuby: 1.7.x (1.8 and 1.9 mode)
+- Ruby Enterprise Edition: 1.8.7 2012.02
 
-Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
+> Ruby 1.8.6 and 1.9.1 are no [longer available on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
-RVM is able to install other
-versions on demand. For example, to test against Rubinius 2.2.1, you can use
-`rbx-2.2.1` and RVM will download binaries on-demand.
+Pre-compiled versions are downloaded on demand from:
+- [rubies.travis-ci.org](http://rubies.travis-ci.org).
+- [binaries.rubini.us](http://rubies.travis-ci.org/rubinius).
+- [rvm.io/binaries/](https://rvm.io/binaries/).
+- [www.jruby.org/download](http://www.jruby.org/download).
+
+Rubinius Rubies are [no longer available on Precise](https://github.com/rubinius/rubinius/issues/3717).
 
 ### Bundler version
 

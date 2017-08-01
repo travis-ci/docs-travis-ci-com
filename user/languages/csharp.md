@@ -1,7 +1,7 @@
 ---
 title: Building a C#, F#, or Visual Basic Project
 layout: en
-permalink: /user/languages/csharp/
+
 ---
 
 ### What this guide covers

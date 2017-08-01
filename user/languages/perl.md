@@ -1,7 +1,7 @@
 ---
 title: Building a Perl Project
 layout: en
-permalink: /user/languages/perl/
+
 ---
 
 ### What This Guide Covers

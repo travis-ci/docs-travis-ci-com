@@ -1,7 +1,7 @@
 ---
 title: Firefox
 layout: en
-permalink: /user/firefox/
+
 ---
 
 Our 64-bit Linux VMs include a version of Firefox.

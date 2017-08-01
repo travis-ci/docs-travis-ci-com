@@ -1,7 +1,7 @@
 ---
 title: Embedded Builds with PlatformIO
 layout: en
-permalink: /user/integration/platformio/
+
 ---
 
 <div id="toc"></div>

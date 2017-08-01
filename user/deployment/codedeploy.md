@@ -1,7 +1,7 @@
 ---
 title: AWS CodeDeploy
 layout: en
-permalink: /user/deployment/codedeploy/
+
 ---
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.

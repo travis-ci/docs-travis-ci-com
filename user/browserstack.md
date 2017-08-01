@@ -1,7 +1,7 @@
 ---
 title: Using BrowserStack with Travis CI
 layout: en
-permalink: /user/browserstack/
+
 ---
 
 Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
@@ -38,7 +38,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests).
+For more information see the [pull requests page](/user/pull-requests/#Pull-Requests-and-Security-Restrictions).
 
 ### Encrypted Access Key
 

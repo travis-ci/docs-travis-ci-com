@@ -1,7 +1,7 @@
 ---
 title: Installing Dependencies
 layout: en
-permalink: /user/installing-dependencies/
+
 redirect_from:
   - /user/apt/
 ---
@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -118,9 +118,27 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+### Installing Snap Packages
+
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist. 
+
+The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+
+```yaml
+sudo: true
+dist: trusty
+
+install:
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
+
+script:
+  - /snap/bin/hugo new site test-site
+```
+
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/ci-environment/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/reference/precise/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -200,7 +218,7 @@ addons:
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
 before_install:

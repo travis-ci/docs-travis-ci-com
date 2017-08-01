@@ -1,7 +1,7 @@
 ---
 title: BitBalloon Deployment
 layout: en
-permalink: /user/deployment/bitballoon/
+
 ---
 
 <div id="toc"></div>

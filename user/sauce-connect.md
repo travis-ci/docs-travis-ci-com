@@ -1,7 +1,7 @@
 ---
 title: Using Sauce Labs with Travis CI
 layout: en
-permalink: /user/sauce-connect/
+
 ---
 
 Travis CI integrates with [Sauce Labs](https://saucelabs.com), a browser and
@@ -62,9 +62,9 @@ addons:
   sauce_connect: true
 ```
 
-[encryption-keys]: ../encryption-keys/
+[encryption-keys]: /user/encryption-keys/
 
-[jwt]: ../jwt/
+[jwt]: /user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending

@@ -1,7 +1,7 @@
 ---
 title: Building a Groovy project
 layout: en
-permalink: /user/languages/groovy/
+
 ---
 
 ## What This Guide Covers

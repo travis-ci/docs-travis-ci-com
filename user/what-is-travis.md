@@ -1,7 +1,7 @@
 ---
 title: What is Travis CI
 layout: en
-permalink: /user/what-is-travis/
+
 ---
 
 What is Travis CI?

@@ -1,7 +1,7 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: /user/deployment/releases/
+
 ---
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
