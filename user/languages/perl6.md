@@ -1,7 +1,6 @@
 ---
 title: Building a Perl 6 Project
 layout: en
-permalink: /user/languages/perl6/
 ---
 
 ### What This Guide Covers

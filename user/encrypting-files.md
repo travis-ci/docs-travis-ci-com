@@ -1,7 +1,7 @@
 ---
 title: Encrypting Files
 layout: en
-permalink: /user/encrypting-files/
+
 ---
 
 **Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
@@ -88,7 +88,7 @@ before_install:
 
 ### Caveat
 
-There is a report of this function not working on a local Windows machine. Please use a Linux or OS X machine.
+There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or OS X machine.
 
 ## Manual Encryption
 

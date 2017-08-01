@@ -1,7 +1,7 @@
 ---
 title: Common Build Problems
 layout: en
-permalink: /user/common-build-problems/
+
 redirect_from:
   - /user/build-timeouts/
 ---
@@ -565,3 +565,13 @@ it is possible to run builds and jobs in the debug mode.
 Using this feature, you can interact with the live VM where your builds run.
 
 For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
+
+## Log Length exceeded
+
+The log for each build is limited to approximately 4 Megabytes. When it reaches that length the build is terminated and you'll see the following message at the end of your build log:
+
+```
+The log length has exceeded the limit of 4 Megabytes (this usually means that test suite is raising the same exception over and over).
+
+The build has been terminated.
+```

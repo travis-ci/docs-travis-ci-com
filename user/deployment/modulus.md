@@ -1,7 +1,7 @@
 ---
 title: Modulus Deployment
 layout: en
-permalink: /user/deployment/modulus/
+
 swiftypetags: nodejitsu
 ---
 

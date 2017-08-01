@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Sharing a Docker image"
-permalink: /user/build-stages/share-docker-image/
+
 layout: en
 ---
 

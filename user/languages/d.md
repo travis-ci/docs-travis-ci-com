@@ -1,7 +1,7 @@
 ---
 title: Building a D Project
 layout: en
-permalink: /user/languages/d/
+
 ---
 
 ### What This Guide Covers

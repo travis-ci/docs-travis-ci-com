@@ -1,7 +1,7 @@
 ---
-title: Travis Pro
+title: Travis CI for Private Projects
 layout: en
-permalink: /user/travis-pro/
+
 redirect_from:
   - /user/pricing/
 ---

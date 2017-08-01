@@ -1,6 +1,5 @@
 ---
 title: Travis CI APIs
-permalink: /user/developer/
 layout: en
 ---
 

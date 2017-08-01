@@ -1,12 +1,20 @@
 ---
 title: The Trusty Build Environment
 layout: en
-permalink: /user/trusty-ci-environment/
+redirect_from:
+  - /user/trusty-ci-environment/
 ---
+
+## What This Guide Covers
+
+This guide provides a general overview of which packages, tools and settings are
+available in the Trusty environment.
+
+<div id="toc"></div>
 
 ## Using Trusty
 
-In order to use sudo-enabled Ubuntu Trusty, add the following to your
+To use sudo-enabled Ubuntu Trusty, add the following to your
 `.travis.yml`.
 
 ```yaml
@@ -14,7 +22,7 @@ dist: trusty
 sudo: required
 ```
 
-Or, if you want to route to sudo-less, add:
+Or to route to sudo-less:
 
 ```yaml
 dist: trusty
@@ -26,16 +34,7 @@ This is enabled for both public and private repositories.
 If you'd like to know more about the pros, cons, and current state of using
 Trusty, including details specific to container-based, read on ...
 
-### What This Guide Covers
-
-This guide provides a general overview of which packages, tools and settings are
-available in the Trusty environment.
-
-<div id="toc"></div>
-
-## Overview
-
-### Fully-virtualized via `sudo: required`
+## Fully-virtualized via `sudo: required`
 
 When specifying `sudo: required`, Travis CI runs each build in an isolated
 [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine
@@ -47,7 +46,7 @@ slate and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-### Container-based with `sudo: false`
+## Container-based with `sudo: false`
 
 When specifying `sudo: false`, Travis CI runs each build in a container on a
 shared host via Docker.  The container contents are a pristine copy of the
@@ -135,15 +134,17 @@ the Docker binaries are available for local use.
 
 See our [Using Docker in Builds](/user/docker/) section for more details.
 
-### Runtimes
-
-#### Ruby
+## Ruby images
 
 [rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
-the latest point releases such as `2.2.7` and `2.4.1`.  Any versions that are
-not pre-installed will be dynamically installed at runtime from a local cache.
+the latest point releases such as:
 
-#### Python
+- `2.2.7`
+- `2.4.1`
+
+Other versions are dynamically installed at runtime from a local cache.
+
+## Python images
 
 We pre-install at least two of the latest releases of CPython in the `2.x` and
 `3.x` series such as `2.7.13` and `3.6.1`, and at least one version of PyPy.
@@ -153,21 +154,21 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
-#### Node.JS
+## Node.JS images
 
 [nvm](https://github.com/creationix/nvm#installation) is installed and we
 pre-install at least two of the latest point releases such as `6.9.4` and
 `7.4.0`.  Any versions that are not pre-installed will be dynamically installed
 by `nvm`.
 
-#### Go
+## Go images
 
 [gimme](https://github.com/travis-ci/gimme#gimme) is installed and we
 pre-install at least two of the latest point releases such as `1.7.3` and
 `1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
-#### JVM
+## JVM images
 
 - We install the latest OpenJDK versions from the official Ubuntu Trusty
   packages.
@@ -179,7 +180,7 @@ by `gimme`.
 - leiningen
 - sbt
 
-#### PHP
+## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
 least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
@@ -189,14 +190,14 @@ cache, or built via `phpenv` if unavailable.
 *Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
 result in a build failure when phpenv fails to compile it*
 
-#### Other software
+## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
 `apt-get`, or add third party PPAs or custom scripts.  For further details,
 please see the document on [installing
 dependencies](/user/installing-dependencies/).
 
-### Data Stores
+## Databases and services
 
 We pre-install the following services which may be activated with the built-in
 [services](/user/database-setup/) support.
@@ -212,7 +213,7 @@ We pre-install the following services which may be activated with the built-in
 - Riak
 - SQLite
 
-### Firefox
+## Firefox
 
 Firefox is installed by default.
 

@@ -1,7 +1,7 @@
 ---
 title: Building a Clojure project
 layout: en
-permalink: /user/languages/clojure/
+
 ---
 
 ### What This Guide Covers

@@ -1,7 +1,8 @@
 ---
 title: The OS X Build Environment
 layout: en
-permalink: /user/osx-ci-environment/
+redirect_from:
+  - /user/osx-ci-environment/
 ---
 
 ### What This Guide Covers
@@ -36,7 +37,7 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#xcode-{{image.xcode | remove: "."}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}

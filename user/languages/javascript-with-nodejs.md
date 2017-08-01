@@ -1,7 +1,7 @@
 ---
 title: Building a Node.js project
 layout: en
-permalink: /user/languages/javascript-with-nodejs/
+
 ---
 
 <div id="toc"></div>
@@ -17,6 +17,7 @@ releases in your `.travis.yml`:
 
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
+- `lts/*` latest LTS Node.js release
 - `7` latest 7.x release
 - `6` latest 6.x release
 - `5` latest 5.x release

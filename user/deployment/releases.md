@@ -1,7 +1,7 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: /user/deployment/releases/
+
 ---
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
@@ -26,10 +26,16 @@ The `on: tags: true` section at the end of the `.travis.yml` above is required t
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure `.travis.yml`:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
 ```bash
 travis setup releases
+```
+
+Or, if you're using a private repository:
+
+```bash
+travis setup releases --pro
 ```
 
 ## Authenticating with an OAuth token
