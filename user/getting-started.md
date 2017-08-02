@@ -29,15 +29,14 @@ To start using Travis CI, make sure you have *all* of the following:
 
    and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
 
-2. Once you're signed in, and we've synchronized your GitHub repositories, go to
-  your profile page and enable Travis CI for the repository you want to build: ![enable button](/images/enable.png "enable button")
+2. Once you're signed in to Travis CI, and we've synchronized your GitHub
+   repositories, go to your profile page and enable the repository
+   you want to build: ![enable button](/images/enable.png "enable button")
 
-3. Add a `.travis.yml` file to your repository to tell Travis CI what to build.
+3. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
-   This example tells Travis CI that this is a Ruby project, so unless you change the default, Travis CI uses `bundle install` to [install dependencies](/user/customizing-the-build/#Customizing-the-Installation-Step), and `rake` to build it.
-
-   Travis CI tests this project against Ruby 2.2 and the latest versions of JRuby and Rubinius, which can all pass or fail independently.
-
+   The following example tells Travis CI that this is a Ruby project that should
+   be built with Ruby 2.2, and the latest versions of JRuby and Rubinius 2.X.
 
    ```yaml
    language: ruby
@@ -47,6 +46,9 @@ To start using Travis CI, make sure you have *all* of the following:
     - rbx-2
    ```
    {: data-file=".travis.yml"}
+
+   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/customizing-the-build/#Customizing-the-Installation-Step),
+   and `rake` to build the project.
 
 4. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
@@ -58,7 +60,7 @@ To start using Travis CI, make sure you have *all* of the following:
    * [Travis CI .com build status](https://travis-ci.com/auth) for private repositories
 
 
-## Selecting a programming language
+## Selecting a different programming language
 
 Use one of these common languages:
 
