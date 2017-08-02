@@ -34,14 +34,22 @@ you can have jobs depend on each other with [Build Stages](/user/build-stages/),
 setup [notifications](/user/notifications/), prepare
 [deployments](/user/deployment/) after builds, and many other tasks.
 
-## Jobs vs. builds
+## Builds, Jobs, Stages and Phases
 
-In the Travis CI documentation, some common words have specific meanings. For example:
+In the Travis CI documentation, some common words have specific meanings:
 
- * *build* - a group of automated processes, where multiple jobs might happen in parallel. For example, a build might have two jobs, which test a project with two different versions of a language. The status of a build depends on the status of the jobs it contains.  
- * *job* - a single automated process, where Travis CI starts an automated worker which clones your projects, compiles your code, runs tests, and executes any other steps, such as deployments. The status of the job depends on the success of the steps it executes.
- * *stage* - a job or group of jobs that are a step in a sequential build process. These are used in [build stages](/user/build-stages/)
- * *phase* - a part of a particular job. For example, the `install` phase runs all of the specified commands to install dependencies for a job.
+* *job* - an automated process that clones your repository into a virtual
+  environment and then carries out a series of *phases* such as compiling your
+  code, running tests, etc. A job fails if the return code of the `script` *phase*
+  is non zero.
+* *phase* - the [sequential steps](/user/customizing-the-build/#The-Build-Lifecycle) of
+  a job. For example, the `install` phase, comes before the `script` phase,
+  which comes before the optional `deploy` phase.
+* *build* - a group of *jobs*. For example, a build might have two *jobs*, each
+  of which tests a project with a different version of a programming language. A
+  *build* fails if any of it's jobs fail.
+* *stage* - a group of *jobs* that run in parallel as part of sequential build
+  process composed of multiple [stages](/user/build-stages/).
 
 ## travis-ci.org vs travis-ci.com
 
@@ -73,14 +81,6 @@ advantages and disadvantages:
 
 More details are on our environments are available in our [CI Environment](/user/ci-environment) documentation.
 
-## Pre-getting started
-
-To get a project started with Travis CI, you will need the following:
-
- * [GitHub](https://github.com/) login
- * Project hosted as a repository on GitHub. See GitHub's [documentation](https://help.github.com/categories/importing-your-projects-to-github/) for this.
- * Working code in your project
- * At least one test for your code
 
 Once you have those pieces, head over to our [Getting
 Started](/user/getting-started) guide for details on setting up your first
