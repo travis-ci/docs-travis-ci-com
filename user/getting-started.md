@@ -4,17 +4,33 @@ layout: en
 
 ---
 
-The very short guide to using Travis CI with your GitHub hosted code repository. If you're new to continuous integration or would like some more information on what Travis CI does, start with [Travis CI for Complete Beginners](/user/for-beginners) instead.
+The very short guide to using Travis CI with your GitHub hosted code repository.
+If you're new to continuous integration or would like some more information on
+what Travis CI does, start with [Travis CI for Beginners](/user/for-beginners)
+instead.
 
 <div id="toc"></div>
 
+## Prequisites
+
+To start using Travis CI, make sure you have *all* of the following:
+
+ * [GitHub](https://github.com/) login
+ * Project [hosted as a repository](https://help.github.com/categories/importing-your-projects-to-github/) on GitHub
+ * Working code in your project
+ * Working build or test script
+
 ## To get started with Travis CI
 
-You'll need a GitHub account with admin access to at least one repository, and ideally you'll already have a working build script that you run manually.
+1. Using your GitHub account, sign in to either
 
-1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+   * [Travis CI .org](https://travis-ci.org/auth) for public repositories
+   * [Travis CI .com](https://travis-ci.com/auth) for private repositories
 
-2. Once you're signed in, and we've synchronized your GitHub repositories, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the *open source* repository you want to build. If you want to build a private repository, sign in to [Travis CI for private repositories](https://travis-ci.com/profile) instead.
+   and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+
+2. Once you're signed in, and we've synchronized your GitHub repositories, go to
+  your profile page and enable Travis CI for the repository you want to build: ![enable button](/images/enable.png "enable button")
 
 3. Add a `.travis.yml` file to your repository to tell Travis CI what to build.
 
@@ -36,7 +52,11 @@ You'll need a GitHub account with admin access to at least one repository, and i
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the [build status](https://travis-ci.org/) page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command.
+5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command:
+
+   * [Travis CI .org build status](https://travis-ci.org/auth) for public repositories
+   * [Travis CI .com build status](https://travis-ci.com/auth) for private repositories
+
 
 ## Selecting a programming language
 
