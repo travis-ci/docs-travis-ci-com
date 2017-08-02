@@ -26,10 +26,16 @@ The `on: tags: true` section at the end of the `.travis.yml` above is required t
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure `.travis.yml`:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
 ```bash
 travis setup releases
+```
+
+Or, if you're using a private repository:
+
+```bash
+travis setup releases --pro
 ```
 
 ## Authenticating with an OAuth token

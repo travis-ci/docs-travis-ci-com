@@ -30,9 +30,9 @@ Define environment variables in your `.travis.yml` in the `env` key, quoting spe
 
 ```yaml
 env:
-- DB=postgres
-- SH=bash
-- PACKAGE_VERSION="1.0.*"
+  - DB=postgres
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
 ```
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.

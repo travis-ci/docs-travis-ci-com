@@ -13,13 +13,13 @@ Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/do
 
 You are using one of the two following environments:
 
-* [CI Environment with JVM VM image](/user/ci-environment/) - for instance:
+* [CI Environment with JVM VM image](/user/reference/precise/) - for instance:
 
 ```yaml
 language: java
 ```
 
-* [Trusty CI Environment](/user/trusty-ci-environment/):
+* [Trusty CI Environment](/user/reference/trusty/):
 
 ```yaml
 dist: trusty

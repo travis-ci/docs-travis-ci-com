@@ -17,7 +17,7 @@ The Haskell VM has recent versions of GHC pre-installed.
 For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
 
 For full up-to-date list of provided tools, see
-our [CI environment guide](/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
+our [CI environment guide](/user/reference/precise/). Key build lifecycle commands (dependency installation, running tests) have
 defaults that use `cabal`. It is possible to override them to use `make` or any other build tool and dependency management tool.
 
 ## Specifying the GHC version

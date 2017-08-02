@@ -47,5 +47,6 @@ or via [encrypted variables in
 * `target_branch`: Branch to push force to, defaults to `gh-pages`
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
 * `project_name`: Defaults to value of `fqdn` or repo slug, used for metadata
-* `email`: Optional, committer info, defaults to `deploy@travis-ci.org`
-* `name`: Optional, committer, defaults to `Deployment Bot`
+* `email`: Optional, comitter info, defaults to `deploy@travis-ci.org`
+* `name`: Optional, comitter, defaults to `Deployment Bot`
+* `github_url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`
