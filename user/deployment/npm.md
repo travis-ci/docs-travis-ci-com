@@ -34,8 +34,10 @@ it can modify the `.travis.yml` for you.
 
 Your NPM Auth Token can be obtained by:
 
-1. Login to your NPM account, and [generating a new token](https://www.npmjs.com/settings/tokens).
-1. Using the NPM CLI command [`npm adduser`](https://docs.npmjs.com/cli/adduser) and using the `authToken` (npm 2+) value in your `~/.npmrc` file. For npm version ~1 use the `auth` value.
+1. Log in to your NPM account, and [generate a new token](https://www.npmjs.com/settings/tokens).
+1. Use the NPM CLI command [`npm adduser`](https://docs.npmjs.com/cli/adduser) to create a user, then open the `~/.npmrc` file:
+    1. For NPM v2+, use the `authToken` value.
+    1. For NPM ~1, use the `auth` value.
 
 Always [encrypt](/user/encryption-keys/#Usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
 
