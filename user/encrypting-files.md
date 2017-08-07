@@ -39,7 +39,7 @@ storing secure env variables for decryption
 Please add the following to your build script (before_install stage in your .travis.yml, for instance):
 
 ```bash
-openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in super_secret.txt.enc -out super_secret.txt -d
+openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
 
 Pro Tip: You can add it automatically by running with `--add`.
