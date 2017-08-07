@@ -44,7 +44,7 @@ or via [encrypted variables in
 * `local_dir`: Directory to push to GitHub Pages, defaults to the current
     directory
 * `repo`: Repo slug, defaults to current repo
-* `target_branch`: Branch to push force to, defaults to `gh-pages`
+* `target_branch`: Branch to force push to, defaults to `gh-pages`
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
 * `project_name`: Defaults to value of `fqdn` or repo slug, used for metadata
 * `email`: Optional, comitter info, defaults to `deploy@travis-ci.org`
