@@ -11,7 +11,7 @@ instead.
 
 <div id="toc"></div>
 
-## Prequisites
+## Prerequisites
 
 To start using Travis CI, make sure you have *all* of the following:
 
@@ -93,34 +93,16 @@ Or pick one from the [full list](/user/languages/).
 
 ## Selecting infrastructure (optional)
 
-The most straightforward way to determine what infrastructure your build runs on
+The best way to determine what infrastructure your build runs on
 is to set the `language`. If you do this your build runs on the default
-infrastructure (with a few exceptions), which is Container Based Ubuntu 12.04.
+infrastructure (with a few exceptions), which is Container Based Ubuntu 14.04.
 You can explicitly select the default infrastructure by adding `sudo: false` to your `.travis.yml`.
-
-* If you need a more up-to-date version of Ubuntu on the same infrastructure, use
-the beta of Ubuntu Linux Trusty 14.04:
-
-   ```yaml
-   sudo: false
-   dist: trusty
-   ```
-   {: data-file=".travis.yml"}
 
 * If you need a more customizable environment running in a virtual machine, use the Sudo
 Enabled infrastructure:
 
   ```yaml
   sudo: enabled
-  ```
-  {: data-file=".travis.yml"}
-
-* Sudo Enabled infrastructure also has a beta of a more up-to-date Ubuntu Linux
-Trusty 14.04:
-
-  ```yaml
-  sudo: enabled
-  dist: trusty
   ```
   {: data-file=".travis.yml"}
 
@@ -133,7 +115,7 @@ Objective-C, use our OS X environment:
   {: data-file=".travis.yml"}
 
   > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS software.
+  > you need Swift, Objective-C or other macOS-specific software.
 
 ## More than running tests
 

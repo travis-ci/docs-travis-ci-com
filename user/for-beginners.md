@@ -12,11 +12,10 @@ here or new to Continuous Integration (CI).
 
 Continuous Integration is the practice of merging in small code changes
 frequently - rather than merging in a large change at the end of a development
-cycle. Companies and individuals all have slightly different processes, but the
-goal is to build healthier software by developing and testing in smaller
+cycle. The goal is to build healthier software by developing and testing in smaller
 increments. This is where Travis CI is comes in.
 
-Travis CI, as a continuous integration platform, supports your development
+As a continuous integration platform, Travis CI supports your development
 process by automatically building and testing code changes, providing immediate
 feedback on the success of the change. Travis CI can also automate other parts
 of your development process by managing deployments and notifications.  
@@ -72,16 +71,12 @@ to start troubleshooting when you need to find out why your build is broken.
 
 ## Infrastructure and environment notes
 
-Travis CI runs your build in one of the following environments, each with some
-advantages and disadvantages:
+Travis CI offers a few different infrastructures an environments, so you can select the setup that suits your project best: 
 
 * *Container-based* - is the default for new projects. It is a Linux Ubuntu environment running in a container. It starts faster than the sudo-enabled environment, but has less resources and does not support the use of `sudo`, `setuid`, or `setgid`.
-* *Sudo-enabled* - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supprts the use of `sudo`, `setuid`, and `setgid`.
-* *OS X* - uses one of serveral versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift. It is not a requirement to use the OS X environment if you develop on a macOS machine.
+* *Sudo-enabled* - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of `sudo`, `setuid`, and `setgid`.
+* *OS X* - uses one of several versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift. It is not a requirement to use the OS X environment if you develop on a macOS machine.
 
 More details are on our environments are available in our [CI Environment](/user/ci-environment) documentation.
 
-
-Once you have those pieces, head over to our [Getting
-Started](/user/getting-started) guide for details on setting up your first
-build!
+Once you have those pieces, head over to our [Getting Started](/user/getting-started) guide for details on setting up your first build!
