@@ -8,12 +8,11 @@ layout: en
 
 ## Licensing
 
-To register for a 30 day trial please visit [our signup page](enterprise.travis-
+To register for a 30 day trial please visit [our signup page](https://enterprise.travis-
 ci.com/signup). Please email [enterprise@travis-ci.com](mailto:enterprise
 @travis-ci.com) for more information on pricing.
 
-Getting started guides and other Travis CI documentation can be found at
-[here](/)
+Getting started guides can be found [in the Travis CI docs](/)
 
 ## System Requirements Prerequisites
  * Two dedicated hosts or hypervisors (VMWare, OpenStack using KVM, or EC2) with

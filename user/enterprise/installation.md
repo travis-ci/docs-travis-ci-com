@@ -5,7 +5,7 @@ layout: en
 ---
 
 This guide covers installing the Travis CI Enterprise Platform and Travis CI
-Enterprise Worker. Please check our [system prerequisites](#) guide if you have
+Enterprise Worker. Please check our [system prerequisites](/user/enterprise/prerequisites) guide if you have
 any questions about whether your configuration will be supported.
 
 <div id="toc"></div>
