@@ -64,6 +64,6 @@ email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
 team looks forward to hearing from you!
 
 ### Further Reading  
-  * [System Prerequisites](#)  
+  * [System Prerequisites](/user/enterprise/prerequisites)  
   * [Travis CI Enterprise Installation](/user/enterprise/installation)
-  * [Customizing Build Images](#)
+  * [Customizing Build Images](/user/enterprise/build-images)
