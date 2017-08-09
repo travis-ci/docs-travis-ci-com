@@ -121,8 +121,7 @@ insight about it helps to get some basics statistics in the Ruby console:
 If you wish to uninstall Travis CI Enterprise from your platform and worker
 machines, please follow the instructions below. On the platform machine, you
 need to run the following commands in order. <small>(Instructions copied over
-from <a href="https://www.replicated.com/docs/distributing-an-application
-/installing-via-script/#removing-replicated">Replicated</a>)</small>
+from <a href="https://www.replicated.com/docs/distributing-an-application/installing-via-script/#removing-replicated">Replicated</a>)</small>
 
 ```
 service replicated stop
