@@ -123,6 +123,13 @@
         <li><a href="/user/apps/">Apps, Clients and Tools</a></li>
         <li><a href="https://scan.coverity.com/travis_ci">Coverity Scan</a></li>
       </ul>
+      <h3>Travis CI Enterprise</h3>
+      <ul>
+        <li><a href="/user/enterprise/">About Travis CI Enterprise</a></li>
+        {% for enterprise in site.data.enterprise %}
+          <li><a href="{{enterprise[1]}}">{{enterprise[0]}}</a></li>
+        {% endfor %}
+      </ul>
     </nav>
   </section>
 
