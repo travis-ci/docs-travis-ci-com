@@ -4,7 +4,6 @@ layout: en
 
 ---
 
-
 Whether your team uses GitHub Flow, feature branches or just commits directly to
 master, Travis CI Enterprise supports your way of shipping code. Travis CIs’
 integration with GitHub gives your team the highest confidence with every change
@@ -19,7 +18,7 @@ to use LDAP or SAML to manage your users access. Travis CI Enterprise also
 integrates with GitHub.com, allowing you greater control over your security, and
 to scale out your build infrastructure as needed.
 
-### Why choose Enterprise over travis-ci.com?
+## Why choose Enterprise over travis-ci.com?
 
 Travis CI Enterprise is built to bring the features of the [hosted
 platform](/user/travis-pro) to different development processes. Whether you
@@ -55,7 +54,7 @@ your entire team visibility and control over the build process. And of course if
 anyone has any questions, our Enterprise-specific support team is here to help
 you out.
 
-### Trials and Licensing
+## Trials and Licensing
 
 You can get a free trial license over at [enterprise.travis-
 ci.com](https://enterprise.travis-ci.com/). Your trial license will be fully-
@@ -66,7 +65,7 @@ If you'd like to talk more about licensing, support, and onboarding, please
 email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
 team looks forward to hearing from you!
 
-### Further Reading  
+## Further Reading  
   * [System Prerequisites](/user/enterprise/prerequisites)  
   * [Travis CI Enterprise Installation](/user/enterprise/installation)
   * [Customizing Build Images](/user/enterprise/build-images)
