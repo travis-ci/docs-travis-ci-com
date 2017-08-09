@@ -130,3 +130,11 @@ specified as follows:
 ``` 
   export http_proxy="http://proxy.mycompany.corp:8080/"
 ```
+
+## Backups
+
+We recommend a weekly machine snapshot and weekly backups of `/etc/travis` and
+`/var/travis`.
+
+Doing a machine snapshot and backing up those directories before performing an
+update is recommended as well.

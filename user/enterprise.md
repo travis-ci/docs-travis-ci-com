@@ -4,10 +4,13 @@ layout: en
 
 ---
 
+
 Whether your team uses GitHub Flow, feature branches or just commits directly to
 master, Travis CI Enterprise supports your way of shipping code. Travis CIs’
 integration with GitHub gives your team the highest confidence with every change
 made.
+
+<div id='toc'></div>
 
 Travis CI Enterprise is built to integrate with GitHub Enterprise. Using OAuth
 for authentication, we sync your users permissions to make sure they only have
