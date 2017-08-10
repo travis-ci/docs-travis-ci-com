@@ -104,7 +104,7 @@ Click "Install". Once this finishes, your Travis CI Enterprise container will re
 In the rare event of something going wrong during the upgrade you may need to restore from backup. To do that, follow these steps:
 
 1. Boot up a replacement machine with a fresh install of Ubuntu 14.04.
-1. Follow the directions at https://enterprise.travis-ci.com/docs and use the license we supplied you with in Step 1 in the migration steps. If you cannot find this, contact us at enterprise@travis-ci.com
+1. Follow the directions at https://docs.travis-ci.com/user/enterprise/installation/ and use the license we supplied you with in Step 1 in the migration steps. If you cannot find this, contact us at enterprise@travis-ci.com
 1. Setup your Travis CI instance filling out the settings as needed. Fill in the RabbitMQ password and Travis Encryption Key that you saved. Save the settings and start up the Travis container.
 1. Stop the Travis CI container in the Replicated dashboard.
 1. As a superuser (to preserve user permissions), unzip the Travis backup you made and copy the directories to the appropriate places (/var/travis and /etc/travis).
