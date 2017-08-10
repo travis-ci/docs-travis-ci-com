@@ -13,7 +13,7 @@ development process and improve the build environment and performance.
 
 After pulling the build images from
 [quay.io](https://quay.io/organization/travisci) either through
-[installation](/user/enterprise/installation) or manually, make sure they
+[installation](/user/enterprise/installation) or manually, make sure
 they've been re-tagged to `travis:[language]`. Once this configuration is in
 place, you can fully customize these images according to your needs.
 

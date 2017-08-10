@@ -14,7 +14,7 @@ made.
 Travis CI Enterprise is built to integrate with GitHub Enterprise. Using OAuth
 for authentication, we sync your users permissions to make sure they only have
 access to the repositories you want them to have access to. This allows you to
-to use LDAP or SAML to manage your users access. Travis CI Enterprise also
+use LDAP or SAML to manage your users access. Travis CI Enterprise also
 integrates with GitHub.com, allowing you greater control over your security, and
 to scale out your build infrastructure as needed.
 
@@ -38,10 +38,10 @@ your company.
 covering an extensive set of languages, updated with the current dependences 
 each community is using. If you or your team need specific changes, they are 
 easily customizable, which can then be deployed for use by your team. 
-* **Hosted on your infrastructure:** Travis CI * Enterprise supports the cloud 
+* **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud 
 or on-premises environment of your choice. This includes AWS, Google Compute 
 Engine, VMware, OpenStack and Azure. 
-* **Scalesto your needs:** Your team has the flexibility to spin up as much build
+* **Scales to your needs:** Your team has the flexibility to spin up as much build
 capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their
 hearts content. 

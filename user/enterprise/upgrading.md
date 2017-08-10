@@ -25,7 +25,7 @@ Replicated services get restarted during the update.**
 
 To update Replicated on the Platform installation you'll want to run
 the install script which will download the latest version. Depending on
-whether you are behind a web proxy you'll want to run one of these:**
+whether you are behind a web proxy you'll want to run one of these:
 
 ```
   curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
