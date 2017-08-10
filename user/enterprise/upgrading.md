@@ -11,6 +11,11 @@ layout: en
 Before upgrading, we **strongly recommend** taking a snapshot of `/etc/travis`
 and `/var/travis`.
 
+One good way to do this is to run
+```
+  sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
+```   
+
 ## Updating your Travis CI Enterprise Platform
 
 You can check for new releases by going to the management interface

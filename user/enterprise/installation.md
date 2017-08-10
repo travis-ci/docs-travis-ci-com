@@ -136,5 +136,10 @@ specified as follows:
 We recommend a weekly machine snapshot and weekly backups of `/etc/travis` and
 `/var/travis`.
 
+One good way to do this is to run
+```
+  sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
+```
+
 Doing a machine snapshot and backing up those directories before performing an
 update is recommended as well.
