@@ -1,7 +1,7 @@
 ---
 title: Building a Dart Project
 layout: en
-permalink: /user/languages/dart/
+
 ---
 
 ### What This Guide Covers
@@ -148,6 +148,9 @@ dart_task:
 - dartfmt
 ```
 
-## Environment Variable
+## Environment Variables
 
-The version of Dart a job is using is available as `TRAVIS_DART_VERSION`.
+* The version of Dart a job is using is available as `TRAVIS_DART_VERSION`.
+* `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
+* `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
+* `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.

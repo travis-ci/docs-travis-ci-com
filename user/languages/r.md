@@ -1,7 +1,7 @@
 ---
 title: Building an R Project
 layout: en
-permalink: /user/languages/r/
+
 ---
 
 ### What This Guide Covers
@@ -143,7 +143,7 @@ Note that the APT package needs to be white-listed for this to work
 on container-based infrastructure.
 This option is ignored on non-Linux builds.
 
-An alternative that works only on standard infrastructure is
+An alternative that works only on standard infrastructure (`sudo: required`) is
 the `apt_packages` field:
 
 ```yaml
@@ -294,7 +294,7 @@ script:
 ```
 
 If you'd like to see the full details, see
-[the source code](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/r_spec.rb).
+[the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
 
 ## Examples
 

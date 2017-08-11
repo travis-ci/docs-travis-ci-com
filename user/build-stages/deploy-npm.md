@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to npm"
-permalink: /user/build-stages/deploy-npm/
+
 layout: en
 ---
 

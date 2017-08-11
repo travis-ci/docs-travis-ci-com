@@ -1,7 +1,7 @@
 ---
 title: Atlas deployment
 layout: en
-permalink: /user/deployment/atlas/
+
 ---
 
 Travis CI can automatically deploy your application to [Atlas](https://atlas.hashicorp.com/) after a successful build.

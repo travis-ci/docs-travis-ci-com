@@ -1,33 +1,49 @@
 ---
 title: npm Releasing
 layout: en
-permalink: /user/deployment/npm/
 ---
 
-Travis CI can automatically release your npm package to [npmjs.org](https://npmjs.org/)
+Travis CI can automatically release your npm package to [npmjs.com][npmjs]
 or another npm-like registry after a successful build. By default Travis CI
-publishes to npmjs.org, however if you have a `publishConfig.registry` key in your
+publishes to npmjs.com, however if you have a `publishConfig.registry` key in your
 `package.json` then Travis CI publishes to that registry instead.
 
 
 <div id="toc"></div>
 
-For npm version 2+ your api_key can be found in your `~/.npmrc` file. In your
-`.npmrc` you should see a line similar to:
 
-```
-//registry.npmjs.org/:_authToken=YOUR_API_KEY
-```
-
-A minimal `.travis.yml` configuration for publishing to npmjs.org with npm version 2+ looks like:
+A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
 
 ```yaml
 deploy:
   provider: npm
-  api_key: "YOUR_API_KEY"
+  email: "YOUR_EMAIL_ADDRESS"
+  api_key: "YOUR_AUTH_TOKEN"
 ```
 
-Always [encrypt](/user/encryption-keys/#Usage) your API key.
+You can have the `travis` tool set up everything for you:
+
+```bash
+$ travis setup npm
+```
+
+Keep in mind that the above command has to run in your project directory, so
+it can modify the `.travis.yml` for you.
+
+## NPM auth token
+
+Your NPM Auth Token can be obtained by:
+
+1. Log in to your NPM account, and [generate a new token](https://www.npmjs.com/settings/tokens).
+1. Use the NPM CLI command [`npm adduser`](https://docs.npmjs.com/cli/adduser) to create a user, then open the `~/.npmrc` file:
+    1. For NPM v2+, use the `authToken` value.
+    1. For NPM ~1, use the `auth` value.
+
+Always [encrypt](/user/encryption-keys/#Usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
+
+```bash
+$ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
+```
 
 ## What to release
 
@@ -84,6 +100,16 @@ reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+## Tagging releases
+
+You can automatically tag releases with the `tag` option:
+
+```yaml
+deploy:
+  ...
+  tag: next
+```
+
 ## Note on `.gitignore`
 
 Notice that `npm` deployment honors `.gitignore` if `.npmignore` does not exist.
@@ -111,40 +137,6 @@ after_deploy:
   - ./after_deploy_2.sh
 ```
 
-## npm is ~1 or older
-
-For npm version ~1 your `~/.npmrc` file will look more like:
-
-```
-auth=YOUR_API_KEY
-email=YOUR_EMAIL_ADDRESS
-```
-
-And you can deploy with the npm provider by adding:
-
-```yaml
-deploy:
-  provider: npm
-  email: "YOUR_EMAIL_ADDRESS"
-  api_key: "YOUR_API_KEY"
-```
-
-It is recommended to encrypt your api_key. Assuming you have the Travis CI command
-line client installed, you can do it like this:
-
-```bash
-$ travis encrypt YOUR_API_KEY --add deploy.api_key
-```
-
-You can also have the `travis` tool set up everything for you:
-
-```bash
-$ travis setup npm
-```
-
-Keep in mind that the above command has to run in your project directory, so
-it can modify the `.travis.yml` for you.
-
 ## Troubleshooting "npm ERR! You need a paid account to perform this action."
 
 npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are
@@ -156,3 +148,5 @@ and avoid this error by adding the following to your `package.json` file:
     "access": "public"
   },
 ```
+
+[npmjs]: https://npmjs.com/

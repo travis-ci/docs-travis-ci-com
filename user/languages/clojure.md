@@ -1,14 +1,14 @@
 ---
 title: Building a Clojure project
 layout: en
-permalink: /user/languages/clojure/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Clojure builds are not available on the OSX environment.
+Clojure builds are not available on the OS X environment.
 
 ## CI Environment for Clojure Projects
 

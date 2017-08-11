@@ -1,7 +1,7 @@
 ---
 title: Migrating from legacy to container-based infrastructure
 layout: en
-permalink: /user/migrating-from-legacy/
+
 ---
 
 <div id="toc">

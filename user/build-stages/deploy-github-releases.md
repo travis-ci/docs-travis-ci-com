@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to GitHub Releases"
-permalink: /user/build-stages/deploy-github-releases/
+
 layout: en
 ---
 

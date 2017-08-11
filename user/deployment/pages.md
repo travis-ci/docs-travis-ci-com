@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages Deployment
 layout: en
-permalink: /user/deployment/pages/
+
 ---
 
 > Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh-pages`. 
@@ -44,8 +44,9 @@ or via [encrypted variables in
 * `local_dir`: Directory to push to GitHub Pages, defaults to the current
     directory
 * `repo`: Repo slug, defaults to current repo
-* `target_branch`: Branch to push force to, defaults to `gh-pages`
+* `target_branch`: Branch to force push to, defaults to `gh-pages`
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
 * `project_name`: Defaults to value of `fqdn` or repo slug, used for metadata
 * `email`: Optional, comitter info, defaults to `deploy@travis-ci.org`
 * `name`: Optional, comitter, defaults to `Deployment Bot`
+* `github_url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`

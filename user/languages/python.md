@@ -1,14 +1,14 @@
 ---
 title: Building a Python Project
 layout: en
-permalink: /user/languages/python/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Python projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Python builds are not available on the OSX environment.
+Python builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -42,7 +42,7 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 
 ### Travis CI Uses Isolated virtualenvs
 
-[CI Environment](/user/ci-environment/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
+[CI Environment](/user/reference/precise/) uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
 
 If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
 

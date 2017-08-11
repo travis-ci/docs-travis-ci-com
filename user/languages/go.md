@@ -1,7 +1,7 @@
 ---
 title: Building a Go Project
 layout: en
-permalink: /user/languages/go/
+
 swiftypetags:
   - golang
   - go lang
@@ -13,7 +13,7 @@ swiftypetags:
 This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Go builds are not available on the OSX environment.
+Go builds are not available on the OS X environment.
 
 ## CI environment for Go Projects
 

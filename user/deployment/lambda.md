@@ -1,7 +1,7 @@
 ---
 title: Lambda Deployment
 layout: en
-permalink: /user/deployment/lambda/
+
 ---
 
 Travis CI supports uploading to [AWS Lambda](https://aws.amazon.com/lambda/).

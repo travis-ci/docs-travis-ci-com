@@ -1,7 +1,7 @@
 ---
 title: AWS OpsWorks Deployment
 layout: en
-permalink: /user/deployment/opsworks/
+
 ---
 
 Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build.

@@ -1,7 +1,7 @@
 ---
 title: Configuring Build Notifications
 layout: en
-permalink: /user/notifications/
+
 ---
 
 <div id="toc"></div>
@@ -668,9 +668,9 @@ notifications:
 
 Webhooks are delivered with a `application/x-www-form-urlencoded` content type using HTTP POST, with the body including a `payload` parameter that contains the JSON webhook payload in a URL-encoded format.
 
-Here's an example of what you'll find in the `payload`:
+Here is the payload sent to [the Travis CI documentation application](https://github.com/travis-ci/docs-travis-ci-com):
 
-<script src="https://gist.github.com/roidrage/9272064.js"></script>
+<script src="https://gist.github.com/{{ site.env.WEBHOOK_PAYLOAD_GIST_ID }}.js" data-proofer-ignore></script>
 
 You will see one of the following values in the `status`/`result` fields that represent the state of the build.
 
@@ -693,40 +693,6 @@ run. Its value is one of `push`, `pull_request`, `cron`, or `api`.  For pull req
 the `type` field will have the value `pull_request`, and a `pull_request_number` field
 is included too, pointing to the pull request's issue number on GitHub.
 
-Here is a simple example of a [Sinatra](http://sinatrarb.com) app to decode the request and the payload:
-
-```ruby
-require 'sinatra'
-require 'json'
-require 'digest/sha2'
-
-class TravisWebhook < Sinatra::Base
-  set :token, ENV['TRAVIS_USER_TOKEN']
-
-  post '/' do
-    if not valid_request?
-      puts "Invalid payload request for repository #{repo_slug}"
-    else
-      payload = JSON.parse(params[:payload])
-      puts "Received valid payload for repository #{repo_slug}"
-    end
-  end
-
-  def valid_request?
-    digest = Digest::SHA2.new.update("#{repo_slug}#{settings.token}")
-    digest.to_s == authorization
-  end
-
-  def authorization
-    env['HTTP_AUTHORIZATION']
-  end
-
-  def repo_slug
-    env['HTTP_TRAVIS_REPO_SLUG']
-  end
-end
-```
-
 To quickly identify the repository involved, we include a `Travis-Repo-Slug` header, with a format of `account/repository`, so for instance `travis-ci/travis-ci`.
 
 ### Verifying Webhook requests
@@ -746,11 +712,17 @@ payload.
    (e.g., <https://api.travis-ci.org/config>)
 4. Verify the signature using the public key and SHA1 digest.
 
-[WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
+#### Examples
+
+1. [WebhookSignatureVerifier](https://github.com/travis-ci/webhook-signature-verifier)
 is a small Sinatra app which shows you how this works.
 
-[Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
+1. This documentation site receives a webhook notification, verifies the request
+and updates the Gist showing the payload example above.
+See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plugins/webhoook_payload_doc_handler.rb).
+
+1. [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
 
-[Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
+1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
 is a small webapp in Go which verifies the the hook.

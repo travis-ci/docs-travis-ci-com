@@ -1,12 +1,12 @@
 ---
 title: Build Stages
-permalink: /user/build-stages/
+
 layout: en
 ---
 
 <div id="toc"></div>
 
-> Build stages are currently in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
+> Build stages are currently in BETA.
 {: .beta}
 
 ## What are Build Stages?
@@ -18,7 +18,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](https://docs.travis-ci.com/user/customizing-the-build#Build-Matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#Build-Matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
@@ -100,7 +100,7 @@ jobs:
 
 ### Build Stages and Build Matrix Expansion
 
-[Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
+[Matrix expansion](/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
 
 For example:
@@ -120,16 +120,16 @@ jobs:
 
 This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
 to the default stage test. The third job on the deploy stage starts only after
-the test stage has completed successfully. 
+the test stage has completed successfully.
 
-> Each job included in `jobs.include` must have a unique value to any matrix
-dimension that your build matrix otherwise defines. 
-> In the example above, without explicitly setting `rvm: 2.4`, the `included` job inherits
-`rvm: [ 2.3, 2.4]`, which is invalid for setting the Ruby runtime.
+> Each job included in `jobs.include` inherits the first value of the array
+that defines a matrix dimension.
+> In the example above, without explicitly setting `rvm: 2.4`, the `include`d job inherits
+`rvm: 2.3`.
 
 ### Build Stages and Deployments
 
-You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
+You can combine build stages with [deployments](/user/deployment/):
 
 ```yaml
 jobs:
@@ -144,7 +144,7 @@ jobs:
 ```
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Default-Test-Script)
+have a [default test script](/user/languages/ruby/#Default-Build-Script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on

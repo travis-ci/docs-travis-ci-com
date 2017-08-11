@@ -1,14 +1,14 @@
 ---
 title: Building an Android Project
 layout: en
-permalink: /user/languages/android/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OSX environment.
+Android builds are not available on the OS X environment.
 
 <div id="toc"></div>
 

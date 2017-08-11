@@ -1,10 +1,10 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: /user/deployment/releases/
+
 ---
 
-Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to your git tags on your GitHub repository.
+Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
 **Please note that deploying GitHub Releases works only for tags, not for branches.**
 
@@ -24,17 +24,23 @@ deploy:
 
 The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
 
-If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`
+If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure `.travis.yml`:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
 ```bash
 travis setup releases
 ```
 
-## Authenticating with an Oauth token
+Or, if you're using a private repository:
 
-The recommended way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+```bash
+travis setup releases --pro
+```
+
+## Authenticating with an OAuth token
+
+The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
 
 This results in something similar to:
 
@@ -132,3 +138,7 @@ after_deploy:
 
 * `local_dir`: Directory to push to GitHub Releases, defaults to the current
     directory
+
+## Advanced options
+
+Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.

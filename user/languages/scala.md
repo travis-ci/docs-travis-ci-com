@@ -1,14 +1,14 @@
 ---
 title: Building a Scala project
 layout: en
-permalink: /user/languages/scala/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Scala builds are not available on the OSX environment.
+Scala builds are not available on the OS X environment.
 
 ## Overview
 
