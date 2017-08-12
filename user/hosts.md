@@ -14,3 +14,5 @@ addons:
     - travis.dev
     - joshkalderimis.com
 ```
+
+These hosts will then resolve to 127.0.0.1.
