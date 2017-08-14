@@ -39,7 +39,9 @@ For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml
 
 ## How can I use container-based infrastructure?
 
-Container-based is the default for new repositories, but if you want to set it explicitly or have an older repository, add the following line to your `.travis.yml`:
+Container-based infrastructure is the default for new repositories, but if you
+want to set it explicitly or have an older repository, add the following line to
+your `.travis.yml`:
 
 ```yaml
 sudo: false
