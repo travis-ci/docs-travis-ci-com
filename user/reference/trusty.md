@@ -144,7 +144,7 @@ the latest point releases such as:
 
 Other versions are dynamically installed at runtime from a local cache.
 
-## Python imges
+## Python images
 
 We pre-install at least two of the latest releases of CPython in the `2.x` and
 `3.x` series such as `2.7.13` and `3.6.1`, and at least one version of PyPy.
@@ -154,21 +154,21 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
-## Node.JS imges
+## Node.JS images
 
 [nvm](https://github.com/creationix/nvm#installation) is installed and we
 pre-install at least two of the latest point releases such as `6.9.4` and
 `7.4.0`.  Any versions that are not pre-installed will be dynamically installed
 by `nvm`.
 
-## Go imges
+## Go images
 
 [gimme](https://github.com/travis-ci/gimme#gimme) is installed and we
 pre-install at least two of the latest point releases such as `1.7.3` and
 `1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
-## JVM imges
+## JVM images
 
 - We install the latest OpenJDK versions from the official Ubuntu Trusty
   packages.
@@ -180,7 +180,7 @@ by `gimme`.
 - leiningen
 - sbt
 
-## PHP imges
+## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
 least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
