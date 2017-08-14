@@ -1,0 +1,36 @@
+.ataglance
+
+  border: solid 2px $pebble-grey
+  border-radius: 2px
+  padding: 0.5em 1em
+  margin-top: 2em
+
+  @media #{$medium-up}
+    float: right
+    width: 28em
+    margin-left: 2em
+    margin-bottom: 2.5em
+    overflow: auto
+
+  table
+    td
+      padding-left: 0
+
+  thead
+    font-size: 10px
+    text-transform: uppercase
+    color: #9ea3a8
+
+  tbody
+    tr
+      border-bottom: none
+    td,
+    p
+      font-size: 14px
+
+    tr td:first-of-type
+      width: 32%
+
+  &:after
+    content: ""
+    clear: both

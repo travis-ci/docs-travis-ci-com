@@ -28,4 +28,4 @@ for [notifications](/user/notifications) are different.
 
 More details about our different infrastructures are available on the
 [virtualization environments
-page](/user/ci-environment/#Virtualization-environments).
+page](/user/reference/overview/#Virtualization-environments).
