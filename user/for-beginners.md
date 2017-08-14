@@ -41,12 +41,12 @@ In the Travis CI documentation, some common words have specific meanings:
   environment and then carries out a series of *phases* such as compiling your
   code, running tests, etc. A job fails if the return code of the `script` *phase*
   is non zero.
-* *phase* - the [sequential steps](/user/customizing-the-build/#The-Build-Lifecycle) of
-  a job. For example, the `install` phase, comes before the `script` phase,
+* *phase* - the [sequential steps](/user/customizing-the-build/#The-Build-Lifecycle)
+  of a job. For example, the `install` phase, comes before the `script` phase,
   which comes before the optional `deploy` phase.
 * *build* - a group of *jobs*. For example, a build might have two *jobs*, each
-  of which tests a project with a different version of a programming language. A
-  *build* fails if any of it's jobs fail.
+  of which tests a project with a different version of a programming language.
+  A *build* finishes when all of its jobs are finished.
 * *stage* - a group of *jobs* that run in parallel as part of sequential build
   process composed of multiple [stages](/user/build-stages/).
 
@@ -71,7 +71,7 @@ to start troubleshooting when you need to find out why your build is broken.
 
 ## Infrastructure and environment notes
 
-Travis CI offers a few different infrastructures an environments, so you can select the setup that suits your project best: 
+Travis CI offers a few different infrastructures an environments, so you can select the setup that suits your project best:
 
 * *Container-based* - is the default for new projects. It is a Linux Ubuntu environment running in a container. It starts faster than the sudo-enabled environment, but has less resources and does not support the use of `sudo`, `setuid`, or `setgid`.
 * *Sudo-enabled* - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of `sudo`, `setuid`, and `setgid`.
