@@ -62,9 +62,9 @@ deploy:
 Valid ACL values are: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`. The ACL defaults to `private`.
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
 
-### Deploying specific folder  
+### Deploying specific folder
 
-You can set specific direcotry to be uploaded using `local-dir` option like this:
+You can set specific directory to be uploaded using `local-dir` option like this:
 
 ```yaml
 deploy:

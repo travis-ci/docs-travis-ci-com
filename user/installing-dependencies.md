@@ -120,7 +120,14 @@ addons:
 
 ### Installing Snap Packages
 
-You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist. 
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+
+```yaml
+sudo: required
+dist: trusty
+```
+{: data-file=".travis.yml"}
+
 
 The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
 
@@ -138,7 +145,7 @@ script:
 
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/reference/precise/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/reference/overview/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 

@@ -3,6 +3,7 @@ title: The OS X Build Environment
 layout: en
 redirect_from:
   - /user/osx-ci-environment/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
