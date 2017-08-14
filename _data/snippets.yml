@@ -23,3 +23,9 @@ ghlimit: |
   > *per commit*, which causes the Travis CI build status displayed on GitHub
   > to be incorrect.
   > Avoid this problem by specifying a regularly updated branch for your automated builds.
+trusty_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [OS X](/user/reference/osx/)
