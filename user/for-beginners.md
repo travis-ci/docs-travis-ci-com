@@ -23,10 +23,11 @@ of your development process by managing deployments and notifications.
 ## CI builds and automation: building, testing, deploying
 
 When you run a build, Travis CI clones your GitHub repository into a brand new
-build environment, and carries out a series of tasks to build and test your
-code. If one or more of those tasks fails, the build is considered *broken*. If
-none of the tasks fail, the build is considered *passed*, and Travis CI can
-deploy your code to a web server, or application host.  
+virtual environment, and carries out a series of tasks to build and test your
+code. If one or more of those tasks fails, the build is considered
+[*broken*](#Breaking-the-Build). If none of the tasks fail, the build is
+considered [*passed*](#Breaking-the-Build), and Travis CI can deploy your code
+to a web server, or application host.
 
 CI builds can also automate other parts of your delivery workflow. This means
 you can have jobs depend on each other with [Build Stages](/user/build-stages/),
@@ -60,23 +61,29 @@ expanded to support closed-source projects at a later date. As a result:
 
 ## Breaking the Build
 
-The build is considered *broken* when it completes with any state that is not *passed*:
+The build is considered *broken* when one or more of its jobs completes with a
+state that is not *passed*:
 
- * *errored* - a command returned a non-zero exit code in the `before_install`, `install`, or `before_script` section. The job stops immediately.
- * *failed* - a non-zero exit code is returned in the `script` section. The job continues to run until it completes.
- * *canceled* -  a user cancels the job before it completes.
+ * *errored* - a command in the `before_install`, `install`, or `before_script`
+   phase returned a non-zero exit code. The job stops immediately.
+ * *failed* - a command in the `script` phase returned a non-zero exit code. The
+   job continues to run until it completes.
+ * *canceled* - a user cancels the job before it completes.
 
-Our [Common Builds Problems](/user/common-build-problems/) page  is a good place
-to start troubleshooting when you need to find out why your build is broken.
+Our [Common Builds Problems](/user/common-build-problems/) page is a good place
+to start troubleshooting why your build is broken.
 
 ## Infrastructure and environment notes
 
-Travis CI offers a few different infrastructures an environments, so you can select the setup that suits your project best:
+Travis CI offers a few different infrastructure environments, so you can select
+the setup that suits your project best:
 
 * *Container-based* - is the default for new projects. It is a Linux Ubuntu environment running in a container. It starts faster than the sudo-enabled environment, but has less resources and does not support the use of `sudo`, `setuid`, or `setgid`.
 * *Sudo-enabled* - this Linux Ubuntu environment runs on full virtual machine. It starts a little slower, but it has more computational resources, and supports the use of `sudo`, `setuid`, and `setgid`.
 * *OS X* - uses one of several versions of the OS X operating system. This environment is useful for building projects that require the OS X software, such as projects written in Swift. It is not a requirement to use the OS X environment if you develop on a macOS machine.
 
-More details are on our environments are available in our [CI Environment](/user/ci-environment) documentation.
+More details are on our environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Once you have those pieces, head over to our [Getting Started](/user/getting-started) guide for details on setting up your first build!
+Now you've read the basics, head over to our [Getting
+Started](/user/getting-started/) guide for details on setting up your first
+build!
