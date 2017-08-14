@@ -7,26 +7,14 @@ layout: en
 <div id="toc">
 </div>
 
-## What This Guide Covers
-
-> Language versions and other build-environment specific
-> information are in our reference pages:
->  * [Precise](/user/reference/precise/)
->  * [Trusty](/user/reference/trusty/)
->  * [OS X](/user/reference/osx/)
-
-The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
-
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
-|:------------------|:------------------------------------------|
-| Typical `install` | `bundle install --jobs=3 --retry=3`       |
-| Typical `script`  | `rake`                                    |
-| Matrix keys       | `env`, `rvm`, `gemfile`, `jdk`            |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Ruby                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `bundle install --jobs=3 --retry=3`       |
+| [Default `script`](#Default-Build-Script)   | `rake`                                    |
+| [Matrix keys](#Build-Matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
@@ -39,6 +27,14 @@ rvm:
 ```
 
 </aside>
+
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note }}
+
+The rest of this guide covers configuring Ruby projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
 
