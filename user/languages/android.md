@@ -216,6 +216,12 @@ cache:
     - $HOME/.android/build-cache
 ```
 
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
+
 ## Default Test Command
 
 If Travis CI could not detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default it will use

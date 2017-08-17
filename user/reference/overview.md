@@ -34,6 +34,6 @@ The following table summarizes the differences between the virtual environments:
 | Allows `sudo`    | No                                 | Yes                                   | No                                | Yes                                  | Yes             |
 | Approx boot time | 1-6s                               | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s          |
 | File system      | AUFS                               | EXT4                                  | AUFS                              | EXT4                                 | HFS+            |
-| Operating system | Ubuntu 12.04                       | Ubuntu 14.04                          | Ubuntu 12.04                      | Ubuntu 14.04                         | OS X            |
+| Operating system | Ubuntu 12.04                       | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X            |
 | Memory           | 4 GB max                           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB            |
 | Cores            | 2                                  | ~2, bursted                           | 2                                 | ~2, bursted                          | 2               |
