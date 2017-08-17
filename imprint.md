@@ -12,7 +12,7 @@ permalink: /imprint.html
     Germany
   </address>
   <h4>Vertreten durch</h4>
-  <p>Josh Kalderimis, Mathias Meyer</p>
+  <p>Mathias Meyer, Fritz Thielemann</p>
   <h4>Kontakt</h4>
   <p>
     Email contact@travis-ci.org <br>
