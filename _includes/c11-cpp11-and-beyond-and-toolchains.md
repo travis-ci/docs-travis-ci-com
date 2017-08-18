@@ -148,7 +148,7 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty
+            - llvm-toolchain-trusty-5.0
           packages:
             - clang-5.0
       env:
