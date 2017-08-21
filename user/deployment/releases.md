@@ -6,8 +6,6 @@ layout: en
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
-**Please note that deploying GitHub Releases works only for tags, not for branches.**
-
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
@@ -23,7 +21,22 @@ deploy:
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
+> GitHub Releases works with `git` tags.
+> 
+> If there is none for the present commit, one will be created
+> for you, in the form of `untagged-*`, where `*` is a random hex string.
+> 
+> If this is not what you want, we suggest requiring a tag for your deployment with `on.tags: true`,
+> as shown above, or you can tag the present commit with `git tag` in `before_deploy`; for example:
+> 
+    before_deploy:
+      - git tag "$(git branch | grep \* | cut -d ' ' -f2-)-$(git log --format=%h -1)"
+    deploy:
+      provider: releases
+      api_key: "GITHUB OAUTH TOKEN"
+      file: "FILE TO UPLOAD"
+      skip_cleanup: true
+
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
