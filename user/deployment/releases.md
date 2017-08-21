@@ -30,7 +30,7 @@ deploy:
 > as shown above, or you can tag the present commit with `git tag` in `before_deploy`; for example:
 > 
     before_deploy:
-      - git tag "$(git branch | grep \* | cut -d ' ' -f2-)-$(git log --format=%h -1)"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
     deploy:
       provider: releases
       api_key: "GITHUB OAUTH TOKEN"
