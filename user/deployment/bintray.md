@@ -114,11 +114,14 @@ The descriptor is in JSON file format in three sections:
 
 #### Package Section
 
-Bintray package information. In case the package already exists on Bintray, only the name, repo and subject fields are mandatory.
+Bintray package information. Following information are mandatories on open source project.
 
 - `name` is the Bintray package name
 - `repo` is the Bintray repository name
 - `subject` is the Bintray subject, which is either a user or an organization
+- `vcs_url` is the Bintray vcs url, could be a github repository url or either vcs repository url
+- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#url_licenses), which is either a list with at list on item.
+
 
 #### Version Section
 
@@ -130,7 +133,7 @@ Configure the files you would like to upload to Bintray and their upload path.
 
 You can define one or more groups of patterns. Each group contains three patterns:
 
-- `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
+- `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray. If files are in your root directory, you must indicate relative path : `\./`
 - `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
 - `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
 
@@ -145,9 +148,11 @@ In the example above, the following files are uploaded:
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
 
+`uploadPattern` should respect [bintray automatic layout scheme](https://blog.bintray.com/category/packages-metadata/).
+
 ```js
 "files":
-    [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
+    [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "pool/main/m/mypackage/$1",
     "matrixParams": {
         "deb_distribution": "vivid",
         "deb_component": "main",
