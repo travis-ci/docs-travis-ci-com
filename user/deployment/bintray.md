@@ -114,13 +114,13 @@ The descriptor is in JSON file format in three sections:
 
 #### Package Section
 
-Bintray package information. Following information are mandatories on open source project.
+Bintray package information. Following informations are mandatory on open source projects.
 
 - `name` is the Bintray package name
 - `repo` is the Bintray repository name
 - `subject` is the Bintray subject, which is either a user or an organization
 - `vcs_url` is the Bintray vcs url, could be a github repository url or either vcs repository url
-- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#url_licenses), which is either a list with at list on item.
+- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#url_licenses), which is a list with at least one item.
 
 
 #### Version Section
