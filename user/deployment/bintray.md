@@ -114,7 +114,7 @@ The descriptor is in JSON file format in three sections:
 
 #### Package Section
 
-Bintray package information. Following informations are mandatory on open source projects.
+Bintray package information. Following information is mandatory on open source projects.
 
 - `name` is the Bintray package name
 - `repo` is the Bintray repository name
