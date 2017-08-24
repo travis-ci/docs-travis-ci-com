@@ -31,14 +31,18 @@ Get a complete list of the pre-compiled versions available on the VM by adding `
 Travis CI by default assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
 
 ```bash
-rebar3 compile && rebar3 skip_deps=true eunit
+rebar3 eunit
 ```
 
 if your project has `rebar.config` or `Rebar.config` files in the repository root.
 
-On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar).
+On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and call
 
-If this is not the case, Erlang builder will fall back to
+```bash
+rebar compile && rebar skip_deps=true eunit
+```
+
+If neither `rebar.config` nor `Rebar.config` is found in the repository root, Erlang builder will fall back to
 
 ```bash
 make test
@@ -46,15 +50,16 @@ make test
 
 ## Dependency Management
 
-The Erlang builder on travis-ci.org assumes Rebar3 is used for dependency management, and runs
+The Erlang builder on travis-ci.org assumes Rebar3 is used for dependency management.
+See [Rebar3 documentation](http://www.rebar3.org/docs/dependencies) for further details.
+
+On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and run
 
 ```bash
 rebar3 get-deps
 ```
 
 to install [project dependencies](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
-
-On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar).
 
 ## Build Matrix
 
