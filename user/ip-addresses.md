@@ -16,12 +16,13 @@ on the infrastructure your builds are running on:
 | OS X                            | `208.78.110.192/27`                                                                                                              |
 | Sudo-enabled Linux              |  See notes below. <br><br>{{site.data.gce_ip_range}}                                                                            |
 
-We do not have static public IP addresses available for jobs running on the
-sudo-enabled Linux infrastructure at this time.
-This list of IP addresses is obtained by [the process described by
-Google](https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges).
-We recommend using one of the other infrastructures if you need static IP
-addresses.
+> **Note:** We do not have static public IP addresses available for jobs running on the
+> sudo-enabled Linux infrastructure at this time.
+>
+> This list of IP addresses is obtained by [the process described by
+> Google](https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges).
+> We recommend using one of the other infrastructures if you need static IP
+> addresses.
 
 Note that these ranges can change in the future, and that the IP addresses used
 for [notifications](/user/notifications) are different.
