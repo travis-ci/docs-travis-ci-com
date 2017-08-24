@@ -10,7 +10,7 @@ task :test => :build do
 end
 
 desc 'Builds the site'
-task :build => [:remove_output_dir, :gen_trusty_image_data] do
+task :build => [:remove_output_dir, :gen_trusty_image_data, :gen_gce_ip_addr_range] do
   FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -77,9 +77,6 @@ task :run_html_proofer_internal do
   tester.run
 end
 
-
-
-
 desc 'Populate Trusty image table data'
 task :gen_trusty_image_data do
   GENERATED_LANGUAGE_MAP_JSON_FILE = 'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
@@ -90,6 +87,32 @@ task :gen_trusty_image_data do
   yaml_data = json_data.to_yaml
 
   File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
+end
+
+desc 'Populate GCE IP address range'
+task :gen_gce_ip_addr_range do
+  require 'ipaddr'
+
+  # Using steps described in https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges
+  # we populate the range of IP addresses for GCE instances
+
+  GOOGLE_DNS_SERVER='8.8.8.8'
+  DNS_ROOT='_cloud-netblocks.googleusercontent.com'
+
+  root_answer=`nslookup -q=TXT _cloud-netblocks.googleusercontent.com  8.8.8.8`
+
+  blocks=[]
+
+  root_answer.split.grep(/^include:/).map {|x| x.sub(/^include:/,'')}.each do |netblock_host|
+    block_answer = `nslookup -q=TXT #{netblock_host} 8.8.8.8`
+    blocks += block_answer.split.grep(/^ip4:/).map {|x| x.sub(/^ip4:/,'')}
+  end
+
+  blocks_sorted = blocks.sort do |a,b|
+    IPAddr.new(a) <=> IPAddr.new(b)
+  end
+
+  File.write(File.join(File.dirname(__FILE__), '_data', 'gce_ip_range.yml'), blocks_sorted.map {|ip| "`#{ip}`"}.join(", ").to_yaml)
 end
 
 desc 'Start Jekyll server'
