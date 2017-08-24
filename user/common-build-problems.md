@@ -58,6 +58,12 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
+## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
+
+If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
+
+Fix the problem by clearing the cache or removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
+
 ## Ruby: RSpec returns 0 even though the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
