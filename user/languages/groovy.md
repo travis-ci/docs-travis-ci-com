@@ -1,7 +1,7 @@
 ---
 title: Building a Groovy project
 layout: en
-permalink: /user/languages/groovy/
+
 ---
 
 ## What This Guide Covers
@@ -11,7 +11,7 @@ projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Groovy builds are not available on the OSX environment.
+Groovy builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -60,6 +60,12 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Maven
 

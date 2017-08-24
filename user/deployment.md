@@ -1,7 +1,7 @@
 ---
 title: Deployment
 layout: en
-permalink: /user/deployment/
+swiftypetags: 'skip_cleanup'
 ---
 
 ### Supported Providers
@@ -21,7 +21,7 @@ working directory and deleting all changes made during the build ( `git stash
 
 ```yaml
 deploy:
-	skip_cleanup: true
+  skip_cleanup: true
 ```
 
 ### Deploying to Multiple Providers

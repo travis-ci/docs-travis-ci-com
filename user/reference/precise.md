@@ -1,11 +1,10 @@
 ---
 title: The Build Environment
 layout: en
-permalink: /user/ci-environment/
+
 redirect_from:
   - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/
-  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -26,74 +25,11 @@ state and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## Virtualization environments
-
-Each build runs in one of the following virtual environments:
-
-- Sudo-enabled (a sudo enabled, full VM per build)
-- Container-based (Fast boot time environment in which `sudo` commands are not available)
-- OSX for Objective-C projects
-
-The following table summarizes the differences between the virtual environments:
-
-<div class="header-row header-column">
-<table><thead>
-<tr>
-<th></th>
-<th>Container-based</th>
-<th>Sudo-enabled</th>
-<th>OS X</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>.travis.yml</td>
-<td><code>sudo: false</code><em>default for repositories enabled in 2015 or later</em></td>
-<td><code>sudo: required</code><em>default for repositories enabled before 2015</em></td>
-<td><code>language: objective-c</code> or <code>os: osx</code></td>
-</tr>
-<tr>
-<td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
-<td>no</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Boot Time</td>
-<td>1-6s</td>
-<td>20-52s</td>
-<td>60-90s</td>
-</tr>
-<tr>
-<td>File System</td>
-<td>AUFS, case sensitive</td>
-<td>ext4, case sensitive</td>
-<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
-</tr>
-<tr>
-<td>Operating System</td>
-<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
-<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
-<td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>4 GB max</td>
-<td>7.5 GB</td>
-<td>4 GB</td>
-</tr>
-<tr>
-<td>Cores</td>
-<td>2</td>
-<td>~2, bursted</td>
-<td>2</td>
-</tr>
-</tbody></table>
-</div>
-
+  
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
-The container-based, OSX, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
+The container-based, OS X, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
@@ -106,8 +42,8 @@ images.
 
 For other images, see the list below:
 
-- [OS X CI Environment](/user/osx-ci-environment)
-- [Trusty CI Environment](/user/trusty-ci-environment)
+- [OS X CI Environment](/user/reference/osx)
+- [Trusty CI Environment](/user/reference/trusty)
 
 ### Version control
 
@@ -159,7 +95,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Firefox
 
 All virtual environments have recent version of Firefox installed, currently
-31.0 for Linux environments and 25.0 for OSX.
+31.0 for Linux environments and 25.0 for OS X.
 
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.
@@ -228,9 +164,19 @@ is show in the "Build system information".
 The following aliases are available, and are recommended
 in order to minimize frictions when images are updated:
 
-- `go1`, `go1.0` → 1.0.3
-- `go1.1` → 1.1.2
+- `go1`, `go1.8` → 1.8.1
+- `go1.0` → 1.0.3
+- `go1.1.x` → 1.1.2
 - `go1.2` → 1.2.2
+- `go1.2.x` → 1.2.2
+- `go1.3.x` → 1.3.3
+- `go1.4.x` → 1.4.3
+- `go1.5.x` → 1.5.4
+- `go1.6.x` → 1.6.4
+- `go1.7.x` → 1.7.5
+- `go1.8.x` → 1.8.1
+- `go1.x` → 1.8.1
+- `go1.x.x` → 1.8.1
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
@@ -409,17 +355,23 @@ Python 2.4 and Jython *are not supported* and there are no plans to support them
 
 On all versions except pypy and pypy3 have `numpy` as well.
 
-## Ruby (aka common) VM images
+## Ruby images
 
-### Ruby versions/implementations
+The Ruby images contain recent versions of:
 
-[Ruby 1.8.6 and 1.9.1 are no longer provided on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+- Ruby: 2.2.0, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
+- JRuby: 1.7.x (1.8 and 1.9 mode)
+- Ruby Enterprise Edition: 1.8.7 2012.02
 
-Rubies are built using [RVM](http://rvm.io/) that is installed per-user and sourced from `~/.bashrc`.
+> Ruby 1.8.6 and 1.9.1 are no [longer available on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
 
-RVM is able to install other
-versions on demand. For example, to test against Rubinius 2.2.1, you can use
-`rbx-2.2.1` and RVM will download binaries on-demand.
+Pre-compiled versions are downloaded on demand from:
+- [rubies.travis-ci.org](http://rubies.travis-ci.org).
+- [binaries.rubini.us](http://rubies.travis-ci.org/rubinius).
+- [rvm.io/binaries/](https://rvm.io/binaries/).
+- [www.jruby.org/download](http://www.jruby.org/download).
+
+Rubinius Rubies are [no longer available on Precise](https://github.com/rubinius/rubinius/issues/3717).
 
 ### Bundler version
 

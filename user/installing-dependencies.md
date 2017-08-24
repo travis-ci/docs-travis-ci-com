@@ -1,7 +1,7 @@
 ---
 title: Installing Dependencies
 layout: en
-permalink: /user/installing-dependencies/
+
 redirect_from:
   - /user/apt/
 ---
@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -118,9 +118,34 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+### Installing Snap Packages
+
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+
+```yaml
+sudo: required
+dist: trusty
+```
+{: data-file=".travis.yml"}
+
+
+The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+
+```yaml
+sudo: true
+dist: trusty
+
+install:
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
+
+script:
+  - /snap/bin/hugo new site test-site
+```
+
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/reference/overview/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -196,23 +221,23 @@ addons:
     - libcxsparse3.1.2
 ```
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
 
-## Installing Packages on OSX
+## Installing Packages on OS X
 
-To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
 before_install:
-  - brew update
+  - brew update # see note below
   - brew install beanstalk
 ```
 
-Use `brew update` to update the local Homebrew package list.
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OSX, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+If you're testing on both Linux and OS X, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
 
 ```yaml
 install:

@@ -1,7 +1,7 @@
 ---
 title: Building a C++ Project
 layout: en
-permalink: /user/languages/cpp/
+
 ---
 
 ### What This Guide Covers
@@ -99,3 +99,5 @@ before_install:
   - test -n $CC  && unset CC
   - test -n $CXX && unset CXX
 ```
+
+{% include c11-cpp11-and-beyond-and-toolchains.md %}

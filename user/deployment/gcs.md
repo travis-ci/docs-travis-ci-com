@@ -1,7 +1,7 @@
 ---
 title: Google Cloud Storage (GCS) Deployment
 layout: en
-permalink: /user/deployment/gcs/
+
 ---
 
 Travis CI supports uploading to Google Cloud Storage (GCS).
@@ -61,6 +61,22 @@ deploy:
 
 Valid ACL values are: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`. The ACL defaults to `private`.
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
+
+### Deploying specific folder
+
+You can set specific directory to be uploaded using `local-dir` option like this:
+
+```yaml
+deploy:
+  provider: gcs
+  access_key_id: "GCS Interoperable Access Key ID"
+  secret_access_key: "GCS Interoperable Access Secret"
+  bucket: "GCS Bucket"
+  skip_cleanup: true
+  acl: public-read
+  local-dir: directory-name
+```
+If the `directory-name` is generated during build process, it will be deleted (cleaned up) before deploying, unless `skip_cleanup` is set to true.
 
 ### Conditional releases
 

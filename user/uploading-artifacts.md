@@ -1,7 +1,7 @@
 ---
 title: Uploading Artifacts on Travis CI
 layout: en
-permalink: /user/uploading-artifacts/
+
 ---
 
 <div id="toc">
@@ -63,6 +63,18 @@ ARTIFACTS_PATHS="./logs:./build:/var/log"
 
 Please keep in mind that in the example above, colon (`:`) is used as a
 delimiter which means file names cannot contain this character.
+
+### Working directory
+
+If you'd like to upload file from a specific directory, you can change your working directory by setting `addons.artifacts.working_dir`.
+
+
+```yaml
+addons:
+  artifacts:
+    # ...
+    working_dir: out
+```
 
 ### Debugging
 

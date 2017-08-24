@@ -1,7 +1,7 @@
 ---
 title: Encrypting Files
 layout: en
-permalink: /user/encrypting-files/
+
 ---
 
 **Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
@@ -39,10 +39,10 @@ storing secure env variables for decryption
 Please add the following to your build script (before_install stage in your .travis.yml, for instance):
 
 ```bash
-openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in super_secret.txt.enc -out super_secret.txt -d
+openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
 
-Pro Tip: You can add it automatically by running with --add.
+Pro Tip: You can add it automatically by running with `--add`.
 
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
@@ -88,7 +88,7 @@ before_install:
 
 ### Caveat
 
-There is a report of this function not working on a local Windows machine. Please use a Linux or OS X machine.
+There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or OS X machine.
 
 ## Manual Encryption
 

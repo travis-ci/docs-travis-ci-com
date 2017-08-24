@@ -1,7 +1,7 @@
 ---
 title: Customizing the Build
 layout: en
-permalink: /user/customizing-the-build/
+
 redirect_from:
   - /user/build-configuration/
   - /user/build-lifecycle/
@@ -140,12 +140,12 @@ When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
 --all`) by adding `skip_cleanup` to your `.travis.yml`:
 
-```yml
+```yaml
 deploy:
   skip_cleanup: true
 ```
 
-You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this command will mark the build as **errored**.
+You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
@@ -159,13 +159,13 @@ One of the key features of Travis CI is the ease of running your test suite agai
 
 If your dependencies need native libraries to be available, you can use **passwordless sudo to install them**:
 
-```yml
+```yaml
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq [packages list]
 ```
 
-> Note that this feature is not available for builds that are running on [Container-based workers](/user/ci-environment/#Virtualization-environments).
+> Note that this feature is not available for builds that are running on [Container-based workers](/user/reference/overview/#Virtualization-environments).
 > Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
 
 All virtual machines are snapshotted and returned to their intial state after each build.
@@ -178,7 +178,7 @@ If you need a native dependency that is not available from the official Ubuntu r
 
 If you need to install a second programming language in your current build environment, for example installing a more recent version of Ruby than the default version present in all build environments you can do so in the `before_install` stage of the build:
 
-```yml
+```yaml
 before_install:
 - rvm install 2.1.5
 ```
@@ -190,10 +190,10 @@ You can also use other installation methods such as `apt-get`.
 It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
-- A job takes longer than 50 minutes on travis-ci.org
-- A job takes longer than 120 minutes on travis-ci.com
-- A job takes longer than 50 minutes on OSX infrastructure or travis-ci.org or travis-ci.com
 - A job produces no log output for 10 minutes
+- A job on travis-ci.org takes longer than 50 minutes 
+- A job running on OS X infrastructure takes longer than 50 minutes (applies to travis-ci.org or travis-ci.com)
+- A job on Linux infrastructure on travis-ci.com takes longer than 120 minutes 
 
 Some common reasons why builds might hang:
 
@@ -234,7 +234,7 @@ The *Auto Cancellation Setting* is in the Settings tab of each repository, and y
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
-For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:  
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:
 
 ![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
 
@@ -245,11 +245,20 @@ Travis CI clones repositories to a depth of 50 commits, which is only really use
 
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
-You can set the depth in `.travis.yml`:
+You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml`:
 
-```yml
+```yaml
 git:
   depth: 3
+```
+
+## Git Submodules
+
+Travis CI clones git submodules by default, to avoid this set:
+
+```yaml
+git:
+  submodules: false
 ```
 
 ## Git LFS Skip Smudge
@@ -258,7 +267,7 @@ You can disable the download of LFS objects when cloning ([`git lfs smudge
 --skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
 by setting the following in `.travis.yml`:
 
-``` yml
+```yaml
 git:
   lfs_skip_smudge: true
 ```
@@ -271,7 +280,7 @@ Travis CI uses the `.travis.yml` file from the branch containing the git commit 
 
 Specify which branches to build using a safelist, or blocklist branches that you do not want to be built:
 
-```yml
+```yaml
 # blocklist
 branches:
   except:
@@ -291,10 +300,12 @@ If you use both a safelist and a blocklist, the safelist takes precedence. By de
 
 To build _all_ branches:
 
-    branches:
-      only:
-        - gh-pages
-        - /.*/
+```yaml
+branches:
+  only:
+  - gh-pages
+  - /.*/
+```
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
@@ -367,7 +378,7 @@ parameters, you can specify only those and omit the varying parts.
 
 Suppose you have:
 
-```yml
+```yaml
 language: ruby
 rvm:
 - 1.9.3
@@ -387,7 +398,7 @@ gemfile:
 This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` value `2.0.0` *and*
 `gemfile` value `Gemfile`, you can write:
 
-```yml
+```yaml
 matrix:
   exclude:
   - rvm: 2.0.0
@@ -396,7 +407,7 @@ matrix:
 
 Which is equivalent to:
 
-```yml
+```yaml
 matrix:
   exclude:
   - rvm: 2.0.0
@@ -445,13 +456,14 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-#### Explicitly Included Jobs need complete definitions
+#### Explicitly included jobs inherit the first value in the array
 
-When including jobs, it is important to ensure that each job defines a unique value
-to any matrix dimension that the matrix defines.
+The jobs which are explicitly included inherit the first value of the expansion
+keys defined.
 
-For example, with a 3-job Python build matrix, each job in `matrix.include` must also
-have the `python` value defined:
+In this example with a 3-job Python build matrix, each job in `matrix.include`
+has the `python` value set to `'3.5'`.
+You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
@@ -461,7 +473,7 @@ python:
   - '2.7'
 matrix:
   include:
-    - python: '3.5'
+    - python: '3.5' # this is not strictly necessary
       env: EXTRA_TESTS=true
     - python: '3.4'
       env: EXTRA_TESTS=true
@@ -570,7 +582,7 @@ The `-v` flag makes the shell print all lines in the script before executing the
 
 Assuming the script above is stored as `scripts/run-tests.sh` in your repository, and with the right permissions too (run `chmod ugo+x scripts/run-tests.sh` before checking it in), you can call it from your `.travis.yml`:
 
-```
+```yaml
 script: ./scripts/run-tests.sh
 ```
 

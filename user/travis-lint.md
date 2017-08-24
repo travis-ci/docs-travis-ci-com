@@ -1,14 +1,14 @@
 ---
 title: Validating .travis.yml files
 layout: en
-permalink: /user/travis-lint/
+
 ---
 
 Validating your `.travis.yml` file before committing it reduces common build errors such as
 
 - invalid [YAML](http://yaml-online-parser.appspot.com/)
 - missing `language` key
-- unsupported [runtime versions](/user/ci-environment/) of Ruby, PHP, OTP, etc
+- unsupported [runtime versions](/user/reference/precise/) of Ruby, PHP, OTP, etc
 - deprecated features or runtime aliases
 
 ## Online Validation

@@ -1,13 +1,13 @@
 ---
 title: Scalingo deployment
 layout: en
-permalink: /user/deployment/scalingo/
+
 ---
 
 <div id="toc"></div>
 
 Travis CI can automatically deploy your application to
-[TODO](https://scalingo.com/) application after a successful build.
+[Scalingo](https://scalingo.com/) application after a successful build.
 
 Chose one of two ways to connect to your Scalingo account:
 

@@ -6,11 +6,10 @@ python:
   - "3.5.2"
 branches:
   only:
-  - gh-pages
+  - master
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
-    - LANGUAGE_FILE_JSON=https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json
 cache:
   pip: true
   directories:
@@ -19,21 +18,21 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: fkfayYzRdc0uh9iZeQKzC5/J3cKhVnyrkLRYSJmhixWtBHt87g7yzR1kGgsOce7OjqZ42bRn5W/gxyaDIUa+UMrt7RgURPASLy3rpm5wkk3iK2csvJaCixKcodI8UTXn7kRjYkrpQYcfvO1/25AnKBQKveobxSSAN3BQ3hERe5E=
+    secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
   app: docs-travis-ci-com
   skip_cleanup: true
   on:
-    branch: gh-pages
+    branch:
+    - master
 notifications:
   slack:
     rooms:
       secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
     on_success: never
+  webhooks:
+    https://docs.travis-ci.com/update_webhook_payload_doc
 install:
-  - bundle install --deployment
-before_script:
   - rvm use 2.3.1 --install
-  - curl -O -sfSL $LANGUAGE_FILE_JSON
-  - erb -r json user/common-build-problems.md.erb | tee user/common-build-problems.md
+  - bundle install --deployment
 script:
   - bundle exec rake test

@@ -1,7 +1,7 @@
 ---
 title: Building a C#, F#, or Visual Basic Project
 layout: en
-permalink: /user/languages/csharp/
+
 ---
 
 ### What this guide covers
@@ -75,8 +75,8 @@ mono:
 
 You can choose from the following Mono versions:
 
-| Version          | Installed Packages (Linux only, OSX always includes everything)  |
-| ---------------- | ---------------------------------------------------------------- |
+| Version          | Installed Packages (Linux only, OS X always includes everything) |
+|:-----------------|:-----------------------------------------------------------------|
 | 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
 | 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
 | 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
@@ -89,13 +89,15 @@ You can choose from the following Mono versions:
 
 #### .NET Core
 
-By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`:
+By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`. Note that at least one `script` `<command>` is required in order to build. Using `dotnet restore` is a good default.
 
 ```yml
 language: csharp
 mono: none
-dotnet: 1.0.1
+dotnet: 1.0.3
 dist: trusty
+script:
+ - dotnet restore
 ...
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Setting up Databases
 layout: en
-permalink: /user/database-setup/
+
 redirect_from:
   - /user/using-postgresql/
 ---
@@ -33,7 +33,7 @@ services:
   - memcached
 ```
 
-> Note that this feature only works for services we provision in our [CI environment](/user/ci-environment/). If you download Apache Jackrabbit
+> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
 > you still have to start it in a `before_install` step.
 
 ## MySQL
@@ -90,7 +90,7 @@ before_install:
 ### MySQL 5.6
 
 The recommended way to get MySQL 5.6 is switching to our [Trusty CI
-Environment](/user/trusty-ci-environment/).
+Environment](/user/reference/trusty/).
 
 ## PostgreSQL
 
@@ -147,7 +147,7 @@ The following versions are available on Linux builds:
 |    9.5     |         yes          |         yes         |                   |       yes        |
 |    9.6     |                      |         yes         |                   |       yes        |
 
-On OSX, the following versions are installed:
+On OS X, the following versions are installed:
 
 |     image     | version |
 |:-------------:|:-------:|
@@ -276,7 +276,8 @@ To create users for your database, add a `before_script` section to your `.travi
 
 ```yaml
 before_script:
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+
 ```
 
 ### MongoDB does not immediately accept connections
@@ -314,7 +315,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OSX or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -340,7 +341,7 @@ services:
   - riak
 ```
 
-Riak uses the default configuration apart from the storage backend, which is [LevelDB](http://docs.basho.com/riak/kv/2.1.4/setup/planning/backend/leveldb/).
+Riak uses the default configuration apart from the storage backend, which is LevelDB.
 
 Riak Search is enabled.
 
@@ -387,7 +388,7 @@ before_install:
   - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
 ```
 
-> If you're using [Container-based infrastructure](/user/ci-environment/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
+> If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
 ## Neo4J
 
@@ -431,11 +432,11 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/ci-environment/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
-ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/trusty-ci-environment/)
+ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/reference/trusty/)
 but you can install it by adding the following steps to your `.travis.yml`.
 
 ```yaml

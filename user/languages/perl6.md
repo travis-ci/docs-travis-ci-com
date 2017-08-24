@@ -1,7 +1,6 @@
 ---
 title: Building a Perl 6 Project
 layout: en
-permalink: /user/languages/perl6/
 ---
 
 ### What This Guide Covers
@@ -10,7 +9,7 @@ This guide covers build environment and configuration topics specific to
 Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl 6 builds are not available on the OSX environment.
+Perl 6 builds are not available on the OS X environment.
 
 ## Choosing Perl 6 versions to test against
 
@@ -67,7 +66,7 @@ module package manager) like so:
 ```yaml
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 this will install the latest `zef` version.
@@ -109,7 +108,7 @@ perl6:
 
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 ### Build and test with multiple Rakudo versions
@@ -123,7 +122,7 @@ perl6:
 
 install:
     - rakudobrew build-zef
-    - zef --debug install .
+    - zef --debug --depsonly install .
 ```
 
 ### Build and test with the latest Rakudo, but with non-standard lib and test dirs

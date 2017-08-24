@@ -1,7 +1,7 @@
 ---
 title: RubyGems Deployment
 layout: en
-permalink: /user/deployment/rubygems/
+
 ---
 
 Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems.org/) after a successful build.
@@ -26,7 +26,7 @@ deploy:
     tags: true
 ```
 
-If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
+If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:

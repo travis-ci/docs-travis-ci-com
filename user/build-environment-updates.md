@@ -1,7 +1,7 @@
 ---
 title: Build Environment Update History
 layout: en
-permalink: /user/build-environment-updates/
+
 ---
 
 > Please note that the releases listed below are not exhaustive, and that there
@@ -11,11 +11,12 @@ permalink: /user/build-environment-updates/
 
 <ul class="list--links">
 {% for page in site.pages %}
-{% if page.category == "build_env_updates" %}
-	<li><a href="{{ page.permalink }}" title="{{ page.title }}">{{ page.permalink | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
-{% endif %}
+  {% if page.category == 'build_env_updates' %}
+    <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
+  {% endif %}
 {% endfor %}
 </ul>
+
 
 ### Atom feed
 

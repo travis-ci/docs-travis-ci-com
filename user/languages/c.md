@@ -1,7 +1,7 @@
 ---
 title: Building a C Project
 layout: en
-permalink: /user/languages/c/
+
 ---
 
 ### What This Guide Covers
@@ -95,3 +95,5 @@ In this case, we recommend unsetting it:
 before_install:
   - test -n $CC && unset CC
 ```
+
+{% include c11-cpp11-and-beyond-and-toolchains.md %}

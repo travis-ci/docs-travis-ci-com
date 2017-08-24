@@ -1,14 +1,14 @@
 ---
 title: Building an Android Project
 layout: en
-permalink: /user/languages/android/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OSX environment.
+Android builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -69,6 +69,36 @@ android:
 ```
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
+
+### Installing a newer SDK Platform Tools revision
+
+To build your project with the SDK Platform Tools revision 24 or above, you need to define the following components in your `.travis.yml`:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+```
+
+> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
+
+You can compile your project for Android 25 as shown in the following example:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-25.0.0
+
+    # The SDK version used to compile your project
+    - android-25
+```
 
 #### Dealing with Licenses
 
@@ -185,6 +215,12 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 ```
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Default Test Command
 

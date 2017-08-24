@@ -1,7 +1,7 @@
 ---
 title: Caching Dependencies and Directories
 layout: en
-permalink: /user/caching/
+
 ---
 
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
@@ -53,6 +53,12 @@ Travis CI tries its best at determining the path bundler uses for storing depend
 If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
+
+#### Caching and overriding `install` step
+
+Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
+In this case, observe where Bundler is installing the gems, and cache that directory using
+[cache.directories](#Arbitrary-directories).
 
 #### Cleaning up bundle
 
@@ -144,14 +150,14 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OSX
+#### ccache on OS X
 
-ccache is not installed on OSX environments but you can install it by adding
+ccache is not installed on OS X environments but you can install it by adding
 
 ```yaml
 install:
   - brew install ccache
-  - PATH=$PATH:/usr/local/opt/ccache/libexec
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
 ```
 
 > Note that this creates wrappers around your default gcc and g++ compilers.

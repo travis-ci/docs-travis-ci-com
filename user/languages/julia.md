@@ -1,7 +1,7 @@
 ---
 title: Building a Julia Project
 layout: en
-permalink: /user/languages/julia/
+
 ---
 
 ### What This Guide Covers

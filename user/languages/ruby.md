@@ -1,109 +1,83 @@
 ---
 title: Building a Ruby Project
 layout: en
-permalink: /user/languages/ruby/
+
 ---
 
 <div id="toc">
 </div>
 
-## What This Guide Covers
+<aside markdown="block" class="ataglance">
 
-This guide covers build environment and configuration topics specific to Ruby
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+| Ruby                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `bundle install --jobs=3 --retry=3`       |
+| [Default `script`](#Default-Build-Script)   | `rake`                                    |
+| [Matrix keys](#Build-Matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
-## Supported Ruby Versions and RVM
-
-The Ruby VM provides recent versions of:
-
-- Ruby: 2.2.0, 2.1.x, 2.0.0, 1.9.3, 1.9.2 and 1.8.7
-- JRuby: 1.7.x (1.8 and 1.9 mode)
-- Ruby Enterprise Edition: 1.8.7 2012.02
-
-Pre-compiled versions are downloaded on demand from our [Ruby version cache](http://rubies.travis-ci.org).
-
-Pre-compiled Rubinius versions are downloaded on demand from [binaries.rubini.us](http://rubies.travis-ci.org/rubinius). Older versions of
-Ruby and JRuby are made available by [RVM](https://rvm.io/binaries/) and the [JRuby team](http://www.jruby.org/download).
-
-Rubinius [no longer supports Precise](https://github.com/rubinius/rubinius/issues/3717).
-Please use Trusty.
-
-For exact version information, consult the "Build system information" section of
-the build log.
-
-### Choosing Ruby versions and implementations to test against
-
-The Ruby environment on Travis CI uses [RVM](https://rvm.io/) to provide many
-Ruby implementations and versions your projects can be tested against.
-
-To specify them, use `rvm:` key in your `.travis.yml` file, for example:
+Minimal example:
 
 ```yaml
 language: ruby
 rvm:
   - 2.2
   - jruby
-```
-
-> Note that the `rvm:` key is only available in Ruby Build Environments, not in other
-> images containing a ruby implementation.
-
-As we upgrade both RVM and Rubies, aliases like `2.2` or `jruby` point to different exact versions, patch levels and so on.
-
-For a full up-to-date list of provided Rubies, see our [CI
-environment guide](/user/ci-environment/).
-
-If you don't specify a version, Travis CI will use MRI 1.9.3 as the default.
-
-
-### Using `.ruby-version`
-
-If the ruby version is not specified by the `rvm` key as described above, Travis CI
-will consult `.ruby-version` in the root of the repository and use the indicated
-Ruby runtime.
-
-### Choosing Rubies that aren't installed
-
-While we pre-install some Rubies, you can install other versions by way of RVM's
-binary installation feature.
-
-As long as they're available as a binary for Ubuntu 12.04, you can specify
-custom patchlevels.
-
-```yaml
-language: ruby
-rvm:
   - 2.0.0-p247
 ```
 
-Note that this binds you to potentially unsupported releases of Rubies. It also
-extends your build time as downloading and installing a custom Ruby can add an
-extra 60 seconds or more to your build.
+</aside>
 
-### Rubinius
+## What This Guide Covers
 
-[Rubinius](http://rubini.us) releases frequent updates.
-To test with Rubinius, add `rbx-X.Y.Z` to your `.travis.yml`, where X.Y.Z
-specifies a Rubinius release.
-Consult [http://rubies.travis-ci.org/rubinius](http://rubies.travis-ci.org/rubinius)
-for the list of available releases.
+{{ site.data.snippets.trusty_note }}
 
-Rubinius does not support Precise. Please use Trusty instead.
+The rest of this guide covers configuring Ruby projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
+
+## Specifying Ruby versions and implementations
+
+The Ruby environment on Travis CI uses [RVM](https://rvm.io/) to provide many
+Ruby implementations, versions and even patch levels.
+
+To specify them, use the `rvm:` key in your `.travis.yml` file:
 
 ```yaml
 language: ruby
+rvm:
+  - 2.2
+  - jruby
+  - 2.0.0-p247
+```
 
+> Note that the `rvm:` key is only available in Ruby Build Environments, not in
+> other images containing a ruby implementation.
+
+As we upgrade both RVM and Rubies, aliases like `2.2` or `jruby` point to
+different exact versions and patch levels.
+
+### Using `.ruby-version`
+
+If the ruby version is not specified by the `rvm` key, Travis CI uses the
+version specified in the `.ruby-version` file in the root of the repository if
+one is available.
+
+### Rubinius
+
+<!-- distro exception -->
+
+If you're using OS X or Trusty environments, you can also use
+[Rubinius](http://rubini.us). To test with Rubinius, add `rbx-X.Y.Z` to your
+`.travis.yml`, where X.Y.Z specifies a Rubinius release listed on
+[http://rubies.travis-ci.org/rubinius](http://rubies.travis-ci.org/rubinius) .
+
+```yaml
+language: ruby
 dist: trusty
-
 rvm:
   - rbx-3.69
 ```
-
-Note that the syntax of `rbx-19mode` is not supported anymore.
-
-Rubinius will be installed via a download currently.
 
 ### JRuby: C extensions are not supported
 
@@ -115,53 +89,26 @@ and stability-wise and we believe continuous integration services like Travis
 CI should highlight it.
 
 So if you want to run CI against JRuby, please check that your Gemfile takes
-JRuby into account. Most of popular C extensions these days also have Java
+JRuby into account. Most popular C extensions these days also have Java
 implementations (json gem, nokogiri, eventmachine, bson gem) or Java
 alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 
-### JRuby: Installation takes a long time on Standard and Trusty environments
+## Default Build Script
 
-In the [Standard and Trusty
-environments](https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments),
-installing JRuby can take several minutes.
-This is due to the lack of entropy in the build VM, which can be
-eradicated by installing an entropy daemon such as
-[HAVEGED](http://www.issihosts.com/haveged/).
-
-You can use [the `apt`
-addon](https://docs.travis-ci.com/user/installing-dependencies#Installing-Packages-with-the-APT-Addon)
-as follows:
-
-    language: ruby
-    rvm: jruby-9.1.5.0
-    sudo: required
-    dist: trusty
-    addons:
-      apt:
-        packages:
-          - haveged
-
-## Default Test Script
-
-Travis CI runs `rake` by default to execute your tests. Please note that **you
-need to add rake to your Gemfile** (adding it to the `:test` group should
-be sufficient).
+On Ruby projects the default build script is `rake`. Add `rake` to the `:test`
+group of your Gemfile.
 
 ## Dependency Management
 
-### Travis CI uses Bundler
+### Bundler
 
-Travis CI uses [Bundler](http://bundler.io/) to install your project's
-dependencies.
-
-The default command run by Travis CI is:
+Travis CI uses [Bundler](http://bundler.io/) to install your Ruby project's
+dependencies if there is a Gemfile in the project's root directory, or if there
+is a Gemfile specified in the build matrix:
 
 ```bash
 bundle install --jobs=3 --retry=3
 ```
-
-Note that this is only run when we detect a Gemfile in the project's root
-directory, or if the Gemfile specified via the build matrix exists.
 
 If a Gemfile.lock exists in your project's root directory, we add the
 `--deployment` flag.
@@ -176,7 +123,7 @@ install: gem install rails
 By default, gems are installed into vendor/bundle in your project's root
 directory.
 
-### Caching Bundler
+#### Caching Bundler
 
 Bundler installation can take a while, slowing down your build. You can tell
 [Travis CI to cache the installed bundle](/user/caching/).
@@ -186,7 +133,7 @@ cache, making `bundle install` only take seconds to run.
 
 Note that this feature is currently only available for private projects.
 
-### Speeding up your build by excluding non-essential dependencies
+#### Speeding up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`
 in their default set of gems.
@@ -221,34 +168,21 @@ bundler_args: --without production
 
 Enjoy a faster build, which is also less prone to compilation problems.
 
-### Custom Bundler arguments and Gemfile locations
+#### Custom Bundler arguments and Gemfile locations
 
-You can specify a custom Gemfile name:
+The default Gemfile location is the `Gemfile` in the root of your project.
+
+To specify a custom Gemfile name or location:
 
 ```yaml
 gemfile: gemfiles/Gemfile.ci
 ```
 
-Unless specified, the worker will look for a file named "Gemfile" in the root of
-your project.
-
-You can also set [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
-extra arguments to be passed to `bundle install`:
+You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
+ to `bundle install`:
 
 ```yaml
 bundler_args: --binstubs
-```
-
-You can also define a script to be run before 'bundle install':
-
-```yaml
-before_install: some_command
-```
-
-For example, to install and use the pre-release version of bundler:
-
-```yaml
-before_install: gem install bundler --pre
 ```
 
 ### Testing against multiple versions of dependencies
@@ -259,19 +193,9 @@ HAML, Sinatra, Ruby on Rails,etc.
 To test against multiple versions of dependencies:
 
 1. Create a directory in your project's repository root where you will keep
-   gemfiles (./gemfiles is a commonly used name)
-2. Add one or more gemfiles to it
-3. Instruct Travis CI to use those gemfiles using the *gemfile* option in your
-   .travis.yml
-
-For example, amqp gem is [tested against EventMachine 0.12.x and 1.0
-pre-releases](https://github.com/ruby-amqp/amqp/blob/master/.travis.yml):
-
-```yaml
-gemfile:
-  - Gemfile
-  - gemfiles/eventmachine-pre
-```
+   gemfiles, such as `./gemfiles`.
+2. Add one or more gemfiles to it.
+3. Set the the `gemfile` key in your `.travis.yml`.
 
 Thoughtbot's Paperclip is [tested against multiple ActiveRecord
 versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
@@ -310,48 +234,32 @@ engines, hosted service providers and so on.
 
 ### `$BUNDLE_GEMFILE` environment variable
 
-When `gemfile` is thus defined *and* the file exists in the repository,
+When `gemfile` is defined *and* a Gemfile file exists in the repository,
 we define the environment variable `$BUNDLE_GEMFILE`, which `bundle install`
 uses to resolve dependencies.
 
-If you need to work with multiple Gemfiles within a single job, you would
-need to override `$BUNDLE_GEMFILE` by passing `--gemfile=` flag:
+If you need to work with multiple Gemfiles within a single job, override
+`$BUNDLE_GEMFILE` by passing the `--gemfile=` flag:
 
 ```bash
 bundle install --gemfile=my_gemfile
 ```
 
-## Testing against multiple JDKs (JRuby)
+## JRuby: Testing against multiple JDKs
 
-It is possible to test projects against multiple JDKs, namely
-
-- OpenJDK 7
-- Oracle JDK 7
-- Oracle JDK 8
-- OpenJDK 6
-
-To do so, use the `jdk` key in your `.travis.yml`, for example:
+Test projects against multiple JDKs, by using the `jdk` key in your
+`.travis.yml`:
 
 ```yaml
 jdk:
   - oraclejdk7
   - openjdk7
-```
-
-or all 4:
-
-```yaml
-jdk:
-  - openjdk7
-  - oraclejdk7
   - oraclejdk8
-  - openjdk6
 ```
 
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
-you need to add some matrix excludes (described in our general [Build
-Configuration guide](/user/customizing-the-build/)):
+you need to add some matrix excludes (described in our [Build Configuration guide](/user/customizing-the-build/)):
 
 ```yaml
 language: ruby
@@ -380,12 +288,11 @@ For example, see
 ## Upgrading RubyGems
 
 The RubyGems version installed on Travis CI's Ruby environment depends on what's
-installed by the newest Bundler/RubyGems combination.
-
-We try to keep it as up-to-date as possible.
+installed by the newest Bundler/RubyGems combination, and is kept as up-to-date
+as possible.
 
 Should you require the latest version of RubyGems, you can add the following to
-your .travis.yml:
+your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -393,7 +300,7 @@ before_install:
   - gem --version
 ```
 
-If you need to downgrade to a specific version, you can use the following steps:
+To downgrade to a specific version of RubyGems:
 
 ```yaml
 before_install:
@@ -407,4 +314,4 @@ downloads and installations are required.
 ## Build Matrix
 
 For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays to
-construct a build matrix.
+construct a [build matrix](/user/customizing-the-build/#Build-Matrix).

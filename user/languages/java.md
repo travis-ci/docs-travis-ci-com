@@ -1,7 +1,7 @@
 ---
 title: Building a Java project
 layout: en
-permalink: /user/languages/java/
+
 ---
 
 ### What This Guide Covers
@@ -12,7 +12,7 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-The Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
+The Travis CI environment provides Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
 
 To use the Java environment add the following to your `.travis.yml`:
 
@@ -100,6 +100,12 @@ cache:
     - $HOME/.gradle/wrapper/
 ```
 
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
+
 ## Projects Using Ant
 
 ### Default script Command
@@ -130,9 +136,9 @@ jdk:
   - openjdk6
 ```
 
-> Note that testing against multiple Java versions is not supported on OSX. See the [OS X Build Environment](/user/osx-ci-environment/#JDK-and-OS-X) for more details. 
+> Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
 
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, spcify `dist: trusty` to make use of it.
+Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, specify `dist: trusty` to make use of it.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
