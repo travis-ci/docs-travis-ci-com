@@ -156,10 +156,11 @@ also installed.
 
 ## Node.JS images
 
-[nvm](https://github.com/creationix/nvm#installation) is installed and we
+[nvm](https://github.com/creationix/nvm) is installed and we
 pre-install at least two of the latest point releases such as `6.9.4` and
-`7.4.0`.  Any versions that are not pre-installed will be dynamically installed
-by `nvm`.
+`7.4.0`.
+
+You can specify other versions which will be dynamically installed using `nvm`.
 
 ## Go images
 
