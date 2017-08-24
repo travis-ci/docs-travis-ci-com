@@ -79,6 +79,12 @@ or
 The [link](http://www.example.com "Example URL") in the text
 ```
 
+When linking internal pages, use absolute paths and trailing slashes: `/user/languages/c/`.
+You can link to headings, remember to remove special characters, for example:
+
+To link to "##Node.js Page" use `#nodejs-page`.
+
+
 ### Code Inline
 
 All function names, filenames, etc should be marked with `back-ticks`.

@@ -1,5 +1,5 @@
 ---
-title: Building a Node.js project
+title: Building a JavaScript and Node.js project
 layout: en
 
 ---
@@ -9,7 +9,7 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| JS and Node                                 | Default                                   |
+| JavaScript and Node.js                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `npm install`                             |
 | [Default `script`](#Default-Build-Script)   | `npm test`                                |
@@ -59,8 +59,8 @@ node_js:
 More specific information on what versions of Node.js are available is in
 the Environment Reference pages:
 
-* [Precise](/user/reference/precise/#nodejs-images)
-* [Trusty](/user/reference/trusty/#Nodejs-images)
+* [Precise](/user/reference/precise/#javascript-and-nodejs-images)
+* [Trusty](/user/reference/trusty/#javascript-and-nodejs-images)
 
 If you need more specific control of Node.js versions in your build, use any
 version installable by `nvm`. If your `.travis.yml` contains a version of
@@ -295,7 +295,7 @@ to construct a build matrix.
 
 ## Node.js v4 (or io.js v3) compiler requirements
 
-To compile native modules for io.js v3 or Node.js v4 or older, a [C++11
+To compile native modules for io.js v3 or Node.js v4 or later, a [C++11
 standard](https://en.wikipedia.org/wiki/C%2B%2B11)-compliant compiler is
 required. More specifically, either gcc 4.8 (or later), or clang 3.5 (or later)
 works.
