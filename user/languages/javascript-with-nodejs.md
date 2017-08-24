@@ -59,8 +59,8 @@ node_js:
 More specific information on what versions of Node.js are available is in
 the Environment Reference pages:
 
-* [Precise](/user/reference/precise/#Node.js-VM-images)
-* [Trusty](/user/reference/trusty/#Node.JS-images)
+* [Precise](/user/reference/precise/#nodejs-images)
+* [Trusty](/user/reference/trusty/#Nodejs-images)
 
 If you need more specific control of Node.js versions in your build, use any
 version installable by `nvm`. If your `.travis.yml` contains a version of
@@ -80,9 +80,9 @@ does *not* specify a nodejs version. When the `.nvmrc` file is read,
 documentation](https://github.com/creationix/nvm#usage) for more information on
 `.nvmrc`.
 
-## Default Test Script
+## Default Build Script
 
-The default test script for projects using nodejs is:
+The default build script for projects using nodejs is:
 
 ```bash
 npm test

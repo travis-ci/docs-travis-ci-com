@@ -154,7 +154,7 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
-## Node.JS images
+## Node.js images
 
 [nvm](https://github.com/creationix/nvm) is installed and we
 pre-install at least two of the latest point releases such as `6.9.4` and
