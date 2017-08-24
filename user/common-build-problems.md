@@ -60,11 +60,9 @@ possible. Dialing these numbers down should help.
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
-If you see your `ruby`, `python`, and other language interpreters which allows
-extension codes (gems, modules, etc.) start running into segmentation faults,
-you may have corrupt (or invalid) cache.
-Try disabling (i.e., removing `cache` from `.travis.yml`), or deleting the cache
-(https://travis-ci.org/OWNER/REPO/caches).
+If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
+
+Fix the problem by clearing the cache or removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
 
 ## Ruby: RSpec returns 0 even though the build failed
 
