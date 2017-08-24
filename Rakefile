@@ -99,12 +99,12 @@ task :gen_gce_ip_addr_range do
   GOOGLE_DNS_SERVER='8.8.8.8'
   DNS_ROOT='_cloud-netblocks.googleusercontent.com'
 
-  root_answer=`nslookup -q=TXT _cloud-netblocks.googleusercontent.com  8.8.8.8`
+  root_answer=`nslookup -q=TXT _cloud-netblocks.googleusercontent.com #{GOOGLE_DNS_SERVER}`
 
   blocks=[]
 
   root_answer.split.grep(/^include:/).map {|x| x.sub(/^include:/,'')}.each do |netblock_host|
-    block_answer = `nslookup -q=TXT #{netblock_host} 8.8.8.8`
+    block_answer = `nslookup -q=TXT #{netblock_host} #{GOOGLE_DNS_SERVER}`
     blocks += block_answer.split.grep(/^ip4:/).map {|x| x.sub(/^ip4:/,'')}
   end
 
