@@ -18,6 +18,7 @@ releases in your `.travis.yml`:
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
+- `8` latest 8.x release
 - `7` latest 7.x release
 - `6` latest 6.x release
 - `5` latest 5.x release
@@ -27,7 +28,7 @@ releases in your `.travis.yml`:
 language: node_js
 node_js:
   - "iojs"
-  - "7"
+  - "8"
 ```
 
 We also have many more [versions of
@@ -170,7 +171,7 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - "7"
+  - "8"
 env:
     - EMBER_VERSION=default
     - EMBER_VERSION=release
@@ -211,7 +212,7 @@ You can build your Meteor Apps on Travis CI and test against
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - "8"
 before_install:
   - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
 services:
@@ -231,7 +232,7 @@ The following `before_install` script installs the required dependencies:
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - "8"
 before_install:
   - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
 before_script:
@@ -249,8 +250,8 @@ to construct a build matrix.
 
 If you need more specific control of Node.js version in your build, use any of
 the following available versions. Releases not shown in this list may be used if
-`nvm` can install them.
-
+`nvm` can install them. For a full list of releases see the [nodejs.org website](https://nodejs.org/en/download/releases/).
+- 8.4.x
 - 7.7.x
 - 6.1.x
 - 6.0.x
@@ -278,8 +279,8 @@ the following available versions. Releases not shown in this list may be used if
 - 0.6.x
 {: .column-3}
 
-Specifying only a major (e.g., "7") or major.minor version (e.g., "7.7") will run using the
-latest published patch release for that version such as "7.7.1".
+Specifying only a major (e.g., "8") or major.minor version (e.g., "8.2") will run using the
+latest published patch release for that version such as "8.2.1".
 [nvm](https://github.com/creationix/nvm) handles version resolution, so any
 version or [alias](https://github.com/creationix/nvm#usage) of Node.js or io.js
 that nvm can install is available.
