@@ -16,13 +16,13 @@ deploy:
   api_key: "GITHUB OAUTH TOKEN"
   file: "FILE TO UPLOAD"
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
+The `if: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
@@ -51,7 +51,7 @@ deploy:
     secure: YOUR_API_KEY_ENCRYPTED
   file: "FILE TO UPLOAD"
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
@@ -66,7 +66,7 @@ deploy:
   password: "GITHUB PASSWORD"
   file: "FILE TO UPLOAD"
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
@@ -99,7 +99,7 @@ deploy:
     - "FILE 1"
     - "FILE 2"
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
@@ -113,14 +113,14 @@ deploy:
   file_glob: true
   file: directory/*
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ## Running commands before or after release
 

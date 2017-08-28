@@ -40,9 +40,9 @@ deploy:
     api_key: "YOUR HEROKU API KEY"
 ```
 
-### Conditional Releases with `on:`
+### Conditional Releases with `if:`
 
-Deployment can be controlled by setting the `on:` for each deployment provider.
+Deployment can be controlled by setting the `if:` for each deployment provider.
 
 ```yaml
 deploy:
@@ -51,12 +51,12 @@ deploy:
   secret_access_key: "YOUR AWS SECRET KEY"
   bucket: "S3 Bucket"
   skip_cleanup: true
-  on:
+  if:
     branch: release
     condition: $MY_ENV = super_awesome
 ```
 
-When all conditions specified in the `on:` section are met, deployment for this
+When all conditions specified in the `if:` section are met, deployment for this
 provider will be performed.
 
 Common options are:
@@ -76,7 +76,7 @@ Common options are:
 
 5. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit. This causes the `branch` condition to be ignored.
 
-#### Examples of Conditional Releases using `on:`
+#### Examples of Conditional Releases using `if:`
 
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
@@ -85,7 +85,7 @@ deploy:
   provider: appfog
   user: ...
   api_key: ...
-  on:
+  if:
     branch: staging
     node: '0.11' # this should be quoted; otherwise, 0.10 would not work
 ```
@@ -99,7 +99,7 @@ deploy:
   secret_access_key: "YOUR AWS SECRET KEY"
   skip_cleanup: true
   bucket: "S3 Bucket"
-  on:
+  if:
     condition: "$CC = gcc"
 ```
 
@@ -111,7 +111,7 @@ deploy:
   api_key: "GITHUB OAUTH TOKEN"
   file: "FILE TO UPLOAD"
   skip_cleanup: true
-  on:
+  if:
     tags: true
     rvm: 2.0.0
 ```

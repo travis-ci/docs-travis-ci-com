@@ -27,7 +27,7 @@ Example:
 deploy:
   provider: surge
   project: ./static/
-  domain: example.surge.sh  
+  domain: example.surge.sh
 ```
 
 ### Generated content
@@ -52,7 +52,7 @@ By default, Travis CI will only deploy from your `master` branch. You can specif
 ```yaml
 deploy:
   ...
-  on: myProductionBranch
+  if: myProductionBranch
 ```
 
 To deploy from all branches set the deploy->on option `all_branches` to `true`
@@ -60,6 +60,6 @@ To deploy from all branches set the deploy->on option `all_branches` to `true`
 ```yaml
 deploy:
   ...
-  on:
+  if:
     all_branches: true
 ```

@@ -33,7 +33,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
 deploy:
   provider: cloud66
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
-  on: production
+  if: production
 ```
 
 Alternatively, you can also configure it to deploy from all branches:
@@ -42,7 +42,7 @@ Alternatively, you can also configure it to deploy from all branches:
 deploy:
   provider: cloud66
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
-  on:
+  if:
     all_branches: true
 ```
 
@@ -51,7 +51,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 ### Conditional Deploys
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after deploy
 

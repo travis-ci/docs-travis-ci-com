@@ -54,7 +54,7 @@ commits, like so:
 ```yaml
 deploy:
   ...
-  on:
+  if:
     tags: true
 ```
 
@@ -66,7 +66,7 @@ You can explicitly specify the branch to release from with the **on** option:
 ```yaml
 deploy:
   ...
-  on:
+  if:
     branch: production
 ```
 
@@ -75,7 +75,7 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   ...
-  on:
+  if:
     all_branches: true
 ```
 
@@ -98,7 +98,7 @@ deploy:
 [A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
 reported when multiple attempts are made.
 We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+[Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ## Tagging releases
 

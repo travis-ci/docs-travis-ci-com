@@ -72,7 +72,7 @@ You can also explicitly specify the branch to deploy from with the **on** option
 deploy:
   provider: heroku
   api_key: ...
-  on: production
+  if: production
 ```
 
 Alternatively, you can also configure it to deploy from all branches:
@@ -81,7 +81,7 @@ Alternatively, you can also configure it to deploy from all branches:
 deploy:
   provider: heroku
   api_key: ...
-  on:
+  if:
     all_branches: true
 ```
 

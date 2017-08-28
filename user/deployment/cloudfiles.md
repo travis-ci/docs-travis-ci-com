@@ -60,7 +60,7 @@ deploy:
   region: "CLOUDFILE REGION"
   container: "CLOUDFILES CONTAINER NAME"
   skip_cleanup: true
-  on:
+  if:
     tags: true
 ```
 
@@ -111,7 +111,7 @@ deploy:
   region: "CLOUDFILE REGION"
   container: "CLOUDFILES CONTAINER NAME"
   skip_cleanup: true
-  on:
+  if:
     branch: production
 ```
 
@@ -125,7 +125,7 @@ deploy:
   region: "CLOUDFILE REGION"
   container: "CLOUDFILES CONTAINER NAME"
   skip_cleanup: true
-  on:
+  if:
     all_branches: true
 ```
 
@@ -134,7 +134,7 @@ Builds triggered from Pull Requests will never trigger a release.
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after release
 

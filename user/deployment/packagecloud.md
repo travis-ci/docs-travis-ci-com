@@ -47,7 +47,7 @@ deploy:
   provider: packagecloud
   username: ...
   token: ...
-  on:
+  if:
     branch: production
 ```
 
@@ -58,7 +58,7 @@ deploy:
   provider: packagecloud
   username: ...
   token: ...
-  on:
+  if:
     all_branches: true
 ```
 
@@ -111,7 +111,7 @@ the `local-dir` directory. Ensure the source package and it's contents are outpu
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after release
 

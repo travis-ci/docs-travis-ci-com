@@ -29,7 +29,7 @@ jobs:
       deploy:
         provider: npm
         api_key: $NPM_API_KEY
-        on: deploy-npm-release
+        if: deploy-npm-release
 ```
 
 This is how the build matrix might look:

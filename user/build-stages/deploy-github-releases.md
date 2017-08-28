@@ -22,7 +22,7 @@ jobs:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
         skip_cleanup: true
-        on:
+        if:
           tags: true
 ```
 

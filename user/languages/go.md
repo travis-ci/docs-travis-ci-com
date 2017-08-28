@@ -202,7 +202,7 @@ deploy section could look like this:
 ```yaml
 deploy:
   ...
-  on:
+  if:
     condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
 ```
 

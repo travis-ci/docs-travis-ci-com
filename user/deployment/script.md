@@ -13,7 +13,7 @@ The following example runs `scripts/deploy.sh` on the `develop` branch of your r
 deploy:
   provider: script
   script: scripts/deploy.sh
-  on:
+  if:
     branch: develop
 ```
 
@@ -31,12 +31,12 @@ deploy:
   # deploy develop to the staging environment
   - provider: script
     script: scripts/deploy.sh staging
-    on:
+    if:
       branch: develop
   # deploy master to production
   - provider: script
     script: scripts/deploy.sh production
-    on:
+    if:
       branch: master
 ```
 
@@ -46,7 +46,7 @@ The script has access to all the usual [environment variables](/user/environment
 deploy:
   provider: script
   script: scripts/deploy.sh production $TRAVIS_TAG
-  on:
+  if:
     tags: true
     all_branches: true
 ```

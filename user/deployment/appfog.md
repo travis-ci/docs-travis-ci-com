@@ -83,7 +83,7 @@ deploy:
   provider: appfog
   email: ...
   password: ...
-  on: production
+  if: production
 ```
 
 Alternatively, you can also configure it to deploy from all branches:
@@ -93,7 +93,7 @@ deploy:
   provider: appfog
   email: ...
   password: ...
-  on:
+  if:
     all_branches: true
 ```
 
@@ -116,7 +116,7 @@ deploy:
 ### Conditional Deploys
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Running commands before and after deploy
 

@@ -21,7 +21,7 @@ For a minimal configuration with S3, add the following to your `.travis.yml`:
         deployment_group: MyDeploymentGroup
 ```
 
-Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.  
+Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.
 
 A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
@@ -60,7 +60,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
       key: latest/MyApp.zip
       application: MyApp
       deployment_group: MyDeploymentGroup
-      on:
+      if:
         branch: production
 ```
 
@@ -75,7 +75,7 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
       key: latest/MyApp.zip
       application: MyApp
       deployment_group: MyDeploymentGroup
-      on:
+      if:
         all_branches: true
 ```
 
@@ -112,7 +112,7 @@ Travis CI will wait for the deploy to complete, and log whether it succeeded.
 ### Conditional deployments
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `if:`](/user/deployment#Conditional-Releases-with-on%3A).
 
 ### Note on `.gitignore`
 

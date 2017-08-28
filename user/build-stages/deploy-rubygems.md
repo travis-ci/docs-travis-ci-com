@@ -27,7 +27,7 @@ jobs:
         provider: rubygems
         gem: travis-build-stages-demo
         api_key: $RUBYGEMS_API_KEY
-        on: deploy-gem-release
+        if: deploy-gem-release
 ```
 This is how the build matrix would look like:
 

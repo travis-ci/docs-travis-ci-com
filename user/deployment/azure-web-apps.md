@@ -45,7 +45,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
 ```
 deploy:
   provider: azure_web_apps
-  on: production
+  if: production
 ```
 
 Alternatively, you can also configure it to deploy from all branches:
@@ -53,7 +53,7 @@ Alternatively, you can also configure it to deploy from all branches:
 ```
 deploy:
   provider: azure_web_apps
-  on:
+  if:
     all_branches: true
 ```
 
@@ -91,5 +91,5 @@ deploy:
   slot: myapp-staging
 - provider: azure_web_apps
   slot: myapp-develop
-  on: develop
+  if: develop
 ```
