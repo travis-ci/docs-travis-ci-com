@@ -59,6 +59,14 @@ the `{: beta}` are required.
 > BETA Awesome new feature that might not be enabled and is subject to change.
 {: .beta}
 
+### Alpha features
+
+Mark all alpha features with a specially formatted note. Both the `> ALPHA` and
+the `{: alpha}` are required.
+
+> ALPHA Awesome new feature that might explode for extra fun.
+{: .alpha}
+
 ### GUI
 
 Make sure all references to items in a GUI match the case of the UI, and are marked with *asterisks*.
