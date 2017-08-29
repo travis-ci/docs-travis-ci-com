@@ -25,7 +25,7 @@ permalink: /imprint.html
   <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
   <address>
     Travis CI GmbH<br>
-    Josh Kalderimis, Mathias Meyer<br>
+    Mathias Meyer, Fritz Thielemann<br>
     Rigaer Straße 8<br>
     10247 Berlin<br>
     Germany
