@@ -45,7 +45,7 @@ services:
   - mysql
 ```
 
-MySQL binds to `127.0.0.1` and a socket defined in `~/travis/.my.cnf` and
+MySQL binds to `127.0.0.1` and a socket defined in `~travis/.my.cnf` and
 requires authentication.  You can connect using the username `travis` or `root`
 and a blank password.
 
