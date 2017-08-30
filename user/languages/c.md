@@ -9,7 +9,7 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| Ruby                                        | Default                                   |
+| C                                           | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | N/A                                       |
 | [Default `script`](#Default-Build-Script)   | `./configure && make && make test`        |
