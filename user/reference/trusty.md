@@ -184,9 +184,10 @@ by `gimme`.
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
-versions that are not pre-installed will be dynamically installed from a local
-cache, or built via `phpenv` if unavailable.
+least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+`5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
+are not pre-installed will be dynamically installed from a local cache, or built
+via `phpenv` if unavailable.
 
 *Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
 result in a build failure when phpenv fails to compile it*.

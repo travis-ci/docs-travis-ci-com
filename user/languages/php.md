@@ -9,12 +9,12 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| PHP                                                 | Default                                   |
-|:----------------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management)         | N/A                                       |
-| [Default `script`](#Default-Build-Script-(PHPUnit)) | `phpunit`                                 |
-| [Matrix keys](#Build-Matrix)                        | `env`, `php`                              |
-| Support                                             | [Travis CI](mailto:support@travis-ci.com) |
+| PHP                                         | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | N/A                                       |
+| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
+| [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
@@ -62,8 +62,7 @@ versions used in your build, consult "Build system information" in the build
 log.
 
 > Specifying exact versions like 5.3.8 is discouraged as it may break your build
-when we update PHP versions on Travis CI. PHP version *5.5.9* is supported,
-however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
+when we update PHP versions on Travis CI.
 
 ### HHVM versions
 
@@ -88,9 +87,9 @@ php:
   - nightly
 ```
 
-## Default Build Script (PHPUnit)
+## Default Build Script
 
-The default test script is PHPUnit. It comes packaged with PHP, but you can also
+The default build script is PHPUnit. It comes packaged with PHP, but you can also
 install a specific version in a custom location. If you do install it
 separately, make sure you invoke the correct version by using the full path.
 
@@ -114,12 +113,12 @@ before_script: composer require atoum/atoum
 script: vendor/bin/atoum
 ```
 
-## Dependency Management (a.k.a. vendoring)
+## Dependency Management
 
-Before Travis CI can run your test suite, it may be necessary to pull down your
+Before Travis CI can run your test suite, it may be necessary to install your
 project dependencies. It can be done using a PHP script, a shell script or
 anything you need. Define one or more commands you want Travis CI to use with
-the *install* option in your .travis.yml, for example:
+the *install* option in your `.travis.yml`, for example:
 
 ```yaml
 install: php vendor/vendors.php
@@ -133,7 +132,7 @@ install:
   - php vendor/vendors.php
 ```
 
-### Testing Against Multiple Versions of Dependencies (e.g. Symfony)
+### Testing Against Multiple Versions of Dependencies
 
 If you need to test against multiple versions of, say, Symfony, you can instruct
 Travis CI to do multiple runs with different sets or values of environment
