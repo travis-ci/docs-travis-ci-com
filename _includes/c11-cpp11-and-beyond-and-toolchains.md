@@ -1,8 +1,8 @@
-### C11/C++11 (and Beyond) and Toolchain Versioning
+## C11/C++11 (and Beyond) and Toolchain Versioning
 
 If your project requires tools compatible with C11, C++11, or a more recent language standard, then it is likely that you will have to upgrade your compiler and/or build tools. This section covers specifically how to upgrade GCC, clang, and cmake; for other dependencies please see [Installing Dependencies](/user/installing-dependencies/).
 
-#### GCC on Linux
+### GCC on Linux
 
 Ubuntu 12.04 ships with GCC 4.6.3 and Ubuntu 14.04 ships with GCC 4.8.2.
 
@@ -50,7 +50,7 @@ before_install:
     - eval "${MATRIX_EVAL}"
 ```
 
-#### GCC on OS X
+### GCC on OS X
 
 ```yaml
 matrix:
@@ -74,7 +74,7 @@ before_install:
     - eval "${MATRIX_EVAL}"
 ```
 
-#### Clang
+### Clang
 
 Ubuntu 12.04 ships with Clang 3.4 and Ubuntu 14.04 ships with Clang 3.5.0.
 
