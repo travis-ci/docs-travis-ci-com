@@ -59,7 +59,7 @@ install: make get-deps
 
 See [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Test Script
+## Default Build Script
 
 The default build command is:
 
