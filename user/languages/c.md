@@ -25,7 +25,7 @@ language: c
 </aside>
 
 
-### What This Guide Covers
+## What This Guide Covers
 
 {{ site.data.snippets.trusty_note }}
 
