@@ -266,12 +266,14 @@ Test::Pod::Coverage
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
-[hhvm](https://github.com/facebook/hhvm) is also available.
-and the nightly builds are installed on-demand (as `hhvm-nightly`).
-
 ### XDebug
 
 Is supported.
+
+### Core extensions
+
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+
 
 ### Extensions
 
@@ -337,6 +339,11 @@ zlib
 [Zend Modules]
 Xdebug
 ```
+
+### Chef Cookbooks for PHP
+
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/precise-stable/ci_environment).
+
 
 ## Python VM images
 
