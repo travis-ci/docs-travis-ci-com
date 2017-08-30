@@ -188,7 +188,7 @@ updating it in the `before_install` step of your `.travis.yml`:
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
 
 **Updating from download.docker.com**

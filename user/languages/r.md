@@ -143,7 +143,7 @@ Note that the APT package needs to be white-listed for this to work
 on container-based infrastructure.
 This option is ignored on non-Linux builds.
 
-An alternative that works only on standard infrastructure is
+An alternative that works only on standard infrastructure (`sudo: required`) is
 the `apt_packages` field:
 
 ```yaml

@@ -9,7 +9,7 @@ layout: en
 
 ## Outdated
 
-This document is from a switch in our default infrastructure in 2015 and may contain outdated information. 
+This document is from a switch in our default infrastructure in 2015 and may contain outdated information.
 
 ## tl;dr
 
@@ -39,11 +39,13 @@ For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml
 
 ## How can I use container-based infrastructure?
 
-If you see `This job is running on container-based infrastructure` in your build log it means you are already running builds on our new container-based infrastructure.
+Container-based infrastructure is the default for new repositories, but if you
+want to set it explicitly or have an older repository, add the following line to
+your `.travis.yml`:
 
-If you don't, to use the new infrastructure add the following line to your .travis.yml:
-
-`sudo: false`
+```yaml
+sudo: false
+```
 
 ### What are the restrictions?
 
