@@ -4,38 +4,64 @@ layout: en
 
 ---
 
-### What This Guide Covers
+<div id="toc">
+</div>
 
-This guide covers build environment and configuration topics specific to Clojure projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
+
+| Clojure                                     | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `project.clj`                             |
+| [Default `script`](#Default-Build-Script)   | `lein test`                               |
+| [Matrix keys](#Build-Matrix)                | `env`, `lein`, `jdk`                      |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: clojure
+```
+
+</aside>
+
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+This guide covers build environment and configuration topics specific to Clojure
+projects. Please make sure to read our [Getting Started](/user/getting-started/)
+and [general build configuration](/user/customizing-the-build/) guides first.
 
 Clojure builds are not available on the OS X environment.
 
 ## CI Environment for Clojure Projects
 
 Travis CI environment provides a large set of build tools for JVM languages with
-[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both [Leiningen](http://leiningen.org) 1.7.x and 2.4.x.
-
-Clojure projects on Travis CI assume you use Leiningen 2.4.x by default.
+[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both
+[Leiningen](http://leiningen.org) 1.7.x and 2.4.x (default).
 
 ## Dependency Management
 
-If you use Leiningen, it will automatically install any dependencies you need
-as long as they are listed in the `project.clj` file.
+If you use Leiningen, it will automatically install any dependencies that are
+listed in the `project.clj` file.
 
 ### Alternate Install Step
 
-If you need to perform special tasks before your tests can run, you should set up the proper `:hooks` in project.clj. If for some reason you can't use hooks, it is possible to override the install step in your `.travis.yml`. For example if you use the [clojure-protobuf](https://github.com/flatland/clojure-protobuf) library:
+If you need to install other dependencies before your tests can run, you should
+set up the proper `:hooks` in `project.clj`.
+
+If for some reason you can't use hooks,you can override the install step in your
+`.travis.yml`:
 
 ```yaml
 install: lein protobuf install
 ```
 
-See [general build configuration guide](/user/customizing-the-build/) to learn more.
+See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Test Script
+## Default Build Script
 
-Because Clojure projects on travis-ci.org assume [Leiningen](https://github.com/technomancy/leiningen) by default, naturally, the default command Travis CI will use to
-run your project test suite is
+The default build script is:
 
 ```bash
 lein test
@@ -47,9 +73,12 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 language: clojure
 ```
 
-### Using Midje on travis-ci.org
+### Using Midje
 
-If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your `project.clj` development dependencies list and override `script:` in `.travis.yml` to run Midje task:
+If your project uses [Midje](https://github.com/marick/Midje), make sure
+[lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your
+`project.clj` development dependencies list and override `script:` in
+`.travis.yml` to run the Midje task:
 
 ```yaml
 script: lein midje
@@ -69,7 +98,9 @@ Leiningen 2 replaces `:dev-dependencies` with profiles:
                  :plugins [[lein-midje "3.0.0"]]}}
 ```
 
-Please note that for projects that only support Clojure 1.3.0 and later versions, you may need to exclude transient `org.clojure/clojure` for Midje in project.clj:
+Please note that for projects that only support Clojure 1.3.0 and later
+versions, you may need to exclude transient `org.clojure/clojure` for Midje in
+project.clj:
 
 ```
 :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
@@ -80,7 +111,9 @@ For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
 ### Using Speclj on travis-ci.org
 
-If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is listed in your development dependencies in `project.clj`, and include this `script:` line in `.travis.yml`:
+If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is
+listed in your development dependencies in `project.clj`, and include this
+`script:` line in `.travis.yml`:
 
 ```yaml
 script: lein spec
@@ -174,7 +207,7 @@ lein: 2.6.1 # version 2 and up
 The job will install the specified version of Leiningen if it is not pre-installed,
 and move on to install your project's dependencies.
 
-## Example
+### Example
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
