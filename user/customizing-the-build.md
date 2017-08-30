@@ -291,7 +291,7 @@ git:
 
 ### Authentication
 
-To use Git LFS, you may need to additionally configure authentication with GitHub, e.g.:
+To use Git LFS with private repositories, you need to additionally configure authentication with GitHub, e.g.:
 
 ```
 before_install:
@@ -299,6 +299,7 @@ before_install:
 - git lfs pull
 ```
 
+Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
 
 ## Building Specific Branches
