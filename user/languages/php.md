@@ -4,47 +4,66 @@ layout: en
 
 ---
 
-### What This Guide Covers
+<div id="toc">
+</div>
 
-This guide covers build environment and configuration topics specific to PHP projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
 
-PHP builds are not available on the OS X environment.
+| PHP                                                 | Default                                   |
+|:----------------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management)         | N/A                                       |
+| [Default `script`](#Default-Build-Script-(PHPUnit)) | `phpunit`                                 |
+| [Matrix keys](#Build-Matrix)                        | `env`, `php`                              |
+| Support                                             | [Travis CI](mailto:support@travis-ci.com) |
 
-<div id="toc"></div>
-
-## Choosing PHP versions to test against
-
-PHP VM images on travis-ci.org provide several PHP versions including XDebug as well as PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the different PHP versions installed on the VM.
-
-A minimalistic `.travis.yml` file would look like this:
+Minimal example:
 
 ```yaml
 language: php
 php:
-  - '5.4'
-  - '5.5'
   - '5.6'
-  - '7.0'
   - '7.1'
   - hhvm # on Trusty only
   - nightly
 ```
 
-The previous example uses `phpunit`, the default build script, to build against the following list of PHP versions:
+</aside>
 
-- 5.4.x
-- 5.5.x
-- 5.6.x
-- 7.0.x
-- 7.1.x
-- hhvm # on Trusty only
-- nightly
+## What This Guide Covers
 
-which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/reference/precise/).
+{{ site.data.snippets.trusty_note_no_osx }}
 
-You can see an [example of version number aliases](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
+This guide covers build environment and configuration topics specific to PHP
+projects. Please make sure to read our [Getting Started](/user/getting-started/)
+and [build configuration](/user/customizing-the-build/) guides first.
 
-> Specifying exact versions like 5.3.8 is discouraged as it may break your build when we update PHP versions on Travis CI. PHP version *5.5.9* is supported, however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
+PHP builds are not available on the OS X environment.
+
+## Choosing PHP versions to test against
+
+Travis CI provides several PHP versions, all of which include XDebug and
+PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the
+different PHP versions installed on the virtual machines.
+
+An example `.travis.yml` file that tests various PHP versions:
+
+```yaml
+language: php
+php:
+  - '5.4'
+  - '5.6'
+  - '7.0'
+  - hhvm # on Trusty only
+  - nightly
+```
+
+`X.Y` versions are aliases for the most recent `X.Y.Z` release. For precise
+versions used in your build, consult "Build system information" in the build
+log.
+
+> Specifying exact versions like 5.3.8 is discouraged as it may break your build
+when we update PHP versions on Travis CI. PHP version *5.5.9* is supported,
+however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
 
 ### HHVM versions
 
@@ -69,7 +88,7 @@ php:
   - hhvm-nightly
 ```
 
-## Default Test Script (PHPUnit)
+## Default Build Script (PHPUnit)
 
 The default test script is PHPUnit. It comes packaged with PHP, but you can also
 install a specific version in a custom location. If you do install it
