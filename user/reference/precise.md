@@ -25,7 +25,7 @@ state and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-  
+
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
@@ -220,11 +220,11 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
 
-## Node.js VM images
+## JavaScript and Node.js images
 
 ### Node.js versions
 
-Node runtimes are built using [nvm](https://github.com/creationix/nvm).
+Node runtimes are built and installed using [nvm](https://github.com/creationix/nvm).
 
 ### SCons
 
