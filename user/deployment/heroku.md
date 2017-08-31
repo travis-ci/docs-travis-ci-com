@@ -156,19 +156,6 @@ deploy:
 
 {% include conditional_deploy.html provider="heroku" %}
 
-### Buildpack
-
-When deploying via the Anvil strategy (as described [below](#Deploy-Strategy)), you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
-
-```yaml
-deploy:
-  provider: heroku
-  buildpack: ruby
-```
-{: data-file=".travis.yml"}
-
-You can either use a shorthand for the [default buildpacks](https://devcenter.heroku.com/articles/buildpacks#default-buildpacks), like `ruby` or `nodejs` or give it the full URL for a [custom buildpack](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack).
-
 ### Deploy Strategy
 
 Travis CI supports different mechanisms for deploying to Heroku:
