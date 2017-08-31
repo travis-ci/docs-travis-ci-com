@@ -34,6 +34,7 @@ env:
   - SH=bash
   - PACKAGE_VERSION="1.0.*"
 ```
+{: data-file=".travis.yml"}
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
@@ -49,6 +50,7 @@ env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
 ```
+{: data-file=".travis.yml"}
 
 this configuration triggers **4 individual builds**:
 
@@ -70,6 +72,7 @@ env:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
+{: data-file=".travis.yml"}
 
 triggers builds with the following `env` rows:
 
@@ -95,6 +98,7 @@ env:
     - USE_NETWORK=false
     - secure: <you can also put encrypted vars inside matrix>
 ```
+{: data-file=".travis.yml"}
 
 > Encrypted environment variables are not available to pull requests from forks due to the security risk of exposing such information to unknown code.
 >

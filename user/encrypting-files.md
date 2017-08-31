@@ -85,6 +85,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
 ```
+{: data-file=".travis.yml"}
 
 ### Caveat
 
@@ -129,6 +130,7 @@ env:
 before_install:
   - echo $super_secret_password | gpg --passphrase-fd 0 super_secret.txt.gpg
 ```
+{: data-file=".travis.yml"}
 
 The encrypted file is called `super_secret.txt.gpg` and has to be committed to the repository.
 
@@ -151,5 +153,6 @@ env:
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in super_secret.txt.enc -out super_secret.txt -d
 ```
+{: data-file=".travis.yml"}
 
 The encrypted file is called `super_secret.txt.enc` and has to be committed to the repository.

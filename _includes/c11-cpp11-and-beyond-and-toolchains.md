@@ -49,6 +49,7 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
 #### GCC on OS X
 
@@ -73,6 +74,7 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
 #### Clang
 
@@ -157,6 +159,7 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
 On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
@@ -175,5 +178,6 @@ addons:
       - cmake-data
       - cmake
 ```
+{: data-file=".travis.yml"}
 
 On OS X, the version of `cmake` is controlled by the choice of `osx_image`.

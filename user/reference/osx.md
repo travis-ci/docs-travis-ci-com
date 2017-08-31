@@ -28,6 +28,15 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
+## Using OS X
+
+To use our OS X build infrastructure, add the following to your `.travis.yml`:
+
+```yaml
+os: osx
+```
+{: data-file=".travis.yml"}
+
 ## OS X Version
 
 Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
@@ -82,6 +91,7 @@ before_install:
   - brew update
   - brew outdated <package-name> || brew upgrade <package-name>
 ```
+{: data-file=".travis.yml"}
 
 For example, if you always want the latest version of xctool, you can run this:
 
@@ -90,6 +100,7 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
 ```
+{: data-file=".travis.yml"}
 
 ## File System
 

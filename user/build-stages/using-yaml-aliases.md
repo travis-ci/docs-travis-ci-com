@@ -35,6 +35,7 @@ jobs:
     - <<: *test-staging
       script: ./test-staging.sh three
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

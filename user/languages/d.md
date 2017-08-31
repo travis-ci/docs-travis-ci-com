@@ -62,6 +62,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 ```yaml
 language: d
 ```
+{: data-file=".travis.yml"}
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
@@ -69,6 +70,7 @@ guide. For example, to build by running make, override the `script:` key in `.tr
 ```yaml
 script: make test
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -79,6 +81,7 @@ key in your `.travis.yml`:
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
