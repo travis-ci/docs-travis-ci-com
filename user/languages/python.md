@@ -80,11 +80,16 @@ As time goes, new releases come out and we provision more Python versions and/or
 implementations, aliases like `3.6` will float and point to different exact versions,
 patch levels and so on.
 
-### Travis CI Uses Isolated virtualenvs - PENDING
+### Travis CI Uses Isolated virtualenvs
 
-The CI Environment uses separate virtualenv instances for each Python version. System Python is not used and should not be relied on. If you need to install Python packages, do it via pip and not apt.
+The CI Environment uses separate virtualenv instances for each Python
+version. System Python is not used and should not be relied on. If you need
+to install Python packages, do it via pip and not apt.
 
-If you decide to use apt anyway, note that Python system packages only include Python 2.7 libraries on Ubuntu 12.04 LTS. This means that the packages installed from the repositories are not available in other virtualenvs even if you use the --system-site-packages option.
+If you decide to use apt anyway, note that Python system packages only
+include Python 2.7 libraries on Ubuntu. This means that the packages
+installed from the repositories are not available in other virtualenvs even
+if you use the --system-site-packages option.
 
 ### PyPy Support
 
@@ -150,7 +155,7 @@ and fails the build.
 
 ### pip
 
-By default Travis CI uses `pip` to manage python dependencies. If you have a
+By default Travis CI uses `pip` to manage Python dependencies. If you have a
 `requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
 during the `install` phase of the build.
 
@@ -165,14 +170,6 @@ install: pip install --user -r requirements.txt
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
 configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
-
-### Pre-installed packages
-
-Travis CI installs the following packages by default in each virtualenv:
-
-- pytest
-- nose
-- mock
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
