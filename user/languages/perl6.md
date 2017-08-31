@@ -25,6 +25,7 @@ perl6:
   - '2017.05'
   - '2017.04'
 ```
+{: data-file=".travis.yml"}
 
 Over time, new releases come out and we upgrade both rakudobrew and
 Perls, aliases like `2017.05` will float and point to different exact
@@ -68,6 +69,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 this will install the latest `zef` version.
 
@@ -110,6 +112,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with multiple Rakudo versions
 
@@ -124,6 +127,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with the latest Rakudo, but with non-standard lib and test dirs
 
@@ -137,3 +141,4 @@ language: perl6
 script:
     - PERL6LIB=src prove -v -r --exec=perl6 tests/
 ```
+{: data-file=".travis.yml"}

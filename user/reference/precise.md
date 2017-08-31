@@ -107,6 +107,7 @@ For example, to install version 17.0, add the following to your
 addons:
   firefox: "17.0"
 ```
+{: data-file=".travis.yml"}
 
 Please note that the addon only works in 64-bit Linux environments.
 

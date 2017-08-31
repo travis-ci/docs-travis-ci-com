@@ -65,6 +65,7 @@ jobs:
     - stage: deploy
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 This configuration creates the build from the screencast above. I.e. it creates
 a build with three jobs, two of which start in parallel in the first stage
@@ -97,6 +98,7 @@ jobs:
       script: ./deploy target-1
     - script: ./deploy target-2
 ```
+{: data-file=".travis.yml"}
 
 ### Build Stages and Build Matrix Expansion
 
@@ -117,6 +119,7 @@ jobs:
         - FOO=foo
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
 to the default stage test. The third job on the deploy stage starts only after
@@ -142,6 +145,7 @@ jobs:
         provider: heroku
         # ...
 ```
+{: data-file=".travis.yml"}
 
 Travis CI does not set or overwrite any of your scripts, and most languages
 have a [default test script](/user/languages/ruby/#Default-Build-Script)

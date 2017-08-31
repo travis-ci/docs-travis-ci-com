@@ -19,6 +19,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
@@ -54,6 +55,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 ## Authentication with a Username and Password
 
@@ -69,6 +71,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 ## Deploying to GitHub Enterprise
 
@@ -85,6 +88,7 @@ env:
   global:
     - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
+{: data-file=".travis.yml"}
 
 ## Uploading Multiple Files
 
@@ -102,6 +106,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 You can also enable wildcards by setting `file_glob` to `true`. This example
 includes all files in a given directory.
@@ -116,6 +121,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
@@ -134,6 +140,8 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
+
 ## Pushing a specific directory
 
 * `local_dir`: Directory to push to GitHub Releases, defaults to the current

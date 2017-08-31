@@ -35,6 +35,7 @@ install: "pip install -r requirements.txt"
 # command to run tests
 script: pytest
 ```
+{: data-file=".travis.yml"}
 
 As time goes, new releases come out and we provision more Python versions and/or implementations, aliases like `3.2` will float and point to different exact versions, patch levels and so on.
 
@@ -71,6 +72,7 @@ install:
 # command to run tests
 script: pytest
 ```
+{: data-file=".travis.yml"}
 
 ## Default Python Version
 
@@ -87,12 +89,14 @@ For example, if your project uses pytest:
 # command to run tests
 script: pytest  # or py.test for Python versions 3.5 and below
 ```
+{: data-file=".travis.yml"}
 
 if it uses `make test` instead:
 
 ```yaml
 script: make test
 ```
+{: data-file=".travis.yml"}
 
 If you do not provide a `script` key in a Python project, Travis CI prints a
 message and fails the build.
@@ -110,6 +114,7 @@ You can manually override this default `install` phase, for example:
 ```yaml
 install: pip install --user -r requirements.txt
 ```
+{: data-file=".travis.yml"}
 
 ### Custom Dependency Management
 
@@ -134,6 +139,7 @@ env:
   - DJANGO_VERSION=1.7.8
   - DJANGO_VERSION=1.8.2
 ```
+{: data-file=".travis.yml"}
 
 and then use ENV variable values in your dependencies installation scripts, test cases or test script parameter values. Here we use ENV variable value to instruct pip to install an exact version:
 
@@ -142,6 +148,7 @@ install:
   - pip install -q Django==$DJANGO_VERSION
   - python setup.py -q install
 ```
+{: data-file=".travis.yml"}
 
 The same technique is often used to test projects against multiple databases and so on. For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 

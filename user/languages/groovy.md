@@ -23,6 +23,7 @@ projects that use Gradle, Maven or Ant, so quite often you won't have to configu
 ```yaml
 language: groovy
 ```
+{: data-file=".travis.yml"}
 
 in your `.travis.yml` file.
 
@@ -60,6 +61,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+{: data-file=".travis.yml"}
 
 ### Gradle daemon is disabled by default
 
@@ -109,6 +111,7 @@ Because there is no single standard way of installing project dependencies with 
 language: groovy
 install: ant deps
 ```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
@@ -119,6 +122,7 @@ jdk:
   - oraclejdk7
   - openjdk6
 ```
+{: data-file=".travis.yml"}
 
 To test against OpenJDK 7 and Oracle JDK 7:
 
@@ -127,6 +131,7 @@ jdk:
   - openjdk7
   - oraclejdk7
 ```
+{: data-file=".travis.yml"}
 
 Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7 and Oracle JDK 8. Sun JDK 6 is not provided and because it is EOL in November 2012,
 will not be provided.

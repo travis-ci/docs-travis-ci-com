@@ -29,6 +29,7 @@ If you need to perform special tasks before your tests can run, override the `in
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
@@ -46,6 +47,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 ```yaml
 language: cpp
 ```
+{: data-file=".travis.yml"}
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example, to build
 by running Scons without arguments, override the `script:` key in `.travis.yml` like this:
@@ -53,6 +55,7 @@ by running Scons without arguments, override the `script:` key in `.travis.yml` 
 ```yaml
 script: scons
 ```
+{: data-file=".travis.yml"}
 
 ## Choosing compilers to test against
 
@@ -62,6 +65,7 @@ in `.travis.yml`. For example, to build with Clang:
 ```yaml
 compiler: clang
 ```
+{: data-file=".travis.yml"}
 
 or both GCC and Clang:
 
@@ -70,6 +74,7 @@ compiler:
   - clang
   - gcc
 ```
+{: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build matrix. For each row, the Travis CI C++ builder will export the `CXX` env variable to point to either `g++` or `clang++` and `CC` to either `gcc` or `clang`.
 
@@ -99,5 +104,6 @@ before_install:
   - test -n $CC  && unset CC
   - test -n $CXX && unset CXX
 ```
+{: data-file=".travis.yml"}
 
 {% include c11-cpp11-and-beyond-and-toolchains.md %}
