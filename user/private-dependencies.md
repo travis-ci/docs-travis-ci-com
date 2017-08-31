@@ -242,6 +242,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
 

@@ -35,6 +35,7 @@ To use our OS X build infrastructure, add the following to your `.travis.yml`:
 ```yaml
 os: osx
 ```
+{: data-file=".travis.yml"}
 
 ## OS X Version
 
@@ -90,6 +91,7 @@ before_install:
   - brew update
   - brew outdated <package-name> || brew upgrade <package-name>
 ```
+{: data-file=".travis.yml"}
 
 For example, if you always want the latest version of xctool, you can run this:
 
@@ -98,6 +100,7 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
 ```
+{: data-file=".travis.yml"}
 
 ## File System
 

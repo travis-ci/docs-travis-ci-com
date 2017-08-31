@@ -23,6 +23,7 @@ otp_release:
   - 17.5
   - R16B03
 ```
+{: data-file=".travis.yml"}
 
 Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1 .  
 
