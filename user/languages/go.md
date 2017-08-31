@@ -10,10 +10,31 @@ swiftypetags:
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+{{ site.data.snippets.trusty_note_no_osx }}
 
 Go builds are not available on the OS X environment.
+
+The rest of this guide covers configuring Go projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
+
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `go get`                                  |
+| Typical `script`  | `make` or `go test`                       |
+| Matrix keys       | `go`                                      |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+ 
+```yaml
+  language: go
+  go:
+    - 1.6
+```
+</aside>
 
 ## CI environment for Go Projects
 
