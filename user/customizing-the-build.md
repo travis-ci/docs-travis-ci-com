@@ -266,7 +266,7 @@ git:
 
 ### Authentication
 
-As a general rule, we recommend using authenticated requests to avoid being rate-limited by GitHub:
+We recommend using a read-only GitHub OAuth token to authenticate when using git LFS:
 
 ```
 before_install:
@@ -274,9 +274,9 @@ before_install:
 - git lfs pull
 ```
 
-GitHub authentication is required in order to use Git LFS with private repositories.
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
 
-Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above. We recommend using a read-only token.
+Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
 
 ### Linux
