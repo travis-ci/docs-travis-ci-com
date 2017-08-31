@@ -264,15 +264,32 @@ git:
 ## Git LFS
 
 
+### Authentication
+
+As a general rule, we recommend using authenticated requests to avoid being rate-limited by GitHub:
+
+```
+before_install:
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
+- git lfs pull
+```
+
+GitHub authentication is required in order to use Git LFS with private repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above. We recommend using a read-only token.
+
+
 ### Linux
 
 [Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty images.
 
 ### Mac OS
 
-Installing git-lfs via brew is the recommended way to get Git LFS in Mac OS.
+Installing git-lfs via brew is the recommended way to get Git LFS in [Mac OS](/user/reference/osx/).
 
 ```
+os: osx
+
 before_install:
 - brew install git-lfs
 
@@ -288,18 +305,6 @@ GitHub rate-limits the Git-LFS requests during the git clone process. If you run
 git:
   lfs_skip_smudge: true
 ```
-
-### Authentication
-
-To use Git LFS with private repositories, you need to additionally configure authentication with GitHub, e.g.:
-
-```
-before_install:
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
-- git lfs pull
-```
-
-Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
 
 ## Building Specific Branches
