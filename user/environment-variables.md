@@ -182,9 +182,9 @@ to tag the build, or to run post-build deployments.
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
   request.
-  + for builds triggered by a tag, this is the same as the name of the tag (`TRAVIS_TAG`). This is because,
+  + for builds triggered by a tag, this is the same as the name of the tag (`TRAVIS_TAG`).
 
-      > ...for tags, git does not store the branch from which a commit was tagged.
+      > Note that for tags, git does not store the branch from which a commit was tagged.
 
 - `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
   being built has been copied on the worker.
