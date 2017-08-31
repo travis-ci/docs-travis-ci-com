@@ -261,16 +261,51 @@ git:
   submodules: false
 ```
 
-## Git LFS Skip Smudge
+## Git LFS
 
-You can disable the download of LFS objects when cloning ([`git lfs smudge
---skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn))
-by setting the following in `.travis.yml`:
+
+### Authentication
+
+As a general rule, we recommend using authenticated requests to avoid being rate-limited by GitHub:
+
+```
+before_install:
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
+- git lfs pull
+```
+
+GitHub authentication is required in order to use Git LFS with private repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above. We recommend using a read-only token.
+
+
+### Linux
+
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty images.
+
+### Mac OS
+
+Installing git-lfs via brew is the recommended way to get Git LFS in [Mac OS](/user/reference/osx/).
+
+```
+os: osx
+
+before_install:
+- brew install git-lfs
+
+before_script:
+- git lfs pull
+```
+
+### Git LFS Skip Smudge
+
+GitHub rate-limits the Git-LFS requests during the git clone process. If you run into rate-limiting issues, you can skip fetching the git-lfs files during the initial `git clone` (equivalent to [`git lfs smudge --skip`](https://github.com/git-lfs/git-lfs/blob/master/docs/man/git-lfs-smudge.1.ronn)), and download these assets during the `before_install` phase of your build. To achieve this, you can use the following configuration in `.travis.yml`:
 
 ```yaml
 git:
   lfs_skip_smudge: true
 ```
+
 
 ## Building Specific Branches
 
