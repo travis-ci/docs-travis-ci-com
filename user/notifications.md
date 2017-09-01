@@ -49,7 +49,7 @@ notifications:
 {: data-file=".travis.yml"}
 
 **Note:** These webhooks are executed at the end of a build, and not by individual jobs
-(see [builds vs jobs](/user/for-beginners#Builds%2C-Jobs%2C-Stages-and-Phases)).
+(see [builds vs jobs](/user/for-beginnersid="builds-jobs-stages-and-phases)).
 This means that environment variables from the build are not available in this section.
 
 There is currently no way of limiting the notification to a specific branch, but
