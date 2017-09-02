@@ -1,3 +1,5 @@
+just for trying things out
+
 ---
 title: Building a Python Project
 layout: en
