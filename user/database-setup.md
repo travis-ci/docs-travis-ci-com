@@ -308,7 +308,7 @@ Add the following `before_script` to your `.travis.yml` to wait before connectin
 ```yaml
 before_script:
   - sleep 15
-  - mongo mydb_test --eval 'db.createUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 ```
 {: data-file=".travis.yml"}
 
