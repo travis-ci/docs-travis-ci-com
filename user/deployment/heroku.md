@@ -1,7 +1,7 @@
 ---
 title: Heroku Deployment
 layout: en
-permalink: /user/deployment/heroku/
+
 ---
 
 <div id="toc"></div>
@@ -10,14 +10,19 @@ Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) applic
 
 To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
 
-    deploy:
-      provider: heroku
-      api_key:
-        secure: "YOUR ENCRYPTED API KEY"
+```yaml
+deploy:
+  provider: heroku
+  api_key:
+    secure: "YOUR ENCRYPTED API KEY"
+```
+{: data-file=".travis.yml"}
 
 If you have both the [Heroku](https://toolbelt.heroku.com/) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
 
-    travis encrypt $(heroku auth:token) --add deploy.api_key
+```bash
+travis encrypt $(heroku auth:token) --add deploy.api_key
+```
 
 You can also use the Travis CI command line setup tool `travis setup heroku`.
 
@@ -27,30 +32,39 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      app: my-app-123
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  app: my-app-123
+```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      app:
-        master: my-app-staging
-        production: my-app-production
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  app:
+    master: my-app-staging
+    production: my-app-production
+```
+{: data-file=".travis.yml"}
 
 If these apps belong to different Heroku accounts, you will have to do the same for the API key:
 
-    deploy:
-      provider: heroku
-      api_key:
-        master: ...
-        production: ...
-      app:
-        master: my-app-staging
-        production: my-app-production
+```yaml
+deploy:
+  provider: heroku
+  api_key:
+    master: ...
+    production: ...
+  app:
+    master: my-app-staging
+    production: my-app-production
+```
+{: data-file=".travis.yml"}
 
 ## Deploying Specific Branches
 
@@ -58,18 +72,24 @@ If you have branch specific options, as [shown above](#Deploying-Custom-Applicat
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      on: production
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  on: production
+```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      on:
-        all_branches: true
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  on:
+    all_branches: true
+```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -77,19 +97,25 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 In some setups, you might want to run a command on Heroku after a successful deploy. You can do this with the **run** option:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      run: "rake db:migrate"
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  run: "rake db:migrate"
+```
+{: data-file=".travis.yml"}
 
 It also accepts a list of commands:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      run:
-        - "rake db:migrate"
-        - "rake cleanup"
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
+```
+{: data-file=".travis.yml"}
 
 ### Error Logs for Custom Commands
 
@@ -103,13 +129,16 @@ These add-ons have email notification systems that can be triggered when certain
 
 Sometimes you want to restart your Heroku application between or after commands. You can easily do so by adding a "restart" command:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      run:
-        - "rake db:migrate"
-        - restart
-        - "rake cleanup"
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  run:
+    - "rake db:migrate"
+    - restart
+    - "rake cleanup"
+```
+{: data-file=".travis.yml"}
 
 ## Deploying build artifacts
 
@@ -117,41 +146,32 @@ After your tests ran and before the deploy, Travis CI will clean up any addition
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      skip_cleanup: true
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  skip_cleanup: true
+```
+{: data-file=".travis.yml"}
 
 {% include conditional_deploy.html provider="heroku" %}
-
-### Buildpack
-
-When deploying via the Anvil strategy (as described [below](#Deploy-Strategy)), you can now set the [buildpack](https://devcenter.heroku.com/articles/buildpacks) to use:
-
-    deploy:
-      provider: heroku
-      buildpack: ruby
-
-You can either use a shorthand for the [default buildpacks](https://devcenter.heroku.com/articles/buildpacks#default-buildpacks), like `ruby` or `nodejs` or give it the full URL for a [custom buildpack](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack).
 
 ### Deploy Strategy
 
 Travis CI supports different mechanisms for deploying to Heroku:
 
-* **api:** Uses Heroku's [Build API](https://devcenter.heroku.com/articles/build-and-release-using-the-api). This is the default strategy.
-* **anvil:** Uses an [unofficial build server](https://github.com/ddollar/anvil), which accepts archives of the application you want to deploy.
-* **git:** Does a `git push` over HTTPS.
-* **git-ssh:** Does a `git push` over SSH. This will generate a new key on every deployment.
-* **git-deploy-key:** Does a `git push` over SSH. It will reuse the same key on every deployment. This is only available for private projects.
+- **api:** Uses Heroku's [Build API](https://devcenter.heroku.com/articles/build-and-release-using-the-api). This is the default strategy.
+- **git:** Does a `git push` over HTTPS.
 
 It defaults to **api**, but you can change that via the **strategy** option:
 
-    deploy:
-      provider: heroku
-      api_key: ...
-      strategy: git
-
-Note that the **anvil**, **git-ssh** and **git-deploy-key** strategies are considered **deprecated**. Please contact us if you have issues switching away from these.
+```yaml
+deploy:
+  provider: heroku
+  api_key: ...
+  strategy: git
+```
+{: data-file=".travis.yml"}
 
 #### Using `.gitignore` on `git` strategy
 
@@ -166,9 +186,12 @@ its content.
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
-    before_deploy: "echo 'ready?'"
-    deploy:
-      ..
-    after_deploy:
-      - ./after_deploy_1.sh
-      - ./after_deploy_2.sh
+```yaml
+before_deploy: "echo 'ready?'"
+deploy:
+  ..
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+```
+{: data-file=".travis.yml"}

@@ -1,40 +1,41 @@
 ---
 title: Cron Jobs
 layout: en
-permalink: /user/cron-jobs/
----
 
-**Please note that cron jobs are not enabled by default. Please ask us to unlock this feature for your repository:
-[support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)**
+---
 
 <div id="toc"></div>
 
-## Preparation
+Travis CI cron jobs work similarly to the cron utilty, they run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. Cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and you cannot set them to run at a specific time.
 
-Travis CI lets you schedule builds at regular intervals independently of whether
-any commits were pushed to the repository.
-This feature is not enabled by default. Please contact us if you need it:
+Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-Cron-Jobs) in the same way
 
-[support@travis-ci.com](mailto:support@travis-ci.com?subject=Cron)
-
-If this feature is enabled for your repository, there is a "Cron Jobs" settings
-tab on your Travis CI page.
+Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
 ![settings page with cron section](/images/cron-section.png "settings page with cron section")
 
+{{ site.data.snippets.ghlimit }}
+
 ## Adding Cron Jobs
 
-After optionally customizing the cron job's properties
-you can click on "Add" which creates the cron job.
+Select the branch to run the build on, how often to run the build, and whether to run the build if there was a build in the last 24 hours, then click "Add":
 
 ![adding a cron job](/images/cron-adding.png "adding a cron job")
 
-Thereafter the cron job is displayed above:
+Confirm that the cron job is displayed in your settings tab:
 
 ![cron job created](/images/cron-created.png "cron job created")
 
+## Skipping Cron Jobs
+
+Because cron jobs build the latest commit to a particular branch, if that commit message includes [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
+
 ## Deleting Cron Jobs
 
-Just click on the small trash can on the right hand side:
+Click the small trash icon on the right hand side of the page:
 
 ![deleting a cron job](/images/cron-deleting.png "deleting a cron job")
+
+## Detecting Builds Triggered by Cron
+
+To check whether a build was triggered by cron, examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.

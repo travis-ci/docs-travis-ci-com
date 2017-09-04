@@ -1,7 +1,7 @@
 ---
 title: Speeding up the build
 layout: en
-permalink: /user/speeding-up-the-build/
+
 ---
 
 Travis CI implements a few optimizations which help to speed up your build,
@@ -19,16 +19,22 @@ Say you want to split up your unit tests and your integration tests into two
 different build jobs. They’ll run in parallel and fully utilize the available
 build capacity for your account.
 
-Here's an example on how to utilize this feature in your .travis.yml:
+Here's an example on how to utilize this feature in your `.travis.yml`:
 
-    env:
-      - TEST_SUITE=units
-      - TEST_SUITE=integration
+```yaml
+env:
+  - TEST_SUITE=units
+  - TEST_SUITE=integration
+```
+{: data-file=".travis.yml"}
 
 Then you change your script command to use the new environment variable to
 determine the script to run.
 
-    script: "bundle exec rake test:$TEST_SUITE"
+```yaml
+script: "bundle exec rake test:$TEST_SUITE"
+```
+{: data-file=".travis.yml"}
 
 Travis CI will determine the build matrix based on the environment variables and
 schedule two builds to run.
@@ -41,15 +47,21 @@ Depending on the size and complexity of your test suite you can split it up even
 further. You could separate different concerns for integration tests into
 different subfolders and run them in separate stages of a build matrix.
 
-    env:
-      - TESTFOLDER=integration/user
-      - TESTFOLDER=integration/shopping_cart
-      - TESTFOLDER=integration/payments
-      - TESTFOLDER=units
+```yaml
+env:
+  - TESTFOLDER=integration/user
+  - TESTFOLDER=integration/shopping_cart
+  - TESTFOLDER=integration/payments
+  - TESTFOLDER=units
+```
+{: data-file=".travis.yml"}
 
 Then you can adjust your script command to run rspec for every subfolder:
 
-    script: "bundle exec rspec $TESTFOLDER"
+```yaml
+script: "bundle exec rspec $TESTFOLDER"
+```
+{: data-file=".travis.yml"}
 
 For instance, the Rails project uses the build matrix feature to create separate
 jobs for every database to test against, and also to split up the tests by
@@ -62,20 +74,15 @@ Note that during the trial on <https://travis-ci.com> for private repositories, 
 one concurrent build available, so you'll unlikely be seeing improvements until you're
 signed up for a paid subscription.
 
-## Parallelizing your build on one VM
+## Parallelizing your build on one virtual machine
 
-Travis CI VMs run on 1.5 virtual cores. This is not exactly a concurrency, which allows
-to parallelize a lot, but it can give a nice speedup depending on your use case.
+Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
-Parallelizing the test suite on one VM depends on the language and test runner,
-which you use, so you will have to research your options. At Travis CI we use
-mainly Ruby and RSpec, which means that we can use [parallel_tests](https://github.com/grosser/parallel_tests)
-gem. If you use Java, you may use the built in feature [to run tests in parallel
-using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
+- For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
+- For Java, use the built in feature [to run tests in parallel
+  using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
-To give you an idea of what speedup are we talking about, I've tried running tests in parallel
-on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4
-jobs.
+To give you an idea of the speedup are we talking about, I've tried running tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
 
 ## Parallelizing RSpec, Cucumber and Minitest on multiple VMs
 
@@ -83,48 +90,62 @@ If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to
 
 ### RSpec parallelization example
 
-    script: "bundle exec rake knapsack:rspec"
-    env:
-      global:
-        - MY_GLOBAL_VAR=123
-        - CI_NODE_TOTAL=2
-      matrix:
-        - CI_NODE_INDEX=0
-        - CI_NODE_INDEX=1
+```yaml
+script: "bundle exec rake knapsack:rspec"
+env:
+  global:
+    - MY_GLOBAL_VAR=123
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+```
+{: data-file=".travis.yml"}
 
 Such configuration will generate matrix with 2 following ENV rows:
 
-    MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
-    MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
+```
+MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
+MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
+```
 
 ### Cucumber parallelization example
 
-    script: "bundle exec rake knapsack:cucumber"
-    env:
-      global:
-        - CI_NODE_TOTAL=2
-      matrix:
-        - CI_NODE_INDEX=0
-        - CI_NODE_INDEX=1
+```yaml
+script: "bundle exec rake knapsack:cucumber"
+env:
+  global:
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+```
+{: data-file=".travis.yml"}
 
 ### Minitest parallelization example
 
-    script: "bundle exec rake knapsack:minitest"
-    env:
-      global:
-        - CI_NODE_TOTAL=2
-      matrix:
-        - CI_NODE_INDEX=0
-        - CI_NODE_INDEX=1
+```yaml
+script: "bundle exec rake knapsack:minitest"
+env:
+  global:
+    - CI_NODE_TOTAL=2
+  matrix:
+    - CI_NODE_INDEX=0
+    - CI_NODE_INDEX=1
+```
+{: data-file=".travis.yml"}
 
 ### RSpec, Cucumber and Minitest parallelization example
 
 If you want to parallelize test suite for RSpec, Cucumber and Minitest at the same time then define script in `.travis.yml` this way:
 
-    script:
-      - "bundle exec rake knapsack:rspec"
-      - "bundle exec rake knapsack:cucumber"
-      - "bundle exec rake knapsack:minitest"
+```yaml
+script:
+  - "bundle exec rake knapsack:rspec"
+  - "bundle exec rake knapsack:cucumber"
+  - "bundle exec rake knapsack:minitest"
+```
+{: data-file=".travis.yml"}
 
 You can find more examples in [knapsack docs](https://github.com/ArturT/knapsack#info-for-travis-users).
 
@@ -143,7 +164,7 @@ In addition to the optimizations implemented by Travis, there are also
 several environment-specific ways you may consider increasing the speed of
 your tests.
 
-### PHP optimisations
+### PHP optimizations
 
 PHP VM images on travis-ci.org provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
@@ -156,13 +177,36 @@ builds if:
 
 - you are not generating code coverage reports in your Travis tests; or
 - you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
-which may be faster.
+  which may be faster.
 
 #### Using phpdbg example
 
-    before_script:
-      - phpenv config-rm xdebug.ini
-      - composer install
+```yaml
+before_script:
+  - phpenv config-rm xdebug.ini
+  - composer install
 
-    script:
-      - phpdbg -qrr phpunit
+script:
+  - phpdbg -qrr phpunit
+```
+{: data-file=".travis.yml"}
+
+### Makefile optimization
+
+If your makefile build consists of independent parts that can be safely
+parallelized, you can [run multiple recipes
+simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
+See [Virtualization
+environments](/user/reference/overview/#Virtualization-environments) to determine
+how many CPUs an environment normally has and set the `make` job parameter to a
+similar number (or slightly higher if your build frequently waits on disk I/O).
+Note that doing this will cause concurrent recipe output to become interleaved.
+
+#### Makefile parallelization example
+
+```yaml
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+```
+{: data-file=".travis.yml"}

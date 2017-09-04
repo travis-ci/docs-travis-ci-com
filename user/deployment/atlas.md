@@ -1,7 +1,7 @@
 ---
 title: Atlas deployment
 layout: en
-permalink: /user/deployment/atlas/
+
 ---
 
 Travis CI can automatically deploy your application to [Atlas](https://atlas.hashicorp.com/) after a successful build.
@@ -18,6 +18,7 @@ To deploy your application to Atlas:
      token: "YOUR ATLAS API TOKEN"
      app: "YOUR ATLAS USERNAME/YOUR ATLAS APP NAME"
    ```
+{: data-file=".travis.yml"}
 
 ## Including or Excluding Files
 
@@ -31,6 +32,7 @@ deploy:
    - "build/*"
    - "bin/*"
 ```
+{: data-file=".travis.yml"}
 
 ### Using your Version Control System
 
@@ -40,8 +42,8 @@ Get the lists of files to exclude and include from your version control system (
 deploy:
   provider: atlas
   vcs: true
-
 ```
+{: data-file=".travis.yml"}
 
 ## Other Deployment Options
 
@@ -52,6 +54,7 @@ deploy:
    provider: atlas
    address: "URL OF THE ATLAS SERVER"
 ```
+{: data-file=".travis.yml"}
 
 ### Adding Custom Metadata
 
@@ -64,6 +67,7 @@ deploy:
     - "custom_name=Jane"
     - "custom_surname=Doe"
 ```
+{: data-file=".travis.yml"}
 
 {{ site.data.snippets.conditional_deploy }}
 

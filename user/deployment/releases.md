@@ -1,14 +1,14 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: /user/deployment/releases/
+
 ---
 
-Travis CI can automatically upload assets to your git tags on your GitHub repository.
+Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
 **Please note that deploying GitHub Releases works only for tags, not for branches.**
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
@@ -19,24 +19,45 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
 The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
 
-If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`
+If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to set everything up for you:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
-```sh
-$ travis setup releases
+```bash
+travis setup releases
 ```
 
-###  Authenticating with an Oauth token
+Or, if you're using a private repository:
 
-The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+```bash
+travis setup releases --pro
+```
 
-### Authentication with a Username and Password
+## Authenticating with an OAuth token
+
+The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+
+This results in something similar to:
+
+```yaml
+deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
+## Authentication with a Username and Password
 
 You can also authenticate with your GitHub username and password using the `user` and `password` options. This is not recommended as it allows full access to your GitHub account but is simplest to setup. It is recommended to encrypt your password using `travis encrypt "GITHUB PASSWORD" --add deploy.password`. This example authenticates using  a username and password.
 
@@ -50,8 +71,9 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
-### Deploying to GitHub Enterprise
+## Deploying to GitHub Enterprise
 
 If you wish to upload assets to a GitHub Enterprise repository, you must override the `$OCTOKIT_API_ENDPOINT` environment variable with your GitHub Enterprise API endpoint:
 
@@ -64,17 +86,19 @@ You can configure this in [Repository Settings](https://docs.travis-ci.com/user/
 ```yaml
 env:
   global:
-    - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+    - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
+{: data-file=".travis.yml"}
 
-### Uploading Multiple Files
+## Uploading Multiple Files
 
 You can upload multiple files using yml array notation. This example uploads two files.
 
 ```yaml
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
   file:
     - "FILE 1"
     - "FILE 2"
@@ -82,13 +106,29 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
+
+You can also enable wildcards by setting `file_glob` to `true`. This example
+includes all files in a given directory.
+
+```yaml
+deploy:
+  provider: releases
+  api-key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-### Running commands before and after release
+## Running commands before or after release
 
 Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
@@ -100,3 +140,13 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
+
+## Pushing a specific directory
+
+* `local_dir`: Directory to push to GitHub Releases, defaults to the current
+    directory
+
+## Advanced options
+
+Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.

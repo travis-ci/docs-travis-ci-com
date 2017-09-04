@@ -1,7 +1,7 @@
 ---
 title: Bintray Deployment
 layout: en
-permalink: /user/deployment/bintray/
+
 ---
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).
@@ -17,14 +17,15 @@ deploy:
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
   dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
 ```
+{: data-file=".travis.yml"}
 
 ### Encrypt your API key
 
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
 
-````bash
+```bash
 $ travis encrypt BINTRAY-API-KEY --add deploy.key
-````
+```
 
 ### Branch to deploy from
 
@@ -37,6 +38,7 @@ deploy:
   ..
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -46,6 +48,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -66,6 +69,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### Descriptor file example
 
@@ -116,9 +120,9 @@ The descriptor is in JSON file format in three sections:
 
 Bintray package information. In case the package already exists on Bintray, only the name, repo and subject fields are mandatory.
 
-* `name` is the Bintray package name
-* `repo` is the Bintray repository name
-* `subject` is the Bintray subject, which is either a user or an organization
+- `name` is the Bintray package name
+- `repo` is the Bintray repository name
+- `subject` is the Bintray subject, which is either a user or an organization
 
 #### Version Section
 
@@ -130,23 +134,22 @@ Configure the files you would like to upload to Bintray and their upload path.
 
 You can define one or more groups of patterns. Each group contains three patterns:
 
-* `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
-* `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
-* `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
+- `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
+- `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
+- `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
 
 In the example above, the following files are uploaded:
 
-* All gem files located under `build/bin/` (including sub directories), except for   files under a `do-not-deploy` directory.  The files will be uploaded to Bintray under the `gems` folder.
-* All files under `build/docs`. The files will be uploaded to Bintray under the `docs` folder.
+- All gem files located under `build/bin/` (including sub directories), except for   files under a `do-not-deploy` directory.  The files will be uploaded to Bintray under the `gems` folder.
+- All files under `build/docs`. The files will be uploaded to Bintray under the `docs` folder.
 
 **Note:** Regular expressions defined as part of the `includePattern` and `excludePattern` properties must be wrapped with brackets.
-
 
 #### Debian Upload
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
 
-````js
+```js
 "files":
     [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
     "matrixParams": {
@@ -155,17 +158,17 @@ When artifacts are uploaded to a Debian repository on Bintray using the Automati
         "deb_architecture": "amd64"}
     }
 ]
-````
+```
 
 #### Overwriting Existing Files
 
 If an artifact by a given name already exists in the Bintray repository, then by default it is not overwritten. If you want to replace the existing file, define the `override` key in your matrix properties:
 
-````js
+```js
 "files":
     [{"includePattern": "build/bin/(myfile.bin)", "uploadPattern": "$1",
     "matrixParams": {
         "override": 1 }
     }
 ]
-````
+```

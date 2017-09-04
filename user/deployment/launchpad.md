@@ -1,7 +1,7 @@
 ---
 title: Launchpad deployment
 layout: en
-permalink: /user/deployment/launchpad/
+
 ---
 
 Travis CI can get [Launchpad](https://launchpad.net/) to automatically import your code from GitHub after a successful build, which is useful if you are building and hosting Debian packages.
@@ -19,10 +19,11 @@ deploy:
   oauth_token: "YOUR OAUTH_TOKEN"
   oauth_token_secret: "YOUR OAUTH_TOKEN_SECRET"
 ```
+{: data-file=".travis.yml"}
 
 It is recommended to [encrypt both your `oauth_token` and your `oauth_token_secret`](/user/deployment/launchpad/#Encrypting-your-OAUTH-tokens).
 
-The `slug` contains user or team name, project name, and branch name, and is formatted like `~user-name/project-name/branch-name`. You can find your project's slug in the header (and the url) of its `code.launchpad.net` page.
+The `slug` contains user or team name, project name, and branch name, and is formatted like `~user-name/project-name/branch-name`.  If your project's code is a git repository, the form is `~user-name/project-name/+git/repository-name`. You can find your project's slug in the header (and the url) of its `code.launchpad.net` page.
 
 <figure>
   <img alt="Launchpad slug" src="/images/launchpad-slug.png"/>
@@ -33,8 +34,8 @@ The `slug` contains user or team name, project name, and branch name, and is for
 It is recommended that you encrypt both OAUTH tokens using the Travis CI command line client by removing them from your `travis.yml` above and running the following commands:
 
 ```bash
-$ travis encrypt TOKEN="YOUR OAUTH_TOKEN" --add deploy.oauth_token
-$ travis encrypt TOKEN_SECRET="YOUR OAUTH_TOKEN_SECRET" --add deploy.oauth_token_secret
+$ travis encrypt "YOUR OAUTH_TOKEN" --add deploy.oauth_token
+$ travis encrypt "YOUR OAUTH_TOKEN_SECRET" --add deploy.oauth_token_secret
 ```
 
 The resulting `.travis.yml` looks like this:
@@ -48,3 +49,4 @@ deploy:
   oauth_token_secret:
     secure: jAglFtDjncy4E3upL/RF0ZOcmJ2UMrqHFCLQwU8PBdurhTMBeTw+IO6cXx5z\nU5zqvPYo/ghZ8mMuUhvHiGDM6m6OlMP7+l10VTxH1CoVew2NcQvRdfK3P+4S\nZJ43Hyh/ZLCjft+JK0tBwoa3VbH2+ZTzkRZQjdg54bE16C7Mf1A=
 ```
+{: data-file=".travis.yml"}

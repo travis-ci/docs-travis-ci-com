@@ -1,13 +1,19 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.4.1' if ENV.key?('DYNO')
 
-gem "github-pages"
-gem "rake"
+gem 'jekyll', '>=3.1.6'
+gem 'rdiscount', '>=2.2.0.1'
+
+gem 'jekyll-redirect-from'
+gem 'jekyll-paginate'
 
 gem 'rack-jekyll'
-gem 'jekyll-redirect-from'
 gem 'rack-ssl-enforcer'
 gem 'puma'
 
-gem 'html-proofer',  '~> 2.0'
+gem 'faraday'
+
+gem 'rake'
+
+gem 'html-proofer', '~> 3.0'

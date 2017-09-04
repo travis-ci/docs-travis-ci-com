@@ -5,5 +5,8 @@ _site
 bin
 source/tmp/*
 .sass-cache
-.ruby-version
 tmp/
+.jekyll-metadata
+node_modules
+generated-language-mapping.json
+_data/trusty_mapping_data.yml

@@ -1,7 +1,7 @@
 ---
 title: Building a Java project
 layout: en
-permalink: /user/languages/java/
+
 ---
 
 ### What This Guide Covers
@@ -12,104 +12,150 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8.
-Java project builder has reasonably good defaults for projects that use Gradle, Maven or Ant,
-so quite often you won't have to configure anything beyond
+The Travis CI environment provides Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
 
-    language: java
+To use the Java environment add the following to your `.travis.yml`:
 
-in your `.travis.yml` file.
+```yaml
+language: java
+```
+{: data-file=".travis.yml"}
 
 ## Projects Using Maven
 
-### Default `script` Command
+### Default script Command
 
-If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Java builder will use Maven 3 to build it. By default it will use
+If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI builds your project with Maven 3:
 
-    mvn test
+```bash
+mvn test -B
+```
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+If your project also includes the `mvnw` wrapper script in the repository root, Travis CI uses that instead:
 
-Note that, by default, JavaDoc generation will be skipped via `-Dmaven.javadoc.skip=true`.
+```bash
+./mvnw test -B
+```
 
-### Dependency Management with Default `install`
+> The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
 
-Before running tests, Java builder will execute
+To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
 
-    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+### Dependency Management
 
-to install your project's dependencies with Maven.
+Before running the build, Travis CI installs dependencies:
+
+```bash
+mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+```
+
+or if your project uses the `mvnw` wrapper script:
+
+```bash
+./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+```
 
 ## Projects Using Gradle
 
-### Default `script` Command
+### Default script Command
 
-if your project has `build.gradle` file in the repository root, Travis CI Java builder will use Gradle to build it. By default it will use
+If your project has `build.gradle` file in the repository root, Travis CI builds your project with Gradle:
 
-    gradle check
+```bash
+gradle check
+```
 
-to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Java builder will try to use it instead. The default command will become:
+If your project also includes the `gradlew` wrapper script in the repository root, Travis CI uses that instead:
 
-    ./gradlew check
+```bash
+./gradlew check
+```
 
-This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
 
-### Dependency Management with Default `install`
+### Dependency Management
 
-Before running tests, Java builder will execute
+Before running the build, Travis CI installs dependencies:
 
-    gradle assemble
+```bash
+gradle assemble
+```
 
-to install your project's dependencies with Gradle. Again, if you include the wrapper script, the command will be defaulted to
+or
 
-    ./gradlew assemble
+```bash
+./gradlew assemble
+```
 
 ### Caching
 
 A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
 
-```
+```yaml
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+{: data-file=".travis.yml"}
 
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Ant
 
-### Default `script` Command
+### Default script Command
 
-If Travis CI could not detect Maven or Gradle files, Travis CI Java builder will use Ant to build it. By default it will use
+If Travis CI does not detect Maven or Gradle files it runs Ant:
 
-    ant test
+```bash
+ant test
+```
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+### Dependency Management
 
-### Dependency Management with Default `install`
+Because there is no single standard way of installing project dependencies with Ant, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Java builder does not have any default for it. You need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
-
-    language: java
-    install: ant deps
-
+```yaml
+language: java
+install: ant deps
+```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 and 8 and OpenJDK 6:
 
-    jdk:
-      - oraclejdk8
-      - oraclejdk7
-      - openjdk6
+```yaml
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk6
+```
+{: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OSX.
+> Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
 
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012.
+Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, specify `dist: trusty` to make use of it.
 
 JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
+
+Of note: OracleJDK 8 and JavaFX  projects may need to update to the latest available version from a repository. This can be accomplished by adding the following lines from [this issue comment](https://github.com/travis-ci/travis-ci/issues/3259#issuecomment-130860338) to your .travis.yml:
+
+```yaml
+sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -120,19 +166,22 @@ to construct a build matrix.
 
 If your build needs to switch JDKs during a job, you can do so with `jdk_switcher use …`.
 
-    script:
-      - jdk_switcher use oraclejdk8
-      - # do stuff with Java 8
-      - jdk_switcher use oraclejdk7
-      - # do stuff with Java 7
+```yaml
+script:
+  - jdk_switcher use oraclejdk8
+  - # do stuff with Java 8
+  - jdk_switcher use oraclejdk7
+  - # do stuff with Java 7
+```
+{: data-file=".travis.yml"}
 
-Use of `jdk_switcher` will update `$JAVA_HOME appropriately.
+Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ## Examples
 
-* [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
-* [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
-* [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
-* [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
-* [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
-* [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+- [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)
+- [Riak Java client](https://github.com/basho/riak-java-client/blob/master/.travis.yml)
+- [Cucumber JVM](https://github.com/cucumber/cucumber-jvm/blob/master/.travis.yml)
+- [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
+- [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
+- [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation

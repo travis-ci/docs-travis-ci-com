@@ -1,8 +1,9 @@
 ---
 title: Adding to SSH Known Hosts
 layout: en
-permalink: /user/ssh-known-hosts/
+
 ---
+
 <div id="toc">
 </div>
 
@@ -11,17 +12,21 @@ your git repository, which is necessary if there are git submodules
 from domains other than `github.com`, `gist.github.com`, or
 `ssh.github.com`.
 
-
 Both hostnames and IP addresses are supported, as the keys are
 added via `ssh-keyscan`.  A single host may be specified like so:
 
-    addons:
-      ssh_known_hosts: git.example.com
-
+```yaml
+addons:
+  ssh_known_hosts: git.example.com
+```
+{: data-file=".travis.yml"}
 
 Multiple hosts or IPs may be added as a list:
 
-    addons:
-      ssh_known_hosts:
-      - git.example.com
-      - 111.22.33.44
+```yaml
+addons:
+  ssh_known_hosts:
+  - git.example.com
+  - 111.22.33.44
+```
+{: data-file=".travis.yml"}
