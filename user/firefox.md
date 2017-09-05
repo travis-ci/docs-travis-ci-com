@@ -19,6 +19,7 @@ For example, to install version 49.0 of Firefox, add the following at the top le
 addons:
   firefox: "49.0"
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to specify beta versions; e.g., `50.0b6`.
 

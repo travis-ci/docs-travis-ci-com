@@ -56,6 +56,7 @@ php:
   - hhvm # on Trusty only
   - nightly
 ```
+{: data-file=".travis.yml"}
 
 `X.Y` versions are aliases for the most recent `X.Y.Z` release. For precise
 versions used in your build, consult "Build system information" in the build
@@ -86,6 +87,7 @@ language: php
 php:
   - nightly
 ```
+{: data-file=".travis.yml"}
 
 ## Default Build Script
 
@@ -112,6 +114,7 @@ Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to 
 before_script: composer require atoum/atoum
 script: vendor/bin/atoum
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -123,6 +126,7 @@ the *install* option in your `.travis.yml`, for example:
 ```yaml
 install: php vendor/vendors.php
 ```
+{: data-file=".travis.yml"}
 
 or, if you need to run multiple commands sequentially:
 
@@ -131,6 +135,7 @@ install:
   - ./bin/ci/install_dependencies.sh
   - php vendor/vendors.php
 ```
+{: data-file=".travis.yml"}
 
 ### Testing Against Multiple Versions of Dependencies
 
@@ -143,6 +148,7 @@ env:
   - SYMFONY_VERSION="2.0.*" DB=mysql
   - SYMFONY_VERSION="dev-master" DB=mysql
 ```
+{: data-file=".travis.yml"}
 
 and then use ENV variable values in any later script like your dependencies
 installation scripts, test cases or test script parameter values.
@@ -155,12 +161,14 @@ versions of Symfony as defined above.
 install:
    - composer require symfony/framework-bundle:${SYMFONY_VERSION}
 ```
+{: data-file=".travis.yml"}
 
 Here we use DB variable value to pick phpunit configuration file:
 
 ```yaml
     script: phpunit --configuration $DB.phpunit.xml
 ```
+{: data-file=".travis.yml"}
 
 The same technique is often used to test projects against multiple databases and so on.
 
@@ -233,6 +241,7 @@ The easiest way to customize your PHP configuration is to use `phpenv config-add
 ```yaml
 before_script: phpenv config-add myconfig.ini
 ```
+{: data-file=".travis.yml"}
 
 > Make sure that your config file does not start with a dot (`.`) or a hyphen (`-`) as this will prevent PHP loading your custom settings.
 
@@ -250,6 +259,7 @@ You can also use this one line command in your `.travis.yml`:
 ```yaml
 before_script: echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 ```
+{: data-file=".travis.yml"}
 
 ## Enabling preinstalled PHP extensions
 
@@ -259,6 +269,7 @@ The easiest way to do this is by using `phpenv` to add a custom config file whic
 ```yaml
 before_install: phpenv config-add myconfig.ini
 ```
+{: data-file=".travis.yml"}
 
 > Make sure that your config file does not start with a dot (`.`) or a hyphen (`-`) as this will prevent PHP loading your custom settings.
 
@@ -275,6 +286,7 @@ You can also use this one line command:
 ```yaml
 before_install: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 ```
+{: data-file=".travis.yml"}
 
 ## Disabling preinstalled PHP extensions
 
@@ -284,6 +296,7 @@ To disable xdebug, add this to your configuration:
 before_script:
   - phpenv config-rm xdebug.ini
 ```
+{: data-file=".travis.yml"}
 
 ## Installing additional PHP extensions
 
@@ -343,6 +356,7 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
 ```
+{: data-file=".travis.yml"}
 
 > Note that `sudo` is not available for builds that are running on [container-based](/user/workers/container-based-infrastructure).
 

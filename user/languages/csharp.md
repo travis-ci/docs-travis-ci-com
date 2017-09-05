@@ -28,6 +28,7 @@ The setup for C#, F#, and Visual Basic projects looks like this:
 language: csharp
 solution: solution-name.sln
 ```
+{: data-file=".travis.yml"}
 
 When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
 
@@ -44,6 +45,7 @@ script:    # the following commands are just examples, use whatever your build p
   - ./test.sh
   - grep "Test Results" build.log
 ```
+{: data-file=".travis.yml"}
 
 ### NuGet
 
@@ -57,6 +59,7 @@ install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore solution-name.sln
 ```
+{: data-file=".travis.yml"}
 
 ### Choosing runtime and version to test against
 
@@ -72,6 +75,7 @@ mono:
   - 3.10.0
 ...
 ```
+{: data-file=".travis.yml"}
 
 You can choose from the following Mono versions:
 
@@ -124,6 +128,7 @@ matrix:
     - mono: latest
 ...
 ```
+{: data-file=".travis.yml"}
 
 ### Build Matrix
 
@@ -151,6 +156,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 #### xunit
 
@@ -164,6 +170,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 > *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
@@ -182,6 +189,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 

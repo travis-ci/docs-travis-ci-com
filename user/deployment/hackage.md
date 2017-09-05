@@ -14,19 +14,20 @@ deploy:
   username: "Hackage User Name"
   password: "Hackage Password"
 ```
+{: data-file=".travis.yml"}
 
 It is recommended to encrypt password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```yaml
-travis encrypt --add deploy.password
+```bash
+$ travis encrypt --add deploy.password
 ```
 
 You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-```yaml
+```bash
 $ travis setup hackage
 ```
 

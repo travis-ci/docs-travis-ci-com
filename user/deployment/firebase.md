@@ -17,6 +17,7 @@ deploy:
   token:
     secure: "YOUR ENCRYPTED token"
 ```
+{: data-file=".travis.yml"}
 
 ## Generating your Firebase token
 
@@ -43,6 +44,7 @@ deploy:
     secure: "YOUR ENCRYPTED token"
   project: "myapp-staging"
 ```
+{: data-file=".travis.yml"}
 
 ## Adding a message to a deployment
 
@@ -55,6 +57,7 @@ deploy:
     secure: "YOUR ENCRYPTED token"
   message: "your message"
 ```
+{: data-file=".travis.yml"}
 
 ## Running commands before and after deploy
 
@@ -70,3 +73,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

@@ -21,6 +21,7 @@ To use sudo-enabled Ubuntu Trusty, add the following to your
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or to route to sudo-less:
 
@@ -28,6 +29,7 @@ Or to route to sudo-less:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 This is enabled for both public and private repositories.
 
@@ -84,6 +86,7 @@ private repositories.
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or, if you want to route to container-based:
 
@@ -91,6 +94,7 @@ Or, if you want to route to container-based:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
 
@@ -279,6 +283,7 @@ For example, to install version 50.0, add the following to your
 addons:
   firefox: "50.0"
 ```
+{: data-file=".travis.yml"}
 
 ### Headless Browser Testing Tools
 
