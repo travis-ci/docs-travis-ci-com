@@ -93,31 +93,27 @@ If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 ### Maven Dependency Management
 
 If your project has `pom.xml` file in the repository root and does not have a
-`build.gradle`, Travis CI uses Maven 3:
+`build.gradle`, Travis CI uses Maven 3 to install your project's dependencies:
 
 ```bash
 mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
-to install your project's dependencies.
-
 ### Maven Default Test Command
 
 If your project has `pom.xml` file in the repository root and does not have a
-`build.gradle`, Travis CI uses Maven 3:
+`build.gradle`, Travis CI uses Maven 3 to run your build script:
 
 ```bash
 mvn test -B
 ```
 
-to run your build script.
-
 ## Projects Using Ant
 
 ### Ant Default Test Command
 
-If Groovy project does not have Gradle or Maven files, Travis CI uses Ant to
-build your project:
+If Groovy project does not have Gradle or Maven configuration files, Travis CI
+uses Ant to build your project:
 
 ```bash
 ant test
@@ -125,7 +121,9 @@ ant test
 
 ### Ant Dependency Management
 
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Groovy builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
+Because there is no single standard way of installing project dependencies with
+Ant you need to specify a custom command using the `install:` key in your
+`.travis.yml`:
 
 ```yaml
 language: groovy
@@ -135,7 +133,9 @@ install: ant deps
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example,
+to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and
+OpenJDK 6:
 
 ```yaml
 jdk:
@@ -152,11 +152,6 @@ jdk:
   - oraclejdk7
 ```
 {: data-file=".travis.yml"}
-
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7 and Oracle JDK 8. Sun JDK 6 is not provided and because it is EOL in November 2012,
-will not be provided.
-
-JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
 ## Build Matrix
 
