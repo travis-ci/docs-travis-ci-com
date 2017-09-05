@@ -58,9 +58,8 @@ php:
 ```
 {: data-file=".travis.yml"}
 
-`X.Y` versions are aliases for the most recent `X.Y.Z` release. For exact
-versions used in your build, consult "Build system information" in the build
-log.
+`X.Y` versions are aliases for recent `X.Y.Z` releases pre-installed on the build images.
+For exact versions used in your build, consult "Build system information" in the build log.
 
 These may not be the most recent releases. If you need to ensure the use of most recent releases, do provide the third number; e.g.,
 
