@@ -159,7 +159,7 @@ set only for the owner. That's a requirement for it to be read from curl.
 
 ## Default Test Script
 
-Go projects on travis-ci.org assume that either Make or Go build tool are used by default. In case there is a Makefile
+Go projects assume that either Make or Go build tool are used by default. In case there is a Makefile
 in the repository root, the default command Travis CI will use to run your project test suite is
 
 ```bash
