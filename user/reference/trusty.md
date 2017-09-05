@@ -192,8 +192,18 @@ least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
 versions that are not pre-installed will be dynamically installed from a local
 cache, or built via `phpenv` if unavailable.
 
-*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it*
+*Note: We are unable to support older PHP versions 5.2.x and 5.3.x on Trusty.
+Specifying it will result in build failure.
+If you need to test with these versions, use Precise.*
+
+```yaml
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+```
 
 ## Other software
 
