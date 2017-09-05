@@ -6,6 +6,29 @@ layout: en
 
 <div id="toc"></div>
 
+<aside markdown="block" class="ataglance">
+
+| Python                                      | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
+| [Default `script`](#Default-Build-Script)   | N/A                                       |
+| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+  language: python
+  python:
+    - 3.6
+    - nightly
+  script:
+    - pytest
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 ### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
@@ -17,36 +40,11 @@ The rest of this guide covers configuring Python projects in Travis CI. If you'r
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-<aside markdown="block" class="ataglance">
-
-| Python                                      | Default                                   |
-|:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
-| [Default `script`](#Default-Build-Script)   | N/A                                       |
-| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
-| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
-
-Minimal example:
- 
-```yaml
-  language: python
-  python:
-    - 2.6
-    - 2.7
-    - 3.5
-    - 3.6
-    - nightly
-    
-  script:
-    - pytest
-```
-</aside>
-
 ## Specifying Python versions
 
-### Supported Python versions
-
-Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
+Specify python versions using the `python` key. As we update the Python build
+images, aliases like `3.6` will point to different exact versions or patch
+levels.
 
 ```yaml
 language: python
@@ -62,19 +60,15 @@ python:
   - "3.6-dev" # 3.6 development branch
   - "3.7-dev" # 3.7 development branch
   - "nightly"
-
 # command to install dependencies
 install:
   - pip install -r requirements.txt
-
 # command to run tests
 script:
   - pytest # or py.test for Python versions 3.5 and below
 ```
+{: data-file=".travis.yml"}
 
-As time goes, new releases come out and we provision more Python versions and/or
-implementations, aliases like `3.6` will float and point to different exact versions,
-patch levels and so on.
 
 ### Travis CI Uses Isolated virtualenvs
 
@@ -113,6 +107,7 @@ install:
 # command to run tests
 script: pytest
 ```
+{: data-file=".travis.yml"}
 
 ### Nightly build support
 
@@ -136,12 +131,14 @@ For example, if your project uses pytest:
 # command to run tests
 script: pytest  # or py.test for Python versions 3.5 and below
 ```
+{: data-file=".travis.yml"}
 
 if it uses `make test` instead:
 
 ```yaml
 script: make test
 ```
+{: data-file=".travis.yml"}
 
 If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
@@ -160,6 +157,7 @@ You can manually override this default `install` phase, for example:
 ```yaml
 install: pip install --user -r requirements.txt
 ```
+{: data-file=".travis.yml"}
 
 ### Custom Dependency Management
 
@@ -169,7 +167,7 @@ configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) g
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
-If you need to test against multiple versions of, say, Django, you can instruct 
+If you need to test against multiple versions of, say, Django, you can instruct
 Travis CI to do multiple runs with different sets or values of environment variables.
 
 Use *env* key in your .travis.yml file, for example:
@@ -179,9 +177,10 @@ env:
   - DJANGO_VERSION=1.7.8
   - DJANGO_VERSION=1.8.2
 ```
+{: data-file=".travis.yml"}
 
-and then use ENV variable values in your dependencies installation scripts, test 
-cases or test script parameter values. Here we use ENV variable value to instruct 
+and then use ENV variable values in your dependencies installation scripts, test
+cases or test script parameter values. Here we use ENV variable value to instruct
 pip to install an exact version:
 
 ```yaml
@@ -189,6 +188,7 @@ install:
   - pip install -q Django==$DJANGO_VERSION
   - python setup.py -q install
 ```
+{: data-file=".travis.yml"}
 
 The same technique is often used to test projects against multiple databases and so on.
 
