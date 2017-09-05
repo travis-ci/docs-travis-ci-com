@@ -154,6 +154,10 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
 ### Pre-installed pip packages
 
 Travis CI installs the following packages by default in each virtualenv:
