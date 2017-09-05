@@ -20,12 +20,12 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <aside markdown="block" class="ataglance">
 
-| Go                | Default                                   |
-|:------------------|:------------------------------------------|
-| Default `install` | `go get`                                  |
-| Default `script`  | `make` or `go test`                       |
-| Matrix keys       | `go`                                      |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Go                                          | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `go get -t ./...`                         |
+| [Default `script`](#Default-Build-Script)   | `make` or `go test`                       |
+| [Matrix keys](#Build-Matrix)                | `go`, `env`                               |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
  
@@ -157,7 +157,7 @@ before_install:
 You can leave out the second step if your .netrc already has access permissions
 set only for the owner. That's a requirement for it to be read from curl.
 
-## Default Test Script
+## Default Build Script
 
 Go projects assume that either Make or Go build tool are used by default. In case there is a Makefile
 in the repository root, the default command Travis CI will use to run your project test suite is
