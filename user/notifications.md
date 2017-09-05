@@ -27,7 +27,7 @@ address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
 notification](#Missing-build-notifications).
 
-If you add another notification channel, ie hipchat, slack or any other, the
+If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
 
 ## Changing notification frequency
@@ -47,6 +47,14 @@ notifications:
     on_success: always
 ```
 {: data-file=".travis.yml"}
+
+**Note:** These webhooks are executed at the end of a build, and not by individual jobs
+(see [builds vs jobs](/user/for-beginners/#builds-jobs-stages-and-phases)).
+This means that environment variables from the build are not available in this section.
+
+There is currently no way of limiting the notification to a specific branch, but
+the payload will contain all relevant data to do so at the receiving end (see
+[Webhooks Delivery Format](#Webhooks-Delivery-Format)).
 
 ### Note on SSL/TLS Ciphers
 
@@ -761,3 +769,7 @@ is an example Django view which implements this in Python.
 
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
 is a small webapp in Go which verifies the the hook.
+
+## For the truly curious
+
+Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks).
