@@ -37,6 +37,7 @@ jobs:
     - stage: test production
       script: 'curl http://sf-stages-production.herokuapp.com'
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix would look like:
 

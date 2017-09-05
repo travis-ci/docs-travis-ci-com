@@ -15,6 +15,7 @@ To choose the Elixir VM, declare in your `.travis.yml`:
 ```yaml
 language: elixir
 ```
+{: data-file=".travis.yml"}
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
@@ -33,6 +34,7 @@ elixir:
 otp_release:
   - 18.2.1
 ```
+{: data-file=".travis.yml"}
 
 To test multiple Elixir versions with different OTP release versions:
 
@@ -48,6 +50,7 @@ matrix:
     - elixir: 1.2
       otp_release: 18.0
 ```
+{: data-file=".travis.yml"}
 
 
 ## Build Matrix

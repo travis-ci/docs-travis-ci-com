@@ -33,6 +33,7 @@ addons:
     username: "Your Sauce Labs username"
     access_key: "Your Sauce Labs access key"
 ```
+{: data-file=".travis.yml"}
 
 [sauce-sign-up]: https://saucelabs.com/signup/plan/free
 
@@ -52,6 +53,7 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
@@ -61,10 +63,11 @@ all you need to add to your .travis.yml file is this:
 addons:
   sauce_connect: true
 ```
+{: data-file=".travis.yml"}
 
-[encryption-keys]: ../encryption-keys/
+[encryption-keys]: /user/encryption-keys/
 
-[jwt]: ../jwt/
+[jwt]: /user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -109,3 +112,4 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}

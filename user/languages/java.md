@@ -12,13 +12,14 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-The Travis CI environment provides Oracle JDK 7 (default), Oracle JDK 8, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
+The Travis CI environment provides Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
 
 To use the Java environment add the following to your `.travis.yml`:
 
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
 ## Projects Using Maven
 
@@ -99,6 +100,13 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+{: data-file=".travis.yml"}
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Ant
 
@@ -118,6 +126,7 @@ Because there is no single standard way of installing project dependencies with 
 language: java
 install: ant deps
 ```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
@@ -129,8 +138,9 @@ jdk:
   - oraclejdk7
   - openjdk6
 ```
+{: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details. 
+> Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
 
 Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, specify `dist: trusty` to make use of it.
 
@@ -145,6 +155,7 @@ addons:
     packages:
       - oracle-java8-installer
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -162,6 +173,7 @@ script:
   - jdk_switcher use oraclejdk7
   - # do stuff with Java 7
 ```
+{: data-file=".travis.yml"}
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 

@@ -31,6 +31,7 @@ scala:
    - 2.10.4
    - 2.11.2
 ```
+{: data-file=".travis.yml"}
 
 ### Default Test Command
 
@@ -58,6 +59,7 @@ script:
   - sbt -jvm-opts travis/jvmopts.compile ... compile
   - sbt -jvm-opts travis/jvmopts.test ... test
 ```
+{: data-file=".travis.yml"}
 
 will then run `compile` and `test` with different JVM parameters.
 
@@ -67,6 +69,7 @@ For example
 ```yaml
 sbt_args: -no-colors -J-Xss2m
 ```
+{: data-file=".travis.yml"}
 
 will generate
 

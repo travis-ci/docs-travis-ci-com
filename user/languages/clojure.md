@@ -29,6 +29,7 @@ If you need to perform special tasks before your tests can run, you should set u
 ```yaml
 install: lein protobuf install
 ```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
@@ -46,6 +47,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 ```yaml
 language: clojure
 ```
+{: data-file=".travis.yml"}
 
 ### Using Midje on travis-ci.org
 
@@ -54,6 +56,7 @@ If your project uses [Midje](https://github.com/marick/Midje), make sure [lein-m
 ```yaml
 script: lein midje
 ```
+{: data-file=".travis.yml"}
 
 For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
@@ -85,6 +88,7 @@ If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is
 ```yaml
 script: lein spec
 ```
+{: data-file=".travis.yml"}
 
 For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
 
@@ -105,6 +109,7 @@ Leiningen 1 is provided side by side with 2.4.x. To use it, specify `lein` key i
 ```yaml
 lein: lein1
 ```
+{: data-file=".travis.yml"}
 
 In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein1`:
 
@@ -112,12 +117,14 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
 before_install:
   - lein1 bootstrap
 ```
+{: data-file=".travis.yml"}
 
 Task chaining requires using the `do` task:
 
 ```yaml
 script: lein1 do javac, test
 ```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
@@ -145,6 +152,7 @@ override `script:` to run `lein multi test` instead of default `lein test`:
 language: clojure
 script: lein1 multi test
 ```
+{: data-file=".travis.yml"}
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
@@ -157,6 +165,7 @@ multiple profiles (and thus, multiple dependency sets or Clojure versions), use 
 lein: lein
 script: lein with-profile dev:1.4 test
 ```
+{: data-file=".travis.yml"}
 
 where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
 and `lein help with-profile` to learn more about the `with-profiles` task.
@@ -170,6 +179,7 @@ language: clojure
 
 lein: 2.6.1 # version 2 and up
 ```
+{: data-file=".travis.yml"}
 
 The job will install the specified version of Leiningen if it is not pre-installed,
 and move on to install your project's dependencies.
