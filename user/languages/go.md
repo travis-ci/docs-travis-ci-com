@@ -20,10 +20,10 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
+| Default           | Default                                   |
 |:------------------|:------------------------------------------|
-| Typical `install` | `go get`                                  |
-| Typical `script`  | `make` or `go test`                       |
+| Default `install` | `go get`                                  |
+| Default `script`  | `make` or `go test`                       |
 | Matrix keys       | `go`                                      |
 | Support           | [Travis CI](mailto:support@travis-ci.com) |
 
