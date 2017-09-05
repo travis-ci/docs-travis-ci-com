@@ -175,8 +175,7 @@ by `gimme`.
 
 ## JVM images
 
-- We install the latest OpenJDK versions from the official Ubuntu Trusty
-  packages.
+- We install the OpenJDK 7 from the official Ubuntu Trusty package.
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another version.

@@ -12,7 +12,7 @@ This guide covers build environment and configuration topics specific to Java pr
 
 ## Overview
 
-The Travis CI environment provides Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 6, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
+The Travis CI environment provides Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
 
 To use the Java environment add the following to your `.travis.yml`:
 
@@ -130,21 +130,20 @@ install: ant deps
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDK 7 and 8 and OpenJDK 6:
+To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDKs 7 and 8.:
 
 ```yaml
 jdk:
   - oraclejdk8
   - oraclejdk7
-  - openjdk6
 ```
 {: data-file=".travis.yml"}
 
 > Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
 
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7, and Oracle JDK 8. Sun JDK 6 is not provided, because it is EOL as of November 2012. OpenJDK 8 is available on our Trusty images, specify `dist: trusty` to make use of it.
+Travis CI provides OpenJDK 7, Oracle JDK 7, and Oracle JDK 8.
+OpenJDK 8 is available on our Trusty images, specify `dist: trusty` to make use of it.
 
-JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
 
 Of note: OracleJDK 8 and JavaFX  projects may need to update to the latest available version from a repository. This can be accomplished by adding the following lines from [this issue comment](https://github.com/travis-ci/travis-ci/issues/3259#issuecomment-130860338) to your .travis.yml:
 
