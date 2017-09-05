@@ -20,7 +20,7 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <aside markdown="block" class="ataglance">
 
-| Default           | Default                                   |
+| Go                | Default                                   |
 |:------------------|:------------------------------------------|
 | Default `install` | `go get`                                  |
 | Default `script`  | `make` or `go test`                       |
