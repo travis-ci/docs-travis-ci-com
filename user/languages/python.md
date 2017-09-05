@@ -19,10 +19,10 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
+| Python            | Default                                   |
 |:------------------|:------------------------------------------|
-| Typical `install` | `pip install -r requirements.txt`         |
-| Typical `script`  | `pytest` or `make test`                   |
+| Default `install` | `pip install -r requirements.txt`         |
+| Default `script`  | `pytest` or `make test`                   |
 | Matrix keys       | `python`                                  |
 | Support           | [Travis CI](mailto:support@travis-ci.com) |
 
