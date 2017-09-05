@@ -19,12 +19,12 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 
 <aside markdown="block" class="ataglance">
 
-| Python            | Default                                   |
-|:------------------|:------------------------------------------|
-| Default `install` | `pip install -r requirements.txt`         |
-| Default `script`  | `pytest` or `make test`                   |
-| Matrix keys       | `python`                                  |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Python                                      | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
+| [Default `script`](#Default-Build-Script)   | N/A                                       |
+| [Matrix keys](#Build-Matrix)                | `python`                                  |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
  
@@ -125,7 +125,7 @@ From Python 3.5, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev` or `3.7-dev`.
 
-## Specifying Test Script
+## Default Build Script
 
 Python projects need to provide the `script` key in their `.travis.yml` to
 specify what command to run tests with.
