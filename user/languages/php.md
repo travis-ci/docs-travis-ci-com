@@ -70,9 +70,9 @@ php:
 ```
 {: data-file=".travis.yml"}
 
-### PHP 5.2(.x) and 5.3(.x) support
+### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
 
-We are unable to provide suppport these versions on Trusty.
+We do not suppport these versions on Trusty.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#PHP-images) for more information.
 

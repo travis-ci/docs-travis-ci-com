@@ -193,7 +193,7 @@ least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
 are not pre-installed will be dynamically installed from a local cache, or built
 via `phpenv` if unavailable.
 
-*Note: We are unable to support older PHP versions 5.2.x and 5.3.x on Trusty.
+*Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty.
 Specifying it will result in build failure.
 If you need to test with these versions, use Precise.*
 
