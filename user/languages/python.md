@@ -44,10 +44,6 @@ Minimal example:
 
 ## Specifying Python versions
 
-### Default Python Version
-
-If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
-
 ### Supported Python versions
 
 Travis CI supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6 as well as recent development versions.
