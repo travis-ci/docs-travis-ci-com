@@ -1,6 +1,45 @@
 #!/usr/bin/env rake
 
+require 'aws-sdk'
+require 'yaml'
 require 'html-proofer'
+
+class Data
+  PRECISE = "binaries/ubuntu/12.04/x86_64"
+  TRUSTY  = "binaries/ubuntu/14.04/x86_64"
+end
+
+language_data = {
+  "php" => {
+    bucket: "travis-php-archives",
+    platforms: [ 'precise', 'trusty' ],
+    basename_regexp: /^php-(\d+(\.\d)+)/,
+  },
+  "python" => {
+    bucket: "travis-python-archives",
+    platforms: [ 'precise', 'trusty' ],
+    basename_regexp: /^python-(\d+(\.\d+)*)/,
+  },
+  "pypy" => {
+    bucket: "travis-python-archives",
+    platforms: [ 'precise', 'trusty' ],
+    basename_regexp: /^pypy(\d+(\.\d+)*)?(-\d+(\.\d+)*)?(-(alpha|beta)\d*)?/,
+  },
+}
+
+def s3
+  @s3 ||= Aws::S3::Client.new # credentials and region are set by env var
+end
+
+def archive_list(lang:, bucket:, prefix:, basename_regexp:, ext: ".tar.bz2")
+  objs = s3.list_objects(bucket: bucket, prefix: prefix).contents.select do |obj|
+    File.basename(obj.key) =~ basename_regexp
+  end
+
+  objs.select do |obj|
+    File.basename(obj.key).end_with? ext
+  end
+end
 
 task :default => [:test]
 
@@ -10,7 +49,7 @@ task :test => :build do
 end
 
 desc 'Builds the site'
-task :build => [:remove_output_dir, :gen_trusty_image_data] do
+task :build => [:remove_output_dir, :gen_trusty_image_data, :populate_lang_archive_list] do
   FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -92,8 +131,22 @@ task :gen_trusty_image_data do
   File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
 end
 
+desc "Populate language archive data"
+task :populate_lang_archive_list do
+  output = {}
+  language_data.each do |runtime, data|
+    output[runtime] = {}
+    data[:platforms].each do |dist|
+      archives = archive_list(lang: runtime, bucket: data[:bucket], prefix: Data.const_get(dist.upcase), basename_regexp: data[:basename_regexp])
+      output[runtime][dist] = archives.map {|archive| File.basename(archive.key, ".tar.bz2")}
+    end
+  end
+
+  File.write("_data/language_archives.yml", output.to_yaml)
+end
+
 desc 'Start Jekyll server'
-task :serve => [:gen_trusty_image_data] do
+task :serve => [:gen_trusty_image_data, :populate_lang_archive_list] do
   sh "bundle exec jekyll serve --config=_config.yml"
 end
 

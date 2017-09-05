@@ -13,6 +13,7 @@ gem 'rack-ssl-enforcer'
 gem 'puma'
 
 gem 'faraday'
+gem 'aws-sdk'
 
 gem 'rake'
 
