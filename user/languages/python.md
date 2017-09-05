@@ -23,7 +23,7 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
 | [Default `script`](#Default-Build-Script)   | N/A                                       |
-| [Matrix keys](#Build-Matrix)                | `python`                                  |
+| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
