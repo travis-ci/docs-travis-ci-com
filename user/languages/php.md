@@ -62,8 +62,21 @@ php:
 versions used in your build, consult "Build system information" in the build
 log.
 
-> Specifying exact versions like 5.3.8 is discouraged as it may break your build
-when we update PHP versions on Travis CI.
+These may not be the most recent releases. If you need to ensure the use of most recent releases, do provide the third number; e.g.,
+
+```yaml
+language: php
+php:
+  - 7.1.9
+```
+{: data-file=".travis.yml"}
+
+### PHP 5.2(.x) and 5.3(.x) support
+
+We are unable to provide suppport these versions on Trusty.
+If you need to test them, please use Precise.
+See [this page](/user/reference/trusty#PHP-images) for more information.
+
 
 ### HHVM versions
 
