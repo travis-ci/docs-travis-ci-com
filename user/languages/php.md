@@ -41,11 +41,22 @@ The previous example uses `phpunit`, the default build script, to build against 
 - hhvm # on Trusty only
 - nightly
 
-which are specified using aliases for the "most recent x.y.z release" provided on Travis CI of any given line. For a full listing of the supported versions see [About Travis CI Environment](/user/reference/precise/).
+which are specified using aliases for a "recent x.y.z release" provided on the build image.
+These may not be the most recent releases. If you need to ensure the use of most recent releases, do provide the third number; e.g.,
+
+```yaml
+language: php
+php:
+  - 7.1.9
+```
 
 You can see an [example of version number aliases](https://github.com/travis-ci/travis-ci-php-example/blob/master/.travis.yml) on github. For precise versions used in your build, consult "Build system information" in the build log.
 
-> Specifying exact versions like 5.3.8 is discouraged as it may break your build when we update PHP versions on Travis CI. PHP version *5.5.9* is supported, however, because it's the version of PHP that is shipped with Ubuntu 14.04 LTS.
+### PHP 5.2(.x) and 5.3(.x) support
+
+We are unable to provide suppport these versions on Trusty.
+If you need to test them, please use Precise.
+See [this page](/user/reference/trusty#PHP-images) for more information.
 
 ### HHVM versions
 
