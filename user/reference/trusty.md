@@ -203,19 +203,83 @@ by `gimme`.
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
-versions that are not pre-installed will be dynamically installed from a local
-cache, or built via `phpenv` if unavailable.
+least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+`5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
+are not pre-installed will be dynamically installed from a local cache, or built
+via `phpenv` if unavailable.
 
-*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it*
+*Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty.
+Specifying it will result in build failure.
+If you need to test with these versions, use Precise.*
+
+```yaml
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+```
+{: data-file=".travis.yml"}
+
+
+### HHVM
+
+[hhvm](https://github.com/facebook/hhvm) is also available.
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
+
+```yaml
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
+  - hhvm-nightly
+```
+{: data-file=".travis.yml"}
+
+### Extensions
+
+#### PHP 7.0
+
+The following extensions are preinstalled for PHP 7.0 and nightly builds:
+
+- [apcu.so](http://php.net/apcu)
+- [memcached.so](http://php.net/memcached)
+- [mongodb.so](https://php.net/mongodb)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
+#### PHP 5.6 and below
+
+For PHP versions up to 5.6, the following extensions are available:
+
+- [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
+- [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+- [mongo.so](http://php.net/mongo)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
 
 ## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
 `apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing
-dependencies](/user/installing-dependencies/).
+please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 
