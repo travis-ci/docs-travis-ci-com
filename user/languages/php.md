@@ -116,7 +116,7 @@ and uses the first one found.
 1. `vendor/bin/phpunit`
 1. `phpunit`, which is found on `$PATH` (typically one that is pre-packaged with the PHP runtime)
 
-If your project uses something other than PHPUnit, you can [override the default test command](/user/customizing-the-build/).
+If your project uses something other than PHPUnit, you can [override the default build script](/user/customizing-the-build/).
 
 ### Working with atoum
 
