@@ -21,6 +21,7 @@ Minimal example:
 ```yaml
 language: clojure
 ```
+{: data-file=".travis.yml"}
 
 </aside>
 
@@ -56,6 +57,7 @@ If for some reason you can't use hooks,you can override the install step in your
 ```yaml
 install: lein protobuf install
 ```
+{: data-file=".travis.yml"}
 
 See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
@@ -66,12 +68,14 @@ The default build script is:
 ```bash
 lein test
 ```
+{: data-file=".travis.yml"}
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
 ```yaml
 language: clojure
 ```
+{: data-file=".travis.yml"}
 
 ### Using Midje
 
@@ -83,6 +87,7 @@ If your project uses [Midje](https://github.com/marick/Midje), make sure
 ```yaml
 script: lein midje
 ```
+{: data-file=".travis.yml"}
 
 For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
@@ -90,6 +95,7 @@ For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 :dev-dependencies [[midje "1.4.0"]
                    [lein-midje "1.0.10"]])
 ```
+{: data-file=".project.clj"}
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
@@ -97,6 +103,7 @@ Leiningen 2 replaces `:dev-dependencies` with profiles:
 :profiles {:dev {:dependencies [[midje "1.6.3"]]
                  :plugins [[lein-midje "3.0.0"]]}}
 ```
+{: data-file=".project.clj"}
 
 Please note that for projects that only support Clojure 1.3.0 and later
 versions, you may need to exclude transient `org.clojure/clojure` for Midje in
@@ -106,6 +113,7 @@ project.clj:
 :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
                    [lein-midje "1.0.10"]])
 ```
+{: data-file=".project.clj"}
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
@@ -118,18 +126,21 @@ listed in your development dependencies in `project.clj`, and include this
 ```yaml
 script: lein spec
 ```
+{: data-file=".travis.yml"}
 
 For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
 
 ```
 :dev-dependencies [[speclj "3.3.1"]]
 ```
+{: data-file=".project.clj"}
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
 ```
 :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 ```
+{: data-file=".project.clj"}
 
 ## Using Leiningen 1
 
@@ -138,6 +149,7 @@ Leiningen 1 is provided side by side with 2.4.x. To use it, specify `lein` key i
 ```yaml
 lein: lein1
 ```
+{: data-file=".travis.yml"}
 
 In case you need to use `lein` binary in `before_script`, `install:`, `script:` commands and so on, use `lein1`:
 
@@ -145,12 +157,14 @@ In case you need to use `lein` binary in `before_script`, `install:`, `script:` 
 before_install:
   - lein1 bootstrap
 ```
+{: data-file=".travis.yml"}
 
 Task chaining requires using the `do` task:
 
 ```yaml
 script: lein1 do javac, test
 ```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
@@ -178,6 +192,7 @@ override `script:` to run `lein multi test` instead of default `lein test`:
 language: clojure
 script: lein1 multi test
 ```
+{: data-file=".travis.yml"}
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
@@ -190,6 +205,7 @@ multiple profiles (and thus, multiple dependency sets or Clojure versions), use 
 lein: lein
 script: lein with-profile dev:1.4 test
 ```
+{: data-file=".travis.yml"}
 
 where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
 and `lein help with-profile` to learn more about the `with-profiles` task.
@@ -203,6 +219,7 @@ language: clojure
 
 lein: 2.6.1 # version 2 and up
 ```
+{: data-file=".travis.yml"}
 
 The job will install the specified version of Leiningen if it is not pre-installed,
 and move on to install your project's dependencies.
