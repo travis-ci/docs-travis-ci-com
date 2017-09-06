@@ -4,18 +4,6 @@ layout: en
 
 ---
 
-### What This Guide Covers
-
-> Language versions and other build-environment specific
-> information are in our reference pages:
->  * [Precise](/user/reference/precise/)
->  * [Trusty](/user/reference/trusty/)
-
-The rest of this guide covers build environment and configuration topics
-specific to Elixir projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
-[general build configuration](/user/customizing-the-build/) guides first.
-
 <aside markdown="block" class="ataglance">
 
 |                   | Default                                   |
@@ -32,9 +20,20 @@ language: elixir
 elixir: '1.4'
 otp_release: '19.0'
 ```
+{: data-file=".travis.yml"}
 
 </aside>
 
+### What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+The rest of this guide covers build environment and configuration topics
+specific to Elixir projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
+
+Elixir builds are not available on the OS X environment.
 
 ## CI Environment for Elixir Projects
 

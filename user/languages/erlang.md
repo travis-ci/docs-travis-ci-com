@@ -21,6 +21,7 @@ otp_release:
   - 19.0
   - 18.2.1
 ```
+{: data-file=".travis.yml"}
 
 </aside>
 
