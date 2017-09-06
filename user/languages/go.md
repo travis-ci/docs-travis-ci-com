@@ -8,15 +8,8 @@ swiftypetags:
   - go
 ---
 
-### What This Guide Covers
-
-{{ site.data.snippets.trusty_note_no_osx }}
-
-Go builds are not available on the OS X environment.
-
-The rest of this guide covers configuring Go projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
+<div id="toc">
+</div>
 
 <aside markdown="block" class="ataglance">
 
@@ -28,7 +21,7 @@ new to Travis CI please read our [Getting Started](/user/getting-started/) and
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
- 
+
 ```yaml
   language: go
   go:
@@ -36,11 +29,23 @@ Minimal example:
 ```
 </aside>
 
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+Go builds are not available on the OS X environment.
+
+The rest of this guide covers configuring Go projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
+
 ## Specifying a Go version to use
 
 You can use any tagged version of Go, a version with `x` in place of the minor
 or patch level to use the latest for a given major or minor version, or use
-`master` to get the latest version from source.
+`master` to get the latest version from source. All go version management is
+handled by [gimme](https://github.com/travis-ci/gimme).
+
 
 ```yaml
 language: go
@@ -53,7 +58,6 @@ go:
 ```
 {: data-file=".travis.yml"}
 
-All go version management is handled by [gimme](https://github.com/travis-ci/gimme).
 
 ## Go Import Path
 
