@@ -158,6 +158,22 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
+### Pre-installed pip packages
+
+Travis CI installs the following packages by default in each virtualenv:
+
+- nose
+- pytest
+- wheel
+- mock
+- six
+
+On all Python versions except pypy and pypy3, `numpy` is available as well.
+
 ## JavaScript and Node.js images
 
 [nvm](https://github.com/creationix/nvm) is installed and we
