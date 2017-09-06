@@ -21,6 +21,7 @@ Minimal example:
 ```yaml
 language: c
 ```
+{: data-file=".travis.yml"}
 
 </aside>
 
