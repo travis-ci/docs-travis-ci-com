@@ -347,6 +347,10 @@ Every Python has a separate virtualenv that comes with `pip` and `distribute` an
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
 
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
 ### Preinstalled pip packages
 
 - nose
