@@ -107,6 +107,7 @@ For example, to install version 17.0, add the following to your
 addons:
   firefox: "17.0"
 ```
+{: data-file=".travis.yml"}
 
 Please note that the addon only works in 64-bit Linux environments.
 
@@ -345,6 +346,10 @@ Xdebug
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
 ### Preinstalled pip packages
 

@@ -15,6 +15,7 @@ deploy:
   secret: "YOUR BOXFUSE CLIENT SECRET"
   payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
 ```
+{: data-file=".travis.yml"}
 
 We recommended that you encrypt your Boxfuse user and secret. Assuming you have the Travis CI command line client installed, you can do it like this (you will be prompted for values on the command line):
 
@@ -39,6 +40,7 @@ deploy:
   payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
   image: "YOUR BOXFUSE APP AND VERSION (ex.: myapp:1.23)"
 ```
+{: data-file=".travis.yml"}
 
 You can also use Travis CI [environment variables](/user/environment-variables) like `TRAVIS_BUILD_NUMBER` to assign a version to the image. Ex.: `image: "myapp:$TRAVIS_BUILD_NUMBER"`
 
@@ -54,6 +56,7 @@ deploy:
   payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
   env: "YOUR BOXFUSE ENVIRONMENT (default: test)"
 ```
+{: data-file=".travis.yml"}
 
 ### Using alternative configuration files
 
@@ -64,6 +67,7 @@ deploy:
   provider: boxfuse
   configfile: "YOUR BOXFUSE CONFIGURATION FILE"
 ```
+{: data-file=".travis.yml"}
 
 ### Specifying custom arguments
 
@@ -74,6 +78,7 @@ deploy:
   provider: boxfuse
   extra_args: "YOUR EXTRA ARGS (ex.: -X)"
 ```
+{: data-file=".travis.yml"}
 
 ### Further information
 

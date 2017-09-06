@@ -33,6 +33,7 @@ julia:
   - 0.5
   - 0.5.2
 ```
+{: data-file=".travis.yml"}
 
 If the version number contains one `.`, then the latest release for that minor version
 is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,

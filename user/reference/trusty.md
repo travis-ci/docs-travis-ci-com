@@ -21,6 +21,7 @@ To use sudo-enabled Ubuntu Trusty, add the following to your
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or to route to sudo-less:
 
@@ -28,6 +29,7 @@ Or to route to sudo-less:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 This is enabled for both public and private repositories.
 
@@ -84,6 +86,7 @@ private repositories.
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or, if you want to route to container-based:
 
@@ -91,6 +94,7 @@ Or, if you want to route to container-based:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
 
@@ -153,6 +157,22 @@ from a local cache.
 
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
+### Pre-installed pip packages
+
+Travis CI installs the following packages by default in each virtualenv:
+
+- nose
+- pytest
+- wheel
+- mock
+- six
+
+On all Python versions except pypy and pypy3, `numpy` is available as well.
 
 ## JavaScript and Node.js images
 
@@ -228,6 +248,7 @@ For example, to install version 50.0, add the following to your
 addons:
   firefox: "50.0"
 ```
+{: data-file=".travis.yml"}
 
 ### Headless Browser Testing Tools
 

@@ -6,7 +6,35 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+> Language versions and other build-environment specific
+> information are in our reference pages:
+>  * [Precise](/user/reference/precise/)
+>  * [Trusty](/user/reference/trusty/)
+
+The rest of this guide covers build environment and configuration topics
+specific to Elixir projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
+
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `mix local.rebar --force; mix.local.hex --force; mix deps.get` |
+| Typical `script`  | `mix test`                                |
+| Matrix keys       | `env`, `elixir`, `otp_release`            |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: elixir
+elixir: '1.4'
+otp_release: '19.0'
+```
+
+</aside>
+
 
 ## CI Environment for Elixir Projects
 
@@ -15,6 +43,7 @@ To choose the Elixir VM, declare in your `.travis.yml`:
 ```yaml
 language: elixir
 ```
+{: data-file=".travis.yml"}
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
@@ -33,6 +62,7 @@ elixir:
 otp_release:
   - 18.2.1
 ```
+{: data-file=".travis.yml"}
 
 To test multiple Elixir versions with different OTP release versions:
 
@@ -48,6 +78,7 @@ matrix:
     - elixir: 1.2
       otp_release: 18.0
 ```
+{: data-file=".travis.yml"}
 
 
 ## Build Matrix
