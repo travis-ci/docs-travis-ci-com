@@ -188,8 +188,9 @@ in order to minimize frictions when images are updated:
 - OpenJDK 6 (openjdk6)
 - Oracle JDK 8 (oraclejdk8)
 
-OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reached End of Life in fall 2012.
+OracleJDK 7 is the default because we have a much more recent patch level
+compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not
+provided because it reached End of Life in fall 2012.
 
 The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
@@ -346,6 +347,10 @@ Xdebug
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
 ### Preinstalled pip packages
 
