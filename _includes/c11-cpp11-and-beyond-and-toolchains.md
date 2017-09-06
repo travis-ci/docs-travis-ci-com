@@ -46,6 +46,17 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+- MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
@@ -69,7 +80,12 @@ matrix:
     - os: osx
       osx_image: xcode8
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode8
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
 
 before_install:
     - eval "${MATRIX_EVAL}"
