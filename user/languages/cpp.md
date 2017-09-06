@@ -56,6 +56,7 @@ If you need to install dependencies before your tests can run, override the
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 See [build configuration guide](/user/customizing-the-build/) to learn more.
 
@@ -73,6 +74,7 @@ Projects that find this sufficient can use a very minimalistic `.travis.yml` fil
 ```yaml
 language: cpp
 ```
+{: data-file=".travis.yml"}
 
 You can change the build script as described in the [build
 configuration](/user/customizing-the-build/) guide:
@@ -80,6 +82,7 @@ configuration](/user/customizing-the-build/) guide:
 ```yaml
 script: scons
 ```
+{: data-file=".travis.yml"}
 
 ## Choosing compilers to test against
 
@@ -90,6 +93,7 @@ example, to build with Clang:
 ```yaml
 compiler: clang
 ```
+{: data-file=".travis.yml"}
 
 or both GCC and Clang:
 
@@ -98,6 +102,7 @@ compiler:
   - clang
   - gcc
 ```
+{: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build
 matrix. For each row, the Travis CI C++ builder will export the `CXX` env
@@ -128,5 +133,6 @@ before_install:
   - test -n $CC  && unset CC
   - test -n $CXX && unset CXX
 ```
+{: data-file=".travis.yml"}
 
 {% include c11-cpp11-and-beyond-and-toolchains.md %}

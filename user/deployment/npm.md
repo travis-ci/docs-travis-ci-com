@@ -20,6 +20,7 @@ deploy:
   email: "YOUR_EMAIL_ADDRESS"
   api_key: "YOUR_AUTH_TOKEN"
 ```
+{: data-file=".travis.yml"}
 
 You can have the `travis` tool set up everything for you:
 
@@ -57,6 +58,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that
 your tags are uploaded to GitHub.
@@ -69,6 +71,7 @@ deploy:
   on:
     branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure Travis CI to release from all branches:
 
@@ -78,6 +81,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
@@ -92,6 +96,7 @@ deploy:
   ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ## Conditional releases
 
@@ -109,6 +114,7 @@ deploy:
   ...
   tag: next
 ```
+{: data-file=".travis.yml"}
 
 ## Note on `.gitignore`
 
@@ -136,6 +142,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ## Troubleshooting "npm ERR! You need a paid account to perform this action."
 

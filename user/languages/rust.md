@@ -31,6 +31,7 @@ build. If you're just testing stable, this is all that you need:
 ```yaml
 language: rust
 ```
+{: data-file=".travis.yml"}
 
 The Rust version that is specified in the .travis.yml is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
@@ -43,6 +44,7 @@ rust:
   - 1.0.0
   - 1.1.0
 ```
+{: data-file=".travis.yml"}
 
 The Rust team appreciates testing against the `beta` and `nightly` channels, even if you
 are only targeting stable. A full configuration looks like this:
@@ -57,6 +59,7 @@ matrix:
   allow_failures:
     - rust: nightly
 ```
+{: data-file=".travis.yml"}
 
 This will test all three channels, but any breakage in nightly will not fail your overall build.
 
@@ -76,6 +79,7 @@ If you wish to override this, you can use the `script` setting:
 language: rust
 script: make all
 ```
+{: data-file=".travis.yml"}
 
 For example, if your project is a [workspace](http://doc.crates.io/manifest.html#the-workspace-section),
 you should pass `-all` to the build commands to build and test all of the member crates:
@@ -86,3 +90,4 @@ script:
   - cargo build --verbose --all
   - cargo test --verbose --all
 ```  
+{: data-file=".travis.yml"}

@@ -27,6 +27,7 @@ You can specify one or more GHC versions:
 ```yaml
 ghc: 7.4
 ```
+{: data-file=".travis.yml"}
 
 Multiple versions:
 
@@ -36,6 +37,7 @@ ghc:
   - 7.6
   - 7.4
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you only use the major and minor versions to specify the version to use, as we may update the patchlevel releases at any time.
 
@@ -53,6 +55,7 @@ It is possible to override test command as described in the [general build confi
 script:
   - cabal configure --enable-tests -fFOO && cabal build && cabal test
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -73,15 +76,9 @@ for example:
 install:
   - cabal install QuickCheck
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
 For Haskell projects, `env` and `ghc` can be given as arrays
 to construct a build matrix.
-
-## Examples
-
-- [jgm/pandoc](https://github.com/jgm/pandoc/blob/master/.travis.yml)
-- [hspec/hspec](https://github.com/hspec/hspec/blob/master/.travis.yml)
-- [commercialhaskell/stack](https://github.com/commercialhaskell/stack/blob/master/.travis.yml)
-- [lwm/es-api](https://github.com/lwm/es-api/blob/master/.travis.yml)
