@@ -19,6 +19,7 @@ deploy:
   access_key_id: "AWS ACCESS KEY ID"
   secret_access_key: "AWS SECRET ACCESS KEY"
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:

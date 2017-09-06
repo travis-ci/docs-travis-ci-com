@@ -17,6 +17,7 @@ sudo: required
 services:
   - docker
 ```
+{: data-file=".travis.yml"}
 
 Then you can add `- docker` commands to your build as shown in the following
 examples.
@@ -64,6 +65,7 @@ before_install:
 script:
 - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 and produces the following [build
 output](https://travis-ci.org/travis-ci/docker-sinatra):
@@ -119,6 +121,7 @@ before_install:
 script:
   - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 ### Pushing a Docker Image to a Registry
 
@@ -151,6 +154,7 @@ after_success:
     docker push USER/REPO;
     fi
 ```
+{: data-file=".travis.yml"}
 
 #### Private Registry Login
 
@@ -178,6 +182,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
+{: data-file=".travis.yml"}
 
 ### Installing a newer Docker version
 
@@ -188,8 +193,9 @@ updating it in the `before_install` step of your `.travis.yml`:
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
+{: data-file=".travis.yml"}
 
 **Updating from download.docker.com**
 ```yaml
@@ -199,6 +205,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
 ```
+{: data-file=".travis.yml"}
 
 > Check what version of Docker you're running with `docker --version`
 

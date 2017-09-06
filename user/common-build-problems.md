@@ -189,18 +189,21 @@ Your build is running on macOS Sierra (10.12) if the following `osx_image` value
 ```yaml
 osx_image: xcode8.1
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 osx_image: xcode8.2
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 osx_image: xcode8.3
 ```
+{: data-file=".travis.yml"}
 
 The following lines in your build log possibly indicate an occurence of this issue:
 
@@ -320,6 +323,7 @@ you're seeing this error, add this to your `.travis.yml`:
 before_install:
   - gem install cocoapods -v '0.32.1'
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods can't be found
 
@@ -333,6 +337,7 @@ without any issues:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods fails with a segmentation fault
 
@@ -344,6 +349,7 @@ issues. Add this to your `.travis.yml`:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ## System: Required language pack isn't installed
 
@@ -358,6 +364,7 @@ This can be done with the follow addition to your `.travis.yml`:
 before_install:
   - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 ```
+{: data-file=".travis.yml"}
 
 The above addition will reinstall the en_US language pack, as well as the de_DE
 language pack.
@@ -372,6 +379,7 @@ addons:
       - language-pack-en
       - language-pack-de
 ```
+{: data-file=".travis.yml"}
 
 ## Linux: apt fails to install package with 404 error
 
@@ -381,6 +389,7 @@ This is often caused by old package database and can be fixed by adding the foll
 before_install:
   - sudo apt-get update
 ```
+{: data-file=".travis.yml"}
 
 ## Travis CI does not Preserve State Between Builds
 
@@ -404,6 +413,7 @@ To turn this off, set:
 git:
   submodules: false
 ```
+{: data-file=".travis.yml"}
 
 If your project requires specific options for your Git submodules which Travis CI
 does not support out of the box, turn off the automatic integration and use the
@@ -415,6 +425,7 @@ For example, to update nested submodules:
 before_install:
   - git submodule update --init --recursive
 ```
+{: data-file=".travis.yml"}
 
 ## Git cannot clone my Submodules
 
@@ -480,6 +491,7 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 ```yaml
     install: travis_wait mvn install
 ```
+{: data-file=".travis.yml"}
 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
@@ -490,6 +502,7 @@ Continuing with the example above, to extend the wait time to 30 minutes:
 ```yaml
     install: travis_wait 30 mvn install
 ```
+{: data-file=".travis.yml"}
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
