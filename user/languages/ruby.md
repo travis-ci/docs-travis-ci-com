@@ -280,13 +280,10 @@ rvm:
   - jruby-19mode
   - jruby-head
 jdk:
-  - openjdk6
   - openjdk7
   - oraclejdk7
 matrix:
   exclude:
-    - rvm: 1.9.2
-      jdk: openjdk6
     - rvm: 1.9.2
       jdk: openjdk7
     - rvm: 1.9.2
