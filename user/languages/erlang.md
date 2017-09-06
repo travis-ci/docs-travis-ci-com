@@ -4,20 +4,6 @@ layout: en
 
 ---
 
-### What This Guide Covers
-
-> Language versions and other build-environment specific
-> information are in our reference pages:
->  * [Precise](/user/reference/precise/)
->  * [Trusty](/user/reference/trusty/)
-
-The rest of this guide covers build environment and configuration topics
-specific to Erlang projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
-[general build configuration](/user/customizing-the-build/) guides first.
-
-Erlang builds are not available on the OS X environment.
-
 <aside markdown="block" class="ataglance">
 
 |                   | Default                                   |
@@ -37,6 +23,17 @@ otp_release:
 ```
 
 </aside>
+
+### What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+The rest of this guide covers build environment and configuration topics
+specific to Erlang projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
+
+Erlang builds are not available on the OS X environment.
 
 ## Choosing OTP releases to test against
 
