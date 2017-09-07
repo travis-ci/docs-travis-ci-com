@@ -64,6 +64,16 @@ $ travis console
 After an upgrade of Replicated 2.8.0 to a newer version occasionally the service
 restarts with the following error:
 
+<!-- TODO:
+
+Liquid Warning: Liquid syntax error (line 62): [:dot, "."] is not a valid expression in
+
+{{.State.Error}}
+
+is this intentional? Or just colliding syntax?
+
+-->
+
 ```
 $ docker inspect --format '{{.State.Error}}' focused_yalow
 oci runtime error: container_linux.go:247: starting container process
