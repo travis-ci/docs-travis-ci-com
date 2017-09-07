@@ -5,23 +5,26 @@ layout: en_enterprise
 ---
 
 This guide covers installing the Travis CI Enterprise Platform and Travis CI
-Enterprise Worker. Please check our [system prerequisites](/user/enterprise/prerequisites) guide if you have
-any questions about whether your configuration will be supported.
+Enterprise Worker. Please check our [system
+prerequisites](/user/enterprise/prerequisites/Q) guide if you have any questions
+about whether your configuration will be supported.
+
+Because Travis CI Enterprise is optimized for EC2, the following guide
+recommends steps geared toward this provider, but you can certainly modify it to
+use your provider of choice.
 
 <div id="toc"></div>
 
-## Setting up the Travis CI Enterprise Platform
+## 1. Setting up the Travis CI Enterprise Platform
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
-Enterprise worker. Because Enterprise is optimized for EC2, the following guide
-recommends steps geared toward this provider, but you can certainly modify to
-use your provider of choice.
+Enterprise worker.
 
-### Creating a Security Group
+### 1.1. Create a Security Group
 
-If you're setting up your AMI for the first time you will need to create
+If you're setting up your AMI for the first time you need to create
 a Security Group. From the EC2 management console, create an entry for
 each port in the table below:
 
@@ -34,51 +37,44 @@ each port in the table below:
 | 80   | HTTP            | Web application access.                                                      |
 | 22   | SSH             | SSH access.                                                                  |
 
-## Platform Installation
+### 1.2. Install Travis CI Enterprise Platform on the first host
 
-The recommended installation of the Platform host is done through
-running the following script on the host:
+Before running the installation script, we recommend downloading and reading it.
+When you're ready to run it on the host, run one of the following pairs of
+commands to install the Travis CI Enterprise Platform and web interface:
 
 ```         
-  curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
-  sudo bash /tmp/installer.sh
+# not behind a web proxy
+
+curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
+sudo bash /tmp/installer.sh
+
+# behind a web proxy
+curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
+sudo bash /tmp/installer.sh http-proxy=http://:
 ```          
 
-**Note: We recommend downloading and reading the script before running
-it**
-
-This will install the management application, which takes care of
-downloading and installing the Travis CI Platform, as well as providing
-a simple web interface for setting up the platform, and for viewing
-runtime metrics.
-
-Once the script has run you can navigate to `https://:8800` (your Enterprise
+Once the script has run ,navigate to `https://<hostname>:8800` (your Enterprise
 installation's hostname, port 8800) to complete the setup.
 
-From here you can upload your [trial license key](https://enterprise.travis-ci.com/signup),
-add your GitHub OAuth details, upload an SSL certificate and enter SMTP details
-(both optional).
+From here you can upload your license key, add your GitHub OAuth details, and
+optionally upload an SSL certificate and enter SMTP details.
+
+<!-- TODO: this next should probably be way earlier in the prerequisites? -->
 
 If you are running the Platform host on EC2, we recommend using an image
 that uses EBS for the root volume, as well as allocating 40 gigs of
 space to it. It is also recommended to not destroy the volume on
 instance termination.
 
-If you are behind a web proxy you can run the following install
-commands:
 
-```
-  curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
-  sudo bash /tmp/installer.sh http-proxy=http://:
-```
-
-## Setting up a Travis CI Enterprise Worker
+## 2. Setting up Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform.
 
-### Creating a Security Group
+### 2.1. Create a Security Group
 
 If you're setting up your AMI for the first time you will need to create
 a Security Group. From the EC2 management console, create an entry for
@@ -88,39 +84,41 @@ each port in the table below:
 |:-----|:--------|:------------|
 | 22   | SSH     | SSH access. |
 
-## Worker Installation
+## 2.1. Install Travis CI Worker on the second host
 
-For setting up a Worker host you'll need the RabbitMQ password, which you can
-retrieve from the Travis CI Enterprise Platform management UI under Settings.
-You will also need the hostname for your Travis CI Enterprise installation,
-which must match the name set in your license.
+1. From the Travis CI Enterprise Platform management UI under Settings, retrieve
+   the RabbitMQ password and the hostname for your Travis CI Enterprise
+   installation.
 
-Before running the following commands, please make sure you are **logged
-in as a user who has sudo access.**
+1. Log in to the second host as **as a user who has sudo access** and run
 
-```
-curl -sSL https://enterprise.travis-ci.com/install/worker -o /tmp/installer
-```
+    ```
+    curl -sSL https://enterprise.travis-ci.com/install/worker -o /tmp/installer
+    ```
 
-If the Worker host is running on EC2 please edit the following command to
-include the proper credentials, and run on the Worker host:
+1. Run one of the following commands:
 
-```      
-  sudo bash /tmp/installer \
-  --travis_enterprise_host="travis.myhostname.com" \
-  --travis_enterprise_security_token="my-rabbitmq-password" \
-  --aws=true
-```      
+   - If the Worker host is running on EC2 please edit the following command to
+     include the proper credentials:
 
-For all other hosts, please edit and run:
-```      
-  sudo bash /tmp/installer \
-  --travis_enterprise_host="travis.myhostname.com" \
-  --travis_enterprise_security_token="my-rabbitmq-password"
-```           
-Once the installation is complete, please reboot your Worker host to finish.
+      ```      
+        sudo bash /tmp/installer \
+        --travis_enterprise_host="travis.myhostname.com" \
+        --travis_enterprise_security_token="my-rabbitmq-password" \
+        --aws=true
+      ```      
+
+   - For all other hosts, please edit and run:
+      ```      
+        sudo bash /tmp/installer \
+        --travis_enterprise_host="travis.myhostname.com" \
+        --travis_enterprise_security_token="my-rabbitmq-password"
+      ```           
+1. When the installation is complete, please reboot your Worker host to finish.
 
 ### Worker Installation Behind Web Proxies
+
+<!-- TODO does this apply to the curl command or the bash tmp installer? -->
 
 If you are behind a web proxy and Docker fails to download the image(s),
 edit `/etc/default/docker` and set your proxy there. Re-run the script
@@ -132,6 +130,8 @@ specified as follows:
 ```
 
 ## Backups
+
+<!-- TODO what about a Backups page linked to from here + upgrades -->
 
 We recommend a weekly machine snapshot and weekly backups of `/etc/travis` and
 `/var/travis`.
