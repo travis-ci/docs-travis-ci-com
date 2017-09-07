@@ -1,6 +1,6 @@
 ---
 title: Customizing Enterprise Worker Configuration
-layout: en
+layout: en_enterprise
 
 ---
 
@@ -19,7 +19,7 @@ RabbitMQ password, you can do so by updating:
       export TRAVIS_ENTERPRISE_HOST="enterprise.hostname.corp"
       export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
 ```         
-          
+
 ## Setting Timeouts
 
 The following options can be customized in `/etc/default/travis-worker`.

@@ -1,6 +1,6 @@
 ---
 title: Upgrading Travis CI Enterprise
-layout: en
+layout: en_enterprise
 
 ---
 
@@ -42,7 +42,7 @@ whether you are behind a web proxy you'll want to run one of these:
   curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
   sudo bash /tmp/installer.sh http-proxy=http://:
 ```
-            
+
 ## Updating your Travis CI Enterprise Worker
 
 In order to update the Worker, you can run the following on each worker
@@ -71,7 +71,7 @@ SSH into the Platform machine and **back up `/var/travis` and `/etc/travis`**. O
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
 ```       
- 
+
 This will create a timestamped back up of these directories.
 
 ### Step 4: Confirm you have enough diskspace free for an upgrade
@@ -86,14 +86,14 @@ Check to see if replicated needs to be upgraded to the latest version by running
   curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
   sudo bash /tmp/installer.sh
 ```
-      
+
 If it's less than 2.0, you'll need to migrate to the 2.X version of Replicated. You can do this by running:
 
 ```
   curl -sSL -o /tmp/migrate-v2.sh https://get.replicated.com/migrate-v2
   sudo bash /tmp/migrate-v2.sh
 ```    
- 
+
 These steps will stop Travis CI Enterprise while they run. So it's important to plan for downtime when you run them. The Replicated migration/upgrade tends to take less than 5-10 minutes but can depend on your network connection and size of database.
 
 ### Step 6: Check for the newest Travis CI Enterprise Release
@@ -116,6 +116,3 @@ In the rare event of something going wrong during the upgrade you may need to re
 1. Start Travis CI via the Replicated dashboard
 
 Note, that this does still put you on the latest version of Travis CI Enterprise. Rolling back strategies will need to be coordinated with the Travis CI team as it requires changing licenses back to the legacy release channel.
-            
-      
-         

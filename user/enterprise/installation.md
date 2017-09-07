@@ -1,6 +1,6 @@
 ---
 title: Enterprise Installation
-layout: en
+layout: en_enterprise
 
 ---
 
@@ -25,14 +25,14 @@ If you're setting up your AMI for the first time you will need to create
 a Security Group. From the EC2 management console, create an entry for
 each port in the table below:
 
-| Port | Service | Description |
-| -- | -- | -- |
+| Port | Service         | Description                                                                  |
+|:-----|:----------------|:-----------------------------------------------------------------------------|
 | 8800 | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
-| 5672 | Custom TCP Rule | For RabbitMQ Non-SSL. |
-| 4567 | Custom TCP Rule | For RabbitMQ SSL. | 
-| 443 | HTTPS | Web application over HTTPS access. | 
-| 80 | HTTP | Web application access. | 
-| 22 | SSH  | SSH access. | 
+| 5672 | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
+| 4567 | Custom TCP Rule | For RabbitMQ SSL.                                                            |
+| 443  | HTTPS           | Web application over HTTPS access.                                           |
+| 80   | HTTP            | Web application access.                                                      |
+| 22   | SSH             | SSH access.                                                                  |
 
 ## Platform Installation
 
@@ -55,8 +55,8 @@ runtime metrics.
 Once the script has run you can navigate to `https://:8800` (your Enterprise
 installation's hostname, port 8800) to complete the setup.
 
-From here you can upload your [trial license key](https://enterprise.travis-ci.com/signup), 
-add your GitHub OAuth details, upload an SSL certificate and enter SMTP details 
+From here you can upload your [trial license key](https://enterprise.travis-ci.com/signup),
+add your GitHub OAuth details, upload an SSL certificate and enter SMTP details
 (both optional).
 
 If you are running the Platform host on EC2, we recommend using an image
@@ -85,8 +85,8 @@ a Security Group. From the EC2 management console, create an entry for
 each port in the table below:
 
 | Port | Service | Description |
-| -- | -- | -- |
-| 22 | SSH  | SSH access. |
+|:-----|:--------|:------------|
+| 22   | SSH     | SSH access. |
 
 ## Worker Installation
 
@@ -111,23 +111,23 @@ include the proper credentials, and run on the Worker host:
   --travis_enterprise_security_token="my-rabbitmq-password" \
   --aws=true
 ```      
-          
+
 For all other hosts, please edit and run:
 ```      
   sudo bash /tmp/installer \
   --travis_enterprise_host="travis.myhostname.com" \
   --travis_enterprise_security_token="my-rabbitmq-password"
 ```           
-Once the installation is complete, please reboot your Worker host to finish. 
+Once the installation is complete, please reboot your Worker host to finish.
 
 ### Worker Installation Behind Web Proxies
 
 If you are behind a web proxy and Docker fails to download the image(s),
 edit `/etc/default/docker` and set your proxy there. Re-run the script
-above. In addition, if you need Docker to use an HTTP proxy, it can also be 
+above. In addition, if you need Docker to use an HTTP proxy, it can also be
 specified as follows:
 
-``` 
+```
   export http_proxy="http://proxy.mycompany.corp:8080/"
 ```
 

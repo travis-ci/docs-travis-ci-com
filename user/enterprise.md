@@ -1,7 +1,6 @@
 ---
 title: Travis CI Enterprise
-layout: en
-
+layout: en_enterprise
 ---
 
 Whether your team uses GitHub Flow, feature branches or just commits directly to
@@ -29,24 +28,24 @@ Enterprise-specific features include:
 * **Support for GitHub Enterprise:** You can use your GitHub Enterprise
 installation as the authentication and authorization layer for Travis CI
 Enterprise, allowing you to leverage your existing LDAP or SAML with no
-extra configuration. 
-* **Meets security and regulatory requirements:**  With your servers and hosts 
-being deployed inside your firewall, you have full ownership and control of 
-your data, helping to make it possible to meet the security requirements of 
-your company. 
-* **Customizable images:**  We provide a range of build environment images, 
-covering an extensive set of languages, updated with the current dependences 
-each community is using. If you or your team need specific changes, they are 
-easily customizable, which can then be deployed for use by your team. 
-* **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud 
-or on-premises environment of your choice. This includes AWS, Google Compute 
-Engine, VMware, OpenStack and Azure. 
+extra configuration.
+* **Meets security and regulatory requirements:**  With your servers and hosts
+being deployed inside your firewall, you have full ownership and control of
+your data, helping to make it possible to meet the security requirements of
+your company.
+* **Customizable images:**  We provide a range of build environment images,
+covering an extensive set of languages, updated with the current dependences
+each community is using. If you or your team need specific changes, they are
+easily customizable, which can then be deployed for use by your team.
+* **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud
+or on-premises environment of your choice. This includes AWS, Google Compute
+Engine, VMware, OpenStack and Azure.
 * **Scales to your needs:** Your team has the flexibility to spin up as much build
 capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their
-hearts content. 
+hearts content.
 * **High availability:** Your continuous integration system is just as critical
- as your GitHub Enterprise. Travis CI Enterprise can run in a multi node setup 
+ as your GitHub Enterprise. Travis CI Enterprise can run in a multi node setup
  behind a load balancer, providing safety from hardware failures.
 
 Travis CI Enterprise brings both flexibility to your CI/CD process, and gives

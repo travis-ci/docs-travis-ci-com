@@ -1,12 +1,12 @@
 ---
 title: Enterprise Worker Start & Debug Containers
-layout: en
+layout: en_enterprise
 
 ---
 
 <div id="toc"></div>
 
-## Stopping and Starting the Worker 
+## Stopping and Starting the Worker
 
 The Travis CI Worker is installed as an upstart service. The following
 commands can be used to check the status of the service, and to start or
@@ -68,4 +68,3 @@ host you can do the following:
       docker -H tcp://0.0.0.0:4243 kill $id
       docker -H tcp://0.0.0.0:4243 rm $id
 ```
-

@@ -1,6 +1,6 @@
 ---
 title: Enterprise System Prerequisites
-layout: en
+layout: en_enterprise
 
 ---
 
@@ -8,9 +8,9 @@ layout: en
 
 ## Licensing
 
-To register for a 30 day trial please visit 
-<a href="https://enterprise.travis-ci.com/signup">our signup page</a>. 
-Please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for 
+To register for a 30 day trial please visit
+<a href="https://enterprise.travis-ci.com/signup">our signup page</a>.
+Please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for
 more information on pricing.
 
 Getting started guides can be found [in the Travis CI docs](/)

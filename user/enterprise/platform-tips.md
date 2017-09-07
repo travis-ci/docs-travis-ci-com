@@ -1,6 +1,6 @@
 ---
 title: Enterprise Platform Administration Tips
-layout: en
+layout: en_enterprise
 
 ---
 

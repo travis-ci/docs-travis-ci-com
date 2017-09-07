@@ -1,6 +1,6 @@
 ---
 title: Customizing Travis CI Enterprise Build Images
-layout: en
+layout: en_enterprise
 
 ---
 
@@ -45,7 +45,7 @@ In order to build other docker images, the Worker needs to be setup to support D
 ```
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```       
-    
+
 You will then need to restart each Worker, you can find more information on this here: https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker.
 
 ### Updates to your .travis.yml files
@@ -59,7 +59,7 @@ Add the following to any `.travis.yml` files for repositories which would like t
           - sudo apt-get update
           - sudo apt-get install docker-engine
 ```
-            
+
 For example, if you want to create a new repository and test out Docker support, you can create a `.travis.yml` file which looks like the following:
 
 ```
@@ -75,4 +75,3 @@ For example, if you want to create a new repository and test out Docker support,
           script:
           - sudo docker run ubuntu date
 ```
-        
