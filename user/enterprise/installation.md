@@ -6,7 +6,7 @@ layout: en_enterprise
 
 This guide covers installing the Travis CI Enterprise Platform and Travis CI
 Enterprise Worker. Please check our [system
-prerequisites](/user/enterprise/prerequisites/Q) guide if you have any questions
+prerequisites](/user/enterprise/prerequisites/) guide if you have any questions
 about whether your configuration will be supported.
 
 Because Travis CI Enterprise is optimized for EC2, the following guide
