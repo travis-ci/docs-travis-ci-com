@@ -49,17 +49,16 @@ levels.
 ```yaml
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "3.6"
-  - "3.6-dev" # 3.6 development branch
-  - "3.7-dev" # 3.7 development branch
-  - "nightly"
+  - 2.6
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
+  - 3.5-dev  # 3.5 development branch
+  - 3.6
+  - 3.6-dev  # 3.6 development branch
+  - 3.7-dev  # 3.7 development branch
+  - nightly
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -91,15 +90,15 @@ in your `.travis.yml`:
 ```yaml
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
+  - 2.6
+  - 2.7
+  - 3.4
+  - 3.5
+  - 3.6
   # PyPy versions
-  - "pypy"  # PyPy2 2.5.0
-  - "pypy3" # Pypy3 2.4.0
-  - "pypy-5.3.1"
+  - pypy   # PyPy2 5.8.0
+  - pypy3  # Pypy3 5.8.0-beta0
+  - pypy-5.3.1
 # command to install dependencies
 install:
   - pip install .
@@ -174,8 +173,8 @@ Use *env* key in your .travis.yml file, for example:
 
 ```yaml
 env:
-  - DJANGO_VERSION=1.7.8
-  - DJANGO_VERSION=1.8.2
+  - DJANGO_VERSION=1.10.8
+  - DJANGO_VERSION=1.11.5
 ```
 {: data-file=".travis.yml"}
 
@@ -198,6 +197,21 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 
 For Python projects, `env` and `python` can be given as arrays
 to construct a build matrix.
+
+```yaml
+python:
+  - 3.6
+  - pypy3  # Pypy3 5.8.0-beta0
+  - nightly
+env:
+  - DJANGO_VERSION=1.10.8
+  - DJANGO_VERSION=1.11.5
+# while pypy3 is still in beta, allow those and nightly tests to fail
+matrix:
+  allow_failures:
+    - python: pypy3
+    - python: nightly
+```
 
 ## Examples
 
