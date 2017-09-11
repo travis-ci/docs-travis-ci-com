@@ -77,7 +77,15 @@ Common options are:
    `if [[ <condition> ]]; then <deploy>; fi`
    It can be complex, but there can be only one. For example, `$CC = gcc`.
 
-5. **`tags`**: When set to `true`, the application is deployed when a tag is applied to the commit. This causes the `branch` condition to be ignored.
+5. **`tags`**: There are three cases.
+
+    1. With `tags: true`, deployment is triggered if and only if `$TRAVIS_TAG` is set.
+       Depending on your workflow, you may set `$TRAVIS_TAG` explicitly, even if this is
+       a non-tag build when it was initiated. This causes the `branch` condition to be ignored.
+    1. With `tags: false`, deployment is triggered if and only if `$TRAVIS_TAG` is empty.
+       This also causes the `branch` condition to be ignored.
+    1. When `tags` is not set, or set to any other value, `$TRAVIS_TAG` is ignored.
+       And the `branch` condition is considered, if it is set.
 
 #### Examples of Conditional Releases using `on:`
 

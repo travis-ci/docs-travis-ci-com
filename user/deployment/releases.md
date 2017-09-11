@@ -54,6 +54,11 @@ Or, if you're using a private repository:
 travis setup releases --pro
 ```
 
+## `on.tags` condition
+
+When working with GitHub Releases, it is important to understand how the deployment is triggered
+with [the `tags` condition](/user/deployment/#Conditional-Releases-with-on%3A).
+
 ## Authenticating with an OAuth token
 
 The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
