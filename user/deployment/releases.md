@@ -22,21 +22,23 @@ deploy:
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
 > GitHub Releases works with `git` tags.
-> 
+>
 > If there is none for the present commit, one will be created
 > for you, in the form of `untagged-*`, where `*` is a random hex string.
-> 
+>
 > If this is not what you want, we suggest requiring a tag for your deployment with `on.tags: true`,
 > as shown above, or you can tag the present commit with `git tag` in `before_deploy`; for example:
-> 
+>
     before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "YOUR GIT USER NAME"
+      - git config --local user.email "YOUR GIT USER EMAIL"
       - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
     deploy:
       provider: releases
       api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
       skip_cleanup: true
-
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
