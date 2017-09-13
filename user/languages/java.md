@@ -19,6 +19,7 @@ To use the Java environment add the following to your `.travis.yml`:
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
 ## Projects Using Maven
 
@@ -99,6 +100,7 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+{: data-file=".travis.yml"}
 
 ### Gradle daemon is disabled by default
 
@@ -124,6 +126,7 @@ Because there is no single standard way of installing project dependencies with 
 language: java
 install: ant deps
 ```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
@@ -135,6 +138,7 @@ jdk:
   - oraclejdk7
   - openjdk6
 ```
+{: data-file=".travis.yml"}
 
 > Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
 
@@ -151,6 +155,7 @@ addons:
     packages:
       - oracle-java8-installer
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -168,6 +173,7 @@ script:
   - jdk_switcher use oraclejdk7
   - # do stuff with Java 7
 ```
+{: data-file=".travis.yml"}
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 

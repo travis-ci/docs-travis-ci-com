@@ -23,6 +23,7 @@ deploy:
   on:
     branch: master
 ```
+{: data-file=".travis.yml"}
 
 > Make sure you have `skip_cleanup` set to true, otherwise Travis CI will delete
 > all the files created during the build, which will probably delete what you are

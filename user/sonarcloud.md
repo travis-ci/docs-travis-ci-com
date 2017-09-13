@@ -18,12 +18,14 @@ You are using one of the two following environments:
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
 * [Trusty CI Environment](/user/reference/trusty/):
 
 ```yaml
 dist: trusty
 ```
+{: data-file=".travis.yml"}
 
 ## Inspecting code with the SonarQube Scanner
 
@@ -46,6 +48,7 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 Please take a look at the [live example project](https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis) to know more about this standard use case.
 
@@ -63,6 +66,7 @@ script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 ```
+{: data-file=".travis.yml"}
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
@@ -82,6 +86,7 @@ addons:
 script:
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 `branches` accepts a list of regular expressions.
 
@@ -111,6 +116,7 @@ addons:
 script:
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 ## Upcoming improvements
 

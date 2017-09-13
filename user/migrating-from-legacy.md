@@ -9,7 +9,7 @@ layout: en
 
 ## Outdated
 
-This document is from a switch in our default infrastructure in 2015 and may contain outdated information. 
+This document is from a switch in our default infrastructure in 2015 and may contain outdated information.
 
 ## tl;dr
 
@@ -39,11 +39,14 @@ For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml
 
 ## How can I use container-based infrastructure?
 
-If you see `This job is running on container-based infrastructure` in your build log it means you are already running builds on our new container-based infrastructure.
+Container-based infrastructure is the default for new repositories, but if you
+want to set it explicitly or have an older repository, add the following line to
+your `.travis.yml`:
 
-If you don't, to use the new infrastructure add the following line to your .travis.yml:
-
-`sudo: false`
+```yaml
+sudo: false
+```
+{: data-file=".travis.yml"}
 
 ### What are the restrictions?
 
@@ -72,6 +75,7 @@ addons:
     - deadsnakes
     - ubuntu-toolchain-r-test
 ```
+{: data-file=".travis.yml"}
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
 [whitelist](https://github.com/travis-ci/apt-source-whitelist). If you need additional sources you must use `sudo: required`.
@@ -87,6 +91,7 @@ addons:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
 
@@ -102,6 +107,7 @@ before_script:
   - tar -xvf /tmp/casper.tar.gz
   - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
 ```
+{: data-file=".travis.yml"}
 
 To install custom software from source, you can follow similar steps. Here's an example that downloads, compiles and installs the protobufs library.
 
@@ -111,6 +117,7 @@ install:
   - tar -xzvf protobuf-2.4.1.tar.gz
   - cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
 ```
+{: data-file=".travis.yml"}
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -121,6 +128,7 @@ wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
 tar -xzvf protobuf-2.4.1.tar.gz
 cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
 ```
+{: data-file="install-protobuf.sh"}
 
 Note that you can't update the `$PATH` environment variable in the first example inside a shell script, as it only updates the variable for the sub-process that is running the script.
 
@@ -130,6 +138,7 @@ Once you have added to the repository, you can run it from your `.travis.yml`:
 before_install:
   - bash install-protobuf.sh
 ```
+{: data-file=".travis.yml"}
 
 We can also add a `script` command to list the content of the protobuf folder to make sure it is installed:
 
@@ -137,6 +146,7 @@ We can also add a `script` command to list the content of the protobuf folder to
 script:
   - ls -R $HOME/protobuf
 ```
+{: data-file=".travis.yml"}
 
 ### How Do I Cache Dependencies and Directories?
 
@@ -149,6 +159,7 @@ cache:
   directories:
   - $HOME/protobuf
 ```
+{: data-file=".travis.yml"}
 
 And then change the shell script to only compile and install if the cached directory is not empty:
 
@@ -164,6 +175,7 @@ else
   echo 'Using cached directory.';
 fi
 ```
+{: data-file="install-protobuf.sh"}
 
 See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
 

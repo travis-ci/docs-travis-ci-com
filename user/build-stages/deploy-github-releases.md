@@ -25,6 +25,7 @@ jobs:
         on:
           tags: true
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

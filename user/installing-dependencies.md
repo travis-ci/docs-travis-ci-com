@@ -17,6 +17,7 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
 ```
+{: data-file=".travis.yml"}
 
 > Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
 >
@@ -34,6 +35,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y
 ```
+{: data-file=".travis.yml"}
 
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
@@ -48,6 +50,7 @@ before_script:
   - sudo apt-get update -qq
   - sudo apt-get install varnish -y
 ```
+{: data-file=".travis.yml"}
 
 ### Installing Packages without an APT Repository
 
@@ -62,6 +65,7 @@ before_install:
   - wget http://pngquant.org/pngquant_1.7.1-1_i386.deb
   - sudo dpkg -i pngquant_1.7.1-1_i386.deb
 ```
+{: data-file=".travis.yml"}
 
 ### Installing Packages with the APT Addon
 
@@ -90,6 +94,7 @@ addons:
     - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
       key_url: 'https://packagecloud.io/gpg.key'
 ```
+{: data-file=".travis.yml"}
 
 #### Adding APT Packages
 
@@ -102,6 +107,7 @@ addons:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 > Note: When using APT sources and packages together, you need to make
 > sure they are under the same key space in the YAML file. e.g.
@@ -115,6 +121,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 ```
+{: data-file=".travis.yml"}
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
@@ -142,6 +149,7 @@ install:
 script:
   - /snap/bin/hugo new site test-site
 ```
+{: data-file=".travis.yml"}
 
 ## Installing Packages on Container Based Infrastructure
 
@@ -158,6 +166,7 @@ addons:
     - deadsnakes
     - ubuntu-toolchain-r-test
 ```
+{: data-file=".travis.yml"}
 
 ### Adding APT Packages
 
@@ -170,6 +179,7 @@ addons:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 > Note: When using APT sources and packages together, you need to make
 > sure they are under the same key space in the YAML file. e.g.
@@ -183,6 +193,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 ```
+{: data-file=".travis.yml"}
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
@@ -220,6 +231,7 @@ addons:
     packages:
     - libcxsparse3.1.2
 ```
+{: data-file=".travis.yml"}
 
 > If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
 
@@ -232,6 +244,7 @@ before_install:
   - brew update # see note below
   - brew install beanstalk
 ```
+{: data-file=".travis.yml"}
 
 > To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
 
@@ -243,6 +256,7 @@ If you're testing on both Linux and OS X, use the `$TRAVIS_OS_NAME` variable to 
 install:
   - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
 ```
+{: data-file=".travis.yml"}
 
 ## Installing Projects from Source
 
@@ -258,6 +272,7 @@ before_script:
   - tar -xvf /tmp/casper.tar.gz
   - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
 ```
+{: data-file=".travis.yml"}
 
 Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
 
@@ -269,6 +284,7 @@ install:
   - tar -xzvf protobuf-2.4.1.tar.gz
   - pushd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install && popd
 ```
+{: data-file=".travis.yml"}
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -286,5 +302,6 @@ Once it's added to the repository, you can run it from your .travis.yml:
 before_install:
   - ./install-protobuf.sh
 ```
+{: data-file=".travis.yml"}
 
 Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.

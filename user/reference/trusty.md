@@ -21,6 +21,7 @@ To use sudo-enabled Ubuntu Trusty, add the following to your
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or to route to sudo-less:
 
@@ -28,6 +29,7 @@ Or to route to sudo-less:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 This is enabled for both public and private repositories.
 
@@ -84,6 +86,7 @@ private repositories.
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
 Or, if you want to route to container-based:
 
@@ -91,6 +94,7 @@ Or, if you want to route to container-based:
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
 
@@ -154,12 +158,29 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
-## Node.JS images
+### Default Python Version
 
-[nvm](https://github.com/creationix/nvm#installation) is installed and we
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+
+### Pre-installed pip packages
+
+Travis CI installs the following packages by default in each virtualenv:
+
+- nose
+- pytest
+- wheel
+- mock
+- six
+
+On all Python versions except pypy and pypy3, `numpy` is available as well.
+
+## JavaScript and Node.js images
+
+[nvm](https://github.com/creationix/nvm) is installed and we
 pre-install at least two of the latest point releases such as `6.9.4` and
-`7.4.0`.  Any versions that are not pre-installed will be dynamically installed
-by `nvm`.
+`7.4.0`.
+
+You can specify other versions which will be dynamically installed using `nvm`.
 
 ## Go images
 
@@ -170,8 +191,7 @@ by `gimme`.
 
 ## JVM images
 
-- We install the latest OpenJDK versions from the official Ubuntu Trusty
-  packages.
+- We install the latest OpenJDK versions from the official Ubuntu Trusty packages.
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another version.
@@ -183,19 +203,83 @@ by `gimme`.
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
-versions that are not pre-installed will be dynamically installed from a local
-cache, or built via `phpenv` if unavailable.
+least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+`5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
+are not pre-installed will be dynamically installed from a local cache, or built
+via `phpenv` if unavailable.
 
-*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it*
+*Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty.
+Specifying it will result in build failure.
+If you need to test with these versions, use Precise.*
+
+```yaml
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+```
+{: data-file=".travis.yml"}
+
+
+### HHVM
+
+[hhvm](https://github.com/facebook/hhvm) is also available.
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
+
+```yaml
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
+  - hhvm-nightly
+```
+{: data-file=".travis.yml"}
+
+### Extensions
+
+#### PHP 7.0
+
+The following extensions are preinstalled for PHP 7.0 and nightly builds:
+
+- [apcu.so](http://php.net/apcu)
+- [memcached.so](http://php.net/memcached)
+- [mongodb.so](https://php.net/mongodb)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
+#### PHP 5.6 and below
+
+For PHP versions up to 5.6, the following extensions are available:
+
+- [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
+- [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+- [mongo.so](http://php.net/mongo)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
 
 ## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
 `apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing
-dependencies](/user/installing-dependencies/).
+please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 
@@ -227,6 +311,7 @@ For example, to install version 50.0, add the following to your
 addons:
   firefox: "50.0"
 ```
+{: data-file=".travis.yml"}
 
 ### Headless Browser Testing Tools
 
