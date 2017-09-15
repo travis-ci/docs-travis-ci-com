@@ -126,7 +126,7 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Languages
 
-- go 1.7,1
+- go 1.7.1
 
 ## Services
 
