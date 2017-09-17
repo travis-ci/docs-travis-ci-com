@@ -34,7 +34,7 @@ sudo: false
 This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of using
-Trusty, including details specific to container-based, read on &nbsp...
+Trusty, including details specific to container-based, read on&nbsp;...
 
 ## Fully-virtualized via `sudo: required`
 
