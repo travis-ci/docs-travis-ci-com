@@ -144,15 +144,6 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-To test against OpenJDK 7 and Oracle JDK 8:
-
-```yaml
-jdk:
-  - openjdk7
-  - oraclejdk8
-```
-{: data-file=".travis.yml"}
-
 ## Build Matrix
 
 For Groovy projects, `env` and `jdk` can be given as arrays
