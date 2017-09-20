@@ -1,7 +1,7 @@
 ---
 title: Building a Go Project
 layout: en
-permalink: /user/languages/go/
+
 swiftypetags:
   - golang
   - go lang
@@ -13,7 +13,7 @@ swiftypetags:
 This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our
 [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Go builds are not available on the OSX environment.
+Go builds are not available on the OS X environment.
 
 ## CI environment for Go Projects
 
@@ -39,6 +39,7 @@ go:
   - 1.7.x
   - master
 ```
+{: data-file=".travis.yml"}
 
 All go version management is handled by [gimme](https://github.com/travis-ci/gimme).
 
@@ -51,6 +52,7 @@ The project source code will be placed in `GOPATH/src/github.com/user/repo` by d
 ```yaml
 go_import_path: example.org/pkg/foo
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -67,6 +69,7 @@ If you need to perform special tasks before your tests can run, override the `in
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to specify a list of operations, for example, to `go get` remote dependencies:
 
@@ -75,6 +78,7 @@ install:
   - go get github.com/bmizerany/assert
   - go get github.com/mrb/hob
 ```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 
@@ -129,6 +133,7 @@ before_install:
   - cp .netrc ~
   - chmod 600 .netrc
 ```
+{: data-file=".travis.yml"}
 
 You can leave out the second step if your .netrc already has access permissions
 set only for the owner. That's a requirement for it to be read from curl.
@@ -155,6 +160,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 ```yaml
 language: go
 ```
+{: data-file=".travis.yml"}
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide. For example,
 to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
@@ -162,6 +168,7 @@ to omit the `-v` flag, override the `script:` key in `.travis.yml` like this:
 ```yaml
 script: go test ./...
 ```
+{: data-file=".travis.yml"}
 
 The arguments passed to the default `go test` command may be overridden by specifying `gobuild_args:` at the top level
 of the config, e.g.:
@@ -169,6 +176,7 @@ of the config, e.g.:
 ```yaml
 gobuild_args: -x -ldflags "-X main.VersionString v1.2.3"
 ```
+{: data-file=".travis.yml"}
 
 which will result in the script step being:
 
@@ -181,6 +189,7 @@ To build by running Scons without arguments, use this:
 ```yaml
 script: scons
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -205,6 +214,7 @@ deploy:
   on:
     condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
 ```
+{: data-file=".travis.yml"}
 
 ## Examples
 

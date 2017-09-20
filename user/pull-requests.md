@@ -1,7 +1,7 @@
 ---
 title: Building Pull Requests
 layout: en
-permalink: /user/pull-requests/
+
 ---
 
 Pull requests are an essential feature of Travis CI. For a project that has
@@ -55,6 +55,7 @@ script:
    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
 ```
+{: data-file=".travis.yml"}
 
 ## My Pull Request isn't being built
 

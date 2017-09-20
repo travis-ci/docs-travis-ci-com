@@ -1,7 +1,7 @@
 ---
 title: Using Code Climate with Travis CI
 layout: en
-permalink: /user/code-climate/
+
 ---
 
 [Code Climate](https://www.codeclimate.com) is a hosted platform to continuously
@@ -20,16 +20,11 @@ months](https://codeclimate.com/partners/travisci)!
 Test coverage integration can be used on both private and open source projects,
 and is free for open source.
 
-Set up instructions for each supported language are available at the Code
-Climate documentation site:
+Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v1.0/docs/getting-started-test-coverage). In that guide you'll find: 
+* links to [parallel tests
+  support](https://docs.codeclimate.com/v1.0/docs/configuring-test-coverage#section-parallel-tests-and-multiple-test-suites) setup,
+* [troubleshooting
+  tips](https://docs.codeclimate.com/v1.0/docs/test-coverage-troubleshooting-tips),
+* and a [sample .travis.yml](https://docs.codeclimate.com/docs/travis-ci-test-coverage).
 
-- [Ruby](https://docs.codeclimate.com/v1.0/docs/travis-ci-ruby-test-coverage)
-- [JavaScript](https://docs.codeclimate.com/v1.0/docs/travis-ci-javascript-test-coverage)
-- [PHP](https://docs.codeclimate.com/v1.0/docs/travis-ci-php-test-coverage)
-- [Python](https://docs.codeclimate.com/v1.0/docs/travis-ci-python-test-coverage)
 
-### I want to use Code Climate with parallel builds
-
-Code Climate currently doesn't aggregate test coverage results across multiple
-test runs. That means, you can't effectively use it yet with libraries like
-`parallel_test` or parallel builds using our build matrix.

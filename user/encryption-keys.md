@@ -1,7 +1,7 @@
 ---
 title: Encryption keys
 layout: en
-permalink: /user/encryption-keys/
+
 ---
 
 **We have separate documentation on [encrypting files](/user/encrypting-files/).**
@@ -36,6 +36,11 @@ secure: ".... encrypted data ...."
 ```
 
 Now you can place it in the `.travis.yml` file.
+
+You can also skip the above, and add it automatically by running:
+```bash
+travis encrypt SOMEVAR="secretvalue" --add
+```
 
 Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
 
@@ -80,6 +85,7 @@ notifications:
   campfire:
     rooms: [subdomain]:[api token]@[room id]
 ```
+{: data-file=".travis.yml"}
 
 For us, that is somedomain:abcxyz@14.
 
@@ -105,6 +111,7 @@ notifications:
     rooms:
       secure: "ABC5OwLpwB7L6Ca...."
 ```
+{: data-file=".travis.yml"}
 
 And we're done.
 
@@ -120,6 +127,7 @@ notifications:
     rooms:
       secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -128,6 +136,7 @@ notifications:
   campfire:
     rooms: "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 while
 
@@ -137,6 +146,7 @@ notifications:
     rooms:
       - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -146,6 +156,7 @@ notifications:
     rooms:
       - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 In the case of secure env vars
 
@@ -153,6 +164,7 @@ In the case of secure env vars
 env:
   - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -160,6 +172,7 @@ becomes
 env:
   - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 ## Fetching the public key for your repository
 

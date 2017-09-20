@@ -1,7 +1,7 @@
 ---
 title: anynines Deployment
 layout: en
-permalink: /user/deployment/anynines/
+
 ---
 
 You now have the amazing ability to deploy directly to [anynines](http://www.anynines.com/) after a successful build on Travis CI

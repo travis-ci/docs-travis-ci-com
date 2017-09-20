@@ -371,7 +371,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="nb">require</span> <span class="s1">'travis/tools/github'</span>
 
 <span class="c1"># drop_token will make the token a temporary one</span>
-<span class="n">github</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Tools</span><span class="o">::</span><span class="no">Github</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">drop_token: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
+<span class="n">github</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Tools</span><span class="o">::</span><span class="no">GitHub</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">drop_token: </span><span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">g</span><span class="o">|</span>
   <span class="n">g</span><span class="p">.</span><span class="nf">ask_login</span>    <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"GitHub login:     "</span><span class="p">);</span> <span class="nb">gets</span> <span class="p">}</span>
   <span class="n">g</span><span class="p">.</span><span class="nf">ask_password</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Password:         "</span><span class="p">);</span> <span class="nb">gets</span> <span class="p">}</span>
   <span class="n">g</span><span class="p">.</span><span class="nf">ask_otp</span>      <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Two-factor token: "</span><span class="p">);</span> <span class="nb">gets</span> <span class="p">}</span>
@@ -2522,6 +2522,7 @@ Supply a <code class="prettyprint">callback</code> parameter to use this.</p>
 <p>Besides the official clients, there is a range of third party client available, amongst these:</p>
 
 <ul>
+<li><strong><a href="https://github.com/php-api-clients/travis">PHP API Clients Travis Client</a></strong>: Asynchronous first PHP client library</li>
 <li><strong><a href="https://github.com/l3l0/php-travis-client">PHP Travis Client</a></strong>: PHP client library</li>
 <li><strong><a href="https://github.com/pwmckenna/node-travis-ci">Travis Node.js</a></strong>: Node.js client library</li>
 <li><strong><a href="https://github.com/cmaujean/travis-api-wrapper">travis-api-wrapper</a></strong>: Asynchronous Node.js wrapper</li>

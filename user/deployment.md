@@ -1,7 +1,7 @@
 ---
 title: Deployment
 layout: en
-permalink: /user/deployment/
+swiftypetags: 'skip_cleanup'
 ---
 
 ### Supported Providers
@@ -21,8 +21,9 @@ working directory and deleting all changes made during the build ( `git stash
 
 ```yaml
 deploy:
-	skip_cleanup: true
+  skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Deploying to Multiple Providers
 
@@ -39,6 +40,7 @@ deploy:
   - provider: heroku
     api_key: "YOUR HEROKU API KEY"
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional Releases with `on:`
 
@@ -55,6 +57,7 @@ deploy:
     branch: release
     condition: $MY_ENV = super_awesome
 ```
+{: data-file=".travis.yml"}
 
 When all conditions specified in the `on:` section are met, deployment for this
 provider will be performed.
@@ -89,6 +92,7 @@ deploy:
     branch: staging
     node: '0.11' # this should be quoted; otherwise, 0.10 would not work
 ```
+{: data-file=".travis.yml"}
 
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
@@ -102,6 +106,7 @@ deploy:
   on:
     condition: "$CC = gcc"
 ```
+{: data-file=".travis.yml"}
 
 This example deploys to GitHub Releases when a tag is set and the Ruby version is 2.0.0.
 
@@ -115,6 +120,7 @@ deploy:
     tags: true
     rvm: 2.0.0
 ```
+{: data-file=".travis.yml"}
 
 ### Adding a Provider
 
@@ -127,6 +133,7 @@ deploy:
   provider: awesome-experimental-provider
   edge: true
 ```
+{: data-file=".travis.yml"}
 
 ### Pull Requests
 

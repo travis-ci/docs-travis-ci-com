@@ -1,44 +1,42 @@
 ---
-title: The Trusty beta Build Environment
+title: The Trusty Build Environment
 layout: en
-permalink: /user/trusty-ci-environment/
+redirect_from:
+  - /user/trusty-ci-environment/
 ---
 
-> The Trusty environment is still in BETA. Some features may change at shorter notice than our more stable environments.
-{: .beta}
+## What This Guide Covers
+
+This guide provides a general overview of which packages, tools and settings are
+available in the Trusty environment.
+
+<div id="toc"></div>
 
 ## Using Trusty
 
-In order to use sudo-enabled Ubuntu Trusty, add the following to your
+To use sudo-enabled Ubuntu Trusty, add the following to your
 `.travis.yml`.
 
 ```yaml
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
-Or, if you want to route to the sudo-less beta, add:
+Or to route to sudo-less:
 
 ```yaml
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of using
-Trusty, including details specific to the container-based beta, read on ...
+Trusty, including details specific to container-based, read on ...
 
-### What This Guide Covers
-
-This guide provides a general overview of which packages, tools and settings are
-available in the Trusty beta environment.
-
-<div id="toc"></div>
-
-## Overview
-
-### Fully-virtualized via `sudo: required`
+## Fully-virtualized via `sudo: required`
 
 When specifying `sudo: required`, Travis CI runs each build in an isolated
 [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine
@@ -50,7 +48,7 @@ slate and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-### Container-based with `sudo: false`
+## Container-based with `sudo: false`
 
 When specifying `sudo: false`, Travis CI runs each build in a container on a
 shared host via Docker.  The container contents are a pristine copy of the
@@ -76,8 +74,8 @@ includes:
 
 - A minimal image which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains (almost) all runtimes and services
-  present in Precise environments.
+- A considerably larger image which contains roughly the same runtimes and
+  services present in Precise environments.
 
 ## Routing to Trusty
 
@@ -88,26 +86,24 @@ private repositories.
 dist: trusty
 sudo: required
 ```
+{: data-file=".travis.yml"}
 
-Or, if you want to route to the container-based beta:
+Or, if you want to route to container-based:
 
 ```yaml
 dist: trusty
 sudo: false
 ```
+{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
-
-*NOTE: The Trusty images do not currently contain all the common
-tools and services present in our Precise images. This is something
-we expect will change over time.*
 
 ### Version control
 
 All VM images have the following pre-installed:
 
-- A Git 2.x release
-- Mercurial (official Ubuntu packages)
+- Git 2.x
+- Mercurial
 - Subversion (official Ubuntu packages)
 
 ### Compilers & Build toolchain
@@ -142,102 +138,180 @@ the Docker binaries are available for local use.
 
 See our [Using Docker in Builds](/user/docker/) section for more details.
 
-### Runtimes
+## Ruby images
 
-#### Ruby
+[rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
+the latest point releases such as:
 
-[rvm](https://rvm.io/rvm/about) is installed and we pre-installed at least two
-of the latest point releases such as `2.2.5` and `2.3.1`.  Any versions that are
-not pre-installed will be dynamically installed at runtime from a local cache.
+- `2.2.7`
+- `2.4.1`
 
-#### Python
+Other versions are dynamically installed at runtime from a local cache.
+
+## Python images
 
 We pre-install at least two of the latest releases of CPython in the `2.x` and
-`3.x` series such as `2.7.12` and `3.5.2`, and at least one version of PyPy.
+`3.x` series such as `2.7.13` and `3.6.1`, and at least one version of PyPy.
 Any versions that are not pre-installed will be dynamically installed at runtime
 from a local cache.
 
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
-#### Node.JS
+### Default Python Version
 
-[nvm](https://github.com/creationix/nvm#installation) is installed and we
-pre-install at least two of the latest point releases such as `4.1.2` and
-`0.12.7`.  Any versions that are not pre-installed will be dynamically installed
-by `nvm`.
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
-#### Go
+### Pre-installed pip packages
+
+Travis CI installs the following packages by default in each virtualenv:
+
+- nose
+- pytest
+- wheel
+- mock
+- six
+
+On all Python versions except pypy and pypy3, `numpy` is available as well.
+
+## JavaScript and Node.js images
+
+[nvm](https://github.com/creationix/nvm) is installed and we
+pre-install at least two of the latest point releases such as `6.9.4` and
+`7.4.0`.
+
+You can specify other versions which will be dynamically installed using `nvm`.
+
+## Go images
 
 [gimme](https://github.com/travis-ci/gimme#gimme) is installed and we
-pre-install at least two of the latest point releases such as `1.6.3` and
-`1.7.3`.  Any versions that are not pre-installed will be dynamically installed
+pre-install at least two of the latest point releases such as `1.7.3` and
+`1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
-#### JVM
+## JVM images
 
-- We install the latest OpenJDK versions from the official Ubuntu Trusty
-  packages.
+- We install the latest OpenJDK versions from the official Ubuntu Trusty packages.
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another version.
 - gradle
-- Maven
+- maven
 - leiningen
 - sbt
 
-#### PHP
+## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
-versions that are not pre-installed will be dynamically installed from a local
-cache, or built via `phpenv` if unavailable.
+least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+`5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
+are not pre-installed will be dynamically installed from a local cache, or built
+via `phpenv` if unavailable.
 
-*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it*
+*Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty.
+Specifying it will result in build failure.
+If you need to test with these versions, use Precise.*
 
-#### Other software
+```yaml
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+```
+{: data-file=".travis.yml"}
+
+
+### HHVM
+
+[hhvm](https://github.com/facebook/hhvm) is also available.
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
+
+```yaml
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
+  - hhvm-nightly
+```
+{: data-file=".travis.yml"}
+
+### Extensions
+
+#### PHP 7.0
+
+The following extensions are preinstalled for PHP 7.0 and nightly builds:
+
+- [apcu.so](http://php.net/apcu)
+- [memcached.so](http://php.net/memcached)
+- [mongodb.so](https://php.net/mongodb)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
+#### PHP 5.6 and below
+
+For PHP versions up to 5.6, the following extensions are available:
+
+- [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
+- [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+- [mongo.so](http://php.net/mongo)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception of xdebug.
+
+
+## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
 `apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing
-dependencies](/user/installing-dependencies/).
+please see the document on [installing dependencies](/user/installing-dependencies/).
 
-### Data Stores
+## Databases and services
 
 We pre-install the following services which may be activated with the built-in
 [services](/user/database-setup/) support.
 
+- Apache Cassandra
+- CouchDB
+- ElasticSearch
 - MongoDB
+- Neo4J
 - PostgreSQL
 - RabbitMQ
 - Redis
+- Riak
 - SQLite
 
-The following services that are included with our Precise images are **not
-included** in the Trusty images, but may be installed via `apt` if necessary:
-
-- Apache Cassandra
-- CouchDB
-- Neo4J
-- Riak
-
-To install ElasticSearch follow the [installation instructions](/user/database-setup/#Installing-ElasticSearch-on-trusty-container-based-infrastructure).
-
-### Firefox
+## Firefox
 
 Firefox is installed by default.
 
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.
 
-For example, to install version 17.0, add the following to your
+For example, to install version 50.0, add the following to your
 `.travis.yml` file:
 
 ```yaml
 addons:
-  firefox: "17.0"
+  firefox: "50.0"
 ```
+{: data-file=".travis.yml"}
 
 ### Headless Browser Testing Tools
 
@@ -282,5 +356,5 @@ secondary groups given above in `usermod`.
 
 ### Build system information
 
-In the build log, relevant software versions (including the available language versions)
-is show in the "Build system information".
+In the build log, relevant software versions (including the available language
+versions) is show in the "Build system information".

@@ -1,7 +1,9 @@
 ---
 layout: en
 title: Imprint
+permalink: /imprint.html
 ---
+
 <article id="imprint">
   <address>
     Travis CI GmbH<br>
@@ -10,7 +12,7 @@ title: Imprint
     Germany
   </address>
   <h4>Vertreten durch</h4>
-  <p>Josh Kalderimis, Mathias Meyer</p>
+  <p>Mathias Meyer, Fritz Thielemann</p>
   <h4>Kontakt</h4>
   <p>
     Email contact@travis-ci.org <br>
@@ -23,7 +25,7 @@ title: Imprint
   <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
   <address>
     Travis CI GmbH<br>
-    Josh Kalderimis, Mathias Meyer<br>
+    Mathias Meyer, Fritz Thielemann<br>
     Rigaer Straße 8<br>
     10247 Berlin<br>
     Germany

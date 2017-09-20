@@ -1,14 +1,14 @@
 ---
 title: Building a Scala project
 layout: en
-permalink: /user/languages/scala/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Scala projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Scala builds are not available on the OSX environment.
+Scala builds are not available on the OS X environment.
 
 ## Overview
 
@@ -31,6 +31,7 @@ scala:
    - 2.10.4
    - 2.11.2
 ```
+{: data-file=".travis.yml"}
 
 ### Default Test Command
 
@@ -58,6 +59,7 @@ script:
   - sbt -jvm-opts travis/jvmopts.compile ... compile
   - sbt -jvm-opts travis/jvmopts.test ... test
 ```
+{: data-file=".travis.yml"}
 
 will then run `compile` and `test` with different JVM parameters.
 
@@ -67,6 +69,7 @@ For example
 ```yaml
 sbt_args: -no-colors -J-Xss2m
 ```
+{: data-file=".travis.yml"}
 
 will generate
 

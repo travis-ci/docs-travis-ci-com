@@ -1,7 +1,7 @@
 ---
 title: Caching Dependencies and Directories
 layout: en
-permalink: /user/caching/
+
 ---
 
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
@@ -9,7 +9,7 @@ These features are also still experimental, please [contact us](mailto:support@t
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build pushes* to
+**To use the caching feature**, in your repository settings, set *Build branch updates* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
@@ -43,6 +43,7 @@ To enable Bundler caching in your `.travis.yml`:
 language: ruby
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -54,6 +55,12 @@ If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-argu
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
+#### Caching and overriding `install` step
+
+Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
+In this case, observe where Bundler is installing the gems, and cache that directory using
+[cache.directories](#Arbitrary-directories).
+
 #### Cleaning up bundle
 
 When you use
@@ -61,6 +68,7 @@ When you use
 ```yaml
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 The command `bundle clean` is executed before the cache is uploaded.
 
@@ -81,6 +89,7 @@ You can enable CocoaPods caching for your repository by adding this to your
 language: objective-c
 cache: cocoapods
 ```
+{: data-file=".travis.yml"}
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
@@ -91,6 +100,7 @@ cache:
   - bundler
   - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -105,6 +115,7 @@ this:
 language: objective-c
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 ### yarn cache
 
@@ -117,6 +128,7 @@ node_js: '6' # or another
 
 cache: yarn
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cache/yarn`.
 
@@ -129,6 +141,7 @@ language: python
 
 cache: pip
 ```
+{: data-file=".travis.yml"}
 
 caches `$HOME/.cache/pip`.
 
@@ -141,18 +154,20 @@ language: c # or other C/C++ variants
 
 cache: ccache
 ```
+{: data-file=".travis.yml"}
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OSX
+#### ccache on OS X
 
-ccache is not installed on OSX environments but you can install it by adding
+ccache is not installed on OS X environments but you can install it by adding
 
 ```yaml
 install:
   - brew install ccache
-  - PATH=$PATH:/usr/local/opt/ccache/libexec
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
 ```
+{: data-file=".travis.yml"}
 
 > Note that this creates wrappers around your default gcc and g++ compilers.
 
@@ -165,6 +180,7 @@ language: R
 
 cache: packages
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
@@ -177,6 +193,7 @@ language: rust
 
 cache: cargo
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
@@ -190,6 +207,7 @@ cache:
   - .autoconf
   - $HOME/.m2
 ```
+{: data-file=".travis.yml"}
 
 As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
 
@@ -235,7 +253,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
@@ -253,6 +271,7 @@ cache:
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
+{: data-file=".travis.yml"}
 
 Failure in this phase does not mark the job as failed.
 
@@ -286,6 +305,7 @@ cache:
 - bundler
 - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 This does not work when caching [arbitrary directories](#Arbitrary-directories),
 or when any of the directives is not supported by the language.
@@ -300,6 +320,7 @@ cache:
   directories:
   - node_modules # NPM packages
 ```
+{: data-file=".travis.yml"}
 
 This is another example; a Rust repository caching cargo and Ruby gems:
 
@@ -312,6 +333,7 @@ cache:
 install:
   - bundle install --deployment # to cache vendor/bundle
 ```
+{: data-file=".travis.yml"}
 
 ### Explicitly disabling caching
 
@@ -320,6 +342,7 @@ You can explicitly disable all caching by setting the `cache` option to `false` 
 ```yaml
 cache: false
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to disable a single caching mode:
 
@@ -329,6 +352,7 @@ cache:
   bundler: false
   cocoapods: true
 ```
+{: data-file=".travis.yml"}
 
 ### Setting the timeout
 
@@ -344,6 +368,7 @@ property with a desired time in seconds:
 cache:
   timeout: 1000
 ```
+{: data-file=".travis.yml"}
 
 ## Caches and build matrices
 
@@ -373,7 +398,23 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
-## How does caching work?
+## Caches and read permissions
+
+When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+ensure that the locations you specify are readable and writable by the user.
+
+If they are not, the caching utility reports errors when it
+invokes `tar` to create the cache archive.
+
+For example:
+
+```
+FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+```
+
+## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
 them to S3, using a secure and protected URL, ensuring security and privacy of

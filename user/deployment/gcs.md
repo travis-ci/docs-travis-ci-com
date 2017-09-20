@@ -1,7 +1,7 @@
 ---
 title: Google Cloud Storage (GCS) Deployment
 layout: en
-permalink: /user/deployment/gcs/
+
 ---
 
 Travis CI supports uploading to Google Cloud Storage (GCS).
@@ -15,6 +15,7 @@ deploy:
   secret_access_key: "GCS Interoperable Access Secret"
   bucket: "GCS Bucket"
 ```
+{: data-file=".travis.yml"}
 
 This example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set `skip_cleanup` to `true` to prevent Travis CI from deleting your build artifacts.
 
@@ -26,6 +27,7 @@ deploy:
   bucket: "GCS Bucket"
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 You can find your GCS Interoperable Access Keys [here](https://developers.google.com/storage/docs/migrating).
 It is recommended to encrypt that key.
@@ -58,9 +60,28 @@ deploy:
   skip_cleanup: true
   acl: public-read
 ```
+{: data-file=".travis.yml"}
 
 Valid ACL values are: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`. The ACL defaults to `private`.
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
+
+### Deploying specific folder
+
+You can set specific directory to be uploaded using `local-dir` option like this:
+
+```yaml
+deploy:
+  provider: gcs
+  access_key_id: "GCS Interoperable Access Key ID"
+  secret_access_key: "GCS Interoperable Access Secret"
+  bucket: "GCS Bucket"
+  skip_cleanup: true
+  acl: public-read
+  local-dir: directory-name
+```
+{: data-file=".travis.yml"}
+
+If the `directory-name` is generated during build process, it will be deleted (cleaned up) before deploying, unless `skip_cleanup` is set to true.
 
 ### Conditional releases
 
@@ -81,6 +102,7 @@ deploy:
   ...
   detect_encoding: true # <== default is false
 ```
+{: data-file=".travis.yml"}
 
 If the file is compressed with `gzip` or `compress`, it will be uploaded with
 the appropriate header.
@@ -97,5 +119,6 @@ deploy:
   ...
   cache_control: "max-age=31536000"
 ```
+{: data-file=".travis.yml"}
 
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#cachecontrol).

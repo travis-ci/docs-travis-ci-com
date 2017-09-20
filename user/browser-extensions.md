@@ -1,7 +1,7 @@
 ---
 title: Browser Extensions
 layout: en
-permalink: /user/browser-extensions/
+
 ---
 
 ### Google Chrome
