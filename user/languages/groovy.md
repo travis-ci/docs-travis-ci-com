@@ -134,22 +134,22 @@ install: ant deps
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example,
-to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and
-OpenJDK 6:
+to test against Oracle JDK 8 and
+OpenJDK 7:
 
 ```yaml
 jdk:
-  - oraclejdk7
-  - openjdk6
+  - oraclejdk8
+  - openjdk7
 ```
 {: data-file=".travis.yml"}
 
-To test against OpenJDK 7 and Oracle JDK 7:
+To test against OpenJDK 7 and Oracle JDK 8:
 
 ```yaml
 jdk:
   - openjdk7
-  - oraclejdk7
+  - oraclejdk8
 ```
 {: data-file=".travis.yml"}
 
