@@ -149,7 +149,7 @@ Travis CI provides OpenJDK 7, Oracle JDK 8, and Oracle JDK 9.
 ### Updating Oracle JDK to a recent release
 
 Your repository may require a newer release of Oracle JDK than the pre-installed version.
-(You can consult [the list](https://launchpad.net/~webupd8team/+archive/ubuntu/java).)
+(You can consult [the list of published Oracle JDK packages](https://launchpad.net/~webupd8team/+archive/ubuntu/java).)
 
 The following example will use the latest Oracle JDK 8:
 
