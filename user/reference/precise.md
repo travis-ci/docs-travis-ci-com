@@ -188,8 +188,9 @@ in order to minimize frictions when images are updated:
 - OpenJDK 6 (openjdk6)
 - Oracle JDK 8 (oraclejdk8)
 
-OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reached End of Life in fall 2012.
+OracleJDK 7 is the default because we have a much more recent patch level
+compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not
+provided because it reached End of Life in fall 2012.
 
 The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
@@ -263,16 +264,20 @@ Test::Pod::Coverage
 
 ## PHP VM images
 
+
+
 ### PHP versions
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
-[hhvm](https://github.com/facebook/hhvm) is also available.
-and the nightly builds are installed on-demand (as `hhvm-nightly`).
-
 ### XDebug
 
 Is supported.
+
+### Core extensions
+
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+
 
 ### Extensions
 
@@ -339,6 +344,11 @@ zlib
 Xdebug
 ```
 
+### Chef Cookbooks for PHP
+
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/precise-stable/ci_environment).
+
+
 ## Python VM images
 
 ### Python versions
@@ -346,6 +356,10 @@ Xdebug
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
 ### Preinstalled pip packages
 

@@ -17,7 +17,7 @@ to get shell access to the virtual machine or container.
 > the feature is enabled.
 > To have the feature enabled for a public repository, please email us at
 > [support@travis-ci.com](mailto:support@travis-ci.com) indicating which ones.
-> The push access to the repository is also required.
+> Push access to the repository is also required.
 
 For private repositories, the "Debug build" or "Debug job" button is available on the upper right corner of
 the build/job page.
