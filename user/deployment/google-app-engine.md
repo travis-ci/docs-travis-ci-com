@@ -14,6 +14,7 @@ deploy:
   keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
   project: "YOUR PROJECT ID"
 ```
+{: data-file=".travis.yml"}
 
 Then go to the [Google Cloud Console Dashboard](http://console.developers.google.com) and:
 
@@ -46,6 +47,7 @@ deploy:
   keyfile: ...
   project: continuous-deployment-demo
 ```
+{: data-file=".travis.yml"}
 
 ### Version to deploy
 
@@ -64,6 +66,7 @@ deploy:
   project: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -75,6 +78,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -89,6 +93,7 @@ deploy:
   project: continuous-deployment-demo
   no_promote: true
 ```
+{: data-file=".travis.yml"}
 
 In addition to that, and according to the [Google Cloud SDK changelog](https://cloud.google.com/sdk/release_notes#0981_20151007), *"in a future Cloud SDK release, deployments that promote the new version to receive all traffic will stop the previous version by default"*.
 
@@ -101,6 +106,7 @@ deploy:
   project: continuous-deployment-demo
   no_stop_previous_version: true
 ```
+{: data-file=".travis.yml"}
 
 ### Skipping Cleanup
 
@@ -112,6 +118,7 @@ deploy:
     provider: gae
     skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Example Repo
 
