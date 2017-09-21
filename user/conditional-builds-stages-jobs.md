@@ -108,13 +108,14 @@ Known functions are:
 
 The function `env` currently only supports environment variables that are given in your build configuration (e.g. on `env` or `env.global`), not environment variables specified in your repository settings.
 
-#### Equality
+#### Equality and inequality
 
 This matches a string literally:
 
 ```
 branch = master
 env(foo) = bar
+sender != my-bot
 ```
 
 #### Match
