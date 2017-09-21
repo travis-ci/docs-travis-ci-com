@@ -73,37 +73,28 @@ go_import_path: example.org/pkg/foo
 
 ## Dependency Management
 
-By default the install step defers to `go get ./...` or `go get -t ./...` if
-the version of go is greater than or equal to `1.2`.  If any of the following
-files are present, the default install step will be simply `true`:
+The default install step depends on the version of go:
 
-- `GNUMakefile`
-- `Makefile`
-- `BSDmakefile`
-- `makefile`
+* if go version is greater than or equal to `1.2`
 
-If you need to perform special tasks before your tests can run, override the
-`install:` key in your `.travis.yml`:
+  ```
+  go get ./...
+  ```
 
-```yaml
-install: make get-deps
-```
-{: data-file=".travis.yml"}
+* if go version is older than
 
-It is also possible to specify a list of operations, for example, to `go get`
-remote dependencies:
+  ```
+  go get -t ./...
+  ```
 
-```yaml
-install:
-  - go get github.com/bmizerany/assert
-  - go get github.com/mrb/hob
-```
-{: data-file=".travis.yml"}
+*  or if any of the following files are present, the default install step is `true`:
 
-See [general build configuration guide](/user/customizing-the-build/) to learn
-more.
+    - `GNUMakefile`
+    - `Makefile`
+    - `BSDmakefile`
+    - `makefile`
 
-### `godep` support
+### godep support
 
 There is support included for [godep](https://github.com/tools/godep) when used
 with vendored dependencies such that the `GOPATH` will be prefixed with
