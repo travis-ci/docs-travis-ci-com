@@ -9,12 +9,12 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| Scala                        | Default                                                                                                                                                                                                                |
-|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#Gradle-Dependency-Management), [Maven](/user/languages/java/#Maven-Dependency-Management), [Ant](/user/languages/java/#Ant-Dependency-Management)  |
+| Scala                        | Default                                                                                                                                                                                                                 |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#Gradle-Dependency-Management), [Maven](/user/languages/java/#Maven-Dependency-Management), [Ant](/user/languages/java/#Ant-Dependency-Management)     |
 | Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#Gradle-Default-Script-Command), [Maven](/user/languages/java/#Maven-Default-Script-Command), [Ant](/user/languages/java/#Ant-Default-Script-Command) |
-| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                   |
-| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                              |
+| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
+| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                               |
 
 Minimal example:
 
