@@ -67,7 +67,7 @@ version of your project is dynamically detected and used.
 
 Because Travis CI Scala builder assumes sbt dependency management is used by
 default, it automatically will pull down project dependencies before running
-tests during the `script` phase without any effort on your side.
+tests during the `script` phase of your build without any effort on your side.
 
 ### sbt Default Script Command
 
