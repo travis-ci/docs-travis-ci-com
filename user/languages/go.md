@@ -81,7 +81,7 @@ The default install step depends on the version of go:
   go get ./...
   ```
 
-* if go version is older than
+* if go version is older than `1.2`
 
   ```
   go get -t ./...
