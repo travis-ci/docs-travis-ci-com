@@ -9,12 +9,12 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| Scala                        | Default                                                                                                                           |
-|:-----------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/), [Maven](/user/languages/java/), [Ant](/user/languages/java/)  |
-| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/), [Maven](/user/languages/java/), [Ant](/user/languages/java/) |
-| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                              |
-| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                         |
+| Scala                        | Default                                                                                                                                                                                                                |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#Gradle-Dependency-Management), [Maven](/user/languages/java/#Maven-Dependency-Management), [Ant](/user/languages/java/#Ant-Dependency-Management)  |
+| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#Gradle-Default-Script-Command), [Maven](/user/languages/java/#Maven-Default-Script-Command), [Ant](/user/languages/java/#Ant-Default-Script-Command) |
+| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                   |
+| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                              |
 
 Minimal example:
 
@@ -29,7 +29,7 @@ Minimal example:
 
 Scala builds are not available on the OS X environment.
 
-The rest of this guide covers configuring Scaka projects in Travis CI. If you're
+The rest of this guide covers configuring Scala projects in Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
