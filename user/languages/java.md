@@ -177,8 +177,6 @@ jdk:
 the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
 details.
 
-Travis CI provides OpenJDK 7, Oracle JDK 8, and Oracle JDK 9.
-
 ### Switching JDKs Within One Job
 
 If your build needs to switch JDKs during a job, you can do so with
