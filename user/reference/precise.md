@@ -247,6 +247,8 @@ Those runtimes that end with the `-extras` suffix have been compiled with
 `-Duseshrplib` and `-Duseithreads` flags.
 These also have aliases with the `-shrplib` suffix.
 
+If you leave the `perl` key out of your `.travis.yml`, Travis CI uses Perl 5.14.
+
 ### Pre-installed modules
 
 cpanm (App::cpanminus)
