@@ -228,9 +228,9 @@ Leiningen 2.7.1.
 ### SBT version
 
 Travis CI potentially provides any version of Simple Build Tool (sbt or SBT)
-thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
-alternative. `sbt` command is able to dynamically detect and install the sbt
-version required by your Scala projects.
+thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
+alternative. `sbt` can dynamically detect and install the sbt version required
+by your Scala projects.
 
 ## PHP images
 
