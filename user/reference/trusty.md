@@ -192,6 +192,16 @@ by `gimme`.
 ## JVM images
 
 - We install the latest OpenJDK versions from the official Ubuntu Trusty packages.
+  - OpenJDK 6 is not installed. To use OpenJDK 6, install
+    [`openjdk-6-jdk` package](https://packages.ubuntu.com/trusty/openjdk-6-jdk).
+    For example, using [`apt` addon](http://127.0.0.1:4000/user/installing-dependencies/):
+  ```yaml
+  addons:
+    apt:
+      packages:
+        - openjdk-6-jdk
+  jdk: openjdk6
+  ```
 - We install the latest Oracle JDK versions from Oracle.
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another version.
