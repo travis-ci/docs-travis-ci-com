@@ -160,7 +160,8 @@ also installed.
 
 ### Default Python Version
 
-If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use
+Python 2.7.
 
 ### Pre-installed pip packages
 
@@ -189,16 +190,47 @@ pre-install at least two of the latest point releases such as `1.7.3` and
 `1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
-## JVM images
+## JVM (Clojure, Groovy, Java, Scala) images
 
-- We install the latest OpenJDK versions from the official Ubuntu Trusty packages.
-- We install the latest Oracle JDK versions from Oracle.
+### JDK
+
+- We install the latest OpenJDK versions from the official Ubuntu Trusty
+  packages:
+  - Open JDK 7 (`openjdk7`)
+  - Open JDK 8 (`openjdk8`)
+- We install the latest Oracle JDK versions from Oracle:
+  - Oracle JDK 8 (`oraclejdk8`). Default.
+  - Oracle JDK 9 (`oraclejdk9`)
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
-  is installed if you need another version.
-- gradle
-- maven
-- leiningen
-- sbt
+  is installed if you need another JDK version.
+
+The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the
+JVM image.
+
+Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+
+### Gradle version
+
+Gradle 4.0.
+
+### Maven version
+
+Stock Apache Maven 3.5.x, configured to use [Central](http://search.maven.org/)
+and [Sonatype](https://oss.sonatype.org/) mirrors.
+
+### Ant version
+Ant 1.9.3.
+
+### Leiningen version
+
+Leiningen 2.7.1.
+
+### SBT version
+
+Travis CI potentially provides any version of Simple Build Tool (sbt or SBT)
+thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
+alternative. `sbt` command is able to dynamically detect and install the sbt
+version required by your Scala projects.
 
 ## PHP images
 
@@ -258,7 +290,8 @@ The following extensions are preinstalled for PHP 7.0 and nightly builds:
 - [xdebug.so](http://xdebug.org)
 - [redis.so](http://pecl.php.net/package/redis)
 
-Please note that these extensions are not enabled by default with the exception of xdebug.
+Please note that these extensions are not enabled by default with the exception
+of xdebug.
 
 #### PHP 5.6 and below
 
@@ -272,7 +305,8 @@ For PHP versions up to 5.6, the following extensions are available:
 - [xdebug.so](http://xdebug.org)
 - [redis.so](http://pecl.php.net/package/redis)
 
-Please note that these extensions are not enabled by default with the exception of xdebug.
+Please note that these extensions are not enabled by default with the exception
+of xdebug.
 
 
 ## Other software
