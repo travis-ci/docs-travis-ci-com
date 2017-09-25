@@ -289,8 +289,6 @@ Use one of the following ways to access your cache and delete it if necessary:
 
     ![travis cache --delete](/images/cli-cache.png)
 
-    <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
-
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
 ## Configuration
