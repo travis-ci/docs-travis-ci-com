@@ -41,10 +41,7 @@ Travis CI environment provides a large set of build tools for JVM languages with
 
 ## Specifying Scala versions
 
-Thanks to sbt ability to perform actions against multiple Scala versions, it is
-possible to test your projects against different Scala versions. To specify
-Scala versions you want your project to be tested against, use the `scala` key,
-for example:
+To specify Scala versions in your build:
 
 ```yaml
 language: scala
@@ -58,20 +55,19 @@ scala:
 ## Projects using sbt
 
 If your project has a `project` directory or `build.sbt` file in the repository
-root, the Travis CI Scala builder will use `sbt` to build it.
+root, the Travis CI uses `sbt` to build it.
 
 Thanks to [paulp/sbt-extras](https://github.com/paulp/sbt-extras) the sbt
 version of your project is dynamically detected and used.
 
 ### sbt Dependency Management
 
-Because Travis CI Scala builder assumes sbt dependency management is used by
-default, it automatically will pull down project dependencies before running
-tests during the `script` phase of your build without any effort on your side.
+Travis CI automatically pulls down `sbt` dependencies before running
+tests during the `script` phase of your build.
 
 ### sbt Default Script Command
 
-By default, Travis CI will use
+The default `script` command is:
 
 ```bash
 sbt ++$TRAVIS_SCALA_VERSION test
@@ -87,7 +83,7 @@ To use a different `script` command, customize the
 You can override [sbt and JVM options](https://github.com/paulp/sbt-extras#sbt--h)
 by passing extra arguments to `sbt`.
 
-For example:
+For example, to run `compile` and `test` with different JVM parameters:
 
 ```yaml
 script:
@@ -95,8 +91,6 @@ script:
   - sbt -jvm-opts travis/jvmopts.test ... test
 ```
 {: data-file=".travis.yml"}
-
-will run `compile` and `test` with different JVM parameters.
 
 You can also specify [extra
 arguments](https://github.com/paulp/sbt-extras#sbt--h) to be passed to the
