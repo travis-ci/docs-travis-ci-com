@@ -1,5 +1,5 @@
 ---
-title: Travis CI for Beginners
+title: Core Concepts for Beginners
 layout: en
 
 ---
