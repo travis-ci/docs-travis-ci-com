@@ -192,22 +192,30 @@ by `gimme`.
 
 ## JVM (Clojure, Groovy, Java, Scala) images
 
-### JDK
-
 - We install the latest OpenJDK versions from the official Ubuntu Trusty
   packages:
   - Open JDK 7 (`openjdk7`)
   - Open JDK 8 (`openjdk8`)
+  - OpenJDK 6 is not installed. To use OpenJDK 6, install
+    [`openjdk-6-jdk` package](https://packages.ubuntu.com/trusty/openjdk-6-jdk).
+    For example, using [`apt` addon](/user/installing-dependencies/):
+    ```yaml
+    addons:
+      apt:
+        packages:
+          - openjdk-6-jdk
+    jdk: openjdk6
+    ```
 - We install the latest Oracle JDK versions from Oracle:
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)
+  - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.
 
 The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the
 JVM image.
-
-Oracle JDK 7 is not provided because it reached End of Life in April 2015.
 
 ### Gradle version
 
