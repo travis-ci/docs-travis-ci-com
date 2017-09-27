@@ -21,7 +21,7 @@ Each build runs in one of the following virtual environments:
 - Container-based: Fast boot time environment in which `sudo` commands are not available
 - [OS X](/user/reference/osx/): for Objective-C and other OS X specific projects
 
-Each Linux environment runs either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
+Linux environments run in either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
 
 The following table summarizes the differences between the virtual environments:
 
