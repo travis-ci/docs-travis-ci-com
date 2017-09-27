@@ -18,11 +18,9 @@ Travis CI can run your builds, and why you might want to pick one over another.
 
 Each build runs in one of the following virtual environments:
 
-- Sudo-enabled: a sudo enabled, full virtual machine per build
-- Container-based: Fast boot time environment in which `sudo` commands are not available
+- Sudo-enabled: a sudo enabled, full virtual machine per build. Running either Linux [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/)
+- Container-based: Fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
 - [OS X](/user/reference/osx/): for Objective-C and other OS X specific projects
-
-Linux environments run in either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
 
 The following table summarizes the differences between the virtual environments:
 
@@ -42,7 +40,7 @@ The following table summarizes the differences between the virtual environments:
 
 ## Deprecated Virtualization Environments
 
-Historically, Travis CI has provided the following virtualization environments. You can find below a reference guide of the environments are no longer available.
+Historically, Travis CI has provided the following virtualization environments.
 
-- **Precise Container-based environment**: available since the announcement in [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) and until [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
+- **Precise Container-based environment**: available from the announcement in [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) to [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
 - **Legacy environment**: available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
