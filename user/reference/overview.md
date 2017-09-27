@@ -8,7 +8,7 @@ redirect_from:
 
 ### What This Guide Covers
 
-This guide provides an overview on the various different environments in which
+This guide provides an overview on the different environments in which
 Travis CI can run your builds, and why you might want to pick one over another.
 
 <div id="toc"></div>
@@ -25,15 +25,15 @@ Each Linux environment runs either [Ubuntu Precise 12.04](/user/reference/precis
 
 The following table summarizes the differences between the virtual environments:
 
-|                  | Ubuntu Precise                     | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
-|:-----------------|:-----------------------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
-| Name             | Container-based                    | Sudo-enabled VM                       | Container-based                   | Sudo-enabled VM                      | OS X                         |
-| Status           | Retired as of September 2017       | Current                               | Default as of August 2017         | Current                              | Current                      |
-| Infrastructure   | Container                          | Virtual machine on GCE                | Container                         | Virtual machine on GCE               | Virtual machine              |
-| `.travis.yml`    | `sudo: false` <br> `dist: precise` | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
-| Allows `sudo`    | No                                 | Yes                                   | No                                | Yes                                  | Yes                          |
-| Approx boot time | 1-6s                               | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
-| File system      | AUFS                               | EXT4                                  | AUFS                              | EXT4                                 | HFS+                         |
-| Operating system | Ubuntu 12.04                       | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
-| Memory           | 4 GB max                           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
-| Cores            | 2                                  | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+|                  | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
+|:-----------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
+| Name             | Sudo-enabled VM                       | Container-based                   | Sudo-enabled VM                      | OS X                         |
+| Status           | Current                               | Default as of August 2017         | Current                              | Current                      |
+| Infrastructure   | Virtual machine on GCE                | Container                         | Virtual machine on GCE               | Virtual machine              |
+| `.travis.yml`    | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
+| Allows `sudo`    | Yes                                   | No                                | Yes                                  | Yes                          |
+| Approx boot time | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
+| File system      | EXT4                                  | AUFS                              | EXT4                                 | HFS+                         |
+| Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
+| Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
+| Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
