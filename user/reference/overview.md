@@ -38,3 +38,11 @@ The following table summarizes the differences between the virtual environments:
 | Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+
+
+## Deprecated Virtualization Environments
+
+Historically, Travis CI has provided the following virtualization environments. You can find below a reference guide of the environments are no longer available.
+
+- **Precise Container-based environment**: available since the announcement in [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) and until [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
+- **Legacy environment**: available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
