@@ -4,6 +4,7 @@ layout: en
 permalink: /user/reference/overview/
 redirect_from:
   - /user/ci-environment/
+  - /user/migrating-from-legacy/
 ---
 
 ### What This Guide Covers
