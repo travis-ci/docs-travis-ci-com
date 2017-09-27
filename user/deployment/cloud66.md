@@ -5,6 +5,14 @@ layout: en
 
 Travis CI can automatically deploy your [Cloud 66](https://www.cloud66.com/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.cloud66 }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

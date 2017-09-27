@@ -6,6 +6,14 @@ layout: en
 
 You now have the amazing ability to deploy directly to [CloudFoundry](https://run.pivotal.io/) after a successful build on Travis CI.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.cloud-foundry }}
+
+</aside>
+
 ## The Easy Way
 
 Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:

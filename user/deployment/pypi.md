@@ -8,6 +8,14 @@ Travis CI can automatically release your Python package to [PyPI](https://pypi.p
 
 <div id="toc"></div>
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.cloud-foundry }}
+
+</aside>
+
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml

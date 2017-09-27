@@ -10,6 +10,14 @@ Travis CI can automatically deploy your application to [Elastic
 Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a
 successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.elastic-beanstalk }}
+
+</aside>
+
 To deploy to AWS Elastic Beastalk add the following to your `.travis.yml`:
 
 * `access-key-id`: AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).

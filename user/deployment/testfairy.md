@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.testfairy }}
+
+</aside>
+
 For a minimal configuration, add the following `deploy` key to your `.travis.yml`:
 
 ```yaml

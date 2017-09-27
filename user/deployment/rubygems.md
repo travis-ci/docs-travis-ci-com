@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems.org/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.rubygems }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

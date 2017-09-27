@@ -6,6 +6,14 @@ layout: en
 
 Travis CI supports uploading to [Deis](http://deis.io/).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.deis }}
+
+</aside>
+
 A minimal configuration is:
 
 ```yaml

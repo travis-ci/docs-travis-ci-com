@@ -6,6 +6,14 @@ layout: en
 
 Travis CI supports uploading to [AWS Lambda](https://aws.amazon.com/lambda/).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.lambda}}
+
+</aside>
+
 A minimal configuration is:
 
 ```yaml

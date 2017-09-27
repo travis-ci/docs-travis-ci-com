@@ -8,6 +8,14 @@ Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/
 
 **Please note that deploying GitHub Releases works only for tags, not for branches.**
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.releases }}
+
+</aside>
+
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml

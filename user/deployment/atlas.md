@@ -6,6 +6,15 @@ layout: en
 
 Travis CI can automatically deploy your application to [Atlas](https://atlas.hashicorp.com/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.atlas  }}
+
+</aside>
+
+
 To deploy your application to Atlas:
 
 1. Sign in to your Atlas account.

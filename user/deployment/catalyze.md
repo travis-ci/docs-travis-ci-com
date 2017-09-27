@@ -9,6 +9,14 @@ layout: en
 Travis CI can automatically deploy to [Catalyze](https://www.catalye.io/) after
 a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.catalye }}
+
+</aside>
+
 Before configuring your `.travis.yml` you need to:
 
 1. Find your Catalyze git remote:

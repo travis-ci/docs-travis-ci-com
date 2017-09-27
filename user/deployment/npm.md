@@ -8,6 +8,13 @@ or another npm-like registry after a successful build. By default Travis CI
 publishes to npmjs.com, however if you have a `publishConfig.registry` key in your
 `package.json` then Travis CI publishes to that registry instead.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.npm }}
+
+</aside>
 
 <div id="toc"></div>
 
