@@ -78,13 +78,13 @@ The default install step depends on the version of go:
 * if go version is greater than or equal to `1.2`
 
   ```
-  go get ./...
-  ```
-
-* if go version is older than
-
-  ```
   go get -t ./...
+  ```
+
+* if go version is older than `1.2`
+
+  ```
+  go get ./...
   ```
 
 *  or if any of the following files are present, the default install step is `true`:
