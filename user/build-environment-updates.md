@@ -10,7 +10,8 @@ layout: en
 > issue](https://github.com/travis-ci/travis-ci/issues).
 
 <ul class="list--links">
-{% for page in site.pages %}
+{% assign reverse_pages = site.pages | reverse %}
+{% for page in reverse_pages %}
   {% if page.category == 'build_env_updates' %}
     <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
   {% endif %}
