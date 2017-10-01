@@ -1,4 +1,4 @@
----
+---/usr/bin/ruby -e "$(curl -fsSL https://raw.
 title: Installing Dependencies
 layout: en
 
