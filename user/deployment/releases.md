@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
-**Please note that deploying GitHub Releases works only for tags, not for branches.**
+**Note that deploying GitHub Releases works only for tags, not for branches.**
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -37,6 +37,15 @@ Or, if you're using a private repository:
 
 ```bash
 travis setup releases --pro
+```
+
+If you are using the [`branches.only` property](/user/customizing-the-build#Building-Specific-Branches), remember that when you push a tag, the [`$TRAVIS_BRANCH` property](/user/environment-variables/#Default-Environment-Variables) contains the name of the tag. As a result, edit the `branches.only` property to add the names of the tags you might push in the future. You can use a regular expression if you have formalized names. For example: 
+
+```yaml
+   branches:
+    only:
+    - master
+    - /^v.*$/
 ```
 
 ## Authenticating with an OAuth token
