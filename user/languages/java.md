@@ -183,6 +183,12 @@ jdk:
 the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
 details.
 
+The list of available JVMs for different dists are at
+
+  * for Trusty: https://docs.travis-ci.com/user/reference/trusty/#JVM-(Clojure%2C-Groovy%2C-Java%2C-Scala)-images
+  * for Precise: https://docs.travis-ci.com/user/reference/precise/#JVM-(Clojure%2C-Groovy%2C-Java%2C-Scala)-VM-images
+
+
 ### Switching JDKs Within One Job
 
 If your build needs to switch JDKs during a job, you can do so with
