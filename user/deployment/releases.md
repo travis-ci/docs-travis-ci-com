@@ -39,14 +39,16 @@ Or, if you're using a private repository:
 travis setup releases --pro
 ```
 
-If you are using the [`branches.only` property](/user/customizing-the-build#Building-Specific-Branches), remember that when you push a tag, the [`$TRAVIS_BRANCH` property](/user/environment-variables/#Default-Environment-Variables) contains the name of the tag. As a result, edit the `branches.only` property to add the names of the tags you might push in the future. You can use a regular expression if you have formalized names. For example: 
+If you are using the [`branches.only` property](/user/customizing-the-build#Building-Specific-Branches), remember that when you push a tag, the [`$TRAVIS_BRANCH` property](/user/environment-variables/#Default-Environment-Variables) contains the name of the tag. As a result, edit the `branches.only` property to add the names of the tags you might push in the future. You can use a regular expression if you have formalized names. For example, if your release tags look like  `v1.3.15`, use the following configuration: 
 
 ```yaml
    branches:
     only:
     - master
-    - /^v.*$/
+    - /^v\d+(\.\d+)+$/
 ```
+
+
 
 ## Authenticating with an OAuth token
 
