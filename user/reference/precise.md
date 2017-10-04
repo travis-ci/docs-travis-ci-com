@@ -1,5 +1,5 @@
 ---
-title: The Build Environment
+title: The Precise Build Environment
 layout: en
 
 redirect_from:
@@ -181,6 +181,9 @@ in order to minimize frictions when images are updated:
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
+See the [default JVM options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/jvmopts.erb)
+for specific details on building JVM projects.
+
 ### JDK
 
 - Oracle JDK 7 (oraclejdk7)
@@ -200,12 +203,15 @@ Stock Apache Maven 3.2.x, configured to use [Central](http://search.maven.org/) 
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
+Travis CI has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
 The default is 2.4.x; `/usr/local/bin/lein` is a symbolic link to `/usr/local/bin/lein2`.
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+Travis CI potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+
+See the [default sbt options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/sbtopts.erb)
+for specific details on building projects with sbt.
 
 ### Gradle version
 
@@ -219,7 +225,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 ### Rebar
 
-travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
+Travis CI provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
 
 ## JavaScript and Node.js images
