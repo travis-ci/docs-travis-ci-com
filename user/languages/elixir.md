@@ -51,13 +51,13 @@ You can specify Elixir version to test with by the `elixir` key.
 For example,
 
 ```yaml
-elixir: 1.5.2
+elixir: '1.5.2'
 ```
 
 or
 
 ```yaml
-elixir: 1.5
+elixir: '1.5'
 ```
 
 The former points to the specific release indicated, while
@@ -80,9 +80,9 @@ For example:
 ```yaml
 language: elixir
 elixir:
-  - 1.2.2
+  - '1.2.2'
 otp_release:
-  - 18.2.1
+  - '18.2.1'
 ```
 {: data-file=".travis.yml"}
 
@@ -92,13 +92,13 @@ To test multiple Elixir versions with different OTP release versions:
 language: elixir
 
 elixir:
-  - 1.0.5
-otp_release: 17.4
+  - '1.0.5'
+otp_release: '17.4'
 
 matrix:
   include:
-    - elixir: 1.2
-      otp_release: 18.0
+    - elixir: '1.2'
+      otp_release: '18.0'
 ```
 {: data-file=".travis.yml"}
 
