@@ -18,7 +18,7 @@ The feeds are fetched directly from our API at `https://api.travis-ci.org`.
 The canonical URL for a repository's builds is:
 
 ```
-https://api.travis-ci.org/repos/travis-ci/travis-ci/builds`
+https://api.travis-ci.org/repos/travis-ci/travis-ci/builds
 ```
 
 This URL returns a JSON representation by default, but you can get the Atom feed by adding the `.atom` suffix:
