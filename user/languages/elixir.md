@@ -63,7 +63,8 @@ elixir: '1.5'
 The former points to the specific release indicated, while
 the latter points to the latest development branch build which
 has latest patches but may be occasionally be broken.
-See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372).
+See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372)
+for more details.
 
 ### Specifying OTP Release version
 
