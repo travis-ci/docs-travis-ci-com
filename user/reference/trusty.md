@@ -158,6 +158,23 @@ from a local cache.
 [pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
 also installed.
 
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use
+Python 2.7.
+
+### Pre-installed pip packages
+
+Travis CI installs the following packages by default in each virtualenv:
+
+- nose
+- pytest
+- wheel
+- mock
+- six
+
+On all Python versions except pypy and pypy3, `numpy` is available as well.
+
 ## JavaScript and Node.js images
 
 [nvm](https://github.com/creationix/nvm) is installed and we
@@ -173,34 +190,138 @@ pre-install at least two of the latest point releases such as `1.7.3` and
 `1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
-## JVM images
+## JVM (Clojure, Groovy, Java, Scala) images
 
 - We install the latest OpenJDK versions from the official Ubuntu Trusty
-  packages.
-- We install the latest Oracle JDK versions from Oracle.
+  packages:
+  - Open JDK 7 (`openjdk7`)
+  - Open JDK 8 (`openjdk8`)
+  - OpenJDK 6 is not installed. To use OpenJDK 6, install
+    [`openjdk-6-jdk` package](https://packages.ubuntu.com/trusty/openjdk-6-jdk).
+    For example, using [`apt` addon](/user/installing-dependencies/):
+    ```yaml
+    addons:
+      apt:
+        packages:
+          - openjdk-6-jdk
+    jdk: openjdk6
+    ```
+- We install the latest Oracle JDK versions from Oracle:
+  - Oracle JDK 8 (`oraclejdk8`). Default.
+  - Oracle JDK 9 (`oraclejdk9`)
+  - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
-  is installed if you need another version.
-- gradle
-- maven
-- leiningen
-- sbt
+  is installed if you need another JDK version.
+
+The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the
+JVM image.
+
+### Gradle version
+
+Gradle 4.0.
+
+### Maven version
+
+Stock Apache Maven 3.5.x, configured to use [Central](http://search.maven.org/)
+and [Sonatype](https://oss.sonatype.org/) mirrors.
+
+### Ant version
+Ant 1.9.3.
+
+### Leiningen version
+
+Leiningen 2.7.1.
+
+### SBT version
+
+Travis CI potentially provides any version of Simple Build Tool (sbt or SBT)
+thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
+alternative. `sbt` can dynamically detect and install the sbt version required
+by your Scala projects.
 
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`.  Any
-versions that are not pre-installed will be dynamically installed from a local
-cache, or built via `phpenv` if unavailable.
+least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+`5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
+are not pre-installed will be dynamically installed from a local cache, or built
+via `phpenv` if unavailable.
 
-*Note: We're unable to build **PHP 5.2** on Trusty, so trying to use it will
-result in a build failure when phpenv fails to compile it*
+*Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty.
+Specifying it will result in build failure.
+If you need to test with these versions, use Precise.*
+
+```yaml
+matrix:
+  include:
+    - php: 5.2
+      dist: precise
+    - php: 5.3
+      dist: precise
+```
+{: data-file=".travis.yml"}
+
+
+### HHVM
+
+[hhvm](https://github.com/facebook/hhvm) is also available.
+and the nightly builds are installed on-demand (as `hhvm-nightly`).
+
+```yaml
+language: php
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-3.15
+  - hhvm-3.18
+  - hhvm-nightly
+```
+{: data-file=".travis.yml"}
+
+### Extensions
+
+#### PHP 7.0
+
+The following extensions are preinstalled for PHP 7.0 and nightly builds:
+
+- [apcu.so](http://php.net/apcu)
+- [memcached.so](http://php.net/memcached)
+- [mongodb.so](https://php.net/mongodb)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception
+of xdebug.
+
+#### PHP 5.6 and below
+
+For PHP versions up to 5.6, the following extensions are available:
+
+- [apc.so](http://php.net/apc) (not available for 5.5 or 5.6)
+- [memcache.so](http://php.net/memcache) or [memcached.so](http://php.net/memcached)
+- [mongo.so](http://php.net/mongo)
+- [amqp.so](http://php.net/amqp)
+- [zmq.so](http://zeromq.org/bindings:php)
+- [xdebug.so](http://xdebug.org)
+- [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception
+of xdebug.
+
 
 ## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
 `apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing
-dependencies](/user/installing-dependencies/).
+please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 

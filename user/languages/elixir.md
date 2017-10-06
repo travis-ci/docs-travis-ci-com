@@ -4,9 +4,36 @@ layout: en
 
 ---
 
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `mix local.rebar --force; mix.local.hex --force; mix deps.get` |
+| Typical `script`  | `mix test`                                |
+| Matrix keys       | `env`, `elixir`, `otp_release`            |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: elixir
+elixir: '1.4'
+otp_release: '19.0'
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Elixir projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+{{ site.data.snippets.trusty_note_no_osx }}
+
+The rest of this guide covers build environment and configuration topics
+specific to Elixir projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
+
+Elixir builds are not available on the OS X environment.
 
 ## CI Environment for Elixir Projects
 

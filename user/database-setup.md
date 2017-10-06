@@ -127,7 +127,7 @@ test:
   adapter: postgresql
   database: travis_ci_test
 ```
-{: data-file=".travis.yml"}
+{: data-file="database.yml"}
 
 If your local test setup uses different credentials or settings to access the local test database, we recommend putting these settings in a `database.yml.travis` in your repository and copying that over as part of your build:
 
