@@ -17,7 +17,7 @@ Minimal example:
 
 ```yaml
 language: elixir
-elixir: '1.4'
+elixir: '1.5.2'
 otp_release: '19.0'
 ```
 {: data-file=".travis.yml"}
@@ -43,6 +43,29 @@ To choose the Elixir VM, declare in your `.travis.yml`:
 language: elixir
 ```
 {: data-file=".travis.yml"}
+
+### Specify which Elixir version to test with
+
+You can specify Elixir version to test with by the `elixir` key.
+
+For example,
+
+```yaml
+elixir: 1.5.2
+```
+
+or
+
+```yaml
+elixir: 1.5
+```
+
+The former points to the specific release indicated, while
+the latter points to the latest development branch build which
+has latest patches but may be occasionally be broken.
+See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372).
+
+### Specifying OTP Release version
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
