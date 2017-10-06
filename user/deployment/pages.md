@@ -1,6 +1,6 @@
 ---
 title: GitHub Pages Deployment
-layout: en
+layout: en6
 
 ---
 
