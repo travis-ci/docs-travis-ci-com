@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-**Please note: This is a beta feature. We would definitely like to hear if you run into any problems with the Trusty containers. If you have any questions or run into problems, please write an email to: [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).**
+**Please note: This is a beta feature. We would definitely like to hear if you run into any problems with the Trusty containers. If you have any questions or run into problems, please write an email to: [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Trusty%20Beta).**
 
 First of all you need to be running Travis Enterprise 2.1.9 or higher.
 
