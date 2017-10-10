@@ -13,6 +13,7 @@ First of all you need to be running Travis Enterprise 2.1.9 or higher.
 3. Then run `Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os)`
 4. You can now exit the console and disconnect from the Travis Enterprise platform machine
 
+**Please be aware that the commands below need to be run on fresh machines. The worker machine(s) with the Precise (Ubuntu 12.04) images can co-exist next to the Trusty workers.**
 
 ## AWS
 Spin up AWS worker machines (DeviceMapper installer only supports the recommended c3.2xlarge machines due to the storage layout) and run:
