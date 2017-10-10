@@ -11,9 +11,10 @@ First of all you need to be running Travis Enterprise 2.1.9 or higher.
 1. SSH into the platform machine
 2. Run `travis console`
 3. Then run `Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os)`
-4. You can now exit the console and disconnect from the Travis Enterprise platform machine
+4. Type in `exit` to leave the console
+5. Disconnect from the Travis Enterprise platform machine
 
-**Please be aware that the commands below need to be run on fresh machines. The worker machine(s) with the Precise (Ubuntu 12.04) images can co-exist next to the Trusty workers.**
+**While worker machines with the older Precise (Ubuntu 12.04) containers can co-exist with Trusty worker machines, you cannot have a worker with both Precise and Trusty containers on the same machine. They must be setup on separate fresh machines.**
 
 ## AWS
 Spin up AWS worker machines (DeviceMapper installer only supports the recommended c3.2xlarge machines due to the storage layout) and run:
@@ -37,7 +38,5 @@ Then run:
 The only difference with this installer is that it uses AUFS instead of DeviceMapper and doesn't have strict storage device layout requirements (for setting up the DeviceMapper volumes).
 
 ## Run builds on Trusty
-
-This section is important when you're having both Precise and Trusty workers.
 
 To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. This project's builds then get routed to the Trusty machines. If that key is not present in your project's `.travis.yml`, the build will get run with Precise container as usual.
