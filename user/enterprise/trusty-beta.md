@@ -35,3 +35,9 @@ Then run:
 `sudo bash /tmp/installer.sh --travis_enterprise_host="[travis.yourhost.com]" --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]"`
 
 The only difference with this installer is that it uses AUFS instead of DeviceMapper and doesn't have strict storage device layout requirements (for setting up the DeviceMapper volumes).
+
+## Run builds on Trusty
+
+This section is important when you're having both Precise and Trusty workers.
+
+To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. This project's builds then get routed to the Trusty machines. If that key is not present in your project's `.travis.yml`, the build will get run with Precise container as usual.
