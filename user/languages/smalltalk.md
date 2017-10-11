@@ -47,6 +47,7 @@ smalltalk:
   - GemStone-3.2.12
   - GemStone-3.1.0.6
 ```
+{: data-file=".travis.yml"}
 
 This is a minimal `.smalltalk.ston` that uses  [Metacello](https://github.com/dalehenrich/metacello-work) to test on all supported platforms:
 

@@ -85,6 +85,7 @@ notifications:
   campfire:
     rooms: [subdomain]:[api token]@[room id]
 ```
+{: data-file=".travis.yml"}
 
 For us, that is somedomain:abcxyz@14.
 
@@ -110,6 +111,7 @@ notifications:
     rooms:
       secure: "ABC5OwLpwB7L6Ca...."
 ```
+{: data-file=".travis.yml"}
 
 And we're done.
 
@@ -125,6 +127,7 @@ notifications:
     rooms:
       secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -133,6 +136,7 @@ notifications:
   campfire:
     rooms: "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 while
 
@@ -142,6 +146,7 @@ notifications:
     rooms:
       - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -151,6 +156,7 @@ notifications:
     rooms:
       - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 In the case of secure env vars
 
@@ -158,6 +164,7 @@ In the case of secure env vars
 env:
   - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -165,6 +172,7 @@ becomes
 env:
   - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 ## Fetching the public key for your repository
 
