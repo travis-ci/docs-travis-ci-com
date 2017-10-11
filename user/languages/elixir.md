@@ -44,9 +44,9 @@ language: elixir
 ```
 {: data-file=".travis.yml"}
 
-### Specify which Elixir version to test with
+### Specify which Elixir version to build with
 
-You can specify Elixir version to test with by the `elixir` key.
+You can specify Elixir version to build with by the `elixir` key.
 
 For example,
 
