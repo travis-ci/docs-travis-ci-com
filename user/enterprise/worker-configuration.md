@@ -120,7 +120,7 @@ value set to 0.
 
 ```sh
 export TRAVIS_WORKER_DOCKER_MEMORY=4G
-
+# OR
 export TRAVIS_WORKER_DOCKER_MEMORY=0
 ```
 
