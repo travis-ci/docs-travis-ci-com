@@ -360,12 +360,15 @@ before_script:
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars
+  - sudo chown -R travis:travis /var/lib/apache2/fastcgi
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   # configure apache virtual hosts
-  - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+  - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/000-default.conf
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
   - sudo service apache2 restart
 ```
 {: data-file=".travis.yml"}
@@ -381,11 +384,10 @@ virtual host as usual, the important part for php-fpm is this:
 
   DocumentRoot %TRAVIS_BUILD_DIR%
 
-  <Directory "%TRAVIS_BUILD_DIR%">
+  <Directory "%TRAVIS_BUILD_DIR%/">
     Options FollowSymLinks MultiViews ExecCGI
     AllowOverride All
-    Order deny,allow
-    Allow from all
+    Require all granted
   </Directory>
 
   # Wire up Apache to use Travis CI's php-fpm.
@@ -394,6 +396,10 @@ virtual host as usual, the important part for php-fpm is this:
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
+    
+    <Directory /usr/lib/cgi-bin>
+        Require all granted
+    </Directory>
   </IfModule>
 
   # [...]
