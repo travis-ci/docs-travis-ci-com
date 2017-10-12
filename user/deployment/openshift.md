@@ -1,7 +1,7 @@
 ---
 title: OpenShift Deployment
 layout: en
-permalink: /user/deployment/openshift/
+
 ---
 
 Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) application after a successful build.
@@ -15,13 +15,14 @@ deploy:
   password: "YOUR PASSWORD" # can be encrypted
   domain: "YOUR OPENSHIFT DOMAIN"
 ```
+{: data-file=".travis.yml"}
 
 Currently it is not possible to use a token instead of the password, as these tokens expire too quickly. We are working with the OpenShift team on a solution.
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup openshift
+```bash
+travis setup openshift
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
@@ -40,6 +41,7 @@ deploy:
   ...
   app: my-app-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
@@ -51,6 +53,7 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 If these apps belong to different OpenShift domains, you will have to do the same for the domain:
 
@@ -65,6 +68,7 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to deploy from
 
@@ -78,6 +82,7 @@ deploy:
   ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -88,6 +93,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -103,6 +109,7 @@ deploy:
   ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
@@ -130,6 +137,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### Deployment branch
 
@@ -143,3 +151,4 @@ deploy:
   ...
   deployment_branch: mybranch
 ```
+{: data-file=".travis.yml"}

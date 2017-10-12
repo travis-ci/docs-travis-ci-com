@@ -1,7 +1,7 @@
 ---
-title: Building an Objective-C Project
+title: Building an Objective-C or Swift Project
 layout: en
-permalink: /user/languages/objective-c/
+
 swiftypetags:
   - swift
 ---
@@ -16,7 +16,7 @@ Objective-C and Swift projects. Please make sure to read our [Getting
 Started](/user/getting-started/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Objective-C builds are not available on the Linux environments.
+Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
@@ -30,14 +30,14 @@ the following table:
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
+  <td><a href="/user/reference/osx/#Xcode-{{image.xcode  | remove: "."}}">Xcode {{ image.xcode }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
 </table>
 
 > Detailed iOS SDK versions are available in the [OS X CI environment
-> reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
+> reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
 
 At this time we are unable to provide pre-release versions of Xcode due to the
 NDA imposed on them. We do test them internally, and our goal is to make new
@@ -56,6 +56,7 @@ language: objective-c
 xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MyNewProjectTests
 ```
+{: data-file=".travis.yml"}
 
 You can also specify an SDK using the `xcode_sdk` variable. This needs to be on
 the form `iphonesimulatorX.Y` where `X.Y` is the version you want to test
@@ -106,6 +107,7 @@ setting in the *.travis.yml*:
 ```yaml
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 Also, `pod install` is not run if the Pods directory is vendored and there have
 been no changes to the Podfile.lock file.
@@ -123,6 +125,7 @@ you can override the `install` command.
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -131,15 +134,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-{% for simulator in site.data.xcodes.simulators %}
-
-### {{ simulator.name }}
-
-The following devices are provided by the {{ simulator.name }} simulator:
-
-{% for device in simulator.devices %}
-
-- {{ device }}
-  {% endfor %}
-
-{% endfor %}
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#Xcode-version).

@@ -1,7 +1,7 @@
 ---
 title: AWS CodeDeploy
 layout: en
-permalink: /user/deployment/codedeploy/
+
 ---
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
@@ -20,6 +20,7 @@ For a minimal configuration with S3, add the following to your `.travis.yml`:
         application: MyApp
         deployment_group: MyDeploymentGroup
 ```
+{: data-file=".travis.yml"}
 
 Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.  
 
@@ -31,7 +32,7 @@ If your CodeDeploy application lives in any region other than `us-east-1` please
 
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```
+```bash
 travis encrypt --add deploy.secret_access_key
 ```
 
@@ -39,8 +40,8 @@ You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
 
-```
-$ travis setup codedeploy
+```bash
+travis setup codedeploy
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
@@ -63,6 +64,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
       on:
         branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure Travis CI to deploy from all branches:
 
@@ -78,6 +80,7 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
       on:
         all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
@@ -93,6 +96,7 @@ deploy:
   bucket: "S3 Bucket"
   revision_type: github
 ```
+{: data-file=".travis.yml"}
 
 In this case, S3 deployment provider is not required.
 
@@ -106,6 +110,7 @@ deploy:
     ⋮
     wait-until-deployed: true
 ```
+{: data-file=".travis.yml"}
 
 Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
@@ -135,6 +140,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### AWS region to deploy to
 
@@ -151,3 +157,4 @@ You can explicitly specify the AWS region to deploy to with the **region** optio
       deployment_group: MyDeploymentGroup
       region: us-west-1
 ```
+{: data-file=".travis.yml"}

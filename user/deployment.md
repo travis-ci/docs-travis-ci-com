@@ -1,7 +1,7 @@
 ---
 title: Deployment
 layout: en
-permalink: /user/deployment/
+swiftypetags: 'skip_cleanup'
 ---
 
 ### Supported Providers
@@ -21,8 +21,9 @@ working directory and deleting all changes made during the build ( `git stash
 
 ```yaml
 deploy:
-	skip_cleanup: true
+  skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Deploying to Multiple Providers
 
@@ -30,21 +31,22 @@ Deploying to multiple providers is possible by adding the different providers
 to the `deploy` section as a list. For example, if you want to deploy to both
 cloudControl and Heroku, your `deploy` section would look something like this:
 
-```
+```yaml
 deploy:
   - provider: cloudcontrol
     email: "YOUR CLOUDCONTROL EMAIL"
     password: "YOUR CLOUDCONTROL PASSWORD"
     deployment: "APP_NAME/DEP_NAME"
   - provider: heroku
-    api_key "YOUR HEROKU API KEY"
+    api_key: "YOUR HEROKU API KEY"
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional Releases with `on:`
 
 Deployment can be controlled by setting the `on:` for each deployment provider.
 
-```
+```yaml
 deploy:
   provider: s3
   access_key_id: "YOUR AWS ACCESS KEY"
@@ -55,13 +57,14 @@ deploy:
     branch: release
     condition: $MY_ENV = super_awesome
 ```
+{: data-file=".travis.yml"}
 
 When all conditions specified in the `on:` section are met, deployment for this
 provider will be performed.
 
 Common options are:
 
-1. **`repo`** Name of the repository, along with the owner (e.g., `travis-ci/dpl`).
+1. **`repo`** Slug of your repository (in form: `owner_name/repo_name`, e.g., `travis-ci/dpl`).
 
 2. **`branch`** Name of the branch. If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
    `all_branches: true` *instead of* `branch: **` and use other conditions to control your deployment.
@@ -78,9 +81,9 @@ Common options are:
 
 #### Examples of Conditional Releases using `on:`
 
-This example deploys to Nodejistu only from the `staging` branch when the test has run on Node.js version 0.11.
+This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
-```
+```yaml
 deploy:
   provider: appfog
   user: ...
@@ -89,10 +92,11 @@ deploy:
     branch: staging
     node: '0.11' # this should be quoted; otherwise, 0.10 would not work
 ```
+{: data-file=".travis.yml"}
 
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
-```
+```yaml
 deploy:
   provider: s3
   access_key_id: "YOUR AWS ACCESS KEY"
@@ -102,10 +106,11 @@ deploy:
   on:
     condition: "$CC = gcc"
 ```
+{: data-file=".travis.yml"}
 
 This example deploys to GitHub Releases when a tag is set and the Ruby version is 2.0.0.
 
-```
+```yaml
 deploy:
   provider: releases
   api_key: "GITHUB OAUTH TOKEN"
@@ -115,6 +120,7 @@ deploy:
     tags: true
     rvm: 2.0.0
 ```
+{: data-file=".travis.yml"}
 
 ### Adding a Provider
 
@@ -122,11 +128,12 @@ We are working on adding support for other PaaS providers. If you host your appl
 
 If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl) make sure you use the edge version from GitHub:
 
-```
+```yaml
 deploy:
   provider: awesome-experimental-provider
   edge: true
 ```
+{: data-file=".travis.yml"}
 
 ### Pull Requests
 

@@ -1,14 +1,14 @@
 ---
 title: Building an Android Project
 layout: en
-permalink: /user/languages/android/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OSX environment.
+Android builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -23,6 +23,7 @@ By setting
 ```yaml
 language: android
 ```
+{: data-file=".travis.yml"}
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 24.0.0 (December 2014).
 
@@ -34,8 +35,8 @@ android:
   components:
     # Uncomment the lines below if you want to
     # use the latest revision of Android SDK Tools
-    # - platform-tools
     # - tools
+    # - platform-tools
 
     # The BuildTools version used by your project
     - build-tools-19.1.0
@@ -54,6 +55,7 @@ android:
     - sys-img-armeabi-v7a-android-22
     - sys-img-armeabi-v7a-android-17
 ```
+{: data-file=".travis.yml"}
 
 ### How to install Android SDK components
 
@@ -67,8 +69,41 @@ android:
     - android-18
     - extra
 ```
+{: data-file=".travis.yml"}
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
+
+### Installing a newer SDK Platform Tools revision
+
+To build your project with the SDK Platform Tools revision 24 or above, you need to define the following components in your `.travis.yml`:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+```
+{: data-file=".travis.yml"}
+
+> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
+
+You can compile your project for Android 25 as shown in the following example:
+
+```yaml
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-25.0.0
+
+    # The SDK version used to compile your project
+    - android-25
+```
+{: data-file=".travis.yml"}
 
 #### Dealing with Licenses
 
@@ -88,6 +123,7 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 ```
+{: data-file=".travis.yml"}
 
 For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
 
@@ -133,6 +169,7 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -144,6 +181,7 @@ If your project is built with Ant or any other build tool that does not automati
 language: android
 install: ant deps
 ```
+{: data-file=".travis.yml"}
 
 ## Default Test Command for Maven
 
@@ -185,6 +223,13 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 ```
+{: data-file=".travis.yml"}
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Default Test Command
 

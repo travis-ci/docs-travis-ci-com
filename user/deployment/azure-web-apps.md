@@ -1,7 +1,7 @@
 ---
 title: Azure Web App Deployment
 layout: en
-permalink: /user/deployment/azure-web-apps/
+
 ---
 
 Travis CI can automatically deploy your [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/) after a successful build.
@@ -16,6 +16,7 @@ deploy:
   site: azure_deployment_sitename       # If AZURE_WA_SITE isn't set
   slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
 ```
+{: data-file=".travis.yml"}
 
 It is not recommended that you put your Azure Deployment credentials unencrypted into your `.travis.yml`. Instead, use hidden environment variables or encrypted variables.
 
@@ -80,6 +81,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### Deploying to slots
 
@@ -93,3 +95,4 @@ deploy:
   slot: myapp-develop
   on: develop
 ```
+{: data-file=".travis.yml"}
