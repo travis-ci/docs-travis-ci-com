@@ -82,7 +82,7 @@ cargo build --verbose
 You can cache your dependencies so they are only recompiled if they or the
 compiler were upgraded:
 
-```yanl
+```yaml
 cache: cargo
 ```
 {: data-file=".travis.yml"}
