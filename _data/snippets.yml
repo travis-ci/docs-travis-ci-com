@@ -29,3 +29,8 @@ trusty_note: |
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [OS X](/user/reference/osx/)
+trusty_note_no_osx: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)

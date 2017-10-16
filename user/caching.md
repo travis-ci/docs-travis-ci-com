@@ -43,6 +43,7 @@ To enable Bundler caching in your `.travis.yml`:
 language: ruby
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -67,6 +68,7 @@ When you use
 ```yaml
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 The command `bundle clean` is executed before the cache is uploaded.
 
@@ -87,6 +89,7 @@ You can enable CocoaPods caching for your repository by adding this to your
 language: objective-c
 cache: cocoapods
 ```
+{: data-file=".travis.yml"}
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
@@ -97,6 +100,7 @@ cache:
   - bundler
   - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -111,6 +115,7 @@ this:
 language: objective-c
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 ### yarn cache
 
@@ -123,6 +128,7 @@ node_js: '6' # or another
 
 cache: yarn
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cache/yarn`.
 
@@ -135,6 +141,7 @@ language: python
 
 cache: pip
 ```
+{: data-file=".travis.yml"}
 
 caches `$HOME/.cache/pip`.
 
@@ -147,6 +154,7 @@ language: c # or other C/C++ variants
 
 cache: ccache
 ```
+{: data-file=".travis.yml"}
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
@@ -159,6 +167,7 @@ install:
   - brew install ccache
   - export PATH="/usr/local/opt/ccache/libexec:$PATH"
 ```
+{: data-file=".travis.yml"}
 
 > Note that this creates wrappers around your default gcc and g++ compilers.
 
@@ -171,6 +180,7 @@ language: R
 
 cache: packages
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
@@ -183,6 +193,7 @@ language: rust
 
 cache: cargo
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
@@ -196,6 +207,7 @@ cache:
   - .autoconf
   - $HOME/.m2
 ```
+{: data-file=".travis.yml"}
 
 As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
 
@@ -259,6 +271,7 @@ cache:
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
+{: data-file=".travis.yml"}
 
 Failure in this phase does not mark the job as failed.
 
@@ -274,9 +287,7 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [command line client](https://github.com/travis-ci/travis#readme)
 
-  [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
-
-  <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
+    ![travis cache --delete](/images/cli-cache.png)
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
@@ -292,6 +303,7 @@ cache:
 - bundler
 - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 This does not work when caching [arbitrary directories](#Arbitrary-directories),
 or when any of the directives is not supported by the language.
@@ -306,6 +318,7 @@ cache:
   directories:
   - node_modules # NPM packages
 ```
+{: data-file=".travis.yml"}
 
 This is another example; a Rust repository caching cargo and Ruby gems:
 
@@ -318,6 +331,7 @@ cache:
 install:
   - bundle install --deployment # to cache vendor/bundle
 ```
+{: data-file=".travis.yml"}
 
 ### Explicitly disabling caching
 
@@ -326,6 +340,7 @@ You can explicitly disable all caching by setting the `cache` option to `false` 
 ```yaml
 cache: false
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to disable a single caching mode:
 
@@ -335,6 +350,7 @@ cache:
   bundler: false
   cocoapods: true
 ```
+{: data-file=".travis.yml"}
 
 ### Setting the timeout
 
@@ -350,6 +366,7 @@ property with a desired time in seconds:
 cache:
   timeout: 1000
 ```
+{: data-file=".travis.yml"}
 
 ## Caches and build matrices
 

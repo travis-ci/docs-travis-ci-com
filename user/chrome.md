@@ -14,6 +14,7 @@ You can install the `stable`  or the `beta` version of Chrome but you can't sele
 addons:
   chrome: stable
 ```
+{: data-file=".travis.yml"}
 
 ## Headless mode
 
