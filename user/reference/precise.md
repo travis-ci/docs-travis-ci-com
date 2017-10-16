@@ -88,7 +88,7 @@ Language-specific workers have multiple runtimes for their respective language (
 - Redis
 - Riak
 - Apache Cassandra
-- Neo4J Community Edition
+- Neo4j Community Edition
 - ElasticSearch
 - CouchDB
 
