@@ -308,7 +308,7 @@ Add the following `before_script` to your `.travis.yml` to wait before connectin
 ```yaml
 before_script:
   - sleep 15
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 ```
 {: data-file=".travis.yml"}
 
@@ -415,9 +415,9 @@ before_install:
 
 > If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
-## Neo4J
+## Neo4j
 
-Start Neo4J in your `.travis.yml`:
+Start Neo4j in your `.travis.yml`:
 
 ```yaml
 services:
@@ -425,7 +425,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Neo4J Server uses default configuration and binds to localhost on port 7474.
+Neo4j Server uses default configuration and binds to localhost on port 7474.
 
 > Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
 
