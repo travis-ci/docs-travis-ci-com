@@ -4,46 +4,48 @@ layout: en
 
 ---
 
+<div id="toc">
+</div>
+
+<aside markdown="block" class="ataglance">
+
+| Java                         | Default                                                                                                              |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------|
+| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
+| Default `script`             | [Gradle](#Gradle-Default-Script-Command), [Maven](#Maven-Default-Script-Command), [Ant](#Ant-Default-Script-Command) |
+| [Matrix keys](#Build-Matrix) | `jdk`, `env`                                                                                                         |
+| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                            |
+
+Minimal example:
+
+```yaml
+  language: java
+```
+</aside>
+
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Java projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+{{ site.data.snippets.trusty_note }}
 
-<div id="toc"></div>
+The rest of this guide covers configuring Java projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
-The Travis CI environment provides recent versions of Oracle JDK 8 (default), Oracle JDK 9, OpenJDK 7, Gradle 2.0, Maven 3.2 and Ant 1.8, and has sensible defaults for projects that use Gradle, Maven or Ant.
+The Travis CI environment contains various versions of OpenJDK, Oracle JDK,
+Gradle, Maven and Ant.
 
-To use the Java environment add the following to your `.travis.yml`:
+To use the Java environment, add the following to your `.travis.yml`:
 
 ```yaml
 language: java
 ```
 {: data-file=".travis.yml"}
 
-Older OpenJDK and Oracle JDK versions may be available on [Precise](/user/reference/precise#JDK).
-
 ## Projects Using Maven
 
-### Default script Command
-
-If your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI builds your project with Maven 3:
-
-```bash
-mvn test -B
-```
-
-If your project also includes the `mvnw` wrapper script in the repository root, Travis CI uses that instead:
-
-```bash
-./mvnw test -B
-```
-
-> The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
-
-To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
-
-### Dependency Management
+### Maven Dependency Management
 
 Before running the build, Travis CI installs dependencies:
 
@@ -57,25 +59,35 @@ or if your project uses the `mvnw` wrapper script:
 ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
+> Note that the Travis CI build lifecycle and the Maven build lifecycle use similar
+terminology for different build phases. For example, `install` in a Travis CI
+build comes much earlier than `install` in the Maven build lifecycle. More details
+can be found about the [Travis Build Lifecycle](/user/customizing-the-build/#The-Build-Lifecycle)
+and the [Maven Build Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
+
+### Maven Default Script Command
+
+If your project has `pom.xml` file in the repository root but no `build.gradle`,
+Travis CI builds your project with Maven 3:
+
+```bash
+mvn test -B
+```
+
+If your project also includes the `mvnw` wrapper script in the repository root,
+Travis CI uses that instead:
+
+```bash
+./mvnw test -B
+```
+
+> The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
+
+To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+
 ## Projects Using Gradle
 
-### Default script Command
-
-If your project has `build.gradle` file in the repository root, Travis CI builds your project with Gradle:
-
-```bash
-gradle check
-```
-
-If your project also includes the `gradlew` wrapper script in the repository root, Travis CI uses that instead:
-
-```bash
-./gradlew check
-```
-
-To use a different build command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
-
-### Dependency Management
+### Gradle Dependency Management
 
 Before running the build, Travis CI installs dependencies:
 
@@ -89,9 +101,29 @@ or
 ./gradlew assemble
 ```
 
+### Gradle Default Script Command
+
+If your project contains a `build.gradle` file in the repository root, Travis CI
+builds your project with Gradle:
+
+```bash
+gradle check
+```
+
+If your project also includes the `gradlew` wrapper script in the repository
+root, Travis CI uses that wrapper instead:
+
+```bash
+./gradlew check
+```
+
+To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+
 ### Caching
 
-A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+A peculiarity of dependency caching in Gradle means that to avoid uploading the
+cache after every build you need to add the following lines to your
+`.travis.yml`:
 
 ```yaml
 before_cache:
@@ -106,23 +138,17 @@ cache:
 
 ### Gradle daemon is disabled by default
 
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
-the Gradle daemon is disabled by default.
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html)
+by the Gradle team, the Gradle daemon is disabled by default.
 If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Ant
 
-### Default script Command
+### Ant Dependency Management
 
-If Travis CI does not detect Maven or Gradle files it runs Ant:
-
-```bash
-ant test
-```
-
-### Dependency Management
-
-Because there is no single standard way of installing project dependencies with Ant, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+Because there is no single standard way of installing project dependencies with
+Ant, you need to specify the exact command to run using `install:` key in your 
+`.travis.yml`, for example:
 
 ```yaml
 language: java
@@ -130,9 +156,20 @@ install: ant deps
 ```
 {: data-file=".travis.yml"}
 
+### Ant Default Script Command
+
+If Travis CI does not detect Maven or Gradle files it runs Ant:
+
+```bash
+ant test
+```
+
+To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example, to test against Oracle JDKs 8 and 9, as well as OpenJDK 7:
+To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
+to test against Oracle JDKs 8 and 9, as well as OpenJDK 7:
 
 ```yaml
 jdk:
@@ -142,13 +179,30 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OS X. See the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more details.
+> Note that testing against multiple Java versions is not supported on OS X. See
+the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
+details.
 
-Travis CI provides OpenJDK 7, Oracle JDK 8, and Oracle JDK 9.
+### Switching JDKs Within One Job
+
+If your build needs to switch JDKs during a job, you can do so with
+`jdk_switcher use …`.
+
+```yaml
+script:
+  - jdk_switcher use oraclejdk8
+  - # do stuff with Java 8
+  - jdk_switcher use openjdk7
+  - # do stuff with Java 7
+```
+{: data-file=".travis.yml"}
+
+Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ### Updating Oracle JDK to a recent release
 
-Your repository may require a newer release of Oracle JDK than the pre-installed version.
+Your repository may require a newer release of Oracle JDK than the pre-installed
+version.
 (You can consult [the list of published Oracle JDK packages](https://launchpad.net/~webupd8team/+archive/ubuntu/java).)
 
 The following example will use the latest Oracle JDK 8:
@@ -166,21 +220,6 @@ addons:
 
 For Java projects, `env` and `jdk` can be given as arrays
 to construct a build matrix.
-
-## Switching JDKs Within One Job
-
-If your build needs to switch JDKs during a job, you can do so with `jdk_switcher use …`.
-
-```yaml
-script:
-  - jdk_switcher use oraclejdk8
-  - # do stuff with Java 8
-  - jdk_switcher use openjdk7
-  - # do stuff with Java 7
-```
-{: data-file=".travis.yml"}
-
-Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
 ## Examples
 
