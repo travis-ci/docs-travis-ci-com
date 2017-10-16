@@ -6,7 +6,7 @@ layout: en
 
 This is a very short guide to using Travis CI with your GitHub hosted code repository.
 If you're new to continuous integration or would like some more information on
-what Travis CI does, start with [Travis CI for Beginners](/user/for-beginners)
+what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
 instead.
 
 <div id="toc"></div>
