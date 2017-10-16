@@ -445,11 +445,11 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## My builds are timing out
 
-Builds can unfortunately time out, either during installation of dependencies, or during the build itself, for instance because of a command that's taking a longer amount of time to run while not producing any output.
+Builds can unfortunately time out, either during installation of dependencies, or during the build itself.
 
 Our builds have a global timeout and a timeout that's based on the output. If no output is received from a build for 10 minutes, it's assumed to have stalled for unknown reasons and is subsequently killed.
 
-At other times, installation of dependencies can timeout. Bundler and RubyGems are a relevant example. Network connectivity between our servers can sometimes affect connectivity to APT, Maven or other repositories.
+Installation of dependencies can timeout with unstable network connectivity to APT, Maven or other repositories.
 
 There are few ways to work around that.
 
@@ -482,11 +482,7 @@ impact of network timeouts.
 
 ### Build times out because no output was received
 
-When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
-
-The shell environment in our build system provides a function that helps to work around that, at least for longer than 10 minutes.
-
-If you have a command that doesn't produce output for more than 10 minutes, you can prefix it with `travis_wait`, a function that's exported by our build environment. For example:
+When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can prefix it with `travis_wait`, a function that's exported by our build environment. For example:
 
 ```yaml
     install: travis_wait mvn install
@@ -496,7 +492,7 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number.
+If you expect the command to run without output for more than 20 minutes, prefix `travis_wait` with a greater number.
 Continuing with the example above, to extend the wait time to 30 minutes:
 
 ```yaml
