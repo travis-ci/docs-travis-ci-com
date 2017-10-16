@@ -212,15 +212,15 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
-## Limiting Concurrent Builds
+## Limiting Concurrent Jobs
 
-The maximum number of concurrent builds depends on the total system load, but
+The maximum number of concurrent jobs depends on the total system load, but
 one situation in which you might want to set a particular limit is:
 
 - if your build depends on an external resource and might run into a race
-  condition with concurrent builds.
+  condition with concurrent jobs.
 
-You can set the maximum number of concurrent builds in the settings pane for
+You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)

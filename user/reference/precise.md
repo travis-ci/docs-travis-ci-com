@@ -1,5 +1,5 @@
 ---
-title: The Build Environment
+title: The Precise Build Environment
 layout: en
 
 redirect_from:
@@ -88,7 +88,7 @@ Language-specific workers have multiple runtimes for their respective language (
 - Redis
 - Riak
 - Apache Cassandra
-- Neo4J Community Edition
+- Neo4j Community Edition
 - ElasticSearch
 - CouchDB
 
@@ -181,6 +181,9 @@ in order to minimize frictions when images are updated:
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
+See the [default JVM options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/jvmopts.erb)
+for specific details on building JVM projects.
+
 ### JDK
 
 - Oracle JDK 7 (oraclejdk7)
@@ -188,8 +191,9 @@ in order to minimize frictions when images are updated:
 - OpenJDK 6 (openjdk6)
 - Oracle JDK 8 (oraclejdk8)
 
-OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reached End of Life in fall 2012.
+OracleJDK 7 is the default because we have a much more recent patch level
+compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not
+provided because it reached End of Life in fall 2012.
 
 The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
@@ -199,12 +203,15 @@ Stock Apache Maven 3.2.x, configured to use [Central](http://search.maven.org/) 
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
+Travis CI has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
 The default is 2.4.x; `/usr/local/bin/lein` is a symbolic link to `/usr/local/bin/lein2`.
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+Travis CI potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+
+See the [default sbt options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/sbtopts.erb)
+for specific details on building projects with sbt.
 
 ### Gradle version
 
@@ -218,7 +225,7 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 ### Rebar
 
-travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
+Travis CI provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
 
 ## JavaScript and Node.js images
@@ -263,16 +270,20 @@ Test::Pod::Coverage
 
 ## PHP VM images
 
+
+
 ### PHP versions
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
-[hhvm](https://github.com/facebook/hhvm) is also available.
-and the nightly builds are installed on-demand (as `hhvm-nightly`).
-
 ### XDebug
 
 Is supported.
+
+### Core extensions
+
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+
 
 ### Extensions
 
@@ -339,6 +350,11 @@ zlib
 Xdebug
 ```
 
+### Chef Cookbooks for PHP
+
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/precise-stable/ci_environment).
+
+
 ## Python VM images
 
 ### Python versions
@@ -346,6 +362,10 @@ Xdebug
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
 ### Preinstalled pip packages
 
