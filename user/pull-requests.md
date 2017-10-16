@@ -76,10 +76,11 @@ currently ignores this update, as it could lead to a large number of new builds
 on repositories with lots of pull requests and lots of updates on the upstream
 branches.
 
-Also, it looks like maybe you can't re-run a job if the PR has already been merged. You'll get an error like 
+If the pull request has already been merged you can't rerun the job. You'll get an error like:
+
 
 ```
 The command "eval git fetch origin +refs/pull/994/merge: " failed
 ```
 
-Restoring the branch of a merged PR will not trigger a build, nor will pushing a new commit to said branch.
+Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.
