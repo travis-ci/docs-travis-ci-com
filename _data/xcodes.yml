@@ -1,4 +1,46 @@
 osx_images:
+  - image: xcode9.1
+    xcode: "9.1"
+    osx_version: "10.12"
+    xcode_full_version: "9.1"
+    image_publish_date: 2017-10-04
+    sdks:
+      - macosx10.13
+      - iphoneos11.1
+      - iphonesimulator11.1
+      - appletvos11.1
+      - appletvsimulator11.1
+      - watchos4.1
+      - watchsimulator4.1
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - iOS 10.2
+      - iOS 10.3
+      - iOS 11.0
+      - iOS 11.1
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - tvOS 10.1
+      - tvOS 10.2
+      - tvOS 11.0
+      - tvOS 11.1
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.2
+      - watchOS 4.0
+      - watchOS 4.1
   - image: xcode9
     xcode: "9.0"
     osx_version: "10.12"
