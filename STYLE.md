@@ -127,7 +127,15 @@ This code is in .travis.yml
 ```
 {: data-file=".travis.yml"}
 
+#### YAML
 
+Always quote version numbers as strings in `.travis.yml`:
+
+```yaml
+ruby: 1.5   #incorrect
+ruby: '1.5' #corrct
+```
+{: data-file=".travis.yml"}
 
 ### Common misspellings and words to avoid
 
