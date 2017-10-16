@@ -10,3 +10,4 @@ tmp/
 node_modules
 generated-language-mapping.json
 _data/trusty_mapping_data.yml
+_data/gce_ip_range.yml

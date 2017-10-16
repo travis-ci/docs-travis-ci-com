@@ -37,6 +37,7 @@ addons:
   jwt:
      secure: <SAUCE_ACCESS_KEY ENCRYPTED>
 ```
+{: data-file=".travis.yml"}
 
 This can also support several services:
 
@@ -52,6 +53,7 @@ addons:
     - secure: <SAUCE_ACCESS_KEY ENCRYPTED>
     - secure: <THIRDPARTY_SHARED_SECRET ENCRYPTED>
 ```
+{: data-file=".travis.yml"}
 
 ### Use the Encrypted Key
 
@@ -162,3 +164,4 @@ addons:
   jwt:
     secure: <SAUCE_ACCESS_KEY ENCRYPTED>
 ```
+{: data-file=".travis.yml"}

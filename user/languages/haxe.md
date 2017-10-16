@@ -30,11 +30,12 @@ haxe:
   - "3.2.1"
   - development
 ```
+{: data-file=".travis.yml"}
 
 ## Default Haxe Version
 
 If you leave the `haxe:` key out of your `.travis.yml`, Travis CI will use
-Haxe 3.4.2.
+Haxe 3.4.3.
 
 ## Default Neko Version
 
@@ -46,6 +47,7 @@ for example:
 language: haxe
 neko: "2.0.0"
 ```
+{: data-file=".travis.yml"}
 
 However, unlike `haxe:`, you can provide only one value (not an array) to `neko:`.
 
@@ -59,6 +61,7 @@ language: haxe
 hxml:
   - build.hxml
 ```
+{: data-file=".travis.yml"}
 
 In the *install* phase, the worker will run `yes | haxelib install $hxml` for
 each of the provided values. Similarly, in the *script* (test) phase,
