@@ -118,7 +118,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 3. Commit the changes to your `.travis.yml`.
 
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* access to the encrypted variables.
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
