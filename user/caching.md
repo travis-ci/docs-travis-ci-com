@@ -78,21 +78,7 @@ See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for 
 
 ### cache RVM Ruby version for non Ruby projects
 
-There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite:
-
-```
-sudo: required
-dist: trusty
-
-language: node_js
-
-node_js:
-  - "6"
-
-script:
-  - npm test
-  - cucumber features/
-```
+There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite.
 
 For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases you can cache the ruby installation.
 
