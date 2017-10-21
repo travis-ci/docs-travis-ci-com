@@ -443,6 +443,16 @@ By Cas du Plessis
 
 - [website](https://github.com/AgileAce/Brackets-TravisCI)
 
+### Emacs Package
+
+![emacs](/images/apps/emacs.jpg){:.app}
+
+Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+By Skye Shaw
+
+- [website](https://github.com/sshaw/build-status)
+
+
 ### Vim Plugin
 
 ![vim](/images/apps/vim.jpg){:.app}
