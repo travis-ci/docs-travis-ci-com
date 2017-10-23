@@ -113,7 +113,7 @@ Since the worker machine runs all your builds in Docker containers, the Docker v
 Please also check the worker configuration in `/etc/default/travis-enterprise`:
 
 - Please make sure that `TRAVIS_ENTERPRISE_BUILD_ENDPOINT` is not commented out and has the value `__build__`.
-- Also make sure that `TRAVIS_ENTERPRISE_SECURITY_TOKEN` has the same value as being shown under RabbitMQ password at https://<your domain>:8800/settings
+- Also make sure that `TRAVIS_ENTERPRISE_SECURITY_TOKEN` has the same value as being shown under RabbitMQ password at `https://your.domain:8800/settings`.
 - The hostname in `TRAVIS_ENTERPRISE_HOST` must have the platform machine's hostname as value.
 
 It is possible to adjust travis-worker so for example it assigns  more resources to a container or runs more of them concurrently. This configuration has to be done in `/etc/default/travis-worker`. There are some things worth to check:
