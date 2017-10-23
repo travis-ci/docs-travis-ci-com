@@ -55,7 +55,7 @@ matrix:
           packages:
             - g++-7
       env:
-- MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 before_install:
     - eval "${MATRIX_EVAL}"
