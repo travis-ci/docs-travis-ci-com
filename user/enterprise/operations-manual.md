@@ -100,15 +100,16 @@ Therefore we need to have some things in line:
 	- 0.0.0.0:5672->5672/tcp
 	- 0.0.0.0:32770->22/tcp
 - If the above port bindings are not there, please let us know. Then we'll figure out how to get them back.
-- An important topic is the used storage driver. In the past we've heavily relied on the `devicemapper` storage driver. At some point Docker changed their default storage driver to `overlay`. However this only works well if your Linux kernel is at least version 3.18. Below it *can* work but there's no definite guarantee. To find out the used storage driver, please run `sudo docker info | grep "Storage Driver"`. If your current driver is `overlay`, please check your Linux kernel version via `uname -a`.
+- Storage drivers: The platform machine by default uses `aufs` on Ubuntu 14.04. The worker machines either have `aufs` or `devicemapper` configured, depending on the installer you used to set them up. Where `aufs` is the default and for AWS based worker setups we also offer `devicemapper`, where this requires a more elaborate setup though. To find out which storage driver is currently in use, run the following: `sudo docker info | grep "Storage Driver"`.
 
 ## Worker
+
 The `travis-worker` binary on the worker machine(s) must be up to date.
 Please run `sudo apt-get install --only-upgrade travis-worker`. This will update it to the latest version.
 
 __Docker__:
 
-Since the worker machine runs all your builds in Docker containers, the Docker version must be up to date and properly configured. We also need to have the `devicemapper` or `overlay` storage driver configured here, together with Linux kernel 3.18 or later.
+Since the worker machine runs all your builds in Docker containers, the Docker version must be up to date and properly configured. We also need to have the `aufs` or `devicemapper` storage driver configured here, together with Linux kernel 3.18 or later.
 
 Please also check the worker configuration in `/etc/default/travis-enterprise`:
 
