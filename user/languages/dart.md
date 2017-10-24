@@ -1,7 +1,7 @@
 ---
 title: Building a Dart Project
 layout: en
-permalink: /user/languages/dart/
+
 ---
 
 ### What This Guide Covers
@@ -37,6 +37,7 @@ dart:
 # Install a specific dev release, using a partial download URL - 1.16.0-dev.3.0
 - "dev/release/1.16.0-dev.3.0"
 ```
+{: data-file=".travis.yml"}
 
 This creates a separate Travis job for each Dart version. It can be used in
 conjunction with `env` or similar fields to create a [build matrix][].
@@ -66,6 +67,7 @@ dart_task:
 - test: --platform vm
 - test: --platform chrome
 ```
+{: data-file=".travis.yml"}
 
 Each task creates a separate Travis job. It can be used in conjunction with
 `env`, `dart`, or similar fields to create a [build matrix][].
@@ -86,6 +88,7 @@ dart_task:
 - test: --platform dartium
   install_dartium: true
 ```
+{: data-file=".travis.yml"}
 
 ### XVFB
 
@@ -103,6 +106,7 @@ dart_task:
 - test: --tags no-xvfb
   xvfb: false
 ```
+{: data-file=".travis.yml"}
 
 XVFB is never used on OS X, since it doesn't use the X windows system.
 
@@ -130,6 +134,7 @@ dart_task:
 # Warnings are fatal, but we only analyze the lib/ directory.
 - dartanalyzer: --fatal-warnings lib
 ```
+{: data-file=".travis.yml"}
 
 ### Formatter
 
@@ -147,7 +152,11 @@ dart_task:
 - test: --platform chrome
 - dartfmt
 ```
+{: data-file=".travis.yml"}
 
-## Environment Variable
+## Environment Variables
 
-The version of Dart a job is using is available as `TRAVIS_DART_VERSION`.
+* The version of Dart a job is using is available as `TRAVIS_DART_VERSION`.
+* `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
+* `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
+* `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.

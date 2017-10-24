@@ -1,14 +1,14 @@
 ---
 title: Building a Perl Project
 layout: en
-permalink: /user/languages/perl/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl builds are not available on the OSX environment.
+Perl builds are not available on the OS X environment.
 
 ## Choosing Perl versions to test against
 
@@ -21,6 +21,7 @@ perl:
   - "5.22"
   - "5.20"
 ```
+{: data-file=".travis.yml"}
 
 A more extensive example:
 
@@ -33,6 +34,7 @@ perl:
   - "5.18"
   - "5.16"
 ```
+{: data-file=".travis.yml"}
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
 
@@ -52,6 +54,7 @@ versions that are available:
 5.20-shrplib
 5.18-shrplib
 ```
+{: data-file=".travis.yml"}
 
 
 ## Default Perl Version

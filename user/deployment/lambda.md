@@ -1,7 +1,7 @@
 ---
 title: Lambda Deployment
 layout: en
-permalink: /user/deployment/lambda/
+
 ---
 
 Travis CI supports uploading to [AWS Lambda](https://aws.amazon.com/lambda/).
@@ -19,6 +19,7 @@ deploy:
   access_key_id: "AWS ACCESS KEY ID"
   secret_access_key: "AWS SECRET ACCESS KEY"
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -69,7 +70,7 @@ The AWS user that Travis deploys as must have the following IAM permissions in o
             "Sid": "DeployCode",
             "Effect": "Allow",
             "Action": [
-                "lambda:UploadFunction",
+                "lambda:GetFunction",
                 "lambda:UpdateFunctionCode",
                 "lambda:UpdateFunctionConfiguration"
             ],

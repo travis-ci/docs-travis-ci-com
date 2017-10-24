@@ -1,7 +1,7 @@
 ---
 title: AWS Elastic Beanstalk Deployment
 layout: en
-permalink: /user/deployment/elasticbeanstalk/
+
 ---
 
 <div id="toc"></div>
@@ -30,6 +30,7 @@ deploy:
   env: "example-app-environment"
   bucket_name: "the-target-S3-bucket"
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, use the Travis CI command line setup tool to add the deployment `travis setup elasticbeanstalk`.
 
@@ -64,3 +65,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Warm up cache"
-permalink: /user/build-stages/warm-cache/
+
 layout: en
 ---
 
@@ -29,8 +29,9 @@ jobs:
       script: bundle show
       rvm: 2.3
 ```
+{: data-file=".travis.yml"}
 
-This is how the build matrix would look like:
+This is how the build matrix might look:
 
 ![image](https://cloud.githubusercontent.com/assets/2208/25852101/79a071f2-34c8-11e7-9d20-c518e6874b04.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Running Build in Debug Mode
 layout: en
-permalink: /user/running-build-in-debug-mode/
+
 ---
 
 <div id="toc"></div>
@@ -17,7 +17,7 @@ to get shell access to the virtual machine or container.
 > the feature is enabled.
 > To have the feature enabled for a public repository, please email us at
 > [support@travis-ci.com](mailto:support@travis-ci.com) indicating which ones.
-> The push access to the repository is also required.
+> Push access to the repository is also required.
 
 For private repositories, the "Debug build" or "Debug job" button is available on the upper right corner of
 the build/job page.
@@ -52,7 +52,7 @@ mode, pass an empty JSON object (`{}`) in the payload instead.
 
 ## Connecting to the job running in the debug mode
 
-When the job starts in the debug mode, it will go through the intial steps, including setting up language
+When the job starts in the debug mode, it will go through the initial steps, including setting up language
 run times and caches (if applicable) and installing debug utilities.
 
 When it is ready for your connection, you will see:
