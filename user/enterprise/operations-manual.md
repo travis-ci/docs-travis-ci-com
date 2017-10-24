@@ -25,9 +25,9 @@ Without the encryption key you cannot access the information in your production 
 
 ## Create a backup of the data directories
 
-The data directories are located on the platform machine and get mounted into the Travis container. In there you'll find files from RabbitMQ, Postgres, Slanger and Postgresql.
+The data directories are located on the platform machine and get mounted into the Travis container. In these directories you'll find files from RabbitMQ, Postgres, Slanger and Postgresql.
 
-These files are located at `/var/travis`. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
+The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
 ## Pull a Support bundle
 
