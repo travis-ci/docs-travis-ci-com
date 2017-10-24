@@ -4,21 +4,13 @@ layout: en_enterprise
 
 ---
 
-This document is meant as a guideline to follow in case your Travis CI Enterprise production installation becomes unresponsive or unavailable.
+This document contains guidelines to follow in case your Travis CI Enterprise production installation becomes unresponsive or unavailable.
 
-If this happens, we'd like to ask you to follow the steps outlined in this document first before you get in touch with us to save important data and collect as much evidence as possible. This will help us to provide you the best support possible and focus completely on resolving the problem.
-
-## First: Don't panic
-
-The first thing you should do is: keep calm. We're here to help and we're confident that we can bring it back online together with you!
-
-## Prerequisites
-
-Please make sure that you have root access on all machines Travis CI Enterprise is running on. This is crucial because we will ask you to perform operations where you either need to be root or you need to have the appropriate `sudo` privileges. If you don't have direct root privileges, please make sure that a person who has is available.
+If your Travis CI Enterprise production installation becomes unresponsive, please follow the steps outlined in this document before contacting us, the data you collect helps us solve your problem efficiently.
 
 ## Coordinating with Support
 
-We are here to help troubleshoot and fix any problems that may arise with your Travis CI Enterprise installation. For efficiency, though, we would request you minimize making changes to your setup that are not directly recommended by support, or document these steps and notify support accordingly.
+We are here to help troubleshoot and fix any problems that may arise with your Travis CI Enterprise installation. For efficiency, though, we would request you minimize making changes to your setup that are not directly recommended by support, or document these steps and notify support accordingly. Please make sure that you have root access on all machines Travis CI Enterprise is running on. This is crucial because we will ask you to perform operations where you either need to be root or you need to have the appropriate `sudo` privileges.
 
 ## Terminology
 
