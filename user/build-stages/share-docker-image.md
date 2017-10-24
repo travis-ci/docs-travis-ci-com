@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Sharing a Docker image"
-permalink: /user/build-stages/share-docker-image/
+
 layout: en
 ---
 
@@ -28,6 +28,7 @@ jobs:
       script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
     - script: docker run --rm $DOCKER_USERNAME/travis-ci-build-stages-demo cat hello.txt
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

@@ -1,7 +1,7 @@
 ---
 title: Modulus Deployment
 layout: en
-permalink: /user/deployment/modulus/
+
 swiftypetags: nodejitsu
 ---
 
@@ -17,11 +17,12 @@ deploy:
   api_key: "YOUR API KEY"
   project_name: "YOUR PROJECT NAME"
 ```
+{: data-file=".travis.yml"}
 
 You can create an API key by running `modulus token create` or retrieve an existing one by running `modulus token list`.
 It is recommended to encrypt that key. Assuming you have the Modulus and Travis CI command line clients installed, you can do it like this:
 
-```yaml
+```bash
 $ modulus token create
 Welcome to Modulus
 You are logged in as USER
@@ -45,6 +46,7 @@ deploy:
   project_name: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -56,6 +58,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -72,6 +75,7 @@ deploy:
   project_name: ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ## Conditional releases
 
@@ -90,6 +94,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ## Nodejitsu applications
 

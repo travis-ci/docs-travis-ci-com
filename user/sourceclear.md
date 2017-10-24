@@ -1,7 +1,7 @@
 ---
 title: Using SourceClear with Travis CI
 layout: en
-permalink: /user/sourceclear/
+
 ---
 
 [SourceClear](https://www.sourceclear.com) is security for open-source code.
@@ -10,7 +10,7 @@ When you add SourceClear to your TravisCI projects you'll get automated security
 
 ## Creating your Authentication Token
 
-In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](http://app.sourceclear.com/login), and then perform the following steps:
+In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](https://app.sourceclear.io/login), and then perform the following steps:
 
 **1.** From the left sidebar, select **Agents**, then **New Agent**.
 
@@ -37,6 +37,7 @@ In order to scan using SourceClear, add the following to your `.travis.yml` file
 addons:
     srcclr: true
 ```
+{: data-file=".travis.yml"}
 
 If you want verbose output during the scan, you can add the `debug` key:
 
@@ -45,6 +46,7 @@ addons:
     srcclr:
         debug: true
 ```
+{: data-file=".travis.yml"}
 
 Commit these changes to trigger a build for your repository, and SourceClear will perform a scan, displaying results to your SourceClear environment.
 

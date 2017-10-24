@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to Rubygems"
-permalink: /user/build-stages/deploy-rubygems/
+
 layout: en
 ---
 
@@ -29,7 +29,9 @@ jobs:
         api_key: $RUBYGEMS_API_KEY
         on: deploy-gem-release
 ```
-This is how the build matrix would look like:
+{: data-file=".travis.yml"}
+
+This is how the build matrix would look:
 
 ![image](https://cloud.githubusercontent.com/assets/2208/25852509/e2571b32-34c9-11e7-8253-b0982838296e.png)
 

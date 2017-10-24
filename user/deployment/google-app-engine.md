@@ -1,7 +1,7 @@
 ---
 title: Google App Engine Deployment
 layout: en
-permalink: /user/deployment/google-app-engine/
+
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
@@ -14,13 +14,16 @@ deploy:
   keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
   project: "YOUR PROJECT ID"
 ```
+{: data-file=".travis.yml"}
 
 Then go to the [Google Cloud Console Dashboard](http://console.developers.google.com) and:
 
 1. Enable "Google App Engine Admin API",
-2. Go to "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download the your Service Account JSON file.
+2. Go to "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download your Service Account JSON file.
 
-It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
+It is *strongly* recommended that you encrypt your key before committing it to a repo.
+First make sure you have the [Travis command line tool](https://github.com/travis-ci/travis.rb#readme) installed.
+Then execute the following command from the terminal:
 
 ```bash
 travis encrypt-file client-secret.json --add
@@ -44,6 +47,7 @@ deploy:
   keyfile: ...
   project: continuous-deployment-demo
 ```
+{: data-file=".travis.yml"}
 
 ### Version to deploy
 
@@ -62,6 +66,7 @@ deploy:
   project: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -73,6 +78,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -87,6 +93,7 @@ deploy:
   project: continuous-deployment-demo
   no_promote: true
 ```
+{: data-file=".travis.yml"}
 
 In addition to that, and according to the [Google Cloud SDK changelog](https://cloud.google.com/sdk/release_notes#0981_20151007), *"in a future Cloud SDK release, deployments that promote the new version to receive all traffic will stop the previous version by default"*.
 
@@ -99,6 +106,7 @@ deploy:
   project: continuous-deployment-demo
   no_stop_previous_version: true
 ```
+{: data-file=".travis.yml"}
 
 ### Skipping Cleanup
 
@@ -110,6 +118,7 @@ deploy:
     provider: gae
     skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Example Repo
 

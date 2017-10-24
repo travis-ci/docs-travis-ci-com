@@ -31,6 +31,27 @@
     position: absolute
     right: 1em
 
+[data-file]
+  position: relative
+  padding-top: 1.9em
+  &:before
+    content: attr(data-file)
+    position: absolute
+    top: 1.1em
+    left: 0
+    z-index: 5
+    background: $cement-grey
+    width: 100%
+    color: $pebble-grey
+    padding-left: 1em
+    font-size: 14px
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+
+//overwrite prism plugin style
+pre.code-toolbar > .toolbar
+  opacity: 1
+
 .swiftype-widget
   .autocomplete
     ul

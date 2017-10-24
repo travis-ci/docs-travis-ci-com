@@ -1,7 +1,7 @@
 ---
 title: Environment Variables
 layout: en
-permalink: /user/environment-variables/
+
 ---
 
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
@@ -30,10 +30,11 @@ Define environment variables in your `.travis.yml` in the `env` key, quoting spe
 
 ```yaml
 env:
-- DB=postgres
-- SH=bash
-- PACKAGE_VERSION="1.0.*"
+  - DB=postgres
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
 ```
+{: data-file=".travis.yml"}
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
@@ -49,6 +50,7 @@ env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
 ```
+{: data-file=".travis.yml"}
 
 this configuration triggers **4 individual builds**:
 
@@ -70,6 +72,7 @@ env:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
+{: data-file=".travis.yml"}
 
 triggers builds with the following `env` rows:
 
@@ -95,6 +98,7 @@ env:
     - USE_NETWORK=false
     - secure: <you can also put encrypted vars inside matrix>
 ```
+{: data-file=".travis.yml"}
 
 > Encrypted environment variables are not available to pull requests from forks due to the security risk of exposing such information to unknown code.
 >
@@ -114,7 +118,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 3. Commit the changes to your `.travis.yml`.
 
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* access to the encrypted variables.
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
@@ -182,6 +186,7 @@ to tag the build, or to run post-build deployments.
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
   request.
+  + for builds triggered by a tag, this is the same as the name of the tag (`TRAVIS_TAG`).
 
       > Note that for tags, git does not store the branch from which a commit was tagged.
 
