@@ -8,15 +8,9 @@ This document contains guidelines to follow in case your Travis CI Enterprise pr
 
 If your Travis CI Enterprise production installation becomes unresponsive, please follow the steps outlined in this document before contacting us, the data you collect helps us solve your problem efficiently.
 
-## Coordinating with Support
+Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
-We are here to help troubleshoot and fix any problems that may arise with your Travis CI Enterprise installation. For efficiency, though, we would request you minimize making changes to your setup that are not directly recommended by support, or document these steps and notify support accordingly. Please make sure that you have root access on all machines Travis CI Enterprise is running on. This is crucial because we will ask you to perform operations where you either need to be root or you need to have the appropriate `sudo` privileges.
-
-## Terminology
-
-To make sure that there are no confusions, we'd like to define a couple of terms:
-
-- `Platform machine`: The machine that runs most of the Travis web components. This is the machine your domain is pointing to.
+- `Platform machine`: The virtual machine that runs most of the Travis web components. This is the machine your domain is pointing to.
 - `Worker machine`: The worker machine(s) run your builds.
 
 ## Backup your encryption key
@@ -38,6 +32,10 @@ These files are located at `/var/travis`. Please run `sudo tar -czvf travis-ente
 Please head over to https://<your domain>:8800/support and create a support bundle. If you're writing us, please include that file. It'll include all important log files which will help us to diagnose the problem.
 
 Also please include the worker log files as well. They're located on your worker machine(s) at `/var/log/upstart/travis-worker.log`. If you run multiple worker machines, please grab this file from all machines.
+
+Please make sure that you have root access on all machines Travis CI Enterprise is running on. This is crucial because we will ask you to perform operations where you either need to be root or you need to have the appropriate `sudo` privileges.
+
+We are here to help troubleshoot and fix any problems that may arise with your Travis CI Enterprise installation. For efficiency, we would like to ask you to provide us with as much information about your system as possible. The support bundle already includes machine specs, additionally we'd like to hear from you the worker machines are set up, do you use a configuration management tool such as Puppet or Chef? On what infrastructure does Travis CI Enterprise run (AWS EC2, Digital Ocean,...)?
 
 ## What exactly is not running?
 
