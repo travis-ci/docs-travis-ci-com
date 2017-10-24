@@ -13,13 +13,15 @@ Throughout this document we'll be using the following terms to refer to the two 
 - `Platform machine`: The virtual machine that runs most of the Travis web components. This is the machine your domain is pointing to.
 - `Worker machine`: The worker machine(s) run your builds.
 
-## Backup your encryption key
+## Back up your encryption key
 
-This key is a very important building block in Travis CI Enterprise. It is used to encrypt certain parts of your production database. _Without this key the information in the database is not recoverable._ To make sure that the database remains accessible we ask you to make a backup of this key by following the steps below:
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key:
 
-- open a ssh connection to the platform machine
-- run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
-- Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of value getting printed on the screen by either  writing it down on a piece of paper or storing it on a different computer.
+1. open a ssh connection to the platform machine
+2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
+3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of value getting printed on the screen by either  writing it down on a piece of paper or storing it on a different computer.
+
+> Without this key the information in the database is not recoverable.
 
 ## Create a backup of the data directories
 
