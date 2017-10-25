@@ -29,15 +29,22 @@ The data directories are located on the platform machine and get mounted into th
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
-## Pull a Support bundle
+## Write a support request
 
-Please head over to https://<your domain>:8800/support and create a support bundle. If you're writing us, please include that file. It'll include all important log files which will help us to diagnose the problem.
+We encourage you to get in touch with us for anything you'd like to talk about but especially when something is not working – we're here to help!
 
-Also please include the worker log files as well. They're located on your worker machine(s) at `/var/log/upstart/travis-worker.log`. If you run multiple worker machines, please grab this file from all machines.
+There are a few things we'd like to ask you to take into account when you're getting in touch with us. The reason behind the following list is that this will help us a lot to provide you with better support right away and also saves a couple of emails in the beginning.
+Also, please make sure that you have root access on all machines Travis CI Enterprise is running on.
 
-Please make sure that you have root access on all machines Travis CI Enterprise is running on. This is crucial because we will ask you to perform operations where you either need to be root or you need to have the appropriate `sudo` privileges.
+1. Support bundle: Please head over to https://<your domain>:8800/support and create a support bundle. This compressed archive contains log files from our services but also information about your system in general like number of CPUs, RAM, operating system etc.
 
-We are here to help troubleshoot and fix any problems that may arise with your Travis CI Enterprise installation. For efficiency, we would like to ask you to provide us with as much information about your system as possible. The support bundle already includes machine specs, additionally we'd like to hear from you the worker machines are set up, do you use a configuration management tool such as Puppet or Chef? On what infrastructure does Travis CI Enterprise run (AWS EC2, Digital Ocean,...)?
+2. Also please include the worker log files as well. They're located on your worker machine(s) at `/var/log/upstart/travis-worker.log`. If you run multiple worker machines, please grab this file from all machines.
+
+3. Anything else which is specific to your infrastructure / setup:
+	- Are you running on a IaaS (Amazon EC2, Azure, Digital Ocean)?
+	- Do you use configuration management tools (Chef, Puppet)?
+	- Which other services do interface with Travis CI Enterprise?
+	- Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
 
 ## What exactly is not running?
 
