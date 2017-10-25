@@ -84,7 +84,7 @@ $ replicatedctl preflight run
 
 ## Docker
 
-We use a tool called [Replicated](https://www.replicated.com/) to distribute Travis CI Enterprise. It also provides the management dashboard you're using to configure certain things.
+We use a tool called [Replicated](https://www.replicated.com/) to distribute Travis CI Enterprise. It also provides the management dashboard you're using to configure settings your installation.
 
 Replicated and Travis CI Enterprise are both shipped as Docker containers. Therefore we have to rely on a perfectly working Docker installation. In the past we've seen incidents where the customers production system became unavailable because Docker related configuration has changed for various reasons.
 
