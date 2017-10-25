@@ -19,7 +19,7 @@ Without the encryption key you cannot access the information in your production 
 
 1. open a ssh connection to the platform machine
 2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
-3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of value getting printed on the screen by either  writing it down on a piece of paper or storing it on a different computer.
+3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
 
 > Without this key the information in the database is not recoverable.
 
@@ -33,14 +33,15 @@ The files are located at `/var/travis` on the platform machine. Please run `sudo
 
 We encourage you to get in touch with us for anything you'd like to talk about but especially when something is not working – we're here to help!
 
-There are a few things we'd like to ask you to take into account when you're getting in touch with us. The reason behind the following list is that this will help us a lot to provide you with better support right away and also saves a couple of emails in the beginning.
-Also, please make sure that you have root access on all machines Travis CI Enterprise is running on.
+There are a few things we'd like to ask you to take care of when you're getting in touch with us to make sure that we can provide the best support possible.
 
-1. Support bundle: Please head over to https://<your domain>:8800/support and create a support bundle. This compressed archive contains log files from our services but also information about your system in general like number of CPUs, RAM, operating system etc.
+1. Also, please make sure that you have root access on all machines Travis CI Enterprise is running on.
 
-2. Also please include the worker log files as well. They're located on your worker machine(s) at `/var/log/upstart/travis-worker.log`. If you run multiple worker machines, please grab this file from all machines.
+2. Support bundle: Please head over to https://<your domain>:8800/support and create a support bundle. This compressed archive contains log files from our services but also information about your system in general like number of CPUs, RAM, operating system etc.
 
-3. Anything else which is specific to your infrastructure / setup:
+3. Also please include the worker log files as well. They're located on your worker machine(s) at `/var/log/upstart/travis-worker.log`. If you run multiple worker machines, please grab this file from all machines.
+
+4. Anything else which is specific to your infrastructure / setup:
 	- Are you running on a IaaS (Amazon EC2, Azure, Digital Ocean)?
 	- Do you use configuration management tools (Chef, Puppet)?
 	- Which other services do interface with Travis CI Enterprise?
