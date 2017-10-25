@@ -74,14 +74,13 @@ __Platform machine__:
 
 ## Hardware
 
-Our platform machine has these hardware requirements:
+To ensure everything runs as expected, does your system meet our [hardware requirements](https://docs.travis-ci.com/user/enterprise/prerequisites/#System-Requirements)?
 
-- Minimum 16GB of RAM
-- 8 CPU cores
-- Min. 40GB of available disk space
+Our preflight checks can help you to determine if the platform machine has enough resources to run Travis CI Enterprise. To run the checks, open a ssh connection to your platform machine and run the following command:
 
-When you run `top` on the platform machine, please check if enough RAM is available and that the system load is not too high.
-Did you notice an increased system load recently?
+```bash
+$ replicatedctl preflight run
+```
 
 ## Docker
 
