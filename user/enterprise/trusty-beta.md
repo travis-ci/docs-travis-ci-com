@@ -25,7 +25,7 @@ layout: en_enterprise
 ## Installation on AWS
 Spin up at least one additional AWS worker machine. Please note: DeviceMapper installer only supports the recommended c3.2xlarge machines due to the storage layout. Once this are ready, run:
 
-`curl -sSL -o /tmp/installer.sh https://gist.githubusercontent.com/bnferguson/4675ea4fadde8a82613f683fed5f8ad3/raw/trusty-devicemapper-installer.sh`
+`curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/trusty-devicemapper`
 
 Next, run the following to complete the install:
 
@@ -35,7 +35,7 @@ Next, run the following to complete the install:
 
 Start at least one additional worker machine and run:
 
-`curl -sSL -o /tmp/installer.sh https://gist.githubusercontent.com/bnferguson/25dfd929bc59382aa8effb7dcc7e7a3f/raw/trusty-installer.sh`
+`curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/trusty`
 
 Next, run the following to complete the install:
 
