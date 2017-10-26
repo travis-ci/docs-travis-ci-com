@@ -1,13 +1,19 @@
 ---
-title: Trusty containers for Enterprise (beta)
+title: Trusty Build Containers for Enterprise (beta)
 layout: en_enterprise
 
 ---
 
-> BETA Please note: This is a beta feature. We would definitely like to hear if you run into any problems with the Trusty containers. If you have any questions or run into problems, please write an email to: [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Trusty%20Beta).
+> Note: This is a BETA feature. If you have any questions, suggestions, or run into any trouble, please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Trusty%20Beta). We look forward to your feedback!
 {: .beta}
 
-First of all you need to be running Travis Enterprise 2.1.9 or higher.
+## System Setup
+
+**Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started with this feature. 
+
+**Worker Requirements**: While workers with the older Precise (Ubuntu 12.04) containers can co-exist with Trusty workers in an installation configuration, _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
+
+### Enabling the Trusty Beta Feature Flag
 
 1. SSH into the platform machine
 2. Run `travis console`
@@ -15,29 +21,28 @@ First of all you need to be running Travis Enterprise 2.1.9 or higher.
 4. Type in `exit` to leave the console
 5. Disconnect from the Travis Enterprise platform machine
 
-**While worker machines with the older Precise (Ubuntu 12.04) containers can co-exist with Trusty worker machines, you cannot have a worker with both Precise and Trusty containers on the same machine. They must be setup on separate fresh machines.**
 
-## AWS
-Spin up AWS worker machines (DeviceMapper installer only supports the recommended c3.2xlarge machines due to the storage layout) and run:
+## Installation on AWS
+Spin up at least one additional AWS worker machine. Please note: DeviceMapper installer only supports the recommended c3.2xlarge machines due to the storage layout. Once this are ready, run:
 
 `curl -sSL -o /tmp/installer.sh https://gist.githubusercontent.com/bnferguson/4675ea4fadde8a82613f683fed5f8ad3/raw/trusty-devicemapper-installer.sh`
 
-Then run:
+Next, run the following to complete the install:
 
 `sudo bash /tmp/installer.sh --travis_enterprise_host="[travis.yourhost.com]" --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" --aws=true`
 
-## Non-AWS
+## Installation on Non-AWS
 
-Start your worker machine and run:
+Start at least one additional worker machine and run:
 
 `curl -sSL -o /tmp/installer.sh https://gist.githubusercontent.com/bnferguson/25dfd929bc59382aa8effb7dcc7e7a3f/raw/trusty-installer.sh`
 
-Then run:
+Next, run the following to complete the install:
 
 `sudo bash /tmp/installer.sh --travis_enterprise_host="[travis.yourhost.com]" --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]"`
 
-The only difference with this installer is that it uses AUFS instead of DeviceMapper and doesn't have strict storage device layout requirements (for setting up the DeviceMapper volumes).
+There are two differences with the non-AWS installer. First, it uses AUFS instead of DeviceMapper and, second doesn't have strict storage device layout requirements which would otherwise be required for setting up the DeviceMapper volumes.
 
-## Run builds on Trusty
+## Running builds on Trusty
 
-To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. This project's builds then get routed to the Trusty machines. If that key is not present in your project's `.travis.yml`, the build will get run with Precise container as usual.
+To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the Precise build environments instead. 
