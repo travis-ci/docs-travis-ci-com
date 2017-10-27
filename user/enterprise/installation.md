@@ -60,14 +60,6 @@ installation's hostname, port 8800) to complete the setup.
 From here you can upload your license key, add your GitHub OAuth details, and
 optionally upload an SSL certificate and enter SMTP details.
 
-<!-- TODO: this next should probably be way earlier in the prerequisites? -->
-
-If you are running the Platform host on EC2, we recommend using an image
-that uses EBS for the root volume, as well as allocating 40 gigs of
-space to it. It is also recommended to not destroy the volume on
-instance termination.
-
-
 ## 2. Setting up Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
