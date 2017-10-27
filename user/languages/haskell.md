@@ -41,7 +41,7 @@ Compiler) pre-installed. For a detailed list of pre-installed versions, please
 consult "Build system information" in the build log.
 
 You can specify one or more GHC versions using `major.minor` notation. Patch
-level versions (`7.6.2` for eample) may change any time:
+level versions (`7.6.2` for example) may change any time:
 
 ```yaml
 ghc:

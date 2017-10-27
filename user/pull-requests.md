@@ -75,3 +75,12 @@ downstream and upstream branch, and send out a notifications. But Travis CI
 currently ignores this update, as it could lead to a large number of new builds
 on repositories with lots of pull requests and lots of updates on the upstream
 branches.
+
+If the pull request has already been merged you can't rerun the job. You'll get an error like:
+
+
+```
+The command "eval git fetch origin +refs/pull/994/merge: " failed
+```
+
+Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.
