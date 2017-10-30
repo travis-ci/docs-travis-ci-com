@@ -87,7 +87,7 @@ To use a different `script` command, customize the [build step](/user/customizin
 
 ## Projects Using Gradle
 
-### Gradle Dependency Management
+### Gradle Default Install Command
 
 Before running the build, Travis CI installs dependencies:
 
@@ -100,6 +100,8 @@ or
 ```bash
 ./gradlew assemble
 ```
+
+To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
 
 ### Gradle Default Script Command
 
