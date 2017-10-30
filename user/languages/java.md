@@ -11,7 +11,7 @@ layout: en
 
 | Java                         | Default                                                                                                              |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
+| Default `install`            | [Gradle](#Gradle-Default-Install-Command), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
 | Default `script`             | [Gradle](#Gradle-Default-Script-Command), [Maven](#Maven-Default-Script-Command), [Ant](#Ant-Default-Script-Command) |
 | [Matrix keys](#Build-Matrix) | `jdk`, `env`                                                                                                         |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                            |
