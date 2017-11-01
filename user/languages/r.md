@@ -15,8 +15,8 @@ configuration](/user/customizing-the-build/) guides first.
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@craigcitro][github 2],
-[@hadley][github 3], and [@jimhester][github 4].
+[Travis CI issue tracker][github] and cc [@craigcitro][github 2]
+and [@jimhester][github 4].
 
 ## Basic configuration
 
@@ -391,8 +391,6 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
 
 [github 2]: https://github.com/craigcitro
-
-[github 3]: https://github.com/hadley
 
 [github 4]: https://github.com/jimhester
 
