@@ -125,7 +125,7 @@ includes all files in a given directory.
 ```yaml
 deploy:
   provider: releases
-  api-key: "GITHUB OAUTH TOKEN"
+  api_key: "GITHUB OAUTH TOKEN"
   file_glob: true
   file: directory/*
   skip_cleanup: true
