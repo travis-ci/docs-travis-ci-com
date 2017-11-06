@@ -20,7 +20,7 @@ Minimal example:
 
 ```yaml
 ghc:
-  - 7.8
+  - "7.8"
 ```
 {: data-file=".travis.yml"}
 
@@ -45,9 +45,9 @@ level versions (`7.6.2` for example) may change any time:
 
 ```yaml
 ghc:
-  - 7.8
-  - 7.6
-  - 7.4
+  - "7.10"
+  - "7.8"
+  - "7.6"
 ```
 {: data-file=".travis.yml"}
 
