@@ -161,7 +161,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-Alternatively, you can pass the `--headless` command line argument when
+Alternatively, you can pass the `-headless` command line argument when
 starting Firefox. For example, the following code demonstrates how you would
 set this argument using the Python client for Selenium:
 
@@ -170,9 +170,14 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
 options = Options()
-options.add_argument('--headless')
+options.add_argument('-headless')
 firefox = Firefox(firefox_options=options)
 ```
+
+### Documentation
+
+* [Using headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode)
+* [Automated testing with headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode)
 
 ## Using PhantomJS
 
