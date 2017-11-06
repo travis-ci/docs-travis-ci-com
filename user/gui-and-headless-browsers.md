@@ -146,6 +146,34 @@ before_install:
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
+### Using the [Firefox addon](/user/firefox) in headless mode
+
+Starting with version 56, Firefox can be used in "headless" mode, which is
+suitable for driving browser-based tests using Selenium and other tools.
+Headless mode can be enabled using the `MOZ_HEADLESS`
+[environment variable](/user/environment-variables):
+
+```yaml
+env:
+  - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+```
+{: data-file=".travis.yml"}
+
+Alternatively, you can pass the `--headless` command line argument when
+starting Firefox. For example, the following code demonstrates how you would
+set this argument using the Python client for Selenium:
+
+```python
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument('--headless')
+firefox = Firefox(firefox_options=options)
+```
+
 ## Using PhantomJS
 
 [PhantomJS](http://phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
