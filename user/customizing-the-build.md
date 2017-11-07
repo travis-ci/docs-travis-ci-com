@@ -393,7 +393,7 @@ rvm:
   - 2.2
   - ruby-head
   - jruby
-  - rbx-2
+  - rbx-3
   - ree
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
