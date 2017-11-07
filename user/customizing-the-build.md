@@ -200,9 +200,8 @@ It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - A job produces no log output for 10 minutes
-- A job on travis-ci.org takes longer than 50 minutes 
-- A job running on OS X infrastructure takes longer than 50 minutes (applies to travis-ci.org or travis-ci.com)
-- A job on Linux infrastructure on travis-ci.com takes longer than 120 minutes 
+- A job on travis-ci.org takes longer than 50 minutes
+- A job on travis-ci.com takes longer than 120 minutes
 
 Some common reasons why builds might hang:
 
@@ -212,15 +211,15 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
-## Limiting Concurrent Builds
+## Limiting Concurrent Jobs
 
-The maximum number of concurrent builds depends on the total system load, but
+The maximum number of concurrent jobs depends on the total system load, but
 one situation in which you might want to set a particular limit is:
 
 - if your build depends on an external resource and might run into a race
-  condition with concurrent builds.
+  condition with concurrent jobs.
 
-You can set the maximum number of concurrent builds in the settings pane for
+You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
@@ -394,7 +393,7 @@ rvm:
   - 2.2
   - ruby-head
   - jruby
-  - rbx-2
+  - rbx-3
   - ree
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x

@@ -92,7 +92,7 @@ script:
 
 > Note that currently, each branch ends up being a dedicated project on SonarCloud.
 
-## Activation for pull requests
+## Activation for internal pull requests
 
 SonarCloud can inspect internal pull requests of your repository and write comments on each line where issues are found.
 
