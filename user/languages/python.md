@@ -197,21 +197,6 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 For Python projects, `env` and `python` can be given as arrays
 to construct a build matrix.
 
-```yaml
-python:
-  - "3.6"
-  - "pypy3"  # Pypy3 5.8.0-beta0
-  - "nightly"
-env:
-  - DJANGO_VERSION=1.10.8
-  - DJANGO_VERSION=1.11.5
-# while pypy3 is still in beta, allow those and nightly tests to fail
-matrix:
-  allow_failures:
-    - python: "pypy3"
-    - python: "nightly"
-```
-
 ## Examples
 
 - [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
