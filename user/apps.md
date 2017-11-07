@@ -321,6 +321,15 @@ By Gleb Bahmutov
 
 - [website](https://github.com/bahmutov/status-gravatar)
 
+### Chroma Feedback
+
+![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
+
+Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+By Henry Ruhs
+
+- [website](https://github.com/redaxmedia/chroma-feedback)
+
 ## Generators
 
 ### travis-encrypt
