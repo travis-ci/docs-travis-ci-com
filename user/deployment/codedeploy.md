@@ -98,9 +98,9 @@ For a minimal configuration with GitHub, add the following to your `.travis.yml`
         deployment_group: "The Deployment group associated with the codedeploy application"
         region: "Region in which your ec2 instance is."
 ```
-Please note that region should match the instance region on which codedeploy is configured.
-
 {: data-file=".travis.yml"}
+
+Please note that `region` should match the instance region on which codedeploy is configured.
 
 ### Waiting for Deployments
 
