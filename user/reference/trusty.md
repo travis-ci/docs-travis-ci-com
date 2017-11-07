@@ -332,7 +332,7 @@ We pre-install the following services which may be activated with the built-in
 - CouchDB
 - ElasticSearch
 - MongoDB
-- Neo4J
+- Neo4j
 - PostgreSQL
 - RabbitMQ
 - Redis

@@ -14,7 +14,7 @@ To deploy to AWS Elastic Beastalk add the following to your `.travis.yml`:
 
 * `access-key-id`: AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
 * `secret-access-key`: [Encrypted](/user/encryption-keys#Usage) AWS Secret Key, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
-* `region`: **must** be the region the Elastic Beastalk application is running on, for example `us-east-1`.
+* `region`: **must** be the region the Elastic Beanstalk application is running on, for example `us-east-1`.
 * `app`: Application name.
 * `env`: Elastic Beanstalk environment the application will be deployed to.
 * `bucket_name`: Bucket name to upload app to.
