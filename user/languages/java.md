@@ -101,6 +101,8 @@ or
 ./gradlew assemble
 ```
 
+To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
+
 ### Gradle Default Script Command
 
 If your project contains a `build.gradle` file in the repository root, Travis CI
