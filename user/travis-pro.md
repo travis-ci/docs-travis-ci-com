@@ -30,7 +30,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 
 - Users that can access a repository on GitHub can see the build status and logs on Travis CI.
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds.
-- Users that have admin access to a repository on GitHub can change enable/disable it on Travis CI and change its settings.
+- Users that have admin access to a repository on GitHub can enable/disable it on Travis CI and change its settings.
 
 To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
 
@@ -96,7 +96,7 @@ settings on GitHub, and resync your Travis CI account:
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
-how to make a repository public.
+how to make a repository private.
 
 2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
    Account*, then toggle the repository to *ON*.

@@ -30,8 +30,9 @@ jobs:
       rvm: 2.3
       env: FOO=foo
 ```
+{: data-file=".travis.yml"}
 
-This is how the build matrix would look like:
+This is how the build matrix might look:
 
 ![image](https://cloud.githubusercontent.com/assets/2208/25853030/a3a41708-34cb-11e7-9560-bcec60350342.png)
 

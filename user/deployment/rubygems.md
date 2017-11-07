@@ -13,6 +13,7 @@ deploy:
   provider: rubygems
   api_key: "YOUR API KEY"
 ```
+{: data-file=".travis.yml"}
 
 Most likely you would only want to deploy to RubyGems when a new version of
 your package is cut. To do this, you can tell Travis CI to only deploy on
@@ -25,6 +26,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
@@ -71,6 +73,7 @@ deploy:
   api_key: ...
   gem: my-gem-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to release different branches to different gems:
 
@@ -82,6 +85,7 @@ deploy:
     master: my-gem
     old: my-gem-old
 ```
+{: data-file=".travis.yml"}
 
 If these gems belong to different RubyGems accounts, you will have to do the same for the API key:
 
@@ -95,6 +99,7 @@ deploy:
     master: my-gem
     old: my-gem-old
 ```
+{: data-file=".travis.yml"}
 
 ### Gemspec to use
 
@@ -106,6 +111,7 @@ deploy:
     api_key: ...
     gemspec: my-gemspec.gemspec
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to release from
 
@@ -120,6 +126,7 @@ deploy:
   on:
     branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to release from all branches:
 
@@ -130,6 +137,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
@@ -145,6 +153,7 @@ deploy:
   api_key: ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
@@ -163,3 +172,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
