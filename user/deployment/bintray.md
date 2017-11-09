@@ -17,14 +17,23 @@ deploy:
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
   dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
 ```
+{: data-file=".travis.yml"}
 
 ### Encrypt your API key
 
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
 
 ```bash
-$ travis encrypt BINTRAY-API-KEY --add deploy.key
+$ travis encrypt <YOUR BINTRAY API KEY> --add deploy.key
 ```
+
+Example:
+
+```bash
+$ travis encrypt ab012cd345678901234e456fa7bc89def01a23b4 --add deploy.key
+```
+
+
 
 ### Branch to deploy from
 
@@ -37,6 +46,7 @@ deploy:
   ..
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -46,6 +56,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -66,6 +77,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### Descriptor file example
 

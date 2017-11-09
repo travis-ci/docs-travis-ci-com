@@ -7,26 +7,14 @@ layout: en
 <div id="toc">
 </div>
 
-## What This Guide Covers
-
-> Language versions and other build-environment specific
-> information are in our reference pages:
->  * [Precise](/user/reference/precise/)
->  * [Trusty](/user/reference/trusty/)
->  * [OS X](/user/reference/osx/)
-
-The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
-
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
-|:------------------|:------------------------------------------|
-| Typical `install` | `bundle install --jobs=3 --retry=3`       |
-| Typical `script`  | `rake`                                    |
-| Matrix keys       | `env`, `rvm`, `gemfile`, `jdk`            |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Ruby                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `bundle install --jobs=3 --retry=3`       |
+| [Default `script`](#Default-Build-Script)   | `rake`                                    |
+| [Matrix keys](#Build-Matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
@@ -37,8 +25,17 @@ rvm:
   - jruby
   - 2.0.0-p247
 ```
+{: data-file=".travis.yml"}
 
 </aside>
+
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note }}
+
+The rest of this guide covers configuring Ruby projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
 
@@ -54,6 +51,7 @@ rvm:
   - jruby
   - 2.0.0-p247
 ```
+{: data-file=".travis.yml"}
 
 > Note that the `rvm:` key is only available in Ruby Build Environments, not in
 > other images containing a ruby implementation.
@@ -72,16 +70,17 @@ one is available.
 <!-- distro exception -->
 
 If you're using OS X or Trusty environments, you can also use
-[Rubinius](http://rubini.us). To test with Rubinius, add `rbx-X.Y.Z` to your
-`.travis.yml`, where X.Y.Z specifies a Rubinius release listed on
+[Rubinius](http://rubini.us). To test with Rubinius, add `rbx-X` or `rbx-X.Y.Z`
+to your `.travis.yml`, where X.Y.Z specifies a Rubinius release listed on
 [http://rubies.travis-ci.org/rubinius](http://rubies.travis-ci.org/rubinius) .
 
 ```yaml
 language: ruby
 dist: trusty
 rvm:
-  - rbx-3.69
+  - rbx-3
 ```
+{: data-file=".travis.yml"}
 
 ### JRuby: C extensions are not supported
 
@@ -123,6 +122,7 @@ dependencies, you can override the `install` command.
 ```yaml
 install: gem install rails
 ```
+{: data-file=".travis.yml"}
 
 By default, gems are installed into vendor/bundle in your project's root
 directory.
@@ -169,6 +169,7 @@ Adjust your Bundler arguments to explicitly exclude this group:
 ```yaml
 bundler_args: --without production
 ```
+{: data-file=".travis.yml"}
 
 Enjoy a faster build, which is also less prone to compilation problems.
 
@@ -181,6 +182,7 @@ To specify a custom Gemfile name or location:
 ```yaml
 gemfile: gemfiles/Gemfile.ci
 ```
+{: data-file=".travis.yml"}
 
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
@@ -188,6 +190,7 @@ You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
 ```yaml
 bundler_args: --binstubs
 ```
+{: data-file=".travis.yml"}
 
 ### Testing against multiple versions of dependencies
 
@@ -210,6 +213,7 @@ gemfile:
   - gemfiles/rails3.gemfile
   - gemfiles/rails3_1.gemfile
 ```
+{: data-file=".travis.yml"}
 
 An alternative to this is to use environment variables and make your test runner
 use them. For example, [Sinatra is tested against multiple Tilt and Rack
@@ -222,6 +226,7 @@ env:
   - "tilt=1.3.3"
   - "tilt=master"
 ```
+{: data-file=".travis.yml"}
 
 ChefSpec is [tested against multiple Opscode Chef
 versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
@@ -232,6 +237,7 @@ env:
   - CHEF_VERSION=0.10.2
   - CHEF_VERSION=0.10.4
 ```
+{: data-file=".travis.yml"}
 
 The same technique is often applied to test against multiple databases, templating
 engines, hosted service providers and so on.
@@ -260,6 +266,7 @@ jdk:
   - openjdk7
   - oraclejdk8
 ```
+{: data-file=".travis.yml"}
 
 Each JDK you test against will create permutations with all other
 configurations, so to avoid running tests for, say, CRuby 1.9.3 multiple times
@@ -285,6 +292,7 @@ matrix:
     - rvm: 1.9.2
       jdk: oraclejdk7
 ```
+{: data-file=".travis.yml"}
 
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
@@ -303,6 +311,7 @@ before_install:
   - gem update --system
   - gem --version
 ```
+{: data-file=".travis.yml"}
 
 To downgrade to a specific version of RubyGems:
 
@@ -311,6 +320,7 @@ before_install:
   - gem update --system 2.1.11
   - gem --version
 ```
+{: data-file=".travis.yml"}
 
 Note that this will impact your overall test time, as additional network
 downloads and installations are required.

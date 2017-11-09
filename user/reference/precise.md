@@ -1,12 +1,10 @@
 ---
-title: The Build Environment
+title: The Precise Build Environment
 layout: en
 
 redirect_from:
   - /user/workers/container-based-infrastructure/
   - /user/workers/standard-infrastructure/
-  - /user/workers/os-x-infrastructure/
-  - /user/ci-environment/
 ---
 
 ### What This Guide Covers
@@ -27,69 +25,6 @@ state and making sure that your tests run in an environment built from scratch.
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## Virtualization environments
-
-Each build runs in one of the following virtual environments:
-
-- Sudo-enabled (a sudo enabled, full VM per build)
-- Container-based (Fast boot time environment in which `sudo` commands are not available)
-- OS X for Objective-C projects
-
-The following table summarizes the differences between the virtual environments:
-
-<div class="header-row header-column">
-<table><thead>
-<tr>
-<th></th>
-<th>Container-based</th>
-<th>Sudo-enabled</th>
-<th>OS X</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>.travis.yml</td>
-<td><code>sudo: false</code><em>default for repositories enabled in 2015 or later</em></td>
-<td><code>sudo: required</code><em>default for repositories enabled before 2015</em></td>
-<td><code>language: objective-c</code> or <code>os: osx</code></td>
-</tr>
-<tr>
-<td>Allows <code>sudo</code>, <code>setuid</code> and <code>setgid</code></td>
-<td>no</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Boot Time</td>
-<td>1-6s</td>
-<td>20-52s</td>
-<td>60-90s</td>
-</tr>
-<tr>
-<td>File System</td>
-<td>AUFS, case sensitive</td>
-<td>ext4, case sensitive</td>
-<td>HFS+, which is case-insensitive and returns directory entities alphabetically</td>
-</tr>
-<tr>
-<td>Operating System</td>
-<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
-<td>Ubuntu 12.04 or 14.04 LTS Server Edition 64 bit</td>
-<td>OS X Yosemite (10.10.5), OS X El Capitan (10.11.6) or macOS Sierra (10.12.1)</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>4 GB max</td>
-<td>7.5 GB</td>
-<td>4 GB</td>
-</tr>
-<tr>
-<td>Cores</td>
-<td>2</td>
-<td>~2, bursted</td>
-<td>2</td>
-</tr>
-</tbody></table>
-</div>
 
 ## Networking
 
@@ -153,7 +88,7 @@ Language-specific workers have multiple runtimes for their respective language (
 - Redis
 - Riak
 - Apache Cassandra
-- Neo4J Community Edition
+- Neo4j Community Edition
 - ElasticSearch
 - CouchDB
 
@@ -172,6 +107,7 @@ For example, to install version 17.0, add the following to your
 addons:
   firefox: "17.0"
 ```
+{: data-file=".travis.yml"}
 
 Please note that the addon only works in 64-bit Linux environments.
 
@@ -245,6 +181,9 @@ in order to minimize frictions when images are updated:
 
 ## JVM (Clojure, Groovy, Java, Scala) VM images
 
+See the [default JVM options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/jvmopts.erb)
+for specific details on building JVM projects.
+
 ### JDK
 
 - Oracle JDK 7 (oraclejdk7)
@@ -252,8 +191,9 @@ in order to minimize frictions when images are updated:
 - OpenJDK 6 (openjdk6)
 - Oracle JDK 8 (oraclejdk8)
 
-OracleJDK 7 is the default because we have a much more recent patch level compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not provided because
-it reached End of Life in fall 2012.
+OracleJDK 7 is the default because we have a much more recent patch level
+compared to OpenJDK 7 from the Ubuntu repositories. Sun/Oracle JDK 6 is not
+provided because it reached End of Life in fall 2012.
 
 The `$JAVA_HOME` will be set correctly when you choose the `jdk` value for the JVM image.
 
@@ -263,12 +203,15 @@ Stock Apache Maven 3.2.x, configured to use [Central](http://search.maven.org/) 
 
 ### Leiningen versions
 
-travis-ci.org has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
+Travis CI has both standalone ("uberjar") Leiningen 1.7.x at `/usr/local/bin/lein1` and Leiningen 2.4.x at `/usr/local/bin/lein2`.
 The default is 2.4.x; `/usr/local/bin/lein` is a symbolic link to `/usr/local/bin/lein2`.
 
 ### SBT versions
 
-travis-ci.org potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+Travis CI potentially provides any version of Simple Build Tool (sbt or SBT) thanks to very powerful [sbt-extras](https://github.com/paulp/sbt-extras) alternative. In order to reduce build time, popular versions of sbt are already pre-installed (like for instance 0.13.5 or 0.12.4), but `sbt` command is able to dynamically detect and install the sbt version required by your Scala projects.
+
+See the [default sbt options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/sbt-extras/templates/default/sbtopts.erb)
+for specific details on building projects with sbt.
 
 ### Gradle version
 
@@ -282,14 +225,14 @@ Erlang/OTP releases are built using [kerl](https://github.com/spawngrid/kerl).
 
 ### Rebar
 
-travis-ci.org provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
+Travis CI provides a recent version of Rebar. If a repository has rebar binary bundled at `./rebar` (in the repo root), it will
 be used instead of the preprovisioned version.
 
-## Node.js VM images
+## JavaScript and Node.js images
 
 ### Node.js versions
 
-Node runtimes are built using [nvm](https://github.com/creationix/nvm).
+Node runtimes are built and installed using [nvm](https://github.com/creationix/nvm).
 
 ### SCons
 
@@ -327,16 +270,20 @@ Test::Pod::Coverage
 
 ## PHP VM images
 
+
+
 ### PHP versions
 
 PHP runtimes are built using [php-build](https://github.com/CHH/php-build).
 
-[hhvm](https://github.com/facebook/hhvm) is also available.
-and the nightly builds are installed on-demand (as `hhvm-nightly`).
-
 ### XDebug
 
 Is supported.
+
+### Core extensions
+
+See the [default configure options](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb) to get an overview of the core extensions enabled.
+
 
 ### Extensions
 
@@ -403,6 +350,11 @@ zlib
 Xdebug
 ```
 
+### Chef Cookbooks for PHP
+
+If you want to learn all the details of how we build and provision multiple PHP installations, see our [php, phpenv and php-build Chef cookbooks](https://github.com/travis-ci/travis-cookbooks/tree/precise-stable/ci_environment).
+
+
 ## Python VM images
 
 ### Python versions
@@ -410,6 +362,10 @@ Xdebug
 Every Python has a separate virtualenv that comes with `pip` and `distribute` and is activated before running the build.
 
 Python 2.4 and Jython *are not supported* and there are no plans to support them in the future.
+
+### Default Python Version
+
+If you leave the `python` key out of your `.travis.yml`, Travis CI will use Python 2.7.
 
 ### Preinstalled pip packages
 
