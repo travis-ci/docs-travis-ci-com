@@ -105,8 +105,8 @@ crates:
 ```yaml
 language: rust
 script:
-  - cargo build --verbose --all
-  - cargo test --verbose --all
+  - cargo build --verbose
+  - cargo test --verbose
 ```  
 {: data-file=".travis.yml"}
 
