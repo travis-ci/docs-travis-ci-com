@@ -149,10 +149,10 @@ Travis CI Enterprise works well together with a Let's Encrypt SSL Certificate. T
 
 What you need:
 
-- an email address Let's Encrypt can send emails to. This will be used to notify about urgent renewal and security notices
-- a domain name under which your installation is available (we're using `travis.example.com` in this guide).
+1. An email address Let's Encrypt can send emails to. This will be used to notify about urgent renewal and security notices.
+2. A domain name under which your installation is available (we're using `travis.example.com` in this guide).
 
-**Please note: This change will cause downtime for your system**
+**Please note: This change will cause downtime for your system,for this reason, we recommend to perform this process in a maintenance window.**
 
 To obtain an SSL certificate we'll be using [certbot](https://certbot.eff.org/#ubuntutrusty-other). Certbot is available as an Ubuntu package.
 
@@ -166,21 +166,21 @@ $ sudo apt-get update
 $ sudo apt-get install certbot
 ```
 
-certbot offers multiple ways to obtain a certificate. We'll pick the `temporary webserver` option since it doesn't require any additional configuration. The only prerequisite though is that the Travis CI Enterprise container has to be stopped so that webserver can bind to port 443 properly.
+`certbot` offers multiple ways to obtain a certificate. We'll pick the `temporary webserver` option since it doesn't require any additional configuration. The only prerequisite though is that the Travis CI Enterprise container has to be stopped so that webserver can bind to port 443 properly.
 
-To start, please stop Travis CI Enterprise:
+***To start***, please stop Travis CI Enterprise:
 
 ```
 $ replicatedctl app stop
 ```
 
-Now, run the following to start the interactive process to obtain the SSL certificate:
+***Now***, run the following to start the interactive process to obtain the SSL certificate:
 
 ```
 $ sudo certbot certonly
 ```
 
-It'll first ask you to pick the authentication method:
+It'll first ask you ***to pick the authentication method:***
 
 ```
 How would you like to authenticate with the ACME CA?
@@ -191,17 +191,17 @@ How would you like to authenticate with the ACME CA?
 Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
 ```
 
-Here, pick `1` and press return.
+Here, ***pick `1` and press return.***
 
 
-Then, fill in the aforementioned email address:
+Then, ***fill in the aforementioned email address:***
 
 ```
 Enter email address (used for urgent renewal and security notices) (Enter 'c' to
 cancel): ops@example.com
 ```
 
-Then, accept the Terms of Services and decide if you'd like to share your email address with the EFF:
+Then, ***accept the Terms of Services*** and decide if you'd like to share your email address with the EFF:
 
 ```
 -------------------------------------------------------------------------------
@@ -221,14 +221,14 @@ our work to encrypt the web, protect its users and defend digital rights.
 (Y)es/(N)o: N
 ```
 
-In the last step you're providing your domain name:
+In the last step you're ***providing your domain name:***
 
 ```
 Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
 to cancel): travis.example.com
 ```
 
-After that finished successfully, you'll see a message similar to the one below:
+After that ***finished successfully,*** you'll see a message similar to the one below:
 
 ```
 IMPORTANT NOTES:
@@ -244,20 +244,20 @@ IMPORTANT NOTES:
 
 Your certificate has been generated and is now saved on the machine. Please head over to `https://travis.example.com:8800/console/settings`.
 
-There, in the `TLS Key & Cert` section, select `Server path` and fill in the following:
+There, in the ***TLS Key & Cert*** section, select ***Server path*** and fill in the following:
 
 - SSL Private Key Filename: `/etc/letsencrypt/live/travis.example.com/privkey.pem`
 - SSL Certificate Filename: `/etc/letsencrypt/live/travis.example.com/fullchain.pem`
 
-After that, scroll down and click "Save". After your changes have been saved, you can restart Travis CI Enterprise via:
+After that, **scroll down and click "Save"**. After your changes have been saved, you can restart Travis CI Enterprise via:
 
 ```
 $ replicatedctl app start
 ```
 
-Let's Encrypt certificates are short-lived, this means they expire after 90 days. This means that you'll have to renew them on a regular basis. Thankfully this can be done with `certbot` as well. Run the following commands in order to renew your certificate.
+Let's Encrypt certificates are short-lived, this means ***they expire after 90 days.*** This means that you'll have to renew them on a regular basis. Thankfully this can be done with `certbot` as well. Run the following commands in order to renew your certificate.
 
-**Note: This will also cause downtime**
+**Note: Be aware that this process will also require a downtime.**
 
 ```
 $ replicatedctl app stop
