@@ -59,7 +59,7 @@ If you're using Coveralls with Travis CI for private repositories, edit `.covera
 ```yaml
 service_name: travis-pro
 ```
-{: data-file=".travis.yml"}
+{: data-file=".coveralls.yml"}
 
 ## Using Coveralls with other languages
 

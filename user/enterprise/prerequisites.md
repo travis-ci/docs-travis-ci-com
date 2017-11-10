@@ -41,7 +41,7 @@ connect to.
 Use the following URLs when you register the OAuth app:
 
 - *Homepage URL* - `https://travis-ci.<your-domain>.com`
-- *Authorization callback URL* - https://travis-ci.<your-domain>.com/api
+- *Authorization callback URL* - `https://travis-ci.<your-domain>.com/api`
 
 ## License
 

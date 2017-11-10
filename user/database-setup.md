@@ -415,9 +415,9 @@ before_install:
 
 > If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
-## Neo4J
+## Neo4j
 
-Start Neo4J in your `.travis.yml`:
+Start Neo4j in your `.travis.yml`:
 
 ```yaml
 services:
@@ -425,7 +425,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Neo4J Server uses default configuration and binds to localhost on port 7474.
+Neo4j Server uses default configuration and binds to localhost on port 7474.
 
 > Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
 
@@ -540,10 +540,10 @@ set up each database. For example:
 
 ```yaml
 before_script:
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests_tmp;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE tests_tmp;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS tests_tmp; CREATE DATABASE IF NOT EXISTS tests;'; fi"
 ```
 {: data-file=".travis.yml"}
