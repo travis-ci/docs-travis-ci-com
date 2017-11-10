@@ -257,7 +257,7 @@ $ replicatedctl app start
 
 Let's Encrypt certificates are short-lived, this means ***they expire after 90 days.*** This means that you'll have to renew them on a regular basis. Thankfully this can be done with `certbot` as well. Run the following commands in order to renew your certificate.
 
-**Note: Be aware that this process will also require a downtime.**
+**Note: Be aware that this process will also introduce downtime.**
 
 ```
 $ replicatedctl app stop
