@@ -392,9 +392,12 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
+Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
+sudo: required
+
 services:
   - cassandra
 ```
@@ -413,7 +416,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-> If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
 ## Neo4j
 
