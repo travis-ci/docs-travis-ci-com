@@ -406,6 +406,19 @@ virtual host as usual, the important part for php-fpm is this:
 </VirtualHost>
 ```
 
+
+## PHPUnit and HHVM
+
+Please note that if you want to run PHPUnit on HHVM, you have to explicitly install an older version due to compatibility issue between
+HHVM and PHP7.
+
+In order to do that, you can add the following bit to your `.travis.yml`:
+
+```
+before_script:
+  - curl -sSf -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+```
+
 ## Build Matrix
 
 For PHP projects, `env` and `php` can be given as arrays
