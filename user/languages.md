@@ -1,6 +1,6 @@
 ---
 title: Languages
-layout: en
+layout: pl
 
 ---
 
