@@ -1,0 +1,198 @@
+# #!/bin/bash
+#
+#wget https://raw.githubusercontent.com/travis-ci/travis-yml/master/spec.json
+#
+#jq '.map | .[] | .key' spec.json  > mini.json
+#jq '.includes | .support | .map  | .[] | .key ' spec.json >> mini.json
+#jq '.includes | .job | .map  | .[] | .key ' spec.json >> mini.json
+#
+# sort mini.json | uniq | tr -d '"' | sed 's/$/:\n  - TODO/' > travisyml.yml
+# rm mini.json spec.json
+addons:
+  - TODO
+after_deploy:
+  - TODO
+after_failure:
+  - TODO
+after_result:
+  - TODO
+after_script:
+  - TODO
+after_success:
+  - TODO
+android:
+  - TODO
+apt_packages:
+  - TODO
+before_cache:
+  - TODO
+before_deploy:
+  - TODO
+before_install:
+  - TODO
+before_script:
+  - TODO
+bioc:
+  - TODO
+bioc_packages:
+  - TODO
+bioc_required:
+  - TODO
+bioc_use_devel:
+  - TODO
+branches:
+  - TODO
+brew_packages:
+  - TODO
+bundler_args:
+  - TODO
+cache:
+  - TODO
+compiler:
+  - TODO
+composer_args:
+  - TODO
+cran:
+  - TODO
+crystal:
+  - TODO
+d:
+  - TODO
+dart:
+  - TODO
+deploy:
+  - TODO
+disable_homebrew:
+  - TODO
+dist:
+  - TODO
+dotnet:
+  - TODO
+elixir:
+  - TODO
+env:
+  - TODO
+gemfile:
+  - TODO
+ghc:
+  - TODO
+gimme_config:
+  - TODO
+git:
+  - TODO
+go:
+  - TODO
+gobuild_args:
+  - TODO
+go_import_path:
+  - TODO
+group:
+  - TODO
+haxe:
+  - TODO
+hxml:
+  - TODO
+install:
+  - TODO
+jdk:
+  - TODO
+julia:
+  - TODO
+language:
+  - TODO
+latex:
+  - TODO
+lein:
+  - TODO
+matrix:
+  - TODO
+mono:
+  - TODO
+neko:
+  - TODO
+node_js:
+  - TODO
+notifications:
+  - TODO
+npm_args:
+  - TODO
+os:
+  - TODO
+osx_image:
+  - TODO
+otp_release:
+  - TODO
+pandoc:
+  - TODO
+pandoc_version:
+  - TODO
+perl:
+  - TODO
+perl6:
+  - TODO
+php:
+  - TODO
+podfile:
+  - TODO
+python:
+  - TODO
+r:
+  - TODO
+r_binary_packages:
+  - TODO
+r_build_args:
+  - TODO
+r_check_args:
+  - TODO
+r_check_revdep:
+  - TODO
+remotes:
+  - TODO
+repos:
+  - TODO
+r_github_packages:
+  - TODO
+r_packages:
+  - TODO
+rust:
+  - TODO
+rvm:
+  - TODO
+sbt_args:
+  - TODO
+scala:
+  - TODO
+script:
+  - TODO
+services:
+  - TODO
+smalltalk:
+  - TODO
+smalltalk_config:
+  - TODO
+smalltalk_edge:
+  - TODO
+solution:
+  - TODO
+source_key:
+  - TODO
+sudo:
+  - TODO
+version:
+  - TODO
+virtualenv:
+  - TODO
+warnings_are_errors:
+  - TODO
+with_content_shell:
+  - TODO
+xcode_project:
+  - TODO
+xcode_scheme:
+  - TODO
+xcode_sdk:
+  - TODO
+xcode_workspace:
+  - TODO
+xctool_args:
+  - TODO
