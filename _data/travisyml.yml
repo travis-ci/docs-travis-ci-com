@@ -9,25 +9,25 @@ after_failure:
 after_result:
   - TODO
 after_script:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 after_success:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 android:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/android/
 apt_packages:
   - TODO
 before_cache:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 before_deploy:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 before_install:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 before_script:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 bioc:
   - TODO
 bioc_packages:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Additional-Dependency-Fields
 bioc_required:
   - TODO
 bioc_use_devel:
@@ -37,17 +37,17 @@ branches:
 brew_packages:
   - TODO
 bundler_args:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/ruby/#Bundler
 cache:
-  - TODO
+  - https://docs.travis-ci.com/user/caching#Caching-directories-(Bundler%2C-dependencies)
 compiler:
   - TODO
 composer_args:
   - TODO
 cran:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Miscellaneous
 crystal:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/crystal
 d:
   - TODO
 dart:
