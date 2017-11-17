@@ -1,19 +1,11 @@
-# #!/bin/bash
-#
-#wget https://raw.githubusercontent.com/travis-ci/travis-yml/master/spec.json
-#
-#jq '.map | .[] | .key' spec.json  > mini.json
-#jq '.includes | .support | .map  | .[] | .key ' spec.json >> mini.json
-#jq '.includes | .job | .map  | .[] | .key ' spec.json >> mini.json
-#
-# sort mini.json | uniq | tr -d '"' | sed 's/$/:\n  - TODO/' > travisyml.yml
-# rm mini.json spec.json
+# See if there have been changes with rake get_spec
+
 addons:
-  - TODO
+  - https://docs.travis-ci.com/user/addons
 after_deploy:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 after_failure:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 after_result:
   - TODO
 after_script:
