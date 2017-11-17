@@ -89,6 +89,20 @@ task :gen_trusty_image_data do
   File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
 end
 
+desc 'Get .travis.yaml spec and see if there have been changes'
+task :get_spec do
+  SPEC = 'https://raw.githubusercontent.com/travis-ci/travis-yml/master/spec.json'
+
+  fail unless sh "curl -O '#{SPEC}'"
+
+  sh "jq '.map | .[] | .key' spec.json  > temp.json"
+  sh "jq '.includes | .support | .map  | .[] | .key ' spec.json >> temp.json"
+  sh "jq '.includes | .job | .map  | .[] | .key ' spec.json >> temp.json"
+  sh "sort temp.json | uniq | tr -d '\"' > _data/spec_keys.json"
+  sh "rm temp.json spec.json"
+
+end
+
 desc 'Populate GCE IP address range'
 task :gen_gce_ip_addr_range do
   require 'ipaddr'
