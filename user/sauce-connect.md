@@ -35,11 +35,11 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-[sauce-sign-up]: https://saucelabs.com/signup/plan/free
+[sauce-sign-up]: https://signup.saucelabs.com/signup/trial
 
 [sauce-account]: https://saucelabs.com/account
 
-[open-sauce]: https://saucelabs.com/signup/plan/OSS
+[open-sauce]: https://saucelabs.com/open-source
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
