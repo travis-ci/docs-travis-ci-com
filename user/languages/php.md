@@ -86,6 +86,16 @@ php
   - hhvm-3.18
   - hhvm-nightly
 ```
+{: data-file=".travis.yml"}
+
+
+Please note that if you want to run PHPUnit on HHVM, you have to explicitly install version 5.7 in your `.travis.yml` due to a compatibility issue between HHVM and PHP7:
+
+```yaml
+before_script:
+  - curl -sSf -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+```
+{: data-file=".travis.yml"}
 
 ### Nightly builds
 
