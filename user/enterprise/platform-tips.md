@@ -141,3 +141,128 @@ On the worker machine, you need to run this command:
 ```
 $ sudo apt-get autoremove travis-worker
 ```
+
+
+## Use a Let's Encrypt SSL Certificate
+
+Travis CI Enterprise works well together with a Let's Encrypt SSL Certificate. To obtain one for your domain, please follow the steps below.
+
+What you need:
+
+1. An email address Let's Encrypt can send emails to. This will be used to notify about urgent renewal and security notices.
+2. A domain name under which your installation is available (we're using `travis.example.com` in this guide).
+
+**Please note: This change will cause downtime for your system,for this reason, we recommend to perform this process in a maintenance window.**
+
+To obtain an SSL certificate we'll be using [certbot](https://certbot.eff.org/#ubuntutrusty-other). Certbot is available as an Ubuntu package.
+
+Please login to your platform machine via SSH and run the following steps to install certbot:
+
+```
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install certbot
+```
+
+`certbot` offers multiple ways to obtain a certificate. We'll pick the `temporary webserver` option since it doesn't require any additional configuration. The only prerequisite though is that the Travis CI Enterprise container has to be stopped so that webserver can bind to port 443 properly.
+
+***To start***, please stop Travis CI Enterprise:
+
+```
+$ replicatedctl app stop
+```
+
+***Now***, run the following to start the interactive process to obtain the SSL certificate:
+
+```
+$ sudo certbot certonly
+```
+
+It'll first ask you ***to pick the authentication method:***
+
+```
+How would you like to authenticate with the ACME CA?
+-------------------------------------------------------------------------------
+1: Spin up a temporary webserver (standalone)
+2: Place files in webroot directory (webroot)
+-------------------------------------------------------------------------------
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+```
+
+Here, ***pick `1` and press return.***
+
+
+Then, ***fill in the aforementioned email address:***
+
+```
+Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+cancel): ops@example.com
+```
+
+Then, ***accept the Terms of Services*** and decide if you'd like to share your email address with the EFF:
+
+```
+-------------------------------------------------------------------------------
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf. You must agree
+in order to register with the ACME server at
+https://acme-v01.api.letsencrypt.org/directory
+-------------------------------------------------------------------------------
+(A)gree/(C)ancel: A
+
+-------------------------------------------------------------------------------
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let's Encrypt project and the non-profit
+organization that develops Certbot? We'd like to send you email about EFF and
+our work to encrypt the web, protect its users and defend digital rights.
+-------------------------------------------------------------------------------
+(Y)es/(N)o: N
+```
+
+In the last step you're ***providing your domain name:***
+
+```
+Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
+to cancel): travis.example.com
+```
+
+After that ***finished successfully,*** you'll see a message similar to the one below:
+
+```
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/travis.example.com/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/travis.example.com/privkey.pem
+   Your cert will expire on 2018-02-07. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+```
+
+Your certificate has been generated and is now saved on the machine. Please head over to `https://travis.example.com:8800/console/settings`.
+
+There, in the ***TLS Key & Cert*** section, select ***Server path*** and fill in the following:
+
+- SSL Private Key Filename: `/etc/letsencrypt/live/travis.example.com/privkey.pem`
+- SSL Certificate Filename: `/etc/letsencrypt/live/travis.example.com/fullchain.pem`
+
+After that, **scroll down and click "Save"**. After your changes have been saved, you can restart Travis CI Enterprise via:
+
+```
+$ replicatedctl app start
+```
+
+Let's Encrypt certificates are short-lived, this means ***they expire after 90 days.*** This means that you'll have to renew them on a regular basis. Thankfully this can be done with `certbot` as well. Run the following commands in order to renew your certificate.
+
+**Note: Be aware that this process will also introduce downtime.**
+
+```
+$ replicatedctl app stop
+$ sudo certbot renew
+$ replicatedctl app start
+```
+
+In general: These certificate renewals should be automated with a cron job.

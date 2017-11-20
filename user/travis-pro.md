@@ -96,7 +96,7 @@ settings on GitHub, and resync your Travis CI account:
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
-how to make a repository public.
+how to make a repository private.
 
 2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
    Account*, then toggle the repository to *ON*.

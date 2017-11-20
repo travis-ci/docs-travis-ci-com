@@ -45,7 +45,7 @@ When you define multiple variables per line in the `env` array (matrix variables
 ```yaml
 rvm:
   - 1.9.3
-  - rbx
+  - rbx-3
 env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
@@ -56,8 +56,8 @@ this configuration triggers **4 individual builds**:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
 2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
-3. Rubinius latest version (rbx) with `FOO=foo` and `BAR=bar`
-4. Rubinius latest version (rbx) with `FOO=bar` and `BAR=foo`
+3. Rubinius latest version (rbx-3) with `FOO=foo` and `BAR=bar`
+4. Rubinius latest version (rbx-3) with `FOO=bar` and `BAR=foo`
 
 ### Global Variables
 
