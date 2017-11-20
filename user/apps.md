@@ -321,6 +321,15 @@ By Gleb Bahmutov
 
 - [website](https://github.com/bahmutov/status-gravatar)
 
+### Chroma Feedback
+
+![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
+
+Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+By Henry Ruhs
+
+- [website](https://github.com/redaxmedia/chroma-feedback)
+
 ## Generators
 
 ### travis-encrypt
@@ -442,6 +451,16 @@ Travis CI integration for [Brackets](http://brackets.io/)<br>
 By Cas du Plessis
 
 - [website](https://github.com/AgileAce/Brackets-TravisCI)
+
+### Emacs Package
+
+![emacs](/images/apps/emacs.jpg){:.app}
+
+Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+By Skye Shaw
+
+- [website](https://github.com/sshaw/build-status)
+
 
 ### Vim Plugin
 

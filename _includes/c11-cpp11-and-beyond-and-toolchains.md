@@ -1,8 +1,8 @@
-### C11/C++11 (and Beyond) and Toolchain Versioning
+## C11/C++11 (and Beyond) and Toolchain Versioning
 
 If your project requires tools compatible with C11, C++11, or a more recent language standard, then it is likely that you will have to upgrade your compiler and/or build tools. This section covers specifically how to upgrade GCC, clang, and cmake; for other dependencies please see [Installing Dependencies](/user/installing-dependencies/).
 
-#### GCC on Linux
+### GCC on Linux
 
 Ubuntu 12.04 ships with GCC 4.6.3 and Ubuntu 14.04 ships with GCC 4.8.2.
 
@@ -46,11 +46,23 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
-#### GCC on OS X
+### GCC on OS X
 
 ```yaml
 matrix:
@@ -68,13 +80,19 @@ matrix:
     - os: osx
       osx_image: xcode8
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-6 && CXX=g++-6"
+        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
+
+    - os: osx
+      osx_image: xcode8
+      env:
+        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
 
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
-#### Clang
+### Clang
 
 Ubuntu 12.04 ships with Clang 3.4 and Ubuntu 14.04 ships with Clang 3.5.0.
 
@@ -157,6 +175,7 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
 ```
+{: data-file=".travis.yml"}
 
 On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
@@ -175,5 +194,6 @@ addons:
       - cmake-data
       - cmake
 ```
+{: data-file=".travis.yml"}
 
 On OS X, the version of `cmake` is controlled by the choice of `osx_image`.
