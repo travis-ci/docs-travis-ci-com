@@ -191,9 +191,9 @@ It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - A job produces no log output for 10 minutes
-- A job on travis-ci.org takes longer than 50 minutes 
+- A job on travis-ci.org takes longer than 50 minutes
 - A job running on OS X infrastructure takes longer than 50 minutes (applies to travis-ci.org or travis-ci.com)
-- A job on Linux infrastructure on travis-ci.com takes longer than 120 minutes 
+- A job on Linux infrastructure on travis-ci.com takes longer than 120 minutes
 
 Some common reasons why builds might hang:
 
@@ -271,6 +271,17 @@ by setting the following in `.travis.yml`:
 git:
   lfs_skip_smudge: true
 ```
+
+## Git Sparse Checkout
+Travis CI supports `git`'s [sparse checkout](https://git-scm.com/docs/git-read-tree#_sparse_checkout)
+capability.
+To clone your repository sparsely, add:
+```yaml
+git:
+  sparse_checkout: skip-worktree-map-file
+```
+where `skip-worktree-map-file` is the file containing the list of files which should be populated
+"sparsely".
 
 ## Building Specific Branches
 
