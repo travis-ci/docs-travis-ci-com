@@ -51,7 +51,7 @@ and package caching.
 
 The R environment comes with [LaTeX][tug] and [pandoc][johnmacfarlane]
 pre-installed, making it easier to use packages like [RMarkdown][rstudio] or
-[knitr][yihui].
+[knitr](https://yihui.name/knitr/){: data-proofer-ignore=""}
 
 ## Configuration options
 
@@ -417,7 +417,5 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 
 [tug]: https://www.tug.org/texlive/
-
-[yihui]: http://yihui.name/knitr/
 
 [apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon
