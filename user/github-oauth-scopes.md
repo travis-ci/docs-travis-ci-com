@@ -54,6 +54,11 @@ On <https://travis-ci.org> we ask for the following permissions:
     Updating the webhook required for us to be notified from GitHub on new
     commits or pull requests requires this API scope. Additionally, your user
     needs to have admin access to the repository you want to enable.
+   
+- `public_repo`
+
+    Is needed for deployment process to access the repository when it is being
+    tagged and attached a file with the tag.
 
 Note that for open source projects, we don't have any write access to your source
 code or your profile.
