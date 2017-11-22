@@ -1,10 +1,10 @@
 ---
-title: Travis CI for Beginners
+title: Core Concepts for Beginners
 layout: en
 
 ---
 
-Welcome to Travis CI! This page provides some context and terminology used
+Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful if you are new
 here or new to Continuous Integration (CI).
 
@@ -13,7 +13,7 @@ here or new to Continuous Integration (CI).
 Continuous Integration is the practice of merging in small code changes
 frequently - rather than merging in a large change at the end of a development
 cycle. The goal is to build healthier software by developing and testing in smaller
-increments. This is where Travis CI is comes in.
+increments. This is where Travis CI comes in.
 
 As a continuous integration platform, Travis CI supports your development
 process by automatically building and testing code changes, providing immediate

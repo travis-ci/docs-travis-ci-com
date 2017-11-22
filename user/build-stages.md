@@ -100,7 +100,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Build Stages and Build Matrix Expansion
+## Build Stages and Build Matrix Expansion
 
 [Matrix expansion](/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
@@ -130,7 +130,34 @@ that defines a matrix dimension.
 > In the example above, without explicitly setting `rvm: 2.4`, the `include`d job inherits
 `rvm: 2.3`.
 
-### Build Stages and Deployments
+## Specifying Stage Order and Conditions
+
+You can specify the order for stages in the section `stages`:
+
+```yaml
+stages:
+  - compile
+  - test
+  - deploy
+```
+
+This is mostly useful in order to "prepend" a stage to the `test` stage that
+jobs resulting from the matrix expansion will be assigned to.
+
+On the same section you can also specify conditions for stages, like so:
+
+```yaml
+stages:
+  - compile
+  - test
+  - name: deploy
+    if: branch = master
+```
+
+See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/) for more details on specifying conditions.
+
+
+## Build Stages and Deployments
 
 You can combine build stages with [deployments](/user/deployment/):
 

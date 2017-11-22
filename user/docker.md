@@ -139,7 +139,7 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 ```
 
 #### Branch Based Registry Pushes
@@ -150,7 +150,7 @@ use the `after_success` section of your `.travis.yml`:
 ```yaml
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push USER/REPO;
     fi
 ```
@@ -162,7 +162,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
