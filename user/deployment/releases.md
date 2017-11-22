@@ -153,11 +153,6 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Pushing a specific directory
-
-* `local_dir`: Directory to push to GitHub Releases, defaults to the current
-    directory
-
 ## Advanced options
 
 Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.
