@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically upload your build to [Rackspace Cloud Files](https://www.rackspace.com/cloud/files/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.cloud-files }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

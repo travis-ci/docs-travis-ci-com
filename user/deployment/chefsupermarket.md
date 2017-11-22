@@ -7,6 +7,14 @@ layout: en
 Travis CI can automatically deploy your cookbook to [Chef
 Supermarket](https://supermarket.chef.io/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.chef-supermarket }}
+
+</aside>
+
 To deploy to Chef Supermarket add your Chef Supermarket `user_id`, your
 [encrypted](/user/encrypting-files) Chef Supermarket client key and the
 [`cookbook_category`](https://docs.getchef.com/knife_cookbook_site.html#id12) to

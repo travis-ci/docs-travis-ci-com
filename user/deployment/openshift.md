@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.openshift }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

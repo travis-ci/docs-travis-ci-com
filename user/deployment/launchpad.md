@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can get [Launchpad](https://launchpad.net/) to automatically import your code from GitHub after a successful build, which is useful if you are building and hosting Debian packages.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.launchpad }}
+
+</aside>
+
 To automatically trigger an import:
 
 1. [Register](https://launchpad.net/projects/+new) a project on Launchpad and then [import](https://code.launchpad.net/+code-imports/+new) your GitHub project there.

@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.opsworks }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

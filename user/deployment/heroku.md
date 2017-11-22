@@ -8,6 +8,14 @@ layout: en
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.heroku }}
+
+</aside>
+
 To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
 
 ```yaml

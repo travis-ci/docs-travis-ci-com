@@ -6,6 +6,15 @@ layout: en
 
 You now have the amazing ability to deploy directly to [anynines](http://www.anynines.com/) after a successful build on Travis CI
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.anynines  }}
+
+</aside>
+
+
 ## Getting on the Edge
 
 Proper anynines support is currently included only in the edge version of Travis.  See how to enable it via the `.travis.yml` below.

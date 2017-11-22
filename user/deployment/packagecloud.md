@@ -7,6 +7,14 @@ layout: en
 Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build
 artifacts to [packagecloud.io](https://packagecloud.io/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.packagecloud }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

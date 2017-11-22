@@ -9,6 +9,14 @@ swiftypetags: nodejitsu
 
 Travis CI can automatically deploy your [Modulus](https://modulus.io/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.modulus }}
+
+</aside>
+
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
 ```yaml

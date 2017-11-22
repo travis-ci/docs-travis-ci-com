@@ -6,6 +6,14 @@ layout: en
 
 Travis CI supports uploading to [Hackage](https://hackage.haskell.org/).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.hackage }}
+
+</aside>
+
 A minimal configuration is:
 
 ```yaml

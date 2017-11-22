@@ -6,6 +6,15 @@ layout: en
 
 Travis CI can automatically deploy your [Appfog](https://www.appfog.com/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.appfog  }}
+
+</aside>
+
+
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml

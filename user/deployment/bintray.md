@@ -6,6 +6,14 @@ layout: en
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.bintray }}
+
+</aside>
+
 All you need to do is add the following to your `.travis.yml`:
 
 ```yaml

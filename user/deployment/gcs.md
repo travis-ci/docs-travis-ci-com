@@ -6,6 +6,14 @@ layout: en
 
 Travis CI supports uploading to Google Cloud Storage (GCS).
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.google-cloud-storage }}
+
+</aside>
+
 A minimal configuration is:
 
 ```yaml

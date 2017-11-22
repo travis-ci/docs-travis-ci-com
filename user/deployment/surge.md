@@ -4,7 +4,17 @@ layout: en
 
 ---
 
-Travis CI can deploy your static files to [Surge.sh](https://surge.sh/) after a successful build. Builds triggered from Pull Requests will never trigger a deploy.
+Travis CI can deploy your static files to [Surge.sh](https://surge.sh/) after a
+successful build. Builds triggered from Pull Requests will never trigger a
+deploy.
+
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.surge-sh }}
+
+</aside>
 
 You will need to set 2 environment variables in your travis settings and set the deployment provider details in `.travis.yml`
 

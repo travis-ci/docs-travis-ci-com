@@ -9,6 +9,14 @@ layout: en
 Travis CI can automatically deploy files to
 [BitBalloon](https://www.bitballoon.com/) after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.bitballoon }}
+
+</aside>
+
 To deploy the current directory to BitBalloon, add your encrypted BitBalloon `site-id` and `access-token` to your `.travis.yml`:
 
 ```yaml

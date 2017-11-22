@@ -9,6 +9,14 @@ layout: en
 Travis CI can automatically deploy your application to
 [Scalingo](https://scalingo.com/) application after a successful build.
 
+<aside markdown="block" class="ataglance">
+
+## Options
+
+{{ site.data.dpl.scalingo }}
+
+</aside>
+
 Chose one of two ways to connect to your Scalingo account:
 
 * Using a [username and password](/user/deployment/scalingo/#Connecting-using-a-username-and-password).
