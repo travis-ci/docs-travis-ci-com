@@ -197,6 +197,15 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+Alternatively, you can use `addons` instead of `before_install` to update via `apt` as well:
+```yaml
+addons:
+  apt:
+    packages:
+      - docker-ce
+```
+{: data-file=".travis.yml"}
+
 **Updating from download.docker.com**
 ```yaml
 before_install:
