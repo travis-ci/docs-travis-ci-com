@@ -15,8 +15,8 @@ configuration](/user/customizing-the-build/) guides first.
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@craigcitro][github 2],
-[@hadley][github 3], and [@jimhester][github 4].
+[Travis CI issue tracker][github] and cc [@craigcitro][github 2]
+and [@jimhester][github 4].
 
 ## Basic configuration
 
@@ -51,7 +51,7 @@ and package caching.
 
 The R environment comes with [LaTeX][tug] and [pandoc][johnmacfarlane]
 pre-installed, making it easier to use packages like [RMarkdown][rstudio] or
-[knitr][yihui].
+[knitr](https://yihui.name/knitr/){: data-proofer-ignore=""}
 
 ## Configuration options
 
@@ -392,8 +392,6 @@ moving from r-travis to native support, see the [porting guide][github 9].
 
 [github 2]: https://github.com/craigcitro
 
-[github 3]: https://github.com/hadley
-
 [github 4]: https://github.com/jimhester
 
 [github 5]: https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes
@@ -419,7 +417,5 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [rstudio]: http://rmarkdown.rstudio.com/
 
 [tug]: https://www.tug.org/texlive/
-
-[yihui]: http://yihui.name/knitr/
 
 [apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon

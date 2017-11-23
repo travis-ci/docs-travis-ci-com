@@ -57,7 +57,3 @@ The above configuration will attempt to build the attribute "tarball" from the N
 ## Nix manual
 
 More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
-
-## Examples
-
-- [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)
