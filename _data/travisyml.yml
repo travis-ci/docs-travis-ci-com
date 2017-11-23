@@ -59,7 +59,7 @@ disable_homebrew:
 dist:
   - https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments
 dotnet:
-  - https://docs.travis-ci.com/user/languages/csharp/#.NET-Core
+  - https://docs.travis-ci.com/user/languages/csharp/#net-core
 elixir:
   - https://docs.travis-ci.com/user/languages/elixir/
 env:
@@ -93,7 +93,7 @@ julia:
 language:
   - https://docs.travis-ci.com/user/languages/
 latex:
-  - https://docs.travis-ci.com/user/languages/r/#LaTeX-TexLive-Packages
+  - https://docs.travis-ci.com/user/languages/r/#LaTeXTexLive-Packages
 lein:
   - https://docs.travis-ci.com/user/languages/clojure#Using-Leiningen-1
 matrix:
@@ -103,7 +103,7 @@ mono:
 neko:
   - https://docs.travis-ci.com/user/languages/haxe#Default-Neko-Version
 node_js:
-  - https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Specifying-Node.js-versions
+  - https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Specifying-Nodejs-versions
 notifications:
   - https://docs.travis-ci.com/user/notifications/
 npm_args:
