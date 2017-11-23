@@ -272,7 +272,6 @@ and the nightly builds are installed on-demand (as `hhvm-nightly`).
 language: php
 sudo: required
 dist: trusty
-group: edge
 php:
   - hhvm-3.3
   - hhvm-3.6
