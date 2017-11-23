@@ -39,7 +39,7 @@ brew_packages:
 bundler_args:
   - https://docs.travis-ci.com/user/languages/ruby/#Bundler
 cache:
-  - https://docs.travis-ci.com/user/caching#Caching-directories-(Bundler%2C-dependencies)
+  - https://docs.travis-ci.com/user/caching/
 compiler:
   - TODO
 composer_args:

@@ -14,4 +14,4 @@ layout: en
 {% endfor %}
 </ul>
 
-We are adding documentation links for all keys you can use in `.travis.yml` as fast as we can. Help by [editing `travisyml.yml`]( https://github.com/travis-ci/docs-travis-ci-com/edit/master/_data/travisyml.yml).
+We are adding documentation links for all keys you can use in `.travis.yml` as fast as we can. Help by [editing `travisyml.yml`]( https://github.com/travis-ci/docs-travis-ci-com/edit/master/_data/travisyml.yml){: data-proofer-ignore=""}.
