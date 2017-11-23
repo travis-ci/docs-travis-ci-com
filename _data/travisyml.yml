@@ -47,144 +47,144 @@ composer_args:
 cran:
   - https://docs.travis-ci.com/user/languages/r/#Miscellaneous
 crystal:
-  - https://docs.travis-ci.com/user/languages/crystal
+  - https://docs.travis-ci.com/user/languages/crystal/
 d:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/d/
 dart:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/dart/
 deploy:
-  - TODO
+  - https://docs.travis-ci.com/user/deployment/
 disable_homebrew:
   - TODO
 dist:
-  - TODO
+  - https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments
 dotnet:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/csharp/#.NET-Core
 elixir:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/elixir/
 env:
-  - TODO
+  - https://docs.travis-ci.com/user/environment-variables/#Defining-public-variables-in-.travis.yml
 gemfile:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations
 ghc:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/haskell#Specifying-Haskell-compiler-versions
 gimme_config:
   - TODO
 git:
   - TODO
 go:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/go/#Specifying-a-Go-version-to-use
 gobuild_args:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/go/#Default-Build-Script
 go_import_path:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/go/#Go-Import-Path
 group:
   - TODO
 haxe:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/haxe#Choosing-Haxe-versions-to-test-against
 hxml:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/haxe#Test-Configuration
 install:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 jdk:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/java#Testing-Against-Multiple-JDKs
 julia:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/julia/#Choosing-Julia-versions-to-test-against
 language:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/
 latex:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#LaTeX-TexLive-Packages
 lein:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/clojure#Using-Leiningen-1
 matrix:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
 mono:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/csharp/#Mono
 neko:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/haxe#Default-Neko-Version
 node_js:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Specifying-Node.js-versions
 notifications:
-  - TODO
+  - https://docs.travis-ci.com/user/notifications/
 npm_args:
   - TODO
 os:
   - TODO
 osx_image:
-  - TODO
+  - https://docs.travis-ci.com/user/reference/osx#OS-X-Version
 otp_release:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/elixir/#Specifying-OTP-Release-version
 pandoc:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Pandoc
 pandoc_version:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Pandoc
 perl:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/perl/#Choosing-Perl-versions-to-test-against
 perl6:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/perl6/#Choosing-Perl-6-versions-to-test-against
 php:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/php/#Choosing-PHP-versions-to-test-against
 podfile:
-  - TODO
+  - https://docs.travis-ci.com/user/caching#Determining-the-Podfile-path
 python:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/python#Specifying-Python-versions
 r:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#R-Versions
 r_binary_packages:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Additional-Dependency-Fields
 r_build_args:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Package-check-options
 r_check_args:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Package-check-options
 r_check_revdep:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Miscellaneous
 remotes:
   - TODO
 repos:
   - TODO
 r_github_packages:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Remote-package
 r_packages:
   - TODO
 rust:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/rust#Choosing-a-Rust-version
 rvm:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/ruby/#Specifying-Ruby-versions-and-implementations
 sbt_args:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/scala#Custom-sbt-Arguments
 scala:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/scala#Specifying-Scala-versions
 script:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle
 services:
-  - TODO
+  - https://docs.travis-ci.com/user/database-setup/
 smalltalk:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/smalltalk/#Basic-configuration
 smalltalk_config:
   - TODO
 smalltalk_edge:
   - TODO
 solution:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/csharp#Overview
 source_key:
   - TODO
 sudo:
-  - TODO
+  - https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments
 version:
   - TODO
 virtualenv:
   - TODO
 warnings_are_errors:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/r/#Package-check-options
 with_content_shell:
   - TODO
 xcode_project:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/objective-c/#Default-Test-Script
 xcode_scheme:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/objective-c/#Default-Test-Script
 xcode_sdk:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/objective-c#Default-Test-Script
 xcode_workspace:
-  - TODO
+  - https://docs.travis-ci.com/user/languages/objective-c#Default-Test-Script
 xctool_args:
   - TODO
