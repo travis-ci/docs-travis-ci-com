@@ -1,5 +1,3 @@
-# See if there have been changes with rake get_spec
-
 addons:
   - https://docs.travis-ci.com/user/addons
 after_deploy:
@@ -187,4 +185,460 @@ xcode_sdk:
 xcode_workspace:
   - https://docs.travis-ci.com/user/languages/objective-c#Default-Test-Script
 xctool_args:
+  - TODO
+global:
+  - TODO
+include:
+  - TODO
+exclude:
+  - TODO
+allow_failures:
+  - TODO
+fast_finish:
+  - TODO
+email:
+  - TODO
+enabled:
+  - TODO
+disabled:
+  - TODO
+recipients:
+  - TODO
+on_start:
+  - TODO
+on_success:
+  - TODO
+on_failure:
+  - TODO
+campfire:
+  - TODO
+rooms:
+  - TODO
+template:
+  - TODO
+flowdock:
+  - TODO
+api_token:
+  - TODO
+hipchat:
+  - TODO
+format:
+  - TODO
+notify:
+  - TODO
+on_pull_requests:
+  - TODO
+irc:
+  - TODO
+channels:
+  - TODO
+channel_key:
+  - TODO
+password:
+  - TODO
+nickserv_password:
+  - TODO
+nick:
+  - TODO
+use_notice:
+  - TODO
+skip_join:
+  - TODO
+pushover:
+  - TODO
+api_key:
+  - TODO
+users:
+  - TODO
+slack:
+  - TODO
+webhooks:
+  - TODO
+urls:
+  - TODO
+components:
+  - TODO
+licenses:
+  - TODO
+url:
+  - TODO
+force_reinstall:
+  - TODO
+system_site_packages:
+  - TODO
+apt:
+  - TODO
+packages:
+  - TODO
+sources:
+  - TODO
+browserstack:
+  - TODO
+username:
+  - TODO
+access_key:
+  - TODO
+forcelocal:
+  - TODO
+only:
+  - TODO
+proxyHost:
+  - TODO
+proxyPort:
+  - TODO
+proxyUser:
+  - TODO
+proxyPass:
+  - TODO
+artifacts:
+  - TODO
+bucket:
+  - TODO
+endpoint:
+  - TODO
+key:
+  - TODO
+secret:
+  - TODO
+paths:
+  - TODO
+branch:
+  - TODO
+log_format:
+  - TODO
+target_paths:
+  - TODO
+debug:
+  - TODO
+concurrency:
+  - TODO
+max_size:
+  - TODO
+region:
+  - TODO
+permissions:
+  - TODO
+working_dir:
+  - TODO
+cache_control:
+  - TODO
+code_climate:
+  - TODO
+repo_token:
+  - TODO
+coverity_scan:
+  - TODO
+project:
+  - TODO
+name:
+  - TODO
+description:
+  - TODO
+build_script_url:
+  - TODO
+branch_pattern:
+  - TODO
+notification_email:
+  - TODO
+build_command:
+  - TODO
+build_command_prepend:
+  - TODO
+hostname:
+  - TODO
+hosts:
+  - TODO
+jwt:
+  - TODO
+sauce_connect:
+  - TODO
+direct_domains:
+  - TODO
+tunnel_domains:
+  - TODO
+no_ssl_bump_domains:
+  - TODO
+ssh_known_hosts:
+  - TODO
+sonarqube:
+  - TODO
+srcclr:
+  - TODO
+firefox:
+  - TODO
+mariadb:
+  - TODO
+postgresql:
+  - TODO
+rethinkdb:
+  - TODO
+provider:
+  - TODO
+on:
+  - TODO
+repo:
+  - TODO
+condition:
+  - TODO
+all_branches:
+  - TODO
+tags:
+  - TODO
+allow_failure:
+  - TODO
+skip_cleanup:
+  - TODO
+edge:
+  - TODO
+source:
+  - TODO
+organization:
+  - TODO
+space:
+  - TODO
+user:
+  - TODO
+app:
+  - TODO
+address:
+  - TODO
+metadata:
+  - TODO
+token:
+  - TODO
+vcs:
+  - TODO
+site:
+  - TODO
+slot:
+  - TODO
+verbose:
+  - TODO
+file:
+  - TODO
+passphrase:
+  - TODO
+dry_run:
+  - TODO
+access_token:
+  - TODO
+site_id:
+  - TODO
+local_dir:
+  - TODO
+configfile:
+  - TODO
+payload:
+  - TODO
+image:
+  - TODO
+extra_args:
+  - TODO
+target:
+  - TODO
+path:
+  - TODO
+user_id:
+  - TODO
+client_key:
+  - TODO
+cookbook_category:
+  - TODO
+redeployment_hook:
+  - TODO
+deployment:
+  - TODO
+container:
+  - TODO
+dot_match:
+  - TODO
+api:
+  - TODO
+manifest:
+  - TODO
+skip_ssl_validation:
+  - TODO
+access_key_id:
+  - TODO
+secret_access_key:
+  - TODO
+application:
+  - TODO
+deployment_group:
+  - TODO
+revision_type:
+  - TODO
+commit_id:
+  - TODO
+repository:
+  - TODO
+wait_until_deployed:
+  - TODO
+controller:
+  - TODO
+cli_version:
+  - TODO
+environment:
+  - TODO
+securet_access_key:
+  - TODO
+zip_file:
+  - TODO
+bucket_name:
+  - TODO
+bucket_path:
+  - TODO
+only_create_app_version:
+  - TODO
+migrate:
+  - TODO
+keyfile:
+  - TODO
+config:
+  - TODO
+no_promote:
+  - TODO
+no_stop_previous_version:
+  - TODO
+verbosity:
+  - TODO
+upload_dir:
+  - TODO
+acl:
+  - TODO
+detect_encoding:
+  - TODO
+strategy:
+  - TODO
+buildpack:
+  - TODO
+run:
+  - TODO
+function_name:
+  - TODO
+role:
+  - TODO
+handler_name:
+  - TODO
+module_name:
+  - TODO
+zip:
+  - TODO
+timeout:
+  - TODO
+memory_size:
+  - TODO
+runtime:
+  - TODO
+slug:
+  - TODO
+oauth_token:
+  - TODO
+oauth_token_secret:
+  - TODO
+project_name:
+  - TODO
+domain:
+  - TODO
+deployment_branch:
+  - TODO
+app_id:
+  - TODO
+instance_ids:
+  - TODO
+layer_ids:
+  - TODO
+custom_json:
+  - TODO
+package_glob:
+  - TODO
+github_token:
+  - TODO
+target_branch:
+  - TODO
+fqdn:
+  - TODO
+server:
+  - TODO
+distributions:
+  - TODO
+docs_dir:
+  - TODO
+file_glob:
+  - TODO
+overwrite:
+  - TODO
+release_number:
+  - TODO
+gem:
+  - TODO
+gemspec:
+  - TODO
+storage_class:
+  - TODO
+expires:
+  - TODO
+index_document_suffix:
+  - TODO
+default_text_charset:
+  - TODO
+remote:
+  - TODO
+app_file:
+  - TODO
+symbols_file:
+  - TODO
+keystore_file:
+  - TODO
+storepass:
+  - TODO
+alias:
+  - TODO
+testers_groups:
+  - TODO
+auto_update:
+  - TODO
+video_quality:
+  - TODO
+screenshot_quality:
+  - TODO
+screenshot_interval:
+  - TODO
+max_duration:
+  - TODO
+advanced_options:
+  - TODO
+data_only_wifi:
+  - TODO
+record_on_backgroup:
+  - TODO
+video:
+  - TODO
+icon_watermark:
+  - TODO
+metrics:
+  - TODO
+except:
+  - TODO
+bundler:
+  - TODO
+cargo:
+  - TODO
+ccache:
+  - TODO
+cocoapods:
+  - TODO
+npm:
+  - TODO
+pip:
+  - TODO
+directories:
+  - TODO
+quiet:
+  - TODO
+depth:
+  - TODO
+submodules:
+  - TODO
+submodules_depth:
   - TODO
