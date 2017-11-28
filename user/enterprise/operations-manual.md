@@ -48,7 +48,7 @@ Below you will find different strategies to resolve the problem. They're meant t
 
 #### Connection to RabbitMQ got lost
 
-We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes it can happen that the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To fix that, restarting the machines usually suffices. To do that, connect via `ssh` and run the following command:
+We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes it can happen that the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restarting the machines usually suffices. To do that, connect via `ssh` and run the following command:
 
 ```bash
 $ sudo shutdown -r 0
@@ -58,8 +58,7 @@ This will immediately restart the machine. `travis-worker`, the program which ac
 
 #### Configuration
 
-Please check if the worker machine has all relevant configuration in order. To do so, please use ssh to login to the machine.
-Then open `/etc/default/travis-enterprise`. This is the main configuration file `travis-worker` uses to connect to the platform machine. Below you find an example:
+Please check if the worker machine has all relevant configuration in order. To do so, please use ssh to login to the machine, then open `/etc/default/travis-enterprise`. This is the main configuration file `travis-worker` uses to connect to the platform machine. Below you find an example:
 
 ```
 # Default ENV variables for Travis Enterprise
@@ -72,7 +71,7 @@ export TRAVIS_ENTERPRISE_SECURITY_TOKEN="abc12345"
 # export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```
 
-The relevant bits and pieces are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain your primary domain you use to access Travis CI Enterprise. This domain name is used to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` on `https://yourdomain.com:8800/settings`. If you have made changes to this file, please run the following so they take effect:
+Relevant are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain your primary domain you use to access the Travis CI Enterprise Web UI. `travis-worker` uses this domain to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` on `https://yourdomain.com:8800/settings`. If you have made changes to this file, please run the following so they take effect:
 
 ```bash
 $ sudo restart travis-worker
