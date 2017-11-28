@@ -220,7 +220,7 @@ osx_images:
       - "tvOS 9.1"
       - "tvOS 9.2"
   - image: xcode7.3
-    xcode: "7.3.1"
+    xcode: "7.3"
     osx_version: "10.11"
     default: true
     xcode_full_version: "7.3.1"
