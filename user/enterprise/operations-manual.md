@@ -3,8 +3,7 @@ title: Travis CI Enterprise Operations manual
 layout: en_enterprise
 
 ---
-
-The Operations Manual is a guideline which helps you to resolve problems with your Travis CI Enterprise instance. Our plan is to  enhance this document with frequently occuring support topics over the time. If you would like to see a specific problem case covered here as well, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
+Welcome to the Travis CI Enterprise Operations Manual! This a living document which provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
 This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If the problem couldn't be resolved you'll find instructions on how to proceed at the bottom of the document.
 
