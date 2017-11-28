@@ -222,7 +222,7 @@ Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
 
-### Xcode {{image.xcode | remove: "."}}
+<h3 id="{{image.xcode | remove: "."}}">{{image.xcode}} <a class="toc-anchor" href="{{image.xcode | remove: "."}}">#</a></h3>
 
 Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 
