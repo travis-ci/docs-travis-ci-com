@@ -4,9 +4,9 @@ layout: en_enterprise
 
 ---
 
-The Operations Manual is a guideline which helps you to resolve problems with your Travis CI Enterprise instance. Our plan is to  enhance this document with common support topics over the time. If you would like to see a specific problem case covered here as well, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
+The Operations Manual is a guideline which helps you to resolve problems with your Travis CI Enterprise instance. Our plan is to  enhance this document with frequently occuring support topics over the time. If you would like to see a specific problem case covered here as well, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If it's not possible to resolve the problem, you'll find instructions on how to proceed at the bottom of the document.
+This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If the problem couldn't be resolved you'll find instructions on how to proceed at the bottom of the document.
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
