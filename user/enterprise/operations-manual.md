@@ -8,6 +8,29 @@ The Operations Manual is a guideline which helps you to resolve problems with yo
 
 This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If it's not possible to resolve the problem, you'll find instructions on how to proceed at the bottom of the document.
 
+## Backups
+
+This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
+
+- The encryption key
+- The data directories
+
+### Encryption key
+
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key:
+
+1. open a ssh connection to the platform machine
+2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
+3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+
+> Without this key the information in the database is not recoverable.
+
+### Create a backup of the data directories
+
+The data directories are located on the platform machine and get mounted into the Travis container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis and also log files from the applications inside the container.
+
+The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
+
 ## Builds don't get worked off
 
 ### Symptoms
