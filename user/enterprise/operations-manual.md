@@ -5,7 +5,7 @@ layout: en_enterprise
 ---
 Welcome to the Travis CI Enterprise Operations Manual! This a living document which provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If the problem couldn't be resolved you'll find instructions on how to proceed at the bottom of the document.
+This document is made of multiple topics. Each topic is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If the problem couldn't be resolved you'll find instructions on how to proceed at the bottom of the document.
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
