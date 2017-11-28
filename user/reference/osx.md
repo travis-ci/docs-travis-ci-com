@@ -47,7 +47,7 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#Xcode-{{image.xcode | remove: "."}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -222,7 +222,7 @@ Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
 
-### Xcode {{ image.xcode }}
+### Xcode {{image.xcode | remove: "."}}
 
 Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 
