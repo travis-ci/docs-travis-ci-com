@@ -50,7 +50,9 @@ task :run_html_proofer do
                               :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
                               :url_ignore => ["https://www.appfog.com/", /itunes\.apple\.com/, /coverity.com/, /articles201769485/],
-                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html"]
+                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html",
+                              "./_site/user/languages/objective-c/index.html",
+                              "./_site/user/reference/osx/index.html"]
                             })
   tester.run
 end
@@ -72,7 +74,9 @@ task :run_html_proofer_internal do
                               :connecttimeout => 600,
                               :only_4xx => true,
                               :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
-                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html"]
+                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html",
+                              "./_site/user/languages/objective-c/index.html",
+                              "./_site/user/reference/osx/index.html"]
                             })
   tester.run
 end
