@@ -8,6 +8,11 @@ The Operations Manual is a guideline which helps you to resolve problems with yo
 
 This document has multiple entrypoints. Each entrypoint is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If it's not possible to resolve the problem, you'll find instructions on how to proceed at the bottom of the document.
 
+Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
+
+- `Platform machine`: The virtual machine that runs most of the Travis web components. This is the machine your domain is pointing to.
+- `Worker machine`: The worker machine(s) run your builds.
+
 ## Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
