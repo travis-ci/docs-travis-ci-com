@@ -86,16 +86,14 @@ If none of the steps above lead to results for you, please follow the steps in [
 
 ## Contact support
 
-To get in touch with us, we'd like to ask you to follow the steps outlined below. That'll help us to provide you the best help possible and also possibly to save a few roundtrips.
-
-What we need from you:
+To get in touch with us, please write a message to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). In your message we'd like to ask you to answer the questions below.
 
 - What is the problem?
-- What did you try already?
+- Which steps did you try already?
 - A support bundle (You can get it from https://yourdomain:8800/support)
 - Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) - If you're using multiple worker machines, we need the log files from all of them.
 
-Is anything special with your setup? There are certain information we can already see, such as the hostname, which IaaS provide you're using but there are lots of other factors which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
+Is anything special with your setup? There are certain information we can already see, such as the hostname, which IaaS provider you're using, but there are lots of other things we can't see which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
 
 - How many machines are you using?
 - Do you use configuration management tools (Chef, Puppet)?
@@ -103,4 +101,4 @@ Is anything special with your setup? There are certain information we can alread
 - Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
 - If you're using GitHub Enterprise, which version of it?
 
-Please write your support request to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
+Please write your support request to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). We're looking forward hearing from you!
