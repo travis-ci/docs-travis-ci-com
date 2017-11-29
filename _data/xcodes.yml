@@ -84,7 +84,7 @@ osx_images:
     xcode: "8.3"
     osx_version: "10.12"
     xcode_full_version: "8.3.3"
-        default: true
+    default: true
     image_publish_date: 2017-06-06
     sdks:
       - macosx10.12
