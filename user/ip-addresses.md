@@ -11,7 +11,7 @@ on the infrastructure your builds are running on:
 
 | Infrastructure                  | IP ranges                                                                                                                        |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------|
-| Container-based (travis-ci.com) | `workers-nat-com-shared-2.aws-us-east-1.travisci.net` (`52.45.220.64/32` `52.54.40.118/32` `54.89.89.104/32` `54.82.137.203/32`) |
+| Container-based (travis-ci.com) | `workers-nat-com-shared-2.aws-us-east-1.travisci.net` (`52.45.220.64/32` `52.54.40.118/32` `54.89.89.104/32` `54.82.137.203/32` `34.234.4.53/32` `54.208.31.17/32`) |
 | Container-based (travis-ci.org) | `workers-nat-org-shared-2.aws-us-east-1.travisci.net` (`52.45.185.117/32` `52.54.31.11/32` `54.87.185.35/32` `54.87.141.246/32`) |
 | OS X                            | `208.78.110.192/27`                                                                                                              |
 | Sudo-enabled Linux              |  See notes below. <br><br>{{site.data.gce_ip_range}}                                                                            |
