@@ -91,13 +91,15 @@ task :run_html_proofer_internal do
 end
 
 file '_data/trusty-language-mapping.json' do |t|
+  require 'faraday'
+
   source = File.join(
     'https://raw.githubusercontent.com',
     'travis-infrastructure/terraform-config/master/aws-production-2',
     'generated-language-mapping.json'
   )
 
-  fail unless sh "curl -sSfL -o '#{t.name}' '#{source}'"
+  File.write(t.name, Faraday.get(source).body)
 end
 
 file '_data/trusty_language_mapping.yml' => [
@@ -115,13 +117,15 @@ file '_data/trusty_language_mapping.yml' => [
 end
 
 file '_data/ec2-public-ips.json' do |t|
+  require 'faraday'
+
   source = File.join(
     'https://raw.githubusercontent.com',
     'travis-infrastructure/terraform-config/master/aws-shared-2',
     'generated-public-ip-addresses.json'
   )
 
-  fail unless sh "curl -sSfL -o '#{t.name}' '#{source}'"
+  File.write(t.name, Faraday.get(source).body)
 end
 
 file '_data/ec2_public_ips.yml' => '_data/ec2-public-ips.json' do |t|
