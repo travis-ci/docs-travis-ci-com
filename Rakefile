@@ -2,15 +2,15 @@
 
 require 'html-proofer'
 
-task :default => [:test]
+task default: :test
 
 desc 'Runs the tests!'
-task :test => :build do
+task test: :build do
   Rake::Task['run_html_proofer'].invoke
 end
 
 desc 'Builds the site'
-task :build => %i[remove_output_dir regen] do
+task build: %i[remove_output_dir regen] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
