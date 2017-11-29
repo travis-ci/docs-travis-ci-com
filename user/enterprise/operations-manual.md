@@ -37,19 +37,19 @@ The data directories are located on the platform machine and get mounted into th
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
-## Builds don't get worked off
+## Builds are not starting
 
 ### Symptoms
 
-In the Travis CI Web UI you see none of the builds getting worked off. They're either in no or the `queued` state. Cancelling and restarting them doesn't make any difference.
+In the Travis CI Web UI you see none of the builds are starting. They're either in no or the `queued` state. Cancelling and restarting them doesn't make any difference.
 
 ### Strategies
 
-Below you will find different strategies to resolve the problem. They're meant to be followed in order. After you've completed the steps for a strategy please restart a build in the Travis CI Web UI to see if it gets picked up. If that's not happening, please advance to next strategy.
+Below you will find different strategies to resolve the problem. They're meant to be followed in order. After you've completed the steps for a strategy please restart a build in the Travis CI Web UI to see if it gets picked up. If that's not happening, please try the next strategy.
 
 #### Connection to RabbitMQ got lost
 
-We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes it can happen that the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restarting the machines usually suffices. To do that, connect via `ssh` and run the following command:
+We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes it happens that the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restarting the machines usually suffices. To do that, connect via `ssh` and run the following command:
 
 ```bash
 $ sudo shutdown -r 0
@@ -80,21 +80,21 @@ $ sudo restart travis-worker
 
 #### Ports are not open Security groups / firewall
 
-A source for the problem could be that the worker machine is not able to talk to the platform machine.
+A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](https://docs.travis-ci.com/user/enterprise/installation/#1.1.-Create-a-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](https://docs.travis-ci.com/user/enterprise/installation/#1.1.-Create-a-Security-Group) are open in your firewall.
 
 If none of the steps above lead to results for you, please follow the steps in [#Contact-support](#Contact-support) to move forward.
 
 ## Contact support
 
-To get in touch with us, please write a message to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). In your message we'd like to ask you to answer the questions below.
+To get in touch with us, please write a message to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). It would be very helpful for Support if you could include the following:
 
 - What is the problem?
 - Which steps did you try already?
 - A support bundle (You can get it from https://yourdomain:8800/support)
 - Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) - If you're using multiple worker machines, we need the log files from all of them.
 
-Is anything special with your setup? There are certain information we can already see, such as the hostname, which IaaS provider you're using, but there are lots of other things we can't see which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
+Is anything special with your setup? While we may be able to see some information (such as hostname, IaaS provider, ...), there are lots of other things we can't see which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
 
 - How many machines are you using?
 - Do you use configuration management tools (Chef, Puppet)?
