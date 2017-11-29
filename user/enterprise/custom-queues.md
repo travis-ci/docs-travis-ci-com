@@ -30,7 +30,7 @@ There are a number of options/selectors used to define routing to a custom queue
   - `slug` - a repository, in the form: `org/repo` or `user/repo`
 
 
-† `language` and `group` selectors must be specified in the `.travis.yml`. See [the example](#Advanced-ConfigurationYAML-Example) for more details. 
+† `language` and `group` selectors must be specified in the `.travis.yml`. See [the example](#Advanced-Configuration-YAML-Example) for more details. 
 
 Note: We do not recommend using `dist` and `os` for these selectors. These two have some of their own routing processes built-in and may not entirely behave as intended. 
 
