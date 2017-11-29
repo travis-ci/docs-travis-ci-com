@@ -112,7 +112,7 @@ osx_images:
       - tvOS 9.2
       - tvOS 10.0
       - tvOS 10.1
-      - tvOS 10.2false
+      - tvOS 10.2
       - watchOS 2.0
       - watchOS 2.1
       - watchOS 2.2
