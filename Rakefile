@@ -24,6 +24,15 @@ def print_line_containing(file, str)
   File.open(file).grep(/#{str}/).each do |line| puts "#{file}: #{line}" end
 end
 
+def dns_txt(hostname)
+  require 'faraday'
+  require 'json'
+
+  JSON.parse(
+    Faraday.get("https://dig.jsondns.org/IN/#{hostname}/TXT").body
+  ).fetch('answer').fetch(0).fetch('rdata').fetch(0).split.map(&:strip)
+end
+
 desc 'Lists files containing beta features'
 task :list_beta_files do
   files = FileList.new('**/*.md')
@@ -81,50 +90,108 @@ task :run_html_proofer_internal do
   tester.run
 end
 
-desc 'Populate Trusty image table data'
-task :gen_trusty_image_data do
-  GENERATED_LANGUAGE_MAP_JSON_FILE = 'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
+file '_data/trusty-language-mapping.json' do |t|
+  source = File.join(
+    'https://raw.githubusercontent.com',
+    'travis-infrastructure/terraform-config/master/aws-production-2',
+    'generated-language-mapping.json'
+  )
 
-  fail unless sh "curl -OsSfL '#{GENERATED_LANGUAGE_MAP_JSON_FILE}'"
-
-  json_data = JSON.load(File.read(File.basename(GENERATED_LANGUAGE_MAP_JSON_FILE)))
-  yaml_data = json_data.to_yaml
-
-  File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
+  fail unless sh "curl -sSfL -o '#{t.name}' '#{source}'"
 end
 
-desc 'Populate GCE IP address range'
-task :gen_gce_ip_addr_range do
+file '_data/trusty_language_mapping.yml' => [
+  '_data/trusty-language-mapping.json'
+] do |t|
+  require 'json'
+  require 'yaml'
+
+  File.write(
+    t.name,
+    YAML.dump(JSON.load(File.read('_data/trusty-language-mapping.json')))
+  )
+
+  puts "Updated #{t.name}"
+end
+
+file '_data/ec2-public-ips.json' do |t|
+  source = File.join(
+    'https://raw.githubusercontent.com',
+    'travis-infrastructure/terraform-config/master/aws-shared-2',
+    'generated-public-ip-addresses.json'
+  )
+
+  fail unless sh "curl -sSfL -o '#{t.name}' '#{source}'"
+end
+
+file '_data/ec2_public_ips.yml' => '_data/ec2-public-ips.json' do |t|
+  require 'json'
+  require 'yaml'
+
+  data = JSON.parse(File.read('_data/ec2-public-ips.json'))
+  by_site = %w[com org].map do |site|
+    [
+      site,
+      data['ips_by_host'].find { |d| d['host'] =~ /-#{site}-/ }
+    ]
+  end
+
+  File.write(t.name, YAML.dump(by_site.to_h))
+
+  puts "Updated #{t.name}"
+end
+
+file '_data/gce_ip_range.yml' do |t|
   require 'ipaddr'
+  require 'yaml'
 
   # Using steps described in https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges
   # we populate the range of IP addresses for GCE instances
+  dns_root = ENV.fetch(
+    'GOOGLE_DNS_ROOT', '_cloud-netblocks.googleusercontent.com'
+  )
 
-  GOOGLE_DNS_SERVER='8.8.8.8'
-  DNS_ROOT='_cloud-netblocks.googleusercontent.com'
-
-  root_answer=`nslookup -q=TXT _cloud-netblocks.googleusercontent.com #{GOOGLE_DNS_SERVER}`
-
-  blocks=[]
-
-  root_answer.split.grep(/^include:/).map {|x| x.sub(/^include:/,'')}.each do |netblock_host|
-    block_answer = `nslookup -q=TXT #{netblock_host} #{GOOGLE_DNS_SERVER}`
-    blocks += block_answer.split.grep(/^ip4:/).map {|x| x.sub(/^ip4:/,'')}
+  blocks = dns_txt(dns_root).grep(/^include:/).map do |l|
+    dns_txt(l.sub(/^include:/, '')).grep(/^ip4:/)
+                                   .map { |l| l.sub(/^ip4:/, '') }
   end
 
-  blocks_sorted = blocks.sort do |a,b|
-    IPAddr.new(a) <=> IPAddr.new(b)
-  end
+  File.write(
+    t.name,
+    YAML.dump(
+      'ip_ranges' => blocks.flatten
+                           .compact
+                           .sort { |a, b| IPAddr.new(a) <=> IPAddr.new(b) }
+    )
+  )
 
-  File.write(File.join(File.dirname(__FILE__), '_data', 'gce_ip_range.yml'), blocks_sorted.map {|ip| "`#{ip}`"}.join(", ").to_yaml)
+  puts "Updated #{t.name}"
+end
+
+desc 'Refresh generated files'
+task regen: [
+  :clean,
+  '_data/ec2_public_ips.yml',
+  '_data/gce_ip_range.yml',
+  '_data/trusty_language_mapping.yml',
+]
+
+desc 'Remove generated files'
+task :clean do
+  rm_f(%w[
+    _data/ec2_public_ips.yml
+    _data/ec2-public-ips.json
+    _data/gce_ip_range.yml
+    _data/trusty-language-mapping.json
+    _data/trusty_language_mapping.yml
+  ])
 end
 
 desc 'Start Jekyll server'
-task :serve => [:gen_trusty_image_data] do
+task serve: :regen do
   sh "bundle exec jekyll serve --config=_config.yml"
 end
 
 namespace :assets do
-  task :precompile => [:build] do
-  end
+  task precompile: :build
 end

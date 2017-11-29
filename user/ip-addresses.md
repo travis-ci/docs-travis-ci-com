@@ -11,10 +11,10 @@ on the infrastructure your builds are running on:
 
 | Infrastructure                  | IP ranges                                                                                                                        |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------|
-| Container-based (travis-ci.com) | `workers-nat-com-shared-2.aws-us-east-1.travisci.net` (`52.45.220.64/32` `52.54.40.118/32` `54.208.31.17/32` `34.234.4.53/32`) |
-| Container-based (travis-ci.org) | `workers-nat-org-shared-2.aws-us-east-1.travisci.net` (`52.45.185.117/32` `52.54.31.11/32` `52.3.55.28/32` `34.233.56.198/32`) |
+| Container-based (travis-ci.com) | `{{ site.data.ec2_public_ips['com']['host'] }}` ({% for ip in site.data.ec2_public_ips['com']['ips'] %}`{{ ip }}`, {% endfor %}) |
+| Container-based (travis-ci.org) | `{{ site.data.ec2_public_ips['org']['host'] }}` ({% for ip in site.data.ec2_public_ips['org']['ips'] %}`{{ ip }}`, {% endfor %}) |
 | OS X                            | `208.78.110.192/27`                                                                                                              |
-| Sudo-enabled Linux              |  See notes below. <br><br>{{site.data.gce_ip_range}}                                                                            |
+| Sudo-enabled Linux              | See notes below ({% for ip_range in site.data.gce_ip_range['ip_ranges'] %}`{{ ip_range }}`, {% endfor %})                        |
 
 > **Note:** We do not have static public IP addresses available for jobs running on the
 > sudo-enabled Linux infrastructure at this time.
