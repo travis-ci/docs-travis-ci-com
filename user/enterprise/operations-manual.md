@@ -12,6 +12,8 @@ Throughout this document we'll be using the following terms to refer to the two 
 - `Platform machine`: The virtual machine that runs most of the Travis web components. This is the machine your domain is pointing to.
 - `Worker machine`: The worker machine(s) run your builds.
 
+> Please note that this guide is geared towards non-HA setups right now.
+
 ## Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
