@@ -10,14 +10,14 @@ task :test => :build do
 end
 
 desc 'Builds the site'
-task :build => [:remove_output_dir, :gen_trusty_image_data, :gen_gce_ip_addr_range] do
-  FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
+task :build => %i[remove_output_dir regen] do
+  rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
 
 desc 'Remove the output dir'
 task :remove_output_dir do
-  FileUtils.rm_r('_site') if File.exist?('_site')
+  rm_rf('_site')
 end
 
 def print_line_containing(file, str)
