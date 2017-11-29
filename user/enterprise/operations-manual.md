@@ -81,7 +81,7 @@ $ sudo restart travis-worker
 #### Ports are not open Security groups / firewall
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](https://docs.travis-ci.com/user/enterprise/installation/#1.1.-Create-a-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](https://docs.travis-ci.com/user/enterprise/installation/#1.1.-Create-a-Security-Group) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#1.1.-Create-a-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#1.1.-Create-a-Security-Group) are open in your firewall.
 
 If none of the steps above lead to results for you, please follow the steps in [#Contact-support](#Contact-support) to move forward.
 
