@@ -9,12 +9,12 @@ when you need them safelisted to access your internal resources. Since builds
 run in a variety of different infrastructures, the IP ranges to safelist depend
 on the infrastructure your builds are running on:
 
-| Infrastructure                  | IP ranges                                                                                                                        |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------|
-| Container-based (travis-ci.com) | `{{ site.data.ec2_public_ips['com']['host'] }}` ({% for ip in site.data.ec2_public_ips['com']['ips'] %}`{{ ip }}`, {% endfor %}) |
-| Container-based (travis-ci.org) | `{{ site.data.ec2_public_ips['org']['host'] }}` ({% for ip in site.data.ec2_public_ips['org']['ips'] %}`{{ ip }}`, {% endfor %}) |
-| OS X                            | `208.78.110.192/27`                                                                                                              |
-| Sudo-enabled Linux              | See notes below ({% for ip_range in site.data.gce_ip_range['ip_ranges'] %}`{{ ip_range }}`, {% endfor %})                        |
+| Infrastructure                  | IP ranges                                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------|
+| Container-based (travis-ci.com) | `{{ site.data.ec2_public_ips['com']['host'] }}` (`{{ site.data.ec2_public_ips['com']['ips'] | join: "`, `" }}`) |
+| Container-based (travis-ci.org) | `{{ site.data.ec2_public_ips['org']['host'] }}` (`{{ site.data.ec2_public_ips['org']['ips'] | join: "`, `" }}`) |
+| OS X                            | `208.78.110.192/27`                                                                                             |
+| Sudo-enabled Linux              | See notes below (`{{ site.data.gce_ip_range['ip_ranges'] | join: "`, `" }}`)                                     |
 
 > **Note:** We do not have static public IP addresses available for jobs running on the
 > sudo-enabled Linux infrastructure at this time.
