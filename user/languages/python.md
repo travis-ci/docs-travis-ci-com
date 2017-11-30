@@ -73,13 +73,21 @@ script:
 ### Travis CI Uses Isolated virtualenvs
 
 The CI Environment uses separate virtualenv instances for each Python
-version. System Python is not used and should not be relied on. If you need
+version. This means that as soon as you specify `language: python` in `.travis.yml` your tests will run inside a virtualenv (without you having to explicitly create it).
+System Python is not used and should not be relied on. If you need
 to install Python packages, do it via pip and not apt.
 
-If you decide to use apt anyway, note that Python system packages only
-include Python 2.7 libraries on Ubuntu. This means that the packages
-installed from the repositories are not available in other virtualenvs even
-if you use the --system-site-packages option.
+If you decide to use apt anyway, note that for compatibility reasons, you'll only be able to use the default Python versions that are available in Ubuntu (e.g. for Trusty, this means 2.7.6 and 3.4.3).
+To access the packages inside the virtualenv, you will need to specify that it should be created with the `--system-site-packages` option.
+To do this, include the following in your `.travis.yml`:
+
+```yaml
+language: python
+virtualenv:
+  system_site_packages: true
+```
+{: data-file=".travis.yml"}
+
 
 ### PyPy Support
 
