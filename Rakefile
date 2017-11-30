@@ -1,5 +1,10 @@
 #!/usr/bin/env rake
 
+require 'ipaddr'
+require 'json'
+require 'yaml'
+
+require 'faraday'
 require 'html-proofer'
 
 task default: :test
@@ -25,8 +30,6 @@ def print_line_containing(file, str)
 end
 
 def dns_txt(hostname)
-  require 'faraday'
-  require 'json'
 
   JSON.parse(
     Faraday.get("https://dig.jsondns.org/IN/#{hostname}/TXT").body
@@ -91,8 +94,6 @@ task :run_html_proofer_internal do
 end
 
 file '_data/trusty-language-mapping.json' do |t|
-  require 'faraday'
-
   source = File.join(
     'https://raw.githubusercontent.com',
     'travis-infrastructure/terraform-config/master/aws-production-2',
@@ -105,9 +106,6 @@ end
 file '_data/trusty_language_mapping.yml' => [
   '_data/trusty-language-mapping.json'
 ] do |t|
-  require 'json'
-  require 'yaml'
-
   File.write(
     t.name,
     YAML.dump(JSON.load(File.read('_data/trusty-language-mapping.json')))
@@ -117,8 +115,6 @@ file '_data/trusty_language_mapping.yml' => [
 end
 
 file '_data/ec2-public-ips.json' do |t|
-  require 'faraday'
-
   source = File.join(
     'https://raw.githubusercontent.com',
     'travis-infrastructure/terraform-config/master/aws-shared-2',
@@ -129,9 +125,6 @@ file '_data/ec2-public-ips.json' do |t|
 end
 
 file '_data/ec2_public_ips.yml' => '_data/ec2-public-ips.json' do |t|
-  require 'json'
-  require 'yaml'
-
   data = JSON.parse(File.read('_data/ec2-public-ips.json'))
   by_site = %w[com org].map do |site|
     [
@@ -146,9 +139,6 @@ file '_data/ec2_public_ips.yml' => '_data/ec2-public-ips.json' do |t|
 end
 
 file '_data/gce_ip_range.yml' do |t|
-  require 'ipaddr'
-  require 'yaml'
-
   # Using steps described in https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges
   # we populate the range of IP addresses for GCE instances
   dns_root = ENV.fetch(
