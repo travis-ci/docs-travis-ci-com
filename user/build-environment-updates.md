@@ -9,15 +9,29 @@ layout: en
 > change.  When in doubt, please request clarification via a [GitHub
 > issue](https://github.com/travis-ci/travis-ci/issues).
 
+<div id="toc"></div>
+
+## Linux Build Environment Updates
+
 <ul class="list--links">
 {% assign reverse_pages = site.pages | reverse %}
 {% for page in reverse_pages %}
-  {% if page.category == 'build_env_updates' %}
+  {% if page.category == 'linux_build_env_updates' %}
     <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
 
+## macOS Build Environment Updates
+
+<ul class="list--links">
+{% assign reverse_pages = site.pages | reverse %}
+{% for page in reverse_pages %}
+  {% if page.category == 'mac_build_env_updates' %}
+    <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
 
 ### Atom feed
 
