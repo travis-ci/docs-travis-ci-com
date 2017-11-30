@@ -13,3 +13,4 @@ gem 'rack-jekyll'
 gem 'rack-ssl-enforcer'
 gem 'rake'
 gem 'rdiscount', '>=2.2.0.1'
+gem 'rubocop', group: :test
