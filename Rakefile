@@ -34,7 +34,7 @@ task :list_beta_files do
 end
 
 desc 'Runs the html-proofer test'
-task :run_html_proofer do
+task :run_html_proofer => [:build] do
   # seems like the build does not render `%3*`,
   # so let's remove them for the check
   url_swap = {
@@ -58,7 +58,7 @@ task :run_html_proofer do
 end
 
 desc 'Runs the html-proofer test for internal links only'
-task :run_html_proofer_internal do
+task :run_html_proofer_internal => [:build] do
   # seems like the build does not render `%3*`,
   # so let's remove them for the check
   url_swap = {
