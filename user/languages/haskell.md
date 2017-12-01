@@ -75,7 +75,7 @@ to construct a build matrix.
 ### Multiple Packages in Subdirectories
 
 If you have multiple packages in subdirectories (each containing a `.cabal` file,
-you can enter those directories by setting an environment variable:
+you can specify those directories in an environment variable:
 
 ```yaml
 ghc:
