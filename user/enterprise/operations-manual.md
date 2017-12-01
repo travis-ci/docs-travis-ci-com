@@ -27,7 +27,7 @@ Without the encryption key you cannot access the information in your production 
 
 > Without this key the information in the database is not recoverable.
 
-To make a backup, please follow the following steps:
+To make a backup, please follow these steps:
 
 1. open a ssh connection to the platform machine
 2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
