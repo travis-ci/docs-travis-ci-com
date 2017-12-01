@@ -3,16 +3,16 @@ title: Travis CI Enterprise Operations manual
 layout: en_enterprise
 
 ---
-Welcome to the Travis CI Enterprise Operations Manual! This a living document which provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
+Welcome to the Travis CI Enterprise Operations Manual! This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document is made of multiple topics. Each topic is a common problem which we've seen ocurring on a regular basis over the time. The section will guide you through it helping you to resolve it. If the problem couldn't be resolved you'll find instructions on how to proceed at the bottom of the document.
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#contact-support).
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
 - `Platform machine`: The virtual machine that runs most of the Travis web components. This is the machine your domain is pointing to.
 - `Worker machine`: The worker machine(s) run your builds.
 
-> Please note that this guide is geared towards non-HA setups right now.
+> Please note that this guide is geared towards non-High Availability (HA) setups right now.
 
 ## Backups
 
@@ -23,13 +23,15 @@ This section explains how you integrate Travis CI Enterprise in your backup stra
 
 ### Encryption key
 
-Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key:
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+
+> Without this key the information in the database is not recoverable.
+
+To make a backup, please follow the following steps:
 
 1. open a ssh connection to the platform machine
 2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
 3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
-
-> Without this key the information in the database is not recoverable.
 
 ### Create a backup of the data directories
 
@@ -39,17 +41,17 @@ The files are located at `/var/travis` on the platform machine. Please run `sudo
 
 ## Builds are not starting
 
-### Symptoms
+### The problem
 
-In the Travis CI Web UI you see none of the builds are starting. They're either in no or the `queued` state. Cancelling and restarting them doesn't make any difference.
+In the Travis CI Web UI you see none of the builds are starting. They're either in no state or `queued`. Cancelling and restarting them doesn't make any difference.
 
 ### Strategies
 
-Below you will find different strategies to resolve the problem. They're meant to be followed in order. After you've completed the steps for a strategy please restart a build in the Travis CI Web UI to see if it gets picked up. If that's not happening, please try the next strategy.
+There are a few different strategies to make your builds start. Please try each one in order.
 
 #### Connection to RabbitMQ got lost
 
-We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes it happens that the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restarting the machines usually suffices. To do that, connect via `ssh` and run the following command:
+We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restart the machines by connecting via `ssh` and running the following command:
 
 ```bash
 $ sudo shutdown -r 0
