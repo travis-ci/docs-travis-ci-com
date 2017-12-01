@@ -71,3 +71,22 @@ cabal install --only-dependencies --enable-tests
 
 For Haskell projects, `env` and `ghc` can be given as arrays
 to construct a build matrix.
+
+### Multiple Packages in Subdirectories
+
+If you have multiple packages in subdirectories (each containing a `.cabal` file,
+you can specify those directories in an environment variable:
+
+```yaml
+ghc:
+  - "7.10"
+  - "7.8"
+  - "7.6"
+env:
+  - PACKAGEDIR="some-package"
+  - PACKAGEDIR="some-other-package"
+before_install: cd ${PACKAGEDIR}
+```
+{: data-file=".travis.yml"}
+
+The build matrix is then constructed such that each package is compiled with each version of GHC.
