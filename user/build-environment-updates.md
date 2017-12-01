@@ -39,4 +39,4 @@ An <a href="/feed.build-env-updates.xml">atom feed</a> is also available.
 
 ### Mailing List
 
-You can also sign up for the <a href="http://eepurl.com/9OCsP">announcement mailing list</a>.
+You can also sign up for the <a html_proofer_ignore="" href="http://eepurl.com/9OCsP">announcement mailing list</a>.
