@@ -114,24 +114,22 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Compilers and Build toolchain
 
-- autoconf 2.69
-- automake 1.15
-- maven 3.3,9
-- mercurial 3.9.1
-- pkg-config 0.29.1
-- subversion 1.9.4
-- wget 1.18
-- xctool 0.2.9
-- cmake 3.6.2
+- automake 1.15.1
+- maven 3.5.0
+- mercurial 4.3.3
+- pkg-config 0.29.2
+- wget 1.19.1_1
+- xctool 0.3.3
+- cmake 3.9.4
 
 ## Languages
 
-- go 1.7.1
+- go 1.9.1
 
 ## Services
 
-- postgis 2.2.2_3
-- postgresql 9.5.4
+- postgis 2.4.0
+- postgresql 9.6.5
 
 ## Runtimes
 
