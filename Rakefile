@@ -1,40 +1,50 @@
 #!/usr/bin/env rake
+# frozen_string_literal: true
 
+require 'ipaddr'
+require 'json'
+require 'yaml'
+
+require 'faraday'
 require 'html-proofer'
 
-task :default => [:test]
-
-desc 'Runs the tests!'
-task :test => :build do
-  Rake::Task['run_html_proofer'].invoke
+def print_line_containing(file, str)
+  File.open(file).grep(/#{str}/).each { |line| puts "#{file}: #{line}" }
 end
 
+def dns_txt(hostname)
+  JSON.parse(
+    Faraday.get("https://dig.jsondns.org/IN/#{hostname}/TXT").body
+  ).fetch('answer').fetch(0).fetch('rdata').fetch(0).split.map(&:strip)
+end
+
+task default: :test
+
+desc 'Runs the tests!'
+task test: %i[build run_html_proofer]
+
 desc 'Builds the site'
-task :build => [:remove_output_dir, :gen_trusty_image_data, :gen_gce_ip_addr_range] do
-  FileUtils.rm '.jekyll-metadata' if File.exist?('.jekyll-metadata')
+task build: %i[remove_output_dir regen] do
+  rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
 
 desc 'Remove the output dir'
 task :remove_output_dir do
-  FileUtils.rm_r('_site') if File.exist?('_site')
-end
-
-def print_line_containing(file, str)
-  File.open(file).grep(/#{str}/).each do |line| puts "#{file}: #{line}" end
+  rm_rf('_site')
 end
 
 desc 'Lists files containing beta features'
 task :list_beta_files do
   files = FileList.new('**/*.md')
-  files.exclude("_site/*", "STYLE.md")
-  for f in files do
+  files.exclude('_site/*', 'STYLE.md')
+  files.each do |f|
     print_line_containing(f, '\.beta')
   end
 end
 
 desc 'Runs the html-proofer test'
-task :run_html_proofer do
+task :run_html_proofer => [:build] do
   # seems like the build does not render `%3*`,
   # so let's remove them for the check
   url_swap = {
@@ -43,22 +53,32 @@ task :run_html_proofer do
     /-\.travis\.yml/ => '-travisyml'
   }
 
-  tester = HTMLProofer.check_directory('./_site', {
-                              :url_swap => url_swap,
-                              :internal_domains => ["docs.travis-ci.com"],
-                              :connecttimeout => 600,
-                              :only_4xx => true,
-                              :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
-                              :url_ignore => ["https://www.appfog.com/", /itunes\.apple\.com/, /coverity.com/, /articles201769485/],
-                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html",
-                              "./_site/user/languages/objective-c/index.html",
-                              "./_site/user/reference/osx/index.html"]
-                            })
-  tester.run
+  HTMLProofer.check_directory(
+    './_site',
+    url_swap: url_swap,
+    internal_domains: ['docs.travis-ci.com'],
+    connecttimeout: 600,
+    only_4xx: true,
+    typhoeus: {
+      ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
+    },
+    url_ignore: [
+      'https://www.appfog.com/',
+      /itunes\.apple\.com/,
+      /coverity.com/,
+      /articles201769485/
+    ],
+    file_ignore: %w[
+      ./_site/api/index.html
+      ./_site/user/languages/erlang/index.html
+      ./_site/user/languages/objective-c/index.html
+      ./_site/user/reference/osx/index.html
+    ]
+  ).run
 end
 
 desc 'Runs the html-proofer test for internal links only'
-task :run_html_proofer_internal do
+task :run_html_proofer_internal => [:build] do
   # seems like the build does not render `%3*`,
   # so let's remove them for the check
   url_swap = {
@@ -67,64 +87,119 @@ task :run_html_proofer_internal do
     /-\.travis\.yml/ => '-travisyml'
   }
 
-  tester = HTMLProofer.check_directory('./_site', {
-                              :url_swap => url_swap,
-                              :disable_external => true,
-                              :internal_domains => ["docs.travis-ci.com"],
-                              :connecttimeout => 600,
-                              :only_4xx => true,
-                              :typhoeus => { :ssl_verifypeer => false, :ssl_verifyhost => 0, :followlocation => true },
-                              :file_ignore => ["./_site/api/index.html", "./_site/user/languages/erlang/index.html",
-                              "./_site/user/languages/objective-c/index.html",
-                              "./_site/user/reference/osx/index.html"]
-                            })
-  tester.run
+  HTMLProofer.check_directory(
+    './_site',
+    url_swap: url_swap,
+    disable_external: true,
+    internal_domains: ['docs.travis-ci.com'],
+    connecttimeout: 600,
+    only_4xx: true,
+    typhoeus: {
+      ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
+    },
+    file_ignore: %w[
+      ./_site/api/index.html
+      ./_site/user/languages/erlang/index.html
+      ./_site/user/languages/objective-c/index.html
+      ./_site/user/reference/osx/index.html
+    ]
+  ).run
 end
 
-desc 'Populate Trusty image table data'
-task :gen_trusty_image_data do
-  GENERATED_LANGUAGE_MAP_JSON_FILE = 'https://raw.githubusercontent.com/travis-infrastructure/terraform-config/master/aws-production-2/generated-language-mapping.json'
+file '_data/trusty-language-mapping.json' do |t|
+  source = File.join(
+    'https://raw.githubusercontent.com',
+    'travis-infrastructure/terraform-config/master/aws-production-2',
+    'generated-language-mapping.json'
+  )
 
-  fail unless sh "curl -OsSfL '#{GENERATED_LANGUAGE_MAP_JSON_FILE}'"
-
-  json_data = JSON.load(File.read(File.basename(GENERATED_LANGUAGE_MAP_JSON_FILE)))
-  yaml_data = json_data.to_yaml
-
-  File.write(File.join(File.dirname(__FILE__), '_data', 'trusty_mapping_data.yml'), yaml_data)
+  File.write(t.name, Faraday.get(source).body)
 end
 
-desc 'Populate GCE IP address range'
-task :gen_gce_ip_addr_range do
-  require 'ipaddr'
+file '_data/trusty_language_mapping.yml' => [
+  '_data/trusty-language-mapping.json'
+] do |t|
+  File.write(
+    t.name,
+    YAML.dump(JSON.parse(File.read('_data/trusty-language-mapping.json')))
+  )
 
-  # Using steps described in https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges
+  puts "Updated #{t.name}"
+end
+
+file '_data/ec2-public-ips.json' do |t|
+  source = File.join(
+    'https://raw.githubusercontent.com',
+    'travis-infrastructure/terraform-config/master/aws-shared-2',
+    'generated-public-ip-addresses.json'
+  )
+
+  File.write(t.name, Faraday.get(source).body)
+end
+
+file '_data/ec2_public_ips.yml' => '_data/ec2-public-ips.json' do |t|
+  data = JSON.parse(File.read('_data/ec2-public-ips.json'))
+  by_site = %w[com org].map do |site|
+    [
+      site,
+      data['ips_by_host'].find { |d| d['host'] =~ /-#{site}-/ }
+    ]
+  end
+
+  File.write(t.name, YAML.dump(by_site.to_h))
+
+  puts "Updated #{t.name}"
+end
+
+file '_data/gce_ip_range.yml' do |t|
+  # Using steps described in:
+  # https://cloud.google.com/compute/docs/faq#where_can_i_find_short_product_name_ip_ranges
   # we populate the range of IP addresses for GCE instances
+  dns_root = ENV.fetch(
+    'GOOGLE_DNS_ROOT', '_cloud-netblocks.googleusercontent.com'
+  )
 
-  GOOGLE_DNS_SERVER='8.8.8.8'
-  DNS_ROOT='_cloud-netblocks.googleusercontent.com'
-
-  root_answer=`nslookup -q=TXT _cloud-netblocks.googleusercontent.com #{GOOGLE_DNS_SERVER}`
-
-  blocks=[]
-
-  root_answer.split.grep(/^include:/).map {|x| x.sub(/^include:/,'')}.each do |netblock_host|
-    block_answer = `nslookup -q=TXT #{netblock_host} #{GOOGLE_DNS_SERVER}`
-    blocks += block_answer.split.grep(/^ip4:/).map {|x| x.sub(/^ip4:/,'')}
+  blocks = dns_txt(dns_root).grep(/^include:/).map do |bl|
+    dns_txt(bl.sub(/^include:/, '')).grep(/^ip4:/)
+                                    .map { |l| l.sub(/^ip4:/, '') }
   end
 
-  blocks_sorted = blocks.sort do |a,b|
-    IPAddr.new(a) <=> IPAddr.new(b)
-  end
+  File.write(
+    t.name,
+    YAML.dump(
+      'ip_ranges' => blocks.flatten
+                           .compact
+                           .sort { |a, b| IPAddr.new(a) <=> IPAddr.new(b) }
+    )
+  )
 
-  File.write(File.join(File.dirname(__FILE__), '_data', 'gce_ip_range.yml'), blocks_sorted.map {|ip| "`#{ip}`"}.join(", ").to_yaml)
+  puts "Updated #{t.name}"
+end
+
+desc 'Refresh generated files'
+task regen: [
+  :clean,
+  '_data/ec2_public_ips.yml',
+  '_data/gce_ip_range.yml',
+  '_data/trusty_language_mapping.yml'
+]
+
+desc 'Remove generated files'
+task :clean do
+  rm_f(%w[
+         _data/ec2_public_ips.yml
+         _data/ec2-public-ips.json
+         _data/gce_ip_range.yml
+         _data/trusty-language-mapping.json
+         _data/trusty_language_mapping.yml
+       ])
 end
 
 desc 'Start Jekyll server'
-task :serve => [:gen_trusty_image_data] do
-  sh "bundle exec jekyll serve --config=_config.yml"
+task serve: :regen do
+  sh 'bundle exec jekyll serve --config=_config.yml'
 end
 
 namespace :assets do
-  task :precompile => [:build] do
-  end
+  task precompile: :build
 end
