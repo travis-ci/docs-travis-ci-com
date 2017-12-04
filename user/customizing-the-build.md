@@ -633,7 +633,7 @@ Consider a scenario where you want to run more complex test scenarios, but only 
 set -ev
 bundle exec rake:units
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-	bundle exec rake test:integration
+  bundle exec rake test:integration
 fi
 ```
 
