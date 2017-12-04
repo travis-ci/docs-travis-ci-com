@@ -167,6 +167,8 @@ install: pip install --user -r requirements.txt
 ```
 {: data-file=".travis.yml"}
 
+Please note that the `--user` option is mandatory if you are not using `language: python`, since no virtualenv will be created in that case.
+
 ### Custom Dependency Management
 
 To override the default `pip` dependency management, alter the `before_install`
