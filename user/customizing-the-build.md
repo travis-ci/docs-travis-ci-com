@@ -326,8 +326,7 @@ To clone your repository sparsely, add:
 git:
   sparse_checkout: skip-worktree-map-file
 ```
-where `skip-worktree-map-file` is the file containing the list of files which should be populated
-"sparsely".
+where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 ## Building Specific Branches
 
