@@ -56,6 +56,9 @@ Here’s how you’d set up the build configuration for this in your .travis.yml
 file:
 
 ```yaml
+stages:
+  - test
+  - deploy
 jobs:
   include:
     - stage: test
