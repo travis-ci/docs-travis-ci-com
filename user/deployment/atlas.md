@@ -18,7 +18,7 @@ To deploy your application to Atlas:
      token: "YOUR ATLAS API TOKEN"
      app: "YOUR ATLAS USERNAME/YOUR ATLAS APP NAME"
    ```
-{: data-file=".travis.yml"}
+   {: data-file=".travis.yml"}
 
 ## Including or Excluding Files
 

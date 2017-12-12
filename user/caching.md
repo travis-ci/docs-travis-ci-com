@@ -19,6 +19,9 @@ Travis CI can cache content that does not often change, to speed up your build p
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
 
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
+
 ## Caching directories (Bundler, dependencies)
 
 Caches lets Travis CI store directories between builds, which is useful for storing

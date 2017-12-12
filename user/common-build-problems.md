@@ -532,7 +532,7 @@ which Docker image you are using on Travis CI.
     ("default" if no other name matches) using the table below:
 
     | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
     | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
 1. Start a Docker container detached with `/sbin/init`:

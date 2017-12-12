@@ -47,7 +47,7 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="#xcode-{{image.xcode | remove: "."}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -114,24 +114,22 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Compilers and Build toolchain
 
-- autoconf 2.69
-- automake 1.15
-- maven 3.3,9
-- mercurial 3.9.1
-- pkg-config 0.29.1
-- subversion 1.9.4
-- wget 1.18
-- xctool 0.2.9
-- cmake 3.6.2
+- automake 1.15.1
+- maven 3.5.0
+- mercurial 4.3.3
+- pkg-config 0.29.2
+- wget 1.19.1_1
+- xctool 0.3.3
+- cmake 3.9.4
 
 ## Languages
 
-- go 1.7.1
+- go 1.9.1
 
 ## Services
 
-- postgis 2.2.2_3
-- postgresql 9.5.4
+- postgis 2.4.0
+- postgresql 9.6.5
 
 ## Runtimes
 
@@ -222,7 +220,7 @@ Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
 
-### Xcode {{ image.xcode }}
+<h3>Xcode {{image.xcode}}</h3>
 
 Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 
