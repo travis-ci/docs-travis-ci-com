@@ -15,7 +15,7 @@ Continuous Deployment to the following providers is supported:
 To deploy to a custom or unsupported provider, use the [after-success build
 stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
-## Uploading Files
+## Uploading Files and skip_cleanup
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
