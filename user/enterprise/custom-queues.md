@@ -5,7 +5,7 @@ layout: en_enterprise
 
 Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images).
 
-There are two [feature flags](#Enable-Queues-on-the-Platform) required for custom queues. Once these are set, you can define the configuration for your queues in the [Management Console settings](#Define-Custom-Queues-in-the-Management-Console), and [allocate workers to the new queues](#Define-Custom-Queues-Settings-on-The-Workers)
+There are two [feature flags](#Enable-Queues-on-the-Platform) required for custom queues. After setting these flags, you can define the configuration for your queues in the [Management Console settings](#Define-Custom-Queues-in-the-Management-Console), and [allocate workers to the new queues](#Define-Custom-Queues-Settings-on-The-Workers)
 
 <div id="toc"></div>
 
@@ -32,7 +32,7 @@ There are a number of options/selectors used to define routing to a custom queue
 
 † Specify the `language` and `group` for a job in the `.travis.yml`. Do not specify ownership-type selectors (`owner`, `slug`) in the configuration. See [the example](#Advanced-Configuration-YAML-Example) for more details. 
 
-Note: We do not recommend using `dist` and `os` for these selectors. These two have some of their own routing processes built-in and may not entirely behave as intended. 
+> Note: We do not recommend using `dist` and `os` for these selectors. These two have some of their own routing processes built-in and may not entirely behave as intended. 
 
 Define selectors in "Advanced Configuration YAML" in the following format:
 ```yaml
@@ -78,7 +78,7 @@ language: ruby
 ```
 {: data-file=".travis.yml"}
 
-but, to build the [`travis-ci/docs-travis-ci.com`](https://github.com/travis-ci/docs-travis-ci-com) repo, no special configuration would be required.
+Building [`travis-ci/docs-travis-ci.com`](https://github.com/travis-ci/docs-travis-ci-com) repo, however, does not require any special configuration.
 
 ## Define Custom Queues Settings on The Workers
 
