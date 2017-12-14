@@ -31,6 +31,7 @@ jobs:
         api_key: $NPM_API_KEY
         on: deploy-npm-release
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

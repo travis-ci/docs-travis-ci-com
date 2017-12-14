@@ -20,6 +20,7 @@ addons:
     username: "Your Sauce Labs username"
     access_key: "Your Sauce Labs access key"
 ```
+{: data-file=".travis.yml"}
 
 You can [encrypt your access key](/user/encryption-keys/), if you want to.
 
@@ -63,6 +64,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 ```
+{: data-file=".travis.yml"}
 
 Note: Don't run `xvfb` directly, as it does not handle multiple concurrent
 instances that way.
@@ -75,8 +77,9 @@ For example, to set the screen resolution to `1280x1024x16`:
 
 ```yaml
 before_install:
-	- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 ```
+{: data-file=".travis.yml"}
 
 See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
@@ -96,6 +99,7 @@ before_script:
   - rackup  # start a Web server
   - sleep 3 # give Web server some time to bind to sockets, etc
 ```
+{: data-file=".travis.yml"}
 
 If you need web server to be listening on port 80, remember to use `sudo` (Linux will not allow non-privileged process to bind to port 80). For ports greater than 1024, using `sudo` is not necessary (and not recommended).
 
@@ -122,6 +126,7 @@ before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   ⋮
 ```
+{: data-file=".travis.yml"}
 
 On OS X:
 
@@ -134,11 +139,45 @@ before_install:
   - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
   ⋮
 ```
+{: data-file=".travis.yml"}
 
 #### Documentation
 
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
+
+### Using the [Firefox addon](/user/firefox) in headless mode
+
+Starting with version 56, Firefox can be used in "headless" mode, which is
+suitable for driving browser-based tests using Selenium and other tools.
+Headless mode can be enabled using the `MOZ_HEADLESS`
+[environment variable](/user/environment-variables):
+
+```yaml
+env:
+  - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+```
+{: data-file=".travis.yml"}
+
+Alternatively, you can pass the `-headless` command line argument when
+starting Firefox. For example, the following code demonstrates how you would
+set this argument using the Python client for Selenium:
+
+```python
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument('-headless')
+firefox = Firefox(firefox_options=options)
+```
+
+#### Documentation
+
+* [Using headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode)
+* [Automated testing with headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode)
 
 ## Using PhantomJS
 
@@ -151,6 +190,7 @@ A very simple example:
 ```yaml
 script: phantomjs testrunner.js
 ```
+{: data-file=".travis.yml"}
 
 If you need a web server to serve the tests, see the previous section.
 

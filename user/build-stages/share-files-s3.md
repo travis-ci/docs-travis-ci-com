@@ -35,6 +35,7 @@ jobs:
 after_success:
   - aws s3 sync ~/shared s3://travis-build-stages-shared-storage-test/shared
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix would look like:
 

@@ -12,6 +12,7 @@ deploy:
   provider: cloud66
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
 ```
+{: data-file=".travis.yml"}
 
 You can find the redeployment hook in the information menu within the Cloud 66 portal.
 
@@ -35,6 +36,7 @@ deploy:
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -45,6 +47,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -65,3 +68,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

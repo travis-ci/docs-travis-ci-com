@@ -7,7 +7,7 @@ layout: en
 <div id="toc"></div>
 
 Travis CI can automatically deploy your application to
-[TODO](https://scalingo.com/) application after a successful build.
+[Scalingo](https://scalingo.com/) application after a successful build.
 
 Chose one of two ways to connect to your Scalingo account:
 
@@ -29,6 +29,7 @@ deploy:
   password:
     secure: "YOUR ENCRYPTED PASSWORD"
 ```
+{: data-file=".travis.yml"}
 
 ## Connecting using an api key
 
@@ -41,6 +42,7 @@ deploy:
   api_key:
     secure: "YOUR ENCRYPTED PASSWORD"
 ```
+{: data-file=".travis.yml"}
 
 ## Optional settings
 
@@ -66,3 +68,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
