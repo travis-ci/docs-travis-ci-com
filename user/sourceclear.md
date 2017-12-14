@@ -10,7 +10,7 @@ When you add SourceClear to your TravisCI projects you'll get automated security
 
 ## Creating your Authentication Token
 
-In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](http://app.sourceclear.com/login), and then perform the following steps:
+In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](https://app.sourceclear.io/login), and then perform the following steps:
 
 **1.** From the left sidebar, select **Agents**, then **New Agent**.
 

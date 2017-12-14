@@ -86,19 +86,21 @@ Builds triggered from Pull Requests will never trigger a release.
 
 ### S3 deployment or GitHub deployment
 
-If you specify `bucket` key, the deployment strategy defaults to S3.
-If you want to override this behavior and use GitHub integration, you can specify it with
+For a minimal configuration with GitHub, add the following to your `.travis.yml`:
 
 ```yaml
-deploy:
-  provider: codedeploy
-  ⋮
-  bucket: "S3 Bucket"
-  revision_type: github
+    deploy:
+      - provider: codedeploy
+        revision_type: github
+        access_key_id: "YOUR AWS ACCESS KEY"
+        secret_access_key: "YOUR AWS SECRET KEY"
+        application: "Your Codedeploy application"
+        deployment_group: "The Deployment group associated with the codedeploy application"
+        region: "Region in which your ec2 instance is."
 ```
 {: data-file=".travis.yml"}
 
-In this case, S3 deployment provider is not required.
+Please note that `region` should match the instance region on which codedeploy is configured.
 
 ### Waiting for Deployments
 

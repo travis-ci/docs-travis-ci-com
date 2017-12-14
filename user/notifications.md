@@ -770,6 +770,10 @@ is an example Django view which implements this in Python.
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
 is a small webapp in Go which verifies the the hook.
 
+1. [travis-webhook-verification-nodejs](https://github.com/Brodan/travis-webhook-verification-nodejs)
+contains two examples for verifying webhooks in Node.js using [express](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/express.js)
+and [hapi.js](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/hapi.js)
+
 ## For the truly curious
 
 Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks).

@@ -476,75 +476,6 @@ The `subscribed` attribute is only available on Travis Pro.
 
 This request always needs to be authenticated.
 
-## Annotations
-
-```http
-GET /jobs/42/annotations HTTP/1.1
-User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
-Host: api.travis-ci.org
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-   "annotations" : [
-      {
-        "id"          : 1,
-        "job_id"      : 42,
-        "description" : "foo bar",
-        "url"         : "http://example.com/job-42",
-        "status"      : "passed"
-      }
-   ]
-}
-```
-
-```shell
-$ travis show # job info will include annotations
-```
-
-```ruby
-require 'travis'
-
-job = Travis::Job.find(42)
-job.annotations.each do |annotation|
-  puts annotation.description
-end
-```
-
-<aside class="warning">
-  Annotation support is experimental.
-</aside>
-
-### Attributes
-
-| Attribute   | Description                           |
-| ----------- | ------------------------------------- |
-| id          | annotation id                         |
-| job_id      | job id the annotation is for          |
-| description | textual description of the annotation |
-| url         | url with more information             |
-| status      | annotation status                     |
-
-### List Annotations
-
-`GET /jobs/{job.id}/annotations`
-
-### Create Annotation
-
-`POST /jobs/{job.id}/annotations`
-
-| Parameter   | Default | Description                            |
-| ----------- | ------- | -------------------------------------- |
-| username    |         | user name for provider authentication  |
-| key         |         | secret key for provider authentication |
-| description |         | textual description of the annotation  |
-| url         |         | url with more information              |
-| status      |         | annotation status                      |
-
 ## Branches
 
 ```http
@@ -1049,7 +980,6 @@ end
 | duration       | job duration                                    |
 | queue          | job queue                                       |
 | allow_failure  | whether or not job state influences build state |
-| annotation_ids | list of annotation ids                          |
 
 ### Fetch Job
 

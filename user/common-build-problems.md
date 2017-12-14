@@ -528,23 +528,15 @@ which Docker image you are using on Travis CI.
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 1. Choose a Docker image
-  * For Ubuntu 12.04 (precise), select an image from
-    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-    `{lang}` is the language you need.  If you're not using a language-specific
-    image, pick `travis-ruby`.
-  * For Ubuntu 14.04 (trusty), select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
+  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
     ("default" if no other name matches) using the table below:
 
     | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
     | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
 1. Start a Docker container detached with `/sbin/init`:
-  * Example 1: Ruby image on Precise
-    ``` bash
-    docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-    ```
-  * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
+  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
     ``` bash
     docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
     ```

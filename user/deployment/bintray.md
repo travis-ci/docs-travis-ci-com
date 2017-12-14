@@ -24,8 +24,16 @@ deploy:
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
 
 ```bash
-$ travis encrypt BINTRAY-API-KEY --add deploy.key
+$ travis encrypt <YOUR BINTRAY API KEY> --add deploy.key
 ```
+
+Example:
+
+```bash
+$ travis encrypt ab012cd345678901234e456fa7bc89def01a23b4 --add deploy.key
+```
+
+
 
 ### Branch to deploy from
 
