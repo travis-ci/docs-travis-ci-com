@@ -67,6 +67,6 @@ pre-installed default, you need to set it explicitly:
 ```yaml
 deploy:
   provider: script
-  script: rvm $TRAVIS_RUBY_VERSION do script.rb
+  script: rvm use $TRAVIS_RUBY_VERSION do script.rb
 ```
 {: data-file=".travis.yml"}
