@@ -3,15 +3,15 @@ title: Enterprise Customer Worker Queues
 layout: en_enterprise
 ---
 
-Setting up custom worker queues on Travis CI Enterprise allows your team to designate a particular worker (or group of workers) for building specific repositories. This is especially useful for differentiating workers that have been customized specially.
+Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images).
 
-Custom queues require [enabling two feature flags](#Enable-Queues-on-the-Platform). Once these flags are set, you can define the configuration for your custom queues in the [Management Console settings](#Define-Custom-Queues-in-the-Management-Console), and [allocate workers to the new queues](#Define-Custom-Queues-Settings-on-The-Workers)
+There are two [feature flags](#Enable-Queues-on-the-Platform) that need to be enabled for custom queues. Once these are set, you can define the configuration for your queues in the [Management Console settings](#Define-Custom-Queues-in-the-Management-Console), and [allocate workers to the new queues](#Define-Custom-Queues-Settings-on-The-Workers)
 
 <div id="toc"></div>
 
 ## Enable Queues on the Platform
 
-To allow your Travis CI Enterprise platform instance to route jobs to customized queues, the `template_selection` and `multi_os` feature flags must be set. To do this, ssh into your platform server, then run `travis console`. Run the following command to enable the required feature flags: 
+To allow your Travis CI Enterprise platform instance to route jobs to customized queues, set the `template_selection` and `multi_os` feature flags. To do this, ssh into your platform server, then run `travis console`. Run the following command to enable the required feature flags: 
 ```
 Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os); exit
 ```
@@ -30,11 +30,11 @@ There are a number of options/selectors used to define routing to a custom queue
   - `slug` - a repository, in the form: `org/repo` or `user/repo`
 
 
-† `language` and `group` selectors must be specified in the `.travis.yml`. See [the example](#Advanced-Configuration-YAML-Example) for more details. 
+† `language` and `group` selectors must be specified as above in the `.travis.yml`. See [the example](#Advanced-Configuration-YAML-Example) for more details. 
 
 Note: We do not recommend using `dist` and `os` for these selectors. These two have some of their own routing processes built-in and may not entirely behave as intended. 
 
-All selectors should be given as a list in the "Advanced Configuration YAML" in the format:
+All selectors should be given as above as a list in the "Advanced Configuration YAML" in the format:
 ```yaml
 production:
   queues:
@@ -48,7 +48,7 @@ see the [example](#Advanced-Configuration-YAML-Example) for details on syntax. C
 
 ### Advanced Configuration YAML Example 
 
-The syntax for the **Advanced Configuration YAML** field is very important. Improper syntax will result in builds being routed to defaults, usually a `builds.linux` queue (if this has not been modified on your installation.) Syntax for a custom queue looks as follows: 
+The syntax for the **Advanced Configuration YAML** field is very important. Incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue (if this has not been modified on your installation.) Here's an example of a custom queue definition: 
 
 ```yaml
 production:
@@ -82,7 +82,7 @@ but, to build this repo, [`travis-ci/docs-travis-ci.com`](https://github.com/tra
 
 ## Define Custom Queues Settings on The Workers
 
-To allocate a worker to a particular queue, the `QUEUE_NAME` variable must be set in the worker config, which is located at `etc/default/travis-worker`. Update the environment variable to match the queue name specified in your [custom queue configuration yaml](#Advanced-Configuration-YAML-Example). Then restart the worker with: 
+To allocate a worker to a particular queue, the `QUEUE_NAME` variable must defined as indicated above in the worker config, which is located at `etc/default/travis-worker`. Update the environment variable to match the queue name specified in your [custom queue configuration yaml](#Advanced-Configuration-YAML-Example). Then restart the worker with: 
 ```
 sudo service travis-worker restart
 ```
