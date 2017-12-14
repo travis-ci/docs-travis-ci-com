@@ -28,6 +28,7 @@ The setup for C#, F#, and Visual Basic projects looks like this:
 language: csharp
 solution: solution-name.sln
 ```
+{: data-file=".travis.yml"}
 
 When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
 
@@ -44,6 +45,7 @@ script:    # the following commands are just examples, use whatever your build p
   - ./test.sh
   - grep "Test Results" build.log
 ```
+{: data-file=".travis.yml"}
 
 ### NuGet
 
@@ -57,6 +59,7 @@ install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore solution-name.sln
 ```
+{: data-file=".travis.yml"}
 
 ### Choosing runtime and version to test against
 
@@ -72,6 +75,7 @@ mono:
   - 3.10.0
 ...
 ```
+{: data-file=".travis.yml"}
 
 You can choose from the following Mono versions:
 
@@ -94,18 +98,15 @@ By default, Travis CI does not test against .NET Core. To test against .NET Core
 ```yml
 language: csharp
 mono: none
-dotnet: 1.0.3
-dist: trusty
+dotnet: 1.1.5
 script:
  - dotnet restore
 ...
 ```
 
-> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
+> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
-
-You need to specify `dist: trusty` so your build will run on Ubuntu 14.04 because .NET Core doesn't work on Ubuntu 12.04 (which is the default Linux build environment on Travis right now).
 
 ### Testing Against Mono and .NET Core
 
@@ -117,13 +118,13 @@ solution: travis-mono-test.sln
 
 matrix:
   include:
-    - dotnet: 1.0.1
+    - dotnet: 1.1.5
       mono: none
-      dist: trusty
       env: DOTNETCORE=1  # optional, can be used to take different code paths in your script
     - mono: latest
 ...
 ```
+{: data-file=".travis.yml"}
 
 ### Build Matrix
 
@@ -151,6 +152,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 #### xunit
 
@@ -164,6 +166,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 > *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
@@ -182,6 +185,7 @@ script:
   - xbuild /p:Configuration=Release solution-name.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
+{: data-file=".travis.yml"}
 
 Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 

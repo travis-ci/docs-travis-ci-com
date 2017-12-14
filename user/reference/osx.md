@@ -3,6 +3,7 @@ title: The OS X Build Environment
 layout: en
 redirect_from:
   - /user/osx-ci-environment/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -27,9 +28,18 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
+## Using OS X
+
+To use our OS X build infrastructure, add the following to your `.travis.yml`:
+
+```yaml
+os: osx
+```
+{: data-file=".travis.yml"}
+
 ## OS X Version
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
@@ -37,7 +47,7 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="#xcode-{{image.xcode | remove: "."}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -81,6 +91,7 @@ before_install:
   - brew update
   - brew outdated <package-name> || brew upgrade <package-name>
 ```
+{: data-file=".travis.yml"}
 
 For example, if you always want the latest version of xctool, you can run this:
 
@@ -89,6 +100,7 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
 ```
+{: data-file=".travis.yml"}
 
 ## File System
 
@@ -102,24 +114,22 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Compilers and Build toolchain
 
-- autoconf 2.69
-- automake 1.15
-- maven 3.3,9
-- mercurial 3.9.1
-- pkg-config 0.29.1
-- subversion 1.9.4
-- wget 1.18
-- xctool 0.2.9
-- cmake 3.6.2
+- automake 1.15.1
+- maven 3.5.0
+- mercurial 4.3.3
+- pkg-config 0.29.2
+- wget 1.19.1_1
+- xctool 0.3.3
+- cmake 3.9.4
 
 ## Languages
 
-- go 1.7,1
+- go 1.9.1
 
 ## Services
 
-- postgis 2.2.2_3
-- postgresql 9.5.4
+- postgis 2.4.0
+- postgresql 9.6.5
 
 ## Runtimes
 
@@ -205,12 +215,12 @@ Recent 1.7 version (usually the most recent)
 
 ## Xcode version
 
-Xcode 7.3.1 is installed with all available simulators and SDKs.
+Xcode 8.3.3 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
 
-### Xcode {{ image.xcode }}
+<h3>Xcode {{image.xcode}}</h3>
 
 Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 

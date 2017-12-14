@@ -19,6 +19,7 @@ deploy:
   oauth_token: "YOUR OAUTH_TOKEN"
   oauth_token_secret: "YOUR OAUTH_TOKEN_SECRET"
 ```
+{: data-file=".travis.yml"}
 
 It is recommended to [encrypt both your `oauth_token` and your `oauth_token_secret`](/user/deployment/launchpad/#Encrypting-your-OAUTH-tokens).
 
@@ -48,3 +49,4 @@ deploy:
   oauth_token_secret:
     secure: jAglFtDjncy4E3upL/RF0ZOcmJ2UMrqHFCLQwU8PBdurhTMBeTw+IO6cXx5z\nU5zqvPYo/ghZ8mMuUhvHiGDM6m6OlMP7+l10VTxH1CoVew2NcQvRdfK3P+4S\nZJ43Hyh/ZLCjft+JK0tBwoa3VbH2+ZTzkRZQjdg54bE16C7Mf1A=
 ```
+{: data-file=".travis.yml"}

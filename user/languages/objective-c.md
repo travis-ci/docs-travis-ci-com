@@ -30,7 +30,7 @@ the following table:
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="/user/reference/osx/#Xcode-{{image.xcode  | remove: "."}}">Xcode {{ image.xcode }}</a></td>
+  <td><a href="/user/reference/osx/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -56,6 +56,7 @@ language: objective-c
 xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MyNewProjectTests
 ```
+{: data-file=".travis.yml"}
 
 You can also specify an SDK using the `xcode_sdk` variable. This needs to be on
 the form `iphonesimulatorX.Y` where `X.Y` is the version you want to test
@@ -106,6 +107,7 @@ setting in the *.travis.yml*:
 ```yaml
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 Also, `pod install` is not run if the Pods directory is vendored and there have
 been no changes to the Podfile.lock file.
@@ -123,6 +125,7 @@ you can override the `install` command.
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
