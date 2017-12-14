@@ -31,7 +31,7 @@ To make a backup, please follow these steps:
 
 1. open a ssh connection to the platform machine
 2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
-3. Then run `cat /usr/local/travis/etc/travis/config/travis.yml | grep -A1 encryption:`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
 
 ### Create a backup of the data directories
 
