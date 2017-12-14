@@ -39,7 +39,7 @@ os: osx
 
 ## OS X Version
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
@@ -215,7 +215,7 @@ Recent 1.7 version (usually the most recent)
 
 ## Xcode version
 
-Xcode 7.3.1 is installed with all available simulators and SDKs.
+Xcode 8.3.3 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
