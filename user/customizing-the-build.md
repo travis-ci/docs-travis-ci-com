@@ -141,6 +141,7 @@ However, if one of these stages times out, the build is marked as a failure.
 An optional phase in the build lifecycle is deployment. This step can't be
 overridden, but is defined by using one of our continuous deployment providers
 to deploy code to Heroku, Engine Yard, or a different supported platform.
+The deploy steps are skipped if the build is broken.
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
@@ -317,6 +318,16 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+
+## Git Sparse Checkout
+Travis CI supports `git`'s [sparse checkout](https://git-scm.com/docs/git-read-tree#_sparse_checkout)
+capability.
+To clone your repository sparsely, add:
+```yaml
+git:
+  sparse_checkout: skip-worktree-map-file
+```
+where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 ## Building Specific Branches
 

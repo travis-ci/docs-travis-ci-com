@@ -116,32 +116,6 @@ insight about it helps to get some basics statistics in the Ruby console:
       "sync"=>0,
       "user_sync"=>0}
 ```
-## Uninstall Travis CI Enterprise
-
-If you wish to uninstall Travis CI Enterprise from your platform and worker
-machines, please follow the instructions below. On the platform machine, you
-need to run the following commands in order. <small>(Instructions copied over
-from <a href="https://www.replicated.com/docs/distributing-an-application/installing-via-script/#removing-replicated">Replicated</a>)</small>
-
-```
-service replicated stop
-service replicated-ui stop
-service replicated-operator stop
-docker stop replicated-premkit
-docker stop replicated-statsd
-docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
-docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
-apt-get remove -y replicated replicated-ui replicated-operator
-apt-get purge -y replicated replicated-ui replicated-operator
-rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
-```
-
-On the worker machine, you need to run this command:
-
-```
-$ sudo apt-get autoremove travis-worker
-```
-
 
 ## Use a Let's Encrypt SSL Certificate
 
@@ -266,3 +240,29 @@ $ replicatedctl app start
 ```
 
 In general: These certificate renewals should be automated with a cron job.
+
+## Uninstall Travis CI Enterprise
+
+If you wish to uninstall Travis CI Enterprise from your platform and worker
+machines, please follow the instructions below. On the platform machine, you
+need to run the following commands in order. <small>(Instructions copied over
+from <a href="https://www.replicated.com/docs/distributing-an-application/installing-via-script/#removing-replicated">Replicated</a>)</small>
+
+```
+service replicated stop
+service replicated-ui stop
+service replicated-operator stop
+docker stop replicated-premkit
+docker stop replicated-statsd
+docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
+docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
+apt-get remove -y replicated replicated-ui replicated-operator
+apt-get purge -y replicated replicated-ui replicated-operator
+rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
+```
+
+On the worker machine, you need to run this command:
+
+```
+$ sudo apt-get autoremove travis-worker
+```
