@@ -25,7 +25,8 @@ It is also possible to specify beta versions; e.g., `50.0b6`.
 
 ## Version aliases
 
-In addition to specific version numbers, there are 6 special aliases you can use:
+In addition to specific version numbers, there are 6 special aliases you can use 
+(the items in the bullet list hereunder are actually links to the respective versions):
 
 - [`latest`](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
 - [`latest-esr`](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
