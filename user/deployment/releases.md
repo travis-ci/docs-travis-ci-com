@@ -6,8 +6,6 @@ layout: en
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
-**Note that deploying GitHub Releases works only for tags, not for branches.**
-
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
@@ -23,7 +21,24 @@ deploy:
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
+GitHub Releases uses git tags. If the build commit does not have any tags, one will be created in the form of `untagged-*`, where `*` is a random hex string.
+
+If this is not what you want, either set your build to deploy only when the build already has a tag using `on.tags: true` as shown in the previous example `.travis.yml`, or tag the commit with `git tag` in `before_deploy`:
+
+```yaml
+    before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "YOUR GIT USER NAME"
+      - git config --local user.email "YOUR GIT USER EMAIL"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+    deploy:
+      provider: releases
+      api_key: "GITHUB OAUTH TOKEN"
+      file: "FILE TO UPLOAD"
+      skip_cleanup: true
+```
+{: data-file=".travis.yml"}
+
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
@@ -39,15 +54,10 @@ Or, if you're using a private repository:
 travis setup releases --pro
 ```
 
-If you are using the [`branches.only` property](/user/customizing-the-build#Building-Specific-Branches), remember that when you push a tag, the [`$TRAVIS_BRANCH` property](/user/environment-variables/#Default-Environment-Variables) contains the name of the tag. As a result, edit the `branches.only` property to add the names of the tags you might push in the future. You can use a regular expression if you have formalized names. For example, if your release tags look like  `v1.3.15`, use the following configuration: 
+## `on.tags` condition
 
-```yaml
-   branches:
-    only:
-    - master
-    - /^v\d+(\.\d+)+$/
-```
-
+When working with GitHub Releases, it is important to understand how the deployment is triggered
+with [the `tags` condition](/user/deployment/#Conditional-Releases-with-on%3A).
 
 
 ## Authenticating with an OAuth token
@@ -152,11 +162,6 @@ after_deploy:
   - ./after_deploy_2.sh
 ```
 {: data-file=".travis.yml"}
-
-## Pushing a specific directory
-
-* `local_dir`: Directory to push to GitHub Releases, defaults to the current
-    directory
 
 ## Advanced options
 

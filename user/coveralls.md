@@ -82,3 +82,10 @@ Coveralls have documentation for many other [programming languages](https://cove
 - [R](https://coveralls.zendesk.com/hc/en-us/articles/203487909)
 - [Ruby / Rails](https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails)
 - [Swift](https://coveralls.zendesk.com/hc/en-us/articles/208113436)
+
+## Using Coveralls with [Docker builds](/user/docker)
+
+If you're using Docker in builds, ensure that the necessary environment variables are exposed to the container:
+```sh
+docker exec -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" ...
+```
