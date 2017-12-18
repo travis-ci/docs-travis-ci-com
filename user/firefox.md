@@ -27,12 +27,12 @@ It is also possible to specify beta versions; e.g., `50.0b6`.
 
 In addition to specific version numbers, there are 6 special aliases you can use:
 
-- `latest` [see at mozilla.org](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
-- `latest-esr` [see at mozilla.org](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
-- `latest-beta` [see at mozilla.org](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US)
-- `latest-dev` [see at mozilla.org](https://download.mozilla.org/?product=firefox-aurora-latest&os=linux64&lang=en-US)
-- `latest-nightly` [see at mozilla.org](https://download.mozilla.org/?product=firefox-nightly-latest&os=linux64&lang=en-US)
-- `latest-unsigned` [see at mozilla.org](https://tools.taskcluster.net/index/artifacts/#gecko.v2.mozilla-release.latest.firefox/gecko.v2.mozilla-release.latest.firefox.linux64-add-on-devel/)
+- `latest` [archive at mozilla.org](https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=en-US)
+- `latest-esr` [archive at mozilla.org](https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US)
+- `latest-beta` [archive at mozilla.org](https://download.mozilla.org/?product=firefox-beta-latest&os=linux64&lang=en-US)
+- `latest-dev` [archive at mozilla.org](https://download.mozilla.org/?product=firefox-aurora-latest&os=linux64&lang=en-US)
+- `latest-nightly` [archive at mozilla.org](https://download.mozilla.org/?product=firefox-nightly-latest&os=linux64&lang=en-US)
+- `latest-unsigned` [archive at mozilla.org](https://tools.taskcluster.net/index/artifacts/#gecko.v2.mozilla-release.latest.firefox/gecko.v2.mozilla-release.latest.firefox.linux64-add-on-devel/)
 
 The `latest-unsigned` binary is an unbranded build, suitable for [Add-ons/Extensions Signing](https://wiki.mozilla.org/Addons/Extension_Signing#Unbranded_Builds).
 
