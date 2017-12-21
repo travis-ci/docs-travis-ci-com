@@ -84,7 +84,24 @@ Or it can result in the command not found:
 xctool: command not found
 ```
 
-This is intended behaviour from Homebrew's side, but you can get around it by running first checking if the command needs an upgrade with `brew outdated`, like this:
+This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by running first checking if the command needs an upgrade with `brew outdated`
+
+#### `brew bundle`
+
+[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to multiple install dependencies. By creating a simple `Brewfile`:
+
+```
+gem 'xctool'
+...
+```
+
+You can then easily update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
+
+```sh
+$ brew bundle
+```
+
+#### `brew outdated`
 
 ```yaml
 before_install:
