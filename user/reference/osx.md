@@ -88,11 +88,10 @@ This is intended behaviour from Homebrew's side, but you can get around it by us
 
 #### `brew bundle`
 
-[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to multiple install dependencies. By creating a simple `Brewfile`:
+[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to install multiple dependencies. By creating a simple `Brewfile`:
 
 ```
 gem 'xctool'
-...
 ```
 
 You can then easily update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
