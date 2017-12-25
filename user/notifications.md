@@ -776,7 +776,7 @@ By using [OpsGenie Travis CI Integration](https://docs.opsgenie.com/v1.0/docs/tr
 3. Add the following configuration to your .travis.yml file.
 _notifications:_
 _webhooks: <webhook-url>_
-4. Commit the .travis.yml file to the root of your repository.
+4. Commit the _.travis.yml_ file to the root of your repository.
 
 ## For the truly curious
 
