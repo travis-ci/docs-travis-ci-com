@@ -43,7 +43,7 @@ or via [encrypted variables in
 ## Further configuration
 
 * `local_dir`: Directory to push to GitHub Pages, defaults to the current
-    directory
+    directory (example: `${TRAVIS_BUILD_DIR}/yourfolder`)
 * `repo`: Repo slug, defaults to current repo
 * `target_branch`: Branch to force push to, defaults to `gh-pages`
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
