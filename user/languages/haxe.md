@@ -40,7 +40,7 @@ the latest stable release defined in the [haxe.org download list](https://haxe.o
 
 ## Default Neko Version
 
-By default, [Neko](http://nekovm.org/) 2.1.0 will also be downloaded and installed.
+By default, [Neko](http://nekovm.org/) 2.2.0 will also be downloaded and installed.
 Use the `neko:` key in your `.travis.yml` file to specify a different Neko version,
 for example:
 
