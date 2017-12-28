@@ -15,11 +15,11 @@ The URLs for status images are shown on your Travis CI Repository page:
 1. Click the status image in the top right to open a dialog box containing common
    templates for the status image URL in markdown, html, etc.
 
-   ![Screenshot of repository badge](/images/status_image_public.jpg)
-
+   ![add to Github](https://github.com/pgensler/docs-travis-ci-com/blob/master/images/add_Markdown_bade_github.jpg)
+   
 2. Select the branch and template in the dialog box.
 
-3. Copy the text and paste it into your README or website.
+3. Copy the text and paste it into your README or website. You should now be able to view the 
 
 Build status images for public repositories are publicly available on Travis CI.
 
