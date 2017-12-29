@@ -8,7 +8,7 @@ layout: en
 
 |                   | Default                                   |
 |:------------------|:------------------------------------------|
-| Typical `install` | `mix local.rebar --force; mix.local.hex --force; mix deps.get` |
+| Typical `install` | `mix local.rebar --force; mix local.hex --force; mix deps.get` |
 | Typical `script`  | `mix test`                                |
 | Matrix keys       | `env`, `elixir`, `otp_release`            |
 | Support           | [Travis CI](mailto:support@travis-ci.com) |
