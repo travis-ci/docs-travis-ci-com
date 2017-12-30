@@ -1,5 +1,5 @@
 ---
-title: Uploading Artifacts on Travis CI
+title: user/uploading-artifacts.md Artifacts on Travis CI
 layout: en
 
 ---
