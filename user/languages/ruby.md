@@ -202,7 +202,7 @@ To test against multiple versions of dependencies:
 1. Create a directory in your project's repository root where you will keep
    gemfiles, such as `./gemfiles`.
 2. Add one or more gemfiles to it.
-3. Set the the `gemfile` key in your `.travis.yml`.
+3. Set the `gemfile` key in your `.travis.yml`.
 
 Thoughtbot's Paperclip is [tested against multiple ActiveRecord
 versions](https://github.com/thoughtbot/paperclip/blob/master/.travis.yml):
