@@ -235,7 +235,6 @@ to construct a build matrix.
 
 ## Examples
 
-- [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
 - [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/master/.travis.yml)
 - [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/master/.travis.yml)
 - [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)

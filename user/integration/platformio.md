@@ -13,13 +13,11 @@ layout: en
 - *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
   includes compiler, debugger, uploader, etc:
 
-  ```
-  + Atmel AVR
-  + Espressif
-  + Teensy
-  + ST STM32
-  + [Full list](http://platformio.org/#!/platforms) at PlatformIO
-  ```
+  - Atmel AVR
+  - Espressif
+  - Teensy
+  - ST STM32
+  - [Full list](http://platformio.org/#!/platforms) at PlatformIO
 
 - *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
 

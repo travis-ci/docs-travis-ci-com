@@ -47,7 +47,7 @@ the most recent release.
 ## Default Test Script
 
 If your repository follows the structure of a Julia package created by
-`Pkg.generate("$name")`, then the following default script will be run:
+`PkgDev.generate("$name", "$license")`, then the following default script will be run:
 
 ```bash
 julia -e 'Pkg.clone(pwd())'

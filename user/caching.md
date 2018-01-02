@@ -19,6 +19,9 @@ Travis CI can cache content that does not often change, to speed up your build p
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
 
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
+
 ## Caching directories (Bundler, dependencies)
 
 Caches lets Travis CI store directories between builds, which is useful for storing
@@ -75,6 +78,18 @@ The command `bundle clean` is executed before the cache is uploaded.
 In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
 to get around it.
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
+
+### cache RVM Ruby version for non Ruby projects
+
+There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite.
+
+For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases you can cache the ruby installation.
+
+```yaml
+ cache:
+    directories:
+     - /home/travis/.rvm/
+```
 
 ### CocoaPods
 
@@ -287,9 +302,7 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [command line client](https://github.com/travis-ci/travis#readme)
 
-  [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
-
-  <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
+    ![travis cache --delete](/images/cli-cache.png)
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 

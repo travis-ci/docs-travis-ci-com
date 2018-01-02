@@ -77,7 +77,7 @@ For example, to set the screen resolution to `1280x1024x16`:
 
 ```yaml
 before_install:
-	- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 ```
 {: data-file=".travis.yml"}
 
@@ -145,6 +145,39 @@ before_install:
 
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
+
+### Using the [Firefox addon](/user/firefox) in headless mode
+
+Starting with version 56, Firefox can be used in "headless" mode, which is
+suitable for driving browser-based tests using Selenium and other tools.
+Headless mode can be enabled using the `MOZ_HEADLESS`
+[environment variable](/user/environment-variables):
+
+```yaml
+env:
+  - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+```
+{: data-file=".travis.yml"}
+
+Alternatively, you can pass the `-headless` command line argument when
+starting Firefox. For example, the following code demonstrates how you would
+set this argument using the Python client for Selenium:
+
+```python
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument('-headless')
+firefox = Firefox(firefox_options=options)
+```
+
+#### Documentation
+
+* [Using headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode)
+* [Automated testing with headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode)
 
 ## Using PhantomJS
 

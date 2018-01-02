@@ -30,3 +30,11 @@ addons:
   - 111.22.33.44
 ```
 {: data-file=".travis.yml"}
+
+Hosts with ports can also be specified:
+
+```yaml
+addons:
+  ssh_known_hosts: git.example.com:1234
+```
+{: data-file=".travis.yml"}

@@ -59,6 +59,12 @@ or if your project uses the `mvnw` wrapper script:
 ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 ```
 
+> Note that the Travis CI build lifecycle and the Maven build lifecycle use similar
+terminology for different build phases. For example, `install` in a Travis CI
+build comes much earlier than `install` in the Maven build lifecycle. More details
+can be found about the [Travis Build Lifecycle](/user/customizing-the-build/#The-Build-Lifecycle)
+and the [Maven Build Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
+
 ### Maven Default Script Command
 
 If your project has `pom.xml` file in the repository root but no `build.gradle`,
@@ -94,6 +100,8 @@ or
 ```bash
 ./gradlew assemble
 ```
+
+To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
 
 ### Gradle Default Script Command
 
