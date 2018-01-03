@@ -31,6 +31,8 @@ jobs:
     - stage: use shared files
       script:
         - cat ~/$TRAVIS_BUILD_NUMBER/*
+      after_success:
+        - aws s3 rm --recursive s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER # clean up after ourselves
 
 after_success:
   - aws s3 sync ~/$TRAVIS_BUILD_NUMBER s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER
