@@ -5,7 +5,7 @@ layout: en
 ---
 
 If your deployment needs more customization than the `after_success` method allows,
-use a custom script.
+use a custom script. Do note that custom scripts are still considered an experimental feature.
 
 The following example runs `scripts/deploy.sh` on the `develop` branch of your repository if the build is successful.
 
