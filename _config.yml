@@ -17,3 +17,5 @@ whitelist:
   - jekyll-redirect-from
 sass:
   sass_dir: assets/stylesheets
+
+theme: jekyll-theme-cayman
