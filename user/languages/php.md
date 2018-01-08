@@ -93,7 +93,7 @@ Please note that if you want to run PHPUnit on HHVM, you have to explicitly inst
 
 ```yaml
 before_script:
-  - curl -sSf -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
 ```
 {: data-file=".travis.yml"}
 
