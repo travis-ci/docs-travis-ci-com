@@ -91,14 +91,16 @@ This is intended behaviour from Homebrew's side, but you can get around it by us
 [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to install multiple dependencies. By creating a `Brewfile`:
 
 ```
-gem 'xctool'
+brew 'xctool'
 ```
+{: data-file="Brewfile"}
 
 You can then update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
-
-```sh
-$ brew bundle
+```yaml
+before_install:
+  - brew update && brew bundle
 ```
+{: data-file=".travis.yml"}
 
 #### `brew outdated`
 
