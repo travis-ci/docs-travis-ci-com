@@ -13,7 +13,7 @@ Travis CI can cache content that does not often change, to speed up your build p
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* If a branch does not have its own cache, Travis CI fetches the cache of the repository's default branch.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
 * Only modifications made to the cached directories from normal pushes are stored.
 
