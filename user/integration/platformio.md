@@ -8,7 +8,7 @@ layout: en
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can test your code on multiple platforms, frameworks and boards:
+[PlatformIO](http://platformio.org/) is a [paid service](http://platformio.org/pricing) that offers a free cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can compile your code on multiple platforms, frameworks and boards (although unit testing requires a [paid monthly subscription):
 
 - *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
   includes compiler, debugger, uploader, etc:
