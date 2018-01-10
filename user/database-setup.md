@@ -199,6 +199,23 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+### Using `pg_config`
+
+If your builds rely on the use of the `pg_config` command, you need to install an additional
+apt package `postgresql-server-dev-X.Y` for the version of PostgreSQL you are using in order
+to obtain meaningful output from the command.
+
+For example:
+
+```yaml
+addons:
+  apt:
+    packages:
+      - postgresql-server-dev-9.4
+```
+
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
+
 ## MariaDB
 
 MariaDB is a community-developed fork of MySQL. It is available as an addon on Travis CI.
