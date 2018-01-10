@@ -84,7 +84,7 @@ $ sudo restart travis-worker
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#11-Create-a-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#11-Create-a-Security-Group) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#create-a-travis-ci-enterprise-security-group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#create-a-travis-ci-enterprise-security-group) are open in your firewall.
 
 #### Docker Versions Mismatched 
 
