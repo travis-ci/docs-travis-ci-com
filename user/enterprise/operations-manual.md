@@ -88,7 +88,7 @@ Here we're distinguishing between an AWS EC2 installation and an installation ru
 
 #### Docker Versions Mismatched 
 
-Upon inspecting the `travis-worker.log` file, you may notice an error: `Error response from daemon:client and server don't have same version`, which is especially common on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#2.1.-Install-Travis-CI-Worker-on-the-second-host) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#2.1.-Install-Travis-CI-Worker-on-the-second-host) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-support) section below to move forward.
 
