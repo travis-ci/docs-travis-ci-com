@@ -1,26 +1,31 @@
 ---
 title: Google App Engine Deployment
 layout: en
-permalink: /user/deployment/google-app-engine/
+
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
-
-```
+For a minimal configuration, add the following to your `.travis.yml`:
+  
+```yaml
 deploy:
   provider: gae
   keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
   project: "YOUR PROJECT ID"
 ```
+{: data-file=".travis.yml"}
 
-You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
-then click "Add Credential" and "Service Account", finally clicking "JSON" to download the JSON key.
+Then go to the [Google Cloud Console Dashboard](http://console.developers.google.com) and:
 
-It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
+1. Enable "Google App Engine Admin API",
+2. Go to "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download your Service Account JSON file.
 
-```
+It is *strongly* recommended that you encrypt your key before committing it to a repo.
+First make sure you have the [Travis command line tool](https://github.com/travis-ci/travis.rb#readme) installed.
+Then execute the following command from the terminal:
+
+```bash
 travis encrypt-file client-secret.json --add
 ```
 
@@ -36,12 +41,13 @@ By default, the project will be deployed with the same name as the repository. U
 
 You can explicitly set the project id via the **project** option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
   project: continuous-deployment-demo
 ```
+{: data-file=".travis.yml"}
 
 ### Version to deploy
 
@@ -53,17 +59,18 @@ By default, Travis will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
   project: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
@@ -71,6 +78,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -78,36 +86,39 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 By default, when your application is deployed it will be promoted to receive all traffic. You can disable that using the `no_promote` option:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
   project: continuous-deployment-demo
   no_promote: true
 ```
+{: data-file=".travis.yml"}
 
 In addition to that, and according to the [Google Cloud SDK changelog](https://cloud.google.com/sdk/release_notes#0981_20151007), *"in a future Cloud SDK release, deployments that promote the new version to receive all traffic will stop the previous version by default"*.
 
 You can prevent that from happening by setting the option `no_stop_previous_version`:
 
-```
+```yaml
 deploy:
   provider: gae
   keyfile: ...
   project: continuous-deployment-demo
   no_stop_previous_version: true
 ```
+{: data-file=".travis.yml"}
 
 ### Skipping Cleanup
 
 Many App Engine apps use [pip](https://pip.pypa.io/en/latest/installing.html) to vendor library requirements into the directory, and sometimes you need build artifacts or other
 credentials to deploy. If so, you want to avoid the Travis cleanup step that will clean you working directory before the deploy.
 
-```
+```yaml
 deploy:
     provider: gae
     skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Example Repo
 

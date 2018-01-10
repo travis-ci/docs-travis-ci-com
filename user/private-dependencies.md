@@ -1,25 +1,36 @@
 ---
 title: Private Dependencies
 layout: en
-permalink: /user/private-dependencies/
+
 ---
 
-*Some of the features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
+*Some of the features described here are currently **only available for private
+*repositories on [travis-ci.com](https://travis-ci.com)**.*
 
-When testing a private repository, you might need to pull in other private repositories as dependencies. Whether it's via [git submodules](http://git-scm.com/book/en/Git-Tools-Submodules), a custom script, or a dependency management tool, like [Bundler](http://bundler.io/) or [Composer](https://getcomposer.org/).
+When testing a private repository, you might need to pull in other private
+repositories as dependencies via [git
+submodules](http://git-scm.com/book/en/Git-Tools-Submodules), a custom script,
+or a dependency management tool like [Bundler](http://bundler.io/) or
+[Composer](https://getcomposer.org/).
 
-If the dependency is also on GitHub, there are four different ways of being able to fetch the repository from within a Travis CI VM:
+Git submodules must be cloned early on in the build process, and so must use
+either the [Deploy Key](#Deploy-Key) or [User Key](#User-Key) method.
 
-| Authentication                | Protocol | Gives access to              | Notes                               |
-| ----------------------------- | -------- | ---------------------------- | ----------------------------------- |
-| **[Deploy Key](#Deploy-Key)** | SSH      | single repository            | used by default for main repository |
-| **[User Key](#User-Key)**     | SSH      | all repos user has access to | **recommended** for dependencies    |
-| **[Password](#Password)**     | HTTPS    | all repos user has access to | password can be encrypted           |
-| **[API token](#API-Token)**   | HTTPS    | all repos user has access to | token can be encrypted              |
+If the dependency is also on GitHub, there are four different ways of fetching
+the repository from within a Travis CI VM. Each one has advantages and
+disavantages, so read each method carefully and pick the one that applies best
+to your situation.
 
-For the SSH protocol, dependency URLs need to have the format of `git@github.com/…` whereas for the HTTPS protocol, they need to start with `https://…`.
+| Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
+| ----------------------------- | -------- | ----------------------|----------------------------- | ----------------------------------- |
+| **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
+| **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
+| **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
+| **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
-You can use a [dedicated CI user account](#Dedicated-User-Account) for all but the deploy key approach. This will allow you to limit the access to a well defined list of repositories and read access only.
+You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
+the deploy key approach. This allows you to limit access to a well defined list
+of repositories, and make sure that that access is read only.
 
 ## Deploy Key
 
@@ -231,6 +242,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
 

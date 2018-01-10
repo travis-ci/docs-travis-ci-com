@@ -1,7 +1,7 @@
 ---
 title: Building an R Project
 layout: en
-permalink: /user/languages/r/
+
 ---
 
 ### What This Guide Covers
@@ -28,6 +28,7 @@ simply be
 ```yaml
 language: r
 ```
+{: data-file=".travis.yml"}
 
 Using the package cache to store R package dependencies can significantly speed
 up build times and is recommended for most builds.
@@ -36,6 +37,7 @@ up build times and is recommended for most builds.
 language: r
 cache: packages
 ```
+{: data-file=".travis.yml"}
 
 If you do *not* see
 
@@ -74,6 +76,7 @@ r:
   - release
   - devel
 ```
+{: data-file=".travis.yml"}
 
 As new minor versions are released, aliases will float and point to the most
 current minor release.
@@ -104,13 +107,14 @@ language: r
 before_install:
   - tlmgr install index
 ```
+{: data-file=".travis.yml"}
 
 The best way to figure out what packages you may need is to look at the
 packages listed in the LaTeX error message and search for them on [CTAN][ctan].
 Packages often have a `Contained in:` field that indicates the package group
 you need to install.
 
-If LaTeX is not needed, installation can be disabled using `latex: false`.
+If you don't need LaTeX, tell Travis CI not to install it using `latex: false`.
 
 ### Pandoc
 
@@ -122,8 +126,9 @@ desired version.
 language: r
 pandoc_version: 1.16
 ```
+{: data-file=".travis.yml"}
 
-If Pandoc is not needed, installation can be disabled using `pandoc: false`.
+If you don't need Pandoc, tell Travis CI not to install it using `pandoc: false`.
 
 ### APT packages
 
@@ -138,18 +143,20 @@ addons:
     packages:
       - libxml2-dev
 ```
+{: data-file=".travis.yml"}
 
 Note that the APT package needs to be white-listed for this to work
 on container-based infrastructure.
 This option is ignored on non-Linux builds.
 
-An alternative that works only on standard infrastructure is
+An alternative that works only on standard infrastructure (`sudo: required`) is
 the `apt_packages` field:
 
 ```yaml
 apt_packages:
   - libxml2-dev
 ```
+{: data-file=".travis.yml"}
 
 ### Package check options
 
@@ -159,7 +166,7 @@ when building and checking your package:
 - `warnings_are_errors`: This option forces all `WARNINGS` from `R CMD check` to
   become build failures (default `true`). This is especially helpful when preparing
   your package for submission to CRAN, and is recommended for most packages.
-  Simply set `warnings_are_errors: false` if you need to disable this feature.
+  Set `warnings_are_errors: false` if you don't want `WARNINGS` to fail the build.
 
 - `r_build_args`: additional arguments to pass to `R CMD build`, as a single
   string. Defaults to empty.
@@ -176,6 +183,7 @@ Bioconductor version they want to test against in their `.travis.yml`.
 language: r
 r: bioc-devel
 ```
+{: data-file=".travis.yml"}
 
 Or if you want to test against the release branch
 
@@ -183,6 +191,7 @@ Or if you want to test against the release branch
 language: r
 r: bioc-release
 ```
+{: data-file=".travis.yml"}
 
 Travis CI will use the proper R version for that version of Bioconductor and
 configure Bioconductor appropriately for installing dependencies.
@@ -196,14 +205,18 @@ rather than the default behaviour of downloading your package dependencies from 
 install:
   - R -e "0" --args --bootstrap-packrat
 ```
+{: data-file=".travis.yml"}
 
 You can minimise build times by caching your packrat packages with:
 
 ```yaml
 cache:
-  directories: $TRAVIS_BUILD_DIR/packrat/
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
   packages: true
 ```
+{: data-file=".travis.yml"}
 
 ### Miscellaneous
 
@@ -219,6 +232,7 @@ repos:
   CRAN: https://cloud.r-project.org
   ropensci: http://packages.ropensci.org
 ```
+{: data-file=".travis.yml"}
 
 - `r_check_revdep`: if `true`, also run checks on CRAN packages which depend
   on this one. This can be quite expensive, so it's not recommended to leave
@@ -277,6 +291,24 @@ processed in order, so entries can depend on dependencies in a previous list.
   An alternative is to add `user/repo` or `user/repo/folder` to
   the `Remotes` section of the `DESCRIPTION` file of your package
 
+### Customizing the Travis build steps
+
+For some advanced use cases, it makes sense to override the default steps used
+for building R packages. The default rules roughly amount to:
+
+```yaml
+install:
+- R -e 'devtools::install_deps(dep = T)'
+
+script:
+- R CMD build .
+- R CMD check *tar.gz
+```
+{: data-file=".travis.yml"}
+
+If you'd like to see the full details, see
+[the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
+
 ## Examples
 
 If you are using the [container based builds][container] you can take advantage
@@ -287,6 +319,7 @@ these two lines are sufficient.
 language: r
 cache: packages
 ```
+{: data-file=".travis.yml"}
 
 ### Package in a subdirectory
 
@@ -298,6 +331,7 @@ language: r
 before_install:
   - cd subdirectory
 ```
+{: data-file=".travis.yml"}
 
 ### Remote package
 
@@ -306,12 +340,19 @@ If your package depends on another repository you can use `r_github_packages` in
 ```yaml
 r_github_packages: user/repo
 ```
+{: data-file=".travis.yml"}
 
 An alternative is to add the following line to your `DESCRIPTION` file:
 
 ```yaml
+Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
+{: data-file=".travis.yml"}
+
+Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
+
 
 ### Remote package in a subdirectory
 
@@ -320,12 +361,14 @@ If your package depends on another repository which holds the package in a subdi
 ```yaml
 r_github_packages: user/repo/folder
 ```
+{: data-file=".travis.yml"}
 
 An alternative is to add the following line to your `DESCRIPTION` file:
 
 ```yaml
 Remotes: user/repo/folder
 ```
+{: data-file=".travis.yml"}
 
 ## Converting from r-travis
 

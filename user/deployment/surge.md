@@ -1,7 +1,7 @@
 ---
 title: Surge.sh Deployment
 layout: en
-permalink: /user/deployment/surge/
+
 ---
 
 Travis CI can deploy your static files to [Surge.sh](https://surge.sh/) after a successful build. Builds triggered from Pull Requests will never trigger a deploy.
@@ -29,6 +29,7 @@ deploy:
   project: ./static/
   domain: example.surge.sh  
 ```
+{: data-file=".travis.yml"}
 
 ### Generated content
 
@@ -39,6 +40,7 @@ deploy:
   ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 It is suggested that you generate your files during the `script` step or the `before_deploy` step.
 
@@ -47,13 +49,14 @@ It is suggested that you generate your files during the `script` step or the `be
 
 ### Branches
 
-By default, Travis CI will only deploy from your `master` branch. You can pecify what branch to deploy from with the deploy option `on`:
+By default, Travis CI will only deploy from your `master` branch. You can specify what branch to deploy from with the deploy option `on`:
 
 ```yaml
 deploy:
   ...
   on: myProductionBranch
 ```
+{: data-file=".travis.yml"}
 
 To deploy from all branches set the deploy->on option `all_branches` to `true`
 
@@ -63,3 +66,4 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}

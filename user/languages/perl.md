@@ -1,14 +1,14 @@
 ---
 title: Building a Perl Project
 layout: en
-permalink: /user/languages/perl/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl builds are not available on the OSX environment.
+Perl builds are not available on the OS X environment.
 
 ## Choosing Perl versions to test against
 
@@ -17,22 +17,24 @@ Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide sev
 ```yaml
 language: perl
 perl:
+  - "5.24"
   - "5.22"
   - "5.20"
-  - "5.18"
 ```
+{: data-file=".travis.yml"}
 
 A more extensive example:
 
 ```yaml
 language: perl
 perl:
+  - "5.24"
   - "5.22"
   - "5.20"
   - "5.18"
   - "5.16"
-  - "5.14"
 ```
+{: data-file=".travis.yml"}
 
 As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
 
@@ -42,8 +44,18 @@ For precise versions pre-installed on the VM, please consult "Build system infor
 
 ### Perl runtimes with `-Duseshrplib`
 
-Additionally, Perl 5.18 and 5.20 with `-Duseshrplib` are available as
-`5.18-shrplib` and `5.20-shrplib`, respectively.
+Additionally, some Perls have been compiled with threading support. They have
+been compiled with the additional compile flags `-Duseshrplib` and `-Duseithreads`. This are the
+versions that are available:
+
+```yaml
+5.24-shrplib
+5.22-shrplib
+5.20-shrplib
+5.18-shrplib
+```
+{: data-file=".travis.yml"}
+
 
 ## Default Perl Version
 

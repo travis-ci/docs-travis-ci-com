@@ -34,6 +34,7 @@
         <li><a href="/user/customizing-the-build/">Customizing Your Build</a></li>
         <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
         <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
+        <li><a href="/user/build-stages/">Build Stages (beta)</a></li>
         <li><a href="/user/docker/">Using Docker in your Build</a></li>
         <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
         <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
@@ -42,6 +43,7 @@
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
         <li><a href="/user/travis-lint/">Validating .travis.yml files</a></li>
       </ul>
+
       <h3>Installing Dependencies</h3>
       <ul>
         <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
@@ -56,41 +58,54 @@
       {% for language in site.data.languages %}
         <li><a href="{{language[1]}}">{{language[0]}}</a></li>
       {% endfor %}
+        <li><a href="/user/languages/community-supported-languages/">Adding a language</a></li>
       </ul>
+
       <h3>Deployments and Uploads</h3>
       <ul>
         <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
         {% for deployment in site.data.deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
         {% endfor %}
-      <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
-    </ul>
+        <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
+      </ul>
+
       <h3>CI Environment Reference</h3>
       <ul>
-      <li><a href="/user/ci-environment/">CI Environment Reference</a></li>
-      <li><a href="/user/osx-ci-environment/">OSX CI Environment Reference</a></li>
-      <li><a href="/user/trusty-ci-environment/">Trusty CI Environment</a><li>
-      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
+      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
+      <li><a href="/user/reference/osx/">OS X CI Environment Reference</a></li>
       <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
-          <li><a href="/user/migrating-from-legacy/">Migrating to Container-Based Infrastructure</a></li>
-          <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
-    </ul>
-    <h3>Encrypting Files and Data</h3>
-    <ul>
-      <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
-      <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
-      <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+      <li><a href="/user/environment-variables/">Environment Variables</a></li>
+      <li><a href="/user/migrating-from-legacy/">Migrating to Container-Based Infrastructure</a></li>
+      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+      </ul>
 
-    </ul>
+      <h3>Encrypting Files and Data</h3>
+      <ul>
+        <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
+        <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
+        <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+      </ul>
+
+      <h3>Beta Features</h3>
+      <ul>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+      </ul>
+
       <h3>Integrations and Notifications</h3>
       <ul>
         <li><a href="/user/notifications/">Configuring Notifications</a></li>
         <li><a href="/user/status-images/">Showing Build Status Images</a></li>
         <li><a href="/user/code-climate/">Code Climate</a></li>
         <li><a href="/user/coveralls/">Coveralls</a></li>
+        <li><a href="/user/coverity-scan/">Coverity Scan</a></li>
         <li><a href="/user/browserstack/">BrowserStack</a></li>
         <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
-        <li><a href="/user/sonarqube/">SonarQube.com</a></li>
+        <li><a href="/user/sonarcloud/">SonarCloud</a></li>
         <li><a href="/user/sourceclear/">SourceClear</a></li>
         <li><a href="/user/build-feeds/">Atom Feeds</a></li>
         <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
@@ -99,14 +114,14 @@
 
       <h3>Developer Program</h3>
       <ul>
-        <li><a href="/api">The API</a></li>
+        <li class="is-overview"><a href="/user/developer/">Overview</a></li>
+        <li><a href="http://developer.travis-ci.com/">API V3</a></li>
+        <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
         <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
-        <li><a href="/user/triggering-builds/">Triggering Builds through the API</a></li>
       </ul>
       <h3>3rd Party Tools and Resources</h3>
       <ul>
         <li><a href="/user/apps/">Apps, Clients and Tools</a></li>
-        <li><a href="/user/resources/">Links and Resources</a></li>
         <li><a href="https://scan.coverity.com/travis_ci">Coverity Scan</a></li>
       </ul>
     </nav>

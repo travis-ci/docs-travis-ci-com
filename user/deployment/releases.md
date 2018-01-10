@@ -1,10 +1,10 @@
 ---
 title: GitHub Releases Uploading
 layout: en
-permalink: /user/deployment/releases/
+
 ---
 
-Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to your git tags on your GitHub repository.
+Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
 **Please note that deploying GitHub Releases works only for tags, not for branches.**
 
@@ -19,22 +19,43 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
 The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
 
-If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`
+If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure `.travis.yml`:
+You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
 ```bash
 travis setup releases
 ```
 
-## Authenticating with an Oauth token
+Or, if you're using a private repository:
 
-The recommend way of authentication is with a GitHub oauth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which will automatically create a GitHub oauth token with the correct scopes and encrypts it.
+```bash
+travis setup releases --pro
+```
+
+## Authenticating with an OAuth token
+
+The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+
+This results in something similar to:
+
+```yaml
+deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
 
 ## Authentication with a Username and Password
 
@@ -50,6 +71,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 ## Deploying to GitHub Enterprise
 
@@ -64,8 +86,9 @@ You can configure this in [Repository Settings](https://docs.travis-ci.com/user/
 ```yaml
 env:
   global:
-    - OCTOKIT_API_ENDPOINT: "GITHUB ENTERPRISE API ENDPOINT"
+    - OCTOKIT_API_ENDPOINT="GITHUB ENTERPRISE API ENDPOINT"
 ```
+{: data-file=".travis.yml"}
 
 ## Uploading Multiple Files
 
@@ -74,7 +97,8 @@ You can upload multiple files using yml array notation. This example uploads two
 ```yaml
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
   file:
     - "FILE 1"
     - "FILE 2"
@@ -82,8 +106,24 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
-## Conditional releases
+You can also enable wildcards by setting `file_glob` to `true`. This example
+includes all files in a given directory.
+
+```yaml
+deploy:
+  provider: releases
+  api-key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
+### Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
@@ -100,3 +140,13 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
+
+## Pushing a specific directory
+
+* `local_dir`: Directory to push to GitHub Releases, defaults to the current
+    directory
+
+## Advanced options
+
+Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.

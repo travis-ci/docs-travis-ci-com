@@ -1,18 +1,19 @@
 ---
 title: Engine Yard Deployment
 layout: en
-permalink: /user/deployment/engineyard/
+
 ---
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.
 
 For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: "YOUR API KEY"
 ```
+{: data-file=".travis.yml"}
 
 You can also use `email` and `password` instead of `api_key`. It is recommended to encrypt the key/password.
 
@@ -20,7 +21,7 @@ Optional settings include: `app`, `account`, `environment` and `migrate`.
 
 You can also have the `travis` tool set up everything for you:
 
-```
+```bash
 $ travis setup engineyard
 ```
 
@@ -32,16 +33,17 @@ By default, we will try to deploy to an application by the same name as the repo
 
 You can explicitly set the name via the **app** option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
   app: my-app-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -49,10 +51,11 @@ deploy:
     master: my-app
     foo: my-foo
 ```
+{: data-file=".travis.yml"}
 
 This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
@@ -60,6 +63,7 @@ deploy:
     master: staging
     production: production
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to deploy from
 
@@ -67,22 +71,24 @@ If you have branch specific options, as [shown above](#Application-or-Environmen
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -90,12 +96,13 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 You can trigger migrations by using the migrate option:
 
-```
+```yaml
 deploy:
   provider: engineyard
   api_key: ...
   migrate: "rake db:migrate"
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 

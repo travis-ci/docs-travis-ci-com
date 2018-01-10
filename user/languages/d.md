@@ -1,7 +1,7 @@
 ---
 title: Building a D Project
 layout: en
-permalink: /user/languages/d/
+
 ---
 
 ### What This Guide Covers
@@ -10,10 +10,9 @@ This guide covers build environment and configuration topics specific to D proje
 sure to read our [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for D is currently in beta and may be removed or altered at any time. It is a
-community-supported language. If you run into any problems, please report them in the
+D is a community-supported language in Travis CI. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
 [@ibuclaw](https://github.com/ibuclaw), [@klickverbot](https://github.com/klickverbot) and
 [@MartinNowak](https://github.com/MartinNowak).
@@ -63,6 +62,7 @@ Projects that find this sufficient can use a very minimalistic .travis.yml file:
 ```yaml
 language: d
 ```
+{: data-file=".travis.yml"}
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
@@ -70,6 +70,7 @@ guide. For example, to build by running make, override the `script:` key in `.tr
 ```yaml
 script: make test
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -80,6 +81,7 @@ key in your `.travis.yml`:
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 

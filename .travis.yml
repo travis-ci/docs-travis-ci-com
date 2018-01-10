@@ -1,13 +1,15 @@
 #language: ruby
-sudo: required
+sudo: false
 dist: trusty
 language: python
 python:
-  - "3.5"
-rvm: 2.3.1
+  - "3.5.2"
 branches:
   only:
-  - gh-pages
+  - master
+env:
+  global:
+    - PATH=$HOME/.local/user/bin:$PATH
 cache:
   pip: true
   directories:
@@ -16,19 +18,21 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: fkfayYzRdc0uh9iZeQKzC5/J3cKhVnyrkLRYSJmhixWtBHt87g7yzR1kGgsOce7OjqZ42bRn5W/gxyaDIUa+UMrt7RgURPASLy3rpm5wkk3iK2csvJaCixKcodI8UTXn7kRjYkrpQYcfvO1/25AnKBQKveobxSSAN3BQ3hERe5E=
+    secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
   app: docs-travis-ci-com
+  skip_cleanup: true
   on:
-    branch: gh-pages
+    branch:
+    - master
 notifications:
   slack:
-    secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
+    rooms:
+      secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
     on_success: never
+  webhooks:
+    https://docs.travis-ci.com/update_webhook_payload_doc
 install:
+  - rvm use 2.3.1 --install
   - bundle install --deployment
-  - pip install --upgrade pip
-  - pip install coala-bears
-  - npm install remark-cli@2
 script:
   - bundle exec rake test
-#  - coala-ci

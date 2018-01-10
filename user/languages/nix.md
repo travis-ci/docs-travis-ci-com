@@ -1,7 +1,7 @@
 ---
 title: Building a Nix Project
 layout: en
-permalink: /user/languages/nix/
+
 ---
 
 ### What This Guide Covers
@@ -24,6 +24,7 @@ To install the Nix store and set up a basic single-user profile, set the `langua
 ```yaml
 language: nix
 ```
+{: data-file=".travis.yml"}
 
 The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
@@ -49,6 +50,7 @@ The default build script is `nix-build` which builds everything in the `default.
 language: nix
 script: nix-build -A tarball release.nix
 ```
+{: data-file=".travis.yml"}
 
 The above configuration will attempt to build the attribute "tarball" from the Nix expression in release.nix.
 

@@ -1,7 +1,7 @@
 ---
 title: Embedded Builds with PlatformIO
 layout: en
-permalink: /user/integration/platformio/
+
 ---
 
 <div id="toc"></div>
@@ -62,6 +62,7 @@ install:
 script:
     - platformio ci --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
+{: data-file=".travis.yml"}
 
 ### Testing Libraries
 
@@ -71,6 +72,7 @@ If the project you are testing is a library, please use the  `--lib="."` option 
 script:
     - platformio ci --lib="." --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
+{: data-file=".travis.yml"}
 
 ### Managing dependencies
 
@@ -93,6 +95,7 @@ install:
     # http://platformio.org/#!/lib/show/1/OneWire
     platformio lib install 1
 ```
+{: data-file=".travis.yml"}
 
 #### Installing dependencies manually
 
@@ -109,6 +112,7 @@ install:
 script:
     - platformio ci --lib="/tmp/OneWire-master" --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
+{: data-file=".travis.yml"}
 
 ### Custom Build Flags
 
@@ -125,6 +129,7 @@ install:
     - pip install -U platformio
     export PLATFORMIO_BUILD_FLAGS=-D GLOBAL_MACROS_FOR_ALL_TEST_ENV
 ```
+{: data-file=".travis.yml"}
 
 More details available at [build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
 
@@ -136,6 +141,7 @@ You can configure multiple build environments using a [platformio.ini](http://do
 script:
     - platformio ci --project-conf=/path/to/platformio.ini
 ```
+{: data-file=".travis.yml"}
 
 ## Examples
 

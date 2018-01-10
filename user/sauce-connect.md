@@ -1,7 +1,7 @@
 ---
 title: Using Sauce Labs with Travis CI
 layout: en
-permalink: /user/sauce-connect/
+
 ---
 
 Travis CI integrates with [Sauce Labs](https://saucelabs.com), a browser and
@@ -10,7 +10,7 @@ mobile testing platform. It integrates well with Selenium, for instance.
 The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
-Note that due to security restrictions, the Sauce Labs addon is not available on pull 
+Note that due to security restrictions, the Sauce Labs addon is not available on pull
 request builds unless you use the [JWT Addon](../jwt).
 
 ## Setting up Sauce Connect
@@ -33,6 +33,7 @@ addons:
     username: "Your Sauce Labs username"
     access_key: "Your Sauce Labs access key"
 ```
+{: data-file=".travis.yml"}
 
 [sauce-sign-up]: https://saucelabs.com/signup/plan/free
 
@@ -52,6 +53,7 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
@@ -61,10 +63,11 @@ all you need to add to your .travis.yml file is this:
 addons:
   sauce_connect: true
 ```
+{: data-file=".travis.yml"}
 
-[encryption-keys]: ../encryption-keys/
+[encryption-keys]: /user/encryption-keys/
 
-[jwt]: ../jwt/
+[jwt]: /user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -99,7 +102,7 @@ supported parameters are
 - `tunnel_domains`
 
 As an example, you may need `--direct-domains` option in case [some HTTPS domains
-fail to work with Sauce Connect](https://support.saucelabs.com/customer/portal/articles/2005359-some-https-sites-don-t-work-correctly-under-sauce-connect):
+fail to work with Sauce Connect](https://support.saucelabs.com/hc/en-us/articles/225267468--Bad-Gateway-or-Security-Warnings-When-Using-Sauce-Connect-for-Testing-Web-Applications-over-HTTPS):
 
 ```yaml
 addons:
@@ -109,3 +112,4 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}

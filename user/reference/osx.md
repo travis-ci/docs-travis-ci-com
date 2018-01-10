@@ -1,7 +1,9 @@
 ---
 title: The OS X Build Environment
 layout: en
-permalink: /user/osx-ci-environment/
+redirect_from:
+  - /user/osx-ci-environment/
+  - /user/workers/os-x-infrastructure/
 ---
 
 ### What This Guide Covers
@@ -26,6 +28,15 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
+## Using OS X
+
+To use our OS X build infrastructure, add the following to your `.travis.yml`:
+
+```yaml
+os: osx
+```
+{: data-file=".travis.yml"}
+
 ## OS X Version
 
 Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
@@ -36,7 +47,7 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#xcode-{{image.xcode | remove: "."}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -49,8 +60,9 @@ Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another v
 
 ## Homebrew
 
-Homebrew is installed and updated every time the VMs are updated. It is
-recommended that you run `brew update` before installing anything with Homebrew.
+Homebrew is installed and updated every time the virtual machines are updated.
+
+> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
 
 ### A note on upgrading packages
 
@@ -79,6 +91,7 @@ before_install:
   - brew update
   - brew outdated <package-name> || brew upgrade <package-name>
 ```
+{: data-file=".travis.yml"}
 
 For example, if you always want the latest version of xctool, you can run this:
 
@@ -87,6 +100,7 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
 ```
+{: data-file=".travis.yml"}
 
 ## File System
 
@@ -112,7 +126,7 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Languages
 
-- go 1.7,1
+- go 1.7.1
 
 ## Services
 
