@@ -109,7 +109,7 @@ matrix:
 
 ### Python example (unsupported languages)
 
-For example, this `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. It also takes advantage of `language: generic` to test Python in OS X. Custom requirements are installed in `./.travis/install.sh` below.
+For example, this `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. It also takes advantage of `language: minimal` to test Python in OS X. Custom requirements are installed in `./.travis/install.sh` below.
 
 ```yaml
 language: python
@@ -125,10 +125,10 @@ matrix:
           python: 3.3
           env: TOXENV=py33
         - os: osx
-          language: generic
+          language: minimal
           env: TOXENV=py32
         - os: osx
-          language: generic
+          language: minimal
           env: TOXENV=py33
 install:
     - ./.travis/install.sh
