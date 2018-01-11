@@ -16,13 +16,23 @@ Travis CI can run your builds, and why you might want to pick one over another.
 
 ## Virtualization environments
 
-Each build runs in one of the following virtual environments:
+Each build runs in one of the following virtual environments.
 
-- Sudo-enabled: a sudo enabled, full virtual machine per build. Running either Linux [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/)
-- Container-based: Fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
-- [OS X](/user/reference/osx/): for Objective-C and other OS X specific projects
+### Sudo-enabled
 
-The following table summarizes the differences between the virtual environments:
+A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
+
+### Container-based
+
+A fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
+
+### OS X
+
+An [OS X](/user/reference/osx/) environment for Objective-C and other OS X specific projects
+
+### Virtualisation Environment vs Operating System
+
+The following table summarizes the differences across virtual environments and operating systems:
 
 |                  | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
 |:-----------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
@@ -37,6 +47,27 @@ The following table summarizes the differences between the virtual environments:
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
 
+## What infrastructure is my environment running on?
+
+The short answer is, it depends.
+More specifically, usually you have one of these two questions:
+
+* you want to see what infrastructure a [finished build](#For-a-finished-build) ran on.
+* you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-.travis.yml-configuration) will run on.
+
+### For a finished build
+
+To see what infrastructure a finished build ran on, look at the *hostname* at the top of the build log:
+
+![Infrastructure shown in hostname](/images/ui/what-infrastructure.png "Infrastructure shown in hostname")
+
+if it contains:
+
+* `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
+* `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
+* `jupiter` → macOS
+
+### For a particular .travis.yml configuration
 
 ## Deprecated Virtualization Environments
 
