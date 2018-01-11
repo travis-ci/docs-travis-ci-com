@@ -49,8 +49,9 @@ The following table summarizes the differences across virtual environments and o
 
 ## What infrastructure is my environment running on?
 
-The short answer is, it depends.
-More specifically, usually you have one of these two questions:
+Usually, knowing the virtualization environment charactistics from the [table above](#Virtualisation-Evironment-vs-Operating-System) is sufficient.
+
+But, if you do need more detail, you have one of these two questions:
 
 * you want to see what infrastructure a [finished build](#For-a-finished-build) ran on.
 * you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-.travis.yml-configuration) will run on.
