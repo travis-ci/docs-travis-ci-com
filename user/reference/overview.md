@@ -49,7 +49,7 @@ The following table summarizes the differences across virtual environments and o
 
 ## What infrastructure is my environment running on?
 
-Usually, knowing the virtualization environment charactistics from the [table above](#Virtualisation-Evironment-vs-Operating-System) is sufficient.
+Usually, knowing the virtualization environment charactistics from the [table above](#Virtualisation-Environment-vs-Operating-System) is sufficient.
 
 But, if you do need more detail, you have one of these two questions:
 
