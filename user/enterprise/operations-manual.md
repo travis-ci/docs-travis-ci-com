@@ -43,11 +43,11 @@ The files are located at `/var/travis` on the platform machine. Please run `sudo
 
 ### The problem
 
-In the Travis CI Web UI you see none of the builds are starting. They're either in no state or `queued`. Cancelling and restarting them doesn't make any difference.
+In the Travis CI Web UI you see none of the builds are starting. They're either in no state or `queued`. Canceling and restarting them doesn't make any difference.
 
 ### Strategies
 
-There are a few different strategies to make your builds start. Please try each one in order.
+There are a few different potential approaches which may help get builds running again. Please try each one in order.
 
 #### Connection to RabbitMQ got lost
 
@@ -83,9 +83,14 @@ $ sudo restart travis-worker
 #### Ports are not open Security groups / firewall
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#11-Create-a-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#11-Create-a-Security-Group) are open in your firewall.
 
-If none of the steps above lead to results for you, please follow the steps in [#Contact-support](#Contact-support) to move forward.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group) are open in your firewall.
+
+#### Docker Versions Mismatched 
+
+This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+
+If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-support) section below to move forward.
 
 ## Contact support
 
