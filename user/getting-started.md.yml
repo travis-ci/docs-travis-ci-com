@@ -31,9 +31,8 @@ To start using Travis CI, make sure you have *all* of the following:
 
 2. Once you're signed in to Travis CI, and we've synchronized your GitHub
    repositories, go to your profile page and enable the repository
-   you want to build: ![enable button](/images/enable.png "enable button")
-
-3. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+   Anda ingin membangun :! [tombol aktif ] (/images/enable.png "tombol aktifkan")Apakah ini?
+3. Tambahkan file `.travis.yml` ke repositori Anda untuk memberi tahu Travis CI apa yang harus dilakuk.
 
    The following example tells Travis CI that this is a Ruby project that should
    be built with Ruby 2.2, and the latest versions of JRuby and Rubinius 2.X.
