@@ -86,7 +86,7 @@ language: python
 
 ```yaml
 language: php
-```
+``` 
 {: data-file=".travis.yml"}
 
 Or pick one from the [full list](/user/languages/).
