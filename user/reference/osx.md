@@ -39,7 +39,7 @@ os: osx
 
 ## OS X Version
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
@@ -84,7 +84,25 @@ Or it can result in the command not found:
 xctool: command not found
 ```
 
-This is intended behaviour from Homebrew's side, but you can get around it by running first checking if the command needs an upgrade with `brew outdated`, like this:
+This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by first checking if the command needs an upgrade with `brew outdated`
+
+#### `brew bundle`
+
+[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to install multiple dependencies. By creating a `Brewfile`:
+
+```
+brew 'xctool'
+```
+{: data-file="Brewfile"}
+
+You can then update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
+```yaml
+before_install:
+  - brew update && brew bundle
+```
+{: data-file=".travis.yml"}
+
+#### `brew outdated`
 
 ```yaml
 before_install:
@@ -215,7 +233,7 @@ Recent 1.7 version (usually the most recent)
 
 ## Xcode version
 
-Xcode 7.3.1 is installed with all available simulators and SDKs.
+Xcode 8.3.3 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}

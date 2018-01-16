@@ -18,14 +18,14 @@ and information on obtaining a [license](/user/enterprise/prerequisites/#License
 
 <div id="toc"></div>
 
-## 1. Setting up the Travis CI Enterprise Platform
+## Setting up the Travis CI Enterprise Platform
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
 Enterprise worker.
 
-### 1.1. Create a Security Group
+### Create a Travis CI Platform Security Group
 
 If you're setting up your AMI for the first time you need to create
 a Security Group. From the EC2 management console, create an entry for
@@ -40,7 +40,7 @@ each port in the table below:
 | 80   | HTTP            | Web application access.                                                      |
 | 22   | SSH             | SSH access.                                                                  |
 
-### 1.2. Install Travis CI Enterprise Platform on the first host
+### Install Travis CI Enterprise Platform
 
 Before running the installation script, we recommend downloading and reading it.
 When you're ready to run it on the host, run one of the following pairs of
@@ -63,13 +63,13 @@ installation's hostname, port 8800) to complete the setup.
 From here you can upload your license key, add your GitHub OAuth details, and
 optionally upload an SSL certificate and enter SMTP details.
 
-## 2. Setting up Travis CI Enterprise Worker
+## Install Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform.
 
-### 2.1. Create a Security Group
+### Create a Travis CI Worker Security Group
 
 If you're setting up your AMI for the first time you will need to create
 a Security Group. From the EC2 management console, create an entry for
@@ -79,7 +79,7 @@ each port in the table below:
 |:-----|:--------|:------------|
 | 22   | SSH     | SSH access. |
 
-## 2.1. Install Travis CI Worker on the second host
+## Install Travis CI Worker
 
 1. From the Travis CI Enterprise Platform management UI under Settings, retrieve
    the RabbitMQ password and the hostname for your Travis CI Enterprise
@@ -123,18 +123,3 @@ specified as follows:
 ```
   export http_proxy="http://proxy.mycompany.corp:8080/"
 ```
-
-## Backups
-
-<!-- TODO what about a Backups page linked to from here + upgrades -->
-
-We recommend a weekly machine snapshot and weekly backups of `/etc/travis` and
-`/var/travis`.
-
-One good way to do this is to run
-```
-  sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
-```
-
-Doing a machine snapshot and backing up those directories before performing an
-update is recommended as well.

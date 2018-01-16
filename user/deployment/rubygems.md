@@ -30,7 +30,7 @@ deploy:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
+You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
@@ -49,7 +49,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 ## Pre-releasing
 
-Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns/#prerelease_gems) for each build.
+Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns#prerelease-gems) for each build.
 
 This gives your gem's users the option to download a newer, possibly more unstable version of your gem.
 

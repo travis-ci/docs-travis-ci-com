@@ -20,8 +20,8 @@ Minimal example:
 ```yaml
   language: python
   python:
-    - 3.6
-    - nightly
+    - "3.6"
+    - "nightly"
   script:
     - pytest
 ```
@@ -51,14 +51,13 @@ language: python
 python:
   - "2.6"
   - "2.7"
-  - "3.2"
   - "3.3"
   - "3.4"
   - "3.5"
-  - "3.5-dev" # 3.5 development branch
+  - "3.5-dev"  # 3.5 development branch
   - "3.6"
-  - "3.6-dev" # 3.6 development branch
-  - "3.7-dev" # 3.7 development branch
+  - "3.6-dev"  # 3.6 development branch
+  - "3.7-dev"  # 3.7 development branch
   - "nightly"
 # command to install dependencies
 install:
@@ -73,13 +72,21 @@ script:
 ### Travis CI Uses Isolated virtualenvs
 
 The CI Environment uses separate virtualenv instances for each Python
-version. System Python is not used and should not be relied on. If you need
+version. This means that as soon as you specify `language: python` in `.travis.yml` your tests will run inside a virtualenv (without you having to explicitly create it).
+System Python is not used and should not be relied on. If you need
 to install Python packages, do it via pip and not apt.
 
-If you decide to use apt anyway, note that Python system packages only
-include Python 2.7 libraries on Ubuntu. This means that the packages
-installed from the repositories are not available in other virtualenvs even
-if you use the --system-site-packages option.
+If you decide to use apt anyway, note that for compatibility reasons, you'll only be able to use the default Python versions that are available in Ubuntu (e.g. for Trusty, this means 2.7.6 and 3.4.3).
+To access the packages inside the virtualenv, you will need to specify that it should be created with the `--system-site-packages` option.
+To do this, include the following in your `.travis.yml`:
+
+```yaml
+language: python
+virtualenv:
+  system_site_packages: true
+```
+{: data-file=".travis.yml"}
+
 
 ### PyPy Support
 
@@ -93,13 +100,12 @@ language: python
 python:
   - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
   - "3.4"
+  - "3.5"
+  - "3.6"
   # PyPy versions
-  - "pypy"  # PyPy2 2.5.0
-  - "pypy3" # Pypy3 2.4.0
-  - "pypy-5.3.1"
+  - "pypy"   # PyPy2 5.8.0
+  - "pypy3"  # Pypy3 5.8.0-beta0
 # command to install dependencies
 install:
   - pip install .
@@ -159,6 +165,8 @@ install: pip install --user -r requirements.txt
 ```
 {: data-file=".travis.yml"}
 
+Please note that the `--user` option is mandatory if you are not using `language: python`, since no virtualenv will be created in that case.
+
 ### Custom Dependency Management
 
 To override the default `pip` dependency management, alter the `before_install`
@@ -174,8 +182,8 @@ Use *env* key in your .travis.yml file, for example:
 
 ```yaml
 env:
-  - DJANGO_VERSION=1.7.8
-  - DJANGO_VERSION=1.8.2
+  - DJANGO_VERSION=1.10.8
+  - DJANGO_VERSION=1.11.5
 ```
 {: data-file=".travis.yml"}
 
