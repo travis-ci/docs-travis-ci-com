@@ -12,7 +12,7 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 ## Encryption scheme
 
-Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair. Travis CI keeps the private key private, but makes the repository's public key available to everyone. For example, the GitHub repository `foo/bar` has its public key available at `https://api.travis-ci.org/repos/foo/bar/key`. Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (even the "owner" of the `foo/bar` repository!).
+Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair. Travis CI keeps the private key private, but makes the repository's public key available to everyone. For example, the GitHub repository `foo/bar` has its public key available at `https://api.travis-ci.org/repos/foo/bar/key`. Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (not even the encrypter, or "owner" of the `foo/bar` repository!).
 
 ## Usage
 
