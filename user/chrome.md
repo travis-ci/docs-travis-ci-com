@@ -34,4 +34,5 @@ addons:
   chrome: stable
 script:
   - chrome --no-sandbox
-  
+```
+{: data-file=".travis.yml"}
