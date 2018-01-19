@@ -234,10 +234,6 @@ repos:
 ```
 {: data-file=".travis.yml"}
 
-- `r_check_revdep`: if `true`, also run checks on CRAN packages which depend
-  on this one. This can be quite expensive, so it's not recommended to leave
-  this set to `true`.
-
 - `disable_homebrew`: if `true` this removes the preinstalled homebrew
   installation on OS X. Useful to test if the package builds on a vanilla OS X
   machine, such as the CRAN mac builder.
