@@ -26,34 +26,32 @@ You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Us
 For security reasons, Google Chrome is unable to provide sandboxing when it is running in the
 [container-based environment](https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments).
 
-To use Chrome in the container-based environment:
+In that case, you may see an error message like this:
 
-1. Pass `--no-sandbox` when invoking the `chrome` command.
+```
+30 11 2017 13:35:42.245:ERROR [launcher]: Cannot start Chrome
+  [4315:4315:1130/133541.781662:FATAL:setuid_sandbox_host.cc(157)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /opt/google/chrome/chrome-sandbox is owned by root and has mode 4755.
+```
 
-  ```yaml
-  sudo: false
-  addons:
-    chrome: stable
-  script:
-    - chrome --no-sandbox
-  ```
-{: data-file=".travis.yml"}
-1. Your testing framework may have a different mechanism to supply this flag to the `chrome` executable.
-  For example, with [the customlauncher plugin for Karma](https://github.com/karma-runner/karma-chrome-launcher), you would add it to the `flags` array:
-  
-  ```javascript
-  module.exports = function(config) {
-    config.set({
-      browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
+To use Chrome in the container-based environment, pass the `--no-sandbox` flag to the `chrome` executable.
 
-      // you can define custom flags
-      customLaunchers: {
-        Chrome_no_sandbox: {
-          base: 'ChromeHeadless',
-          flags: ['--no-sandbox']
-        }
+The method to accomplish this varies from one testing framework to another.
+For example, with [the customlauncher plugin for Karma](https://github.com/karma-runner/karma-chrome-launcher), you would add it to the `flags` array:
+
+```javascript
+module.exports = function(config) {
+  config.set({
+    browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
+
+    // you can define custom flags
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
       }
-    })
-  }
-  ```
-  Please consult your tool's documentation for further details on how to add the `--no-sandbox` flag.
+    }
+  })
+}
+```
+
+Please consult your tool's documentation for further details on how to add the `--no-sandbox` flag.
