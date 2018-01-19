@@ -26,13 +26,35 @@ You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Us
 For security reasons, Google Chrome is unable to provide sandboxing when it is running in the
 [container-based environment](https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments).
 
-To use Chrome in the container-based environment, pass `--no-sandbox` when invoking the `chrome` command.
+To use Chrome in the container-based environment:
 
-```yaml
-sudo: false
-addons:
-  chrome: stable
-script:
-  - chrome --no-sandbox
-```
+1. 
+1. Pass `--no-sandbox` when invoking the `chrome` command.
+
+  ```yaml
+  sudo: false
+  addons:
+    chrome: stable
+  script:
+    - chrome --no-sandbox
+  ```
 {: data-file=".travis.yml"}
+  Your testing framework may have a different mechanism to supply this flag to the `chrome` executable.
+  For example, with [the customlauncher plugin for Karma](https://github.com/karma-runner/karma-chrome-launcher), you would add it to the `flags` array:
+  
+  ```javascript
+  module.exports = function(config) {
+    config.set({
+      browsers: ['Chrome', 'ChromeHeadless', 'ChromeHeadlessNoSandbox'],
+
+      // you can define custom flags
+      customLaunchers: {
+        Chrome_no_sandbox: {
+          base: 'ChromeHeadless',
+          flags: ['--no-sandbox']
+        }
+      }
+    })
+  }
+  ```
+  Please consult your tool's documentation for further details on how to add the `--no-sandbox` flag.
