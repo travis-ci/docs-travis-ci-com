@@ -11,6 +11,7 @@ The Google Chrome addon allows Travis CI builds to install Google Chrome at run 
 You can install the `stable`  or the `beta` version of Chrome but you can't select a specific numeric version.
 
 ```yaml
+sudo: required
 addons:
   chrome: stable
 ```
@@ -19,3 +20,18 @@ addons:
 ## Headless mode
 
 You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Using-the-Chrome-addon-in-the-headless-mode).
+
+## Sandboxing
+
+For security reasons, Google Chrome is unable to provide sandboxing when it is running in the
+[container-based environment](https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments).
+
+To use Chrome in the container-based environment, pass `--no-sandbox` when invoking the `chrome` command.
+
+```yaml
+sudo: false
+addons:
+  chrome: stable
+script:
+  - chrome --no-sandbox
+  
