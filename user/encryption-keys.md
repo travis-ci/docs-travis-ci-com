@@ -6,12 +6,13 @@ layout: en
 
 **We have separate documentation on [encrypting files](/user/encrypting-files/).**
 
-Travis CI generates a pair of private and public RSA keys which can be used
-to encrypt information which you will want to put into the `.travis.yml` file and
-still keep it private. Currently we allow encryption of
-[environment variables](/user/environment-variables/), notification settings, and deploy api keys.
+A repository's `.travis.yml` file can have "encrypted values", such as [environment variables](/user/environment-variables/), notification settings, and deploy api keys. These encrypted values can be added by anyone, but are only readable by Travis CI. The repository owner does not keep any secret key material.
 
 **Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+
+## Encryption scheme
+
+Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair. Travis CI keeps the private key private, but makes the repository's public key available to everyone. For example, the GitHub repository `foo/bar` has its public key available at `https://api.travis-ci.org/repos/foo/bar/key`. Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (even the "owner" of the `foo/bar` repository!).
 
 ## Usage
 
