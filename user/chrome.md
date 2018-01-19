@@ -28,7 +28,6 @@ For security reasons, Google Chrome is unable to provide sandboxing when it is r
 
 To use Chrome in the container-based environment:
 
-1. 
 1. Pass `--no-sandbox` when invoking the `chrome` command.
 
   ```yaml
@@ -39,7 +38,7 @@ To use Chrome in the container-based environment:
     - chrome --no-sandbox
   ```
 {: data-file=".travis.yml"}
-  Your testing framework may have a different mechanism to supply this flag to the `chrome` executable.
+1. Your testing framework may have a different mechanism to supply this flag to the `chrome` executable.
   For example, with [the customlauncher plugin for Karma](https://github.com/karma-runner/karma-chrome-launcher), you would add it to the `flags` array:
   
   ```javascript
