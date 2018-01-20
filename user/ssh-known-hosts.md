@@ -70,10 +70,13 @@ A build can therefore detect when a spoofed repository server presents an invali
 
 A potential work-around for repositories or submodules on other domains can consist of the following three-step approach.
 How successfully it can be employed heavily depends on the complexity of your existing Travis CI configuration.
-0. Set up `.travis.yml` to clone a boot-strap git repository from `github.com`, `gist.github.com`, or `ssh.github.com`.
-0. In the installation phase of the boot-strap repository, configure the build instance with the public SSH keys of your application git repositories and submodules.
+
+1. Set up `.travis.yml` to clone a boot-strap git repository from `github.com`, `gist.github.com`, or `ssh.github.com`.
+
+2. In the installation phase of the boot-strap repository, configure the build instance with the public SSH keys of your application git repositories and submodules.
 This is described in more detail in the next section.
-0. Configure the boot-strap repository to clone the application repositories and submodules explicitly and then proceed with the rest of the installation and test phases of the application.
+
+3. Configure the boot-strap repository to clone the application repositories and submodules explicitly and then proceed with the rest of the installation and test phases of the application.
 
 #### Other SSH Connections
 
@@ -82,13 +85,19 @@ If you use the `ssh_known_hosts` option for such connections, the same security 
 
 To make your builds reject spoofed SSH servers, you configure them with known good SSH keys.
 Say your build instance connects to the SSH server *ssh.example.com*:
-0. Remove the `ssh_known_hosts` option.
-0. Obtain the public key of the SSH server:
+
+1. Remove the `ssh_known_hosts` option.
+
+2. Obtain the public key of the SSH server:
+
     - Ideally (but rarely), the owner of *ssh.example.com* can provide you with the server's public SSH key through e-mail or some other channel.
+
     - If you have previously connected to *ssh.example.com* from a trusted local computer, run `ssh-keygen -F ssh.example.com` to display its public key.
+
     - If you have not yet connected to *ssh.example.com*, run `ssh-keyscan ssh.example.com` to retrieve it and `ssh-keygen -F ssh.example.com` to display it.
     Ideally, you would double-check with the owner of *ssh.example.com* that that is indeed the server's public key and not the key of a spoofed instance of *ssh.example.com*.
-0. Configure Travis CI to use the public key of the SSH server:
+
+3. Configure Travis CI to use the public key of the SSH server:
 Add the key *KEY* to the `known_hosts` file, e.g., with the following addition to the installation phase:
 
 ```yaml
