@@ -1,11 +1,11 @@
 ---
-title: Travis CI Enterprise Operations manual
+title: Travis CI Enterprise Operations Manual
 layout: en_enterprise
 
 ---
 Welcome to the Travis CI Enterprise Operations Manual! This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#contact-support).
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#Contact-Enterprise-Support).
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
@@ -13,6 +13,8 @@ Throughout this document we'll be using the following terms to refer to the two 
 - `Worker machine`: The worker machine(s) run your builds.
 
 > Please note that this guide is geared towards non-High Availability (HA) setups right now.
+
+<div id='toc'></div>
 
 ## Backups
 
@@ -25,7 +27,7 @@ This section explains how you integrate Travis CI Enterprise in your backup stra
 
 Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
 
-> Without this key the information in the database is not recoverable.
+> Without the encryption key the information in the database is not recoverable.
 
 To make a backup, please follow these steps:
 
@@ -90,23 +92,6 @@ Here we're distinguishing between an AWS EC2 installation and an installation ru
 
 This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
-If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-support) section below to move forward.
+If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-Enterprise-Support) section below to move forward.
 
-## Contact support
-
-To get in touch with us, please write a message to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). It would be very helpful for Support if you could include the following:
-
-- What is the problem?
-- Which steps did you try already?
-- A support bundle (You can get it from https://yourdomain:8800/support)
-- Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) - If you're using multiple worker machines, we need the log files from all of them.
-
-Is anything special with your setup? While we may be able to see some information (such as hostname, IaaS provider, ...), there are lots of other things we can't see which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
-
-- How many machines are you using?
-- Do you use configuration management tools (Chef, Puppet)?
-- Which other services do interface with Travis CI Enterprise?
-- Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
-- If you're using GitHub Enterprise, which version of it?
-
-Please write your support request to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). We're looking forward hearing from you!
+{{ site.data.snippets.contact_enterprise_support }}

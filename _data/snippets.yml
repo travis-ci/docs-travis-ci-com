@@ -34,3 +34,30 @@ trusty_note_no_osx: |
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
+
+contact_enterprise_support: |
+  ## Contact Enterprise Support
+  
+  To get in touch with us, please write a message to 
+  [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). If possible, 
+  please include as much of the following info as you:
+   
+  - What is the problem?
+  - Which steps did you try already?
+  - A support bundle (You can get it from `https://yourdomain:8800/support`)
+  - Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) 
+  - If you're using multiple worker machines, we need the log files from all of them.
+  
+  Is anything special with your setup? While we may be able to see some 
+  information (such as hostname, IaaS provider, and license expiration), there 
+  are many other things we can't see which could lead to something not working. 
+  Therefore , we'd like to ask you to also answer the questions below in your 
+  support request (if applicable):
+  
+  - How many machines are you using?
+  - Do you use configuration management tools (Chef, Puppet)?
+  - Which other services do interface with Travis CI Enterprise?
+  - Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
+  - If you're using GitHub Enterprise, which version of it?
+  
+  We're looking forward helping!
