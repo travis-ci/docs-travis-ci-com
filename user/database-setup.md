@@ -182,34 +182,7 @@ before_script:
 
 ### PostgreSQL and Locales
 
-The following locales are installed on Travis CI build environements:
-
-- C
-- C.UTF-8
-- en_AG
-- en_AG.utf8
-- en_AU.utf8
-- en_BW.utf8
-- en_CA.utf8
-- en_DK.utf8
-- en_GB.utf8
-- en_HK.utf8
-- en_IE.utf8
-- en_IN
-- en_IN.utf8
-- en_NG
-- en_NG.utf8
-- en_NZ.utf8
-- en_PH.utf8
-- en_SG.utf8
-- en_US.utf8
-- en_ZA.utf8
-- en_ZM
-- en_ZM.utf8
-- en_ZW.utf8
-- POSIX
-
-You can find what language packs are currently available for Ubuntu 12.04 [on the packages site.](http://packages.ubuntu.com/search?keywords=language-pack&searchon=names&suite=precise§ion=all)
+The Travis CI build environment comes with a number of pre-installed locales, but you can also install additional ones, should you require them.
 
 #### Installing Locales
 
@@ -308,7 +281,7 @@ Add the following `before_script` to your `.travis.yml` to wait before connectin
 ```yaml
 before_script:
   - sleep 15
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 ```
 {: data-file=".travis.yml"}
 
@@ -392,9 +365,12 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
+Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
+sudo: required
+
 services:
   - cassandra
 ```
@@ -413,11 +389,10 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-> If you're using [Container-based infrastructure](/user/reference/overview/#Virtualization-environments) you won't be able to install other versions of Cassandra as the `sudo` command is not available.
 
-## Neo4J
+## Neo4j
 
-Start Neo4J in your `.travis.yml`:
+Start Neo4j in your `.travis.yml`:
 
 ```yaml
 services:
@@ -425,7 +400,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Neo4J Server uses default configuration and binds to localhost on port 7474.
+Neo4j Server uses default configuration and binds to localhost on port 7474.
 
 > Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
 
@@ -540,10 +515,10 @@ set up each database. For example:
 
 ```yaml
 before_script:
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS tests_tmp;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS tests_tmp;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE tests;' -U postgres; fi"
+  - sh -c "if [ '$DB' = 'postgres' ]; then psql -c 'CREATE DATABASE tests_tmp;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS tests_tmp; CREATE DATABASE IF NOT EXISTS tests;'; fi"
 ```
 {: data-file=".travis.yml"}
