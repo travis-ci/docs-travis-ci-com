@@ -36,9 +36,9 @@ The following table summarizes the differences across virtual environments and o
 
 |                  | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
 |:-----------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
-| Name             | Sudo-enabled VM                       | Container-based                   | Sudo-enabled VM                      | OS X                         |
+| Name             | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         |
 | Status           | Current                               | Default as of August 2017         | Current                              | Current                      |
-| Infrastructure   | Virtual machine on GCE                | Container                         | Virtual machine on GCE               | Virtual machine              |
+| Infrastructure   | Virtual machine on GCE                | Container on EC2                  | Virtual machine on GCE               | Virtual machine              |
 | `.travis.yml`    | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
 | Allows `sudo`    | Yes                                   | No                                | Yes                                  | Yes                          |
 | Approx boot time | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
@@ -66,9 +66,22 @@ if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
 * `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
-* `jupiter` → macOS
+* `jupiter` → the build ran on macOS
 
 ### For a particular .travis.yml configuration
+
+Many different parts of your `.travis.yml` affect what infrastructure your build runs on. The following list describes some of the main settings that determine build routing:
+
+* Any of the following "sudo related settings" route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
+
+  - `services: docker`
+  - `sudo: required` or `sudo: true`
+  - *any* other `sudo` command in your build script
+
+* Using `os: osx`, setting a version of OS X using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
+
+* If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2.
+
 
 ## Deprecated Virtualization Environments
 
