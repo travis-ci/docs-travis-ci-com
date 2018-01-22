@@ -209,6 +209,7 @@ For example:
 
 ```yaml
 addons:
+  postgresql: '9.4'
   apt:
     packages:
       - postgresql-server-dev-9.4
