@@ -205,7 +205,9 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 ## Build Matrix
 
 For Python projects, `env` and `python` can be given as arrays
-to construct a build matrix.
+to construct a build matrix. This is especially helpful if you're using [tox](https://tox.readthedocs.io/en/latest/) and need multiple versions of python available. 
+
+A good example of a `.travis.yml` which relies on tox as the test script is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
 
 ## Examples
 
