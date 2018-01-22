@@ -44,19 +44,20 @@ or via [encrypted variables in
 ## Further configuration
 
 * `local-dir`: Directory to push to GitHub Pages, relative to the current
-  directory, defaults to the current directory (example: `your_build_folder`)
-* `repo`: Repo slug, defaults to current repo
+  directory, defaults to the current directory (example: `your_build_folder`).
+* `repo`: Repo slug, defaults to current repo.
 * `target-branch`: Branch to (force, see: `keep-history`) push `local-dir`
-  contents to, defaults to `gh-pages`
+  contents to, defaults to `gh-pages`.
 * `keep-history`: Optional, create incremental commit instead of doing push
   force, defaults to `false`.
-* `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support
-* `project-name`: Defaults to value of `fqdn` or repo slug, used for metadata
-* `email`: Optional, committer info, defaults to `deploy@travis-ci.org`
-* `name`: Optional, committer, defaults to `Deployment Bot`
+* `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
+* `project-name`: Defaults to value of `fqdn` or repo slug, used for metadata.
+* `email`: Optional, committer info, defaults to `deploy@travis-ci.org`.
+* `name`: Optional, committer, defaults to `Deployment Bot`.
 * `committer-from-gh`: Optional, defaults to `false`. Allows to use token's
   owner name and email for commit. Overrides `email` and `name` options.
 * `allow-empty-commit`: Optional, defaults to `false`. Enabled if only
   `keep-history` is `true`.
-* `github-url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`
+* `github-url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
 * `verbose`: Optional, be verbose about internal steps, defaults to `false`.
+* `deployment-file`: Optional, defaults to `false`, enables creation of deployment-info files.
