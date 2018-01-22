@@ -172,5 +172,6 @@ These include:
 * `name`
 * `body`
 * `draft`
+* `prerelease`
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
