@@ -201,9 +201,9 @@ before_install:
 
 ### Using `pg_config`
 
-If your builds rely on the use of the `pg_config` command, you need to install an additional
-apt package `postgresql-server-dev-X.Y` for the version of PostgreSQL you are using in order
-to obtain meaningful output from the command.
+If your builds rely on the `pg_config` command, you need to install an additional
+apt package `postgresql-server-dev-X.Y`, where `X.Y` matches the version of PostgreSQL
+you are using.
 
 For example:
 
