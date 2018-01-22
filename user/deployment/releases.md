@@ -166,3 +166,11 @@ after_deploy:
 ## Advanced options
 
 Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.
+
+These inclue:
+
+* `name`
+* `body`
+* `draft`
+
+Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
