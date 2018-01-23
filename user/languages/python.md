@@ -150,6 +150,16 @@ If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
 and fails the build.
 
+## Using Tox as the Build Script
+
+Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward. 
+As described [above](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox.
+
+If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
+However, this means that you will only have the default Ubuntu python versions available (2.7.6 and 3.4.3 for Trusty). Any aditional Python versions you would like to test would have to be installed manually.
+
+For testing multiple versions of Python with tox, we recommend using the build matrix and specifying each version of Python with the `python` key. A good example of a `travis.yml` that achieves this is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
+
 ## Dependency Management
 
 ### pip
@@ -205,9 +215,7 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 ## Build Matrix
 
 For Python projects, `env` and `python` can be given as arrays
-to construct a build matrix. This is especially helpful if you're using [tox](https://tox.readthedocs.io/en/latest/) and need multiple versions of python available. 
-
-A good example of a `.travis.yml` which relies on tox as the test script is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+to construct a build matrix.
 
 ## Examples
 
