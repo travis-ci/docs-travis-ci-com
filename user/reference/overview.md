@@ -16,19 +16,29 @@ Travis CI can run your builds, and why you might want to pick one over another.
 
 ## Virtualization environments
 
-Each build runs in one of the following virtual environments:
+Each build runs in one of the following virtual environments.
 
-- Sudo-enabled: a sudo enabled, full virtual machine per build. Running either Linux [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/)
-- Container-based: Fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
-- [OS X](/user/reference/osx/): for Objective-C and other OS X specific projects
+### Sudo-enabled
 
-The following table summarizes the differences between the virtual environments:
+A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
+
+### Container-based
+
+A fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
+
+### OS X
+
+An [OS X](/user/reference/osx/) environment for Objective-C and other OS X specific projects
+
+### Virtualisation Environment vs Operating System
+
+The following table summarizes the differences across virtual environments and operating systems:
 
 |                  | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
 |:-----------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
-| Name             | Sudo-enabled VM                       | Container-based                   | Sudo-enabled VM                      | OS X                         |
+| Name             | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         |
 | Status           | Current                               | Default as of August 2017         | Current                              | Current                      |
-| Infrastructure   | Virtual machine on GCE                | Container                         | Virtual machine on GCE               | Virtual machine              |
+| Infrastructure   | Virtual machine on GCE                | Container on EC2                  | Virtual machine on GCE               | Virtual machine              |
 | `.travis.yml`    | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
 | Allows `sudo`    | Yes                                   | No                                | Yes                                  | Yes                          |
 | Approx boot time | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
@@ -36,6 +46,42 @@ The following table summarizes the differences between the virtual environments:
 | Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+
+## What infrastructure is my environment running on?
+
+Usually, knowing the virtualization environment characteristics from the [table above](#Virtualisation-Environment-vs-Operating-System) is sufficient.
+
+But, if you do need more detail, you have one of these two questions:
+
+* you want to see what infrastructure a [finished build](#For-a-finished-build) ran on.
+* you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-.travis.yml-configuration) will run on.
+
+### For a finished build
+
+To see what infrastructure a finished build ran on, look at the *hostname* at the top of the build log:
+
+![Infrastructure shown in hostname](/images/ui/what-infrastructure.png "Infrastructure shown in hostname")
+
+if it contains:
+
+* `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
+* `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
+* `jupiter` → the build ran on macOS
+
+### For a particular .travis.yml configuration
+
+Many different parts of your `.travis.yml` affect what infrastructure your build runs on. The following list describes some of the main settings that determine build routing:
+
+* Any of the following sudo or docker related settings route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
+
+  - `services: docker`
+  - `sudo: required` or `sudo: true`
+  - *any* other `sudo` command in your build script
+  _ *any* other `docker` command in your build script
+
+* Using `os: osx`, setting a version of OS X using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
+
+* If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2.
 
 
 ## Deprecated Virtualization Environments
