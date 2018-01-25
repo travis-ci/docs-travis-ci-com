@@ -72,11 +72,12 @@ if it contains:
 
 Many different parts of your `.travis.yml` affect what infrastructure your build runs on. The following list describes some of the main settings that determine build routing:
 
-* Any of the following "sudo related settings" route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
+* Any of the following sudo or docker related settings route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
 
   - `services: docker`
   - `sudo: required` or `sudo: true`
   - *any* other `sudo` command in your build script
+  _ *any* other `docker` command in your build script
 
 * Using `os: osx`, setting a version of OS X using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
