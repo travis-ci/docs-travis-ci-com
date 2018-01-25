@@ -79,7 +79,7 @@ Many different parts of your `.travis.yml` affect what infrastructure your build
   - *any* other `sudo` command in your build script
   _ *any* other `docker` command in your build script
 
-* Using `os: osx`, setting a version of OS X using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
+* Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
 * If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2.
 
