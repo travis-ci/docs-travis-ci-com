@@ -331,6 +331,7 @@ We pre-install the following services which may be activated with the built-in
 - CouchDB
 - ElasticSearch
 - MongoDB
+- MySQL
 - Neo4j
 - PostgreSQL
 - RabbitMQ
