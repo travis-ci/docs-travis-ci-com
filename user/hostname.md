@@ -1,7 +1,7 @@
 ---
 title: Setting Custom Hostname
 layout: en
-permalink: /user/hostname/
+
 ---
 
 This addon, available in build environment with `sudo` enabled,

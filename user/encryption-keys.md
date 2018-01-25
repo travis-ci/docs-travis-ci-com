@@ -1,17 +1,18 @@
 ---
 title: Encryption keys
 layout: en
-permalink: /user/encryption-keys/
+
 ---
 
 **We have separate documentation on [encrypting files](/user/encrypting-files/).**
 
-Travis CI generates a pair of private and public RSA keys which can be used
-to encrypt information which you will want to put into the `.travis.yml` file and
-still keep it private. Currently we allow encryption of
-[environment variables](/user/environment-variables/), notification settings, and deploy api keys.
+A repository's `.travis.yml` file can have "encrypted values", such as [environment variables](/user/environment-variables/), notification settings, and deploy api keys. These encrypted values can be added by anyone, but are only readable by Travis CI. The repository owner does not keep any secret key material.
 
 **Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+
+## Encryption scheme
+
+Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair. Travis CI keeps the private key private, but makes the repository's public key available to everyone. For example, the GitHub repository `foo/bar` has its public key available at `https://api.travis-ci.org/repos/foo/bar/key`. Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (not even the encrypter, or "owner" of the `foo/bar` repository!).
 
 ## Usage
 
@@ -36,6 +37,11 @@ secure: ".... encrypted data ...."
 ```
 
 Now you can place it in the `.travis.yml` file.
+
+You can also skip the above, and add it automatically by running:
+```bash
+travis encrypt SOMEVAR="secretvalue" --add
+```
 
 Please note that the name of the environment variable and its value are both encoded in the string produced by "travis encrypt." You must add the entry to your .travis.yml with key "secure" (underneath the "env" key). This makes the environment variable SOMEVAR with value "secretvalue" available to your program.
 
@@ -80,6 +86,7 @@ notifications:
   campfire:
     rooms: [subdomain]:[api token]@[room id]
 ```
+{: data-file=".travis.yml"}
 
 For us, that is somedomain:abcxyz@14.
 
@@ -105,6 +112,7 @@ notifications:
     rooms:
       secure: "ABC5OwLpwB7L6Ca...."
 ```
+{: data-file=".travis.yml"}
 
 And we're done.
 
@@ -120,6 +128,7 @@ notifications:
     rooms:
       secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -128,6 +137,7 @@ notifications:
   campfire:
     rooms: "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 while
 
@@ -137,6 +147,7 @@ notifications:
     rooms:
       - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -146,6 +157,7 @@ notifications:
     rooms:
       - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 In the case of secure env vars
 
@@ -153,6 +165,7 @@ In the case of secure env vars
 env:
   - secure: "encrypted string"
 ```
+{: data-file=".travis.yml"}
 
 becomes
 
@@ -160,6 +173,7 @@ becomes
 env:
   - "decrypted string"
 ```
+{: data-file=".travis.yml"}
 
 ## Fetching the public key for your repository
 

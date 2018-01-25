@@ -1,7 +1,7 @@
 ---
 title: Using Coverity Scan with Travis CI
 layout: en
-permalink: /user/coverity-scan/
+
 ---
 
 ## Coverity Scan
@@ -89,6 +89,7 @@ addons:
     #   https://scan.coverity.com/faq#frequency
     branch_pattern: coverity_scan
 ```
+{: data-file=".travis.yml"}
 
 The project settings should be self-explanatory, and should match the values for the project configuration on Coverity Scan. The `branch_pattern` is a regular expression for the branches on which you want to run Coverity Scan. Please refer to the [FAQ](https://scan.coverity.com/faq) regarding build submission limits before enabling additional branches. We recommend leaving this set to `coverity_scan`.
 
@@ -125,6 +126,7 @@ The `COVERITY_SCAN_BRANCH` environment variable will be set to `1` when the Cove
 ```yaml
 script: make
 ```
+{: data-file=".travis.yml"}
 
 to
 

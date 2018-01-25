@@ -1,7 +1,7 @@
 ---
 title: Adding to SSH Known Hosts
 layout: en
-permalink: /user/ssh-known-hosts/
+
 ---
 
 <div id="toc">
@@ -19,6 +19,7 @@ added via `ssh-keyscan`.  A single host may be specified like so:
 addons:
   ssh_known_hosts: git.example.com
 ```
+{: data-file=".travis.yml"}
 
 Multiple hosts or IPs may be added as a list:
 
@@ -28,3 +29,12 @@ addons:
   - git.example.com
   - 111.22.33.44
 ```
+{: data-file=".travis.yml"}
+
+Hosts with ports can also be specified:
+
+```yaml
+addons:
+  ssh_known_hosts: git.example.com:1234
+```
+{: data-file=".travis.yml"}

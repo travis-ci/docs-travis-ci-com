@@ -1,12 +1,12 @@
 ---
 title: Setting Custom Host Names
 layout: en
-permalink: /user/hosts/
+
 ---
 
-If your build requires setting up custom hostnames, you can specify a single host or a
-list of them in your .travis.yml. Travis CI will automatically setup the
-hostnames in `/etc/hosts` for both IPv4 and IPv6.
+If your build requires custom hostnames, you can specify a single host or a
+list of them in your `.travis.yml`. Travis CI will automatically configure the
+hostnames in `/etc/hosts` and resolve them to `127.0.0.1`.
 
 ```yaml
 addons:
@@ -14,3 +14,4 @@ addons:
     - travis.dev
     - joshkalderimis.com
 ```
+{: data-file=".travis.yml"}

@@ -1,7 +1,7 @@
 ---
 title: Deis Deployment
 layout: en
-permalink: /user/deployment/deis/
+
 ---
 
 Travis CI supports uploading to [Deis](http://deis.io/).
@@ -17,6 +17,7 @@ deploy:
   app: App_name
   cli_version: vX.Y.Z  # e.g. v2.7.0 being the latest at this time
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -61,3 +62,4 @@ Sometimes you want to run commands before or after triggering a deployment. You 
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

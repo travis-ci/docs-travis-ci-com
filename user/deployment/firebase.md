@@ -1,7 +1,7 @@
 ---
 title: Firebase Deployment
 layout: en
-permalink: /user/deployment/firebase/
+
 ---
 
 <div id="toc"></div>
@@ -17,13 +17,18 @@ deploy:
   token:
     secure: "YOUR ENCRYPTED token"
 ```
+{: data-file=".travis.yml"}
 
 ## Generating your Firebase token
 
-Generate your Firebase after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
+Generate your Firebase token after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
 ```bash
+# This generates a token, e.g. "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla"
 firebase login:ci
+# Encrypt this token
+travis encrypt "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add
+# This command may generate a warning ("If you tried to pass the name of the repository as the first argument, you probably won't get the results you wanted"). You can ignore it.
 ```
 
 Remember to [encrypt](/user/encryption-keys/#Usage) the token before adding it to your `.travis.yml`
@@ -39,6 +44,20 @@ deploy:
     secure: "YOUR ENCRYPTED token"
   project: "myapp-staging"
 ```
+{: data-file=".travis.yml"}
+
+## Adding a message to a deployment
+
+To add a message to describe the deployment, use the `message` key in your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: firebase
+  token:
+    secure: "YOUR ENCRYPTED token"
+  message: "your message"
+```
+{: data-file=".travis.yml"}
 
 ## Running commands before and after deploy
 
@@ -54,3 +73,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

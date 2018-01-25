@@ -1,7 +1,7 @@
 ---
 title: RubyGems Deployment
 layout: en
-permalink: /user/deployment/rubygems/
+
 ---
 
 Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems.org/) after a successful build.
@@ -13,6 +13,7 @@ deploy:
   provider: rubygems
   api_key: "YOUR API KEY"
 ```
+{: data-file=".travis.yml"}
 
 Most likely you would only want to deploy to RubyGems when a new version of
 your package is cut. To do this, you can tell Travis CI to only deploy on
@@ -25,10 +26,11 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
-If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to Github.
+If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
+You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
@@ -47,7 +49,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 ## Pre-releasing
 
-Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns/#prerelease_gems) for each build.
+Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns#prerelease-gems) for each build.
 
 This gives your gem's users the option to download a newer, possibly more unstable version of your gem.
 
@@ -71,6 +73,7 @@ deploy:
   api_key: ...
   gem: my-gem-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to release different branches to different gems:
 
@@ -82,6 +85,7 @@ deploy:
     master: my-gem
     old: my-gem-old
 ```
+{: data-file=".travis.yml"}
 
 If these gems belong to different RubyGems accounts, you will have to do the same for the API key:
 
@@ -95,6 +99,7 @@ deploy:
     master: my-gem
     old: my-gem-old
 ```
+{: data-file=".travis.yml"}
 
 ### Gemspec to use
 
@@ -106,6 +111,7 @@ deploy:
     api_key: ...
     gemspec: my-gemspec.gemspec
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to release from
 
@@ -120,6 +126,7 @@ deploy:
   on:
     branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to release from all branches:
 
@@ -130,6 +137,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
@@ -145,6 +153,7 @@ deploy:
   api_key: ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
@@ -163,3 +172,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
