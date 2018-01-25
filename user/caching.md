@@ -422,7 +422,7 @@ env:
   - BAR=2 FOO=1
 ```
 
-all three jobs will each use its own cache.
+each of the three jobs will use its own cache.
 
 ## Caches and read permissions
 
