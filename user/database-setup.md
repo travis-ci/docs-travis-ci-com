@@ -55,6 +55,16 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
+Current versions of MySQL are
+
+
+|                 | Ubuntu Precise | Ubuntu Trusty |
+|:----------------|:---------------|:--------------|
+| Sudo-enabled    | 5.5.x          | 5.6.x         |
+| Container-based | -              | 5.6.x         |
+
+You can also [install MySQL 5.7](#MySQL-5.7) on sudo-enabled Ubuntu Trusty.
+
 ### Using MySQL with ActiveRecord
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
@@ -93,10 +103,30 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### MySQL 5.6
 
-The recommended way to get MySQL 5.6 is switching to our [Trusty CI
-Environment](/user/reference/trusty/).
+### MySQL 5.7
+
+On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+
+```yaml
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
+```
+{: data-file=".travis.yml"}
+
+You'll also need to reset the root password to something other than `new_password`:
+
+```yaml
+before_install:
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+  - sudo service mysql restart
+```
+{: data-file=".travis.yml"}
 
 ## PostgreSQL
 
