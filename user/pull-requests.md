@@ -38,7 +38,7 @@ If your build relies on encrypted variables to run, for instance to run Selenium
 these tests for pull requests from external contributors.
 
 To work around this, restrict these tests only to situations where the
-environment variables are available, or disable them for pull requests entirely, as show in the following example:
+environment variables are available, or disable them for pull requests entirely, as shown in the following example:
 
 ```yaml
 script:
