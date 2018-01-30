@@ -66,3 +66,8 @@ The command "eval git fetch origin +refs/pull/994/merge: " failed
 ```
 
 Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.
+
+## See Also
+
+* [Building only the latest commit](/user/customizing-the-build/#Building-only-the-latest-commit)
+* [Building specific branches](/user/customizing-the-build/#Building-Specific-Branches)
