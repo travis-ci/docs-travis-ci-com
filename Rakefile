@@ -12,10 +12,10 @@ def print_line_containing(file, str)
   File.open(file).grep(/#{str}/).each { |line| puts "#{file}: #{line}" }
 end
 
-def dns_txt(hostname)
+def dns_txt(hostname, record: 0)
   JSON.parse(
-    Faraday.get("https://dig.jsondns.org/IN/#{hostname}/TXT").body
-  ).fetch('answer').fetch(0).fetch('rdata').fetch(0).split.map(&:strip)
+    Faraday.get("https://dnsjson.com/#{hostname}/TXT.json").body
+  ).fetch('results').fetch('records').fetch(record).split.map(&:strip)
 end
 
 task default: :test
