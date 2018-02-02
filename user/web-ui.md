@@ -10,13 +10,21 @@ This page lists settings that are only available in the Travis CI .com and .org 
 
 ## Limit concurrent jobs
 
+{{ site.data.snippets.concurrent_jobs }}
+
 ## Build pushed branches
+
+
 
 ## Build pushed pull requests
 
-## Auto cencel branch builds
+## Auto cancel branch builds
+
+{{ site.data.snippets.auto_cancellation }}
 
 ## Auto cancel pull request builds
+
+{{ site.data.snippets.auto_cancellation }}
 
 ## Environment variables
 

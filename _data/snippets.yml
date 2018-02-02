@@ -34,3 +34,11 @@ trusty_note_no_osx: |
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
+concurrent_jobs: |
+  The maximum number of concurrent jobs depends on the total system load, but
+  one situation in which you might want to set a particular limit is:
+
+  - if your build depends on an external resource and might run into a race
+    condition with concurrent jobs.
+auto_cancellation: |
+  If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are not yet running.  
