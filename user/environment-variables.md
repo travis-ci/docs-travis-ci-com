@@ -126,12 +126,7 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 {: #Defining-Variables-in-Repository-Settings}
 
-Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
-
-Define variables in the Repository Settings that:
-
-- differ per repository.
-- contain sensitive data, such as third-party credentials.
+{{ site.data.snippets.environment_variables }}
 
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
 
