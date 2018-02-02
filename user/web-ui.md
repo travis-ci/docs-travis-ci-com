@@ -5,9 +5,11 @@ layout: en
 
 This page lists settings that are only available in the Travis CI .com and .org web user interface.
 
+<div id="toc"></div>
+
 ## Build only if .travis.yml is present
 
-Limit builds to branches that contain `.travis.yml`. This is the default. 
+Limit builds to branches that contain `.travis.yml`. This is the default.
 
 ## Limit concurrent jobs
 
@@ -52,4 +54,4 @@ More information on [caching](https://docs.travis-ci.com/user/caching).
 Custom builds exist only on Travis CI and will not appear in your Git history.
 
 > BETA Custom builds are a beta feature. Please provide feedback on [GitHub](https://github.com/travis-ci/beta-features/issues/27).
-{: beta}
+{: .beta}
