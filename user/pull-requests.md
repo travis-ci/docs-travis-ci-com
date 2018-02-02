@@ -67,6 +67,12 @@ The command "eval git fetch origin +refs/pull/994/merge: " failed
 
 Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.
 
+## 'Double builds' on pull requests
+
+If you see two build status icons on your GitHub pull request, it means there is one build for the branch, and one build for the pull request itself (actually the build for the merge of the head branch with the base branch specified in the pull request).
+
+[Build pushed branches](/user/web-ui/#build-pushed-branches) and [Build pushed pull requests](/user/web-ui/#build-pushed-pull-requests) control this behaviour.
+
 ## See Also
 
 * [Building only the latest commit](/user/customizing-the-build/#Building-only-the-latest-commit)
