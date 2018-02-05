@@ -135,6 +135,9 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
+Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables) 
+using the travis gem. 
+
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
