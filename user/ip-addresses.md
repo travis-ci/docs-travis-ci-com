@@ -13,7 +13,7 @@ on the infrastructure your builds are running on:
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------|
 | Container-based (travis-ci.com) | `{{ site.data.ec2_public_ips['com']['host'] }}` (`{{ site.data.ec2_public_ips['com']['ips'] | join: "`, `" }}`) |
 | Container-based (travis-ci.org) | `{{ site.data.ec2_public_ips['org']['host'] }}` (`{{ site.data.ec2_public_ips['org']['ips'] | join: "`, `" }}`) |
-| OS X                            | `208.78.110.192/27`                                                                                             |
+| OS X                            | `208.78.110.192/27`, `207.254.16.35/32`, `207.254.16.36/30`                                                                                             |
 | Sudo-enabled Linux              | See notes below (`{{ site.data.gce_ip_range['ip_ranges'] | join: "`, `" }}`)                                     |
 
 > **Note:** We do not have static public IP addresses available for jobs running on the

@@ -411,6 +411,19 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
+Note that when considering environment variables, the values must match *exactly*,
+including spaces.
+For example, with
+
+```yaml
+env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+```
+
+each of the three jobs will use its own cache.
+
 ## Caches and read permissions
 
 When caching [custom files and directories](/user/caching/#Arbitrary-directories),
