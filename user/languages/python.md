@@ -33,7 +33,7 @@ Minimal example:
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
-Python builds are not available on the OS X environment.
+Python builds are not available on the macOS environment.
 
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
