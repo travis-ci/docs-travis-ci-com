@@ -1,11 +1,11 @@
 ---
 title: Script deployment
 layout: en
-permalink: /user/deployment/script/
+
 ---
 
 If your deployment needs more customization than the `after_success` method allows,
-use a custom script.
+use a custom script. Do note that custom scripts are still considered an experimental feature.
 
 The following example runs `scripts/deploy.sh` on the `develop` branch of your repository if the build is successful.
 
@@ -16,6 +16,7 @@ deploy:
   on:
     branch: develop
 ```
+{: data-file=".travis.yml"}
 
 If you need to run multiple commands, write a executable wrapper script that runs them all.
 
@@ -39,6 +40,7 @@ deploy:
     on:
       branch: master
 ```
+{: data-file=".travis.yml"}
 
 The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
 
@@ -50,6 +52,7 @@ deploy:
     tags: true
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 ## Ruby version
 
@@ -61,9 +64,9 @@ pre-installed on all of our build images, which may change when images are updat
 If you need to run a command that requires a different Ruby version than the
 pre-installed default, you need to set it explicitly:
 
-
 ```yaml
 deploy:
   provider: script
-  script: rvm $TRAVIS_RUBY_VERSION do script.rb
+  script: rvm use $TRAVIS_RUBY_VERSION do script.rb
 ```
+{: data-file=".travis.yml"}

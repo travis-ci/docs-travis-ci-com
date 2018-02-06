@@ -1,7 +1,12 @@
 ---
 title: Building a Perl 6 Project
 layout: en
-permalink: /user/languages/perl6/
+support: community
+maintainers:
+  - 'paultcochrane'
+  - 'hoelzro'
+  - 'ugexe'
+  - 'tony-o'
 ---
 
 ### What This Guide Covers
@@ -11,6 +16,13 @@ Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-st
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 Perl 6 builds are not available on the OS X environment.
+
+### Community-Supported Warning
+
+Travis CI support forPerl 6 is contributed by the community and may be removed or
+altered at any time. If you run into any problems, please report them in the
+[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:perl6)
+and cc {% for m in page.maintainers %}<a href="https://github.com/{{m}}">@{{m}}</a> {% endfor %}.
 
 ## Choosing Perl 6 versions to test against
 
@@ -26,6 +38,7 @@ perl6:
   - '2017.05'
   - '2017.04'
 ```
+{: data-file=".travis.yml"}
 
 Over time, new releases come out and we upgrade both rakudobrew and
 Perls, aliases like `2017.05` will float and point to different exact
@@ -44,7 +57,7 @@ backend.  Future support for the
 ## Default Perl 6 Version
 
 If you leave the `perl6` key out of your `.travis.yml`, Travis CI will build
-Rakudo Perl 6 from the latest commit from the project's `nom` branch.
+Rakudo Perl 6 from the latest commit from the project's `master` branch.
 
 ## Default Test Script
 
@@ -69,6 +82,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 this will install the latest `zef` version.
 
@@ -111,6 +125,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with multiple Rakudo versions
 
@@ -125,6 +140,7 @@ install:
     - rakudobrew build-zef
     - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with the latest Rakudo, but with non-standard lib and test dirs
 
@@ -138,3 +154,4 @@ language: perl6
 script:
     - PERL6LIB=src prove -v -r --exec=perl6 tests/
 ```
+{: data-file=".travis.yml"}

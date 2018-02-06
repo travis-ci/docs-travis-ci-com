@@ -1,7 +1,7 @@
 ---
 title: Environment Variables
 layout: en
-permalink: /user/environment-variables/
+
 ---
 
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
@@ -30,10 +30,11 @@ Define environment variables in your `.travis.yml` in the `env` key, quoting spe
 
 ```yaml
 env:
-- DB=postgres
-- SH=bash
-- PACKAGE_VERSION="1.0.*"
+  - DB=postgres
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
 ```
+{: data-file=".travis.yml"}
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
@@ -44,18 +45,19 @@ When you define multiple variables per line in the `env` array (matrix variables
 ```yaml
 rvm:
   - 1.9.3
-  - rbx
+  - rbx-3
 env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
 ```
+{: data-file=".travis.yml"}
 
 this configuration triggers **4 individual builds**:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
 2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
-3. Rubinius latest version (rbx) with `FOO=foo` and `BAR=bar`
-4. Rubinius latest version (rbx) with `FOO=bar` and `BAR=foo`
+3. Rubinius latest version (rbx-3) with `FOO=foo` and `BAR=bar`
+4. Rubinius latest version (rbx-3) with `FOO=bar` and `BAR=foo`
 
 ### Global Variables
 
@@ -70,6 +72,7 @@ env:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
+{: data-file=".travis.yml"}
 
 triggers builds with the following `env` rows:
 
@@ -95,6 +98,7 @@ env:
     - USE_NETWORK=false
     - secure: <you can also put encrypted vars inside matrix>
 ```
+{: data-file=".travis.yml"}
 
 > Encrypted environment variables are not available to pull requests from forks due to the security risk of exposing such information to unknown code.
 >
@@ -114,7 +118,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 3. Commit the changes to your `.travis.yml`.
 
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* access to the encrypted variables.
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
@@ -136,7 +140,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly.
+> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you should put quotes around that value. E.g. `my secret passphrase` should be written `"my secret passphrase"`.
 
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
@@ -162,7 +166,7 @@ The following default environment variables are available to all builds.
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-- `USER=travis` (**do not depend on this value**)
+- `USER=travis` (**do not depend on this value**; do not override this value)
 - `HOME=/home/travis` (**do not depend on this value**)
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
@@ -182,6 +186,7 @@ to tag the build, or to run post-build deployments.
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
   request.
+  + for builds triggered by a tag, this is the same as the name of the tag (`TRAVIS_TAG`).
 
       > Note that for tags, git does not store the branch from which a commit was tagged.
 

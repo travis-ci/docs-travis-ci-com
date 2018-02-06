@@ -1,7 +1,7 @@
 ---
 title: Custom Deployment
 layout: en
-permalink: /user/deployment/custom/
+
 ---
 
 You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
@@ -19,6 +19,7 @@ env:
 after_success:
     "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://sitename.com/directory/myfile"
 ```
+{: data-file=".travis.yml"}
 
 The env variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](/user/encryption-keys/).
 
@@ -36,5 +37,6 @@ after_success:
   - git remote add deploy DEPLOY_REPO_URI_GOES_HERE
   - git push deploy
 ```
+{: data-file=".travis.yml"}
 
 See ["How can I encrypt files that include sensitive data?"](/user/travis-pro/#How-can-I-encrypt-files-that-include-sensitive-data%3F) if you don't want to commit the private key unencrypted to your repository.

@@ -1,7 +1,7 @@
 ---
 title: Uploading Artifacts on Travis CI
 layout: en
-permalink: /user/uploading-artifacts/
+
 ---
 
 <div id="toc">
@@ -18,6 +18,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 addons:
   artifacts: true
 ```
+{: data-file=".travis.yml"}
 
 and add the following environment variables in the repository settings:
 
@@ -34,6 +35,7 @@ addons:
   artifacts:
     s3_region: "us-west-1" # defaults to "us-east-1"
 ```
+{: data-file=".travis.yml"}
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential).
 
@@ -53,6 +55,7 @@ addons:
     - $(ls /var/log/*.log | tr "\n" ":")
     - $HOME/some/other/thing.log
 ```
+{: data-file=".travis.yml"}
 
 or as an environment variable in repository settings:
 
@@ -75,6 +78,7 @@ addons:
     # ...
     working_dir: out
 ```
+{: data-file=".travis.yml"}
 
 ### Debugging
 
@@ -88,6 +92,7 @@ addons:
     # ...
     debug: true
 ```
+{: data-file=".travis.yml"}
 
 or define this as a repository settings environment variable, or in the `env.global` section:
 

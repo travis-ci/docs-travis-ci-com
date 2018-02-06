@@ -1,7 +1,7 @@
 ---
 title: Common Build Problems
 layout: en
-permalink: /user/common-build-problems/
+
 redirect_from:
   - /user/build-timeouts/
 ---
@@ -57,6 +57,12 @@ With Ruby processes, check the memory consumption on your local machine, it's
 likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
+
+## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
+
+If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
+
+Fix the problem by clearing the cache or removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
 
 ## Ruby: RSpec returns 0 even though the build failed
 
@@ -183,18 +189,21 @@ Your build is running on macOS Sierra (10.12) if the following `osx_image` value
 ```yaml
 osx_image: xcode8.1
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 osx_image: xcode8.2
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 osx_image: xcode8.3
 ```
+{: data-file=".travis.yml"}
 
 The following lines in your build log possibly indicate an occurence of this issue:
 
@@ -314,6 +323,7 @@ you're seeing this error, add this to your `.travis.yml`:
 before_install:
   - gem install cocoapods -v '0.32.1'
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods can't be found
 
@@ -327,6 +337,7 @@ without any issues:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods fails with a segmentation fault
 
@@ -338,6 +349,7 @@ issues. Add this to your `.travis.yml`:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ## System: Required language pack isn't installed
 
@@ -352,9 +364,22 @@ This can be done with the follow addition to your `.travis.yml`:
 before_install:
   - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 ```
+{: data-file=".travis.yml"}
 
 The above addition will reinstall the en_US language pack, as well as the de_DE
 language pack.
+
+If you are running on the container-base infrastructure and don't have access
+to the `sudo` command, install locales [using the APT addon](/user/installing-dependencies/#installing-packages-with-the-apt-addon):
+
+```yaml
+addons:
+  apt:
+    packages:
+      - language-pack-en
+      - language-pack-de
+```
+{: data-file=".travis.yml"}
 
 ## Linux: apt fails to install package with 404 error
 
@@ -364,6 +389,7 @@ This is often caused by old package database and can be fixed by adding the foll
 before_install:
   - sudo apt-get update
 ```
+{: data-file=".travis.yml"}
 
 ## Travis CI does not Preserve State Between Builds
 
@@ -387,6 +413,7 @@ To turn this off, set:
 git:
   submodules: false
 ```
+{: data-file=".travis.yml"}
 
 If your project requires specific options for your Git submodules which Travis CI
 does not support out of the box, turn off the automatic integration and use the
@@ -398,6 +425,7 @@ For example, to update nested submodules:
 before_install:
   - git submodule update --init --recursive
 ```
+{: data-file=".travis.yml"}
 
 ## Git cannot clone my Submodules
 
@@ -452,6 +480,10 @@ install: travis_retry pip install myawesomepackage
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
 
+Note that `travis_retry` only works within the `script` step. It will not work
+in other steps, like `deploy`.
+
+
 ### Build times out because no output was received
 
 When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
@@ -463,6 +495,7 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 ```yaml
     install: travis_wait mvn install
 ```
+{: data-file=".travis.yml"}
 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
@@ -473,6 +506,7 @@ Continuing with the example above, to extend the wait time to 30 minutes:
 ```yaml
     install: travis_wait 30 mvn install
 ```
+{: data-file=".travis.yml"}
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
@@ -498,23 +532,15 @@ which Docker image you are using on Travis CI.
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 1. Choose a Docker image
-  * For Ubuntu 12.04 (precise), select an image from
-    [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-    `{lang}` is the language you need.  If you're not using a language-specific
-    image, pick `travis-ruby`.
-  * For Ubuntu 14.04 (trusty), select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
+  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
     ("default" if no other name matches) using the table below:
 
     | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
     | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
 1. Start a Docker container detached with `/sbin/init`:
-  * Example 1: Ruby image on Precise
-    ``` bash
-    docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
-    ```
-  * Example 2: [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
+  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
     ``` bash
     docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
     ```
@@ -554,3 +580,13 @@ it is possible to run builds and jobs in the debug mode.
 Using this feature, you can interact with the live VM where your builds run.
 
 For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
+
+## Log Length exceeded
+
+The log for each build is limited to approximately 4 Megabytes. When it reaches that length the build is terminated and you'll see the following message at the end of your build log:
+
+```
+The log length has exceeded the limit of 4 Megabytes (this usually means that test suite is raising the same exception over and over).
+
+The build has been terminated.
+```

@@ -1,7 +1,7 @@
 ---
 title: Catalyze Deployment
 layout: en
-permalink: /user/deployment/catalyze/
+
 ---
 
 <div id="toc"></div>
@@ -23,6 +23,8 @@ Before configuring your `.travis.yml` you need to:
          provider: catalyze
          target: "ssh://git@git.catalyzeapps.com:2222/app1234.git"
        ```
+       {: data-file=".travis.yml"}
+
 2. Set up a deployment key to Catalyze for Travis CI:
     1. Install the Travis CI [command line client](https://github.com/travis-ci/travis.rb).
     2. Get the public SSH key for your Travis CI project and save it to a file by running
@@ -53,6 +55,7 @@ Before configuring your `.travis.yml` you need to:
        ```yaml
        before_deploy:  echo "[git.catalyzeapps.com]:2222 ecdsa-sha2-nistp256 BBBB12abZmKlLXNo..." >> ~/.ssh/known_hosts
        ```
+       {: data-file=".travis.yml"}
 
 ### Deploying a subset of your Files
 
@@ -66,6 +69,7 @@ deploy:
   skip_cleanup: true
   path: "build"
 ```
+{: data-file=".travis.yml"}
 
 ### Running commands before and after deploy
 
@@ -81,3 +85,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
