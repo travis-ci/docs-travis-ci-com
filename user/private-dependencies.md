@@ -22,7 +22,7 @@ disavantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
-| ----------------------------- | -------- | ----------------------|----------------------------- | ----------------------------------- |
+|:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
 | **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
 | **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
 | **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
@@ -212,11 +212,11 @@ gem 'lib2', github: "myorg/lib2"
 ```
 
 > In case of private git submodules, be aware that the `git submodule
-> update --init recursive` command will by default run before the `~/.netrc` credentials
-> are updated. If you are writing credentials to `~/.netrc`, disable the loading of
-> submodules first, and do this as a separate explicit step after updating the credentials:
->
-> ```yml
+> update --init recursive` command runs before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
+> submodules, update the credentials and add an explicit step to update the submodules:
+
+> ```yaml
 > git:
 >   submodules:
 >     false
@@ -277,11 +277,11 @@ gem 'lib2', github: "myorg/lib2"
 ```
 
 > In case of private git submodules, be aware that the `git submodule
-> update --init recursive` command will by default run before the `~/.netrc` credentials
-> are updated. If you are writing credentials to `~/.netrc`, disable the loading of
-> submodules first, and do this as a separate explicit step after updating the credentials:
-> 
-> ```yml
+> update --init recursive` command runs before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
+> submodules, update the credentials and add an explicit step to update the submodules:
+>
+> ```yaml
 > git:
 >   submodules:
 >     false
