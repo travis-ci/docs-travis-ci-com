@@ -1,7 +1,7 @@
 ---
 title: Puppet Forge Deployment
 layout: en
-permalink: /user/deployment/puppetforge/
+
 ---
 
 <div id="toc"></div>
@@ -19,6 +19,7 @@ deploy:
   password:
     secure: "YOUR ENCRYPTED PASSWORD"
 ```
+{: data-file=".travis.yml"}
 
 ## Deploying to a custom forge
 
@@ -34,6 +35,7 @@ deploy:
     secure: "YOUR ENCRYPTED PASSWORD"
   url: https://forgeapi.example.com/
 ```
+{: data-file=".travis.yml"}
 
 ## Running commands before and after deploy
 
@@ -49,3 +51,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

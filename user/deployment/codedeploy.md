@@ -1,10 +1,12 @@
 ---
 title: AWS CodeDeploy
 layout: en
-permalink: /user/deployment/codedeploy/
+
 ---
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
+
+<div id="toc"></div>
 
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 
@@ -20,6 +22,7 @@ For a minimal configuration with S3, add the following to your `.travis.yml`:
         application: MyApp
         deployment_group: MyDeploymentGroup
 ```
+{: data-file=".travis.yml"}
 
 Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.  
 
@@ -47,7 +50,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 This command will also offer to set up [S3 deployment](http://docs.travis-ci.com/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
 
-### Branch to deploy from
+## Branch to deploy from
 
 You can explicitly specify the branch to deploy from with the **on** option:
 
@@ -63,6 +66,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
       on:
         branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure Travis CI to deploy from all branches:
 
@@ -78,25 +82,29 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
       on:
         all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
-### S3 deployment or GitHub deployment
+## S3 deployment or GitHub deployment
 
-If you specify `bucket` key, the deployment strategy defaults to S3.
-If you want to override this behavior and use GitHub integration, you can specify it with
+For a minimal configuration with GitHub, add the following to your `.travis.yml`:
 
 ```yaml
-deploy:
-  provider: codedeploy
-  ⋮
-  bucket: "S3 Bucket"
-  revision_type: github
+    deploy:
+      - provider: codedeploy
+        revision_type: github
+        access_key_id: "YOUR AWS ACCESS KEY"
+        secret_access_key: "YOUR AWS SECRET KEY"
+        application: "Your Codedeploy application"
+        deployment_group: "The Deployment group associated with the codedeploy application"
+        region: "Region in which your ec2 instance is."
 ```
+{: data-file=".travis.yml"}
 
-In this case, S3 deployment provider is not required.
+Please note that `region` should match the instance region on which codedeploy is configured.
 
-### Waiting for Deployments
+## Waiting for Deployments
 
 By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
 
@@ -106,15 +114,23 @@ deploy:
     ⋮
     wait-until-deployed: true
 ```
+{: data-file=".travis.yml"}
 
 Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
-### Conditional deployments
+## Bundle Types
+
+The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file exension of `key` or `s3_key` set in your `.travis.yml`.
+
+If your `.travis.yml` contains both, and they do not match, set `bundle_type` explicitly to the correct value.
+
+
+## Conditional deployments
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-### Note on `.gitignore`
+## Note on `.gitignore`
 
 As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
@@ -123,7 +139,7 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#Running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deploy
+## Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -135,8 +151,9 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
-### AWS region to deploy to
+## AWS region to deploy to
 
 You can explicitly specify the AWS region to deploy to with the **region** option:
 
@@ -151,3 +168,4 @@ You can explicitly specify the AWS region to deploy to with the **region** optio
       deployment_group: MyDeploymentGroup
       region: us-west-1
 ```
+{: data-file=".travis.yml"}

@@ -1,7 +1,7 @@
 ---
 title: Apps, Clients and Tools
 layout: en
-permalink: /user/apps/
+
 ---
 
 There is a wide range of tools you can use to interact with Travis CI:
@@ -84,6 +84,16 @@ By Marcell Spies
 
 - [website](http://marcells.github.io/node-build-monitor)
 - [source code](https://github.com/marcells/node-build-monitor)
+
+### CI Dashboard
+
+![ci-dashboard](/images/apps/ci-dashboard.jpg){:.app}
+
+Travis CI builds dashboard<br>
+By Ahmed El-Sayed
+
+- [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
+
 
 ## Tools
 
@@ -184,16 +194,6 @@ By Automated Architecture
 
 ## Windows Phone
 
-### Siren of Shame (Windows Phone)
-
-![Siren of Shame](/images/apps/siren-windows-phone.jpg){:.app}
-
-Gamification for your builds<br>
-By Automated Architecture
-
-- [website](http://sirenofshame.com/)
-- [windows phone store](http://www.windowsphone.com/en-us/store/app/siren-of-shame/bd501294-b9a1-4c0f-b9cf-e6ec4596cdb1)
-
 ### Travis7
 
 ![travis7](/images/apps/travis7.jpg){:.app}
@@ -248,16 +248,6 @@ By CCNet and ThoughtWorks Inc.
 - [website](http://www.cruisecontrolnet.org/projects/cctray)
 - [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
 - [tutorial](/user/cc-menu/)
-
-### Siren of Shame (Windows 8)
-
-![Siren of Shame](/images/apps/siren-windows.jpg){:.app}
-
-Gamification for your builds<br>
-By Automated Architecture
-
-- [website](http://sirenofshame.com/)
-- [windows 8 store](http://apps.microsoft.com/windows/en-US/app/siren-of-shame/1af0feaf-0801-4ad3-8a95-3f1226e313b9)
 
 ## Cross Platform
 
@@ -330,6 +320,15 @@ Sets Gravatar profile image depending on build status<br>
 By Gleb Bahmutov
 
 - [website](https://github.com/bahmutov/status-gravatar)
+
+### Chroma Feedback
+
+![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
+
+Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+By Henry Ruhs
+
+- [website](https://github.com/redaxmedia/chroma-feedback)
 
 ## Generators
 
@@ -452,6 +451,16 @@ Travis CI integration for [Brackets](http://brackets.io/)<br>
 By Cas du Plessis
 
 - [website](https://github.com/AgileAce/Brackets-TravisCI)
+
+### Emacs Package
+
+![emacs](/images/apps/emacs.jpg){:.app}
+
+Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+By Skye Shaw
+
+- [website](https://github.com/sshaw/build-status)
+
 
 ### Vim Plugin
 

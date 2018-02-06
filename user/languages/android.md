@@ -1,14 +1,14 @@
 ---
 title: Building an Android Project
 layout: en
-permalink: /user/languages/android/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OSX environment.
+Android builds are not available on the OS X environment.
 
 <div id="toc"></div>
 
@@ -23,8 +23,9 @@ By setting
 ```yaml
 language: android
 ```
+{: data-file=".travis.yml"}
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 24.0.0 (December 2014).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 26.0.2 (April 2017).
 
 Here is an example `.travis.yml` for an Android project:
 
@@ -38,22 +39,23 @@ android:
     # - platform-tools
 
     # The BuildTools version used by your project
-    - build-tools-19.1.0
+    - build-tools-26.0.2
 
     # The SDK version used to compile your project
-    - android-22
+    - android-26
 
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-19
+    - addon-google_apis-google-26
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-22
+    - sys-img-armeabi-v7a-android-26
     - sys-img-armeabi-v7a-android-17
 ```
+{: data-file=".travis.yml"}
 
 ### How to install Android SDK components
 
@@ -63,10 +65,11 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
 language: android
 android:
   components:
-    - build-tools-18.1.1
-    - android-18
+    - build-tools-26.0.2
+    - android-26
     - extra
 ```
+{: data-file=".travis.yml"}
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
 
@@ -81,10 +84,11 @@ android:
     - platform-tools
     - tools
 ```
+{: data-file=".travis.yml"}
 
 > Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
 
-You can compile your project for Android 25 as shown in the following example:
+You can compile your project for Android 26 as shown in the following example:
 
 ```yaml
 android:
@@ -94,11 +98,12 @@ android:
     - tools
 
     # The BuildTools version used by your project
-    - build-tools-25.0.0
+    - build-tools-26.0.2
 
     # The SDK version used to compile your project
-    - android-25
+    - android-26
 ```
+{: data-file=".travis.yml"}
 
 #### Dealing with Licenses
 
@@ -108,8 +113,8 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
 language: android
 android:
   components:
-    - build-tools-20.0.0
-    - android-L
+    - build-tools-26.0.2
+    - android-26
     - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra
@@ -118,6 +123,7 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 ```
+{: data-file=".travis.yml"}
 
 For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
 
@@ -163,6 +169,7 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -174,6 +181,7 @@ If your project is built with Ant or any other build tool that does not automati
 language: android
 install: ant deps
 ```
+{: data-file=".travis.yml"}
 
 ## Default Test Command for Maven
 
@@ -215,6 +223,13 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 ```
+{: data-file=".travis.yml"}
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Default Test Command
 

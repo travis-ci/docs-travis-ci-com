@@ -1,7 +1,7 @@
 ---
 title: Building Pull Requests
 layout: en
-permalink: /user/pull-requests/
+
 ---
 
 Pull requests are an essential feature of Travis CI. For a project that has
@@ -55,6 +55,7 @@ script:
    - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
    - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
 ```
+{: data-file=".travis.yml"}
 
 ## My Pull Request isn't being built
 
@@ -74,3 +75,12 @@ downstream and upstream branch, and send out a notifications. But Travis CI
 currently ignores this update, as it could lead to a large number of new builds
 on repositories with lots of pull requests and lots of updates on the upstream
 branches.
+
+If the pull request has already been merged you can't rerun the job. You'll get an error like:
+
+
+```
+The command "eval git fetch origin +refs/pull/994/merge: " failed
+```
+
+Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.

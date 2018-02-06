@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Defining steps using YAML aliases"
-permalink: /user/build-stages/using-yaml-aliases/
+
 layout: en
 ---
 
@@ -35,6 +35,7 @@ jobs:
     - <<: *test-staging
       script: ./test-staging.sh three
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 
