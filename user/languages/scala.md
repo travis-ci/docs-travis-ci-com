@@ -33,11 +33,7 @@ scala:
    - 2.12.2
 ```
 
-If using Scala 2.12.X you must override the default jdk version with the following line:
-
-``` 
-jdk: oraclejdk8
-``` 
+On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`. 
 
 ### Default Test Command
 
