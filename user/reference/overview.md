@@ -46,6 +46,8 @@ The following table summarizes the differences across virtual environments and o
 | Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+| IPv4 Network     | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
+| IPv6 Network     | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 
 ## What infrastructure is my environment running on?
 
