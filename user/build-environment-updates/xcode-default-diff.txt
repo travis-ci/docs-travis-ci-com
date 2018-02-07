@@ -1,9 +1,9 @@
 travis_fold:start:worker_info
 [0K[33;1mWorker information[0m
-hostname: 8abef5f5-d923-48de-b24c-62dccb1ff511@20391.wjb-2
+hostname: 62a88e42-d40c-40ea-8818-9917044a2b79@12042.wjb-1
 version: v3.4.0 https://github.com/travis-ci/worker/tree/ce0440bc30c289a49a9b0c21e4e1e6f7d7825101
-instance: 65e41be6-91fd-421f-a541-a4a75695bfdf travis-ci-macos10.12-xcode9.2-1512491837 (via amqp)
-startup: 1m52.454043131s
+instance: be4b450d-5991-4d2c-b59b-541a27faf2bd travis-ci-macos10.13-xcode9.3-1516902186 (via amqp)
+startup: 1m7.307321626s
 travis_fold:end:worker_info
 [0Ktravis_fold:start:system_info
 [0K[33;1mBuild system information[0m
@@ -12,9 +12,9 @@ Build language: objective-c
 
 Build id: 711457
 
-Job id: 711458
+Job id: 711459
 
-Runtime kernel version: 16.7.0
+Runtime kernel version: 17.4.0
 
 travis-build version: 7d46964e9
 
@@ -33,7 +33,7 @@ travis_fold:end:system_info
 
 ##
 
-127.0.0.1	localhost Traviss-Mac-913.local
+127.0.0.1	localhost Traviss-Mac-1044.local
 
 255.255.255.255	broadcasthost
 
@@ -50,7 +50,7 @@ $ rvm use
 /Users/travis/.travis/job_stages: line 437: yarn: command not found
 
 travis_fold:start:git.checkout
-[0Ktravis_time:start:2410384c
+[0Ktravis_time:start:25973640
 [0K$ git clone --depth=50 --branch=Lyoness-patch-1 https://github.com/Lyoness/travis_staging_test.git Lyoness/travis_staging_test
 
 Cloning into 'Lyoness/travis_staging_test'...
@@ -63,11 +63,11 @@ remote: Compressing objects:  75% (3/4)   [K
 remote: Compressing objects: 100% (4/4)   [K
 remote: Compressing objects: 100% (4/4), done.[K
 
-remote: Total 33 (delta 0), reused 0 (delta 0), pack-reused 29[K
-
 Unpacking objects:   3% (1/33)   
 Unpacking objects:   6% (2/33)   
 Unpacking objects:   9% (3/33)   
+remote: Total 33 (delta 0), reused 0 (delta 0), pack-reused 29[K
+
 Unpacking objects:  12% (4/33)   
 Unpacking objects:  15% (5/33)   
 Unpacking objects:  18% (6/33)   
@@ -102,7 +102,7 @@ Unpacking objects: 100% (33/33), done.
 
 
 
-travis_time:end:2410384c:start=1518016558345426000,finish=1518016559282356000,duration=936930000
+travis_time:end:25973640:start=1518016510445701000,finish=1518016511002831000,duration=557130000
 [0K$ cd Lyoness/travis_staging_test
 
 $ git checkout -qf bf6debcbaa1257147f664fcdeba9102d1ca160aa
@@ -113,14 +113,14 @@ travis_fold:end:git.checkout
 $ export HOMEBREW_NO_AUTO_UPDATE=1
 
 travis_fold:start:rvm
-[0Ktravis_time:start:04f0cbcc
+[0Ktravis_time:start:3493d138
 [0K$ rvm use default
 
 [32mUsing /Users/travis/.rvm/gems/ruby-2.4.2[0m
 
 
 
-travis_time:end:04f0cbcc:start=1518016559407222000,finish=1518016561186319000,duration=1779097000
+travis_time:end:3493d138:start=1518016511118044000,finish=1518016512918518000,duration=1800474000
 [0Ktravis_fold:end:rvm
 [0K$ ruby --version
 
@@ -132,52 +132,52 @@ rvm 1.29.3 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://r
 
 $ bundle --version
 
-Bundler version 1.16.0
+Bundler version 1.16.1
 
 travis_fold:start:announce
 [0K$ xcodebuild -version -sdk
 
-iPhoneOS11.2.sdk - iOS 11.2 (iphoneos11.2)
+iPhoneOS11.3.sdk - iOS 11.3 (iphoneos11.3)
 
-SDKVersion: 11.2
+SDKVersion: 11.3
 
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk
 
-PlatformVersion: 11.2
+PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/iPhoneOS.platform
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
 
-BuildID: A2F004BA-C5E0-11E7-8D31-58780B8BCBF5
+BuildID: 246A4510-FC2C-11E7-906B-034380CEA1F6
 
-ProductBuildVersion: 15C107
+ProductBuildVersion: 15E5167d
 
-ProductCopyright: 1983-2017 Apple Inc.
-
-ProductName: iPhone OS
-
-ProductVersion: 11.2
-
-
-
-iPhoneSimulator11.2.sdk - Simulator - iOS 11.2 (iphonesimulator11.2)
-
-SDKVersion: 11.2
-
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk
-
-PlatformVersion: 11.2
-
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform
-
-BuildID: A2F004BA-C5E0-11E7-8D31-58780B8BCBF5
-
-ProductBuildVersion: 15C107
-
-ProductCopyright: 1983-2017 Apple Inc.
+ProductCopyright: 1983-2018 Apple Inc.
 
 ProductName: iPhone OS
 
-ProductVersion: 11.2
+ProductVersion: 11.3
+
+
+
+iPhoneSimulator11.3.sdk - Simulator - iOS 11.3 (iphonesimulator11.3)
+
+SDKVersion: 11.3
+
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk
+
+PlatformVersion: 11.3
+
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+
+BuildID: 246A4510-FC2C-11E7-906B-034380CEA1F6
+
+ProductBuildVersion: 15E5167d
+
+ProductCopyright: 1983-2018 Apple Inc.
+
+ProductName: iPhone OS
+
+ProductVersion: 11.3
 
 
 
@@ -185,115 +185,115 @@ MacOSX10.13.sdk - macOS 10.13 (macosx10.13)
 
 SDKVersion: 10.13
 
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
 
 PlatformVersion: 1.1
 
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/MacOSX.platform
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform
 
-ProductBuildVersion: 17C76
+ProductBuildVersion: 17E139g
 
-ProductCopyright: 1983-2017 Apple Inc.
+ProductCopyright: 1983-2018 Apple Inc.
 
 ProductName: Mac OS X
 
-ProductUserVisibleVersion: 10.13.2
+ProductUserVisibleVersion: 10.13.4
 
-ProductVersion: 10.13.2
-
-
-
-AppleTVOS11.2.sdk - tvOS 11.2 (appletvos11.2)
-
-SDKVersion: 11.2
-
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.2.sdk
-
-PlatformVersion: 11.2
-
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/AppleTVOS.platform
-
-BuildID: 1DB10B8E-CB4C-11E7-820C-88B697DB7F88
-
-ProductBuildVersion: 15K104
-
-ProductCopyright: 1983-2017 Apple Inc.
-
-ProductName: Apple TVOS
-
-ProductVersion: 11.2
+ProductVersion: 10.13.4
 
 
 
-AppleTVSimulator11.2.sdk - Simulator - tvOS 11.2 (appletvsimulator11.2)
+AppleTVOS11.3.sdk - tvOS 11.3 (appletvos11.3)
 
-SDKVersion: 11.2
+SDKVersion: 11.3
 
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator11.2.sdk
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk
 
-PlatformVersion: 11.2
+PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/AppleTVSimulator.platform
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVOS.platform
 
-BuildID: 1DB10B8E-CB4C-11E7-820C-88B697DB7F88
+BuildID: AFBF79E2-FC1C-11E7-9434-5FAA41E87C53
 
-ProductBuildVersion: 15K104
+ProductBuildVersion: 15L5164c
 
-ProductCopyright: 1983-2017 Apple Inc.
+ProductCopyright: 1983-2018 Apple Inc.
 
 ProductName: Apple TVOS
 
-ProductVersion: 11.2
+ProductVersion: 11.3
 
 
 
-WatchOS4.2.sdk - watchOS 4.2 (watchos4.2)
+AppleTVSimulator11.3.sdk - Simulator - tvOS 11.3 (appletvsimulator11.3)
 
-SDKVersion: 4.2
+SDKVersion: 11.3
 
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator11.3.sdk
 
-PlatformVersion: 4.2
+PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/WatchOS.platform
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform
 
-BuildID: 049139A0-C5DC-11E7-A3A2-2604B621BE29
+BuildID: AFBF79E2-FC1C-11E7-9434-5FAA41E87C53
 
-ProductBuildVersion: 15S100
+ProductBuildVersion: 15L5164c
 
-ProductCopyright: 1983-2017 Apple Inc.
+ProductCopyright: 1983-2018 Apple Inc.
+
+ProductName: Apple TVOS
+
+ProductVersion: 11.3
+
+
+
+WatchOS4.3.sdk - watchOS 4.3 (watchos4.3)
+
+SDKVersion: 4.3
+
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk
+
+PlatformVersion: 4.3
+
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform
+
+BuildID: 979E00CE-FC29-11E7-A92E-95F61F5DEB6F
+
+ProductBuildVersion: 15T5165c
+
+ProductCopyright: 1983-2018 Apple Inc.
 
 ProductName: Watch OS
 
-ProductVersion: 4.2
+ProductVersion: 4.3
 
 
 
-WatchSimulator4.2.sdk - Simulator - watchOS 4.2 (watchsimulator4.2)
+WatchSimulator4.3.sdk - Simulator - watchOS 4.3 (watchsimulator4.3)
 
-SDKVersion: 4.2
+SDKVersion: 4.3
 
-Path: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator4.2.sdk
+Path: /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator4.3.sdk
 
-PlatformVersion: 4.2
+PlatformVersion: 4.3
 
-PlatformPath: /Applications/Xcode-9.2.app/Contents/Developer/Platforms/WatchSimulator.platform
+PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform
 
-BuildID: 049139A0-C5DC-11E7-A3A2-2604B621BE29
+BuildID: 979E00CE-FC29-11E7-A92E-95F61F5DEB6F
 
-ProductBuildVersion: 15S100
+ProductBuildVersion: 15T5165c
 
-ProductCopyright: 1983-2017 Apple Inc.
+ProductCopyright: 1983-2018 Apple Inc.
 
 ProductName: Watch OS
 
-ProductVersion: 4.2
+ProductVersion: 4.3
 
 
 
-Xcode 9.2
+Xcode 9.3
 
-Build version 9C40b
+Build version 9Q98q
 
 $ xctool -version
 
@@ -397,6 +397,8 @@ iOS 11.1 (11.1 - 15B87) - com.apple.CoreSimulator.SimRuntime.iOS-11-1
 
 iOS 11.2 (11.2 - 15C107) - com.apple.CoreSimulator.SimRuntime.iOS-11-2
 
+iOS 11.3 (11.3 - 15E5167d) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
+
 tvOS 9.0 (9.0 - 13T395) - com.apple.CoreSimulator.SimRuntime.tvOS-9-0
 
 tvOS 9.1 (9.1 - 13U85) - com.apple.CoreSimulator.SimRuntime.tvOS-9-1
@@ -415,6 +417,8 @@ tvOS 11.1 (11.1 - 15J580) - com.apple.CoreSimulator.SimRuntime.tvOS-11-1
 
 tvOS 11.2 (11.2 - 15K104) - com.apple.CoreSimulator.SimRuntime.tvOS-11-2
 
+tvOS 11.3 (11.3 - 15L5164c) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
+
 watchOS 2.0 (2.0 - 13S343) - com.apple.CoreSimulator.SimRuntime.watchOS-2-0
 
 watchOS 2.1 (2.1 - 13S661) - com.apple.CoreSimulator.SimRuntime.watchOS-2-1
@@ -430,6 +434,8 @@ watchOS 4.0 (4.0 - 15R372) - com.apple.CoreSimulator.SimRuntime.watchOS-4-0
 watchOS 4.1 (4.1 - 15R844) - com.apple.CoreSimulator.SimRuntime.watchOS-4-1
 
 watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
+
+watchOS 4.3 (4.3 - 15T5165c) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
 
 == Devices ==
 
@@ -849,6 +855,44 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
 
     iPad Pro (10.5-inch) (5D1A8470-1137-4EBB-9951-052CB13C8EDE) (Shutdown)
 
+-- iOS 11.3 --
+
+    iPhone 5s (42A5685E-28B7-4E54-AD23-8392EA641765) (Shutdown)
+
+    iPhone 6 (A859E47A-E97A-4138-80D2-CBA5E1D078D2) (Shutdown)
+
+    iPhone 6 Plus (AD297BB8-014A-4660-A688-E1951FD3E0D0) (Shutdown)
+
+    iPhone 6s (9F215ABB-F15F-4925-8E5E-760932B0BEF1) (Shutdown)
+
+    iPhone 6s Plus (C4801EC3-9A40-4421-B9D5-AD452B08D536) (Shutdown)
+
+    iPhone 7 (44D78931-CC3A-4533-8DB1-50E6C7E3CA84) (Shutdown)
+
+    iPhone 7 Plus (3598FC96-A05A-41DD-8E2C-DDDE3EDF423B) (Shutdown)
+
+    iPhone 8 (9026679E-8807-4E99-8E70-7D94059E327A) (Shutdown)
+
+    iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
+
+    iPhone SE (0C297CED-2CE8-484C-858A-7BA7D2BE9B8C) (Shutdown)
+
+    iPhone X (338C541A-4FE0-47D6-B0AF-9F6308FE76AD) (Shutdown)
+
+    iPad Air (6C8A97B9-C14F-482A-B2CA-1FB1C3B9C80B) (Shutdown)
+
+    iPad Air 2 (431F999D-08C0-4EF8-B47B-8BEDD486C47F) (Shutdown)
+
+    iPad (5th generation) (3A6A6940-8D39-43FA-8BEC-EB5E4CD14166) (Shutdown)
+
+    iPad Pro (9.7-inch) (754A8A02-DCCE-4734-9894-E7C0B2794152) (Shutdown)
+
+    iPad Pro (12.9-inch) (00BA85DF-FEA9-4A27-822A-A007075561CC) (Shutdown)
+
+    iPad Pro (12.9-inch) (2nd generation) (D0768FF2-C699-4043-8316-B34F4E46EE21) (Shutdown)
+
+    iPad Pro (10.5-inch) (A3222A84-EA71-48B5-B8D6-CE8EC602DD44) (Shutdown)
+
 -- tvOS 9.0 --
 
     Apple TV 1080p (5217E53F-EAD2-4998-BAB4-FDBB1CDF62F6) (Shutdown)
@@ -896,6 +940,14 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
     Apple TV 4K (BA9E689E-25B4-48E7-9381-4D27FEB86418) (Shutdown)
 
     Apple TV 4K (at 1080p) (8D5582E9-41CD-4887-A21C-19C29B9C4876) (Shutdown)
+
+-- tvOS 11.3 --
+
+    Apple TV (30C85E59-9350-4148-B446-FB3D738F3771) (Shutdown)
+
+    Apple TV 4K (6992331C-AB91-4398-83EB-1367EB72E42F) (Shutdown)
+
+    Apple TV 4K (at 1080p) (88D6BA42-A3A2-4239-A1A7-33BE76EA5292) (Shutdown)
 
 -- watchOS 2.0 --
 
@@ -976,6 +1028,20 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
     Apple Watch Series 3 - 38mm (2E6084E4-7887-4DD1-B8F3-1A34B5A68D5D) (Shutdown)
 
     Apple Watch Series 3 - 42mm (ED30A0C6-B36F-4BAA-BE5F-E036FB77F5DE) (Shutdown)
+
+-- watchOS 4.3 --
+
+    Apple Watch - 38mm (5D1BF3D7-501C-4847-B8B9-BB540861956A) (Shutdown)
+
+    Apple Watch - 42mm (A9109307-1C36-4674-A538-1D51B23971D2) (Shutdown)
+
+    Apple Watch Series 2 - 38mm (B267377C-2AB8-4CEF-9911-FCBE435DE2FE) (Shutdown)
+
+    Apple Watch Series 2 - 42mm (B0DA1848-EA8B-4CEC-9FA1-7658FCD2EBD9) (Shutdown)
+
+    Apple Watch Series 3 - 38mm (3E0F15AC-16A4-4C8F-830A-797AE9DDF8F4) (Shutdown)
+
+    Apple Watch Series 3 - 42mm (24EFAD51-48C4-4C8D-BC14-FD9FAC02ADE2) (Shutdown)
 
 == Device Pairs ==
 
@@ -1087,48 +1153,72 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
 
     Phone: iPhone 8 Plus (181A31FB-ACBA-4C6B-BE1D-C82A5BD0EC25) (Shutdown)
 
+7B8A062D-4B73-4F30-AFA3-4DAF2F703BD3 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 38mm (B267377C-2AB8-4CEF-9911-FCBE435DE2FE) (Shutdown)
+
+    Phone: iPhone 7 (44D78931-CC3A-4533-8DB1-50E6C7E3CA84) (Shutdown)
+
+26098CC1-0FBC-400B-81F8-7E6A67362716 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 42mm (B0DA1848-EA8B-4CEC-9FA1-7658FCD2EBD9) (Shutdown)
+
+    Phone: iPhone 7 Plus (3598FC96-A05A-41DD-8E2C-DDDE3EDF423B) (Shutdown)
+
+916E6107-320F-4861-B02A-28D3E3AB7180 (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 38mm (3E0F15AC-16A4-4C8F-830A-797AE9DDF8F4) (Shutdown)
+
+    Phone: iPhone 8 (9026679E-8807-4E99-8E70-7D94059E327A) (Shutdown)
+
+2A19582B-2D68-466A-BB5E-27B9A4B22ACE (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 42mm (24EFAD51-48C4-4C8D-BC14-FD9FAC02ADE2) (Shutdown)
+
+    Phone: iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
+
 travis_fold:end:announce
-[0Ktravis_time:start:179da0cf
+[0Ktravis_time:start:0035993d
 [0K$ df -h /
 
 Filesystem     Size   Used  Avail Capacity iused      ifree %iused  Mounted on
 
-/dev/disk0s2  149Gi  113Gi   36Gi    76% 3425489 4291541790    0%   /
+/dev/disk0s2  149Gi  129Gi   20Gi    87% 3689439 4291277840    0%   /
 
 
 
-travis_time:end:179da0cf:start=1518016566166008000,finish=1518016566185059000,duration=19051000
+travis_time:end:0035993d:start=1518016516451110000,finish=1518016516467382000,duration=16272000
 [0K
 
 [32;1mThe command "df -h /" exited with 0.[0m
 
-travis_time:start:269d72ea
+travis_time:start:059519df
 [0K$ uname -a
 
-Darwin Traviss-Mac-913.local 16.7.0 Darwin Kernel Version 16.7.0: Wed Oct  4 00:17:00 PDT 2017; root:xnu-3789.71.6~1/RELEASE_X86_64 x86_64
+Darwin Traviss-Mac-1044.local 17.4.0 Darwin Kernel Version 17.4.0: Sun Dec 17 09:19:54 PST 2017; root:xnu-4570.41.2~1/RELEASE_X86_64 x86_64
 
 
 
-travis_time:end:269d72ea:start=1518016566199056000,finish=1518016566216721000,duration=17665000
+travis_time:end:059519df:start=1518016516482651000,finish=1518016516498867000,duration=16216000
 [0K
 
 [32;1mThe command "uname -a" exited with 0.[0m
 
-travis_time:start:05260b51
+travis_time:start:0e9baf44
 [0K$ xcodebuild -version
 
-Xcode 9.2
+Xcode 9.3
 
-Build version 9C40b
+Build version 9Q98q
 
 
 
-travis_time:end:05260b51:start=1518016566231150000,finish=1518016566376119000,duration=144969000
+travis_time:end:0e9baf44:start=1518016516514125000,finish=1518016516655106000,duration=140981000
 [0K
 
 [32;1mThe command "xcodebuild -version" exited with 0.[0m
 
-travis_time:start:1294ea04
+travis_time:start:00200af5
 [0K$ system_profiler SPHardwareDataType
 
 Hardware:
@@ -1157,9 +1247,11 @@ Hardware:
 
       Boot ROM Version: VMW71.00V.0.B64.1704110547
 
+      Apple ROM Info: [MS_VM_CERT/SHA1/27d66596a61c48dd3dc7216fd715126e33f59ae7]Welcome to the Virtual Machine
+
       SMC Version (system): 2.8f0
 
-      Serial Number (system): VMCjuC1+7zlP
+      Serial Number (system): VMt6acT+AHmm
 
       Hardware UUID: 422679DC-45CF-C343-8240-952E5E2020A9
 
@@ -1167,56 +1259,56 @@ Hardware:
 
 
 
-travis_time:end:1294ea04:start=1518016566400337000,finish=1518016567380807000,duration=980470000
+travis_time:end:00200af5:start=1518016516670415000,finish=1518016517132599000,duration=462184000
 [0K
 
 [32;1mThe command "system_profiler SPHardwareDataType" exited with 0.[0m
 
-travis_time:start:04371e70
+travis_time:start:0983fef2
 [0K$ swift -version
 
-Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)
+Apple Swift version 4.1 (swiftlang-902.0.34 clang-902.0.30)
 
-Target: x86_64-apple-macosx10.9
+Target: x86_64-apple-darwin17.4.0
 
 
 
-travis_time:end:04371e70:start=1518016567397592000,finish=1518016569284787000,duration=1887195000
+travis_time:end:0983fef2:start=1518016517147946000,finish=1518016518717260000,duration=1569314000
 [0K
 
 [32;1mThe command "swift -version" exited with 0.[0m
 
-travis_time:start:1316d063
+travis_time:start:1b1eab8d
 [0K$ sw_vers
 
 ProductName:	Mac OS X
 
-ProductVersion:	10.12.6
+ProductVersion:	10.13.3
 
-BuildVersion:	16G1036
+BuildVersion:	17D47
 
 
 
-travis_time:end:1316d063:start=1518016569303634000,finish=1518016569329407000,duration=25773000
+travis_time:end:1b1eab8d:start=1518016518732323000,finish=1518016518757812000,duration=25489000
 [0K
 
 [32;1mThe command "sw_vers" exited with 0.[0m
 
-travis_time:start:2304075a
+travis_time:start:2c1410ae
 [0K$ xcodebuild -version
 
-Xcode 9.2
+Xcode 9.3
 
-Build version 9C40b
+Build version 9Q98q
 
 
 
-travis_time:end:2304075a:start=1518016569350713000,finish=1518016569516241000,duration=165528000
+travis_time:end:2c1410ae:start=1518016518773131000,finish=1518016518916104000,duration=142973000
 [0K
 
 [32;1mThe command "xcodebuild -version" exited with 0.[0m
 
-travis_time:start:052c049d
+travis_time:start:03c93c1b
 [0K$ xcrun simctl list
 
 == Device Types ==
@@ -1315,6 +1407,8 @@ iOS 11.1 (11.1 - 15B87) - com.apple.CoreSimulator.SimRuntime.iOS-11-1
 
 iOS 11.2 (11.2 - 15C107) - com.apple.CoreSimulator.SimRuntime.iOS-11-2
 
+iOS 11.3 (11.3 - 15E5167d) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
+
 tvOS 9.0 (9.0 - 13T395) - com.apple.CoreSimulator.SimRuntime.tvOS-9-0
 
 tvOS 9.1 (9.1 - 13U85) - com.apple.CoreSimulator.SimRuntime.tvOS-9-1
@@ -1333,6 +1427,8 @@ tvOS 11.1 (11.1 - 15J580) - com.apple.CoreSimulator.SimRuntime.tvOS-11-1
 
 tvOS 11.2 (11.2 - 15K104) - com.apple.CoreSimulator.SimRuntime.tvOS-11-2
 
+tvOS 11.3 (11.3 - 15L5164c) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
+
 watchOS 2.0 (2.0 - 13S343) - com.apple.CoreSimulator.SimRuntime.watchOS-2-0
 
 watchOS 2.1 (2.1 - 13S661) - com.apple.CoreSimulator.SimRuntime.watchOS-2-1
@@ -1348,6 +1444,8 @@ watchOS 4.0 (4.0 - 15R372) - com.apple.CoreSimulator.SimRuntime.watchOS-4-0
 watchOS 4.1 (4.1 - 15R844) - com.apple.CoreSimulator.SimRuntime.watchOS-4-1
 
 watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
+
+watchOS 4.3 (4.3 - 15T5165c) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
 
 == Devices ==
 
@@ -1767,6 +1865,44 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
 
     iPad Pro (10.5-inch) (5D1A8470-1137-4EBB-9951-052CB13C8EDE) (Shutdown)
 
+-- iOS 11.3 --
+
+    iPhone 5s (42A5685E-28B7-4E54-AD23-8392EA641765) (Shutdown)
+
+    iPhone 6 (A859E47A-E97A-4138-80D2-CBA5E1D078D2) (Shutdown)
+
+    iPhone 6 Plus (AD297BB8-014A-4660-A688-E1951FD3E0D0) (Shutdown)
+
+    iPhone 6s (9F215ABB-F15F-4925-8E5E-760932B0BEF1) (Shutdown)
+
+    iPhone 6s Plus (C4801EC3-9A40-4421-B9D5-AD452B08D536) (Shutdown)
+
+    iPhone 7 (44D78931-CC3A-4533-8DB1-50E6C7E3CA84) (Shutdown)
+
+    iPhone 7 Plus (3598FC96-A05A-41DD-8E2C-DDDE3EDF423B) (Shutdown)
+
+    iPhone 8 (9026679E-8807-4E99-8E70-7D94059E327A) (Shutdown)
+
+    iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
+
+    iPhone SE (0C297CED-2CE8-484C-858A-7BA7D2BE9B8C) (Shutdown)
+
+    iPhone X (338C541A-4FE0-47D6-B0AF-9F6308FE76AD) (Shutdown)
+
+    iPad Air (6C8A97B9-C14F-482A-B2CA-1FB1C3B9C80B) (Shutdown)
+
+    iPad Air 2 (431F999D-08C0-4EF8-B47B-8BEDD486C47F) (Shutdown)
+
+    iPad (5th generation) (3A6A6940-8D39-43FA-8BEC-EB5E4CD14166) (Shutdown)
+
+    iPad Pro (9.7-inch) (754A8A02-DCCE-4734-9894-E7C0B2794152) (Shutdown)
+
+    iPad Pro (12.9-inch) (00BA85DF-FEA9-4A27-822A-A007075561CC) (Shutdown)
+
+    iPad Pro (12.9-inch) (2nd generation) (D0768FF2-C699-4043-8316-B34F4E46EE21) (Shutdown)
+
+    iPad Pro (10.5-inch) (A3222A84-EA71-48B5-B8D6-CE8EC602DD44) (Shutdown)
+
 -- tvOS 9.0 --
 
     Apple TV 1080p (5217E53F-EAD2-4998-BAB4-FDBB1CDF62F6) (Shutdown)
@@ -1814,6 +1950,14 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
     Apple TV 4K (BA9E689E-25B4-48E7-9381-4D27FEB86418) (Shutdown)
 
     Apple TV 4K (at 1080p) (8D5582E9-41CD-4887-A21C-19C29B9C4876) (Shutdown)
+
+-- tvOS 11.3 --
+
+    Apple TV (30C85E59-9350-4148-B446-FB3D738F3771) (Shutdown)
+
+    Apple TV 4K (6992331C-AB91-4398-83EB-1367EB72E42F) (Shutdown)
+
+    Apple TV 4K (at 1080p) (88D6BA42-A3A2-4239-A1A7-33BE76EA5292) (Shutdown)
 
 -- watchOS 2.0 --
 
@@ -1894,6 +2038,20 @@ watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
     Apple Watch Series 3 - 38mm (2E6084E4-7887-4DD1-B8F3-1A34B5A68D5D) (Shutdown)
 
     Apple Watch Series 3 - 42mm (ED30A0C6-B36F-4BAA-BE5F-E036FB77F5DE) (Shutdown)
+
+-- watchOS 4.3 --
+
+    Apple Watch - 38mm (5D1BF3D7-501C-4847-B8B9-BB540861956A) (Shutdown)
+
+    Apple Watch - 42mm (A9109307-1C36-4674-A538-1D51B23971D2) (Shutdown)
+
+    Apple Watch Series 2 - 38mm (B267377C-2AB8-4CEF-9911-FCBE435DE2FE) (Shutdown)
+
+    Apple Watch Series 2 - 42mm (B0DA1848-EA8B-4CEC-9FA1-7658FCD2EBD9) (Shutdown)
+
+    Apple Watch Series 3 - 38mm (3E0F15AC-16A4-4C8F-830A-797AE9DDF8F4) (Shutdown)
+
+    Apple Watch Series 3 - 42mm (24EFAD51-48C4-4C8D-BC14-FD9FAC02ADE2) (Shutdown)
 
 == Device Pairs ==
 
@@ -2005,14 +2163,38 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
 
     Phone: iPhone 8 Plus (181A31FB-ACBA-4C6B-BE1D-C82A5BD0EC25) (Shutdown)
 
+7B8A062D-4B73-4F30-AFA3-4DAF2F703BD3 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 38mm (B267377C-2AB8-4CEF-9911-FCBE435DE2FE) (Shutdown)
+
+    Phone: iPhone 7 (44D78931-CC3A-4533-8DB1-50E6C7E3CA84) (Shutdown)
+
+26098CC1-0FBC-400B-81F8-7E6A67362716 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 42mm (B0DA1848-EA8B-4CEC-9FA1-7658FCD2EBD9) (Shutdown)
+
+    Phone: iPhone 7 Plus (3598FC96-A05A-41DD-8E2C-DDDE3EDF423B) (Shutdown)
+
+916E6107-320F-4861-B02A-28D3E3AB7180 (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 38mm (3E0F15AC-16A4-4C8F-830A-797AE9DDF8F4) (Shutdown)
+
+    Phone: iPhone 8 (9026679E-8807-4E99-8E70-7D94059E327A) (Shutdown)
+
+2A19582B-2D68-466A-BB5E-27B9A4B22ACE (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 42mm (24EFAD51-48C4-4C8D-BC14-FD9FAC02ADE2) (Shutdown)
+
+    Phone: iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
 
 
-travis_time:end:052c049d:start=1518016569532823000,finish=1518016569953373000,duration=420550000
+
+travis_time:end:03c93c1b:start=1518016518931140000,finish=1518016519258198000,duration=327058000
 [0K
 
 [32;1mThe command "xcrun simctl list" exited with 0.[0m
 
-travis_time:start:0f3ac82c
+travis_time:start:1f03e138
 [0K$ xcrun simctl list pairs
 
 == Device Pairs ==
@@ -2125,14 +2307,38 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
 
     Phone: iPhone 8 Plus (181A31FB-ACBA-4C6B-BE1D-C82A5BD0EC25) (Shutdown)
 
+7B8A062D-4B73-4F30-AFA3-4DAF2F703BD3 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 38mm (B267377C-2AB8-4CEF-9911-FCBE435DE2FE) (Shutdown)
+
+    Phone: iPhone 7 (44D78931-CC3A-4533-8DB1-50E6C7E3CA84) (Shutdown)
+
+26098CC1-0FBC-400B-81F8-7E6A67362716 (active, disconnected)
+
+    Watch: Apple Watch Series 2 - 42mm (B0DA1848-EA8B-4CEC-9FA1-7658FCD2EBD9) (Shutdown)
+
+    Phone: iPhone 7 Plus (3598FC96-A05A-41DD-8E2C-DDDE3EDF423B) (Shutdown)
+
+916E6107-320F-4861-B02A-28D3E3AB7180 (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 38mm (3E0F15AC-16A4-4C8F-830A-797AE9DDF8F4) (Shutdown)
+
+    Phone: iPhone 8 (9026679E-8807-4E99-8E70-7D94059E327A) (Shutdown)
+
+2A19582B-2D68-466A-BB5E-27B9A4B22ACE (active, disconnected)
+
+    Watch: Apple Watch Series 3 - 42mm (24EFAD51-48C4-4C8D-BC14-FD9FAC02ADE2) (Shutdown)
+
+    Phone: iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
 
 
-travis_time:end:0f3ac82c:start=1518016569967232000,finish=1518016570273363000,duration=306131000
+
+travis_time:end:1f03e138:start=1518016519273371000,finish=1518016519515361000,duration=241990000
 [0K
 
 [32;1mThe command "xcrun simctl list pairs" exited with 0.[0m
 
-travis_time:start:2864e9b0
+travis_time:start:30465f76
 [0K$ brew list --versions
 
 adns 1.5.1
@@ -2141,15 +2347,15 @@ autoconf 2.69
 
 automake 1.15.1
 
-boost 1.65.1
+boost 1.66.0
 
-carthage 0.26.2
+carthage 0.28.0
 
-cgal 4.11
+cgal 4.11_1
 
-cmake 3.10.0 3.9.5
+cmake 3.10.2
 
-coreutils 8.28_1
+coreutils 8.29
 
 dirmngr 1.1.1_3
 
@@ -2157,7 +2363,7 @@ freexl 1.0.4
 
 gdal 1.11.5_3
 
-gdbm 1.13
+gdbm 1.14.1_1
 
 geos 3.6.2
 
@@ -2165,35 +2371,37 @@ gettext 0.19.8.1
 
 giflib 5.1.4
 
-git 2.15.0 2.15.1
+git 2.16.1
 
 gmp 6.1.2_1
 
-gnupg 2.2.1 2.2.3
+gnupg 2.2.4
 
-gnutls 3.5.16
+gnutls 3.5.17
 
-go 1.9.2
+go 1.9.3
 
-gpg-agent 2.0.30_3
+gpg-agent 2.0.31
 
-icu4c 59.1_1
+icu4c 60.2
 
 jpeg 9b
 
 json-c 0.12.1
 
-libassuan 2.4.3_1 2.4.4
+libassuan 2.5.1
 
 libevent 2.1.8
 
 libffi 3.2.1
 
-libgcrypt 1.8.1
+libgcrypt 1.8.2
 
 libgeotiff 1.4.2_1
 
 libgpg-error 1.27
+
+libidn2 2.0.4
 
 libksba 1.3.5
 
@@ -2205,13 +2413,13 @@ libspatialite 4.3.0a_3
 
 libssh 0.7.5
 
-libtasn1 4.12
+libtasn1 4.13
 
-libtiff 4.0.8_5
+libtiff 4.0.9_1
 
 libtool 2.4.6_1
 
-libunistring 0.9.7 0.9.8
+libunistring 0.9.8
 
 libusb 1.0.21
 
@@ -2227,64 +2435,66 @@ maven 3.5.2
 
 md5deep 4.4
 
-mercurial 4.4 4.4.2
+mercurial 4.5
 
-mpfr 3.1.6
+mpfr 4.0.0
 
 msgpack 2.1.5
 
-nettle 3.3 3.4
+nettle 3.4
 
-node 8.9.0 8.9.1
+node 9.5.0
 
 npth 1.5
 
-openssl 1.0.2m
+openssl 1.0.2n
 
-openssl@1.1 1.1.0g
+openssl@1.1 1.1.0g_1
 
 p11-kit 0.23.9
 
 pcre 8.41
 
-pinentry 1.0.0 1.1.0
+pinentry 1.1.0
 
 pkg-config 0.29.2
 
-postgis 2.4.0_1 2.4.2
+postgis 2.4.3
 
-postgresql 10.0 10.1
+postgresql 10.1
 
 proj 4.9.3
 
 pth 2.0.7
 
-pyenv 1.1.5
+pyenv 1.2.1
 
-python 2.7.14
+python 2.7.14_2
 
 readline 7.0.3_1
 
-sfcgal 1.3.2
+sfcgal 1.3.2_1
 
-sqlite 3.21.0
+sqlite 3.22.0
 
-swiftlint 0.23.1 0.24.0
+swiftlint 0.24.2
+
+tmate 2.2.1_3
 
 tmux 2.6
 
-wget 1.19.2
+wget 1.19.4_1
 
 xctool 0.3.4
 
 
 
-travis_time:end:2864e9b0:start=1518016570294346000,finish=1518016574967346000,duration=4673000000
+travis_time:end:30465f76:start=1518016519530867000,finish=1518016521423936000,duration=1893069000
 [0K
 
 [32;1mThe command "brew list --versions" exited with 0.[0m
 
-travis_time:start:0669efc1
+travis_time:start:2a7a1a98
 [0K$ brew cask list --versions
 
 java 1.8.0_112-b16
@@ -2297,12 +2507,12 @@ xquartz 2.7.11
 
 
 
-travis_time:end:0669efc1:start=1518016574983398000,finish=1518016576949625000,duration=1966227000
+travis_time:end:2a7a1a98:start=1518016521439042000,finish=1518016522411160000,duration=972118000
 [0K
 
 [32;1mThe command "brew cask list --versions" exited with 0.[0m
 
-travis_time:start:0a25c016
+travis_time:start:02b1d805
 [0K$ rvm list
 
 
@@ -2327,31 +2537,239 @@ rvm rubies
 
 
 
-travis_time:end:0a25c016:start=1518016576963845000,finish=1518016577562656000,duration=598811000
+travis_time:end:02b1d805:start=1518016522426246000,finish=1518016522940394000,duration=514148000
 [0K
 
 [32;1mThe command "rvm list" exited with 0.[0m
 
-travis_time:start:12b69cdc
+travis_time:start:056904d8
 [0K$ motion --version
 
-5.4
+Cloning RubyMotion templates. Feel free to browse ~/.rubymotion/rubymotion-templates to see how they're built.
+
+Cloning into '/Users/travis/.rubymotion/rubymotion-templates'...
+
+remote: Counting objects: 416, done.[K
+
+remote: Compressing objects:   6% (1/15)   [K
+remote: Compressing objects:  13% (2/15)   [K
+remote: Compressing objects:  20% (3/15)   [K
+remote: Compressing objects:  26% (4/15)   [K
+remote: Compressing objects:  33% (5/15)   [K
+remote: Compressing objects:  40% (6/15)   [K
+remote: Compressing objects:  46% (7/15)   [K
+remote: Compressing objects:  53% (8/15)   [K
+remote: Compressing objects:  60% (9/15)   [K
+remote: Compressing objects:  66% (10/15)   [K
+remote: Compressing objects:  73% (11/15)   [K
+remote: Compressing objects:  80% (12/15)   [K
+remote: Compressing objects:  86% (13/15)   [K
+remote: Compressing objects:  93% (14/15)   [K
+remote: Compressing objects: 100% (15/15)   [K
+remote: Compressing objects: 100% (15/15), done.[K
+
+Receiving objects:   0% (1/416)   
+Receiving objects:   1% (5/416)   
+Receiving objects:   2% (9/416)   
+Receiving objects:   3% (13/416)   
+Receiving objects:   4% (17/416)   
+Receiving objects:   5% (21/416)   
+Receiving objects:   6% (25/416)   
+Receiving objects:   7% (30/416)   
+Receiving objects:   8% (34/416)   
+Receiving objects:   9% (38/416)   
+Receiving objects:  10% (42/416)   
+Receiving objects:  11% (46/416)   
+Receiving objects:  12% (50/416)   
+Receiving objects:  13% (55/416)   
+Receiving objects:  14% (59/416)   
+Receiving objects:  15% (63/416)   
+Receiving objects:  16% (67/416)   
+Receiving objects:  17% (71/416)   
+Receiving objects:  18% (75/416)   
+Receiving objects:  19% (80/416)   
+Receiving objects:  20% (84/416)   
+Receiving objects:  21% (88/416)   
+Receiving objects:  22% (92/416)   
+Receiving objects:  23% (96/416)   
+Receiving objects:  24% (100/416)   
+Receiving objects:  25% (104/416)   
+Receiving objects:  26% (109/416)   
+Receiving objects:  27% (113/416)   
+Receiving objects:  28% (117/416)   
+Receiving objects:  29% (121/416)   
+Receiving objects:  30% (125/416)   
+Receiving objects:  31% (129/416)   
+Receiving objects:  32% (134/416)   
+Receiving objects:  33% (138/416)   
+Receiving objects:  34% (142/416)   
+Receiving objects:  35% (146/416)   
+Receiving objects:  36% (150/416)   
+Receiving objects:  37% (154/416)   
+Receiving objects:  38% (159/416)   
+Receiving objects:  39% (163/416)   
+Receiving objects:  40% (167/416)   
+Receiving objects:  41% (171/416)   
+Receiving objects:  42% (175/416)   
+Receiving objects:  43% (179/416)   
+Receiving objects:  44% (184/416)   
+Receiving objects:  45% (188/416)   
+Receiving objects:  46% (192/416)   
+Receiving objects:  47% (196/416)   
+Receiving objects:  48% (200/416)   
+Receiving objects:  49% (204/416)   
+Receiving objects:  50% (208/416)   
+Receiving objects:  51% (213/416)   
+Receiving objects:  52% (217/416)   
+Receiving objects:  53% (221/416)   
+Receiving objects:  54% (225/416)   
+Receiving objects:  55% (229/416)   
+Receiving objects:  56% (233/416)   
+Receiving objects:  57% (238/416)   
+Receiving objects:  58% (242/416)   
+Receiving objects:  59% (246/416)   
+Receiving objects:  60% (250/416)   
+Receiving objects:  61% (254/416)   
+Receiving objects:  62% (258/416)   
+Receiving objects:  63% (263/416)   
+Receiving objects:  64% (267/416)   
+Receiving objects:  65% (271/416)   
+Receiving objects:  66% (275/416)   
+Receiving objects:  67% (279/416)   
+Receiving objects:  68% (283/416)   
+Receiving objects:  69% (288/416)   
+Receiving objects:  70% (292/416)   
+Receiving objects:  71% (296/416)   
+Receiving objects:  72% (300/416)   
+Receiving objects:  73% (304/416)   
+Receiving objects:  74% (308/416)   
+Receiving objects:  75% (312/416)   
+Receiving objects:  76% (317/416)   
+Receiving objects:  77% (321/416)   
+Receiving objects:  78% (325/416)   
+Receiving objects:  79% (329/416)   
+Receiving objects:  80% (333/416)   
+Receiving objects:  81% (337/416)   
+remote: Total 416 (delta 4), reused 13 (delta 1), pack-reused 396[K
+
+Receiving objects:  82% (342/416)   
+Receiving objects:  83% (346/416)   
+Receiving objects:  84% (350/416)   
+Receiving objects:  85% (354/416)   
+Receiving objects:  86% (358/416)   
+Receiving objects:  87% (362/416)   
+Receiving objects:  88% (367/416)   
+Receiving objects:  89% (371/416)   
+Receiving objects:  90% (375/416)   
+Receiving objects:  91% (379/416)   
+Receiving objects:  92% (383/416)   
+Receiving objects:  93% (387/416)   
+Receiving objects:  94% (392/416)   
+Receiving objects:  95% (396/416)   
+Receiving objects:  96% (400/416)   
+Receiving objects:  97% (404/416)   
+Receiving objects:  98% (408/416)   
+Receiving objects:  99% (412/416)   
+Receiving objects: 100% (416/416)   
+Receiving objects: 100% (416/416), 724.56 KiB | 6.83 MiB/s, done.
+
+Resolving deltas:   0% (0/99)   
+Resolving deltas:   6% (6/99)   
+Resolving deltas:   7% (7/99)   
+Resolving deltas:   8% (8/99)   
+Resolving deltas:   9% (9/99)   
+Resolving deltas:  14% (14/99)   
+Resolving deltas:  15% (15/99)   
+Resolving deltas:  16% (16/99)   
+Resolving deltas:  17% (17/99)   
+Resolving deltas:  19% (19/99)   
+Resolving deltas:  24% (24/99)   
+Resolving deltas:  25% (25/99)   
+Resolving deltas:  26% (26/99)   
+Resolving deltas:  27% (27/99)   
+Resolving deltas:  32% (32/99)   
+Resolving deltas:  33% (33/99)   
+Resolving deltas:  34% (34/99)   
+Resolving deltas:  35% (35/99)   
+Resolving deltas:  36% (36/99)   
+Resolving deltas:  37% (37/99)   
+Resolving deltas:  38% (38/99)   
+Resolving deltas:  39% (39/99)   
+Resolving deltas:  41% (41/99)   
+Resolving deltas:  43% (43/99)   
+Resolving deltas:  44% (44/99)   
+Resolving deltas:  58% (58/99)   
+Resolving deltas:  61% (61/99)   
+Resolving deltas:  62% (62/99)   
+Resolving deltas:  63% (63/99)   
+Resolving deltas:  69% (69/99)   
+Resolving deltas:  70% (70/99)   
+Resolving deltas:  71% (71/99)   
+Resolving deltas:  73% (73/99)   
+Resolving deltas:  74% (74/99)   
+Resolving deltas:  75% (75/99)   
+Resolving deltas:  77% (77/99)   
+Resolving deltas:  78% (78/99)   
+Resolving deltas:  80% (80/99)   
+Resolving deltas:  81% (81/99)   
+Resolving deltas:  85% (85/99)   
+Resolving deltas:  86% (86/99)   
+Resolving deltas:  88% (88/99)   
+Resolving deltas:  89% (89/99)   
+Resolving deltas:  90% (90/99)   
+Resolving deltas:  93% (93/99)   
+Resolving deltas:  94% (94/99)   
+Resolving deltas:  95% (95/99)   
+Resolving deltas:  96% (96/99)   
+Resolving deltas:  97% (97/99)   
+Resolving deltas:  98% (98/99)   
+Resolving deltas: 100% (99/99)   
+Resolving deltas: 100% (99/99), done.
+
+Cloning auxiliary RubyMotion commands. Feel free to browse ~/.rubymotion/rubymotion-command to see how they work.
+
+Cloning into '/Users/travis/.rubymotion/rubymotion-command'...
+
+remote: Counting objects: 15, done.[K
+
+remote: Total 15 (delta 0), reused 0 (delta 0), pack-reused 15[K
+
+Unpacking objects:   6% (1/15)   
+Unpacking objects:  13% (2/15)   
+Unpacking objects:  20% (3/15)   
+Unpacking objects:  26% (4/15)   
+Unpacking objects:  33% (5/15)   
+Unpacking objects:  40% (6/15)   
+Unpacking objects:  46% (7/15)   
+Unpacking objects:  53% (8/15)   
+Unpacking objects:  60% (9/15)   
+Unpacking objects:  66% (10/15)   
+Unpacking objects:  73% (11/15)   
+Unpacking objects:  80% (12/15)   
+Unpacking objects:  86% (13/15)   
+Unpacking objects:  93% (14/15)   
+Unpacking objects: 100% (15/15)   
+Unpacking objects: 100% (15/15), done.
 
 
 
-travis_time:end:12b69cdc:start=1518016577576368000,finish=1518016578093163000,duration=516795000
+5.6
+
+
+
+travis_time:end:056904d8:start=1518016522955784000,finish=1518016524060171000,duration=1104387000
 [0K
 
 [32;1mThe command "motion --version" exited with 0.[0m
 
-travis_time:start:0060478a
+travis_time:start:1ccd42e2
 [0K$ pod --version
 
-1.3.1
+1.4.0
 
 
 
-travis_time:end:0060478a:start=1518016578108305000,finish=1518016580386514000,duration=2278209000
+travis_time:end:1ccd42e2:start=1518016524075802000,finish=1518016525418175000,duration=1342373000
 [0K
 
 [32;1mThe command "pod --version" exited with 0.[0m
