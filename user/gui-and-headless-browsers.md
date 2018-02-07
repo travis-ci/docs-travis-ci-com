@@ -56,7 +56,7 @@ Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
 or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
-### Less Fuss
+### Using the xvfb-run wrapper
 
 `xvfb-run` is a wrapper for invoking `xvfb` so that `xvfb` can be used with
 less fuss:
@@ -71,7 +71,7 @@ To set the screen resolution:
 script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 ```
 
-### More Fuss
+### Using xvfb directly
 
 To use `xvfb` itself, start it in the `before_script` section of your
 `.travis.yml`:
