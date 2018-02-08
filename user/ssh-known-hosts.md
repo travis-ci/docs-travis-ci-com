@@ -97,7 +97,7 @@ addons:
 ## Security Implications
 
 Note that the `ssh_known_hosts` option may introduce a risk of man-in-the-middle attacks for your builds.
-(Also see the _Security_ section of the [ssh-keyscan man page](http://man7.org/linux/man-pages/man1/ssh.1.html "man page for ssh-keyscan").)
+(Also see the the [SECURITY section of the `ssh-keyscan` man page](http://man7.org/linux/man-pages/man1/ssh-keyscan.1.html#SECURITY "man page for ssh-keyscan").)
 For example, it may prevent a build from detecting that an illegitimate 3rd party attempts to inject a modified git repository or submodule into the build.
 This possibility might be of particular relevance where Travis CI build outputs are used for release packages or production deployments.
 
