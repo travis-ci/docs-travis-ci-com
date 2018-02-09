@@ -67,7 +67,7 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
+* `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `jupiter` → the build ran on macOS
 
 ### For a particular .travis.yml configuration

@@ -76,7 +76,7 @@ test:
   username: travis
   encoding: utf8
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
 You might have to create the `myapp_test` database first, for example in
 the `before_install` step in `.travis.yml`:

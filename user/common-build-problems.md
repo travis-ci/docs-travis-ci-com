@@ -105,7 +105,7 @@ Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
 ```js
-Capybara.default_wait_time = 15
+Capybara.default_max_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
