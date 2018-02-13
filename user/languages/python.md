@@ -152,6 +152,17 @@ If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
 and fails the build.
 
+## Using Tox as the Build Script
+
+Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward. 
+As described [above](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
+
+If you're using tox to test your code against multiple versions of python, you have two options:
+  * use `language: generic` and manually install the python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu python versions - 2.7.6 and 3.4.3 for Trusty)
+  * use `language: python` and a build matrix that uses a different version of python for each branch (you can specify the python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload. 
+
+A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
+
 ## Dependency Management
 
 ### pip
