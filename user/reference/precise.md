@@ -257,6 +257,7 @@ If you leave the `perl` key out of your `.travis.yml`, Travis CI uses Perl 5.14.
 
 ### Pre-installed modules
 
+```
 cpanm (App::cpanminus)
 Dist::Zilla
 Dist::Zilla::Plugin::Bootstrap::lib
@@ -269,6 +270,7 @@ Test::Kwalitee
 Test::Most
 Test::Pod
 Test::Pod::Coverage
+```
 
 ## PHP VM images
 
