@@ -58,6 +58,7 @@ python:
   - "3.6"
   - "3.6-dev"  # 3.6 development branch
   - "3.7-dev"  # 3.7 development branch
+  - "3.8-dev"  # 3.8 development branch
   - "nightly"
 # command to install dependencies
 install:
@@ -104,8 +105,8 @@ python:
   - "3.5"
   - "3.6"
   # PyPy versions
-  - "pypy"   # PyPy2 5.8.0
-  - "pypy3"  # Pypy3 5.8.0-beta0
+  - "pypy2.7"
+  - "pypy3.5"
 # command to install dependencies
 install:
   - pip install .
@@ -118,13 +119,14 @@ script: pytest
 ### Nightly build support
 
 Travis CI supports a special version name `nightly`, which points to
-a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
+a recent development version of [CPython](https://github.com/python/cpython) build.
 
 ### Development releases support
 
-From Python 3.5, Python In Development versions are available.
+From Python 3.5 and later, Python In Development versions are available.
 
-You can specify these in your builds with `3.5-dev`, `3.6-dev` or `3.7-dev`.
+You can specify these in your builds with `3.5-dev`, `3.6-dev`,
+`3.7-dev` or `3.8-dev`.
 
 ## Default Build Script
 

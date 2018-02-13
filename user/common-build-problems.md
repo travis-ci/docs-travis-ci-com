@@ -105,7 +105,7 @@ Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
 ```js
-Capybara.default_wait_time = 15
+Capybara.default_max_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
@@ -479,6 +479,10 @@ install: travis_retry pip install myawesomepackage
 
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
+
+Note that `travis_retry` only works within the `script` step. It will not work
+in other steps, like `deploy`.
+
 
 ### Build times out because no output was received
 
