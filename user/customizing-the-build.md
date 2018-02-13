@@ -214,11 +214,7 @@ Some common reasons why builds might hang:
 
 ## Limiting Concurrent Jobs
 
-The maximum number of concurrent jobs depends on the total system load, but
-one situation in which you might want to set a particular limit is:
-
-- if your build depends on an external resource and might run into a race
-  condition with concurrent jobs.
+{{ site.data.snippets.concurrent_jobs }}
 
 You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
@@ -237,9 +233,9 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 

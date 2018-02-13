@@ -54,7 +54,7 @@ Add a table of contents to a page with the following HTML snippet:
 ### Beta features
 
 Mark all beta features with a specially formatted note. Both the `> BETA` and
-the `{: beta}` are required.
+the `{: .beta}` are required.
 
 > BETA Awesome new feature that might not be enabled and is subject to change.
 {: .beta}
