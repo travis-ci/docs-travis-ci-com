@@ -18,14 +18,14 @@ Each entry in the configuration is one of the following:
 1. a hostname
 1. a numeric IP address
 
-In the first case, we write key directly to `~/.ssh/known_hosts`.
+In the first case, we write the key directly to `~/.ssh/known_hosts`.
 
 In the last two cases, we run `ssh-keyscan` to add the host key.
 See [Security Implications](#Security-Implications) below to understand what this means.
 
 ## Examples
 
-Hosts may be given in various ways.
+Here are some examples of the different ways to add hosts.
 
 ### A single hash with `host`, `type`, `key`
 
@@ -101,4 +101,4 @@ Note that the `ssh_known_hosts` option may introduce a risk of man-in-the-middle
 For example, it may prevent a build from detecting that an illegitimate 3rd party attempts to inject a modified git repository or submodule into the build.
 This possibility might be of particular relevance where Travis CI build outputs are used for release packages or production deployments.
 
-We recommend using the first form.
+We recommend adding hosts using the hash with `host`, `type`, `key`.
