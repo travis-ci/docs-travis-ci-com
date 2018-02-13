@@ -46,6 +46,8 @@ The following table summarizes the differences across virtual environments and o
 | Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+| IPv4 Network     | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
+| IPv6 Network     | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 
 ## What infrastructure is my environment running on?
 
@@ -65,7 +67,7 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
+* `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `jupiter` → the build ran on macOS
 
 ### For a particular .travis.yml configuration
