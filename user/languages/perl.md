@@ -62,13 +62,12 @@ VM, please consult "Build system information" in the build log.
 Some Perls have been compiled with threading support. They have been compiled
 with the additional compile flags `-Duseshrplib` and `-Duseithreads`:
 
-```yaml
+```
 5.24-shrplib
 5.22-shrplib
 5.20-shrplib
 5.18-shrplib
 ```
-{: data-file=".travis.yml"}
 
 ## Default Build Script
 
@@ -114,11 +113,7 @@ to construct a build matrix.
 
 ## Environment Variables
 
-The version of Perl a job is using is available as:
-
-```
-TRAVIS_PERL_VERSION
-```
+The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
 
 ## Examples
 
