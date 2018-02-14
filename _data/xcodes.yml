@@ -45,8 +45,9 @@ osx_images:
       - watchOS 3.2
       - watchOS 4.0
       - watchOS 4.1
-      - watchOS 4.2 
-      - watchOS 4.3 
+      - watchOS 4.2
+      - watchOS 4.3
+    jdk: "1.8.0_112-b16"
   - image: xcode9.2
     xcode: "9.2"
     osx_version: "10.12"
@@ -92,6 +93,7 @@ osx_images:
       - watchOS 4.0
       - watchOS 4.1
       - watchOS 4.2
+    jdk: "1.8.0_112-b16"
   - image: xcode9.1
     xcode: "9.1"
     osx_version: "10.12"
@@ -134,6 +136,7 @@ osx_images:
       - watchOS 3.2
       - watchOS 4.0
       - watchOS 4.1
+    jdk: "1.8.0_112-b16"
   - image: xcode9
     xcode: "9.0"
     osx_version: "10.12"
@@ -173,6 +176,7 @@ osx_images:
       - watchOS 2.2
       - watchOS 3.2
       - watchOS 4.0
+    jdk: "1.8.0_112-b16"
   - image: xcode8.3
     xcode: "8.3"
     osx_version: "10.12"
@@ -210,6 +214,7 @@ osx_images:
       - watchOS 2.1
       - watchOS 2.2
       - watchOS 3.2
+    jdk: "1.8.0_112-b16"
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
@@ -246,6 +251,7 @@ osx_images:
       - "tvOS 9.0"
       - "tvOS 9.1"
       - "tvOS 9.2"
+    jdk: "1.8.0_92-b14"
   - image: xcode7.3
     xcode: "7.3"
     osx_version: "10.11"
@@ -273,6 +279,7 @@ osx_images:
       - "tvOS 9.0"
       - "tvOS 9.1"
       - "tvOS 9.2"
+    jdk: "1.8.0_92-b14"
   - image: xcode6.4
     xcode: "6.4"
     osx_version: "10.10"
@@ -287,3 +294,4 @@ osx_images:
       - "iOS 8.1"
       - "iOS 8.2"
       - "iOS 8.4"
+    jdk: "1.8.0_45-b14"
