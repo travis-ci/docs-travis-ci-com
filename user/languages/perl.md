@@ -60,16 +60,7 @@ VM, please consult "Build system information" in the build log.
 
 ### Perl runtimes with threading support
 
-Some Perls have been compiled with threading support. They have been compiled
-with the additional compile flags `-Duseshrplib` and `-Duseithreads`:
-
-```
-5.26-shrplib
-5.24-shrplib
-5.22-shrplib
-5.20-shrplib
-5.18-shrplib
-```
+{{ site.data.language-details.perl.threading }}
 
 ## Default Build Script
 

@@ -79,7 +79,7 @@ to accommodate projects that may need one of those runtimes during the build.
 
 Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).
 
-### Databases
+### Data Stores
 
 - MySQL
 - PostgreSQL
@@ -246,35 +246,18 @@ Scons
 
 ## Perl VM images
 
-### Perl versions
-
 Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
-Those runtimes that end with the `-extras` suffix have been compiled with
-`-Duseshrplib` and `-Duseithreads` flags.
-These also have aliases with the `-shrplib` suffix.
+The default version of Perl is 5.14.
 
-If you leave the `perl` key out of your `.travis.yml`, Travis CI uses Perl 5.14.
+### Perl runtimes with threading support
+
+{{ site.data.language-details.perl.threading }}
 
 ### Pre-installed modules
 
-```
-cpanm (App::cpanminus)
-Dist::Zilla
-Dist::Zilla::Plugin::Bootstrap::lib
-ExtUtils::MakeMaker
-LWP
-Module::Install
-Moose
-Test::Exception
-Test::Kwalitee
-Test::Most
-Test::Pod
-Test::Pod::Coverage
-```
+{{ site.data.language-details.perl.modules }}
 
 ## PHP VM images
-
-
 
 ### PHP versions
 
