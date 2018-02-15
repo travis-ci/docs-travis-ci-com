@@ -79,6 +79,10 @@ My::Repository.find('my/repo')
 
 Welcome to the Travis CI API documentation. This is the API used by the official Travis CI web interface, so everything the web ui is able to do can also be accomplished via the API.
 
+<aside class="warning">
+Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>. The API V2 described on this page will be deprecated sometime in 2018.
+</aside>
+
 The first thing you will have to find out is the correct API endpoint to use.
 
 - **Travis CI for open source:** For open source projects tested on [travis-ci.org](https://travis-ci.org), use **<https://api.travis-ci.org>**.
@@ -119,14 +123,10 @@ client.get('/repos/sinatra/sinatra')
 # => {"repo"=>#<Travis::Client::Repository: sinatra/sinatra>}
 ```
 
-<aside class="warning">
-  If you do not set the **Accept** header, you might retrieve our old API formats. These are deprecated and will be removed soon.
-</aside>
-
 When you write your own Travis CI client, please keep the following in mind:
 
 - Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-- Always set the **Accept** header to `application/vnd.travis-ci.2+json`.
+- Always set the **Accept** header to `application/vnd.travis-ci.2+json` to make sure that you get results from the V2 API.
 
 Any existing client library should take care of these for you.
 
