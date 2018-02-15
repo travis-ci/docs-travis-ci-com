@@ -71,18 +71,14 @@ API V2 (and 2.1) documentation is maintained in `slate/source`. To make changes 
 1. Install the requirements in `slate/Gemfile`:
 
    ```
-   bundle install --binstubs
+   bundle install
    ```
+
+2. Make your changes to `slate/source/index.md`.
 
 2. Build the API documentation:
 
    ```
-   bundle exec middleman build
-   ```
-
-3. Copy the new html files to `/api/`:
-
-   ```   
    rake update_docs
    ```
 
