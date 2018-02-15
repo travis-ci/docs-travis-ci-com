@@ -21,7 +21,7 @@ Minimal example:
 ```yaml
 language: perl
 perl:
-  - "5.24"
+  - "5.26"
 ```
 {: data-file=".travis.yml"}
 
@@ -45,6 +45,7 @@ you can test your projects against:
 ```yaml
 language: perl
 perl:
+  - "5.26"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -52,10 +53,10 @@ perl:
 {: data-file=".travis.yml"}
 
 These versions specified by `major.minor` numbers are aliases to exact patch
-levels which are subject to change. For precise versions pre-installed on the
+levels, which are subject to change. For precise versions pre-installed on the
 VM, please consult "Build system information" in the build log.
 
-> Perl versions earlier than 5.8 are not supported.*
+> Perl versions earlier than 5.8 are not supported.
 
 ### Perl runtimes with threading support
 
@@ -63,6 +64,7 @@ Some Perls have been compiled with threading support. They have been compiled
 with the additional compile flags `-Duseshrplib` and `-Duseithreads`:
 
 ```
+5.26-shrplib
 5.24-shrplib
 5.22-shrplib
 5.20-shrplib
@@ -84,7 +86,7 @@ The default build script varies according to your project:
   perl Makefile.PL && make test
   ```
 
-* if neither are found:
+* if neither is found:
 
   ```bash
   make test
@@ -98,12 +100,12 @@ By default Travis CI use `cpanm` to manage your project's dependencies.
 cpanm --quiet --installdeps --notest .
 ```
 
-### When Overriding Build Commands, Do Not Use sudo
+### When Overriding Build Commands, Do Not Use `sudo`
 
 When overriding `install:` key to tweak dependency installation command (for
-example, to run cpanm with verbosity flags), do not use sudo. Travis CI
-Environment has Perls installed via Perlbrew in non-privileged user $HOME
-directory. Using sudo will result in dependencies being installed in unexpected
+example, to run cpanm with verbosity flags), do not use `sudo`. Travis CI
+Environment has Perls installed via Perlbrew in non-privileged user's `$HOME`
+directory. Using `sudo` will result in dependencies being installed in unexpected
 (for Travis CI Perl builder) locations and they won't load.
 
 ## Build Matrix
