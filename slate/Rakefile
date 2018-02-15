@@ -1,8 +1,10 @@
 require 'middleman-gh-pages'
 
+# This seems an odd thing, but doesn't work without it...
+ENV["PROJECT_ROOT"]="../slate/"
+
 task :default => [:build]
 
-# This should depend on build, but build isn't working
-task :update_docs do
+task :update_docs => [:build] do
   system("cp -r build/* ../api/")
 end
