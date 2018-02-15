@@ -13,11 +13,14 @@ Travis CI can cache content that does not often change, to speed up your build p
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* If a branch does not have its own cache, Travis CI fetches the cache of the repository's default branch.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
 * Only modifications made to the cached directories from normal pushes are stored.
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
+
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
 
 ## Caching directories (Bundler, dependencies)
 
@@ -75,6 +78,18 @@ The command `bundle clean` is executed before the cache is uploaded.
 In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
 to get around it.
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
+
+### cache RVM Ruby version for non Ruby projects
+
+There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite.
+
+For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases you can cache the ruby installation.
+
+```yaml
+ cache:
+    directories:
+     - /home/travis/.rvm/
+```
 
 ### CocoaPods
 
@@ -395,6 +410,19 @@ CACHE_NAME=JOB1
 ```
 
 to `.travis.yml`.
+
+Note that when considering environment variables, the values must match *exactly*,
+including spaces.
+For example, with
+
+```yaml
+env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+```
+
+each of the three jobs will use its own cache.
 
 ## Caches and read permissions
 

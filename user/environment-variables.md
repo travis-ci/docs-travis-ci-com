@@ -45,7 +45,7 @@ When you define multiple variables per line in the `env` array (matrix variables
 ```yaml
 rvm:
   - 1.9.3
-  - rbx
+  - rbx-3
 env:
   - FOO=foo BAR=bar
   - FOO=bar BAR=foo
@@ -56,8 +56,8 @@ this configuration triggers **4 individual builds**:
 
 1. Ruby 1.9.3 with `FOO=foo` and `BAR=bar`
 2. Ruby 1.9.3 with `FOO=bar` and `BAR=foo`
-3. Rubinius latest version (rbx) with `FOO=foo` and `BAR=bar`
-4. Rubinius latest version (rbx) with `FOO=bar` and `BAR=foo`
+3. Rubinius latest version (rbx-3) with `FOO=foo` and `BAR=bar`
+4. Rubinius latest version (rbx-3) with `FOO=bar` and `BAR=foo`
 
 ### Global Variables
 
@@ -118,7 +118,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 3. Commit the changes to your `.travis.yml`.
 
-> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* access to the encrypted variables.
+> Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
@@ -126,12 +126,7 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 {: #Defining-Variables-in-Repository-Settings}
 
-Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
-
-Define variables in the Repository Settings that:
-
-- differ per repository.
-- contain sensitive data, such as third-party credentials.
+{{ site.data.snippets.environment_variables }}
 
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
 
@@ -140,7 +135,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly.
+> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you should put quotes around that value. E.g. `my secret passphrase` should be written `"my secret passphrase"`.
 
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
@@ -166,7 +161,7 @@ The following default environment variables are available to all builds.
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-- `USER=travis` (**do not depend on this value**)
+- `USER=travis` (**do not depend on this value**; do not override this value)
 - `HOME=/home/travis` (**do not depend on this value**)
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
@@ -203,6 +198,8 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
+- `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
+  it is emtpy.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:

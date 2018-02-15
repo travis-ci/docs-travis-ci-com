@@ -135,11 +135,14 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
+Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables) 
+using the travis gem. 
+
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 ```
 
 #### Branch Based Registry Pushes
@@ -150,7 +153,7 @@ use the `after_success` section of your `.travis.yml`:
 ```yaml
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push USER/REPO;
     fi
 ```
@@ -162,7 +165,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
@@ -194,6 +197,15 @@ updating it in the `before_install` step of your `.travis.yml`:
 before_install:
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+```
+{: data-file=".travis.yml"}
+
+Alternatively, you can use `addons` instead of `before_install` to update via `apt` as well:
+```yaml
+addons:
+  apt:
+    packages:
+      - docker-ce
 ```
 {: data-file=".travis.yml"}
 

@@ -28,18 +28,19 @@ key in your `.travis.yml` file, for example:
 language: haxe
 haxe:
   - "3.2.1"
-  - development
+  - stable      # the latest stable release defined in https://haxe.org/download/list/
+  - development # the latest build of the development branch in http://build.haxe.org/
 ```
 {: data-file=".travis.yml"}
 
 ## Default Haxe Version
 
-If you leave the `haxe:` key out of your `.travis.yml`, Travis CI will use
-Haxe 3.4.3.
+If you leave the `haxe:` key out of your `.travis.yml`, Travis CI will use `stable`, which is
+the latest stable release defined in the [haxe.org download list](https://haxe.org/download/list/).
 
 ## Default Neko Version
 
-By default, [Neko](http://nekovm.org/) 2.1.0 will also be downloaded and installed.
+By default, [Neko](http://nekovm.org/) 2.2.0 will also be downloaded and installed.
 Use the `neko:` key in your `.travis.yml` file to specify a different Neko version,
 for example:
 
