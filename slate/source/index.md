@@ -1830,6 +1830,8 @@ This has the potential of code injection, use with caution.
 
 Besides the official clients, there is a range of third party client available, amongst these:
 
+
+- **[PHP API Clients Travis Client](https://github.com/php-api-clients/travis)**: Asynchronous first PHP client library
 - **[PHP Travis Client](https://github.com/l3l0/php-travis-client)**: PHP client library
 - **[Travis Node.js](https://github.com/pwmckenna/node-travis-ci)**: Node.js client library
 - **[travis-api-wrapper](https://github.com/cmaujean/travis-api-wrapper)**: Asynchronous Node.js wrapper
