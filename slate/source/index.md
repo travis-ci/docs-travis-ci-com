@@ -362,7 +362,7 @@ Travis.access_token # => "YOUR TRAVIS ACCESS TOKEN"
 
 Since Travis CI will not store the GitHub token handed to it for authentication, it is possible to generate a temporary GitHub token and remove it again after the authentication handshake.
 
-To create and delete the GitHub token, you can either use the [GitHub web interface](https://github.com/settings/applications) or automate it via the [GitHub API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization).
+To create and delete the GitHub token, you can either use the [GitHub web interface](https://github.com/settings/tokens) or automate it via the [GitHub API](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization).
 
 Make sure your GitHub token has the scopes [required](#external-apis) by Travis CI.
 
