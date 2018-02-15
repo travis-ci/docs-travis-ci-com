@@ -328,7 +328,6 @@ For PHP versions up to 5.6, the following extensions are available:
 Please note that these extensions are not enabled by default with the exception
 of xdebug.
 
-
 ## Other software
 
 When `sudo: required` is specified, you may install other Ubuntu packages using
