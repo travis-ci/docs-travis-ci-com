@@ -1,3 +1,8 @@
 require 'middleman-gh-pages'
 
 task :default => [:build]
+
+# This should depend on build, but build isn't working
+task :update_docs do
+  system("cp -r build/* ../api/")
+end
