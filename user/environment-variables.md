@@ -199,11 +199,11 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
-  it is emtpy.
+  it is empty.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:
-  +  if the current job is a pull request, the name of the branch from which the PR originated.
+  + if the current job is a pull request, the name of the branch from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SHA`:
   + if the current job is a pull request, the commit SHA of the HEAD commit of the PR.
