@@ -90,6 +90,10 @@ The default build script for projects using nodejs is:
 npm test
 ```
 
+### Yarn is supported
+
+If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
+
 ### Using other Test Suites
 
 You can tell npm how to run your test suite by adding a line in `package.json`.
