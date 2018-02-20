@@ -56,7 +56,7 @@
           <li><a href='https://travis-ci.com'>Travis CI for Private Projects</a></li>
       </ul>
       <div class="toc-copyright">
-        &copy; 2015 Travis CI GmbH<br>
+        &copy; 2018 Travis CI GmbH<br>
         Rigaerstr. 8,<br>
         10247 Berlin, Germany
       </div>
@@ -64,29 +64,29 @@
     <div class="page-wrapper">
       <div class="content">
         <h1 id="overview">Overview</h1>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</code></pre><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">travis.example.com</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis raw /
-<span class="o">{</span><span class="s2">"hello"</span><span class="o">=&gt;</span><span class="s2">"world"</span><span class="o">}</span>
+</code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis raw /
+<span class="o">{</span><span class="s2">"hello"</span><span class="o">=</span>&gt;<span class="s2">"world"</span><span class="o">}</span>
 
-<span class="nv">$ </span>travis raw / <span class="nt">--pro</span>
-<span class="o">{</span><span class="s2">"hello"</span><span class="o">=&gt;</span><span class="s2">"world"</span><span class="o">}</span>
+<span class="gp">$ </span>travis raw / --pro
+<span class="o">{</span><span class="s2">"hello"</span><span class="o">=</span>&gt;<span class="s2">"world"</span><span class="o">}</span>
 
-<span class="nv">$ </span>travis raw / <span class="nt">--api-endpoint</span> https://travis.example.com/api
-<span class="o">{</span><span class="s2">"hello"</span><span class="o">=&gt;</span><span class="s2">"world"</span><span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+<span class="gp">$ </span>travis raw / --api-endpoint https://travis.example.com/api
+<span class="o">{</span><span class="s2">"hello"</span><span class="o">=</span>&gt;<span class="s2">"world"</span><span class="o">}</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="c1"># talk to travis-ci.org via client object</span>
 <span class="n">client</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span>
@@ -113,35 +113,35 @@
 <span class="no">My</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="o">::</span><span class="no">Namespaces</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'https://travis.example.com/api'</span><span class="p">)</span>
 <span class="no">My</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="no">My</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
-</code></pre></div>
-<p>Welcome to the Travis CI API documentation. This is the API used by the official Travis CI web interface, so everything the web ui is able to do can also be accomplished via the API.</p>
+</code></pre>
+<p>Welcome to the Travis CI API V2 documentation.</p>
 
-<aside class="warning">
+<aside class="note">
 Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>. The API V2 described on this page will be deprecated sometime in 2018.
 </aside>
 
 <p>The first thing you will have to find out is the correct API endpoint to use.</p>
 
 <ul>
-<li><strong>Travis CI for open source:</strong> For open source projects tested on <a href="https://travis-ci.org">travis-ci.org</a>, use <strong><a href="https://api.travis-ci.org">https://api.travis-ci.org</a></strong>.</li>
-<li><strong>Travis Pro:</strong> For private projects tested on <a href="https://travis-ci.com">travis-ci.com</a>, use <strong><a href="https://api.travis-ci.com">https://api.travis-ci.com</a></strong>.</li>
-<li><strong>Travis Enterprise:</strong> For projects running on a custom setup, use <strong><a href="#">https://travis.example.com/api</a></strong> (where you replace travis.example.com with the domain Travis CI is running on).</li>
+<li><strong>Travis CI for open source:</strong> For open source projects built on <a href="https://travis-ci.org">travis-ci.org</a>, use <code class="prettyprint">https://api.travis-ci.org</code>.</li>
+<li><strong>Travis Pro:</strong> For private projects built on <a href="https://travis-ci.com">travis-ci.com</a>, use <code class="prettyprint">https://api.travis-ci.com</code>.</li>
+<li><strong>Travis Enterprise:</strong> For projects running on a custom setup, use <code class="prettyprint">https://travis.example.com/api</code> (where you replace travis.example.com with the domain Travis CI is running on).</li>
 </ul>
 
 <p>Note that both Pro and Enterprise will require almost all API calls to be <a href="#authentication">authenticated</a>.</p>
 
 <h1 id="making-requests">Making Requests</h1>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="s2">"hello"</span><span class="p">:</span><span class="s2">"world"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis raw /
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis raw /
 <span class="o">{</span><span class="s2">"hello"</span>:<span class="s2">"world"</span><span class="o">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="c1"># You usually don't want to fire API requests manually</span>
 <span class="n">client</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span>
@@ -149,7 +149,7 @@ Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <
 
 <span class="n">client</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s1">'/repos/sinatra/sinatra'</span><span class="p">)</span>
 <span class="c1"># =&gt; {"repo"=&gt;#&lt;Travis::Client::Repository: sinatra/sinatra&gt;}</span>
-</code></pre></div>
+</code></pre>
 <p>When you write your own Travis CI client, please keep the following in mind:</p>
 
 <ul>
@@ -160,11 +160,11 @@ Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <
 <p>Any existing client library should take care of these for you.</p>
 
 <h1 id="external-apis">External APIs</h1>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/config</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/config</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -180,19 +180,19 @@ Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis raw /config
-<span class="o">{</span><span class="s2">"config"</span><span class="o">=&gt;</span>
-  <span class="o">{</span><span class="s2">"host"</span><span class="o">=&gt;</span><span class="s2">"travis-ci.org"</span>,
-   <span class="s2">"pusher"</span><span class="o">=&gt;{</span><span class="s2">"key"</span><span class="o">=&gt;</span><span class="s2">"5df8ac576dcccf4fd076"</span><span class="o">}</span>,
-   <span class="s2">"github"</span><span class="o">=&gt;</span>
-    <span class="o">{</span><span class="s2">"api_url"</span><span class="o">=&gt;</span><span class="s2">"https://api.github.com"</span>,
-     <span class="s2">"scopes"</span><span class="o">=&gt;</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis raw /config
+<span class="o">{</span><span class="s2">"config"</span><span class="o">=</span>&gt;
+  <span class="o">{</span><span class="s2">"host"</span><span class="o">=</span>&gt;<span class="s2">"travis-ci.org"</span>,
+   <span class="s2">"pusher"</span><span class="o">=</span>&gt;<span class="o">{</span><span class="s2">"key"</span><span class="o">=</span>&gt;<span class="s2">"5df8ac576dcccf4fd076"</span><span class="o">}</span>,
+   <span class="s2">"github"</span><span class="o">=</span>&gt;
+    <span class="o">{</span><span class="s2">"api_url"</span><span class="o">=</span>&gt;<span class="s2">"https://api.github.com"</span>,
+     <span class="s2">"scopes"</span><span class="o">=</span>&gt;
       <span class="o">[</span><span class="s2">"read:org"</span>,
        <span class="s2">"user:email"</span>,
        <span class="s2">"repo_deployment"</span>,
        <span class="s2">"repo:status"</span>,
        <span class="s2">"write:repo_hook"</span><span class="o">]}}}</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="n">client</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">client</span><span class="p">.</span><span class="nf">config</span>
 <span class="c1"># =&gt; {"host"=&gt;"travis-ci.org",</span>
@@ -205,7 +205,7 @@ Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <
 <span class="c1">#         "repo_deployment",</span>
 <span class="c1">#         "repo:status",</span>
 <span class="c1">#         "write:repo_hook"]}}</span>
-</code></pre></div>
+</code></pre>
 <p>Travis CI integrates with external services, some of which your client library might want to interface with directly.
 Most prominently, it uses GitHub as source for users, organizations and repositories, and Pusher for live streaming logs.</p>
 
@@ -219,13 +219,13 @@ Most prominently, it uses GitHub as source for users, organizations and reposito
 </ul>
 
 <h1 id="authentication">Authentication</h1>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis whoami <span class="nt">-t</span> <span class="s2">"YOUR TRAVIS ACCESS TOKEN"</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis whoami -t <span class="s2">"YOUR TRAVIS ACCESS TOKEN"</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="c1"># against the Travis namespace</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
@@ -234,7 +234,7 @@ Most prominently, it uses GitHub as source for users, organizations and reposito
 <span class="c1"># against a client object</span>
 <span class="n">client</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">access_token: </span><span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span><span class="p">)</span>
 <span class="n">client</span><span class="p">.</span><span class="nf">user</span>
-</code></pre></div>
+</code></pre>
 <aside class="notice">
 Do not confuse the <i>access token</i> with the token found on your profile page.
 </aside>
@@ -244,7 +244,7 @@ Do not confuse the <i>access token</i> with the token found on your profile page
 <p>You can retrieve a token by using a GitHub token to prove who you are. In the future, we are planning to add a proper OAuth handshake for third party applications.</p>
 
 <h2 id="with-a-github-token">With a GitHub token</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
@@ -252,16 +252,16 @@ Do not confuse the <i>access token</i> with the token found on your profile page
 <span class="na">Content-Length</span><span class="p">:</span> <span class="s">37</span>
 
 <span class="p">{</span><span class="s2">"github_token"</span><span class="p">:</span><span class="s2">"YOUR GITHUB TOKEN"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"YOUR TRAVIS ACCESS TOKEN"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis login <span class="nt">--github-token</span> <span class="s2">"YOUR GITHUB TOKEN"</span>
-Successfully logged <span class="k">in</span><span class="o">!</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis login --github-token <span class="s2">"YOUR GITHUB TOKEN"</span>
+Successfully logged <span class="k">in</span>!
 
-<span class="nv">$ </span>travis token
+<span class="gp">$ </span>travis token
 Your access token is YOUR TRAVIS ACCESS TOKEN
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="c1"># against the Travis namespace</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">github_auth</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -269,14 +269,14 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="c1"># against a client object</span>
 <span class="n">client</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">client</span><span class="p">.</span><span class="nf">github_auth</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
 <p>If you have a GitHub token, you can use the GitHub authentication endpoint to exchange it for an access token.
 The Travis API server will not store the token or use it for anything else than verifying the user account.</p>
 
 <p>Note that therefore the API cannot be used to create new user accounts. The user will have to log in at least once via the web interface before interfacing with the API by other means.</p>
 
 <h2 id="creating-a-temporary-github-token">Creating a temporary GitHub token</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/authorizations</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/authorizations</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.github.com</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic ...</span>
@@ -288,7 +288,7 @@ The Travis API server will not store the token or use it for anything else than 
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temporary token to auth against travis"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -301,7 +301,7 @@ The Travis API server will not store the token or use it for anything else than 
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR GITHUB TOKEN"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temporary token to auth against travis"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span></code></pre><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
@@ -309,19 +309,19 @@ The Travis API server will not store the token or use it for anything else than 
 <span class="na">Content-Length</span><span class="p">:</span> <span class="s">37</span>
 
 <span class="p">{</span><span class="s2">"github_token"</span><span class="p">:</span><span class="s2">"YOUR GITHUB TOKEN"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span></code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"YOUR TRAVIS ACCESS TOKEN"</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/authorizations/1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span></code></pre><pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/authorizations/1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.github.com</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic ...</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis login <span class="nt">--auto</span>
-Successfully logged <span class="k">in</span><span class="o">!</span>
+</code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis login --auto
+Successfully logged <span class="k">in</span>!
 
-<span class="nv">$ </span>travis token
+<span class="gp">$ </span>travis token
 Your access token is YOUR TRAVIS ACCESS TOKEN
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="nb">require</span> <span class="s1">'travis/tools/github'</span>
 
 <span class="c1"># drop_token will make the token a temporary one</span>
@@ -336,7 +336,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <span class="k">end</span>
 
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="c1"># =&gt; "YOUR TRAVIS ACCESS TOKEN"</span>
-</code></pre></div>
+</code></pre>
 <p>Since Travis CI will not store the GitHub token handed to it for authentication, it is possible to generate a temporary GitHub token and remove it again after the authentication handshake.</p>
 
 <p>To create and delete the GitHub token, you can either use the <a href="https://github.com/settings/tokens">GitHub web interface</a> or automate it via the <a href="https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization">GitHub API</a>.</p>
@@ -358,12 +358,12 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <blockquote>
 <p>Triggering an OAuth handshake between GitHub and Travis CI:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://api.travis-ci.com/auth/handshake"</span><span class="nt">&gt;</span>log in<span class="nt">&lt;/a&gt;</span>
-</code></pre></div>
+<pre class="highlight html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://api.travis-ci.com/auth/handshake"</span><span class="nt">&gt;</span>log in<span class="nt">&lt;/a&gt;</span>
+</code></pre>
 <blockquote>
 <p>Running the OAuth handshake in an iframe:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"message"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"received token: "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">token</span><span class="p">);</span>
   <span class="p">});</span>
@@ -372,7 +372,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
   <span class="nx">iframe</span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">'body'</span><span class="p">);</span>
   <span class="nx">iframe</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span> <span class="s2">"https://api.travis-ci.org/auth/post_message"</span><span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
+</code></pre>
 <p>You can also trigger a full OAuth handshake between Travis CI and GitHub by opening <code class="prettyprint">/auth/handshake</code> in a web browser. The endpoint takes an optional <code class="prettyprint">redirect_uri</code> query parameter, which takes a URL the web browser will end up on if the handshake is successful.</p>
 
 <p>There is an alternative version of this that will try to run the handshake in a hidden iframe and using <code class="prettyprint">window.postMessage</code> to hand the token to the website embedding the iframe. <strong>This endpoint will only work for whitelisted websites.</strong></p>
@@ -380,12 +380,12 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <h1 id="entities">Entities</h1>
 
 <h2 id="accounts">Accounts</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -406,16 +406,16 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
       </span><span class="p">}</span><span class="w">
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis accounts
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis accounts
 rkh <span class="o">(</span>Konstantin Haase<span class="o">)</span>: subscribed, 167 repositories
 travis-ci <span class="o">(</span>Travis CI<span class="o">)</span>: subscribed, 70 repositories
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 
 <span class="no">Travis</span><span class="p">.</span><span class="nf">accounts</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">account</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">account</span><span class="p">.</span><span class="nf">login</span><span class="si">}</span><span class="s2"> has </span><span class="si">#{</span><span class="n">account</span><span class="p">.</span><span class="nf">repos_count</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <p>A user might have access to multiple accounts. This is usually the account corresponding to the user directly and one account per GitHub organization.</p>
 
 <h3 id="attributes">Attributes</h3>
@@ -475,11 +475,11 @@ travis-ci <span class="o">(</span>Travis CI<span class="o">)</span>: subscribed,
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="branches">Branches</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/rails/rails/branches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/rails/rails/branches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -499,13 +499,13 @@ travis-ci <span class="o">(</span>Travis CI<span class="o">)</span>: subscribed,
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis branches <span class="nt">-r</span> rails/rails
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis branches -r rails/rails
 v4.1.0:         <span class="c">#15184 created  Dont encourage aliases now that …</span>
 master:         <span class="c">#15183 created  Dont abbreviate that which needs…</span>
 4-1-0:          <span class="c">#15183 created  Dont encourage aliases now that …</span>
 4-1-stable:     <span class="c">#15185 created  Merge branch '4-1-0' into 4-1-st…</span>
 adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha…</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="n">repository</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'rails/rails'</span><span class="p">)</span>
 <span class="n">repository</span><span class="p">.</span><span class="nf">branches</span>
@@ -515,7 +515,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <span class="c1">#      "4-1-stable"     =&gt; #&lt;Travis::Client::Build: rails/rails#15185&gt;,</span>
 <span class="c1">#      "adequaterecord" =&gt; #&lt;Travis::Client::Build: rails/rails#15158&gt;,</span>
 <span class="c1">#      "4-0-stable"     =&gt; #&lt;Travis::Client::Build: rails/rails#15143&gt;}</span>
-</code></pre></div>
+</code></pre>
 <p>The branches API can be used to get information about the latest build on a given branch.</p>
 
 <h3 id="attributes">Attributes</h3>
@@ -537,12 +537,12 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <p><code class="prettyprint">GET /repos/{+repository.slug}/branches/{branch}</code></p>
 
 <h2 id="broadcasts">Broadcasts</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/broadcasts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/broadcasts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -553,14 +553,14 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis raw /broadcasts
-<span class="o">{</span><span class="s2">"broadcasts"</span><span class="o">=&gt;[{</span><span class="s2">"id"</span><span class="o">=&gt;</span>451, <span class="s2">"message"</span><span class="o">=&gt;</span><span class="s2">"This is a broadcast!"</span><span class="o">}]}</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis raw /broadcasts
+<span class="o">{</span><span class="s2">"broadcasts"</span><span class="o">=</span>&gt;[<span class="o">{</span><span class="s2">"id"</span><span class="o">=</span>&gt;451, <span class="s2">"message"</span><span class="o">=</span>&gt;<span class="s2">"This is a broadcast!"</span><span class="o">}]}</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="no">Travis</span><span class="o">::</span><span class="no">Broadcast</span><span class="p">.</span><span class="nf">current</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">broadcast</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="n">broadcast</span><span class="p">.</span><span class="nf">message</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -586,11 +586,11 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="builds">Builds</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -614,15 +614,15 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
   </span><span class="s2">"jobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">
   </span><span class="s2">"commits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis <span class="nb">history</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis <span class="nb">history</span>
 ...
-<span class="nv">$ </span>travis show 15 <span class="c"># show build #15</span>
+<span class="gp">$ </span>travis show 15 <span class="c"># show build #15</span>
 ...
-<span class="nv">$ </span>travis restart 15
+<span class="gp">$ </span>travis restart 15
 ...
-<span class="nv">$ </span>travis cancel 15
+<span class="gp">$ </span>travis cancel 15
 ...
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 
 <span class="n">repository</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
@@ -630,7 +630,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
   <span class="c1"># restart all the builds</span>
   <span class="n">build</span><span class="p">.</span><span class="nf">restart</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -813,12 +813,12 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="caches">Caches</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/travis-pro/billing/caches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/travis-pro/billing/caches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -832,7 +832,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis cache <span class="nt">-r</span> travis-pro/billing
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis cache -r travis-pro/billing
 On branch master:
 cache--rvm-2.0.0--gemfile-Gemfile  last modified: 2014-03-06 11:19:49  size: 98.87 MiB
 
@@ -842,8 +842,8 @@ cache--rvm-2.1.0--gemfile-Gemfile  last modified: 2013-12-28 09:42:21  size: 88.
 
 Overall size of above caches: 371.08 MiB
 
-<span class="nv">$ </span>travis cache <span class="nt">-r</span> travis-pro/billing <span class="nt">--delete</span> <span class="nt">--branch</span> mm-ruby-2.1
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+<span class="gp">$ </span>travis cache -r travis-pro/billing --delete --branch mm-ruby-2.1
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="n">repository</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'travis-pro/billing'</span><span class="p">)</span>
 <span class="n">repository</span><span class="p">.</span><span class="nf">caches</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cache</span><span class="o">|</span>
@@ -853,7 +853,7 @@ Overall size of above caches: 371.08 MiB
 
 <span class="c1"># or in a single request</span>
 <span class="n">repository</span><span class="p">.</span><span class="nf">delete_caches</span><span class="p">(</span><span class="ss">branch: </span><span class="s1">'mm-ruby-2.1'</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -939,11 +939,11 @@ Overall size of above caches: 371.08 MiB
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="commits">Commits</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -964,17 +964,17 @@ Overall size of above caches: 371.08 MiB
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis <span class="nb">history</span> <span class="nt">-r</span> sinatra/sinatra
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis <span class="nb">history</span> -r sinatra/sinatra
 <span class="c">#784 failed:     master Merge pull request #861 from kant/patch-1</span>
 <span class="c">#783 passed:     v1.4.5 v1.4.5</span>
 <span class="c">#782 passed:     master v1.4.5</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="n">repository</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
 <span class="n">repository</span><span class="p">.</span><span class="nf">each_build</span> <span class="k">do</span> <span class="o">|</span><span class="n">build</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="n">build</span><span class="p">.</span><span class="nf">commit</span><span class="p">.</span><span class="nf">message</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <p>There is no API endpoint for resolving commits, however commit data might be included in other API responses, like <a href="#builds">builds</a> or <a href="#jobs">jobs</a>.</p>
 
 <h3 id="attributes">Attributes</h3>
@@ -1028,7 +1028,7 @@ Overall size of above caches: 371.08 MiB
 </tbody></table>
 
 <h2 id="hooks">Hooks</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/hooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/hooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
@@ -1041,11 +1041,11 @@ Overall size of above caches: 371.08 MiB
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis <span class="nb">enable</span> <span class="nt">-r</span> my/repo
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis <span class="nb">enable</span> -r my/repo
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">hooks</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">hook</span><span class="o">|</span> <span class="n">hook</span><span class="p">.</span><span class="nf">enable</span> <span class="p">}</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <p>See <a href="#repositories">repository</a>.</p>
@@ -1098,19 +1098,19 @@ Overall size of above caches: 371.08 MiB
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="jobs">Jobs</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/jobs/42/restart</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/jobs/42/restart</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis restart 1.2 <span class="nt">-r</span> my/repo
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis restart 1.2 -r my/repo
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 
 <span class="no">Travis</span><span class="p">.</span><span class="nf">repos</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">).</span><span class="nf">last_build</span><span class="p">.</span><span class="nf">jobs</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">job</span><span class="o">|</span>
   <span class="n">job</span><span class="p">.</span><span class="nf">restart</span> <span class="k">if</span> <span class="n">job</span><span class="p">.</span><span class="nf">failed?</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -1217,17 +1217,17 @@ If you provide <code class="prettyprint">state</code> or <code class="prettyprin
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="logs">Logs</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/jobs/42/log</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/jobs/42/log</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">text/plain</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="s">Content-Type text/plain</span>
 
 Using worker: ...
-</code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis logs
+</code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis logs
 ... logs ...
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="n">rails</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'rails/rails'</span><span class="p">)</span>
 <span class="n">job</span>   <span class="o">=</span> <span class="n">rails</span><span class="p">.</span><span class="nf">last_build</span><span class="p">.</span><span class="nf">jobs</span><span class="p">.</span><span class="nf">first</span>
@@ -1236,7 +1236,7 @@ Using worker: ...
 <span class="n">job</span><span class="p">.</span><span class="nf">log</span><span class="p">.</span><span class="nf">body</span> <span class="k">do</span> <span class="o">|</span><span class="n">part</span><span class="o">|</span>
   <span class="nb">print</span> <span class="n">part</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -1318,12 +1318,12 @@ Using worker: ...
 <p>To stream the logs, you will have to subscribe to the channel for the job the log belongs to on Pusher (channel is <code class="prettyprint">job-{job.id}</code>) and listen for <code class="prettyprint">job:log</code> events. The payload will have the same format as parts have in the chunked attributes API payloads.</p>
 
 <h2 id="permissions">Permissions</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/permissions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/permissions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1332,14 +1332,14 @@ Using worker: ...
   </span><span class="s2">"pull"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"push"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis repos
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis repos
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 
 <span class="no">Travis</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">push_access</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">repo</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">"has push access to </span><span class="si">#{</span><span class="n">repo</span><span class="p">.</span><span class="nf">slug</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <p>The permissions endpoint will return arrays of repository ids:</p>
 
 <table><thead>
@@ -1375,39 +1375,39 @@ Using worker: ...
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="repository-keys">Repository Keys</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/key</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/key</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
   </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN RSA PUBLIC KEY-----</span><span class="se">\\</span><span class="s2">nMIGJAoGBAOcx131amMqIzm5+FbZz+DhIgSDbFzjKKpzaN5UWVCrLSc57z64xxTV6</span><span class="se">\\</span><span class="s2">nkaOTZmjCWz6WpaPkFZY+czfL7lmuZ/Y6UNm0vupvdZ6t27SytFFGd1/RJlAe89tu</span><span class="se">\\</span><span class="s2">nGcIrC1vtEvQu2frMLvHqFylnGd5Gy64qkQT4KRhMsfZctX4z5VzTAgMBAAE=</span><span class="se">\\</span><span class="s2">n-----END RSA PUBLIC KEY-----</span><span class="se">\\</span><span class="s2">n"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef:39:56:6e:2a:09:a2:10:2e:b5:39:ac:3d:3e:e1:05"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis pubkey <span class="nt">-r</span> travis-ci/travis-api
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis pubkey -r travis-ci/travis-api
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCOmOkC6MYRH1w2ib3AIC00GNwmgr8ch3mNHZ16x6cvSMjc6cURZt9Hav6gz03P5+9e5Vw1ztm3hvPR+IJsyOV/CSsYf1Cgboj6ZJ7tr3xOJXcqcMVfiGiG7Km6/psRdn0jrjTpU/qcru8Wx3zbQEf5NuXQyMVHmnl8/5w0WPV/Uw<span class="o">==</span>
 
-<span class="nv">$ </span>travis pubkey <span class="nt">--pem</span> <span class="nt">-r</span> travis-ci/travis-api
-<span class="nt">-----BEGIN</span> RSA PUBLIC KEY-----
+<span class="gp">$ </span>travis pubkey --pem -r travis-ci/travis-api
+-----BEGIN RSA PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOmOkC6MYRH1w2ib3AIC00GNwm
 gr8ch3mNHZ16x6cvSMjc6cURZt9Hav6gz03P5+9e5Vw1ztm3hvPR+IJsyOV/CSsY
 f1Cgboj6ZJ7tr3xOJXcqcMVfiGiG7Km6/psRdn0jrjTpU/qcru8Wx3zbQEf5NuXQ
 yMVHmnl8/5w0WPV/UwIDAQAB
-<span class="nt">-----END</span> RSA PUBLIC KEY-----
+-----END RSA PUBLIC KEY-----
 
-<span class="nv">$ </span>travis pubkey <span class="nt">--fingerprint</span> <span class="nt">-r</span> travis-ci/travis-api
+<span class="gp">$ </span>travis pubkey --fingerprint -r travis-ci/travis-api
 99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="n">repo</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'travis-ci/travis-api'</span><span class="p">)</span>
 
 <span class="nb">puts</span> <span class="s2">"SSH format:  "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_ssh</span>
 <span class="nb">puts</span> <span class="s2">"PEM format:  "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">to_s</span>
 <span class="nb">puts</span> <span class="s2">"Fingerprint: "</span><span class="p">,</span> <span class="n">repo</span><span class="p">.</span><span class="nf">key</span><span class="p">.</span><span class="nf">fingerprint</span>
 <span class="nb">puts</span> <span class="n">repository</span><span class="p">.</span><span class="nf">encrypt</span><span class="p">(</span><span class="s2">"example"</span><span class="p">)</span>
-</code></pre></div>
+</code></pre>
 <table><thead>
 <tr>
 <th style="text-align: left">Attribute</th>
@@ -1443,12 +1443,12 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="repositories">Repositories</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1465,14 +1465,14 @@ yMVHmnl8/5w0WPV/UwIDAQAB
     </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis show <span class="nt">-r</span> travis-ci/travis-api
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis show -r travis-ci/travis-api
 ...
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="n">repos</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find_all</span><span class="p">(</span><span class="ss">owner_name: </span><span class="s1">'sinatra'</span><span class="p">)</span>
 <span class="n">repos</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">repo</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="n">repo</span><span class="p">.</span><span class="nf">slug</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -1573,12 +1573,12 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <p>If no parameters are given, a list or repositories with recent activity is returned.</p>
 
 <h2 id="requests">Requests</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/requests/6301283</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/requests/6301283</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1607,14 +1607,14 @@ yMVHmnl8/5w0WPV/UwIDAQAB
     </span><span class="s2">"compare_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/..."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis requests <span class="nt">-r</span> my/repo
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis requests -r my/repo
 ...
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'sinatra/sinatra'</span><span class="p">).</span><span class="nf">requests</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">request</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">request</span><span class="p">.</span><span class="nf">commit</span><span class="p">.</span><span class="nf">sha</span><span class="si">}</span><span class="s2">: </span><span class="si">#{</span><span class="n">request</span><span class="p">.</span><span class="nf">result</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <p>Requests can be used to see if and why a GitHub event has or has not triggered a new build.</p>
 
 <h3 id="attributes">Attributes</h3>
@@ -1731,12 +1731,12 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <p>You have to either provide <code class="prettyprint">repository_id</code> or <code class="prettyprint">slug</code>.</p>
 
 <h2 id="settings-general">Settings: General</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/82/settings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/82/settings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1747,20 +1747,20 @@ yMVHmnl8/5w0WPV/UwIDAQAB
     </span><span class="s2">"maximum_number_of_builds"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis settings
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis settings
 Settings <span class="k">for </span>travis-ci/travis-api:
 <span class="o">[</span>-] builds_only_with_travis_yml    Only run builds with a .travis.yml
 <span class="o">[</span>+] build_pushes                   Build pushes
 <span class="o">[</span>+] build_pull_requests            Build pull requests
   0 maximum_number_of_builds       Maximum number of concurrent builds
 
-<span class="nv">$ </span>travis settings build_pull_requests <span class="nt">--enable</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+<span class="gp">$ </span>travis settings build_pull_requests --enable
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="n">repo</span> <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
 <span class="n">repo</span><span class="p">.</span><span class="nf">settings</span><span class="p">.</span><span class="nf">build_pull_requests</span> <span class="o">=</span> <span class="kp">false</span>
 <span class="n">repo</span><span class="p">.</span><span class="nf">settings</span><span class="p">.</span><span class="nf">save</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -1814,12 +1814,12 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="settings-environment-variables">Settings: Environment Variables</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/env_vars?repository_id=124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/env_vars?repository_id=124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1839,14 +1839,14 @@ Settings <span class="k">for </span>travis-ci/travis-api:
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis env list
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis env list
 <span class="nv">example</span><span class="o">=</span>foobar
 <span class="nv">secret_example</span><span class="o">=[</span>secure]
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span>  <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="n">repo</span>                 <span class="o">=</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">)</span>
 <span class="n">repo</span><span class="p">.</span><span class="nf">env_vars</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span> <span class="o">=</span> <span class="n">bar</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -1970,12 +1970,12 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <aside class="notice">
 This API is only available on Travis Pro.
 </aside>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/ssh_key/124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/ssh_key/124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -1984,12 +1984,12 @@ This API is only available on Travis Pro.
     </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis sshkey
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis sshkey
 No custom SSH key installed.
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis/pro'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis/pro'</span>
 <span class="no">Travis</span><span class="o">::</span><span class="no">Pro</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="nb">puts</span> <span class="no">Travis</span><span class="o">::</span><span class="no">Pro</span><span class="o">::</span><span class="no">Repository</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'my/repo'</span><span class="p">).</span><span class="nf">ssh_key</span><span class="p">.</span><span class="nf">description</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -2055,12 +2055,12 @@ No custom SSH key installed.
 <p>This request always needs to be authenticated.</p>
 
 <h2 id="users">Users</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -2076,16 +2076,16 @@ No custom SSH key installed.
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-30T16:25:21Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis whoami
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis whoami
 You are rkh <span class="o">(</span>Konstantin Haase<span class="o">)</span>
 
-<span class="nv">$ </span>travis sync
+<span class="gp">$ </span>travis sync
 synchronizing: ... <span class="k">done</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="s1">'YOUR TRAVIS ACCESS TOKEN'</span>
 <span class="nb">puts</span> <span class="no">Travis</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">name</span>
 <span class="no">Travis</span><span class="p">.</span><span class="nf">user</span><span class="p">.</span><span class="nf">sync</span>
-</code></pre></div>
+</code></pre>
 <h3 id="attributes">Attributes</h3>
 
 <table><thead>
@@ -2151,7 +2151,7 @@ synchronizing: ... <span class="k">done</span>
 <h1 id="other-endpoints">Other Endpoints</h1>
 
 <h2 id="linting">Linting</h2>
-<div class="highlight"><pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/lint/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/lint/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
@@ -2159,7 +2159,7 @@ synchronizing: ... <span class="k">done</span>
 
 language: ruby
 jdk: default
-</code></pre></div><div class="highlight"><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
@@ -2172,10 +2172,10 @@ jdk: default
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>travis lint example.yml
+</span></code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis lint example.yml
 Warnings <span class="k">for </span>example.yml:
 <span class="o">[</span>x] dropping jdk section: specified jdk, but ruby does not include jruby
-</code></pre></div><div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
+</code></pre><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'travis'</span>
 
 <span class="n">content</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">YAML</span><span class="sh">
   language: ruby
@@ -2185,7 +2185,7 @@ Warnings <span class="k">for </span>example.yml:
 <span class="no">Travis</span><span class="p">.</span><span class="nf">lint</span><span class="p">(</span><span class="n">content</span><span class="p">).</span><span class="nf">warnings</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">warning</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">"%p: %s"</span> <span class="o">%</span> <span class="p">[</span><span class="n">warning</span><span class="p">.</span><span class="nf">key</span><span class="p">,</span> <span class="n">warning</span><span class="p">.</span><span class="nf">message</span><span class="p">]</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
 <p><code class="prettyprint">POST /lint</code></p>
 
 <table><thead>
@@ -2225,7 +2225,7 @@ Warnings <span class="k">for </span>example.yml:
 <blockquote>
 <p>API requests using CORS:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
   <span class="c1">// using XMLHttpRequest or XDomainRequest to send an API request</span>
   <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">XDomainRequest</span> <span class="p">?</span> <span class="k">new</span> <span class="nx">XDomainRequest</span><span class="p">()</span> <span class="p">:</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
@@ -2236,26 +2236,26 @@ Warnings <span class="k">for </span>example.yml:
     <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
+</code></pre>
 <blockquote>
 <p>With jQuery:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
   <span class="na">url</span><span class="p">:</span> <span class="s2">"https://api.travis-ci.org/"</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="na">Accept</span><span class="p">:</span> <span class="s2">"application/vnd.travis-ci.2+json"</span> <span class="p">},</span>
   <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"it worked!"</span><span class="p">)</span> <span class="p">}</span>
 <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
-</code></pre></div>
+</code></pre>
 <blockquote>
 <p>JSONP</p>
 </blockquote>
-<div class="highlight"><pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
   <span class="kd">function</span> <span class="nx">jsonpCallback</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"it worked!"</span><span class="p">)</span> <span class="p">};</span>
 <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://api.travis-ci.org/?callback=jsonpCallback"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+</code></pre>
 <p>When writing an in-browser client, you have to circumvent the browser&rsquo;s
 <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>.
 Generally, we offer two different approaches for this:
