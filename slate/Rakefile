@@ -5,6 +5,10 @@ ENV["PROJECT_ROOT"]="../slate/"
 
 task :default => [:build]
 
+task :serve do
+  system("bundle exec middleman server")
+end
+
 task :update_docs => [:build] do
   system("cp -r build/* ../api/")
 end
