@@ -13,6 +13,35 @@ toc_footers:
 
 # Overview
 
+Welcome to the Travis CI API V2 documentation.
+
+<aside class="note">
+
+</aside>
+
+## API V2.1
+
+API V2.1 is identical to API V2 **except for the following breaking changes**:
+
+* For public repositories, unauthenticated requests receive an HTTP 200 or 400 error.
+* For private repositories, unauthenticated requests receive an HTTP 200 error.
+* For private repositories, authenticated requests by users that do not have permission to view the repository receive an HTTP 400 error.
+
+Previous behavior for V2 is that these requests receive an 401 error.
+
+To use API V2.1 set the `Accept` header as in V2:
+
+```
+Accept: application/vnd.travis-ci.2.1+json
+```
+
+## API V3
+
+Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
+The API V2 described on this page will be deprecated sometime in 2018.
+
+# Making Requests
+
 ```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
@@ -77,51 +106,11 @@ My.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 My::Repository.find('my/repo')
 ```
 
-Welcome to the Travis CI API V2 documentation.
-
-<aside class="note">
-Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>. The API V2 described on this page will be deprecated sometime in 2018.
-</aside>
-
-The first thing you will have to find out is the correct API endpoint to use.
+The first thing you need to know is what API URL endpoint to use:
 
 - **Travis CI for open source:** For open source projects built on [travis-ci.org](https://travis-ci.org), use `https://api.travis-ci.org`.
-- **Travis Pro:** For private projects built on [travis-ci.com](https://travis-ci.com), use `https://api.travis-ci.com`.
-- **Travis Enterprise:** For projects running on a custom setup, use `https://travis.example.com/api` (where you replace travis.example.com with the domain Travis CI is running on).
-
-Note that both Pro and Enterprise will require almost all API calls to be [authenticated](#authentication).
-
-# Making Requests
-
-```http
-GET / HTTP/1.1
-User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
-Host: api.travis-ci.org
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{"hello":"world"}
-```
-
-```shell
-$ travis raw /
-{"hello":"world"}
-```
-
-```ruby
-require 'travis'
-
-# You usually don't want to fire API requests manually
-client = Travis::Client.new
-client.get_raw('/') # => {"hello"=>"world"}
-
-client.get('/repos/sinatra/sinatra')
-# => {"repo"=>#<Travis::Client::Repository: sinatra/sinatra>}
-```
+- **Travis CI for private projects:** For private projects built on [travis-ci.com](https://travis-ci.com), use `https://api.travis-ci.com`.
+- **Travis CI Enterprise:** For projects running on a custom setup, use `https://travis.example.com/api` (where you replace travis.example.com with the domain Travis CI is running on).
 
 When you write your own Travis CI client, please keep the following in mind:
 
