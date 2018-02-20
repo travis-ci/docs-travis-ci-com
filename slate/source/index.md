@@ -77,17 +77,17 @@ My.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 My::Repository.find('my/repo')
 ```
 
-Welcome to the Travis CI API documentation. This is the API used by the official Travis CI web interface, so everything the web ui is able to do can also be accomplished via the API.
+Welcome to the Travis CI API V2 documentation.
 
-<aside class="warning">
+<aside class="note">
 Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>. The API V2 described on this page will be deprecated sometime in 2018.
 </aside>
 
 The first thing you will have to find out is the correct API endpoint to use.
 
-- **Travis CI for open source:** For open source projects tested on [travis-ci.org](https://travis-ci.org), use **<https://api.travis-ci.org>**.
-- **Travis Pro:** For private projects tested on [travis-ci.com](https://travis-ci.com), use **<https://api.travis-ci.com>**.
-- **Travis Enterprise:** For projects running on a custom setup, use **[https://travis.example.com/api](<>)** (where you replace travis.example.com with the domain Travis CI is running on).
+- **Travis CI for open source:** For open source projects built on [travis-ci.org](https://travis-ci.org), use `https://api.travis-ci.org`.
+- **Travis Pro:** For private projects built on [travis-ci.com](https://travis-ci.com), use `https://api.travis-ci.com`.
+- **Travis Enterprise:** For projects running on a custom setup, use `https://travis.example.com/api` (where you replace travis.example.com with the domain Travis CI is running on).
 
 Note that both Pro and Enterprise will require almost all API calls to be [authenticated](#authentication).
 
