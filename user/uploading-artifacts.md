@@ -90,7 +90,7 @@ key, for example:
 addons:
   artifacts:
     target_paths:
-    - /$TRAVIS_OS_NAME/$(lsb_release -rs || sw_vers -productVersion | grep --only -E '^\d+\.\d+')
+    - /$TRAVIS_OS_NAME/$((lsb_release -rs 2>/dev/null || sw_vers -productVersion) | grep --only -E '^[0-9]+\.[0-9]+')
 ```
 {: data-file=".travis.yml"}
 
