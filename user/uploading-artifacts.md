@@ -83,14 +83,14 @@ addons:
 
 By default, artifacts will be uploaded to the path in the bucket
 defined by `/${TRAVIS_REPO_SLUG}/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}`.
-This value can be overridden by the `target_paths` option.
-This can be computed at build time; for example:
+You can change the upload path at build time using the `target_paths`
+key, for example:
 
 ```yaml
 addons:
   artifacts:
     target_paths:
-    - /$TRAVIS_OS_NAME/$(lsb_release -rs)
+    - /$TRAVIS_OS_NAME/$(lsb_release -rs || sw_vers -productVersion | grep --only -E '^\d+\.\d+')
 ```
 {: data-file=".travis.yml"}
 
