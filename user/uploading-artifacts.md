@@ -9,8 +9,7 @@ layout: en
 
 Travis CI can automatically upload your build artifacts to Amazon S3, after the
 [`after success`](/user/customizing-the-build/#The-Build-Lifecycle) stage of the
-build. Unless you programatically generate unique filenames and folders,
-artifacts are overwritten every build.
+build.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -77,6 +76,21 @@ addons:
   artifacts:
     # ...
     working_dir: out
+```
+{: data-file=".travis.yml"}
+
+### Target Paths
+
+By default, artifacts will be uploaded to the path in the bucket
+defined by `/${TRAVIS_REPO_SLUG}/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}`.
+This value can be overridden by the `target_paths` option.
+This can be computed at build time; for example:
+
+```yaml
+addons:
+  artifacts:
+    target_paths:
+    - /$TRAVIS_OS_NAME/$(lsb_release -rs)
 ```
 {: data-file=".travis.yml"}
 
