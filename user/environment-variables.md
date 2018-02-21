@@ -216,7 +216,7 @@ to tag the build, or to run post-build deployments.
   + set to `true` if there are any encrypted environment variables.
   + set to `false` if no encrypted environment variables are available.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
-- `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
+- `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
 Language-specific builds expose additional environment variables representing
