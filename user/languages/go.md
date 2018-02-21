@@ -25,7 +25,7 @@ Minimal example:
 ```yaml
   language: go
   go:
-    - 1.6
+    - "1.10"
 ```
 </aside>
 
@@ -51,9 +51,9 @@ handled by [gimme](https://github.com/travis-ci/gimme).
 language: go
 
 go:
-  - 1.x
-  - 1.6
-  - 1.7.x
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
   - master
 ```
 {: data-file=".travis.yml"}
