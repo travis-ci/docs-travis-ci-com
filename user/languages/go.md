@@ -27,6 +27,10 @@ Minimal example:
   go:
     - "1.10"
 ```
+
+Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
+not `go: 1.10` (a float).
+Using a float results in the use of Go 1.1.
 </aside>
 
 ## What This Guide Covers
