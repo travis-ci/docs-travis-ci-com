@@ -135,8 +135,8 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
-Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables) 
-using the travis gem. 
+Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables)
+using the travis gem.
 
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
@@ -150,9 +150,13 @@ docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 To push a particular branch of your repository to a remote registry,
 use the `after_success` section of your `.travis.yml`:
 
+> If you're using `after_sucess` to "deploy" make sure you check that the build is not a pull request build.
+{: .warning}
+
+
 ```yaml
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+  - if ["$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false ]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push USER/REPO;
     fi
