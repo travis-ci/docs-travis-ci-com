@@ -154,7 +154,6 @@ use the custom deploy section of your `.travis.yml`:
 deploy:
   provider: script
   script: bash docker_push
-    -
   on:
     branch: master
 ```
