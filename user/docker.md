@@ -148,20 +148,19 @@ docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 #### Branch Based Registry Pushes
 
 To push a particular branch of your repository to a remote registry,
-use the `after_success` section of your `.travis.yml`:
-
-> If you're using `after_sucess` to "deploy" make sure you check that the build is not a pull request build.
-{: .warning}
-
+use the custom deploy section of your `.travis.yml`:
 
 ```yaml
-after_success:
-  - if ["$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push USER/REPO;
-    fi
+deploy:
+  provider: script
+  script:
+    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    - docker push USER/REPO
+  on:
+    branch: master
 ```
 {: data-file=".travis.yml"}
+
 
 #### Private Registry Login
 
