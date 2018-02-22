@@ -159,7 +159,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Where `docker_push` is:
+Where `docker_push` is a script in your repository containing:
 
 ```bash
 #!/bin/bash
