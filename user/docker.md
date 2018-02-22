@@ -153,13 +153,21 @@ use the custom deploy section of your `.travis.yml`:
 ```yaml
 deploy:
   provider: script
-  script:
-    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    - docker push USER/REPO
+  script: bash docker_push
+    -
   on:
     branch: master
 ```
 {: data-file=".travis.yml"}
+
+Where `docker_push` is:
+
+```sh
+#!/bin/bash
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+docker push USER/REPO
+```
+{: data-file="docker_push"}
 
 
 #### Private Registry Login
