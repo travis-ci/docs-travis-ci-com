@@ -162,7 +162,7 @@ deploy:
 
 Where `docker_push` is:
 
-```sh
+```bash
 #!/bin/bash
 docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
 docker push USER/REPO
