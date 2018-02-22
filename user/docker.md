@@ -156,7 +156,7 @@ use the `after_success` section of your `.travis.yml`:
 
 ```yaml
 after_success:
-  - if ["$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false ]; then
+  - if ["$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push USER/REPO;
     fi
