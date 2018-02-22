@@ -176,12 +176,50 @@ file '_data/gce_ip_range.yml' do |t|
   puts "Updated #{t.name}"
 end
 
+file '_data/python_versions.yml' do |t|
+  os_releases = {
+    'ubuntu' => {
+      'precise' => '12.04',
+      'trusty'  => '14.04'
+    }
+  }
+  results = {}
+
+  os_releases.each do |os, os_versions|
+    results = {}
+    results['ubuntu'] = {}
+    os_versions.each do |code_name, os_version|
+      results['ubuntu'][code_name] = {}
+      python_releases = []
+      versions = `aws s3 ls travis-python-archives/binaries/#{os}/#{os_version}/x86_64/`.split("\n").map do |f|
+        /python-(?<version>.*)\.tar\.bz2$/ =~ f
+        if version
+          python_releases << version
+        end
+      end
+      results['ubuntu'][code_name]['size'] = python_releases.size
+      results['ubuntu'][code_name]['release'] = os_version
+      results['ubuntu'][code_name]['versions'] = python_releases
+    end
+    puts results
+  end
+  results['ubuntu']['size'] = os_releases['ubuntu'].keys.inject(0) do |sum, code_name|
+    puts code_name
+    sum += results['ubuntu'][code_name]['size']
+  end
+
+  File.write(t.name, YAML.dump(results))
+
+  puts "Updated #{t.name}"
+end
+
 desc 'Refresh generated files'
 task regen: [
   :clean,
   '_data/ec2_public_ips.yml',
   '_data/gce_ip_range.yml',
-  '_data/trusty_language_mapping.yml'
+  '_data/trusty_language_mapping.yml',
+  '_data/python_versions.yml'
 ]
 
 desc 'Remove generated files'
@@ -192,6 +230,7 @@ task :clean do
          _data/gce_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
+         _data/python_versions.yml
        ])
 end
 

@@ -6,6 +6,7 @@
 _data/ec2*ips*
 _data/gce_ip_range.yml
 _data/trusty*language*mapping*
+_data/python_versions.yml
 _site
 bin
 node_modules
