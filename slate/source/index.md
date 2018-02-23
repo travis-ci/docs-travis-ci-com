@@ -17,7 +17,13 @@ Welcome to the Travis CI API V2 documentation.
 
 <aside class="note">
 
+As a stepping stone to new and greater things, we've released an update to the Travis CI API V2, which is API V2.1. This update allows users of Travis CI for private projects to make certain build information available through the API.
+
+For users of Travis CI for public repositories there is no change.
+
 </aside>
+
+If you're new to the Travis CI API, you should almost certainly be using [API V3](#API-V3).
 
 ## API V2.1
 
@@ -29,11 +35,9 @@ API V2.1 is identical to API V2 **except for the following breaking changes**:
 
 Previous behavior for V2 is that these requests receive an 401 error.
 
-To use API V2.1 set the `Accept` header as in V2:
+To use API V2.1 set the `Accept` header of your API request to `application/vnd.travis-ci.2.1+json`.
 
-```
-Accept: application/vnd.travis-ci.2.1+json
-```
+> Note that the rest of the examples in this document have the `Accept` header set to API V2.  
 
 ## API V3
 
@@ -115,9 +119,9 @@ The first thing you need to know is what API URL endpoint to use:
 When you write your own Travis CI client, please keep the following in mind:
 
 - Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-- Always set the **Accept** header to `application/vnd.travis-ci.2+json` to make sure that you get results from the V2 API.
+- Always set the **Accept** header to `application/vnd.travis-ci.2+json` to make sure that you get results from the V2 API. See also the note about [API V2.1](#API-V2.1)
 
-Any existing client library should take care of these for you.
+Client libraries will usually set these headers automatically.
 
 # External APIs
 
