@@ -32,15 +32,20 @@ The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
 The following command line tools are available in the Nix environment:
 
-- nix-env
+- nix
 - nix-build
-- nix-shell
-- nix-store
 - nix-channel
+- nix-collect-garbage
+- nix-copy-closure
+- nix-daemon
+- nix-env
+- nix-instantiate
+- nix-prefetch-url
+- nix-store
 
 ## Default Nix Version
 
-Currently, only version "1.11.2" of Nix is provided. In the future, it may be possible to configure different versions with `.travis.yml`.
+This installs the current version of Nix using https://nixos.org/nix/install. In the future, it may be possible to configure different versions with `.travis.yml`.
 
 ## Default Target
 
