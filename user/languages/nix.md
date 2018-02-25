@@ -41,6 +41,7 @@ The following command line tools are available in the Nix environment:
 - nix-env
 - nix-instantiate
 - nix-prefetch-url
+- nix-shell
 - nix-store
 
 ## Default Nix Version
