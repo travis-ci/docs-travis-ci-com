@@ -69,7 +69,7 @@ In order to build other docker images, the Worker needs to be setup to support D
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```
 
-You will then need to restart each Worker, you can find more information on this here: https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker.
+You will then need to restart each Worker, you can find more information on this here: [https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
 ### Updates to your .travis.yml files
 
