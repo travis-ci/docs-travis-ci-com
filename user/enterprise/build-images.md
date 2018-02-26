@@ -63,15 +63,62 @@ you can run:
 
 ## Enabling Docker Builds
 
+### Worker machine configuration
+
 In order to build other docker images, the Worker needs to be setup to support Docker Builds. To get started, please add the following to `/etc/default/travis-worker` on all your Workers:
 
 ```
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```
 
-You will then need to restart each Worker, you can find more information on this here: [https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+#### Additional configuration for Trusty build images
+
+With Trusty build images a few additional steps are required. Since Docker-ce can't run on its own inside another Docker container, it'll connect to the Host's Docker daemon to execute the respective commands.
+
+> For non-AWS deployments, please make sure that the worker machine has a private IP address configured on one of its interfaces.
+
+On Amazon EC2 each machine has a private IP address by default. That address will be used to connect to the Docker daemon.
+
+To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is what we're looking for.
+
+Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this:
+
+```
+DOCKER_OPTS="-H tcp://172.31.7.199:4243 -H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock ..."
+```
+
+After that, both Docker and travis-worker have to be restarted. For Docker, please run:
+
+```
+$ sudo restart docker
+```
+
+For travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+
 
 ### Updates to your .travis.yml files
+
+#### Trusty build containers
+
+> Please note: This solution utilizes the Docker daemon from the host machine - any containers and images you pull and run through your build need to be cleaned up manually.
+
+Add the following to your `.travis.yml` configuration:
+
+```
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y curl software-properties-common apt-transport-https ca-certificates
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable"
+  - sudo apt-get update
+  - sudo apt-get install -y docker-ce
+  - sudo docker -H <IP>:4243 pull ubuntu
+script:
+  - sudo docker -H <IP>:4243 run ubuntu date
+
+```
+
+#### Precise build containers (legacy)
 
 Add the following to any `.travis.yml` files for repositories which would like to use Docker:
 
