@@ -17,17 +17,17 @@ Welcome to the Travis CI API V2 documentation.
 
 <aside class="note">
 
-As a stepping stone to new and greater things, we've released an update to the Travis CI API V2, which is API V2.1. This update allows users of Travis CI for private projects to make certain build information available through the API.
+As a stepping stone to new and greater things, we've released an update to the Travis CI API V2, which is API V2.1. This update essentially makes HTTP status codes more consistent between travis-ci.org and travis-ci.com.
 
 For users of Travis CI for public repositories there is no change.
 
 </aside>
 
-If you're new to the Travis CI API, you should almost certainly be using [API V3](#API-V3).
+If you're new to the Travis CI API, you should be using [API V3](#API-V3).
 
 ## API V2.1
 
-API V2.1 is identical to API V2 **except for the following breaking changes**:
+API V2.1 is identical to API V2 except for the following changes:
 
 * For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo cahces or settings.
 * For private repositories, unauthenticated requests receive an HTTP 401 or 404 error.
@@ -39,7 +39,7 @@ A similar pattern of HTTP response codes applies to other endpoints such us `/bu
 
 To use API V2.1 set the `Accept` header of your API request to `application/vnd.travis-ci.2.1+json`.
 
-> Note that the rest of the examples in this document have the `Accept` header set to API V2.  
+> Note that the rest of the examples in this document have the `Accept` header set to API V2.
 
 ## API V3
 
