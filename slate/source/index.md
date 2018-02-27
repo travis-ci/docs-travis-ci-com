@@ -13,7 +13,12 @@ toc_footers:
 
 # Overview
 
-Welcome to the Travis CI API V2 documentation.
+## API V3
+
+Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
+If you're new to the Travis CI API, you should be using API V3.
+
+The API V2 described on this page will be deprecated sometime in 2018.
 
 <aside class="note">
 
@@ -23,7 +28,6 @@ For users of Travis CI for public repositories there is no change.
 
 </aside>
 
-If you're new to the Travis CI API, you should be using [API V3](#API-V3).
 
 ## API V2.1
 
@@ -40,11 +44,6 @@ A similar pattern of HTTP response codes applies to other endpoints such us `/bu
 To use API V2.1 set the `Accept` header of your API request to `application/vnd.travis-ci.2.1+json`.
 
 > Note that the rest of the examples in this document have the `Accept` header set to API V2.
-
-## API V3
-
-Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
-The API V2 described on this page will be deprecated sometime in 2018.
 
 # Making Requests
 

@@ -65,21 +65,24 @@
       <div class="content">
         <h1 id="overview">Overview</h1>
 
-<p>Welcome to the Travis CI API V2 documentation.</p>
+<h2 id="api-v3">API V3</h2>
+
+<p>Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
+If you&rsquo;re new to the Travis CI API, you should be using API V3.</p>
+
+<p>The API V2 described on this page will be deprecated sometime in 2018.</p>
 
 <aside class="note">
 
-As a stepping stone to new and greater things, we&rsquo;ve released an update to the Travis CI API V2, which is API V2.1. This update allows users of Travis CI for private projects to make certain build information available through the API.
+As a stepping stone to new and greater things, we&rsquo;ve released an update to the Travis CI API V2, which is API V2.1. This update essentially makes HTTP status codes more consistent between travis-ci.org and travis-ci.com.
 
 For users of Travis CI for public repositories there is no change.
 
 </aside>
 
-<p>If you&rsquo;re new to the Travis CI API, you should almost certainly be using <a href="#API-V3">API V3</a>.</p>
-
 <h2 id="api-v2-1">API V2.1</h2>
 
-<p>API V2.1 is identical to API V2 <strong>except for the following breaking changes</strong>:</p>
+<p>API V2.1 is identical to API V2 except for the following changes:</p>
 
 <ul>
 <li>For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo cahces or settings.</li>
@@ -94,13 +97,8 @@ For users of Travis CI for public repositories there is no change.
 <p>To use API V2.1 set the <code class="prettyprint">Accept</code> header of your API request to <code class="prettyprint">application/vnd.travis-ci.2.1+json</code>.</p>
 
 <blockquote>
-<p>Note that the rest of the examples in this document have the <code class="prettyprint">Accept</code> header set to API V2.  </p>
+<p>Note that the rest of the examples in this document have the <code class="prettyprint">Accept</code> header set to API V2.</p>
 </blockquote>
-
-<h2 id="api-v3">API V3</h2>
-
-<p>Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
-The API V2 described on this page will be deprecated sometime in 2018.</p>
 
 <h1 id="making-requests">Making Requests</h1>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
