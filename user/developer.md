@@ -35,7 +35,7 @@ For users of Travis CI for public repositories there is no change.
 
 API V2.1 is identical to API V2 **except for the following breaking changes**:
 
-* For public repositories, unauthenticated requests receive an HTTP 404 error or HTTP 200 for empty responses.
+* For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo cahces or settings.
 * For private repositories, unauthenticated requests receive an HTTP 401 or 404 error.
 * For private repositories, authenticated requests by users that do not have permission to view the repository receive an HTTP 400 error or HTTP 200 for empty responses.
 
