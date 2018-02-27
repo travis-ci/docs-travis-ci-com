@@ -41,7 +41,7 @@ API V2.1 is identical to API V2 **except for the following breaking changes**:
 
 Previous behavior for V2 is that these requests receive an 401 error.
 
-A similar pattern of HTTP response codes applies to other endpoints such us `/builds` and `/jobs`.
+A similar pattern of HTTP response codes applies to other endpoints such us `/builds`, `/branches`, `/jobs` and `/requests`.
 
 To use API V2.1 set the `Accept` header of your API request to `application/vnd.travis-ci.2.1+json`.
 
