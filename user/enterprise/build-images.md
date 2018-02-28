@@ -79,7 +79,7 @@ With Trusty build images a few additional steps are required. Since `docker-ce` 
 
 On Amazon EC2 each machine has a private IP address by default. That address will be used to connect to the Docker daemon.
 
-To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is what we're looking for.
+To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is correct.
 
 Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this:
 
