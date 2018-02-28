@@ -73,7 +73,7 @@ In order to build other docker images, the Worker needs to be setup to support D
 
 #### Configuration for Docker Builds in Trusty Build Environments
 
-With Trusty build images a few additional steps are required. Since Docker-ce can't run on its own inside another Docker container, it'll connect to the Host's Docker daemon to execute the respective commands.
+With Trusty build images a few additional steps are required. Since `docker-ce` can't run on its own inside another Docker container, it'll connect to the Host's Docker daemon to execute the respective commands.
 
 > For non-AWS deployments, please make sure that the worker machine has a private IP address configured on one of its interfaces.
 
