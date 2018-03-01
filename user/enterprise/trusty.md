@@ -32,7 +32,7 @@ Next, run the following to complete the install:
 
 `sudo bash /tmp/installer.sh --travis_enterprise_host="[travis.yourhost.com]" --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]"`
 
-This installer uses Docker's `aufs` storage driver. If this default doesn't work out for you, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Trusty%20Workers) to discuss alternatives.
+This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Trusty%20Workers) to discuss alternatives.
 
 ## Running builds on Trusty
 
