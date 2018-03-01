@@ -81,7 +81,7 @@ On Amazon EC2 each machine has a private IP address by default. That address wil
 
 To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is correct.
 
-Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this:
+Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this (We're using `172.31.7.199` as example here):
 
 ```
 DOCKER_OPTS="-H tcp://172.31.7.199:4243 -H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock ..."
