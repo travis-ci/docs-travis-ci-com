@@ -20,6 +20,29 @@ place, you can fully customize these images according to your needs.
 **Note**: you'll need to re-apply your customizations after
 upgrading build images from [quay.io](https://quay.io/organization/travisci).
 
+### Ubuntu Trusty build environments
+
+For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration we will pick the corresponding image to run the build.
+
+We're shipping the same Docker build images as travis-ci.org and travis-ci.com are using. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
+
+- Ruby
+- Node.js
+- Go
+- PHP
+- Python
+- Java / JVM
+
+The third image, `amethyst`, additionaly ships with Android, Erlang, Haskell and Perl preinstalled.
+
+> Any modification to one of these images will be available for other languages as well.
+
+### Ubuntu Precise build environments (deprecated)
+
+In the Ubuntu Precise environment we're shipping a separate Docker image for each language we support. There we support the same languages as in our current Trusty environment.
+
+### How to customize
+
 The process is to:
 
 -   start a Docker container based on one of the default build images
@@ -32,7 +55,7 @@ For example, in order to install a particular Ruby version which is not
 available on the default `travis:ruby` image, and make it persistent,
 you can run:
 
-```    
+```
       docker -H tcp://0.0.0.0:4243 run -it --name travis_ruby travis:ruby su travis -l -c 'rvm install [version]'
       docker -H tcp://0.0.0.0:4243 commit travis_ruby travis:ruby
       docker -H tcp://0.0.0.0:4243 rm travis_ruby
@@ -44,7 +67,7 @@ In order to build other docker images, the Worker needs to be setup to support D
 
 ```
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
-```       
+```
 
 You will then need to restart each Worker, you can find more information on this here: https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker.
 
