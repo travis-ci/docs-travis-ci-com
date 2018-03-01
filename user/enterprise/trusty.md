@@ -34,8 +34,6 @@ Next, run the following to complete the install:
 
 This installer uses Docker's `aufs` storage driver. If this default doesn't work out for you, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Trusty%20Workers) to discuss alternatives.
 
-There are two differences with the non-AWS installer. First, it uses AUFS instead of DeviceMapper and, second doesn't have strict storage device layout requirements which would otherwise be required for setting up the DeviceMapper volumes.
-
 ## Running builds on Trusty
 
 To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the Precise build environments instead.
