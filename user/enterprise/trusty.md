@@ -1,11 +1,8 @@
 ---
-title: Trusty Build Containers for Enterprise (beta)
+title: Trusty Build Containers for Enterprise
 layout: en_enterprise
 
 ---
-
-> Note: This is a BETA feature. If you have any questions, suggestions, or run into any trouble, please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Trusty%20Beta). We look forward to your feedback!
-{: .beta}
 
 ## System Setup
 
