@@ -36,4 +36,4 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 ## Running builds on Trusty
 
-To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the Precise build environments instead.
+To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the default (Precise) build environments instead.
