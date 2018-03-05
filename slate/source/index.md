@@ -233,6 +233,8 @@ To authenticate against Travis CI, you need an API access token.
 
 You can retrieve a token by using a GitHub token to prove who you are. In the future, we are planning to add a proper OAuth handshake for third party applications.
 
+It is also possible to get your API token from your Travis CI profile page for [public repositories](https://travis-ci.org/profile) or [private repositories](https://travis-ci.com/profile).
+
 ## With a GitHub token
 
 ```http
