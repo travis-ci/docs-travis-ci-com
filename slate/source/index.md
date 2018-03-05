@@ -20,6 +20,9 @@ If you're new to the Travis CI API, you should be using API V3.
 
 The API V2 described on this page will be deprecated sometime in 2018.
 
+
+## API V2.1
+
 <aside class="note">
 
 As a stepping stone to new and greater things, we've released an update to the Travis CI API V2, which is API V2.1. This update essentially makes HTTP status codes more consistent between travis-ci.org and travis-ci.com.
@@ -27,9 +30,6 @@ As a stepping stone to new and greater things, we've released an update to the T
 For users of Travis CI for Open Source projects, built at api-travis-ci.org, there is no change in API.
 
 </aside>
-
-
-## API V2.1
 
 API V2.1 is identical to API V2 except for the following changes:
 
