@@ -100,7 +100,7 @@ After a fresh installation or configuration change the Travis CI Enterprise cont
 
 #### GitHub OAuth app configuration
 
-The above mentioned error can be caused by a configuration mismatch in the GitHub OAuth Application. Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](https://docs.travis-ci.com/user/enterprise/prerequisites/#OAuth-App). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
 
 #### Hostname does not match license's hostname
 
