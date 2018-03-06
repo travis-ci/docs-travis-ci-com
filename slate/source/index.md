@@ -43,21 +43,19 @@ A similar pattern of HTTP response codes applies to other endpoints such us `/bu
 
 To use API V2.1 set the `Accept` header of your API request to `application/vnd.travis-ci.2.1+json`.
 
-> Note that the rest of the examples in this document have the `Accept` header set to API V2.
-
 # Making Requests
 
 ```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 ```
 
 ```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 Host: api.travis-ci.com
 ```
@@ -65,7 +63,7 @@ Host: api.travis-ci.com
 ```http
 GET /api HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 Host: travis.example.com
 ```
@@ -120,7 +118,7 @@ The first thing you need to know is what API URL endpoint to use:
 When you write your own Travis CI client, please keep the following in mind:
 
 - Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-- Always set the **Accept** header to `application/vnd.travis-ci.2+json` to make sure that you get results from the V2 API. See also the note about [API V2.1](#API-V2.1)
+- Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2.1)
 
 Client libraries will usually set these headers automatically.
 
@@ -129,7 +127,7 @@ Client libraries will usually set these headers automatically.
 ```http
 GET /config HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 ```
 
@@ -198,7 +196,7 @@ This includes, amongst other things:
 ```http
 GET /users HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 ```
@@ -232,7 +230,7 @@ You can retrieve a token by using a GitHub token to prove who you are. In the fu
 ```http
 POST /auth/github HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 Content-Type: application/json
 Content-Length: 37
@@ -307,7 +305,7 @@ Content-Type: application/json
 ```http
 POST /auth/github HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 Content-Type: application/json
 Content-Length: 37
@@ -401,7 +399,7 @@ There is an alternative version of this that will try to run the handshake in a 
 ```http
 GET /accounts HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 ```
@@ -475,7 +473,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/rails/rails/branches HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 ```
 
@@ -549,7 +547,7 @@ This will list the latest 25 branches.
 ```http
 GET /broadcasts HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -599,7 +597,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/sinatra/sinatra/builds HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 ```
 
@@ -728,7 +726,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/travis-pro/billing/caches HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.com
 ```
@@ -818,7 +816,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/sinatra/sinatra/builds HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 ```
 
@@ -884,7 +882,7 @@ There is no API endpoint for resolving commits, however commit data might be inc
 ```http
 PUT /hooks HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 Content-Type: application/json
@@ -939,7 +937,7 @@ This request always needs to be authenticated.
 ```http
 POST /jobs/42/restart HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1082,7 +1080,7 @@ To stream the logs, you will have to subscribe to the channel for the job the lo
 ```http
 GET /users/permissions HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1134,7 +1132,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/sinatra/sinatra/key HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1203,7 +1201,7 @@ This request always needs to be authenticated.
 ```http
 GET /repos/sinatra/sinatra HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1280,7 +1278,7 @@ If no parameters are given, a list or repositories with recent activity is retur
 ```http
 GET /requests/6301283 HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1375,7 +1373,7 @@ You have to either provide `repository_id` or `slug`.
 ```http
 GET /repos/82/settings HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1443,7 +1441,7 @@ This request always needs to be authenticated.
 ```http
 GET /settings/env_vars?repository_id=124920 HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1547,7 +1545,7 @@ This API is only available on Travis Pro.
 ```http
 GET /settings/ssh_key/124920 HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.com
 ```
@@ -1612,7 +1610,7 @@ This request always needs to be authenticated.
 ```http
 GET /users/ HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
@@ -1688,7 +1686,7 @@ This request always needs to be authenticated.
 ```http
 PUT /lint/ HTTP/1.1
 User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
+Accept: application/vnd.travis-ci.2.1+json
 Host: api.travis-ci.org
 Content-Type: text/yaml
 
@@ -1765,7 +1763,7 @@ The following clients are maintained by the Travis CI team:
   if(req) {
     req.open("GET", "https://api.travis-ci.org/", true);
     req.onreadystatechange = function() { alert("it worked!") };
-    req.setRequestHeader("Accept", "application/vnd.travis-ci.2+json");
+    req.setRequestHeader("Accept", "application/vnd.travis-ci.2.1+json");
     req.send();
   }
 </script>
@@ -1777,7 +1775,7 @@ The following clients are maintained by the Travis CI team:
 <script>
 $.ajax({
   url: "https://api.travis-ci.org/",
-  headers: { Accept: "application/vnd.travis-ci.2+json" },
+  headers: { Accept: "application/vnd.travis-ci.2.1+json" },
   success: function() { alert("it worked!") }
 });
 </script>
