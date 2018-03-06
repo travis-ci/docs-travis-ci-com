@@ -85,7 +85,7 @@ For users of Travis CI for Open Source projects, built at api-travis-ci.org, the
 <p>API V2.1 is identical to API V2 except for the following changes:</p>
 
 <ul>
-<li>For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo cahces or settings.</li>
+<li>For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repository caches or settings.</li>
 <li>For private repositories, unauthenticated requests receive an HTTP 401 or 404 error.</li>
 <li>For private repositories, authenticated requests by users that do not have permission to view the repository receive an HTTP 400 error or HTTP 200 for empty responses.</li>
 </ul>
@@ -96,23 +96,19 @@ For users of Travis CI for Open Source projects, built at api-travis-ci.org, the
 
 <p>To use API V2.1 set the <code class="prettyprint">Accept</code> header of your API request to <code class="prettyprint">application/vnd.travis-ci.2.1+json</code>.</p>
 
-<blockquote>
-<p>Note that the rest of the examples in this document have the <code class="prettyprint">Accept</code> header set to API V2.</p>
-</blockquote>
-
 <h1 id="making-requests">Making Requests</h1>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
 </code></pre><pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">travis.example.com</span>
 </code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis raw /
@@ -163,7 +159,7 @@ For users of Travis CI for Open Source projects, built at api-travis-ci.org, the
 
 <ul>
 <li>Always set the <strong>User-Agent</strong> header. This header is not required right now, but will be in the near future. Assuming your client is called &ldquo;My Client&rdquo;, and its current version is 1.0.0, a good value would be <code class="prettyprint">MyClient/1.0.0</code>. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: <code class="prettyprint">Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7</code>.</li>
-<li>Always set the <strong>Accept</strong> header to <code class="prettyprint">application/vnd.travis-ci.2+json</code> to make sure that you get results from the V2 API. See also the note about <a href="#API-V2.1">API V2.1</a></li>
+<li>Always set the <strong>Accept</strong> header to <code class="prettyprint">application/vnd.travis-ci.2.1+json</code> to make sure that you get results from the V2.1 API. See also the note about <a href="#API-V2.1">API V2.1</a></li>
 </ul>
 
 <p>Client libraries will usually set these headers automatically.</p>
@@ -171,7 +167,7 @@ For users of Travis CI for Open Source projects, built at api-travis-ci.org, the
 <h1 id="external-apis">External APIs</h1>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/config</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -230,7 +226,7 @@ Most prominently, it uses GitHub as source for users, organizations and reposito
 <h1 id="authentication">Authentication</h1>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 </code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis whoami -t <span class="s2">"YOUR TRAVIS ACCESS TOKEN"</span>
@@ -255,7 +251,7 @@ Do not confuse the <i>access token</i> with the token found on your profile page
 <h2 id="with-a-github-token">With a GitHub token</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Content-Length</span><span class="p">:</span> <span class="s">37</span>
@@ -312,7 +308,7 @@ The Travis API server will not store the token or use it for anything else than 
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/auth/github</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Content-Length</span><span class="p">:</span> <span class="s">37</span>
@@ -391,7 +387,7 @@ Your access token is YOUR TRAVIS ACCESS TOKEN
 <h2 id="accounts">Accounts</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/accounts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token "YOUR TRAVIS ACCESS TOKEN"</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -486,7 +482,7 @@ travis-ci <span class="o">(</span>Travis CI<span class="o">)</span>: subscribed,
 <h2 id="branches">Branches</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/rails/rails/branches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -548,7 +544,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <h2 id="broadcasts">Broadcasts</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/broadcasts</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -597,7 +593,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <h2 id="builds">Builds</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -824,7 +820,7 @@ adequaterecord: <span class="c">#15158 passed   wrap the literal value before ha
 <h2 id="caches">Caches</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/travis-pro/billing/caches</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -950,7 +946,7 @@ Overall size of above caches: 371.08 MiB
 <h2 id="commits">Commits</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/builds</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1039,7 +1035,7 @@ Overall size of above caches: 371.08 MiB
 <h2 id="hooks">Hooks</h2>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/hooks</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1109,7 +1105,7 @@ Overall size of above caches: 371.08 MiB
 <h2 id="jobs">Jobs</h2>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/jobs/42/restart</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight shell"><code><span class="gp">$ </span>travis restart 1.2 -r my/repo
@@ -1329,7 +1325,7 @@ Using worker: ...
 <h2 id="permissions">Permissions</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/permissions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1386,7 +1382,7 @@ Using worker: ...
 <h2 id="repository-keys">Repository Keys</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra/key</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1454,7 +1450,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <h2 id="repositories">Repositories</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/sinatra/sinatra</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1584,7 +1580,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <h2 id="requests">Requests</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/requests/6301283</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1742,7 +1738,7 @@ yMVHmnl8/5w0WPV/UwIDAQAB
 <h2 id="settings-general">Settings: General</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/repos/82/settings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1825,7 +1821,7 @@ Settings <span class="k">for </span>travis-ci/travis-api:
 <h2 id="settings-environment-variables">Settings: Environment Variables</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/env_vars?repository_id=124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -1981,7 +1977,7 @@ This API is only available on Travis Pro.
 </aside>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/settings/ssh_key/124920</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.com</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -2066,7 +2062,7 @@ No custom SSH key installed.
 <h2 id="users">Users</h2>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/users/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">token YOUR TRAVIS ACCESS TOKEN</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 </code></pre><pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -2162,7 +2158,7 @@ synchronizing: ... <span class="k">done</span>
 <h2 id="linting">Linting</h2>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/lint/</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">User-Agent</span><span class="p">:</span> <span class="s">MyClient/1.0.0</span>
-<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2+json</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.travis-ci.2.1+json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.travis-ci.org</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">text/yaml</span>
 
@@ -2241,7 +2237,7 @@ Warnings <span class="k">for </span>example.yml:
   <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.travis-ci.org/"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"it worked!"</span><span class="p">)</span> <span class="p">};</span>
-    <span class="nx">req</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Accept"</span><span class="p">,</span> <span class="s2">"application/vnd.travis-ci.2+json"</span><span class="p">);</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Accept"</span><span class="p">,</span> <span class="s2">"application/vnd.travis-ci.2.1+json"</span><span class="p">);</span>
     <span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -2252,7 +2248,7 @@ Warnings <span class="k">for </span>example.yml:
 <pre class="highlight html"><code><span class="nt">&lt;script&gt;</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
   <span class="na">url</span><span class="p">:</span> <span class="s2">"https://api.travis-ci.org/"</span><span class="p">,</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="na">Accept</span><span class="p">:</span> <span class="s2">"application/vnd.travis-ci.2+json"</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="na">Accept</span><span class="p">:</span> <span class="s2">"application/vnd.travis-ci.2.1+json"</span> <span class="p">},</span>
   <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s2">"it worked!"</span><span class="p">)</span> <span class="p">}</span>
 <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
