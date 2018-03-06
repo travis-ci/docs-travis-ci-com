@@ -9,6 +9,7 @@ task :serve do
   system("bundle exec middleman server")
 end
 
+desc "Build the API files and copy to root"
 task :update_docs => [:build] do
   system("cp -r build/* ../api/")
 end
