@@ -61,6 +61,7 @@ You can explicitly specify the branch to deploy from with the **on** option:
       secret_access_key: "YOUR AWS SECRET KEY"
       bucket: "S3 Bucket"
       key: latest/MyApp.zip
+      bundle_type: zip
       application: MyApp
       deployment_group: MyDeploymentGroup
       on:
@@ -77,6 +78,7 @@ Alternatively, you can also configure Travis CI to deploy from all branches:
       secret_access_key: "YOUR AWS SECRET KEY"
       bucket: "S3 Bucket"
       key: latest/MyApp.zip
+      bundle_type: zip
       application: MyApp
       deployment_group: MyDeploymentGroup
       on:
@@ -164,6 +166,7 @@ You can explicitly specify the AWS region to deploy to with the **region** optio
       secret_access_key: "YOUR AWS SECRET KEY"
       bucket: "S3 Bucket"
       key: latest/MyApp.zip
+      bundle_type: zip
       application: MyApp
       deployment_group: MyDeploymentGroup
       region: us-west-1
