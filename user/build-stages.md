@@ -6,7 +6,7 @@ layout: en
 
 <div id="toc"></div>
 
-> Build stages are currently in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/11).
+> Build stages are currently in BETA.
 {: .beta}
 
 ## What are Build Stages?
@@ -18,7 +18,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](https://docs.travis-ci.com/user/customizing-the-build#Build-Matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#Build-Matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
@@ -65,6 +65,7 @@ jobs:
     - stage: deploy
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 This configuration creates the build from the screencast above. I.e. it creates
 a build with three jobs, two of which start in parallel in the first stage
@@ -97,10 +98,11 @@ jobs:
       script: ./deploy target-1
     - script: ./deploy target-2
 ```
+{: data-file=".travis.yml"}
 
-### Build Stages and Build Matrix Expansion
+## Build Stages and Build Matrix Expansion
 
-[Matrix expansion](https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix)
+[Matrix expansion](/user/customizing-the-build/#Build-Matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
 
 For example:
@@ -117,6 +119,7 @@ jobs:
         - FOO=foo
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
 to the default stage test. The third job on the deploy stage starts only after
@@ -127,9 +130,36 @@ that defines a matrix dimension.
 > In the example above, without explicitly setting `rvm: 2.4`, the `include`d job inherits
 `rvm: 2.3`.
 
-### Build Stages and Deployments
+## Specifying Stage Order and Conditions
 
-You can combine build stages with [deployments](https://docs.travis-ci.com/user/deployment/):
+You can specify the order for stages in the section `stages`:
+
+```yaml
+stages:
+  - compile
+  - test
+  - deploy
+```
+
+This is mostly useful in order to "prepend" a stage to the `test` stage that
+jobs resulting from the matrix expansion will be assigned to.
+
+On the same section you can also specify conditions for stages, like so:
+
+```yaml
+stages:
+  - compile
+  - test
+  - name: deploy
+    if: branch = master
+```
+
+See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/) for more details on specifying conditions.
+
+
+## Build Stages and Deployments
+
+You can combine build stages with [deployments](/user/deployment/):
 
 ```yaml
 jobs:
@@ -142,9 +172,10 @@ jobs:
         provider: heroku
         # ...
 ```
+{: data-file=".travis.yml"}
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](https://docs.travis-ci.com/user/languages/ruby/#Default-Test-Script)
+have a [default test script](/user/languages/ruby/#Default-Build-Script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on

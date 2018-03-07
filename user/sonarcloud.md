@@ -13,17 +13,19 @@ Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/do
 
 You are using one of the two following environments:
 
-* [CI Environment with JVM VM image](/user/ci-environment/) - for instance:
+* [CI Environment with JVM VM image](/user/reference/precise/) - for instance:
 
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
-* [Trusty CI Environment](/user/trusty-ci-environment/):
+* [Trusty CI Environment](/user/reference/trusty/):
 
 ```yaml
 dist: trusty
 ```
+{: data-file=".travis.yml"}
 
 ## Inspecting code with the SonarQube Scanner
 
@@ -46,6 +48,7 @@ script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 Please take a look at the [live example project](https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis) to know more about this standard use case.
 
@@ -63,6 +66,7 @@ script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 ```
+{: data-file=".travis.yml"}
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
@@ -82,12 +86,13 @@ addons:
 script:
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 `branches` accepts a list of regular expressions.
 
 > Note that currently, each branch ends up being a dedicated project on SonarCloud.
 
-## Activation for pull requests
+## Activation for internal pull requests
 
 SonarCloud can inspect internal pull requests of your repository and write comments on each line where issues are found.
 
@@ -111,6 +116,7 @@ addons:
 script:
   - sonar-scanner
 ```
+{: data-file=".travis.yml"}
 
 ## Upcoming improvements
 

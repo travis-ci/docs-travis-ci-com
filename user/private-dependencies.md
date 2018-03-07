@@ -22,7 +22,7 @@ disavantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
-| ----------------------------- | -------- | ----------------------|----------------------------- | ----------------------------------- |
+|:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
 | **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
 | **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
 | **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
@@ -173,7 +173,7 @@ Assumptions:
 
 To pull in dependencies with a password, you will have to use the user name and password in the Git HTTPS URL: `https://ci-user:mypassword123@github.com/myorg/lib1.git`.
 
-Alternatively, you can also write the credentials to the `~.netrc` file:
+Alternatively, you can also write the credentials to the `~/.netrc` file:
 
 ```
 machine github.com
@@ -181,7 +181,8 @@ machine github.com
   password mypassword123
 ```
 
-You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`.
+
+You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`:
 
 ```bash
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
@@ -209,6 +210,20 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+
+> In case of private git submodules, be aware that the `git submodule
+> update --init recursive` command runs before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
+> submodules, update the credentials and add an explicit step to update the submodules:
+
+> ```yaml
+> git:
+>   submodules:
+>     false
+> before_install:
+>   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+>   - git submodule update --init --recursive
+> ```
 
 ## API Token
 
@@ -242,6 +257,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
 
@@ -260,6 +276,20 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+
+> In case of private git submodules, be aware that the `git submodule
+> update --init recursive` command runs before the `~/.netrc` credentials
+> are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
+> submodules, update the credentials and add an explicit step to update the submodules:
+>
+> ```yaml
+> git:
+>   submodules:
+>     false
+> before_install:
+>   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+>   - git submodule update --init --recursive
+> ```
 
 ## Dedicated User Account
 

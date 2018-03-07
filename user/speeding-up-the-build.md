@@ -19,13 +19,14 @@ Say you want to split up your unit tests and your integration tests into two
 different build jobs. They’ll run in parallel and fully utilize the available
 build capacity for your account.
 
-Here's an example on how to utilize this feature in your .travis.yml:
+Here's an example on how to utilize this feature in your `.travis.yml`:
 
 ```yaml
 env:
   - TEST_SUITE=units
   - TEST_SUITE=integration
 ```
+{: data-file=".travis.yml"}
 
 Then you change your script command to use the new environment variable to
 determine the script to run.
@@ -33,6 +34,7 @@ determine the script to run.
 ```yaml
 script: "bundle exec rake test:$TEST_SUITE"
 ```
+{: data-file=".travis.yml"}
 
 Travis CI will determine the build matrix based on the environment variables and
 schedule two builds to run.
@@ -52,12 +54,14 @@ env:
   - TESTFOLDER=integration/payments
   - TESTFOLDER=units
 ```
+{: data-file=".travis.yml"}
 
 Then you can adjust your script command to run rspec for every subfolder:
 
 ```yaml
 script: "bundle exec rspec $TESTFOLDER"
 ```
+{: data-file=".travis.yml"}
 
 For instance, the Rails project uses the build matrix feature to create separate
 jobs for every database to test against, and also to split up the tests by
@@ -96,6 +100,7 @@ env:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
+{: data-file=".travis.yml"}
 
 Such configuration will generate matrix with 2 following ENV rows:
 
@@ -115,6 +120,7 @@ env:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
+{: data-file=".travis.yml"}
 
 ### Minitest parallelization example
 
@@ -127,6 +133,7 @@ env:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
+{: data-file=".travis.yml"}
 
 ### RSpec, Cucumber and Minitest parallelization example
 
@@ -138,6 +145,7 @@ script:
   - "bundle exec rake knapsack:cucumber"
   - "bundle exec rake knapsack:minitest"
 ```
+{: data-file=".travis.yml"}
 
 You can find more examples in [knapsack docs](https://github.com/ArturT/knapsack#info-for-travis-users).
 
@@ -181,6 +189,7 @@ before_script:
 script:
   - phpdbg -qrr phpunit
 ```
+{: data-file=".travis.yml"}
 
 ### Makefile optimization
 
@@ -188,7 +197,7 @@ If your makefile build consists of independent parts that can be safely
 parallelized, you can [run multiple recipes
 simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
 See [Virtualization
-environments](/user/ci-environment/#Virtualization-environments) to determine
+environments](/user/reference/overview/#Virtualization-environments) to determine
 how many CPUs an environment normally has and set the `make` job parameter to a
 similar number (or slightly higher if your build frequently waits on disk I/O).
 Note that doing this will cause concurrent recipe output to become interleaved.
@@ -200,3 +209,4 @@ env:
   global:
     - MAKEFLAGS="-j 2"
 ```
+{: data-file=".travis.yml"}

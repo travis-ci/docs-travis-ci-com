@@ -11,7 +11,7 @@ The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
 Note that due to security restrictions, the Sauce Labs addon is not available on pull
-request builds unless you use the [JWT Addon](../jwt).
+request builds unless you use the [JWT Addon](/user/jwt).
 
 ## Setting up Sauce Connect
 
@@ -33,16 +33,17 @@ addons:
     username: "Your Sauce Labs username"
     access_key: "Your Sauce Labs access key"
 ```
+{: data-file=".travis.yml"}
 
-[sauce-sign-up]: https://saucelabs.com/signup/plan/free
+[sauce-sign-up]: https://signup.saucelabs.com/signup/trial
 
 [sauce-account]: https://saucelabs.com/account
 
-[open-sauce]: https://saucelabs.com/signup/plan/OSS
+[open-sauce]: https://saucelabs.com/open-source
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
-for more information on encryption), and add the pull request safe secure (See [JWT Addon][jwt])
+for more information on encryption), and add the pull request safe secure (See [JWT Addon](/user/jwt).
 string as such:
 
 ```yaml
@@ -52,6 +53,7 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}
 
 You can also add the `username` and `access_key` as environment variables if you
 name them `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`, respectively. In that case,
@@ -61,10 +63,11 @@ all you need to add to your .travis.yml file is this:
 addons:
   sauce_connect: true
 ```
+{: data-file=".travis.yml"}
 
-[encryption-keys]: ../encryption-keys/
+[encryption-keys]: /user/encryption-keys/
 
-[jwt]: ../jwt/
+[jwt]: /user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -109,3 +112,4 @@ addons:
   jwt:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
+{: data-file=".travis.yml"}

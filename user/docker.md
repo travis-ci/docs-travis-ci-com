@@ -17,6 +17,7 @@ sudo: required
 services:
   - docker
 ```
+{: data-file=".travis.yml"}
 
 Then you can add `- docker` commands to your build as shown in the following
 examples.
@@ -64,6 +65,7 @@ before_install:
 script:
 - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 and produces the following [build
 output](https://travis-ci.org/travis-ci/docker-sinatra):
@@ -119,6 +121,7 @@ before_install:
 script:
   - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 ### Pushing a Docker Image to a Registry
 
@@ -132,25 +135,39 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
+Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables)
+using the travis gem.
+
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 ```
 
 #### Branch Based Registry Pushes
 
 To push a particular branch of your repository to a remote registry,
-use the `after_success` section of your `.travis.yml`:
+use the custom deploy section of your `.travis.yml`:
 
 ```yaml
-after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push USER/REPO;
-    fi
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 ```
+{: data-file=".travis.yml"}
+
+Where `docker_push` is a script in your repository containing:
+
+```bash
+#!/bin/bash
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+docker push USER/REPO
+```
+{: data-file="docker_push"}
+
 
 #### Private Registry Login
 
@@ -158,12 +175,12 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
 
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
 
 If needed, you can easily replace this preinstalled version of `docker-compose`
 by adding the following `before_install` step to your `.travis.yml`:
@@ -178,6 +195,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
+{: data-file=".travis.yml"}
 
 ### Installing a newer Docker version
 
@@ -188,8 +206,18 @@ updating it in the `before_install` step of your `.travis.yml`:
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
+{: data-file=".travis.yml"}
+
+Alternatively, you can use `addons` instead of `before_install` to update via `apt` as well:
+```yaml
+addons:
+  apt:
+    packages:
+      - docker-ce
+```
+{: data-file=".travis.yml"}
 
 **Updating from download.docker.com**
 ```yaml
@@ -199,6 +227,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
 ```
+{: data-file=".travis.yml"}
 
 > Check what version of Docker you're running with `docker --version`
 

@@ -9,8 +9,7 @@ layout: en
 
 Travis CI can automatically upload your build artifacts to Amazon S3, after the
 [`after success`](/user/customizing-the-build/#The-Build-Lifecycle) stage of the
-build. Unless you programatically generate unique filenames and folders,
-artifacts are overwritten every build.
+build.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -18,6 +17,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 addons:
   artifacts: true
 ```
+{: data-file=".travis.yml"}
 
 and add the following environment variables in the repository settings:
 
@@ -34,6 +34,7 @@ addons:
   artifacts:
     s3_region: "us-west-1" # defaults to "us-east-1"
 ```
+{: data-file=".travis.yml"}
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential).
 
@@ -53,6 +54,7 @@ addons:
     - $(ls /var/log/*.log | tr "\n" ":")
     - $HOME/some/other/thing.log
 ```
+{: data-file=".travis.yml"}
 
 or as an environment variable in repository settings:
 
@@ -75,6 +77,22 @@ addons:
     # ...
     working_dir: out
 ```
+{: data-file=".travis.yml"}
+
+### Target Paths
+
+By default, artifacts will be uploaded to the path in the bucket
+defined by `/${TRAVIS_REPO_SLUG}/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}`.
+You can change the upload path at build time using the `target_paths`
+key, for example:
+
+```yaml
+addons:
+  artifacts:
+    target_paths:
+    - /$TRAVIS_OS_NAME/$((lsb_release -rs 2>/dev/null || sw_vers -productVersion) | grep --only -E '^[0-9]+\.[0-9]+')
+```
+{: data-file=".travis.yml"}
 
 ### Debugging
 
@@ -88,6 +106,7 @@ addons:
     # ...
     debug: true
 ```
+{: data-file=".travis.yml"}
 
 or define this as a repository settings environment variable, or in the `env.global` section:
 
