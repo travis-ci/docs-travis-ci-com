@@ -86,11 +86,25 @@ A source for the problem could be that the worker machine is not able to communi
 
 Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group) are open in your firewall.
 
-#### Docker Versions Mismatched 
+#### Docker Versions Mismatched
 
 This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-support) section below to move forward.
+
+## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
+
+After a fresh installation or configuration change the Travis CI Enterprise container doesn't start and fails with the error `Ready state command canceled: context deadline exceeded` in the admin dashboard (`https://travis.example.com:8800/dashboard`).
+
+### Strategies
+
+#### GitHub OAuth app configuration
+
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](https://docs.travis-ci.com/user/enterprise/prerequisites/#OAuth-App). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+
+#### Hostname does not match license's hostname
+
+Your Travis CI Enterprise license has a hostname field which contains the hostname of your installation. When the license's hostname does not match the actual hostname, the container does not start. If this is the case or you suspect that this might be likely, please [get in touch with us](mailto:enterprise@travis-ci.com?subject=License%20Hostname%20Change) and we'll help you to get back on track.
 
 ## Contact support
 
