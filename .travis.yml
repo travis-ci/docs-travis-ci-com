@@ -38,7 +38,7 @@ notifications:
 install:
   - rvm use 2.3.1 --install
   - bundle install --deployment
-  - npm install markdown-spellcheck
+  - npm install markdown-spellcheck -g
 script:
   - bundle exec rake test
   - xmllint --noout _site/feed.build-env-updates.xml
