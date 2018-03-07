@@ -160,6 +160,12 @@ deploy:
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
+### Gem must be registered beforehand
+
+Note that the gem you upload must be registered beforehand.
+If the gem does not exist on the host to which it is uploaded, deployment will fail.
+See [this GitHub issue](https://github.com/travis-ci/dpl/issues/574) for details.
+
 ### Running commands before and after release
 
 Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
