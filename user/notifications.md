@@ -209,7 +209,7 @@ notifications:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
     template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -239,7 +239,7 @@ The default template is:
 notifications:
   irc:
     template:
-      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
       - "Change view : %{compare_url}"
       - "Build details : %{build_url}"
 ```
@@ -350,7 +350,7 @@ notifications:
     rooms:
       - [subdomain]:[api token]@[room id]
     template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -419,7 +419,7 @@ notifications:
     rooms:
       - [api token]@[room id or name]
     template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
 ```
 {: data-file=".travis.yml"}
 
@@ -432,7 +432,7 @@ notifications:
     rooms:
       - [api token]@[room id or name]
     template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
     format: html
 ```
 {: data-file=".travis.yml"}
@@ -445,7 +445,7 @@ notifications:
     rooms:
       - [api token]@[room id or name]
     template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
     notify: true
 ```
 {: data-file=".travis.yml"}
@@ -513,7 +513,7 @@ pushover:
   users:
     - [user key]
     - [user key]
-  template: "%{repository} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+  template: "%{repository_slug} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
 
@@ -521,7 +521,7 @@ Other flags, such as `on_success` and `on_failure` also work like the IRC notifi
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Configuring slack notifications
+## Configuring Slack notifications
 
 Travis CI can send notifications to your [Slack](http://slack.com) channels
 about build results.
@@ -607,7 +607,7 @@ screenshot below:
 
 ### Notifications of PR builds
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
+Turn pull request notifications off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:
@@ -624,28 +624,10 @@ Customize the notification message by editing the template, as in this example:
 notifications:
   slack:
     template:
-      - "%{repository} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
-
-The following variables are available:
-
-- *repository_slug*: your GitHub repo identifier (like `svenfuchs/minimal`)
-- *repository_name*: the slug without the username
-- *build_number*: build number
-- *build_id*: build id
-- *branch*: branch build name
-- *commit*: shortened commit SHA
-- *author*: commit author name
-- *commit_message*: commit message of build
-- *commit_subject*: first line of the commit message
-- *result*: result of build
-- *message*: Travis CI message to the build
-- *duration*: total duration of all builds in the matrix
-- *elapsed_time*: time between build start and finish
-- *compare_url*: commit change view URL
-- *build_url*: URL of the build detail
 
 The default template for push builds is:
 
@@ -653,7 +635,7 @@ The default template for push builds is:
 notifications:
   slack:
     template:
-      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration}"
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
 ```
 {: data-file=".travis.yml"}
 
@@ -663,7 +645,7 @@ while the default template for pull request builds is:
 notifications:
   slack:
     template:
-    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
 ```
 {: data-file=".travis.yml"}
 

@@ -90,6 +90,10 @@ The default build script for projects using nodejs is:
 npm test
 ```
 
+### Yarn is supported
+
+If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
+
 ### Using other Test Suites
 
 You can tell npm how to run your test suite by adding a line in `package.json`.
@@ -261,7 +265,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/6a3a7afc21be99f1afedbd2856d060a02755de6d/configure.sh | /bin/sh"
 services:
   - mongodb
 env:
@@ -282,7 +286,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/dca8e51fafd60d9e5a8285b07ca34a63f22a5ed4/configure.sh | /bin/sh"
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
 ```

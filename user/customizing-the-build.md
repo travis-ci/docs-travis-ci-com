@@ -141,6 +141,7 @@ However, if one of these stages times out, the build is marked as a failure.
 An optional phase in the build lifecycle is deployment. This step can't be
 overridden, but is defined by using one of our continuous deployment providers
 to deploy code to Heroku, Engine Yard, or a different supported platform.
+The deploy steps are skipped if the build is broken.
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
@@ -213,11 +214,7 @@ Some common reasons why builds might hang:
 
 ## Limiting Concurrent Jobs
 
-The maximum number of concurrent jobs depends on the total system load, but
-one situation in which you might want to set a particular limit is:
-
-- if your build depends on an external resource and might run into a race
-  condition with concurrent jobs.
+{{ site.data.snippets.concurrent_jobs }}
 
 You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
@@ -236,9 +233,9 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
@@ -258,6 +255,14 @@ You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml
 ```yaml
 git:
   depth: 3
+```
+{: data-file=".travis.yml"}
+
+You can also remove the `--depth` flag entirely with:
+
+```yaml
+git:
+  depth: false
 ```
 {: data-file=".travis.yml"}
 
@@ -317,6 +322,16 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+
+## Git Sparse Checkout
+Travis CI supports `git`'s [sparse checkout](https://git-scm.com/docs/git-read-tree#_sparse_checkout)
+capability.
+To clone your repository sparsely, add:
+```yaml
+git:
+  sparse_checkout: skip-worktree-map-file
+```
+where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 ## Building Specific Branches
 
@@ -633,7 +648,7 @@ Consider a scenario where you want to run more complex test scenarios, but only 
 set -ev
 bundle exec rake:units
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-	bundle exec rake test:integration
+  bundle exec rake test:integration
 fi
 ```
 
@@ -667,7 +682,7 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 ```yaml
 addons:
   hosts:
-  - travis.dev
+  - travis.test
   - joshkalderimis.com
 ```
 {: data-file=".travis.yml"}

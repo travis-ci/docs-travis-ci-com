@@ -105,7 +105,7 @@ Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
 ```js
-Capybara.default_wait_time = 15
+Capybara.default_max_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
@@ -480,6 +480,10 @@ install: travis_retry pip install myawesomepackage
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
 
+Note that `travis_retry` only works within the `script` step. It will not work
+in other steps, like `deploy`.
+
+
 ### Build times out because no output was received
 
 When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
@@ -532,7 +536,7 @@ which Docker image you are using on Travis CI.
     ("default" if no other name matches) using the table below:
 
     | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_mapping_data %}
+    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
     | {{language[0]}} | {{language[1]}}  | {% endfor %}
 
 1. Start a Docker container detached with `/sbin/init`:

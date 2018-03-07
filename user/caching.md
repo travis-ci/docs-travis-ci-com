@@ -13,11 +13,14 @@ Travis CI can cache content that does not often change, to speed up your build p
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* If a branch does not have its own cache, Travis CI fetches the cache of the repository's default branch.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
 * Only modifications made to the cached directories from normal pushes are stored.
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
+
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
 
 ## Caching directories (Bundler, dependencies)
 
@@ -407,6 +410,19 @@ CACHE_NAME=JOB1
 ```
 
 to `.travis.yml`.
+
+Note that when considering environment variables, the values must match *exactly*,
+including spaces.
+For example, with
+
+```yaml
+env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+```
+
+each of the three jobs will use its own cache.
 
 ## Caches and read permissions
 

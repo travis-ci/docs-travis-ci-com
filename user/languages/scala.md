@@ -47,10 +47,13 @@ To specify Scala versions in your build:
 language: scala
 scala:
    - 2.9.3
-   - 2.10.4
-   - 2.11.2
+   - 2.10.6
+   - 2.11.11
+   - 2.12.2
 ```
 {: data-file=".travis.yml"}
+
+On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`. 
 
 ## Projects using sbt
 
