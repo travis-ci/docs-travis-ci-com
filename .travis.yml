@@ -40,4 +40,4 @@ install:
   - bundle install --deployment
 script:
   - bundle exec rake test
-  - xmllint _site/feed.build-env-updates.xml
+  - xmllint --noout _site/feed.build-env-updates.xml
