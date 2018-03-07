@@ -31,8 +31,7 @@ For public repositories, an API call is required, in addition to the feature bei
 To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint.
 This request needs to be authenticated by adding your [Travis CI API token](/user/triggering-builds/)
 to the `Authorization` header. You can find your API token in your Travis CI Profile page
-for [public projects](https://travis-ci.org/profile) or [private projects](https://travis-ci.com/profile),
-depending on the visibility of your repository.
+for [public projects](https://travis-ci.org/profile) or [private projects](https://travis-ci.com/profile).
 
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
