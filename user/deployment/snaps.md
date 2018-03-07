@@ -35,4 +35,4 @@ After that, they will be always ready to provide early feedback and help making 
 
 You can adjust the Travis script and the `snapcraft` calls to fit your development process. For example, you could install the snap and run user acceptance tests before releasing to edge, to make sure that there are no regressions in master. Also, there are three other channels in the store: `beta`, `candidate` and `stable`. You can run different tests suites with Travis for each channel on your way to stable.
 
-There are plenty of [tutorials](https://tutorials.ubuntu.com/) and [videos](https://www.youtube.com/snapcraftio) that will help you packaging your project as a snap. This one is a very good way to get started: [https://tutorials.ubuntu.com/tutorial/create-first-snap](https://tutorials.ubuntu.com/tutorial/create-first-snap)
+There are plenty of [tutorials](https://tutorials.ubuntu.com/) and [videos](https://www.youtube.com/snapcraftio) that will help you packaging your project as a snap. This one is a very good way to get started: [https://tutorials.ubuntu.com/tutorial/create-first-snap](https://tutorials.ubuntu.com/tutorial/create-your-first-snap)
