@@ -12,7 +12,7 @@ To automate continuous delivery of snaps to the Ubuntu store:
 
 1. [Encrypt](https://docs.travis-ci.com/user/encrypting-files) your snapcraft credentials with Travis CI
 2. Add the encrypted credentials to the repository where you have the `snapcraft.yaml` metadata for your package.
-3  Run `snapcraft` and `snapcraft push` in your `.travis.yml`:
+3.  Run `snapcraft` and `snapcraft push` in your `.travis.yml`:
 
     ```yaml
     deploy:
