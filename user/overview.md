@@ -1,7 +1,7 @@
 ---
 title: Overview
 layout: en
-permalink: /user/overview/
+
 ---
 
 ### Travis CI Overview

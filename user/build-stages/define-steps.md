@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Defining different steps on different stages"
-permalink: /user/build-stages/define-steps/
+
 layout: en
 ---
 
@@ -25,6 +25,7 @@ jobs:
       install: skip # bundle install is not required
       script: ./deploy.sh
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

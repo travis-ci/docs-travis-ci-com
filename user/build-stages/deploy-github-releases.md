@@ -1,6 +1,6 @@
 ---
 title: "Build Stages: Deploying to GitHub Releases"
-permalink: /user/build-stages/deploy-github-releases/
+
 layout: en
 ---
 
@@ -25,6 +25,7 @@ jobs:
         on:
           tags: true
 ```
+{: data-file=".travis.yml"}
 
 This is how the build matrix might look:
 

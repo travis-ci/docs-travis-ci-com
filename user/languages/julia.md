@@ -1,7 +1,7 @@
 ---
 title: Building a Julia Project
 layout: en
-permalink: /user/languages/julia/
+
 ---
 
 ### What This Guide Covers
@@ -33,6 +33,7 @@ julia:
   - 0.5
   - 0.5.2
 ```
+{: data-file=".travis.yml"}
 
 If the version number contains one `.`, then the latest release for that minor version
 is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
@@ -46,7 +47,7 @@ the most recent release.
 ## Default Test Script
 
 If your repository follows the structure of a Julia package created by
-`Pkg.generate("$name")`, then the following default script will be run:
+`PkgDev.generate("$name", "$license")`, then the following default script will be run:
 
 ```bash
 julia -e 'Pkg.clone(pwd())'

@@ -1,7 +1,7 @@
 ---
 title: Encrypting Files
 layout: en
-permalink: /user/encrypting-files/
+
 ---
 
 **Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
@@ -23,7 +23,7 @@ See the Command Line Client [installation instructions](https://github.com/travi
 Assumptions:
 
 - The repository is set up on Travis CI
-- You have version **1.7.0** or later of the Travis CI Command Line Client installed and setup up (you are logged in)
+- You have version **1.7.0** or later of the Travis CI Command Line Client installed and set up (you are logged in)
 - You have a local copy of the repository and a terminal open where your current working directory is said copy
 - In the repository is a file, called super_secret.txt, that you need on Travis CI but you don't want to publish its content on GitHub.
 
@@ -39,10 +39,10 @@ storing secure env variables for decryption
 Please add the following to your build script (before_install stage in your .travis.yml, for instance):
 
 ```bash
-openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_key -in super_secret.txt.enc -out super_secret.txt -d
+openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
 
-Pro Tip: You can add it automatically by running with --add.
+Pro Tip: You can add it automatically by running with `--add`.
 
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
@@ -85,10 +85,11 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_5880cf525281_key -iv $encrypted_5880cf525281_iv -in secrets.tar.enc -out secrets.tar -d
   - tar xvf secrets.tar
 ```
+{: data-file=".travis.yml"}
 
 ### Caveat
 
-There is a report of this function not working on a local Windows machine. Please use a Linux or OS X machine.
+There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or OS X machine.
 
 ## Manual Encryption
 
@@ -129,6 +130,7 @@ env:
 before_install:
   - echo $super_secret_password | gpg --passphrase-fd 0 super_secret.txt.gpg
 ```
+{: data-file=".travis.yml"}
 
 The encrypted file is called `super_secret.txt.gpg` and has to be committed to the repository.
 
@@ -151,5 +153,6 @@ env:
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in super_secret.txt.enc -out super_secret.txt -d
 ```
+{: data-file=".travis.yml"}
 
 The encrypted file is called `super_secret.txt.enc` and has to be committed to the repository.

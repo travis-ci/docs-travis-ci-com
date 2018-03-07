@@ -1,6 +1,6 @@
 ---
 title: Triggering builds with API V3
-permalink: /user/triggering-builds/
+
 layout: en
 ---
 
@@ -146,6 +146,7 @@ language: ruby
 env:
   FOO: foo_from_travis_yaml
 ```
+{: data-file=".travis.yml"}
 
 And given we send the following configuration as an API request:
 
