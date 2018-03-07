@@ -107,7 +107,7 @@ task :run_html_proofer_internal => [:build] do
 end
 
 desc 'Get .travis.yaml spec and see if there have been changes'
-task :get_spec do
+file '_data/spec_keys.json' do
   SPEC = 'https://raw.githubusercontent.com/travis-ci/travis-yml/master/spec.json'
 
   fail unless sh "curl -O '#{SPEC}'"
