@@ -1,13 +1,13 @@
 ---
 title: Scalingo deployment
 layout: en
-permalink: /user/deployment/scalingo/
+
 ---
 
 <div id="toc"></div>
 
 Travis CI can automatically deploy your application to
-[TODO](https://scalingo.com/) application after a successful build.
+[Scalingo](https://scalingo.com/) application after a successful build.
 
 Chose one of two ways to connect to your Scalingo account:
 
@@ -29,6 +29,7 @@ deploy:
   password:
     secure: "YOUR ENCRYPTED PASSWORD"
 ```
+{: data-file=".travis.yml"}
 
 ## Connecting using an api key
 
@@ -41,6 +42,7 @@ deploy:
   api_key:
     secure: "YOUR ENCRYPTED PASSWORD"
 ```
+{: data-file=".travis.yml"}
 
 ## Optional settings
 
@@ -58,7 +60,7 @@ Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
-```
+```yaml
 before_deploy: "echo 'ready?'"
 deploy:
   ..
@@ -66,3 +68,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

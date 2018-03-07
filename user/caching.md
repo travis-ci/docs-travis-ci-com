@@ -1,7 +1,7 @@
 ---
 title: Caching Dependencies and Directories
 layout: en
-permalink: /user/caching/
+
 ---
 
 These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
@@ -9,15 +9,18 @@ These features are also still experimental, please [contact us](mailto:support@t
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build pushes* to
+**To use the caching feature**, in your repository settings, set *Build branch updates* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* If a branch does not have its own cache, Travis CI fetches the cache of the repository's default branch.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
 * Only modifications made to the cached directories from normal pushes are stored.
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
+
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
 
 ## Caching directories (Bundler, dependencies)
 
@@ -43,6 +46,7 @@ To enable Bundler caching in your `.travis.yml`:
 language: ruby
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
@@ -54,6 +58,12 @@ If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-argu
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
+#### Caching and overriding `install` step
+
+Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
+In this case, observe where Bundler is installing the gems, and cache that directory using
+[cache.directories](#Arbitrary-directories).
+
 #### Cleaning up bundle
 
 When you use
@@ -61,12 +71,25 @@ When you use
 ```yaml
 cache: bundler
 ```
+{: data-file=".travis.yml"}
 
 The command `bundle clean` is executed before the cache is uploaded.
 
 In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
 to get around it.
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
+
+### cache RVM Ruby version for non Ruby projects
+
+There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite.
+
+For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases you can cache the ruby installation.
+
+```yaml
+ cache:
+    directories:
+     - /home/travis/.rvm/
+```
 
 ### CocoaPods
 
@@ -81,6 +104,7 @@ You can enable CocoaPods caching for your repository by adding this to your
 language: objective-c
 cache: cocoapods
 ```
+{: data-file=".travis.yml"}
 
 If you want to enable both Bundler caching and CocoaPods caching, you can list
 them both:
@@ -91,6 +115,7 @@ cache:
   - bundler
   - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
@@ -105,6 +130,7 @@ this:
 language: objective-c
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 ### yarn cache
 
@@ -117,6 +143,7 @@ node_js: '6' # or another
 
 cache: yarn
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cache/yarn`.
 
@@ -129,20 +156,35 @@ language: python
 
 cache: pip
 ```
+{: data-file=".travis.yml"}
 
 caches `$HOME/.cache/pip`.
 
 ### ccache cache
 
-For caching `ccache` files, use:
+If you are using `ccache`, use:
 
 ```yaml
 language: c # or other C/C++ variants
 
 cache: ccache
 ```
+{: data-file=".travis.yml"}
 
-caches `$HOME/.ccache`, and adds `/usr/lib/ccache` to the front of `$PATH`.
+to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
+
+#### ccache on OS X
+
+ccache is not installed on OS X environments but you can install it by adding
+
+```yaml
+install:
+  - brew install ccache
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
+```
+{: data-file=".travis.yml"}
+
+> Note that this creates wrappers around your default gcc and g++ compilers.
 
 ### R package cache
 
@@ -153,6 +195,7 @@ language: R
 
 cache: packages
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/R/Library`, and sets `R_LIB_USER=$HOME/R/Library` environment variable.
 
@@ -165,6 +208,7 @@ language: rust
 
 cache: cargo
 ```
+{: data-file=".travis.yml"}
 
 This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
@@ -178,6 +222,7 @@ cache:
   - .autoconf
   - $HOME/.m2
 ```
+{: data-file=".travis.yml"}
 
 As you can see, you can use environment variables as part of the directory path.  After possible variable expansion, paths that
 
@@ -223,7 +268,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build pushes* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
@@ -241,6 +286,7 @@ cache:
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
 ```
+{: data-file=".travis.yml"}
 
 Failure in this phase does not mark the job as failed.
 
@@ -256,9 +302,7 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [command line client](https://github.com/travis-ci/travis#readme)
 
-  [ ![travis cache --delete](/images/cli-cache.png) ](/images/cli-cache.png)
-
-  <figcaption>Running <tt>travis cache --delete</tt> inside the project directory.</figcaption>
+    ![travis cache --delete](/images/cli-cache.png)
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
@@ -274,6 +318,7 @@ cache:
 - bundler
 - cocoapods
 ```
+{: data-file=".travis.yml"}
 
 This does not work when caching [arbitrary directories](#Arbitrary-directories),
 or when any of the directives is not supported by the language.
@@ -288,6 +333,7 @@ cache:
   directories:
   - node_modules # NPM packages
 ```
+{: data-file=".travis.yml"}
 
 This is another example; a Rust repository caching cargo and Ruby gems:
 
@@ -300,6 +346,7 @@ cache:
 install:
   - bundle install --deployment # to cache vendor/bundle
 ```
+{: data-file=".travis.yml"}
 
 ### Explicitly disabling caching
 
@@ -308,6 +355,7 @@ You can explicitly disable all caching by setting the `cache` option to `false` 
 ```yaml
 cache: false
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to disable a single caching mode:
 
@@ -317,21 +365,23 @@ cache:
   bundler: false
   cocoapods: true
 ```
+{: data-file=".travis.yml"}
 
 ### Setting the timeout
 
 Caching has a timeout set to 3 minutes by default. The timeout is there in order
 to guard against any issues that may result in a stuck build. Such issues may be
 caused by a network issue between worker servers and S3 or even by a cache being
-to big to pack it and upload it in timely fashion. There are, however,
+too big to pack and upload in timely fashion. There are, however,
 situations when you might want to set a bigger timeout, especially if you need
-to cache large amount. In order to change the timeout you can use the `timeout`
+to cache a large amount. In order to change the timeout you can use the `timeout`
 property with a desired time in seconds:
 
 ```yaml
 cache:
   timeout: 1000
 ```
+{: data-file=".travis.yml"}
 
 ## Caches and build matrices
 
@@ -361,7 +411,36 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
-## How does caching work?
+Note that when considering environment variables, the values must match *exactly*,
+including spaces.
+For example, with
+
+```yaml
+env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+```
+
+each of the three jobs will use its own cache.
+
+## Caches and read permissions
+
+When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+ensure that the locations you specify are readable and writable by the user.
+
+If they are not, the caching utility reports errors when it
+invokes `tar` to create the cache archive.
+
+For example:
+
+```
+FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
+
+tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
+```
+
+## How does the caching work?
 
 The caching tars up all the directories listed in the configuration and uploads
 them to S3, using a secure and protected URL, ensuring security and privacy of

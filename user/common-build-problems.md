@@ -1,20 +1,13 @@
 ---
 title: Common Build Problems
 layout: en
-permalink: /user/common-build-problems/
+
 redirect_from:
   - /user/build-timeouts/
 ---
 
 <div id="toc"></div>
 
-## What are beta features?
-
-We mark all features that are in beta like this:
-
-> BETA Awesome new feature that might not be enabled by default and is subject
-to change.
-{: .beta}
 
 ## My tests broke but were working yesterday
 
@@ -65,6 +58,12 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
+## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
+
+If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
+
+Fix the problem by clearing the cache or removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
+
 ## Ruby: RSpec returns 0 even though the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
@@ -105,13 +104,13 @@ set too low.
 Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
-```
-Capybara.default_wait_time = 15
+```js
+Capybara.default_max_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
 
-```
+```js
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, timeout: 15)
 end
@@ -132,7 +131,7 @@ to install RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
-```
+```ruby
 # Gemfile
 group :debug do
   gem 'debugger'
@@ -142,6 +141,22 @@ end
 
 # .travis.yml
 bundler_args: --without development debug
+```
+
+## Ruby: tests frozen and cancelled after 10 minute log silence
+
+In some cases, the use of the `timecop` gem can result in seemingly sporadic
+"freezing" due to issues with ordering calls of `Timecop.return`,
+`Timecop.freeze`, and `Timecop.travel`.  For example, if using RSpec, be sure to
+have a `Timecop.return` configured to run *after* all examples:
+
+```ruby
+# in, e.g. spec/spec_helper.rb
+RSpec.configure do |c|
+  c.after :all do
+    Timecop.return
+  end
+end
 ```
 
 ## Mac: OS X Mavericks (10.9) Code Signing Errors
@@ -174,12 +189,21 @@ Your build is running on macOS Sierra (10.12) if the following `osx_image` value
 ```yaml
 osx_image: xcode8.1
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 osx_image: xcode8.2
 ```
+{: data-file=".travis.yml"}
+
+or
+
+```yaml
+osx_image: xcode8.3
+```
+{: data-file=".travis.yml"}
 
 The following lines in your build log possibly indicate an occurence of this issue:
 
@@ -260,6 +284,29 @@ If you are using [Fastlane](https://fastlane.tools/) to sign your app (e.g. with
     )
 ```
 
+If you are using `import_certificate` directly to import your certificates, it's mandatory to pass your keychain's password as a parameter e.g.
+
+```
+keychain_name = "ios-build.keychain"
+keychain_password = SecureRandom.base64
+
+create_keychain(
+    name: keychain_name,
+    password: keychain_password,
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    add_to_search_list: true
+)
+
+import_certificate(
+    certificate_path: "fastlane/Certificates/dist.p12",
+    certificate_password: ENV["KEY_PASSWORD"],
+    keychain_name: keychain_name
+    keychain_password: keychain_password
+)
+```
+
 You can also have more details in [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791) starting at [this comment](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904).
 
 
@@ -276,6 +323,7 @@ you're seeing this error, add this to your `.travis.yml`:
 before_install:
   - gem install cocoapods -v '0.32.1'
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods can't be found
 
@@ -289,6 +337,7 @@ without any issues:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods fails with a segmentation fault
 
@@ -300,6 +349,7 @@ issues. Add this to your `.travis.yml`:
 ```yaml
 rvm: 1.9.3
 ```
+{: data-file=".travis.yml"}
 
 ## System: Required language pack isn't installed
 
@@ -314,9 +364,22 @@ This can be done with the follow addition to your `.travis.yml`:
 before_install:
   - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-de
 ```
+{: data-file=".travis.yml"}
 
 The above addition will reinstall the en_US language pack, as well as the de_DE
 language pack.
+
+If you are running on the container-base infrastructure and don't have access
+to the `sudo` command, install locales [using the APT addon](/user/installing-dependencies/#installing-packages-with-the-apt-addon):
+
+```yaml
+addons:
+  apt:
+    packages:
+      - language-pack-en
+      - language-pack-de
+```
+{: data-file=".travis.yml"}
 
 ## Linux: apt fails to install package with 404 error
 
@@ -326,6 +389,7 @@ This is often caused by old package database and can be fixed by adding the foll
 before_install:
   - sudo apt-get update
 ```
+{: data-file=".travis.yml"}
 
 ## Travis CI does not Preserve State Between Builds
 
@@ -345,10 +409,11 @@ Travis CI automatically initializes and updates submodules when there's a `.gitm
 
 To turn this off, set:
 
-```yml
+```yaml
 git:
   submodules: false
 ```
+{: data-file=".travis.yml"}
 
 If your project requires specific options for your Git submodules which Travis CI
 does not support out of the box, turn off the automatic integration and use the
@@ -356,10 +421,11 @@ does not support out of the box, turn off the automatic integration and use the
 
 For example, to update nested submodules:
 
-```yml
+```yaml
 before_install:
   - git submodule update --init --recursive
 ```
+{: data-file=".travis.yml"}
 
 ## Git cannot clone my Submodules
 
@@ -407,12 +473,16 @@ bundler_args: --retry 5
 For commands which do not have a built in retry feature, use the `travis_retry`
 function to retry it up three times if the return code is non-zero:
 
-```sh
+```bash
 install: travis_retry pip install myawesomepackage
 ```
 
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
+
+Note that `travis_retry` only works within the `script` step. It will not work
+in other steps, like `deploy`.
+
 
 ### Build times out because no output was received
 
@@ -425,6 +495,7 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 ```yaml
     install: travis_wait mvn install
 ```
+{: data-file=".travis.yml"}
 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
@@ -435,6 +506,7 @@ Continuing with the example above, to extend the wait time to 30 minutes:
 ```yaml
     install: travis_wait 30 mvn install
 ```
+{: data-file=".travis.yml"}
 
 We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
@@ -453,37 +525,68 @@ which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
-* Download and install Docker:
+1. Download and install Docker:
 
    - [Windows](https://docs.docker.com/docker-for-windows/)
    - [OS X](https://docs.docker.com/docker-for-mac/)
    - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-* For Ubuntu 12.04 (precise), select an image from
-   [Quay.io](https://quay.io/organization/travisci) named `travis-{lang}` where
-`{lang}` is the language you need.  If you're not using a language-specific
-image, pick `travis-ruby`.  For Ubuntu 14.04 (trusty), select an image from
-[Docker Hub](https://hub.docker.com/r/travisci/) named either `ci-amethyst` or
-`ci-garnet` (which differ slightly depending on language desired).  In order for
-system services to run correctly, the container must be run with `/sbin/init` as
-PID 1:
+1. Choose a Docker image
+  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
+    ("default" if no other name matches) using the table below:
 
-``` bash
-docker run --name travis-debug -dit quay.io/travisci/travis-ruby /sbin/init
+    | language        | Docker Hub image |
+    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
+    | {{language[0]}} | {{language[1]}}  | {% endfor %}
+
+1. Start a Docker container detached with `/sbin/init`:
+  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
+    ``` bash
+    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
+    ```
+
+1. Open a login shell in the running container
+
+    ``` bash
+    docker exec -it travis-debug bash -l
+    ```
+
+1. Switch to the `travis` user:
+
+    ``` bash
+    su - travis
+    ```
+
+1. Clone your git repository into the home directory.
+
+    ``` bash
+    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
+    ```
+
+1. (Optional) Check out the commit you want to test
+
+    ``` bash
+    git checkout 6b14763
+    ```
+
+1. Manually install dependencies, if any.
+
+1. Manually run your Travis CI build command.
+
+## Running builds in debug mode
+
+In private repositories and those public repositories for which the feature is enabled,
+it is possible to run builds and jobs in the debug mode.
+Using this feature, you can interact with the live VM where your builds run.
+
+For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
+
+## Log Length exceeded
+
+The log for each build is limited to approximately 4 Megabytes. When it reaches that length the build is terminated and you'll see the following message at the end of your build log:
+
 ```
+The log length has exceeded the limit of 4 Megabytes (this usually means that test suite is raising the same exception over and over).
 
-* Open a login shell in the running container
-
-``` bash
-docker exec -it travis-debug bash -l
+The build has been terminated.
 ```
-
-* Switch to the `travis` user:
-
-``` bash
-su - travis
-```
-
-* Clone your git repository into the `~` folder of the image.
-* Manually install any dependencies.
-* Manually run your Travis CI build command.

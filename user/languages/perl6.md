@@ -1,7 +1,12 @@
 ---
 title: Building a Perl 6 Project
 layout: en
-permalink: /user/languages/perl6/
+support: community
+maintainers:
+  - 'paultcochrane'
+  - 'hoelzro'
+  - 'ugexe'
+  - 'tony-o'
 ---
 
 ### What This Guide Covers
@@ -10,7 +15,14 @@ This guide covers build environment and configuration topics specific to
 Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl 6 builds are not available on the OSX environment.
+Perl 6 builds are not available on the OS X environment.
+
+### Community-Supported Warning
+
+Travis CI support forPerl 6 is contributed by the community and may be removed or
+altered at any time. If you run into any problems, please report them in the
+[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:perl6)
+and cc {% for m in page.maintainers %}<a href="https://github.com/{{m}}">@{{m}}</a> {% endfor %}.
 
 ## Choosing Perl 6 versions to test against
 
@@ -23,12 +35,13 @@ versions that your projects can be tested against. To specify them, use the
 language: perl6
 perl6:
   - latest
-  - '2015.07'
-  - '2015.04'
+  - '2017.05'
+  - '2017.04'
 ```
+{: data-file=".travis.yml"}
 
 Over time, new releases come out and we upgrade both rakudobrew and
-Perls, aliases like `2015.07` will float and point to different exact
+Perls, aliases like `2017.05` will float and point to different exact
 versions, patch levels and so on.
 
 For precise versions pre-installed on the VM, please consult "Build system
@@ -44,7 +57,7 @@ backend.  Future support for the
 ## Default Perl 6 Version
 
 If you leave the `perl6` key out of your `.travis.yml`, Travis CI will build
-Rakudo Perl 6 from the latest commit from the project's `nom` branch.
+Rakudo Perl 6 from the latest commit from the project's `master` branch.
 
 ## Default Test Script
 
@@ -61,33 +74,17 @@ PERL6LIB=lib prove -v -r --exec=perl6 t/
 At present, by default Travis CI does not automatically manage your
 project's dependencies.  It is possible to manage dependencies yourself by
 either downloading and installing your dependencies as part of the `install`
-step, or you could use [panda](https://github.com/tadzik/panda) (the Perl 6
+step, or you could use [zef](https://github.com/ugexe/zef) (the Perl 6
 module package manager) like so:
 
 ```yaml
 install:
-    - rakudobrew build-panda
-    - panda installdeps .
+    - rakudobrew build-zef
+    - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
-this will install the latest `panda` version.
-
-It is sometimes necessary to match the `panda` version to that of Rakudo;
-new Rakudo features could be used in the most up to date `panda` which
-aren't available in the version of Rakudo you are using.  For instance, to
-test a module against Rakudo 2015.04, you would have a `.travis.yml` which
-looks something like this:
-
-```yaml
-language: perl6
-perl6:
-    - '2015.07'
-install:
-    - rakudobrew build-panda 2015.07
-```
-
-Now your `panda` will match your Rakudo version and should install
-the relevant dependencies successfully.
+this will install the latest `zef` version.
 
 Further information about overriding dependency installation commands is
 described in the [general build configuration](/user/customizing-the-build/)
@@ -120,28 +117,30 @@ TRAVIS_PERL6_VERSION
 
 ```yaml
 language: perl6
+
+perl6:
+    - latest
+
+install:
+    - rakudobrew build-zef
+    - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with multiple Rakudo versions
 
 ```yaml
 language: perl6
-perl6:
-    - '2015.06'
-    - '2015.05'
-```
 
-### Build and test with matching Rakudo and panda versions
-
-```yaml
-language: perl6
 perl6:
-    - latest
-    - '2015.03'
+    - '2017.05'
+    - '2017.04'
+
 install:
-    - rakudobrew build-panda ${TRAVIS_PERL6_VERSION#latest}
-    - panda installdeps .
+    - rakudobrew build-zef
+    - zef --debug --depsonly install .
 ```
+{: data-file=".travis.yml"}
 
 ### Build and test with the latest Rakudo, but with non-standard lib and test dirs
 
@@ -151,6 +150,8 @@ library code under `lib/` and the tests under `t/`.
 
 ```yaml
 language: perl6
+
 script:
     - PERL6LIB=src prove -v -r --exec=perl6 tests/
 ```
+{: data-file=".travis.yml"}

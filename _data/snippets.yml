@@ -16,3 +16,38 @@ before_and_after: |
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
   ```
+ghlimit: |
+  > If your API or cron triggered builds run on the *same commit
+  > or branch* over and over again, you will notice GitHub have a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > *per commit*, which causes the Travis CI build status displayed on GitHub
+  > to be incorrect.
+  > Avoid this problem by specifying a regularly updated branch for your automated builds.
+trusty_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [OS X](/user/reference/osx/)
+trusty_note_no_osx: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+concurrent_jobs: |
+  The maximum number of concurrent jobs depends on the total system load, but
+  one situation in which you might want to set a particular limit is:
+
+  - if your build depends on an external resource and might run into a race
+    condition with concurrent jobs.
+auto_cancellation: |
+  If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are not yet running.
+cron_jobs: |
+  Travis CI cron jobs work similarly to the cron utilty, they run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. Cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and you cannot set them to run at a specific time.
+environment_variables: |
+  Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
+
+  Define variables in the Repository Settings that:
+
+  - differ per repository.
+  - contain sensitive data, such as third-party credentials.
