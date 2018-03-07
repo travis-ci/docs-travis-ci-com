@@ -521,7 +521,7 @@ Other flags, such as `on_success` and `on_failure` also work like the IRC notifi
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Configuring slack notifications
+## Configuring Slack notifications
 
 Travis CI can send notifications to your [Slack](http://slack.com) channels
 about build results.
@@ -607,7 +607,7 @@ screenshot below:
 
 ### Notifications of PR builds
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
+Turn pull request notifications off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:

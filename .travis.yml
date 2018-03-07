@@ -15,6 +15,10 @@ cache:
   directories:
     - vendor/bundle
     - node_modules
+addons:
+  apt:
+    packages:
+      - libxml2-utils
 deploy:
   provider: heroku
   api_key:
@@ -36,3 +40,4 @@ install:
   - bundle install --deployment
 script:
   - bundle exec rake test
+  - xmllint _site/feed.build-env-updates.xml
