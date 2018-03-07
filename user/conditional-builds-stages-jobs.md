@@ -99,7 +99,7 @@ Known attributes are:
 
 * `type` (the current event type, known event types are: `push`, `pull_request`, `api`, `cron`)
 * `repo` (the current repository slug `owner_name/name`)
-* `branch` (the current branch name)
+* `branch` (the current branch name; for pull requests: the base branch name)
 * `tag` (the current tag name)
 * `sender` (the event sender's login name)
 * `fork` (`true` or `false` depending if the repository is a fork)
@@ -112,13 +112,14 @@ Known functions are:
 
 The function `env` currently only supports environment variables that are given in your build configuration (e.g. on `env` or `env.global`), not environment variables specified in your repository settings.
 
-#### Equality
+#### Equality and inequality
 
 This matches a string literally:
 
 ```
 branch = master
 env(foo) = bar
+sender != my-bot
 ```
 
 #### Match

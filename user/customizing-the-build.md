@@ -141,6 +141,7 @@ However, if one of these stages times out, the build is marked as a failure.
 An optional phase in the build lifecycle is deployment. This step can't be
 overridden, but is defined by using one of our continuous deployment providers
 to deploy code to Heroku, Engine Yard, or a different supported platform.
+The deploy steps are skipped if the build is broken.
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
@@ -200,9 +201,8 @@ It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - A job produces no log output for 10 minutes
-- A job on travis-ci.org takes longer than 50 minutes 
-- A job running on OS X infrastructure takes longer than 50 minutes (applies to travis-ci.org or travis-ci.com)
-- A job on Linux infrastructure on travis-ci.com takes longer than 120 minutes 
+- A job on travis-ci.org takes longer than 50 minutes
+- A job on travis-ci.com takes longer than 120 minutes
 
 Some common reasons why builds might hang:
 
@@ -212,15 +212,11 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
-## Limiting Concurrent Builds
+## Limiting Concurrent Jobs
 
-The maximum number of concurrent builds depends on the total system load, but
-one situation in which you might want to set a particular limit is:
+{{ site.data.snippets.concurrent_jobs }}
 
-- if your build depends on an external resource and might run into a race
-  condition with concurrent builds.
-
-You can set the maximum number of concurrent builds in the settings pane for
+You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
@@ -237,9 +233,9 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
@@ -259,6 +255,14 @@ You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml
 ```yaml
 git:
   depth: 3
+```
+{: data-file=".travis.yml"}
+
+You can also remove the `--depth` flag entirely with:
+
+```yaml
+git:
+  depth: false
 ```
 {: data-file=".travis.yml"}
 
@@ -318,6 +322,16 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+
+## Git Sparse Checkout
+Travis CI supports `git`'s [sparse checkout](https://git-scm.com/docs/git-read-tree#_sparse_checkout)
+capability.
+To clone your repository sparsely, add:
+```yaml
+git:
+  sparse_checkout: skip-worktree-map-file
+```
+where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 ## Building Specific Branches
 
@@ -394,7 +408,7 @@ rvm:
   - 2.2
   - ruby-head
   - jruby
-  - rbx-2
+  - rbx-3
   - ree
 gemfile:
   - gemfiles/Gemfile.rails-2.3.x
@@ -634,7 +648,7 @@ Consider a scenario where you want to run more complex test scenarios, but only 
 set -ev
 bundle exec rake:units
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-	bundle exec rake test:integration
+  bundle exec rake test:integration
 fi
 ```
 
@@ -668,7 +682,7 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 ```yaml
 addons:
   hosts:
-  - travis.dev
+  - travis.test
   - joshkalderimis.com
 ```
 {: data-file=".travis.yml"}

@@ -5,14 +5,14 @@ layout: en
 ---
 
 If your deployment needs more customization than the `after_success` method allows,
-use a custom script.
+use a custom script. Do note that custom scripts are still considered an experimental feature.
 
 The following example runs `scripts/deploy.sh` on the `develop` branch of your repository if the build is successful.
 
 ```yaml
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: bash scripts/deploy.sh
   on:
     branch: develop
 ```
@@ -31,12 +31,12 @@ It is possible to pass arguments to a script deployment.
 deploy:
   # deploy develop to the staging environment
   - provider: script
-    script: scripts/deploy.sh staging
+    script: bash scripts/deploy.sh staging
     on:
       branch: develop
   # deploy master to production
   - provider: script
-    script: scripts/deploy.sh production
+    script: bash scripts/deploy.sh production
     on:
       branch: master
 ```
@@ -47,7 +47,7 @@ The script has access to all the usual [environment variables](/user/environment
 ```yaml
 deploy:
   provider: script
-  script: scripts/deploy.sh production $TRAVIS_TAG
+  script: bash scripts/deploy.sh production $TRAVIS_TAG
   on:
     tags: true
     all_branches: true

@@ -5,24 +5,27 @@ layout: en_enterprise
 ---
 
 This guide covers installing the Travis CI Enterprise Platform and Travis CI
-Enterprise Worker. Please check our [system
-prerequisites](/user/enterprise/prerequisites/) guide if you have any questions
-about whether your configuration will be supported.
-
-Because Travis CI Enterprise is optimized for EC2, the following guide
+Enterprise Worker. Because Travis CI Enterprise is optimized for EC2, the following guide
 recommends steps geared toward this provider, but you can certainly modify it to
 use your provider of choice.
 
+**Before getting started:** please check our [system prerequisites](/user/enterprise/prerequisites/) for
+[expected system specs](/user/enterprise/prerequisites/#Host-Machine-Specs), 
+notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
+and information on obtaining a [license](/user/enterprise/prerequisites/#License).
+
+
+
 <div id="toc"></div>
 
-## 1. Setting up the Travis CI Enterprise Platform
+## Setting up the Travis CI Enterprise Platform
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
 Enterprise worker.
 
-### 1.1. Create a Security Group
+### Create a Travis CI Platform Security Group
 
 If you're setting up your AMI for the first time you need to create
 a Security Group. From the EC2 management console, create an entry for
@@ -37,7 +40,7 @@ each port in the table below:
 | 80   | HTTP            | Web application access.                                                      |
 | 22   | SSH             | SSH access.                                                                  |
 
-### 1.2. Install Travis CI Enterprise Platform on the first host
+### Install Travis CI Enterprise Platform
 
 Before running the installation script, we recommend downloading and reading it.
 When you're ready to run it on the host, run one of the following pairs of
@@ -60,21 +63,13 @@ installation's hostname, port 8800) to complete the setup.
 From here you can upload your license key, add your GitHub OAuth details, and
 optionally upload an SSL certificate and enter SMTP details.
 
-<!-- TODO: this next should probably be way earlier in the prerequisites? -->
-
-If you are running the Platform host on EC2, we recommend using an image
-that uses EBS for the root volume, as well as allocating 40 gigs of
-space to it. It is also recommended to not destroy the volume on
-instance termination.
-
-
-## 2. Setting up Travis CI Enterprise Worker
+## Install Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform.
 
-### 2.1. Create a Security Group
+### Create a Travis CI Worker Security Group
 
 If you're setting up your AMI for the first time you will need to create
 a Security Group. From the EC2 management console, create an entry for
@@ -84,7 +79,7 @@ each port in the table below:
 |:-----|:--------|:------------|
 | 22   | SSH     | SSH access. |
 
-## 2.1. Install Travis CI Worker on the second host
+## Install Travis CI Worker
 
 1. From the Travis CI Enterprise Platform management UI under Settings, retrieve
    the RabbitMQ password and the hostname for your Travis CI Enterprise
@@ -128,18 +123,3 @@ specified as follows:
 ```
   export http_proxy="http://proxy.mycompany.corp:8080/"
 ```
-
-## Backups
-
-<!-- TODO what about a Backups page linked to from here + upgrades -->
-
-We recommend a weekly machine snapshot and weekly backups of `/etc/travis` and
-`/var/travis`.
-
-One good way to do this is to run
-```
-  sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
-```
-
-Doing a machine snapshot and backing up those directories before performing an
-update is recommended as well.

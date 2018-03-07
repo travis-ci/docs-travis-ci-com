@@ -6,7 +6,7 @@ layout: en
 
 <div id="toc"></div>
 
-Travis CI cron jobs work similarly to the cron utilty, they run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. Cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and you cannot set them to run at a specific time.
+{{ site.data.snippets.cron_jobs }}
 
 Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-Cron-Jobs) in the same way
 

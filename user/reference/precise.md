@@ -79,7 +79,7 @@ to accommodate projects that may need one of those runtimes during the build.
 
 Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).
 
-### Data Stores
+### Databases
 
 - MySQL
 - PostgreSQL
@@ -88,7 +88,7 @@ Language-specific workers have multiple runtimes for their respective language (
 - Redis
 - Riak
 - Apache Cassandra
-- Neo4J Community Edition
+- Neo4j Community Edition
 - ElasticSearch
 - CouchDB
 
