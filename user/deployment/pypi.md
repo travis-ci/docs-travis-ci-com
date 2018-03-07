@@ -73,7 +73,8 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   provider: pypi
-  api_key: ...
+  user: ...
+  password: ...
   on:
     all_branches: true
 ```
