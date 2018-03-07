@@ -8,7 +8,7 @@ Travis CI can automate the continuous delivery of [snaps](https://snapcraft.io) 
 
 Snaps are a new packaging and delivery system for Ubuntu, Debian, Fedora, openSuse and other [Linux distros](https://snapcraft.io/docs/core/install). Snaps are secure, they bundle all their dependencies and they are designed to be part of the upstream development workflow in a seamless way. This means that no distro maintainers are involved, and that the delivery to the store can be fully automated. The snaps installed in the users' machines are auto-updated, so a few hours after you push a new snap to the store, all your users will get the most recent version.
 
-To auomate continuous delivery of snaps to the Ubuntu store,
+To automate continuous delivery of snaps to the Ubuntu store:
 
 1. [Encrypt](https://docs.travis-ci.com/user/encrypting-files) your snapcraft credentials with Travis CI
 2. Add the encrypted credentials to the repository where you have the `snapcraft.yaml` metadata for your package.
