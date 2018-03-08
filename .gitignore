@@ -11,3 +11,4 @@ bin
 node_modules
 source/tmp/*
 tmp/
+api/
