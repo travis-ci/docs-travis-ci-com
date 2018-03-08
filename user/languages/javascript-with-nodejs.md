@@ -44,12 +44,9 @@ releases in your `.travis.yml`:
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
-- `9` latest 9.x release
-- `8` latest 8.x release
-- `7` latest 7.x release
-- `6` latest 6.x release
-- `5` latest 5.x release
-- `4` latest 4.x release
+{% for vers in site.data.node_js_versions %}
+- {{vers}} # latest {{vers}}.x release
+{% endfor %}
 
 ```yaml
 language: node_js

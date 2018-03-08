@@ -176,12 +176,27 @@ file '_data/gce_ip_range.yml' do |t|
   puts "Updated #{t.name}"
 end
 
+file '_data/node_js_versions.yml' do |t|
+  remote_node_versions = `bash -l -c "nvm ls-remote"`.split("\n").
+    map {|l| l.gsub(/.*v(0\.[1-9][0-9]*|[1-9]*)\..*$/, '\1')}.uniq.
+    sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
+
+  File.write(
+    t.name,
+    YAML.dump(
+      remote_node_versions.flatten.compact.take(5)
+    )
+  )
+  puts "Updated #{t.name}"
+end
+
 desc 'Refresh generated files'
 task regen: [
   :clean,
   '_data/ec2_public_ips.yml',
   '_data/gce_ip_range.yml',
-  '_data/trusty_language_mapping.yml'
+  '_data/trusty_language_mapping.yml',
+  '_data/node_js_versions.yml'
 ]
 
 desc 'Remove generated files'
@@ -192,6 +207,7 @@ task :clean do
          _data/gce_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
+         _data/node_js_versions.yml
        ])
 end
 
