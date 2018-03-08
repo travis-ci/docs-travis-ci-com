@@ -44,6 +44,7 @@ releases in your `.travis.yml`:
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
+- `9` latest 9.x release
 - `8` latest 8.x release
 - `7` latest 7.x release
 - `6` latest 6.x release
