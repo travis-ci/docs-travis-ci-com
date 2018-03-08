@@ -23,7 +23,7 @@ task default: :test
 desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
-desc 'Builds the site'
+desc 'Builds the site (Jekyll and Slate)'
 task build: %i[remove_output_dir regen make_api] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
