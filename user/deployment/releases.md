@@ -144,6 +144,20 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+Another example would be includind all files found in a given directory and subdirectories.
+
+```yaml
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/**/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
