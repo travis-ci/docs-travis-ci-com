@@ -144,7 +144,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Another example would be includind all files found in a given directory and subdirectories.
+Another example would be includind all files found in all subdirectories of a given directory.
 
 ```yaml
 deploy:
