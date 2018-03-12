@@ -240,8 +240,5 @@ DEPENDENCIES
   ruby18_source_location
   therubyracer
 
-RUBY VERSION
-   ruby 2.4.3p205
-
 BUNDLED WITH
-   1.15.2
+   1.15.1
