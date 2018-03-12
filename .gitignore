@@ -3,8 +3,7 @@
 .jekyll-metadata
 .rvmrc
 .sass-cache
-_data/ec2*ips*
-_data/gce_ip_range.yml
+_data/*ip_range.yml
 _data/trusty*language*mapping*
 _site
 bin
