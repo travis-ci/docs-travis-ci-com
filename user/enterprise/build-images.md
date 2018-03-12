@@ -81,6 +81,8 @@ On Amazon EC2 each machine has a private IP address by default. That address wil
 
 To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is correct.
 
+__Ubuntu 14.04 as Host operating system__
+
 Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this (We're using `172.31.7.199` as example here):
 
 ```
@@ -93,7 +95,34 @@ After that, both Docker and travis-worker have to be restarted. For Docker, plea
 $ sudo restart docker
 ```
 
-For travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+__Ubuntu 16.04 as Host operating system__
+
+To have the Docker daemon listening to the private IP address, please open `/etc/docker/daemon.json`. In there, please configure `hosts` like this:
+
+```json
+{
+    //...
+    "hosts": [
+        "fd://",
+        "tcp://172.31.7.199:4243"
+    ]
+}
+```
+
+By default, the Docker service file has configured that the daemon is accessible via socket activation. If you'd restart Docker right now, it would complain about having hosts configured both in the service file and in `/etc/docker/daemon.json`. To not run into that situation, please run `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
+
+```
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd
+```
+
+After that, issue an `sudo systemctl daemon-reload`, together with a `sudo systemctl restart docker`.
+
+
+__Restart travis-worker__
+
+To restart travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
 
 ### Updates to your .travis.yml files
