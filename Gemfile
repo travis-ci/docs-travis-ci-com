@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.2' if ENV.key?('DYNO')
+ruby '2.4.2'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
