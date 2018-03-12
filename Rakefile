@@ -37,15 +37,16 @@ task default: :test
 desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
-desc 'Builds the site'
-task build: %i[remove_output_dir regen] do
+desc 'Builds the site (Jekyll and Slate)'
+task build: %i[remove_output_dir regen make_api] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
 
-desc 'Remove the output dir'
+desc 'Remove the output dirs'
 task :remove_output_dir do
   rm_rf('_site')
+  rm_rf('api/*')
 end
 
 desc 'Lists files containing beta features'
@@ -179,10 +180,19 @@ task :clean do
 end
 
 desc 'Start Jekyll server'
-task serve: :regen do
+task serve: [:make_api, :regen] do
   sh 'bundle exec jekyll serve --config=_config.yml'
 end
 
 namespace :assets do
-  task precompile: :build
+  task precompile: [:make_api, :build]
+end
+
+desc 'make API docs'
+task :make_api do
+  Dir.chdir('slate') do
+    sh 'bundle exec middleman build --clean'
+    FileUtils.mkdir_p '../api'
+    sh 'cp -r build/* ../api/'
+  end
 end
