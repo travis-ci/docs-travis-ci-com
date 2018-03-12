@@ -36,7 +36,7 @@ notifications:
   webhooks:
     https://docs.travis-ci.com/update_webhook_payload_doc
 install:
-  - rvm use 2.3.1 --install
+  - rvm use 2.4.2 --install
   - bundle install --deployment
 script:
   - bundle exec rake test
