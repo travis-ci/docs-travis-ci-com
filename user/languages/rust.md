@@ -65,6 +65,7 @@ rust:
 matrix:
   allow_failures:
     - rust: nightly
+  fast_finish: true
 ```
 {: data-file=".travis.yml"}
 
