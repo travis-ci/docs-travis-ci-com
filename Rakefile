@@ -21,7 +21,7 @@ end
 def define_ip_range(nat_hostname, dest)
   data = dns_resolve(nat_hostname)
 
-  File.write(
+  bytes = File.write(
     dest,
     YAML.dump(
       'host' => nat_hostname,
@@ -29,7 +29,7 @@ def define_ip_range(nat_hostname, dest)
     )
   )
 
-  puts "Updated #{dest}"
+  puts "Updated #{dest} (#{bytes} bytes)"
 end
 
 task default: :test
@@ -128,18 +128,20 @@ file '_data/trusty-language-mapping.json' do |t|
     'generated-language-mapping.json'
   )
 
-  File.write(t.name, Faraday.get(source).body)
+  bytes = File.write(t.name, Faraday.get(source).body)
+
+  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 file '_data/trusty_language_mapping.yml' => [
   '_data/trusty-language-mapping.json'
 ] do |t|
-  File.write(
+  bytes = File.write(
     t.name,
     YAML.dump(JSON.parse(File.read('_data/trusty-language-mapping.json')))
   )
 
-  puts "Updated #{t.name}"
+  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 file '_data/ip_range.yml' do |t|
@@ -158,6 +160,20 @@ file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
 end
 
+file '_data/node_js_versions.yml' do |t|
+  remote_node_versions = `bash -l -c "nvm ls-remote"`.split("\n").
+    map {|l| l.gsub(/.*v(0\.[1-9][0-9]*|[1-9]*)\..*$/, '\1')}.uniq.
+    sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
+
+  bytes = File.write(
+    t.name,
+    YAML.dump(
+      remote_node_versions.flatten.compact.take(5)
+    )
+  )
+  puts "Updated #{t.name} (#{bytes} bytes)"
+end
+
 desc 'Refresh generated files'
 task regen: (%i[clean] + %w[
   _data/ec2_ip_range.yml
@@ -165,6 +181,7 @@ task regen: (%i[clean] + %w[
   _data/ip_range.yml
   _data/macstadium_ip_range.yml
   _data/trusty_language_mapping.yml
+  _data/node_js_versions.yml
 ])
 
 desc 'Remove generated files'
@@ -176,6 +193,7 @@ task :clean do
          _data/macstadium_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
+         _data/node_js_versions.yml
        ])
 end
 
