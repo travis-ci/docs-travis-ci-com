@@ -105,6 +105,18 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+The next example deploys using a custom script `deploy.sh`, only for builds on the branches `staging` and `production`.
+
+```yaml
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^staging|production$
+```
+{: data-file=".travis.yml"}
+
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
 ```yaml
