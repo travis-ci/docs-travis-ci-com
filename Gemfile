@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.5.0'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
