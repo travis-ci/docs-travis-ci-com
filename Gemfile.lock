@@ -1,3 +1,22 @@
+GIT
+  remote: https://github.com/ably-forks/compass
+  revision: 3861c9d9956dd1a5f4290ea87e9d90ba7fe44394
+  ref: 3861c9d
+  branch: sass-deprecation-warning-fix
+  specs:
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.2)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -23,18 +42,6 @@ GEM
     coffee-script-source (1.12.2)
     colorator (1.1.0)
     colorize (0.8.1)
-    compass (1.0.3)
-      chunky_png (~> 1.2)
-      compass-core (~> 1.0.2)
-      compass-import-once (~> 1.0.5)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      sass (>= 3.3.13, < 3.5)
-    compass-core (1.0.3)
-      multi_json (~> 1.0)
-      sass (>= 3.3.0, < 3.5)
-    compass-import-once (1.0.5)
-      sass (>= 3.2, < 3.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -220,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  compass-core!
   faraday
   html-proofer (~> 3.0)
   jekyll (>= 3.1.6)
