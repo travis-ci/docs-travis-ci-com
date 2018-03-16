@@ -208,9 +208,5 @@ end
 
 desc 'make API docs'
 task :make_api do
-  Dir.chdir('slate') do
-    sh 'bundle exec middleman build --clean'
-    FileUtils.mkdir_p '../api'
-    sh 'cp -r build/* ../api/'
-  end
+  sh 'bundle exec middleman build --clean'
 end
