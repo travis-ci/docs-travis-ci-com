@@ -146,7 +146,3 @@ executables for `docker` and `docker-compose`:
 ```sh
 export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /usr/bin/docker:/usr/bin/docker /usr/local/bin/docker-compose:/usr/bin/docker-compose"
 ```
-
-
-
-
