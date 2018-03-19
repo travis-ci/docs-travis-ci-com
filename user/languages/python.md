@@ -217,6 +217,17 @@ The same technique is often used to test projects against multiple databases and
 
 For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
+## How Python Version is Chosen
+
+When you specify Python versions, your job will first look for the runtime
+pre-installed on the image.
+If that version is not available, the job will fetch a pre-compiled
+archive that matches the version for the image the job is running on,
+and installed on demand.
+
+For the complete list of Python runtimes available for on-demand installation,
+see [the table below](#python-runtime-list).
+
 ## Build Matrix
 
 For Python projects, `env` and `python` can be given as arrays
@@ -230,3 +241,56 @@ to construct a build matrix.
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 - [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 - [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+
+## Python Versions Available for On-Demand Installation
+
+These Python runtimes are available for on-demand installation.
+
+<table id="python-runtime-list">
+  <tr>
+    <th>Python</th>
+    <th>Ubuntu Release</th>
+    <th>Versions</th>
+  </tr>
+  <tr>
+    <th rowspan="{{ site.data.language_versions.python.precise | size }}" text-align="top">Python</th>
+    <th rowspan="{{ site.data.language_versions.python.precise | size }}" text-align="top">Precise</th>
+    <td>{{ site.data.language_versions.python.precise[0] }}</td>
+  </tr>
+  {% for x in site.data.language_versions.python.precise offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_versions.python.trusty | size }}" text-align="top">Python</th>
+    <th rowspan="{{ site.data.language_versions.python.trusty | size }}" text-align="top">Trusty</th>
+    <td>{{ site.data.language_versions.python.trusty[0] }}</td>
+  </tr>
+  {% for x in site.data.language_versions.python.trusty offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_versions.pypy.precise | size }}" text-align="top">PyPy</th>
+    <th rowspan="{{ site.data.language_versions.pypy.precise | size }}" text-align="top">Precise</th>
+    <td>{{ site.data.language_versions.pypy.precise[0] }}</td>
+  </tr>
+  {% for x in site.data.language_versions.pypy.precise offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <th rowspan="{{ site.data.language_versions.pypy.trusty | size }}" text-align="top">PyPy</th>
+    <th rowspan="{{ site.data.language_versions.pypy.trusty | size }}" text-align="top">Trusty</th>
+    <td>{{ site.data.language_versions.pypy.trusty[0] }}</td>
+  </tr>
+  {% for x in site.data.language_versions.pypy.trusty offset:1 %}
+  <tr>
+    <td>{{ x }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
