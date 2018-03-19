@@ -88,8 +88,8 @@ def node_js_versions
   remote_node_versions.flatten.compact.take(5)
 end
 
-def larnguage_archive_versions(lang: :'')
-  unless language_data[lang]
+def language_archive_versions(lang:)
+  unless language_data.has_key?
     puts "Unknown language #{lang}"
     fail
   end
@@ -112,15 +112,15 @@ def larnguage_archive_versions(lang: :'')
 end
 
 def php_versions
-  larnguage_archive_versions(lang: :php)
+  language_archive_versions(lang: :php)
 end
 
 def python_versions
-  larnguage_archive_versions(lang: :python)
+  language_archive_versions(lang: :python)
 end
 
 def pypy_versions
-  larnguage_archive_versions(lang: :pypy)
+  language_archive_versions(lang: :pypy)
 end
 
 task default: :test
