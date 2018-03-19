@@ -14,7 +14,7 @@ gem 'rack-ssl-enforcer'
 gem 'rake'
 gem 'rdiscount', '>=2.2.0.1'
 gem 'rubocop', group: :test
-
+gem 'aws-sdk'
 
 # All of this is for Slate / middleman
 

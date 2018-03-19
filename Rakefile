@@ -7,6 +7,36 @@ require 'yaml'
 
 require 'faraday'
 require 'html-proofer'
+require 'aws-sdk'
+
+require 'pry'
+
+def language_data
+  {
+    php: {
+      bucket: 'travis-php-archives',
+      releases: %w( precise trusty ),
+      basename_regexp: /^php-(\d+(\.\d+)*)/,
+    },
+    python: {
+      bucket: 'travis-python-archives',
+      releases: %w( precise trusty ),
+      basename_regexp: /^python-(\d+(\.\d+)*)/,
+    },
+    pypy: {
+      bucket: 'travis-python-archives',
+      releases: %w( precise trusty ),
+      basename_regexp: /^pypy(\d+(\.\d+)*)?(-\d+(\.\d+)*)?(-(alpha|beta)\d*)?/,
+    },
+  }
+end
+
+def s3_prefix
+  {
+    precise: 'binaries/ubuntu/12.04/x86_64',
+    trusty:  'binaries/ubuntu/14.04/x86_64'
+  }
+end
 
 def print_line_containing(file, str)
   File.open(file).grep(/#{str}/).each { |line| puts "#{file}: #{line}" }
@@ -32,9 +62,23 @@ def define_ip_range(nat_hostname, dest)
   puts "Updated #{dest} (#{bytes} bytes)"
 end
 
+def s3
+  @s3 ||= Aws::S3::Client.new # credentials are set by env var
+end
+
+def archive_list(lang:, bucket:, prefix:, basename_regexp:, ext: ".tar.bz2")
+  objs = s3.list_objects(bucket: bucket, prefix: prefix).contents.select do |obj|
+    File.basename(obj.key) =~ basename_regexp
+  end
+
+  objs.select do |obj|
+    File.basename(obj.key).end_with? ext
+  end
+end
+
 def language_versions
-  language_file = File.join(File.dirname(__FILE__), '_data', 'languag_versions.yml')
-  lang_data = File.file?(language_file) ? YAML.load_file(language_file) : {}
+  language_file = File.join(File.dirname(__FILE__), '_data', 'language_versions.yml')
+  File.file?(language_file) ? YAML.load_file(language_file) : {}
 end
 
 def node_js_versions
@@ -42,6 +86,41 @@ def node_js_versions
     map {|l| l.gsub(/.*v(0\.[1-9][0-9]*|[1-9]*)\..*$/, '\1')}.uniq.
     sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
   remote_node_versions.flatten.compact.take(5)
+end
+
+def larnguage_archive_versions(lang: :'')
+  unless language_data[lang]
+    puts "Unknown language #{lang}"
+    fail
+  end
+
+  data = language_data[lang]
+  output = {}
+  data[:releases].each do |rel|
+    archives = archive_list(
+      lang: lang,
+      bucket: data[:bucket],
+      prefix: s3_prefix[rel.to_sym],
+      basename_regexp: data[:basename_regexp]
+    )
+    output[rel] = archives.map do |archive|
+      File.basename(archive.key, ".tar.bz2")
+    end
+  end
+
+  output
+end
+
+def php_versions
+  larnguage_archive_versions(lang: :php)
+end
+
+def python_versions
+  larnguage_archive_versions(lang: :python)
+end
+
+def pypy_versions
+  larnguage_archive_versions(lang: :pypy)
 end
 
 task default: :test
@@ -106,15 +185,19 @@ end
 
 namespace :languages do
   task :update, [:lang] do |_t, args|
-    langs = args[:lang] ? Array(lang) : %w(node_js)
+    lang = args[:lang]
+    langs = lang ? lang.split(/\s+/ ) : %w(node_js php python pypy)
 
-    yml = '_data/language_archives.yml'
+    yml = '_data/language_versions.yml'
 
     langs.each do |lang|
       lang_data = language_versions || {}
       lang_data[lang] = send("#{lang}_versions".to_sym)
 
-      bytes = File.write( yml, YAML.dump(lang_data) )
+      io = File.open(yml, "w")
+
+      bytes = io.write( YAML.dump(lang_data) )
+      io.fsync
 
       puts "Updated #{yml} with #{lang} data (#{bytes} bytes)"
     end
@@ -207,7 +290,7 @@ task :clean do
          _data/macstadium_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
-         _data/language_archives.yml
+         _data/language_versions.yml
          _data/languages.yml
        ])
 end
