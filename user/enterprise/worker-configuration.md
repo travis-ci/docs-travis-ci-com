@@ -133,3 +133,20 @@ is 4.5MB. The setting is measured in bytes, so to get 40MB you need
 ```sh
 export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ```
+
+## Mounting volumes during a Worker Job
+
+It's possible to use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
+when the Worker launches the container of a Job. This allows to share a
+file/directory across all Jobs ran by a Worker.
+
+For example, the setting below shows how to share the `/tmp` directory, as well as the
+executables for `docker` and `docker-compose`:
+
+```sh
+export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /usr/bin/docker:/usr/bin/docker /usr/local/bin/docker-compose:/usr/bin/docker-compose"
+```
+
+
+
+
