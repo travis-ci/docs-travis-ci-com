@@ -138,11 +138,16 @@ export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 
 It's possible to use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
 when the Worker launches the container of a Job. This allows to share a
-file/directory across all Jobs ran by a Worker.
+files/directories across all Jobs ran by a Worker. Multiple binds can be provided
+as _space separated_ strings.
 
-For example, the setting below shows how to share the `/tmp` directory, as well as the
-executables for `docker` and `docker-compose`:
+For example, the setting below shows how to share the `/tmp` directory in read/write mode,
+as well as the `/var/log` directory in read-only mode (`:r` is the default):
 
 ```sh
-export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /usr/bin/docker:/usr/bin/docker /usr/local/bin/docker-compose:/usr/bin/docker-compose"
+export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 ```
+
+For a full list of options and mount modes, it's adviceable to look at the 
+Docker [official documentation](https://docs.docker.com/storage/bind-mounts/)
+on the topic.
