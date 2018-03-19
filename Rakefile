@@ -291,7 +291,6 @@ task :clean do
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
          _data/language_versions.yml
-         _data/languages.yml
        ])
 end
 
