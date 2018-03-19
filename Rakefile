@@ -66,7 +66,7 @@ def s3
   @s3 ||= Aws::S3::Client.new # credentials are set by env var
 end
 
-def archive_list(lang:, bucket:, prefix:, basename_regexp:, ext: ".tar.bz2")
+def s3_archive_list(lang:, bucket:, prefix:, basename_regexp:, ext: ".tar.bz2")
   objs = s3.list_objects(bucket: bucket, prefix: prefix).contents.select do |obj|
     File.basename(obj.key) =~ basename_regexp
   end
@@ -97,7 +97,7 @@ def larnguage_archive_versions(lang: :'')
   data = language_data[lang]
   output = {}
   data[:releases].each do |rel|
-    archives = archive_list(
+    archives = s3_archive_list(
       lang: lang,
       bucket: data[:bucket],
       prefix: s3_prefix[rel.to_sym],
