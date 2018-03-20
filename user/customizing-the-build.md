@@ -157,6 +157,8 @@ You can run steps before a deploy by using the `before_deploy` phase. A non-zero
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
+Note that `before_deploy` and `after_deploy` are run once per deploy provider.
+
 ## Specifying Runtime Versions
 
 One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Specify what languages and runtimes to run your test suite against in the `.travis.yml` file:
