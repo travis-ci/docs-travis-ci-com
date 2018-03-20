@@ -157,7 +157,7 @@ You can run steps before a deploy by using the `before_deploy` phase. A non-zero
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
-Note that `before_deploy` and `after_deploy` are run once per deploy provider.
+Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
 
 ## Specifying Runtime Versions
 
