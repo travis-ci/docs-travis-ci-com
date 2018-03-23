@@ -395,6 +395,8 @@ If you don't want to run a build for a particular commit for any reason, add `[c
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
+Note that in case multiple commits are pushed together, the `[skip ci]` or `[ci skip]` takes effect only if present in the commit message of the HEAD commit.
+
 ## Build Matrix
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
