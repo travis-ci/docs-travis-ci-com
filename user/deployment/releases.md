@@ -144,7 +144,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Another example would be includind all files found in all subdirectories of a given directory.
+You can use the glob pattern to recursively find the files:
 
 ```yaml
 deploy:
