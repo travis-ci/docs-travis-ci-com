@@ -97,15 +97,6 @@ By Ahmed El-Sayed
 
 ## Tools
 
-### Travis WebLint
-
-![weblint](/images/apps/weblint.jpg){:.app}{:.official}
-
-Validates your .travis.yml
-
-- [lint.travis-ci.org](http://lint.travis-ci.org/)
-- [source code](https://github.com/travis-ci/travis-yaml)
-
 ### Travis Cron
 
 ![travis-cron](/images/apps/cron.jpg){:.app}

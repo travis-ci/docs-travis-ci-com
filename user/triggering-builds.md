@@ -80,8 +80,8 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
    ```
 
-4. Look at the reponse body, which contains information about the build, the
-   repository and the user:
+4. Look at the response body, which contains information about the build, the
+   repository, and the user:
 
    ```json
    {
@@ -136,7 +136,7 @@ body='{
 
 You can also customize the build configuration.
 
-Choose one of the following merge modes to determine how the original build configuration (in the `.travis.yml` file), and the configuration specified in your API request are combined :
+Choose one of the following merge modes to determine how the original build configuration (in the `.travis.yml` file), and the configuration specified in your API request are combined:
 
 * `replace` replaces the full, original build configuration with the configuration in the API request body
 * `merge` (*default*) replaces sections in the original configuration with the configuration in the API request body
@@ -197,7 +197,7 @@ With the `merge_mode` set to `merge`, or not given a `merge_mode` (default), the
 ```
 
 Each of the top level sections have been replaced with the ones from
- the API request, other top level sections remain the same.
+ the API request. Other top level sections remain the same.
 
 ### Merge mode: deep_merge
 

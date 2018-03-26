@@ -66,24 +66,7 @@ via POST), Puma is necessary.
 
 ### API V2 documentation
 
-API V2 (and 2.1) documentation is maintained in `slate/source`. To make changes to the API V2 docs:
-
-1. Install the requirements in `slate/Gemfile`:
-
-   ```
-   bundle install
-   ```
-
-2. Make your changes to `slate/source/index.md`.
-
-2. Build the API documentation:
-
-   ```
-   rake update_docs
-   ```
-
-4. Commit the changes and push to your branch.
-
+API V2 (and 2.1) documentation is maintained in `slate/source` and updated is now generated at build time from source.
 
 ## License
 
