@@ -750,7 +750,7 @@ See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plug
 is an example Django view which implements this in Python.
 
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
-is a small webapp in Go which verifies the the hook.
+is a small webapp in Go which verifies the hook.
 
 1. [travis-webhook-verification-nodejs](https://github.com/Brodan/travis-webhook-verification-nodejs)
 contains two examples for verifying webhooks in Node.js using [express](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/express.js)

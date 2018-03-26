@@ -30,7 +30,7 @@ to your situation.
 
 You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that that access is read only.
+of repositories, and make sure that access is read only.
 
 ## Deploy Key
 
@@ -150,7 +150,7 @@ updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
 ```
 
-Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for for "main" and "main2", but all repositories under the "myorg" organization.
+Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for "main" and "main2", but all repositories under the "myorg" organization.
 
 ```bash
 $ travis repos --active --owner myorg --pro | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
