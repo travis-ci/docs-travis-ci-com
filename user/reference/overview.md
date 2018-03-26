@@ -74,7 +74,7 @@ if it contains:
 
 Many different parts of your `.travis.yml` affect what infrastructure your build runs on. The following list describes some of the main settings that determine build routing:
 
-* Any of the following sudo or docker-related settings route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
+* Any of the following settings related to sudo or docker route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
 
   - `services: docker`
   - `sudo: required` or `sudo: true`
