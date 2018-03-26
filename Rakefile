@@ -161,7 +161,7 @@ file '_data/macstadium_ip_range.yml' do |t|
 end
 
 file '_data/node_js_versions.yml' do |t|
-  remote_node_versions = `bash -l -c "nvm ls-remote"`.split("\n").
+  remote_node_versions = `bash -l -c "source $HOME/.nvm/nvm.sh; nvm ls-remote"`.split("\n").
     map {|l| l.gsub(/.*v(0\.[1-9][0-9]*|[1-9]*)\..*$/, '\1')}.uniq.
     sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
 
@@ -208,9 +208,5 @@ end
 
 desc 'make API docs'
 task :make_api do
-  Dir.chdir('slate') do
-    sh 'bundle exec middleman build --clean'
-    FileUtils.mkdir_p '../api'
-    sh 'cp -r build/* ../api/'
-  end
+  sh 'bundle exec middleman build --clean'
 end
