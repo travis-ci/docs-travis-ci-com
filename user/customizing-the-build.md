@@ -157,6 +157,8 @@ You can run steps before a deploy by using the `before_deploy` phase. A non-zero
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
+Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
+
 ## Specifying Runtime Versions
 
 One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Specify what languages and runtimes to run your test suite against in the `.travis.yml` file:
@@ -394,6 +396,8 @@ branches and tags that start with `deploy-` in any combination of cases.
 If you don't want to run a build for a particular commit for any reason, add `[ci skip]` or `[skip ci]` to the git commit message.
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
+
+Note that in case multiple commits are pushed together, the `[skip ci]` or `[ci skip]` takes effect only if present in the commit message of the HEAD commit.
 
 ## Build Matrix
 
