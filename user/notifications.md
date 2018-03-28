@@ -749,6 +749,7 @@ See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plug
 1. [Travis Webhook Checker](https://gist.github.com/andrewgross/8ba32af80ecccb894b82774782e7dcd4)
 is an example Django view which implements this in Python.
 
+
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
 is a small webapp in Go which verifies the hook.
 
@@ -759,3 +760,26 @@ and [hapi.js](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/
 ## For the truly curious
 
 Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks).
+
+## Third party notification Integrations
+
+
+### CatLight desktop notifications
+
+[CatLight](https://catlight.io) is a notifier app for Windows, Mac OS X and Linux. It shows the current status of Travis CI builds in tray. CatLight icon will change color depending on the build status. When build starts or completes, the app will show a toast notification with details. 
+
+<figure>
+  <img src="/images/catlight-notification.png" alt="CatLight desktop build notification" />
+</figure>
+
+Click on the notification to see build history for this specific branch.
+
+<figure>
+  <img src="/images/catlight-build-dashboard.png" alt="CatLight build dashboard" width="567px" />
+</figure>
+
+You can click "I will investigate" on a broken build. CatLight App will notify the team that you are checking this build.
+
+To see only important notifications, you can configure CatLight to monitor only branches that have your changes.
+
+You can [Download CatLight for Windows, Mac OS X or Linux here](https://catlight.io/downloads).
