@@ -31,7 +31,7 @@ language: crystal
 ```
 {: data-file=".travis.yml"}
 
-This will run `crystal deps` to install dependencies and then `crystal spec` to test your project.
+This will run `shards install` to install dependencies and then `crystal spec` to test your project.
 
 ## Configuration options
 

@@ -44,11 +44,9 @@ releases in your `.travis.yml`:
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
-- `8` latest 8.x release
-- `7` latest 7.x release
-- `6` latest 6.x release
-- `5` latest 5.x release
-- `4` latest 4.x release
+{% for vers in site.data.node_js_versions %}
+- `{{vers}}` latest {{vers}}.x release
+{% endfor %}
 
 ```yaml
 language: node_js
@@ -89,6 +87,10 @@ The default build script for projects using nodejs is:
 ```bash
 npm test
 ```
+
+### Yarn is supported
+
+If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
 
 ### Using other Test Suites
 
@@ -261,7 +263,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/6a3a7afc21be99f1afedbd2856d060a02755de6d/configure.sh | /bin/sh"
 services:
   - mongodb
 env:
@@ -282,7 +284,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
-  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/dca8e51fafd60d9e5a8285b07ca34a63f22a5ed4/configure.sh | /bin/sh"
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
 ```

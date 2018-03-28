@@ -521,7 +521,7 @@ Other flags, such as `on_success` and `on_failure` also work like the IRC notifi
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Configuring slack notifications
+## Configuring Slack notifications
 
 Travis CI can send notifications to your [Slack](http://slack.com) channels
 about build results.
@@ -607,7 +607,7 @@ screenshot below:
 
 ### Notifications of PR builds
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
+Turn pull request notifications off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:
@@ -750,7 +750,7 @@ See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plug
 is an example Django view which implements this in Python.
 
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
-is a small webapp in Go which verifies the the hook.
+is a small webapp in Go which verifies the hook.
 
 1. [travis-webhook-verification-nodejs](https://github.com/Brodan/travis-webhook-verification-nodejs)
 contains two examples for verifying webhooks in Node.js using [express](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/express.js)

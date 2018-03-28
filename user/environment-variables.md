@@ -126,12 +126,7 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 {: #Defining-Variables-in-Repository-Settings}
 
-Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
-
-Define variables in the Repository Settings that:
-
-- differ per repository.
-- contain sensitive data, such as third-party credentials.
+{{ site.data.snippets.environment_variables }}
 
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
 
@@ -203,10 +198,12 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
+- `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
+  it is empty.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:
-  +  if the current job is a pull request, the name of the branch from which the PR originated.
+  + if the current job is a pull request, the name of the branch from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SHA`:
   + if the current job is a pull request, the commit SHA of the HEAD commit of the PR.
@@ -219,8 +216,9 @@ to tag the build, or to run post-build deployments.
   + set to `true` if there are any encrypted environment variables.
   + set to `false` if no encrypted environment variables are available.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
-- `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
+- `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
+- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalzed form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set

@@ -157,6 +157,8 @@ You can run steps before a deploy by using the `before_deploy` phase. A non-zero
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
+Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
+
 ## Specifying Runtime Versions
 
 One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Specify what languages and runtimes to run your test suite against in the `.travis.yml` file:
@@ -214,11 +216,7 @@ Some common reasons why builds might hang:
 
 ## Limiting Concurrent Jobs
 
-The maximum number of concurrent jobs depends on the total system load, but
-one situation in which you might want to set a particular limit is:
-
-- if your build depends on an external resource and might run into a race
-  condition with concurrent jobs.
+{{ site.data.snippets.concurrent_jobs }}
 
 You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
@@ -237,9 +235,9 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
@@ -399,6 +397,8 @@ If you don't want to run a build for a particular commit for any reason, add `[c
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
 
+Note that in case multiple commits are pushed together, the `[skip ci]` or `[ci skip]` takes effect only if present in the commit message of the HEAD commit.
+
 ## Build Matrix
 
 When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
@@ -493,6 +493,54 @@ matrix:
     env: DB=mysql
 ```
 {: data-file=".travis.yml"}
+
+#### Excluding jobs with `env` value
+
+When excluding jobs with `env` values, the value must match
+_exactly_.
+
+For example,
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb
+```
+
+defines a 3×4 matrix, because the `env` value does not match with
+any job defined in the matrix.
+
+To exclude all Ruby 1.9.3 jobs with `DB=mongodb` set, write:
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
+```
 
 ### Explicitly Including Jobs
 

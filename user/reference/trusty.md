@@ -141,9 +141,10 @@ See our [Using Docker in Builds](/user/docker/) section for more details.
 ## Ruby images
 
 [rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
-the latest point releases such as:
+the latest point releases. These are the currently pre-installed Ruby versions:
 
 - `2.2.7`
+- `2.3.4`
 - `2.4.1`
 
 Other versions are dynamically installed at runtime from a local cache.
@@ -331,6 +332,7 @@ We pre-install the following services which may be activated with the built-in
 - CouchDB
 - ElasticSearch
 - MongoDB
+- MySQL
 - Neo4j
 - PostgreSQL
 - RabbitMQ
