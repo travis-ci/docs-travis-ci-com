@@ -134,11 +134,11 @@ is 4.5MB. The setting is measured in bytes, so to get 40MB you need
 export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ```
 
-## Mounting volumes during a Worker Job
+## Mounting volumes across worker jobs on Enterprise
 
-It's possible to use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
-when the Worker launches the container of a Job. This allows to share a
-files/directories across all Jobs ran by a Worker. Multiple binds can be provided
+You can use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
+when the worker launches the container of a job. This let's you share files or directories 
+across all jobs ran by a worker. Multiple binds can be provided
 as _space separated_ strings.
 
 For example, the setting below shows how to share the `/tmp` directory in read/write mode,
@@ -148,6 +148,5 @@ as well as the `/var/log` directory in read-only mode (`:r` is the default):
 export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 ```
 
-For a full list of options and mount modes, it's adviceable to look at the 
-Docker [official documentation](https://docs.docker.com/storage/bind-mounts/)
-on the topic.
+A full list of options and mount modes is listed in the official
+ [Docker documentation](https://docs.docker.com/storage/bind-mounts/).
