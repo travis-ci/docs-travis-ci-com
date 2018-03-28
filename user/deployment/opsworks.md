@@ -111,6 +111,23 @@ deploy:
 Travis CI will wait up to 10 minutes for the deploy to complete, and log
 whether it succeeded.
 
+### Updating App Settings after successful Deployments
+
+By default the deploy from Travis CI triggers a deployment on OpsWorks but does not touch any other configuration. To also update the revision in App Settings use the **update-app-on-success** option. In addition you have to set the **wait-until-deployed** option:
+
+```yaml
+deploy:
+  provider: opsworks
+  access-key-id: ACCESS-KEY-ID
+  secret-access-key: SECRET-ACCESS-KEY
+  app-id: APP-ID
+  wait-until-deployed: true
+  update-app-on-success: true
+```
+{: data-file=".travis.yml"}
+
+Travis CI will wait until the deployment returns successful and only then update the revision in App Settings.
+
 ### Conditional releases
 
 You can deploy only when certain conditions are met.

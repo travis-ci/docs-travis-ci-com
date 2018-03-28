@@ -81,6 +81,8 @@ r:
 As new minor versions are released, aliases will float and point to the most
 current minor release.
 
+You can access the above "channel" *string* (i.e. `release`) as opposed to the concrete version number (i.e `3.2.1`) with the environmental variable `TRAVIS_R_VERSION_STRING`.
+
 The exact R version used for each build is included in the 'R session information'
 fold within the build log.
 
@@ -249,6 +251,8 @@ defaults](/user/environment-variables/#Default-Environment-Variables).
 - `_R_CHECK_CRAN_INCOMING_=false`
 - `NOT_CRAN=true`
 - `R_PROFILE=~/.Rprofile.site`
+- `TRAVIS_R_VERSION_STRING` set to the *string* provided *to* `r:`, i.e. `release`, `oldrel` or `devel`.
+   Useful, for example, to deploy only from `release` via `on: condition: "$TRAVIS_R_VERSION_STRING = release"`.
 
 ### Additional Dependency Fields
 
