@@ -22,7 +22,7 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
-> Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+> Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
 > This feature is only available on travis-ci.com and travis-ci.org
 > For Travis CI Enterprise, please check out [https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds)
