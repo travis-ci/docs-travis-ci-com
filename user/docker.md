@@ -24,6 +24,7 @@ examples.
 
 > Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
+
 > For information on how to use Docker on Travis CI Enterprise check out [https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds)
 
 ### Using a Docker Image from a Repository in a Build
