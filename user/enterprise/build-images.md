@@ -65,7 +65,7 @@ you can run:
 
 ### Worker machine configuration
 
-In order to build other docker images, the Worker needs to be setup to support Docker Builds. To get started, please add the following to `/etc/default/travis-worker` on all your Workers:
+To build docker images on Travis CI Enterprise, add the following to /etc/default/travis-worker on all your Workers:
 
 ```
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
