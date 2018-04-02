@@ -22,10 +22,9 @@ env:
 after_success:
 - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
 - curl --ftp-create-dirs
-       -T uploadfilename
-       -u "${SFTP_USER}:${SFTP_PASSWORD}"
+       -T filename
        --key /tmp/sftp_rsa
-       sftp://sitename.com/directory/myfile
+       sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
 ```
 {: data-file=".travis.yml"}
 
