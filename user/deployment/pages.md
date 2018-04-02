@@ -13,9 +13,7 @@ You will need to provide a [personal access
 token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 and set the deployment provider details in `.travis.yml`.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
+For a minimal configuration, add the following to your `.travi
 deploy:
   provider: pages
   skip-cleanup: true
