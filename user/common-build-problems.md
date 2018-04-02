@@ -600,8 +600,6 @@ also known to work, such as by using SFTP in the specific case of FTP, or a VPN
 connection for a wide variety of protocols, e.g.:
 
 ``` yaml
-# ...
-
 sudo: required
 
 addons:
@@ -611,6 +609,5 @@ addons:
 
 before_install:
 - sudo openvpn path/to/conf.ovpn &
-
-# ...
 ```
+{: data-file=".travis.yml"}
