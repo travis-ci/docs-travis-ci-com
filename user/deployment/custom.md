@@ -4,10 +4,36 @@ layout: en
 
 ---
 
-You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
+You can easily deploy to your own server the way you would deploy from your
+local machine by adding a custom [`after_success`](/user/customizing-the-build/)
+step.
 
-You may choose the [Script provider](/user/deployment/script/) instead, as it provides
-easier flexibility with conditional deployment.
+You may choose the [Script provider](/user/deployment/script/) instead, as it
+provides easier flexibility with conditional deployment.
+
+### SFTP
+
+```yaml
+env:
+  global:
+  - 'SFTP_USER=[user]'
+  - 'SFTP_PASSWORD=[password]'
+  - 'SFTP_KEY=[base64-encoded-rsa-key]'
+after_success:
+- echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
+- curl --ftp-create-dirs
+       -T uploadfilename
+       -u "${SFTP_USER}:${SFTP_PASSWORD}"
+       --key /tmp/sftp_rsa
+       sftp://sitename.com/directory/myfile
+```
+{: data-file=".travis.yml"}
+
+The env variables `SFTP_USER` and `SFTP_PASSWORD` can also be
+[encrypted](/user/encryption-keys/).
+
+See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to
+use cURL as an SFTP client.
 
 ### Git
 
