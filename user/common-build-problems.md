@@ -608,6 +608,6 @@ addons:
     - openvpn
 
 before_install:
-- sudo openvpn path/to/conf.ovpn &
+- sudo openvpn path/to/conf.ovpn &>>openvpn-client.log &
 ```
 {: data-file=".travis.yml"}
