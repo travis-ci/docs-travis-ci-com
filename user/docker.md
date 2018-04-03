@@ -144,7 +144,7 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 ```
 
 #### Branch Based Registry Pushes
@@ -165,7 +165,7 @@ Where `docker_push` is a script in your repository containing:
 
 ```bash
 #!/bin/bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker push USER/REPO
 ```
 {: data-file="docker_push"}
@@ -177,7 +177,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
 ### Using Docker Compose

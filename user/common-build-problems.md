@@ -590,3 +590,24 @@ The log length has exceeded the limit of 4 Megabytes (this usually means that te
 
 The build has been terminated.
 ```
+
+## FTP/SMTP/other protocol does not work
+
+Some protocols such as FTP and SMTP are not directly supported due to the
+infrastructure requirements in place for security and fair usage.  Using
+alternate <q>stateless</q> protocols such as HTTPS is best, but tunneling is
+also known to work, such as by using SFTP in the specific case of FTP, or a VPN
+connection for a wide variety of protocols, e.g.:
+
+``` yaml
+sudo: required
+
+addons:
+  apt:
+    packages:
+    - openvpn
+
+before_install:
+- sudo openvpn path/to/conf.ovpn &>>openvpn-client.log &
+```
+{: data-file=".travis.yml"}

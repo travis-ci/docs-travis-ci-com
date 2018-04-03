@@ -47,7 +47,7 @@ To use API V2.1 set the `Accept` header of your API request to `application/vnd.
 
 ## API V2
 
-We're not yet ready to deprecate [API V2](/api). We use V2 with our web frontend
+We're not yet ready to deprecate [API V2](/api/). We use V2 with our web frontend
 application and have spent the last 6 months switching gradually from V2 to V3.
 We'll complete this transition in the coming months, but plan to continue
 supporting V2 until the end of 2017. We'll naturally give developers ample
