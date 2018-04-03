@@ -18,7 +18,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Strictly, `region` isn't required but it defaults to `us-east-1` so you'll need it if your stack is elsewhere. You will get an error like "OpsWorks service error: Unable to find app with ID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" if your stack is not in `us-east-1` and you don't define `region`.
+`region` isn't required but it defaults to `us-east-1`. If your application is located in a different region you will get an error like "OpsWorks service error: Unable to find app with ID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 
 You can obtain your AWS Access Key Id and your AWS Secret Access Key from [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt your AWS Secret Access Key. Assuming you have the `travis` client installed, you can do it like this:
 
