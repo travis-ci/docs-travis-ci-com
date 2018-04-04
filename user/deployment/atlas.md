@@ -11,7 +11,7 @@ Travis CI can automatically deploy your application to [Atlas](https://atlas.has
 To deploy your application to Atlas:
 
 1. Sign in to your Atlas account.
-2. [Generate](https://atlas.hashicorp.com/settings/tokens) an Atlas API token for for Travis CI.
+2. [Generate](https://atlas.hashicorp.com/settings/tokens) an Atlas API token for Travis CI.
 3. Add the following minimum configuration to your `.travis.yml`
 
    ```yaml

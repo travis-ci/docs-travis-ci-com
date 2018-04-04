@@ -70,29 +70,7 @@ script:
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
-## Activation for branches
-
-By default, the SonarCloud add-on only analyzes the master branch. Activate it on other branches by specifying them in the `branches` parameter:
-
-```yaml
-addons:
-  sonarcloud:
-    organization: "sonarcloud_organization_key"
-    token:
-      secure: *********
-    branches:
-      - master
-      - maintenance
-script:
-  - sonar-scanner
-```
-{: data-file=".travis.yml"}
-
-`branches` accepts a list of regular expressions.
-
-> Note that currently, each branch ends up being a dedicated project on SonarCloud.
-
-## Activation for internal pull requests
+## Analysis of internal pull requests
 
 SonarCloud can inspect internal pull requests of your repository and write comments on each line where issues are found.
 
@@ -101,26 +79,26 @@ SonarCloud can inspect internal pull requests of your repository and write comme
 To activate analysis on pull requests, you need to follow those extra steps:
 
 1. Generate a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for the GitHub user which will be used by SonarCloud to write the comments.
-  - Requirements for that token are listed on [that page](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin).
-2. Encrypt this token.
-3. Add it to your `.travis.yml` file:
+  - This GitHub user should not be one of the developers, but rather a technical account which has write access to the repository and which will act as a bot
+  - The token must have the following scopes:
+    -  "repo:status" and "public_repo" for public repositories
+    -  all of "repo" scope for private repositories
+2. Go to the "Administration > General Settings > Pull Requests" page of your project on SonarCloud
+  - Enter this token in the "GitHub > Authentication token" section 
 
-```yaml
-addons:
-  sonarcloud:
-    organization: "sonarcloud_organization_key"
-    token:
-      secure: *********
-    github_token:
-      secure: *********
-script:
-  - sonar-scanner
-```
-{: data-file=".travis.yml"}
+> When specifying the token in SonarCloud, make sure that you click twice on "Save"! To be sure that your token was saved, reload the administration page and make sure that you see a "Change" button on the "Authentication token" section.
 
 ## Upcoming improvements
 
 Future versions of this add-on will provide the following features:
 
-- No need to define a third-party GitHub user for pull request analysis.
+- No need to define a third-party GitHub user for pull request analysis. SonarCloud will use its own identity.
 - Support for external pull requests.
+
+## Depreated features
+
+If you are a long-time SonarCloud user, you might have the following entries in your `.travis.yml` file:
+- "branches"
+- "github_token"
+
+If this is the case, you will get warnings in the log, telling you that this behaviour will be removed soon. You should get rid of those entries in your `.travis.yml` file to benefit from the latest features of SonarCloud.
