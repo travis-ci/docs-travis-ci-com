@@ -627,6 +627,6 @@ If a build hasn't been triggered for your commit, these are the possible build r
 - **"Build skipped via commit message"**, this commit contains [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build).
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
 - **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
-- **Build type disabled via repository settings**, check in your Settings page if Push and Pull Request builds are active.
+- **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
