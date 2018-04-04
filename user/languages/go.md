@@ -91,7 +91,7 @@ The default install step depends on the version of go:
   go get ./...
   ```
 
-*  or if any of the following files are present, the default install step is `true`:
+*  or if any of the following files are present, the default install step is `true`, so you need to specify the `install` step yourself:
 
     - `GNUMakefile`
     - `Makefile`
