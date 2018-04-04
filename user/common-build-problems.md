@@ -611,3 +611,22 @@ before_install:
 - sudo openvpn path/to/conf.ovpn &>>openvpn-client.log &
 ```
 {: data-file=".travis.yml"}
+
+
+## I pushed a commit and can't find its corresponding build
+
+The build request events that Travis CI receives are listed in your repository's Requests page. You can find it under the **More Options** dropdown menu, choosing **Requests**.
+
+![More Options dropdown menu, choosing Requests](/images/common-build-problems/repository-requests-page.png)
+
+Whenever your build has been processed you'll see the message: **"Build created successfully"**.
+
+If a build hasn't been triggered for your commit, these are the possible build request messages:
+
+- **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
+- **"Build skipped via commit message"**, this commit contains [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build).
+- **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
+- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
+- **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
+
+> Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
