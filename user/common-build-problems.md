@@ -618,7 +618,8 @@ before_install:
 The build request events that Travis CI receives are stored in your repository's Requests page. You can find it under the **More Options** dropdown menu, choosing **Requests**.
 
 ![More Options -> Requests](/images/common-build-problems/repository-requests-page.png)
-The most common message, whenever your build has been processed is **"Build created successfully"**.
+
+Whenever your build has been processed you'll see the message: **"Build created successfully"**.
 
 If a build hasn't been triggered for your commit, these are the possible build request messages:
 
