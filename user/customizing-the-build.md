@@ -339,6 +339,8 @@ where `skip-worktree-map-file` is a path to the existing file in the current rep
 
 Travis CI uses the `.travis.yml` file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
 
+> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests#%E2%80%98Double-builds%E2%80%99-on-pull-requests) when deciding to safelist or blocklist certain branches.
+
 ### Safelisting or blocklisting branches
 
 Specify which branches to build using a safelist, or blocklist branches that you do not want to be built:
