@@ -8,22 +8,42 @@ layout: en_enterprise
 
 ## Stopping and Starting the Worker
 
+### With Ubuntu 16.04 as host operating system
+
+The Travis CI Worker is installed as an systemd service. The following commands can be used to check the status and start/stop the service:
+
+```sh
+$ sudo systemctl status travis-worker
+```
+
+```sh
+$ sudo systemctl start travis-worker
+```
+
+```sh
+$ sudo systemctl stop travis-worker
+```
+
+### With Ubuntu 14.04 as host operating system
+
 The Travis CI Worker is installed as an upstart service. The following
 commands can be used to check the status of the service, and to start or
 stop it.
 
-```            
-      $ sudo status travis-worker
-      travis-worker start/running, process 9622
+```sh
+$ sudo status travis-worker
+travis-worker start/running, process 9622
 ```
+
+```sh
+$ sudo stop travis-worker
+travis-worker stop/waiting
 ```
-      $ sudo stop travis-worker
-      travis-worker stop/waiting
+
+```sh
+$ sudo start travis-worker
+travis-worker start/running, process 16339
 ```
-```
-      $ sudo start travis-worker
-      travis-worker start/running, process 16339
-```        
 
 When the worker gets stopped with `sudo stop travis-worker` it gets shut
 down with a `KILL` signal. This stops all currently running build jobs
@@ -36,19 +56,49 @@ shutdown via `sudo stop travis-worker`.\
 
 ## Example Worker Stop and Start
 
+### General behavior:
+
+travis-worker behaves differently based on the signals it receives. For instance a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress but it doesn't accept any new ones anymore.
+
+`SIGKILL` on the other hand shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterwards, all previously enqueued and running jobs are re-queued again so they'll get worked off as usual.
+
+### With Ubuntu 16.04 as host operating system
+
+Since Ubuntu 16.04 travis-worker itself is also running in a Docker container. Therefore starting and stopping the worker now works via `systemctl`:
+
+```sh
+$ sudo systemctl start travis-worker
+```
+
+```sh
+$ sudo systemctl stop travis-worker
+```
+
+```sh
+$ sudo systemctl status travis-worker
+```
+
+To send a `SIGINT` signal, please run the following:
+
+```sh
+sudo docker kill -s SIGINT travis-worker
+```
+
+### With Ubuntu 14.04 as host operating system
+
 In this example, a `sleep 60` is used to allow jobs to complete before the
 worker is stopped. The actual value depends on how long your current job queue
 is and how long it takes in average for a job to finish, so you may wish to
 adjust accordingly.
 
-```            
-      $ sudo status travis-worker
-      travis-worker start/running, process 5671
-      $ sudo kill -s INT 5671
-      $ sleep 60
-      $ sudo status travis-worker
-      travis-worker start/post-stop, process 9405
-      $ sudo stop travis-worker
+```sh
+$ sudo status travis-worker
+travis-worker start/running, process 5671
+$ sudo kill -s INT 5671
+$ sleep 60
+$ sudo status travis-worker
+travis-worker start/post-stop, process 9405
+$ sudo stop travis-worker
 ```
 
 ## Starting Worker Debug Containers
@@ -56,15 +106,17 @@ adjust accordingly.
 In order to start a build container on a Travis CI Enterprise Worker
 host you can do the following:
 
-```
-      # start a container and grab the port
-      id=$(docker -H tcp://0.0.0.0:4243 run -d -p 22 travis:php /sbin/init)
-      port=$(docker -H tcp://0.0.0.0:4243 port $id 22 | sed 's/.*://')
+```sh
+# start a container and grab the port
+id=$(docker -H tcp://0.0.0.0:4243 run -d -p 22 travis:php /sbin/init)
+port=$(docker -H tcp://0.0.0.0:4243 port $id 22 | sed 's/.*://')
 
-      # ssh into the container (the default password is travis)
-      ssh travis@localhost -p $port
+# ssh into the container (the default password is travis)
+ssh travis@localhost -p $port
 
-      # stop and remove the container
-      docker -H tcp://0.0.0.0:4243 kill $id
-      docker -H tcp://0.0.0.0:4243 rm $id
+# stop and remove the container
+docker -H tcp://0.0.0.0:4243 kill $id
+docker -H tcp://0.0.0.0:4243 rm $id
 ```
+
+_(If travis-worker runs on Ubuntu 16.04, `-H tcp://0.0.0.0:4243` is not necessary anymore)_
