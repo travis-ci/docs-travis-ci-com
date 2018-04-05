@@ -43,20 +43,16 @@ Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default . You can use another v
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
-  <td>OS X {{ image.osx_version}}
-  </td></tr>
+  <td>OS X {{ image.osx_version}}</td>
+  <td>{{image.jdk}}</td>
+  </tr>
 {% endfor %}
 </table>
-
-> At this time we are unable to provide pre-release versions of Xcode due to the
-> NDA imposed on them. We do test them internally, and our goal is to make new
-> versions available the same day they come out. If you have any further questions
-> about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ## Homebrew
 
@@ -129,6 +125,20 @@ directory alphabetically.
 ## JDK and OS X
 
 The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need.
+
+<table>
+
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
+{% for image in site.data.xcodes.osx_images %}
+<tr>
+  <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
+  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td>OS X {{ image.osx_version}}</td>
+  <td>{{image.jdk}}</td>
+  </tr>
+{% endfor %}
+</table>
+
 
 ## Compilers and Build toolchain
 

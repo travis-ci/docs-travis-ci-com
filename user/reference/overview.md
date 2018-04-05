@@ -46,6 +46,8 @@ The following table summarizes the differences across virtual environments and o
 | Operating system | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory           | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
 | Cores            | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+| IPv4 Network     | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
+| IPv6 Network     | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 
 ## What infrastructure is my environment running on?
 
@@ -65,19 +67,19 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `gce` → the build ran in a sudo-enabled environment on Google Cloud Engine.
+* `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `jupiter` → the build ran on macOS
 
 ### For a particular .travis.yml configuration
 
 Many different parts of your `.travis.yml` affect what infrastructure your build runs on. The following list describes some of the main settings that determine build routing:
 
-* Any of the following sudo or docker related settings route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
+* Any of the following settings related to sudo or docker route your build to a sudo-enabled linux (Ubuntu Trusty) environment on Google Cloud Engine.
 
   - `services: docker`
   - `sudo: required` or `sudo: true`
   - *any* other `sudo` command in your build script
-  _ *any* other `docker` command in your build script
+  - *any* other `docker` command in your build script
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 

@@ -25,8 +25,12 @@ Minimal example:
 ```yaml
   language: go
   go:
-    - 1.6
+    - "1.10"
 ```
+
+Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
+not `go: 1.10` (a float).
+Using a float results in the use of Go 1.1.
 </aside>
 
 ## What This Guide Covers
@@ -51,9 +55,9 @@ handled by [gimme](https://github.com/travis-ci/gimme).
 language: go
 
 go:
-  - 1.x
-  - 1.6
-  - 1.7.x
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
   - master
 ```
 {: data-file=".travis.yml"}
@@ -87,7 +91,7 @@ The default install step depends on the version of go:
   go get ./...
   ```
 
-*  or if any of the following files are present, the default install step is `true`:
+*  or if any of the following files are present, the default install step is `true`, so you need to specify the `install` step yourself:
 
     - `GNUMakefile`
     - `Makefile`

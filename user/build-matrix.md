@@ -33,7 +33,8 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-> All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
+> All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of ch
+arge to the community. So please only specify the matrix you *actually need*.
 
 ## Excluding Jobs
 
@@ -76,8 +77,7 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-The previous example would result in a 3×3×4=36 build matrix. But we have excluded all jobs which have `rvm` value `2.0.0` *and*
-`gemfile` value `Gemfile`, which makes it 36-3=33. The long form of the exclusion would be:
+The previous example would result in a 3×3×4=36 build matrix. But we have excluded all jobs which have `rvm` value `2.0.0` *and* `gemfile` value `Gemfile`, which makes it 36-3=33. The long form of the exclusion would be:
 
 ```yaml
 matrix:
@@ -93,6 +93,54 @@ matrix:
     env: DB=mysql
 ```
 {: data-file=".travis.yml"}
+
+#### Excluding jobs with `env` value
+
+When excluding jobs with `env` values, the value must match
+_exactly_.
+
+For example,
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb
+```
+
+defines a 3×4 matrix, because the `env` value does not match with
+any job defined in the matrix.
+
+To exclude all Ruby 1.9.3 jobs with `DB=mongodb` set, write:
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
+```
 
 ## Explicitly Including Jobs
 
@@ -241,6 +289,6 @@ Now, the build result will be determined as soon as all the required jobs finish
 
 ## Build Matrix and Multiple Operating Systems
 
-If you [run your builds on multiple operating systems][/user/multi-os/] that also multiples the build matrix corrspondingly. 
+If you [run your builds on multiple operating systems][/user/multi-os/] that also multiples the build matrix corrspondingly.
 
 ## Build Matrix and Stages
