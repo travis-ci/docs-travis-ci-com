@@ -144,7 +144,7 @@ Bintray package information. The following information is mandatory on open sour
 - `repo` is the Bintray repository name
 - `subject` is the Bintray subject, which is either a user or an organization
 - `vcs_url` is the Bintray version control system url, such as a github repository url
-- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses), which is a list with at least one item.
+- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
 
 
 #### Version Section
