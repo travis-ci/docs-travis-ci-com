@@ -203,9 +203,9 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-## Rows that are Allowed to Fail
+## Jobs that are Allowed to Fail
 
-You can define rows that are allowed to fail in the build matrix. Allowed
+You can define jobs that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
 the entire build to fail. This lets you add in experimental and
 preparatory builds to test against versions or configurations that you are not
@@ -275,7 +275,7 @@ Without the top-level `env`, no job will be allowed to fail.
 
 ## Fast Finishing
 
-If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
+If some jobs in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
