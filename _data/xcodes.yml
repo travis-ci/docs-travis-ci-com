@@ -1,9 +1,9 @@
 osx_images:
-  - image: xcode9.3beta
-    xcode: "9.3beta"
+  - image: xcode9.3
+    xcode: "9.3"
     osx_version: "10.13"
-    xcode_full_version: "9.3beta"
-    image_publish_date: 2017-02-08
+    xcode_full_version: "9.3"
+    image_publish_date: 2018-04-08
     sdks:
       - macosx10.13
       - iphoneos11.3
