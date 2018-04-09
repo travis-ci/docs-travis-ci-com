@@ -1,9 +1,9 @@
 travis_fold:start:worker_info
 [0K[33;1mWorker information[0m
-hostname: 1f2dc49e-a124-4433-ac02-9938a2b24086@2300.wjb-1
+hostname: 5a0dcbc6-6b8a-4e55-ad60-9e4f440943c1@2300.wjb-1
 version: v3.5.0 https://github.com/travis-ci/worker/tree/77dbc57c72d00592aeb754773b712da843c7e00d
-instance: 5d35c6ed-8bde-413e-a6b2-c1ed12000c77 travis-ci-macos10.13-xcode9.3-1516902186 (via amqp)
-startup: 1m7.479997394s
+instance: 46124751-79bf-4db5-9549-37aceb07a7c2 travis-ci-macos10.13-xcode9.3-1522983573 (via amqp)
+startup: 1m7.291315s
 travis_fold:end:worker_info
 [0Ktravis_fold:start:system_info
 [0K[33;1mBuild system information[0m
@@ -12,7 +12,7 @@ Build language: objective-c
 
 Build id: 364263323
 
-Job id: 364263324
+Job id: 364263325
 
 Runtime kernel version: 17.4.0
 
@@ -54,7 +54,7 @@ $ rvm use
 sudo: apt-get: command not found
 
 travis_fold:start:git.checkout
-[0Ktravis_time:start:0a757754
+[0Ktravis_time:start:15081a14
 [0K$ git clone --depth=50 --branch=master https://github.com/cotsog/travis_ci_prod_regular.git cotsog/travis_ci_prod_regular
 
 Cloning into 'cotsog/travis_ci_prod_regular'...
@@ -206,6 +206,8 @@ Receiving objects:  38% (68/177)
 Receiving objects:  39% (70/177)   
 Receiving objects:  40% (71/177)   
 Receiving objects:  41% (73/177)   
+remote: Total 177 (delta 75), reused 27 (delta 1), pack-reused 0[K
+
 Receiving objects:  42% (75/177)   
 Receiving objects:  43% (77/177)   
 Receiving objects:  44% (78/177)   
@@ -221,8 +223,6 @@ Receiving objects:  53% (94/177)
 Receiving objects:  54% (96/177)   
 Receiving objects:  55% (98/177)   
 Receiving objects:  56% (100/177)   
-remote: Total 177 (delta 75), reused 27 (delta 1), pack-reused 0[K
-
 Receiving objects:  57% (101/177)   
 Receiving objects:  58% (103/177)   
 Receiving objects:  59% (105/177)   
@@ -267,61 +267,27 @@ Receiving objects:  97% (172/177)
 Receiving objects:  98% (174/177)   
 Receiving objects:  99% (176/177)   
 Receiving objects: 100% (177/177)   
-Receiving objects: 100% (177/177), 160.68 KiB | 4.73 MiB/s, done.
+Receiving objects: 100% (177/177), 160.68 KiB | 4.46 MiB/s, done.
 
 Resolving deltas:   0% (0/75)   
-Resolving deltas:   8% (6/75)   
-Resolving deltas:   9% (7/75)   
-Resolving deltas:  10% (8/75)   
-Resolving deltas:  12% (9/75)   
-Resolving deltas:  13% (10/75)   
-Resolving deltas:  14% (11/75)   
-Resolving deltas:  16% (12/75)   
-Resolving deltas:  17% (13/75)   
-Resolving deltas:  18% (14/75)   
-Resolving deltas:  20% (15/75)   
-Resolving deltas:  21% (16/75)   
-Resolving deltas:  22% (17/75)   
-Resolving deltas:  24% (18/75)   
-Resolving deltas:  25% (19/75)   
-Resolving deltas:  26% (20/75)   
-Resolving deltas:  28% (21/75)   
-Resolving deltas:  29% (22/75)   
-Resolving deltas:  30% (23/75)   
-Resolving deltas:  32% (24/75)   
-Resolving deltas:  33% (25/75)   
-Resolving deltas:  34% (26/75)   
-Resolving deltas:  44% (33/75)   
-Resolving deltas:  45% (34/75)   
-Resolving deltas:  46% (35/75)   
-Resolving deltas:  48% (36/75)   
-Resolving deltas:  49% (37/75)   
-Resolving deltas:  50% (38/75)   
-Resolving deltas:  52% (39/75)   
-Resolving deltas:  53% (40/75)   
-Resolving deltas:  54% (41/75)   
-Resolving deltas:  56% (42/75)   
-Resolving deltas:  57% (43/75)   
-Resolving deltas:  61% (46/75)   
-Resolving deltas:  62% (47/75)   
 Resolving deltas:  64% (48/75)   
-Resolving deltas:  65% (49/75)   
 Resolving deltas:  68% (51/75)   
-Resolving deltas:  69% (52/75)   
-Resolving deltas:  70% (53/75)   
-Resolving deltas:  77% (58/75)   
-Resolving deltas:  78% (59/75)   
+Resolving deltas:  72% (54/75)   
+Resolving deltas:  73% (55/75)   
+Resolving deltas:  74% (56/75)   
+Resolving deltas:  82% (62/75)   
 Resolving deltas:  84% (63/75)   
 Resolving deltas:  85% (64/75)   
 Resolving deltas:  86% (65/75)   
 Resolving deltas:  89% (67/75)   
-Resolving deltas:  92% (69/75)   
+Resolving deltas:  90% (68/75)   
+Resolving deltas:  97% (73/75)   
 Resolving deltas: 100% (75/75)   
 Resolving deltas: 100% (75/75), done.
 
 
 
-travis_time:end:0a757754:start=1523300319262606000,finish=1523300319767007000,duration=504401000
+travis_time:end:15081a14:start=1523300289293884000,finish=1523300290187161000,duration=893277000
 [0K$ cd cotsog/travis_ci_prod_regular
 
 $ git checkout -qf d0639c35ddc60d69d724c8a74395b653fd49dddf
@@ -332,14 +298,14 @@ travis_fold:end:git.checkout
 $ export HOMEBREW_NO_AUTO_UPDATE=1
 
 travis_fold:start:rvm
-[0Ktravis_time:start:09124400
+[0Ktravis_time:start:155d7268
 [0K$ rvm use default
 
 [32mUsing /Users/travis/.rvm/gems/ruby-2.4.2[0m
 
 
 
-travis_time:end:09124400:start=1523300319859538000,finish=1523300322806730000,duration=2947192000
+travis_time:end:155d7268:start=1523300290287746000,finish=1523300292775492000,duration=2487746000
 [0Ktravis_fold:end:rvm
 [0K$ ruby --version
 
@@ -360,15 +326,15 @@ iPhoneOS11.3.sdk - iOS 11.3 (iphoneos11.3)
 
 SDKVersion: 11.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk
 
 PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/iPhoneOS.platform
 
-BuildID: 246A4510-FC2C-11E7-906B-034380CEA1F6
+BuildID: C689C3CA-2814-11E8-B440-EB6E943B87E0
 
-ProductBuildVersion: 15E5167d
+ProductBuildVersion: 15E217
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -382,15 +348,15 @@ iPhoneSimulator11.3.sdk - Simulator - iOS 11.3 (iphonesimulator11.3)
 
 SDKVersion: 11.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk
 
 PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/iPhoneSimulator.platform
 
-BuildID: 246A4510-FC2C-11E7-906B-034380CEA1F6
+BuildID: C689C3CA-2814-11E8-B440-EB6E943B87E0
 
-ProductBuildVersion: 15E5167d
+ProductBuildVersion: 15E217
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -404,13 +370,13 @@ MacOSX10.13.sdk - macOS 10.13 (macosx10.13)
 
 SDKVersion: 10.13
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk
 
 PlatformVersion: 1.1
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/MacOSX.platform
 
-ProductBuildVersion: 17E139g
+ProductBuildVersion: 17E189
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -426,15 +392,15 @@ AppleTVOS11.3.sdk - tvOS 11.3 (appletvos11.3)
 
 SDKVersion: 11.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS11.3.sdk
 
 PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVOS.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/AppleTVOS.platform
 
-BuildID: AFBF79E2-FC1C-11E7-9434-5FAA41E87C53
+BuildID: 0618144A-275E-11E8-A65D-05CCCC2CB129
 
-ProductBuildVersion: 15L5164c
+ProductBuildVersion: 15L211
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -448,15 +414,15 @@ AppleTVSimulator11.3.sdk - Simulator - tvOS 11.3 (appletvsimulator11.3)
 
 SDKVersion: 11.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator11.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator11.3.sdk
 
 PlatformVersion: 11.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/AppleTVSimulator.platform
 
-BuildID: AFBF79E2-FC1C-11E7-9434-5FAA41E87C53
+BuildID: 0618144A-275E-11E8-A65D-05CCCC2CB129
 
-ProductBuildVersion: 15L5164c
+ProductBuildVersion: 15L211
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -470,15 +436,15 @@ WatchOS4.3.sdk - watchOS 4.3 (watchos4.3)
 
 SDKVersion: 4.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk
 
 PlatformVersion: 4.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/WatchOS.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/WatchOS.platform
 
-BuildID: 979E00CE-FC29-11E7-A92E-95F61F5DEB6F
+BuildID: 4AF39DC2-2782-11E8-A671-639E35235AA8
 
-ProductBuildVersion: 15T5165c
+ProductBuildVersion: 15T212
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -492,15 +458,15 @@ WatchSimulator4.3.sdk - Simulator - watchOS 4.3 (watchsimulator4.3)
 
 SDKVersion: 4.3
 
-Path: /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator4.3.sdk
+Path: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator4.3.sdk
 
 PlatformVersion: 4.3
 
-PlatformPath: /Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform
+PlatformPath: /Applications/Xcode-9.3.app/Contents/Developer/Platforms/WatchSimulator.platform
 
-BuildID: 979E00CE-FC29-11E7-A92E-95F61F5DEB6F
+BuildID: 4AF39DC2-2782-11E8-A671-639E35235AA8
 
-ProductBuildVersion: 15T5165c
+ProductBuildVersion: 15T212
 
 ProductCopyright: 1983-2018 Apple Inc.
 
@@ -512,7 +478,7 @@ ProductVersion: 4.3
 
 Xcode 9.3
 
-Build version 9Q98q
+Build version 9E145
 
 $ xctool -version
 
@@ -616,7 +582,7 @@ iOS 11.1 (11.1 - 15B87) - com.apple.CoreSimulator.SimRuntime.iOS-11-1
 
 iOS 11.2 (11.2 - 15C107) - com.apple.CoreSimulator.SimRuntime.iOS-11-2
 
-iOS 11.3 (11.3 - 15E5167d) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
+iOS 11.3 (11.3 - 15E217) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
 
 tvOS 9.0 (9.0 - 13T395) - com.apple.CoreSimulator.SimRuntime.tvOS-9-0
 
@@ -636,7 +602,7 @@ tvOS 11.1 (11.1 - 15J580) - com.apple.CoreSimulator.SimRuntime.tvOS-11-1
 
 tvOS 11.2 (11.2 - 15K104) - com.apple.CoreSimulator.SimRuntime.tvOS-11-2
 
-tvOS 11.3 (11.3 - 15L5164c) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
+tvOS 11.3 (11.3 - 15L211) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
 
 watchOS 2.0 (2.0 - 13S343) - com.apple.CoreSimulator.SimRuntime.watchOS-2-0
 
@@ -654,7 +620,7 @@ watchOS 4.1 (4.1 - 15R844) - com.apple.CoreSimulator.SimRuntime.watchOS-4-1
 
 watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
 
-watchOS 4.3 (4.3 - 15T5165c) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
+watchOS 4.3 (4.3 - 15T212) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
 
 == Devices ==
 
@@ -1397,47 +1363,47 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
     Phone: iPhone 8 Plus (0EB5E60F-2EAA-47B3-9631-AD718F490007) (Shutdown)
 
 travis_fold:end:announce
-[0Ktravis_time:start:11bdb562
+[0Ktravis_time:start:02f2e8e0
 [0K$ df -h /
 
 Filesystem     Size   Used  Avail Capacity iused      ifree %iused  Mounted on
 
-/dev/disk0s2  149Gi  123Gi   26Gi    83% 3688670 4291278609    0%   /
+/dev/disk0s2  149Gi  123Gi   26Gi    83% 3718369 4291248910    0%   /
 
 
 
-travis_time:end:11bdb562:start=1523300327859339000,finish=1523300327885173000,duration=25834000
+travis_time:end:02f2e8e0:start=1523300296481076000,finish=1523300296499370000,duration=18294000
 [0K
 
 [32;1mThe command "df -h /" exited with 0.[0m
 
-travis_time:start:201c27a7
+travis_time:start:0005b310
 [0K$ uname -a
 
 Darwin Traviss-Mac-1044.local 17.4.0 Darwin Kernel Version 17.4.0: Sun Dec 17 09:19:54 PST 2017; root:xnu-4570.41.2~1/RELEASE_X86_64 x86_64
 
 
 
-travis_time:end:201c27a7:start=1523300327906605000,finish=1523300327934439000,duration=27834000
+travis_time:end:0005b310:start=1523300296515654000,finish=1523300296531457000,duration=15803000
 [0K
 
 [32;1mThe command "uname -a" exited with 0.[0m
 
-travis_time:start:3221e038
+travis_time:start:0474438c
 [0K$ xcodebuild -version
 
 Xcode 9.3
 
-Build version 9Q98q
+Build version 9E145
 
 
 
-travis_time:end:3221e038:start=1523300327957000000,finish=1523300328220987000,duration=263987000
+travis_time:end:0474438c:start=1523300296553338000,finish=1523300296707836000,duration=154498000
 [0K
 
 [32;1mThe command "xcodebuild -version" exited with 0.[0m
 
-travis_time:start:1540cc94
+travis_time:start:0c8a1a54
 [0K$ system_profiler SPHardwareDataType
 
 Hardware:
@@ -1470,7 +1436,7 @@ Hardware:
 
       SMC Version (system): 2.8f0
 
-      Serial Number (system): VMIbO0DnG0vz
+      Serial Number (system): VMJL7np4iyG2
 
       Hardware UUID: 422679DC-45CF-C343-8240-952E5E2020A9
 
@@ -1478,26 +1444,26 @@ Hardware:
 
 
 
-travis_time:end:1540cc94:start=1523300328244232000,finish=1523300328730914000,duration=486682000
+travis_time:end:0c8a1a54:start=1523300296723020000,finish=1523300297165876000,duration=442856000
 [0K
 
 [32;1mThe command "system_profiler SPHardwareDataType" exited with 0.[0m
 
-travis_time:start:0489fc99
+travis_time:start:1b108a4a
 [0K$ swift -version
 
-Apple Swift version 4.1 (swiftlang-902.0.34 clang-902.0.30)
+Apple Swift version 4.1 (swiftlang-902.0.48 clang-902.0.37.1)
 
 Target: x86_64-apple-darwin17.4.0
 
 
 
-travis_time:end:0489fc99:start=1523300328744711000,finish=1523300330814192000,duration=2069481000
+travis_time:end:1b108a4a:start=1523300297180843000,finish=1523300298974946000,duration=1794103000
 [0K
 
 [32;1mThe command "swift -version" exited with 0.[0m
 
-travis_time:start:14f75415
+travis_time:start:32a907f4
 [0K$ sw_vers
 
 ProductName:	Mac OS X
@@ -1508,26 +1474,26 @@ BuildVersion:	17D47
 
 
 
-travis_time:end:14f75415:start=1523300330828232000,finish=1523300330852624000,duration=24392000
+travis_time:end:32a907f4:start=1523300298989664000,finish=1523300299016121000,duration=26457000
 [0K
 
 [32;1mThe command "sw_vers" exited with 0.[0m
 
-travis_time:start:2335067c
+travis_time:start:1509a660
 [0K$ xcodebuild -version
 
 Xcode 9.3
 
-Build version 9Q98q
+Build version 9E145
 
 
 
-travis_time:end:2335067c:start=1523300330866399000,finish=1523300331011004000,duration=144605000
+travis_time:end:1509a660:start=1523300299040000000,finish=1523300299193852000,duration=153852000
 [0K
 
 [32;1mThe command "xcodebuild -version" exited with 0.[0m
 
-travis_time:start:0b0b4838
+travis_time:start:23456bc7
 [0K$ xcrun simctl list
 
 == Device Types ==
@@ -1626,7 +1592,7 @@ iOS 11.1 (11.1 - 15B87) - com.apple.CoreSimulator.SimRuntime.iOS-11-1
 
 iOS 11.2 (11.2 - 15C107) - com.apple.CoreSimulator.SimRuntime.iOS-11-2
 
-iOS 11.3 (11.3 - 15E5167d) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
+iOS 11.3 (11.3 - 15E217) - com.apple.CoreSimulator.SimRuntime.iOS-11-3
 
 tvOS 9.0 (9.0 - 13T395) - com.apple.CoreSimulator.SimRuntime.tvOS-9-0
 
@@ -1646,7 +1612,7 @@ tvOS 11.1 (11.1 - 15J580) - com.apple.CoreSimulator.SimRuntime.tvOS-11-1
 
 tvOS 11.2 (11.2 - 15K104) - com.apple.CoreSimulator.SimRuntime.tvOS-11-2
 
-tvOS 11.3 (11.3 - 15L5164c) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
+tvOS 11.3 (11.3 - 15L211) - com.apple.CoreSimulator.SimRuntime.tvOS-11-3
 
 watchOS 2.0 (2.0 - 13S343) - com.apple.CoreSimulator.SimRuntime.watchOS-2-0
 
@@ -1664,7 +1630,7 @@ watchOS 4.1 (4.1 - 15R844) - com.apple.CoreSimulator.SimRuntime.watchOS-4-1
 
 watchOS 4.2 (4.2 - 15S100) - com.apple.CoreSimulator.SimRuntime.watchOS-4-2
 
-watchOS 4.3 (4.3 - 15T5165c) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
+watchOS 4.3 (4.3 - 15T212) - com.apple.CoreSimulator.SimRuntime.watchOS-4-3
 
 == Devices ==
 
@@ -2408,12 +2374,12 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
 
 
 
-travis_time:end:0b0b4838:start=1523300331026623000,finish=1523300331380054000,duration=353431000
+travis_time:end:23456bc7:start=1523300299210970000,finish=1523300299574643000,duration=363673000
 [0K
 
 [32;1mThe command "xcrun simctl list" exited with 0.[0m
 
-travis_time:start:15eecd70
+travis_time:start:0441392a
 [0K$ xcrun simctl list pairs
 
 == Device Pairs ==
@@ -2552,12 +2518,12 @@ AC2E66C4-1CDC-4848-A5FC-D6C0C95FC1FC (active, disconnected)
 
 
 
-travis_time:end:15eecd70:start=1523300331393990000,finish=1523300331642003000,duration=248013000
+travis_time:end:0441392a:start=1523300299609399000,finish=1523300299875994000,duration=266595000
 [0K
 
 [32;1mThe command "xcrun simctl list pairs" exited with 0.[0m
 
-travis_time:start:247998f4
+travis_time:start:10ebccd9
 [0K$ brew list --versions
 
 adns 1.5.1
@@ -2708,12 +2674,12 @@ xctool 0.3.4
 
 
 
-travis_time:end:247998f4:start=1523300331656873000,finish=1523300333524983000,duration=1868110000
+travis_time:end:10ebccd9:start=1523300299889999000,finish=1523300301846222000,duration=1956223000
 [0K
 
 [32;1mThe command "brew list --versions" exited with 0.[0m
 
-travis_time:start:1fd360b2
+travis_time:start:0c0f9528
 [0K$ brew cask list --versions
 
 java 1.8.0_112-b16
@@ -2726,12 +2692,12 @@ xquartz 2.7.11
 
 
 
-travis_time:end:1fd360b2:start=1523300333539442000,finish=1523300334596220000,duration=1056778000
+travis_time:end:0c0f9528:start=1523300301860984000,finish=1523300302845385000,duration=984401000
 [0K
 
 [32;1mThe command "brew cask list --versions" exited with 0.[0m
 
-travis_time:start:1114f878
+travis_time:start:0b0b4838
 [0K$ rvm list
 
 
@@ -2756,12 +2722,12 @@ rvm rubies
 
 
 
-travis_time:end:1114f878:start=1523300334610289000,finish=1523300335137212000,duration=526923000
+travis_time:end:0b0b4838:start=1523300302859725000,finish=1523300303395449000,duration=535724000
 [0K
 
 [32;1mThe command "rvm list" exited with 0.[0m
 
-travis_time:start:1ff4f90b
+travis_time:start:0aa6c411
 [0K$ motion --version
 
 Cloning RubyMotion templates. Feel free to browse ~/.rubymotion/rubymotion-templates to see how they're built.
@@ -2869,6 +2835,8 @@ Receiving objects:  74% (343/463)
 Receiving objects:  75% (348/463)   
 Receiving objects:  76% (352/463)   
 Receiving objects:  77% (357/463)   
+remote: Total 463 (delta 14), reused 24 (delta 8), pack-reused 424[K
+
 Receiving objects:  78% (362/463)   
 Receiving objects:  79% (366/463)   
 Receiving objects:  80% (371/463)   
@@ -2886,65 +2854,50 @@ Receiving objects:  91% (422/463)
 Receiving objects:  92% (426/463)   
 Receiving objects:  93% (431/463)   
 Receiving objects:  94% (436/463)   
-remote: Total 463 (delta 14), reused 24 (delta 8), pack-reused 424[K
-
 Receiving objects:  95% (440/463)   
 Receiving objects:  96% (445/463)   
 Receiving objects:  97% (450/463)   
 Receiving objects:  98% (454/463)   
 Receiving objects:  99% (459/463)   
 Receiving objects: 100% (463/463)   
-Receiving objects: 100% (463/463), 738.26 KiB | 8.20 MiB/s, done.
+Receiving objects: 100% (463/463), 738.26 KiB | 8.39 MiB/s, done.
 
 Resolving deltas:   0% (0/122)   
-Resolving deltas:   5% (7/122)   
 Resolving deltas:   6% (8/122)   
-Resolving deltas:   7% (9/122)   
-Resolving deltas:   8% (10/122)   
-Resolving deltas:   9% (11/122)   
-Resolving deltas:  10% (13/122)   
+Resolving deltas:   9% (12/122)   
 Resolving deltas:  11% (14/122)   
-Resolving deltas:  12% (15/122)   
 Resolving deltas:  13% (16/122)   
 Resolving deltas:  14% (18/122)   
-Resolving deltas:  15% (19/122)   
-Resolving deltas:  16% (20/122)   
-Resolving deltas:  17% (21/122)   
-Resolving deltas:  18% (22/122)   
-Resolving deltas:  22% (28/122)   
-Resolving deltas:  23% (29/122)   
-Resolving deltas:  24% (30/122)   
-Resolving deltas:  25% (31/122)   
-Resolving deltas:  26% (32/122)   
-Resolving deltas:  27% (33/122)   
-Resolving deltas:  29% (36/122)   
 Resolving deltas:  30% (37/122)   
-Resolving deltas:  33% (41/122)   
-Resolving deltas:  36% (45/122)   
-Resolving deltas:  37% (46/122)   
-Resolving deltas:  42% (52/122)   
-Resolving deltas:  44% (54/122)   
+Resolving deltas:  31% (38/122)   
+Resolving deltas:  34% (42/122)   
+Resolving deltas:  35% (43/122)   
+Resolving deltas:  43% (53/122)   
 Resolving deltas:  45% (55/122)   
-Resolving deltas:  46% (57/122)   
-Resolving deltas:  47% (58/122)   
 Resolving deltas:  48% (59/122)   
+Resolving deltas:  49% (60/122)   
 Resolving deltas:  50% (61/122)   
 Resolving deltas:  51% (63/122)   
+Resolving deltas:  52% (64/122)   
 Resolving deltas:  53% (65/122)   
 Resolving deltas:  54% (67/122)   
 Resolving deltas:  55% (68/122)   
 Resolving deltas:  57% (70/122)   
 Resolving deltas:  58% (71/122)   
 Resolving deltas:  59% (73/122)   
+Resolving deltas:  60% (74/122)   
 Resolving deltas:  61% (75/122)   
 Resolving deltas:  63% (77/122)   
-Resolving deltas:  74% (91/122)   
-Resolving deltas:  76% (93/122)   
+Resolving deltas:  72% (88/122)   
+Resolving deltas:  77% (94/122)   
 Resolving deltas:  82% (101/122)   
 Resolving deltas:  84% (103/122)   
 Resolving deltas:  86% (105/122)   
+Resolving deltas:  87% (107/122)   
+Resolving deltas:  88% (108/122)   
 Resolving deltas:  89% (109/122)   
 Resolving deltas:  90% (110/122)   
+Resolving deltas:  94% (115/122)   
 Resolving deltas:  95% (116/122)   
 Resolving deltas:  96% (118/122)   
 Resolving deltas: 100% (122/122)   
@@ -2981,12 +2934,12 @@ Unpacking objects: 100% (15/15), done.
 
 
 
-travis_time:end:1ff4f90b:start=1523300335152074000,finish=1523300336321954000,duration=1169880000
+travis_time:end:0aa6c411:start=1523300303411597000,finish=1523300304595404000,duration=1183807000
 [0K
 
 [32;1mThe command "motion --version" exited with 0.[0m
 
-travis_time:start:129b5b60
+travis_time:start:05330bd0
 [0K$ gem list
 
 
@@ -2995,7 +2948,7 @@ travis_time:start:129b5b60
 
 
 
-activesupport (5.1.4, 4.2.9)
+activesupport (5.1.6, 4.2.9)
 
 addressable (2.5.2)
 
@@ -3003,61 +2956,63 @@ ast (2.4.0)
 
 atomos (0.1.2)
 
-aws-partitions (1.59.0)
+aws-partitions (1.78.0)
 
 aws-sdk (3.0.1, 1.67.0)
 
-aws-sdk-acm (1.3.0)
+aws-sdk-acm (1.6.0)
 
-aws-sdk-alexaforbusiness (1.1.0)
+aws-sdk-acmpca (1.0.0)
 
-aws-sdk-apigateway (1.9.0)
+aws-sdk-alexaforbusiness (1.2.0)
 
-aws-sdk-applicationautoscaling (1.7.0)
+aws-sdk-apigateway (1.10.0)
+
+aws-sdk-applicationautoscaling (1.8.0)
 
 aws-sdk-applicationdiscoveryservice (1.1.0)
 
-aws-sdk-appstream (1.4.0)
+aws-sdk-appstream (1.7.0)
 
-aws-sdk-appsync (1.0.0)
+aws-sdk-appsync (1.1.0)
 
-aws-sdk-athena (1.0.0)
+aws-sdk-athena (1.0.1)
 
-aws-sdk-autoscaling (1.4.0)
+aws-sdk-autoscaling (1.5.0)
 
 aws-sdk-autoscalingplans (1.1.0)
 
-aws-sdk-batch (1.3.0)
+aws-sdk-batch (1.4.0)
 
-aws-sdk-budgets (1.4.0)
+aws-sdk-budgets (1.5.0)
 
 aws-sdk-cloud9 (1.1.0)
 
 aws-sdk-clouddirectory (1.1.0)
 
-aws-sdk-cloudformation (1.3.0)
+aws-sdk-cloudformation (1.4.0)
 
-aws-sdk-cloudfront (1.1.0)
+aws-sdk-cloudfront (1.2.0)
 
 aws-sdk-cloudhsm (1.3.0)
 
 aws-sdk-cloudhsmv2 (1.1.0)
 
-aws-sdk-cloudsearch (1.0.0)
+aws-sdk-cloudsearch (1.0.1)
 
-aws-sdk-cloudsearchdomain (1.0.0)
+aws-sdk-cloudsearchdomain (1.0.1)
 
-aws-sdk-cloudtrail (1.0.0)
+aws-sdk-cloudtrail (1.0.1)
 
-aws-sdk-cloudwatch (1.4.0)
+aws-sdk-cloudwatch (1.5.0)
 
-aws-sdk-cloudwatchevents (1.1.0)
+aws-sdk-cloudwatchevents (1.3.0)
 
 aws-sdk-cloudwatchlogs (1.2.0)
 
-aws-sdk-codebuild (1.6.0)
+aws-sdk-codebuild (1.7.0)
 
-aws-sdk-codecommit (1.2.0)
+aws-sdk-codecommit (1.3.0)
 
 aws-sdk-codedeploy (1.3.0)
 
@@ -3065,83 +3020,87 @@ aws-sdk-codepipeline (1.1.0)
 
 aws-sdk-codestar (1.1.0)
 
-aws-sdk-cognitoidentity (1.0.0)
+aws-sdk-cognitoidentity (1.0.1)
 
-aws-sdk-cognitoidentityprovider (1.2.0)
+aws-sdk-cognitoidentityprovider (1.3.0)
 
-aws-sdk-cognitosync (1.0.0)
+aws-sdk-cognitosync (1.0.1)
 
 aws-sdk-comprehend (1.0.0)
 
-aws-sdk-configservice (1.5.0)
+aws-sdk-configservice (1.8.0)
 
-aws-sdk-core (3.15.0)
+aws-sdk-connect (1.0.0)
 
-aws-sdk-costandusagereportservice (1.0.0)
+aws-sdk-core (3.19.0)
 
-aws-sdk-costexplorer (1.0.0)
+aws-sdk-costandusagereportservice (1.0.1)
 
-aws-sdk-databasemigrationservice (1.3.0)
+aws-sdk-costexplorer (1.2.0)
 
-aws-sdk-datapipeline (1.0.0)
+aws-sdk-databasemigrationservice (1.4.0)
 
-aws-sdk-dax (1.0.0)
+aws-sdk-datapipeline (1.0.1)
 
-aws-sdk-devicefarm (1.3.0)
+aws-sdk-dax (1.0.1)
+
+aws-sdk-devicefarm (1.4.0)
 
 aws-sdk-directconnect (1.1.0)
 
 aws-sdk-directoryservice (1.1.0)
 
-aws-sdk-dynamodb (1.3.0)
+aws-sdk-dynamodb (1.5.0)
 
-aws-sdk-dynamodbstreams (1.0.0)
+aws-sdk-dynamodbstreams (1.0.1)
 
-aws-sdk-ec2 (1.25.0)
+aws-sdk-ec2 (1.29.0)
 
-aws-sdk-ecr (1.2.0)
+aws-sdk-ecr (1.3.0)
 
-aws-sdk-ecs (1.8.0)
+aws-sdk-ecs (1.12.0)
 
-aws-sdk-efs (1.0.0)
+aws-sdk-efs (1.0.1)
 
 aws-sdk-elasticache (1.3.0)
 
-aws-sdk-elasticbeanstalk (1.3.0)
+aws-sdk-elasticbeanstalk (1.5.0)
 
 aws-sdk-elasticloadbalancing (1.2.0)
 
-aws-sdk-elasticloadbalancingv2 (1.7.0)
+aws-sdk-elasticloadbalancingv2 (1.8.0)
 
-aws-sdk-elasticsearchservice (1.3.0)
+aws-sdk-elasticsearchservice (1.4.0)
 
-aws-sdk-elastictranscoder (1.0.0)
+aws-sdk-elastictranscoder (1.0.1)
 
 aws-sdk-emr (1.1.0)
 
 aws-sdk-firehose (1.1.0)
 
-aws-sdk-gamelift (1.1.0)
+aws-sdk-fms (1.0.0)
 
-aws-sdk-glacier (1.5.0)
+aws-sdk-gamelift (1.3.0)
 
-aws-sdk-glue (1.5.0)
+aws-sdk-glacier (1.6.0)
 
-aws-sdk-greengrass (1.2.0)
+aws-sdk-glue (1.6.0)
 
-aws-sdk-guardduty (1.1.0)
+aws-sdk-greengrass (1.3.0)
 
-aws-sdk-health (1.0.0)
+aws-sdk-guardduty (1.2.0)
 
-aws-sdk-iam (1.3.0)
+aws-sdk-health (1.0.1)
 
-aws-sdk-importexport (1.0.0)
+aws-sdk-iam (1.4.0)
+
+aws-sdk-importexport (1.0.1)
 
 aws-sdk-inspector (1.3.0)
 
-aws-sdk-iot (1.3.0)
+aws-sdk-iot (1.4.0)
 
-aws-sdk-iotdataplane (1.0.0)
+aws-sdk-iotdataplane (1.0.1)
 
 aws-sdk-iotjobsdataplane (1.0.0)
 
@@ -3155,91 +3114,93 @@ aws-sdk-kinesisvideoarchivedmedia (1.0.0)
 
 aws-sdk-kinesisvideomedia (1.0.0)
 
-aws-sdk-kms (1.4.0)
+aws-sdk-kms (1.5.0)
 
-aws-sdk-lambda (1.4.0)
+aws-sdk-lambda (1.5.0)
 
-aws-sdk-lambdapreview (1.0.0)
+aws-sdk-lambdapreview (1.0.1)
 
-aws-sdk-lex (1.2.0)
+aws-sdk-lex (1.3.0)
 
-aws-sdk-lexmodelbuildingservice (1.3.0)
+aws-sdk-lexmodelbuildingservice (1.5.0)
 
-aws-sdk-lightsail (1.3.0)
+aws-sdk-lightsail (1.4.0)
 
-aws-sdk-machinelearning (1.0.0)
+aws-sdk-machinelearning (1.0.1)
 
-aws-sdk-marketplacecommerceanalytics (1.0.0)
+aws-sdk-marketplacecommerceanalytics (1.0.1)
 
-aws-sdk-marketplaceentitlementservice (1.0.0)
+aws-sdk-marketplaceentitlementservice (1.0.1)
 
-aws-sdk-marketplacemetering (1.0.0)
+aws-sdk-marketplacemetering (1.0.1)
 
-aws-sdk-mediaconvert (1.0.0)
+aws-sdk-mediaconvert (1.1.0)
 
-aws-sdk-medialive (1.1.0)
+aws-sdk-medialive (1.4.0)
 
 aws-sdk-mediapackage (1.0.0)
 
-aws-sdk-mediastore (1.0.0)
+aws-sdk-mediastore (1.1.0)
 
 aws-sdk-mediastoredata (1.1.0)
 
-aws-sdk-migrationhub (1.0.0)
+aws-sdk-migrationhub (1.1.0)
 
 aws-sdk-mobile (1.0.0)
 
 aws-sdk-mq (1.0.0)
 
-aws-sdk-mturk (1.2.0)
+aws-sdk-mturk (1.3.0)
 
 aws-sdk-opsworks (1.2.0)
 
 aws-sdk-opsworkscm (1.2.0)
 
-aws-sdk-organizations (1.7.0)
+aws-sdk-organizations (1.8.0)
 
-aws-sdk-pinpoint (1.2.0)
+aws-sdk-pinpoint (1.4.0)
 
 aws-sdk-polly (1.4.0)
 
 aws-sdk-pricing (1.0.0)
 
-aws-sdk-rds (1.11.0)
+aws-sdk-rds (1.15.0)
 
-aws-sdk-redshift (1.1.0)
+aws-sdk-redshift (1.2.0)
 
 aws-sdk-rekognition (1.2.0)
 
 aws-sdk-resourcegroups (1.0.0)
 
-aws-sdk-resourcegroupstaggingapi (1.0.0)
+aws-sdk-resourcegroupstaggingapi (1.0.1)
 
-aws-sdk-resources (3.12.0)
+aws-sdk-resources (3.14.0)
 
-aws-sdk-route53 (1.7.0)
+aws-sdk-route53 (1.9.0)
 
 aws-sdk-route53domains (1.1.0)
 
-aws-sdk-s3 (1.8.0)
+aws-sdk-s3 (1.9.0)
 
-aws-sdk-sagemaker (1.5.0)
+aws-sdk-sagemaker (1.7.0)
 
 aws-sdk-sagemakerruntime (1.0.0)
 
-aws-sdk-serverlessapplicationrepository (1.0.0)
+aws-sdk-secretsmanager (1.0.0)
 
-aws-sdk-servicecatalog (1.3.0)
+aws-sdk-serverlessapplicationrepository (1.2.0)
 
-aws-sdk-servicediscovery (1.1.0)
+aws-sdk-servicecatalog (1.4.0)
+
+aws-sdk-servicediscovery (1.2.0)
 
 aws-sdk-ses (1.6.0)
 
 aws-sdk-shield (1.1.0)
 
-aws-sdk-simpledb (1.0.0)
+aws-sdk-simpledb (1.0.1)
 
-aws-sdk-sms (1.0.0)
+aws-sdk-sms (1.0.1)
 
 aws-sdk-snowball (1.2.0)
 
@@ -3247,25 +3208,25 @@ aws-sdk-sns (1.1.0)
 
 aws-sdk-sqs (1.3.0)
 
-aws-sdk-ssm (1.7.0)
+aws-sdk-ssm (1.10.0)
 
 aws-sdk-states (1.2.0)
 
-aws-sdk-storagegateway (1.2.0)
+aws-sdk-storagegateway (1.3.0)
 
-aws-sdk-support (1.0.0)
+aws-sdk-support (1.0.1)
 
-aws-sdk-swf (1.0.0)
+aws-sdk-swf (1.0.1)
 
-aws-sdk-transcribeservice (1.0.0)
+aws-sdk-transcribeservice (1.1.0)
 
-aws-sdk-translate (1.0.0)
+aws-sdk-translate (1.1.0)
 
 aws-sdk-v1 (1.67.0)
 
-aws-sdk-waf (1.3.0)
+aws-sdk-waf (1.4.0)
 
-aws-sdk-wafregional (1.3.0)
+aws-sdk-wafregional (1.4.0)
 
 aws-sdk-workdocs (1.1.0)
 
@@ -3274,6 +3235,7 @@ aws-sdk-workmail (1.0.0)
 aws-sdk-workspaces (1.1.0)
 
 aws-sdk-xray (1.1.0)
+
 
 aws-sigv2 (1.0.1)
 
@@ -3293,13 +3255,13 @@ CFPropertyList (3.0.0, 2.3.5)
 
 claide (1.0.2)
 
-cocoapods (1.4.0)
+cocoapods (1.5.0)
 
-cocoapods-core (1.4.0)
+cocoapods-core (1.5.0)
 
 cocoapods-deintegrate (1.0.2)
 
-cocoapods-downloader (1.1.3)
+cocoapods-downloader (1.2.0)
 
 cocoapods-plugins (1.0.0)
 
@@ -3319,7 +3281,7 @@ colored2 (3.1.2)
 
 commander (4.4.4)
 
-commander-fastlane (4.4.5)
+commander-fastlane (4.4.6, 4.4.5)
 
 concurrent-ruby (1.0.5)
 
@@ -3335,7 +3297,7 @@ did_you_mean (1.1.2, 1.1.0)
 
 diff-lcs (1.3)
 
-docile (1.2.0)
+docile (1.3.0)
 
 domain_name (0.5.20170404)
 
@@ -3345,9 +3307,9 @@ dubai (0.1.2)
 
 escape (0.0.4)
 
-excon (0.60.0, 0.59.0)
+excon (0.62.0, 0.59.0)
 
-executable-hooks (1.3.2)
+executable-hooks (1.4.2, 1.3.2)
 
 faraday (0.14.0, 0.13.1)
 
@@ -3357,7 +3319,7 @@ faraday_middleware (0.12.2)
 
 fastimage (2.1.1, 2.1.0)
 
-fastlane (2.80.0, 2.63.0)
+fastlane (2.89.0, 2.63.0)
 
 fourflusher (2.0.1)
 
@@ -3365,9 +3327,9 @@ fuzzy_match (2.1.0, 2.0.4)
 
 gem-wrappers (1.4.0, 1.3.2)
 
-gh_inspector (1.1.1, 1.0.3)
+gh_inspector (1.1.3, 1.0.3)
 
-google-api-client (0.19.6, 0.13.6)
+google-api-client (0.20.0, 0.13.6)
 
 googleauth (0.6.2, 0.6.1)
 
@@ -3379,11 +3341,11 @@ http-cookie (1.0.3)
 
 httpclient (2.8.3)
 
-i18n (0.9.3)
+i18n (1.0.0, 0.9.3)
 
 io-console (default: 0.4.6)
 
-jmespath (1.3.1)
+jmespath (1.4.0)
 
 json (2.1.0, default: 2.0.4, 1.8.6)
 
@@ -3409,7 +3371,7 @@ mini_portile2 (2.3.0, 2.1.0)
 
 minitest (5.11.3, 5.10.1)
 
-molinillo (0.6.4)
+molinillo (0.6.5)
 
 multi_json (1.13.1, 1.12.2)
 
@@ -3417,11 +3379,13 @@ multi_xml (0.6.0)
 
 multipart-post (2.0.0)
 
-mustermann (1.0.1)
+mustermann (1.0.2)
 
-nanaimo (0.2.3)
+nanaimo (0.2.5, 0.2.3)
 
 nap (1.1.0)
+
+naturally (2.1.0)
 
 net-http-digest_auth (1.4.1)
 
@@ -3445,7 +3409,7 @@ openssl (2.1.0, default: 2.0.5)
 
 os (1.0.0, 0.9.6)
 
-parser (2.4.0.2)
+parser (2.5.0.5)
 
 plist (3.4.0, 3.3.0, 3.1.0)
 
@@ -3455,18 +3419,17 @@ powerpack (0.1.1)
 
 psych (3.0.2, default: 2.2.2)
 
-
-public_suffix (3.0.1, 2.0.5)
+public_suffix (3.0.2, 2.0.5)
 
 rack (2.0.4)
 
-rack-protection (2.0.0)
+rack-protection (2.0.1, 2.0.0)
 
 rainbow (3.0.0)
 
-rake (12.3.0, 12.0.0, 11.2.2)
+rake (12.3.1, 12.0.0, 11.2.2)
 
-rdoc (6.0.1, default: 5.0.0)
+rdoc (6.0.3, default: 5.0.0)
 
 representable (3.0.4)
 
@@ -3492,13 +3455,15 @@ shenzhen (0.14.3)
 
 signet (0.8.1)
 
+simctl (1.6.3)
+
 simplecov-html (0.10.2)
 
-sinatra (2.0.0)
+sinatra (2.0.1, 2.0.0)
 
 slack-notifier (2.3.2, 1.5.1)
 
-slop (4.6.1)
+slop (4.6.2)
 
 term-ansicolor (1.6.0, 1.0.7)
 
@@ -3538,7 +3503,7 @@ webrobots (0.1.2)
 
 word_wrap (1.0.0)
 
-xcodeproj (1.5.6, 1.5.3)
+xcodeproj (1.5.7, 1.5.3)
 
 xcpretty (0.2.8)
 
@@ -3548,7 +3513,7 @@ xmlrpc (0.3.0, 0.2.1)
 
 
 
-travis_time:end:129b5b60:start=1523300336336195000,finish=1523300337214788000,duration=878593000
+travis_time:end:05330bd0:start=1523300304617069000,finish=1523300305641329000,duration=1024260000
 [0K
 
 [32;1mThe command "gem list" exited with 0.[0m
