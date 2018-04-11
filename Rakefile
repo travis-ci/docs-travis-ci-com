@@ -156,8 +156,16 @@ file '_data/gce_ip_range.yml' do |t|
   define_ip_range('nat.gce-us-central1.travisci.net', t.name)
 end
 
+file '_data/linux_containers_ip_range.yml' do |t|
+  define_ip_range('nat.linux-containers.travisci.net', t.name)
+end
+
 file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
+end
+
+file '_data/packet_ip_range.yml' do |t|
+  define_ip_range('nat.packet-ewr1.travisci.net', t.name)
 end
 
 file '_data/node_js_versions.yml' do |t|
