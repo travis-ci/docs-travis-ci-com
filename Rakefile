@@ -187,6 +187,7 @@ task regen: (%i[clean] + %w[
   _data/ec2_ip_range.yml
   _data/gce_ip_range.yml
   _data/ip_range.yml
+  _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
   _data/trusty_language_mapping.yml
   _data/node_js_versions.yml
@@ -198,6 +199,7 @@ task :clean do
          _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
          _data/ip_range.yml
+         _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
