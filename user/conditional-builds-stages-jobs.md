@@ -118,7 +118,7 @@ It is currently not possible to compare function calls. This means that if you t
 
 `env(PRIOR_VERSION) != env(RELEASE_VERSION)`
 
-where PRIOR_VERSION and RELEASE_VERSION are environment variables defined elsewhere in .travis.yml, the condition will be evaluated as true, even when it is false. This sad state of affairs is being addressed in an upcoming feature release.
+where PRIOR_VERSION and RELEASE_VERSION are environment variables defined elsewhere in .travis.yml, the condition will be evaluated as true, even when it is false.
 
 A work-around is to create a script which expresses the conditional test in reverse, and applies `travis_terminate` when the condition is false. This script can be called within the Deploy stage.
 For instance, continuing with the above example, the Deploy stage would include:
@@ -128,7 +128,7 @@ For instance, continuing with the above example, the Deploy stage would include:
    if: attribute=value
    env:
     - PRIOR_VERSION=$(git describe --abbrev=0 --tags)
-    - RELEASE_VERSION=$(grep SOME MAGIC HERE PLEASE HELP ME TO PUT SOMETHING THAT MAKES SENSE HERE BUT IS ALSO GENERIC)
+    - RELEASE_VERSION=$(grep to get version number)
    script:
     - "$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."
 ```    
