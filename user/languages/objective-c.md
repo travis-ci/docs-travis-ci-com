@@ -20,7 +20,7 @@ Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another
+Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default. You can use another
 version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
 the following table:
 
