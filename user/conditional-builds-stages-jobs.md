@@ -123,7 +123,7 @@ where PRIOR_VERSION and RELEASE_VERSION are environment variables defined elsewh
 A work-around is to create a script which expresses the conditional test in reverse, and applies `travis_terminate` when the condition is false. This script can be called within the Deploy stage.
 For instance, continuing with the above example, the Deploy stage would include:
 
-```
+```yaml
 - stage: deploy
    if: attribute=value
    env:
@@ -131,7 +131,8 @@ For instance, continuing with the above example, the Deploy stage would include:
     - RELEASE_VERSION=$(grep to get version number)
    script:
     - "$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."
-```    
+
+```
 
 Since we want the build to deploy only when PRIOR_VERSION and RELEASE_VERSION are not equal, we test for equality and terminate if that is found to be true.
 
