@@ -131,7 +131,7 @@ For instance, continuing with the above example, the Deploy stage would include:
     - RELEASE_VERSION=$(grep to get version number)
    script:
     - "$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."
-```    
+```
 
 Since we want the build to deploy only when PRIOR_VERSION and RELEASE_VERSION are not equal, we test for equality and terminate if that is found to be true.
 
