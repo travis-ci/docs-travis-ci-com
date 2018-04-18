@@ -60,7 +60,12 @@ possible. Dialing these numbers down should help.
 
 ## My build fails unexpectedly
 
-One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *inside* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop the build
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+
+Note that using `set -e` in external scripts does not cause this problem.
+
+See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
