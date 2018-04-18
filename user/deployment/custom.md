@@ -4,26 +4,34 @@ layout: en
 
 ---
 
-You can easily deploy to your own server the way you would deploy from your local machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
+You can deploy to your own server the way you would deploy from your local
+machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
 
-You may choose the [Script provider](/user/deployment/script/) instead, as it provides
-easier flexibility with conditional deployment.
+You may choose the [Script provider](/user/deployment/script/) instead, as it
+provides conditional deployment.
 
-### FTP
+### SFTP
 
 ```yaml
 env:
   global:
-    - "FTP_USER=user"
-    - "FTP_PASSWORD=password"
+  - 'SFTP_USER=[user]'
+  - 'SFTP_PASSWORD=[password]'
+  - 'SFTP_KEY=[base64-encoded-rsa-key]'
 after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASSWORD ftp://sitename.com/directory/myfile"
+- echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
+- curl --ftp-create-dirs
+       -T filename
+       --key /tmp/sftp_rsa
+       sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
 ```
 {: data-file=".travis.yml"}
 
-The env variables `FTP_USER` and `FTP_PASSWORD` can also be [encrypted](/user/encryption-keys/).
+The env variables `SFTP_USER` and `SFTP_PASSWORD` can also be
+[encrypted](/user/encryption-keys/).
 
-See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to use cURL as an FTP client.
+See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to
+use cURL as an SFTP client.
 
 ### Git
 
@@ -39,4 +47,4 @@ after_success:
 ```
 {: data-file=".travis.yml"}
 
-See ["How can I encrypt files that include sensitive data?"](/user/travis-pro/#How-can-I-encrypt-files-that-include-sensitive-data%3F) if you don't want to commit the private key unencrypted to your repository.
+See ["How can I encrypt files that include sensitive data?"](/user/travis-ci-for-private/#How-can-I-encrypt-files-that-include-sensitive-data%3F) if you don't want to commit the private key unencrypted to your repository.

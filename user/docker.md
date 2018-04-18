@@ -22,8 +22,10 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
-> Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+> Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
+
+> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds).
 
 ### Using a Docker Image from a Repository in a Build
 
@@ -142,7 +144,7 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 ```
 
 #### Branch Based Registry Pushes
@@ -163,7 +165,7 @@ Where `docker_push` is a script in your repository containing:
 
 ```bash
 #!/bin/bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker push USER/REPO
 ```
 {: data-file="docker_push"}
@@ -175,7 +177,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
 ### Using Docker Compose

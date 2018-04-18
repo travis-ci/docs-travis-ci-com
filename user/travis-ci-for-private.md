@@ -4,20 +4,21 @@ layout: en
 
 redirect_from:
   - /user/pricing/
+  - /user/travis-pro/
 ---
 
 <div id="toc"></div>
 
-Learn more about [Travis Pro](http://travis-ci.com), our hosted
+Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
-## Does Travis Pro include a trial period?
+## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis Pro](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
 When you're ready to start using Travis CI, head over to the [billing page](https://billing.travis-ci.com/) to add your billing details and end your trial.
 
-## Can I use pull request testing on Travis Pro?
+## Can I use pull request testing on Travis CI for private repositories?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
@@ -98,7 +99,7 @@ settings on GitHub, and resync your Travis CI account:
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
 how to make a repository private.
 
-2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
+2. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)

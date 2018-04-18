@@ -34,7 +34,7 @@ When the optional `solution` key is present, Travis will run NuGet package resto
 
 ### Script
 
-By default Travis will run `xbuild /p:Configuration=Release solution-name.sln`. Xbuild is a build tool designed to be an implementation for Microsoft's MSBuild (the tool that Visual Studio uses to build your projects).
+By default Travis will run `msbuild /p:Configuration=Release solution-name.sln`. MSBuild is a free and open-source build tool set for managed code as well as native C++ code and was part of .NET Framework.
 To override this, you can set the `script` key like this:
 
 ```yaml

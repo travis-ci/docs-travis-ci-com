@@ -242,7 +242,7 @@ Scons
 
 ### Haskell Platform Version
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
+[Haskell Platform](https://www.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
 
 ## Perl VM images
 
