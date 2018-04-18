@@ -4,8 +4,6 @@ layout: en
 
 ---
 
-Some of the following caches are still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
-
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
@@ -26,6 +24,8 @@ Travis CI can cache content that does not often change, to speed up your build p
 
 Caches lets Travis CI store directories between builds, which is useful for storing
 dependencies that take longer to compile or download.
+
+Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#Arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 ### Build phases
 
