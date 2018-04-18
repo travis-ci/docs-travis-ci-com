@@ -500,8 +500,9 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number.
-Continuing with the example above, to extend the wait time to 30 minutes:
+If you expect the command to take more than 20 minutes, prefix the command with `travis_wait n` where `n` is the number of minutes extend the waiting time by.
+
+Continuing the example above, to extend the wait time to 30 minutes:
 
 ```yaml
     install: travis_wait 30 mvn install
