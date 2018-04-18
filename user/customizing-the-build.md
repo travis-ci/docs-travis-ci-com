@@ -710,12 +710,12 @@ Note the `set -ev` at the top. The `-e` flag causes the script to exit as soon a
 
 The `-v` flag makes the shell print all lines in the script before executing them, which helps identify which steps failed.
 
-To run that script from your `.travis.yml`,
+To run that script from your `.travis.yml`:
 
 1. Save it in your repository as `scripts/run-tests.sh`.
 2. Make it executable by running `chmod ugo+x scripts/run-tests.sh`.
 3. Commit it to your repository.
-3. Add it to your `.travis.yml`
+4. Add it to your `.travis.yml`:
     ```yaml
     script: ./scripts/run-tests.sh
     ```
