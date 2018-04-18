@@ -1,39 +1,44 @@
 ---
 title: Building a Rust Project
 layout: en
-permalink: /user/languages/rust/
+
 ---
-<div id="toc">
-</div>
 
-### What this guide covers
+<div id="toc"></div>
 
-This guide covers build environment and configuration topics specific to Rust
-projects. Please make sure to read our [Getting started](/user/getting-started/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
 
-### Supported Rust versions
+| Rust                                        | Default                                       |
+|:--------------------------------------------|:----------------------------------------------|
+| [Default `install`](#Dependency-Management) | `cargo build --verbose`                       |
+| [Default `script`](#Default-Build-Script)   | `cargo build --verbose; cargo test --verbose` |
+| [Matrix keys](#Build-Matrix)                | `rust`, `env`                                 |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com)     |
 
-Travis supports all three [release channels][channels] of Rust: stable, beta, and nightly.
-Furthermore, you can test against a specific Rust release by using its version number.
-
-[channels]: http://doc.rust-lang.org/book/release-channels.html
-
-Travis also installs the appropriate Cargo version that comes with each Rust version.
-
-### Choosing the Rust version
-
-By default, we download and install the latest stable Rust release at the start of the
-build. If you're just testing stable, this is all that you need:
+Minimal example:
 
 ```yaml
 language: rust
 ```
+{: data-file=".travis.yml"}
 
-The Rust version that is specified in the .travis.yml is available during the
-build in the `TRAVIS_RUST_VERSION` environment variable.
+</aside>
 
-You can also test against a particular Rust release:
+### What This Guide Covers
+
+{{ site.data.snippets.trusty_note }}
+
+The rest of this guide covers configuring Rust projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
+
+## Choosing a Rust version
+
+By default, we download and install the latest stable Rust release at the start
+of the build, along with appropriate language tools including `cargo`, `rustc`,
+`rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
+
+To test against specific Rust releases:
 
 ```yaml
 language: rust
@@ -41,9 +46,15 @@ rust:
   - 1.0.0
   - 1.1.0
 ```
+{: data-file=".travis.yml"}
 
-The Rust team appreciates testing against the `beta` and `nightly` channels, even if you
-are only targeting stable. A full configuration looks like this:
+Travis CI also supports all three Rust [release channels][channels]: `stable`,
+`beta`, and `nightly`.
+
+[channels]: https://doc.rust-lang.org/book/first-edition/release-channels.html
+
+The Rust team appreciates testing against the `beta` and `nightly` channels,
+even if you are only targeting `stable`. A full configuration looks like this:
 
 ```yaml
 language: rust
@@ -54,20 +65,58 @@ rust:
 matrix:
   allow_failures:
     - rust: nightly
+  fast_finish: true
+```
+{: data-file=".travis.yml"}
+
+This will runs your tests against all three channels, but any breakage in
+`nightly` will not fail the rest of build.
+
+## Dependency Management
+
+Travis CI uses Cargo to install your dependencies:
+
+```bash
+cargo build --verbose
 ```
 
-This will test all three channels, but any breakage in nightly will not fail your overall build.
+You can cache your dependencies so they are only recompiled if they or the
+compiler were upgraded:
 
-## Default test script
+```yaml
+cache: cargo
+```
+{: data-file=".travis.yml"}
 
-Travis CI uses Cargo to run your build and tests by default. The exact commands
-run are:
 
-    $ cargo build --verbose
-    $ cargo test --verbose
+## Default Build Script
 
-If you wish to override this, you can use the `script` setting:
+Travis CI uses Cargo to run your build, the default commands are:
 
-    language: rust
-    script: make all
+```bash
+cargo test --verbose
+```
 
+You always can always configure different comands if you need to. For example,
+if your project is a
+[workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
+should pass `--all` to the build commands to build and test all of the member
+crates:
+
+```yaml
+language: rust
+script:
+  - cargo build --verbose --all
+  - cargo test --verbose --all
+```  
+{: data-file=".travis.yml"}
+
+## Environment variables
+
+The Rust version that is specified in the `.travis.yml` is available during the
+build in the `TRAVIS_RUST_VERSION` environment variable.
+
+## Build Matrix
+
+For Rust projects, `env` and `rust` can be given as arrays to
+construct a [build matrix](/user/customizing-the-build/#Build-Matrix).

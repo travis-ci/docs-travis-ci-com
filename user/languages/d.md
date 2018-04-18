@@ -1,7 +1,7 @@
 ---
 title: Building a D Project
 layout: en
-permalink: /user/languages/d/
+
 ---
 
 ### What This Guide Covers
@@ -10,13 +10,15 @@ This guide covers build environment and configuration topics specific to D proje
 sure to read our [Getting Started](/user/getting-started/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for D is currently in beta and may be removed or altered at any time. It is a
-community-supported language. If you run into any problems, please report them in the
+D is a community-supported language in Travis CI. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
-[@ibuclaw](https://github.com/ibuclaw), [@klickverbot](https://github.com/klickverbot) and
-[@MartinNowak](https://github.com/MartinNowak).
+[@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach).
+Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org), or
+[LDC's issue tracker](https://github.com/ldc-developers/ldc/issues), or
+[GDC's issue tracker](https://bugzilla.gdcproject.org)
+[DUB](https://github.com/dlang/dub) related problems should be reported to [DUB's issue tracker](https://github.com/dlang/dub/issues).
 
 ## Choosing compilers to test against
 
@@ -29,6 +31,7 @@ Examples:
 ```yml
 d: dmd-2.066.1
 ```
+
 ```yml
 # latest dmd, gdc and ldc
 d:
@@ -36,6 +39,7 @@ d:
   - gdc
   - ldc
 ```
+
 ```yml
 # latest dmd and ldc-0.15.1
 d:
@@ -43,6 +47,15 @@ d:
   - ldc-0.15.1
 ```
 
+```yml
+# dmd nightlies and beta of dmd, ldc
+d:
+  - dmd-nightly
+  - dmd-beta
+  - ldc-beta
+```
+
+All valid versions from the [D's official install script](https://dlang.org/install.html) are supported.
 Testing against multiple compilers will create one row in your build matrix for each compiler. The
 Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` or `gdc` and the
 `DMD` env variable to point to `dmd`, `ldmd2` or `gdmd`.
@@ -52,16 +65,24 @@ Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` 
 Travis CI by default assumes your project is built and tested using [dub](http://code.dlang.org) and
 runs the following command using the latest released version of dub.
 
-    dub test --compiler=${DC}
+```bash
+dub test --compiler=${DC}
+```
 
 Projects that find this sufficient can use a very minimalistic .travis.yml file:
 
-    language: d
+```yaml
+language: d
+```
+{: data-file=".travis.yml"}
 
 This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
 guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
 
-    script: make test
+```yaml
+script: make test
+```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -69,7 +90,10 @@ Because project dependencies are already handled by dub, Travis CI skips depende
 D projects.  If you need to perform special tasks before your tests can run, override the `install:`
 key in your `.travis.yml`:
 
-    install: make get-deps
+```yaml
+install: make get-deps
+```
+{: data-file=".travis.yml"}
 
 See [general build configuration guide](/user/customizing-the-build/) to learn more.
 

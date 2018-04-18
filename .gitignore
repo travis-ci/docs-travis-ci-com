@@ -1,9 +1,15 @@
-.bundle
 .DS_Store
+.bundle
+.jekyll-metadata
 .rvmrc
+.sass-cache
+# These files in _data are generated 
+_data/*ip_range.yml
+_data/trusty*language*mapping*
+_data/node_js_versions.yml
 _site
 bin
+node_modules
 source/tmp/*
-.sass-cache
 tmp/
-.jekyll-metadata
+api/

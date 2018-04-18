@@ -1,16 +1,43 @@
-language: ruby
+#language: ruby
 sudo: false
-rvm:
-  - 2.0.0
+dist: trusty
+language: python
+python:
+  - "3.5.2"
 branches:
   only:
-      - gh-pages
-cache: bundler
-
+  - master
+env:
+  global:
+    - PATH=$HOME/.local/user/bin:$PATH
+cache:
+  pip: true
+  directories:
+    - vendor/bundle
+    - node_modules
+addons:
+  apt:
+    packages:
+      - libxml2-utils
 deploy:
   provider: heroku
   api_key:
-    secure: "jwYeg8E1Nl+yQXuUTEEOArzZOOaHx0q0gXQpG/A2849KCGbV6/LHUnrp3uAI2bYdGZlxeFjGCmkStVM9A4BZ5CsakJhopcpUuy2fSLGtwspUMTJYmD05bQaU+P3zY+lh3Nws5oOuigIta1qKIrx6KVZXLTR1pXdsoxlTf+PWxFw="
-  app: 'docs-travis-ci-com'
+    secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
+  app: docs-travis-ci-com
+  skip_cleanup: true
   on:
-    branch: 'gh-pages'
+    branch:
+    - master
+notifications:
+  slack:
+    rooms:
+      secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
+    on_success: never
+  webhooks:
+    https://docs.travis-ci.com/update_webhook_payload_doc
+install:
+  - rvm use 2.4.3 --install
+  - bundle install --deployment
+script:
+  - bundle exec rake test
+  - xmllint --noout _site/feed.build-env-updates.xml

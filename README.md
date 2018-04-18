@@ -1,35 +1,72 @@
-# About this repository #
+# About this repository [![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=master)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
 
-This is the documentation site for Travis CI! (http://docs.travis-ci.com/)
+This is the documentation site for Travis CI! (<http://docs.travis-ci.com/>)
 
 ## How to contribute
 
 Fork the repository, read the rest of this README file and make some changes.
 Once you're done with your changes send a pull request. Thanks!
 
-## How to edit the site
+## How to check your edit before sending PR
 
-Make sure you have Ruby and RubyGems installed. Next install
-[bundler](http://bundler.io/):
+You can inspect how your edits will be reflected by the documentation site.
 
-    gem install bundler
+### Install dependencies
 
-Then install dependencies:
+1. Make sure you have Ruby and RubyGems installed.
 
-    bundle install --binstubs
+1. Install [bundler](http://bundler.io/):
 
-In order to run a local Web server that will serve documentation site, run:
+    ```sh-session
+    $ gem install bundler
+    ```
 
-    ./bin/jekyll serve
+1. Install application dependencies:
 
-and then open [localhost:4000](http://localhost:4000/) in your browser.
+    ```sh-session
+    $ bundle install --binstubs
+    ```
 
-To regenerate the HTML pages automatically when you make changes to Markdown source files, use
+### Generate documentation
 
-    ./bin/jekyll serve --watch
+Run
 
-Note that quoted entities may be escaped or unescaped depending on the Ruby
-version (1.8 vs. 1.9) used. It is normal.
+```sh-session
+$ ./bin/jekyll build
+```
+
+
+### Run application server
+
+You are now ready to start your documentation site, using Jekyll or Puma.
+For documentation edits, Jekyll is sufficient.
+
+#### Starting and inspecting edits with Jekyll
+
+1. Run Jekyll server:
+
+    ```sh-session
+    $ ./bin/jekyll serve
+    ```
+
+1. Open [localhost:4000](http://localhost:4000/) in your browser.
+
+#### Starting and inspecting edits with Puma
+
+For more programmatical PRs (such as handling webhooks notification
+via POST), Puma is necessary.
+
+1. Run Puma server:
+
+    ```sh-session
+    $ ./bin/puma
+    ```
+
+1. Open [localhost:9292](http://localhost:9292/) in your browser.
+
+### API V2 documentation
+
+API V2 (and 2.1) documentation is maintained in `slate/source` and updated is now generated at build time from source.
 
 ## License
 

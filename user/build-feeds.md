@@ -1,7 +1,7 @@
 ---
 title: Atom Build Feeds
 layout: en
-permalink: /user/build-feeds/
+
 ---
 
 One way to get updates on your builds is an Atom feed.
@@ -18,7 +18,7 @@ The feeds are fetched directly from our API at `https://api.travis-ci.org`.
 The canonical URL for a repository's builds is:
 
 ```
-https://api.travis-ci.org/repos/travis-ci/travis-ci/builds`
+https://api.travis-ci.org/repos/travis-ci/travis-ci/builds
 ```
 
 This URL returns a JSON representation by default, but you can get the Atom feed by adding the `.atom` suffix:
@@ -32,12 +32,13 @@ https://api.travis-ci.org/repos/travis-ci/travis-ci/builds.atom
 For private repositories you need a token to subscribe to
 the feed. The API endpoint is different too: `https://api.travis-ci.com`
 
-1. The token is shown in [your profile](https://travis-ci.com/profile/) under the "Profile" tab.
+1. The token is the same as is used to fetch a build status image, which can be
+   found on the repository page. See the related
+   [documentation](/user/cc-menu/#Using-the-CC-feed-with-repositories)
+   for more details on how to access the token.
 
-    ![Travis CI user token](/images/token.jpg)
+2. Once you have the token, append it as the `token` parameter to the URL:
 
-2. Append the `token` parameter to the URL:
-
-    ```
-    https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>
-    ```
+   ```
+   https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>
+   ```
