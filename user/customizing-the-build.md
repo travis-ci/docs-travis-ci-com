@@ -710,12 +710,16 @@ Note the `set -ev` at the top. The `-e` flag causes the script to exit as soon a
 
 The `-v` flag makes the shell print all lines in the script before executing them, which helps identify which steps failed.
 
-Assuming the script above is stored as `scripts/run-tests.sh` in your repository, and with the right permissions too (run `chmod ugo+x scripts/run-tests.sh` before checking it in), you can call it from your `.travis.yml`:
+To run that script from your `.travis.yml`,
 
-```yaml
-script: ./scripts/run-tests.sh
-```
-{: data-file=".travis.yml"}
+1. Save it in your repository as `scripts/run-tests.sh`.
+2. Make it executable by running `chmod ugo+x scripts/run-tests.sh`.
+3. Commit it to your repository.
+3. Add it to your `.travis.yml`
+    ```yaml
+    script: ./scripts/run-tests.sh
+    ```
+    {: data-file=".travis.yml"}
 
 ### How does this work? (Or, why you should not use `exit` in build steps)
 
