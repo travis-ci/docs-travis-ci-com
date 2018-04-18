@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Some of the below listed providers are still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
+Some of the following caches are still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 <div id="toc"></div>
 
@@ -440,10 +440,10 @@ FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
 tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
 ```
 
-## How does the caching work?
+## How does caching work?
 
-The caching tars up all the directories listed in the configuration and uploads
-them to a storage provider, using a secure and protected URL, ensuring security and privacy of
+Travis CI saves an archive of all the directories listed in the configuration and uploads
+it to a storage provider, using a secure and protected URL, ensuring security and privacy of
 the uploaded archives.
 
 Note that this makes our cache not network-local, it is still bound to network
@@ -451,11 +451,9 @@ bandwidth and DNS resolutions. That impacts what you can and should store
 in the cache. If you store archives larger than a few hundred megabytes in the
 cache, it is unlikely that you'll see a big speed improvement.
 
-Before the build, we check if a cached archive exists. If it does, we pull it
-down and unpack it to the specified locations.
+Before the build, we check if a cached archive exists. If it does, we download it and unpack it to the specified locations.
 
-After the build we check for changes in the directory, create a new archive and
-upload the updated archive back.
+After the build we check for changes in the directory, create a new archive with those changes, and upload it to the remote storage.
 
 The upload is currently part of the build cycle, but we're looking into improving
 that to happen outside of the build, giving faster build feedback.
