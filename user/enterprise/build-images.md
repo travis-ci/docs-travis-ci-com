@@ -97,7 +97,7 @@ $ sudo restart docker
 
 __Ubuntu 16.04 as Host operating system__
 
-To have the Docker daemon listening to the private IP address, please open `/etc/docker/daemon.json`. In there, please configure `hosts` like this:
+To have the Docker daemon listening to the private IP address, edit `/etc/docker/daemon.json` and add the machine's private IP address incl. the Docker API port (in this example it's `172.31.7.199:4232`):
 
 ```json
 {
@@ -109,13 +109,15 @@ To have the Docker daemon listening to the private IP address, please open `/etc
 }
 ```
 
-By default, the Docker service file has configured that the daemon is accessible via socket activation. If you'd restart Docker right now, it would complain about having hosts configured both in the service file and in `/etc/docker/daemon.json`. To not run into that situation, please run `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
+By default, the Docker service file has configured that the daemon is accessible via [socket activation](http://0pointer.de/blog/projects/socket-activation.html). If you'd restart Docker right now, it would complain about having hosts configured both in the service file and in `/etc/docker/daemon.json`. To not run into that situation, please run `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
 
 ```
 [Service]
 ExecStart=
 ExecStart=/usr/bin/dockerd
 ```
+
+You'll notice that in the above code snippet `ExecStart` gets assigned twice: first time with an empty value and the second time with a new command. This is a specific systemd semantic we need to follow here in order to customize the Docker start command.
 
 After that, issue an `sudo systemctl daemon-reload`, together with a `sudo systemctl restart docker`.
 
