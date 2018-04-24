@@ -7,7 +7,7 @@ layout: en_enterprise
 > Note: This is a BETA feature. If you have any questions, suggestions, or run into any trouble, please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Install%20on%20Xenial). We look forward to your feedback!
 {: .beta}
 
-This guide guides you through the installation of Travis CI Enterprise on Ubuntu 16.04 (Xenial) systems.
+This guide walks you through the installation of Travis CI Enterprise on Ubuntu 16.04 (Xenial) systems.
 
 ## Install Platform machine
 
