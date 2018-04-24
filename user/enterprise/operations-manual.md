@@ -107,17 +107,15 @@ The above mentioned error can be caused by a configuration mismatch in [the GitH
 Your Travis CI Enterprise license has a hostname field which contains the hostname of your installation. When the license's hostname does not match the actual hostname, the container does not start. If this is the case or you suspect that this might be likely, please [get in touch with us](mailto:enterprise@travis-ci.com?subject=License%20Hostname%20Change) and we'll help you to get back on track.
 
 
-## travis-worker on 16.04 does not start
+## travis-worker on Ubuntu 16.04 does not start
 
-travis-worker got installed on a fresh installation of Ubuntu 16.04 (Xenial). `sudo systemctl status travis-worker` unveils that it is not running.
-
-### Strategies
-
-#### `/var/tmp/travis-run.d/travis-worker:` No such file or directory
+travis-worker got installed on a fresh installation of Ubuntu 16.04 (Xenial). `sudo systemctl status travis-worker` shows that it is not running.
 
 Either `sudo journalctl -u travis-worker` or `sudo systemctl status travis-worker` report `/usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory`.
 
-In order to fix this, please create `/var/tmp/travis-run.d/travis-worker` via:
+### Strategy
+
+One possible reason that travis-worker is not running is that `systemctl` cannot create a temporary directory for environment files. To fix this, please create the directory `/var/tmp/travis-run.d/travis-worker` and assign write permissions via:
 
 ```sh
 $ mkdir -p /var/tmp/travis-run.d/
