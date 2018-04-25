@@ -4,50 +4,11 @@ layout: en
 permalink: /user/deployment/snaps/
 ---
 
-Travis CI can automatically upload and release your built snap to the [snap store](https://snapcraft.io) after a successful build.
+Travis CI can automatically upload and release your snap to the [snap store](https://snapcraft.io) after a successful build.
 
-Snaps are a new packaging and delivery system for Ubuntu, Debian, Fedora, openSuse and other [Linux distros](https://snapcraft.io/docs/core/install). Snaps are secure, they bundle all their dependencies and they are designed to be part of the upstream development workflow in a seamless way. This means that no distro maintainers are involved, and that the delivery to the store can be fully automated. The snaps installed in the users' machines are auto-updated, so a few hours after you push a new snap to the store, all your users will get the most recent version.
+[Snapcraft](https://snapcraft.io/) lets you distribute to all Ubuntu releases and a [growing set of Linux distributions](https://docs.snapcraft.io/core/install) with a single artefact. You publish and update at your pace while still reaching everyone; you're not locked to the release cycle of Ubuntu or any other distribution. The updates apply automatically and roll back if anything goes wrong. They're secure; each update is cryptographically signed and is tamper-proof once installed. The applications are locked down using the same container primitives found in Docker and LXD.
 
-All it takes is the following in your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: snap
-  snap: my.snap
-  channel: edge
-```
-{: data-file=".travis.yml"}
-
-In order for Travis CI to have permission to upload and release the snap on your behalf, you need to export a login token by installing Snapraft:
-
-```bash
-sudo snap install snapcraft --classic
-```
-
-Now export a login covering the ability to push this specific snap, as well as release to the channel you selected (in this example, `edge`):
-
-```bash
-snap export-login --snaps my-snap-name --channels edge -
-```
-
-(note the final `-`, which requests the login be exported to stdout instead of a file.) Copy the token, and put it into the `$SNAP_TOKEN` environment variable in Travis CI:
-
-```bash
-travis env set SNAP_TOKEN "<token>"
-```
-
-If you use a different environment variable, you'll need to specify the `token` option for the provider:
-
-```yaml
-deploy:
-  provider: snap
-  snap: my.snap
-  channel: edge
-  token: $MY_SNAP_TOKEN
-```
-{: data-file=".travis.yml"}
-
-This example is almost certainly not ideal, as you probably want to upload a snap built during CI. Set `skip_cleanup` to `true` to prevent Travis CI from deleting it before the `deploy` step.
+To upload your snap, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
@@ -58,12 +19,34 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Note that the `edge` channel is intended for crowdtesting with your community of early adopters. With this deployment setup in Travis, every time a pull request lands, a new snap will be published to edge. Your testers can install it in any of the supported Linux distros with:
+In order for Travis CI to have permission to upload the snap on your behalf, you need to export a Snap Store login token. You can do this with the snapraft command-line tool, once you have [enabled snap support](https://docs.snapcraft.io/core/install) on your system.
+
+```bash
+sudo snap install snapcraft --classic
+```
+
+Login tokens can attenuate how, when, and where they can be used, thus minimising damage from compromise. For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
+
+```bash
+snap export-login --snaps my-snap-name --channels edge -
+```
+
+_Note: The final `-` requests the login be exported to stdout instead of a file. It is required._
+
+The token will be printed out. Copy and put it into the Travis CI environment variable `$SNAP_TOKEN`:
+
+```bash
+travis env set SNAP_TOKEN "<token>"
+```
+
+Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded. This is great for crowd-testing with your community of early adopters, who can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
 
 ```bash
 sudo snap install my-snap-name --edge
 ```
 
-After that, they will be always ready to provide early feedback and help making a more stable release.
+Each upload gets a monotonically increasing integer. When you're ready, you can release one of these built commits to the stable channel for the public to discover in the [Snap storefront](https://snapcraft.io/store). For example, you could promote the very first upload to stable:
 
-There are plenty of [tutorials](https://tutorials.ubuntu.com/) and [videos](https://www.youtube.com/snapcraftio) that will help you packaging your project as a snap.
+```bash
+snapcraft release my-snap-name 1 stable
+```
