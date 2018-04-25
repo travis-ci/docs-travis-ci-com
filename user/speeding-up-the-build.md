@@ -70,10 +70,6 @@ actionmailer, activesupport, and a whole bunch of sets runs the activerecord
 tests against multiple databases. See their [.travis.yml
 file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
 
-Note that during the trial on <https://travis-ci.com> for private repositories, you only have
-one concurrent build available, so you'll unlikely be seeing improvements until you're
-signed up for a paid subscription.
-
 ## Parallelizing your build on one virtual machine
 
 Parallelizing the test suite on one virtual machine depends on the language and test runner:

@@ -51,14 +51,6 @@ In the Travis CI documentation, some common words have specific meanings:
 * *stage* - a group of *jobs* that run in parallel as part of sequential build
   process composed of multiple [stages](/user/build-stages/).
 
-## travis-ci.org vs travis-ci.com
-
-Travis CI was originally developed for open-source projects before being
-expanded to support closed-source projects at a later date. As a result:
-
-* open-source projects are hosted on [travis-ci.org](https://travis-ci.org/).
-* closed-source projects are hosted on [travis-ci.com](https://travis-ci.com/), also known as [Travis CI for private repositories](/user/travis-pro/).
-
 ## Breaking the Build
 
 The build is considered *broken* when one or more of its jobs completes with a
