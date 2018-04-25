@@ -39,5 +39,6 @@ install:
   - rvm use 2.4.3 --install
   - bundle install --deployment
 script:
+  - source $HOME/.nvm/nvm.sh; nvm ls-remote
   - bundle exec rake test
   - xmllint --noout _site/feed.build-env-updates.xml
