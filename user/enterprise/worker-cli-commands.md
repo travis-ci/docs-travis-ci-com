@@ -56,15 +56,13 @@ shutdown via `sudo stop travis-worker`.\
 
 ## Example Worker Stop and Start
 
-### General behavior:
-
 travis-worker behaves differently based on the signals it receives. For instance a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress but it doesn't accept any new ones anymore.
 
 `SIGKILL` on the other hand shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterwards, all previously enqueued and running jobs are re-queued again so they'll get worked off as usual.
 
 ### With Ubuntu 16.04 as host operating system
 
-Since Ubuntu 16.04 travis-worker itself is also running in a Docker container. Therefore starting and stopping the worker now works via `systemctl`:
+With Ubuntu 16.04 as the host operating system, travis-works runs inside a Docker container, so starting and stopping the worker now works via `systemctl`:
 
 ```sh
 $ sudo systemctl start travis-worker

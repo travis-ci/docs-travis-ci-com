@@ -22,7 +22,7 @@ On the Platform you can find the main log file at
 
 #### With Ubuntu 16.04 as host operating system
 
-On the Worker you can obtain the worker logs via:
+On the Worker you can obtain the worker logs by running:
 
 ```sh
 $ sudo journalctl -u travis-worker
@@ -276,13 +276,11 @@ sudo docker images | grep "te-main" | awk '{print $3}' | xargs sudo docker rmi -
 sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
 ```
 
-On the worker machine, you need to run this command:
+On the worker machine, you need to run this command to remove travis-worker and all build images:
 
-```
+```sh
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
-
-This removes travis-worker including all build images.
 
 #### With Ubuntu 14.04 as host operating system
 
