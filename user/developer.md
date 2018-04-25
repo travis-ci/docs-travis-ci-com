@@ -23,7 +23,7 @@ Our API can be used to automate many of your Travis CI build processes:
 - edit environment variables
 - validate the `.travis.yml` file
 
-We've created an [API Explorer](https://developer.travis-ci.org/) that closely
+We've created an [API Explorer](https://developer.travis-ci.com/) that closely
 integrates with V3, updating automatically when new endpoints are added, and
 includes a useful tool for exploring endpoints.
 

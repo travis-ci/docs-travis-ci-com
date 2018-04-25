@@ -296,7 +296,7 @@ Sometimes you spoil your cache by storing bad data in one of the cached director
 
 Use one of the following ways to access your cache and delete it if necessary:
 
-- The settings page of your repository on <https://travis-ci.org> (or .com if you're using a private repository)
+- The settings page of your repository on <https://travis-ci.com>
 
     ![Image of cache UI](/images/caches-item.png)
 

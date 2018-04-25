@@ -162,7 +162,7 @@ your tests.
 
 ### PHP optimizations
 
-PHP VM images on travis-ci.org provide several PHP versions which include
+PHP VM images on Travis CI provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
 reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
