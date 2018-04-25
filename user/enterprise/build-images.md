@@ -109,7 +109,7 @@ To have the Docker daemon listening to the private IP address, edit `/etc/docker
 }
 ```
 
-By default, the Docker service file has configured that the daemon is accessible via [socket activation](http://0pointer.de/blog/projects/socket-activation.html). If you'd restart Docker right now, it would complain about having hosts configured both in the service file and in `/etc/docker/daemon.json`. To not run into that situation, please run `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
+By default, the Docker daemon is configured to be accessible by  [socket activation](http://0pointer.de/blog/projects/socket-activation.html) (that's what `fd://` is for). To prevent issues related to having host configured in both service file and `/etc/docker/daemon.json` edit the Docker settings by by running `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
 
 ```
 [Service]
