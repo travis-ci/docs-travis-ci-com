@@ -4,7 +4,7 @@ layout: en
 permalink: /user/deployment/snaps/
 ---
 
-Travis CI can automatically upload and release your snap to the [snap store](https://snapcraft.io) after a successful build.
+Travis CI can automatically upload and release your app to the [Snap Store](https://snapcraft.io) after a successful build.
 
 [Snapcraft](https://snapcraft.io/) lets you distribute to all Ubuntu releases and a [growing set of Linux distributions](https://docs.snapcraft.io/core/install) with a single artefact. You publish and update at your pace while still reaching everyone; you're not locked to the release cycle of Ubuntu or any other distribution. The updates apply automatically and roll back if anything goes wrong. They're secure; each update is cryptographically signed and is tamper-proof once installed. The applications are locked down using the same container primitives found in Docker and LXD.
 
@@ -39,13 +39,15 @@ The token will be printed out. Copy and put it into the Travis CI environment va
 travis env set SNAP_TOKEN "<token>"
 ```
 
-Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded. This is great for crowd-testing with your community of early adopters, who can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
+_Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
+
+Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
 
 ```bash
 sudo snap install my-snap-name --edge
 ```
 
-Each upload gets a monotonically increasing integer. When you're ready, you can release one of these built commits to the stable channel for the public to discover in the [Snap storefront](https://snapcraft.io/store). For example, you could promote the very first upload to stable:
+Each upload gets a monotonically increasing integer. When you're ready, you can release one of these built commits to the stable channel for public discovery in the [Snap storefront](https://snapcraft.io/store). For example, you could promote the very first upload to stable:
 
 ```bash
 snapcraft release my-snap-name 1 stable
