@@ -15,7 +15,7 @@ toc_footers:
 
 ## API V3
 
-Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
+Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.com/">API Explorer</a>.
 If you're new to the Travis CI API, you should be using API V3.
 
 The API V2 described on this page will be deprecated sometime in 2018.
