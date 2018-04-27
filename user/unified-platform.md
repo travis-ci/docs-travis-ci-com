@@ -2,17 +2,14 @@
 title: "Travis CI Single Platform"
 ---
 
-On May 2nd, 2018 Travis CI integration open source and private projects onto a unified platform on **travis-ci.com**!
+On May 2nd, 2018 Travis CI integrated open source and private projects onto a unified platform on **travis-ci.com**!
 
 This means you can manage public and private repositories from one domain, allow open source projects the ability to add extra concurrency, and allow our team to maintain and improve a single CI platform.
-
-We are implementing these changes with GitHub Apps, which not only provides a richer integration with GitHub, but also allows for many amazing features we plan to roll out in the next few months.
+We are implementing these changes with GitHub Apps, which provides a richer integration with GitHub.
 
 ## What This Means To You
 
-
-<!--  We should create a basic doc on our docs site which is mostly similar to a saved reply. It could/should explain that migration options will be available soon, you can auto opt into migration by setting up your open source repos on .com and we will email you when migration is available, or if you want to migrate now without retaining your build history, contact support? -->
-
+We've updated the documentation to take into account these changes.
 
 ### If you're new to Travis CI
 
@@ -26,9 +23,9 @@ If you're an open source developer currently testing your project with Travis CI
 
 If you are activating a new repository on Travis CI, please use [travis-ci.com](https://www.travis-ci.com).
 
-#### Migrating to travis-ci.coming
+#### Migrating to travis-ci.com
 
-Sometime in May 2018 we'll be migrating repositories from travis-ci.org to travis-ci.coming
+Sometime in May or June 2018 we'll be migrating repositories from travis-ci.org to travis-ci.com
 
 You can opt in to migration by manually switching your repositories to travis-ci.com now (we'll email you before the migration happens), or if you don't need to keep your build history and want to switch right now please reach out to [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Hello%20Travis%20CI).
 
