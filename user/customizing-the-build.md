@@ -747,9 +747,7 @@ addons:
 
 ## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
-
-Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
 Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
 
