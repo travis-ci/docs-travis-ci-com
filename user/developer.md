@@ -29,9 +29,11 @@ includes a useful tool for exploring endpoints.
 
 ## API V2.1
 
-We've released an update to the Travis CI API V2, which is API V2.1. This update allows users of Travis CI for private projects to make certain build information available through the API.
+We've released an update to the Travis CI API V2, which is API V2.1. This update essentially makes HTTP status codes more consistent between travis-ci.org and travis-ci.com.
 
-For users of Travis CI for public repositories there is no change.
+> If you are building both Open Source and Private projects on travis-ci.com, please use API V2.1.
+
+For users of Travis CI using the deprecated platform for Open Source projects at travis-ci.org, built at api-travis-ci.org, there is no change in API.
 
 API V2.1 is identical to API V2 **except for the following breaking changes**:
 
