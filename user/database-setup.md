@@ -286,7 +286,7 @@ test:
   database: ":memory:"
   timeout: 500
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
 Or if you're not using a `config/database.yml`, connect to the database manually:
 
