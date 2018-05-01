@@ -19,7 +19,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.com dashboard, marked secure
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
   on:
     branch: master
