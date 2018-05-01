@@ -127,6 +127,6 @@ $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
 ```
 
-## Contact support
+## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
