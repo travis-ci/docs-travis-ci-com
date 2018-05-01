@@ -48,3 +48,7 @@ After installation, or when configuration changes are applied to the worker, res
 `sudo service travis-worker restart` 
 
 Worker configuration changes are applied on start.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
