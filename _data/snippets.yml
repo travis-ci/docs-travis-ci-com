@@ -59,8 +59,8 @@ contact_enterprise_support: |
   - What is the problem?
   - Which steps did you try already?
   - A support bundle (You can get it from `https://yourdomain:8800/support`)
-  - Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) 
-  - If you're using multiple worker machines, we need the log files from all of them.
+  - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
+  - If a build failed or errored, a text file of the build log
   
   Have you made any customizations to your setup? While we may be able to see some 
   information (such as hostname, IaaS provider, and license expiration), there 
