@@ -65,6 +65,8 @@ your development workflow best. Or, if you'd like to talk more about support, an
 please email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
 team looks forward to hearing from you!
 
+{{ site.data.snippets.contact_enterprise_support }}
+
 ## Further Reading  
   * [System Prerequisites](/user/enterprise/prerequisites)  
   * [Travis CI Enterprise Installation](/user/enterprise/installation)
