@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).
 
-All you need to do is add the following to your `.travis.yml`:
+Here is an example `.travis.yml`:
 
 ```yaml
 deploy:
@@ -15,7 +15,7 @@ deploy:
   user: "Bintray user"
   key: "Bintray API key"
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
-  dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
+  skip_cleanup: true # to upload artifacts created during the build
 ```
 {: data-file=".travis.yml"}
 
@@ -79,6 +79,18 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
+### `dry_run` option
+
+For testing deployment configuration, you can add `dry_run: true` to prevent connecting
+to the Bintray server:
+
+```yaml
+deploy:
+  ..
+  dry_run: true
+```
+{: data-file=".travis.yml"}
+
 ### Descriptor file example
 
 The descriptor is in JSON file format in three sections:
@@ -132,7 +144,7 @@ Bintray package information. The following information is mandatory on open sour
 - `repo` is the Bintray repository name
 - `subject` is the Bintray subject, which is either a user or an organization
 - `vcs_url` is the Bintray version control system url, such as a github repository url
-- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#url_licenses), which is a list with at least one item.
+- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
 
 
 #### Version Section

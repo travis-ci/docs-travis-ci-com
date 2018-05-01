@@ -28,8 +28,11 @@ For public repositories, an API call is required, in addition to the feature bei
 
 ### Restarting a job in debug mode via API
 
-To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint,
-along with your [Travis CI API token](/user/triggering-builds/) in the `Authorization` header.
+To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint.
+This request needs to be authenticated by adding your [Travis CI API token](/user/triggering-builds/)
+to the `Authorization` header. You can find your API token in your Travis CI Profile page
+for [public projects](https://travis-ci.org/profile) or [private projects](https://travis-ci.com/profile).
+
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
 
@@ -43,7 +46,13 @@ $ curl -s -X POST \
   https://api.travis-ci.org/job/${id}/debug
 ```
 
+(Note the literal word `token` must be present before the actual authorization token.)
+
 For private repositories, the API endpoint is `https://api.travis-ci.com/job/${id}/debug`.
+
+#### Finding the job ID
+
+The `${id}` is a job ID, not a build ID. For example, the ID `248927956` in the URL [`https://travis-ci.org/travis-ci/docs-travis-ci-com/builds/248927956`](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds/248927956) is a build ID. To obtain the corresponding job ID, click the _View config_ button on that page, and the URL will change into [`https://travis-ci.org/travis-ci/docs-travis-ci-com/jobs/248927957/config`](https://travis-ci.org/travis-ci/docs-travis-ci-com/jobs/248927957/config), showing the job ID `248927957`. Alternatively, you can obtain job IDs corresponding to a build ID [via the API](https://docs.travis-ci.com/api/#builds).
 
 #### Echoing debug session's output to the logs
 

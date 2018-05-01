@@ -38,7 +38,9 @@ build on its default branch.
 For example, for [docs-travis-ci-com](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds),
 this is the `master` branch.
 
-If the default branch does not have any build, the status will remain
+If the default branch does not have any branch build, the status will remain
 unknown, and shows:
 
 ![unknown status image](https://raw.githubusercontent.com/travis-ci/travis-api/master/public/images/result/unknown.png)
+
+Note that PR builds do not affect badge status.

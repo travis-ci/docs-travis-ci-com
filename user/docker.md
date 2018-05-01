@@ -22,8 +22,10 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
-> Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+> Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
+
+> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds).
 
 ### Using a Docker Image from a Repository in a Build
 
@@ -135,26 +137,39 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
+Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables)
+using the travis gem.
+
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 ```
 
 #### Branch Based Registry Pushes
 
 To push a particular branch of your repository to a remote registry,
-use the `after_success` section of your `.travis.yml`:
+use the custom deploy section of your `.travis.yml`:
 
 ```yaml
-after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push USER/REPO;
-    fi
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
 ```
 {: data-file=".travis.yml"}
+
+Where `docker_push` is a script in your repository containing:
+
+```bash
+#!/bin/bash
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+docker push USER/REPO
+```
+{: data-file="docker_push"}
+
 
 #### Private Registry Login
 
@@ -162,7 +177,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
 ```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.example.com
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
 ### Using Docker Compose

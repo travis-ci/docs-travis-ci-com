@@ -79,7 +79,7 @@ to accommodate projects that may need one of those runtimes during the build.
 
 Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).
 
-### Data Stores
+### Databases
 
 - MySQL
 - PostgreSQL
@@ -242,7 +242,7 @@ Scons
 
 ### Haskell Platform Version
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
+[Haskell Platform](https://www.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
 
 ## Perl VM images
 

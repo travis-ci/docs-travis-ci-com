@@ -58,6 +58,15 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
+## My build fails unexpectedly
+
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+
+Note that using `set -e` in external scripts does not cause this problem.
+
+See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+
+
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
@@ -105,7 +114,7 @@ Capybara has a timeout setting which you can increase to a minimum of 15
 seconds:
 
 ```js
-Capybara.default_wait_time = 15
+Capybara.default_max_wait_time = 15
 ```
 
 Poltergeist has its own setting for timeouts:
@@ -480,6 +489,10 @@ install: travis_retry pip install myawesomepackage
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
 
+Note that `travis_retry` only works within the `script` step. It will not work
+in other steps, like `deploy`.
+
+
 ### Build times out because no output was received
 
 When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
@@ -496,8 +509,9 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix `travis_wait` with a greater number.
-Continuing with the example above, to extend the wait time to 30 minutes:
+If you expect the command to take more than 20 minutes, prefix the command with `travis_wait n` where `n` is the number of minutes extend the waiting time by.
+
+Continuing the example above, to extend the wait time to 30 minutes:
 
 ```yaml
     install: travis_wait 30 mvn install
@@ -586,3 +600,43 @@ The log length has exceeded the limit of 4 Megabytes (this usually means that te
 
 The build has been terminated.
 ```
+
+## FTP/SMTP/other protocol does not work
+
+Some protocols such as FTP and SMTP are not directly supported due to the
+infrastructure requirements in place for security and fair usage.  Using
+alternate <q>stateless</q> protocols such as HTTPS is best, but tunneling is
+also known to work, such as by using SFTP in the specific case of FTP, or a VPN
+connection for a wide variety of protocols, e.g.:
+
+``` yaml
+sudo: required
+
+addons:
+  apt:
+    packages:
+    - openvpn
+
+before_install:
+- sudo openvpn path/to/conf.ovpn &>>openvpn-client.log &
+```
+{: data-file=".travis.yml"}
+
+
+## I pushed a commit and can't find its corresponding build
+
+The build request events that Travis CI receives are listed in your repository's Requests page. You can find it under the **More Options** dropdown menu, choosing **Requests**.
+
+![More Options dropdown menu, choosing Requests](/images/common-build-problems/repository-requests-page.png)
+
+Whenever your build has been processed you'll see the message: **"Build created successfully"**.
+
+If a build hasn't been triggered for your commit, these are the possible build request messages:
+
+- **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
+- **"Build skipped via commit message"**, this commit contains [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build).
+- **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
+- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
+- **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
+
+> Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
