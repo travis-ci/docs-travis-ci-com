@@ -54,9 +54,9 @@ environment_variables: |
 contact_enterprise_support: |
   To get in touch with us, please write a message to 
   [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). If possible, 
-  please include as much of the following info as you:
+  please include as much of the following as you can:
    
-  - What is the problem?
+  - Description of the problem - what are you observing?
   - Which steps did you try already?
   - A support bundle (You can get it from `https://yourdomain:8800/support`)
   - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
