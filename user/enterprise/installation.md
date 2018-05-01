@@ -43,18 +43,12 @@ each port in the table below:
 ### Install Travis CI Enterprise Platform
 
 Before running the installation script, we recommend downloading and reading it.
-When you're ready to run it on the host, run one of the following pairs of
-commands to install the Travis CI Enterprise Platform and web interface:
+When you're ready to run it on the host, run the following commands to install the 
+Travis CI Enterprise Platform and web interface:
 
 ```         
-# not behind a web proxy
-
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
 sudo bash /tmp/installer.sh
-
-# behind a web proxy
-curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
-sudo bash /tmp/installer.sh http-proxy=http://:
 ```          
 
 Once the script has run ,navigate to `https://<hostname>:8800` (your Enterprise
