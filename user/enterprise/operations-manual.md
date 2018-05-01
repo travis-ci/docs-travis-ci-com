@@ -82,7 +82,7 @@ Relevant are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. Th
 $ sudo restart travis-worker
 ```
 
-#### Ports are not open Security groups / firewall
+#### Ports are not open Security groups / Firewall
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
@@ -93,6 +93,13 @@ Here we're distinguishing between an AWS EC2 installation and an installation ru
 This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#Contact-Enterprise-Support) section below to move forward.
+
+#### Builds are not Starting on Enterprise Installation at Version 2.2+
+
+If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either: 
+
+1. Install a Trusty worker on a fresh vm instance: [Trusty installation guide](/user/enterprise/trusty/)
+1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
 
 ## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
 
