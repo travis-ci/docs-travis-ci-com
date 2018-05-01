@@ -145,3 +145,7 @@ For example, if you want to create a new repository and test out Docker support,
           script:
           - sudo docker run ubuntu date
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
