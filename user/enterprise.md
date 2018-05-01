@@ -60,9 +60,12 @@ ci.com](https://enterprise.travis-ci.com/). Your trial license will be fully-
 featured so you can get a good picture of how Enterprise will work for your
 team.
 
-If you'd like to talk more about licensing, support, and onboarding, please
-email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
+If you're interested in getting started, let us know at [sales@travis-ci.com](mailto:sales@travis-ci.com). We'd love to figure out Travis CI Enterprise can support
+your development workflow best. Or, if you'd like to talk more about support, and onboarding, 
+please email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
 team looks forward to hearing from you!
+
+{{ site.data.snippets.contact_enterprise_support }}
 
 ## Further Reading  
   * [System Prerequisites](/user/enterprise/prerequisites)  

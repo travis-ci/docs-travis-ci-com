@@ -266,3 +266,7 @@ On the worker machine, you need to run this command:
 ```
 $ sudo apt-get autoremove travis-worker
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
