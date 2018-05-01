@@ -20,7 +20,7 @@ Once a worker instance is up and running, `travis-worker` can be installed as fo
 For instances on AWS, please run: 
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
+curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -31,7 +31,7 @@ sudo bash /tmp/installer.sh \
 For non-AWS instances, please run:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
+curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -60,7 +60,7 @@ Once a worker instance is up and running, `travis-worker` can be installed as fo
 For instances on AWS, please run: 
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
+curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -71,7 +71,7 @@ sudo bash /tmp/installer.sh \
 For non-AWS instances, please run:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
+curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
