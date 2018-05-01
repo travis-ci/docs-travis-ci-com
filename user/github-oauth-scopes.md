@@ -10,7 +10,7 @@ some of your data on GitHub. Read the [GitHub API Scope Documentation](https://d
 
 <div id="toc"></div>
 
-## Travis CI for Opens Source and Private Projects
+## Travis CI for Open Source and Private Projects
 
 On <https://travis-ci.com>, via our GitHub Apps integration, we ask for the following permissions:
 
@@ -18,8 +18,11 @@ On <https://travis-ci.com>, via our GitHub Apps integration, we ask for the foll
 - Read access to metadata and pull requests
 - Read and write access to administration, checks, commit statuses, and deployments
 
+## Legacy WebHooks
 
-And these are the legacy WebHooks integration with GitHub permissions:
+Before GitHub Apps, we used scoped OAuth tokens to integrate with GitHub. As of May 2018, OAuth-based integration is considered our "Legacy" integration.
+
+### Travis CI for Private Projects
 
 - `user:email` (read-only)
 
@@ -47,7 +50,7 @@ And these are the legacy WebHooks integration with GitHub permissions:
 
     We need this level of access because GitHub does not provide the `read:org` (read-only) scope for private repositories.
 
-## Travis CI for Open Source Projects
+### Travis CI for Open Source Projects
 
 On <https://travis-ci.org> we ask for the following permissions:
 
