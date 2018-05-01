@@ -14,8 +14,6 @@ use your provider of choice.
 notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
 and information on obtaining a [license](/user/enterprise/prerequisites/#License).
 
-
-
 <div id="toc"></div>
 
 ## Setting up the Travis CI Enterprise Platform
@@ -23,7 +21,8 @@ and information on obtaining a [license](/user/enterprise/prerequisites/#License
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
-Enterprise worker.
+Enterprise worker. We recommend using AWS' `c3.2xlarge` instance running 
+Ubuntu 14.04 LTS as the underlying operating system.
 
 ### Create a Travis CI Platform Security Group
 
@@ -47,15 +46,9 @@ When you're ready to run it on the host, run one of the following pairs of
 commands to install the Travis CI Enterprise Platform and web interface:
 
 ```         
-# not behind a web proxy
-
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install
 sudo bash /tmp/installer.sh
-
-# behind a web proxy
-curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
-sudo bash /tmp/installer.sh http-proxy=http://:
-```          
+```
 
 Once the script has run ,navigate to `https://<hostname>:8800` (your Enterprise
 installation's hostname, port 8800) to complete the setup.
@@ -63,11 +56,14 @@ installation's hostname, port 8800) to complete the setup.
 From here you can upload your license key, add your GitHub OAuth details, and
 optionally upload an SSL certificate and enter SMTP details.
 
+New trials and installations will always install with the latest Travis CI Enterprise version. 
+
 ## Install Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform.
+instance from the Platform. We recommend using AWS' `c3.2xlarge` instance running 
+Ubuntu 14.04 LTS as the underlying operating system.
 
 ### Create a Travis CI Worker Security Group
 
@@ -81,35 +77,15 @@ each port in the table below:
 
 ## Install Travis CI Worker
 
-1. From the Travis CI Enterprise Platform management UI under Settings, retrieve
-   the RabbitMQ password and the hostname for your Travis CI Enterprise
-   installation.
+Travis CI Enterprise currently supports two different worker versions, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overriden. However, different versions of Enterprise treat different worker versions as default: 
 
-1. Log in to the second host as **as a user who has sudo access** and run
+| Travis CI Enterprise Version | Default Worker Version | Alternative Worker Versions |
+| -- | -- | -- |
+| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | 
+| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty) | 
+| Enterprise 2.0+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | -- |
 
-    ```
-    curl -sSL https://enterprise.travis-ci.com/install/worker -o /tmp/installer
-    ```
-
-1. Run one of the following commands:
-
-   - If the Worker host is running on EC2 please edit the following command to
-     include the proper credentials:
-
-      ```      
-        sudo bash /tmp/installer \
-        --travis_enterprise_host="travis.myhostname.com" \
-        --travis_enterprise_security_token="my-rabbitmq-password" \
-        --aws=true
-      ```      
-
-   - For all other hosts, please edit and run:
-      ```      
-        sudo bash /tmp/installer \
-        --travis_enterprise_host="travis.myhostname.com" \
-        --travis_enterprise_security_token="my-rabbitmq-password"
-      ```           
-1. When the installation is complete, please reboot your Worker host to finish.
+After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
 
 ### Worker Installation Behind Web Proxies
 
