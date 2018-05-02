@@ -135,8 +135,6 @@ Bundler installation can take a while, slowing down your build. You can tell
 On your first build, we warm the cache. On the second one, we'll pull in the
 cache, making `bundle install` only take seconds to run.
 
-Note that this feature is currently only available for private projects.
-
 #### Speeding up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`

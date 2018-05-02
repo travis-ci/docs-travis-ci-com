@@ -7,15 +7,14 @@ language_tabs:
 - ruby
 
 toc_footers:
-- <a href='https://travis-ci.org'>Travis CI for Open Source</a>
-- <a href='https://travis-ci.com'>Travis CI for Private Projects</a>
+- <a href='https://travis-ci.com'>Travis CI</a>
 ---
 
 # Overview
 
 ## API V3
 
-Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.org/">API Explorer</a>.
+Our most recent <a href="/user/developer/">API is V3</a>, which is has its own <a href="https://developer.travis-ci.com/">API Explorer</a>.
 If you're new to the Travis CI API, you should be using API V3.
 
 The API V2 described on this page will be deprecated sometime in 2018.
@@ -27,7 +26,7 @@ The API V2 described on this page will be deprecated sometime in 2018.
 
 As a stepping stone to new and greater things, we've released an update to the Travis CI API V2, which is API V2.1. This update essentially makes HTTP status codes more consistent between travis-ci.org and travis-ci.com.
 
-For users of Travis CI for Open Source projects, built at api-travis-ci.org, there is no change in API.
+For users of Travis CI for Open Source projects, built at travis-ci.org, there is no change in API.
 
 </aside>
 
