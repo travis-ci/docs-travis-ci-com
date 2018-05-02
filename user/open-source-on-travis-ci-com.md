@@ -1,5 +1,5 @@
 ---
-title: "Open Source on `travis-ci.com`"
+title: "Open Source on travis-ci.com"
 layout: en
 
 ---
