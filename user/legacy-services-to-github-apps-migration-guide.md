@@ -9,7 +9,7 @@ Here are two recipes that will show you how to migrate your private and open sou
 
 ## How to migrate a private repository to GitHub Apps
 
-Go to your profile page on travis-ci.com: https://travis-ci.com/profile.
+Go to your profile page on travis-ci.com: [https://travis-ci.com/profile](https://travis-ci.com/profile).
 
 ![travis-ci.com profile page with legacy GitHub Services integration](/images/legacy-services-repo.png)
 
@@ -29,7 +29,7 @@ You'll be redirected on your Travis CI profile page and the migrated repositorie
 
 ## How to migrate an open source repository (on travis-ci.org) to GitHub Apps (on travis-ci.com)
 
-First, you'll need to disable your repository on https://travis-ci.org. To do this, go to your profile page on travis-ci.org: https://travis-ci.org/profile.
+First, you'll need to disable your repository on travis-ci.org. To do this, go to your profile page on travis-ci.org: [https://travis-ci.org/profile](https://travis-ci.org/profile).
 
 Search for your repository in the text box.
 
