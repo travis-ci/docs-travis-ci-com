@@ -8,7 +8,7 @@ On May 2nd, 2018 Travis CI announced that open source projects will be joining p
 
 <div id="toc"></div>
 
-This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have more a more consistent experience between types of projects.
+This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 
 We are implementing these changes with GitHub Apps, which provides a tighter integration with GitHub and finer control over repository and subscription ownership and permissions. New or migrated repositories building on `travis-ci.com` will have access to the features offered with the GitHub Apps-based Integration.
 
