@@ -26,13 +26,3 @@ Click the "Approve & Install" button.
 You'll be redirected on your Travis CI profile page and the migrated repositories will appear under the `GitHub Apps Integration` header.
 
 ![travis-ci.com profile page with GitHub App integration](/images/github-app-repo.png)
-
-## How to migrate an open source repository (on travis-ci.org) to GitHub Apps (on travis-ci.com)
-
-First, you'll need to disable your repository on travis-ci.org. To do this, go to your profile page on travis-ci.org: [https://travis-ci.org/profile](https://travis-ci.org/profile).
-
-Search for your repository in the text box.
-
-Click on the toggle to disable the repository on travis-ci.org.
-
-Now you can do the steps for a private repository listed above but for your open source repository that you want to migrate.
