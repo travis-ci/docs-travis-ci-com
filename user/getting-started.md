@@ -22,12 +22,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
 ## To get started with Travis CI
 
-1. Using your GitHub account, sign in to either
-
-   * [Travis CI .org](https://travis-ci.org/auth) for public repositories
-   * [Travis CI .com](https://travis-ci.com/auth) for private repositories
-
-   and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate.
 
 2. Once you're signed in to Travis CI, and we've synchronized your GitHub
    repositories, go to your profile page and enable the repository
