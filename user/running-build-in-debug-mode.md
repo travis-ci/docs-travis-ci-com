@@ -35,7 +35,7 @@ $ curl -s -X POST \
   -H "Travis-API-Version: 3" \
   -H "Authorization: token ********************" \
   -d "{\"quiet\": true}" \
-  https://api.travis-ci.com/job/${id}/debug
+  https://api.travis-ci.org/job/${id}/debug
 ```
 
 (Note the literal word `token` must be present before the actual authorization token.)
