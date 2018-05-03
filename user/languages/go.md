@@ -182,7 +182,8 @@ configuration](/user/customizing-the-build/) guide. For example, to omit the
 `-v` flag, override the `script:` key in `.travis.yml` like this:
 
 ```yaml
-script: go test ./...
+script: 
+  - go test ./...
 ```
 {: data-file=".travis.yml"}
 
@@ -203,7 +204,8 @@ go test -x -ldflags "-X main.VersionString v1.2.3" ./...
 To build by running Scons without arguments, use this:
 
 ```yaml
-script: scons
+script: 
+  - scons
 ```
 {: data-file=".travis.yml"}
 
