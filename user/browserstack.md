@@ -1,8 +1,9 @@
 ---
 title: Using BrowserStack with Travis CI
 layout: en
-permalink: /user/browserstack/
+
 ---
+
 Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
@@ -15,11 +16,17 @@ Once the secure connection is setup, all URLs work out of the box, including you
 URLs with HTTPS.
 
 [local-testing]: https://www.browserstack.com/local-testing
+
 [local-binary]: https://www.browserstack.com/local-testing#command-line
+
 [open-source-browserstack]: https://www.browserstack.com/pricing
+
 [account-settings]: https://www.browserstack.com/accounts/settings
+
 [encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+
 [browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
+
 [travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
 
 ## Setting up BrowserStack
@@ -31,7 +38,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests).
+For more information see the [pull requests page](/user/pull-requests/#Pull-Requests-and-Security-Restrictions).
 
 ### Encrypted Access Key
 
@@ -46,6 +53,7 @@ addons:
     access_key:
       secure: "The secure string output of `travis encrypt`"
 ```
+{: data-file=".travis.yml"}
 
 ### Plain Text Access Key
 
@@ -57,6 +65,7 @@ addons:
     username: "Your BrowserStack username"
     access_key: "Your BrowserStack access key"
 ```
+{: data-file=".travis.yml"}
 
 We **strongly** recommend storing your BrowserStack access keys in encrypted format, since other users that have access to your repository
 can read and use your plain text access keys to test on BrowserStack.
@@ -108,6 +117,7 @@ addons:
     proxyUser: "User to use when accessing proxy server"
     proxyPass: "Password to use when accessing proxy server"
 ```
+{: data-file=".travis.yml"}
 
 ### More Options
 
@@ -127,5 +137,6 @@ addons:
     forcelocal: true
     only: dev.example.com,80,0,*.example.org,80,0
 ```
+{: data-file=".travis.yml"}
 
 The format for the **only** flag is, "Host pattern,Host Port,Flag for SSL True(1)/False(0)" and repeat.

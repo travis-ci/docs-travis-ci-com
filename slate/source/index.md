@@ -13,14 +13,14 @@ toc_footers:
 
 # Overview
 
-``` http
+```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -28,7 +28,7 @@ Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 Host: api.travis-ci.com
 ```
 
-``` http
+```http
 GET /api HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -36,7 +36,7 @@ Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 Host: travis.example.com
 ```
 
-``` shell
+```shell
 $ travis raw /
 {"hello"=>"world"}
 
@@ -47,7 +47,7 @@ $ travis raw / --api-endpoint https://travis.example.com/api
 {"hello"=>"world"}
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 # talk to travis-ci.org via client object
@@ -81,34 +81,34 @@ Welcome to the Travis CI API documentation. This is the API used by the official
 
 The first thing you will have to find out is the correct API endpoint to use.
 
-* **Travis CI for open source:** For open source projects tested on [travis-ci.org](https://travis-ci.org), use **[https://api.travis-ci.org](https://api.travis-ci.org)**.
-* **Travis Pro:** For private projects tested on [travis-ci.com](https://travis-ci.com), use **[https://api.travis-ci.com](https://api.travis-ci.com)**.
-* **Travis Enterprise:** For projects running on a custom setup, use **[https://travis.example.com/api]()** (where you replace travis.example.com with the domain Travis CI is running on).
+- **Travis CI for open source:** For open source projects tested on [travis-ci.org](https://travis-ci.org), use **<https://api.travis-ci.org>**.
+- **Travis Pro:** For private projects tested on [travis-ci.com](https://travis-ci.com), use **<https://api.travis-ci.com>**.
+- **Travis Enterprise:** For projects running on a custom setup, use **[https://travis.example.com/api](<>)** (where you replace travis.example.com with the domain Travis CI is running on).
 
 Note that both Pro and Enterprise will require almost all API calls to be [authenticated](#authentication).
 
 # Making Requests
 
-``` http
+```http
 GET / HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {"hello":"world"}
 ```
 
-``` shell
+```shell
 $ travis raw /
 {"hello":"world"}
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 # You usually don't want to fire API requests manually
@@ -125,22 +125,21 @@ client.get('/repos/sinatra/sinatra')
 
 When you write your own Travis CI client, please keep the following in mind:
 
-* Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and it's current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-* Always set the **Accept** header to `application/vnd.travis-ci.2+json`.
+- Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
+- Always set the **Accept** header to `application/vnd.travis-ci.2+json`.
 
 Any existing client library should take care of these for you.
 
 # External APIs
 
-``` http
+```http
 GET /config HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -159,7 +158,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis raw /config
 {"config"=>
   {"host"=>"travis-ci.org",
@@ -174,7 +173,7 @@ $ travis raw /config
        "write:repo_hook"]}}}
 ```
 
-``` ruby
+```ruby
 require 'travis'
 client = Travis::Client.new
 client.config
@@ -197,12 +196,12 @@ You can ask the API for the connection details to these services by loading the 
 
 This includes, amongst other things:
 
-* The GitHub API endpoint (this might be a GitHub enterprise endpoint) and the GitHub scopes currently required by Travis CI. These are the scopes you should use when [generating a temporary GitHub token](#creating-a-temporary-github-token) for authentication.
-* The [Pusher](http://pusher.com/) application key. If the setup is running behind a firewall and uses [Slanger](https://github.com/stevegraham/slanger), it will also include the Slanger URL.
+- The GitHub API endpoint (this might be a GitHub enterprise endpoint) and the GitHub scopes currently required by Travis CI. These are the scopes you should use when [generating a temporary GitHub token](#creating-a-temporary-github-token) for authentication.
+- The [Pusher](http://pusher.com/) application key. If the setup is running behind a firewall and uses [Slanger](https://github.com/stevegraham/slanger), it will also include the Slanger URL.
 
 # Authentication
 
-``` http
+```http
 GET /users HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -210,11 +209,11 @@ Host: api.travis-ci.org
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 ```
 
-``` shell
+```shell
 $ travis whoami -t "YOUR TRAVIS ACCESS TOKEN"
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 # against the Travis namespace
@@ -224,7 +223,7 @@ Travis::User.current
 # against a client object
 client = Travis::Client.new(access_token: 'YOUR TRAVIS ACCESS TOKEN')
 client.user
-````
+```
 
 <aside class="notice">
 Do not confuse the <i>access token</i> with the token found on your profile page.
@@ -236,7 +235,7 @@ You can retrieve a token by using a GitHub token to prove who you are. In the fu
 
 ## With a GitHub token
 
-``` http
+```http
 POST /auth/github HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -247,14 +246,14 @@ Content-Length: 37
 {"github_token":"YOUR GITHUB TOKEN"}
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {"access_token":"YOUR TRAVIS ACCESS TOKEN"}
 ```
 
-``` shell
+```shell
 $ travis login --github-token "YOUR GITHUB TOKEN"
 Successfully logged in!
 
@@ -262,7 +261,7 @@ $ travis token
 Your access token is YOUR TRAVIS ACCESS TOKEN
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 # against the Travis namespace
@@ -274,13 +273,13 @@ client.github_auth(token)
 ```
 
 If you have a GitHub token, you can use the GitHub authentication endpoint to exchange it for an access token.
-The Travis API server will not store the token or use it for anything else then verifying the user account.
+The Travis API server will not store the token or use it for anything else than verifying the user account.
 
 Note that therefore the API cannot be used to create new user accounts. The user will have to log in at least once via the web interface before interfacing with the API by other means.
 
 ## Creating a temporary GitHub token
 
-``` http
+```http
 POST /authorizations HTTP/1.1
 Host: api.github.com
 Content-Type: application/json
@@ -295,7 +294,7 @@ Authorization: Basic ...
 }
 ```
 
-``` http
+```http
 HTTP/1.1 201 Created
 Content-Type: application/json
 
@@ -311,7 +310,7 @@ Content-Type: application/json
 }
 ```
 
-``` http
+```http
 POST /auth/github HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -322,20 +321,20 @@ Content-Length: 37
 {"github_token":"YOUR GITHUB TOKEN"}
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {"access_token":"YOUR TRAVIS ACCESS TOKEN"}
 ```
 
-``` http
+```http
 DELETE /authorizations/1 HTTP/1.1
 Host: api.github.com
 Authorization: Basic ...
 ```
 
-``` shell
+```shell
 $ travis login --auto
 Successfully logged in!
 
@@ -343,7 +342,7 @@ $ travis token
 Your access token is YOUR TRAVIS ACCESS TOKEN
 ```
 
-``` ruby
+```ruby
 require 'travis'
 require 'travis/tools/github'
 
@@ -369,9 +368,9 @@ Make sure your GitHub token has the scopes [required](#external-apis) by Travis 
 
 If you automate this process, authentication will become a handshake consisting of three requests:
 
-* Create a GitHub token via the GitHub API, store GitHub token and URL.
-* Use the `/auth/github` endpoint to exchange it for an access token. Store the access token.
-* Delete the GitHub token via the GitHub API.
+- Create a GitHub token via the GitHub API, store GitHub token and URL.
+- Use the `/auth/github` endpoint to exchange it for an access token. Store the access token.
+- Delete the GitHub token via the GitHub API.
 
 Some client libraries will automate this handshake for you.
 
@@ -379,13 +378,13 @@ Some client libraries will automate this handshake for you.
 
 > Triggering an OAuth handshake between GitHub and Travis CI:
 
-``` html
+```html
 <a href="https://api.travis-ci.com/auth/handshake">log in</a>
 ```
 
 > Running the OAuth handshake in an iframe:
 
-``` html
+```html
 <script>
   window.addEventListener("message", function(event) {
     console.log("received token: " + event.data.token);
@@ -405,7 +404,7 @@ There is an alternative version of this that will try to run the handshake in a 
 
 ## Accounts
 
-``` http
+```http
 GET /accounts HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -413,7 +412,7 @@ Host: api.travis-ci.org
 Authorization: token "YOUR TRAVIS ACCESS TOKEN"
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -437,13 +436,13 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis accounts
 rkh (Konstantin Haase): subscribed, 167 repositories
 travis-ci (Travis CI): subscribed, 70 repositories
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 
@@ -456,14 +455,14 @@ A user might have access to multiple accounts. This is usually the account corre
 
 ### Attributes
 
-Attribute   | Description
------------ | -----------
-id          | user or organization id
-name        | account name on GitHub
-login       | account login on GitHub
-type        | `user` or `organization`
-repos_count | number of repositories
-subscribed  | whether or not the account has a valid subscription
+| Attribute   | Description                                         |
+| ----------- | --------------------------------------------------- |
+| id          | user or organization id                             |
+| name        | account name on GitHub                              |
+| login       | account login on GitHub                             |
+| type        | `user` or `organization`                            |
+| repos_count | number of repositories                              |
+| subscribed  | whether or not the account has a valid subscription |
 
 The `subscribed` attribute is only available on Travis Pro.
 
@@ -471,91 +470,22 @@ The `subscribed` attribute is only available on Travis Pro.
 
 `GET /accounts`
 
-Parameter | Default | Description
---------- | ------- | -----------
-all       | false   | whether or not to include accounts the user does not have admin access to
+| Parameter | Default | Description                                                               |
+| --------- | ------- | ------------------------------------------------------------------------- |
+| all       | false   | whether or not to include accounts the user does not have admin access to |
 
 This request always needs to be authenticated.
 
-## Annotations
-
-``` http
-GET /jobs/42/annotations HTTP/1.1
-User-Agent: MyClient/1.0.0
-Accept: application/vnd.travis-ci.2+json
-Host: api.travis-ci.org
-```
-
-``` http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-   "annotations" : [
-      {
-        "id"          : 1,
-        "job_id"      : 42,
-        "description" : "foo bar",
-        "url"         : "http://example.com/job-42",
-        "status"      : "passed"
-      }
-   ]
-}
-```
-
-``` shell
-$ travis show # job info will include annotations
-```
-
-``` ruby
-require 'travis'
-
-job = Travis::Job.find(42)
-job.annotations.each do |annotation|
-  puts annotation.description
-end
-```
-
-<aside class="warning">
-  Annotation support is experimental.
-</aside>
-
-### Attributes
-
-Attribute   | Description
------------ | -----------
-id          | annotation id
-job_id      | job id the annotation is for
-description | textual description of the annotation
-url         | url with more information
-status      | annotation status
-
-### List Annotations
-
-`GET /jobs/{job.id}/annotations`
-
-### Create Annotation
-
-`POST /jobs/{job.id}/annotations`
-
-Parameter   | Default | Description
------------ | ------- | -----------
-username    |         | user name for provider authentication
-key         |         | secret key for provider authentication
-description |         | textual description of the annotation
-url         |         | url with more information
-status      |         | annotation status
-
 ## Branches
 
-``` http
+```http
 GET /repos/rails/rails/branches HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -578,7 +508,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis branches -r rails/rails
 v4.1.0:         #15184 created  Dont encourage aliases now that …
 master:         #15183 created  Dont abbreviate that which needs…
@@ -587,7 +517,7 @@ master:         #15183 created  Dont abbreviate that which needs…
 adequaterecord: #15158 passed   wrap the literal value before ha…
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 repository = Travis::Repository.find('rails/rails')
@@ -622,7 +552,7 @@ This will list the latest 25 branches.
 
 ## Broadcasts
 
-``` http
+```http
 GET /broadcasts HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -630,7 +560,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -644,12 +574,12 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis raw /broadcasts
 {"broadcasts"=>[{"id"=>451, "message"=>"This is a broadcast!"}]}
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 Travis::Broadcast.current.each do |broadcast|
@@ -659,10 +589,10 @@ end
 
 ### Attributes
 
-Attribute   | Description
------------ | -----------
-id          | broadcast id
-message     | broadcast message
+| Attribute | Description       |
+| --------- | ----------------- |
+| id        | broadcast id      |
+| message   | broadcast message |
 
 ### List Broadcasts
 
@@ -672,14 +602,14 @@ This request always needs to be authenticated.
 
 ## Builds
 
-``` http
+```http
 GET /repos/sinatra/sinatra/builds HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -706,7 +636,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis history
 ...
 $ travis show 15 # show build #15
@@ -717,7 +647,7 @@ $ travis cancel 15
 ...
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 
@@ -730,21 +660,21 @@ end
 
 ### Attributes
 
-Attribute           | Description
-------------------- | -----------
-id                  | build id
-repository_id       | repository id
-commit_id           | commit id
-number              | build number
-pull_request        | true or false
-pull_request_title  | PR title if pull_request is true
-pull_request_number | PR number if  pull_request is true
-config              | build config (secure values and ssh key removed)
-state               | build state
-started_at          | time the build was started
-finished_at         | time the build finished
-duration            | build duration
-job_ids             | list of job ids in the build matrix
+| Attribute           | Description                                      |
+| ------------------- | ------------------------------------------------ |
+| id                  | build id                                         |
+| repository_id       | repository id                                    |
+| commit_id           | commit id                                        |
+| number              | build number                                     |
+| pull_request        | true or false                                    |
+| pull_request_title  | PR title if pull_request is true                 |
+| pull_request_number | PR number if  pull_request is true               |
+| config              | build config (secure values and ssh key removed) |
+| state               | build state                                      |
+| started_at          | time the build was started                       |
+| finished_at         | time the build finished                          |
+| duration            | build duration                                   |
+| job_ids             | list of job ids in the build matrix              |
 
 Note that `duration` might not correspond to `finished_at - started_at` if the build was restarted at a later point.
 
@@ -752,32 +682,32 @@ Note that `duration` might not correspond to `finished_at - started_at` if the b
 
 `GET /builds`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-ids           |         | list of build ids to fetch
-repository_id |         | repository id the build belongs to
-slug          |         | repository slug the build belongs to
-number        |         | filter by build number, requires slug or repository_id
-after_number  |         | list build after a given build number (use for pagination), requires slug or repository_id
-event_type    |         | limit build to given event type (`push` or `pull_request`)
+| Parameter     | Default | Description                                                                                |
+| ------------- | ------- | ------------------------------------------------------------------------------------------ |
+| ids           |         | list of build ids to fetch                                                                 |
+| repository_id |         | repository id the build belongs to                                                         |
+| slug          |         | repository slug the build belongs to                                                       |
+| number        |         | filter by build number, requires slug or repository_id                                     |
+| after_number  |         | list build after a given build number (use for pagination), requires slug or repository_id |
+| event_type    |         | limit build to given event type (`push` or `pull_request`)                                 |
 
 You have to supply either `ids`, `repository_id` or `slug`.
 
 `GET /repos/{repository.id}/builds`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-number        |         | filter by build number
-after_number  |         | list build after a given build number (use for pagination)
-event_type    |         | limit build to given event type (`push` or `pull_request`)
+| Parameter    | Default | Description                                                |
+| ------------ | ------- | ---------------------------------------------------------- |
+| number       |         | filter by build number                                     |
+| after_number |         | list build after a given build number (use for pagination) |
+| event_type   |         | limit build to given event type (`push` or `pull_request`) |
 
 `GET /repos/{+repository.slug}/builds`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-number        |         | filter by build number
-after_number  |         | list build after a given build number (use for pagination)
-event_type    |         | limit build to given event type (`push` or `pull_request`)
+| Parameter    | Default | Description                                                |
+| ------------ | ------- | ---------------------------------------------------------- |
+| number       |         | filter by build number                                     |
+| after_number |         | list build after a given build number (use for pagination) |
+| event_type   |         | limit build to given event type (`push` or `pull_request`) |
 
 ### Show Build
 
@@ -801,7 +731,7 @@ This request always needs to be authenticated.
 
 ## Caches
 
-``` http
+```http
 GET /repos/travis-pro/billing/builds HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -809,7 +739,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.com
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -826,7 +756,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis cache -r travis-pro/billing
 On branch master:
 cache--rvm-2.0.0--gemfile-Gemfile  last modified: 2014-03-06 11:19:49  size: 98.87 MiB
@@ -840,7 +770,7 @@ Overall size of above caches: 371.08 MiB
 $ travis cache -r travis-pro/billing --delete --branch mm-ruby-2.1
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 repository = Travis::Repository.find('travis-pro/billing')
@@ -855,13 +785,13 @@ repository.delete_caches(branch: 'mm-ruby-2.1')
 
 ### Attributes
 
-Attribute           | Description
-------------------- | -----------
-repository_id       | id of the repository the cache belongs to
-size                | compressed cache size in bytes
-slug                | cache slug (generated from env)
-branch              | branch the cache is for
-last_modified       | last time the cache was updated
+| Attribute     | Description                               |
+| ------------- | ----------------------------------------- |
+| repository_id | id of the repository the cache belongs to |
+| size          | compressed cache size in bytes            |
+| slug          | cache slug (generated from env)           |
+| branch        | branch the cache is for                   |
+| last_modified | last time the cache was updated           |
 
 ### List caches
 
@@ -869,10 +799,10 @@ last_modified       | last time the cache was updated
 
 `GET /repos/{+repository.slug}/caches`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-branch        |         | limit listed caches to those on given branch
-match         |         | limit listed caches to those with `slug` containing the given value
+| Parameter | Default | Description                                                         |
+| --------- | ------- | ------------------------------------------------------------------- |
+| branch    |         | limit listed caches to those on given branch                        |
+| match     |         | limit listed caches to those with `slug` containing the given value |
 
 This request always needs to be authenticated.
 
@@ -882,23 +812,23 @@ This request always needs to be authenticated.
 
 `DELETE /repos/{+repository.slug}/caches`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-branch        |         | only delete caches on given branch
-match         |         | only delete caches with `slug` containing the given value
+| Parameter | Default | Description                                               |
+| --------- | ------- | --------------------------------------------------------- |
+| branch    |         | only delete caches on given branch                        |
+| match     |         | only delete caches with `slug` containing the given value |
 
 This request always needs to be authenticated.
 
 ## Commits
 
-``` http
+```http
 GET /repos/sinatra/sinatra/builds HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -922,14 +852,14 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis history -r sinatra/sinatra
 #784 failed:     master Merge pull request #861 from kant/patch-1
 #783 passed:     v1.4.5 v1.4.5
 #782 passed:     master v1.4.5
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 repository = Travis::Repository.find('my/repo')
@@ -942,22 +872,22 @@ There is no API endpoint for resolving commits, however commit data might be inc
 
 ### Attributes
 
-Attribute           | Description
-------------------- | -----------
-id                  | commit id
-sha                 | commit sha
-branch              | branch the commit is on
-message             | commit message
-committed_at        | commit date
-author_name         | author name
-author_email        | author email
-committer_name      | committer name
-committer_email     | committer email
-compare_url         | link to diff on GitHub
+| Attribute       | Description             |
+| --------------- | ----------------------- |
+| id              | commit id               |
+| sha             | commit sha              |
+| branch          | branch the commit is on |
+| message         | commit message          |
+| committed_at    | commit date             |
+| author_name     | author name             |
+| author_email    | author email            |
+| committer_name  | committer name          |
+| committer_email | committer email         |
+| compare_url     | link to diff on GitHub  |
 
 ## Hooks
 
-``` http
+```http
 PUT /hooks HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -973,11 +903,11 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis enable -r my/repo
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 Travis.hooks.each { |hook| hook.enable }
@@ -997,22 +927,22 @@ This request always needs to be authenticated.
 
 `PUT /hooks`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-hook[id]      |         | id of the hook/repository
-hook[active]  | false   | whether to turn hook on (true) or off (false)
+| Parameter    | Default | Description                                   |
+| ------------ | ------- | --------------------------------------------- |
+| hook[id]     |         | id of the hook/repository                     |
+| hook[active] | false   | whether to turn hook on (true) or off (false) |
 
 `PUT /hooks/{hook.id}`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-hook[active]  | false   | whether to turn hook on (true) or off (false)
+| Parameter    | Default | Description                                   |
+| ------------ | ------- | --------------------------------------------- |
+| hook[active] | false   | whether to turn hook on (true) or off (false) |
 
 This request always needs to be authenticated.
 
 ## Jobs
 
-``` http
+```http
 POST /jobs/42/restart HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1020,11 +950,11 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` shell
+```shell
 $ travis restart 1.2 -r my/repo
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 
@@ -1035,22 +965,21 @@ end
 
 ### Attributes
 
-Attribute           | Description
-------------------- | -----------
-id                  | job id
-build_id            | build id
-repository_id       | repository id
-commit_id           | commit id
-log_id              | log id
-number              | job number
-config              | job config (secure values and ssh key removed)
-state               | job state
-started_at          | time the job was started
-finished_at         | time the job finished
-duration            | job duration
-queue               | job queue
-allow_failure       | whether or not job state influences build state
-annotation_ids      | list of annotation ids
+| Attribute      | Description                                     |
+| -------------- | ----------------------------------------------- |
+| id             | job id                                          |
+| build_id       | build id                                        |
+| repository_id  | repository id                                   |
+| commit_id      | commit id                                       |
+| log_id         | log id                                          |
+| number         | job number                                      |
+| config         | job config (secure values and ssh key removed)  |
+| state          | job state                                       |
+| started_at     | time the job was started                        |
+| finished_at    | time the job finished                           |
+| duration       | job duration                                    |
+| queue          | job queue                                       |
+| allow_failure  | whether or not job state influences build state |
 
 ### Fetch Job
 
@@ -1060,11 +989,11 @@ annotation_ids      | list of annotation ids
 
 <aside class='notice'>Job entities are included in build payloads.</aside>
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-ids           |         | list of job ids
-state         |         | job state to filter by
-queue         |         | job queue to filter by
+| Parameter | Default | Description            |
+| --------- | ------- | ---------------------- |
+| ids       |         | list of job ids        |
+| state     |         | job state to filter by |
+| queue     |         | job queue to filter by |
 
 You need to provide exactly one of the above parameters.
 If you provide `state` or `queue`, a maximum of 250 jobs will be returned.
@@ -1083,26 +1012,26 @@ This request always needs to be authenticated.
 
 ## Logs
 
-``` http
+```http
 GET /jobs/42/logs HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: text/plain
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type text/plain
 
 Using worker: ...
 ```
 
-``` shell
+```shell
 $ travis logs
 ... logs ...
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 rails = Travis::Repository.find('rails/rails')
@@ -1116,28 +1045,28 @@ end
 
 ### Attributes
 
-Attribute           | Description
-------------------- | -----------
-id                  | log id
-job_id              | job id
-body                | log body
+| Attribute | Description |
+| --------- | ----------- |
+| id        | log id      |
+| job_id    | job id      |
+| body      | log body    |
 
 ### Chunked Attributes
 
 You can retrieve the chunked attributes instead of the normal attributes b adding the attribute `chunked=true` to the mime-type specified in the `Accept` header.
 
-Attribute           | Description
-------------------- | -----------
-id                  | log id
-job_id              | job id
-parts               | log parts
+| Attribute | Description |
+| --------- | ----------- |
+| id        | log id      |
+| job_id    | job id      |
+| parts     | log parts   |
 
 The `parts` will be an array of JSON objects with the following attributes:
 
-Attribute           | Description
-------------------- | -----------
-number              | part number
-content             | part content
+| Attribute | Description  |
+| --------- | ------------ |
+| number    | part number  |
+| content   | part content |
 
 ### Fetching a Log
 
@@ -1157,7 +1086,7 @@ To stream the logs, you will have to subscribe to the channel for the job the lo
 
 ## Permissions
 
-``` http
+```http
 GET /users/permissions HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1165,7 +1094,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1177,12 +1106,11 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis repos
-
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 
@@ -1193,12 +1121,12 @@ end
 
 The permissions endpoint will return arrays of repository ids:
 
-Key                 | ids for
-------------------- | -----------
-permissions         | repositories the user has access to
-admin               | repositories the user has admin access to
-pull                | repositories the user has pull access to
-push                | repositories the user has push access to
+| Key         | ids for                                   |
+| ----------- | ----------------------------------------- |
+| permissions | repositories the user has access to       |
+| admin       | repositories the user has admin access to |
+| pull        | repositories the user has pull access to  |
+| push        | repositories the user has push access to  |
 
 The pull access list is only relevant for private projects.
 
@@ -1210,7 +1138,7 @@ This request always needs to be authenticated.
 
 ## Repository Keys
 
-``` http
+```http
 GET /repos/sinatra/sinatra/key HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1218,7 +1146,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1228,7 +1156,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis pubkey -r travis-ci/travis-api
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQCOmOkC6MYRH1w2ib3AIC00GNwmgr8ch3mNHZ16x6cvSMjc6cURZt9Hav6gz03P5+9e5Vw1ztm3hvPR+IJsyOV/CSsYf1Cgboj6ZJ7tr3xOJXcqcMVfiGiG7Km6/psRdn0jrjTpU/qcru8Wx3zbQEf5NuXQyMVHmnl8/5w0WPV/Uw==
 
@@ -1244,7 +1172,7 @@ $ travis pubkey --fingerprint -r travis-ci/travis-api
 99:66:93:03:41:0b:f1:f7:61:83:16:61:fa:47:c0:8f
 ```
 
-``` ruby
+```ruby
 require 'travis'
 repo = Travis::Repository.find('travis-ci/travis-api')
 
@@ -1254,10 +1182,10 @@ puts "Fingerprint: ", repo.key.fingerprint
 puts repository.encrypt("example")
 ```
 
-Attribute           | Description
-------------------- | -----------
-key                 | public key
-fingerprint         | fingerprint for the public key
+| Attribute   | Description                    |
+| ----------- | ------------------------------ |
+| key         | public key                     |
+| fingerprint | fingerprint for the public key |
 
 This key can be used to encrypt (but not decrypt) secure env vars.
 
@@ -1279,7 +1207,7 @@ This request always needs to be authenticated.
 
 ## Repositories
 
-``` http
+```http
 GET /repos/sinatra/sinatra HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1287,7 +1215,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1302,17 +1230,17 @@ Content-Type: application/json
     "last_build_duration": 2542,
     "last_build_started_at": "2014-04-21T15:27:14Z",
     "last_build_finished_at": "2014-04-21T15:40:04Z",
-    "github_language": "Ruby"
+    "active": "true"
   }
 }
 ```
 
-``` shell
+```shell
 $ travis show -r travis-ci/travis-api
 ...
 ```
 
-``` ruby
+```ruby
 require 'travis'
 repos = Travis::Repository.find_all(owner_name: 'sinatra')
 repos.each do |repo|
@@ -1322,18 +1250,18 @@ end
 
 ### Attributes
 
-Attribute               | Description
------------------------ | -----------
-id                      | repository id
-slug                    | repository slug
-description             | description on githu
-last_build_id           | build id of the last build
-last_build_number       | build number of the last build
-last_build_state        | build state of the last build
-last_build_duration     | build duration of the last build
-last_build_started_at   | build started at of the last build
-last_build_finished_at  | build finished at of the last build
-github_language         | language on github
+| Attribute              | Description                         |
+| ---------------------- | ----------------------------------- |
+| id                     | repository id                       |
+| slug                   | repository slug                     |
+| description            | description on github               |
+| last_build_id          | build id of the last build          |
+| last_build_number      | build number of the last build      |
+| last_build_state       | build state of the last build       |
+| last_build_duration    | build duration of the last build    |
+| last_build_started_at  | build started at of the last build  |
+| last_build_finished_at | build finished at of the last build |
+| active                 | repository's active status          |
 
 ### Fetch Repository
 
@@ -1343,20 +1271,20 @@ github_language         | language on github
 
 ### Find Repositories
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-ids           |         | list of repository ids to fetch, cannot be combined with other parameters
-member        |         | filter by user that has access to it (github login)
-owner_name    |         | filter by owner name (first segment of slug)
-slug          |         | filter by slug
-search        |         | filter by search term
-active        | `false` | if `true`, will only return repositories that are enabled
+| Parameter  | Default | Description                                                               |
+| ---------- | ------- | ------------------------------------------------------------------------- |
+| ids        |         | list of repository ids to fetch, cannot be combined with other parameters |
+| member     |         | filter by user that has access to it (github login)                       |
+| owner_name |         | filter by owner name (first segment of slug)                              |
+| slug       |         | filter by slug                                                            |
+| search     |         | filter by search term                                                     |
+| active     | `false` | if `true`, will only return repositories that are enabled                 |
 
 If no parameters are given, a list or repositories with recent activity is returned.
 
 ## Requests
 
-``` http
+```http
 GET /requests/6301283 HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1364,7 +1292,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1396,12 +1324,12 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis requests -r my/repo
 ...
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 Travis::Repository.find('sinatra/sinatra').requests.each do |request|
@@ -1413,24 +1341,24 @@ Requests can be used to see if and why a GitHub even has or has not triggered a 
 
 ### Attributes
 
-Attribute            | Description
--------------------- | -----------
-id                   | request id
-commit_id            | commit id
-repository_id        | repository id
-created_at           | created at
-owner_id             | owner id
-owner_type           | owner type (`"User"` or `"Organization"`)
-event_type           | event type (`"push"` or `"pull_request"`)
-base_commit          | base commit for pull requests
-head_commit          | head commit for pull requests
-result               | `"accepted"`, `"rejected"` or `null`
-message              | human readable message explaining why event has been rejected
-pull_request         | `true` or `false`
-pull_request_number  | pull request number
-pull_request_title   | pull request title
-branch               | branch commit is on
-tag                  | tag if commit has been tagged
+| Attribute           | Description                                                   |
+| ------------------- | ------------------------------------------------------------- |
+| id                  | request id                                                    |
+| commit_id           | commit id                                                     |
+| repository_id       | repository id                                                 |
+| created_at          | created at                                                    |
+| owner_id            | owner id                                                      |
+| owner_type          | owner type (`"User"` or `"Organization"`)                     |
+| event_type          | event type (`"push"` or `"pull_request"`)                     |
+| base_commit         | base commit for pull requests                                 |
+| head_commit         | head commit for pull requests                                 |
+| result              | `"accepted"`, `"rejected"` or `null`                          |
+| message             | human readable message explaining why event has been rejected |
+| pull_request        | `true` or `false`                                             |
+| pull_request_number | pull request number                                           |
+| pull_request_title  | pull request title                                            |
+| branch              | branch commit is on                                           |
+| tag                 | tag if commit has been tagged                                 |
 
 ### Show Request
 
@@ -1440,18 +1368,18 @@ tag                  | tag if commit has been tagged
 
 `GET /requests`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-repository_id |         | repository id the requests belong to
-slug          |         | repository slug the requests belong to
-limit         | 25      | maximum number of requests to return (cannot be larger than 100)
-older_than    |         | list requests before `older_than` (with `older_than` being a request id)
+| Parameter     | Default | Description                                                              |
+| ------------- | ------- | ------------------------------------------------------------------------ |
+| repository_id |         | repository id the requests belong to                                     |
+| slug          |         | repository slug the requests belong to                                   |
+| limit         | 25      | maximum number of requests to return (cannot be larger than 100)         |
+| older_than    |         | list requests before `older_than` (with `older_than` being a request id) |
 
 You have to either provide `repository_id` or `slug`.
 
 ## Settings: General
 
-``` http
+```http
 GET /repos/82/settings HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1459,7 +1387,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1473,7 +1401,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis settings
 Settings for travis-ci/travis-api:
 [-] builds_only_with_travis_yml    Only run builds with a .travis.yml
@@ -1484,7 +1412,7 @@ Settings for travis-ci/travis-api:
 $ travis settings build_pull_requests --enable
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 repo = Travis::Repository.find('my/repo')
@@ -1494,13 +1422,12 @@ repo.settings.save
 
 ### Attributes
 
-
-Attribute                   | Description
---------------------------- | -----------
-builds_only_with_travis_yml | "builds only with .travis.yml" setting (`true` or `false`)
-build_pushes                | "build pushes" setting (`true` or `false`)
-build_pull_requests         | "build pull requests" setting (`true` or `false`)
-maximum_number_of_builds    | "maximum number of concurrent builds" setting (integer)
+| Attribute                   | Description                                                |
+| --------------------------- | ---------------------------------------------------------- |
+| builds_only_with_travis_yml | "builds only with .travis.yml" setting (`true` or `false`) |
+| build_pushes                | "build pushes" setting (`true` or `false`)                 |
+| build_pull_requests         | "build pull requests" setting (`true` or `false`)          |
+| maximum_number_of_builds    | "maximum number of concurrent builds" setting (integer)    |
 
 ### Retrieve Settings
 
@@ -1512,15 +1439,15 @@ This request always needs to be authenticated.
 
 `PATCH /repos/{repository.id}/settings`
 
-Parameter                   | Default | Description
---------------------------- | ------- | -----------
-settings                    | `{}`    | Hash map of settings that should be updated and their new values (see Attributes)
+| Parameter | Default | Description                                                                       |
+| --------- | ------- | --------------------------------------------------------------------------------- |
+| settings  | `{}`    | Hash map of settings that should be updated and their new values (see Attributes) |
 
 This request always needs to be authenticated.
 
 ## Settings: Environment Variables
 
-``` http
+```http
 GET /settings/env_vars?repository_id=124920 HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1528,7 +1455,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1551,13 +1478,13 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis env list
 example=foobar
 secret_example=[secure]
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token  = 'YOUR TRAVIS ACCESS TOKEN'
 repo                 = Travis::Repository.find('my/repo')
@@ -1566,13 +1493,13 @@ repo.env_vars['foo'] = bar
 
 ### Attributes
 
-Attribute            | Description
--------------------- | -----------
-id                   | env var id
-repository_id        | repository id
-name                 | env var name (exported)
-value                | env var value (exported, only included if public is true)
-public               | whether or not value is public
+| Attribute     | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| id            | env var id                                                |
+| repository_id | repository id                                             |
+| name          | env var name (exported)                                   |
+| value         | env var value (exported, only included if public is true) |
+| public        | whether or not value is public                            |
 
 ### List Variables
 
@@ -1590,12 +1517,12 @@ This request always needs to be authenticated.
 
 `POST /repos/settings/env_vars?repository_id={repository.id}`
 
-Parameter                   | Default | Description
---------------------------- | ------- | -----------
-env_var                     |         | Hash map of env var variable (see below)
-env_var.name                |         | Name of the new env var (string)
-env_var.value               |         | Value of the new env var (string)
-env_var.public              | false   | whether or not to display the value
+| Parameter      | Default | Description                              |
+| -------------- | ------- | ---------------------------------------- |
+| env_var        |         | Hash map of env var variable (see below) |
+| env_var.name   |         | Name of the new env var (string)         |
+| env_var.value  |         | Value of the new env var (string)        |
+| env_var.public | false   | whether or not to display the value      |
 
 This request always needs to be authenticated.
 
@@ -1603,12 +1530,12 @@ This request always needs to be authenticated.
 
 `PATCH /repos/settings/env_vars/{env_var.id}`
 
-Parameter                   | Default       | Description
---------------------------- | ------------- | -----------
-env_var                     |               | Hash map of env var variable (see below)
-env_var.name                | current value | Name of the new env var (string)
-env_var.value               | current value | Value of the new env var (string)
-env_var.public              | current value | whether or not to display the value
+| Parameter      | Default       | Description                              |
+| -------------- | ------------- | ---------------------------------------- |
+| env_var        |               | Hash map of env var variable (see below) |
+| env_var.name   | current value | Name of the new env var (string)         |
+| env_var.value  | current value | Value of the new env var (string)        |
+| env_var.public | current value | whether or not to display the value      |
 
 This request always needs to be authenticated.
 
@@ -1624,7 +1551,7 @@ This request always needs to be authenticated.
 This API is only available on Travis Pro.
 </aside>
 
-``` http
+```http
 GET /settings/ssh_key/124920 HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1632,7 +1559,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.com
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1644,12 +1571,12 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis sshkey
 No custom SSH key installed.
 ```
 
-``` ruby
+```ruby
 require 'travis/pro'
 Travis::Pro.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 puts Travis::Pro::Repository.find('my/repo').ssh_key.description
@@ -1657,11 +1584,11 @@ puts Travis::Pro::Repository.find('my/repo').ssh_key.description
 
 ### Attributes
 
-Attribute            | Description
--------------------- | -----------
-id                   | ssh key id (corresponds to repository id)
-description          | key description
-fingerprint          | key fingerprint
+| Attribute   | Description                               |
+| ----------- | ----------------------------------------- |
+| id          | ssh key id (corresponds to repository id) |
+| description | key description                           |
+| fingerprint | key fingerprint                           |
 
 ### Fetch Key
 
@@ -1673,11 +1600,11 @@ This request always needs to be authenticated.
 
 `PATCH /settings/ssh_key/#{ssh_key.id}`
 
-Parameter                   | Default                | Description
---------------------------- | ---------------------- | -----------
-ssh_key                     |                        | Hash map of ssh key data (see below)
-ssh_key.description         | current value or empty | key description
-ssh_key.value               |                        | private key (required)
+| Parameter           | Default                | Description                          |
+| ------------------- | ---------------------- | ------------------------------------ |
+| ssh_key             |                        | Hash map of ssh key data (see below) |
+| ssh_key.description | current value or empty | key description                      |
+| ssh_key.value       |                        | private key (required)               |
 
 This request always needs to be authenticated.
 
@@ -1689,7 +1616,7 @@ This request always needs to be authenticated.
 
 ## Users
 
-``` http
+```http
 GET /users/ HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1697,7 +1624,7 @@ Authorization: token YOUR TRAVIS ACCESS TOKEN
 Host: api.travis-ci.org
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1716,7 +1643,7 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis whoami
 You are rkh (Konstantin Haase)
 
@@ -1724,7 +1651,7 @@ $ travis sync
 synchronizing: ... done
 ```
 
-``` ruby
+```ruby
 require 'travis'
 Travis.access_token = 'YOUR TRAVIS ACCESS TOKEN'
 puts Travis.user.name
@@ -1733,17 +1660,17 @@ Travis.user.sync
 
 ### Attributes
 
-Attribute            | Description
--------------------- | -----------
-id                   | user id
-login                | user login on github
-name                 | user name  on github
-email                | primary email address on github
-gravatar_id          | avatarid
-is_syncing           | whether or not user account is currently being synced
-synced_at            | last synced at
-correct_scopes       | whether or not github token has the correct scopes
-channels             | pusher channels for this user
+| Attribute      | Description                                           |
+| -------------- | ----------------------------------------------------- |
+| id             | user id                                               |
+| login          | user login on github                                  |
+| name           | user name  on github                                  |
+| email          | primary email address on github                       |
+| gravatar_id    | avatarid                                              |
+| is_syncing     | whether or not user account is currently being synced |
+| synced_at      | last synced at                                        |
+| correct_scopes | whether or not github token has the correct scopes    |
+| channels       | pusher channels for this user                         |
 
 ### Show User
 
@@ -1765,7 +1692,7 @@ This request always needs to be authenticated.
 
 ## Linting
 
-``` http
+```http
 PUT /lint/ HTTP/1.1
 User-Agent: MyClient/1.0.0
 Accept: application/vnd.travis-ci.2+json
@@ -1776,7 +1703,7 @@ language: ruby
 jdk: default
 ```
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -1792,13 +1719,13 @@ Content-Type: application/json
 }
 ```
 
-``` shell
+```shell
 $ travis lint example.yml
 Warnings for example.yml:
 [x] dropping jdk section: specified jdk, but ruby does not include jruby
 ```
 
-``` ruby
+```ruby
 require 'travis'
 
 content = <<-YAML
@@ -1813,9 +1740,9 @@ end
 
 `POST /lint`
 
-Parameter     | Default | Description
-------------- | ------- | -----------
-content       |         | content of the `.travis.yml`
+| Parameter | Default | Description                  |
+| --------- | ------- | ---------------------------- |
+| content   |         | content of the `.travis.yml` |
 
 `PUT /lint`
 
@@ -1829,15 +1756,15 @@ There are a few API clients out there you can use for interacting with the Travi
 
 The following clients are maintained by the Travis CI team:
 
-* **[travis.rb](https://github.com/travis-ci/travis.rb)**: Command line client and Ruby library
-* **[travis-web](https://github.com/travis-ci/travis-web)**: Web interface and JavaScript library, using Ember.js
-* **[travis-sso](https://github.com/travis-ci/travis-sso)**: Single-Sign-On Rack middleware for Travis CI applications
+- **[travis.rb](https://github.com/travis-ci/travis.rb)**: Command line client and Ruby library
+- **[travis-web](https://github.com/travis-ci/travis-web)**: Web interface and JavaScript library, using Ember.js
+- **[travis-sso](https://github.com/travis-ci/travis-sso)**: Single-Sign-On Rack middleware for Travis CI applications
 
 ## Web Browsers
 
 > API requests using CORS:
 
-``` html
+```html
 <script>
   // using XMLHttpRequest or XDomainRequest to send an API request
   var req = window.XDomainRequest ? new XDomainRequest() : new XMLHttpRequest();
@@ -1853,7 +1780,7 @@ The following clients are maintained by the Travis CI team:
 
 > With jQuery:
 
-``` html
+```html
 <script>
 $.ajax({
   url: "https://api.travis-ci.org/",
@@ -1865,7 +1792,7 @@ $.ajax({
 
 > JSONP
 
-``` html
+```html
 <script>
   function jsonpCallback() { alert("it worked!") };
 </script>
@@ -1903,9 +1830,9 @@ This has the potential of code injection, use with caution.
 
 Besides the official clients, there is a range of third party client available, amongst these:
 
-* **[PHP Travis Client](https://github.com/l3l0/php-travis-client)**: PHP client library
-* **[Travis Node.js](https://github.com/pwmckenna/node-travis-ci)**: Node.js client library
-* **[travis-api-wrapper](https://github.com/cmaujean/travis-api-wrapper)**: Asynchronous Node.js wrapper
-* **[travis-ci](https://github.com/mmalecki/node-travis-ci)**: Thin Node.js wrapper
-* **[TravisMiner](https://github.com/smcintosh/travisminer)**: Ruby library for mining the Travis API
-* **[TravisPy](http://travispy.readthedocs.org/en/latest/)**: Python library trying to closely mimic the official Ruby client
+- **[PHP Travis Client](https://github.com/l3l0/php-travis-client)**: PHP client library
+- **[Travis Node.js](https://github.com/pwmckenna/node-travis-ci)**: Node.js client library
+- **[travis-api-wrapper](https://github.com/cmaujean/travis-api-wrapper)**: Asynchronous Node.js wrapper
+- **[travis-ci](https://github.com/mmalecki/node-travis-ci)**: Thin Node.js wrapper
+- **[TravisMiner](https://github.com/smcintosh/travisminer)**: Ruby library for mining the Travis API
+- **[TravisPy](http://travispy.readthedocs.org/en/latest/)**: Python library trying to closely mimic the official Ruby client

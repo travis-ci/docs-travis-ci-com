@@ -1,7 +1,7 @@
 ---
 title: Embedded Builds with PlatformIO
 layout: en
-permalink: /user/integration/platformio/
+
 ---
 
 <div id="toc"></div>
@@ -10,25 +10,25 @@ permalink: /user/integration/platformio/
 
 [PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can test your code on multiple platforms, frameworks and boards:
 
-* *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
-includes compiler, debugger, uploader, etc:
+- *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
+  includes compiler, debugger, uploader, etc:
 
-    + Atmel AVR
-    + Espressif
-    + Teensy
-    + ST STM32
-    + [Full list](http://platformio.org/#!/platforms) at PlatformIO
+  - Atmel AVR
+  - Espressif
+  - Teensy
+  - ST STM32
+  - [Full list](http://platformio.org/#!/platforms) at PlatformIO
 
-* *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
+- *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
 
-    + Arduino
-    + libOpenCM3
-    + mbed
-    + [Full list](http://platformio.org/#!/frameworks) at PlatformIO
+  - Arduino
+  - libOpenCM3
+  - mbed
+  - [Full list](http://platformio.org/#!/frameworks) at PlatformIO
 
-* *Embedded* - pre-defined compilation profiles for a variety of embedded
-boards.
-    + [Full list](http://platformio.org/#!/boards) at PlatformIO
+- *Embedded* - pre-defined compilation profiles for a variety of embedded
+  boards.
+      \+ [Full list](http://platformio.org/#!/boards) at PlatformIO
 
 ## .travis.yml Settings
 
@@ -59,8 +59,8 @@ install:
 
 script:
     - platformio ci --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
-
 ```
+{: data-file=".travis.yml"}
 
 ### Testing Libraries
 
@@ -70,13 +70,14 @@ If the project you are testing is a library, please use the  `--lib="."` option 
 script:
     - platformio ci --lib="." --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
+{: data-file=".travis.yml"}
 
 ### Managing dependencies
 
 There are two options for testing projects with external dependencies:
 
-* using the PlatformIO Library Manager
-* installing dependencies manually
+- using the PlatformIO Library Manager
+- installing dependencies manually
 
 #### PlatformIO Library Manager
 
@@ -92,6 +93,7 @@ install:
     # http://platformio.org/#!/lib/show/1/OneWire
     platformio lib install 1
 ```
+{: data-file=".travis.yml"}
 
 #### Installing dependencies manually
 
@@ -108,6 +110,7 @@ install:
 script:
     - platformio ci --lib="/tmp/OneWire-master" --board=TYPE_1 --board=TYPE_2 --board=TYPE_N
 ```
+{: data-file=".travis.yml"}
 
 ### Custom Build Flags
 
@@ -123,11 +126,10 @@ env:
 install:
     - pip install -U platformio
     export PLATFORMIO_BUILD_FLAGS=-D GLOBAL_MACROS_FOR_ALL_TEST_ENV
-
 ```
+{: data-file=".travis.yml"}
 
 More details available at [build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
-
 
 ### Advanced configuration
 
@@ -137,6 +139,7 @@ You can configure multiple build environments using a [platformio.ini](http://do
 script:
     - platformio ci --project-conf=/path/to/platformio.ini
 ```
+{: data-file=".travis.yml"}
 
 ## Examples
 

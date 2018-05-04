@@ -1,52 +1,78 @@
 ---
 title: Building a Groovy project
 layout: en
-permalink: /user/languages/groovy/
+
 ---
+
+<div id="toc">
+</div>
+
+<aside markdown="block" class="ataglance">
+
+| Groovy                       | Default                                                                                                           |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------|
+| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management) |
+| Default `script`             | [Gradle](#Gradle-Default-Test-Command), [Maven](#Maven-Default-Test-Command), [Ant](#Ant-Default-Test-Command)    |
+| [Matrix keys](#Build-Matrix) | `env`,`jdk`                                                                                                       |
+| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                         |
+
+Minimal example:
+
+```yaml
+language: groovy
+```
+{: data-file=".travis.yml"}
+
+</aside>
 
 ## What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Groovy
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+{{ site.data.snippets.trusty_note_no_osx }}
 
-Groovy builds are not available on the OSX environment.
+The rest of this guide covers configuring Groovy projects on Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
-<div id="toc"></div>
+Groovy builds are not available on the OS X environment.
 
 ## Overview
 
-Travis CI environment provides OpenJDK 7, OpenJDK 6, Oracle JDK 8, Oracle JDK 7, Gradle 1.4, Maven 3 and Ant. Groovy project builder has reasonably good defaults for
-projects that use Gradle, Maven or Ant, so quite often you won't have to configure anything beyond
+The Travis CI environment contains various versions of OpenJDK, Oracle JDK,
+Gradle, Maven and Ant, along with reasonable defaults, so quite often you won't
+have to configure anything beyond:
 
-    language: groovy
-
-in your `.travis.yml` file.
+```yaml
+language: groovy
+```
+{: data-file=".travis.yml"}
 
 ## Projects Using Gradle
 
-### Default Test Command
+### Gradle Dependency Management
 
-if your project has `build.gradle` file in the repository root, Travis CI Groovy builder will use Gradle to build it. By default it will use
+If your project has `build.gradle` file in the repository root, Travis CI runs:
 
-    gradle check
-
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
-
-### Dependency Management
-
-Before running tests, Groovy builder will execute
-
-    gradle assemble
-
-to install your project's dependencies with Gradle.
-
-### Caching
-
-A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
-
+```bash
+gradle assemble
 ```
+
+to install your project's dependencies.
+
+### Gradle Default Test Command
+
+If your project has `build.gradle` file in the repository root, Travis CI runs:
+
+```bash
+gradle check
+```
+
+### Gradle Caching
+
+A peculiarity of dependency caching in Gradle means that to avoid uploading the
+cache after every build you need to add the following lines to your
+`.travis.yml`:
+
+```yaml
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:
@@ -54,63 +80,69 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 ```
+{: data-file=".travis.yml"}
+
+### Gradle daemon is disabled by default
+
+[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
+the Gradle daemon is disabled by default.
+If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Maven
 
-### Default Test Command
+### Maven Dependency Management
 
-if your project has `pom.xml` file in the repository root but no `build.gradle`, Travis CI Groovy builder will use Maven 3 to build it. By default it will use
+If your project has `pom.xml` file in the repository root and does not have a
+`build.gradle`, Travis CI uses Maven 3 to install your project's dependencies:
 
-    mvn test
+```bash
+mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+```
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+### Maven Default Test Command
 
-### Dependency Management
+If your project has `pom.xml` file in the repository root and does not have a
+`build.gradle`, Travis CI uses Maven 3 to run your build script:
 
-Before running tests, Groovy builder will execute
-
-    mvn install -DskipTests=true
-
-to install your project's dependencies with Maven.
+```bash
+mvn test -B
+```
 
 ## Projects Using Ant
 
-### Default Test Command
+### Ant Default Test Command
 
-If Travis CI could not detect Maven or Gradle files, Travis CI Groovy builder will use Ant to build it. By default it will use
+If Groovy project does not have Gradle or Maven configuration files, Travis CI
+uses Ant to build your project:
 
-    ant test
+```bash
+ant test
+```
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+### Ant Dependency Management
 
+Because there is no single standard way of installing project dependencies with
+Ant you need to specify a custom command using the `install:` key in your
+`.travis.yml`:
 
-### Dependency Management
-
-Because there is no single standard way of installing project dependencies with Ant, Travis CI Groovy builder does not have any default for it. You need to specify the exact commend to run using `install:` key in your `.travis.yml`, for example:
-
-    language: groovy
-    install: ant deps
-
+```yaml
+language: groovy
+install: ant deps
+```
+{: data-file=".travis.yml"}
 
 ## Testing Against Multiple JDKs
 
-To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example, to test against Oracle JDK 7 (which is newer than OpenJDK 7 on Travis CI) and OpenJDK 6:
+To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example,
+to test against Oracle JDK 8 and
+OpenJDK 7:
 
-    jdk:
-      - oraclejdk7
-      - openjdk6
-
-To test against OpenJDK 7 and Oracle JDK 7:
-
-    jdk:
-      - openjdk7
-      - oraclejdk7
-
-Travis CI provides OpenJDK 6, OpenJDK 7, Oracle JDK 7 and Oracle JDK 8. Sun JDK 6 is not provided and because it is EOL in November 2012,
-will not be provided.
-
-JDK 7 is backwards compatible, we think it's time for all projects to start testing against JDK 7 first and JDK 6 if resources permit.
-
+```yaml
+jdk:
+  - oraclejdk8
+  - openjdk7
+```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 

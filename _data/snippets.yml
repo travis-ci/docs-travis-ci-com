@@ -15,4 +15,22 @@ before_and_after: |
     after_deploy:
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
-  ```  
+  ```
+ghlimit: |
+  > If your API or cron triggered builds run on the *same commit
+  > or branch* over and over again, you will notice GitHub have a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > *per commit*, which causes the Travis CI build status displayed on GitHub
+  > to be incorrect.
+  > Avoid this problem by specifying a regularly updated branch for your automated builds.
+trusty_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [OS X](/user/reference/osx/)
+trusty_note_no_osx: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)

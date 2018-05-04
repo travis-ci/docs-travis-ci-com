@@ -1,4 +1,3 @@
-
 .row
   max-width: 1200px
 
@@ -7,6 +6,7 @@
   overflow: hidden
 
 .main
+  position: relative
   font-size: $font-size-sm
   padding: 0 $column-gutter/2
   margin-bottom: 5em
@@ -23,8 +23,37 @@
   h3
     @extend %blue-heading
 
+.improve-page
+  position: relative
+  top: .5em
+  text-align: right
+  @media #{$medium-up}
+    position: absolute
+    right: 1em
+
+[data-file]
+  position: relative
+  padding-top: 1.9em
+  &:before
+    content: attr(data-file)
+    position: absolute
+    top: 1.1em
+    left: 0
+    z-index: 5
+    background: $cement-grey
+    width: 100%
+    color: $pebble-grey
+    padding-left: 1em
+    font-size: 14px
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+
+//overwrite prism plugin style
+pre.code-toolbar > .toolbar
+  opacity: 1
+
 .swiftype-widget
-  .autocomplete 
+  .autocomplete
     ul
       li
         border-color: $cream-dark
@@ -62,4 +91,3 @@
             em
               font-weight: 600
               color: $grey-dark
-

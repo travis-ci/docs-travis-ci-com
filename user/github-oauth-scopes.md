@@ -1,7 +1,7 @@
 ---
 title: Travis CI's use of GitHub API Scopes
 layout: en
-permalink: /user/github-oauth-scopes/
+
 ---
 
 When you sign in to Travis CI for the first time, we ask for permissions to access
@@ -14,14 +14,14 @@ some of your data on GitHub. Read the [GitHub API Scope Documentation](https://d
 
 On <https://travis-ci.org> we ask for the following permissions:
 
-* `user:email` (read-only)
+- `user:email` (read-only)
 
     We synchronize your email addresses so we can email you build
     notifications.
 
     Your email address can be hidden from the GitHub profile, which also hides it from us.
 
-* `read:org` (read-only)
+- `read:org` (read-only)
 
     When you're logged in on Travis CI, we show you all of your repositories,
     including the ones from any organization you're part of.
@@ -33,20 +33,20 @@ On <https://travis-ci.org> we ask for the following permissions:
     Note that this scope allows access to the basic information about both private
     and public repositories, but not on any of the data or code stored in them.
 
-* `repo_deployment`
+- `repo_deployment`
 
     Gives us access to the [upcoming deployments
     API](http://developer.github.com/v3/repos/deployments/), currently in preview mode.
 
     This scope currently isn't actively used, but will be in the future.
 
-* `repo:status`
+- `repo:status`
 
     After every build, we update the status of its commit, which is most
     relevant for testing pull request. This scope gives us the permission to
     update the commit status as the build starts and finishes.
 
-* `write:repo_hook`
+- `write:repo_hook`
 
     Building a new repository on Travis CI is as easy as enabling it in your
     profile and pushing a new commit.
@@ -62,14 +62,14 @@ code or your profile.
 
 On <https://travis-ci.com> we ask for the following permissions:
 
-* `user:email` (read-only)
+- `user:email` (read-only)
 
     We synchronize your email addresses so we can email you build
     notifications.
 
     Your email address can be hidden from the GitHub profile, which also hides it from us.
 
-* `read:org` (read-only)
+- `read:org` (read-only)
 
     When you're logged in on Travis CI, we show you all of your repositories,
     including the ones from any organization you're part of.
@@ -81,7 +81,7 @@ On <https://travis-ci.com> we ask for the following permissions:
     Note that this scope allows access to the basic information about both private
     and public repositories, but not on any of the data or code stored in them.
 
-* `repo`
+- `repo`
 
     Grants read and write access to code, commit statuses, collaborators, and
     deployment statuses for public and private repositories and organizations.

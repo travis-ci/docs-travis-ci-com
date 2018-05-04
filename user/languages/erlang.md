@@ -1,14 +1,40 @@
 ---
 title: Building a Erlang project
 layout: en
-permalink: /user/languages/erlang/
+
 ---
+
+<aside markdown="block" class="ataglance">
+
+|                   | Default                                   |
+|:------------------|:------------------------------------------|
+| Typical `install` | `rebar get-deps`                          |
+| Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
+| Matrix keys       | `env`, `otp_release`                      |
+| Support           | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: erlang
+otp_release:
+  - 19.0
+  - 18.2.1
+```
+{: data-file=".travis.yml"}
+
+</aside>
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Erlang projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+{{ site.data.snippets.trusty_note_no_osx }}
 
-Erlang builds are not available on the OSX environment.
+The rest of this guide covers build environment and configuration topics
+specific to Erlang projects. Please make sure to read our
+[Getting Started](/user/getting-started/) and
+[general build configuration](/user/customizing-the-build/) guides first.
+
+Erlang builds are not available on the OS X environment.
 
 ## Choosing OTP releases to test against
 
@@ -23,29 +49,44 @@ otp_release:
   - 17.5
   - R16B03
 ```
+{: data-file=".travis.yml"}
 
-Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1 .  
+Get a complete list of the pre-compiled versions available on the VM by adding `kerl list installations` to the `before_script:` section of your `.travis.yml`. Note that this list does *not* include releases which are downloaded on demand, such as 18.1.
 
 ## Default Test Script
 
-Travis CI by default assumes your project is built using [Rebar](https://github.com/rebar/rebar) and uses EUnit. The exact command Erlang builder will use by default is
+Travis CI by default assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
 
-    rebar compile && rebar skip_deps=true eunit
+```bash
+rebar3 eunit
+```
 
-if your project has `rebar.config` or `Rebar.config` files in the repository root. If this is not the case, Erlang builder will fall back to
+if your project has `rebar.config` or `Rebar.config` files in the repository root.
 
-    make test
+On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and call
+
+```bash
+rebar compile && rebar skip_deps=true eunit
+```
+
+If neither `rebar.config` nor `Rebar.config` is found in the repository root, Erlang builder will fall back to
+
+```bash
+make test
+```
 
 ## Dependency Management
 
-The Erlang builder on travis-ci.org assumes [Rebar](https://github.com/basho/rebar) is used for dependency management, and runs
+The Erlang builder on travis-ci.org assumes Rebar3 is used for dependency management.
+See [Rebar3 documentation](http://www.rebar3.org/docs/dependencies) for further details.
 
+On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and run
+
+```bash
+rebar3 get-deps
 ```
-rebar get-deps
-```
 
-to install [project dependencies ](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
-
+to install [project dependencies](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
 
 ## Build Matrix
 
@@ -56,15 +97,17 @@ to construct a build matrix.
 
 The version of OTP release a job is using is available as:
 
-    TRAVIS_OTP_RELEASE
+```
+TRAVIS_OTP_RELEASE
+```
 
 ## Examples
 
-* [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
-* [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
-* [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
+- [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
+- [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
+- [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
 
 ## Tutorial(s)
 
-* [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
-* [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
+- [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
+- [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
