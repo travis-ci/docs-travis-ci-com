@@ -72,5 +72,4 @@ where
 
 ## 6. Check the migration result
 
-You can now refresh your profile page on Travis CI and your newly migrated repositories should appear under the "GitHub Apps Integration
-" section.
+You can now refresh [your profile page on Travis CI](https://travis-ci.com/profile) and your newly migrated repositories should appear under the "GitHub Apps Integration" section.
