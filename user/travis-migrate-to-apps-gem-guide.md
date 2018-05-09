@@ -3,7 +3,7 @@ title: Migrating Multiple Repositories to GitHub Apps Guide
 layout: en
 ---
 
-If your organization has more than 20 active repositories to migrate to our new GitHub Apps integration, you can use [the travis_migrate_to_apps gem](https://github.com/travis-ci/travis_migrate_to_apps) to migrate them in one sweep rather than having to add them manually one by one in the GitHub UI.
+If your organization has more than **50 active repositories** to migrate to our new GitHub Apps integration, you can use [the travis_migrate_to_apps gem](https://github.com/travis-ci/travis_migrate_to_apps) to migrate them in one sweep rather than having to add them manually one by one in the GitHub UI.
 
 Here are the steps:
 
