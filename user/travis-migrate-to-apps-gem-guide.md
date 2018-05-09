@@ -18,13 +18,13 @@ You can generate a new GitHub token [here](https://github.com/settings/tokens/ne
 
 Choose the name of your liking and ensure to select the whole `repo` scope as shown below:
 
-![GitHub new token page](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/github-token-new.png)
+![GitHub new token page](/images/github-token-new.png)
 
 Then click the "Generate token" button at the bottom to generate the token.
 
 You'll then be back on the GitHub token page:
 
-![GitHub token page](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/github-token-added.png)
+![GitHub token page](/images/github-token-added.png)
 
 Take care of copying the newly generated token and save it for later usage.
 
@@ -36,17 +36,17 @@ Go to your profile page on Travis CI: https://travis-ci.com/profile
 
 Click the "Activate GitHub Apps Integration" button highlighted below:
 
-![Activate GitHub Apps Integration button](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/github-apps-button-on-profile-page.png)
+![Activate GitHub Apps Integration button](/images/github-apps-button-on-profile-page.png)
 
 You'll directed to the GitHub Apps page for the Travis CI app:
 
-![GitHub Apps page](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/travis-ci-github-app.png)
+![GitHub Apps page](/images/travis-ci-github-app.png)
 
 Choose at least one repository and click the "Approve & Install" button.
 
 You'll then be redirected to [your profile page on Travis CI](https://travis-ci.com/profile) and the newly added repository should appear under "GitHub Apps Integration":
 
-![Travis CI profile page](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/travis-ci-profile-with-github-apps-integration.png)
+![Travis CI profile page](/images/travis-ci-profile-with-github-apps-integration.png)
 
 ## 4. Get your Travis CI API token
 
@@ -54,7 +54,7 @@ Here are the two ways you can get this token:
 
 1. On your profile page: https://travis-ci.com/profile
 
-![Travis CI token on profile page](https://github.com/travis-ci/travis_migrate_to_apps/blob/assets/travis-ci-token-profile-page.png)
+![Travis CI token on profile page](/images/travis-ci-token-profile-page.png)
 
 2. Via the [Travis CI client](https://github.com/travis-ci/travis.rb) by running: `travis token --pro`
 
