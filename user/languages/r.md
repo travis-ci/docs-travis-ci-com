@@ -119,13 +119,13 @@ If you don't need LaTeX, tell Travis CI not to install it using `latex: false`.
 
 ### Pandoc
 
-The default pandoc version installed is `1.15.2`. Alternative [pandoc
+The default pandoc version installed is `2.2`. Alternative [pandoc
 releases][github 7] can be installed by setting the `pandoc_version` to the
 desired version.
 
 ```yaml
 language: r
-pandoc_version: 1.16
+pandoc_version: 1.19.2.1
 ```
 {: data-file=".travis.yml"}
 
