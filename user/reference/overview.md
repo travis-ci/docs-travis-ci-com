@@ -68,7 +68,7 @@ if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
 * `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
-* `wjb-1``wjb-2` → the build ran on macOS
+* `wjb` → the build ran on macOS
 
 ### For a particular .travis.yml configuration
 
