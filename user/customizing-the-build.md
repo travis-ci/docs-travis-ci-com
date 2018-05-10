@@ -203,8 +203,8 @@ It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - When a job produces no log output for 10 minutes.
-- When a job on a private repository takes longer than 50 minutes.
-- When a job on a public repository takes longer than 120 minutes.
+- When a job on a public repository takes longer than 50 minutes.
+- When a job on a private repository takes longer than 120 minutes.
 
 Some common reasons why builds might hang:
 
