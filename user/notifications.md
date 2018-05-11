@@ -734,7 +734,7 @@ payload.
 3. Obtain the public key corresponding to the private key that signed
    the payload. This is available at the `/config` endpoint's
    `config.notifications.webhook.public_key` on the relevant API server.
-   (e.g., <https://api.travis-ci.org/config>)
+   (e.g., <https://api.travis-ci.com/config>)
 4. Verify the signature using the public key and SHA1 digest.
 
 #### Examples
