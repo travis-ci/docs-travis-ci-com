@@ -751,6 +751,10 @@ Build and test your open source and private repositories hosted on GitHub on [tr
 
 Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
 
+## What YAML version can I use in .travis.yaml
+
+Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
+
 ## Troubleshooting
 
 Check out the list of [common build problems](/user/common-build-problems/).
