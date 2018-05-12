@@ -44,7 +44,7 @@ However, open source repositories will be migrated to travis-ci.com gradually, b
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 
-Repositories may also be migrated without their build history immediately. Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration) and include "Repository Migration" somewhere in the subject line, and the name of the repository in your email.
+Repositories may also be migrated without their build history or build settings (including environment variables) immediately. Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration) and include "Repository Migration" somewhere in the subject line, and the name of the repository in your email.
 
 ## Existing Private Repositories on travis-ci.com
 
