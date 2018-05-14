@@ -11,7 +11,7 @@ The integration automatically sets up a tunnel required to get started testing
 with it. For that purpose, it uses Sauce Connect.
 
 Note that due to security restrictions, the Sauce Labs addon is not available on pull
-request builds unless you use the [JWT Addon](/user/jwt).
+request builds.
 
 ## Setting up Sauce Connect
 
@@ -43,15 +43,13 @@ addons:
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
-for more information on encryption), and add the pull request safe secure (See [JWT Addon](/user/jwt).
+for more information on encryption).
 string as such:
 
 ```yaml
 addons:
   sauce_connect:
     username: "Your Sauce Labs username"
-  jwt:
-    secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
 {: data-file=".travis.yml"}
 
@@ -66,8 +64,6 @@ addons:
 {: data-file=".travis.yml"}
 
 [encryption-keys]: /user/encryption-keys/
-
-[jwt]: /user/jwt/
 
 To allow multiple tunnels to be open simultaneously, Travis CI opens a
 Sauce Connect [Identified Tunnel][identified-tunnels]. Make sure you are sending
@@ -109,7 +105,5 @@ addons:
   sauce_connect:
     username: "Your Sauce Labs username"
     direct_domains: example.org,*.foobar.com
-  jwt:
-    secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
 {: data-file=".travis.yml"}
