@@ -10,7 +10,7 @@ recommends steps geared toward this provider, but you can certainly modify it to
 use your provider of choice.
 
 **Before getting started:** please check our [system prerequisites](/user/enterprise/prerequisites/) for
-[expected system specs](/user/enterprise/prerequisites/#Host-Machine-Specs), 
+[expected system specs](/user/enterprise/prerequisites/#Host-Machine-Specs),
 notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
 and information on obtaining a [license](/user/enterprise/prerequisites/#License).
 
@@ -21,8 +21,8 @@ and information on obtaining a [license](/user/enterprise/prerequisites/#License
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
-Enterprise worker. We recommend using AWS' `c3.2xlarge` instance running 
-Ubuntu 14.04 LTS as the underlying operating system.
+Enterprise worker. We recommend using AWS' `c4.2xlarge` instance running
+Ubuntu 14.04 LTS or 16.04 LTS (beta) as the underlying operating system.
 
 ### Create a Travis CI Platform Security Group
 
@@ -56,14 +56,14 @@ installation's hostname, port 8800) to complete the setup.
 From here you can upload your license key, add your GitHub OAuth details, and
 optionally upload an SSL certificate and enter SMTP details.
 
-New trials and installations will always install with the latest Travis CI Enterprise version. 
+New trials and installations will always install with the latest Travis CI Enterprise version.
 
 ## Install Travis CI Enterprise Worker
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using AWS' `c3.2xlarge` instance running 
-Ubuntu 14.04 LTS as the underlying operating system.
+instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running
+Ubuntu 14.04 LTS or Ubuntu 16.04 LTS (beta) as the underlying operating system.
 
 ### Create a Travis CI Worker Security Group
 
