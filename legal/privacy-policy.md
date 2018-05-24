@@ -3,7 +3,7 @@ title: Privacy Policy
 layout: en
 
 ---
-Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#In-short) and in a more [detailed](#In-more-detailed-form) form. For details on data security please refer [here](#Data-Security).
+Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#In-short:) and in a more [detailed](#In-more-detailed-form:) form. For details on data security please refer [here](#Data-Security).
 
 We take the protection of our users’ (**“User/you/your”**) personal data very seriously and strictly comply with applicable data protection laws and regulations. In our privacy policy below (**“Privacy Policy”**) we provide you with an overview of what data we collect for what purpose and how we ensure the protection of the data.
 
@@ -70,7 +70,7 @@ To enforce your rights you may reach us through the contact details set forth ab
 
 **Period for Storing Data; Deletion**
 
-The data are deleted if such data are no longer necessary for the purpose of processing. For more details please refer to [Section 7](#Your-Rights) below.
+The data are deleted if such data are no longer necessary for the purpose of processing. For more details please refer to VII [below](#VII-Your-Rights).
 
 **Right to Lodge a Complaint**
 
@@ -82,26 +82,31 @@ In general we do not process any data via “profiling” or in form of automate
 
 #### *In more detailed form:*
 
-1. What are Personal Data?
+I. What are Personal Data?
 
 **WEBSITE:**
 
-2. How are my Data used when visiting the Website?
-3. What kind of Cookies, Web-tools or Third Party Providers does the Website use and how?
+II. How are my Data used when visiting the Website?
+
+III. What kind of Cookies, Web-tools or Third Party Providers does the Website use and how?
 
 **TRAVIS CI SOFTWARE:**
 
-3. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
-4. What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
+IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
+
+V. What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
 
 **GENERAL:**
 
-6. Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
-7. Your Rights: Right to access, rectification and erasure; right to restriction of processing, right to withdraw, right to data portability, right to lodge a complaint
-8. Data Security, Scope of application
-9. Contact
+VI. Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
 
-### What are Personal Data
+VII. Your Rights: Right to access, rectification and erasure; right to restriction of processing, right to withdraw, right to data portability, right to lodge a complaint
+
+VIII. Data Security, Scope of application
+
+IX. Contact
+
+### I. What are Personal Data
 
 1. **Personal Data and Consent**
     
@@ -113,7 +118,7 @@ In general we do not process any data via “profiling” or in form of automate
 
 ## Website
 
-### How are my Data used when visiting the Website?
+### II. How are my Data used when visiting the Website?
 
 1. **Visiting the Website**
 
@@ -160,11 +165,11 @@ In general we do not process any data via “profiling” or in form of automate
 4. **Profiling and automated decision-making when visiting the Website**
 
 
-    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in [Section 3](#what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
+    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in III [below](#III-what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how)) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
     Profiling means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements.
     The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which has legal effect on them or substantially impairs them in a similar manner. This shall not apply where the decision (i) is necessary for the conclusion or performance of a contract between the data subject and the person responsible, (ii) is admissible under the laws of the European Union or of the member state to which the person responsible is subject and where such laws contain appropriate measures to safeguard the rights, freedoms and legitimate interests of the data subject, or (iii) is taken with the explicit consent of the data subject. In these exceptional cases, the person responsible shall take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject, including at least the right to obtain an action by the person responsible, to state his own position and to challenge the decision.
 
-### What kind of Cookies, Web-tools or Third Party Providers does the Website use and how?
+### III. What kind of Cookies, Web-tools or Third Party Providers does the Website use and how?
 
 1. **Cookies**
   
@@ -182,7 +187,7 @@ In general we do not process any data via “profiling” or in form of automate
 
 ## Travis Software
 
-### How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
+### IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
 
 1. **Registration; How do we access your GitHub-Account?**
 
@@ -213,25 +218,25 @@ In general we do not process any data via “profiling” or in form of automate
 
     Profiling means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements. The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which has legal effect on them or substantially impairs them in a similar manner. This shall not apply where the decision (i) is necessary for the conclusion or performance of a contract between the data subject and the person responsible, (ii) is admissible under the laws of the European Union or of the member state to which the person responsible is subject and where such laws contain appropriate measures to safeguard the rights, freedoms and legitimate interests of the data subject, or (iii) is taken with the explicit consent of the data subject. In these exceptional cases, the person responsible shall take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject, including at least the right to obtain an action by the person responsible, to state his own position and to challenge the decision.
 
-### What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
+### V. What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
 
 The use of our Travis CI Software may also include services and products by third party providers, whereas data may also be processed outside the EU.
 
 We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
-A list of such data processing and third party providers that process personal data outside the EU is set forth [here](#could-my-data-be-transferred-to-or-shared-with-third-parties-are-my-data-processed-outside-the-eu-when-using-the-service).
+A list of such data processing and third party providers that process personal data outside the EU is set forth [here](#VI-could-my-data-be-transferred-to-or-shared-with-third-parties-are-my-data-processed-outside-the-eu-when-using-the-service).
 
 ## General
 
-### Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
+### VI. Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
 
 We will transfer your Personal Data to a third party only within the scope of legal provisions, i.e. if we are obliged to transfer the data due to a government or court order, or if applicable legal provisions authorize the transfer. If we us third party providers who process data outside the EU such third party providers guarantee to comply with EU data protection standards as set forth in this privacy policy.
 
-For details of data processing by third party providers in/outside the EU when using the Website please also refer to [Section 3](#what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how) above.
+For details of data processing by third party providers in/outside the EU when using the Website please also refer to III [above](#III-what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how).
 
-For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to [Section IV](#how-are-my-data-used-when-registering-for-the-use-of-the-travis-ci-software-and-using-the-travis-ci-software-how-do-we-access-your-github-account. above. We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
+For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to IV [above](#IV-how-are-my-data-used-when-registering-for-the-use-of-the-travis-ci-software-and-using-the-travis-ci-software-how-do-we-access-your-github-account). We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
-### Your Rights
+### VII. Your Rights
 
 1. **You have the right to access, rectification and erasure as well as right to restriction of processing, right to withdraw and right to data portability:**
 
@@ -259,7 +264,7 @@ For details of data processing by third party providers in/outside the EU when u
 
     Criteria for the storage period include whether the data are still up-to-date, whether the contractual relationship with us still exists, whether an inquiry has already been processed, whether a process has been completed or not, and whether legal retention periods for the personal data concerned are relevant or not.
 
-### Data Security
+### VIII. Data Security
 
 In order to ensure the best possible protection of the data, the Website and Travis CI Software are designed according to applicable data security standards and technical and organizational measures.
 
@@ -281,7 +286,7 @@ In order to ensure the best possible protection of the data, the Website and Tra
 
     Please be advised, that data protection and data security for data transmission in open networks such as the internet cannot be fully guaranteed according to the current state of the art. From a technical point of view, the user is aware that the provider is able to view the web pages stored on the web server and, under certain circumstances, other data of the user stored there at any time. The user is solely responsible for the security and securing of any data transferred by them to the internet and stored on web servers. We cannot accept any liability for the disclosure of data due to errors or unauthorized access by third parties.
 
-### Access, Scope of Application, Contact
+### IX. Access, Scope of Application, Contact
 
 This privacy policy can be viewed, downloaded and printed out at any time on under [add link].
 
