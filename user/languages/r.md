@@ -59,12 +59,11 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.1.3` and above on Linux Precise
-builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
-addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
-`3.3.0`. `devel` is built off of the [R git
-mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
-hourly).
+Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
+Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the 
+name `oldrel` is aliased to the previous major release and `release` is aliased to the 
+latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
+of the R SVN trunk (updated hourly).
 
 Matrix builds *are* supported for R builds, however both instances of `r` must
 be in *lowercase*.
@@ -120,13 +119,13 @@ If you don't need LaTeX, tell Travis CI not to install it using `latex: false`.
 
 ### Pandoc
 
-The default pandoc version installed is `1.15.2`. Alternative [pandoc
+The default pandoc version installed is `2.2`. Alternative [pandoc
 releases][github 7] can be installed by setting the `pandoc_version` to the
 desired version.
 
 ```yaml
 language: r
-pandoc_version: 1.16
+pandoc_version: 1.19.2.1
 ```
 {: data-file=".travis.yml"}
 

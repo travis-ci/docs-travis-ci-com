@@ -24,7 +24,7 @@ upgrading build images from [quay.io](https://quay.io/organization/travisci).
 
 For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration we will pick the corresponding image to run the build.
 
-We're shipping the same Docker build images as travis-ci.org and travis-ci.com are using. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
+We're shipping the same Docker build images as we use on travis-ci.com. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
 
 - Ruby
 - Node.js
@@ -176,3 +176,7 @@ For example, if you want to create a new repository and test out Docker support,
           script:
           - sudo docker run ubuntu date
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

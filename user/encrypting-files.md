@@ -42,8 +42,6 @@ Please add the following to your build script (before_install stage in your .tra
 openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
 
-Pro Tip: You can add it automatically by running with `--add`.
-
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.

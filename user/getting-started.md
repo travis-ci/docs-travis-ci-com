@@ -22,12 +22,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
 ## To get started with Travis CI
 
-1. Using your GitHub account, sign in to either
-
-   * [Travis CI .org](https://travis-ci.org/auth) for public repositories
-   * [Travis CI .com](https://travis-ci.com/auth) for private repositories
-
-   and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate.
 
 2. Once you're signed in to Travis CI, and we've synchronized your GitHub
    repositories, go to your profile page and enable the repository
@@ -54,10 +49,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command:
-
-   * [Travis CI .org build status](https://travis-ci.org/auth) for public repositories
-   * [Travis CI .com build status](https://travis-ci.com/auth) for private repositories
+5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
 
 
 ## Selecting a different programming language

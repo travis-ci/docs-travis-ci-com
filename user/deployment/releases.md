@@ -48,7 +48,7 @@ You can also use the [Travis CI command line client](https://github.com/travis-c
 travis setup releases
 ```
 
-Or, if you're using a private repository:
+Or, if you're using a private repository or the GitHub Apps integration:
 
 ```bash
 travis setup releases --pro

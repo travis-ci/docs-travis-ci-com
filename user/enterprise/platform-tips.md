@@ -308,3 +308,7 @@ Additionally, please the following command to clean up all Docker build images:
 ```
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

@@ -95,7 +95,7 @@ Future versions of this add-on will provide the following features:
 - No need to define a third-party GitHub user for pull request analysis. SonarCloud will use its own identity.
 - Support for external pull requests.
 
-## Depreated features
+## Deprecated features
 
 If you are a long-time SonarCloud user, you might have the following entries in your `.travis.yml` file:
 - "branches"

@@ -30,6 +30,11 @@ os:
   - linux
   - osx
 
+# Select virtual machine(s)
+smalltalk_vm:
+  - Squeak-5.0
+  - Pharo-5.0
+
 # Select compatible Smalltalk image(s)
 smalltalk:
   - Squeak-trunk

@@ -23,10 +23,7 @@ Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should
 run **Ubuntu 14.04**, ideally using Linux 3.16 and have at least **16 gigs of
 RAM and 8 CPUs**.
 
-If you're running on EC2, we recommend the **c3.2xlarge** instance type. We also
-recommend using an image that uses EBS for the root volume, as well as
-allocating 40 gigs of space to it. It is also recommended _not_ to destroy the
-volume on instance termination.
+If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 40 gigs of space to it. It is also recommended _not_ to destroy the volume on instance termination.
 
 ## OAuth App
 
@@ -42,3 +39,7 @@ Note: URLs must include `https` or `http` at the beginning and cannot have trail
 To register for a 30 day trial please visit
 [our signup page](https://enterprise.travis-ci.com/signup) to receive a trial license. Please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for
 more information on pricing.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

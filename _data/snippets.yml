@@ -51,3 +51,27 @@ environment_variables: |
 
   - differ per repository.
   - contain sensitive data, such as third-party credentials.
+contact_enterprise_support: |
+  To get in touch with us, please write a message to 
+  [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). If possible, 
+  please include as much of the following as you can:
+   
+  - Description of the problem - what are you observing?
+  - Which steps did you try already?
+  - A support bundle (You can get it from `https://yourdomain:8800/support`)
+  - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
+  - If a build failed or errored, a text file of the build log
+  
+  Have you made any customizations to your setup? While we may be able to see some 
+  information (such as hostname, IaaS provider, and license expiration), there 
+  are many other things we can't see which could lead to something not working. 
+  Therefore , we'd like to ask you to also answer the questions below in your 
+  support request (if applicable):
+  
+  - How many machines are you using?
+  - Do you use configuration management tools (Chef, Puppet)?
+  - Which other services do interface with Travis CI Enterprise?
+  - Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
+  - If you're using GitHub Enterprise, which version of it?
+  
+  We're looking forward to helping!

@@ -58,6 +58,15 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
+## My build fails unexpectedly
+
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+
+Note that using `set -e` in external scripts does not cause this problem.
+
+See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+
+
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.

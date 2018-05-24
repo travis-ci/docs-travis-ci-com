@@ -27,7 +27,7 @@ This URL returns a JSON representation by default, but you can get the Atom feed
 https://api.travis-ci.org/repos/travis-ci/travis-ci/builds.atom
 ```
 
-### Travis CI Pro
+### Private Repositories
 
 For private repositories you need a token to subscribe to
 the feed. The API endpoint is different too: `https://api.travis-ci.com`
