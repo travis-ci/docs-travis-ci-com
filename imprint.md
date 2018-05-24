@@ -29,4 +29,6 @@ permalink: /imprint.html
     10247 Berlin<br>
     Germany
   </address>
+  <h4>Datenschutzbeauftragter</h4>
+  dpo@travis-ci.com
 </article>
