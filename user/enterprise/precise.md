@@ -5,7 +5,7 @@ layout: en_enterprise
 
 ## System Setup
 
-**Platform Requirements**: Precise Build Containers are supported for Travis CI Enterprise version 2.0 and higher. We recommend [Trusty Build Environments](/user/enterprise/trusty/) for Travis CI Enterprise 2.2+, as Trusty Build Environments are the default environment.
+**Platform Requirements**: Precise Build Containers are supported for Travis CI Enterprise version 2.0 and higher. We recommend [Trusty Build Environments](/user/enterprise/trusty-build-containers/) for Travis CI Enterprise 2.2+, as Trusty Build Environments are the default environment.
 
 To Legacy workers as default on Travis CI Enterprise 2.2+, override the fault behavior in the Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`
 
@@ -18,7 +18,7 @@ In addition, _Precise build containers and Trusty build containers must be on di
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
-For instances on AWS, please run: 
+For instances on AWS, please run:
 
 ```
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
@@ -45,7 +45,7 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
-`sudo service travis-worker restart` 
+`sudo service travis-worker restart`
 
 Worker configuration changes are applied on start.
 
