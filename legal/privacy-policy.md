@@ -13,7 +13,7 @@ Please read the following information regarding the privacy policy carefully. In
 
 #### *In short:*
 
-### Controller
+**Controller**
 
 Travis CI GmbH
 Rigaer Straße 8, 10247 Berlin/Germany,
@@ -25,9 +25,9 @@ We have appointed a data protection officer who may be reached via data@travis-c
 
 According to the Terms and Conditions between Customer and us, such Customers are responsible for the (personal) data included by them on the Website and our Travis CI Software, including but not limited to required consents by the affected individuals. Therefore, each affected Users may also contact Customer regarding the use of their personal data in the Travis CI Software or on the Website, as applicable. Customer may also use User’s data in connection with other third party services. For this purpose User may also contact Customer or ask us to contact Customer about this.
 
-### Purpose and Legal Basis of Processing Data; Legitimate Interests
+**Purpose and Legal Basis of Processing Data; Legitimate Interests**
 
-#### Your data will be used for the purposes of the Website
+**Your data will be used for the purposes of the Website**
 
 - to implement this privacy policy and carry out the contractual relationship (§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
 - for providing our services on the Website, to contact you in matters regarding our services (also by means of emails and messaging) and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
@@ -35,7 +35,7 @@ According to the Terms and Conditions between Customer and us, such Customers ar
 - to analyze your use of our services and improve our services (§§ 14, 15 TMG, Art. 6 (1) b. and f. GDPR),
 - with your express consent or instruction to carry out our business activities or sent you newsletters (Art. 6 (1) a. GDPR),
 
-#### Your data will be used for the purposes of using the Travis CI Software as follows:
+**Your data will be used for the purposes of using the Travis CI Software as follows:**
 
 - in order to register per an existing user account on the GitHub website https://github.com operated by GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (“GitHub”) and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
 - for analysis purposes and improving the Travis CI Software based on Art. 6 (1) f. GDPR.
@@ -44,19 +44,19 @@ Applicable legal provisions are in particular those of the regulation (EU) 2016/
 
 Regarding the data processing based on Art. 6 (1) f. GDPR we wish to achieve the legitimate interests of quality assurance, marketing and fraud prevention.
 
-#### Provision of Data
+**Provision of Data**
 
 You provide data if this is necessary for the aforementioned purposes. In the event you refrain from providing such data you may face legal disadvantages, for example, limited or no possibility of using our Website and Travis CI Software as well as additional services.
 
-#### Recipient(s) of Data
+**Recipient(s) of Data**
 
 We as well as our Customers and external service partners receive your data for processing those the purpose of providing our services.
 
-#### Transfer of Data outside of the EU
+**Transfer of Data outside of the EU**
 
 In the course of data processing by us data will be transferred to third countries, i.e. countries outside the EU. This may happen via implementation of third party providers such as cloud services and external service partners which process data controlled by us. For details please refer to our privacy policy.
 
-#### Your Rightsa
+**Your Rights**
 
 You have the right to withdraw your consent relating to the use of data according to this privacy policy at any time with effect for the future. In the event of withdrawal the stored data shall not be processed any more and shall be deleted without hesitation. However, such data may, for example, still be used if these are still necessary for ceasing the contractual relationship.
 
@@ -68,15 +68,15 @@ You are entitled to receive information about the stored data (in a structured, 
 
 To enforce your rights you may reach us through the contact details set forth above.
 
-#### Period for Storing Data; Deletion
+**Period for Storing Data; Deletion**
 
 The data are deleted if such data are no longer necessary for the purpose of processing. For more details please refer to [Section 7](###Your-Rights) below.
 
-#### Right to Lodge a Complaint
+**Right to Lodge a Complaint**
 
 You have the right to lodge a complaint with a supervisory authority at your choice. The supervisory authorities in Germany are the responsible (data protection) authorities as set forth in the law of the states (Bundesländer). An overview of the European National Data Protection Authorities may be found here: http://ec.europa.eu/newsroom/article29/item-detail.cfm?item_id=612080
 
-### Automated Decision making („profiling“)
+**Automated Decision making („profiling“)**
 
 In general we do not process any data via “profiling” or in form of automated decision making via the Websites or Travis CI Software. However, such profiling may happen by third party providers through the Website. If this is the case we will inform you in the privacy policy (if possible).
 
@@ -159,8 +159,8 @@ In general we do not process any data via “profiling” or in form of automate
 
 4. **Profiling and automated decision-making when visiting the Website**
 
-    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in III.[add link] below) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
 
+    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in [Section 3](###what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
     Profiling means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements.
     The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which has legal effect on them or substantially impairs them in a similar manner. This shall not apply where the decision (i) is necessary for the conclusion or performance of a contract between the data subject and the person responsible, (ii) is admissible under the laws of the European Union or of the member state to which the person responsible is subject and where such laws contain appropriate measures to safeguard the rights, freedoms and legitimate interests of the data subject, or (iii) is taken with the explicit consent of the data subject. In these exceptional cases, the person responsible shall take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject, including at least the right to obtain an action by the person responsible, to state his own position and to challenge the decision.
 
@@ -219,7 +219,7 @@ The use of our Travis CI Software may also include services and products by thir
 
 We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
-A list of such data processing and third party providers that process personal data outside the EU is set forth here [add link to list below].
+A list of such data processing and third party providers that process personal data outside the EU is set forth [here](###could-my-data-be-transferred-to-or-shared-with-third-parties-are-my-data-processed-outside-the-eu-when-using-the-service).
 
 ## General
 
@@ -227,9 +227,9 @@ A list of such data processing and third party providers that process personal d
 
 We will transfer your Personal Data to a third party only within the scope of legal provisions, i.e. if we are obliged to transfer the data due to a government or court order, or if applicable legal provisions authorize the transfer. If we us third party providers who process data outside the EU such third party providers guarantee to comply with EU data protection standards as set forth in this privacy policy.
 
-For details of data processing by third party providers in/outside the EU when using the Website please also refer to III. above [add link].
+For details of data processing by third party providers in/outside the EU when using the Website please also refer to [Section 3](###what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how) above.
 
-For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to IV. above [add link]. We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
+For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to [Section IV](how-are-my-data-used-when-registering-for-the-use-of-the-travis-ci-software-and-using-the-travis-ci-software-how-do-we-access-your-github-account. above. We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
 ### Your Rights
 
