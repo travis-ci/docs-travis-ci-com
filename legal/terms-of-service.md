@@ -93,7 +93,7 @@ For any services offered by Travis CI free of charge (**“Free Services”**), 
 
 ### Data protection, References and Confidentiality
 
-1. Travis CI stores, processes and uses Customer data in accordance with the applicable (data protection) law(s). For further information please refer to Travis CI privacy policy under [add link]. In the event Travis CI processes personal data controlled by Customer the data processing agreement under [add link] applies.
+1. Travis CI stores, processes and uses Customer data in accordance with the applicable (data protection) law(s). For further information please refer to Travis CI privacy policy under [https://docs.travis-ci.com/legal/privacy-policy/](https://docs.travis-ci.com/legal/privacy-policy/). In the event Travis CI processes personal data controlled by Customer the data processing agreement under [https://docs.travis-ci.com/legal/data-processing-agreement](https://docs.travis-ci.com/legal/data-processing-agreement) applies.
 2. Travis CI may identify Customer as a customer of Travis CI and display Customer's name and logo solely for such purpose on its customer lists, its website, and its marketing and promotional materials provided that Customer may request that Travis CI cease such use at any time upon written notice to Travis CI.
 
 ### Term and Termination
