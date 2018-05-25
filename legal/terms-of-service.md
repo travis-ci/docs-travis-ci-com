@@ -2,6 +2,8 @@
 title: Terms of Service
 layout: en
 
+redirect_from:
+  - /legal/terms-conditions/
 ---
 of
 
@@ -22,7 +24,7 @@ as of 05/2018
 2. The Travis CI Software is a hosted continuous integration service that provides the infrastructure for testing software projects subject to downtime and service suspensions as described below. The functional range of the service is dependent on the package the Customer chooses and will be displayed on the Website.
 3. Travis CI offers its services for (i) closed software projects, where the projects cannot be viewed publicly and (ii) open software projects, where the projects including their source codes can be viewed publicly.
 4. The Travis CI Software is integrated with GitHub and offers support for several programming languages. The entire list of supported programming languages is available at about.travis CI-ci.org.
-5. No consultancy, training, trouble shooting or support is within the scope of the services offered by Travis CI under this Agreement if and to the extent they are not part of the agreed warranty as set out in section 9 hereunder. 
+5. No consultancy, training, trouble shooting or support is within the scope of the services offered by Travis CI under this Agreement if and to the extent they are not part of the agreed warranty as set out in section 9 hereunder.
 6. Travis CI offers unpaid and paid services. If a service by Travis CI is offered free of charge, section 8 shall apply.
 
 ### Concluding of the Agreement
@@ -39,7 +41,7 @@ as of 05/2018
 
 ### Obligations of the customer
 
-1. The Customer is obliged to make agreed payments in due time. 
+1. The Customer is obliged to make agreed payments in due time.
 2. The Customer must not interfere or intent to interfere in any manner with the functionality or proper working of the Travis CI Software.
 3. The Customer must take care for regular backups of his software. When delivering its services Travis CI assumes that the software builds of the Customer tested are copies only and will not be used in real environments.
 4. The Customer is obliged to use the Travis CI Software and services in an appropriate way. In particular, any use and/or actions considered ‘Bitcoin-Mining’ is not accepted by Travis CI.
