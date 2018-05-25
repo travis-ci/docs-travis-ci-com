@@ -131,7 +131,7 @@ The list shall state the extent, the nature and purpose of any contemplated coll
 
 #### Processing of personal data:
 
-List of agreed Sub-Processors:  [add (link to) list naming all used providers for the software that process personal data of your clients in/outside the EU.]
+<a href="https://docs.travis-ci.com/legal/privacy-policy/#IX.-Access%2C-Scope-of-Application%2C-Contact" data-proofer-ignore>List of agreed Sub-Processors</a>
 
 ### Annex 4
 
