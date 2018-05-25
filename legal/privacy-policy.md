@@ -3,7 +3,7 @@ title: Privacy Policy
 layout: en
 
 ---
-Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#in-short) and in a more [detailed](#in-more-detailed-form) form. For details on data security please refer [here](#VIII-Data-Security).
+Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#In-short) and in a more [detailed](#In-more-detailed-form) form. For details on data security please refer <a href="https://docs.travis-ci.com/legal/privacy-policy/#VIII.-Data-Security" data-proofer-ignore>here</a>.
 
 We take the protection of our users’ (**“User/you/your”**) personal data very seriously and strictly comply with applicable data protection laws and regulations. In our privacy policy below (**“Privacy Policy”**) we provide you with an overview of what data we collect for what purpose and how we ensure the protection of the data.
 
@@ -70,7 +70,7 @@ To enforce your rights you may reach us through the contact details set forth ab
 
 **Period for Storing Data; Deletion**
 
-The data are deleted if such data are no longer necessary for the purpose of processing. For more details please refer to VII [below](#VII-Your-Rights).
+The data are deleted if such data are no longer necessary for the purpose of processing. For more details please refer to VII <a href="https://docs.travis-ci.com/legal/privacy-policy/#VII.-Your-Rights" data-proofer-ignore>below</a>.
 
 **Right to Lodge a Complaint**
 
@@ -165,7 +165,7 @@ IX. Contact
 4. **Profiling and automated decision-making when visiting the Website**
 
 
-    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in III [below](#III-What-kind-of-Cookies-Web-tools-or-Third-Party-Providers-does-the-Website-use-and-how)) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
+    We do not use profiling or automated decision-making when processing data concerning our Website except as set forth herein. However, our third party providers (such as set forth in III <a href="https://docs.travis-ci.com/legal/privacy-policy/#III.-What-kind-of-Cookies%2C-Web-tools-or-Third-Party-Providers-does-the-Website-use-and-how%3F" data-proofer-ignore>below</a>) may carry out such profiling in individual cases. If this is the case, we will inform you if possible.
     Profiling means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyse or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behaviour, location or movements.
     The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which has legal effect on them or substantially impairs them in a similar manner. This shall not apply where the decision (i) is necessary for the conclusion or performance of a contract between the data subject and the person responsible, (ii) is admissible under the laws of the European Union or of the member state to which the person responsible is subject and where such laws contain appropriate measures to safeguard the rights, freedoms and legitimate interests of the data subject, or (iii) is taken with the explicit consent of the data subject. In these exceptional cases, the person responsible shall take appropriate measures to safeguard the rights and freedoms and the legitimate interests of the data subject, including at least the right to obtain an action by the person responsible, to state his own position and to challenge the decision.
 
@@ -175,7 +175,7 @@ IX. Contact
   
     In order to offer you a convenient online service featuring numerous functions, our Website uses text files (“Cookies”) containing information to identify returning visitors for the time of their visit to the Website. Cookies facilitate the transfer of specific content, such as entering data, which has already been supplied, and help us identify popular sections of our Website. 
 
-    OPT-OUT: You can deactivate the use of Cookies in the settings of your internet browser at any time. To find out how to change the settings, please consult the help function of your internet browser. You may also deactivate and manage [add link] Cookies via http://www.aboutads.info/choices/ (US-website-provider) or http://www.youronlinechoices.com/uk/your-ad-choices/ (EU-website-provider).
+    OPT-OUT: You can deactivate the use of Cookies in the settings of your internet browser at any time. To find out how to change the settings, please consult the help function of your internet browser. You may also deactivate and manage Cookies via http://www.aboutads.info/choices/ (US-website-provider) or http://www.youronlinechoices.com/uk/your-ad-choices/ (EU-website-provider).
 
 2. **Google Analytics**
 
@@ -224,7 +224,7 @@ The use of our Travis CI Software may also include services and products by thir
 
 We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
-A list of such data processing and third party providers that process personal data outside the EU is set forth [here](#VI-could-my-data-be-transferred-to-or-shared-with-third-parties-are-my-data-processed-outside-the-eu-when-using-the-service).
+A list of such data processing and third party providers that process personal data outside the EU is set forth <a href="https://docs.travis-ci.com/legal/privacy-policy/#VI.-Could-my-Data-be-transferred-to-or-shared-with-Third-Parties%3F-Are-my-data-processed-outside-the-EU-when-using-the-Service%3F" data-proofer-ignore>here</a>.
 
 ## General
 
@@ -232,9 +232,9 @@ A list of such data processing and third party providers that process personal d
 
 We will transfer your Personal Data to a third party only within the scope of legal provisions, i.e. if we are obliged to transfer the data due to a government or court order, or if applicable legal provisions authorize the transfer. If we us third party providers who process data outside the EU such third party providers guarantee to comply with EU data protection standards as set forth in this privacy policy.
 
-For details of data processing by third party providers in/outside the EU when using the Website please also refer to III [above](#III-What-kind-of-Cookies-Web-tools-or-Third-Party-Providers-does-the-Website-use-and-how).
+For details of data processing by third party providers in/outside the EU when using the Website please also refer to III <a href="https://docs.travis-ci.com/legal/privacy-policy/#III.-What-kind-of-Cookies%2C-Web-tools-or-Third-Party-Providers-does-the-Website-use-and-how%3F" data-proofer-ignore>above</a>.
 
-For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to IV [above](#IV-How-are-my-data-used-when-registering-for-the-use-of-the-Travis-CI-Software-and-using-the-Travis-CI-Software-How-do-we-access-your-GitHub-Account). We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
+For details of data processing by third party providers in/outside the EU when using the Travis CI Software please also refer to IV <a href="https://docs.travis-ci.com/legal/privacy-policy/#IV.-How-are-my-data-used-when-registering-for-the-use-of-the-Travis-CI-Software-and-using-the-Travis-CI-Software%3F-How-do-we-access-your-GitHub-Account%3F" data-proofer-ignore>above</a>. We process personal data of Users or other individuals provided by a Customer (as a business that uses the Travis CI Software) on behalf of Customer, i.e. Customer remains the controller of such data and we act as data processor subject to a separate data processing agreement.
 
 ### VII. Your Rights
 
@@ -288,15 +288,13 @@ In order to ensure the best possible protection of the data, the Website and Tra
 
 ### IX. Access, Scope of Application, Contact
 
-This privacy policy can be viewed, downloaded and printed out at any time on under [add link].
-
 We are entitled to amend this privacy policy in accordance with the applicable regulations.
 
 We have appointed a data protection officer who may be reached via data@travis-ci.com. For acting out your rights and additional questions about the issue of personal data you can contact us at any time: https://docs.travis-ci.com/imprint.html
 
 | Third Party Provider        | Data Processing Purpose | CData Processing outside the EU / Compliance with EU Data Protection Standard  | Further Information |
 | :---------------------------:|:-------------:|:-----:|:------:|
-| Stripe | For any processes regarding payments we use the services of Stripe, Inc., 185 Berry Street, Suite 550, San Francisco, CA 94107, USA. Regarding any processes of payments we do not receive, collect and/or store any payment data. Stripe will use such data for the purpose of managing the payments relating to our services. |Stripe, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. | For further information please refer to https://stripe.com/de/privacy. |
+| Stripe | For any processes regarding payments we use the services of Stripe, Inc., 185 Berry Street, Suite 550, San Francisco, CA 94107, USA. Regarding any processes of payments we do not receive, collect and/or store any payment data. Stripe will use such data for the purpose of managing the payments relating to our services. |Stripe, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. | For further information please refer to https://stripe.com/de/privacy |
 | GitHub | For the purpose of providing and further developing our Travis CI Software and services on the Travis CI Software we use the Travis CI Software development platform by Github Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. | Github, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. | For further information please refer to Github’s privacy statement: https://help.github.com/articles/github-privacy-statement/ or use the contact form under https://github.com/contact/privacy |
 | Amazon Web Services (AWS) | We use the service by Amazon Web Services by Amazon Web Services, Inc., 410 Terry Avenue North Seattle WA 98109, USA for the purpose of hosting your data provided in the Travis CI Software. | Amazon Web Services, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. | https://aws.amazon.com/compliance/eu-data-protection/ and https://aws.amazon.com/compliance/germany-data-protection/ |
 | Google Cloud | We use the service by Google LLC, Mountain View, CA, USA for the purpose of hosting your data provided in the Travis CI Software. | Google LLC is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. | For further information please refer to https://policies.google.com/privacy?hl=de |
