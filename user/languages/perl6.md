@@ -26,7 +26,7 @@ and cc {% for m in page.maintainers %}<a href="https://github.com/{{m}}">@{{m}}<
 
 ## Choosing Perl 6 versions to test against
 
-Perl 6 workers on travis-ci.org use
+Perl 6 workers on Travis CI use
 [rakudobrew](https://github.com/tadzik/rakudobrew) to provide several Perl 6
 versions that your projects can be tested against. To specify them, use the
 `perl6:` key in your `.travis.yml` file, for example:
@@ -57,7 +57,7 @@ backend.  Future support for the
 ## Default Perl 6 Version
 
 If you leave the `perl6` key out of your `.travis.yml`, Travis CI will build
-Rakudo Perl 6 from the latest commit from the project's `nom` branch.
+Rakudo Perl 6 from the latest commit from the project's `master` branch.
 
 ## Default Test Script
 

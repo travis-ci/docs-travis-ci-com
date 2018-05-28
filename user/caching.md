@@ -4,8 +4,6 @@ layout: en
 
 ---
 
-These features are also still experimental, please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues and feedback.
-
 <div id="toc"></div>
 
 Travis CI can cache content that does not often change, to speed up your build process.
@@ -13,16 +11,21 @@ Travis CI can cache content that does not often change, to speed up your build p
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
-* If a branch does not have its own cache, Travis CI fetches the master branch cache.
+* If a branch does not have its own cache, Travis CI fetches the cache of the repository's default branch.
 * There is one cache per branch and language version/ compiler version/ JDK version/  Gemfile location/ etc.
 * Only modifications made to the cached directories from normal pushes are stored.
 
 > Please note that cache content is available to any build on the repository, including Pull Requests, so make sure you do not put any sensitive information in the cache.
 
+> When creating the cache, symbolic links are not followed.
+> Consider caching the normal files and directories instead.
+
 ## Caching directories (Bundler, dependencies)
 
 Caches lets Travis CI store directories between builds, which is useful for storing
 dependencies that take longer to compile or download.
+
+Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#Arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 ### Build phases
 
@@ -293,7 +296,7 @@ Sometimes you spoil your cache by storing bad data in one of the cached director
 
 Use one of the following ways to access your cache and delete it if necessary:
 
-- The settings page of your repository on <https://travis-ci.org> (or .com if you're using a private repository)
+- The settings page of your repository on <https://travis-ci.com>
 
     ![Image of cache UI](/images/caches-item.png)
 
@@ -408,6 +411,19 @@ CACHE_NAME=JOB1
 
 to `.travis.yml`.
 
+Note that when considering environment variables, the values must match *exactly*,
+including spaces.
+For example, with
+
+```yaml
+env:
+  - FOO=1 BAR=2
+  - FOO=1  BAR=2
+  - BAR=2 FOO=1
+```
+
+each of the three jobs will use its own cache.
+
 ## Caches and read permissions
 
 When caching [custom files and directories](/user/caching/#Arbitrary-directories),
@@ -424,22 +440,20 @@ FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
 tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
 ```
 
-## How does the caching work?
+## How does caching work?
 
-The caching tars up all the directories listed in the configuration and uploads
-them to S3, using a secure and protected URL, ensuring security and privacy of
+Travis CI saves an archive of all the directories listed in the configuration and uploads
+it to a storage provider, using a secure and protected URL, ensuring security and privacy of
 the uploaded archives.
 
-Note that this makes our cache not network-local, it's still bound to network
-bandwidth and DNS resolutions for S3. That impacts what you can and should store
+Note that this makes our cache not network-local, it is still bound to network
+bandwidth and DNS resolutions. That impacts what you can and should store
 in the cache. If you store archives larger than a few hundred megabytes in the
-cache, it's unlikely that you'll see a big speed improvement.
+cache, it is unlikely that you'll see a big speed improvement.
 
-Before the build, we check if a cached archive exists. If it does, we pull it
-down and unpack it to the specified locations.
+Before the build, we check if a cached archive exists. If it does, we download it and unpack it to the specified locations.
 
-After the build we check for changes in the directory, create a new archive and
-upload the updated archive back to S3.
+After the build we check for changes in the directory, create a new archive with those changes, and upload it to the remote storage.
 
 The upload is currently part of the build cycle, but we're looking into improving
 that to happen outside of the build, giving faster build feedback.

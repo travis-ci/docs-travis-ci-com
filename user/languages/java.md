@@ -177,7 +177,7 @@ to test against Oracle JDKs 8 and 9, as well as OpenJDK 7:
 jdk:
   - oraclejdk8
   - oraclejdk9
-  - openjdk7
+  - openjdk8
 ```
 {: data-file=".travis.yml"}
 
@@ -199,8 +199,8 @@ If your build needs to switch JDKs during a job, you can do so with
 script:
   - jdk_switcher use oraclejdk8
   - # do stuff with Java 8
-  - jdk_switcher use openjdk7
-  - # do stuff with Java 7
+  - jdk_switcher use openjdk8
+  - # do stuff with open Java 8
 ```
 {: data-file=".travis.yml"}
 

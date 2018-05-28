@@ -129,7 +129,7 @@ for a more technical discussion.
 
 If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
 
-- If `before_install`, `install` or `before_script` return a non-zero exit code,
+- If `before_install`, `install` or `before_script` returns a non-zero exit code,
   the build is **errored** and stops immediately.
 - If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
@@ -141,6 +141,7 @@ However, if one of these stages times out, the build is marked as a failure.
 An optional phase in the build lifecycle is deployment. This step can't be
 overridden, but is defined by using one of our continuous deployment providers
 to deploy code to Heroku, Engine Yard, or a different supported platform.
+The deploy steps are skipped if the build is broken.
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
@@ -155,6 +156,8 @@ deploy:
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
 If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
+
+Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
 
 ## Specifying Runtime Versions
 
@@ -176,7 +179,7 @@ before_install:
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/reference/overview/#Virtualization-environments).
 > Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
 
-All virtual machines are snapshotted and returned to their intial state after each build.
+All virtual machines are snapshotted and returned to their initial state after each build.
 
 ### Using 3rd-party PPAs
 
@@ -199,9 +202,9 @@ You can also use other installation methods such as `apt-get`.
 It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
-- A job produces no log output for 10 minutes
-- A job on travis-ci.org takes longer than 50 minutes
-- A job on travis-ci.com takes longer than 120 minutes
+- When a job produces no log output for 10 minutes.
+- When a job on a public repository takes longer than 50 minutes.
+- When a job on a private repository takes longer than 120 minutes.
 
 Some common reasons why builds might hang:
 
@@ -213,11 +216,7 @@ Some common reasons why builds might hang:
 
 ## Limiting Concurrent Jobs
 
-The maximum number of concurrent jobs depends on the total system load, but
-one situation in which you might want to set a particular limit is:
-
-- if your build depends on an external resource and might run into a race
-  condition with concurrent jobs.
+{{ site.data.snippets.concurrent_jobs }}
 
 You can set the maximum number of concurrent jobs in the settings pane for
 each repository.
@@ -236,9 +235,9 @@ If you are only interested in building the most recent commit on each branch you
 
 The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
 
-* *pushes* - which build your branch and appear in the *Build History* tab of your repository.
+* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
 
-* *pull requests* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
@@ -258,6 +257,14 @@ You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml
 ```yaml
 git:
   depth: 3
+```
+{: data-file=".travis.yml"}
+
+You can also remove the `--depth` flag entirely with:
+
+```yaml
+git:
+  depth: false
 ```
 {: data-file=".travis.yml"}
 
@@ -318,9 +325,21 @@ git:
 {: data-file=".travis.yml"}
 
 
+## Git Sparse Checkout
+Travis CI supports `git`'s [sparse checkout](https://git-scm.com/docs/git-read-tree#_sparse_checkout)
+capability.
+To clone your repository sparsely, add:
+```yaml
+git:
+  sparse_checkout: skip-worktree-map-file
+```
+where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
+
+> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests#double-builds-on-pull-requests) when deciding to safelist or blocklist certain branches.
 
 ### Safelisting or blocklisting branches
 
@@ -379,6 +398,8 @@ branches and tags that start with `deploy-` in any combination of cases.
 If you don't want to run a build for a particular commit for any reason, add `[ci skip]` or `[skip ci]` to the git commit message.
 
 Commits that have `[ci skip]` or `[skip ci]` anywhere in the commit messages are ignored by Travis CI.
+
+Note that in case multiple commits are pushed together, the `[skip ci]` or `[ci skip]` takes effect only if present in the commit message of the HEAD commit.
 
 ## Build Matrix
 
@@ -474,6 +495,54 @@ matrix:
     env: DB=mysql
 ```
 {: data-file=".travis.yml"}
+
+#### Excluding jobs with `env` value
+
+When excluding jobs with `env` values, the value must match
+_exactly_.
+
+For example,
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb
+```
+
+defines a 3×4 matrix, because the `env` value does not match with
+any job defined in the matrix.
+
+To exclude all Ruby 1.9.3 jobs with `DB=mongodb` set, write:
+
+```yaml
+language: ruby
+rvm:
+- 1.9.3
+- 2.0.0
+- 2.1.0
+env:
+- DB=mongodb SUITE=all
+- DB=mongodb SUITE=compact
+- DB=redis
+- DB=mysql
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
+    - rvm: 1.9.3
+      env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
+```
 
 ### Explicitly Including Jobs
 
@@ -633,7 +702,7 @@ Consider a scenario where you want to run more complex test scenarios, but only 
 set -ev
 bundle exec rake:units
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-	bundle exec rake test:integration
+  bundle exec rake test:integration
 fi
 ```
 
@@ -641,12 +710,16 @@ Note the `set -ev` at the top. The `-e` flag causes the script to exit as soon a
 
 The `-v` flag makes the shell print all lines in the script before executing them, which helps identify which steps failed.
 
-Assuming the script above is stored as `scripts/run-tests.sh` in your repository, and with the right permissions too (run `chmod ugo+x scripts/run-tests.sh` before checking it in), you can call it from your `.travis.yml`:
+To run that script from your `.travis.yml`:
 
-```yaml
-script: ./scripts/run-tests.sh
-```
-{: data-file=".travis.yml"}
+1. Save it in your repository as `scripts/run-tests.sh`.
+2. Make it executable by running `chmod ugo+x scripts/run-tests.sh`.
+3. Commit it to your repository.
+4. Add it to your `.travis.yml`:
+    ```yaml
+    script: ./scripts/run-tests.sh
+    ```
+    {: data-file=".travis.yml"}
 
 ### How does this work? (Or, why you should not use `exit` in build steps)
 
@@ -667,18 +740,20 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 ```yaml
 addons:
   hosts:
-  - travis.dev
+  - travis.test
   - joshkalderimis.com
 ```
 {: data-file=".travis.yml"}
 
 ## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
-
-Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
 Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+
+## What YAML version can I use in .travis.yaml
+
+Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
 
 ## Troubleshooting
 

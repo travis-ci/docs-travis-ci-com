@@ -66,7 +66,7 @@ matrix:
 
 ## Example Multi OS Build Matrix
 
-Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/customizing-the-build/#The-Build-Lifecycle) to use [Graphviz](http://www.graphviz.org/) in both Linux and OS X.
+Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/customizing-the-build/#The-Build-Lifecycle) to use [Graphviz](https://graphviz.gitlab.io/) in both Linux and OS X.
 
 ```yaml
 language: c

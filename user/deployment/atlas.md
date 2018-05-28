@@ -6,10 +6,12 @@ layout: en
 
 Travis CI can automatically deploy your application to [Atlas](https://atlas.hashicorp.com/) after a successful build.
 
+> Hashicorp [announced](https://www.hashicorp.com/blog/hashicorp-terraform-enterprise-general-availability#decommissioning-atlas) that Atlas is being decommissioned by March 30, 2017. It is replaced by Terraform Enterprise.
+
 To deploy your application to Atlas:
 
 1. Sign in to your Atlas account.
-2. [Generate](https://atlas.hashicorp.com/settings/tokens) an Atlas API token for for Travis CI.
+2. [Generate](https://atlas.hashicorp.com/settings/tokens) an Atlas API token for Travis CI.
 3. Add the following minimum configuration to your `.travis.yml`
 
    ```yaml
@@ -18,7 +20,7 @@ To deploy your application to Atlas:
      token: "YOUR ATLAS API TOKEN"
      app: "YOUR ATLAS USERNAME/YOUR ATLAS APP NAME"
    ```
-{: data-file=".travis.yml"}
+   {: data-file=".travis.yml"}
 
 ## Including or Excluding Files
 

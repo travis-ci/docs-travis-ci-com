@@ -116,3 +116,7 @@ In the rare event of something going wrong during the upgrade you may need to re
 1. Start Travis CI via the Replicated dashboard
 
 Note, that this does still put you on the latest version of Travis CI Enterprise. Rolling back strategies will need to be coordinated with the Travis CI team as it requires changing licenses back to the legacy release channel.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

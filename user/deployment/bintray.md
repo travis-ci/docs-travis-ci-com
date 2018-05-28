@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).
 
-All you need to do is add the following to your `.travis.yml`:
+Here is an example `.travis.yml`:
 
 ```yaml
 deploy:
@@ -15,7 +15,7 @@ deploy:
   user: "Bintray user"
   key: "Bintray API key"
   passphrase: "Optional. In case a passphrase is configured on Bintray and GPG signing is used"
-  dry-run: "Optional. If true, skips sending requests to Bintray. Useful for testing your configuration"
+  skip_cleanup: true # to upload artifacts created during the build
 ```
 {: data-file=".travis.yml"}
 
@@ -79,6 +79,18 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
+### `dry_run` option
+
+For testing deployment configuration, you can add `dry_run: true` to prevent connecting
+to the Bintray server:
+
+```yaml
+deploy:
+  ..
+  dry_run: true
+```
+{: data-file=".travis.yml"}
+
 ### Descriptor file example
 
 The descriptor is in JSON file format in three sections:
@@ -126,11 +138,14 @@ The descriptor is in JSON file format in three sections:
 
 #### Package Section
 
-Bintray package information. In case the package already exists on Bintray, only the name, repo and subject fields are mandatory.
+Bintray package information. The following information is mandatory on open source projects:
 
 - `name` is the Bintray package name
 - `repo` is the Bintray repository name
 - `subject` is the Bintray subject, which is either a user or an organization
+- `vcs_url` is the Bintray version control system url, such as a github repository url
+- `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
+
 
 #### Version Section
 
@@ -142,7 +157,7 @@ Configure the files you would like to upload to Bintray and their upload path.
 
 You can define one or more groups of patterns. Each group contains three patterns:
 
-- `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray.
+- `includePattern`: Pattern in the form of Ruby regular expression, indicating the path of files to be uploaded to Bintray. If files are in your root directory, you must indicate relative path : `\./`
 - `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
 - `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
 
@@ -157,9 +172,11 @@ In the example above, the following files are uploaded:
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
 
+`uploadPattern` should respect [bintray automatic layout scheme](https://blog.bintray.com/category/packages-metadata/).
+
 ```js
 "files":
-    [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "$1",
+    [{"includePattern": "build/bin/(.*\.deb)", "uploadPattern": "pool/main/m/mypackage/$1",
     "matrixParams": {
         "deb_distribution": "vivid",
         "deb_component": "main",

@@ -20,7 +20,7 @@ and cc @andyli @waneck @Simn.
 
 ## Choosing Haxe versions to test against
 
-Haxe workers on travis-ci.org download and install the binary of Haxe.
+Haxe workers on Travis CI download and install the binary of Haxe.
 To select one or more versions, use the `haxe:`
 key in your `.travis.yml` file, for example:
 
@@ -40,7 +40,7 @@ the latest stable release defined in the [haxe.org download list](https://haxe.o
 
 ## Default Neko Version
 
-By default, [Neko](http://nekovm.org/) 2.1.0 will also be downloaded and installed.
+By default, [Neko](http://nekovm.org/) 2.2.0 will also be downloaded and installed.
 Use the `neko:` key in your `.travis.yml` file to specify a different Neko version,
 for example:
 

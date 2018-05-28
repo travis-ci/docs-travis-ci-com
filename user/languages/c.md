@@ -42,7 +42,7 @@ Travis CI VMs are 64-bit and provide versions of:
 - clang
 - core GNU build toolchain (autotools, make), cmake, scons
 
-C projects on travis-ci.org assume you use Autotools and Make by default.
+C projects on Travis CI assume you use Autotools and Make by default.
 
 For precise versions on the VM, please consult "Build system information" in the build log.
 
