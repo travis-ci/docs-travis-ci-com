@@ -50,7 +50,8 @@ The following table summarizes the differences across virtual environments and o
 | IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 | Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  |
 
-> Note that available disk space is approximate and can vary from image to image. The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
+> Note that available disk space is approximate and depends on the base image and language selection of your project.
+  The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 
 ## What infrastructure is my environment running on?
 
