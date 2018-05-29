@@ -64,7 +64,7 @@ One possible cause for builds failing unexpectedly can be calling `set -e` (also
 
 Note that using `set -e` in external scripts does not cause this problem.
 
-
+See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
@@ -148,7 +148,6 @@ group :debug do
 end
 
 # .travis.yml
-See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
 bundler_args: --without development debug
 ```
 
