@@ -12,27 +12,20 @@ redirect_from:
 
 To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
 
+By default, `apt-get update` does not get run automatically unless you are using the [APT addon](#Installing-Packages-with-the-APT-Addon). If you want to update `apt-get` automatically on every build, add something like the following to your `.travis.yml`:
+
 ```yaml
 before_install:
-  - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
 ```
 {: data-file=".travis.yml"}
 
-> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
-
-
-### Updating APT Packages
-
-By default, `apt-get update` does not run automatically unless the [APT addon](#Installing-Packages-with-the-APT-Addon) is used. If you want to opt-in to running `apt-get update`, add the following to your `.travis.yml`:
-
-```yaml
-addons:
-  apt:
-    update:true
-```
 
 ### Installing Packages from a custom APT repository
 
@@ -80,9 +73,7 @@ before_install:
 
 ### Installing Packages with the APT Addon
 
-You can also use the APT addon.
-
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+You can also use the APT addon to declare additional APT sources and packages that you want installed, without running `apt-get` commands in your `before_install` script.
 
 If your requirements goes beyond the normal installation, please use another method described above.
 
