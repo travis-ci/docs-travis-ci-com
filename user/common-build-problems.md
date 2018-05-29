@@ -643,5 +643,7 @@ If a build hasn't been triggered for your commit, these are the possible build r
 
 ## I'm running out of disk space in my build
 
+Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#Virtualisation-Environment-vs-Operating-System).
+
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
