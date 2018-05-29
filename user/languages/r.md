@@ -26,7 +26,7 @@ beyond those specified in your `DESCRIPTION` file, your `.travis.yml` can
 simply be
 
 ```yaml
-language: r
+language: R
 ```
 {: data-file=".travis.yml"}
 
@@ -34,7 +34,7 @@ Using the package cache to store R package dependencies can significantly speed
 up build times and is recommended for most builds.
 
 ```yaml
-language: r
+language: R
 cache: packages
 ```
 {: data-file=".travis.yml"}
@@ -69,7 +69,7 @@ Matrix builds *are* supported for R builds, however both instances of `r` must
 be in *lowercase*.
 
 ```yaml
-language: r
+language: R
 r:
   - oldrel
   - release
@@ -103,7 +103,7 @@ packages][github 6]. If your vignettes require additional TexLive packages you
 can install them using `tlmgr install` in the `before_install` step.
 
 ```yaml
-language: r
+language: R
 
 before_install:
   - tlmgr install index
@@ -124,7 +124,7 @@ releases][github 7] can be installed by setting the `pandoc_version` to the
 desired version.
 
 ```yaml
-language: r
+language: R
 pandoc_version: 1.19.2.1
 ```
 {: data-file=".travis.yml"}
@@ -181,7 +181,7 @@ A typical [Bioconductor][bioconductor] package should only need to specify the
 Bioconductor version they want to test against in their `.travis.yml`.
 
 ```yaml
-language: r
+language: R
 r: bioc-devel
 ```
 {: data-file=".travis.yml"}
@@ -189,7 +189,7 @@ r: bioc-devel
 Or if you want to test against the release branch
 
 ```yaml
-language: r
+language: R
 r: bioc-release
 ```
 {: data-file=".travis.yml"}
@@ -315,7 +315,7 @@ of the package cache to speed up subsequent build times. For most projects
 these two lines are sufficient.
 
 ```yaml
-language: r
+language: R
 cache: packages
 ```
 {: data-file=".travis.yml"}
@@ -326,7 +326,7 @@ If your package is in a subdirectory of the repository you simply need to
 change to the subdirectory prior to running the `install` or `script` steps.
 
 ```yaml
-language: r
+language: R
 before_install:
   - cd subdirectory
 ```
