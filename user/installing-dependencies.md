@@ -23,6 +23,17 @@ before_install:
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
+
+### Updating APT Packages
+
+By default, `apt-get update` does not run automatically unless the [APT addon](#Installing-Packages-with-the-APT-Addon) is used. If you want to opt-in to running `apt-get update`, add the following to your `.travis.yml`:
+
+```yaml
+addons:
+  apt:
+    update:true
+```
+
 ### Installing Packages from a custom APT repository
 
 For some packages, you may find an existing repository, which isn't yet set up on our build environment by default. You can easily add custom repositories and Launchpad PPAs as part of your build.
