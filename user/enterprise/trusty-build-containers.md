@@ -9,26 +9,14 @@ layout: en_enterprise
 **Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started.
 
 **Worker Requirements**:
-The Trusty worker must be running Ubuntu 14.04 LTS as an underlying operating system. We recommend using AWS's `c3.2xlarge` as the instance type. Port 22 must be open for SSH during installation and operation.
+
+We recommend using AWS's `c4.2xlarge` as the instance type with at least 40gb of disk space. Port 22 must be open for SSH during installation and operation.
 
 In addition, _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
 
 ## Installation with Travis CI Enterprise 2.2+
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
-
-For instances on AWS, please run: 
-
-```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
-
-sudo bash /tmp/installer.sh \
---travis_enterprise_host="[travis.yourhost.com]" \
---travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token] \
---aws=true"
-```
-
-For non-AWS instances, please run:
 
 ```
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
@@ -56,19 +44,6 @@ The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/
 ### Installation (Travis CI Enterprise 2.1.9+)
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
-
-For instances on AWS, please run: 
-
-```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
-
-sudo bash /tmp/installer.sh \
---travis_enterprise_host="[travis.yourhost.com]" \
---travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token] \
---aws=true"
-```
-
-For non-AWS instances, please run:
 
 ```
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker

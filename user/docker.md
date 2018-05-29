@@ -204,11 +204,13 @@ before_install:
 You can upgrade to the latest version and use any new Docker features by manually
 updating it in the `before_install` step of your `.travis.yml`:
 
-**Updating from apt.dockerproject.org**
+**Updating from download.docker.com**
 ```yaml
 before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - sudo apt-get -y install docker-ce
 ```
 {: data-file=".travis.yml"}
 
@@ -218,16 +220,6 @@ addons:
   apt:
     packages:
       - docker-ce
-```
-{: data-file=".travis.yml"}
-
-**Updating from download.docker.com**
-```yaml
-before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y install docker-ce
 ```
 {: data-file=".travis.yml"}
 
