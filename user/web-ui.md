@@ -19,7 +19,7 @@ Limit builds to branches that contain `.travis.yml`. This is the default.
 
 If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml`.
 
-If *OFF* builds won't run on pushed commits on branches.
+If *OFF*, builds won't run on pushed commits on branches.
 
 ## Build pushed pull requests
 
