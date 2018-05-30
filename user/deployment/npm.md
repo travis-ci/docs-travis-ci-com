@@ -108,7 +108,7 @@ We recommend deploying from only one job with
 
 ## Tagging releases
 
-You can automatically tag releases with the `tag` option:
+You can automatically add [npm distribution tags](https://docs.npmjs.com/getting-started/using-tags) with the `tag` option:
 
 ```yaml
 deploy:
