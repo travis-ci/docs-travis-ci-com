@@ -129,7 +129,7 @@ for a more technical discussion.
 
 If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
 
-- If `before_install`, `install` or `before_script` return a non-zero exit code,
+- If `before_install`, `install` or `before_script` returns a non-zero exit code,
   the build is **errored** and stops immediately.
 - If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
@@ -179,7 +179,7 @@ before_install:
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/reference/overview/#Virtualization-environments).
 > Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
 
-All virtual machines are snapshotted and returned to their intial state after each build.
+All virtual machines are snapshotted and returned to their initial state after each build.
 
 ### Using 3rd-party PPAs
 
@@ -203,8 +203,8 @@ It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
 - When a job produces no log output for 10 minutes.
-- When a job on a private repository takes longer than 50 minutes.
-- When a job on a public repository takes longer than 120 minutes.
+- When a job on a public repository takes longer than 50 minutes.
+- When a job on a private repository takes longer than 120 minutes.
 
 Some common reasons why builds might hang:
 
@@ -750,6 +750,10 @@ addons:
 Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
 Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+
+## What YAML version can I use in .travis.yaml
+
+Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
 
 ## Troubleshooting
 
