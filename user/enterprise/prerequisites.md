@@ -48,7 +48,7 @@ more information on pricing.
 
 ### High Availability Mode
 
-If you're interested in using High Availability, please let [sales](mailto:sales@travis-ci.com) know so we can get your trial license configured. Check out the [HA docs](`/user/enterprise/high-availability/') for more information.
+If you're interested in using High Availability, [please let us know](mailto:enterprise@travis-ci.com) so we can get your trial license configured. Check out the [HA docs](`/user/enterprise/high-availability/') for more information.
 
 ## Contact Enterprise Support
 
