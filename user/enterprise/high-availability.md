@@ -17,6 +17,28 @@ and [Postgres](https://www.postgresql.org/) instances
 
  Once you have all these things, you should be able and ready to get started.
 
-## Installing the Platform
+## Installing the Platform in High Availability Mode
 
-The initial steps to installing High Availability-supporting Travis CI Enterprise are identical to the steps installing the standard offering. Have a look at [installation ] 
+The initial steps to installing High Availability-supporting Travis CI Enterprise are identical to the steps installing the standard offering. Once your [Platform instance is installed](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform), then you can configure it for HA mode:
+
+1. Sign into your Admin Dashboard (at `your-domain.tld:8800`)
+1. Go to "Settings" and click "Enable HA"
+1. Paste in the urls where you have [Postgres](https://www.postgresql.org/), [Redis](https://redis.io/), an [RabbitMQ](https://www.rabbitmq.com/) hosted
+1. Upload a RabbitMQ Client Certificate (`.crt`), if you will be using one
+1. Scroll down to the bottom of the page, "Save" and restart
+
+Once your first platform instance is fulling configured, you should be able to see the UI and request a build -- your build will only run correctly though if a worker is installed. Try out your new platform, and [please let us know](mailto:enterprise@travis-ci.com?subject=HA%2FTroubleshooting) if you have questions. 
+
+### Adding More Platform Installations
+
+We recommend at least two Platform containers for HA mode. Installation for additional enterprise containers work the same as the first [Platform instance is installed](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform). 
+
+Once your second platform is installed, it will also need its HA settings configured. Go to the Admin Dashboard for your new platform container at `secondIP:8800` or `second-platform-public-dns.tld:8800` to complete this the same way as [the first platform installation](#Installing-the-PLatform-in-High-Availability-Mode)
+
+## Installing the Worker
+
+The worker installation works the same as for non-HA installations, as does the build environment compatibility defaults per Enterprise version. Check out the [docs for which version of Enterprise handle different OS's](/user/enterprise/installation/Install-Travis-CI-Worker) and other information regarding installation. You will need to retrieve your RabbitMQ password from your own installation, rather than from the Travis CI Enterprise Admin Dashboard.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
