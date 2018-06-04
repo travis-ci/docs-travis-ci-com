@@ -133,7 +133,7 @@ If any of the commands in the first four stages of the build lifecycle return a 
   the build is **errored** and stops immediately.
 - If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-The exit code of `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the build result.
+The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy` and subsequent stages do not affect the build result.
 However, if one of these stages times out, the build is marked as a failure.
 
 ## Deploying your Code
@@ -155,7 +155,7 @@ deploy:
 
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
-If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
+If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase. Note that `after_deploy` will not affect the status of the build.
 
 Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
 
