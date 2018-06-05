@@ -126,9 +126,34 @@ Either `sudo journalctl -u travis-worker` or `sudo systemctl status travis-worke
 
 One possible reason that travis-worker is not running is that `systemctl` cannot create a temporary directory for environment files. To fix this, please create the directory `/var/tmp/travis-run.d/travis-worker` and assign write permissions via:
 
-```sh
+```bash
 $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
+```
+
+## Travis CI Enterprise becomes unavailable do to a certificate error
+
+Travis CI Enterprise is using a Let's Encrypt certificate which has expired. A (forced) renewal via the following commands don't have any effect:
+
+```bash
+$ replicatedctl app stop
+$ sudo certbot certonly
+$ replicatedctl app start
+```
+
+`certbot certonly` returns a success message, that the certificate has been renewed, however the browser still returns a certificate error. This could be caused by an IP address change on the host machine.
+
+### Strategy
+
+A strategy to mitigate this issue is move the certificates into a backup folder and run `certbot` again:
+
+```bash
+$ replicatedctl app stop
+$ mkdir ~/cert_backup
+$ mv /etc/letsencrypt/live/smoking.volcanicislandfortress.com/privkey.pem ~/cert_backup/
+$ mv /etc/letsencrypt/live/smoking.volcanicislandfortress.com/fullchain.pem ~/cert_backup/
+$ sudo certbot certonly # certbot will say that the certificate is still valid, force a renewal
+$ replicatedctl app start
 ```
 
 ## Contact Enterprise Support
