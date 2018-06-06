@@ -25,7 +25,7 @@ RAM and 8 CPUs**.
 
 If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 40 gigs of space to it. It is also recommended _not_ to destroy the volume on instance termination.
 
-For [high availability (HA)](#High-Availability) configurations, you will also need to
+For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need to
 provide your own [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/), 
 and [Postgres](https://www.postgresql.org/) instances. We've had some good luck with 
 [compose.com](https://compose.com/) if you would like these services hosted outside 

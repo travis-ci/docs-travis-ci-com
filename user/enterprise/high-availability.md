@@ -10,7 +10,7 @@ If you're interested, or might be interested, in HA, please let [us](mailto:ente
 
 ## Overview of Installation
 
-The platform installation is quite similar to the standard [Enterprise installation](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform), and the [worker installation is identical](#Setting-up-the-Travis-CI-Enterprise-Worker). However, there are some additional [system prerequisites](/user/enterprise/prerequisites/#High-Availability-Mode), which mean that to install in HA mode, you will need the following:
+The platform installation is quite similar to the standard [Enterprise installation](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform), and the [worker installation is identical](#Installing-the-Worker-in-High-Availability-Mode). However, there are some additional [system prerequisites](/user/enterprise/prerequisites/#High-Availability-Mode), which mean that to install in HA mode, you will need the following:
  * 3+ **16 gigs of RAM, 8 CPUs, 40GB HDD**, i.e. `c4.2xlarge` with a 40GB HDD. - 2+ for the VMs running the Platform, and 1+ for the VMs running the Worker
  * [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/), 
 and [Postgres](https://www.postgresql.org/) instances
@@ -44,7 +44,7 @@ We recommend at least two Platform containers for HA mode. Installation for addi
 
 Once your second platform is installed, it will also need its HA settings configured. Go to the Admin Dashboard for your new platform container at `secondIP:8800` or `second-platform-public-dns.tld:8800` to complete this the same way as [the first platform installation](#Installing-the-PLatform-in-High-Availability-Mode)
 
-## Installing the Worker
+## Installing the Worker in High Availability Mode
 
 The worker installation works the same as for non-HA installations, as does the build environment compatibility defaults per Enterprise version. Check out the [docs for which version of Enterprise handle different OS's](/user/enterprise/installation#Install-Travis-CI-Worker) and other information regarding installation. You will need to retrieve your RabbitMQ password from your own installation, rather than from the Travis CI Enterprise Admin Dashboard.
 
