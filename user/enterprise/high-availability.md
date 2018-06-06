@@ -4,23 +4,27 @@ layout: en_enterprise
 
 ---
 
-Travis CI Enterprise typically runs as a single container instance communicating with one or multiple workers and generally, this setup is quite stable and maintainable. However, in some cases -- especially volume licensing or by corporate requirement -- you might need to install Travis CI in High Availability (HA) mode. If you're interested, or might be interested, in HA, please let [us](mailto:enterprise@travis-cicom?subject:HA%2FMode) know and we can discuss options and help you get started. 
+Travis CI Enterprise typically runs as a single container instance communicating with one or multiple workers and generally, this setup is quite stable and maintainable. However, in some cases -- especially volume licensing or by corporate requirement -- you might need to install Travis CI in High Availability (HA) mode. 
+
+If you're interested, or might be interested, in HA, please let [us](mailto:enterprise@travis-cicom?subject:HA%20Mode) know and we can discuss options and help you get started. 
 
 ## Overview of Installation
 
 The platform installation is quite similar to the standard [Enterprise installation](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform), and the [worker installation is identical](#Setting-up-the-Travis-CI-Enterprise-Worker). However, there are some additional [system prerequisites](/user/enterprise/prerequisites/#High-Availability-Mode), which mean that to install in HA mode, you will need the following:
- * 3+ VMs with **16 gigs of RAM, 8 CPUs, and 40 GB HDD**, i.e.`c4.2xlarge` with an additional 40GB configured for storage space - this is 2+ VMs for running the Platform, and 1+ for the VMs running the Worker
+ * 3+ **16 gigs of RAM, 8 CPUs, 40GB HDD**, i.e. `c4.2xlarge` with a 40GB HDD. - 2+ for the VMs running the Platform, and 1+ for the VMs running the Worker
  * [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/), 
 and [Postgres](https://www.postgresql.org/) instances
  * [GitHub OAuth app](/user/enterprise/prerequisites#OAuth-App), [trial license](/user/enterprise/prerequisites#License) -- enabled for HA
- * Internet connection -- note, this installation is _not_ airgapped by default. [Please contact us](mailto:support@travis-ci.com) if you are interested in this. 
+ * Internet connection -- note, this installation is _not_ airgapped by default. Let [us](mailto:enterprise@travis-ci.com) if you are interested in one. 
 
  Once you have all these things, you should be able and ready to get started.
 
 ## Installing the Platform in High Availability Mode
 
-The initial steps to installing High Availability-supporting Travis CI Enterprise are identical to the steps installing the standard offering. Once your [Platform instance is installed](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform), then you can configure it for HA mode:
+HA is configured entirely on the Enterprise platform instance, but installing an HA platform is quite similar to installing a standard platform. The steps for HA are as follows. 
 
+1. Contact [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=HA%20Installation) to have your Enterprise license configured for HA mode. 
+1. Setup your [platform instance per the standard installation steps](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform)
 1. Sign into your Admin Dashboard (at `your-domain.tld:8800`)
 1. Go to "Settings" and click "Enable HA"
 1. Paste in the urls where you have [Postgres](https://www.postgresql.org/), [Redis](https://redis.io/), and [RabbitMQ](https://www.rabbitmq.com/) hosted. The connection strings should be in the format of:
@@ -32,7 +36,7 @@ amqps://user:password@url:port
 1. Optional: Upload a RabbitMQ Client Certificate (`.crt`). This allows RabbitMQ to use TLS. 
 1. Scroll down to the bottom of the page, "Save" and restart
 
-Once your first platform instance is fulling configured, you should be able to see the UI and request a build -- your build will only run correctly though if a worker is installed. Try out your new platform, and [please let us know](mailto:enterprise@travis-ci.com?subject=HA%2FTroubleshooting) if you have questions. 
+Once your first platform instance is fulling configured, you should be able to see the UI and request a build -- your build will only run correctly though if a worker is installed. Try out your new platform, and [please let us know](mailto:enterprise@travis-ci.com?subject=HA%20Troubleshooting) if you have questions. 
 
 ### Adding More Platform Installations
 
