@@ -144,6 +144,11 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
+
 ## Build Matrix
 
 For Groovy projects, `env` and `jdk` can be given as arrays
