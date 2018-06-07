@@ -81,11 +81,13 @@ Travis CI Enterprise currently supports two different build environments, Trusty
 
 | Travis CI Enterprise Version | Default Worker Version | Alternative Worker Versions |
 | -- | -- | -- |
-| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty-build-containers/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty-build-containers/) |
+| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
+| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/) |
 | Enterprise 2.0+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | -- |
 
-After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty-build-containers/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
+After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version. 
+
+You can find the RabbitMQ password, which is needed in the installation, either in your Admin Dashboard --> "Settings" page, or in your own RabbitMQ installation for [high availability mode](/user/enterprise/high-availability/).
 
 ### Worker Installation Behind Web Proxies
 
