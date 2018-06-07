@@ -10,16 +10,35 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/) or [trusty](/user/reference/trusty/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
-  - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
-> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+```
+{: data-file=".travis.yml"}
+
+The second way is to use the [APT addon](#installing-packages-with-the-apt-addon):
+
+```yaml
+before_install:
+  - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
+```
+{: data-file=".travis.yml"}
+
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
@@ -69,9 +88,7 @@ before_install:
 
 ### Installing Packages with the APT Addon
 
-You can also use the APT addon.
-
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+You can also install packages and sources using the APT addon, without running `apt-get` commands in your `before_install` script.
 
 If your requirements goes beyond the normal installation, please use another method described above.
 
