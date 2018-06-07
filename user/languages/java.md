@@ -149,7 +149,7 @@ If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 ### Ant Dependency Management
 
 Because there is no single standard way of installing project dependencies with
-Ant, you need to specify the exact command to run using `install:` key in your 
+Ant, you need to specify the exact command to run using `install:` key in your
 `.travis.yml`, for example:
 
 ```yaml
@@ -190,9 +190,9 @@ The list of available JVMs for different dists are at
   * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
   * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
 
-### Switching JDKs Within One Job
+### Switching JDKs (Java 8 and below) Within One Job
 
-If your build needs to switch JDKs during a job, you can do so with
+If your build needs to switch JDKs (Java 8 and below) during a job, you can do so with
 `jdk_switcher use …`.
 
 ```yaml
@@ -206,7 +206,7 @@ script:
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
-### Updating Oracle JDK to a recent release
+### Updating Oracle JDK 8 to a recent release
 
 Your repository may require a newer release of Oracle JDK than the pre-installed
 version.
@@ -220,6 +220,38 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+```
+{: data-file=".travis.yml"}
+
+## Using Java 10 and later
+
+OracleJDK 10 and later are supported on Linux, and
+OpenJDK 10 and later are supported on Linux and macOS using
+[`install-jdk.sh`](https://github.com/sormuras/bach#install-jdksh).
+
+```yaml
+jdk:
+  - oraclejdk8
+  - oraclejdk10
+  - oraclejdk-ea
+  - openjdk10
+  - openjdk11
+```
+{: data-file=".travis.yml"}
+
+### Switching JDKs (to Java 10 and up) Within One Job
+
+If your build needs to switch JDKs (Java 8 and up) during a job, you can do so with
+`install-jdk.sh`.
+
+```yaml
+jdk: openjdk10
+script:
+  - jdk_switcher use openjdk10
+  - # do stuff with OpenJDK 10
+  - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
+  - # do stuff with open OpenJDK 11
 ```
 {: data-file=".travis.yml"}
 

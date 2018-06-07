@@ -295,6 +295,11 @@ matrix:
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
 
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
+
 ## Upgrading RubyGems
 
 The RubyGems version installed on Travis CI's Ruby environment depends on what's
