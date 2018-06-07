@@ -12,7 +12,7 @@ You can filter out, and reject builds, stages, and jobs by specifying conditions
 Builds can be included or excluded by specifying a condition as follows:
 
 ```yaml
-# require the branch name to be master
+# require the branch name to be master (note for PRs this is the base branch name)
 if: branch = master
 
 # require the tag name to match a regular expression
@@ -31,7 +31,7 @@ Stages can be included or excluded by specifying a condition in the `stages` sec
 ```yaml
 stages:
   - name: deploy
-    # require the branch name to be master
+    # require the branch name to be master (note for PRs this is the base branch name)
     if: branch = master
 
 stages:
@@ -54,7 +54,7 @@ Jobs can be included or excluded by specifying a condition on `jobs.include`:
 ```yaml
 jobs:
   include:
-    - # require the branch name to be master
+    - # require the branch name to be master (note for PRs this is the base branch name)
       if: branch = master
       env: FOO=foo
 
