@@ -14,8 +14,8 @@ Here's what the `.travis.yml` config could look like:
 ```yaml
 jobs:
   include:
-    - script: "Running unit tests (1)"
-    - script: "Running unit tests (2)"
+    - script: echo "Running unit tests (1)"
+    - script: echo "Running unit tests (2)"
     - stage: GitHub Release
       script: echo "Deploying to GitHub releases ..."
       deploy:
