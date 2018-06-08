@@ -187,8 +187,8 @@ details.
 
 The list of available JVMs for different dists are at
 
-  * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
-  * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
+  * [JDKs installed for **Trusty**](/user/reference/trusty/#JVM-(Clojure%2C-Groovy%2C-Java%2C-Scala)-images)
+  * [JDKs installed for **Precise**](/user/reference/precise/#JVM-(Clojure%2C-Groovy%2C-Java%2C-Scala)-images)
 
 ### Switching JDKs (Java 8 and below) Within One Job
 
