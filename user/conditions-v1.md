@@ -16,43 +16,66 @@ for details.
 
 ## Examples
 
-```
-# require the branch name to be master (note for PRs this is the base branch name)
-branch = master
+This condition requires the branch name to be master (note for PRs this is the
+base branch name):
 
-# require the tag name to match a regular expression (enclose in slashes for
-# more complicated expressions)
+```
+branch = master
+```
+
+This requires the tag name to match a regular expression (enclose in slashes
+for more complicated expressions):
+
+```
 tag =~ ^v1
 tag =~ /^(v1|v2)/
+```
 
-# require the event type to be either `push` or `pull_request`
+This requires the event type to be either `push` or `pull_request`:
+
+```
 type IN (push, pull_request)
+```
 
-# require the branch name to not be one of several names
+This requires the branch name to not be one of several names:
+
+```
 branch NOT IN (master, dev)
+```
 
-# require the sender login name to match a given name (use quotes for strings
-# that contain spaces or special characters)
+This require the sender login name to match a given name (use quotes for
+strings that contain spaces or special characters):
+
+```
 sender == my_account
 sender != "deploy bot"
+```
 
-# exclude forks
+This excludes forks:
+
+```
 fork == false
+```
 
-# match the commit message
-commit_message !~ /no-deploy/
+This match the commit message against a regular expression:
 
-# match the os
+```
+commit_message !~ /(no-deploy|wip)/
+```
+
+This makes sure a build, stage, or job only runs on Linux:
+
+```
 os == linux
 ```
 
 ## Integration
 
-Conditions are being parsed using [this library](https://github.com/travis-ci/travis-conditions/pull/1)
+Conditions are parsed and evaluated using [this library](https://github.com/travis-ci/travis-conditions/pull/1),
 by the component that accepts your build request, and generates your build,
 stages, and jobs.
 
-The following known attributes are available:
+The following known attributes are available, and can be used in conditions:
 
 * `type` (the current event type, known event types are: `push`, `pull_request`, `api`, `cron`)
 * `repo` (the current repository slug `owner_name/name`)
@@ -73,59 +96,77 @@ Also, environment variables from your build configuration (`.travis.yml`) and
 repository settings are available, and can be matched using `env(FOO)`, see
 below.
 
-Note that this means conditions do not have access to the build environment,
-and they are *not* evaluted in Bash. Bash variables or subprocesses can *not*
-be evaluated.
-
-Variable names and unquoted strings starting with a dollar char `$` raise a
-parse error, causing the build request to be rejected. Quoted strings still can
-start with a dollar char, so if you definitely need a string to start with a
-dollar char you can enclose it in quotes.
+> Note that this means conditions do not have access to the build environment,
+> and they are **not** evaluted in Bash. Bash variables or subprocesses can **not**
+> be evaluated. Variable names and unquoted strings starting with a dollar char
+> `$` raise a parse error, causing the build request to be rejected. Quoted
+> strings still can start with a dollar char, so if you definitely need a string
+> to start with a dollar char you can enclose it in quotes.
 
 ## Specification
 
-The following expressions are parsed and evaluated as expected:
+The following expressions are parsed and evaluated as expected.
+
+Individual terms:
 
 ```
-# individual terms
 true
 false
+```
 
-# compare values
+Comparing values:
+
+```
 1 = 1
 true != false
+```
 
-# compare function calls
+Comparing function calls:
+
+```
 env(FOO) = env(BAR)
+```
 
-# compare function calls to attributes
+Comparing function calls to attributes:
+
+```
 env(FOO) = type
+```
 
-# nested function calls
+Nested function calls:
+
+```
 env(env(FOO))
+```
 
-# function calls in lists
+Function calls in lists:
+
+```
 repo IN (env(ONE), env(OTHER))
+```
 
-# parenthesis
+Parenthesis:
+
+```
 (tag =~ ^v) AND (branch = master)
+((tag =~ ^v) AND (branch = master))
 ```
 
 All keywords (such as `AND`, `OR`, `NOT`, `IN`, `IS`, attribute and functions
 names) are case-insensitive.
 
-The only functions currently is:
+The only function currently available is:
 
 ```
-# (the value of the environment variable `FOO`)
-env(FOO)
+env(FOO) # (the value of the environment variable `FOO`)
 ```
 
 The function `env` currently supports environment variables that are given in
 your build configuration (e.g. on `env` or `env.global`), and environment
-variables specified in your repository settings.  Note that there is no
-function `env.global` or similar. Instead all environment variables are
-available through `env`.
+variables specified in your repository settings.
+
+> Note that there is no function `env.global` or similar. Instead all
+> environment variables are available through `env`.
 
 ### Values
 
@@ -154,18 +195,21 @@ env(foo) = bar
 This matches a string using a regular expression:
 
 ```
-# for simple expressions, not ending in a closing parenthesis:
 branch =~ ^master$
 env(foo) =~ ^bar$
+```
 
-# if an expression needs to include whitespace, or end in a parenthesis wrap it with slashes:
+If an expression needs to include whitespace, or end in a parenthesis it needs
+to be enclosed in forward slashes:
+
+```
 branch =~ /(master|foo)/
 ```
 
-Usually parenthesis are not required (e.g. the above list of alternatives could
-also be written as just `master|foo`). If you do need to end a regular
-expression with a parenthesis, or if it contains whitespace, then the whole
-expression needs to be wrapped in `/` slashes.
+> Usually parenthesis are not required (e.g. the above list of alternatives could
+> also be written as just `master|foo`). If you do need to end a regular
+> expression with a parenthesis, or if it contains whitespace, then the whole
+> expression needs to be enclosed in forward slashes.
 
 ### Lists
 
@@ -176,7 +220,7 @@ branch IN (master, dev)
 env(foo) IN (bar, baz)
 ```
 
-Note that commas are required to separate values.
+> Note that commas are required to separate values.
 
 Values that include whitespace or special characters should be quoted:
 
@@ -222,7 +266,7 @@ env(foo) IS blank
 ```
 
 Note that the operator `IS` is intended to work with the well known predicates
-`present` and `blank`. It is not the same as `=`, and expressions like the
+`present` and `blank`. It is **not** the same as `=`, and expressions like the
 following do *not* work:
 
 ```
@@ -233,7 +277,7 @@ branch IS "master"
 branch = "master"
 ```
 
-However, `IS` can also be used to match against the boolean values `true` and
+However, `IS` **can** be used to match against the boolean predicates `true` and
 `false` (this has been included after we found many users to expect this to
 work):
 
