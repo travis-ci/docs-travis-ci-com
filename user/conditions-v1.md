@@ -3,8 +3,6 @@ title: Conditions
 layout: en
 ---
 
-## Conditions
-
 > This page documents the behavior of conditions `v1`, which is currently
 > available using `conditions: v1` in your `.travis.yml` file. This new
 > version replaces `v0` which is currently the default version, and in the
@@ -16,7 +14,7 @@ specifying conditions in your build configuration (your `.travis.yml` file).
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
 for details.
 
-### Examples
+## Examples
 
 ```
 # require the branch name to be master (note for PRs this is the base branch name)
@@ -48,7 +46,7 @@ commit_message !~ /no-deploy/
 os == linux
 ```
 
-### Integration
+## Integration
 
 Conditions are being parsed using [this library](https://github.com/travis-ci/travis-conditions/pull/1)
 by the component that accepts your build request, and generates your build,
@@ -84,7 +82,7 @@ parse error, causing the build request to be rejected. Quoted strings still can
 start with a dollar char, so if you definitely need a string to start with a
 dollar char you can enclose it in quotes.
 
-### Specification
+## Specification
 
 The following expressions are parsed and evaluated as expected:
 
@@ -129,7 +127,7 @@ variables specified in your repository settings.  Note that there is no
 function `env.global` or similar. Instead all environment variables are
 available through `env`.
 
-#### Values
+### Values
 
 Values are strings that are given without quotes, not containing any whitespace
 or special characters, or single or double quoted strings:
@@ -140,7 +138,7 @@ or special characters, or single or double quoted strings:
 a_word
 ```
 
-#### Equality and inequality
+### Equality and inequality
 
 This matches a string literally:
 
@@ -151,7 +149,7 @@ env(foo) = bar
 "bar" = env("foo")
 ```
 
-#### Regular expressions
+### Regular expressions
 
 This matches a string using a regular expression:
 
@@ -169,7 +167,7 @@ also be written as just `master|foo`). If you do need to end a regular
 expression with a parenthesis, or if it contains whitespace, then the whole
 expression needs to be wrapped in `/` slashes.
 
-#### Lists
+### Lists
 
 This matches against a list (array) of values:
 
@@ -194,7 +192,7 @@ NOT branch IN (master, dev)
 branch NOT IN (master, dev)
 ```
 
-#### Predicates
+### Predicates
 
 Known predicates are:
 
@@ -244,7 +242,7 @@ branch IS true
 branch = true # this is the same
 ```
 
-#### Aliases
+### Aliases
 
 The following aliases are in place:
 
@@ -254,7 +252,7 @@ The following aliases are in place:
 * `==` is an alias to `=`
 * `~=` is an alias to `=~`
 
-#### Line continuation (multiline conditions):
+### Line continuation (multiline conditions):
 
 We were surprised to see users to expect line continuation using `\` to work,
 as it does, for example, in Ruby or Python. We liked the idea, so we allowed
