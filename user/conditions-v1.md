@@ -3,11 +3,9 @@ title: Conditions
 layout: en
 ---
 
-> This page documents the behavior of conditions `v1`, which is currently
-> available using `conditions: v1` in your `.travis.yml` file. This new
-> version replaces `v0` which is currently the default version, and in the
-> process of being deprecated in favor of `v1`. The documentation for `v0` can
-> be found [here](/user/conditions-v0).
+> This page documents conditions v1. You can use v1 by adding `conditions:
+> v1` to your `.travis.yml`. The previous version v0 is now deprecated. The
+> documentation for v0 can be found [here](/user/conditions-v0).
 
 Conditions can be used to filter out, and reject builds, stages, and jobs by
 specifying conditions in your build configuration (your `.travis.yml` file).
@@ -16,34 +14,32 @@ for details.
 
 ## Examples
 
-This condition requires the branch name to be master (note for PRs this is the
-base branch name):
+Build only when on the master branch (note for PRs this is the base branch
+name):
 
 ```
 branch = master
 ```
 
-This requires the tag name to match a regular expression (enclose in slashes
-for more complicated expressions):
+Build only when the tag name matches the given regular expression:
 
 ```
-tag =~ ^v1
 tag =~ /^(v1|v2)/
 ```
 
-This requires the event type to be either `push` or `pull_request`:
+Build only when the build type is either `push` or `pull_request`:
 
 ```
 type IN (push, pull_request)
 ```
 
-This requires the branch name to not be one of several names:
+Build only when the branch name is not be one of several names:
 
 ```
 branch NOT IN (master, dev)
 ```
 
-This require the sender login name to match a given name (use quotes for
+Build only when the sender login name matches the given name (use quotes for
 strings that contain spaces or special characters):
 
 ```
@@ -51,19 +47,19 @@ sender == my_account
 sender != "deploy bot"
 ```
 
-This excludes forks:
+Do not build on forks:
 
 ```
 fork == false
 ```
 
-This match the commit message against a regular expression:
+Build only when the commit message matches against the given regular expression:
 
 ```
 commit_message !~ /(no-deploy|wip)/
 ```
 
-This makes sure a build, stage, or job only runs on Linux:
+Build only on Linux:
 
 ```
 os == linux
@@ -105,7 +101,7 @@ below.
 
 ## Specification
 
-The following expressions are parsed and evaluated as expected.
+The following expressions are parsed and evaluated.
 
 Individual terms:
 

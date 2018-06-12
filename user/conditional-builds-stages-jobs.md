@@ -9,18 +9,18 @@ You can filter out, and reject builds, stages, and jobs by specifying conditions
 
 ### Conditional Builds
 
-Builds can be included or excluded by specifying a condition as follows:
+Builds can be rejected by specifying a condition as follows:
 
 ```yaml
 # require the branch name to be master (note for PRs this is the base branch name)
 if: branch = master
 ```
 
-Build requests that are found to be excluded will not generate a build, but will be listed on the "Requests" tab.
+Build requests that do not match the condition will not generate a build, but will be listed on the Requests tab.
 
 ### Conditional Stages
 
-Stages can be included or excluded by specifying a condition in the `stages` section:
+Stages can be filtered out by specifying a condition in the `stages` section:
 
 ```yaml
 stages:
@@ -29,11 +29,11 @@ stages:
     if: branch = master
 ```
 
-At the moment, stages that are found to be excluded will be skipped silently.
+Stages that do not match the condition will be skipped silently.
 
 ### Conditional Jobs
 
-Jobs can be included or excluded by specifying a condition on `jobs.include`:
+Jobs can be filtered out by specifying a condition on `jobs.include`:
 
 ```yaml
 jobs:
@@ -43,9 +43,9 @@ jobs:
       env: FOO=foo
 ```
 
-Jobs need to be listed explicitely, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
+Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
 
-At the moment, jobs that are found to be excluded will be skipped silently.
+Jobs that do not match the condition will be skipped silently.
 
 ### Specifying conditions
 
