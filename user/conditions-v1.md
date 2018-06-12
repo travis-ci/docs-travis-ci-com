@@ -117,16 +117,23 @@ Comparing values:
 true != false
 ```
 
+Comparing function calls to attributes:
+
+```
+env(FOO) = type
+```
+
 Comparing function calls:
 
 ```
 env(FOO) = env(BAR)
 ```
 
-Comparing function calls to attributes:
+Matching against regular expressions:
 
 ```
-env(FOO) = type
+branch =~ /^(one|two)-three$/
+env(FOO) =~ /^(one|two)-three$/
 ```
 
 Nested function calls:
