@@ -43,14 +43,14 @@ Build only when the sender login name matches the given name (use quotes for
 strings that contain spaces or special characters):
 
 ```
-sender == my_account
+sender = my_account
 sender != "deploy bot"
 ```
 
 Do not build on forks:
 
 ```
-fork == false
+fork = false
 ```
 
 Build only when the commit message matches against the given regular expression:
@@ -62,7 +62,7 @@ commit_message !~ /(no-deploy|wip)/
 Build only on Linux:
 
 ```
-os == linux
+os = linux
 ```
 
 ## Integration
@@ -141,6 +141,16 @@ Function calls in lists:
 repo IN (env(ONE), env(OTHER))
 ```
 
+Boolean operators:
+
+```
+branch = master AND env(FOO) = foo
+branch = master OR env(FOO) = foo
+branch = master AND env(FOO) = foo OR tag = true
+branch = master AND (env(FOO) = foo OR tag = true)
+NOT branch = master
+```
+
 Parenthesis:
 
 ```
@@ -163,6 +173,25 @@ variables specified in your repository settings.
 
 > Note that there is no function `env.global` or similar. Instead all
 > environment variables are available through `env`.
+
+### Boolean operators
+
+The following boolean operators are supported:
+
+* `AND`
+* `OR`
+* `NOT`
+
+`AND` binds stronger than `OR`, and `NOT` binds stronger than `AND`. Therefore
+the following expressions are the same:
+
+```
+branch = master AND os = linux OR tag = true
+(branch = master AND os = linux) OR tag = true
+
+NOT branch = master AND os = linux
+NOT (branch = master) AND os = linux
+```
 
 ### Values
 
