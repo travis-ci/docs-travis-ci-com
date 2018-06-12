@@ -136,16 +136,29 @@ branch =~ /^(one|two)-three$/
 env(FOO) =~ /^(one|two)-three$/
 ```
 
-Nested function calls:
+Attribute in lists:
 
 ```
-env(env(FOO))
+branch IN (one, other)
 ```
 
 Function calls in lists:
 
 ```
 repo IN (env(ONE), env(OTHER))
+```
+
+Predicates:
+
+```
+tag IS present
+tag IS blank
+```
+
+Nested function calls:
+
+```
+env(env(FOO))
 ```
 
 Boolean operators:
