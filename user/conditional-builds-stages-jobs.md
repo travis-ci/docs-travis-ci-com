@@ -49,4 +49,4 @@ At the moment, jobs that are found to be excluded will be skipped silently.
 
 ### Specifying conditions
 
-Please see [Conditions](/user/conditions-v1) for examples, and a specification of the conditions language.
+Please see [Conditions](/user/conditions-v1) for examples, and a specification of the conditions syntax.
