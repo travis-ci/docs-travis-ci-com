@@ -181,19 +181,6 @@ Parenthesis:
 All keywords (such as `AND`, `OR`, `NOT`, `IN`, `IS`, attribute and functions
 names) are case-insensitive.
 
-The only function currently available is:
-
-```
-env(FOO) # (the value of the environment variable `FOO`)
-```
-
-The function `env` currently supports environment variables that are given in
-your build configuration (e.g. on `env` or `env.global`), and environment
-variables specified in your repository settings.
-
-> Note that there is no function `env.global` or similar. Instead all
-> environment variables are available through `env`.
-
 ### Boolean operators
 
 The following boolean operators are supported:
@@ -255,6 +242,22 @@ branch =~ /(master|foo)/
 > also be written as just `master|foo`). If you do need to end a regular
 > expression with a parenthesis, or if it contains whitespace, then the whole
 > expression needs to be enclosed in forward slashes.
+
+### Function calls (env)
+
+The only function currently available is `env`. The following returns the value
+of the environment variable `FOO`:
+
+```
+env(FOO)
+```
+
+The function `env` supports environment variables that are given in your build
+configuration (e.g. on `env` or `env.global`), and environment variables
+specified in your repository settings.
+
+> Note that there is no function `env.global` or similar. Instead all
+> environment variables are available through `env`.
 
 ### Lists
 
