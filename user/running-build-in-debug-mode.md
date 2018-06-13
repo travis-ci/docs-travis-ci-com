@@ -11,10 +11,18 @@ significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in debug mode
 to get shell access to the virtual machine or container.
 
+## Enabling debug mode
+
+Private repositories have debug mode enabled by default, and no changes need to be made.
+For public repositories, we have to enable it on a repository basis. Please contact us
+via email to support@travis-ci.com with the repository you want it active for, and we can
+enable it.
+
 ## Restarting a job in debug mode
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
-the build and job pages.
+the build and job pages for private repositories. For open source repositories, 
+this button is not available.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
 
