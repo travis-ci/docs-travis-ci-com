@@ -14,9 +14,10 @@ to get shell access to the virtual machine or container.
 ## Enabling debug mode
 
 Private repositories have debug mode enabled by default, and no changes need to be made.
-For public repositories, we have to enable it on a repository basis. Please contact us
-via email to support@travis-ci.com with the repository you want it active for, and we can
-enable it.
+To limit access to debug, grant users only *read access* to the repo, and use a fork + PR workflow.
+For public repositories, we have to enable it on a repository basis.  
+To enable debug for your public repositories, please email us at
+support@travis-ci.com and let us know which repositories you want activated.
 
 ## Restarting a job in debug mode
 
