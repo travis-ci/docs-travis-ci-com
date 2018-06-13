@@ -23,7 +23,7 @@ support@travis-ci.com and let us know which repositories you want activated.
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
 the build and job pages for private repositories. For open source repositories, 
-this button is not available.
+this button is not available and you will need to use an API call instead.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
 
