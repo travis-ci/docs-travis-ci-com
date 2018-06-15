@@ -1,8 +1,8 @@
 osx_images:
-  - image: xcode9.4.1
-    xcode: "9.4.1"
+  - image: xcode9.4
+    xcode: "9.4"
     osx_version: "10.13"
-    xcode_full_version: "9.4.1"
+    xcode_full_version: "9.4"
     image_publish_date: 2018-06-15
     sdks:
       - macosx10.13
