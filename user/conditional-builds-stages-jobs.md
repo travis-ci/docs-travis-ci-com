@@ -9,7 +9,7 @@ You can filter out, and reject builds, stages, and jobs by specifying conditions
 
 ### Conditional Builds
 
-Builds can be rejected by specifying a condition as follows:
+Configure Travis CI to only trigger builds when certain conditions are met, such as only building the master branch. Any potential builds that do not meet these conditions are listed in the Requests tab of your repository, even though the actual build is not generated.
 
 ```yaml
 # require the branch name to be master (note for PRs this is the base branch name)
@@ -20,7 +20,7 @@ Build requests that do not match the condition will not generate a build, but wi
 
 ### Conditional Stages
 
-Stages can be filtered out by specifying a condition in the `stages` section:
+Configure Travis CI to only include stages when certain conditions are met, such as only including the stage on the master branch. Stages that do not match the given condition are silently skipped.
 
 ```yaml
 stages:
@@ -33,7 +33,7 @@ Stages that do not match the condition will be skipped silently.
 
 ### Conditional Jobs
 
-Jobs can be filtered out by specifying a condition on `jobs.include`:
+Configure Travis CI to only include jobs when certain conditions are met, such as only including a job on the master branch. Jobs that do not match the given condition are silently skipped.
 
 ```yaml
 jobs:
