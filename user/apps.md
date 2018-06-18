@@ -8,7 +8,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 
 - **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
 - **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows), [Cross Platform](#Cross-Platform)
+- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
 - **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
@@ -224,19 +224,6 @@ Linux alternative to CCMenu<br>
 By Anay Nayak
 
 - [website](https://bitbucket.org/Anay/buildnotify/wiki/Home)
-- [tutorial](/user/cc-menu/)
-
-## Windows
-
-### CCTray
-
-![CCTray](/images/apps/cctray.jpg){:.app}
-
-System Tray client<br>
-By CCNet and ThoughtWorks Inc.
-
-- [website](http://www.cruisecontrolnet.org/projects/cctray)
-- [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
 - [tutorial](/user/cc-menu/)
 
 ## Cross Platform
