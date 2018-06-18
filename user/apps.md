@@ -226,19 +226,6 @@ By Anay Nayak
 - [website](https://bitbucket.org/Anay/buildnotify/wiki/Home)
 - [tutorial](/user/cc-menu/)
 
-## Windows
-
-### CCTray
-
-![CCTray](/images/apps/cctray.jpg){:.app}
-
-System Tray client<br>
-By CCNet and ThoughtWorks Inc.
-
-- [website](http://www.cruisecontrolnet.org/projects/cctray)
-- [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
-- [tutorial](/user/cc-menu/)
-
 ## Cross Platform
 
 ### Build Checker App
