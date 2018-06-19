@@ -278,6 +278,7 @@ You can enable the [quiet flag](https://git-scm.com/docs/git-clone#git-clone---q
 git:
   quiet: true
 ```
+{: data-file=".travis.yml"}
 
 ## Git Submodules
 
