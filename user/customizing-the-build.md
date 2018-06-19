@@ -268,6 +268,18 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+## Git Clone Quiet
+
+Travis CI clones repositories without the quiet flag (`-q`) by default. Enabling the quiet flag can be useful if you're trying to avoid log file size limits or even if you just don't need to include it.
+
+You can enable the [quiet flag](https://git-scm.com/docs/git-clone#git-clone---quiet) in `.travis.yml`:
+
+```yaml
+git:
+  quiet: true
+```
+{: data-file=".travis.yml"}
+
 ## Git Submodules
 
 Travis CI clones git submodules by default, to avoid this set:
