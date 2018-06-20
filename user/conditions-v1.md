@@ -12,59 +12,6 @@ specifying conditions in your build configuration (your `.travis.yml` file).
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
 for details.
 
-## Examples
-
-Build only when on the master branch (note for PRs this is the base branch
-name):
-
-```
-branch = master
-```
-
-Build only when the tag name matches the given regular expression:
-
-```
-tag =~ /^(v1|v2)/
-```
-
-Build only when the build type is either `push` or `pull_request`:
-
-```
-type IN (push, pull_request)
-```
-
-Build only when the branch name is not be one of several names:
-
-```
-branch NOT IN (master, dev)
-```
-
-Build only when the sender login name matches the given name - use quotes for
-strings that contain spaces or special characters (the sender is the GitHub user who creates a build):
-
-```
-sender = my_account
-sender != "deploy bot"
-```
-
-Do not build on forks:
-
-```
-fork = false
-```
-
-Build only when the commit message matches against the given regular expression:
-
-```
-commit_message !~ /(no-deploy|wip)/
-```
-
-Build only on Linux:
-
-```
-os = linux
-```
-
 ## Integration
 
 Conditions are parsed and evaluated using [this library](https://github.com/travis-ci/travis-conditions/pull/1),
@@ -365,4 +312,57 @@ if: |
   env(PRIOR_VERSION) != env(RELEASE_VERSION) AND \
   branch = master AND \
   type = push
+```
+
+## Examples
+
+Build only when on the master branch (note for PRs this is the base branch
+name):
+
+```
+branch = master
+```
+
+Build only when the tag name matches the given regular expression:
+
+```
+tag =~ /^(v1|v2)/
+```
+
+Build only when the build type is either `push` or `pull_request`:
+
+```
+type IN (push, pull_request)
+```
+
+Build only when the branch name is not be one of several names:
+
+```
+branch NOT IN (master, dev)
+```
+
+Build only when the sender login name matches the given name - use quotes for
+strings that contain spaces or special characters (the sender is the GitHub user who creates a build):
+
+```
+sender = my_account
+sender != "deploy bot"
+```
+
+Do not build on forks:
+
+```
+fork = false
+```
+
+Build only when the commit message matches against the given regular expression:
+
+```
+commit_message !~ /(no-deploy|wip)/
+```
+
+Build only on Linux:
+
+```
+os = linux
 ```
