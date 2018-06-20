@@ -62,8 +62,7 @@ where `PRIOR_VERSION` and `RELEASE_VERSION` are environment variables defined
 elsewhere in .travis.yml, the condition will be evaluated as true, even when it
 is false.
 
-A work-around is to create a script which expresses the conditional test in
-reverse, and applies `travis_terminate` when the condition is false. This
+The best way to handle the behavior that comparison of function calls always evaluates to true is to create a script which expresses the conditional test in reverse, and applies `travis_terminate` when the condition is false. This
 script can be called within the Deploy stage.  For instance, continuing with
 the above example, the Deploy stage would include:
 

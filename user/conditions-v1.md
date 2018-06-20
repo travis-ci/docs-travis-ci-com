@@ -39,8 +39,8 @@ Build only when the branch name is not be one of several names:
 branch NOT IN (master, dev)
 ```
 
-Build only when the sender login name matches the given name (use quotes for
-strings that contain spaces or special characters):
+Build only when the sender login name matches the given name - use quotes for
+strings that contain spaces or special characters (the sender is the GitHub user who creates a build):
 
 ```
 sender = my_account
@@ -93,7 +93,7 @@ repository settings are available, and can be matched using `env(FOO)`, see
 below.
 
 > Note that this means conditions do not have access to the build environment,
-> and they are **not** evaluted in Bash. Bash variables or subprocesses can **not**
+> and they are **not** evaluated in Bash. Bash variables or subprocesses can **not**
 > be evaluated. Variable names and unquoted strings starting with a dollar char
 > `$` raise a parse error, causing the build request to be rejected. Quoted
 > strings still can start with a dollar char, so if you definitely need a string
