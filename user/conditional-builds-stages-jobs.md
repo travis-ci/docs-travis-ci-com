@@ -47,6 +47,12 @@ Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `mat
 
 Jobs that do not match the condition will be skipped silently.
 
-### Specifying conditions
+### Specifying Conditions
 
 Please see [Conditions](/user/conditions-v1) for examples, and a specification of the conditions syntax.
+
+### Testing Conditions
+
+Conditions can be tested using the `travis-conditions` command. Learn how to
+[test your conditions](/user/conditions-testing).
+
