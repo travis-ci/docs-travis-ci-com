@@ -6,9 +6,6 @@ layout: en
 
 <div id="toc"></div>
 
-> Build stages are currently in BETA.
-{: .beta}
-
 ## What are Build Stages?
 
 Build stages is a way to group jobs, and run jobs in each stage in parallel,
