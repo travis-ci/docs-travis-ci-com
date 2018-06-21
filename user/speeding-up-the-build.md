@@ -172,7 +172,7 @@ You may wish to consider
 builds if:
 
 - you are not generating code coverage reports in your Travis tests; or
-- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
+- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](https://github.com/krakjoe/phpdbg)
   which may be faster.
 
 #### Using phpdbg example
