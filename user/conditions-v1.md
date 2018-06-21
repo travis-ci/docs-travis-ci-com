@@ -190,21 +190,40 @@ branch =~ /(master|foo)/
 > expression with a parenthesis, or if it contains whitespace, then the whole
 > expression needs to be enclosed in forward slashes.
 
-### Function calls (env)
+### Function calls
 
-The only function currently available is `env`. The following returns the value
-of the environment variable `FOO`:
+There are two function available:
+
+* `env`
+* `concat`
+
+The function `env` returns the value of given environment variable:
 
 ```
 env(FOO)
 ```
 
-The function `env` supports environment variables that are given in your build
-configuration (e.g. on `env` or `env.global`), and environment variables
-specified in your repository settings.
+`env` supports environment variables that are set in the `env` key (including
+`env.global`) of your `.travis.yml` or specified in your repository settings.
 
 > Note that there is no function `env.global` or similar. Instead all
 > environment variables are available through `env`.
+
+The function `concat` accepts any number of arguments and concatenates them
+into a single string:
+
+```
+concat("foo", "-", env(BAR))
+# => "foo-bar"
+```
+
+This can also be used in the context of matching a regular expression. For
+example with `env: SERVICE=some-service` the following is equivalent to
+`branch =~ ^srv-some-service-`:
+
+```
+branch =~ concat(^srv-,env(SERVICE),-)
+```
 
 ### Lists
 
