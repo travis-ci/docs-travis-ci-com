@@ -7,10 +7,6 @@ This page lists settings that are only available in the Travis CI .com and .org 
 
 <div id="toc"></div>
 
-## Build only if .travis.yml is present
-
-Limit builds to branches that contain `.travis.yml`. This is the default.
-
 ## Limit concurrent jobs
 
 {{ site.data.snippets.concurrent_jobs }}

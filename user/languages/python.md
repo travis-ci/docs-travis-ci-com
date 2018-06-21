@@ -106,8 +106,8 @@ python:
   - "pypy3.5"
 # command to install dependencies
 install:
-  - pip install .
   - pip install -r requirements.txt
+  - pip install .
 # command to run tests
 script: pytest
 ```

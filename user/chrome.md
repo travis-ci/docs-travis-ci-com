@@ -79,3 +79,24 @@ end
 
 Capybara.javascript_driver = :chrome
 ```
+
+### Behat
+
+When using [Behat](https://github.com/Behat/Behat) you should pass the options to the selenium2 chrome configuration:
+
+```yml
+default:
+  extensions:
+    Behat\MinkExtension:
+      selenium2:
+        # This will probably be the same always, if you follow the guide for browsers below.
+        wd_host: http://localhost:8643/wd/hub
+        capabilities:
+          chrome:
+            switches:
+              - "--headless"
+              - "--disable-gpu"
+              - "--no-sandbox"
+      javascript_session: selenium2
+      browser_name: chrome
+``` 

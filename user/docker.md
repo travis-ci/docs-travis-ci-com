@@ -95,7 +95,7 @@ Finished in 0.022952763 seconds.
 Instead of downloading the Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) you can
 build it directly from the Dockerfile in the [GitHub
-respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile).
+repository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile).
 
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:

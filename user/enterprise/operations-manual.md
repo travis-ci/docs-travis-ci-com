@@ -98,7 +98,7 @@ If none of the steps above lead to results for you, please follow the steps in t
 
 If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either:
 
-1. Install a Trusty worker on a fresh vm instance: [Trusty installation guide](/user/enterprise/trusty-build-containers/)
+1. Install a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
 1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
 
 ## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
