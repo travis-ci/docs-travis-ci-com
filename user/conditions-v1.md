@@ -12,6 +12,9 @@ specifying conditions in your build configuration (your `.travis.yml` file).
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
 for details.
 
+Conditions can be tested using the `travis-conditions` command. See
+[Testing Conditions](/user/conditions-testing).
+
 ## Integration
 
 Conditions are parsed and evaluated using [this library](https://github.com/travis-ci/travis-conditions/pull/1),
