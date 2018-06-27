@@ -1,7 +1,7 @@
 ---
 title: Data Processing Agreement
 layout: en
-
+no_toc: true
 ---
 
 ## Between
@@ -142,4 +142,3 @@ The list shall state the extent, the nature and purpose of any contemplated coll
 
 2. Organizational provision on processing
 - Travis-CI maintains a system to examine, assess, and evaluate regularly the effectivity of the security of processing data. Travis-CI will, on request, provide details on such security measures. Travis-CI will also, on request, prove such system of evaluation to the Client.
-
