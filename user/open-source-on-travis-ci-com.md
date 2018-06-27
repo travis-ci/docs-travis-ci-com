@@ -6,7 +6,7 @@ layout: en
 
 On May 2nd, 2018 Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
 
-<div id="toc"></div>
+
 
 This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 

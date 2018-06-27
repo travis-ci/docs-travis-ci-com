@@ -9,7 +9,7 @@ If you're new to continuous integration or would like some more information on
 what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
 instead.
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 

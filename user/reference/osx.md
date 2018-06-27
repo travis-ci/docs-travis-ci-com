@@ -11,7 +11,7 @@ redirect_from:
 This guide explains what packages, tools and settings are available in the
 Travis OS X CI environment (often referred to as the “CI environment”).
 
-<div id="toc"></div>
+
 
 ## Overview
 

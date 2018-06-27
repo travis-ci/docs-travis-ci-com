@@ -10,7 +10,7 @@ redirect_from:
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-<div id="toc"></div>
+
 
 ## Using Trusty
 

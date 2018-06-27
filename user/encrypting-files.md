@@ -6,7 +6,7 @@ layout: en
 
 **Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 

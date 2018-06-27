@@ -43,14 +43,6 @@ If you have long lists you can wrap them into 2 (`.column-2`) or 3 (`.column-3`)
 {: .column-2 }
 ```
 
-### TOC
-
-Add a table of contents to a page with the following HTML snippet:
-
-```html
-<div id="toc"></div>
-```
-
 ### Beta features
 
 Mark all beta features with a specially formatted note. Both the `> BETA` and

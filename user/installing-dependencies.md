@@ -6,7 +6,7 @@ redirect_from:
   - /user/apt/
 ---
 
-<div id="toc"></div>
+
 
 ## Installing Packages on Standard Infrastructure
 

@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can cache content that does not often change, to speed up your build process.
 **To use the caching feature**, in your repository settings, set *Build pushed branches* to

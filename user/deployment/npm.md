@@ -9,7 +9,7 @@ publishes to npmjs.com, however if you have a `publishConfig.registry` key in yo
 `package.json` then Travis CI publishes to that registry instead.
 
 
-<div id="toc"></div>
+
 
 
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
