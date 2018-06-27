@@ -63,7 +63,7 @@ Current versions of MySQL are
 | Sudo-enabled    | 5.5.x          | 5.6.x         |
 | Container-based | -              | 5.6.x         |
 
-You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
+You can also [install MySQL 5.7](#MySQL-5.7) on sudo-enabled Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 
