@@ -96,15 +96,6 @@ By Ahmed El-Sayed
 
 ## Tools
 
-### Travis Cron
-
-![travis-cron](/images/apps/cron.jpg){:.app}
-
-Trigger builds on a regular schedule<br>
-By Filippo Valsorda
-
-- [source code](https://github.com/FiloSottile/travis-cron)
-
 ### Travis Web Encrypter
 
 ![travis-encrypt](/images/apps/travis-encrypt.jpg){:.app}
@@ -114,16 +105,6 @@ By Konstantin Haase
 
 - [website](http://rkh.github.io/travis-encrypt/public/index.html)
 - [source code](https://github.com/rkh/travis-encrypt)
-
-### Tron CI
-
-![travis-cron](/images/apps/tron.png){:.app}
-
-Cron jobs for your Travis CI projects<br>
-By Fabio Menegazzo
-
-- [website](https://tron-ci.herokuapp.com/)
-- [source code](https://github.com/menegazzo/tron-ci)
 
 <a name='mobile'></a>
 
