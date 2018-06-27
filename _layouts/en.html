@@ -19,9 +19,9 @@
           {% endunless %}
 
           {% unless page.no_toc %}
-
-            {% include toc.html class="list-languages" html=content %}
-
+            <div id="toc" class="toc">
+              {% include toc.html class="list-languages" html=content %}
+            </div>
           {% endunless%}
 
           {{ content }}
