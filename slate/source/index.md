@@ -830,16 +830,18 @@ Content-Type: application/json
   "jobs": [ ],
   "commits": [
     {
-      "id": 1873023,
-      "sha": "a18f211f6f921affd1ecd8c18691b40d9948aae5",
+      "id": 118789812,
+      "sha": "180158b725b8a964711ef8bdb3c8cbaf53d2e6a3",
       "branch": "master",
-      "message": "Merge pull request #25 from henrikhodne/add-responses-to-documentation\n\nAdd responses to documentation",
-      "committed_at": "2013-04-15T09:44:31Z",
-      "author_name": "Henrik Hodne",
-      "author_email": "me@henrikhodne.com",
-      "committer_name": "Henrik Hodne",
-      "committer_email": "me@henrikhodne.com",
-      "compare_url": "https://github.com/travis-ci/travis-api/compare/0f31ff4fb6aa...a18f211f6f92"
+      "tag": null,
+      "message": "Merge pull request #1452 from greysteil/metadata-link\n\nAdd metadata link to gemspec",
+      "committed_at": "2018-06-24T16:50:16Z",
+      "author_name": "namusyaka",
+      "author_email": "namusyaka@gmail.com",
+      "committer_name": "GitHub",
+      "committer_email": "noreply@github.com",
+      "compare_url": "https://github.com/sinatra/sinatra/compare/1caeafec67e9...180158b725b8",
+      "pull_request_number": null
     }
   ]
 }
