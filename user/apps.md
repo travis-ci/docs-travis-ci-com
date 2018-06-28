@@ -484,4 +484,4 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 ## R
 
-- [travis](https://github.com/localytics/travis.ex) by Kirill Müller
+- [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
