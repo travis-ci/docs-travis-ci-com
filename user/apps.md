@@ -11,7 +11,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 - **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
+- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -481,3 +481,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
+
+## R
+
+- [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
