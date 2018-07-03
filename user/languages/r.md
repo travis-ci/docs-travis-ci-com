@@ -60,8 +60,8 @@ Travis CI supports a number of configuration options for your R package.
 ### R Versions
 
 Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
-Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the 
-name `oldrel` is aliased to the previous major release and `release` is aliased to the 
+Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
+name `oldrel` is aliased to the previous major release and `release` is aliased to the
 latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
 of the R SVN trunk (updated hourly).
 
@@ -98,8 +98,8 @@ your `.travis.yml`.
 
 ### LaTeX/TexLive Packages
 
-The included TexLive distribution contains only a [limited set of default
-packages][github 6]. If your vignettes require additional TexLive packages you
+The included TexLive distribution contains only a limited set of default
+packages. If your vignettes require additional TexLive packages you
 can install them using `tlmgr install` in the `before_install` step.
 
 ```yaml
@@ -394,8 +394,6 @@ moving from r-travis to native support, see the [porting guide][github 9].
 [github 4]: https://github.com/jimhester
 
 [github 5]: https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes
-
-[github 6]: https://github.com/yihui/ubuntu-bin/blob/master/TeXLive.pkgs
 
 [github 7]: https://github.com/jgm/pandoc/releases
 
