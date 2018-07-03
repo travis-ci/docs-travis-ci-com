@@ -190,7 +190,7 @@ $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 
 ```bash
 before_install:
-- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
+- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
@@ -221,7 +221,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+>   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 
@@ -255,7 +255,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 
 ```yaml
 before_install:
-- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 ```
 {: data-file=".travis.yml"}
 
@@ -287,7 +287,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+>   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 

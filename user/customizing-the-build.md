@@ -299,7 +299,7 @@ We recommend using a read-only GitHub OAuth token to authenticate when using git
 
 ```
 before_install:
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 - git lfs pull
 ```
 
