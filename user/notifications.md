@@ -288,6 +288,8 @@ If you want the bot to send messages to channels protected with a channel key (i
 > ```bash
 > travis encrypt password --add notifications.irc.channel_key
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 ```yaml
 notifications:
@@ -309,6 +311,8 @@ You may also authenticate to an IRC server with user:
 > travis encrypt password --add notifications.irc.channel_key
 > travis encrypt password --add notifications.irc.password
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 ```yaml
 notifications:
@@ -341,6 +345,8 @@ notifications:
 > ```bash
 > travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 You can also customise the notifications, like with [IRC notifications](#Configuring-IRC-notifications):
 
@@ -376,6 +382,8 @@ notifications:
 > ```bash
 > travis encrypt api_token --add notifications.flowdock
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 Pull Request builds do not trigger Flowdock notifications.
 
@@ -402,6 +410,8 @@ notifications:
 > ```bash
 > travis encrypt api_token@room_id_or_name --add notifications.hipchat.rooms
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 If you are running HipChat Server, specify the hostname like this instead:
 
@@ -503,6 +513,8 @@ notifications:
 > travis encrypt [api_token] --add notifications.pushover.api_key
 > travis encrypt [user_key] --add notifications.pushover.users --append
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 You can also customise the notifications, like with IRC notifications:
 
@@ -542,6 +554,8 @@ your `.travis.yml`, and you're good to go.
 > ```bash
 > travis encrypt "<account>:<token>" --add notifications.slack.rooms
 > ```
+>
+> If your public project is on travis-ci.com, remember to add the `--pro` flag to your `travis encrypt` command.
 
 The simplest configuration requires your account name and the token you just
 generated.
