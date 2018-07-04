@@ -20,11 +20,12 @@
 
           {% unless page.no_toc %}
             <div id="toc" class="toc">
-              {% include toc.html class="list-languages" html=content %}
+              {% include toc.html sanitize="true" h_min=2 h_max=3 class="list-languages" html=content %}
             </div>
           {% endunless%}
 
-          {{ content }}
+          {% include anchor_headings.html html=content anchorClass="toc-anchor" anchorBody="#" %}
+
         </main>
       </div><!-- /#content -->
 
