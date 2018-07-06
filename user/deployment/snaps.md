@@ -19,13 +19,13 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-In order for Travis CI to have permission to upload the snap on your behalf, you need to export a Snap Store login token. You can do this with the snapraft command-line tool, once you have [enabled snap support](https://docs.snapcraft.io/core/install) on your system.
+To upload snaps from Travis CI, export a Snap Store login token. You can do this with the snapcraft command-line tool, once you have [enabled snap support](https://docs.snapcraft.io/core/install) on your system.
 
 ```bash
 sudo snap install snapcraft --classic
 ```
 
-Login tokens can attenuate how, when, and where they can be used, thus minimising damage from compromise. For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
+Login tokens can specify how, when, and where they can be used, thus minimising damage from compromise. For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
 
 ```bash
 snap export-login --snaps my-snap-name --channels edge -
