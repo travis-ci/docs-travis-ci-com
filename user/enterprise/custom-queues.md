@@ -87,3 +87,7 @@ To allocate a worker to a particular queue, define the `QUEUE_NAME` variable in 
 sudo service travis-worker restart
 ```
 The new queue settings will take effect upon restart. 
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

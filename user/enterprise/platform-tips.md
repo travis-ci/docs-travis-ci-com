@@ -12,9 +12,23 @@ started.
 
 ## Inspecting logs and running services
 
+### Platform logs
+
 On the Platform you can find the main log file at
 `/var/travis/log/travis.log`. They are also symlinked to
 `/var/log/travis.log` for convenience.
+
+### Worker logs
+
+#### With Ubuntu 16.04 as host operating system
+
+On the Worker you can obtain the worker logs by running:
+
+```sh
+$ sudo journalctl -u travis-worker
+```
+
+#### With Ubuntu 14.04 as host operating system
 
 On the Worker you can find the main log file at
 `/var/log/upstart/travis-worker.log`
@@ -246,23 +260,55 @@ In general: These certificate renewals should be automated with a cron job.
 If you wish to uninstall Travis CI Enterprise from your platform and worker
 machines, please follow the instructions below. On the platform machine, you
 need to run the following commands in order. <small>(Instructions copied over
-from <a href="https://www.replicated.com/docs/distributing-an-application/installing-via-script/#removing-replicated">Replicated</a>)</small>
+from <a href="https://help.replicated.com/docs/native/customer-installations/installing-via-script/">Replicated</a>)</small>
 
-```
-service replicated stop
-service replicated-ui stop
-service replicated-operator stop
-docker stop replicated-premkit
-docker stop replicated-statsd
-docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
-docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
-apt-get remove -y replicated replicated-ui replicated-operator
-apt-get purge -y replicated replicated-ui replicated-operator
-rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
+### With Ubuntu 16.04 as host operating system
+
+```sh
+sudo systemctl stop replicated
+sudo systemctl stop replicated-ui
+sudo systemctl stop replicated-operator
+sudo docker ps | grep "replicated" | awk '{print $1}' | xargs sudo docker stop
+sudo docker ps | grep "quay.io-travisci-te-main" | awk '{print $1}' | xargs sudo docker stop
+sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
+sudo docker images | grep "replicated" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo docker images | grep "te-main" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
 ```
 
-On the worker machine, you need to run this command:
+On the worker machine, you need to run this command to remove travis-worker and all build images:
+
+```sh
+$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
+```
+
+#### With Ubuntu 14.04 as host operating system
+
+```sh
+sudo service replicated stop
+sudo service replicated-ui stop
+sudo service replicated-operator stop
+sudo docker stop replicated-premkit
+sudo docker stop replicated-statsd
+sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
+sudo docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
+sudo apt-get remove -y replicated replicated-ui replicated-operator
+sudo apt-get purge -y replicated replicated-ui replicated-operator
+sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
+```
+
+On the worker machine, you need to run this command to remove travis-worker:
 
 ```
 $ sudo apt-get autoremove travis-worker
 ```
+
+Additionally, please the following command to clean up all Docker build images:
+
+```
+$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
+```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

@@ -66,7 +66,6 @@ Note that using `set -e` in external scripts does not cause this problem.
 
 See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
 
-
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
@@ -489,8 +488,8 @@ install: travis_retry pip install myawesomepackage
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
 
-Note that `travis_retry` only works within the `script` step. It will not work
-in other steps, like `deploy`.
+Note that `travis_retry` does not work in the `deploy` step of the build, although it
+does work in the [other steps](/user/customizing-the-build/#The-Build-Lifecycle).
 
 
 ### Build times out because no output was received
@@ -640,3 +639,10 @@ If a build hasn't been triggered for your commit, these are the possible build r
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
+
+## I'm running out of disk space in my build
+
+Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#Virtualisation-Environment-vs-Operating-System).
+
+The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
+If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.

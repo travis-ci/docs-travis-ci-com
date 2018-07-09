@@ -129,11 +129,11 @@ for a more technical discussion.
 
 If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
 
-- If `before_install`, `install` or `before_script` return a non-zero exit code,
+- If `before_install`, `install` or `before_script` returns a non-zero exit code,
   the build is **errored** and stops immediately.
 - If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-The exit code of `after_success`, `after_failure`, `after_script` and subsequent stages do not affect the build result.
+The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy` and subsequent stages do not affect the build result.
 However, if one of these stages times out, the build is marked as a failure.
 
 ## Deploying your Code
@@ -155,7 +155,7 @@ deploy:
 
 You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
-If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
+If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase. Note that `after_deploy` will not affect the status of the build.
 
 Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
 
@@ -179,7 +179,7 @@ before_install:
 > Note that this feature is not available for builds that are running on [Container-based workers](/user/reference/overview/#Virtualization-environments).
 > Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
 
-All virtual machines are snapshotted and returned to their intial state after each build.
+All virtual machines are snapshotted and returned to their initial state after each build.
 
 ### Using 3rd-party PPAs
 
@@ -202,9 +202,9 @@ You can also use other installation methods such as `apt-get`.
 It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
 
-- A job produces no log output for 10 minutes
-- A job on travis-ci.org takes longer than 50 minutes
-- A job on travis-ci.com takes longer than 120 minutes
+- When a job produces no log output for 10 minutes.
+- When a job on a public repository takes longer than 50 minutes.
+- When a job on a private repository takes longer than 120 minutes.
 
 Some common reasons why builds might hang:
 
@@ -268,6 +268,18 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+## Git Clone Quiet
+
+Travis CI clones repositories without the quiet flag (`-q`) by default. Enabling the quiet flag can be useful if you're trying to avoid log file size limits or even if you just don't need to include it.
+
+You can enable the [quiet flag](https://git-scm.com/docs/git-clone#git-clone---quiet) in `.travis.yml`:
+
+```yaml
+git:
+  quiet: true
+```
+{: data-file=".travis.yml"}
+
 ## Git Submodules
 
 Travis CI clones git submodules by default, to avoid this set:
@@ -287,7 +299,7 @@ We recommend using a read-only GitHub OAuth token to authenticate when using git
 
 ```
 before_install:
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
 - git lfs pull
 ```
 
@@ -747,11 +759,13 @@ addons:
 
 ## What repository providers or version control systems can I use?
 
-Build and test your open source projects hosted on GitHub on [travis-ci.org](https://travis-ci.org/).
-
-Build and test your private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
 
 Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+
+## What YAML version can I use in .travis.yaml
+
+Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
 
 ## Troubleshooting
 

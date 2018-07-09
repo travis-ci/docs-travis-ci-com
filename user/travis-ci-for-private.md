@@ -69,14 +69,14 @@ If you have a private repository that you'd like to make public, first
 deactivate it on [Travis CI .com](https://travis-ci.com), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, and toggle the
+1. On [Travis CI .com](https://travis-ci.com) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
 how to make a repository public.
 
-2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
+2. On [Travis CI .org](https://travis-ci.org) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
@@ -92,14 +92,14 @@ If you have a public repository that you'd like to make private, first
 deactivate it on [Travis CI .org](https://travis-ci.org), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, and toggle the
+1. On [Travis CI .org](https://travis-ci.org) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
 how to make a repository private.
 
-2. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, click *Sync
+2. On [Travis CI .com](https://travis-ci.com) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)

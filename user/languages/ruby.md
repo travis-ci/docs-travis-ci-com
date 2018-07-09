@@ -135,8 +135,6 @@ Bundler installation can take a while, slowing down your build. You can tell
 On your first build, we warm the cache. On the second one, we'll pull in the
 cache, making `bundle install` only take seconds to run.
 
-Note that this feature is currently only available for private projects.
-
 #### Speeding up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`
@@ -183,6 +181,8 @@ To specify a custom Gemfile name or location:
 gemfile: gemfiles/Gemfile.ci
 ```
 {: data-file=".travis.yml"}
+
+If you specify the location of your Gemfile in this way, the build will fail if the file is not found.
 
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
@@ -296,6 +296,11 @@ matrix:
 
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
 
 ## Upgrading RubyGems
 

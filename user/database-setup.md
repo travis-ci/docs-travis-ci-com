@@ -170,7 +170,7 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.1 by default, but other versions
+The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
 from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
 also available. To use a version other than the default, specify only the
 **major.minor** version in your `.travis.yml`:
@@ -286,7 +286,7 @@ test:
   database: ":memory:"
   timeout: 500
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
 Or if you're not using a `config/database.yml`, connect to the database manually:
 

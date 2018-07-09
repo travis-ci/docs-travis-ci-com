@@ -150,6 +150,14 @@ cache:
 
 `npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
 
+### npm ci support
+
+If a `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
+supports it, Travis CI will use `npm ci` instead of `npm install`.
+
+This command will delete your `node_modules` folder and install all dependencies
+as specified in your lock file.
+
 ### Travis CI supports yarn
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
