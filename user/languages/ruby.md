@@ -182,6 +182,8 @@ gemfile: gemfiles/Gemfile.ci
 ```
 {: data-file=".travis.yml"}
 
+If you specify the location of your Gemfile in this way, the build will fail if the file is not found.
+
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
 
