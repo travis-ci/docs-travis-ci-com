@@ -5,6 +5,11 @@ layout: en
 ---
 
 
+### What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+Python builds are not available on the macOS environment.
 
 <aside markdown="block" class="ataglance">
 
@@ -28,16 +33,11 @@ Minimal example:
 
 </aside>
 
-### What This Guide Covers
-
-{{ site.data.snippets.trusty_note_no_osx }}
-
-Python builds are not available on the macOS environment.
-
-
 The rest of this guide covers configuring Python projects in Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
 [build configuration](/user/customizing-the-build/) guides first.
+
+
 
 ## Specifying Python versions
 
