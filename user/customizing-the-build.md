@@ -505,44 +505,7 @@ Now, the build result will be determined as soon as all the required jobs finish
 
 ## Implementing Complex Build Steps
 
-If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script.
-The script can be a part of your repository and can easily be called from the `.travis.yml`.
-
-Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
-
-```bash
-#!/bin/bash
-set -ev
-bundle exec rake:units
-if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-  bundle exec rake test:integration
-fi
-```
-
-Note the `set -ev` at the top. The `-e` flag causes the script to exit as soon as one command returns a non-zero exit code. This can be handy if you want whatever script you have to exit early. It also helps in complex installation scripts where one failed command wouldn't otherwise cause the installation to fail.
-
-The `-v` flag makes the shell print all lines in the script before executing them, which helps identify which steps failed.
-
-To run that script from your `.travis.yml`:
-
-1. Save it in your repository as `scripts/run-tests.sh`.
-2. Make it executable by running `chmod ugo+x scripts/run-tests.sh`.
-3. Commit it to your repository.
-4. Add it to your `.travis.yml`:
-    ```yaml
-    script: ./scripts/run-tests.sh
-    ```
-    {: data-file=".travis.yml"}
-
-### How does this work? (Or, why you should not use `exit` in build steps)
-
-The steps specified in the build lifecycle are compiled into a single bash script and executed on the worker.
-
-When overriding these steps, do not use `exit` shell built-in command.
-Doing so will run the risk of terminating the build process without giving Travis a chance to
-perform subsequent tasks.
-
-Using `exit` inside a custom script which will be invoked from during a build is fine.
+TODO: link
 
 ## Custom Hostnames
 
