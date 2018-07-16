@@ -38,11 +38,10 @@ Keep in mind that the above command has to run in your project directory, so it 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
 
-For example, if you build your project with different GHC versions (such as described [here](/user/languages/haskell/#Specifying-Haskell-compiler-versions)),
-you would usually only want to deploy from one GHC version.
-This can be achieved by adding a condition like the following to your `deploy:` section:
+For example, if you build your project with [different GHC versions](/user/languages/haskell/#Specifying-Haskell-compiler-versions) but only want to deploy from one GHC version, add an `on` condition to your `deploy:` section:
 
 ```yaml
+deploy:
   on:
     condition:
       - $TRAVIS_HASKELL_VERSION = 8.2.2
