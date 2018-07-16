@@ -90,3 +90,8 @@ before_install: cd ${PACKAGEDIR}
 {: data-file=".travis.yml"}
 
 The build matrix is then constructed such that each package is compiled with each version of GHC.
+
+## Hackage Deployment
+
+Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
+See [Hackage Deployment](/user/deployment/hackage/).
