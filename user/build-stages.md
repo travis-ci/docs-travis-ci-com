@@ -45,7 +45,7 @@ stages as your delivery process requires.
 In the following example, we are running two jobs on the first stage, called
 test, and then run a single third job on the second stage, called deploy:
 
-![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+![Example screencast](/images/stages/stages.gif)
 
 ## How to define Build Stages?
 
