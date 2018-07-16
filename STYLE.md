@@ -134,3 +134,9 @@ This code is in .travis.yml
 - Always refer to *Travis CI* and never to Travis.
 
 ## Images
+
+### Screencapture gifs
+
+1. Run a build (or whatever you are trying to capture),
+2. Capture it with [licecap](https://www.cockos.com/licecap/).
+3. Save the gig in `images/`
