@@ -97,6 +97,25 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
+### Naming your Jobs within Build Stages
+
+You can also name specific jobs within build stages. We recommend unique job names, but 
+do not enforce it (though this may change in the future). Job names are defined like other 
+job configuration elements within a build stage, but the value of the `name` must be in quotes.
+Here's an example of a build using build stages and job names:
+
+```yaml
+  include:
+    - stage: test
+      name: "test 1"
+      script: ./test 1
+    - script: ./test 2
+      name: "test 2"
+    - stage: deploy
+      name: "deploy to target"
+      script: ./deploy
+```
+
 ## Build Stages and Build Matrix Expansion
 
 [Matrix expansion](/user/customizing-the-build/#Build-Matrix)

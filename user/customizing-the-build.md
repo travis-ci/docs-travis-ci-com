@@ -455,6 +455,29 @@ matrix:
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
+### Naming Jobs within Matrices
+
+You can define names for specific jobs within a matrix. We recommend unique job names, but 
+do not enforce it (though this may change in the future). Job names are defined like other 
+job configuration elements within a build matrix, but the value of the `name` must be in quotes.
+Here's an example of a matrixed build using job names:
+
+```yaml
+language: python
+matrix:
+  include:
+  - name: "3.5 A"
+    python: "3.5"
+    env: TEST_SUITE=suite_3_5_a
+  - name: "3.5 B"
+    python: "3.5"
+    env: TEST_SUITE=suite_3_5_b
+  - name: "pypy A"
+    python: "pypy"
+    env: TEST_SUITE=suite_pypy
+  script: ./test.py $TEST_SUITE
+```
+
 ### Excluding Jobs
 
 If the jobs you want to exclude from the build matrix share the same matrix
