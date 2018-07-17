@@ -11,8 +11,6 @@ p
   @include linkStyle
 
 %code-styles
-  border: 1px solid $cement-grey
-  border-radius: 4px
   font-family: monaco, monospace
   font-size: $font-size-xs
   color: #000
@@ -25,12 +23,12 @@ address
 code
   @extend %code-styles
   display: inline-block
-  margin: 0 0 0 .3em
   padding: 0em 0.4em
   line-height: 1.7
 
 pre
   @extend %code-styles
+  border-radius: 3px
   margin-top: 1em
   padding: 1em 1.5em
   line-height: 1.5em
@@ -55,7 +53,7 @@ blockquote
   code
     color: $oxide-blue
     border-color: $oxide-blue
-    background-color: $white
+    background-color: transparent
 
 ol
   padding: 0 0 0 1.3em

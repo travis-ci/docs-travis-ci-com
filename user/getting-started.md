@@ -16,13 +16,13 @@ instead.
 To start using Travis CI, make sure you have *all* of the following:
 
  * [GitHub](https://github.com/) login
- * Project [hosted as a repository](https://help.github.com/categories/importing-your-projects-to-github/) on GitHub
+ * Admin permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/)
  * Working code in your project
  * Working build or test script
 
 ## To get started with Travis CI
 
-1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate.
+1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate. You'll need Admin permissions for that repository.
 
 2. Once you're signed in to Travis CI, and we've synchronized your GitHub
    repositories, go to your profile page and enable the repository
@@ -106,8 +106,9 @@ Objective-C, use our OS X environment:
   ```
   {: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS-specific software.
+  > You do *not* necessarily need to use OS X if you develop on a Mac.
+  > OS X is required only if you need Swift, Objective-C or other
+  > macOS-specific software.
 
 ## More than running tests
 

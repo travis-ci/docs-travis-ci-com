@@ -106,8 +106,8 @@ python:
   - "pypy3.5"
 # command to install dependencies
 install:
-  - pip install .
   - pip install -r requirements.txt
+  - pip install .
 # command to run tests
 script: pytest
 ```
@@ -126,8 +126,8 @@ You can specify these in your builds with `3.5-dev`, `3.6-dev`,
 `3.7-dev` or `3.8-dev`.
 
 {: .warning}
-> Recent Python development branches [require OpenSSL 1.0.2+](https://github.com/travis-ci/travis-ci/issues/9069).
-> As this library is not available for Trusty, `3.7-dev`, `3.8-dev`, and `nightly`
+> Recent Python branches [require OpenSSL 1.0.2+](https://github.com/travis-ci/travis-ci/issues/9069).
+> As this library is not available for Trusty,  `3.7`, `3.7-dev`, `3.8-dev`, and `nightly`
 > do not work (or use outdated archive).
 
 ## Default Build Script

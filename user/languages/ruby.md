@@ -182,6 +182,8 @@ gemfile: gemfiles/Gemfile.ci
 ```
 {: data-file=".travis.yml"}
 
+If you specify the location of your Gemfile in this way, the build will fail if the file is not found.
+
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
 
@@ -226,14 +228,14 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-ChefSpec is [tested against multiple Opscode Chef
-versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
+ChefSpec is [tested against multiple Chef
+versions](https://github.com/chefspec/chefspec/blob/master/.travis.yml):
 
 ```yaml
 env:
-  - CHEF_VERSION=0.9.18
-  - CHEF_VERSION=0.10.2
-  - CHEF_VERSION=0.10.4
+  - CHEF_VERSION=14.3.37
+  - CHEF_VERSION=13.10.0
+  - CHEF_VERSION=12.22.5
 ```
 {: data-file=".travis.yml"}
 
@@ -294,6 +296,11 @@ matrix:
 
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
 
 ## Upgrading RubyGems
 

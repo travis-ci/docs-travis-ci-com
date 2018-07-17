@@ -8,10 +8,10 @@ There is a wide range of tools you can use to interact with Travis CI:
 
 - **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
 - **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows), [Cross Platform](#Cross-Platform)
+- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
+- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -96,15 +96,6 @@ By Ahmed El-Sayed
 
 ## Tools
 
-### Travis Cron
-
-![travis-cron](/images/apps/cron.jpg){:.app}
-
-Trigger builds on a regular schedule<br>
-By Filippo Valsorda
-
-- [source code](https://github.com/FiloSottile/travis-cron)
-
 ### Travis Web Encrypter
 
 ![travis-encrypt](/images/apps/travis-encrypt.jpg){:.app}
@@ -114,16 +105,6 @@ By Konstantin Haase
 
 - [website](http://rkh.github.io/travis-encrypt/public/index.html)
 - [source code](https://github.com/rkh/travis-encrypt)
-
-### Tron CI
-
-![travis-cron](/images/apps/tron.png){:.app}
-
-Cron jobs for your Travis CI projects<br>
-By Fabio Menegazzo
-
-- [website](https://tron-ci.herokuapp.com/)
-- [source code](https://github.com/menegazzo/tron-ci)
 
 <a name='mobile'></a>
 
@@ -224,19 +205,6 @@ Linux alternative to CCMenu<br>
 By Anay Nayak
 
 - [website](https://bitbucket.org/Anay/buildnotify/wiki/Home)
-- [tutorial](/user/cc-menu/)
-
-## Windows
-
-### CCTray
-
-![CCTray](/images/apps/cctray.jpg){:.app}
-
-System Tray client<br>
-By CCNet and ThoughtWorks Inc.
-
-- [website](http://www.cruisecontrolnet.org/projects/cctray)
-- [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
 - [tutorial](/user/cc-menu/)
 
 ## Cross Platform
@@ -513,3 +481,7 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
+
+## R
+
+- [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
