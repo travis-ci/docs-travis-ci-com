@@ -39,7 +39,7 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
-### Excluding Jobs
+## Excluding Jobs
 
 You can also define exclusions to the build matrix:
 
@@ -106,7 +106,7 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-#### Excluding jobs with `env` value
+### Excluding jobs with `env` value
 
 When excluding jobs with `env` values, the value must match
 _exactly_.
@@ -154,7 +154,7 @@ matrix:
       env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
 ```
 
-### Explicitly Including Jobs
+## Explicitly Including Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
@@ -191,7 +191,7 @@ script: ./test.py $TEST_SUITE
 creates a build matrix with 3 jobs, which runs test suite for each version
 of Python.
 
-#### Explicitly included jobs inherit the first value in the array
+### Explicitly included jobs inherit the first value in the array
 
 The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
@@ -216,7 +216,7 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-### Rows that are Allowed to Fail
+## Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
@@ -233,14 +233,14 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-#### Matching Jobs with `allow_failures`
+### Matching Jobs with `allow_failures`
 
 When matching jobs against the definitions given in `allow_failures`, _all_
 conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
 top level of the build matrix (i.e., not in `matrix.include`).
 
-##### `allow_failures` Examples
+#### `allow_failures` Examples
 
 Consider
 
@@ -286,7 +286,7 @@ matrix:
 
 Without the top-level `env`, no job will be allowed to fail.
 
-### Fast Finishing
+## Fast Finishing
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
