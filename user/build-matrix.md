@@ -5,38 +5,37 @@ layout: en
 
 <div id="toc"></div>
 
-The build matrix is a way to specify multiple parallel jobs with a single `.travis.yml` configuration file.
+There are two ways to specify multiple parallel jobs (what we call the build matrix) with a single `.travis.yml` configuration file:
 
-You can either combine three main configuration options (*Runtime*, *Environment* and *Exclusions/Inclusions*) to create a matrix of all possible combinations or you can  specify the exact combination of configurations you want in `matrix.include`.
+* combine a language-and-environment dependent set of configuration options to automatically create a matrix of all possible combinations.
+  For example, the following configuration produces a build matrix that expands to *8 individual (2 * 2 * 2)* jobs.
 
-For example, the following configuration produces a build matrix that expands to *8 individual (2 * 2 * 2)* jobs.
+  ```yaml
+  rvm:
+    - 2.5
+    - 2.2
+  gemfile:
+    - gemfiles/Gemfile.rails-3.2.x
+    - gemfiles/Gemfile.rails-3.0.x
+  env:
+    - ISOLATED=true
+    - ISOLATED=false
+  ```
+  {: data-file=".travis.yml"}
 
-```yaml
-rvm:
-  - 2.5
-  - 2.2
-gemfile:
-  - gemfiles/Gemfile.rails-3.2.x
-  - gemfiles/Gemfile.rails-3.0.x
-env:
-  - ISOLATED=true
-  - ISOLATED=false
-```
-{: data-file=".travis.yml"}
+* specify the exact combination of configurations you want in `matrix.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
 
-Or, if not all of those combinations are interesting, you can specify the combinations you want:
-
-```yaml
-matrix:
-  include:
-  - rvm: 2.5
-    gemfile: gemfiles/Gemfile.rails-3.2.x
-    env: ISOLATED=false
-  - rvm: 2.5
-    gemfile: gemfiles/Gemfile.rails-3.2.x
-    env: ISOLATED=true
-```
-{: data-file=".travis.yml"}
+  ```yaml
+  matrix:
+    include:
+    - rvm: 2.5
+      gemfile: gemfiles/Gemfile.rails-3.2.x
+      env: ISOLATED=false
+    - rvm: 2.5
+      gemfile: gemfiles/Gemfile.rails-3.2.x
+      env: ISOLATED=true
+  ```
+  {: data-file=".travis.yml"}
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
