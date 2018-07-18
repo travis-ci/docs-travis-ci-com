@@ -49,7 +49,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
+5. Check the build status page to see if your build [passes or fails](/user/build-lifecycle/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
 
 
 ## Selecting a different programming language
