@@ -251,11 +251,20 @@ See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for 
 
 MariaDB is a community-developed fork of MySQL. It is available as an addon on Travis CI.
 
-To use MariaDB, specify the "major.minor" version you want to use in your `.travis.yml`. Versions are listed on the [MariaDB web page](https://downloads.mariadb.org/).
+To use MariaDB, specify the version you want to use in your `.travis.yml`. Version strings can be "major.minor" or "major" versions (which will install the latest release for that major version). Versions are listed on the [MariaDB web page](https://downloads.mariadb.org/).
+
+For example, specifying a minor version:
 
 ```yaml
 addons:
-  mariadb: '10.0'
+  mariadb: '10.0'  # Note: this is an outdated minor
+```
+
+Or any version 10 major:
+
+```yaml
+addons:
+  mariadb: '10'
 ```
 {: data-file=".travis.yml"}
 
