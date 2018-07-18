@@ -106,11 +106,11 @@ section can be given a name attribute as follows:
 ```yaml
 jobs:  
   include:
-    - stage: "Tests"
-      name: "Unit Tests"
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
       script: ./unit-tests
-    - script: ./integration-tests
-      name: "Integration Tests"
+    - script: ./integration-tests   
+      name: "Integration Tests"     # names the second Tests stage job
     - stage: deploy
       name: "Deploy to GCP"
       script: ./deploy
