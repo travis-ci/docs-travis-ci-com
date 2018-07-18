@@ -7,7 +7,7 @@ layout: en
 
 There are two ways to specify multiple parallel jobs (what we call the build matrix) with a single `.travis.yml` configuration file:
 
-* combine a language-and-environment dependent set of configuration options to automatically create a matrix of all possible combinations.
+* combine a language-and-environment dependent set of configuration options to automatically create a matrix of all possible combinations. This is called matrix expansion.
   For example, the following configuration produces a build matrix that expands to *8 individual (2 * 2 * 2)* jobs.
 
   ```yaml
