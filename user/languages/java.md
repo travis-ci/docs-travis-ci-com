@@ -101,7 +101,7 @@ or
 ./gradlew assemble
 ```
 
-To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
+To use a different `install` command, customize the [installation step](/user/build-lifecycle/#Customizing-the-Installation-Phase).
 
 ### Gradle Default Script Command
 
