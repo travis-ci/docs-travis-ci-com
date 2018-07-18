@@ -139,4 +139,4 @@ This code is in .travis.yml
 
 1. Run a build (or whatever you are trying to capture),
 2. Capture it with [licecap](https://www.cockos.com/licecap/).
-3. Save the gig in `images/`
+3. Save the gif in `images/`
