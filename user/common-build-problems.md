@@ -489,7 +489,7 @@ Most of our internal build commands are wrapped with `travis_retry` to reduce th
 impact of network timeouts.
 
 Note that `travis_retry` does not work in the `deploy` step of the build, although it
-does work in the [other steps](/user/customizing-the-build/#The-Build-Lifecycle).
+does work in the [other steps](/user/build-lifecycle/).
 
 
 ### Build times out because no output was received

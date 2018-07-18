@@ -59,7 +59,7 @@ install:
 
 When one of the steps in the install fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
 
-You can also use `apt-get` or `snap` to [install dependencies](/user/install-dependencies/)
+You can also use `apt-get` or `snap` to [install dependencies](/user/installing-dependencies/)
 
 ### Skipping the Installation Phase
 
