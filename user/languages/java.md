@@ -83,7 +83,7 @@ Travis CI uses that instead:
 
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/build-lifecycle/#Customizing-the-Build-Phase).
 
 ## Projects Using Gradle
 
@@ -119,7 +119,7 @@ root, Travis CI uses that wrapper instead:
 ./gradlew check
 ```
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/build-lifecycle/#Customizing-the-Build-Phase).
 
 ### Caching
 
@@ -166,7 +166,7 @@ If Travis CI does not detect Maven or Gradle files it runs Ant:
 ant test
 ```
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/build-lifecycle/#Customizing-the-Build-Phase).
 
 ## Testing Against Multiple JDKs
 

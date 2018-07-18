@@ -79,7 +79,7 @@ sbt ++$TRAVIS_SCALA_VERSION test
 to run your test suite.
 
 To use a different `script` command, customize the
-[build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+[build step](/user/build-lifecycle/#Customizing-the-Build-Phase).
 
 ### Custom sbt Arguments
 
