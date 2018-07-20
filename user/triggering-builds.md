@@ -8,20 +8,16 @@ layout: en
 
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
-1. Get an API token from your Travis CI Profile page for [public repositories](https://travis-ci.org/profile)
-   or [private repositories](https://travis-ci.com/profile). You'll need the token to authenticate most of these
+1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these
    API requests.
 
    You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    to get your API token:
 
    ```
-   travis login --org
-   travis token --org
+   travis login --pro
+   travis token --pro
    ```
-
-   > If you are using Travis CI with a private repository, use `--pro` instead of
-     `--org` in the previous commands, and use `https://api.travis-ci.com` in all API requests.
 
 2. Send a request to the API. This example shell script sends a POST request to
    `/repo/travis-ci/travis-core/requests` to trigger a build of the most recent
@@ -39,7 +35,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
       -H "Travis-API-Version: 3" \
       -H "Authorization: token xxxxxx" \
       -d "$body" \
-      https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+      https://api.travis-ci.com/repo/travis-ci%2Ftravis-core/requests
    ```
 
    > The %2F in the request URL is required so that the owner and repository
@@ -77,7 +73,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     -H "Travis-API-Version: 3" \
     -H "Authorization: token xxxxxx" \
     -d "$body" \
-    https://api.travis-ci.org/repo/travis-ci%2Ftravis-core/requests
+    https://api.travis-ci.com/repo/travis-ci%2Ftravis-core/requests
    ```
 
 4. Look at the response body, which contains information about the build, the

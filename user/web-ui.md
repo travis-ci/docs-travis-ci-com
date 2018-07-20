@@ -7,10 +7,6 @@ This page lists settings that are only available in the Travis CI .com and .org 
 
 <div id="toc"></div>
 
-## Build only if .travis.yml is present
-
-Limit builds to branches that contain `.travis.yml`. This is the default.
-
 ## Limit concurrent jobs
 
 {{ site.data.snippets.concurrent_jobs }}
@@ -19,7 +15,7 @@ Limit builds to branches that contain `.travis.yml`. This is the default.
 
 If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml`.
 
-If *OFF* builds only run on branches that are [explicitly included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches).
+If *OFF*, builds won't run on pushed commits on branches.
 
 ## Build pushed pull requests
 

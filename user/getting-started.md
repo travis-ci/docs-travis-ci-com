@@ -16,18 +16,13 @@ instead.
 To start using Travis CI, make sure you have *all* of the following:
 
  * [GitHub](https://github.com/) login
- * Project [hosted as a repository](https://help.github.com/categories/importing-your-projects-to-github/) on GitHub
+ * Admin permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/)
  * Working code in your project
  * Working build or test script
 
 ## To get started with Travis CI
 
-1. Using your GitHub account, sign in to either
-
-   * [Travis CI .org](https://travis-ci.org/auth) for public repositories
-   * [Travis CI .com](https://travis-ci.com/auth) for private repositories
-
-   and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate. You'll need Admin permissions for that repository.
 
 2. Once you're signed in to Travis CI, and we've synchronized your GitHub
    repositories, go to your profile page and enable the repository
@@ -54,10 +49,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
    > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command:
-
-   * [Travis CI .org build status](https://travis-ci.org/auth) for public repositories
-   * [Travis CI .com build status](https://travis-ci.com/auth) for private repositories
+5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
 
 
 ## Selecting a different programming language
@@ -114,8 +106,9 @@ Objective-C, use our OS X environment:
   ```
   {: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS-specific software.
+  > You do *not* necessarily need to use OS X if you develop on a Mac.
+  > OS X is required only if you need Swift, Objective-C or other
+  > macOS-specific software.
 
 ## More than running tests
 

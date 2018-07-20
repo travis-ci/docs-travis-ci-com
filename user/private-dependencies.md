@@ -153,7 +153,7 @@ Current SSH key: CI dependencies
 Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for "main" and "main2", but all repositories under the "myorg" organization.
 
 ```bash
-$ travis repos --active --owner myorg --pro | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
+$ travis repos --active --owner myorg | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
 updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
 updating ssh key for myorg/main2 with key from myorg_key
@@ -190,7 +190,7 @@ $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 
 ```bash
 before_install:
-- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
+- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
@@ -221,7 +221,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+>   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 
@@ -255,7 +255,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 
 ```yaml
 before_install:
-- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 ```
 {: data-file=".travis.yml"}
 
@@ -287,7 +287,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+>   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 
@@ -300,4 +300,4 @@ As mentioned a few times, it might make sense to create a dedicated CI user for 
 - Less risk when it comes to leaking keys or credentials.
 - The CI user will not leave the organization for non-technical reasons and accidentally break all your builds.
 
-In order to do so, you need to register on GitHub as if you would be signing up for a normal user (pro tip: try using incognito mode in your browser, so you don't have to sign out of your main account). Registering users cannot be automated, since that would violate the GitHub Terms of Service.
+In order to do so, you need to register on GitHub as if you would be signing up for a normal user.  Registering users cannot be automated, since that would violate the GitHub Terms of Service.

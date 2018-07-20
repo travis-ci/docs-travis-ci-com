@@ -242,7 +242,7 @@ Scons
 
 ### Haskell Platform Version
 
-[Haskell Platform](http://hackage.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
+[Haskell Platform](https://www.haskell.org/platform/contents.html) 2012.02 and GHC 7.0, 7.4, 7.6 and 7.8.
 
 ## Perl VM images
 
@@ -384,7 +384,7 @@ The Ruby images contain recent versions of:
 - JRuby: 1.7.x (1.8 and 1.9 mode)
 - Ruby Enterprise Edition: 1.8.7 2012.02
 
-> Ruby 1.8.6 and 1.9.1 are no [longer available on travis-ci.org](https://twitter.com/travisci/status/114926454122364928).
+> Ruby 1.8.6 and 1.9.1 are no longer available Travis CI.
 
 Pre-compiled versions are downloaded on demand from:
 - [rubies.travis-ci.org](http://rubies.travis-ci.org).
