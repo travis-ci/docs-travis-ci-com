@@ -143,7 +143,7 @@ This can have various causes, including an automatic nvm update or a caching err
 
 ### Strategy
 
-This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Let’s-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
 ## Contact Enterprise Support
 
