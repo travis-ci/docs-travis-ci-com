@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -23,8 +23,6 @@ language: rust
 {: data-file=".travis.yml"}
 
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note }}
 
