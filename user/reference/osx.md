@@ -142,22 +142,22 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 
 ## Compilers and Build toolchain
 
-- automake 1.15.1
-- maven 3.5.0
-- mercurial 4.3.3
+- automake 1.16.1
+- maven 3.5.3
+- mercurial 4.6.1
 - pkg-config 0.29.2
-- wget 1.19.1_1
-- xctool 0.3.3
-- cmake 3.9.4
+- wget 1.19.5
+- xctool 0.3.4
+- cmake 3.11.3
 
 ## Languages
 
-- go 1.9.1
+- go 1.10.3
 
 ## Services
 
-- postgis 2.4.0
-- postgresql 9.6.5
+- postgis 2.4.4.4_1
+- postgresql 10.4
 
 ## Runtimes
 
@@ -199,7 +199,7 @@ e.g.  to tag the build, or to run post-build deployments.
 
 ## Maven version
 
-Stock Apache Maven 3.
+Stock Apache Maven 3.5.3
 
 ## Ruby versions/implementations
 
@@ -215,6 +215,7 @@ Stock Apache Maven 3.
 - ruby-2.2.5
 - ruby-2.3.0
 - ruby-2.3.1
+- ruby-2.4.3
 - jruby-1.7.19
 - jruby-1.7.23
 - jruby-1.7.25
@@ -225,7 +226,7 @@ Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
 ## Bundler version
 
-Recent 1.7 version (usually the most recent)
+Recent 1.16.2 version (usually the most recent)
 
 ## Gems in the global gem set
 

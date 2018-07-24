@@ -34,8 +34,7 @@ This request needs to be authenticated by adding your [Travis CI API token](/use
 to the `Authorization` header. You can find your API token in your Travis CI Profile page
 for [public projects](https://travis-ci.com/profile).
 
-As public repositories do not show the Debug button, this is the only way to restart builds
-in the debug mode for public repositories.
+(Note the literal word `token` must be present before the actual authorization token.)
 
 ```sh-session
 $ curl -s -X POST \
@@ -47,7 +46,24 @@ $ curl -s -X POST \
   https://api.travis-ci.com/job/${id}/debug
 ```
 
-(Note the literal word `token` must be present before the actual authorization token.)
+As public repositories do not show the Debug button, this is the only way to restart builds
+in the debug mode for public repositories.
+
+#### Legacy repositories
+
+Public repositories which have not been migrated to
+travis-ci.com require you to make your API request as follows (where the asterisks should be
+replaced by a token from travis-ci.org):
+
+```sh-session
+$ curl -s -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Travis-API-Version: 3" \
+  -H "Authorization: token ********************" \
+  -d "{\"quiet\": true}" \
+  https://api.travis-ci.org/job/${id}/debug
+```
 
 #### Finding the job ID
 

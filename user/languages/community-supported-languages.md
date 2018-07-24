@@ -16,7 +16,7 @@ a reality, which is where community support come in.
 ## What does 'community-support' mean?
 
 Support for Community-supported languages are programming languages where
-support is provided by self-identified experts in the langugages'
+support is provided by self-identified experts in the languages'
 respective community.
 
 ## How do I add a new community-supported language?
