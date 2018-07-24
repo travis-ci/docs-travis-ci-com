@@ -45,7 +45,7 @@ stages as your delivery process requires.
 In the following example, we are running two jobs on the first stage, called
 test, and then run a single third job on the second stage, called deploy:
 
-![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+![Example screencast](/images/stages/stages.gif)
 
 ## How to define Build Stages?
 
@@ -96,6 +96,25 @@ jobs:
     - script: ./deploy target-2
 ```
 {: data-file=".travis.yml"}
+
+### Naming your Jobs within Build Stages
+
+You can also name specific jobs within build stages. We recommend unique job names, but 
+do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
+section can be given a name attribute as follows: 
+
+```yaml
+jobs:  
+  include:
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: ./unit-tests
+    - script: ./integration-tests   
+      name: "Integration Tests"     # names the second Tests stage job
+    - stage: deploy
+      name: "Deploy to GCP"
+      script: ./deploy
+```
 
 ## Build Stages and Build Matrix Expansion
 
