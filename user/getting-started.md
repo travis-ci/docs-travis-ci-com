@@ -106,8 +106,9 @@ Objective-C, use our OS X environment:
   ```
   {: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS-specific software.
+  > You do *not* necessarily need to use OS X if you develop on a Mac.
+  > OS X is required only if you need Swift, Objective-C or other
+  > macOS-specific software.
 
 ## More than running tests
 
