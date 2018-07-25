@@ -22,7 +22,7 @@ GitHub-Apps based integration introduces a number of benefits as over our Legacy
  * We will no longer add deploy keys to repositories when they are activated on Travis CI
  * Projects will be cloned with a shorter-lived OAuth token
  * Our GitHub App requires far less permissions than our OAuth application
- * Ownership of organization repositories is always tied to the organization who own the project
+ * Ownership of organization repositories is always tied to the organization which owns the project
 
 ## New User Accounts
 

@@ -171,7 +171,7 @@ To use a different `script` command, customize the [build step](/user/customizin
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
-to test against Oracle JDKs 8 and 9, as well as OpenJDK 7:
+to test against Oracle JDKs 8 and 9, as well as OpenJDK 8:
 
 ```yaml
 jdk:

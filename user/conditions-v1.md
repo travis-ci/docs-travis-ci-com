@@ -3,8 +3,7 @@ title: Conditions
 layout: en
 ---
 
-> This page documents conditions v1. You can use v1 by adding `conditions:
-> v1` to your `.travis.yml`. The previous version v0 is now deprecated. The
+> This page documents conditions v1 which is now the default version. The
 > documentation for v0 can be found [here](/user/conditions-v0).
 
 Conditions can be used to filter out, and reject builds, stages, and jobs by

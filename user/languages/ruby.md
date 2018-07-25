@@ -228,14 +228,14 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-ChefSpec is [tested against multiple Opscode Chef
-versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
+ChefSpec is [tested against multiple Chef
+versions](https://github.com/chefspec/chefspec/blob/master/.travis.yml):
 
 ```yaml
 env:
-  - CHEF_VERSION=0.9.18
-  - CHEF_VERSION=0.10.2
-  - CHEF_VERSION=0.10.4
+  - CHEF_VERSION=14.3.37
+  - CHEF_VERSION=13.10.0
+  - CHEF_VERSION=12.22.5
 ```
 {: data-file=".travis.yml"}
 
