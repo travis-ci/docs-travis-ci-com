@@ -3,8 +3,9 @@ title: Conditions v0 (deprecated)
 layout: en
 ---
 
-> This page documents conditions v0, which is deprecated. Please opt in to the
-> [new version v1](/user/conditions-v1) by adding `conditions: v1` to your .travis.yml file.
+> This page documents conditions v0, which is deprecated in favor of the [new
+> version v1](/user/conditions-v1). If you need to use v0 please opt in by
+> adding `conditions: v0` to your .travis.yml file.
 
 Conditions can be used to filter out, and reject builds, stages, and jobs by
 specifying conditions in your build configuration (your `.travis.yml` file).
