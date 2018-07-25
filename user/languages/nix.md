@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-<div id="toc"></div>
+
 
 ### Community-Supported Warning
 

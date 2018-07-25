@@ -43,13 +43,11 @@ If you have long lists you can wrap them into 2 (`.column-2`) or 3 (`.column-3`)
 {: .column-2 }
 ```
 
-### TOC
+#### In-page table of contents
 
-Add a table of contents to a page with the following HTML snippet:
+All pages have tables of contents generated automatically from H2 and H3
 
-```html
-<div id="toc"></div>
-```
+To remove the TOC from a page add `no_toc: true` to the frontmatter.
 
 ### Beta features
 

@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Haskell                                     | Default                                                       |
@@ -25,8 +27,6 @@ ghc:
 {: data-file=".travis.yml"}
 
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 

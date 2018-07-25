@@ -5,7 +5,7 @@ layout: en
 
 This page lists settings that are only available in the Travis CI .com and .org web user interface.
 
-<div id="toc"></div>
+
 
 ## Limit concurrent jobs
 

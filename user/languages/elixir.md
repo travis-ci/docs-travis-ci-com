@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
+| Elixir            | Default                                   |
 |:------------------|:------------------------------------------|
 | Typical `install` | `mix local.rebar --force; mix local.hex --force; mix deps.get` |
 | Typical `script`  | `mix test`                                |
@@ -23,8 +25,6 @@ otp_release: '19.0'
 {: data-file=".travis.yml"}
 
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 

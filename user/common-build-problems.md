@@ -6,7 +6,7 @@ redirect_from:
   - /user/build-timeouts/
 ---
 
-<div id="toc"></div>
+
 
 
 ## My tests broke but were working yesterday

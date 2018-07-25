@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | PHP                                         | Default                                   |
@@ -28,8 +30,6 @@ php:
 ```
 
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 

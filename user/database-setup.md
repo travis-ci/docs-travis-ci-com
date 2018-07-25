@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-<div id="toc"></div>
+
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 

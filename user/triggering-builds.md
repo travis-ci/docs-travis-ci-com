@@ -4,7 +4,7 @@ title: Triggering builds with API V3
 layout: en
 ---
 
-<div id="toc"></div>
+
 
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 

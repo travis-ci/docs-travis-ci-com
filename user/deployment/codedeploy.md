@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
-<div id="toc"></div>
+
 
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 

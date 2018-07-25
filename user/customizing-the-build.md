@@ -9,7 +9,7 @@ redirect_from:
   - /user/repository-providers/
 ---
 
-<div id="toc"></div>
+
 
 Travis CI provides a default build environment and a default set of steps for each programming language. You can customize any step in this process in `.travis.yml`.  Travis CI uses `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. `.travis.yml` can be
 very minimalistic or have a lot of customization in it. A few examples of what

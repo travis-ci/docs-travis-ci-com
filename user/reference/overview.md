@@ -12,7 +12,7 @@ redirect_from:
 This guide provides an overview on the different environments in which
 Travis CI can run your builds, and why you might want to pick one over another.
 
-<div id="toc"></div>
+
 
 ## Virtualization environments
 

@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Java                         | Default                                                                                                              |
@@ -22,8 +24,6 @@ Minimal example:
   language: java
 ```
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note }}
 

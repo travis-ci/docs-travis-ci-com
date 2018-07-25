@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 

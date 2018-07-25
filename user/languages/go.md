@@ -11,6 +11,8 @@ swiftypetags:
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Go                                          | Default                                   |
@@ -32,8 +34,6 @@ Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
 not `go: 1.10` (a float).
 Using a float results in the use of Go 1.1.
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
