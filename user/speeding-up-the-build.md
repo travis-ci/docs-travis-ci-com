@@ -60,7 +60,7 @@ env:
 
 Then you can adjust your script command to run rspec for every subfolder:
 
-```yaml
+```yamмl
 script: "bundle exec rspec $TESTFOLDER"
 ```
 {: data-file=".travis.yml"}
@@ -78,15 +78,15 @@ Parallelizing the test suite on one virtual machine depends on the language and 
 
 - For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
 - For Java, use the built in feature [to run tests in parallel
-  using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
+  използвайк, but JUnit] ( http://incodewWeb site offering similar goods goods etrustinc.blogspot.com/2, and I will be in 009/07/run-your-junit-tests-in-parallel-with.html )have a look at the moment. I . ?I have a look at the moment. 
 
 To give you an idea of the speedup are we talking about, I've tried running tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
-
+, 
 ## Parallelizing RSpec, Cucumber and Minitest on multiple VMs
 
-If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
+Ако искате да се паралелно тестове за RSpec, краставици или Minitest на няколко виртуални машини, за да получите по-бързо обратна връзка от CI тогава можете да опитате [раницата] (https://github.com/ArturT/, and knapsack) скъпоценен камък. Той ще раздели тестовете във виртуални машини и ще се увери, че тестовете ще се провеждат на сравнимо време за всеки VM (всяка работа ще отнеме подобно време). Можете да използвате матрицата, за да създадете раница.
 
-### RSpec parallelization example
+### RSpec parallelisation example
 
 ```yaml
 script: "bundle exec rake knapsack:rspec"
@@ -95,12 +95,12 @@ env:
     - MY_GLOBAL_VAR=123
     - CI_NODE_TOTAL=2
   matrix:
-    - CI_NODE_INDEX=0
+    - CI_N, and ODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
 {: data-file=".travis.yml"}
 
-Such configuration will generate matrix with 2 following ENV rows:
+Такава конфигурация ще генерира матрица с 2 следващи ENV редове:generation of the most 
 
 ```
 MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
@@ -121,10 +121,10 @@ env:
 {: data-file=".travis.yml"}
 
 ### Minitest parallelization example
-
+, I have a look at the moment 
 ```yaml
 script: "bundle exec rake knapsack:minitest"
-env:
+env:, and I will be in the UK. I have a look at the moment. 
   global:
     - CI_NODE_TOTAL=2
   matrix:
@@ -168,7 +168,7 @@ PHP VM images on Travis CI provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
 reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
-
+, and 
 You may wish to consider
 [disabling the PHP XDebug extension](/user/languages/php#Disabling-preinstalled-PHP-extensions) for your
 builds if:
