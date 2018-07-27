@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | C++                                         | Default                                   |
@@ -23,9 +25,6 @@ language: cpp
 ```
 
 </aside>
-
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note }}
 

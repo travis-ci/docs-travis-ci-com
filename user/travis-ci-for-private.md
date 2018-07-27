@@ -7,7 +7,7 @@ redirect_from:
   - /user/travis-pro/
 ---
 
-<div id="toc"></div>
+
 
 Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.

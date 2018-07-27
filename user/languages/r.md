@@ -205,6 +205,7 @@ rather than the default behaviour of downloading your package dependencies from 
 ```yaml
 install:
   - R -e "0" --args --bootstrap-packrat
+  - R -e "packrat::restore(restart = FALSE)"
 ```
 {: data-file=".travis.yml"}
 

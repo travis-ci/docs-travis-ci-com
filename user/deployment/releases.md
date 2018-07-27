@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
+Travis CI can automatically upload assets to git tags on your GitHub repository.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -157,6 +157,8 @@ deploy:
     tags: true
 ```
 {: data-file=".travis.yml"}
+
+Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables).
 
 ### Conditional releases
 

@@ -6,7 +6,7 @@ layout: en
 
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
 
-<div id="toc"></div>
+
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 

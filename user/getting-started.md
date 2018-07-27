@@ -9,7 +9,7 @@ If you're new to continuous integration or would like some more information on
 what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
 instead.
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 
@@ -106,8 +106,9 @@ Objective-C, use our OS X environment:
   ```
   {: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS-specific software.
+  > You do *not* necessarily need to use OS X if you develop on a Mac.
+  > OS X is required only if you need Swift, Objective-C or other
+  > macOS-specific software.
 
 ## More than running tests
 
