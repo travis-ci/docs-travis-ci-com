@@ -3,6 +3,7 @@ osx_images:
     xcode: "9.4"
     osx_version: "10.13"
     xcode_full_version: "9.4.1"
+    default: true
     image_publish_date: 2018-06-15
     sdks:
       - macosx10.13
@@ -232,7 +233,6 @@ osx_images:
     xcode: "8.3"
     osx_version: "10.12"
     xcode_full_version: "8.3.3"
-    default: true
     image_publish_date: 2017-06-06
     sdks:
       - macosx10.12
