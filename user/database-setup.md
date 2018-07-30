@@ -200,7 +200,7 @@ env:
 
 ### Using PostGIS
 
-Install the version of PostGIS that matches your PostgreSQL version using:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
 addons:
@@ -208,7 +208,8 @@ addons:
   apt:
     packages:
     - postgresql-9.6-postgis-2.3
-
+before_script:
+  - psql -U postgres -c "create extension postgis"
 ```
 {: data-file=".travis.yml"}
 
