@@ -200,11 +200,14 @@ env:
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS.
-
-You need to activate the extension in your `.travis.yml`:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```
