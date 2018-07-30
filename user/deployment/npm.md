@@ -45,6 +45,18 @@ Always [encrypt](/user/encryption-keys/#Usage) your auth token. Assuming you hav
 $ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
 ```
 
+## Private registries
+
+Some private registries (e.g. [Nexus](https://help.sonatype.com/repomanager3)) rely on the [`_auth` value for authentication](https://help.sonatype.com/repomanager2/node-packaged-modules-and-npm-registries#NodePackagedModulesandnpmRegistries-PublishingnpmPackages)
+
+When travis runs with NPM v2+ it automatically uses `authToken`. In order to override behaviour, so that travis uses the `_auth` value, specify `auth_method: auth`:
+
+```yaml
+deploy:
+  ...
+  auth_method: auth
+```
+
 ## What to release
 
 Most likely, you would only want to deploy to npm when a new version of your
