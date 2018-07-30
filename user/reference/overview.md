@@ -38,7 +38,7 @@ The following table summarizes the differences across virtual environments and o
 |:---------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
 | Name                 | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         |
 | Status               | Current                               | Default as of August 2017         | Current                              | Current                      |
-| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packer        | Virtual machine on GCE               | Virtual machine              |
+| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packet        | Virtual machine on GCE               | Virtual machine              |
 | `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
 | Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          |
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
@@ -71,7 +71,7 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `packer` → the build ran in a container-based environment on Packet.
+* `packet` → the build ran in a container-based environment on Packet.
 * `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 
@@ -88,7 +88,7 @@ Many different parts of your `.travis.yml` affect what infrastructure your build
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
-* If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2 or Packer.
+* If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2 or Packet.
 
 
 ## Deprecated Virtualization Environments
