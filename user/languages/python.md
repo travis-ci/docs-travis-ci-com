@@ -86,19 +86,17 @@ virtualenv:
 
 Travis CI supports PyPy and PyPy3.
 
-To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons
+To test your project against PyPy, add "pypy3.5" to the list of Pythons
 in your `.travis.yml`:
 
 ```yaml
 language: python
 python:
-  - "2.6"
   - "2.7"
   - "3.4"
   - "3.5"
   - "3.6"
   # PyPy versions
-  - "pypy2.7"
   - "pypy3.5"
 # command to install dependencies
 install:
