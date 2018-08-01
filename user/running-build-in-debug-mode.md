@@ -43,7 +43,7 @@ $ curl -s -X POST \
   -H "Travis-API-Version: 3" \
   -H "Authorization: token ********************" \
   -d "{\"quiet\": true}" \
-  https://api.travis-ci.com/job/${id}/debug
+  https://api.travis-ci.org/job/${id}/debug
 ```
 
 As public repositories do not show the Debug button, this is the only way to restart builds
