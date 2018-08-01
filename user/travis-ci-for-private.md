@@ -33,7 +33,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds, and change its settings.
 - Users that have admin access to a repository on GitHub can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
 
 ## Who has access to the billing details?
 
