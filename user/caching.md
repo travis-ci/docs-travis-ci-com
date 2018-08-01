@@ -306,6 +306,8 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
+> Note that if you're still using [http://www.travis-ci.org](travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
+
 ## Configuration
 
 ### Enabling multiple caching features
