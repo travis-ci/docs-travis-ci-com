@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-> Note that if you're still using [http://www.travis-ci.org](travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page.
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page.
 
 Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 

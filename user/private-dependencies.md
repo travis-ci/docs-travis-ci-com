@@ -164,7 +164,7 @@ updating ssh key for myorg/lib2 with key from myorg_key
 Current SSH key: CI dependencies
 ```
 
-> Note that if you're still using [http://www.travis-ci.org](travis-ci.org) you need to use `--org` instead of `--com`.
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com`.
 
 ## Password
 

@@ -41,7 +41,7 @@ If you discover a leak in one of your build logs it’s essential that you revok
 
 Instead of deleting build logs manually, you can do so using the [Travis CI CLI](https://github.com/travis-ci/travis.rb#logs) or the  [API](https://developer.travis-ci.com/resource/log#delete).
 
-> Note that if you're still using [http://www.travis-ci.org](travis-ci.org) you need to use the [open source API](https://developer.travis-ci.org/resource/log#delete) instead.
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the [open source API](https://developer.travis-ci.org/resource/log#delete) instead.
 
 ## Rotate tokens and secrets periodically
 Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in your [Developer Settings](https://github.com/settings/developers) on the GitHub site. Please regularly rotate credentials for other third-party services as well.

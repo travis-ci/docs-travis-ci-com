@@ -49,7 +49,7 @@ $ curl -s -X POST \
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
 
-> Note that if you're still using [http://www.travis-ci.org](travis-ci.org) you need to use `https://api.travis-ci.org/job/${id}/debug` in the previous command.
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `https://api.travis-ci.org/job/${id}/debug` in the previous command.
 
 
 #### Legacy repositories
