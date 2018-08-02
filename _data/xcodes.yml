@@ -3,6 +3,7 @@ osx_images:
     xcode: "9.4"
     osx_version: "10.13"
     xcode_full_version: "9.4.1"
+    xcode_build_version: "9F2000"
     default: true
     image_publish_date: 2018-06-15
     sdks:
@@ -55,6 +56,7 @@ osx_images:
     xcode: "9.3"
     osx_version: "10.13"
     xcode_full_version: "9.3"
+    xcode_build_version: "9E145"
     image_publish_date: 2018-04-09
     sdks:
       - macosx10.13
@@ -104,6 +106,7 @@ osx_images:
     xcode: "9.2"
     osx_version: "10.12"
     xcode_full_version: "9.2"
+    xcode_build_version: "9C40b"
     image_publish_date: 2017-12-06
     sdks:
       - macosx10.13
@@ -150,6 +153,7 @@ osx_images:
     xcode: "9.1"
     osx_version: "10.12"
     xcode_full_version: "9.1"
+    xcode_build_version: "9B55"
     image_publish_date: 2017-10-04
     sdks:
       - macosx10.13
@@ -192,7 +196,8 @@ osx_images:
   - image: xcode9
     xcode: "9.0"
     osx_version: "10.12"
-    xcode_full_version: "9"
+    xcode_full_version: "9.0"
+    xcode_build_version: "9A235"
     image_publish_date: 2017-09-19
     sdks:
       - macosx10.13
@@ -233,6 +238,7 @@ osx_images:
     xcode: "8.3"
     osx_version: "10.12"
     xcode_full_version: "8.3.3"
+    xcode_build_version: "8E3004b"
     image_publish_date: 2017-06-06
     sdks:
       - macosx10.12
@@ -269,7 +275,8 @@ osx_images:
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
-    xcode_full_version: "8gm"
+    xcode_full_version: "8.0"
+    xcode_build_version: "8A218a"
     sdks:
       - macosx10.11
       - iphoneos10.0
@@ -307,6 +314,7 @@ osx_images:
     xcode: "7.3"
     osx_version: "10.11"
     xcode_full_version: "7.3.1"
+    xcode_build_version: "7D1014"
     sdks:
       - macosx10.11
       - iphoneos9.3
@@ -335,6 +343,7 @@ osx_images:
     xcode: "6.4"
     osx_version: "10.10"
     xcode_full_version: "6.4"
+    xcode_build_version: "6E35b"
     sdks:
       - macosx10.9
       - macosx10.10
