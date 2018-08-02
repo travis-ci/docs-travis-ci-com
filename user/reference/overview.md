@@ -42,10 +42,10 @@ The following table summarizes the differences across virtual environments and o
 | `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
 | Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          |
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
-| File system          | EXT4                                  | AUFS                              | EXT4                                 | HFS+                         |
+| File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         |
 | Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
-| Cores                | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+| Cores                | 2                                     | 2                                 | 2                                    | 2                            |
 | IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
 | IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 | Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  |
