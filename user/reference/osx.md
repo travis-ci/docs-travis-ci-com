@@ -43,11 +43,12 @@ Travis CI uses OS X 10.13 and Xcode 9.4.1 by default . You can use another versi
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>OS X version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td>{{image.xcode_build_version}}</td>
   <td>OS X {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
