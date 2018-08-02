@@ -13,12 +13,10 @@ instead.
 
 ## Prerequisites
 
-To start using Travis CI, make sure you have *all* of the following:
+To start using Travis CI, make sure you have:
 
- * [GitHub](https://github.com/) login
- * Admin permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/)
- * Working code in your project
- * A working build or test script
+ * A [GitHub](https://github.com/) account.
+ * Owner permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/).
 
 ## To get started with Travis CI
 
@@ -46,7 +44,7 @@ To start using Travis CI, make sure you have *all* of the following:
 
 5. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
-   > Travis only runs builds on the commits you push *after* you've activated the repository in Travis CI.
+   > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
 6. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
 
