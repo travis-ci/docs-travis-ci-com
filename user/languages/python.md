@@ -58,7 +58,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - pytest
 ```
 {: data-file=".travis.yml"}
 
@@ -133,7 +133,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest  # or py.test for Python versions 3.5 and below
+script: pytest
 ```
 {: data-file=".travis.yml"}
 
