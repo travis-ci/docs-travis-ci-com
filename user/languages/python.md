@@ -76,6 +76,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
+python: 
+  - "2.7"
+  - "3.4" 
 virtualenv:
   system_site_packages: true
 ```
