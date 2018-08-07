@@ -72,7 +72,7 @@ to install Python packages, do it via pip and not apt.
 
 If you decide to use apt anyway, note that for compatibility reasons, you'll only be able to use the default Python versions that are available in Ubuntu (e.g. for Trusty, this means 2.7.6 and 3.4.3).
 To access the packages inside the virtualenv, you will need to specify that it should be created with the `--system-site-packages` option.
-To do this, include the following in your `.travis.yml`:
+To do this, include the following in your `.travis.yml`. Note that `system_site_packages` are only available with Python 2.7 and 3.4 on Trusty.
 
 ```yaml
 language: python
