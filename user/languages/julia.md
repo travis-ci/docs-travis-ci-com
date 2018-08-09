@@ -20,30 +20,26 @@ and cc [`@travis-ci/julia-maintainers`](https://github.com/orgs/travis-ci/teams/
 
 ## Choosing Julia versions to test against
 
-Julia workers on Travis CI download and install a binary of Julia.
-You can select the most recent release version, the latest nightly build
-(downloaded from <https://status.julialang.org>), or a specific version number
-(downloaded from <https://s3.amazonaws.com/julialang>). To select one or more
-versions, use the `julia:` key in your `.travis.yml` file, for example:
+Julia workers on Travis CI download and install a binary of Julia. You can specify
+the Julia versions to test in the `julia:` key in your `.travis.yml` file. For example:
 
 ```yaml
 language: julia
 julia:
   - nightly
-  - release
   - 0.7
   - 0.6.4
 ```
 {: data-file=".travis.yml"}
 
-If the version number contains one `.`, then the latest release for that minor version
-is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
+Acceptable formats are:
+ - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
+of Julia.
+ - `X.Y` will test against the latest release for that minor version.
+ - `X.Y.Z` will test against that exact version.
+
+The oldest versions for which binaries are available is 0.3.1 for Linux,
 or 0.2.0 for [OS X](/user/multi-os/).
-
-## Default Julia Version
-
-If you leave the `julia:` key out of your `.travis.yml`, Travis CI will use
-the most recent release.
 
 ## Default Build and Test Script
 
