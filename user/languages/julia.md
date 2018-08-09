@@ -16,7 +16,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc @tkelman @ninjin @staticfloat @simonbyrne.
+and cc [`@travis-ci/julia-maintainers`](https://github.com/orgs/travis-ci/teams/julia-maintainers).
 
 ## Choosing Julia versions to test against
 
@@ -30,8 +30,9 @@ versions, use the `julia:` key in your `.travis.yml` file, for example:
 language: julia
 julia:
   - nightly
-  - 0.5
-  - 0.5.2
+  - release
+  - 0.7
+  - 0.6.4
 ```
 {: data-file=".travis.yml"}
 
@@ -44,23 +45,24 @@ or 0.2.0 for [OS X](/user/multi-os/).
 If you leave the `julia:` key out of your `.travis.yml`, Travis CI will use
 the most recent release.
 
-## Default Test Script
+## Default Build and Test Script
 
-If your repository follows the structure of a Julia package created by
-`PkgDev.generate("$name", "$license")`, then the following default script will be run:
-
-```bash
-julia -e 'Pkg.clone(pwd())'
-julia -e 'Pkg.build("$name")'
-if [ -f test/runtests.jl ]; then
-  julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
-fi
+If your repository contains `JuliaProject.toml` or `Project.toml` file, and you are
+building on Julia v0.7 or later, the default build script will be:
+```julia
+using Pkg
+Pkg.build()
+Pkg.test()
 ```
 
-The package name `$name` is determined based on the repository name, removing
-the trailing `.jl` if present. A repository is treated as a Julia package when
-it contains a file at `src/$name.jl`. If your repository does not follow this
-structure, then the default script will be empty.
+Otherwise it will use the older form:
+```bash
+julia -e 'Pkg.clone(pwd())'
+julia -e 'Pkg.build("$pkgname")'
+julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
+```
+where the package name `$pkgname` is determined based on the repository name,
+removing the trailing `.jl` if present.
 
 ## Dependency Management
 
