@@ -41,8 +41,8 @@ the following table:
 
 ## Default Test Script
 
-Travis CI runs [xctool](https://github.com/facebook/xctool) by default to
-execute your tests. In order for xctool to work, you need to tell it where to
+Travis CI runs xcodebuild and [xcpretty](https://github.com/supermarin/xcpretty) by default to
+execute your tests. In order for xcodebuild to work, you need to tell it where to
 find your project or workspace and what scheme you would like to build. For
 example:
 
@@ -59,6 +59,12 @@ against.
 
 If you are using a workspace instead of a project, use the `xcode_workspace`
 key in your .travis.yml instead of `xcode_project`.
+
+> Builds using the `xcode6.4` or `xcode7.3` images use
+> [xctool](https://github.com/facebook/xctool) by default rather
+> than xcodebuild and xcpretty.
+
+### Shared Schemes
 
 In order to your run tests on Travis CI, you also need to create a Shared
 Scheme for your application target, and ensure that all dependencies (such as
@@ -81,8 +87,31 @@ CocoaPods) are added explicitly to the Scheme. To do so:
 
 You will now have a new file in the **xcshareddata/xcschemes** directory
 underneath your Xcode project. This is the shared Scheme that you just
-configured. Check this file into your repository and xctool will be able to
+configured. Check this file into your repository and xcodebuild will be able to
 find and execute your tests.
+
+### Device Destinations
+
+To be able to run tests, xcodebuild needs to know which device to run them on, whether
+that's a real device (the Mac running xcodebuild or an iOS device connected to the Mac)
+or a simulator. When you run tests in Travis CI, you need to tell xcodebuild which
+simulator you want to use by specifying a **device destination**.
+
+Device destinations are strings that identify a particular device to use. You can pass
+them to xcodebuild by using the `-destination` flag. If you're using the default script
+in your Travis CI build, you can use the `xcode_destination` key in your .travis.yml:
+
+```
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+```
+{: data-file=".travis.yml"}
+
+You can find more details about device destinations in the xcodebuild man page.
+
+It's important that your device destination uniquely identifies your device among those
+that Xcode knows about. Since Travis CI's build images have many different simulator
+OS versions installed, you should specify the OS version in your device destination, as
+the name alone is not likely to uniquely identify a single simulator.
 
 ## Dependency Management
 
