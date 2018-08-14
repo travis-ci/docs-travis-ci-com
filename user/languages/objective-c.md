@@ -43,13 +43,14 @@ the following table:
 
 Travis CI runs xcodebuild and [xcpretty](https://github.com/supermarin/xcpretty) by default to
 execute your tests. In order for xcodebuild to work, you need to tell it where to
-find your project or workspace and what scheme you would like to build. For
-example:
+find your project or workspace, what scheme you would like to build and test, and which
+device or simulator run tests on. For example:
 
 ```yaml
 language: objective-c
 xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MyNewProjectTests
+xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
 ```
 {: data-file=".travis.yml"}
 
@@ -106,12 +107,30 @@ xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 ```
 {: data-file=".travis.yml"}
 
-You can find more details about device destinations in the xcodebuild man page.
+A device destination is a comma-separated list of key-value pairs. When you're testing
+on Travis CI, you should include the following keys in your device destination:
+
+- `platform`: one of `macOS`, `iOS Simulator`, `watchOS Simulator`, `tvOS Simulator`.
+  (The "Simulator" portion is important. Travis CI does not support running tests against
+  hardware iOS devices)
+- If `platform` is not `macOS`, also include:
+  - `OS`: the version number of the OS on the simulated device.
+  - `name`: the name of the simulated device. For example: "iPhone X" or "Apple TV 1080p".
+
+Some examples of valid device destinations include:
+
+- `platform=macOS`
+- `platform=iOS Simulator,OS=9.3,name=iPhone 5s`
+- `platform=tvOS Simulator,OS=11.0,name=Apple TV 4K`
 
 It's important that your device destination uniquely identifies your device among those
 that Xcode knows about. Since Travis CI's build images have many different simulator
 OS versions installed, you should specify the OS version in your device destination, as
 the name alone is not likely to uniquely identify a single simulator.
+
+You can learn more about device destinations in the xcodebuild man page. If you're on your
+Mac, you can [click here](x-man-page://xcodebuild) to view the xcodebuild man page in the
+Terminal app.
 
 ## Dependency Management
 
