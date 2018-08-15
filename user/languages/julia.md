@@ -52,13 +52,15 @@ Pkg.test()
 ```
 
 Otherwise it will use the older form:
-```bash
-julia -e 'Pkg.clone(pwd())'
-julia -e 'Pkg.build("$pkgname")'
-julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
+```julia
+if VERSION >= v"0.7.0-DEV.5183"
+    using Pkg
+end
+Pkg.clone(pwd())
+Pkg.build("$pkgname")
+Pkg.test("$pkgname", coverage=true)
 ```
-where the package name `$pkgname` is determined based on the repository name,
-removing the trailing `.jl` if present.
+where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
 
 ## Dependency Management
 
