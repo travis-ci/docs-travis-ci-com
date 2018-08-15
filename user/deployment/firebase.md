@@ -7,7 +7,7 @@ layout: en
 
 
 Travis CI can automatically deploy your application to [Firebase](https://firebase.google.com/)
-application after a successful build.
+after a successful build.
 
 To use the default configuration, add your [encrypted](/user/encryption-keys/#Usage) Firebase [token](/user/deployment/firebase/#Generating-your-Firebase-token) to your `.travis.yml`, all other information is read from your `firebase.json`:
 
