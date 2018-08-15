@@ -43,8 +43,9 @@ or via [encrypted variables in
 
 ## Further configuration
 
-* `local-dir`: Directory to push to GitHub Pages, relative to the current
-  directory, defaults to the current directory (example: `your_build_folder`)
+* `local-dir`: Directory to push to GitHub Pages, defaults to current directory.
+  Can be specified as an absolute path or a relative path from the current directory.
+  (example: `your_build_folder`)
 * `repo`: Repo slug, defaults to current repo
 * `target-branch`: Branch to (force, see: `keep-history`) push `local-dir`
   contents to, defaults to `gh-pages`
