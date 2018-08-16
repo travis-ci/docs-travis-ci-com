@@ -42,15 +42,17 @@ The following table summarizes the differences across virtual environments and o
 | `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
 | Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          |
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
-| File system          | EXT4                                  | AUFS                              | EXT4                                 | HFS+                         |
+| File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         |
 | Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
 | Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
-| Cores                | ~2, bursted                           | 2                                 | ~2, bursted                          | 2                            |
+| Cores                | 2                                     | 2                                 | 2                                    | 2                            |
 | IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
 | IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
 | Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  |
 
-> Note that available disk space is approximate and depends on the base image and language selection of your project.
+> Note that the following keywords in your .travis.yml file will silently route your builds to our sudo-enabled infrastructure (even if you specify `sudo: false`): `docker`, `ping`, `sudo`.
+
+> Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 
 ## What infrastructure is my environment running on?

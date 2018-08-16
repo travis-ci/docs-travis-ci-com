@@ -58,7 +58,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - pytest
 ```
 {: data-file=".travis.yml"}
 
@@ -76,6 +76,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
+python: 
+  - "2.7"
+  - "3.4" 
 virtualenv:
   system_site_packages: true
 ```
@@ -133,7 +136,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest  # or py.test for Python versions 3.5 and below
+script: pytest
 ```
 {: data-file=".travis.yml"}
 
