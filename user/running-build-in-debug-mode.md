@@ -22,7 +22,7 @@ support@travis-ci.com and let us know which repositories you want activated.
 ## Restarting a job in debug mode
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
-the build and job pages for private repositories. For open source repositories, 
+the build and job pages for private repositories. For open source repositories,
 this button is not available and you will need to use an API call instead.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
@@ -48,6 +48,9 @@ $ curl -s -X POST \
 
 As public repositories do not show the Debug button, this is the only way to restart builds
 in the debug mode for public repositories.
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `https://api.travis-ci.org/job/${id}/debug` in the previous command.
+
 
 #### Legacy repositories
 

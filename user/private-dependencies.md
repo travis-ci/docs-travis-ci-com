@@ -153,7 +153,7 @@ Current SSH key: CI dependencies
 Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for "main" and "main2", but all repositories under the "myorg" organization.
 
 ```bash
-$ travis repos --active --owner myorg | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
+$ travis repos --active --owner myorg --com | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
 updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
 updating ssh key for myorg/main2 with key from myorg_key
@@ -163,6 +163,8 @@ Current SSH key: CI dependencies
 updating ssh key for myorg/lib2 with key from myorg_key
 Current SSH key: CI dependencies
 ```
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com`.
 
 ## Password
 

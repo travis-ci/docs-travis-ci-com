@@ -51,7 +51,7 @@ travis setup releases
 Or, if you're using a private repository or the GitHub Apps integration:
 
 ```bash
-travis setup releases --pro
+travis setup releases --com
 ```
 
 ## `on.tags` condition
