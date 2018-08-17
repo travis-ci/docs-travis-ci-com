@@ -112,15 +112,6 @@ By Konstantin Haase
 
 ## Android
 
-### Comrade Travis
-
-![Comrade Travis](/images/apps/comradetravis.jpg){:.app}
-
-Follow your project builds anywhere<br>
-By Christian S. Perone
-
-- [play store](https://play.google.com/store/apps/details?id=com.perone.comradetravis)
-
 ### Siren of Shame (Android)
 
 ![Siren of Shame](/images/apps/siren-android.jpg){:.app}
