@@ -13,10 +13,11 @@ layout: en
 Before following the examples in this guide, make sure you have already
 
 - installed the Travis CI [Command Line Client](https://github.com/travis-ci/travis.rb#readme) by running `$ gem install travis`
-- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI
-  using `$ travis login` or `$ travis login --pro`
+- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI using `$ travis login --com`
 
 See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org`
 
 ## Automated Encryption
 
