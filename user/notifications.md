@@ -22,7 +22,7 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
+addresses](#How-is-the-build-email-receiver-determined), [changing the email
 address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
 notification](#Missing-build-notifications).
