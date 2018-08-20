@@ -62,7 +62,7 @@ Usually, knowing the virtualization environment characteristics from the [table 
 But, if you do need more detail, you have one of these two questions:
 
 * you want to see what infrastructure a [finished build](#For-a-finished-build) ran on.
-* you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-.travis.yml-configuration) will run on.
+* you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-travisyml-configuration) will run on.
 
 ### For a finished build
 
