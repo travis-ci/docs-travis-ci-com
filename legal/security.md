@@ -1,7 +1,7 @@
 ---
 title: Security Statement
 layout: en
-
+no_toc: true
 ---
 of Travis CI GmbH (Travis) regarding the software Travis CI
 

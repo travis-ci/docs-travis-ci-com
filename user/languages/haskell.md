@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Haskell                                     | Default                                                       |
@@ -25,8 +27,6 @@ ghc:
 {: data-file=".travis.yml"}
 
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -48,6 +48,7 @@ ghc:
   - "7.10"
   - "7.8"
   - "7.6"
+  - "8.4.1"
 ```
 {: data-file=".travis.yml"}
 
@@ -90,3 +91,8 @@ before_install: cd ${PACKAGEDIR}
 {: data-file=".travis.yml"}
 
 The build matrix is then constructed such that each package is compiled with each version of GHC.
+
+## Hackage Deployment
+
+Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
+See [Hackage Deployment](/user/deployment/hackage/).

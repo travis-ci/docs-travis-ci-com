@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy your application to
 [Scalingo](https://scalingo.com/) application after a successful build.

@@ -17,6 +17,7 @@ Perl workers on Travis CI use [Perlbrew](http://perlbrew.pl/) to provide several
 ```yaml
 language: perl
 perl:
+  - "5.26"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -28,6 +29,7 @@ A more extensive example:
 ```yaml
 language: perl
 perl:
+  - "5.26"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -49,6 +51,7 @@ been compiled with the additional compile flags `-Duseshrplib` and `-Duseithread
 versions that are available:
 
 ```yaml
+5.26-shrplib
 5.24-shrplib
 5.22-shrplib
 5.20-shrplib

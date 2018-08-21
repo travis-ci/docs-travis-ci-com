@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
@@ -22,7 +22,7 @@ support@travis-ci.com and let us know which repositories you want activated.
 ## Restarting a job in debug mode
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
-the build and job pages for private repositories. For open source repositories, 
+the build and job pages for private repositories. For open source repositories,
 this button is not available and you will need to use an API call instead.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
@@ -34,8 +34,7 @@ This request needs to be authenticated by adding your [Travis CI API token](/use
 to the `Authorization` header. You can find your API token in your Travis CI Profile page
 for [public projects](https://travis-ci.com/profile).
 
-As public repositories do not show the Debug button, this is the only way to restart builds
-in the debug mode for public repositories.
+(Note the literal word `token` must be present before the actual authorization token.)
 
 ```sh-session
 $ curl -s -X POST \
@@ -47,7 +46,27 @@ $ curl -s -X POST \
   https://api.travis-ci.com/job/${id}/debug
 ```
 
-(Note the literal word `token` must be present before the actual authorization token.)
+As public repositories do not show the Debug button, this is the only way to restart builds
+in the debug mode for public repositories.
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `https://api.travis-ci.org/job/${id}/debug` in the previous command.
+
+
+#### Legacy repositories
+
+Public repositories which have not been migrated to
+travis-ci.com require you to make your API request as follows (where the asterisks should be
+replaced by a token from travis-ci.org):
+
+```sh-session
+$ curl -s -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Travis-API-Version: 3" \
+  -H "Authorization: token ********************" \
+  -d "{\"quiet\": true}" \
+  https://api.travis-ci.org/job/${id}/debug
+```
 
 #### Finding the job ID
 

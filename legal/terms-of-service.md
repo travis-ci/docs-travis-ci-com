@@ -1,7 +1,7 @@
 ---
 title: Terms of Service
 layout: en
-
+no_toc: true
 redirect_from:
   - /legal/terms-conditions/
 ---

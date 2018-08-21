@@ -39,7 +39,7 @@ repositories). Since the token should be private,
 you'll want to pass it to Travis securely in your [repository
 settings](https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings)
 or via [encrypted variables in
-`.travis.yml`](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-.travis.yml).
+`.travis.yml`](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-travisyml).
 
 ## Further configuration
 

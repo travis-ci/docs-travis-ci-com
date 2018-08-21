@@ -7,7 +7,7 @@ redirect_from:
   - /user/travis-pro/
 ---
 
-<div id="toc"></div>
+
 
 Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
 continuous integration solution for private repositories.
@@ -33,7 +33,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds, and change its settings.
 - Users that have admin access to a repository on GitHub can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
 
 ## Who has access to the billing details?
 
@@ -69,14 +69,14 @@ If you have a private repository that you'd like to make public, first
 deactivate it on [Travis CI .com](https://travis-ci.com), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, and toggle the
+1. On [Travis CI .com](https://travis-ci.com) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
 how to make a repository public.
 
-2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
+2. On [Travis CI .org](https://travis-ci.org) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
@@ -92,14 +92,14 @@ If you have a public repository that you'd like to make private, first
 deactivate it on [Travis CI .org](https://travis-ci.org), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, and toggle the
+1. On [Travis CI .org](https://travis-ci.org) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
 how to make a repository private.
 
-2. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, click *Sync
+2. On [Travis CI .com](https://travis-ci.com) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)

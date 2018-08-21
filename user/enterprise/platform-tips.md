@@ -8,7 +8,7 @@ This page collects FAQs and day-to-day Enterprise Platform maintenance scripts
 and tools. Please connect to your Platform machine via SSH before getting
 started.
 
-<div id="toc"></div>
+
 
 ## Inspecting logs and running services
 

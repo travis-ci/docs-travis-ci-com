@@ -7,7 +7,7 @@ layout: en_enterprise
 With Travis CI Enterprise, you can configure your build images to suit your
 development process and improve the build environment and performance.
 
-<div id="toc"></div>
+
 
 ## Customizing build images
 

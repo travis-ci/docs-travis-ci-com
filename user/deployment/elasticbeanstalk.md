@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy your application to [Elastic
 Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a
