@@ -46,7 +46,16 @@ The following command line tools are available in the Nix environment:
 
 ## Default Nix Version
 
-This installs the current version of Nix using https://nixos.org/nix/install. In the future, it may be possible to configure different versions with `.travis.yml`.
+This installs Nix 2.0.4 using [https://nixos.org/releases/nix/nix-2.0.4/install](https://nixos.org/releases/nix/nix-2.0.4/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
+
+```yaml
+language: nix
+nix: 2.0.4
+```
+{: data-file=".travis.yml"}
+
+
+> Note: at this time not all versions of Nix will successfully install, and you can only specify a specific version equal to or greater than 2.0.4.
 
 ## Default Target
 
