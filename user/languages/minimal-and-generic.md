@@ -6,7 +6,7 @@ layout: en
 
 ## What This Guide Covers
 
-Travis CI supports many popular programming languages, but can never hope to support them all. `language: minimal` and `language: generic` are images running Ubuntu Trusty  that are not tailored to any particular programming language. Both are avaialble on both sudo-enabled and container-based infrastructure. As their names suggest, one is optimized be faster and use less disk space, the other to have more languages and services available.
+Travis CI supports many popular programming languages, but can never hope to support them all. `language: minimal` and `language: generic` are images running Ubuntu Trusty  that are not tailored to any particular programming language. Both are available on both sudo-enabled and container-based infrastructure. As their names suggest, one is optimized be faster and use less disk space, the other to have more languages and services available.
 
 > Note that `language: minimal` is not the same as omitting the `language` key, if you do that the default language is set to Ruby.
 
@@ -33,6 +33,19 @@ language: generic
 {: data-file=".travis.yml"}
 
 </aside>
+
+## Defaults
+
+As neither `minimal` or `generic` are tailed to one particular language, there are no default `install` or `script` commands, so remember to configure these in your `.travis.yml`.
+
+## Minimal
+
+For specific details of what is on the image consult the [update diff](https://stackmeta-production.herokuapp.com/diff/travis-ci-connie-trusty-1499451964/travis-ci-connie-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&format=text).
+
+## Generic
+
+For specific details of what is on the image consult the [update diff](https://stackmeta-production.herokuapp.com/diff/travis-ci-garnet-trusty-1499451966/travis-ci-garnet-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&format=text).
+
 
 ## Aliases
 
