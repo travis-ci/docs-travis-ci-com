@@ -55,7 +55,7 @@ nix: 2.0.4
 {: data-file=".travis.yml"}
 
 
-> Note: at this time not all versions of Nix will successfully install, and you can only specify a specific version equal to or greater than 2.0.4.
+> Note: This option supports all Nix releases, starting with version 1.11.16.
 
 ## Default Target
 
