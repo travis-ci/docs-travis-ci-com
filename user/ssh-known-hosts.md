@@ -64,7 +64,7 @@ Say your build instance connects to the SSH server *ssh.example.com*:
     - If you have previously connected to *ssh.example.com* from a trusted local computer, run `ssh-keygen -F ssh.example.com` to display its public key.
 
     - If you have not yet connected to *ssh.example.com*, run `ssh-keyscan ssh.example.com` to retrieve it and `ssh-keygen -F ssh.example.com` to display it.
-    Ideally, you would double-check with the owner of *ssh.example.com* that that is indeed the server's public key and not the key of a spoofed instance of *ssh.example.com*.
+    Ideally, you would double-check with the owner of *ssh.example.com* that it is indeed the server's public key and not the key of a spoofed instance of *ssh.example.com*.
 
 3. Configure Travis CI to use the public key of the SSH server:
 Add the key server's public key *KEY* to the SSH `known_hosts` file, e.g., with the following addition to the installation phase:

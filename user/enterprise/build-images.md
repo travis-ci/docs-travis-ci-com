@@ -7,7 +7,7 @@ layout: en_enterprise
 With Travis CI Enterprise, you can configure your build images to suit your
 development process and improve the build environment and performance.
 
-<div id="toc"></div>
+
 
 ## Customizing build images
 
@@ -24,7 +24,7 @@ upgrading build images from [quay.io](https://quay.io/organization/travisci).
 
 For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration we will pick the corresponding image to run the build.
 
-We're shipping the same Docker build images as travis-ci.org and travis-ci.com are using. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
+We're shipping the same Docker build images as we use on travis-ci.com. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
 
 - Ruby
 - Node.js
@@ -65,7 +65,7 @@ you can run:
 
 ### Worker machine configuration
 
-In order to build other docker images, the Worker needs to be setup to support Docker Builds. To get started, please add the following to `/etc/default/travis-worker` on all your Workers:
+To build docker images on Travis CI Enterprise, add the following to `/etc/default/travis-worker` on all your Workers:
 
 ```
     export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
@@ -81,6 +81,8 @@ On Amazon EC2 each machine has a private IP address by default. That address wil
 
 To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is correct.
 
+__Ubuntu 14.04 as Host operating system__
+
 Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this (We're using `172.31.7.199` as example here):
 
 ```
@@ -93,7 +95,36 @@ After that, both Docker and travis-worker have to be restarted. For Docker, plea
 $ sudo restart docker
 ```
 
-For travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+__Ubuntu 16.04 as Host operating system__
+
+To have the Docker daemon listening to the private IP address, edit `/etc/docker/daemon.json` and add the machine's private IP address incl. the Docker API port (in this example it's `172.31.7.199:4232`):
+
+```json
+{
+    //...
+    "hosts": [
+        "fd://",
+        "tcp://172.31.7.199:4243"
+    ]
+}
+```
+
+By default, the Docker daemon is configured to be accessible by  [socket activation](http://0pointer.de/blog/projects/socket-activation.html) (that's what `fd://` is for). To prevent issues related to having host configured in both service file and `/etc/docker/daemon.json` edit the Docker settings by by running `sudo systemctl edit docker`. It opens an editor with a new file where you can override Docker default settings. Please add the following in there:
+
+```
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd
+```
+
+You'll notice that in the above code snippet `ExecStart` gets assigned twice: first time with an empty value and the second time with a new command. This is a specific systemd semantic we need to follow here in order to customize the Docker start command.
+
+After that, issue an `sudo systemctl daemon-reload`, together with a `sudo systemctl restart docker`.
+
+
+__Restart travis-worker__
+
+To restart travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
 
 ### Updates to your .travis.yml files
@@ -145,3 +176,7 @@ For example, if you want to create a new repository and test out Docker support,
           script:
           - sudo docker run ubuntu date
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

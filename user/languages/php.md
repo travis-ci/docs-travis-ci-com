@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | PHP                                         | Default                                   |
@@ -28,8 +30,6 @@ php:
 ```
 
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -370,7 +370,6 @@ before_script:
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars

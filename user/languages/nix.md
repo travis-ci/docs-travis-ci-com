@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-<div id="toc"></div>
+
 
 ### Community-Supported Warning
 
@@ -46,7 +46,16 @@ The following command line tools are available in the Nix environment:
 
 ## Default Nix Version
 
-This installs the current version of Nix using https://nixos.org/nix/install. In the future, it may be possible to configure different versions with `.travis.yml`.
+This installs Nix 2.0.4 using [https://nixos.org/releases/nix/nix-2.0.4/install](https://nixos.org/releases/nix/nix-2.0.4/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
+
+```yaml
+language: nix
+nix: 2.0.4
+```
+{: data-file=".travis.yml"}
+
+
+> Note: at this time not all versions of Nix will successfully install, and you can only specify a specific version equal to or greater than 2.0.4.
 
 ## Default Target
 

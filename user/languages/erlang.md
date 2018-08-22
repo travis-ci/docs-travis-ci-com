@@ -4,14 +4,16 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
-|:------------------|:------------------------------------------|
-| Typical `install` | `rebar get-deps`                          |
+| Erlang            | Default                                       |
+|:------------------|:----------------------------------------------|
+| Typical `install` | `rebar get-deps`                              |
 | Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
-| Matrix keys       | `env`, `otp_release`                      |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Matrix keys       | `env`, `otp_release`                          |
+| Support           | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:
 
@@ -24,8 +26,6 @@ otp_release:
 {: data-file=".travis.yml"}
 
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -77,7 +77,7 @@ make test
 
 ## Dependency Management
 
-The Erlang builder on travis-ci.org assumes Rebar3 is used for dependency management.
+The Erlang builder on Travis CI assumes Rebar3 is used for dependency management.
 See [Rebar3 documentation](http://www.rebar3.org/docs/dependencies) for further details.
 
 On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and run

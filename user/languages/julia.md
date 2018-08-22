@@ -16,51 +16,51 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc @tkelman @ninjin @staticfloat @simonbyrne.
+and cc [`@travis-ci/julia-maintainers`](https://github.com/orgs/travis-ci/teams/julia-maintainers).
 
 ## Choosing Julia versions to test against
 
-Julia workers on travis-ci.org download and install a binary of Julia.
-You can select the most recent release version, the latest nightly build
-(downloaded from <https://status.julialang.org>), or a specific version number
-(downloaded from <https://s3.amazonaws.com/julialang>). To select one or more
-versions, use the `julia:` key in your `.travis.yml` file, for example:
+Julia workers on Travis CI download and install a binary of Julia. You can specify
+the Julia versions to test in the `julia:` key in your `.travis.yml` file. For example:
 
 ```yaml
 language: julia
 julia:
   - nightly
-  - 0.5
-  - 0.5.2
+  - 0.7
+  - 0.6.4
 ```
 {: data-file=".travis.yml"}
 
-If the version number contains one `.`, then the latest release for that minor version
-is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
+Acceptable formats are:
+ - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
+of Julia.
+ - `X.Y` will test against the latest release for that minor version.
+ - `X.Y.Z` will test against that exact version.
+
+The oldest versions for which binaries are available is 0.3.1 for Linux,
 or 0.2.0 for [OS X](/user/multi-os/).
 
-## Default Julia Version
+## Default Build and Test Script
 
-If you leave the `julia:` key out of your `.travis.yml`, Travis CI will use
-the most recent release.
-
-## Default Test Script
-
-If your repository follows the structure of a Julia package created by
-`PkgDev.generate("$name", "$license")`, then the following default script will be run:
-
-```bash
-julia -e 'Pkg.clone(pwd())'
-julia -e 'Pkg.build("$name")'
-if [ -f test/runtests.jl ]; then
-  julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
-fi
+If your repository contains `JuliaProject.toml` or `Project.toml` file, and you are
+building on Julia v0.7 or later, the default build script will be:
+```julia
+using Pkg
+Pkg.build()
+Pkg.test()
 ```
 
-The package name `$name` is determined based on the repository name, removing
-the trailing `.jl` if present. A repository is treated as a Julia package when
-it contains a file at `src/$name.jl`. If your repository does not follow this
-structure, then the default script will be empty.
+Otherwise it will use the older form:
+```julia
+if VERSION >= v"0.7.0-DEV.5183"
+    using Pkg
+end
+Pkg.clone(pwd())
+Pkg.build("$pkgname")
+Pkg.test("$pkgname", coverage=true)
+```
+where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
 
 ## Dependency Management
 

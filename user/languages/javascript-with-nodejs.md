@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | JavaScript and Node.js                      | Default                                   |
@@ -28,8 +30,6 @@ node_js:
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
@@ -44,11 +44,9 @@ releases in your `.travis.yml`:
 - `node` latest stable Node.js release
 - `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
-- `8` latest 8.x release
-- `7` latest 7.x release
-- `6` latest 6.x release
-- `5` latest 5.x release
-- `4` latest 4.x release
+{% for vers in site.data.node_js_versions %}
+- `{{vers}}` latest {{vers}}.x release
+{% endfor %}
 
 ```yaml
 language: node_js
@@ -151,6 +149,14 @@ cache:
 {: data-file=".travis.yml"}
 
 `npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
+
+### npm ci support
+
+If a `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
+supports it, Travis CI will use `npm ci` instead of `npm install`.
+
+This command will delete your `node_modules` folder and install all dependencies
+as specified in your lock file.
 
 ### Travis CI supports yarn
 

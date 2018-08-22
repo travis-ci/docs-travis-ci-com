@@ -9,7 +9,7 @@ layout: en
 > change.  When in doubt, please request clarification via a [GitHub
 > issue](https://github.com/travis-ci/travis-ci/issues).
 
-<div id="toc"></div>
+
 
 ## Linux Build Environment Updates
 

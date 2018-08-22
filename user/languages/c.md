@@ -7,6 +7,11 @@ layout: en
 <div id="toc">
 </div>
 
+
+
+
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | C                                           | Default                                   |
@@ -25,9 +30,6 @@ language: c
 
 </aside>
 
-
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to C
@@ -42,7 +44,7 @@ Travis CI VMs are 64-bit and provide versions of:
 - clang
 - core GNU build toolchain (autotools, make), cmake, scons
 
-C projects on travis-ci.org assume you use Autotools and Make by default.
+C projects on Travis CI assume you use Autotools and Make by default.
 
 For precise versions on the VM, please consult "Build system information" in the build log.
 
