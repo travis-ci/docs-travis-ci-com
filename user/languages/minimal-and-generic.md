@@ -49,7 +49,7 @@ The `minimal` image contains:
 
 ## Generic
 
-The `generic` image contains everything from `minimal`, and also the usual databases and services:
+The `generic` image contains everything from `minimal`, and also the usual databases, services and language runtimes:
 
 * [version control tools](/user/reference/trusty/#version-control)
 * [essential build tools such as gcc and make](/user/reference/trusty/#compilers--build-toolchain)
