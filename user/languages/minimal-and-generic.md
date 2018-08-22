@@ -40,9 +40,18 @@ As neither `minimal` or `generic` are tailed to one particular language, there a
 
 ## Minimal
 
+The `minimal` image contains:
+
+* [version control tools](/user/reference/trusty/#version-control)
+* [essential build tools such as gcc and make](/user/reference/trusty/#compilers--build-toolchain)
+* [network tools such as curl and essential](/user/reference/trusty/#networking-tools)
+* [Docker](/user/reference/trusty/#docker)
+
 For specific details of what is on the image consult the [update diff](https://stackmeta-production.herokuapp.com/diff/travis-ci-connie-trusty-1499451964/travis-ci-connie-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&format=text).
 
 ## Generic
+
+The `generic` image contains everything from `minimal`, and also the usual [databases and services](/user/reference/trusty/#databases-and-services)
 
 For specific details of what is on the image consult the [update diff](https://stackmeta-production.herokuapp.com/diff/travis-ci-garnet-trusty-1499451966/travis-ci-garnet-trusty-1503972833?items=bin-lib.SHA256SUMS,system_info.json,dpkg-manifest.json,TRAVIS_COOKBOOKS_SHA,PACKER_TEMPLATES_SHA&format=text).
 
