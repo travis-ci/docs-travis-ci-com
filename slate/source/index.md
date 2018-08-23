@@ -71,7 +71,7 @@ Host: travis.example.com
 $ travis raw /
 {"hello"=>"world"}
 
-$ travis raw / --pro
+$ travis raw / --com
 {"hello"=>"world"}
 
 $ travis raw / --api-endpoint https://travis.example.com/api

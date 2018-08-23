@@ -5,7 +5,7 @@ layout: en
 
 This page lists settings that are only available in the Travis CI .com and .org web user interface.
 
-<div id="toc"></div>
+
 
 ## Limit concurrent jobs
 
@@ -19,7 +19,7 @@ If *OFF*, builds won't run on pushed commits on branches.
 
 ## Build pushed pull requests
 
-If *ON*, builds will be run new [pull requests](/user/pull-requests/).
+If *ON*, builds will be run on new [pull requests](/user/pull-requests/).
 
 ## Auto cancel branch builds
 

@@ -9,7 +9,7 @@ publishes to npmjs.com, however if you have a `publishConfig.registry` key in yo
 `package.json` then Travis CI publishes to that registry instead.
 
 
-<div id="toc"></div>
+
 
 
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
@@ -104,7 +104,7 @@ deploy:
 [A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
 reported when multiple attempts are made.
 We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+[Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Tagging releases
 

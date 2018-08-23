@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                       |
+| Erlang            | Default                                       |
 |:------------------|:----------------------------------------------|
 | Typical `install` | `rebar get-deps`                              |
 | Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
@@ -24,8 +26,6 @@ otp_release:
 {: data-file=".travis.yml"}
 
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 

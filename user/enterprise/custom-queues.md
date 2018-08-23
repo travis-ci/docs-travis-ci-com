@@ -7,7 +7,7 @@ Custom queues give your team more granular control over routing jobs to specific
 
 There are two [feature flags](#Enable-Queues-on-the-Platform) required for custom queues. After setting these flags, you can define the configuration for your queues in the [Management Console settings](#Define-Custom-Queues-in-the-Management-Console), and [allocate workers to the new queues](#Define-Custom-Queues-Settings-on-The-Workers)
 
-<div id="toc"></div>
+
 
 ## Enable Queues on the Platform
 

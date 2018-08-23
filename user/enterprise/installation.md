@@ -14,7 +14,7 @@ use your provider of choice.
 notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
 and information on obtaining a [license](/user/enterprise/prerequisites/#License).
 
-<div id="toc"></div>
+
 
 ## Setting up the Travis CI Enterprise Platform
 

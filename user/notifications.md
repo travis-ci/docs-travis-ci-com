@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page.
 
 Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 
@@ -22,7 +22,7 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
+addresses](#How-is-the-build-email-receiver-determined), [changing the email
 address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
 notification](#Missing-build-notifications).
