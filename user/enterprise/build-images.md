@@ -86,21 +86,14 @@ With this option we tell `travis-worker` to make the host's Docker socket availa
 
 __Restart travis-worker__
 
-To restart travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
 ### Updates to your .travis.yml files
 
 #### Trusty build containers
 
-Once the worker machine is configured properly, you can use Docker as usual in your build. Please note that you don't need to add `services: docker` to the `.travis.yml`.
-Since you're using the host's Docker daemon, all images and containers participating in your build stay on the machine. Therefore we recommend to clean up any containers and images in the `after_script` [lifecycle hook](https://docs.travis-ci.com/user/customizing-the-build/#the-build-lifecycle).
-
-```yaml
-    script:
-        - sudo docker pull redis:latest
-    after_script:
-        - sudo docker rmi redis:latest
-```
+Once the worker machine is [configured properly](/user/enterprise/build-images/#worker-machine-configuration), you can use Docker as usual in your build. Please note that on an Enterprise installation you don't need to add `services: docker` to the `.travis.yml`.
+Since you're using the host's Docker daemon, all images and containers participating in your build stay on the machine. Because of that, we recommend to use the `--rm` flag when you use `docker run`. To avoid race conditions when it comes to cleaning up build images during the build, we recommend to clean them up manually on the machine directly while no build is running.
 
 #### Precise build containers (legacy)
 
