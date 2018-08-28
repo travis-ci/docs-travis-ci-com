@@ -249,7 +249,7 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
 - Different SAPIs:
 
   - 5.3.3 comes with php-cgi only.
