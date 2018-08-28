@@ -40,7 +40,7 @@ New repositories should be activated on [travis-ci.com](https://www.travis-ci.co
 
 Open source projects and their build history will continue to run on `travis-ci.org` for now.
 
-However, open source repositories will be migrated to travis-ci.com gradually, beginning at the end of Q2 2018. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
+However, open source repositories will be migrated to travis-ci.com gradually. The migration was planned to start at the end of Q2 2018, but has been pushed back. We will announce a new date as soon as we are able. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 
