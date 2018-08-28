@@ -114,7 +114,7 @@ By default, the build will continue immediately after triggering a CodeDeploy de
 deploy:
   provider: codedeploy
     ⋮
-    wait-until-deployed: true
+    wait_until_deployed: true
 ```
 {: data-file=".travis.yml"}
 
