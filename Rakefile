@@ -43,6 +43,12 @@ task build: %i[remove_output_dir regen make_api] do
   sh 'bundle exec jekyll build --config=_config.yml'
 end
 
+desc 'Remove the output dirs'
+task :remove_output_dir do
+  rm_rf('_site')
+  rm_rf('api/*')
+end
+
 desc 'Lists files containing beta features'
 task :list_beta_files do
   files = FileList.new('**/*.md')
@@ -164,7 +170,6 @@ task regen: (%i[clean] + %w[
 
 desc 'Remove generated files'
 task :clean do
-  # Remove data files
   rm_f(%w[
          _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
@@ -175,10 +180,6 @@ task :clean do
          _data/trusty_language_mapping.yml
          _data/node_js_versions.yml
        ])
-   # Remove html files
-   rm_rf('_site')
-   rm_rf('api/*')
- 
 end
 
 desc 'Start Jekyll server'
