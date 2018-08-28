@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-<div id="toc"></div>
+
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -124,7 +124,7 @@ You'll also need to reset the root password to something other than `new_passwor
 ```yaml
 before_install:
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade
+  - sudo mysql_upgrade -u root -pnew_password
   - sudo service mysql restart
 ```
 {: data-file=".travis.yml"}
@@ -170,7 +170,7 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.1 by default, but other versions
+The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
 from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
 also available. To use a version other than the default, specify only the
 **major.minor** version in your `.travis.yml`:
@@ -200,11 +200,14 @@ env:
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS.
-
-You need to activate the extension in your `.travis.yml`:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```

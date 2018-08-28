@@ -18,7 +18,7 @@ In addition, _Precise build containers and Trusty build containers must be on di
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
-For instances on AWS, please run: 
+For instances on AWS, please run:
 
 ```
 curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker/legacy
@@ -45,7 +45,7 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
-`sudo service travis-worker restart` 
+`sudo service travis-worker restart`
 
 Worker configuration changes are applied on start.
 

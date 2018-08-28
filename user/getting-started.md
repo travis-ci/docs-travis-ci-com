@@ -9,47 +9,44 @@ If you're new to continuous integration or would like some more information on
 what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
 instead.
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 
-To start using Travis CI, make sure you have *all* of the following:
+To start using Travis CI, make sure you have:
 
- * [GitHub](https://github.com/) login
- * Project [hosted as a repository](https://help.github.com/categories/importing-your-projects-to-github/) on GitHub
- * Working code in your project
- * Working build or test script
+ * A [GitHub](https://github.com/) account.
+ * Owner permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/).
 
 ## To get started with Travis CI
 
-1. Using your GitHub account, sign in to [GitHub](https://github.com/marketplace/travis-ci) and add the Travis CI app to the repository you want to activate.
+1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with GitHub*](https://travis-ci.com/signin).
 
-2. Once you're signed in to Travis CI, and we've synchronized your GitHub
-   repositories, go to your profile page and enable the repository
-   you want to build: ![enable button](/images/enable.png "enable button")
+2. Accept the Authorization of Travis CI. You'll be redirected to GitHub.
 
-3. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+3. Click the green *Activate* button, and select the repositories you want to use with Travis CI.
 
-   The following example tells Travis CI that this is a Ruby project that should
-   be built with Ruby 2.2, and the latest versions of JRuby and Rubinius 2.X.
+4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+
+   The following example specifies a Ruby project that should
+   be built with Ruby 2.2 and the latest versions of JRuby.
 
    ```yaml
    language: ruby
    rvm:
     - 2.2
     - jruby
-    - rbx-3
    ```
    {: data-file=".travis.yml"}
 
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/customizing-the-build/#Customizing-the-Installation-Step),
    and `rake` to build the project.
 
-4. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
+5. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
-   > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
+   > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
+6. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command by visiting [Travis CI .com build status](https://travis-ci.com/auth) and selecting your repository.
 
 
 ## Selecting a different programming language
@@ -106,8 +103,9 @@ Objective-C, use our OS X environment:
   ```
   {: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
-  > you need Swift, Objective-C or other macOS-specific software.
+  > You do *not* necessarily need to use OS X if you develop on a Mac.
+  > OS X is required only if you need Swift, Objective-C or other
+  > macOS-specific software.
 
 ## More than running tests
 

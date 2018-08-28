@@ -4,10 +4,10 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can cache content that does not often change, to speed up your build process.
-**To use the caching feature**, in your repository settings, set *Build branch updates* to
+**To use the caching feature**, in your repository settings, set *Build pushed branches* to
 *ON*.
 
 * Travis CI fetches the cache for every build, including branches and pull requests.
@@ -25,7 +25,7 @@ Travis CI can cache content that does not often change, to speed up your build p
 Caches lets Travis CI store directories between builds, which is useful for storing
 dependencies that take longer to compile or download.
 
-Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#Arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
+Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 ### Build phases
 
@@ -62,7 +62,7 @@ Otherwise it will automatically add the `--path` option. In this case it will ei
 
 Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
 In this case, observe where Bundler is installing the gems, and cache that directory using
-[cache.directories](#Arbitrary-directories).
+[cache.directories](#arbitrary-directories).
 
 #### Cleaning up bundle
 
@@ -75,7 +75,7 @@ cache: bundler
 
 The command `bundle clean` is executed before the cache is uploaded.
 
-In the cases where this is not desirable, you can use specify the [arbitrary directories](#Arbitrary-directories)
+In the cases where this is not desirable, you can use specify the [arbitrary directories](#arbitrary-directories)
 to get around it.
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
 
@@ -268,7 +268,7 @@ After the first pull request build is run, it creates a new pull request cache.
 
 Some important things to note about caching for pull requests:
 
-* If a repository has *Build branch updates* set to *OFF*, neither the target branch nor the master branch can ever be cached.
+* If a repository has *Build pushed branches* set to *OFF*, neither the target branch nor the master branch can ever be cached.
 * If the cache on the master branch is old, for example in a workflow where most work happens on branches, the less useful the cache will be.
 * If a pull request is using a cache but you don't want it to, you need to clear **both** the pull request cache **and** the cache of the target branch.
 
@@ -306,6 +306,8 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
+
 ## Configuration
 
 ### Enabling multiple caching features
@@ -320,7 +322,7 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
-This does not work when caching [arbitrary directories](#Arbitrary-directories),
+This does not work when caching [arbitrary directories](#arbitrary-directories),
 or when any of the directives is not supported by the language.
 
 If you want to combine that with other caching modes, use a hash map.
@@ -426,7 +428,7 @@ each of the three jobs will use its own cache.
 
 ## Caches and read permissions
 
-When caching [custom files and directories](/user/caching/#Arbitrary-directories),
+When caching [custom files and directories](/user/caching/#arbitrary-directories),
 ensure that the locations you specify are readable and writable by the user.
 
 If they are not, the caching utility reports errors when it

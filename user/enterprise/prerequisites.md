@@ -20,13 +20,16 @@ and Docker.
 ### System Requirements
 
 Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should
-run **Ubuntu 14.04**, ideally using Linux 3.16 and have at least **16 gigs of
+run **Ubuntu 14.04** or **Ubuntu 16.04**, ideally using Linux 3.16 and have at least **16 gigs of
 RAM and 8 CPUs**.
 
-If you're running on EC2, we recommend the **c3.2xlarge** instance type. We also
-recommend using an image that uses EBS for the root volume, as well as
-allocating 40 gigs of space to it. It is also recommended _not_ to destroy the
-volume on instance termination.
+If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 40 gigs of space to it. It is also recommended _not_ to destroy the volume on instance termination.
+
+For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need to
+provide your own [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/), 
+and [Postgres](https://www.postgresql.org/) instances. You can also try services like
+[compose.com](https://compose.com/) if you would like these services hosted outside 
+your organization.
 
 ## OAuth App
 
@@ -42,6 +45,10 @@ Note: URLs must include `https` or `http` at the beginning and cannot have trail
 To register for a 30 day trial please visit
 [our signup page](https://enterprise.travis-ci.com/signup) to receive a trial license. Please email [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for
 more information on pricing.
+
+### High Availability Mode
+
+If you're interested in using High Availability, [please let us know](mailto:enterprise@travis-ci.com) so we can get your trial license configured. Check out the [HA docs](/user/enterprise/high-availability/) for more information.
 
 ## Contact Enterprise Support
 

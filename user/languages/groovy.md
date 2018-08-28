@@ -7,6 +7,8 @@ layout: en
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Groovy                       | Default                                                                                                           |
@@ -24,8 +26,6 @@ language: groovy
 {: data-file=".travis.yml"}
 
 </aside>
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -143,6 +143,11 @@ jdk:
   - openjdk7
 ```
 {: data-file=".travis.yml"}
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
 
 ## Build Matrix
 

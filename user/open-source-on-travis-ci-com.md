@@ -6,7 +6,7 @@ layout: en
 
 On May 2nd, 2018 Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
 
-<div id="toc"></div>
+
 
 This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 
@@ -22,7 +22,7 @@ GitHub-Apps based integration introduces a number of benefits as over our Legacy
  * We will no longer add deploy keys to repositories when they are activated on Travis CI
  * Projects will be cloned with a shorter-lived OAuth token
  * Our GitHub App requires far less permissions than our OAuth application
- * Ownership of organization repositories is always tied to the organization who own the project
+ * Ownership of organization repositories is always tied to the organization which owns the project
 
 ## New User Accounts
 
@@ -44,7 +44,7 @@ However, open source repositories will be migrated to travis-ci.com gradually, b
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 
-Repositories may also be migrated without their build history immediately. Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration) and include "Repository Migration" somewhere in the subject line, and the name of the repository in your email.
+Repositories may also be migrated without their build history or build settings (including environment variables) immediately. Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration) and include "Repository Migration" somewhere in the subject line, and the name of the repository in your email.
 
 ## Existing Private Repositories on travis-ci.com
 

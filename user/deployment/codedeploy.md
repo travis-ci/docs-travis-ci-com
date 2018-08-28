@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
-<div id="toc"></div>
+
 
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 
@@ -130,7 +130,7 @@ If your `.travis.yml` contains both, and they do not match, set `bundle_type` ex
 ## Conditional deployments
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Note on `.gitignore`
 

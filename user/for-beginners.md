@@ -4,6 +4,8 @@ layout: en
 
 ---
 
+
+
 Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful if you are new
 here or new to Continuous Integration (CI).

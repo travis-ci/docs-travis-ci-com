@@ -96,9 +96,9 @@ If none of the steps above lead to results for you, please follow the steps in t
 
 #### Builds are not Starting on Enterprise Installation at Version 2.2+
 
-If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either: 
+If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either:
 
-1. Install a Trusty worker on a fresh vm instance: [Trusty installation guide](/user/enterprise/trusty/)
+1. Install a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
 1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
 
 ## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
@@ -130,6 +130,20 @@ One possible reason that travis-worker is not running is that `systemctl` cannot
 $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
 ```
+
+## Builds fail with curl certificate errors
+
+A build fails with a long `curl` error message similar to:
+
+```
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+This can have various causes, including an automatic nvm update or a caching error.
+
+### Strategy
+
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
 ## Contact Enterprise Support
 
