@@ -64,6 +64,8 @@ before_install:
 
 ### GCC on OS X
 
+On OS X, `gcc` is an alias for `clang`. So you must set CC to a specific `gcc` version:
+
 ```yaml
 matrix:
   include:
