@@ -120,7 +120,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 - [website](http://sirenofshame.com/)
-- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame&feature=nav_result#?t=W251bGwsMSwyLDNd)
+- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
 ## iOS
 
