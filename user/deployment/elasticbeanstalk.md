@@ -17,7 +17,7 @@ To deploy to AWS Elastic Beastalk add the following to your `.travis.yml`:
 * `region`: **must** be the region the Elastic Beanstalk application is running on, for example `us-east-1`.
 * `app`: Application name.
 * `env`: Elastic Beanstalk environment the application will be deployed to.
-* `bucket_name`: Bucket name to upload app to.
+* `bucket_name`: Bucket name to upload the code of your app to. Elastic Beanstalk will create and deploy an application version from the source bundle in this Amazon S3 bucket.
 
 ```yaml
 deploy:
