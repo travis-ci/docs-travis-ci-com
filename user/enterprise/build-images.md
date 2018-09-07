@@ -93,7 +93,9 @@ To restart travis-worker, you can find the instructions [here](/user/enterprise/
 #### Trusty build containers
 
 Once the worker machine is [configured properly](/user/enterprise/build-images/#worker-machine-configuration), you can use Docker as usual in your build. Please note that on an Enterprise installation you don't need to add `services: docker` to the `.travis.yml`.
-Since you're using the host's Docker daemon, all images and containers participating in your build stay on the machine. Because of that, we recommend to use the `--rm` flag when you use `docker run`. To avoid race conditions when it comes to cleaning up build images during the build, we recommend to clean them up manually on the machine directly while no build is running.
+
+Since you're using the host's Docker daemon, all images and containers used in your build are stored on the host machine. To free up disk space, we recommend using the `--rm` flag when you use Docker run in your build.
+To avoid race conditions when multiple builds start to remove containers and images at the same time we recommend to clean them up manually on the machine directly while no build is running.
 
 #### Precise build containers (legacy)
 
