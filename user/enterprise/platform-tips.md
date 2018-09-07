@@ -317,7 +317,7 @@ To check if your Travis CI Enterprise installation is up and running, query the 
 $ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
 ```
 
-If everything is up and running, it answers with a `HTTP 200 OK`.
+If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
 
 ## Contact Enterprise Support
 
