@@ -311,7 +311,7 @@ $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 
 ## Integrate Travis CI Enterprise into your monitoring
 
-To implement a simple uptime check for Travis CI Enterprise, you can query the `/api/uptime` endpoint from your instance.
+To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
 
 ```
 $ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
