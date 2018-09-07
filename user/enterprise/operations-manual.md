@@ -168,7 +168,7 @@ $ travis console
 >> User.update_all(is_syncing: false)
 ```
 
-It can happen that organizations are also stuck in the syncing state. Though an organization itself cannot be synced, but once all users belonging to it are synced the organization itself is considered synced as well.
+It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
 
 ## Contact Enterprise Support
 
