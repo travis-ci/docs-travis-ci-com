@@ -84,7 +84,7 @@ export TRAVIS_WORKER_DOCKER_BINDS='/var/run/docker.sock:/var/run/docker.sock'
 With this option we tell `travis-worker` to make the host's Docker socket available inside the build containers. Please restart travis-worker after you have saved the configuration file.
 
 
-__Restart travis-worker__
+#### Restart travis-worker
 
 To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
