@@ -145,11 +145,11 @@ This can have various causes, including an automatic nvm update or a caching err
 
 This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
-## Users are stuck in syncing state
+## User accounts are stuck in syncing state
 
-One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing is not decreasing over the time. Example:
+One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
 
-```bash
+```sql
 travis_production=> select count(*) from users where is_syncing=true;
  count
 -------
@@ -159,7 +159,7 @@ travis_production=> select count(*) from users where is_syncing=true;
 
 ### Strategy
 
-Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Via that console, reset the `is_syncing` flag for the users by executing the following command:
+Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Reset the `is_syncing` flag for user accounts that are stuck by running:
 
 ```bash
 $ travis console
