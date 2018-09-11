@@ -318,7 +318,7 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
 ```
 
-The number that's returned here is equal the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
+The number that's returned here is equal to the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
 
 ## Find out how many worker machines are connected
 
@@ -329,7 +329,7 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 ```
 
-The number that's returned here is equal the currenctly connected worker machines. If you need to spin up more worker machines, please follow the instructions [here](/user/enterprise/installation/#install-travis-ci-worker).
+The number that's returned here is equal to the currently connected worker machines. If you need to spin up more worker machines, please follow the instructions [here](/user/enterprise/installation/#install-travis-ci-worker).
 
 ## Contact Enterprise Support
 
