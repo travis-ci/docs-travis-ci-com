@@ -309,6 +309,28 @@ Additionally, please the following command to clean up all Docker build images:
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
+## Find out available concurrency
+
+If you wish to find out how much concurrency is available in your Travis CI Enterprise setup, please connect to your platform machine via ssh and follow these steps:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
+```
+
+The number that's returned here is equal the maximum number of concurrent jobs that are available.
+
+## Find out how many workers are connected
+
+If you wish to find out how many worker machines are currently connected, please connect to your platform machine via ssh and follow these steps:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
+```
+
+The number that's returned here is equal the currenctly connected worker machines.
+
 ## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
