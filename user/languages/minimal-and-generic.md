@@ -36,7 +36,7 @@ language: generic
 
 ## Defaults
 
-As neither `minimal` or `generic` are tailed to one particular language, there are no default `install` or `script` commands, so remember to configure these in your `.travis.yml`.
+As neither `minimal` or `generic` are tailored to one particular language, there are no default `install` or `script` commands, so remember to configure these in your `.travis.yml`.
 
 ## Minimal
 
