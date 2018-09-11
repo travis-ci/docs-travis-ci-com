@@ -309,7 +309,7 @@ Additionally, please the following command to clean up all Docker build images:
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
-## Find out available concurrency
+## Find out maximum available concurrency
 
 If you wish to find out how much concurrency is available in your Travis CI Enterprise setup, please connect to your platform machine via ssh and follow these steps:
 
@@ -318,9 +318,9 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
 ```
 
-The number that's returned here is equal the maximum number of concurrent jobs that are available.
+The number that's returned here is equal the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
 
-## Find out how many workers are connected
+## Find out how many worker machines are connected
 
 If you wish to find out how many worker machines are currently connected, please connect to your platform machine via ssh and follow these steps:
 
@@ -329,7 +329,7 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 ```
 
-The number that's returned here is equal the currenctly connected worker machines.
+The number that's returned here is equal the currenctly connected worker machines. If you need to spin up more worker machines, please follow the instructions [here](/user/enterprise/installation/#install-travis-ci-worker).
 
 ## Contact Enterprise Support
 
