@@ -71,7 +71,6 @@ By Frederik Dietz
 Travis CI dashboard<br>
 By Piwik.
 
-- [website](https://ci-status.com/)
 - [source code](https://github.com/piwik/ci-status)
 
 ### node-build-monitor
@@ -120,7 +119,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 - [website](http://sirenofshame.com/)
-- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame&feature=nav_result#?t=W251bGwsMSwyLDNd)
+- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
 ## iOS
 

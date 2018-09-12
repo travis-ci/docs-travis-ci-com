@@ -28,7 +28,7 @@ sudo snap install snapcraft --classic
 Login tokens can specify how, when, and where they can be used, thus minimising damage from compromise. For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
 
 ```bash
-snap export-login --snaps my-snap-name --channels edge -
+snapcraft export-login --snaps my-snap-name --channels edge -
 ```
 
 _Note: The final `-` requests the login be exported to stdout instead of a file. It is required._
