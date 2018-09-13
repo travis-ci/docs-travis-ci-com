@@ -81,7 +81,7 @@ Or it can result in the command not found:
 xctool: command not found
 ```
 
-This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by first checking if the command needs an upgrade with `brew outdated`
+This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by using `brew install`
 
 #### `brew bundle`
 
@@ -99,12 +99,14 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-#### `brew outdated`
+#### `brew install`
+
+`brew install` does not error when the package is already installed:
 
 ```yaml
 before_install:
   - brew update
-  - brew outdated <package-name> || brew upgrade <package-name>
+  - brew install <package-name>
 ```
 {: data-file=".travis.yml"}
 
@@ -113,9 +115,11 @@ For example, if you always want the latest version of xctool, you can run this:
 ```yaml
 before_install:
   - brew update
-  - brew outdated xctool || brew upgrade xctool
+  - brew install xctool
 ```
 {: data-file=".travis.yml"}
+
+(Don't use `brew outdated <package-name> || brew install <package-name>`. Recent Homebrew versions always exit successfully from `brew outdated`, so your packages will never be updated.)
 
 ## File System
 
