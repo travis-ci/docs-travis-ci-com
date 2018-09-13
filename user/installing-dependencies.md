@@ -275,9 +275,9 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Taps and Casks
+### Installing Casks
 
-The Homebrew addon supports more than just packages. It also supports installing [casks][homebrew-cask]: GUI apps and other things that need to run installers rather than being built from source code. Many casks are not very useful for automated building and testing, but there may be some that you need for your builds. You can add them to the `casks` key in the Homebrew addon configuration to install them:
+The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
 
 [homebrew-cask]: https://github.com/Homebrew/homebrew-cask
 
@@ -289,12 +289,17 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-Homebrew also supports installing casks and packages from third-party repositories called [taps][homebrew-tap]. You can add these with the Homebrew addon. For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
+### Installing From Taps
+
+Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
+
+For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
 
 [homebrew-tap]: https://docs.brew.sh/Taps
 [cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
 
 ```yaml
+osx_image: xcode10
 addons:
   homebrew:
     taps: homebrew/cask-versions
@@ -313,8 +318,16 @@ addons:
   homebrew:
     brewfile: true
 ```
+{: data-file=".travis.yml"}
 
-You can also provide a path if your Brewfile is in a different location. For example: `brewfile: Brewfile.travis`.
+You can also provide a path if your Brewfile is in a different location.
+
+```yaml
+addons:
+  homebrew:
+    brewfile: Brewfile.travis
+```
+{: data-file=".travis.yml"}
 
 ## Installing Dependencies on Multiple Operating Systems
 
