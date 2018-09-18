@@ -231,6 +231,12 @@ Feature complete command line client
 
 - [website](https://github.com/travis-ci/travis#readme)
 
+### PSTravis
+
+Command line client for PowerShell
+
+- [website](https://github.com/felixfbecker/PSTravis#readme)
+
 ## Build Monitoring
 
 ### Bickle
@@ -467,6 +473,10 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## Python
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
+
+## PowerShell
+
+- [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
 
 ## Elixir
 
