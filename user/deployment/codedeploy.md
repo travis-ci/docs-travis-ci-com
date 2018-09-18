@@ -108,7 +108,7 @@ Please note that `region` should match the instance region on which codedeploy i
 
 ## Waiting for Deployments
 
-By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
+By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait_until_deployed** option:
 
 ```yaml
 deploy:
