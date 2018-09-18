@@ -35,7 +35,7 @@ You can perform additional steps when your build succeeds or fails using  the `a
 
 The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
 
-1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
+1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
 1. OPTIONAL Install [`cache components`](/user/caching)
 1. `before_install`
 1. `install`

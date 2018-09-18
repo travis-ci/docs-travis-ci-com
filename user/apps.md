@@ -71,7 +71,6 @@ By Frederik Dietz
 Travis CI dashboard<br>
 By Piwik.
 
-- [website](https://ci-status.com/)
 - [source code](https://github.com/piwik/ci-status)
 
 ### node-build-monitor
