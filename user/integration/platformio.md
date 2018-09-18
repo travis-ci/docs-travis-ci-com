@@ -4,22 +4,20 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can test your code on multiple platforms, frameworks and boards:
+[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can compile your code on multiple platforms, frameworks and boards. Unit testing requires a [monthly subscription](http://platformio.org/pricing).
 
 - *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
   includes compiler, debugger, uploader, etc:
 
-  ```
-  + Atmel AVR
-  + Espressif
-  + Teensy
-  + ST STM32
-  + [Full list](http://platformio.org/#!/platforms) at PlatformIO
-  ```
+  - Atmel AVR
+  - Espressif
+  - Teensy
+  - ST STM32
+  - [Full list](http://platformio.org/#!/platforms) at PlatformIO
 
 - *Frameworks* - pre-configured build scripts for the popular embedded frameworks:
 
@@ -30,7 +28,8 @@ layout: en
 
 - *Embedded* - pre-defined compilation profiles for a variety of embedded
   boards.
-      \+ [Full list](http://platformio.org/#!/boards) at PlatformIO
+      
+[Full list](http://platformio.org/#!/boards) at PlatformIO
 
 ## .travis.yml Settings
 

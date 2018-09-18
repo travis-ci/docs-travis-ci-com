@@ -1,10 +1,12 @@
 ---
-title: Travis CI for Beginners
+title: Core Concepts for Beginners
 layout: en
 
 ---
 
-Welcome to Travis CI! This page provides some context and terminology used
+
+
+Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful if you are new
 here or new to Continuous Integration (CI).
 
@@ -51,14 +53,6 @@ In the Travis CI documentation, some common words have specific meanings:
 * *stage* - a group of *jobs* that run in parallel as part of sequential build
   process composed of multiple [stages](/user/build-stages/).
 
-## travis-ci.org vs travis-ci.com
-
-Travis CI was originally developed for open-source projects before being
-expanded to support closed-source projects at a later date. As a result:
-
-* open-source projects are hosted on [travis-ci.org](https://travis-ci.org/).
-* closed-source projects are hosted on [travis-ci.com](https://travis-ci.com/), also known as [Travis Pro](/user/travis-pro/).
-
 ## Breaking the Build
 
 The build is considered *broken* when one or more of its jobs completes with a
@@ -84,6 +78,6 @@ the setup that suits your project best:
 
 More details are on our environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Now you've read the basics, head over to our [Getting
+Now that you've read the basics, head over to our [Getting
 Started](/user/getting-started/) guide for details on setting up your first
 build!

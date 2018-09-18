@@ -9,7 +9,7 @@ publishes to npmjs.com, however if you have a `publishConfig.registry` key in yo
 `package.json` then Travis CI publishes to that registry instead.
 
 
-<div id="toc"></div>
+
 
 
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
@@ -35,7 +35,8 @@ it can modify the `.travis.yml` for you.
 
 Your NPM Auth Token can be obtained by:
 
-1. Log in to your NPM account, and [generate a new token](https://www.npmjs.com/settings/tokens).
+1. Log in to your NPM account, and generate a new token at `https://www.npmjs.com/settings/USER/tokens`, where
+  `USER` is the name of the user account which is capable of publishing the npm package.
 1. Use the NPM CLI command [`npm adduser`](https://docs.npmjs.com/cli/adduser) to create a user, then open the `~/.npmrc` file:
     1. For NPM v2+, use the `authToken` value.
     1. For NPM ~1, use the `auth` value.
@@ -103,11 +104,11 @@ deploy:
 [A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
 reported when multiple attempts are made.
 We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+[Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Tagging releases
 
-You can automatically tag releases with the `tag` option:
+You can automatically add [npm distribution tags](https://docs.npmjs.com/getting-started/using-tags) with the `tag` option:
 
 ```yaml
 deploy:

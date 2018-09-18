@@ -30,7 +30,7 @@ deploy:
 
 If you tag a commit locally, remember to run `git push --tags` to ensure that your tags are uploaded to GitHub.
 
-You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api/). It is recommended to encrypt that key.
+You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
@@ -49,7 +49,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 ## Pre-releasing
 
-Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns/#prerelease_gems) for each build.
+Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns#prerelease-gems) for each build.
 
 This gives your gem's users the option to download a newer, possibly more unstable version of your gem.
 
@@ -158,7 +158,13 @@ deploy:
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+
+### Gem must be registered beforehand
+
+Note that the gem you upload must be registered beforehand.
+If the gem does not exist on the host to which it is uploaded, deployment will fail.
+See [this GitHub issue](https://github.com/travis-ci/dpl/issues/574) for details.
 
 ### Running commands before and after release
 

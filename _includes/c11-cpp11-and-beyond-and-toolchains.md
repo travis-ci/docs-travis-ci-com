@@ -55,7 +55,7 @@ matrix:
           packages:
             - g++-7
       env:
-- MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 before_install:
     - eval "${MATRIX_EVAL}"
@@ -63,6 +63,9 @@ before_install:
 {: data-file=".travis.yml"}
 
 ### GCC on OS X
+
+On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+So you must set CC and CXX to specific `gcc`/`g++` versions:
 
 ```yaml
 matrix:
@@ -181,7 +184,7 @@ On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
 #### CMake
 
-Ubuntu 12.04 ships with cmake 2.8.7 and Ubuntu 14.04 ships with cmake 3.2.2.
+Ubuntu 12.04 ships with cmake 2.8.7 and Ubuntu 14.04 ships with cmake 3.9.2.
 
 You can upgrade cmake to 3.2.3 on Precise from the `george-edison55-precise-backports` source (note that the `cmake-data` package contains dependencies which Aptitude does not automatically resolve), c.f.
 

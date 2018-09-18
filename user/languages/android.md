@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Android
 
 Android builds are not available on the OS X environment.
 
-<div id="toc"></div>
+
 
 ## CI Environment for Android Projects
 
@@ -25,7 +25,7 @@ language: android
 ```
 {: data-file=".travis.yml"}
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 24.0.0 (December 2014).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 26.0.2 (April 2017).
 
 Here is an example `.travis.yml` for an Android project:
 
@@ -39,20 +39,20 @@ android:
     # - platform-tools
 
     # The BuildTools version used by your project
-    - build-tools-19.1.0
+    - build-tools-26.0.2
 
     # The SDK version used to compile your project
-    - android-22
+    - android-26
 
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-19
+    - addon-google_apis-google-26
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-22
+    - sys-img-armeabi-v7a-android-26
     - sys-img-armeabi-v7a-android-17
 ```
 {: data-file=".travis.yml"}
@@ -65,8 +65,8 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
 language: android
 android:
   components:
-    - build-tools-18.1.1
-    - android-18
+    - build-tools-26.0.2
+    - android-26
     - extra
 ```
 {: data-file=".travis.yml"}
@@ -88,7 +88,7 @@ android:
 
 > Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
 
-You can compile your project for Android 25 as shown in the following example:
+You can compile your project for Android 26 as shown in the following example:
 
 ```yaml
 android:
@@ -98,10 +98,10 @@ android:
     - tools
 
     # The BuildTools version used by your project
-    - build-tools-25.0.0
+    - build-tools-26.0.2
 
     # The SDK version used to compile your project
-    - android-25
+    - android-26
 ```
 {: data-file=".travis.yml"}
 
@@ -113,8 +113,8 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
 language: android
 android:
   components:
-    - build-tools-20.0.0
-    - android-L
+    - build-tools-26.0.2
+    - android-26
     - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra

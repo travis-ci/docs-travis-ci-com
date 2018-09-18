@@ -10,7 +10,7 @@ redirect_from:
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-<div id="toc"></div>
+
 
 ## Using Trusty
 
@@ -141,9 +141,10 @@ See our [Using Docker in Builds](/user/docker/) section for more details.
 ## Ruby images
 
 [rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
-the latest point releases such as:
+the latest point releases. These are the currently pre-installed Ruby versions:
 
 - `2.2.7`
+- `2.3.4`
 - `2.4.1`
 
 Other versions are dynamically installed at runtime from a local cache.
@@ -272,7 +273,6 @@ and the nightly builds are installed on-demand (as `hhvm-nightly`).
 language: php
 sudo: required
 dist: trusty
-group: edge
 php:
   - hhvm-3.3
   - hhvm-3.6
@@ -332,7 +332,8 @@ We pre-install the following services which may be activated with the built-in
 - CouchDB
 - ElasticSearch
 - MongoDB
-- Neo4J
+- MySQL
+- Neo4j
 - PostgreSQL
 - RabbitMQ
 - Redis
@@ -399,4 +400,4 @@ secondary groups given above in `usermod`.
 ### Build system information
 
 In the build log, relevant software versions (including the available language
-versions) is show in the "Build system information".
+versions) are shown in the "Build system information" section.

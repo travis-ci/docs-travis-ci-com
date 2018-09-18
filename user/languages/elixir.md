@@ -4,11 +4,13 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
+| Elixir            | Default                                   |
 |:------------------|:------------------------------------------|
-| Typical `install` | `mix local.rebar --force; mix.local.hex --force; mix deps.get` |
+| Typical `install` | `mix local.rebar --force; mix local.hex --force; mix deps.get` |
 | Typical `script`  | `mix test`                                |
 | Matrix keys       | `env`, `elixir`, `otp_release`            |
 | Support           | [Travis CI](mailto:support@travis-ci.com) |
@@ -17,14 +19,12 @@ Minimal example:
 
 ```yaml
 language: elixir
-elixir: '1.4'
+elixir: '1.5.2'
 otp_release: '19.0'
 ```
 {: data-file=".travis.yml"}
 
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -44,6 +44,30 @@ language: elixir
 ```
 {: data-file=".travis.yml"}
 
+### Specify which Elixir version to build with
+
+You can specify Elixir version to build with by the `elixir` key.
+
+For example,
+
+```yaml
+elixir: '1.5.2'
+```
+
+or
+
+```yaml
+elixir: '1.5'
+```
+
+The former points to the specific release indicated, while
+the latter points to the latest development branch build which
+has latest patches but may be occasionally be broken.
+See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372)
+for more details.
+
+### Specifying OTP Release version
+
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
 
@@ -57,9 +81,9 @@ For example:
 ```yaml
 language: elixir
 elixir:
-  - 1.2.2
+  - '1.2.2'
 otp_release:
-  - 18.2.1
+  - '18.2.1'
 ```
 {: data-file=".travis.yml"}
 
@@ -69,13 +93,13 @@ To test multiple Elixir versions with different OTP release versions:
 language: elixir
 
 elixir:
-  - 1.0.5
-otp_release: 17.4
+  - '1.0.5'
+otp_release: '17.4'
 
 matrix:
   include:
-    - elixir: 1.2
-      otp_release: 18.0
+    - elixir: '1.2'
+      otp_release: '18.0'
 ```
 {: data-file=".travis.yml"}
 

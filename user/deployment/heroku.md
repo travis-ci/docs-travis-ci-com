@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
@@ -116,6 +116,8 @@ deploy:
     - "rake cleanup"
 ```
 {: data-file=".travis.yml"}
+
+> Take note that Heroku app might not be completely deployed and ready to serve requests when we run your commands. To mitigate this situation, you can add a `sleep` statement to add a delay before your commands.
 
 ### Error Logs for Custom Commands
 

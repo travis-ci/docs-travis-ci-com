@@ -11,6 +11,8 @@ swiftypetags:
 <div id="toc">
 </div>
 
+## What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
 | Go                                          | Default                                   |
@@ -25,15 +27,15 @@ Minimal example:
 ```yaml
   language: go
   go:
-    - 1.6
+    - "1.10"
 ```
+
+Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
+not `go: 1.10` (a float).
+Using a float results in the use of Go 1.1.
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
-
-Go builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Go projects in Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
@@ -51,9 +53,9 @@ handled by [gimme](https://github.com/travis-ci/gimme).
 language: go
 
 go:
-  - 1.x
-  - 1.6
-  - 1.7.x
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
   - master
 ```
 {: data-file=".travis.yml"}
@@ -78,16 +80,16 @@ The default install step depends on the version of go:
 * if go version is greater than or equal to `1.2`
 
   ```
-  go get ./...
+  go get -t ./...
   ```
 
 * if go version is older than `1.2`
 
   ```
-  go get -t ./...
+  go get ./...
   ```
 
-*  or if any of the following files are present, the default install step is `true`:
+*  or if any of the following files are present, the default install step is `true`, so you need to specify the `install` step yourself:
 
     - `GNUMakefile`
     - `Makefile`
