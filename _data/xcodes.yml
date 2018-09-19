@@ -105,7 +105,7 @@ osx_images:
       - watchOS 4.1
       - watchOS 4.2
       - watchOS 4.3
-    jdk: "1.8.0_112-b16"
+    jdk: "10.0.1+10"
   - image: xcode9.3
     xcode: "9.3"
     osx_version: "10.13"
