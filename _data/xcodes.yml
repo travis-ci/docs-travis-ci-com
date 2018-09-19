@@ -3,8 +3,8 @@ osx_images:
     xcode: "10.0"
     osx_version: "10.13"
     xcode_full_version: "10.0"
-    xcode_build_version: "10A254a"
-    image_publish_date: 2018-09-13
+    xcode_build_version: "10A255"
+    image_publish_date: 2018-09-19
     sdks:
       - macosx10.14
       - iphoneos12.0
