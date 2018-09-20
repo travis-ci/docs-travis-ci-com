@@ -410,7 +410,7 @@ By Cas du Plessis
 
 ![emacs](/images/apps/emacs.jpg){:.app}
 
-Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+Travis CI integration for [Emacs](https://www.gnu.org/software/emacs/)<br>
 By Skye Shaw
 
 - [website](https://github.com/sshaw/build-status)
