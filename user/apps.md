@@ -71,7 +71,6 @@ By Frederik Dietz
 Travis CI dashboard<br>
 By Piwik.
 
-- [website](https://ci-status.com/)
 - [source code](https://github.com/piwik/ci-status)
 
 ### node-build-monitor
@@ -120,7 +119,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 - [website](http://sirenofshame.com/)
-- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame&feature=nav_result#?t=W251bGwsMSwyLDNd)
+- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
 ## iOS
 
@@ -231,6 +230,12 @@ By catlight.io
 Feature complete command line client
 
 - [website](https://github.com/travis-ci/travis#readme)
+
+### PSTravis
+
+Command line client for PowerShell
+
+- [website](https://github.com/felixfbecker/PSTravis#readme)
 
 ## Build Monitoring
 
@@ -405,7 +410,7 @@ By Cas du Plessis
 
 ![emacs](/images/apps/emacs.jpg){:.app}
 
-Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+Travis CI integration for [Emacs](https://www.gnu.org/software/emacs/)<br>
 By Skye Shaw
 
 - [website](https://github.com/sshaw/build-status)
@@ -468,6 +473,10 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## Python
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
+
+## PowerShell
+
+- [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
 
 ## Elixir
 

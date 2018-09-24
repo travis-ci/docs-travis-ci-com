@@ -2,9 +2,9 @@ osx_images:
   - image: xcode10
     xcode: "10.0"
     osx_version: "10.13"
-    xcode_full_version: "10.0 beta 6"
-    xcode_build_version: "10L232m"
-    image_publish_date: 2018-08-16
+    xcode_full_version: "10.0"
+    xcode_build_version: "10A255"
+    image_publish_date: 2018-09-19
     sdks:
       - macosx10.14
       - iphoneos12.0
@@ -105,7 +105,7 @@ osx_images:
       - watchOS 4.1
       - watchOS 4.2
       - watchOS 4.3
-    jdk: "1.8.0_112-b16"
+    jdk: "10.0.1+10"
   - image: xcode9.3
     xcode: "9.3"
     osx_version: "10.13"
