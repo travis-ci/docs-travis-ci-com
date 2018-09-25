@@ -9,12 +9,12 @@ redirect_from:
 
 
 
-Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
+Learn more about [Travis CI for private repositories](https://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
 ## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
 When you're ready to start using Travis CI, head over to the [billing page](https://billing.travis-ci.com/) to add your billing details and end your trial.
 
