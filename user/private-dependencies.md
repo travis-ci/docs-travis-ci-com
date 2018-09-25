@@ -28,7 +28,7 @@ to your situation.
 | **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
 | **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
-You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
+You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
 of repositories, and make sure that access is read only.
 
@@ -50,7 +50,7 @@ You could include a different private key for every dependency in the repository
 
 You can add SSH keys to user accounts on GitHub. Most users have probably already done this to be able to clone the repositories locally.
 
-This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#Dedicated-User-Account).
+This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
 ### Using an existing key
 
@@ -81,7 +81,7 @@ Assumptions:
 - The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 - You know the credentials for a user account that has at least read access to all three repositories.
 
-The `travis` command line tool can generate a new key for you and set it up on both Travis CI and GitHub. In order to do so, it will ask you for a GitHub user name and password This is very handy if you have just created a [dedicated user](#Dedicated-User-Account) or if you don't have a key set up on your machine that you want to use.
+The `travis` command line tool can generate a new key for you and set it up on both Travis CI and GitHub. In order to do so, it will ask you for a GitHub user name and password This is very handy if you have just created a [dedicated user](#dedicated-user-account) or if you don't have a key set up on your machine that you want to use.
 
 The credentials will only be used to access GitHub and will not be stored or shared with any other service.
 
