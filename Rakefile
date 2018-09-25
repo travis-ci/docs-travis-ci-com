@@ -64,7 +64,9 @@ task :run_html_proofer => [:build] do
     './_site',
     internal_domains: ['docs.travis-ci.com'],
     check_external_hash: true,
+    check_html: true,
     connecttimeout: 600,
+    allow_hash_ref: true,
     only_4xx: true,
     typhoeus: {
       ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true

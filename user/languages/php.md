@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
@@ -405,7 +402,7 @@ virtual host as usual, the important part for php-fpm is this:
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
-    
+
     <Directory /usr/lib/cgi-bin>
         Require all granted
     </Directory>
