@@ -108,6 +108,9 @@ matrix. For each row, the Travis CI C++ builder will export the `CXX` env
 variable to point to either `g++` or `clang++` and `CC` to either `gcc` or
 `clang`.
 
+On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.
+
 ## Build Matrix
 
 For C++ projects, `env` and `compiler` can be given as arrays

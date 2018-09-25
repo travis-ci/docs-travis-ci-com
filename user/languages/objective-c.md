@@ -30,7 +30,7 @@ the following table:
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="/user/reference/osx/#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="/user/reference/osx/#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}

@@ -48,7 +48,7 @@ Please note that the name of the environment variable and its value are both enc
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
 Encrypted values can be used in
-[secure environment variables in the build matrix](/user/environment-variables#Defining-Variables-in-.travis.yml)
+[secure environment variables in the build matrix](/user/environment-variables#Defining-Variables-in-travisyml)
 and [notifications](/user/notifications).
 
 ### Note on escaping certain symbols

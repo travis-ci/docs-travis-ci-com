@@ -22,7 +22,7 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
+addresses](#How-is-the-build-email-receiver-determined), [changing the email
 address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
 notification](#Missing-build-notifications).
@@ -523,15 +523,13 @@ Pull Request builds do not trigger Pushover notifications.
 
 ## Configuring Slack notifications
 
-Travis CI can send notifications to your [Slack](http://slack.com) channels
+Travis CI can send notifications to your [Slack](https://slack.com) channels
 about build results.
 
 On Slack, set up a [new Travis CI
 integration](https://my.slack.com/services/new/travis).
 
-<figure>
-  <img alt="Screenshot of adding Slack integration" src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
-</figure>
+![Screenshot of adding Slack integration](/images/notifications/slack-integration.png "Screenshot of adding Slack integration")
 
 Copy and paste the settings, which already include the proper token, into
 your `.travis.yml`, and you're good to go.
@@ -597,13 +595,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Once everything's setup, push a new commit and you should see something like the
-screenshot below:
-
-
-<figure>
-  <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
-</figure>
+Once everything's set up, push a new commit and you'll get a message in the slack channel.
 
 ### Notifications of PR builds
 

@@ -108,13 +108,13 @@ Please note that `region` should match the instance region on which codedeploy i
 
 ## Waiting for Deployments
 
-By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
+By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait_until_deployed** option:
 
 ```yaml
 deploy:
   provider: codedeploy
     ⋮
-    wait-until-deployed: true
+    wait_until_deployed: true
 ```
 {: data-file=".travis.yml"}
 
@@ -130,7 +130,7 @@ If your `.travis.yml` contains both, and they do not match, set `bundle_type` ex
 ## Conditional deployments
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Note on `.gitignore`
 

@@ -22,7 +22,7 @@ However, this would expose your PyPI password to the world. We recommend you
 [encrypt](/user/encryption-keys/) your password using the Travis CI command line client:
 
 ```bash
-travis encrypt --add deploy.password
+travis encrypt your-password-here --add deploy.password
 ```
 
 > Note that if your PyPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
@@ -129,7 +129,7 @@ deploy:
 ## Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Running commands before and after release
 

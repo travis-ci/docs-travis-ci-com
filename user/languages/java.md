@@ -138,6 +138,8 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
+> Note that if you use Gradle with `sudo` (i.e. `sudo ./gradlew assemble`), the caching configuration above will have no effect, since the depencencies will be in `/root/.gradle` which the `travis` user account does not have write access to.
+
 ### Gradle daemon is disabled by default
 
 [As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html)

@@ -60,51 +60,28 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     internal_domains: ['docs.travis-ci.com'],
+    check_external_hash: true,
     connecttimeout: 600,
     only_4xx: true,
     typhoeus: {
       ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
     },
     url_ignore: [
-      'https://www.appfog.com/',
       /itunes\.apple\.com/,
-      /coverity.com/,
-      /articles201769485/
     ],
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
 end
 
 desc 'Runs the html-proofer test for internal links only'
 task :run_html_proofer_internal => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     disable_external: true,
     internal_domains: ['docs.travis-ci.com'],
     connecttimeout: 600,
@@ -114,9 +91,6 @@ task :run_html_proofer_internal => [:build] do
     },
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
 end
