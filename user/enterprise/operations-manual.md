@@ -14,8 +14,6 @@ Throughout this document we'll be using the following terms to refer to the two 
 
 > Please note that this guide is geared towards non-High Availability (HA) setups right now.
 
-<div id='toc'></div>
-
 ## Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:

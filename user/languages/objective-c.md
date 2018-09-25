@@ -6,9 +6,6 @@ swiftypetags:
   - swift
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to

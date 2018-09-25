@@ -7,8 +7,6 @@ redirect_from:
   - /user/travis-pro/
 ---
 
-
-
 Learn more about [Travis CI for private repositories](https://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
@@ -56,7 +54,7 @@ You can find more information on this topic in our [Security Statement](https://
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
 
-## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+## Why can't I find information on pricing on travis-ci.org?
 
 Travis CI is, and always will be, free for open source projects.
 
