@@ -16,7 +16,7 @@ Conditions can be tested using the `travis-conditions` command. See
 
 ## Integration
 
-Conditions are parsed and evaluated using [this library](https://github.com/travis-ci/travis-conditions/pull/1),
+Conditions are parsed and evaluated using [this library](https://github.com/travis-ci/travis-conditions/),
 by the component that accepts your build request, and generates your build,
 stages, and jobs.
 

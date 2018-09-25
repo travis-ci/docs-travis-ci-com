@@ -331,6 +331,17 @@ root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 
 The number that's returned here is equal to the currently connected worker machines. If you need to spin up more worker machines, please follow the instructions [here](/user/enterprise/installation/#install-travis-ci-worker).
 
+## Integrate Travis CI Enterprise into your monitoring
+
+To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
+
+```
+$ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
+```
+
+If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
+
+
 ## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
