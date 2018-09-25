@@ -15,7 +15,7 @@ This guide covers build environment and configuration topics specific to Nix pro
 Travis CI support for Nix is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:nix)
-and cc @domenkozar @garbas and @matthewbauer .
+and cc @domenkozar @garbas @matthewbauer and @grahamc.
 
 ## Overview
 
@@ -55,7 +55,7 @@ nix: 2.0.4
 {: data-file=".travis.yml"}
 
 
-> Note: at this time not all versions of Nix will successfully install, and you can only specify a specific version equal to or greater than 2.0.4.
+> Note: This option supports all Nix releases, starting with version 1.11.16.
 
 ## Default Target
 

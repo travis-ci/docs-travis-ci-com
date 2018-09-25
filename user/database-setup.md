@@ -124,7 +124,7 @@ You'll also need to reset the root password to something other than `new_passwor
 ```yaml
 before_install:
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade
+  - sudo mysql_upgrade -u root -pnew_password
   - sudo service mysql restart
 ```
 {: data-file=".travis.yml"}

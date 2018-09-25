@@ -64,6 +64,9 @@ before_install:
 
 ### GCC on OS X
 
+On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+So you must set CC and CXX to specific `gcc`/`g++` versions:
+
 ```yaml
 matrix:
   include:
