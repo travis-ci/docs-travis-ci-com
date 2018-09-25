@@ -309,6 +309,16 @@ Additionally, please the following command to clean up all Docker build images:
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
+## Integrate Travis CI Enterprise into your monitoring
+
+To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
+
+```
+$ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
+```
+
+If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
+
 ## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
