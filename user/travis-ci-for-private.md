@@ -22,7 +22,7 @@ When you're ready to start using Travis CI, head over to the [billing page](http
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
-post](http://blog.travis-ci.com/announcing-pull-request-support/)
+post](https://blog.travis-ci.com/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis CI.
 
 ## Who has access to the builds?
