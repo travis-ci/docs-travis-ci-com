@@ -308,6 +308,10 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 > Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
 
+### Caches expiration
+
+Cache archives are currently set to expire after 28 days for open source projects and 45 days for private projects. This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
+
 ## Configuration
 
 ### Enabling multiple caching features
