@@ -211,7 +211,7 @@ No more phases (`before_install`, `install`, etc.) will be executed.
 ### Node.js debug builds need to set up the execution environment
 
 When running a Node.js job in the debug mode, your `node` and `npm`
-commands may not set up according to the build configuration.
+commands may not be set up according to the build configuration.
 Running
 
 ```
