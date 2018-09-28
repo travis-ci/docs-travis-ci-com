@@ -208,14 +208,12 @@ No more phases (`before_install`, `install`, etc.) will be executed.
 
 ## Known issues
 
-### Node.js debug builds need to set up the execution environment
+### In a Node.js debug session, the `node` and `npm` versions differ from what is defined in the configuration
 
-When running a Node.js job in the debug mode, your `node` and `npm`
-commands may not be set up according to the build configuration.
-Running
+To set up the debug environment in the same ways as the Node.js job,
+run the following command when you log in to your debug session before
+executing any other command:
 
 ```
 nvm install $TRAVIS_NODE_VERSION
 ```
-
-should set up the environment properly.
