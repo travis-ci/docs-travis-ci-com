@@ -205,3 +205,17 @@ Press `q` to exit the log scroll mode.
 Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
 No more phases (`before_install`, `install`, etc.) will be executed.
+
+### Known issues
+
+1. Node.js debug builds need to set up the execution environment
+
+When running a Node.js job in the debug mode, your `node` and `npm`
+commands may not set up according to the build configuration.
+Running
+
+```
+nvm install $TRAVIS_NODE_VERSION
+```
+
+should set up the environment properly.
