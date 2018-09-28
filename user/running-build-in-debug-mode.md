@@ -206,7 +206,7 @@ Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
 No more phases (`before_install`, `install`, etc.) will be executed.
 
-### Known issues
+## Known issues
 
 1. Node.js debug builds need to set up the execution environment
 
