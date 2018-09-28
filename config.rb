@@ -6,6 +6,10 @@ set :images_dir, 'images'
 
 set :fonts_dir, 'fonts'
 
+set :source, 'slate/source'
+
+set :build_dir, 'api'
+
 set :markdown_engine, :redcarpet
 
 set :markdown, :fenced_code_blocks => true, :smartypants => true, :disable_indented_code_blocks => true, :prettify => true, :tables => true, :with_toc_data => true, :no_intra_emphasis => true
@@ -33,4 +37,6 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  activate :asset_host, :host => '/api/'
 end

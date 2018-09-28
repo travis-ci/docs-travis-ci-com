@@ -6,20 +6,39 @@ redirect_from:
   - /user/apt/
 ---
 
-<div id="toc"></div>
+
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/) or [trusty](/user/reference/trusty/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
-  - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
-> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+```
+{: data-file=".travis.yml"}
+
+The second way is to use the [APT addon](#installing-packages-with-the-apt-addon):
+
+```yaml
+before_install:
+  - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
+```
+{: data-file=".travis.yml"}
+
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
@@ -69,9 +88,7 @@ before_install:
 
 ### Installing Packages with the APT Addon
 
-You can also use the APT addon.
-
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+You can also install packages and sources using the APT addon, without running `apt-get` commands in your `before_install` script.
 
 If your requirements goes beyond the normal installation, please use another method described above.
 
@@ -237,20 +254,95 @@ addons:
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
-before_install:
-  - brew update # see note below
-  - brew install beanstalk
+addons:
+  homebrew:
+    packages:
+    - beanstalk
 ```
 {: data-file=".travis.yml"}
 
-> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+By default, the Homebrew addon will not run `brew update` before installing packages. `brew update` can take a long time and slow down your builds. If you need more up-to-date versions of packages than the snapshot on the build VM has, you can add `update: true` to the addon configuration:
+
+```yaml
+addons:
+  homebrew:
+    packages:
+    - beanstalk
+    update: true
+```
+{: data-file=".travis.yml"}
+
+### Installing Casks
+
+The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
+
+[homebrew-cask]: https://github.com/Homebrew/homebrew-cask
+
+```yaml
+addons:
+  homebrew:
+    casks:
+    - dotnet-sdk
+```
+{: data-file=".travis.yml"}
+
+### Installing From Taps
+
+Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
+
+For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
+
+[homebrew-tap]: https://docs.brew.sh/Taps
+[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
+
+```yaml
+osx_image: xcode10
+addons:
+  homebrew:
+    taps: homebrew/cask-versions
+    casks: java8
+```
+{: data-file=".travis.yml"}
+
+### Using a Brewfile
+
+Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked in to your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
+
+[brewfile]: https://github.com/Homebrew/homebrew-bundle
+
+```yaml
+addons:
+  homebrew:
+    brewfile: true
+```
+{: data-file=".travis.yml"}
+
+You can also provide a path if your Brewfile is in a different location.
+
+```yaml
+addons:
+  homebrew:
+    brewfile: Brewfile.travis
+```
+{: data-file=".travis.yml"}
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OS X, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+
+```yaml
+addons:
+  apt:
+    packages: foo
+  homebrew:
+    packages: bar
+```
+{: data-file=".travis.yml"}
+
+If you're installing packages manually, use the `$TRAVIS_OS_NAME` variable to install dependencies separately for each OS:
 
 ```yaml
 install:

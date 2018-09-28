@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy your application to [Elastic
 Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a
@@ -12,17 +12,17 @@ successful build.
 
 To deploy to AWS Elastic Beastalk add the following to your `.travis.yml`:
 
-* `access-key-id`: AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
+* `access-key-id`: [Encrypted](/user/encryption-keys#Usage) AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
 * `secret-access-key`: [Encrypted](/user/encryption-keys#Usage) AWS Secret Key, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
 * `region`: **must** be the region the Elastic Beanstalk application is running on, for example `us-east-1`.
 * `app`: Application name.
 * `env`: Elastic Beanstalk environment the application will be deployed to.
-* `bucket_name`: Bucket name to upload app to.
+* `bucket_name`: Bucket name to upload the code of your app to. Elastic Beanstalk will create and deploy an application version from the source bundle in this Amazon S3 bucket.
 
 ```yaml
 deploy:
   provider: elasticbeanstalk
-  access_key_id: <access-key-id>
+  access_key_id: "Encrypted <access-key-id>="
   secret_access_key:
     secure: "Encypted <secret-access-key>="
   region: "us-east-1"  

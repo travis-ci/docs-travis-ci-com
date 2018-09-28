@@ -20,7 +20,7 @@ and cc `@nex3` and `@a14n`.
 
 ## Choosing Dart versions to test against
 
-Dart workers on travis-ci.org download and install the Dart SDK archives. See
+Dart workers on Travis CI download and install the Dart SDK archives. See
 the [Dart Download Archive](https://www.dartlang.org/install) for the list of
 available archives. By default, the latest stable SDK version is downloaded. To
 explicitly select one or more versions, use the `dart` key. For example:
@@ -75,11 +75,9 @@ Each task creates a separate Travis job. It can be used in conjunction with
 ### Available Browsers
 
 Travis comes with Firefox and Chrome installed by default on Linux, and Safari
-on OS X. However, if you want to run your tests on [Dartium][], you'll need to
+on OS X. However, if you want to run your tests on Dartium, you'll need to
 install it by adding `install_dartium: true` either at the top level or for a
 particular task.
-
-[Dartium]: https://webdev.dartlang.org/tools/dartium
 
 ```yaml
 language: dart

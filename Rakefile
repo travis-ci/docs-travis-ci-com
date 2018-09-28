@@ -21,7 +21,7 @@ end
 def define_ip_range(nat_hostname, dest)
   data = dns_resolve(nat_hostname)
 
-  File.write(
+  bytes = File.write(
     dest,
     YAML.dump(
       'host' => nat_hostname,
@@ -29,7 +29,7 @@ def define_ip_range(nat_hostname, dest)
     )
   )
 
-  puts "Updated #{dest}"
+  puts "Updated #{dest} (#{bytes} bytes)"
 end
 
 task default: :test
@@ -60,51 +60,30 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     internal_domains: ['docs.travis-ci.com'],
+    check_external_hash: true,
+    check_html: true,
     connecttimeout: 600,
+    allow_hash_ref: true,
     only_4xx: true,
     typhoeus: {
       ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
     },
     url_ignore: [
-      'https://www.appfog.com/',
       /itunes\.apple\.com/,
-      /coverity.com/,
-      /articles201769485/
     ],
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
 end
 
 desc 'Runs the html-proofer test for internal links only'
 task :run_html_proofer_internal => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     disable_external: true,
     internal_domains: ['docs.travis-ci.com'],
     connecttimeout: 600,
@@ -114,9 +93,6 @@ task :run_html_proofer_internal => [:build] do
     },
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
 end
@@ -128,18 +104,20 @@ file '_data/trusty-language-mapping.json' do |t|
     'generated-language-mapping.json'
   )
 
-  File.write(t.name, Faraday.get(source).body)
+  bytes = File.write(t.name, Faraday.get(source).body)
+
+  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 file '_data/trusty_language_mapping.yml' => [
   '_data/trusty-language-mapping.json'
 ] do |t|
-  File.write(
+  bytes = File.write(
     t.name,
     YAML.dump(JSON.parse(File.read('_data/trusty-language-mapping.json')))
   )
 
-  puts "Updated #{t.name}"
+  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 file '_data/ip_range.yml' do |t|
@@ -154,8 +132,30 @@ file '_data/gce_ip_range.yml' do |t|
   define_ip_range('nat.gce-us-central1.travisci.net', t.name)
 end
 
+file '_data/linux_containers_ip_range.yml' do |t|
+  define_ip_range('nat.linux-containers.travisci.net', t.name)
+end
+
 file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
+end
+
+file '_data/packet_ip_range.yml' do |t|
+  define_ip_range('nat.packet-ewr1.travisci.net', t.name)
+end
+
+file '_data/node_js_versions.yml' do |t|
+  remote_node_versions = `bash -l -c "source $HOME/.nvm/nvm.sh; nvm ls-remote"`.split("\n").
+    map {|l| l.gsub(/.*v(0\.[0-9]*|[0-9]*)\..*$/, '\1')}.uniq.
+    sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
+
+  bytes = File.write(
+    t.name,
+    YAML.dump(
+      remote_node_versions.flatten.compact.take(5)
+    )
+  )
+  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 desc 'Refresh generated files'
@@ -163,8 +163,10 @@ task regen: (%i[clean] + %w[
   _data/ec2_ip_range.yml
   _data/gce_ip_range.yml
   _data/ip_range.yml
+  _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
   _data/trusty_language_mapping.yml
+  _data/node_js_versions.yml
 ])
 
 desc 'Remove generated files'
@@ -173,9 +175,11 @@ task :clean do
          _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
          _data/ip_range.yml
+         _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
          _data/trusty-language-mapping.json
          _data/trusty_language_mapping.yml
+         _data/node_js_versions.yml
        ])
 end
 
@@ -190,9 +194,5 @@ end
 
 desc 'make API docs'
 task :make_api do
-  Dir.chdir('slate') do
-    sh 'bundle exec middleman build --clean'
-    FileUtils.mkdir_p '../api'
-    sh 'cp -r build/* ../api/'
-  end
+  sh 'bundle exec middleman build --clean'
 end

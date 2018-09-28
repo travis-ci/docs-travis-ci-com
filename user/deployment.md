@@ -4,7 +4,7 @@ layout: en
 swiftypetags: 'skip_cleanup'
 ---
 
-<div id="toc"></div>
+
 
 ## Supported Providers
 
@@ -79,7 +79,7 @@ Use the following options to configure conditional deployment:
 * `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: for    language runtimes that support multiple versions,
    you can limit the deployment to happen only on the job that matches a specific version.
 
-* `condition`: deploy when *a single* bash condition evaluates to `true`. This must be a string value, and is equivalant to `if [[ <condition> ]]; then <deploy>; fi`. For example, `$CC = gcc`.
+* `condition`: deploy when *a single* bash condition evaluates to `true`. This must be a string value, and is equivalent to `if [[ <condition> ]]; then <deploy>; fi`. For example, `$CC = gcc`.
 
 * `tags` can be `true`, `false` or any other string:
 
@@ -102,6 +102,18 @@ deploy:
   on:
     branch: staging
     node: '0.11' # this should be quoted; otherwise, 0.10 would not work
+```
+{: data-file=".travis.yml"}
+
+The next example deploys using a custom script `deploy.sh`, only for builds on the branches `staging` and `production`.
+
+```yaml
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^staging|production$
 ```
 {: data-file=".travis.yml"}
 

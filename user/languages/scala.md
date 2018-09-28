@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -22,8 +21,6 @@ Minimal example:
   language: scala
 ```
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
@@ -53,7 +50,7 @@ scala:
 ```
 {: data-file=".travis.yml"}
 
-On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`. 
+On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`.
 
 ## Projects using sbt
 
@@ -121,6 +118,11 @@ typical [Java Project](/user/languages/java).
 
 As for any JVM language, it is also possible to [test against multiple
 JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#Using-Java-10-and-later).
 
 ## Build Matrix
 

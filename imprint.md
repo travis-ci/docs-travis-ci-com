@@ -2,6 +2,7 @@
 layout: en
 title: Imprint
 permalink: /imprint.html
+no_toc: true
 ---
 
 <article id="imprint">
@@ -29,4 +30,6 @@ permalink: /imprint.html
     10247 Berlin<br>
     Germany
   </address>
+  <h4>Datenschutzbeauftragter</h4>
+  dpo@travis-ci.com
 </article>

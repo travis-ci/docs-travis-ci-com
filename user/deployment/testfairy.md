@@ -43,7 +43,7 @@ Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore
 
 ## Symbols file
 
-Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
+Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
 
 ```yaml
 deploy:

@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-<div id="toc"></div>
+
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -124,7 +124,7 @@ You'll also need to reset the root password to something other than `new_passwor
 ```yaml
 before_install:
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade
+  - sudo mysql_upgrade -u root -pnew_password
   - sudo service mysql restart
 ```
 {: data-file=".travis.yml"}
@@ -170,7 +170,10 @@ before_script:
 
 ### Using a different PostgreSQL Version
 
-The Travis CI build environments use version 9.1 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the **major.minor** version in your `.travis.yml`:
+The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
+from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
+also available. To use a version other than the default, specify only the
+**major.minor** version in your `.travis.yml`:
 
 ```yaml
 addons:
@@ -178,34 +181,33 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-The following versions are available on Linux builds:
+Many PostgreSQL versions have been preinstalled in our build environments, and
+others may be added and activated at build time by using a combination of the
+`postgresql` and `apt` addons along with a global env var override for `PGPORT`:
 
-| PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
-|:----------:|:--------------------:|:-------------------:|:-----------------:|:----------------:|
-|    9.1     |         yes          |                     |        yes        |                  |
-|    9.2     |         yes          |         yes         |        yes        |       yes        |
-|    9.3     |         yes          |         yes         |        yes        |       yes        |
-|    9.4     |         yes          |         yes         |        yes        |       yes        |
-|    9.5     |         yes          |         yes         |                   |       yes        |
-|    9.6     |                      |         yes         |                   |       yes        |
-
-On OS X, the following versions are installed:
-
-|     image     | version |
-|:-------------:|:-------:|
-|    xcode61    |   9.3   |
-| beta-xcode6.1 |   9.3   |
-|   xcode6.4    |   9.4   |
-|   xcode7.3    |   9.5   |
-|    xcode8     |   9.5   |
+``` yaml
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+env:
+  global:
+  - PGPORT=5433
+```
+{: data-file=".travis.yml"}
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS.
-
-You need to activate the extension in your `.travis.yml`:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```
@@ -287,7 +289,7 @@ test:
   database: ":memory:"
   timeout: 500
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
 Or if you're not using a `config/database.yml`, connect to the database manually:
 

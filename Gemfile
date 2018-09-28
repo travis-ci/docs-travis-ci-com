@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.2' if ENV.key?('DYNO')
+ruby '2.4.3'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
@@ -37,3 +37,8 @@ platforms :mri_18 do
 end
 
 gem 'therubyracer', :platforms => :ruby
+
+# Remove warnings according to https://github.com/Compass/compass/pull/2088
+git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix', ref: '3861c9d' do
+  gem 'compass-core'
+end
