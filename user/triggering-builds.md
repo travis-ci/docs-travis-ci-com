@@ -109,7 +109,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    }
    ```
 
-5. Visit the [API V3 explorer](http://developer.travis-ci.com/) for more information
+5. Visit the [API V3 explorer](https://developer.travis-ci.com/) for more information
    about what endpoints are available and what you can do with them.
 
 {{ site.data.snippets.ghlimit }}

@@ -13,7 +13,7 @@ This page lists settings that are only available in the Travis CI .com and .org 
 
 ## Build pushed branches
 
-If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml`.
+If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml`.
 
 If *OFF*, builds won't run on pushed commits on branches.
 
