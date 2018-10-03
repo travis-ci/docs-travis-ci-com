@@ -40,7 +40,8 @@ env:
 
 ### Defining Multiple Variables per Item
 
-When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
+One build is triggered for each item in the `env` array. E.g. the configuration from the example above would trigger three builds (or more, depending on other parameters of the build matrix).
+If you need to specify several environment variables for each build, put them all on the same line:
 
 ```yaml
 rvm:
