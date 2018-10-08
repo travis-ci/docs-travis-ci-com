@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## Outdated
 
 This document is from a switch in our default infrastructure in 2015 and may contain outdated information.

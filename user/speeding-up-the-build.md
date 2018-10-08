@@ -8,7 +8,7 @@ Travis CI implements a few optimizations which help to speed up your build,
 like in memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
-<div id="toc"></div>
+
 
 ## Parallelizing your builds across virtual machines
 

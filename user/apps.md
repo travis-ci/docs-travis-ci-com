@@ -11,7 +11,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 - **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R)
+- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R), [Go](#Go)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -164,8 +164,6 @@ By Tim Felgentreff
 
 - [website](http://travis7.codeplex.com/)
 
-<a name='desktop'></a>
-
 # Desktop
 
 If you are looking for **desktop notifications**, our command line client [supports them](https://github.com/travis-ci/travis.rb#monitor).
@@ -230,6 +228,12 @@ By catlight.io
 Feature complete command line client
 
 - [website](https://github.com/travis-ci/travis#readme)
+
+### PSTravis
+
+Command line client for PowerShell
+
+- [website](https://github.com/felixfbecker/PSTravis#readme)
 
 ## Build Monitoring
 
@@ -315,8 +319,6 @@ Add Travis CI hooks to your GitHub project<br>
 By James Halliday
 
 - [website](https://github.com/substack/travisify)
-
-<a name='plugins'></a>
 
 # Plugins
 
@@ -404,7 +406,7 @@ By Cas du Plessis
 
 ![emacs](/images/apps/emacs.jpg){:.app}
 
-Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+Travis CI integration for [Emacs](https://www.gnu.org/software/emacs/)<br>
 By Skye Shaw
 
 - [website](https://github.com/sshaw/build-status)
@@ -439,8 +441,6 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
 
-<a name='libraries'></a>
-
 # Libraries
 
 ## Ruby
@@ -468,6 +468,10 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
 
+## PowerShell
+
+- [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
+
 ## Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
@@ -475,3 +479,6 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 ## R
 
 - [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
+
+## Go
+- [go-travis](https://github.com/shuheiktgw/go-travis) by Shuhei Kitagawa

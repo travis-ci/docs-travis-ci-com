@@ -4,8 +4,6 @@ layout: en_enterprise
 
 ---
 
-<div id='toc'></div>
-
 ## Backups
 
 Before upgrading, we **strongly recommend** taking a snapshot of `/etc/travis`
@@ -15,7 +13,7 @@ One good way to do this is to run
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
 ```   
-See [restoring from backups](#Restoring-from-Backups) if you have any questions about the steps or want to do a restore. 
+See [restoring from backups](#Restoring-from-Backups) if you have any questions about the steps or want to do a restore.
 
 ## Updating your Travis CI Enterprise Platform
 
@@ -56,7 +54,7 @@ host:
 
 ## Restoring from Backups
 
-If the rare event something goes wrong and/or you'd like to restore from a back-up, please use the following steps: 
+If the rare event something goes wrong and/or you'd like to restore from a back-up, please use the following steps:
 
 1. Boot up a replacement machine with a fresh install of Ubuntu 14.04.
 1. Follow the directions in the [Installation Guide](/user/enterprise/installation). If you cannot find this, let us know at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com)
