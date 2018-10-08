@@ -5,7 +5,7 @@ layout: en
 ---
 
 Travis CI can automatically upload your build artifacts to Amazon S3, after the
-[`after success`](/user/build-lifecycle/) stage of the
+[`after success`](/user/job-lifecycle/) stage of the
 build.
 
 For a minimal configuration, add the following to your `.travis.yml`:

@@ -126,7 +126,7 @@ npm install
 
 #### Using a specific npm version
 
-Add the following to the [`before_install` phase](/user/build-lifecycle/) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:
@@ -174,7 +174,7 @@ instead.
 
 #### Using a specific yarn version
 
-Add the following to the [`before_install` phase](/user/build-lifecycle/) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:
