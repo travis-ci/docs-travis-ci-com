@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful if you are new
@@ -78,6 +78,6 @@ the setup that suits your project best:
 
 More details are on our environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Now you've read the basics, head over to our [Getting
+Now that you've read the basics, head over to our [Getting
 Started](/user/getting-started/) guide for details on setting up your first
 build!

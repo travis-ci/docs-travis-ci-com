@@ -39,12 +39,12 @@ repositories). Since the token should be private,
 you'll want to pass it to Travis securely in your [repository
 settings](https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings)
 or via [encrypted variables in
-`.travis.yml`](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-.travis.yml).
+`.travis.yml`](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-travisyml).
 
 ## Further configuration
 
-* `local-dir`: Directory to push to GitHub Pages, relative to the current
-  directory, defaults to the current directory (example: `your_build_folder`)
+* `local-dir`: Directory to push to GitHub Pages, defaults to current directory.
+  Can be specified as an absolute path or a relative path from the current directory.
 * `repo`: Repo slug, defaults to current repo
 * `target-branch`: Branch to (force, see: `keep-history`) push `local-dir`
   contents to, defaults to `gh-pages`

@@ -71,7 +71,7 @@ Host: travis.example.com
 $ travis raw /
 {"hello"=>"world"}
 
-$ travis raw / --pro
+$ travis raw / --com
 {"hello"=>"world"}
 
 $ travis raw / --api-endpoint https://travis.example.com/api
@@ -117,7 +117,7 @@ The first thing you need to know is what API URL endpoint to use:
 When you write your own Travis CI client, please keep the following in mind:
 
 - Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-- Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2.1)
+- Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2-1)
 
 Client libraries will usually set these headers automatically.
 

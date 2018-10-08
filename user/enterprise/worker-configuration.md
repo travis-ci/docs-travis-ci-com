@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-<div id="toc"></div>
+
 
 ## Credentials for Connecting to the Platform
 

@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -23,9 +22,6 @@ language: cpp
 ```
 
 </aside>
-
-
-## What This Guide Covers
 
 {{ site.data.snippets.trusty_note }}
 
@@ -108,6 +104,9 @@ Testing against two compilers will create (at least) 2 rows in your build
 matrix. For each row, the Travis CI C++ builder will export the `CXX` env
 variable to point to either `g++` or `clang++` and `CC` to either `gcc` or
 `clang`.
+
+On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.
 
 ## Build Matrix
 

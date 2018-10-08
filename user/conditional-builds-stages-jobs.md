@@ -3,7 +3,7 @@ title: Conditional Builds, Stages, and Jobs
 layout: en
 ---
 
-<div id="toc"></div>
+
 
 You can filter out, and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
 

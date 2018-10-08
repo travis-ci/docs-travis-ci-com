@@ -6,7 +6,7 @@ layout: en
 
 On May 2nd, 2018 Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
 
-<div id="toc"></div>
+
 
 This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 
@@ -22,7 +22,7 @@ GitHub-Apps based integration introduces a number of benefits as over our Legacy
  * We will no longer add deploy keys to repositories when they are activated on Travis CI
  * Projects will be cloned with a shorter-lived OAuth token
  * Our GitHub App requires far less permissions than our OAuth application
- * Ownership of organization repositories is always tied to the organization who own the project
+ * Ownership of organization repositories is always tied to the organization which owns the project
 
 ## New User Accounts
 
@@ -40,7 +40,7 @@ New repositories should be activated on [travis-ci.com](https://www.travis-ci.co
 
 Open source projects and their build history will continue to run on `travis-ci.org` for now.
 
-However, open source repositories will be migrated to travis-ci.com gradually, beginning at the end of Q2 2018. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
+However, open source repositories will be migrated to travis-ci.com gradually. The migration was planned to start at the end of Q2 2018, but has been pushed back. We will announce a new date as soon as we are able. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 

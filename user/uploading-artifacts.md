@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 Travis CI can automatically upload your build artifacts to Amazon S3, after the
 [`after success`](/user/build-lifecycle/) stage of the
 build.

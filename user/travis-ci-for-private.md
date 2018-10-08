@@ -7,14 +7,12 @@ redirect_from:
   - /user/travis-pro/
 ---
 
-<div id="toc"></div>
-
-Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
+Learn more about [Travis CI for private repositories](https://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
 ## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
 When you're ready to start using Travis CI, head over to the [billing page](https://billing.travis-ci.com/) to add your billing details and end your trial.
 
@@ -22,7 +20,7 @@ When you're ready to start using Travis CI, head over to the [billing page](http
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
-post](http://blog.travis-ci.com/announcing-pull-request-support/)
+post](https://blog.travis-ci.com/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis CI.
 
 ## Who has access to the builds?
@@ -33,7 +31,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds, and change its settings.
 - Users that have admin access to a repository on GitHub can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
 
 ## Who has access to the billing details?
 
@@ -56,7 +54,7 @@ You can find more information on this topic in our [Security Statement](https://
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
 
-## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+## Why can't I find information on pricing on travis-ci.org?
 
 Travis CI is, and always will be, free for open source projects.
 

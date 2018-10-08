@@ -11,7 +11,7 @@ redirect_from:
 This guide explains what packages, tools and settings are available in the
 Travis OS X CI environment (often referred to as the “CI environment”).
 
-<div id="toc"></div>
+
 
 ## Overview
 
@@ -39,15 +39,16 @@ os: osx
 
 ## OS X Version
 
-Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses OS X 10.13 and Xcode 9.4.1 by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>OS X version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td>{{ image.xcode_build_version}}</td>
   <td>OS X {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
@@ -132,7 +133,7 @@ The JDK available in the OS X environment is tied to the Xcode version selected 
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="#Xcode-{{image.xcode}}">Xcode {{ image.xcode_full_version }}</a></td>
+  <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
@@ -244,12 +245,12 @@ Recent 1.16.2 version (usually the most recent)
 
 ## Xcode version
 
-Xcode 8.3.3 is installed with all available simulators and SDKs.
+Xcode 9.4.1 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.
 
 {% for image in site.data.xcodes.osx_images %}
 
-<h3>Xcode {{image.xcode}}</h3>
+### Xcode {{image.xcode}}
 
 Xcode {{ image.xcode_full_version }} is available by adding `osx_image: {{ image.image }}` to your .travis.yml.
 

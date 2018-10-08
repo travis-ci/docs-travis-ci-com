@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
+Travis CI can automatically upload assets to git tags on your GitHub repository.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -51,13 +51,13 @@ travis setup releases
 Or, if you're using a private repository or the GitHub Apps integration:
 
 ```bash
-travis setup releases --pro
+travis setup releases --com
 ```
 
 ## `on.tags` condition
 
 When working with GitHub Releases, it is important to understand how the deployment is triggered
-with [the `tags` condition](/user/deployment/#Conditional-Releases-with-on%3A).
+with [the `tags` condition](/user/deployment/#conditional-releases-with-on).
 
 
 ## Authenticating with an OAuth token
@@ -158,10 +158,12 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables).
+
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Running commands before or after release
 

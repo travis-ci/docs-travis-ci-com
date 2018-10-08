@@ -4,9 +4,7 @@ layout: en
 
 ---
 
-<figure class="small right">
-  <img alt="Screenshot of CC menu" src="http://s3itch.paperplanes.de/Backstop_Menubar_20140305_155352_20140305_155425.jpg"/>
-</figure>
+![Screenshot of CC menu](/images/Backstop_Menubar_20140305_155352_20140305_155425.jpg "Screenshot of CC menu")
 
 [CCMenu](http://ccmenu.org/) is a little tool for the OS X status bar to keep track of your repositories' latest build status from the convenience of your Mac.
 
@@ -19,9 +17,7 @@ show in the menu bar or tray.
 
 Open source repositories use the URL scheme `https://api.travis-ci.org/repos/<owner>/<repository>/cc.xml` to access the CruiseControl feed. They're served directly from our API.
 
-<figure>
-  <img alt="Screenshot of public CC feed" src="http://s3itch.paperplanes.de/Projects_20140305_165324_20140305_165329.jpg"/>
-</figure>
+![Screenshot of public CC feed](/images/Projects_20140305_165324_20140305_165329.jpg "Screenshot of public CC feed")
 
 To add a repository feed, we provide a generated URL (for both public and private repositories), which can be accessed by visiting the repository page and clicking on the Build Status Image, shown below:
 
@@ -56,8 +52,4 @@ The above technique only allows you to add one repository at a time, which can b
 
 CCMenu will show you a list of all the available repositories you can then add in single, swift action.
 
-<figure>
-  <img alt="Screenshot of CC feed listing" src="http://s3itch.paperplanes.de/Screenshot_20140305_164512_20140305_164517.jpg"/>
-</figure>
-
-Pretty handy!
+![Screenshot of CC feed listing](/images/Screenshot_20140305_164512_20140305_164517.jpg "Screenshot of CC feed listing")

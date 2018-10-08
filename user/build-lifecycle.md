@@ -21,7 +21,7 @@ In both `after_failure` and `after_success`, you can access the build result usi
 
 The complete build lifecycle, including three optional deployment phases and after checking out the git repository and changing to the repository directory, is:
 
-1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#Installing-Packages-with-the-APT-Addon)
+1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
 1. OPTIONAL Install [`cache components`](/user/caching)
 1. `before_install`
 1. `install`

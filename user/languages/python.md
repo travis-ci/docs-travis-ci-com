@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -25,15 +25,11 @@ Minimal example:
     - pytest
 ```
 {: data-file=".travis.yml"}
-
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
 Python builds are not available on the macOS environment.
-
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
@@ -62,7 +58,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - pytest
 ```
 {: data-file=".travis.yml"}
 
@@ -80,6 +76,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
+python: 
+  - "2.7"
+  - "3.4" 
 virtualenv:
   system_site_packages: true
 ```
@@ -90,19 +89,17 @@ virtualenv:
 
 Travis CI supports PyPy and PyPy3.
 
-To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons
+To test your project against PyPy, add "pypy3.5" to the list of Pythons
 in your `.travis.yml`:
 
 ```yaml
 language: python
 python:
-  - "2.6"
   - "2.7"
   - "3.4"
   - "3.5"
   - "3.6"
   # PyPy versions
-  - "pypy2.7"
   - "pypy3.5"
 # command to install dependencies
 install:
@@ -139,7 +136,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest  # or py.test for Python versions 3.5 and below
+script: pytest
 ```
 {: data-file=".travis.yml"}
 

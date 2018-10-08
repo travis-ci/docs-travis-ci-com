@@ -8,8 +8,7 @@ swiftypetags:
   - go
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -33,11 +32,7 @@ not `go: 1.10` (a float).
 Using a float results in the use of Go 1.1.
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
-
-Go builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Go projects in Travis CI. If you're
 new to Travis CI please read our [Getting Started](/user/getting-started/) and
