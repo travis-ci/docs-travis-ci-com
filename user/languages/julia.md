@@ -16,7 +16,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc [`@travis-ci/julia-maintainers`](https://github.com/orgs/travis-ci/teams/julia-maintainers).
+and cc `@tkelman @ninjin @staticfloat @simonbyrne`.
 
 ## Choosing Julia versions to test against
 
@@ -40,6 +40,15 @@ of Julia.
 
 The oldest versions for which binaries are available is 0.3.1 for Linux,
 or 0.2.0 for [OS X](/user/multi-os/).
+
+## Coverage
+
+Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://coveralls.io) provide summaries and analytics of the coverage of the test suite. After enabling the respective services for the repositories, the `codecov` and `coveralls` options can be used, e.g.
+```yaml
+codecov: true
+coveralls: true
+```
+which will then upload the coverage statistics upon successful completion of the tets.
 
 ## Default Build and Test Script
 
@@ -78,7 +87,6 @@ to construct a build matrix.
 ## Environment Variable
 
 The version of Julia a job is using is available as:
-
 ```
 TRAVIS_JULIA_VERSION
 ```

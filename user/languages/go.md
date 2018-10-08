@@ -8,9 +8,6 @@ swiftypetags:
   - go
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
