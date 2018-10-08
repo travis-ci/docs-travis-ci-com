@@ -5,8 +5,6 @@ layout: en
 
 Travis CI provides a default build environment and a default set of phases for each programming language. You can customize any phase in this process in your `.travis.yml`.
 
-<div id="toc"></div>
-
 ## The Build Lifecycle
 
 A build or job on Travis CI is made up of two main parts:

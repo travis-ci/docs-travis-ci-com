@@ -3,8 +3,6 @@ title: Build Matrix
 layout: en
 ---
 
-<div id="toc"></div>
-
 There are two ways to specify multiple parallel jobs (what we call the build matrix) with a single `.travis.yml` configuration file:
 
 * combine a language-and-environment dependent set of configuration options to automatically create a matrix of all possible combinations. This is called matrix expansion.
