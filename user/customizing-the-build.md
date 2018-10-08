@@ -26,6 +26,12 @@ Some common reasons why builds might hang:
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
+## Build Lifecycle
+
+The [Build Lifecycle documentation](/user/job-lifecycle) now has it's own page.
+{: #Build-Lifecycle}
+
+
 ## Limiting Concurrent Jobs
 
 {{ site.data.snippets.concurrent_jobs }}

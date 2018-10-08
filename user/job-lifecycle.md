@@ -1,6 +1,8 @@
 ---
-title: Customizing the Build
+title: Job Lifecycle
 layout: en
+redirect_from:
+  - /user/build-lifecycle/
 ---
 
 Travis CI provides a default build environment and a default set of phases for each programming language. You can customize any phase in this process in your `.travis.yml`.
