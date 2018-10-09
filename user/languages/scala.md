@@ -27,7 +27,7 @@ Minimal example:
 Scala builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview

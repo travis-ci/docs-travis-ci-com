@@ -32,7 +32,7 @@ Minimal example:
 Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Python versions

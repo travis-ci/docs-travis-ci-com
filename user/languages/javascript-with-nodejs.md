@@ -30,7 +30,7 @@ node_js:
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Node.js versions

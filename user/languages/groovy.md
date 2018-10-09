@@ -27,7 +27,7 @@ language: groovy
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 Groovy builds are not available on the OS X environment.
