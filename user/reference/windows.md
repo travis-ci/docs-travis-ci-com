@@ -42,6 +42,32 @@ VMs running Windows use the default file system, NTFS.
 
 ## Pre-installed packages
 
+- 7zip.install
+- ant
+- chromedriver
+- cmake
+- curl
+- firefox
+- git.install
+- gradle
+- jdk10
+- jdk8
+- jq
+- lein
+- maven
+- mysql
+- phantomjs
+- postgresql
+- python
+- python2
+- ruby
+- sbt
+- visualstudio2017buildtools
+- wget
+- yarn
+
+Latest list of pre-installed packages can be find [here](https://github.com/travis-ci/packer-templates/blob/master/packer-assets/windows-server-2016-ci-onion-packages.txt).
+
 ## Services
 
 ## Runtimes
