@@ -30,6 +30,10 @@ A fast boot time environment in which `sudo` commands are not available. Running
 
 An [OS X](/user/reference/osx/) environment for Objective-C and other OS X specific projects
 
+### Windows
+
+A [Windows](/user/reference/windows/) environment running Windows Server 2016.
+
 ### Virtualisation Environment vs Operating System
 
 The following table summarizes the differences across virtual environments and operating systems:
