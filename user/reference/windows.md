@@ -11,7 +11,7 @@ This guide explains what packages, tools and settings are available in the Travi
 
 ## Support
 
-Early adopters of our Windows environment can ask their questions/report issues on our Community Forums, in the [Windows category](https://travis-ci.community/__TO_BE_ADDED_CATEGORY_URL__).
+Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/__TO_BE_ADDED_CATEGORY_URL__) of our Community Forums.
 
 ## Using Windows
 
@@ -28,7 +28,7 @@ Only Windows Server 2016 is currently supported.
 
 ## Chocolatey
 
-[Chocolatey](https://chocolatey.org/) is installed and can be used to install Windows packages.
+[Chocolatey](https://chocolatey.org/), the package manager for Windows, is installed and can be used to install Windows packages.
 
 ## File System
 
