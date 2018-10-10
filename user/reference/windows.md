@@ -36,7 +36,7 @@ Git BASH is the shell that's used to run your build. See [Git for Windows](https
 
 ## Powershell
 
-Powershell can be used, by calling `powershell` in your .travis.yml file for now. We are looking into adding first class Powershell support very soon.
+Powershell can be used by calling `powershell` in your .travis.yml file for now. We are looking into adding first class Powershell support very soon.
 
 ## File System
 
