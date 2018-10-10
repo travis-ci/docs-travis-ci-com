@@ -34,6 +34,10 @@ Only Windows Server 2016 is currently supported.
 
 Git BASH is the shell that's used to run your build. See [Git for Windows](https://gitforwindows.org/) for more details.
 
+## Powershell
+
+Powershell can be used, by calling `powershell` in your .travis.yml file for now. We are looking into adding first class Powershell support very soon.
+
 ## File System
 
 VMs running Windows use the default file system, NTFS.
