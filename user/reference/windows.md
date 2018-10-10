@@ -11,7 +11,7 @@ This guide explains what packages, tools and settings are available in the Travi
 
 ## Support
 
-Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/__TO_BE_ADDED_CATEGORY_URL__) of our Community Forums.
+Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/c/windows) of our Community Forums.
 
 ## Using Windows
 
