@@ -94,6 +94,11 @@ Many different parts of your `.travis.yml` affect what infrastructure your build
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
+> Between middle of October 2018 and end December 2018 the default infrastructure
+> your builds runs on will depend on a [few different
+> factors](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
+> while we consolidate everything onto sudo-enabled virtual machines.
+
 ## Deprecated Virtualization Environments
 
 Historically, Travis CI has provided the following virtualization environments.
