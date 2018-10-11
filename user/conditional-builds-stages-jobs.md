@@ -3,53 +3,39 @@ title: Conditional Builds, Stages, and Jobs
 layout: en
 ---
 
+
+
 ## Conditional Builds, Stages, and Jobs
 
 You can filter out, and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
 
 ### Conditional Builds
 
-Builds can be included or excluded by specifying a condition as follows:
+Configure Travis CI to only trigger builds when certain conditions are met, such as only building the master branch. Any potential builds that do not meet these conditions are listed in the Requests tab of your repository, even though the actual build is not generated.
 
 ```yaml
 # require the branch name to be master (note for PRs this is the base branch name)
 if: branch = master
-
-# require the tag name to match a regular expression
-if: tag =~ ^v1
-
-# require the event type to be either `push` or `pull_request`
-if: type IN (push, pull_request)
 ```
 
-Build requests that are found to be excluded will not generate a build, but will be listed on the "Requests" tab.
+Build requests that do not match the condition will not generate a build, but will be listed on the Requests tab.
 
 ### Conditional Stages
 
-Stages can be included or excluded by specifying a condition in the `stages` section:
+Configure Travis CI to only include stages when certain conditions are met, such as only including the stage on the master branch. Stages that do not match the given condition are silently skipped.
 
 ```yaml
 stages:
   - name: deploy
     # require the branch name to be master (note for PRs this is the base branch name)
     if: branch = master
-
-stages:
-  - name: deploy
-    # require the tag name to match a regular expression
-    if: tag =~ ^v1
-
-stages:
-  - name: deploy
-    # require the event type to be either `push` or `pull_request`
-    if: type IN (push, pull_request)
 ```
 
-At the moment, stages that are found to be excluded will be skipped silently (an improvement to this is on the roadmap, giving more explicit feedback on filtering).
+Stages that do not match the condition will be skipped silently.
 
 ### Conditional Jobs
 
-Jobs can be included or excluded by specifying a condition on `jobs.include`:
+Configure Travis CI to only include jobs when certain conditions are met, such as only including a job on the master branch. Jobs that do not match the given condition are silently skipped.
 
 ```yaml
 jobs:
@@ -57,121 +43,18 @@ jobs:
     - # require the branch name to be master (note for PRs this is the base branch name)
       if: branch = master
       env: FOO=foo
-
-jobs:
-  include:
-    - # require the tag name to match a regular expression
-      if: tag =~ ^v1
-      env: FOO=foo
-
-jobs:
-  include:
-    - # require the event type to be either `push` or `pull_request`
-      if: type IN (push, pull_request)
-      env: FOO=foo
 ```
 
-Jobs need to be listed explicitely, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
+Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
 
-At the moment, jobs that are found to be excluded will be skipped silently (an improvement to this is on the roadmap).
+Jobs that do not match the condition will be skipped silently.
 
-### Specifying conditions
+### Specifying Conditions
 
-The condition can be specified using a boolean language as follows:
+Please see [Conditions](/user/conditions-v1) for examples, and a specification of the conditions syntax.
 
-```
-(NOT [term] OR [term]) AND [term]
-```
+### Testing Conditions
 
-A term is defined as:
-
-```
-[left-hand-side] [operator] [right-hand-side]
-```
-
-All keywords (such as `AND`, `OR`, `NOT`, `IN`, `IS`, attributes, and functions) are case-insensitive.
-
-#### Left hand side
-
-The left hand side part can either be a known attribute or a function call.
-
-Known attributes are:
-
-* `type` (the current event type, known event types are: `push`, `pull_request`, `api`, `cron`)
-* `repo` (the current repository slug `owner_name/name`)
-* `branch` (the current branch name; for pull requests: the base branch name)
-* `tag` (the current tag name)
-* `sender` (the event sender's login name)
-* `fork` (`true` or `false` depending if the repository is a fork)
-* `head_repo` (for pull requests: the head repository slug `owner_name/name`)
-* `head_branch` (for pull requests: the head repository branch name)
-
-Known functions are:
-
-* `env(FOO)` (the value of the environment variable `FOO`)
-
-The function `env` currently only supports environment variables that are given in your build configuration (e.g. on `env` or `env.global`), not environment variables specified in your repository settings.
-
-#### Right hand side
-
-It is currently not possible to compare function calls. This means that if you try to evaluate something similar to:
-
-`env(PRIOR_VERSION) != env(RELEASE_VERSION)`
-
-where PRIOR_VERSION and RELEASE_VERSION are environment variables defined elsewhere in .travis.yml, the condition will be evaluated as true, even when it is false.
-
-A work-around is to create a script which expresses the conditional test in reverse, and applies `travis_terminate` when the condition is false. This script can be called within the Deploy stage.
-For instance, continuing with the above example, the Deploy stage would include:
-
-```yaml
-- stage: deploy
-   if: attribute=value
-   env:
-    - PRIOR_VERSION=$(git describe --abbrev=0 --tags)
-    - RELEASE_VERSION=$(grep to get version number)
-   script:
-    - "$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."
-
-```
-
-Since we want the build to deploy only when PRIOR_VERSION and RELEASE_VERSION are not equal, we test for equality and terminate if that is found to be true.
-
-#### Equality and inequality
-
-This matches a string literally:
-
-```
-branch = master
-env(foo) = bar
-sender != my-bot
-```
-
-#### Match
-
-This matches a string using a regular expression:
-
-```
-branch =~ ^master$
-env(foo) =~ ^bar$
-```
-
-#### Include
-
-This matches against a set (array) of values:
-
-```
-branch IN (master, dev)
-env(foo) IN (bar, baz)
-```
-
-#### Presence
-
-This requires a value to be present or missing:
-
-```
-branch IS present
-branch IS blank
-env(foo) IS present
-env(foo) IS blank
-```
+Conditions can be tested using the `travis-conditions` command. Learn how to
+[test your conditions](/user/conditions-testing).
 

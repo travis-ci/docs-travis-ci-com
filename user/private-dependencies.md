@@ -28,7 +28,7 @@ to your situation.
 | **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
 | **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
-You can use a [dedicated CI user account](#Dedicated-User-Account) for all but
+You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
 of repositories, and make sure that access is read only.
 
@@ -50,7 +50,7 @@ You could include a different private key for every dependency in the repository
 
 You can add SSH keys to user accounts on GitHub. Most users have probably already done this to be able to clone the repositories locally.
 
-This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#Dedicated-User-Account).
+This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
 ### Using an existing key
 
@@ -81,7 +81,7 @@ Assumptions:
 - The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 - You know the credentials for a user account that has at least read access to all three repositories.
 
-The `travis` command line tool can generate a new key for you and set it up on both Travis CI and GitHub. In order to do so, it will ask you for a GitHub user name and password This is very handy if you have just created a [dedicated user](#Dedicated-User-Account) or if you don't have a key set up on your machine that you want to use.
+The `travis` command line tool can generate a new key for you and set it up on both Travis CI and GitHub. In order to do so, it will ask you for a GitHub user name and password This is very handy if you have just created a [dedicated user](#dedicated-user-account) or if you don't have a key set up on your machine that you want to use.
 
 The credentials will only be used to access GitHub and will not be stored or shared with any other service.
 
@@ -153,7 +153,7 @@ Current SSH key: CI dependencies
 Starting with the 1.7.0 release of the `travis` command line tool, you are able to combine it with the `repos` command to set up the key not only for "main" and "main2", but all repositories under the "myorg" organization.
 
 ```bash
-$ travis repos --active --owner myorg | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
+$ travis repos --active --owner myorg --com | xargs -I % travis sshkey --upload myorg_key -r % --description "CI dependencies"
 updating ssh key for myorg/main with key from myorg_key
 Current SSH key: CI dependencies
 updating ssh key for myorg/main2 with key from myorg_key
@@ -163,6 +163,8 @@ Current SSH key: CI dependencies
 updating ssh key for myorg/lib2 with key from myorg_key
 Current SSH key: CI dependencies
 ```
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com`.
 
 ## Password
 
@@ -190,7 +192,7 @@ $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 
 ```bash
 before_install:
-- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >> ~/.netrc
+- echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
@@ -221,7 +223,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >>~/.netrc
+>   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 
@@ -255,7 +257,7 @@ You can then have Travis CI write to the `~/.netrc` on every build.
 
 ```yaml
 before_install:
-- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" > ~/.netrc
 ```
 {: data-file=".travis.yml"}
 
@@ -287,7 +289,7 @@ gem 'lib2', github: "myorg/lib2"
 >   submodules:
 >     false
 > before_install:
->   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >>~/.netrc
+>   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 

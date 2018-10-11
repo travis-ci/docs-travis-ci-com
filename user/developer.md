@@ -3,7 +3,7 @@ title: Travis CI APIs
 layout: en
 ---
 
-<div id="toc"></div>
+
 
 ## API V3
 

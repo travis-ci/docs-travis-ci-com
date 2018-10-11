@@ -8,6 +8,8 @@ Travis CI implements a few optimizations which help to speed up your build,
 like in memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
+
+
 ## Parallelizing your builds across virtual machines
 
 To speed up a test suite, you can break it up into several parts using
@@ -172,7 +174,7 @@ You may wish to consider
 builds if:
 
 - you are not generating code coverage reports in your Travis tests; or
-- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
+- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](https://github.com/krakjoe/phpdbg)
   which may be faster.
 
 #### Using phpdbg example

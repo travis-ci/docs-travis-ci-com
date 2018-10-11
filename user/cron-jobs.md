@@ -4,11 +4,11 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 {{ site.data.snippets.cron_jobs }}
 
-Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-Cron-Jobs) in the same way
+Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-cron-Jobs) in the same way
 
 Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
@@ -28,7 +28,7 @@ Confirm that the cron job is displayed in your settings tab:
 
 ## Skipping Cron Jobs
 
-Because cron jobs build the latest commit to a particular branch, if that commit message includes [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
+Because cron jobs build the latest commit to a particular branch, if that commit message includes [the skip command](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
 
 ## Deleting Cron Jobs
 

@@ -14,8 +14,6 @@ Throughout this document we'll be using the following terms to refer to the two 
 
 > Please note that this guide is geared towards non-High Availability (HA) setups right now.
 
-<div id='toc'></div>
-
 ## Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
@@ -130,6 +128,45 @@ One possible reason that travis-worker is not running is that `systemctl` cannot
 $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
 ```
+
+## Builds fail with curl certificate errors
+
+A build fails with a long `curl` error message similar to:
+
+```
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+This can have various causes, including an automatic nvm update or a caching error.
+
+### Strategy
+
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
+
+## User accounts are stuck in syncing state
+
+One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
+
+```sql
+travis_production=> select count(*) from users where is_syncing=true;
+ count
+-------
+  1027
+(1 row)
+```
+
+### Strategy
+
+Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Reset the `is_syncing` flag for user accounts that are stuck by running:
+
+```bash
+$ travis console
+>> User.where(is_syncing: true).count
+>> ActiveRecord::Base.connection.execute('set statement_timeout to 60000')
+>> User.update_all(is_syncing: false)
+```
+
+It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
 
 ## Contact Enterprise Support
 

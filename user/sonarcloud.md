@@ -102,3 +102,12 @@ If you are a long-time SonarCloud user, you might have the following entries in 
 - "github_token"
 
 If this is the case, you will get warnings in the log, telling you that this behaviour will be removed soon. You should get rid of those entries in your `.travis.yml` file to benefit from the latest features of SonarCloud.
+
+## Note for SonarQube users
+
+If you are familiar with SonarQube, you can be tempted to deal with some properties relatives to [Branch Analysis](https://docs.sonarqube.org/display/SONAR/Branch+Analysis) (ex: `sonar.branch.name`) and/or [Pull Request Analysis](https://docs.sonarqube.org/display/SONAR/Pull+Request+Analysis) (ex: `sonar.pullrequest.key`).
+
+These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
+
+
+

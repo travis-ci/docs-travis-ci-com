@@ -75,11 +75,9 @@ Each task creates a separate Travis job. It can be used in conjunction with
 ### Available Browsers
 
 Travis comes with Firefox and Chrome installed by default on Linux, and Safari
-on OS X. However, if you want to run your tests on [Dartium][], you'll need to
+on OS X. However, if you want to run your tests on Dartium, you'll need to
 install it by adding `install_dartium: true` either at the top level or for a
 particular task.
-
-[Dartium]: https://webdev.dartlang.org/tools/dartium
 
 ```yaml
 language: dart

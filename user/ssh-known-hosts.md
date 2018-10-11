@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 Travis CI can add entries to `~/.ssh/known_hosts` prior to cloning
 your git repository, which is necessary if there are git submodules
 from domains other than `github.com`, `gist.github.com`, or

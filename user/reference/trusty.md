@@ -10,7 +10,7 @@ redirect_from:
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-<div id="toc"></div>
+
 
 ## Using Trusty
 
@@ -400,4 +400,4 @@ secondary groups given above in `usermod`.
 ### Build system information
 
 In the build log, relevant software versions (including the available language
-versions) is show in the "Build system information".
+versions) are shown in the "Build system information" section.

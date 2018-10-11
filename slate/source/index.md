@@ -71,7 +71,7 @@ Host: travis.example.com
 $ travis raw /
 {"hello"=>"world"}
 
-$ travis raw / --pro
+$ travis raw / --com
 {"hello"=>"world"}
 
 $ travis raw / --api-endpoint https://travis.example.com/api
@@ -117,7 +117,7 @@ The first thing you need to know is what API URL endpoint to use:
 When you write your own Travis CI client, please keep the following in mind:
 
 - Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
-- Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2.1)
+- Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2-1)
 
 Client libraries will usually set these headers automatically.
 
@@ -830,16 +830,18 @@ Content-Type: application/json
   "jobs": [ ],
   "commits": [
     {
-      "id": 1873023,
-      "sha": "a18f211f6f921affd1ecd8c18691b40d9948aae5",
+      "id": 118789812,
+      "sha": "180158b725b8a964711ef8bdb3c8cbaf53d2e6a3",
       "branch": "master",
-      "message": "Merge pull request #25 from henrikhodne/add-responses-to-documentation\n\nAdd responses to documentation",
-      "committed_at": "2013-04-15T09:44:31Z",
-      "author_name": "Henrik Hodne",
-      "author_email": "me@henrikhodne.com",
-      "committer_name": "Henrik Hodne",
-      "committer_email": "me@henrikhodne.com",
-      "compare_url": "https://github.com/travis-ci/travis-api/compare/0f31ff4fb6aa...a18f211f6f92"
+      "tag": null,
+      "message": "Merge pull request #1452 from greysteil/metadata-link\n\nAdd metadata link to gemspec",
+      "committed_at": "2018-06-24T16:50:16Z",
+      "author_name": "namusyaka",
+      "author_email": "namusyaka@gmail.com",
+      "committer_name": "GitHub",
+      "committer_email": "noreply@github.com",
+      "compare_url": "https://github.com/sinatra/sinatra/compare/1caeafec67e9...180158b725b8",
+      "pull_request_number": null
     }
   ]
 }

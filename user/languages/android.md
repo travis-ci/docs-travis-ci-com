@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to Android
 
 Android builds are not available on the OS X environment.
 
-<div id="toc"></div>
+
 
 ## CI Environment for Android Projects
 

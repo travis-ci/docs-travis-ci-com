@@ -13,6 +13,7 @@ exemptLabels:
   - work in progress
   - important
   - locked
+  - ready-to-doc
 
 # Set to true to ignore issues in a project (defaults to false)
 exemptProjects: false
