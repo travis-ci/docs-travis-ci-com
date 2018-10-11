@@ -159,8 +159,8 @@ as specified in your lock file.
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
 
-If both `package.json` and `yarn.lock` are present in the root
-directory of the repository, we run the following command _instead of_
+If both `package.json` and `yarn.lock` are present in the current
+directory, we run the following command _instead of_
 `npm install`:
 
 ```bash

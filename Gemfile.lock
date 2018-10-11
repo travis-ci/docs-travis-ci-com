@@ -72,7 +72,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jaro_winkler (1.5.1)
-    jekyll (3.8.3)
+    jekyll (3.8.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -162,7 +162,7 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     puma (3.11.4)
     rack (1.6.10)
     rack-jekyll (0.5.0)
@@ -254,4 +254,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.2
+   1.16.5

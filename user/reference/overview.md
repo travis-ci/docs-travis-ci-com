@@ -30,6 +30,10 @@ A fast boot time environment in which `sudo` commands are not available. Running
 
 An [OS X](/user/reference/osx/) environment for Objective-C and other OS X specific projects
 
+### Windows
+
+A [Windows](/user/reference/windows/) environment running Windows Server 2016.
+
 ### Virtualisation Environment vs Operating System
 
 The following table summarizes the differences across virtual environments and operating systems:
@@ -57,12 +61,12 @@ The following table summarizes the differences across virtual environments and o
 
 ## What infrastructure is my environment running on?
 
-Usually, knowing the virtualization environment characteristics from the [table above](#Virtualisation-Environment-vs-Operating-System) is sufficient.
+Usually, knowing the virtualization environment characteristics from the [table above](#virtualisation-environment-vs-operating-system) is sufficient.
 
 But, if you do need more detail, you have one of these two questions:
 
-* you want to see what infrastructure a [finished build](#For-a-finished-build) ran on.
-* you want to determine what infrastructure a [particular `.travis.yml` configuration](#For-a-particular-travisyml-configuration) will run on.
+* you want to see what infrastructure a [finished build](#for-a-finished-build) ran on.
+* you want to determine what infrastructure a [particular `.travis.yml` configuration](#for-a-particular-travisyml-configuration) will run on.
 
 ### For a finished build
 
