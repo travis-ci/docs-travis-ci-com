@@ -48,7 +48,7 @@ The following table summarizes the differences across virtual environments and o
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       | 60-120s                            |
 | File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         | NTFS                               |
 | Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         | Windows Server 2016                |
-| Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |                                    |
+| Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         | 8 GB                               |
 | Cores                | 2                                     | 2                                 | 2                                    | 2                            | 2                                  |
 | IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            | IPv4 is available                  |
 | IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        | IPv6 is not available              |
@@ -80,6 +80,7 @@ if it contains:
 * `packet` → the build ran in a container-based environment on Packet.
 * `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `wjb` → the build ran on macOS.
+* `1803-containers` → the build ran on Windows.
 
 ### For a particular .travis.yml configuration
 
@@ -94,6 +95,8 @@ Many different parts of your `.travis.yml` affect what infrastructure your build
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
+* Using `os: windows` routes your build to Windows infrastructure.
+
 * If none of the previous keys are present in your `.travis.yml`, the default is a container-based linux (Ubunty Trusty) environment on Amazon EC2 or Packet.
 
 
@@ -102,4 +105,4 @@ Many different parts of your `.travis.yml` affect what infrastructure your build
 Historically, Travis CI has provided the following virtualization environments.
 
 - **Precise Container-based environment**: available from the announcement in [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) to [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
-- **Legacy environment**: available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
+- **Legacy environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
