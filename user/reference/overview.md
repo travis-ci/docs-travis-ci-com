@@ -38,21 +38,21 @@ A [Windows](/user/reference/windows/) environment running Windows Server 2016.
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) |
-|:---------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|
-| Name                 | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         |
-| Status               | Current                               | Default as of August 2017         | Current                              | Current                      |
-| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packet        | Virtual machine on GCE               | Virtual machine              |
-| `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    |
-| Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          |
-| Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       |
-| File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         |
-| Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         |
-| Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |
-| Cores                | 2                                     | 2                                 | 2                                    | 2                            |
-| IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            |
-| IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        |
-| Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  |
+|                      | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|:---------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|:-----------------------------------|
+| Name                 | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         | Windows                            |
+| Status               | Current                               | Default as of August 2017         | Current                              | Current                      | Current                            |
+| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packet        | Virtual machine on GCE               | Virtual machine              | Virtual machine on GCE             |
+| `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    | `os: windows`                      |
+| Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          | No                                 |
+| Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       | 60-120s                            |
+| File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         | NTFS                               |
+| Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         | Window Server 2016                 |
+| Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         |                                    |
+| Cores                | 2                                     | 2                                 | 2                                    | 2                            | 2                                  |
+| IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            | IPv4 is available                  |
+| IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        | IPv6 is not available              |
+| Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  | approx 19 GB                       |
 
 > Note that the following keywords in your .travis.yml file will silently route your builds to our sudo-enabled infrastructure (even if you specify `sudo: false`): `docker`, `ping`, `sudo`.
 
