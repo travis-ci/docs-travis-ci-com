@@ -30,14 +30,19 @@ dist: trusty
 ## Inspecting code with the SonarQube Scanner
 
 Before inspecting your code, you need to:
+1. Go to https://sonarcloud.io/, login with your GitHub account and enable the Sonar scan in your repository;
+2. After enable Sonar scan, following the steps and [Create a user authentication token](https://sonarcloud.io/account/security) called __SONAR_TOKEN__ for your account on SonarCloud;
+3. Copy the generated value for __SONAR_TOKEN__ and go to Travis-ci:
 
-1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
-3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
-4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+    3.1 Now you can [Encrypt this token](/user/encryption-keys/#Usage) using travis encrypt like: `travis encrypt abcdef0123456789`
+    
+    3.2 Or define _Environment Variables_ called __SONAR_TOKEN__ in your Travis-ci [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings).
+    
+4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
 
+For encrypted Token:
 ```yaml
 addons:
   sonarcloud:
@@ -50,8 +55,35 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-Please take a look at the [live example project](https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis) to know more about this standard use case.
+For __SONAR_TOKEN__ in your _Environment Variables_: 
+```yaml
+addons:
+  sonarcloud:
+    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
+```
+{: data-file=".travis.yml"}
 
+5. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+
+[Examples of lines](https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis/blob/master/sonar-project.properties) you need in `sonar-project.properties` file:
+```yaml
+    sonar.projectKey=your_project_key
+    sonar.organization=your-sonar-organization-name
+    sonar.host.url=https://sonarcloud.io
+    sonar.projectName=your-project-name
+    sonar.projectVersion=1.0-SNAPSHOT
+
+    sonar.language=programming-language
+```
+{: data-file="sonar-project.properties"}
+
+
+> Please take a look at the [live example project](https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis) to know more about this standard use case.
+
+___
 ### SonarQube Scanner for Maven
 
 Lots of Java projects build with Maven. To add a SonarCloud inspection to your Maven build, add the following to your `.travis.yml` file:
