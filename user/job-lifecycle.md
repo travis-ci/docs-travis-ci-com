@@ -7,9 +7,9 @@ redirect_from:
 
 Travis CI provides a default build environment and a default set of phases for each programming language. You can customize any phase in this process in your `.travis.yml`.
 
-## The Build Lifecycle
+## The job lifecycle
 
-A build or job on Travis CI is made up of two main parts:
+A job on Travis CI is made up of two main parts:
 
 1. **install**: install any dependencies required
 2. **script**: run the build script
@@ -19,7 +19,7 @@ You can run custom commands before the installation phase (`before_install`), an
 You can perform additional actions when your build succeeds or fails using the `after_success` (such as building documentation) or `after_failure` (such as uploading log files) phases.
 In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
 
-The complete build lifecycle, including three optional deployment phases and after checking out the git repository and changing to the repository directory, is:
+The complete job lifecycle, including three optional deployment phases and after checking out the git repository and changing to the repository directory, is:
 
 1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
 1. OPTIONAL Install [`cache components`](/user/caching)
@@ -33,6 +33,8 @@ The complete build lifecycle, including three optional deployment phases and aft
 1. OPTIONAL `deploy`
 1. OPTIONAL `after_deploy`
 1. `after_script`
+
+A *build* can be composed of many jobs.
 
 ## Customizing the Installation Phase
 
@@ -147,7 +149,7 @@ To run that script from your `.travis.yml`:
 
 #### How does this work? (Or, why you should not use `exit` in build steps)
 
-The steps specified in the build lifecycle are compiled into a single bash script and executed on the worker.
+The steps specified in the job lifecycle are compiled into a single bash script and executed on the worker.
 
 When overriding these steps, do not use `exit` shell built-in command.
 Doing so will run the risk of terminating the build process without giving Travis a chance to
@@ -158,7 +160,7 @@ Using `exit` inside a custom script which will be invoked from during a build is
 
 ## Breaking the Build
 
-If any of the commands in the first four phases of the build lifecycle return a non-zero exit code, the build is broken:
+If any of the commands in the first four phases of the job lifecycle return a non-zero exit code, the build is broken:
 
 - If `before_install`, `install` or `before_script` returns a non-zero exit code,
   the build is **errored** and stops immediately.
@@ -169,7 +171,7 @@ However, if one of these stages times out, the build is marked as **failed**.
 
 ## Deploying your Code
 
-An optional phase in the build lifecycle is deployment.
+An optional phase in the job lifecycle is deployment.
 This phase is defined by using one of our continuous deployment providers to deploy code to Heroku, Amazon, or a different supported platform.
 The deploy steps are skipped if the build is broken.
 
