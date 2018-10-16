@@ -30,25 +30,24 @@
     <nav>
       <h3>Getting Started</h3>
       <ul>
-        <li><a href="/user/getting-started/">Getting Started</a></li>
         <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
-        <li><a href="/user/customizing-the-build/">Customizing Your Build</a></li>
-        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
+        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
+        <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
         <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
-        <li><a href="/user/build-stages/">Build Stages</a></li>
-        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
         <li><a href="/user/docker/">Using Docker in your Build</a></li>
         <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
         <li><a href="/user/pull-requests/">Building Pull Requests</a></li>
         <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
+        <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
       </ul>
 
-      <h3>Migrating to GitHub Apps</h3>
+      <h3>Jobs, Builds, Matrices and Stages</h3>
       <ul>
-        <li><a href="/user/legacy-services-to-github-apps-migration-guide/">Private accounts with less than 50 repos</a></li>
-        <li><a href="/user/travis-migrate-to-apps-gem-guide/">Private accounts with more than 50 repos</a></li>
-        <li><a href="/user/open-source-on-travis-ci-com/">Open source accounts</a></li>
+        <li><a href="/user/job-lifecycle/">Job Lifecycle</a></li>
+        <li><a href="/user/build-matrix/">Build Matrix</a></li>
+        <li><a href="/user/build-stages/">Build Stages</a></li>
+        <li><a href="/user/conditional-builds-stages-jobs/">Conditional Builds, Stages, and Jobs</a></li>
       </ul>
 
       <h3>Installing Dependencies</h3>
@@ -58,8 +57,8 @@
         <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
         <li><a href="/user/caching/">Caching Dependencies</a></li>
         <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
-
       </ul>
+
       <h3>Programming Languages</h3>
       <ul>
       {% for language in site.data.languages %}
@@ -84,6 +83,7 @@
       <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
       <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
       <li><a href="/user/reference/osx/">OS X CI Environment Reference</a></li>
+      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
       <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
       <li><a href="/user/environment-variables/">Environment Variables</a></li>
       <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
@@ -113,6 +113,8 @@
         <li><a href="/user/build-feeds/">Atom Feeds</a></li>
         <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
         <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
+
       </ul>
 
       <h3>Developer Program</h3>
@@ -122,15 +124,11 @@
         <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
         <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
       </ul>
-      <h3>3rd Party Tools and Resources</h3>
-      <ul>
-        <li><a href="/user/apps/">Apps, Clients and Tools</a></li>
-        <li><a href="https://scan.coverity.com/travis_ci">Coverity Scan</a></li>
-      </ul>
       <h3>Travis CI Enterprise</h3>
       <ul>
         <li><a href="/user/enterprise/">Enterprise Docs</a></li>
       </ul>
+
     </nav>
   </section>
 

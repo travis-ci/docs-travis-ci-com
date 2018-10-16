@@ -25,7 +25,7 @@ Travis CI can cache content that does not often change, to speed up your build p
 Caches lets Travis CI store directories between builds, which is useful for storing
 dependencies that take longer to compile or download.
 
-Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
+Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 ### Build phases
 
