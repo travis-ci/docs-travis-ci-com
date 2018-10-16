@@ -391,7 +391,7 @@ Some client libraries will automate this handshake for you.
 
 You can also trigger a full OAuth handshake between Travis CI and GitHub by opening `/auth/handshake` in a web browser. The endpoint takes an optional `redirect_uri` query parameter, which takes a URL the web browser will end up on if the handshake is successful.
 
-There is an alternative version of this that will try to run the handshake in a hidden iframe and using `window.postMessage` to hand the token to the website embedding the iframe. **This endpoint will only work for whitelisted websites.**
+There is an alternative version of this that will try to run the handshake in a hidden iframe and using `window.postMessage` to hand the token to the website embedding the iframe. **This endpoint will only work for safelisted websites.**
 
 # Entities
 
