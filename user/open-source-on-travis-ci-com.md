@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-On May 2nd, 2018 Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
+On <time datetime="2018-05-02">May 2nd, 2018</time> Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
 
 
 
@@ -26,15 +26,15 @@ GitHub-Apps based integration introduces a number of benefits as over our Legacy
 
 ## New User Accounts
 
-Please sign up at [travis-ci.com](https://www.travis-ci.com), regardless of whether you plan to test open source or private projects. Welcome aboard!
+Please sign up at [travis-ci.com], regardless of whether you plan to test open source or private projects. Welcome aboard!
 
 ## Existing User Accounts
 
-Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#New-Repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com](https://www.travis-ci.com) when you want to activate a new repository, please sign up there first.
+Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#New-Repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com] when you want to activate a new repository, please sign up there first.
 
 ## New Repositories
 
-New repositories should be activated on [travis-ci.com](https://www.travis-ci.com) for both open source and private repositories. You will also have the option to subscribe open source projects for more concurrency immediately, rather than needing to contact support first.
+New repositories should be activated on [travis-ci.com] for both open source and private repositories. You will also have the option to subscribe open source projects for more concurrency immediately, rather than needing to contact support first.
 
 ## Existing Open Source Repositories on travis-ci.org
 
@@ -44,12 +44,19 @@ However, open source repositories will be migrated to travis-ci.com gradually, b
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 
-Repositories may also be migrated without their build history or build settings (including environment variables) immediately. Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration) and include "Repository Migration" somewhere in the subject line, and the name of the repository in your email.
+Repositories may also be migrated without their build history or build settings (including environment variables) immediately. 
 
-## Existing Private Repositories on travis-ci.com
+Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration). In your email, please include:
+* "Repository Migration" somewhere in the subject line, and
+* the repository’s name in your email
 
-There will be no changes to your private repositories -- private projects will continue to run on `travis-ci.com` as before.
+## Existing Private Repositories on `travis-ci.com`
+
+There will be no changes to your private repositories. Private projects will continue to run on `travis-ci.com` as before.
 
 ## Contact Support
 
 If you have an questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
+
+
+[travis-ci.com]: https://www.travis-ci.com
