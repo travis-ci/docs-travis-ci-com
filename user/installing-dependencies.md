@@ -229,7 +229,7 @@ To install the package, identify APT source and specify it in the addon key of y
 
 1. Search for the pull request that added the package on GitHub. For example,
    [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-safelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
-   results in [pull request 1194](https://github.com/travis-ci/apt-package-safeelist/pull/1194).
+   results in [pull request 1194](https://github.com/travis-ci/apt-package-safelist/pull/1194).
 
 2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-safelist-checker/builds/80620536).
 
