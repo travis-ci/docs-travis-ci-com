@@ -74,4 +74,4 @@ VMs running Windows use the default file system, NTFS.
 - wget
 - yarn
 
-Latest list of pre-installed packages can be find [here](https://github.com/travis-ci/packer-templates/blob/master/packer-assets/windows-server-2016-ci-onion-packages.txt).
+Latest list of pre-installed packages can be found [here](https://github.com/travis-ci/packer-templates/blob/master/packer-assets/windows-server-2016-ci-onion-packages.txt).
