@@ -96,7 +96,7 @@ If your requirements goes beyond the normal installation, please use another met
 
 To add APT sources, you can use one of the following three types of entries:
 
-1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
+1. aliases defined in [source safelist](https://github.com/travis-ci/apt-source-safelist)
 2. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
 3. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
 
@@ -174,7 +174,7 @@ To install packages not included in the default [container-based-infrastructure]
 
 ### Adding APT Sources
 
-To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+To add APT sources from the [source safelist](https://github.com/travis-ci/apt-source-safelist) before your custom build steps, use the `addons.apt.sources` key:
 
 ```yaml
 addons:
@@ -187,7 +187,7 @@ addons:
 
 ### Adding APT Packages
 
-To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+To install packages from the [package safelist](https://github.com/travis-ci/apt-package-safelist)  before your custom build steps, use the `addons.apt.packages` key:
 
 ```yaml
 addons:
@@ -228,15 +228,15 @@ E: Couldn't find any package by regex 'libcxsparse3.1.2'
 To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
 
 1. Search for the pull request that added the package on GitHub. For example,
-   [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
-   results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+   [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-safelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+   results in [pull request 1194](https://github.com/travis-ci/apt-package-safeelist/pull/1194).
 
-2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
+2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-safelist-checker/builds/80620536).
 
 3. Search the build log for the phrase "Fetching source package for …" and expand the section.
 
 4. Match that source against the `alias` name shown in
-   [the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
+   [the source list](https://github.com/travis-ci/apt-source-safelist/blob/master/ubuntu.json).
 
 In our example, the source alias is "lucid":
 
@@ -250,7 +250,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-safelist) at this time.
 
 ## Installing Packages on OS X
 
