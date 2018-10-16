@@ -78,6 +78,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only respositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+
 ## Authentication with a Username and Password
 
 You can also authenticate with your GitHub username and password using the `user` and `password` options. This is not recommended as it allows full access to your GitHub account but is simplest to setup. It is recommended to encrypt your password using `travis encrypt "GITHUB PASSWORD" --add deploy.password`. This example authenticates using  a username and password.
