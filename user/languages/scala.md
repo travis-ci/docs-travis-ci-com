@@ -27,7 +27,7 @@ Minimal example:
 Scala builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
@@ -76,7 +76,7 @@ sbt ++$TRAVIS_SCALA_VERSION test
 to run your test suite.
 
 To use a different `script` command, customize the
-[build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+[build step](/user/job-lifecycle/#Customizing-the-Build-Phase).
 
 ### Custom sbt Arguments
 
