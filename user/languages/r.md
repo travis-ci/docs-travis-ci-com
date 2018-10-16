@@ -7,9 +7,7 @@ layout: en
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 

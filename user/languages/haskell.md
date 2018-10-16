@@ -28,7 +28,7 @@ ghc:
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers configuring Haskell projects on Travis CI. If
-you're new to Travis CI please read our [Getting Started](/user/getting-started/)
+you're new to Travis CI please read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Haskell compiler versions
