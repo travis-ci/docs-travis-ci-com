@@ -256,3 +256,4 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 - [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 - [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
 - [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
+- [Ionic Cordova Example Project](https://github.com/samlsso/Calc/blob/master/.travis.yml)
