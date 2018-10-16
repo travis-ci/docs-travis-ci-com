@@ -359,6 +359,115 @@ Other flags, such as `on_success` and `on_failure` also work like they do in IRC
 
 Pull Request builds do not trigger Campfire notifications.
 
+## Configuring discord notifications
+
+Travis CI can send build notifications to channels on your [Discord](https://discordapp.com) server.
+
+On Discord, head to a channel's settings and navigate to the webhooks tab.
+
+<figure>
+  <img alt="Screenshot of Discord channel webhooks" src="https://i.imgur.com/mtZOWN8.png"/>
+</figure>
+
+Now create a new webhook using the "Create Webhook" button and customize the name. Setting an avatar is not necessary because Travis CI supplies one.
+
+<figure>
+  <img alt="Screenshot of Discord webhook settings" src="https://i.imgur.com/5yojW8R.png"/>
+</figure>
+
+Now take the webhook ID and the webhook token out of the generated URL. The format of the URL is `https://discordapp.com/api/webhooks/[id]/[token]`
+
+The simplest configuration requires the webhook ID and token you just generated:
+
+```yaml
+notifications:
+  discord: '[id]:[token]'
+```
+
+To specify multiple channels (even across servers) use:
+
+```yaml
+notifications:
+  discord:
+    channels:
+      - [id]:[token]
+      - [id]:[token]
+```
+
+> Note: We highly recommend you [encrypt](/user/encryption-keys/) your id and token if it is stored publicly in your .travis.yml
+>
+> ```bash
+> travis encrypt "[id]:[token]" --add notifications.discord.channels
+> ```
+>
+> This will look something like the following in your config:
+>
+> ```yaml
+> notifications:
+>   discord:
+>     channels:
+>       - secure: "0vlxmbtg45tnayuf836eegt158hrmjbg0fu6rg56zpn9k0bcw6ra8abvkasn="
+> ```
+
+### Customizing discord notifications
+
+You can customize both the pull request and branch build notifications as shown in the following:
+
+```yaml
+notifications:
+  discord:
+    pull_request_template:
+      - 'PR [#%{pull_request_number}](%{pull_request_url}) - build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) by %{author} %{result} in %{duration}'
+    branch_template:
+      - 'Build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) of %{repository}@%{branch}'
+      - 'by %{author} %{result} in %{duration}'
+```
+
+Discord allows markdown for message formatting and you can create a multi-line message by adding new list members to the template.
+
+The following variables are available within the template:
+
+- *repository_slug*: your GitHub repo identifier (like `svenfuchs/minimal`)
+- *repository_name*: the slug without the username
+- *build_number*: build number
+- *build_id*: build id
+- *branch*: branch build name
+- *commit*: shortened commit SHA
+- *author*: commit author name
+- *commit_message*: commit message of build
+- *commit_subject*: first line of the commit message
+- *result*: result of build
+- *message*: Travis CI message to the build
+- *duration*: total duration of all builds in the matrix
+- *elapsed_time*: time between build start and finish
+- *compare_url*: commit change view URL
+- *build_url*: URL of the build detail
+
+The default templates for pull requests and branches are:
+
+```yaml
+notifications:
+  discord:
+    pull_request_template:
+      - 'Build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) of %{repository}@%{branch} in PR [#%{pull_request_number}](%{pull_request_url}) by %{author} %{result} in %{duration}'
+    branch_template:
+      - 'Build [#%{build_number}](%{build_url}) ([%{commit}](%{compare_url})) of %{repository}@%{branch} by %{author} %{result} in %{duration}'
+```
+
+As with other notifications types you can also specify when notifications will be sent:
+
+```yaml
+notifications:
+  discord:
+    channels:
+      - secure: "0vlxmbtg45tnayuf836eegt158hrmjbg0fu6rg56zpn9k0bcw6ra8abvkasn="
+    on_success: change # default: always
+    on_failure: always # default: always
+    on_start: change   # default: never
+    on_cancel: always  # default: always
+    on_error: always   # default: always
+```
+
 ## Configuring flowdock notifications
 
 Notifications can be sent to your Flowdock Team Inbox using the following format:
