@@ -30,7 +30,7 @@ node_js:
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Node.js versions
@@ -126,7 +126,7 @@ npm install
 
 #### Using a specific npm version
 
-Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:
@@ -159,8 +159,8 @@ as specified in your lock file.
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
 
-If both `package.json` and `yarn.lock` are present in the root
-directory of the repository, we run the following command _instead of_
+If both `package.json` and `yarn.lock` are present in the current
+directory, we run the following command _instead of_
 `npm install`:
 
 ```bash
@@ -174,7 +174,7 @@ instead.
 
 #### Using a specific yarn version
 
-Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:

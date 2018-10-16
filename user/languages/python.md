@@ -32,7 +32,7 @@ Minimal example:
 Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Python versions
@@ -183,7 +183,7 @@ Please note that the `--user` option is mandatory if you are not using `language
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](/user/job-lifecycle/#Customizing-the-Installation-Phase) guide.
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 

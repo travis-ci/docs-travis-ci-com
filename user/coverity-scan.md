@@ -30,7 +30,7 @@ It's probably overkill to run static analysis on each and every commit of your p
 
 2. If necessary, create a public repo on [GitHub](https://github.com) for your project.
 
-3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Getting Started](http://docs.travis-ci.com/user/getting-started/) guide.
+3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Getting Tutorial](/user/tutorial/) guide.
 
 4. Sign in to Scan, and then add your project. Be sure to add it as a [GitHub Project](https://scan.coverity.com/projects/new?tab=github).
 
@@ -93,7 +93,7 @@ addons:
 
 The project settings should be self-explanatory, and should match the values for the project configuration on Coverity Scan. The `branch_pattern` is a regular expression for the branches on which you want to run Coverity Scan. Please refer to the [FAQ](https://scan.coverity.com/faq) regarding build submission limits before enabling additional branches. We recommend leaving this set to `coverity_scan`.
 
-The COVERITY_SCAN_TOKEN is encrypted and is obtained by using the [Travis CI CLI](https://github.com/travis-ci/travis). Coverity Scan provides this information on your Project's Travis CI tab for convenience, but you may also run it manually (see [Encryption Keys](http://docs.travis-ci.com/user/encryption-keys/) for more information on encryption).
+The COVERITY_SCAN_TOKEN is encrypted and is obtained by using the [Travis CI CLI](https://github.com/travis-ci/travis). Coverity Scan provides this information on your Project's Travis CI tab for convenience, but you may also run it manually (see [Encryption Keys](/user/encryption-keys/) for more information on encryption).
 
 ```bash
 gem install travis

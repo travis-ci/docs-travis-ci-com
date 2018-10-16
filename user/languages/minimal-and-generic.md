@@ -46,6 +46,7 @@ The `minimal` image contains:
 * [essential build tools such as gcc and make](/user/reference/trusty/#compilers--build-toolchain)
 * [network tools such as curl and essential](/user/reference/trusty/#networking-tools)
 * [Docker](/user/reference/trusty/#docker)
+* [python](/user/reference/trusty/#python-images)
 
 ## Generic
 
@@ -60,7 +61,6 @@ The `generic` image contains everything from `minimal`, and also the usual datab
 * [jvm](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
 * [node_js](/user/reference/trusty/#javascript-and-nodejs-images)
 * [php](/user/reference/trusty/#php-images)
-* [python](/user/reference/trusty/#python-images)
 * [ruby](/user/reference/trusty/#ruby-images)
 
 For specific details of what is on the image consult the [build update](/user/build-environment-updates/2017-12-12/#2017-12-12).
