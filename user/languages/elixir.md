@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
+| Elixir            | Default                                   |
 |:------------------|:------------------------------------------|
 | Typical `install` | `mix local.rebar --force; mix local.hex --force; mix deps.get` |
 | Typical `script`  | `mix test`                                |
@@ -24,13 +26,11 @@ otp_release: '19.0'
 
 </aside>
 
-### What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers build environment and configuration topics
 specific to Elixir projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 Elixir builds are not available on the OS X environment.

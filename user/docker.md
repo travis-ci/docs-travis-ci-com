@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
@@ -27,7 +27,7 @@ examples.
 
 > For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds).
 
-### Using a Docker Image from a Repository in a Build
+## Using a Docker Image from a Repository in a Build
 
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
 Docker containers built from the same image:
@@ -76,8 +76,7 @@ output](https://travis-ci.org/travis-ci/docker-sinatra):
 $ docker ps -a
 CONTAINER ID        IMAGE                   COMMAND                CREATED                  STATUS                  PORTS                    NAMES
 e376792bce99        carlad/sinatra:latest   "/bin/sh -c 'cd /roo   Less than a second ago   Up Less than a second   127.0.0.1:80->4567/tcp   condescending_galileo
-before_install.4
-1.30s$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 /usr/local/bin/ruby -I"lib:test" -I"/usr/local/lib/ruby/2.2.0" "/usr/local/lib/ruby/2.2.0/rake/rake_test_loader.rb" "test/test_app.rb"
 Loaded suite /usr/local/lib/ruby/2.2.0/rake/rake_test_loader
 Started
@@ -90,12 +89,12 @@ Finished in 0.022952763 seconds.
 43.57 tests/s, 43.57 assertions/s
 ```
 
-### Building a Docker Image from a Dockerfile
+## Building a Docker Image from a Dockerfile
 
 Instead of downloading the Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) you can
 build it directly from the Dockerfile in the [GitHub
-respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile).
+repository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile).
 
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:
@@ -125,7 +124,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-### Pushing a Docker Image to a Registry
+## Pushing a Docker Image to a Registry
 
 In order to push an image to a registry, one must first authenticate via `docker
 login`.  The email, username, and password used for login should be stored in
@@ -147,7 +146,7 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 ```
 
-#### Branch Based Registry Pushes
+### Branch Based Registry Pushes
 
 To push a particular branch of your repository to a remote registry,
 use the custom deploy section of your `.travis.yml`:
@@ -171,7 +170,7 @@ docker push USER/REPO
 {: data-file="docker_push"}
 
 
-#### Private Registry Login
+### Private Registry Login
 
 When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
@@ -180,7 +179,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
-### Using Docker Compose
+## Using Docker Compose
 
 The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
 
@@ -199,14 +198,16 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Installing a newer Docker version
+## Installing a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
 updating it in the `before_install` step of your `.travis.yml`:
 
-**Updating from apt.dockerproject.org**
+**Updating from download.docker.com**
 ```yaml
 before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
@@ -221,19 +222,9 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-**Updating from download.docker.com**
-```yaml
-before_install:
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-```
-{: data-file=".travis.yml"}
-
 > Check what version of Docker you're running with `docker --version`
 
-#### Examples
+## Examples
 
 - [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
 - [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)

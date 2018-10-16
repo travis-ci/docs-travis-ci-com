@@ -1,11 +1,11 @@
 ---
-title: Travis CI Enterprise Operations manual
+title: Travis CI Enterprise Operations Manual
 layout: en_enterprise
 
 ---
 Welcome to the Travis CI Enterprise Operations Manual! This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#contact-support).
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#Contact-Enterprise-Support).
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
@@ -25,7 +25,7 @@ This section explains how you integrate Travis CI Enterprise in your backup stra
 
 Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
 
-> Without this key the information in the database is not recoverable.
+> Without the encryption key the information in the database is not recoverable.
 
 To make a backup, please follow these steps:
 
@@ -80,7 +80,7 @@ Relevant are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. Th
 $ sudo restart travis-worker
 ```
 
-#### Ports are not open Security groups / firewall
+#### Ports are not open Security groups / Firewall
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
@@ -90,7 +90,14 @@ Here we're distinguishing between an AWS EC2 installation and an installation ru
 
 This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
-If none of the steps above lead to results for you, please follow the steps in the [Contact Support](#Contact-support) section below to move forward.
+If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#Contact-Enterprise-Support) section below to move forward.
+
+#### Builds are not Starting on Enterprise Installation at Version 2.2+
+
+If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either:
+
+1. Install a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
+1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
 
 ## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
 
@@ -106,21 +113,61 @@ The above mentioned error can be caused by a configuration mismatch in [the GitH
 
 Your Travis CI Enterprise license has a hostname field which contains the hostname of your installation. When the license's hostname does not match the actual hostname, the container does not start. If this is the case or you suspect that this might be likely, please [get in touch with us](mailto:enterprise@travis-ci.com?subject=License%20Hostname%20Change) and we'll help you to get back on track.
 
-## Contact support
 
-To get in touch with us, please write a message to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). It would be very helpful for Support if you could include the following:
+## travis-worker on Ubuntu 16.04 does not start
 
-- What is the problem?
-- Which steps did you try already?
-- A support bundle (You can get it from https://yourdomain:8800/support)
-- Worker log files (They can be found at `/var/log/upstart/travis-worker.log`) - If you're using multiple worker machines, we need the log files from all of them.
+travis-worker got installed on a fresh installation of Ubuntu 16.04 (Xenial). `sudo systemctl status travis-worker` shows that it is not running.
 
-Is anything special with your setup? While we may be able to see some information (such as hostname, IaaS provider, ...), there are lots of other things we can't see which could lead to something not working. Therefore we'd like to ask you to also answer the questions below in your support request (if applicable):
+Either `sudo journalctl -u travis-worker` or `sudo systemctl status travis-worker` report `/usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory`.
 
-- How many machines are you using?
-- Do you use configuration management tools (Chef, Puppet)?
-- Which other services do interface with Travis CI Enterprise?
-- Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
-- If you're using GitHub Enterprise, which version of it?
+### Strategy
 
-Please write your support request to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). We're looking forward hearing from you!
+One possible reason that travis-worker is not running is that `systemctl` cannot create a temporary directory for environment files. To fix this, please create the directory `/var/tmp/travis-run.d/travis-worker` and assign write permissions via:
+
+```sh
+$ mkdir -p /var/tmp/travis-run.d/
+$ chown -R travis:travis /var/tmp/travis-run.d/
+```
+
+## Builds fail with curl certificate errors
+
+A build fails with a long `curl` error message similar to:
+
+```
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+This can have various causes, including an automatic nvm update or a caching error.
+
+### Strategy
+
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
+
+## User accounts are stuck in syncing state
+
+One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
+
+```sql
+travis_production=> select count(*) from users where is_syncing=true;
+ count
+-------
+  1027
+(1 row)
+```
+
+### Strategy
+
+Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Reset the `is_syncing` flag for user accounts that are stuck by running:
+
+```bash
+$ travis console
+>> User.where(is_syncing: true).count
+>> ActiveRecord::Base.connection.execute('set statement_timeout to 60000')
+>> User.update_all(is_syncing: false)
+```
+
+It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

@@ -7,15 +7,13 @@ layout: en
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@craigcitro][github 2]
+[Travis CI issue tracker][github] and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
 ## Basic configuration
@@ -59,12 +57,11 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.1.3` and above on Linux Precise
-builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
-addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
-`3.3.0`. `devel` is built off of the [R git
-mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
-hourly).
+Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
+Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
+name `oldrel` is aliased to the previous major release and `release` is aliased to the
+latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
+of the R SVN trunk (updated hourly).
 
 Matrix builds *are* supported for R builds, however both instances of `r` must
 be in *lowercase*.
@@ -99,8 +96,8 @@ your `.travis.yml`.
 
 ### LaTeX/TexLive Packages
 
-The included TexLive distribution contains only a [limited set of default
-packages][github 6]. If your vignettes require additional TexLive packages you
+The included TexLive distribution contains only a limited set of default
+packages. If your vignettes require additional TexLive packages you
 can install them using `tlmgr install` in the `before_install` step.
 
 ```yaml
@@ -120,13 +117,13 @@ If you don't need LaTeX, tell Travis CI not to install it using `latex: false`.
 
 ### Pandoc
 
-The default pandoc version installed is `1.15.2`. Alternative [pandoc
+The default pandoc version installed is `2.2`. Alternative [pandoc
 releases][github 7] can be installed by setting the `pandoc_version` to the
 desired version.
 
 ```yaml
 language: r
-pandoc_version: 1.16
+pandoc_version: 1.19.2.1
 ```
 {: data-file=".travis.yml"}
 
@@ -206,6 +203,7 @@ rather than the default behaviour of downloading your package dependencies from 
 ```yaml
 install:
   - R -e "0" --args --bootstrap-packrat
+  - R -e "packrat::restore(restart = FALSE)"
 ```
 {: data-file=".travis.yml"}
 
@@ -390,13 +388,11 @@ moving from r-travis to native support, see the [porting guide][github 9].
 
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
 
-[github 2]: https://github.com/craigcitro
+[github 2]: https://github.com/jeroen
 
 [github 4]: https://github.com/jimhester
 
 [github 5]: https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes
-
-[github 6]: https://github.com/yihui/ubuntu-bin/blob/master/TeXLive.pkgs
 
 [github 7]: https://github.com/jgm/pandoc/releases
 

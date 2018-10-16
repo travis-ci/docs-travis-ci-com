@@ -10,8 +10,6 @@ redirect_from:
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-<div id="toc"></div>
-
 ## Using Trusty
 
 To use sudo-enabled Ubuntu Trusty, add the following to your
@@ -72,9 +70,9 @@ based on common language runtimes like `ruby`, `go`, `php`, `python`, etc.
 For our Trusty based environments, we're making a smaller set of images that
 includes:
 
-- A minimal image which contains a small subset of interpreters, as well as
+- A [minimal image](/user/languages/minimal-and-generic/#minimal) which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains roughly the same runtimes and
+- A considerably [larger image](/user/languages/minimal-and-generic/#generic) which contains roughly the same runtimes and
   services present in Precise environments.
 
 ## Routing to Trusty
@@ -100,7 +98,7 @@ sudo: false
 
 ### Version control
 
-All VM images have the following pre-installed:
+All virtual machine images have the following pre-installed:
 
 - Git 2.x
 - Mercurial
@@ -400,4 +398,4 @@ secondary groups given above in `usermod`.
 ### Build system information
 
 In the build log, relevant software versions (including the available language
-versions) is show in the "Build system information".
+versions) are shown in the "Build system information" section.

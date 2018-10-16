@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -28,12 +27,10 @@ node_js:
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Node.js versions
@@ -129,7 +126,7 @@ npm install
 
 #### Using a specific npm version
 
-Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:
@@ -150,12 +147,20 @@ cache:
 
 `npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
 
+### npm ci support
+
+If a `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
+supports it, Travis CI will use `npm ci` instead of `npm install`.
+
+This command will delete your `node_modules` folder and install all dependencies
+as specified in your lock file.
+
 ### Travis CI supports yarn
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
 
-If both `package.json` and `yarn.lock` are present in the root
-directory of the repository, we run the following command _instead of_
+If both `package.json` and `yarn.lock` are present in the current
+directory, we run the following command _instead of_
 `npm install`:
 
 ```bash
@@ -169,7 +174,7 @@ instead.
 
 #### Using a specific yarn version
 
-Add the following to the [`before_install` phase](/user/customizing-the-build/#The-Build-Lifecycle) of `.travis.yml`:
+Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
 ```yaml
 before_install:

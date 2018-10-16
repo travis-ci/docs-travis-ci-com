@@ -6,11 +6,11 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 Android builds are not available on the OS X environment.
 
-<div id="toc"></div>
+
 
 ## CI Environment for Android Projects
 
@@ -256,3 +256,4 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 - [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 - [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
 - [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
+- [Ionic Cordova Example Project](https://github.com/samlsso/Calc/blob/master/.travis.yml)

@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy your modules to [Puppet Forge ](https://forge.puppet.com/) or to your own Forge instance after a successful build.
 

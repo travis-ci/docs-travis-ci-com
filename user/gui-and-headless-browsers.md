@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+
+
 ## What This Guide Covers
 
-This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Tutorial](/user/tutorial/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
 ## Using Sauce Labs
 
@@ -103,8 +105,10 @@ See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more inform
 
 ### Starting a Web Server
 
+<!-- FIXME: write this paragraph -->
+
 If your project requires a web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based web servers
-that serve HTML pages used to run test suites. Because every travis-ci.org VM provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
+that serve HTML pages used to run test suites. Because every build environment provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
 three options.
 
 Add a `before_script` to start a server, for example:

@@ -8,6 +8,8 @@ Travis CI implements a few optimizations which help to speed up your build,
 like in memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
+
+
 ## Parallelizing your builds across virtual machines
 
 To speed up a test suite, you can break it up into several parts using
@@ -69,10 +71,6 @@ concern. One set runs tests only for the railties, another one for actionpack,
 actionmailer, activesupport, and a whole bunch of sets runs the activerecord
 tests against multiple databases. See their [.travis.yml
 file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
-
-Note that during the trial on <https://travis-ci.com> for private repositories, you only have
-one concurrent build available, so you'll unlikely be seeing improvements until you're
-signed up for a paid subscription.
 
 ## Parallelizing your build on one virtual machine
 
@@ -166,7 +164,7 @@ your tests.
 
 ### PHP optimizations
 
-PHP VM images on travis-ci.org provide several PHP versions which include
+PHP VM images on Travis CI provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
 reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
@@ -176,7 +174,7 @@ You may wish to consider
 builds if:
 
 - you are not generating code coverage reports in your Travis tests; or
-- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
+- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](https://github.com/krakjoe/phpdbg)
   which may be faster.
 
 #### Using phpdbg example

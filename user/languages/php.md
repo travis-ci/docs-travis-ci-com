@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -29,12 +28,10 @@ php:
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 This guide covers build environment and configuration topics specific to PHP
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
 PHP builds are not available on the OS X environment.
@@ -200,30 +197,6 @@ To see real world examples, see:
 - [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
 - [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
-### Installing PEAR packages
-
-If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
-
-```bash
-pyrus install http://phptal.org/latest.tar.gz
-pear install pear/PHP_CodeSniffer
-```
-
-After install you should refresh your path
-
-```bash
-phpenv rehash
-```
-
-For example, if you want to use phpcs, you should execute:
-
-```bash
-pyrus install pear/PHP_CodeSniffer
-phpenv rehash
-```
-
-Then you can use phpcs like the phpunit command
-
 ### Installing Composer packages
 
 <div class="note-box">
@@ -249,7 +222,7 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
 - Different SAPIs:
 
   - 5.3.3 comes with php-cgi only.
@@ -370,7 +343,6 @@ before_script:
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars
@@ -406,7 +378,7 @@ virtual host as usual, the important part for php-fpm is this:
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
-    
+
     <Directory /usr/lib/cgi-bin>
         Require all granted
     </Directory>

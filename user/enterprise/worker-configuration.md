@@ -4,9 +4,21 @@ layout: en_enterprise
 
 ---
 
-<div id="toc"></div>
+
 
 ## Credentials for Connecting to the Platform
+
+### With Ubuntu 16.04 as host operating system
+
+The configuration for connecting to the Travis CI Enterprise platform can be found in `/etc/default/travis-worker`.
+If you need to change the hostname the Worker should connect to, or the
+RabbitMQ password, you can do so by updating:
+
+```sh
+export AMQP_URI="amqp://travis:<rabbitmq password>@<Travis CI Enterprise platform hostname>/travis"
+```
+
+### With Ubuntu 14.04 as host operating system
 
 The configuration for connecting to the Travis CI Enterprise Platform,
 including the RabbitMQ password, can be found in
@@ -18,7 +30,7 @@ RabbitMQ password, you can do so by updating:
 ```sh
 export TRAVIS_ENTERPRISE_HOST="enterprise.hostname.corp"
 export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
-```         
+```
 
 ## Setting Timeouts
 
@@ -150,3 +162,7 @@ export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 
 A full list of options and mount modes is listed in the official
  [Docker documentation](https://docs.docker.com/storage/bind-mounts/).
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

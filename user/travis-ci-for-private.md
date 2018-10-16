@@ -4,24 +4,23 @@ layout: en
 
 redirect_from:
   - /user/pricing/
+  - /user/travis-pro/
 ---
 
-<div id="toc"></div>
-
-Learn more about [Travis Pro](http://travis-ci.com), our hosted
+Learn more about [Travis CI for private repositories](https://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
-## Does Travis Pro include a trial period?
+## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis Pro](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
 When you're ready to start using Travis CI, head over to the [billing page](https://billing.travis-ci.com/) to add your billing details and end your trial.
 
-## Can I use pull request testing on Travis Pro?
+## Can I use pull request testing on Travis CI for private repositories?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
-post](http://blog.travis-ci.com/announcing-pull-request-support/)
+post](https://blog.travis-ci.com/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis CI.
 
 ## Who has access to the builds?
@@ -32,7 +31,7 @@ Access rights on Travis CI is based on the access rights on GitHub:
 - Users that can push to a repository on GitHub can trigger, cancel and restart builds, and change its settings.
 - Users that have admin access to a repository on GitHub can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --pro` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
 
 ## Who has access to the billing details?
 
@@ -55,7 +54,7 @@ You can find more information on this topic in our [Security Statement](https://
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
 
-## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+## Why can't I find information on pricing on travis-ci.org?
 
 Travis CI is, and always will be, free for open source projects.
 
@@ -68,14 +67,14 @@ If you have a private repository that you'd like to make public, first
 deactivate it on [Travis CI .com](https://travis-ci.com), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, and toggle the
+1. On [Travis CI .com](https://travis-ci.com) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-private-repository-public/) on
 how to make a repository public.
 
-2. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, click *Sync
+2. On [Travis CI .org](https://travis-ci.org) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
@@ -91,14 +90,14 @@ If you have a public repository that you'd like to make private, first
 deactivate it on [Travis CI .org](https://travis-ci.org), change the repository
 settings on GitHub, and resync your Travis CI account:
 
-1. On [Travis CI .org](https://travis-ci.org) go to *Accounts*, and toggle the
+1. On [Travis CI .org](https://travis-ci.org) go to *Profile*, and toggle the
    repository to *OFF*.
 
 1. Follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/) on
 how to make a repository private.
 
-2. On [Travis CI .com](https://travis-ci.com) go to *Accounts*, click *Sync
+2. On [Travis CI .com](https://travis-ci.com) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
 5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)

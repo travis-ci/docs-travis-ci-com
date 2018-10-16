@@ -7,7 +7,7 @@ layout: en_enterprise
 With Travis CI Enterprise, you can configure your build images to suit your
 development process and improve the build environment and performance.
 
-<div id="toc"></div>
+
 
 ## Customizing build images
 
@@ -24,7 +24,7 @@ upgrading build images from [quay.io](https://quay.io/organization/travisci).
 
 For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration we will pick the corresponding image to run the build.
 
-We're shipping the same Docker build images as travis-ci.org and travis-ci.com are using. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
+We're shipping the same Docker build images as we use on travis-ci.com. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
 
 - Ruby
 - Node.js
@@ -75,54 +75,33 @@ To build docker images on Travis CI Enterprise, add the following to `/etc/defau
 
 With Trusty build images a few additional steps are required. Since `docker-ce` can't run on its own inside another Docker container, it'll connect to the Host's Docker daemon to execute the respective commands.
 
-> For non-AWS deployments, please make sure that the worker machine has a private IP address configured on one of its interfaces.
-
-On Amazon EC2 each machine has a private IP address by default. That address will be used to connect to the Docker daemon.
-
-To get the address, please run `ifconfig` in your terminal. For EC2 Virtual Machines, usually `eth0` interface is correct.
-
-Now the Docker daemon needs to listen to that address. Please open `/etc/default/docker`. In this file, you'll find the `DOCKER_OPTS` variable. This is read by Docker during service startup. In there please configure the additional host like this (We're using `172.31.7.199` as example here):
+We accomplish this by adding another configuration option to `/etc/default/travis-worker`:
 
 ```
-DOCKER_OPTS="-H tcp://172.31.7.199:4243 -H tcp://127.0.0.1:4243 -H unix:///var/run/docker.sock ..."
+export TRAVIS_WORKER_DOCKER_BINDS='/var/run/docker.sock:/var/run/docker.sock'
 ```
 
-After that, both Docker and travis-worker have to be restarted. For Docker, please run:
+With this option we tell `travis-worker` to make the host's Docker socket available inside the build containers. Please restart travis-worker after you have saved the configuration file.
 
-```
-$ sudo restart docker
-```
 
-For travis-worker, you can find the instructions [here](https://docs.travis-ci.com/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+#### Restart travis-worker
 
+To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
 
 ### Updates to your .travis.yml files
 
 #### Trusty build containers
 
-> Please note: This solution utilizes the Docker daemon from the host machine - any containers and images you pull and run through your build need to be cleaned up manually.
+Once the worker machine is [configured properly](/user/enterprise/build-images/#worker-machine-configuration), you can use Docker as usual in your build. Please note that on an Enterprise installation you don't need to add `services: docker` to the `.travis.yml`.
 
-Add the following to your `.travis.yml` configuration:
-
-```
-install:
-  - sudo apt-get update
-  - sudo apt-get install -y curl software-properties-common apt-transport-https ca-certificates
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable"
-  - sudo apt-get update
-  - sudo apt-get install -y docker-ce
-  - sudo docker -H <IP>:4243 pull ubuntu
-script:
-  - sudo docker -H <IP>:4243 run ubuntu date
-
-```
+Since you're using the host's Docker daemon, all images and containers used in your build are stored on the host machine. To free up disk space, we recommend using the `--rm` flag when you use Docker run in your build.
+To avoid race conditions when multiple builds start to remove containers and images at the same time we recommend to clean them up manually on the machine directly while no build is running.
 
 #### Precise build containers (legacy)
 
 Add the following to any `.travis.yml` files for repositories which would like to use Docker:
 
-```
+```yaml
     install:
           - sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
           - echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" | sudo tee /etc/apt/sources.list.d/docker.list
@@ -132,7 +111,7 @@ Add the following to any `.travis.yml` files for repositories which would like t
 
 For example, if you want to create a new repository and test out Docker support, you can create a `.travis.yml` file which looks like the following:
 
-```
+```yaml
     install:
           - sudo apt-get update
           - sudo apt-get install apt-transport-https ca-certificates
@@ -142,6 +121,10 @@ For example, if you want to create a new repository and test out Docker support,
           - sudo apt-get install docker-engine
           - sudo docker pull ubuntu
 
-          script:
+    script:
           - sudo docker run ubuntu date
 ```
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

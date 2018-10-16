@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page.
 
 Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 
@@ -22,7 +22,7 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
+addresses](#How-is-the-build-email-receiver-determined), [changing the email
 address](#Changing-the-email-address-for-build-notifications) or
 [troubleshooting email
 notification](#Missing-build-notifications).
@@ -523,15 +523,13 @@ Pull Request builds do not trigger Pushover notifications.
 
 ## Configuring Slack notifications
 
-Travis CI can send notifications to your [Slack](http://slack.com) channels
+Travis CI can send notifications to your [Slack](https://slack.com) channels
 about build results.
 
 On Slack, set up a [new Travis CI
 integration](https://my.slack.com/services/new/travis).
 
-<figure>
-  <img alt="Screenshot of adding Slack integration" src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
-</figure>
+![Screenshot of adding Slack integration](/images/notifications/slack-integration.png "Screenshot of adding Slack integration")
 
 Copy and paste the settings, which already include the proper token, into
 your `.travis.yml`, and you're good to go.
@@ -597,13 +595,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Once everything's setup, push a new commit and you should see something like the
-screenshot below:
-
-
-<figure>
-  <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
-</figure>
+Once everything's set up, push a new commit and you'll get a message in the slack channel.
 
 ### Notifications of PR builds
 
@@ -734,7 +726,7 @@ payload.
 3. Obtain the public key corresponding to the private key that signed
    the payload. This is available at the `/config` endpoint's
    `config.notifications.webhook.public_key` on the relevant API server.
-   (e.g., <https://api.travis-ci.org/config>)
+   (e.g., <https://api.travis-ci.com/config>)
 4. Verify the signature using the public key and SHA1 digest.
 
 #### Examples

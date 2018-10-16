@@ -1,9 +1,117 @@
 osx_images:
-  - image: xcode9.3beta
-    xcode: "9.3beta"
+  - image: xcode10
+    xcode: "10.0"
     osx_version: "10.13"
-    xcode_full_version: "9.3beta"
-    image_publish_date: 2017-02-08
+    xcode_full_version: "10.0"
+    xcode_build_version: "10A255"
+    image_publish_date: 2018-09-19
+    sdks:
+      - macosx10.14
+      - iphoneos12.0
+      - iphonesimulator12.0
+      - appletvos12.0
+      - appletvsimulator12.0
+      - watchos5.0
+      - watchsimulator5.0
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - iOS 10.2
+      - iOS 10.3
+      - iOS 11.0
+      - iOS 11.1
+      - iOS 11.2
+      - iOS 11.3
+      - iOS 11.4
+      - iOS 12.0
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - tvOS 10.1
+      - tvOS 10.2
+      - tvOS 11.0
+      - tvOS 11.1
+      - tvOS 11.2
+      - tvOS 11.3
+      - tvOS 11.4
+      - tvOS 12.0
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.2
+      - watchOS 4.0
+      - watchOS 4.1
+      - watchOS 4.2
+      - watchOS 5.0
+    jdk: "10.0.2+13"
+  - image: xcode9.4
+    xcode: "9.4"
+    osx_version: "10.13"
+    xcode_full_version: "9.4.1"
+    xcode_build_version: "9F2000"
+    default: true
+    image_publish_date: 2018-06-15
+    sdks:
+      - macosx10.13
+      - iphoneos11.4
+      - iphonesimulator11.4
+      - appletvos11.4
+      - appletvsimulator11.4
+      - watchos4.3
+      - watchsimulator4.3
+    simulators:
+      - iOS 8.1
+      - iOS 8.2
+      - iOS 8.3
+      - iOS 8.4
+      - iOS 9.0
+      - iOS 9.1
+      - iOS 9.2
+      - iOS 9.3
+      - iOS 10.0
+      - iOS 10.1
+      - iOS 10.2
+      - iOS 10.3
+      - iOS 11.0
+      - iOS 11.1
+      - iOS 11.2
+      - iOS 11.3
+      - iOS 11.4
+      - tvOS 9.0
+      - tvOS 9.1
+      - tvOS 9.2
+      - tvOS 10.0
+      - tvOS 10.1
+      - tvOS 10.2
+      - tvOS 11.0
+      - tvOS 11.1
+      - tvOS 11.2
+      - tvOS 11.3
+      - tvOS 11.4
+      - watchOS 2.0
+      - watchOS 2.1
+      - watchOS 2.2
+      - watchOS 3.2
+      - watchOS 4.0
+      - watchOS 4.1
+      - watchOS 4.2
+      - watchOS 4.3
+    jdk: "10.0.1+10"
+  - image: xcode9.3
+    xcode: "9.3"
+    osx_version: "10.13"
+    xcode_full_version: "9.3"
+    xcode_build_version: "9E145"
+    image_publish_date: 2018-04-09
     sdks:
       - macosx10.13
       - iphoneos11.3
@@ -52,6 +160,7 @@ osx_images:
     xcode: "9.2"
     osx_version: "10.12"
     xcode_full_version: "9.2"
+    xcode_build_version: "9C40b"
     image_publish_date: 2017-12-06
     sdks:
       - macosx10.13
@@ -98,6 +207,7 @@ osx_images:
     xcode: "9.1"
     osx_version: "10.12"
     xcode_full_version: "9.1"
+    xcode_build_version: "9B55"
     image_publish_date: 2017-10-04
     sdks:
       - macosx10.13
@@ -140,7 +250,8 @@ osx_images:
   - image: xcode9
     xcode: "9.0"
     osx_version: "10.12"
-    xcode_full_version: "9"
+    xcode_full_version: "9.0"
+    xcode_build_version: "9A235"
     image_publish_date: 2017-09-19
     sdks:
       - macosx10.13
@@ -181,7 +292,7 @@ osx_images:
     xcode: "8.3"
     osx_version: "10.12"
     xcode_full_version: "8.3.3"
-    default: true
+    xcode_build_version: "8E3004b"
     image_publish_date: 2017-06-06
     sdks:
       - macosx10.12
@@ -218,7 +329,8 @@ osx_images:
   - image: xcode8
     xcode: "8"
     osx_version: "10.11"
-    xcode_full_version: "8gm"
+    xcode_full_version: "8.0"
+    xcode_build_version: "8A218a"
     sdks:
       - macosx10.11
       - iphoneos10.0
@@ -256,6 +368,7 @@ osx_images:
     xcode: "7.3"
     osx_version: "10.11"
     xcode_full_version: "7.3.1"
+    xcode_build_version: "7D1014"
     sdks:
       - macosx10.11
       - iphoneos9.3
@@ -284,6 +397,7 @@ osx_images:
     xcode: "6.4"
     osx_version: "10.10"
     xcode_full_version: "6.4"
+    xcode_build_version: "6E35b"
     sdks:
       - macosx10.9
       - macosx10.10

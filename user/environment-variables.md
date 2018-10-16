@@ -6,7 +6,7 @@ layout: en
 
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
 
-<div id="toc"></div>
+
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
@@ -26,7 +26,8 @@ Define variables in `.travis.yml` that:
 - differ per branch.
 - differ per job.
 
-Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`):
+Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`).
+One build will triggered for each line in the `env` array.
 
 ```yaml
 env:
@@ -40,7 +41,7 @@ env:
 
 ### Defining Multiple Variables per Item
 
-When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
+If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
 ```yaml
 rvm:
@@ -189,6 +190,7 @@ to tag the build, or to run post-build deployments.
   being built has been copied on the worker.
 - `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
+- `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
 - `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
@@ -196,6 +198,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.
 - `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
+- `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
@@ -218,7 +221,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
-- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalzed form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
+- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalized form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
