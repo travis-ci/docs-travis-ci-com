@@ -1,21 +1,20 @@
 ---
 title: Cron Jobs
 layout: en
-permalink: /user/cron-jobs/
+
 ---
 
-<div id="toc"></div>
 
-> Cron jobs are still in BETA. There is more information about what this means, and how you can give us feedback on this new feature in the [GitHub issue](https://github.com/travis-ci/beta-features/issues/1).
-{: .beta}
 
-Cron jobs run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. When they run, cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and they can also be [skipped](#Skipping-Cron-Jobs). Cron jobs cannot be set to run at specific times.
+{{ site.data.snippets.cron_jobs }}
 
-Cron job builds use the same notification settings as normal push builds.
+Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-cron-Jobs) in the same way
 
-You can setup cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
+Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
 ![settings page with cron section](/images/cron-section.png "settings page with cron section")
+
+{{ site.data.snippets.ghlimit }}
 
 ## Adding Cron Jobs
 
@@ -29,7 +28,7 @@ Confirm that the cron job is displayed in your settings tab:
 
 ## Skipping Cron Jobs
 
-Because cron jobs build the latest commit to a particular branch, if that commit message includes [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
+Because cron jobs build the latest commit to a particular branch, if that commit message includes [the skip command](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
 
 ## Deleting Cron Jobs
 

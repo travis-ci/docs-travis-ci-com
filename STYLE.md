@@ -39,25 +39,31 @@ If you have long lists you can wrap them into 2 (`.column-2`) or 3 (`.column-3`)
 
 ```css
 * long list item 1
-* lont list item 2
+* long list item 2
 {: .column-2 }
 ```
 
-### TOC
+#### In-page table of contents
 
-Add a table of contents to a page with the following HTML snippet:
+All pages have tables of contents generated automatically from H2 and H3
 
-```html
-<div id="toc"></div>
-```
+To remove the TOC from a page add `no_toc: true` to the frontmatter.
 
 ### Beta features
 
 Mark all beta features with a specially formatted note. Both the `> BETA` and
-the `{: beta}` are required. 
+the `{: .beta}` are required.
 
 > BETA Awesome new feature that might not be enabled and is subject to change.
 {: .beta}
+
+### Alpha features
+
+Mark all alpha features with a specially formatted note. Both the `> ALPHA` and
+the `{: alpha}` are required.
+
+> ALPHA Awesome new feature that might explode for extra fun.
+{: .alpha}
 
 ### GUI
 
@@ -79,6 +85,12 @@ or
 The [link](http://www.example.com "Example URL") in the text
 ```
 
+When linking internal pages, use absolute paths and trailing slashes: `/user/languages/c/`.
+You can link to headings, remember to remove special characters, for example:
+
+To link to "##Node.js Page" use `#nodejs-page`.
+
+
 ### Code Inline
 
 All function names, filenames, etc should be marked with `back-ticks`.
@@ -93,6 +105,7 @@ As we have no use for blockquotes we use `>` to indicate notes and warnings:
 
 ```markdown
 > Note this important info!
+
 ```
 
 ### Code blocks
@@ -105,8 +118,23 @@ Code blocks should be fenced with triple back-ticks "\`\`\`" and named according
 your code here
 ```
 
+You can also set the filename for a code block by adding a Kramdown attribute after it:
+
+```markdown
+This code is in .travis.yml
+```
+{: data-file=".travis.yml"}
+
+
+
 ### Common misspellings and words to avoid
 
 - Always refer to *Travis CI* and never to Travis.
 
 ## Images
+
+### Screencapture gifs
+
+1. Run a build (or whatever you are trying to capture),
+2. Capture it with [licecap](https://www.cockos.com/licecap/).
+3. Save the gif in `images/`

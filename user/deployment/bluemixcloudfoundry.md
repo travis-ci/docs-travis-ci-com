@@ -1,7 +1,7 @@
 ---
 title: Bluemix CloudFoundry Deployment
 layout: en
-permalink: /user/deployment/bluemixcloudfoundry/
+
 ---
 
 You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/) after a successful build on Travis CI.
@@ -32,6 +32,7 @@ You can also directly edit your `.travis.yml`. Insert the following to get up an
    region: eu-gb                        # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
    api: https://api.ng.bluemix.net      # (optional)  Overrides region setting if specifed for Bluemix local installations.
 ```
+{: data-file=".travis.yml"}
 
 ***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
 
@@ -46,4 +47,4 @@ If your password includes symbols (such as braces, parentheses, backslashes, and
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

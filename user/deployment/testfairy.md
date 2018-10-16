@@ -1,7 +1,7 @@
 ---
 title: TestFairy deployment
 layout: en
-permalink: /user/deployment/testfairy/
+
 ---
 
 Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
@@ -14,6 +14,7 @@ deploy:
   api-key: "TESTFAIRY API KEY"
   app-file: Path to the app file (APK/IPA)
 ```
+{: data-file=".travis.yml"}
 
 You can find your API key on [TestFairy settings page](https://app.testfairy.com/settings/).
 
@@ -36,12 +37,13 @@ deploy:
   storepass: keystore-pass
   alias: entity-alias
 ```
+{: data-file=".travis.yml"}
 
 Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore file.
 
 ## Symbols file
 
-Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
+Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
 
 ```yaml
 deploy:
@@ -53,6 +55,7 @@ deploy:
   alias: entity-alias
   symbols-file: Path to the symbols file
 ```
+{: data-file=".travis.yml"}
 
 ## Invite testers automatically
 
@@ -69,6 +72,7 @@ deploy:
   notify: false
   testers-groups: qa-stuff,friends
 ```
+{: data-file=".travis.yml"}
 
 ## More Options
 
@@ -104,3 +108,4 @@ deploy:
   metrics: cpu,memory,network,phone-signal,logcat,gps,battery
   advanced-options: shake,anonymous
 ```
+{: data-file=".travis.yml"}

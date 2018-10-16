@@ -1,14 +1,14 @@
 ---
 title: Building a Julia Project
 layout: en
-permalink: /user/languages/julia/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 [Julia](http://julialang.org) projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -16,51 +16,60 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc @tkelman @ninjin @staticfloat @simonbyrne.
+and cc `@tkelman @ninjin @staticfloat @simonbyrne`.
 
 ## Choosing Julia versions to test against
 
-Julia workers on travis-ci.org download and install a binary of Julia.
-You can select the most recent release version, the latest nightly build
-(downloaded from <https://status.julialang.org>), or a specific version number
-(downloaded from <https://s3.amazonaws.com/julialang>). To select one or more
-versions, use the `julia:` key in your `.travis.yml` file, for example:
+Julia workers on Travis CI download and install a binary of Julia. You can specify
+the Julia versions to test in the `julia:` key in your `.travis.yml` file. For example:
 
 ```yaml
 language: julia
 julia:
-  - release
   - nightly
-  - 0.3
-  - 0.3.10
+  - 0.7
+  - 0.6.4
 ```
+{: data-file=".travis.yml"}
 
-If the version number contains one `.`, then the latest release for that minor version
-is downloaded. The oldest versions for which binaries are available is 0.3.1 for Linux,
+Acceptable formats are:
+ - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
+of Julia.
+ - `X.Y` will test against the latest release for that minor version.
+ - `X.Y.Z` will test against that exact version.
+
+The oldest versions for which binaries are available is 0.3.1 for Linux,
 or 0.2.0 for [OS X](/user/multi-os/).
 
-## Default Julia Version
+## Coverage
 
-If you leave the `julia:` key out of your `.travis.yml`, Travis CI will use
-the most recent release.
+Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://coveralls.io) provide summaries and analytics of the coverage of the test suite. After enabling the respective services for the repositories, the `codecov` and `coveralls` options can be used, e.g.
+```yaml
+codecov: true
+coveralls: true
+```
+which will then upload the coverage statistics upon successful completion of the tets.
 
-## Default Test Script
+## Default Build and Test Script
 
-If your repository follows the structure of a Julia package created by
-`Pkg.generate("$name")`, then the following default script will be run:
-
-```bash
-julia -e 'Pkg.clone(pwd())'
-julia -e 'Pkg.build("$name")'
-if [ -f test/runtests.jl ]; then
-  julia --check-bounds=yes -e 'Pkg.test("$name", coverage=true)'
-fi
+If your repository contains `JuliaProject.toml` or `Project.toml` file, and you are
+building on Julia v0.7 or later, the default build script will be:
+```julia
+using Pkg
+Pkg.build()
+Pkg.test()
 ```
 
-The package name `$name` is determined based on the repository name, removing
-the trailing `.jl` if present. A repository is treated as a Julia package when
-it contains a file at `src/$name.jl`. If your repository does not follow this
-structure, then the default script will be empty.
+Otherwise it will use the older form:
+```julia
+if VERSION >= v"0.7.0-DEV.5183"
+    using Pkg
+end
+Pkg.clone(pwd())
+Pkg.build("$pkgname")
+Pkg.test("$pkgname", coverage=true)
+```
+where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
 
 ## Dependency Management
 
@@ -78,7 +87,6 @@ to construct a build matrix.
 ## Environment Variable
 
 The version of Julia a job is using is available as:
-
 ```
 TRAVIS_JULIA_VERSION
 ```

@@ -1,24 +1,29 @@
 ---
 title: Google App Engine Deployment
 layout: en
-permalink: /user/deployment/google-app-engine/
+
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
-
+For a minimal configuration, add the following to your `.travis.yml`:
+  
 ```yaml
 deploy:
   provider: gae
   keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
   project: "YOUR PROJECT ID"
 ```
+{: data-file=".travis.yml"}
 
-You can create a Service Account by going to the [Google Cloud Console](http://console.developers.google.com), go to "APIs & auth" -> "Credentials",
-then click "Add Credential" and "Service Account", finally clicking "JSON" to download the JSON key.
+Then go to the [Google Cloud Console Dashboard](http://console.developers.google.com) and:
 
-It is *strongly* recommended that you encrypt your key before committing it to a repo. First make sure you have the Travis command line tool installed.
+1. Enable "Google App Engine Admin API",
+2. Go to "Credentials", click "Add Credential" and "Service account key", finally click "JSON" to download your Service Account JSON file.
+
+It is *strongly* recommended that you encrypt your key before committing it to a repo.
+First make sure you have the [Travis command line tool](https://github.com/travis-ci/travis.rb#readme) installed.
+Then execute the following command from the terminal:
 
 ```bash
 travis encrypt-file client-secret.json --add
@@ -42,6 +47,7 @@ deploy:
   keyfile: ...
   project: continuous-deployment-demo
 ```
+{: data-file=".travis.yml"}
 
 ### Version to deploy
 
@@ -60,6 +66,7 @@ deploy:
   project: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -71,6 +78,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -85,6 +93,7 @@ deploy:
   project: continuous-deployment-demo
   no_promote: true
 ```
+{: data-file=".travis.yml"}
 
 In addition to that, and according to the [Google Cloud SDK changelog](https://cloud.google.com/sdk/release_notes#0981_20151007), *"in a future Cloud SDK release, deployments that promote the new version to receive all traffic will stop the previous version by default"*.
 
@@ -97,6 +106,7 @@ deploy:
   project: continuous-deployment-demo
   no_stop_previous_version: true
 ```
+{: data-file=".travis.yml"}
 
 ### Skipping Cleanup
 
@@ -108,6 +118,7 @@ deploy:
     provider: gae
     skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Example Repo
 
@@ -120,7 +131,7 @@ without using this provider.
 - **project**: [Project ID](https://developers.google.com/console/help/new/#projectnumber) used to identify the project on Google Cloud.
 - **keyfile**: Path to the JSON file containing your [Service Account](https://developers.google.com/console/help/new/#serviceaccounts) credentials in [JSON Web Token](https://tools.ietf.org/html/rfc7519) format. To be obtained via the [Google Developers Console](https://console.developers.google.com/project/_/apiui/credential). Defaults to `"service-account.json"`. Note that this file should be handled with care as it contains authorization keys.
 - **config**: Path to your module configuration file. Defaults to `"app.yaml"`. This file is runtime dependent ([Go](https://cloud.google.com/appengine/docs/go/config/appconfig), [Java](https://cloud.google.com/appengine/docs/java/config/appconfig), [PHP](https://cloud.google.com/appengine/docs/php/config/appconfig), [Python](https://cloud.google.com/appengine/docs/python/config/appconfig))
-- **version**: The version of the app that will be created or replaced by this deployment. If you do not specify a version, one will be generated for you. See [`gcloud preview app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
-- **default**: Flag to set the deployed version to be the default serving version. See [`gcloud preview app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
+- **version**: The version of the app that will be created or replaced by this deployment. If you do not specify a version, one will be generated for you. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
+- **default**: Flag to set the deployed version to be the default serving version. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
 - **verbosity**: Let's you adjust the verbosity when invoking `"gcloud"`. Defaults to `"warning"`. See [`gcloud`](https://cloud.google.com/sdk/gcloud/reference/).
-- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](http://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.
+- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](https://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.

@@ -1,7 +1,7 @@
 ---
 title: anynines Deployment
 layout: en
-permalink: /user/deployment/anynines/
+
 ---
 
 You now have the amazing ability to deploy directly to [anynines](http://www.anynines.com/) after a successful build on Travis CI
@@ -45,4 +45,4 @@ travis encrypt --add deploy.password
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

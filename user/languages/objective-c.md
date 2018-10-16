@@ -1,26 +1,22 @@
 ---
-title: Building an Objective-C Project
+title: Building an Objective-C or Swift Project
 layout: en
-permalink: /user/languages/objective-c/
+
 swiftypetags:
   - swift
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Objective-C builds are not available on the Linux environments.
+Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another
+Travis CI uses OS X 10.13 (and Xcode 9.4.1) by default. You can use another
 version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
 the following table:
 
@@ -30,32 +26,29 @@ the following table:
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="http://docs.travis-ci.com/user/osx-ci-environment/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
+  <td><a href="/user/reference/osx/#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
 </table>
 
 > Detailed iOS SDK versions are available in the [OS X CI environment
-> reference](https://docs.travis-ci.com/user/osx-ci-environment/#Xcode-version)
-
-At this time we are unable to provide pre-release versions of Xcode due to the
-NDA imposed on them. We do test them internally, and our goal is to make new
-versions available the same day they come out. If you have any further questions
-about Xcode pre-release availability, send us an email at support@travis-ci.com.
+> reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
 
 ## Default Test Script
 
-Travis CI runs [xctool](https://github.com/facebook/xctool) by default to
-execute your tests. In order for xctool to work, you need to tell it where to
-find your project or workspace and what scheme you would like to build. For
-example:
+Travis CI runs xcodebuild and [xcpretty](https://github.com/supermarin/xcpretty) by default to
+execute your tests. In order for xcodebuild to work, you need to tell it where to
+find your project or workspace, what scheme you would like to build and test, and which
+device or simulator run tests on. For example:
 
 ```yaml
 language: objective-c
 xcode_project: MyNewProject.xcodeproj # path to your xcodeproj folder
 xcode_scheme: MyNewProjectTests
+xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
 ```
+{: data-file=".travis.yml"}
 
 You can also specify an SDK using the `xcode_sdk` variable. This needs to be on
 the form `iphonesimulatorX.Y` where `X.Y` is the version you want to test
@@ -63,6 +56,12 @@ against.
 
 If you are using a workspace instead of a project, use the `xcode_workspace`
 key in your .travis.yml instead of `xcode_project`.
+
+> Builds using the `xcode6.4` or `xcode7.3` images use
+> [xctool](https://github.com/facebook/xctool) by default rather
+> than xcodebuild and xcpretty.
+
+### Shared Schemes
 
 In order to your run tests on Travis CI, you also need to create a Shared
 Scheme for your application target, and ensure that all dependencies (such as
@@ -85,8 +84,49 @@ CocoaPods) are added explicitly to the Scheme. To do so:
 
 You will now have a new file in the **xcshareddata/xcschemes** directory
 underneath your Xcode project. This is the shared Scheme that you just
-configured. Check this file into your repository and xctool will be able to
+configured. Check this file into your repository and xcodebuild will be able to
 find and execute your tests.
+
+### Device Destinations
+
+To be able to run tests, xcodebuild needs to know which device to run them on, whether
+that's a real device (the Mac running xcodebuild or an iOS device connected to the Mac)
+or a simulator. When you run tests in Travis CI, you need to tell xcodebuild which
+simulator you want to use by specifying a **device destination**.
+
+Device destinations are strings that identify a particular device to use. You can pass
+them to xcodebuild by using the `-destination` flag. If you're using the default script
+in your Travis CI build, you can use the `xcode_destination` key in your .travis.yml:
+
+```
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+```
+{: data-file=".travis.yml"}
+
+A device destination is a comma-separated list of key-value pairs. When you're testing
+on Travis CI, you should include the following keys in your device destination:
+
+- `platform`: one of `macOS`, `iOS Simulator`, `watchOS Simulator`, `tvOS Simulator`.
+  (The "Simulator" portion is important. Travis CI does not support running tests against
+  hardware iOS devices)
+- If `platform` is not `macOS`, also include:
+  - `OS`: the version number of the OS on the simulated device.
+  - `name`: the name of the simulated device. For example: "iPhone X" or "Apple TV 1080p".
+
+Some examples of valid device destinations include:
+
+- `platform=macOS`
+- `platform=iOS Simulator,OS=9.3,name=iPhone 5s`
+- `platform=tvOS Simulator,OS=11.0,name=Apple TV 4K`
+
+It's important that your device destination uniquely identifies your device among those
+that Xcode knows about. Since Travis CI's build images have many different simulator
+OS versions installed, you should specify the OS version in your device destination, as
+the name alone is not likely to uniquely identify a single simulator.
+
+You can learn more about device destinations in the xcodebuild man page. If you're on your
+Mac, you can [click here](x-man-page://xcodebuild) to view the xcodebuild man page in the
+Terminal app.
 
 ## Dependency Management
 
@@ -106,6 +146,7 @@ setting in the *.travis.yml*:
 ```yaml
 podfile: path/to/Podfile
 ```
+{: data-file=".travis.yml"}
 
 Also, `pod install` is not run if the Pods directory is vendored and there have
 been no changes to the Podfile.lock file.
@@ -123,6 +164,7 @@ you can override the `install` command.
 ```yaml
 install: make get-deps
 ```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -131,15 +173,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-{% for simulator in site.data.xcodes.simulators %}
-
-### {{ simulator.name }}
-
-The following devices are provided by the {{ simulator.name }} simulator:
-
-{% for device in simulator.devices %}
-
-- {{ device }}
-  {% endfor %}
-
-{% endfor %}
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#Xcode-version).

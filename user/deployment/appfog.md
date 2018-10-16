@@ -1,7 +1,7 @@
 ---
 title: Appfog deployment
 layout: en
-permalink: /user/deployment/appfog/
+
 ---
 
 Travis CI can automatically deploy your [Appfog](https://www.appfog.com/) application after a successful build.
@@ -14,6 +14,7 @@ deploy:
   email: "YOUR EMAIL ADDRESS"
   password: "YOUR PASSWORD" # should be encrypted
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -43,6 +44,7 @@ deploy:
   password: ...
   app: my-app-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
@@ -55,6 +57,7 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 If these apps belong to different Appfog accounts, you will have to do the same for the email and password:
 
@@ -71,6 +74,7 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to deploy from
 
@@ -85,6 +89,7 @@ deploy:
   password: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -96,6 +101,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -112,11 +118,12 @@ deploy:
   password: ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional Deploys
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### Running commands before and after deploy
 
@@ -130,3 +137,4 @@ deploy:
     - ./after_deploy_1.sh
     - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

@@ -1,17 +1,17 @@
 ---
 title: Apps, Clients and Tools
 layout: en
-permalink: /user/apps/
+
 ---
 
 There is a wide range of tools you can use to interact with Travis CI:
 
 - **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
 - **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Windows](#Windows), [Cross Platform](#Cross-Platform)
+- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
 - **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
+- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R), [Go](#Go)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -28,20 +28,9 @@ Note however that Travis CI can not take any responsibility of for third-party t
 
 Our official web interface, written in [Ember.js](http://www.emberjs.com)
 
-- [travis-ci.org](https://travis-ci.org)
-- [travis-ci.com](https://travis-ci.org)
+- [travis-ci.com](https://travis-ci.com)
 - [source code](https://github.com/travis-ci/travis-web)
 
-### Mantis CI (web)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Web client optimized for mobile use<br>
-By Hari Menon
-
-- [application](http://floydpink.github.io/Mantis-CI-www/)
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [source code](https://github.com/floydpink/Mantis-CI-www)
 
 ## Dashboards
 
@@ -82,7 +71,6 @@ By Frederik Dietz
 Travis CI dashboard<br>
 By Piwik.
 
-- [website](https://ci-status.com/)
 - [source code](https://github.com/piwik/ci-status)
 
 ### node-build-monitor
@@ -95,25 +83,17 @@ By Marcell Spies
 - [website](http://marcells.github.io/node-build-monitor)
 - [source code](https://github.com/marcells/node-build-monitor)
 
+### CI Dashboard
+
+![ci-dashboard](/images/apps/ci-dashboard.jpg){:.app}
+
+Travis CI builds dashboard<br>
+By Ahmed El-Sayed
+
+- [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
+
+
 ## Tools
-
-### Travis WebLint
-
-![weblint](/images/apps/weblint.jpg){:.app}{:.official}
-
-Validates your .travis.yml
-
-- [lint.travis-ci.org](http://lint.travis-ci.org/)
-- [source code](https://github.com/travis-ci/travis-yaml)
-
-### Travis Cron
-
-![travis-cron](/images/apps/cron.jpg){:.app}
-
-Trigger builds on a regular schedule<br>
-By Filippo Valsorda
-
-- [source code](https://github.com/FiloSottile/travis-cron)
 
 ### Travis Web Encrypter
 
@@ -125,41 +105,11 @@ By Konstantin Haase
 - [website](http://rkh.github.io/travis-encrypt/public/index.html)
 - [source code](https://github.com/rkh/travis-encrypt)
 
-### Tron CI
-
-![travis-cron](/images/apps/tron.png){:.app}
-
-Cron jobs for your Travis CI projects<br>
-By Fabio Menegazzo
-
-- [website](https://tron-ci.herokuapp.com/)
-- [source code](https://github.com/menegazzo/tron-ci)
-
 <a name='mobile'></a>
 
 # Mobile Applications
 
 ## Android
-
-### Mantis CI (Android)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-Android version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [play store](https://play.google.com/store/apps/details?id=com.floydpink.android.travisci)
-- [source code](https://github.com/floydpink/Mantis-CI)
-
-### Comrade Travis
-
-![Comrade Travis](/images/apps/comradetravis.jpg){:.app}
-
-Follow your project builds anywhere<br>
-By Christian S. Perone
-
-- [play store](https://play.google.com/store/apps/details?id=com.perone.comradetravis)
 
 ### Siren of Shame (Android)
 
@@ -169,7 +119,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 - [website](http://sirenofshame.com/)
-- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame&feature=nav_result#?t=W251bGwsMSwyLDNd)
+- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
 ## iOS
 
@@ -182,16 +132,6 @@ By NinjaConcept GmbH
 
 - [app store](https://itunes.apple.com/us/app/jarvis/id846922611)
 
-### Mantis CI (iOS)
-
-![mantis](/images/apps/mantis.jpg){:.app}
-
-iOS version of Mantis CI<br>
-By Hari Menon
-
-- [website](http://floydpink.github.io/Mantis-CI/)
-- [app store](https://itunes.apple.com/us/app/travis-ci-mobile/id665742482)
-- [source code](https://github.com/floydpink/Mantis-CI-iOS)
 
 ### Project Monitor
 
@@ -215,16 +155,6 @@ By Automated Architecture
 
 ## Windows Phone
 
-### Siren of Shame (Windows Phone)
-
-![Siren of Shame](/images/apps/siren-windows-phone.jpg){:.app}
-
-Gamification for your builds<br>
-By Automated Architecture
-
-- [website](http://sirenofshame.com/)
-- [windows phone store](http://www.windowsphone.com/en-us/store/app/siren-of-shame/bd501294-b9a1-4c0f-b9cf-e6ec4596cdb1)
-
 ### Travis7
 
 ![travis7](/images/apps/travis7.jpg){:.app}
@@ -233,8 +163,6 @@ A Windows Phone client for Travis CI<br>
 By Tim Felgentreff
 
 - [website](http://travis7.codeplex.com/)
-
-<a name='desktop'></a>
 
 # Desktop
 
@@ -266,29 +194,6 @@ By Anay Nayak
 
 - [website](https://bitbucket.org/Anay/buildnotify/wiki/Home)
 - [tutorial](/user/cc-menu/)
-
-## Windows
-
-### CCTray
-
-![CCTray](/images/apps/cctray.jpg){:.app}
-
-System Tray client<br>
-By CCNet and ThoughtWorks Inc.
-
-- [website](http://www.cruisecontrolnet.org/projects/cctray)
-- [sourceforge](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/)
-- [tutorial](/user/cc-menu/)
-
-### Siren of Shame (Windows 8)
-
-![Siren of Shame](/images/apps/siren-windows.jpg){:.app}
-
-Gamification for your builds<br>
-By Automated Architecture
-
-- [website](http://sirenofshame.com/)
-- [windows 8 store](http://apps.microsoft.com/windows/en-US/app/siren-of-shame/1af0feaf-0801-4ad3-8a95-3f1226e313b9)
 
 ## Cross Platform
 
@@ -324,6 +229,12 @@ Feature complete command line client
 
 - [website](https://github.com/travis-ci/travis#readme)
 
+### PSTravis
+
+Command line client for PowerShell
+
+- [website](https://github.com/felixfbecker/PSTravis#readme)
+
 ## Build Monitoring
 
 ### Bickle
@@ -334,15 +245,6 @@ Display build status in your terminal<br>
 By Jiri Pospisil
 
 - [website](https://github.com/mekishizufu/bickle#readme)
-
-### Travis Inside
-
-![travis-inside](/images/apps/travis-inside.jpg){:.app}
-
-Check the build status from your terminal<br>
-By Benjamin Reed
-
-- [website](https://github.com/codeblooded/travis-inside#readme)
 
 ### Travis Surveillance
 
@@ -370,6 +272,15 @@ Sets Gravatar profile image depending on build status<br>
 By Gleb Bahmutov
 
 - [website](https://github.com/bahmutov/status-gravatar)
+
+### Chroma Feedback
+
+![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
+
+Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+By Henry Ruhs
+
+- [website](https://github.com/redaxmedia/chroma-feedback)
 
 ## Generators
 
@@ -409,8 +320,6 @@ By James Halliday
 
 - [website](https://github.com/substack/travisify)
 
-<a name='plugins'></a>
-
 # Plugins
 
 ## Google Chrome
@@ -444,7 +353,7 @@ By excellenteasy
 
 ## Mozilla Firefox
 
-### Github+Travis
+### GitHub+Travis
 
 ![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
 
@@ -493,6 +402,16 @@ By Cas du Plessis
 
 - [website](https://github.com/AgileAce/Brackets-TravisCI)
 
+### Emacs Package
+
+![emacs](/images/apps/emacs.jpg){:.app}
+
+Travis CI integration for [Emacs](https://www.gnu.org/software/emacs/)<br>
+By Skye Shaw
+
+- [website](https://github.com/sshaw/build-status)
+
+
 ### Vim Plugin
 
 ![vim](/images/apps/vim.jpg){:.app}
@@ -522,8 +441,6 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
 
-<a name='libraries'></a>
-
 # Libraries
 
 ## Ruby
@@ -531,6 +448,8 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
+- [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
+
 
 ## JavaScript
 
@@ -549,6 +468,17 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
 
+## PowerShell
+
+- [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
+
 ## Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
+
+## R
+
+- [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
+
+## Go
+- [go-travis](https://github.com/shuheiktgw/go-travis) by Shuhei Kitagawa

@@ -1,7 +1,6 @@
 ---
 title: Cloud 66 Deployment
 layout: en
-permalink: /user/deployment/cloud66/
 ---
 
 Travis CI can automatically deploy your [Cloud 66](https://www.cloud66.com/) application after a successful build.
@@ -13,6 +12,7 @@ deploy:
   provider: cloud66
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
 ```
+{: data-file=".travis.yml"}
 
 You can find the redeployment hook in the information menu within the Cloud 66 portal.
 
@@ -36,6 +36,7 @@ deploy:
   redeployment_hook: "YOUR REDEPLOYMENT HOOK URL"
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -46,13 +47,14 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
 ### Conditional Deploys
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### Running commands before and after deploy
 
@@ -66,3 +68,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

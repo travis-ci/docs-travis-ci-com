@@ -1,24 +1,44 @@
 ---
 title: Installing Dependencies
 layout: en
-permalink: /user/installing-dependencies/
+
 redirect_from:
   - /user/apt/
 ---
 
-<div id="toc"></div>
+
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/ci-environment/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/) or [trusty](/user/reference/trusty/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
-  - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
 ```
+{: data-file=".travis.yml"}
 
-> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+```
+{: data-file=".travis.yml"}
+
+The second way is to use the [APT addon](#installing-packages-with-the-apt-addon):
+
+```yaml
+before_install:
+  - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
+```
+{: data-file=".travis.yml"}
+
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
@@ -34,6 +54,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y
 ```
+{: data-file=".travis.yml"}
 
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
@@ -48,6 +69,7 @@ before_script:
   - sudo apt-get update -qq
   - sudo apt-get install varnish -y
 ```
+{: data-file=".travis.yml"}
 
 ### Installing Packages without an APT Repository
 
@@ -62,12 +84,11 @@ before_install:
   - wget http://pngquant.org/pngquant_1.7.1-1_i386.deb
   - sudo dpkg -i pngquant_1.7.1-1_i386.deb
 ```
+{: data-file=".travis.yml"}
 
 ### Installing Packages with the APT Addon
 
-You can also use the APT addon.
-
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+You can also install packages and sources using the APT addon, without running `apt-get` commands in your `before_install` script.
 
 If your requirements goes beyond the normal installation, please use another method described above.
 
@@ -90,6 +111,7 @@ addons:
     - sourceline: 'deb https://packagecloud.io/chef/stable/ubuntu/precise main'
       key_url: 'https://packagecloud.io/gpg.key'
 ```
+{: data-file=".travis.yml"}
 
 #### Adding APT Packages
 
@@ -102,6 +124,7 @@ addons:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 > Note: When using APT sources and packages together, you need to make
 > sure they are under the same key space in the YAML file. e.g.
@@ -115,12 +138,39 @@ addons:
     - gcc-4.8
     - g++-4.8
 ```
+{: data-file=".travis.yml"}
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+### Installing Snap Packages
+
+You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+
+```yaml
+sudo: required
+dist: trusty
+```
+{: data-file=".travis.yml"}
+
+
+The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+
+```yaml
+sudo: true
+dist: trusty
+
+install:
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
+
+script:
+  - /snap/bin/hugo new site test-site
+```
+{: data-file=".travis.yml"}
+
 ## Installing Packages on Container Based Infrastructure
 
-To install packages not included in the default [container-based-infrastructure](/user/workers/container-based-infrastructure) you need to use the APT addon, as `sudo apt-get` is not available.
+To install packages not included in the default [container-based-infrastructure](/user/reference/overview/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
 
 ### Adding APT Sources
 
@@ -133,6 +183,7 @@ addons:
     - deadsnakes
     - ubuntu-toolchain-r-test
 ```
+{: data-file=".travis.yml"}
 
 ### Adding APT Packages
 
@@ -145,6 +196,7 @@ addons:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 > Note: When using APT sources and packages together, you need to make
 > sure they are under the same key space in the YAML file. e.g.
@@ -158,6 +210,7 @@ addons:
     - gcc-4.8
     - g++-4.8
 ```
+{: data-file=".travis.yml"}
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
@@ -195,20 +248,107 @@ addons:
     packages:
     - libcxsparse3.1.2
 ```
+{: data-file=".travis.yml"}
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to proces [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
 
-## Installing Packages on OSX
+## Installing Packages on OS X
 
-To install packages that are not included in the [default OSX environment](/user/osx-ci-environment/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
-before_install:
-  - brew update
-  - brew install beanstalk
+addons:
+  homebrew:
+    packages:
+    - beanstalk
 ```
+{: data-file=".travis.yml"}
 
-Use `brew update` to update the local Homebrew package list.
+By default, the Homebrew addon will not run `brew update` before installing packages. `brew update` can take a long time and slow down your builds. If you need more up-to-date versions of packages than the snapshot on the build VM has, you can add `update: true` to the addon configuration:
+
+```yaml
+addons:
+  homebrew:
+    packages:
+    - beanstalk
+    update: true
+```
+{: data-file=".travis.yml"}
+
+### Installing Casks
+
+The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
+
+[homebrew-cask]: https://github.com/Homebrew/homebrew-cask
+
+```yaml
+addons:
+  homebrew:
+    casks:
+    - dotnet-sdk
+```
+{: data-file=".travis.yml"}
+
+### Installing From Taps
+
+Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
+
+For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
+
+[homebrew-tap]: https://docs.brew.sh/Taps
+[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
+
+```yaml
+osx_image: xcode10
+addons:
+  homebrew:
+    taps: homebrew/cask-versions
+    casks: java8
+```
+{: data-file=".travis.yml"}
+
+### Using a Brewfile
+
+Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked in to your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
+
+[brewfile]: https://github.com/Homebrew/homebrew-bundle
+
+```yaml
+addons:
+  homebrew:
+    brewfile: true
+```
+{: data-file=".travis.yml"}
+
+You can also provide a path if your Brewfile is in a different location.
+
+```yaml
+addons:
+  homebrew:
+    brewfile: Brewfile.travis
+```
+{: data-file=".travis.yml"}
+
+## Installing Dependencies on Multiple Operating Systems
+
+If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+
+```yaml
+addons:
+  apt:
+    packages: foo
+  homebrew:
+    packages: bar
+```
+{: data-file=".travis.yml"}
+
+If you're installing packages manually, use the `$TRAVIS_OS_NAME` variable to install dependencies separately for each OS:
+
+```yaml
+install:
+  - if [ $TRAVIS_OS_NAME = linux ]; then sudo apt-get install foo; else brew install bar; fi
+```
+{: data-file=".travis.yml"}
 
 ## Installing Projects from Source
 
@@ -224,6 +364,7 @@ before_script:
   - tar -xvf /tmp/casper.tar.gz
   - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
 ```
+{: data-file=".travis.yml"}
 
 Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
 
@@ -235,6 +376,7 @@ install:
   - tar -xzvf protobuf-2.4.1.tar.gz
   - pushd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install && popd
 ```
+{: data-file=".travis.yml"}
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
@@ -252,5 +394,6 @@ Once it's added to the repository, you can run it from your .travis.yml:
 before_install:
   - ./install-protobuf.sh
 ```
+{: data-file=".travis.yml"}
 
 Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.

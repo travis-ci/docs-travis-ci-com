@@ -1,14 +1,14 @@
 ---
 title: Building a Crystal Project
 layout: en
-permalink: /user/languages/crystal/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to [Crystal](http://crystal-lang.org)
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -29,8 +29,9 @@ your `shard.yml`, your `.travis.yml` can simply be
 ```yaml
 language: crystal
 ```
+{: data-file=".travis.yml"}
 
-This will run `crystal deps` to install dependencies and then `crystal spec` to test your project.
+This will run `shards install` to install dependencies and then `crystal spec` to test your project.
 
 ## Configuration options
 
@@ -45,3 +46,4 @@ crystal:
   - latest
   - nightly
 ```
+{: data-file=".travis.yml"}

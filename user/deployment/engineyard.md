@@ -1,7 +1,7 @@
 ---
 title: Engine Yard Deployment
 layout: en
-permalink: /user/deployment/engineyard/
+
 ---
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.
@@ -13,6 +13,7 @@ deploy:
   provider: engineyard
   api_key: "YOUR API KEY"
 ```
+{: data-file=".travis.yml"}
 
 You can also use `email` and `password` instead of `api_key`. It is recommended to encrypt the key/password.
 
@@ -38,6 +39,7 @@ deploy:
   api_key: ...
   app: my-app-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
@@ -49,6 +51,7 @@ deploy:
     master: my-app
     foo: my-foo
 ```
+{: data-file=".travis.yml"}
 
 This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
@@ -60,6 +63,7 @@ deploy:
     master: staging
     production: production
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to deploy from
 
@@ -73,6 +77,7 @@ deploy:
   api_key: ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -83,6 +88,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -96,8 +102,9 @@ deploy:
   api_key: ...
   migrate: "rake db:migrate"
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

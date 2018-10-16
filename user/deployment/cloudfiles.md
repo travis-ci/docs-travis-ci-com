@@ -1,7 +1,7 @@
 ---
 title: Rackspace Cloud Files Deployment
 layout: en
-permalink: /user/deployment/cloudfiles/
+
 ---
 
 Travis CI can automatically upload your build to [Rackspace Cloud Files](https://www.rackspace.com/cloud/files/) after a successful build.
@@ -16,6 +16,7 @@ deploy:
   region: "CLOUDFILE REGION"
   container: "CLOUDFILES CONTAINER NAME"
 ```
+{: data-file=".travis.yml"}
 
 This example is almost certainly not ideal, as you probably want to upload your built binaries and documentation. Set skip_cleanup to true to prevent Travis CI from deleting your build artifacts.
 
@@ -28,6 +29,7 @@ deploy:
   container: "CLOUDFILES CONTAINER NAME"
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 It is recommended encrypt that you encrypt your Rackspace api key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -63,6 +65,7 @@ deploy:
   on:
     tags: true
 ```
+{: data-file=".travis.yml"}
 
 ### Deploy To Only One Folder
 
@@ -78,6 +81,7 @@ deploy:
   container: "CLOUDFILES CONTAINER NAME"
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Deploy to Multiple Containers:
 
@@ -98,6 +102,7 @@ deploy:
     container: "CLOUDFILES CONTAINER NAME"
     skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to release from
 
@@ -114,6 +119,7 @@ deploy:
   on:
     branch: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure Travis CI to release from all branches:
 
@@ -128,13 +134,14 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a release.
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### Running commands before and after release
 
@@ -148,3 +155,4 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
