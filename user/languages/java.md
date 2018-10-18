@@ -224,15 +224,17 @@ addons:
 
 ## Using Java 10 and later
 
-OracleJDK 10 and later are supported on Linux, and
+> Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
+> See https://www.oracle.com/technetwork/java/javase/eol-135779.html.
+
+OracleJDK 11 and later are supported on Linux, and
 OpenJDK 10 and later are supported on Linux and macOS using
 [`install-jdk.sh`](https://github.com/sormuras/bach#install-jdksh).
 
 ```yaml
 jdk:
   - oraclejdk8
-  - oraclejdk10
-  - oraclejdk-ea
+  - oraclejdk11
   - openjdk10
   - openjdk11
 ```
