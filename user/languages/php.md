@@ -31,7 +31,7 @@ php:
 {{ site.data.snippets.trusty_note_no_osx }}
 
 This guide covers build environment and configuration topics specific to PHP
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
 PHP builds are not available on the OS X environment.
@@ -196,30 +196,6 @@ To see real world examples, see:
 - [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
 - [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
 - [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
-
-### Installing PEAR packages
-
-If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
-
-```bash
-pyrus install http://phptal.org/latest.tar.gz
-pear install pear/PHP_CodeSniffer
-```
-
-After install you should refresh your path
-
-```bash
-phpenv rehash
-```
-
-For example, if you want to use phpcs, you should execute:
-
-```bash
-pyrus install pear/PHP_CodeSniffer
-phpenv rehash
-```
-
-Then you can use phpcs like the phpunit command
 
 ### Installing Composer packages
 

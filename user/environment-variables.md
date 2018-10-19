@@ -26,7 +26,8 @@ Define variables in `.travis.yml` that:
 - differ per branch.
 - differ per job.
 
-Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`):
+Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`).
+One build will triggered for each line in the `env` array.
 
 ```yaml
 env:
@@ -40,7 +41,7 @@ env:
 
 ### Defining Multiple Variables per Item
 
-When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
+If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
 ```yaml
 rvm:

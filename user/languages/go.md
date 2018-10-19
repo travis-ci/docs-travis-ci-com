@@ -35,7 +35,7 @@ Using a float results in the use of Go 1.1.
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers configuring Go projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying a Go version to use

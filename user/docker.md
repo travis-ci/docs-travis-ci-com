@@ -76,8 +76,7 @@ output](https://travis-ci.org/travis-ci/docker-sinatra):
 $ docker ps -a
 CONTAINER ID        IMAGE                   COMMAND                CREATED                  STATUS                  PORTS                    NAMES
 e376792bce99        carlad/sinatra:latest   "/bin/sh -c 'cd /roo   Less than a second ago   Up Less than a second   127.0.0.1:80->4567/tcp   condescending_galileo
-before_install.4
-1.30s$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 /usr/local/bin/ruby -I"lib:test" -I"/usr/local/lib/ruby/2.2.0" "/usr/local/lib/ruby/2.2.0/rake/rake_test_loader.rb" "test/test_app.rb"
 Loaded suite /usr/local/lib/ruby/2.2.0/rake/rake_test_loader
 Started
@@ -210,7 +209,7 @@ before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
-  - sudo apt-get -y install docker-ce
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
 {: data-file=".travis.yml"}
 

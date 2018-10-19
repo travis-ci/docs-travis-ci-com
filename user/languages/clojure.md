@@ -27,7 +27,7 @@ language: clojure
 {{ site.data.snippets.trusty_note_no_osx }}
 
 This guide covers build environment and configuration topics specific to Clojure
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 Clojure builds are not available on the OS X environment.
