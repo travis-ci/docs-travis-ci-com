@@ -44,7 +44,7 @@ In the Travis CI documentation, some common words have specific meanings:
   environment and then carries out a series of *phases* such as compiling your
   code, running tests, etc. A job fails if the return code of the `script` *phase*
   is non zero.
-* *phase* - the [sequential steps](/user/customizing-the-build/#The-Build-Lifecycle)
+* *phase* - the [sequential steps](/user/job-lifecycle/)
   of a job. For example, the `install` phase, comes before the `script` phase,
   which comes before the optional `deploy` phase.
 * *build* - a group of *jobs*. For example, a build might have two *jobs*, each
@@ -78,6 +78,5 @@ the setup that suits your project best:
 
 More details are on our environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Now that you've read the basics, head over to our [Getting
-Started](/user/getting-started/) guide for details on setting up your first
+Now that you've read the basics, head over to our [Tutorial](/user/tutorial/) for details on setting up your first
 build!

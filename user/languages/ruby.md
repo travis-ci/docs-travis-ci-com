@@ -31,7 +31,7 @@ rvm:
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
