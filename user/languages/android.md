@@ -16,7 +16,7 @@ Android builds are not available on the OS X environment.
 
 ### Overview
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview), [sbt](/user/languages/scala#Projects-using-sbt) and [Leiningen](/user/languages/clojure).
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
 
 By setting
 
@@ -243,7 +243,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ## Testing Against Multiple JDKs
 
-As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 ## Build Matrix
 

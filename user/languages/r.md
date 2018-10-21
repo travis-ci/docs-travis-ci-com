@@ -241,7 +241,7 @@ repos:
 ### Environment Variables
 
 R-Travis sets the following additional environment variables from the [Travis
-defaults](/user/environment-variables/#Default-Environment-Variables).
+defaults](/user/environment-variables/#default-environment-variables).
 
 - `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
 - `R_LIBS_USER=~/R/Library`

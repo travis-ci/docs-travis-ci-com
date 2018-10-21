@@ -240,7 +240,7 @@ matrix:
 before_install:
     # setting the path for phantom.js 2.0.0
     - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - "npm config set spin false"
