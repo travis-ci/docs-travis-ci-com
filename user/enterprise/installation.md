@@ -77,7 +77,7 @@ each port in the table below:
 
 ## Install Travis CI Worker
 
-Travis CI Enterprise currently supports two different build environments, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overriden. However, different versions of Enterprise treat different worker versions as default:
+Travis CI Enterprise currently supports two different build environments, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overridden. However, different versions of Enterprise treat different worker versions as default:
 
 | Travis CI Enterprise Version | Default Worker Version | Alternative Worker Versions |
 | -- | -- | -- |

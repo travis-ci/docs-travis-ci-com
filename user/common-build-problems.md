@@ -213,7 +213,7 @@ osx_image: xcode8.3
 ```
 {: data-file=".travis.yml"}
 
-The following lines in your build log possibly indicate an occurence of this issue:
+The following lines in your build log possibly indicate an occurrence of this issue:
 
 **Example: Signing**
 

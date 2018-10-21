@@ -149,7 +149,7 @@ export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ## Mounting volumes across worker jobs on Enterprise
 
 You can use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
-when the worker launches the container of a job. This let's you share files or directories 
+when the worker launches the container of a job. This lets you share files or directories
 across all jobs ran by a worker. Multiple binds can be provided
 as _space separated_ strings.
 
