@@ -3,9 +3,9 @@ title: Conditional Builds, Stages, and Jobs
 layout: en
 ---
 
-
-
 You can filter out, and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
+
+* [Comprehensive reference](https://docs.travis-ci.com/user/conditions-v1)
 
 ## Conditional Builds
 
