@@ -59,63 +59,11 @@ Travis CI uses OS X 10.13 and Xcode 9.4.1 by default . You can use another versi
 
 Homebrew is installed and updated every time the virtual machines are updated.
 
-> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+> The [Travis Homebrew addon](/user/installing-dependencies/#installing-packages-on-os-x) is the simplest, fastest and most reliable way to install dependencies.
 
-### A note on upgrading packages
+The Homebrew addon correctly handles up-to-date, outdated, and missing packages. Manual Homebrew dependency scripts are error-prone, and we recommend against using them.
 
-When upgrading a package with `brew upgrade`, the command will fail if the most up-to-date version of the package is already installed (so an upgrade didn't occur).
-
-Depending on how you are upgrading the package, it could cause the build to error:
-
-```
-$ brew upgrade xctool
-Error: xctool-0.1.16 already installed
-The command "brew upgrade xctool" failed and exited with 1 during .
-
-Your build has been stopped.
-```
-
-Or it can result in the command not found:
-
-```
-xctool: command not found
-```
-
-This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by first checking if the command needs an upgrade with `brew outdated`
-
-#### `brew bundle`
-
-[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to install multiple dependencies. By creating a `Brewfile`:
-
-```
-brew 'xctool'
-```
-{: data-file="Brewfile"}
-
-You can then update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
-```yaml
-before_install:
-  - brew update && brew bundle
-```
-{: data-file=".travis.yml"}
-
-#### `brew outdated`
-
-```yaml
-before_install:
-  - brew update
-  - brew outdated <package-name> || brew upgrade <package-name>
-```
-{: data-file=".travis.yml"}
-
-For example, if you always want the latest version of xctool, you can run this:
-
-```yaml
-before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-```
-{: data-file=".travis.yml"}
+The Homebrew addon uses the Homebrew database on the build image by default, but can be configured to run `brew update` if needed.
 
 ## File System
 
