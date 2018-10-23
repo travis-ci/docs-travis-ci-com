@@ -176,7 +176,7 @@ fi
 
 See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
 
-More information about caching can be found in our [Caching Directories and Dependencies](http://docs.travis-ci.com/user/caching/) doc.
+More information about caching can be found in our [Caching Directories and Dependencies](/user/caching/) doc.
 
 ## Need Help?
 

@@ -363,7 +363,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#Default-Environment-Variables) available
+variables](/user/environment-variables#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
