@@ -39,7 +39,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore file.
+Always [encrypt](/user/encrypting-files/) your keystore file.
 
 ## Symbols file
 

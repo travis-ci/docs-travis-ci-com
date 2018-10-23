@@ -487,7 +487,7 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
@@ -551,7 +551,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:

@@ -42,7 +42,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
+The script has access to all the usual [environment variables](/user/environment-variables/#default-environment-variables).
 
 ```yaml
 deploy:
