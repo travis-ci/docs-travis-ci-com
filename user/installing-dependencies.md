@@ -254,7 +254,7 @@ addons:
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
 
 ```yaml
 addons:

@@ -19,12 +19,12 @@ addons:
 
 ## Headless mode
 
-You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Using-the-Chrome-addon-in-the-headless-mode).
+You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#using-the-chrome-addon-in-the-headless-mode).
 
 ## Sandboxing
 
 For security reasons, Google Chrome is unable to provide sandboxing when it is running in the
-[container-based environment](https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments).
+[container-based environment](/user/reference/overview/#virtualization-environments).
 
 In that case, you may see an error message like this:
 
