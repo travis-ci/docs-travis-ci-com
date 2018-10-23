@@ -15,7 +15,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#Build-Matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#build-matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
@@ -118,7 +118,7 @@ jobs:
 
 ## Build Stages and Build Matrix Expansion
 
-[Matrix expansion](/user/customizing-the-build/#Build-Matrix)
+[Matrix expansion](/user/customizing-the-build/#build-matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
 
 For example:
@@ -191,7 +191,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](/user/languages/ruby/#Default-Build-Script)
+have a [default test script](/user/languages/ruby/#default-build-script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on

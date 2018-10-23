@@ -117,4 +117,4 @@ build in the `TRAVIS_RUST_VERSION` environment variable.
 ## Build Matrix
 
 For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).

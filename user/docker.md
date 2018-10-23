@@ -25,7 +25,7 @@ examples.
 > Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
 
-> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds).
+> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
 
 ## Using a Docker Image from a Repository in a Build
 
@@ -136,7 +136,7 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
-Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables)
+Be sure to [encrypt environment variables](/user/environment-variables#encrypting-environment-variables)
 using the travis gem.
 
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
@@ -181,7 +181,7 @@ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin re
 
 ## Using Docker Compose
 
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#docker).
 
 If needed, you can easily replace this preinstalled version of `docker-compose`
 by adding the following `before_install` step to your `.travis.yml`:
