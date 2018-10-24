@@ -6,7 +6,7 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 Android builds are not available on the OS X environment.
 
@@ -16,7 +16,7 @@ Android builds are not available on the OS X environment.
 
 ### Overview
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview), [sbt](/user/languages/scala#Projects-using-sbt) and [Leiningen](/user/languages/clojure).
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
 
 By setting
 
@@ -243,7 +243,7 @@ to run your test suite. This can be overridden as described in the [general buil
 
 ## Testing Against Multiple JDKs
 
-As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 ## Build Matrix
 
@@ -256,3 +256,4 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 - [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 - [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
 - [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
+- [Ionic Cordova Example Project](https://github.com/samlsso/Calc/blob/master/.travis.yml)

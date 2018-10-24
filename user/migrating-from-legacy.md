@@ -75,7 +75,7 @@ addons:
 {: data-file=".travis.yml"}
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist). If you need additional sources you must use `sudo: required`.
+[safelist](https://github.com/travis-ci/apt-source-safelist). If you need additional sources you must use `sudo: required`.
 
 ### Adding APT Packages
 
@@ -90,7 +90,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
+The allowed packages are managed in a [safelist](https://github.com/travis-ci/apt-package-safelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
 
 ## How Do I Install Custom Software?
 
@@ -176,7 +176,7 @@ fi
 
 See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
 
-More information about caching can be found in our [Caching Directories and Dependencies](http://docs.travis-ci.com/user/caching/) doc.
+More information about caching can be found in our [Caching Directories and Dependencies](/user/caching/) doc.
 
 ## Need Help?
 

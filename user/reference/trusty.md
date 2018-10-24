@@ -10,8 +10,6 @@ redirect_from:
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-
-
 ## Using Trusty
 
 To use sudo-enabled Ubuntu Trusty, add the following to your
@@ -72,9 +70,9 @@ based on common language runtimes like `ruby`, `go`, `php`, `python`, etc.
 For our Trusty based environments, we're making a smaller set of images that
 includes:
 
-- A minimal image which contains a small subset of interpreters, as well as
+- A [minimal image](/user/languages/minimal-and-generic/#minimal) which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains roughly the same runtimes and
+- A considerably [larger image](/user/languages/minimal-and-generic/#generic) which contains roughly the same runtimes and
   services present in Precise environments.
 
 ## Routing to Trusty
@@ -100,7 +98,7 @@ sudo: false
 
 ### Version control
 
-All VM images have the following pre-installed:
+All virtual machine images have the following pre-installed:
 
 - Git 2.x
 - Mercurial
@@ -211,6 +209,7 @@ by `gimme`.
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+  - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.
@@ -364,7 +363,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#Default-Environment-Variables) available
+variables](/user/environment-variables#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
