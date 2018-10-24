@@ -145,7 +145,7 @@ cache: npm
 ```
 {: data-file=".travis.yml"}
 
-This caches `$HOME/.cache/npm`.
+This caches `$HOME/.npm`.
 
 ### yarn cache
 
