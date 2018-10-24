@@ -40,16 +40,19 @@ To create an application without deploying it, add `only_create_app_version: "tr
 
 ## Optional settings
 
-* `zip_file`: The zip file to deploy. You also need to set `skip_cleanup` to prevent Travis CI deleting the zip file at the end of the build. If this is left unspecified, a zip file will be created.
+* `zip_file`: The zip file to deploy. If this file is created during the build, you also need to set `skip_cleanup` to prevent Travis CI from deleting the zip file at the end of the build.
+If you do not specify `zip_file`, one will be created from the directory content according to the [`.ebignore` and `.gitignore` rules](#controlling-which-files-to-include-in-the-zip-archive-with-ebignore-or-gitignore).
 * `bucket_path`: Location within Bucket to upload app to.
 
-### Controlling which files to include in the ZIP archive with `.ebignore` or `.gitignore`
+### Controlling which files to include in the zip archive with `.ebignore` or `.gitignore`
 
-You can control which files are included in the ZIP archive you upload with `.ebignore` and `.gitignore`,
+You can control which files are included in the zip archive you upload with `.ebignore` and `.gitignore`,
 as described in [AWS CLI documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html).
+This rule is effective exactly when `zip_file` is not given.
 
 1. If `.ebignore` file exists in the directory where the deployment takes place, this file is read, and the files matching `.ebignore` will be excluded from the archive.
-1. If `.ebignore` does not exist but `.gitignore` does in the deployment directory, `.gitignore` is read, and the standard rules apply to exclude files from the archive.
+1. If `.ebignore` does not exist but `.gitignore` does in the deployment directory, `.gitignore` is read, and the [standard rules](https://git-scm.com/docs/git-ls-files#git-ls-files---exclude-standard) apply to exclude files from the archive.
+1. If neither file exists, the entire directory content will be included.
 
 ## Environment variables
 
