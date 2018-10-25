@@ -147,7 +147,7 @@ cache: npm
 
 This caches `$HOME/.npm` or `node_modules`, depending on the repository's
 structure.
-See [`npm ci` support documentation](/user/languages/javascript-with-nodejs/#npm-ci-support)
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
 for more details.
 
 ### yarn cache
