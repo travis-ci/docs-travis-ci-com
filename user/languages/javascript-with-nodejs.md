@@ -149,11 +149,12 @@ cache: npm
 
 1. This caches `$HOME/.npm` precisely when `npm ci` is the default `script` command.
 (See above.)
-Even when `script` is overridden, this shortcut is effective.
 
 1. In all other cases, this will cache `node_modules`.
 Note that `npm install` will still run on every build and will update/install
 any new packages added to your `package.json` file.
+
+Even when `script` is overridden, this shortcut is effective.
 
 ### Using `yarn`
 
