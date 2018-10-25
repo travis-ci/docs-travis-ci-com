@@ -118,7 +118,7 @@ script: gulp
 
 Travis CI uses [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com) to install your project dependencies.
 
-> Note that there are no npm packages installed by default in the Travis CI environment, your dependencies are downloaded and installed during each build.
+> Note that there are no npm packages installed by default in the Travis CI environment.
 
 #### Using a specific `npm` version
 
