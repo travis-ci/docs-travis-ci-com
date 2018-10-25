@@ -114,11 +114,11 @@ script: gulp
 
 ## Dependency Management
 
-### Using `npm`
-
 Travis CI uses [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com) to install your project dependencies.
 
 > Note that there are no npm packages installed by default in the Travis CI environment.
+
+### Using `npm`
 
 #### Using a specific `npm` version
 
@@ -148,7 +148,8 @@ cache: npm
 {: data-file=".travis.yml"}
 
 1. This caches `$HOME/.npm` precisely when `npm ci` is the default `script` command.
-(Even when override `script`, this shortcut is effective.)
+(See above.)
+Even when `script` is overridden, this shortcut is effective.
 
 1. In all other cases, this will cache `node_modules`.
 Note that `npm install` will still run on every build and will update/install
