@@ -145,7 +145,10 @@ cache: npm
 ```
 {: data-file=".travis.yml"}
 
-This caches `$HOME/.npm`.
+This caches `$HOME/.npm` or `node_modules`, depending on the repository's
+structure.
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
+for more details.
 
 ### yarn cache
 
