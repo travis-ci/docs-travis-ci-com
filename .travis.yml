@@ -21,8 +21,6 @@ addons:
       - libxml2-utils
 deploy:
   provider: heroku
-  edge:
-    branch: ha-heroku-quiet-curl
   api_key:
     secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
   app: docs-travis-ci-com
