@@ -641,7 +641,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-You can also use Slack-style markup using <tt>`</tt>, `~`, `*`, `_`.
+You can also use Slack-style markup using `` ` ``, `~`, `*`, `_`.
 
 See [Slack documentation](https://api.slack.com/docs/message-formatting)
 for more information on message formatting.
