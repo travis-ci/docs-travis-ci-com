@@ -42,7 +42,7 @@ The following table summarizes the differences across virtual environments and o
 |:---------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|:-----------------------------------|
 | Name                 | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         | Windows                            |
 | Status               | Current                               | Default as of August 2017         | Current                              | Current                      | Early release                      |
-| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packet        | Virtual machine on GCE               | Virtual machine              | Virtual machine on GCE             |
+| Infrastructure       | Virtual machine on GCE                | Container on EC2                  | Virtual machine on GCE               | Virtual machine              | Virtual machine on GCE             |
 | `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    | `os: windows`                      |
 | Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          | No                                 |
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       | 60-120s                            |
@@ -77,7 +77,6 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `packet` → the build ran in a container-based environment on Packet.
 * `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
