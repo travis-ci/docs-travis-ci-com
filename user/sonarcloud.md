@@ -76,9 +76,9 @@ SonarCloud can inspect internal pull requests of your repository and write comme
 
 > For security reasons, this advanced feature works only for **internal** pull requests. In other words, pull requests built from forks won't be inspected.
 
-To activate analysis on pull requests, you simply need to [install the SonarCloud application](https://github.com/apps/sonarcloud) on your GitHub organization(s).
+To activate analysis on pull requests, you need to [install the SonarCloud application](https://github.com/apps/sonarcloud) on your GitHub organization(s).
 
-Note that if you are a long-time SonarCloud user and you previously configured GitHub tokens on your projects, you should now delete those tokens from the "Administration > General Settings > Pull Requests" page of your projects.
+Note that if you used SonarCloud before the GitHub application and therefore configured GitHub tokens on your projects, you should now delete those tokens from the "Administration > General Settings > Pull Requests" page of your projects.
 
 ## Upcoming improvements
 
