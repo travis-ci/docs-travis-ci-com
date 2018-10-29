@@ -80,7 +80,7 @@ Travis CI uses that instead:
 
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
 
-To use a different `script` command, customize the [build step](/user/job-lifecycle/#Customizing-the-Build-Phase).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ## Projects Using Gradle
 
@@ -98,7 +98,7 @@ or
 ./gradlew assemble
 ```
 
-To use a different `install` command, customize the [installation step](/user/job-lifecycle/#Customizing-the-Installation-Phase).
+To use a different `install` command, customize the [installation step](/user/job-lifecycle/#customizing-the-installation-phase).
 
 ### Gradle Default Script Command
 
@@ -116,7 +116,7 @@ root, Travis CI uses that wrapper instead:
 ./gradlew check
 ```
 
-To use a different `script` command, customize the [build step](/user/job-lifecycle/#Customizing-the-Build-Phase).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ### Caching
 
@@ -165,7 +165,7 @@ If Travis CI does not detect Maven or Gradle files it runs Ant:
 ant test
 ```
 
-To use a different `script` command, customize the [build step](/user/job-lifecycle/#Customizing-the-Build-Phase).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ## Testing Against Multiple JDKs
 
@@ -181,7 +181,7 @@ jdk:
 {: data-file=".travis.yml"}
 
 > Note that testing against multiple Java versions is not supported on OS X. See
-the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
+the [OS X Build Environment](/user/reference/osx/#jdk-and-os-x) for more
 details.
 
 The list of available JVMs for different dists are at

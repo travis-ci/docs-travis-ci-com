@@ -25,7 +25,7 @@ However, this would expose your PyPI password to the world. We recommend you
 travis encrypt your-password-here --add deploy.password
 ```
 
-> Note that if your PyPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
+> Note that if your PyPI password contains [special characters](/user/encryption-keys#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 ```yaml
 deploy:

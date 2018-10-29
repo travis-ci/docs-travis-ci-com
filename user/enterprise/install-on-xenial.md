@@ -12,7 +12,7 @@ This guide walks you through the installation of Travis CI Enterprise on Ubuntu 
 ## Install Platform machine
 
 To install the platform machine the steps are exactly the same as for Ubuntu 14.04.
-Please follow the instructions for the [installation here](/user/enterprise/installation#Setting-up-the-Travis-CI-Enterprise-Platform).
+Please follow the instructions for the [installation here](/user/enterprise/installation#setting-up-the-travis-ci-enterprise-platform).
 
 ## Install worker machine
 

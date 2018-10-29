@@ -33,7 +33,7 @@ If *ON*, builds will be run on new [pull requests](/user/pull-requests/).
 
 {{ site.data.snippets.environment_variables }}
 
-More information on  [environment variables](/user/environment-variables/#Defining-Variables-in-Repository-Settings).
+More information on  [environment variables](/user/environment-variables/#defining-variables-in-repository-settings).
 
 ## Cron jobs
 
@@ -43,7 +43,7 @@ Check the full cron jobs docs for more information on [skipping and detecting cr
 
 ## Caches
 
-More information on [caching](https://docs.travis-ci.com/user/caching).
+More information on [caching](/user/caching).
 
 ## Trigger a custom build
 

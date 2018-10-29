@@ -8,7 +8,7 @@ layout: en
 
 A repository's `.travis.yml` file can have "encrypted values", such as [environment variables](/user/environment-variables/), notification settings, and deploy api keys. These encrypted values can be added by anyone, but are only readable by Travis CI. The repository owner does not keep any secret key material.
 
-**Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+**Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
 
 ## Encryption scheme
 
@@ -48,7 +48,7 @@ Please note that the name of the environment variable and its value are both enc
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
 Encrypted values can be used in
-[secure environment variables in the build matrix](/user/environment-variables#Defining-Variables-in-travisyml)
+[secure environment variables in the build matrix](/user/environment-variables#defining-encrypted-variables-in-travisyml)
 and [notifications](/user/notifications).
 
 ### Note on escaping certain symbols

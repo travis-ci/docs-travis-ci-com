@@ -64,7 +64,7 @@ One possible cause for builds failing unexpectedly can be calling `set -e` (also
 
 Note that using `set -e` in external scripts does not cause this problem.
 
-See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
@@ -221,7 +221,7 @@ The following lines in your build log possibly indicate an occurrence of this is
 ▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -232,7 +232,7 @@ The build has been terminated
 ▸ Running script '[CP] Embed Pods Frameworks'
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -633,16 +633,16 @@ Whenever your build has been processed you'll see the message: **"Build created 
 If a build hasn't been triggered for your commit, these are the possible build request messages:
 
 - **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
-- **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#Skipping-a-build).
+- **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#skipping-a-build).
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
-- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
+- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
 ## I'm running out of disk space in my build
 
-Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#Virtualisation-Environment-vs-Operating-System).
+Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.

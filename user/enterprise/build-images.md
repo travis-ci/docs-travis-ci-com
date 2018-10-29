@@ -86,7 +86,7 @@ With this option we tell `travis-worker` to make the host's Docker socket availa
 
 #### Restart travis-worker
 
-To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#stopping-and-starting-the-worker).
 
 ### Updates to your .travis.yml files
 

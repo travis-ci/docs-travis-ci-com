@@ -10,9 +10,9 @@ recommends steps geared toward this provider, but you can certainly modify it to
 use your provider of choice.
 
 **Before getting started:** please check our [system prerequisites](/user/enterprise/prerequisites/) for
-[expected system specs](/user/enterprise/prerequisites/#Host-Machine-Specs),
-notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
-and information on obtaining a [license](/user/enterprise/prerequisites/#License).
+[expected system specs](/user/enterprise/prerequisites/#host-machine-specs),
+notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#oauth-app),
+and information on obtaining a [license](/user/enterprise/prerequisites/#license).
 
 
 

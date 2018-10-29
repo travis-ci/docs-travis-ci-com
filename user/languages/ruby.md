@@ -297,7 +297,7 @@ For example, see
 ### Using Java 10 and Up
 
 For testing with OpenJDK and OracleJDK 10 and up, see
-[Java documentation](/user/languages/java/#Using-Java-10-and-later).
+[Java documentation](/user/languages/java/#using-java-10-and-later).
 
 ## Upgrading RubyGems
 
@@ -330,4 +330,4 @@ downloads and installations are required.
 ## Build Matrix
 
 For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).

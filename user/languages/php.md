@@ -71,7 +71,7 @@ php:
 
 We do not support these versions on Trusty.
 If you need to test them, please use Precise.
-See [this page](/user/reference/trusty#PHP-images) for more information.
+See [this page](/user/reference/trusty#php-images) for more information.
 
 
 ### HHVM versions
