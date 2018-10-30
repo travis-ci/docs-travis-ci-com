@@ -7,7 +7,8 @@ layout: en
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
-projects. Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
+projects.
+Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -27,25 +28,6 @@ simply be
 language: r
 ```
 {: data-file=".travis.yml"}
-
-Using the package cache to store R package dependencies can significantly speed
-up build times and is recommended for most builds.
-
-```yaml
-language: r
-cache: packages
-```
-{: data-file=".travis.yml"}
-
-If you do *not* see
-
-```
-This job is running on container-based infrastructure, which does not allow use of
-'sudo', setuid and setguid executables.
-```
-
-You will need to set `sudo: false` in order to use the container based builds
-and package caching.
 
 The R environment comes with [LaTeX][tug] and [pandoc][johnmacfarlane]
 pre-installed, making it easier to use packages like [RMarkdown][rstudio] or
@@ -131,9 +113,7 @@ If you don't need Pandoc, tell Travis CI not to install it using `pandoc: false`
 
 ### APT packages
 
-Use the [APT addon][apt-addon]
-to install APT packages on both container-based (`sudo: false`)
-and standard (`sudo: required`) infrastructures.
+Use the [APT addon][apt-addon] to install APT packages.
 The snippet below installs a prerequisite for the R package `xml2`:
 
 ```yaml
@@ -144,12 +124,9 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-Note that the APT package needs to be white-listed for this to work
-on container-based infrastructure.
 This option is ignored on non-Linux builds.
 
-An alternative that works only on standard infrastructure (`sudo: required`) is
-the `apt_packages` field:
+An alternative is the `apt_packages` key:
 
 ```yaml
 apt_packages:
@@ -309,19 +286,9 @@ If you'd like to see the full details, see
 
 ## Examples
 
-If you are using the [container based builds][container] you can take advantage
-of the package cache to speed up subsequent build times. For most projects
-these two lines are sufficient.
-
-```yaml
-language: r
-cache: packages
-```
-{: data-file=".travis.yml"}
-
 ### Package in a subdirectory
 
-If your package is in a subdirectory of the repository you simply need to
+If your package is in a subdirectory of the repository you need to
 change to the subdirectory prior to running the `install` or `script` steps.
 
 ```yaml
@@ -381,8 +348,6 @@ thanks are due to all the [contributors][github 10]. For more information on
 moving from r-travis to native support, see the [porting guide][github 9].
 
 [bioconductor]: https://www.bioconductor.org/
-
-[container]: /user/workers/container-based-infrastructure/
 
 [ctan]: https://www.ctan.org/
 
