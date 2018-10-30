@@ -254,7 +254,10 @@ addons:
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+
+For convenience, you can use Homebrew addon in your `.travis.yml`.
+For example, to install beanstalk:
 
 ```yaml
 addons:
@@ -328,6 +331,22 @@ addons:
     brewfile: Brewfile.travis
 ```
 {: data-file=".travis.yml"}
+
+### Using Homebrew without addon on older macOS images
+
+It may be convenient to invoke the `brew` command directly (e.g, you write
+your own build script).
+On older macOS images, you may see a warning message such as this:
+
+    Homebrew must be run under Ruby 2.3! You're running 2.0.0.
+
+Be sure to switch to a newer Ruby:
+
+```
+rvm use 2.3 --install --binary
+brew update
+brew install openssl
+```
 
 ## Installing Dependencies on Multiple Operating Systems
 
