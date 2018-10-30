@@ -55,15 +55,12 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
-Current versions of MySQL are
 
+|       | Ubuntu Precise | Ubuntu Trusty |
+|:------|:---------------|:--------------|
+| MySQL | 5.5.x          | 5.6.x         |
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
-
-You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
+You can also [install MySQL 5.7](#MySQL-57) on Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 
@@ -106,7 +103,7 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+On Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 ```yaml
 addons:
