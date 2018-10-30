@@ -54,7 +54,7 @@ Whenever you update your bundle, Travis CI will also update the cache.
 
 Travis CI tries its best at determining the path bundler uses for storing dependencies.
 
-If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
+If you have [custom Bundler arguments](/user/languages/ruby/#custom-bundler-arguments-and-gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
@@ -131,6 +131,24 @@ language: objective-c
 podfile: path/to/Podfile
 ```
 {: data-file=".travis.yml"}
+
+### npm cache
+
+For caching with `npm`, use:
+
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: npm
+```
+{: data-file=".travis.yml"}
+
+This caches `$HOME/.npm` or `node_modules`, depending on the repository's
+structure.
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
+for more details.
 
 ### yarn cache
 
@@ -391,7 +409,7 @@ cache:
 
 ## Caches and build matrices
 
-When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
+When you have multiple jobs in a [build matrix](/user/customizing-the-build/#build-matrix),
 some characteristics of each job are used to identify the cache each of the
 jobs should use.
 

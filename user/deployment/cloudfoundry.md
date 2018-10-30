@@ -37,7 +37,7 @@ You can do this using the Travis gem above and running:
 travis encrypt --add deploy.password
 ```
 
-If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#Note-on-escaping-certain-symbols).
+If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#note-on-escaping-certain-symbols).
 
 ### Conditional releases
 

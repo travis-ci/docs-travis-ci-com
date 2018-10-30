@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
 
 
 

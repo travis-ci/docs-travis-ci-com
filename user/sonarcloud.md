@@ -32,7 +32,7 @@ dist: trusty
 Before inspecting your code, you need to:
 
 1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
+2. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
 4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 

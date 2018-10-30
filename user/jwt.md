@@ -9,7 +9,7 @@ layout: en
 >  [discontinued on April 17, 2018](https://blog.travis-ci.com/2018-01-23-jwt-addon-is-deprecated).
 
 Integration between Travis-CI and third-party services like Sauce Labs relies
-on [encrypted variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables)
+on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
 which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
 so builds of pull requests do not have access to third party integrations.

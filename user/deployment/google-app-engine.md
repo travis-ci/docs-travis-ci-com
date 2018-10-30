@@ -33,7 +33,7 @@ The `--add` flag automatically adds the decryption step to the .travis file.
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-More detailed instructions for encrypting keys using Travis can be found [here](http://docs.travis-ci.com/user/encrypting-files/).
+More detailed instructions for encrypting keys using Travis can be found [here](/user/encrypting-files/).
 
 ### Project to deploy
 
