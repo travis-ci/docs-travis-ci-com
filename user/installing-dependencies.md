@@ -334,18 +334,17 @@ addons:
 
 ### Using Homebrew without addon on older macOS images
 
-It may be convenient to invoke the `brew` command directly (e.g, you write
-your own build script).
-On older macOS images, you may see a warning message such as this:
+If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
 
     Homebrew must be run under Ruby 2.3! You're running 2.0.0.
 
-Be sure to switch to a newer Ruby:
+You'll need to update to Ruby 2.3 or newer:
 
 ```
 rvm use 2.3 --install --binary
 brew update
 brew install openssl
+rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
 ```
 
 ## Installing Dependencies on Multiple Operating Systems
