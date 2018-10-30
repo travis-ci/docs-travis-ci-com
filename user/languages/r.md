@@ -250,8 +250,7 @@ processed in order, so entries can depend on dependencies in a previous list.
   [cran2deb4ubuntu PPA][launchpad].
   These installs will be faster than source installs, but may not always be
   the most recent version. Specify the name just as you would when installing
-  from CRAN. On OS X builds and builds without `sudo: required`, these packages
-  are installed from source.
+  from CRAN. On OS X builds these packages are installed from source.
 
 - `r_packages`: A list of R packages to install via `install.packages`.
 
