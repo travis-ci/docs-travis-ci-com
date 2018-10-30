@@ -15,7 +15,7 @@ This guide provides an overview on the different environments in which Travis CI
 
 Each build runs in one of the following virtual environments.
 
-### Linux Ennvironments
+### Linux
 
 A full virtual machine per build, that runs Linux, either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
 
