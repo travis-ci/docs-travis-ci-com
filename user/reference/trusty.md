@@ -12,55 +12,25 @@ available in the Trusty environment.
 
 ## Using Trusty
 
-To use sudo-enabled Ubuntu Trusty, add the following to your
+To use Ubuntu Trusty, add the following to your
 `.travis.yml`.
 
 ```yaml
 dist: trusty
-sudo: required
 ```
 {: data-file=".travis.yml"}
 
-Or to route to sudo-less:
-
-```yaml
-dist: trusty
-sudo: false
-```
-{: data-file=".travis.yml"}
-
-This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of using
 Trusty, including details specific to container-based, read on ...
 
-## Fully-virtualized via `sudo: required`
+## Fully-virtualized
 
-When specifying `sudo: required`, Travis CI runs each build in an isolated
-[Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine
-that offer a vanilla build environment for every build.
+Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine that offers a vanilla build environment for every build.
 
-This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests run in an environment built from scratch.
+This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
 
-Builds have access to a variety of services for data storage and messaging, and
-can install anything that's required for them to run.
-
-## Container-based with `sudo: false`
-
-When specifying `sudo: false`, Travis CI runs each build in a container on a
-shared host via Docker.  The container contents are a pristine copy of the
-Docker image, as guaranteed by Docker itself.
-
-The advantage of running with `sudo: false` is dramatically reduced time between
-commit push to GitHub and the start of a job on Travis CI, which works
-especially well when one's average job duration is under 3 minutes.
-
-*NOTE: The allowed list of packages that may be installed varies between Precise
-and Trusty, with the Precise list being considerably larger at the time of this
-writing.  If the packages you need are not yet available on Trusty, it is
-recommended that you either target `dist: precise` or `sudo: required` depending
-on your needs.*
+Builds have access to a variety of services for data storage and messaging, and can install anything that's required for them to run.
 
 ## Image differences from Precise
 
@@ -74,25 +44,6 @@ includes:
   `docker` and `packer`.
 - A considerably [larger image](/user/languages/minimal-and-generic/#generic) which contains roughly the same runtimes and
   services present in Precise environments.
-
-## Routing to Trusty
-
-Add the following to your `.travis.yml` file. This works for both public and
-private repositories.
-
-```yaml
-dist: trusty
-sudo: required
-```
-{: data-file=".travis.yml"}
-
-Or, if you want to route to container-based:
-
-```yaml
-dist: trusty
-sudo: false
-```
-{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
 
@@ -124,13 +75,8 @@ The `build-essential` metapackage is installed, as well as modern versions of:
 
 ### Docker
 
-Docker is installed.  We use the official [Docker apt
-repository](https://blog.docker.com/2015/07/new-apt-and-yum-repos/), so you can
-easily install another version with `apt` if needed.  When `sudo: required` is
-specified, Docker is installed as a service.  When `sudo: false` is specified,
-the Docker binaries are available for local use.
-
-*NOTE: When `sudo: false` is specified, the Docker daemon is not supported.*
+Docker is installed as a service.
+We use the official [Docker apt repository](https://blog.docker.com/2015/07/new-apt-and-yum-repos/), so you can easily install another version with `apt` if needed.
 
 [docker-compose](https://docs.docker.com/compose/) is also installed.
 
@@ -270,7 +216,6 @@ and the nightly builds are installed on-demand (as `hhvm-nightly`).
 
 ```yaml
 language: php
-sudo: required
 dist: trusty
 php:
   - hhvm-3.3
@@ -318,9 +263,8 @@ of xdebug.
 
 ## Other software
 
-When `sudo: required` is specified, you may install other Ubuntu packages using
-`apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing dependencies](/user/installing-dependencies/).
+Install other Ubuntu packages using `apt-get`, or add third party PPAs or custom scripts.
+For further details, please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 
@@ -375,8 +319,9 @@ using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means
 ### Group membership
 
 The user executing the build (`$USER`) belongs to one primary group derived from
-that user.  When `sudo: required` is specified, you may modify group membership
-by following the following steps:
+that user.  
+
+If you need to modify group membership follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle
    prior to the build script execution.

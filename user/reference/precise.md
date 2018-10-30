@@ -12,8 +12,6 @@ redirect_from:
 This guide explain what packages, tools and settings are available in the Travis
 CI environment (often referred to as "CI environment").
 
-
-
 ## Overview
 
 Travis CI runs builds in isolated virtual machines that offer a vanilla build
