@@ -527,10 +527,8 @@ If the command you pass to `travis_wait` does not persist, then `travis_wait` do
 
 ## Troubleshooting Locally in a Docker Image
 
-If you're having trouble tracking down the exact problem in a build it often
-helps to run the build locally. To do this you need to be using our container
-based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
-which Docker image you are using on Travis CI.
+If you're having trouble tracking down the exact problem in a build it often helps to run the build locally.
+To do this you need to know which Docker image you are using on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 
@@ -609,8 +607,6 @@ also known to work, such as by using SFTP in the specific case of FTP, or a VPN
 connection for a wide variety of protocols, e.g.:
 
 ``` yaml
-sudo: required
-
 addons:
   apt:
     packages:
@@ -645,4 +641,4 @@ If a build hasn't been triggered for your commit, these are the possible build r
 Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
-If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.

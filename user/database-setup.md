@@ -35,7 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
+> Note that this feature only works for services we provision in our [CI environment](/user/reference/overview/). If you download Apache Jackrabbit
 > you still have to start it in a `before_install` step.
 
 ## MySQL

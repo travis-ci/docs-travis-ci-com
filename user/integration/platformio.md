@@ -28,7 +28,7 @@ layout: en
 
 - *Embedded* - pre-defined compilation profiles for a variety of embedded
   boards.
-      
+
 [Full list](http://platformio.org/#!/boards) at PlatformIO
 
 ## .travis.yml Settings
@@ -44,8 +44,6 @@ language: python
 python:
     - "2.7"
 
-# Cache PlatformIO packages using Travis CI container-based infrastructure
-sudo: false
 cache:
     directories:
         - "~/.platformio"
