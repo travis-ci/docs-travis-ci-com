@@ -358,7 +358,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on OS X or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -416,12 +416,9 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
-Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - cassandra
 ```

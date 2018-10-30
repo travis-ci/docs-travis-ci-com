@@ -12,8 +12,6 @@ Docker repositories or other remote storage.
 To use Docker add the following settings to your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - docker
 ```
@@ -22,7 +20,6 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
-> Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
 
 > For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
@@ -35,10 +32,8 @@ Docker containers built from the same image:
 - a Sinatra application
 - the Sinatra application test suite
 
-After specifying in the `.travis.yml` that the worker is using the Docker
-enabled environment (with `sudo: required` AND `services: - docker`) and is
-using ruby, the `before_install` build step pulls a Docker image from
-[carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
+After specifying in the `.travis.yml` that the worker is using the Docker enabled environment (with `services: - docker`) and is
+using ruby, the `before_install` build step pulls a Docker image from [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
 ```bash
 cd /root/sinatra; bundle exec foreman start;
@@ -51,8 +46,6 @@ refresher on how to use Docker.
 The full `.travis.yml` looks like this
 
 ```yaml
-sudo: required
-
 language: ruby
 
 services:
@@ -106,8 +99,6 @@ docker build -t carlad/sinatra .
 The full `.travis.yml` looks like this
 
 ```yaml
-sudo: required
-
 language: ruby
 
 services:
@@ -126,7 +117,7 @@ script:
 
 ## Pushing a Docker Image to a Registry
 
-In order to push an image to a registry, one must first authenticate via `docker
+To push an image to a registry, one must first authenticate via `docker
 login`.  The email, username, and password used for login should be stored in
 the repository settings environment variables, which may be set up through the
 web or locally via the Travis CLI, e.g.:
