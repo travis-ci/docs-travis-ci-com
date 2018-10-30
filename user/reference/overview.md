@@ -32,7 +32,7 @@ An [OS X](/user/reference/osx/) environment for Objective-C and other OS X speci
 
 ### Windows
 
-A [Windows](/user/reference/windows/) environment running Windows Server 2016.
+A [Windows](/user/reference/windows/) environment running Windows Server 1803.
 
 ### Virtualisation Environment vs Operating System
 
@@ -47,7 +47,7 @@ The following table summarizes the differences across virtual environments and o
 | Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          | No                                 |
 | Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       | 60-120s                            |
 | File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         | Windows Server 2016                |
+| Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         | Windows Server 1803                |
 | Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         | 8 GB                               |
 | Cores                | 2                                     | 2                                 | 2                                    | 2                            | 2                                  |
 | IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            | IPv4 is available                  |

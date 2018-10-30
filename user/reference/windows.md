@@ -24,7 +24,7 @@ os: windows
 
 ## Windows Version
 
-Only **Windows Server 2016** is currently supported.
+Only **Windows Server 1803** is currently supported.
 
 ## Chocolatey
 
