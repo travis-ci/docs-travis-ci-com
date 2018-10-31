@@ -54,7 +54,7 @@ or via [encrypted variables in
 * `project-name`: Defaults to value of `fqdn` or repo slug, used for metadata
 * `email`: Optional, committer info, defaults to `deploy@travis-ci.org`
 * `name`: Optional, committer, defaults to `Deployment Bot`
-* `committer-from-gh`: Optional, defaults to `false`. Allows to use token's
+* `committer-from-gh`: Optional, defaults to `false`. Allows you to use the token's
   owner name and email for commit. Overrides `email` and `name` options.
 * `allow-empty-commit`: Optional, defaults to `false`. Enabled if only
   `keep-history` is `true`.

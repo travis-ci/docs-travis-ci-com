@@ -56,7 +56,7 @@ There will be no changes to your private repositories. Private projects will con
 
 ## Contact Support
 
-If you have an questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
+If you have any questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
 
 
 [travis-ci.com]: https://www.travis-ci.com

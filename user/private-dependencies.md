@@ -34,7 +34,7 @@ of repositories, and make sure that access is read only.
 
 ## Deploy Key
 
-GitHub allows to set up SSH keys for a repository. These deploy keys have some great advantages:
+GitHub allows you to set up SSH keys for a repository. These deploy keys have some great advantages:
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.

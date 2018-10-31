@@ -122,7 +122,7 @@ Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
 ## Bundle Types
 
-The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file exension of `key` or `s3_key` set in your `.travis.yml`.
+The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file extension of `key` or `s3_key` set in your `.travis.yml`.
 
 If your `.travis.yml` contains both, and they do not match, set `bundle_type` explicitly to the correct value.
 

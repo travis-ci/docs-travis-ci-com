@@ -132,6 +132,24 @@ podfile: path/to/Podfile
 ```
 {: data-file=".travis.yml"}
 
+### npm cache
+
+For caching with `npm`, use:
+
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: npm
+```
+{: data-file=".travis.yml"}
+
+This caches `$HOME/.npm` or `node_modules`, depending on the repository's
+structure.
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
+for more details.
+
 ### yarn cache
 
 For caching with `yarn`, use:
