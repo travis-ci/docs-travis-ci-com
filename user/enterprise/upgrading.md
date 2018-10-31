@@ -12,7 +12,7 @@ and `/var/travis`.
 One good way to do this is to run
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
-```   
+```
 See [restoring from backups](#Restoring-from-Backups) if you have any questions about the steps or want to do a restore.
 
 ## Updating your Travis CI Enterprise Platform
@@ -44,10 +44,28 @@ whether you are behind a web proxy you'll want to run one of these:
 
 ## Updating your Travis CI Enterprise Worker
 
+### Ubuntu 16.04+
+
+On Ubuntu 16.04 and later travis-worker ships inside a Docker container. So, in order to update travis-worker on the machine, the first step is to configure a new image. For that, please open `/etc/systemd/system/travis-worker.service.d/env.conf` and replace the Docker tag with a new version, so it looks similar to:
+
+```
+[Service]
+Environment="TRAVIS_WORKER_SELF_IMAGE=travisci/worker:v4.6.1"
+```
+
+After that, please run the following commands to reload the configuration and then also to restart the service:
+
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart travis-worker
+```
+
+### Ubuntu 14.04
+
 In order to update the Worker, you can run the following on each worker
 host:
 
-```         
+```
   sudo apt-get update
   sudo apt-get install travis-worker
 ```

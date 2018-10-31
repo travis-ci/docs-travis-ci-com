@@ -163,6 +163,65 @@ export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 A full list of options and mount modes is listed in the official
  [Docker documentation](https://docs.docker.com/storage/bind-mounts/).
 
+## Worker behind a HTTP(S) Proxy
+
+If you're using Travis CI Enterprise behind a HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
+
+
+### How do I find out if I have the correct travis-worker version installed?
+
+#### Ubuntu 16.04+
+
+Connect to your worker machine via ssh and run:
+
+```
+$ sudo docker images | grep worker
+travisci/worker        v4.6.1                      ef7a3419050c        17 hours ago        44.7MB
+```
+
+#### Ubuntu 14.04
+
+Connect to your worker machine via ssh and run:
+
+```
+$ travis-worker -v
+travis-worker v=v4.6.0 rev=544a3e8108b430f990914e79baee8c7873c583b5 d=2018-10-30T15:01:38+0000 go=go1.11.1
+```
+
+#### Upgrade travis-worker
+
+If you need to install a newer version of travis-worker, please follow the instructions in our [Updating your Travis CI Worker docs](/user/enterprise/upgrading/#updating-your-travis-ci-enterprise-worker).
+
+### Configuration
+
+On the worker machine, please open `/etc/default/travis-worker` in your editor and add these two lines:
+
+```
+export TRAVIS_WORKER_DOCKER_HTTP_PROXY="http://localhost:8080"
+export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
+```
+
+The value for `TRAVIS_WORKER_DOCKER_API_VERSION` depends on the installed Docker version. In this example we've used Docker-CE 17.12. [The Docker documentation](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) shows you which API version to choose if you have a different version of Docker-CE installed.
+
+Additionally to `TRAVIS_WORKER_DOCKER_HTTP_PROXY` we also have support for the following variables:
+
+- `TRAVIS_WORKER_DOCKER_HTTPS_PROXY`
+- `TRAVIS_WORKER_DOCKER_NO_PROXY`
+- `TRAVIS_WORKER_DOCKER_FTP_PROXY`
+
+
+All environment variables listed above are being made available during the build as follows:
+
+- `http_proxy`
+- `https_proxy`
+- `no_proxy`
+- `ftp_proxy`
+- `HTTP_PROXY`
+- `HTTPS_PROXY`
+- `NO_PROXY`
+- `FTP_PROXY`
+
+
 ## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
