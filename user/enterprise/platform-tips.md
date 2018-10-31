@@ -311,7 +311,7 @@ $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 
 ## Find out maximum available concurrency
 
-If you wish to find out how much concurrency is available in your Travis CI Enterprise setup, please connect to your platform machine via ssh and follow these steps:
+To find out how much concurrency is available in your Travis CI Enterprise setup, connect to your platform machine via ssh and run:
 
 ```
 $ travis bash
@@ -329,7 +329,7 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 ```
 
-The number that's returned here is equal to the currently connected worker machines. If you need to spin up more worker machines, please follow the instructions [here](/user/enterprise/installation/#install-travis-ci-worker).
+If you need to spin up more worker machines, please see our docs about [installing new worker machines](/user/enterprise/installation/#install-travis-ci-worker).
 
 ## Integrate Travis CI Enterprise into your monitoring
 
