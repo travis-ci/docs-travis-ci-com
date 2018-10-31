@@ -185,7 +185,7 @@ Connect to your worker machine via ssh and run:
 
 ```
 $ travis-worker -v
-travis-worker v=v4.6.0 rev=544a3e8108b430f990914e79baee8c7873c583b5 d=2018-10-30T15:01:38+0000 go=go1.11.1
+travis-worker v=v4.6.1 rev=73392421d0ca807b83d4d459ad3dd484820fd181 d=2018-10-30T16:13:39+0000 go=go1.11.1
 ```
 
 #### Upgrade travis-worker
