@@ -23,7 +23,8 @@ curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
---travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]"
+--travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" \
+--travis_worker_version=4.1.0
 ```
 
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
@@ -50,7 +51,8 @@ curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
---travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]"
+--travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" \
+--travis_worker_version=4.1.0
 ```
 
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
