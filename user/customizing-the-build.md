@@ -28,7 +28,7 @@ Some common reasons why builds might hang:
 
 ## Build Lifecycle
 
-The [Build Lifecycle documentation](/user/job-lifecycle) now has it's own page.
+The [Build Lifecycle documentation](/user/job-lifecycle) now has its own page.
 {: #Build-Lifecycle}
 
 
