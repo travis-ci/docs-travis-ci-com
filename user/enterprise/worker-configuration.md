@@ -165,8 +165,7 @@ A full list of options and mount modes is listed in the official
 
 ## Worker behind a HTTP(S) Proxy
 
-If you're using Travis CI Enterprise behind a HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
-
+If you're using Travis CI Enterprise behind an HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
 
 ### How do I find out if I have the correct travis-worker version installed?
 
@@ -203,24 +202,15 @@ export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
 
 In this example we've used Docker-CE 17.12. According to the [API mismatch table](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) we need to choose `1.35` for `TRAVIS_WORKER_DOCKER_API_VERSION`.
 
-Additionally to `TRAVIS_WORKER_DOCKER_HTTP_PROXY` we also have support for the following variables:
+Below you find the full list of available environment variables and their equivalent how they're accessible during the build:
 
-- `TRAVIS_WORKER_DOCKER_HTTPS_PROXY`
-- `TRAVIS_WORKER_DOCKER_NO_PROXY`
-- `TRAVIS_WORKER_DOCKER_FTP_PROXY`
+Environment variable | Available as:
+`TRAVIS_WORKER_DOCKER_HTTP_PROXY` | `HTTP_PROXY`, `http_proxy`
+`TRAVIS_WORKER_DOCKER_HTTPS_PROXY` | `HTTPS_PROXY`, `https_proxy`
+`TRAVIS_WORKER_DOCKER_NO_PROXY` | `NO_PROXY`, `no_proxy`
+`TRAVIS_WORKER_DOCKER_FTP_PROXY` | `FTP_PROXY`, `ftp_proxy`
 
-
-All environment variables listed above are being made available during the build as follows:
-
-- `http_proxy`
-- `https_proxy`
-- `no_proxy`
-- `ftp_proxy`
-- `HTTP_PROXY`
-- `HTTPS_PROXY`
-- `NO_PROXY`
-- `FTP_PROXY`
-
+Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If that's not desired, please whitelist your apt package mirror by adding it to `TRAVIS_WORKER_DOCKER_NO_PROXY`.
 
 ## Contact Enterprise Support
 
