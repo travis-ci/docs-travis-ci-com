@@ -527,8 +527,7 @@ If the command you pass to `travis_wait` does not persist, then `travis_wait` do
 
 ## Troubleshooting Locally in a Docker Image
 
-If you're having trouble tracking down the exact problem in a build it often helps to run the build locally.
-To do this you need to know which Docker image you are using on Travis CI.
+If you're having trouble tracking down the exact problem in a build it often helps to run the build locally, in one of the Docker images which are configured to be exactly the same as the virtual machines your builds run in on Travis CI.
 
 ### Running a Container Based Docker Image Locally
 

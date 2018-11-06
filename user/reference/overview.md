@@ -31,21 +31,21 @@ A [Windows](/user/reference/windows/) environment running Windows Server 2016.
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | [Ubuntu Precise](/user/reference/precise) | [Ubuntu Trusty](/user/reference/trusty) | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
-|:---------------------|:------------------------------------------|:----------------------------------------|:-----------------------------|:-----------------------------------|
-| Name                 | Precise                                   | Ubuntu                                  | OS X                         | Windows                            |
-| Status               | Current                                   | Current                                 | Current                      | Early release                      |
-| Infrastructure       | Virtual machine on GCE                    | Virtual machine on GCE                  | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: precise`                           | `dist: trusty`                          | `os: osx`                    | `os: windows`                      |
-| Allows `sudo`        | Yes                                       | Yes                                     | Yes                          | No                                 |
-| Approx boot time     | 20-50s                                    | 20-50s                                  | 60-90s                       | 60-120s                            |
-| File system          | EXT4                                      | EXT4                                    | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu 12.04                              | Ubuntu 14.04                            | OS X                         | Windows Server 2016                |
-| Memory               | 7.5 GB                                    | 7.5 GB                                  | 4 GB                         | 8 GB                               |
-| Cores                | 2                                         | 2                                       | 2                            | 2                                  |
-| IPv4 network         | IPv4 is available                         | IPv4 is available                       | IPv4 is available            | IPv4 is available                  |
-| IPv6 network         | IPv6 is not available                     | IPv6 is not available                   | IPv6 is not available        | IPv6 is not available              |
-| Available disk space | approx 22GB                               | approx 18GB                             | approx 41GB                  | approx 19 GB                       |
+|                      | Ubuntu Linux                      | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|:---------------------|:----------------------------------|:-----------------------------|:-----------------------------------|
+| Name                 | Ubuntu                            | OS X                         | Windows                            |
+| Status               | Current                           | Current                      | Early release                      |
+| Infrastructure       | Virtual machine on GCE            | Virtual machine              | Virtual machine on GCE             |
+| `.travis.yml`        | `dist: trusty` or `dist: precise` | `os: osx`                    | `os: windows`                      |
+| Allows `sudo`        | Yes                               | Yes                          | No                                 |
+| Approx boot time     | 20-50s                            | 60-90s                       | 60-120s                            |
+| File system          | EXT4                              | HFS+                         | NTFS                               |
+| Operating system     | Ubuntu 14.04                      | OS X                         | Windows Server 2016                |
+| Memory               | 7.5 GB                            | 4 GB                         | 8 GB                               |
+| Cores                | 2                                 | 2                            | 2                                  |
+| IPv4 network         | IPv4 is available                 | IPv4 is available            | IPv4 is available                  |
+| IPv6 network         | IPv6 is not available             | IPv6 is not available        | IPv6 is not available              |
+| Available disk space | approx 18GB                       | approx 41GB                  | approx 19 GB                       |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -89,7 +89,7 @@ The following list describes some of the main settings that determine build rout
 > Between middle of October 2018 and end December 2018 the default infrastructure
 > your builds runs on will depend on a [few different
 > factors](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
-> while we consolidate everything onto virtual machines running on Google CLoud Engine.
+> while we consolidate everything onto virtual machines running on Google Compute Engine.
 
 ## Deprecated Virtualization Environments
 
