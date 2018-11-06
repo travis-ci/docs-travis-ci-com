@@ -192,16 +192,16 @@ travis-worker v=v4.6.1 rev=73392421d0ca807b83d4d459ad3dd484820fd181 d=2018-10-30
 
 If you need to install a newer version of travis-worker, please follow the instructions in our [Updating your Travis CI Worker docs](/user/enterprise/upgrading/#updating-your-travis-ci-enterprise-worker).
 
-### Configuration
+### Configuring an HTTP Proxy
 
-On the worker machine, please open `/etc/default/travis-worker` in your editor and add these two lines:
+On the worker machine, please open `/etc/default/travis-worker` in your editor and add the two lines from the example below. The value for `TRAVIS_WORKER_DOCKER_API_VERSION` depends on the installed Docker version.
 
 ```
-export TRAVIS_WORKER_DOCKER_HTTP_PROXY="http://localhost:8080"
+export TRAVIS_WORKER_DOCKER_HTTP_PROXY="<YOUR PROXY URL>"
 export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
 ```
 
-The value for `TRAVIS_WORKER_DOCKER_API_VERSION` depends on the installed Docker version. In this example we've used Docker-CE 17.12. [The Docker documentation](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) shows you which API version to choose if you have a different version of Docker-CE installed.
+In this example we've used Docker-CE 17.12. According to the [API mismatch table](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) we need to choose `1.35` for `TRAVIS_WORKER_DOCKER_API_VERSION`.
 
 Additionally to `TRAVIS_WORKER_DOCKER_HTTP_PROXY` we also have support for the following variables:
 
