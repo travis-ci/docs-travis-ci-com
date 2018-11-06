@@ -44,23 +44,22 @@ whether you are behind a web proxy you'll want to run one of these:
 
 ## Updating your Travis CI Enterprise Worker
 
-### Ubuntu 16.04+
+### On Ubuntu 16.04 and later
 
-On Ubuntu 16.04 and later travis-worker ships inside a Docker container. So, in order to update travis-worker on the machine, the first step is to configure a new image. For that, please open `/etc/systemd/system/travis-worker.service.d/env.conf` and replace the Docker tag with a new version, so it looks similar to:
+On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To update travis-worker, please follow the steps below.
 
-```
-[Service]
-Environment="TRAVIS_WORKER_SELF_IMAGE=travisci/worker:v4.6.1"
-```
+  1. Configure the new image by editing the Docker tag in `/etc/systemd/system/travis-worker.service.d/env.conf`:
+  ```
+  [Service]
+  Environment="TRAVIS_WORKER_SELF_IMAGE=travisci/worker:v4.6.1"
+  ```
+  1. Reload the configuration and restart the service:
+  ```
+  $ sudo systemctl daemon-reload
+  $ sudo systemctl restart travis-worker
+  ```
 
-After that, please run the following commands to reload the configuration and then also to restart the service:
-
-```
-$ sudo systemctl daemon-reload
-$ sudo systemctl restart travis-worker
-```
-
-### Ubuntu 14.04
+### On Ubuntu 14.04
 
 In order to update the Worker, you can run the following on each worker
 host:
