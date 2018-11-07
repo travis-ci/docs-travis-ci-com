@@ -16,7 +16,7 @@ dist: xenial
 {: data-file=".travis.yml"}
 
 Please note that Xenial is available on our fully virtualized
-infrastructure. If you are running an Enterprise installation, you can use the
+infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you can use the Xenial Docker images.
 
 ## Image differences from Trusty
