@@ -23,9 +23,9 @@ to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you c
 Xenial includes the following changes and improvements: 
 
 ### Third party apt-repositories removed
-On Trusty, apt repositories that have been used to install packages have been
-removed after installation. Intent is to speed up runs of `apt-get update`. In
-case an apt repository is missing, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources). For
+Third party apt repositories that are used to make packages available, have been
+removed after installation of the packages. Intent is to speed up runs of `apt-get update`. In
+case you need a repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources). For
 example:
 
 ```yaml
@@ -77,14 +77,18 @@ This section describes what is available on the minimal image, and common to
 all images.
 
 ### Version control
-git: 2.19.1
-git-lfs: 2.6.0
-hg: 4.8
-svn: 1.9.3
+
+| package | version |
++---------+---------+
+| git     | 2.19.1  |
+| git-lfs | 2.6.0   |
+| hg      | 4.8     |
+| svn     | 1.9.3   |
 
 ### Compilers and Build toolchain
 clang and llvm 7 are installed. 
-cmake 3.12.4
+cmake 3.12.4 is available. The gcc toolchain is available from the Ubuntu
+repositories.
 
 ### Docker
 Docker 18.06.0-ce is installed, and docker-compose 1.23.1.
@@ -103,6 +107,8 @@ The newest nvm is available to all images. NodeJS 11.0.0 and 8.12.0 are
 installed by default.
 
 ## Go images
+Go 1.11.1 is installed by default. You can specify any other version with the
+`go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) images
 The following JVMs are preinstalled: `openjdk10`, and `openjdk11`. Any other
