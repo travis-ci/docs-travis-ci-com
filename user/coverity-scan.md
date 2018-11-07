@@ -4,13 +4,11 @@ layout: en
 
 ---
 
-## Coverity Scan
-
 [Coverity Scan](http://scan.coverity.com) is a free static code analysis tool for Java, C, C++, and C#. It analyzes every line of code and potential execution path and produces a list of potential code defects. By augmenting your CI flow with Coverity Scan, you'll gain further insight into the quality of your code, beyond that which is covered by your automated tests.
 
 This addon leverages the Travis CI infrastructure to automatically run code analysis on your GitHub projects.
 
-### What is static analysis?
+## What is static analysis?
 
 Static analysis is a set of processes for finding source code defects and vulnerabilities.
 
@@ -20,15 +18,15 @@ Additionally, Coverity's implementation of static analysis can follow all the po
 
 See more details about Coverity Scan in the [FAQ](https://scan.coverity.com/faq).
 
-### Build Submission Frequency
+## Build Submission Frequency
 
 It's probably overkill to run static analysis on each and every commit of your project. To increase availability of the free service to more projects, the addon is designed by default to run analysis on a per-branch basis. We recommend you create a branch named `coverity_scan`, which you can merge into whenever you would like to trigger analysis. See the [FAQ](https://scan.coverity.com/faq#frequency) for information about build submission frequency.
 
-### OS X / macOS support
+## OS X / macOS support
 
 The Coverity Scan addon doesn't work on OS X/macOS versions with the SIP feature enabled i.e. on OS X El Capitan (10.11) and higher. Specifically on Travis CI, it currently only works on our Xcode 6.4 image (i.e. with `osx_image: xcode6.4`). However, it's possible to make it work with custom scripts or commands. Please reach out to [support@travis-ci.com](mailto:support@travis-ci.com) to learn how.
 
-### Step-by-step Configuration
+## Step-by-step Configuration
 
 1. [Sign up](http://scan.coverity.com/users/sign_up) with Coverity Scan using your GitHub account if you haven't already.
 
@@ -56,7 +54,7 @@ The Coverity Scan addon doesn't work on OS X/macOS versions with the SIP feature
 
 13. Visit [Travis CI](https://travis-ci.org) directly, or by clicking the button on your `Project Settings` page, which will appear once the project is activated on Travis CI.
 
-#### travis.yml
+### travis.yml
 
 From your project page on Coverity Scan, select the Travis CI tab. You'll see a snippet of YAML to be copied over to your `.travis-ci` file. Note that this is an example, and might require some tweaking for the build to run properly.
 
@@ -107,7 +105,7 @@ travis encrypt COVERITY_SCAN_TOKEN=project_token_from_coverity_scan
 
 Then copy the resulting line as shown in the YAML example.
 
-### Environment Variables
+## Environment Variables
 
 When defined, the following environment variables overrides their
 corresponding configuration values in `.travis.yml`:
@@ -117,11 +115,11 @@ corresponding configuration values in `.travis.yml`:
 3. `COVERITY_SCAN_BUILD_COMMAND_PREPEND`
 4. `COVERITY_SCAN_BRANCH_PATTERN`
 
-### Execution
+## Execution
 
 The next time you commit to the appropriate branch, the Coverity Scan build process will automatically run analysis and upload the results. Please note that this analysis takes the place of the normal CI run. You should merge the same changes to another branch to run your tests.
 
-#### Disabling the Subsequent Test Run
+### Disabling the Subsequent Test Run
 
 Due to the way that Travis CI addons operate, your standard script stage (i.e. your tests) will run after the Coverity Scan analysis completes. In order to avoid this, you can modify your `script` directive in `.travis.yml`.
 
