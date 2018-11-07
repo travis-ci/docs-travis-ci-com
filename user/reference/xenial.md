@@ -20,7 +20,7 @@ infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you can use the Xenial Docker images.
 
 ## Image differences from Trusty
-Apart from version bumps of software, and new defaults for language
+Xenial includes the following changes and improvements: 
 environment, the Xenial image contains the following changes:
 
 ### Non-core apt-repositories removed
