@@ -8,7 +8,8 @@ layout: en
 On this page, you can find what is included on the Xenial build environment.
 
 ## Using Xenial
-The following configuration will get your builds to run on a Xenial image:
+
+To get your builds using Ubuntu Xenial 16.04, add the following to your `.travis.yml`:
 
 ```yaml
 dist: xenial
@@ -19,14 +20,15 @@ Please note that Xenial is available on our fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you can use the Xenial Docker images.
 
-## Image differences from Trusty
-Xenial includes the following changes and improvements: 
+## Image updates from Trusty
+
+Xenial includes the following changes and improvements:
 
 ### Third party apt-repositories removed
-Third party apt repositories that are used to make packages available, have been
-removed after installation of the packages. Intent is to speed up runs of `apt-get update`. In
-case you need a repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources). For
-example:
+
+While third party apt-repositories are used during the Xenial image provisioning, they are all removed from the Xenial build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
+
+To specify a third party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
 
 ```yaml
 dist: xenial
@@ -34,11 +36,15 @@ addons:
   apt:
     sources:
       - ppa:chris-lea/redis-server
+    packages:
+    - redis-tools
+    - redis-server
 ```
 {: data-file=".travis.yml"}
 
-Packages from the following repositories are available, even if the source is
-not:
+### Third party packages available in Xenial
+
+The following table outlines the third party packages available in Xenial, along with their original source.
 
 | package       | source                     |
 +---------------+----------------------------+
@@ -53,9 +59,11 @@ not:
 | pollinate     | ppa:pollinate/ppa          |
 
 ### Services disabled by default
+
 On Trusty, some services that you might or might not use, were running by
-default. On Xenial, they have been disabled. You can enable them again by
-specifying the services that you require. An example:
+default. On Xenial, to optimize the use of the virtual machine resources, they come disabled by default.
+
+You can start them by specifying the services that you require. For example:
 
 ```yaml
 services:
@@ -65,16 +73,16 @@ services:
 {: data-file=".travis.yml"}
 
 ## Environment common to all Xenial images
-In total, three different Xenial images are available for use. They selection
-process takes place based on the language and services specified in the
-configuration. The minimal image `stevonnie` supports docker, bash, and has the
-tools for dynamic language runtime download and activation, say `rvm` for ruby.
+
+In total, three different Xenial images are available for use. The selection
+process takes place based on the language and services specified in your `travis.yml` configuration.
+
+The minimal image `stevonnie` supports docker, bash, and has the tools for dynamic language runtime download and activation, for example, `rvm` for ruby.
 
 The other two images have different language runtimes installed by default, and
 have an array of different databases and services available.
 
-This section describes what is available on the minimal image, and common to
-all images.
+You can find below the environment common to all Xenial images. The environment specifications below are also the ones for our `language: minimal` Xenial image.
 
 ### Version control
 
@@ -86,34 +94,46 @@ all images.
 | svn     | 1.9.3   |
 
 ### Compilers and Build toolchain
-clang and llvm 7 are installed. 
-cmake 3.12.4 is available. The gcc toolchain is available from the Ubuntu
+
+* clang and llvm 7 are installed.
+* cmake 3.12.4 is available. The gcc toolchain is available from the Ubuntu
 repositories.
 
 ### Docker
-Docker 18.06.0-ce is installed, and docker-compose 1.23.1.
+
+* Docker 18.06.0-ce is installed
+* docker-compose 1.23.1.
 
 ## Ruby images
-The following rubies are pre-installed: 2.4.5, 2.5.3. Other ruby versions may be
-acquired by specifying e.g. `rvm: 2.5.2` in your configuration.
+
+* Pre-installed Rubies: `2.4.5` and `2.5.3`.
+* Other ruby versions can be installed during build time.
 
 ## Python images
-The following pythons are pre-installed: `2.7.15`, `3.6.5`, and `3.7.1`.
 
-Python 2.7.15 will be used when no version is explicitly set.
+* Pre-installed Python versions: `2.7.15`, `3.6.5`, and `3.7.1`.
+
+* Python `2.7.15` will be used when no language version is explicitly set.
 
 ## JavaScript and Node.js images
-The newest nvm is available to all images. NodeJS 11.0.0 and 8.12.0 are
-installed by default.
+
+* The newest nvm is available to all images. (FIX: is there a version we can use here?)
+
+* Pre-installed NodeJS versions: `11.0.0` and `8.12.0`.
 
 ## Go images
-Go 1.11.1 is installed by default. You can specify any other version with the
-`go:`-key.
+
+* * Pre-installed Go: `1.11.1`
+
+* * Other ruby versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) images
-The following JVMs are preinstalled: `openjdk10`, and `openjdk11`. Any other
-jdk, including Oracle's, can be acquired if available by specifying `jdk`. For
-the JVM tooling, the following versions are installed:
+
+* Pre-installed JVMs: `openjdk10`, and `openjdk11`.
+
+* Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
+
+* The following table summarizes the Pre-installed JVM tooling versions:
 
 | package | version |
 +---------+---------+
@@ -122,6 +142,7 @@ the JVM tooling, the following versions are installed:
 
 ## Databases and services
 
+* Pre-installed Databases and services:
 
 | service    | version        |
 +------------+----------------+
@@ -129,4 +150,3 @@ the JVM tooling, the following versions are installed:
 | mysql      | 5.7            |
 | redis      | 5.5            |
 | postgresql | 9.4 9.5 9.6 10 |
-
