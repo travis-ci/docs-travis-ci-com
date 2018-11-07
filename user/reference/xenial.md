@@ -21,7 +21,6 @@ to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you c
 
 ## Image differences from Trusty
 Xenial includes the following changes and improvements: 
-environment, the Xenial image contains the following changes:
 
 ### Third party apt-repositories removed
 On Trusty, apt repositories that have been used to install images have been
