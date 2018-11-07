@@ -15,7 +15,7 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-Please note that this image will only be available on the sudo-enabled
+Please note that Xenial is available on our fully virtualized
 infrastructure. If you are running an Enterprise installation, you can use the
 Xenial Docker images.
 
