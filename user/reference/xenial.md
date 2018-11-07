@@ -23,7 +23,7 @@ to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you c
 Xenial includes the following changes and improvements: 
 environment, the Xenial image contains the following changes:
 
-### Non-core apt-repositories removed
+### Third party apt-repositories removed
 On Trusty, apt repositories that have been used to install images have been
 removed after installation. Intent is to speed up runs of `apt-get update`. In
 case an apt repository is missing, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources). For
