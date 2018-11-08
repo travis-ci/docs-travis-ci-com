@@ -71,7 +71,7 @@ android:
 ```
 {: data-file=".travis.yml"}
 
-The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
+The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
 
 ### Installing a newer SDK Platform Tools revision
 
