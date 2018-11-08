@@ -18,7 +18,7 @@ dist: xenial
 
 Please note that Xenial is available on our hosted fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
-to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try out Xenial) to see how you can use the Xenial Docker images.
+to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Xenial) to see how you can use the Xenial Docker images.
 
 ## Differences from the Trusty images
 
