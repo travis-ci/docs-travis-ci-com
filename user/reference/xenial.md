@@ -46,17 +46,17 @@ addons:
 
 The following table outlines the third party packages available in Xenial, along with their original source.
 
-| package       | source                     |
-+---------------+----------------------------+
-| redis         | ppa:chris-lea/redis-server |
-| haskell       | ppa:hvr/ghc                |
-| mongodb       | "deb http://repo.mongodb.org/apt/ubuntu xenial/mogodb-org/4.0 multiverse" |
-| couchdb       | ppa:couchdb/stable         |
-| docker        | "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" |
-| git-lfs       | "deb https://packagecloud.io/github/git-lfs/ubuntu/ xenial main" |
-| git-ppa       | ppa:git-core/ppa           |
-| google_chrome | "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" |
-| pollinate     | ppa:pollinate/ppa          |
+| package       | source                                                                      |
+|:--------------|:----------------------------------------------------------------------------|
+| redis         | `ppa:chris-lea/redis-server`                                                |
+| haskell       | `ppa:hvr/ghc`                                                               |
+| mongodb       | `"deb http://repo.mongodb.org/apt/ubuntu xenial/mogodb-org/4.0 multiverse"` |
+| couchdb       | `ppa:couchdb/stable`                                                        |
+| docker        | `"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"` |
+| git-lfs       | `"deb https://packagecloud.io/github/git-lfs/ubuntu/ xenial main"`          |
+| git-ppa       | `ppa:git-core/ppa`                                                          |
+| google_chrome | `"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"`     |
+| pollinate     | `ppa:pollinate/ppa`                                                         |
 
 ### Services disabled by default
 
@@ -86,12 +86,12 @@ You can find below the environment common to all Xenial images. The environment 
 
 ### Version control
 
-| package | version |
-+---------+---------+
-| git     | 2.19.1  |
-| git-lfs | 2.6.0   |
-| hg      | 4.8     |
-| svn     | 1.9.3   |
+| package | version   |
+|:--------|:----------|
+| git     | `2.19.1`  |
+| git-lfs | `2.6.0`   |
+| hg      | `4.8`     |
+| svn     | `1.9.3`   |
 
 ### Compilers and Build toolchain
 
@@ -136,7 +136,7 @@ repositories.
 * The following table summarizes the Pre-installed JVM tooling versions:
 
 | package | version |
-+---------+---------+
+|---------|---------|
 | gradle  | 4.10.2  |
 | maven   | 3.5.4   |
 
@@ -145,7 +145,7 @@ repositories.
 * Pre-installed Databases and services:
 
 | service    | version        |
-+------------+----------------+
+|------------|----------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
 | redis      | 5.5            |
