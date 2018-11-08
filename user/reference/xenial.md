@@ -59,7 +59,7 @@ If you depend on these repositories in your build, you can use the following `so
 
 ### Services disabled by default
 
-On Trusty, some services that you might or might not use, were running by
+On Trusty, some services that you might or might not use, are running by
 default. On Xenial, to optimize the use of the virtual machine resources, they come disabled by default.
 
 You can start them by specifying the services that you require. For example:
