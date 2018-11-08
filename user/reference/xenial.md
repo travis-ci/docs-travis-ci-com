@@ -18,7 +18,7 @@ dist: xenial
 
 Please note that Xenial is available on our hosted fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
-to [enterprise@travis-ci.com](mailto:entereprise@travis-ci.com) to see how you can use the Xenial Docker images.
+to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try out Xenial) to see how you can use the Xenial Docker images.
 
 ## Differences from the Trusty images
 
@@ -42,21 +42,20 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Third party packages available in Xenial
+If you depend on these repositories in your build, you can use the following `source` line to get them back:
 
-The following table outlines the third party packages available in Xenial, along with their original source.
-
-| package       | source                                                                      |
-|:--------------|:----------------------------------------------------------------------------|
-| redis         | `ppa:chris-lea/redis-server`                                                |
-| haskell       | `ppa:hvr/ghc`                                                               |
-| mongodb       | `"deb http://repo.mongodb.org/apt/ubuntu xenial/mogodb-org/4.0 multiverse"` |
-| couchdb       | `ppa:couchdb/stable`                                                        |
-| docker        | `"deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"` |
-| git-lfs       | `"deb https://packagecloud.io/github/git-lfs/ubuntu/ xenial main"`          |
-| git-ppa       | `ppa:git-core/ppa`                                                          |
-| google_chrome | `"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"`     |
-| pollinate     | `ppa:pollinate/ppa`                                                         |
+| package       | source                       |
+|:--------------|:-----------------------------|
+| couchdb       | `ppa:couchdb/stable`         |
+| docker        | `docker-xenial`              |
+| google_chrome | `google-chrome`              |
+| git-lfs       | `github-git-lfs-xenial`      |
+| git-ppa       | `ppa:git-core/ppa`           |
+| haskell       | `ppa:hvr/ghc`                |
+| mongodb       | `mongodb-4.0-xenial`         |
+| pollinate     | `ppa:pollinate/ppa`          |
+| redis         | `ppa:chris-lea/redis-server` |
+{: style="width: 80%" }
 
 ### Services disabled by default
 
@@ -86,13 +85,12 @@ appropriate image is selected. You can find below the environment common to all 
 | git-lfs | `2.6.0`  |
 | hg      | `4.8`    |
 | svn     | `1.9.3`  |
-{: style="width: 50%" } 
+{: style="width: 30%" }
 
 ### Compilers and Build toolchain
 
-* clang and llvm 7 are installed.
-* cmake 3.12.4 is available. The gcc toolchain is available from the Ubuntu
-repositories.
+* clang and llvm 7
+* cmake 3.12.4
 * gcc 5.4.0
 * ccache 3.2.4
 * shellcheck 0.5.0
@@ -138,6 +136,7 @@ repositories.
 |:--------|:--------|
 | gradle  | 4.10.2  |
 | maven   | 3.5.4   |
+{: style="width: 30%" }
 
 ## PHP support
 As always, `phpenv` is available for dynamic runtime selection. The following
@@ -148,6 +147,7 @@ PHPs are preinstalled:
 | 5.6   | 5.6.36  |
 | 7.1   | 7.1.19  |
 | 7.2   | 7.2.7   |
+{: style="width: 30%" }
 
 ## Databases and services
 
@@ -159,6 +159,7 @@ Pre-installed Databases and services are:
 | mysql      | 5.7            |
 | redis      | 5.5            |
 | postgresql | 9.4 9.5 9.6 10 |
+{: style="width: 30%" }
 
 > Note: In order to use them, explicitly enable them in your configuration, e.g.
 > ```
