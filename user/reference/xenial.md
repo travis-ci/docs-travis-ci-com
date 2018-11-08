@@ -126,7 +126,7 @@ repositories.
 
 * Pre-installed Go: `1.11.1`
 
-* * Other ruby versions can be installed during build time by specifying the language versions with the `go:`-key.
+* Other ruby versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) images
 
