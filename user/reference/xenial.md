@@ -139,15 +139,16 @@ appropriate image is selected. You can find below the environment common to all 
 {: style="width: 30%" }
 
 ## PHP support
-As always, `phpenv` is available for dynamic runtime selection. The following
-PHPs are preinstalled:
 
-| alias | version |
-|:------|:--------|
-| 5.6   | 5.6.36  |
-| 7.1   | 7.1.19  |
-| 7.2   | 7.2.7   |
-{: style="width: 30%" }
+* For dynamic runtime selection, `phpenv` is available.
+* The following PHP versions are preinstalled:
+
+  | alias | version |
+  |:----- |:------- |
+  | 5.6   | 5.6.36  |
+  | 7.1   | 7.1.19  |
+  | 7.2   | 7.2.7   |
+  {: style="width: 30%" }
 
 ## Databases and services
 
