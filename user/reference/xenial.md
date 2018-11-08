@@ -86,12 +86,13 @@ You can find below the environment common to all Xenial images. The environment 
 
 ### Version control
 
-| package | version   |
-|:--------|:----------|
-| git     | `2.19.1`  |
-| git-lfs | `2.6.0`   |
-| hg      | `4.8`     |
-| svn     | `1.9.3`   |
+| package | version  |
+|:--------|:---------|
+| git     | `2.19.1` |
+| git-lfs | `2.6.0`  |
+| hg      | `4.8`    |
+| svn     | `1.9.3`  |
+{: style="width: 50%" } 
 
 ### Compilers and Build toolchain
 
@@ -136,7 +137,7 @@ repositories.
 * The following table summarizes the Pre-installed JVM tooling versions:
 
 | package | version |
-|---------|---------|
+|:--------|:--------|
 | gradle  | 4.10.2  |
 | maven   | 3.5.4   |
 
@@ -145,7 +146,7 @@ repositories.
 * Pre-installed Databases and services:
 
 | service    | version        |
-|------------|----------------|
+|:-----------|:---------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
 | redis      | 5.5            |
