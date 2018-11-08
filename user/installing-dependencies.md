@@ -142,31 +142,45 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
-### Installing Snap Packages
+### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+You can install [snap](http://snapcraft.io/) packages using our Xenial images:
 
 ```yaml
-sudo: required
-dist: trusty
+dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-
-The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+The Ubuntu Snap store offers many packages directly maintained by upstream developers, often with newer versions than the ones available in the Apt archive. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
 
 ```yaml
-sudo: true
-dist: trusty
+dist: xenial
 
-install:
-  - sudo apt-get --yes install snapd
-  - sudo snap install hugo
+addons:
+  snaps:
+  - hugo
 
 script:
-  - /snap/bin/hugo new site test-site
+- hugo new site test-site
 ```
 {: data-file=".travis.yml"}
+
+If you need to install a package from a different channel, or a package that uses [classic confinement](https://blog.ubuntu.com/2017/01/09/how-to-snap-introducing-classic-confinement), you can do so with the following config:
+
+```yaml
+dist: xenial
+
+addons:
+  snaps:
+  - name: aws-cli
+    classic: true
+    channel: latest/edge
+
+script:
+- aws help
+```
+{: data-file=".travis.yml"}
+
 
 ## Installing Packages on Container Based Infrastructure
 
