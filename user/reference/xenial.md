@@ -143,7 +143,7 @@ repositories.
 
 ## Databases and services
 
-* Pre-installed Databases and services:
+Pre-installed Databases and services:
 
 | service    | version        |
 |:-----------|:---------------|
