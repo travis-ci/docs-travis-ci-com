@@ -5,7 +5,7 @@ layout: en
 
 ## What This Guide Covers
 
-On this page, you can find what is included on the Xenial build environment.
+This guide provides an overview of the packages, tools and settings available in the Xenial environment.
 
 ## Using Xenial
 
