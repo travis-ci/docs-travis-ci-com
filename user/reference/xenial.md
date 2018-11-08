@@ -9,7 +9,7 @@ This guide provides an overview of the packages, tools and settings available in
 
 ## Using Xenial
 
-To get your builds using Ubuntu Xenial 16.04, add the following to your `.travis.yml`:
+To route your builds to Ubuntu Xenial 16.04, add the following to your `.travis.yml`:
 
 ```yaml
 dist: xenial
