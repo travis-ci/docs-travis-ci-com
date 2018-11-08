@@ -59,10 +59,9 @@ If you depend on these repositories in your build, you can use the following `so
 
 ### Services disabled by default
 
-On Trusty, some services that you might or might not use, were running by
-default. On Xenial, to optimize the use of the virtual machine resources, they come disabled by default.
+On our Xenial infrastructure, to speed up boot time and improve performance we've disabled all services, including the ones that were started by default on Trusty.
+Add any services that you want to start by default to your `.travis.yml`:
 
-You can start them by specifying the services that you require. For example:
 
 ```yaml
 services:
@@ -73,9 +72,8 @@ services:
 
 ## Environment common to all Xenial images
 
-As a technicallity, three different images have been created that all support a
-different range of languages and services. Based on the job configuration, the
-appropriate image is selected. You can find below the environment common to all Xenial images.
+The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
+
 
 ### Version control
 
@@ -152,7 +150,8 @@ appropriate image is selected. You can find below the environment common to all 
 
 ## Databases and services
 
-Pre-installed Databases and services are:
+The following services and databases are preinstalled but but do not run by default.
+To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
@@ -161,10 +160,3 @@ Pre-installed Databases and services are:
 | redis      | 5.5            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
-
-> Note: In order to use them, explicitly enable them in your configuration, e.g.
-> ```
-> services:
-> - mongodb
-> ```
-> {: data-file=".travis.yml"}
