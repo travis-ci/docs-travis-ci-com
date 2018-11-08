@@ -118,7 +118,7 @@ repositories.
 
 ## JavaScript and Node.js images
 
-* The newest nvm is available to all images. (FIX: is there a version we can use here?)
+* Nvm is automatically updated to the latest version at build time. 
 
 * Pre-installed NodeJS versions: `11.0.0` and `8.12.0`.
 
