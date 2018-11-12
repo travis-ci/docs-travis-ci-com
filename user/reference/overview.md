@@ -17,7 +17,7 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-A full virtual machine per build, that runs Linux, either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
+A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Xenial 16.04](/user/reference/xenial/), [Ubuntu Trusty 14.04](/user/reference/trusty/), or [Ubuntu Precise 12.04](/user/reference/precise/)
 
 ### OS X
 
@@ -25,7 +25,7 @@ An [OS X](/user/reference/osx/) environment for Objective-C and other OS X speci
 
 ### Windows
 
-A [Windows](/user/reference/windows/) environment running Windows Server 2016.
+A [Windows](/user/reference/windows/) environment running Windows Server, version 1803.
 
 ### Virtualisation Environment vs Operating System
 
@@ -36,11 +36,11 @@ The following table summarizes the differences across virtual environments and o
 | Name                 | Ubuntu                            | OS X                         | Windows                            |
 | Status               | Current                           | Current                      | Early release                      |
 | Infrastructure       | Virtual machine on GCE            | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: trusty` or `dist: precise` | `os: osx`                    | `os: windows`                      |
+| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise` | `os: osx`                    | `os: windows`                      |
 | Allows `sudo`        | Yes                               | Yes                          | No                                 |
 | Approx boot time     | 20-50s                            | 60-90s                       | 60-120s                            |
 | File system          | EXT4                              | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu 14.04                      | OS X                         | Windows Server 2016                |
+| Operating system     | Ubuntu Linux                      | OS X                         | Windows Server 2016                |
 | Memory               | 7.5 GB                            | 4 GB                         | 8 GB                               |
 | Cores                | 2                                 | 2                            | 2                                  |
 | IPv4 network         | IPv4 is available                 | IPv4 is available            | IPv4 is available                  |

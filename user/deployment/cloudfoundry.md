@@ -26,6 +26,8 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
    api: https://api.run.pivotal.io
    organization: myawesomeorganization
    space: staging
+   manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
+   app_name: My app name                # (optional)
 ```
 {: data-file=".travis.yml"}
 

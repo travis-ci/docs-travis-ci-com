@@ -3,6 +3,7 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
 
 ## What This Guide Covers
@@ -29,8 +30,6 @@ Trusty, including details specific to container-based, read on ...
 Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine that offers a vanilla build environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
-
-Builds have access to a variety of services for data storage and messaging, and can install anything that's required for them to run.
 
 ## Image differences from Precise
 
@@ -156,6 +155,7 @@ by `gimme`.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
   - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
+  - Oracle JDK 11 (`oraclejdk11`)
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.

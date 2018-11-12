@@ -29,6 +29,7 @@ You can also directly edit your `.travis.yml`. Insert the following to get up an
    organization: myawesomeorganization
    space: staging
    manifest: manifest-prod.yml          # (optional)  Defaults to manifest.yml.
+   app_name: My app name                # (optional)
    region: eu-gb                        # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
    api: https://api.ng.bluemix.net      # (optional)  Overrides region setting if specified for Bluemix local installations.
 ```

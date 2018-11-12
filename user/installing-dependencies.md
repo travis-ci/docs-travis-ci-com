@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/) or [trusty](/user/reference/trusty/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -142,34 +142,51 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
-### Installing Snap Packages
+### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages in the Trusty environment:
+You can install [snap](http://snapcraft.io/) packages using our Xenial images:
 
 ```yaml
-dist: trusty
+dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-
-The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released.
-For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+The Ubuntu Snap store offers many packages directly maintained by upstream developers, often with newer versions than the ones available in the Apt archive. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
 
 ```yaml
-dist: trusty
+dist: xenial
 
-install:
-  - sudo apt-get --yes install snapd
-  - sudo snap install hugo
+addons:
+  snaps:
+  - hugo
 
 script:
-  - /snap/bin/hugo new site test-site
+- hugo new site test-site
+```
+{: data-file=".travis.yml"}
+
+If you need to install a package from a different channel, or a package that uses [classic confinement](https://blog.ubuntu.com/2017/01/09/how-to-snap-introducing-classic-confinement), you can do so with the following config:
+
+```yaml
+dist: xenial
+
+addons:
+  snaps:
+  - name: aws-cli
+    classic: true
+    channel: latest/edge
+
+script:
+- aws help
 ```
 {: data-file=".travis.yml"}
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+
+For convenience, you can use Homebrew addon in your `.travis.yml`.
+For example, to install beanstalk:
 
 ```yaml
 addons:
@@ -243,6 +260,21 @@ addons:
     brewfile: Brewfile.travis
 ```
 {: data-file=".travis.yml"}
+
+### Using Homebrew without addon on older macOS images
+
+If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
+
+    Homebrew must be run under Ruby 2.3! You're running 2.0.0.
+
+You'll need to update to Ruby 2.3 or newer:
+
+```
+rvm use 2.3 --install --binary
+brew update
+brew install openssl
+rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
+```
 
 ## Installing Dependencies on Multiple Operating Systems
 

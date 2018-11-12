@@ -56,9 +56,9 @@ and a blank password.
 > `root` user does.
 
 
-|       | Ubuntu Precise | Ubuntu Trusty |
-|:------|:---------------|:--------------|
-| MySQL | 5.5.x          | 5.6.x         |
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
+|:------|:---------------|:--------------|---------------|
+| MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
 
 You can also [install MySQL 5.7](#MySQL-57) on Ubuntu Trusty.
 
@@ -103,7 +103,8 @@ before_install:
 
 ### MySQL 5.7
 
-On Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial image. 
+On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 ```yaml
 addons:
