@@ -73,7 +73,11 @@ directory alphabetically.
 
 ## JDK and OS X
 
-The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need.
+Note the pre-installed JDK version (OracleJDK) for each image in the table below.
+While Mac jobs can test against multiple JDK versions using the [`jdk` key](/user/languages/java/#testing-against-multiple-jdks),
+OS X images up to `xcode9.3` can only switch up to Java 8, and images `xcode9.4` and later can switch to Java 10 (if pre-installed) and later.
+In practical terms, if your Mac build requires Java 8 and below, use `xcode9.3` (or below); if your build requires Java 10
+and later, use `xcode9.4` (or later).
 
 <table>
 
