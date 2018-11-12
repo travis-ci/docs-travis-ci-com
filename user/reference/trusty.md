@@ -3,6 +3,7 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
 
 ## What This Guide Covers
