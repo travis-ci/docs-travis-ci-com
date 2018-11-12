@@ -101,7 +101,7 @@ compiler:
 {: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build
-matrix. For each row, Travis CI C builder will export the `CC` env variable to
+matrix. For each row, Travis CI C builder will export the `CC` and `CC_FOR_BUILD` env variables to
 point to either `gcc` or `clang`.
 
 On OS X, `gcc` is an alias for `clang`. Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.

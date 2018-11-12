@@ -215,15 +215,19 @@ The version of Go a job is using is available as:
 TRAVIS_GO_VERSION
 ```
 
-Please note that this will expand to the real Go version, for example `1.7.4`,
-also when `go: 1.7.x` was specified. Comparing this value in for example the
-deploy section could look like this:
+This may contain `.x` at the end, as described above.
+Use of this variable in the deployment condition should
+take this possibility into consideration.
+For example:
 
 ```yaml
+go:
+  - 1.7.x
+⋮
 deploy:
   ...
   on:
-    condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7
 ```
 {: data-file=".travis.yml"}
 

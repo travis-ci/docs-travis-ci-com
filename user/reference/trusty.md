@@ -3,6 +3,7 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
 
 ## What This Guide Covers
@@ -210,6 +211,7 @@ by `gimme`.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
   - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
+  - Oracle JDK 11 (`oraclejdk11`)
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.
