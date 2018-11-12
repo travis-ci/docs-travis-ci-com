@@ -31,21 +31,21 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux                      | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
-|:---------------------|:----------------------------------|:-----------------------------|:-----------------------------------|
-| Name                 | Ubuntu                            | OS X                         | Windows                            |
-| Status               | Current                           | Current                      | Early release                      |
-| Infrastructure       | Virtual machine on GCE            | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise` | `os: osx`                    | `os: windows`                      |
-| Allows `sudo`        | Yes                               | Yes                          | No                                 |
-| Approx boot time     | 20-50s                            | 60-90s                       | 60-120s                            |
-| File system          | EXT4                              | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu Linux                      | OS X                         | Windows Server 2016                |
-| Memory               | 7.5 GB                            | 4 GB                         | 8 GB                               |
-| Cores                | 2                                 | 2                            | 2                                  |
-| IPv4 network         | IPv4 is available                 | IPv4 is available            | IPv4 is available                  |
-| IPv6 network         | IPv6 is not available             | IPv6 is not available        | IPv6 is not available              |
-| Available disk space | approx 18GB                       | approx 41GB                  | approx 19 GB                       |
+|                      | Ubuntu Linux ([Xenial](/user/reference/Xenial/) , [Trusty](/user/reference/Trusty/), [Precise](/user/reference/precise/)) | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------------------------------|
+| Name                 | Ubuntu                                                                                                                    | OS X                         | Windows                            |
+| Status               | Current                                                                                                                   | Current                      | Early release                      |
+| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine              | Virtual machine on GCE             |
+| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                    | `os: windows`                      |
+| Allows `sudo`        | Yes                                                                                                                       | Yes                          | No                                 |
+| Approx boot time     | 20-50s                                                                                                                    | 60-90s                       | 60-120s                            |
+| File system          | EXT4                                                                                                                      | HFS+                         | NTFS                               |
+| Operating system     | Ubuntu Linux                                                                                                              | OS X                         | Windows Server 2016                |
+| Memory               | 7.5 GB                                                                                                                    | 4 GB                         | 8 GB                               |
+| Cores                | 2                                                                                                                         | 2                            | 2                                  |
+| IPv4 network         | IPv4 is available                                                                                                         | IPv4 is available            | IPv4 is available                  |
+| IPv6 network         | IPv6 is not available                                                                                                     | IPv6 is not available        | IPv6 is not available              |
+| Available disk space | approx 18GB                                                                                                               | approx 41GB                  | approx 19 GB                       |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -73,14 +73,7 @@ if it contains:
 
 ### For a particular .travis.yml configuration
 
-Many different parts of your `.travis.yml` affect what infrastructure your build runs on.
-The following list describes some of the main settings that determine build routing:
-
-* Any of the following settings related to docker route your build to a Ubuntu Trusty linux  virtual machine running on Google Cloud Engine.
-
-  - `services: docker`
-  - *any* other `sudo` command in your build script
-  - *any* other `docker` command in your build script
+* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
