@@ -25,7 +25,7 @@ language: android
 ```
 {: data-file=".travis.yml"}
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 26.0.2 (April 2017).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
 
 Here is an example `.travis.yml` for an Android project:
 
@@ -48,11 +48,10 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-26
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-26
+    - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
 ```
 {: data-file=".travis.yml"}
@@ -73,38 +72,6 @@ android:
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
 
-### Installing a newer SDK Platform Tools revision
-
-To build your project with the SDK Platform Tools revision 24 or above, you need to define the following components in your `.travis.yml`:
-
-```yaml
-android:
-  components:
-    - tools
-    - platform-tools
-    - tools
-```
-{: data-file=".travis.yml"}
-
-> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
-
-You can compile your project for Android 26 as shown in the following example:
-
-```yaml
-android:
-  components:
-    - tools
-    - platform-tools
-    - tools
-
-    # The BuildTools version used by your project
-    - build-tools-26.0.2
-
-    # The SDK version used to compile your project
-    - android-26
-```
-{: data-file=".travis.yml"}
-
 #### Dealing with Licenses
 
 By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
@@ -115,7 +82,6 @@ android:
   components:
     - build-tools-26.0.2
     - android-26
-    - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra
   licenses:
@@ -131,26 +97,10 @@ For more flexibility, the licenses can also be referenced with regular expressio
 
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
+- tools
 - platform-tools
-- build-tools-22.0.1
-- android-22
-- sys-img-armeabi-v7a-android-22
-- android-21
-- sys-img-armeabi-v7a-android-21
-- android-20
-- sys-img-armeabi-v7a-android-wear-20
-- android-19
-- sys-img-armeabi-v7a-android-19
-- android-18
-- sys-img-armeabi-v7a-android-18
-- android-17
-- sys-img-armeabi-v7a-android-17
-- android-16
-- sys-img-armeabi-v7a-android-16
-- android-15
-- sys-img-armeabi-v7a-android-15
-- android-10
-- extra-android-support
+- build-tools-25.0.2
+- android-25
 - extra-google-google_play_services
 - extra-google-m2repository
 - extra-android-m2repository
