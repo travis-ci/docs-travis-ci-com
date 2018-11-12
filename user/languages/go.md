@@ -14,7 +14,7 @@ swiftypetags:
 
 | Go                                          | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `go get -t ./...`                         |
+| [Default `install`](#Dependency-Management) | `go get -t -v ./...`                         |
 | [Default `script`](#Default-Build-Script)   | `make` or `go test`                       |
 | [Matrix keys](#Build-Matrix)                | `go`, `env`                               |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
@@ -77,7 +77,7 @@ The default install step depends on the version of go:
 * if go version is greater than or equal to `1.2`
 
   ```
-  go get -t ./...
+  go get -t -v ./...
   ```
 
 * if go version is older than `1.2`
@@ -167,17 +167,17 @@ make
 In case there is no Makefile, it will be
 
 ```bash
-go test -v ./...
+go test
 ```
 
 instead.
 
 These default commands can be overridden as described in the [general build
-configuration](/user/customizing-the-build/) guide. For example, to omit the
+configuration](/user/customizing-the-build/) guide. For example, to add the
 `-v` flag, override the `script:` key in `.travis.yml` like this:
 
 ```yaml
-script: go test ./...
+script: go test -v ./...
 ```
 {: data-file=".travis.yml"}
 
