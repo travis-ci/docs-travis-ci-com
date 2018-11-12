@@ -31,7 +31,7 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux ([Xenial](/user/reference/Xenial/) , [Trusty](/user/reference/Trusty/), [Precise](/user/reference/precise/)) | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|                      | Ubuntu Linux ([Xenial](/user/reference/xenial/) , [Trusty](/user/reference/Ttusty/), [Precise](/user/reference/precise/)) | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------------------------------|
 | Name                 | Ubuntu                                                                                                                    | OS X                         | Windows                            |
 | Status               | Current                                                                                                                   | Current                      | Early release                      |
