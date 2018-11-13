@@ -163,7 +163,7 @@ export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 A full list of options and mount modes is listed in the official
  [Docker documentation](https://docs.docker.com/storage/bind-mounts/).
 
-## Worker behind a HTTP(S) Proxy
+## Worker behind an HTTP(S) Proxy
 
 If you're using Travis CI Enterprise behind an HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
 
@@ -202,7 +202,7 @@ export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
 
 In this example we've used Docker-CE 17.12. According to the [API mismatch table](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) we need to choose `1.35` for `TRAVIS_WORKER_DOCKER_API_VERSION`.
 
-Below you find the full list of available environment variables and their equivalent how they're accessible during the build:
+Below you find the full list of available environment variables and how they're accessible during the build:
 
 Environment variable | Available as:
 `TRAVIS_WORKER_DOCKER_HTTP_PROXY` | `HTTP_PROXY`, `http_proxy`
