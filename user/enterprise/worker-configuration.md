@@ -210,7 +210,12 @@ Environment variable | Available as:
 `TRAVIS_WORKER_DOCKER_NO_PROXY` | `NO_PROXY`, `no_proxy`
 `TRAVIS_WORKER_DOCKER_FTP_PROXY` | `FTP_PROXY`, `ftp_proxy`
 
-Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If that's not desired, please whitelist your apt package mirror by adding it to `TRAVIS_WORKER_DOCKER_NO_PROXY`.
+Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If you don't want this to happen, please whitelist your apt package mirror by adding it to TRAVIS_WORKER_DOCKER_NO_PROXY` like this:
+
+```
+export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'
+```
+
 
 ## Contact Enterprise Support
 
