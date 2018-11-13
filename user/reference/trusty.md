@@ -50,7 +50,7 @@ can install anything that's required for them to run.
 ## Container-based with `sudo: false`
 
 > Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures). 
-> Please use the [fully-virtualized infrastrstructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
+> Please use the [fully-virtualized infrastructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
 
 When specifying `sudo: false`, Travis CI runs each build in a container on a
 shared host via Docker.  The container contents are a pristine copy of the
