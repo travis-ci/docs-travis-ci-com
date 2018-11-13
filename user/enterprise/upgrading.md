@@ -65,8 +65,8 @@ In order to update the Worker, you can run the following on each worker
 host:
 
 ```
-  sudo apt-get update
-  sudo apt-get install travis-worker
+$ sudo apt-get update
+$ sudo apt-get install travis-worker
 ```
 
 ## Restoring from Backups
