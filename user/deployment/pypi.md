@@ -112,6 +112,24 @@ deploy:
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
 
+## Upload artifacts only once
+
+By default, Travis CI runs the deploy stage for each `python` and `environment` that you specify. Many of these will generate competing build artifacts that will fail to upload to pypi with a message something like this:
+
+```
+HTTPError: 400 Client Error: File already exists. See https://pypi.org/help/#file-name-reuse for url: https://upload.pypi.org/legacy/
+```
+
+To avoid this, use the `skip_existing` flag:
+
+```
+deploy:
+  provider: pypi
+  user: ...
+  password: ...
+  skip_existing: true
+```
+
 ## Releasing build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
