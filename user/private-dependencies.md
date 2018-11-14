@@ -236,7 +236,7 @@ Assumptions:
 
 This approach works just like the [password](#Password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
 
-Under the GitHub account settings for the user you want to use, navigate to [Applications](https://github.com/settings/applications) and generate a "personal access tokens". Make sure the token has the "repo" scope.
+Under the GitHub account settings for the user you want to use, navigate to [Settings](https://github.com/settings/tokens), [Developer settings](https://github.com/settings/developers), and then generate a "Personal access tokens". Make sure the token has the "repo" scope.
 
 Your `~/.netrc` should look like this:
 
