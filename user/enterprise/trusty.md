@@ -10,7 +10,7 @@ layout: en_enterprise
 
 **Worker Requirements**:
 
-We recommend using AWS's `c4.2xlarge` as the instance type with at least 40gb of disk space. Port 22 must be open for SSH during installation and operation.
+We recommend using a machine with 8 vCPUs and 15 GiB of memory and at least 40 GiB of disk space. If you're using AWS that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
 
 In addition, _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
 
@@ -63,7 +63,7 @@ To run builds on a worker with Trusty images, please add `dist: trusty` to your 
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
-`sudo service travis-worker restart` 
+`sudo service travis-worker restart`
 
 Worker configuration changes are applied on start.
 
