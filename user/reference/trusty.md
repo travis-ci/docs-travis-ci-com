@@ -23,13 +23,17 @@ dist: trusty
 
 
 If you'd like to know more about the pros, cons, and current state of using
-Trusty, including details specific to container-based, read on ...
-
-## Fully-virtualized
+Trusty, read on.
 
 Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine that offers a vanilla build environment for every build.
 
-This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
+Builds have access to a variety of services for data storage and messaging, and
+can install anything that's required for them to run.
+
+## Container-based with `sudo: false`
+
+> Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
+> Please use the [fully-virtualized infrastructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
 
 ## Image differences from Precise
 
