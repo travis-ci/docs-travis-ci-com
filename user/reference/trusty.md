@@ -41,7 +41,7 @@ Your build is routed to this infrastructure automatically, you don't need make a
 ## Container-based infrastructure
 
 > Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
-> Please use the default fully-virtualized [Linux infrastructure](#default-linux-infrastructure) instead
+> Please use the default fully-virtualized [Linux infrastructure](#linux-infrastructure) instead
 
 ## Image differences from Precise
 
