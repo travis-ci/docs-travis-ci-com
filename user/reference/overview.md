@@ -88,6 +88,8 @@ if it contains:
 
 Historically, Travis CI has provided the following virtualization environments.
 
-- **Trusty Container-based environment**
-- **Precise Container-based environment**: available from the announcement in [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) to [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
+- **Trusty Container-based environment**: was available between [July, 2017](https://blog.travis-ci.com/2017-07-11-trusty-as-default-linux-is-coming) and [December, 2018](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
+- **Precise Container-based environment**: was available between [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) and [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
 - **Legacy environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
+
+If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you switch to our current [Xenial Linux infrastructure](/user/reference/xenial/)

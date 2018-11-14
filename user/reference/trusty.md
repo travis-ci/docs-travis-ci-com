@@ -30,10 +30,10 @@ Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.g
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## Container-based with `sudo: false`
+## Container-based infrastructure
 
 > Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
-> Please use the [fully-virtualized infrastructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
+> Please use the fully-virtualized [Linux infrastructure](#fully-virtualized-via-sudo-required) instead.
 
 ## Image differences from Precise
 
