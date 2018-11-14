@@ -30,10 +30,18 @@ Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.g
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
+## Linux infrastructure
+
+Travis CI runs each build in an isolated Google Compute Engine virtual machine that offer a vanilla build environment for every build.
+
+This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
+
+Your build is routed to this infrastructure automatically, you don't need make any modifications to your `.travis.yml`.
+
 ## Container-based infrastructure
 
 > Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
-> Please use the fully-virtualized [Linux infrastructure](#fully-virtualized-via-sudo-required) instead.
+> Please use the default fully-virtualized [Linux infrastructure](#default-linux-infrastructure) instead
 
 ## Image differences from Precise
 
