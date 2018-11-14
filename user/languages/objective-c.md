@@ -6,14 +6,10 @@ swiftypetags:
   - swift
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
 Objective-C/Swift builds are not available on the Linux environments.
@@ -37,7 +33,7 @@ the following table:
 </table>
 
 > Detailed iOS SDK versions are available in the [OS X CI environment
-> reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
+> reference](/user/reference/osx/#xcode-version)
 
 ## Default Test Script
 
@@ -177,4 +173,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#Xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#xcode-version).

@@ -26,7 +26,8 @@ Define variables in `.travis.yml` that:
 - differ per branch.
 - differ per job.
 
-Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`):
+Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`).
+One build will triggered for each line in the `env` array.
 
 ```yaml
 env:
@@ -40,7 +41,7 @@ env:
 
 ### Defining Multiple Variables per Item
 
-When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
+If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
 ```yaml
 rvm:
@@ -189,13 +190,16 @@ to tag the build, or to run post-build deployments.
   being built has been copied on the worker.
 - `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
+- `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
 - `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.
 - `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
+- `TRAVIS_JOB_NAME`: The [job name](https://docs.travis-ci.com/user/build-stages/#naming-your-jobs-within-build-stages) if it was specified, or `""`.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
+- `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are `linux` and `osx` currently, to be extended in the future.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,

@@ -25,7 +25,7 @@ examples.
 > Travis CI automatically routes builds to run on our Trusty sudo-enabled infrastructure when `services: docker` is configured.
 > We do not currently support use of Docker on OS X.
 
-> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](https://docs.travis-ci.com/user/enterprise/build-images/#Enabling-Docker-Builds).
+> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
 
 ## Using a Docker Image from a Repository in a Build
 
@@ -76,8 +76,7 @@ output](https://travis-ci.org/travis-ci/docker-sinatra):
 $ docker ps -a
 CONTAINER ID        IMAGE                   COMMAND                CREATED                  STATUS                  PORTS                    NAMES
 e376792bce99        carlad/sinatra:latest   "/bin/sh -c 'cd /roo   Less than a second ago   Up Less than a second   127.0.0.1:80->4567/tcp   condescending_galileo
-before_install.4
-1.30s$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+$ docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 /usr/local/bin/ruby -I"lib:test" -I"/usr/local/lib/ruby/2.2.0" "/usr/local/lib/ruby/2.2.0/rake/rake_test_loader.rb" "test/test_app.rb"
 Loaded suite /usr/local/lib/ruby/2.2.0/rake/rake_test_loader
 Started
@@ -137,7 +136,7 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
-Be sure to [encrypt environment variables](/user/environment-variables#Encrypting-environment-variables)
+Be sure to [encrypt environment variables](/user/environment-variables#encrypting-environment-variables)
 using the travis gem.
 
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
@@ -182,7 +181,7 @@ echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin re
 
 ## Using Docker Compose
 
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#docker).
 
 If needed, you can easily replace this preinstalled version of `docker-compose`
 by adding the following `before_install` step to your `.travis.yml`:
@@ -210,7 +209,7 @@ before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
-  - sudo apt-get -y install docker-ce
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
 {: data-file=".travis.yml"}
 

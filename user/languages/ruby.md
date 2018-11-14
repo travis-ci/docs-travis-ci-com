@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
@@ -34,7 +31,7 @@ rvm:
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
@@ -300,7 +297,7 @@ For example, see
 ### Using Java 10 and Up
 
 For testing with OpenJDK and OracleJDK 10 and up, see
-[Java documentation](/user/languages/java/#Using-Java-10-and-later).
+[Java documentation](/user/languages/java/#using-java-10-and-later).
 
 ## Upgrading RubyGems
 
@@ -333,4 +330,4 @@ downloads and installations are required.
 ## Build Matrix
 
 For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).

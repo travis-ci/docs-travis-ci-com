@@ -64,7 +64,9 @@ task :run_html_proofer => [:build] do
     './_site',
     internal_domains: ['docs.travis-ci.com'],
     check_external_hash: true,
+    check_html: true,
     connecttimeout: 600,
+    allow_hash_ref: true,
     only_4xx: true,
     typhoeus: {
       ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
@@ -136,10 +138,6 @@ end
 
 file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
-end
-
-file '_data/packet_ip_range.yml' do |t|
-  define_ip_range('nat.packet-ewr1.travisci.net', t.name)
 end
 
 file '_data/node_js_versions.yml' do |t|

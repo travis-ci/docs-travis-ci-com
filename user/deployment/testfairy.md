@@ -39,7 +39,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore file.
+Always [encrypt](/user/encrypting-files/) your keystore file.
 
 ## Symbols file
 
@@ -84,7 +84,7 @@ deploy:
 - **screenshot-interval**: Seconds between video frames. Default "1" seconds.
 - **record-on-background**: If true, data will be collected while the app on background.
 - **icon-watermark**: Add a small watermark to app icon. Default is "false".
-- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](http://docs.testfairy.com/Upload_API.html).
+- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](https://docs.testfairy.com/API/Upload_API.html).
 - **advanced-options**: Additional settings (eg shake,anonymous).
 
 For example:

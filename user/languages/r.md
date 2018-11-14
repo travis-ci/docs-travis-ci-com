@@ -7,9 +7,7 @@ layout: en
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -243,7 +241,7 @@ repos:
 ### Environment Variables
 
 R-Travis sets the following additional environment variables from the [Travis
-defaults](/user/environment-variables/#Default-Environment-Variables).
+defaults](/user/environment-variables/#default-environment-variables).
 
 - `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
 - `R_LIBS_USER=~/R/Library`
@@ -351,7 +349,7 @@ Remotes: user/repo
 {: data-file=".travis.yml"}
 
 Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
-In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *repository* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
 
 
 ### Remote package in a subdirectory

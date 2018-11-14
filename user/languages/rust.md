@@ -27,7 +27,7 @@ language: rust
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Rust projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing a Rust version
@@ -117,4 +117,4 @@ build in the `TRAVIS_RUST_VERSION` environment variable.
 ## Build Matrix
 
 For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).

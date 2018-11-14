@@ -14,8 +14,6 @@ Throughout this document we'll be using the following terms to refer to the two 
 
 > Please note that this guide is geared towards non-High Availability (HA) setups right now.
 
-<div id='toc'></div>
-
 ## Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
@@ -86,11 +84,11 @@ $ sudo restart travis-worker
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#create-a-travis-ci-platform-security-group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#create-a-travis-ci-platform-security-group) are open in your firewall.
 
 #### Docker Versions Mismatched
 
-This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#install-travis-ci-enterprise-worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#Contact-Enterprise-Support) section below to move forward.
 
@@ -109,7 +107,7 @@ After a fresh installation or configuration change the Travis CI Enterprise cont
 
 #### GitHub OAuth app configuration
 
-The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](https://docs.travis-ci.com/user/enterprise/prerequisites/#OAuth-App). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/prerequisites/#oauth-app). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
 
 #### Hostname does not match license's hostname
 
@@ -143,7 +141,7 @@ This can have various causes, including an automatic nvm update or a caching err
 
 ### Strategy
 
-This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#Use-a-Lets-Encrypt-SSL-Certificate) page that walks you through the installation process using Let's Encrypt as an example.
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
 ## User accounts are stuck in syncing state
 

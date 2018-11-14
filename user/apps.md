@@ -164,8 +164,6 @@ By Tim Felgentreff
 
 - [website](http://travis7.codeplex.com/)
 
-<a name='desktop'></a>
-
 # Desktop
 
 If you are looking for **desktop notifications**, our command line client [supports them](https://github.com/travis-ci/travis.rb#monitor).
@@ -322,8 +320,6 @@ By James Halliday
 
 - [website](https://github.com/substack/travisify)
 
-<a name='plugins'></a>
-
 # Plugins
 
 ## Google Chrome
@@ -444,8 +440,6 @@ NodeGH plugin for integrating Travis CI<br>
 By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
-
-<a name='libraries'></a>
 
 # Libraries
 

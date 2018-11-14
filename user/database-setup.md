@@ -58,10 +58,10 @@ and a blank password.
 Current versions of MySQL are
 
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
+|                 | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
+|:----------------|:---------------|:--------------|---------------|
+| Sudo-enabled    | 5.5.x          | 5.6.x         | 5.7.x         |
+| Container-based | -              | 5.6.x         | -             |
 
 You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
 
@@ -106,7 +106,7 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial image. On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 ```yaml
 addons:
@@ -487,7 +487,7 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
@@ -551,7 +551,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:

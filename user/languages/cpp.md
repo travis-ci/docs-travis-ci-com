@@ -4,9 +4,6 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
@@ -29,7 +26,7 @@ language: cpp
 {{ site.data.snippets.trusty_note }}
 
 This guide covers build environment and configuration topics specific to C++
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C++ Projects
@@ -104,9 +101,10 @@ compiler:
 {: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build
-matrix. For each row, the Travis CI C++ builder will export the `CXX` env
-variable to point to either `g++` or `clang++` and `CC` to either `gcc` or
-`clang`.
+matrix. For each row, the Travis CI C++ builder will export the `CXX` and
+`CCX_FOR_BUILD` env variables to point to either `g++` or `clang++`, and
+correspondingly export the `CC` and `CC_FOR_BUILD` env variables to point
+to either `gcc` or `clang`.
 
 On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
 Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.
