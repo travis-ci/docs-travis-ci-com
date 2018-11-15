@@ -35,8 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/overview/). If you download Apache Jackrabbit
-> you still have to start it in a `before_install` step.
+> If you download and install a service manually, you also have to start it in a `before_install` step. The `services` key only works for services we provision.
 
 ## MySQL
 
@@ -57,7 +56,7 @@ and a blank password.
 
 
 |       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
-|:------|:---------------|:--------------|---------------|
+|:------|:---------------|:--------------|:--------------|
 | MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
 
 You can also [install MySQL 5.7](#MySQL-57) on Ubuntu Trusty.
@@ -105,6 +104,7 @@ before_install:
 
 MySQL 5.7 is the default on the Xenial image. 
 On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+
 
 ```yaml
 addons:
