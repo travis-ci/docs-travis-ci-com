@@ -33,7 +33,7 @@ We're shipping the same Docker build images as we use on travis-ci.com. The base
 - Python
 - Java / JVM
 
-The third image, `amethyst`, additionaly ships with Android, Erlang, Haskell and Perl preinstalled.
+The third image, `amethyst`, additionally ships with Android, Erlang, Haskell and Perl preinstalled.
 
 > Any modification to one of these images will be available for other languages as well.
 
@@ -86,7 +86,7 @@ With this option we tell `travis-worker` to make the host's Docker socket availa
 
 #### Restart travis-worker
 
-To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#Stopping-and-Starting-the-Worker).
+To restart travis-worker, you can find the instructions [here](/user/enterprise/worker-cli-commands/#stopping-and-starting-the-worker).
 
 ### Updates to your .travis.yml files
 

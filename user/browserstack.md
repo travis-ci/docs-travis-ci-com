@@ -23,11 +23,11 @@ URLs with HTTPS.
 
 [account-settings]: https://www.browserstack.com/accounts/settings
 
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+[encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
 
 [browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
 
-[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
+[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
 
 [browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
@@ -40,7 +40,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](/user/pull-requests/#Pull-Requests-and-Security-Restrictions).
+For more information see the [pull requests page](/user/pull-requests/#pull-requests-and-security-restrictions).
 
 ### Encrypted Access Key
 

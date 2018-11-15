@@ -33,7 +33,7 @@ the following table:
 </table>
 
 > Detailed iOS SDK versions are available in the [OS X CI environment
-> reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
+> reference](/user/reference/osx/#xcode-version)
 
 ## Default Test Script
 
@@ -173,4 +173,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#Xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#xcode-version).

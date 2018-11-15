@@ -241,7 +241,7 @@ repos:
 ### Environment Variables
 
 R-Travis sets the following additional environment variables from the [Travis
-defaults](/user/environment-variables/#Default-Environment-Variables).
+defaults](/user/environment-variables/#default-environment-variables).
 
 - `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
 - `R_LIBS_USER=~/R/Library`
@@ -346,10 +346,10 @@ An alternative is to add the following line to your `DESCRIPTION` file:
 Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
-{: data-file=".travis.yml"}
+{: data-file="DESCRIPTION"}
 
 Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
-In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *repository* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
 
 
 ### Remote package in a subdirectory
@@ -366,7 +366,7 @@ An alternative is to add the following line to your `DESCRIPTION` file:
 ```yaml
 Remotes: user/repo/folder
 ```
-{: data-file=".travis.yml"}
+{: data-file="DESCRIPTION"}
 
 ## Converting from r-travis
 

@@ -43,7 +43,7 @@ jobs:
       env: FOO=foo
 ```
 
-Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
+Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#build-matrix) currently cannot have conditions.
 
 Jobs that do not match the condition will be skipped silently.
 

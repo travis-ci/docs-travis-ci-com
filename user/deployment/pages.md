@@ -37,9 +37,9 @@ token](https://help.github.com/articles/creating-an-access-token-for-command-lin
 with the `public_repo` or `repo` scope (`repo` is required for private
 repositories). Since the token should be private,
 you'll want to pass it to Travis securely in your [repository
-settings](https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings)
+settings](/user/environment-variables#defining-variables-in-repository-settings)
 or via [encrypted variables in
-`.travis.yml`](https://docs.travis-ci.com/user/environment-variables#Defining-encrypted-variables-in-travisyml).
+`.travis.yml`](/user/environment-variables#defining-encrypted-variables-in-travisyml).
 
 ## Further configuration
 
@@ -54,7 +54,7 @@ or via [encrypted variables in
 * `project-name`: Defaults to value of `fqdn` or repo slug, used for metadata
 * `email`: Optional, committer info, defaults to `deploy@travis-ci.org`
 * `name`: Optional, committer, defaults to `Deployment Bot`
-* `committer-from-gh`: Optional, defaults to `false`. Allows to use token's
+* `committer-from-gh`: Optional, defaults to `false`. Allows you to use the token's
   owner name and email for commit. Overrides `email` and `name` options.
 * `allow-empty-commit`: Optional, defaults to `false`. Enabled if only
   `keep-history` is `true`.

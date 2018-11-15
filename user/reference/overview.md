@@ -20,11 +20,14 @@ Each build runs in one of the following virtual environments.
 
 ### Sudo-enabled
 
-A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Precise 12.04](/user/reference/precise/) or [Ubuntu Trusty 14.04](/user/reference/trusty/).
+A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Xenial 16.04](/user/reference/xenial/), [Ubuntu Trusty 14.04](/user/reference/trusty/), or [Ubuntu Precise 12.04](/user/reference/precise/)
 
 ### Container-based
 
 A fast boot time environment in which `sudo` commands are not available. Running Linux [Ubuntu Trusty 14.04](/user/reference/trusty/)
+> Please note that this environment is deprecated. See [the
+announcement](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
+for more information.
 
 ### OS X
 
@@ -32,27 +35,27 @@ An [OS X](/user/reference/osx/) environment for Objective-C and other OS X speci
 
 ### Windows
 
-A [Windows](/user/reference/windows/) environment running Windows Server 2016.
+A [Windows](/user/reference/windows/) environment running Windows Server, version 1803.
 
 ### Virtualisation Environment vs Operating System
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Precise                        | Ubuntu Trusty                     | Ubuntu Trusty                        | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
-|:---------------------|:--------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------------|:-----------------------------------|
-| Name                 | Sudo-enabled                          | Container-based                   | Sudo-enabled                         | OS X                         | Windows                            |
-| Status               | Current                               | Default as of August 2017         | Current                              | Current                      | Early release                      |
-| Infrastructure       | Virtual machine on GCE                | Container on EC2 or Packet        | Virtual machine on GCE               | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `sudo: required` <br> `dist: precise` | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `os: osx`                    | `os: windows`                      |
-| Allows `sudo`        | Yes                                   | No                                | Yes                                  | Yes                          | No                                 |
-| Approx boot time     | 20-50s                                | 1-6s                              | 20-50s                               | 60-90s                       | 60-120s                            |
-| File system          | EXT4                                  | devicemapper on XFS               | EXT4                                 | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu 12.04                          | Ubuntu 14.04                      | Ubuntu 14.04                         | OS X                         | Windows Server 2016                |
-| Memory               | 7.5 GB                                | 4 GB max                          | 7.5 GB                               | 4 GB                         | 8 GB                               |
-| Cores                | 2                                     | 2                                 | 2                                    | 2                            | 2                                  |
-| IPv4 network         | IPv4 is available                     | IPv4 is available                 | IPv4 is available                    | IPv4 is available            | IPv4 is available                  |
-| IPv6 network         | IPv6 is not available                 | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available        | IPv6 is not available              |
-| Available disk space | approx 22GB                           | approx 9GB                        | approx 18GB                          | approx 41GB                  | approx 19 GB                       |
+|                      | Ubuntu Precise                                 | Ubuntu Trusty                     | Ubuntu Trusty                        | Ubuntu Xenial          | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|:---------------------|:-----------------------------------------------|:----------------------------------|:-------------------------------------|:-----------------------|:-----------------------------|:-----------------------------------|
+| Name                 | Sudo-enabled                                   | Container-based                   | Sudo-enabled                         | Sudo-enabled           | OS X                         | Windows                            |
+| Status               | Current                                        | Default as of August 2017         | Current                              | Current                | Current                      | Early release                      |
+| Infrastructure       | Virtual machine on GCE                         | Container on EC2                  | Virtual machine on GCE               | Virtual machine on GCE | Virtual machine              | Virtual machine on GCE             |
+| `.travis.yml`        | `sudo: required` <br> `dist: precise`          | `sudo: false` <br> `dist: trusty` | `sudo: required` <br> `dist: trusty` | `dist: xenial`         | `os: osx`                    | `os: windows`                      |
+| Allows `sudo`        | Yes                                            | No                                | Yes                                  | Yes                    | Yes                          | No                                 |
+| Approx boot time     | 20-50s                                         | 1-6s                              | 20-50s                               | 20-50s                 | 60-90s                       | 60-120s                            |
+| File system          | EXT4                                           | devicemapper on XFS               | EXT4                                 | EXT4                   | HFS+                         | NTFS                               |
+| Operating system     | Ubuntu 12.04      Windows Server, version 1803 | Ubuntu 14.04                      | Ubuntu 14.04                         | Ubuntu 16.04           | OS X                         | Windows Server, version 1803       |
+| Memory               | 7.5 GB                                         | 4 GB max                          | 7.5 GB                               | 7.5 GB                 | 4 GB                         | 8 GB                               |
+| Cores                | 2                                              | 2                                 | 2                                    | 2                      | 2                            | 2                                  |
+| IPv4 network         | IPv4 is available                              | IPv4 is available                 | IPv4 is available                    | IPv4 is available      | IPv4 is available            | IPv4 is available                  |
+| IPv6 network         | IPv6 is not available                          | IPv6 is available on loopback     | IPv6 is not available                | IPv6 is not available  | IPv6 is not available        | IPv6 is not available              |
+| Available disk space | approx 22GB                                    | approx 9GB                        | approx 18GB                          | approx 18GB            | approx 41GB                  | approx 19 GB                       |
 
 > Note that the following keywords in your .travis.yml file will silently route your builds to our sudo-enabled infrastructure (even if you specify `sudo: false`): `docker`, `ping`, `sudo`.
 
@@ -77,7 +80,6 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 if it contains:
 
 * `ec2`, as in the previous example → the build ran in a container-based environment on Amazon EC2.
-* `packet` → the build ran in a container-based environment on Packet.
 * `gce` → the build ran in a sudo-enabled environment on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.

@@ -56,7 +56,7 @@ run by default. This typically only runs tests on the Dart VM, but you can
 [configure it][] to run on additional platforms by default.
 
 [test]: https://pub.dartlang.org/packages/test
-[configure it]: https://github.com/dart-lang/test/blob/master/doc/configuration.md#platforms
+[configure it]: https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md#platforms
 
 You can also customize the arguments Travis passes to the test runner using the
 `dart_task` field in `.travis.yml`.

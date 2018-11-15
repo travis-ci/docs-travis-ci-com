@@ -69,9 +69,9 @@ php:
 
 ### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
 
-We do not suppport these versions on Trusty.
+We do not support these versions on Trusty.
 If you need to test them, please use Precise.
-See [this page](/user/reference/trusty#PHP-images) for more information.
+See [this page](/user/reference/trusty#php-images) for more information.
 
 
 ### HHVM versions
