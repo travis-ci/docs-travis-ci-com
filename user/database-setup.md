@@ -104,7 +104,7 @@ before_install:
 ### MySQL 5.7
 
 MySQL 5.7 is the default on the Xenial image. 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 ```yaml
 addons:

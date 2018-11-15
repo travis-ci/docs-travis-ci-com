@@ -32,8 +32,8 @@ Docker containers built from the same image:
 - a Sinatra application
 - the Sinatra application test suite
 
-After specifying in the `.travis.yml` that the worker is using the Docker enabled environment (with `services: - docker`) and is
-using ruby, the `before_install` build step pulls a Docker image from [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
+After specifying in the `.travis.yml`  to use Docker (with `services: - docker`) and Ruby (with `language: ruby`)
+, the `before_install` build step pulls a Docker image from [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
 ```bash
 cd /root/sinatra; bundle exec foreman start;
@@ -117,10 +117,10 @@ script:
 
 ## Pushing a Docker Image to a Registry
 
-To push an image to a registry, one must first authenticate via `docker
+To push an image to a Docker registry, one must first authenticate via `docker
 login`.  The email, username, and password used for login should be stored in
 the repository settings environment variables, which may be set up through the
-web or locally via the Travis CLI, e.g.:
+repository settings web page or locally via the Travis CLI, e.g.:
 
 ```bash
 travis env set DOCKER_USERNAME myusername
