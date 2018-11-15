@@ -39,6 +39,7 @@ beginning of this document suggests.
 
 ## Draft releases with `draft: true`
 With
+
 ```yaml
 deploy:
   provider: releases
@@ -65,6 +66,7 @@ While `on.tags: true` guarantees this, you can postpone setting the tag until
 you have all the information you need.
 A natural place to do this is `before_deploy`.
 For example:
+
 ```yaml
     before_deploy:
       # Set up git user name and tag this commit
