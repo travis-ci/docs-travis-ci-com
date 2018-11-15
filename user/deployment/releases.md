@@ -56,12 +56,14 @@ the resultant deployment is a draft Release that only repository collaborators
 can see.
 This gives you an opportunity to examine and edit the draft release.
 
-### Releases without `on.tags: true`
+## Releases without `on.tags: true`
 
 It is desirable to use the Releases provider without `on.tags: true`,
 depending on the workflow.
 
-1. Bear in mind that GitHub Releases needs a tag at the deployment time.
+### Setting the tag at deployment time
+
+Bear in mind that GitHub Releases needs a tag at the deployment time.
 While `on.tags: true` guarantees this, you can postpone setting the tag until
 you have all the information you need.
 A natural place to do this is `before_deploy`.
@@ -81,12 +83,14 @@ For example:
 ```
 {: data-file=".travis.yml"}
 
-1. If the tag is still not set at the time of deployment, the deployment
+If the tag is still not set at the time of deployment, the deployment
 provider attempts to match the current commit with a tag, and if one is found,
 uses it.
 
-If the build commit does not match any tag, GitHub creates one in the form of
-`untagged-*`, where `*` is a random hex string during the deployment.
+### A tag is generated during deployment when none is assigned
+
+If the build commit does not match any tag at deployment time, GitHub creates one 
+in the form of `untagged-*`, where `*` is a random hex string.
 Notice that this tag is immediately available on GitHub, and thus will trigger
 a new Travis CI build, unless it is prevented by other means.
 
@@ -94,7 +98,7 @@ a new Travis CI build, unless it is prevented by other means.
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-### Using Travis CI client to populate initial deployment configuration
+## Using Travis CI client to populate initial deployment configuration
 
 You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
