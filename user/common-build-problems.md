@@ -192,28 +192,9 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
-Your build is running on macOS Sierra (10.12) if the following `osx_image` values are in your .travis.yml file:
+Your build is running on macOS Sierra (10.12) if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the OS X Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
 
-```yaml
-osx_image: xcode8.1
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.2
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.3
-```
-{: data-file=".travis.yml"}
-
-The following lines in your build log possibly indicate an occurence of this issue:
+The following lines in your build log possibly indicate an occurrence of this issue:
 
 **Example: Signing**
 
