@@ -114,17 +114,13 @@ script: gulp
 
 ## Dependency Management
 
-### Travis CI uses npm
+Travis CI uses [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com) to install your project dependencies.
 
-Travis CI uses [npm](http://npmjs.org/) to install your project dependencies:
+> Note that there are no npm packages installed by default in the Travis CI environment.
 
-```bash
-npm install
-```
+### Using `npm`
 
-> Note that there are no npm packages installed by default in the Travis CI environment, your dependencies are downloaded and installed during each build.
-
-#### Using a specific npm version
+#### Using a specific `npm` version
 
 Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
@@ -134,28 +130,33 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-#### Caching with `npm`
+### `npm ci` support
 
-Travis CI is able to cache the `node_modules` folder:
-
-```yaml
-cache:
-  directories:
-    - "node_modules"
-```
-{: data-file=".travis.yml"}
-
-`npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
-
-### npm ci support
-
-If a `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
+If `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
 supports it, Travis CI will use `npm ci` instead of `npm install`.
 
 This command will delete your `node_modules` folder and install all dependencies
 as specified in your lock file.
 
-### Travis CI supports yarn
+#### Caching with `npm`
+
+You can cache your dependencies with
+
+```yaml
+cache: npm
+```
+{: data-file=".travis.yml"}
+
+1. This caches `$HOME/.npm` precisely when `npm ci` is the default `script` command.
+(See above.)
+
+1. In all other cases, this will cache `node_modules`.
+Note that `npm install` will still run on every build and will update/install
+any new packages added to your `package.json` file.
+
+Even when `script` is overridden, this shortcut is effective.
+
+### Using `yarn`
 
 Travis CI detects use of [yarn](https://yarnpkg.com/).
 
@@ -172,7 +173,7 @@ If the job does not meet this requirement, `npm install` is used
 instead.
 
 
-#### Using a specific yarn version
+#### Using a specific `yarn` version
 
 Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
@@ -240,7 +241,7 @@ matrix:
 before_install:
     # setting the path for phantom.js 2.0.0
     - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
+    # starting a GUI to run tests, per https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - "npm config set spin false"

@@ -38,7 +38,7 @@ To start using Travis CI, make sure you have:
    ```
    {: data-file=".travis.yml"}
 
-   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#Customizing-the-Installation-Phase),
+   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
 5. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
@@ -122,6 +122,6 @@ Read more about
 * [customizing your build](/user/customizing-the-build)
 * [security best practices](/user/best-practices-security/)
 * [build stages](/user/build-stages/)
-* [build matrixes](/user/customizing-the-build/#Build-Matrix)
+* [build matrixes](/user/customizing-the-build/#build-matrix)
 * [installing dependencies](/user/installing-dependencies)
 * [setting up databases](/user/database-setup/)

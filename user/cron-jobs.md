@@ -28,7 +28,7 @@ Confirm that the cron job is displayed in your settings tab:
 
 ## Skipping Cron Jobs
 
-Because cron jobs build the latest commit to a particular branch, if that commit message includes [the skip command](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
+Because cron jobs build the latest commit to a particular branch, if that commit message includes [the skip command](/user/customizing-the-build/#skipping-a-build) the cron job will skip that build.
 
 ## Deleting Cron Jobs
 

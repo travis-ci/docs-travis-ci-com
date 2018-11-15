@@ -12,8 +12,20 @@ and `/var/travis`.
 One good way to do this is to run
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
-```   
+```
 See [restoring from backups](#Restoring-from-Backups) if you have any questions about the steps or want to do a restore.
+
+### Encryption key
+
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+
+> Without the encryption key the information in the database is not recoverable.
+
+To make a backup, please follow these steps:
+
+1. open a ssh connection to the platform machine
+2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
+3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
 
 ## Updating your Travis CI Enterprise Platform
 
@@ -44,12 +56,29 @@ whether you are behind a web proxy you'll want to run one of these:
 
 ## Updating your Travis CI Enterprise Worker
 
+### On Ubuntu 16.04 and later
+
+On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To update travis-worker, please follow the steps below.
+
+  1. Configure the new image by editing the Docker tag in `/etc/systemd/system/travis-worker.service.d/env.conf`:
+  ```
+  [Service]
+  Environment="TRAVIS_WORKER_SELF_IMAGE=travisci/worker:v4.6.1"
+  ```
+  1. Reload the configuration and restart the service:
+  ```
+  $ sudo systemctl daemon-reload
+  $ sudo systemctl restart travis-worker
+  ```
+
+### On Ubuntu 14.04
+
 In order to update the Worker, you can run the following on each worker
 host:
 
-```         
-  sudo apt-get update
-  sudo apt-get install travis-worker
+```
+$ sudo apt-get update
+$ sudo apt-get install travis-worker
 ```
 
 ## Restoring from Backups

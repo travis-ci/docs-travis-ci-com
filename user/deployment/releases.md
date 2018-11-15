@@ -78,7 +78,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only respositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
 
 ## Authentication with a Username and Password
 
@@ -104,7 +104,7 @@ If you wish to upload assets to a GitHub Enterprise repository, you must overrid
 http(s)://"GITHUB ENTERPRISE HOSTNAME"/api/v3/
 ```
 
-You can configure this in [Repository Settings](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings) or via your `.travis.yml`:
+You can configure this in [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings) or via your `.travis.yml`:
 
 ```yaml
 env:
@@ -160,7 +160,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables).
+Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
 
 ### Conditional releases
 

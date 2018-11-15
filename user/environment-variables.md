@@ -178,6 +178,8 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_ALLOW_FAILURE`:
   + set to `true` if the job is allowed to fail.
   + set to `false` if the job is not allowed to fail.
+- `TRAVIS_APP_HOST`: The name of the server compiling the build script. This server serves certain helper files
+  (such as `gimme`, `nvm`, `sbt`) from `/files` to avoid external network calls; e.g., `curl -O $TRAVIS_APP_HOST/files/gimme`
 - `TRAVIS_BRANCH`:
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
@@ -197,6 +199,7 @@ to tag the build, or to run post-build deployments.
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.
 - `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
+- `TRAVIS_JOB_NAME`: The [job name](https://docs.travis-ci.com/user/build-stages/#naming-your-jobs-within-build-stages) if it was specified, or `""`.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.

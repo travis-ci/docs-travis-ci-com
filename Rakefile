@@ -140,10 +140,6 @@ file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
 end
 
-file '_data/packet_ip_range.yml' do |t|
-  define_ip_range('nat.packet-ewr1.travisci.net', t.name)
-end
-
 file '_data/node_js_versions.yml' do |t|
   remote_node_versions = `bash -l -c "source $HOME/.nvm/nvm.sh; nvm ls-remote"`.split("\n").
     map {|l| l.gsub(/.*v(0\.[0-9]*|[0-9]*)\..*$/, '\1')}.uniq.
