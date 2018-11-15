@@ -71,7 +71,7 @@ For example:
       # Set up git user name and tag this commit
       - git config --local user.name "YOUR GIT USER NAME"
       - git config --local user.email "YOUR GIT USER EMAIL"
-      - export TRAVIS_TAG=${TRAVIS_TAG:$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+      - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
       - git tag $TRAVIS_TAG
     deploy:
       provider: releases
@@ -86,6 +86,11 @@ For example:
 If the tag is still not set at the time of deployment, the deployment
 provider attempts to match the current commit with a tag from remote,
 and if one is found, uses it.
+
+This could be a problem if multiple tags are assigned to the current commit and
+the one you want is not matched.
+In such a case, assign the tag you need (the method will depend on your use
+case) to `$TRAVIS_TAG` to get around the problem.
 
 If the build commit does not match any tag at deployment time, GitHub creates one
 when the release is created.
