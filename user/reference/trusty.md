@@ -3,6 +3,7 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
 
 ## What This Guide Covers
@@ -47,6 +48,9 @@ Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
 ## Container-based with `sudo: false`
+
+> Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures). 
+> Please use the [fully-virtualized infrastructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
 
 When specifying `sudo: false`, Travis CI runs each build in a container on a
 shared host via Docker.  The container contents are a pristine copy of the
@@ -210,6 +214,7 @@ by `gimme`.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
   - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
+  - Oracle JDK 11 (`oraclejdk11`)
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.

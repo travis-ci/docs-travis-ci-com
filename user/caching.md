@@ -132,6 +132,24 @@ podfile: path/to/Podfile
 ```
 {: data-file=".travis.yml"}
 
+### npm cache
+
+For caching with `npm`, use:
+
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: npm
+```
+{: data-file=".travis.yml"}
+
+This caches `$HOME/.npm` or `node_modules`, depending on the repository's
+structure.
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
+for more details.
+
 ### yarn cache
 
 For caching with `yarn`, use:
@@ -250,7 +268,7 @@ Docker images are not cached, because we provision a brand new virtual machine f
 ## Fetching and storing caches
 
 - Travis CI fetches the cache for every build, including branches and pull requests.
-- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
+- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc. See [Caches and build matrices](#caches-and-build-matrices) for details.
 - If a branch does not have its own cache, Travis CI fetches the default branch cache.
 - Only modifications made to the cached directories from normal pushes are stored.
 
@@ -398,7 +416,7 @@ jobs should use.
 These factors are:
 
 1. OS name (currently, `linux` or `osx`)
-2. OS distribution (for Linux, `precise` or `trusty`)
+2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
 3. OS X image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 5. Language runtime version (for the language specified in the `language` key) if applicable
