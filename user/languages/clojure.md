@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -25,12 +24,10 @@ language: clojure
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 This guide covers build environment and configuration topics specific to Clojure
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 Clojure builds are not available on the OS X environment.
@@ -38,7 +35,7 @@ Clojure builds are not available on the OS X environment.
 ## CI Environment for Clojure Projects
 
 Travis CI environment provides a large set of build tools for JVM languages with
-[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both
+[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview) and both
 [Leiningen](http://leiningen.org) 1.7.x and 2.4.x (default).
 
 ## Dependency Management
@@ -117,7 +114,7 @@ project.clj:
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-### Using Speclj on travis-ci.org
+### Using Speclj on Travis CI
 
 If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is
 listed in your development dependencies in `project.clj`, and include this
@@ -168,7 +165,7 @@ script: lein1 do javac, test
 
 ## Testing Against Multiple JDKs
 
-As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 ### Examples
 
@@ -185,7 +182,7 @@ Leiningen has an excellent plugin called [lein-multi](https://github.com/maravil
 Clojure (for example, 1.3, 1.4 and alphas/betas/snapshots of the most recent development version). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
 there is no need for runtime switchers (like RVM) for Clojure.
 
-To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
+To use lein-multi on Travis CI, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
 override `script:` to run `lein multi test` instead of default `lein test`:
 
 ```yaml

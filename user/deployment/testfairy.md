@@ -26,7 +26,7 @@ $ travis encrypt "YOUR API KEY" --add deploy.api-key
 
 ## Symbols file
 
-Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
+Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
 
 ```yaml
 deploy:
@@ -60,7 +60,7 @@ deploy:
 - **video-quality**: Video quality settings, "high", "medium" or "low". Default is "high".
 - **screenshot-interval**: Seconds between video frames. Default "1" seconds.
 - **record-on-background**: If true, data will be collected while the app on background.
-- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](http://docs.testfairy.com/Upload_API.html).
+- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](https://docs.testfairy.com/API/Upload_API.html).
 
 For example:
 

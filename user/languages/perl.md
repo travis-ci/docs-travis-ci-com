@@ -6,17 +6,18 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
 Perl builds are not available on the OS X environment.
 
 ## Choosing Perl versions to test against
 
-Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
+Perl workers on Travis CI use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
 
 ```yaml
 language: perl
 perl:
+  - "5.26"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -28,6 +29,7 @@ A more extensive example:
 ```yaml
 language: perl
 perl:
+  - "5.26"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -49,6 +51,7 @@ been compiled with the additional compile flags `-Duseshrplib` and `-Duseithread
 versions that are available:
 
 ```yaml
+5.26-shrplib
 5.24-shrplib
 5.22-shrplib
 5.20-shrplib

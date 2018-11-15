@@ -24,7 +24,7 @@ Open up your newly created `.travis.yml` and add `edge: true` to enable the depl
 
 So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running
 
-```
+```yaml
  deploy:
    edge: true
    provider: anynines
@@ -32,6 +32,7 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
    password: secretpassword
    organization: myorganization
    space: staging
+   app_name: My app name                # (optional)
 ```
 
 ***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
@@ -45,4 +46,4 @@ travis encrypt --add deploy.password
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

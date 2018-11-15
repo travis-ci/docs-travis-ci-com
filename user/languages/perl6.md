@@ -12,7 +12,7 @@ maintainers:
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
+Perl 6 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 Perl 6 builds are not available on the OS X environment.
@@ -26,7 +26,7 @@ and cc {% for m in page.maintainers %}<a href="https://github.com/{{m}}">@{{m}}<
 
 ## Choosing Perl 6 versions to test against
 
-Perl 6 workers on travis-ci.org use
+Perl 6 workers on Travis CI use
 [rakudobrew](https://github.com/tadzik/rakudobrew) to provide several Perl 6
 versions that your projects can be tested against. To specify them, use the
 `perl6:` key in your `.travis.yml` file, for example:

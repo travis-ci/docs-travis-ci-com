@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+
+
 ## What This Guide Covers
 
-This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Tutorial](/user/tutorial/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
 ## Using Sauce Labs
 
@@ -33,12 +35,12 @@ username = os.environ["SAUCE_USERNAME"]
 access_key = os.environ["SAUCE_ACCESS_KEY"]
 capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
 hub_url = "%s:%s@localhost:4445" % (username, access_key)
-driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="https://%s/wd/hub" % hub_url)
+driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="http://%s/wd/hub" % hub_url)
 ```
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
 
-This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/user/reference/precise/#Environment-variables) for more ways to detect if you're running on Travis CI).
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available environment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
@@ -56,7 +58,25 @@ Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
 or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
 
-Start `xvfb` in the `before_script` section of your `.travis.yml`:
+### Using the xvfb-run wrapper
+
+`xvfb-run` is a wrapper for invoking `xvfb` so that `xvfb` can be used with
+less fuss:
+
+```yaml
+script: xvfb-run make test
+```
+
+To set the screen resolution:
+
+```yaml
+script: xvfb-run --server-args="-screen 0 1024x768x24" make test
+```
+
+### Using xvfb directly
+
+To use `xvfb` itself, start it in the `before_script` section of your
+`.travis.yml`:
 
 ```yaml
 before_script:
@@ -85,8 +105,10 @@ See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more inform
 
 ### Starting a Web Server
 
+<!-- FIXME: write this paragraph -->
+
 If your project requires a web application running to be tested, you need to start one before running tests. It is common to use Ruby, Node.js and JVM-based web servers
-that serve HTML pages used to run test suites. Because every travis-ci.org VM provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
+that serve HTML pages used to run test suites. Because every build environment provides at least one version of Ruby, Node.js and OpenJDK, you can rely on one of those
 three options.
 
 Add a `before_script` to start a server, for example:
@@ -253,4 +275,4 @@ In that case, you should increase the browser inactivity timeout to a higher val
 browserNoActivityTimeout: 30000,
 ```
 
-For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.
+For more information, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.

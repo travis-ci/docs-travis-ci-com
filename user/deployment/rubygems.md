@@ -158,7 +158,13 @@ deploy:
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+
+### Gem must be registered beforehand
+
+Note that the gem you upload must be registered beforehand.
+If the gem does not exist on the host to which it is uploaded, deployment will fail.
+See [this GitHub issue](https://github.com/travis-ci/dpl/issues/574) for details.
 
 ### Running commands before and after release
 

@@ -8,11 +8,13 @@ Travis CI implements a few optimizations which help to speed up your build,
 like in memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
+
+
 ## Parallelizing your builds across virtual machines
 
 To speed up a test suite, you can break it up into several parts using
 Travis CI's [build
-matrix](/user/customizing-the-build/#Build-Matrix)
+matrix](/user/customizing-the-build/#build-matrix)
 feature.
 
 Say you want to split up your unit tests and your integration tests into two
@@ -69,10 +71,6 @@ concern. One set runs tests only for the railties, another one for actionpack,
 actionmailer, activesupport, and a whole bunch of sets runs the activerecord
 tests against multiple databases. See their [.travis.yml
 file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
-
-Note that during the trial on <https://travis-ci.com> for private repositories, you only have
-one concurrent build available, so you'll unlikely be seeing improvements until you're
-signed up for a paid subscription.
 
 ## Parallelizing your build on one virtual machine
 
@@ -166,17 +164,17 @@ your tests.
 
 ### PHP optimizations
 
-PHP VM images on travis-ci.org provide several PHP versions which include
+PHP VM images on Travis CI provide several PHP versions which include
 XDebug. The XDebug extension is useful if you wish to generate code coverage
 reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
 
 You may wish to consider
-[disabling the PHP XDebug extension](/user/languages/php#Disabling-preinstalled-PHP-extensions) for your
+[disabling the PHP XDebug extension](/user/languages/php#disabling-preinstalled-php-extensions) for your
 builds if:
 
 - you are not generating code coverage reports in your Travis tests; or
-- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](http://phpdbg.com/)
+- you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](https://github.com/krakjoe/phpdbg)
   which may be faster.
 
 #### Using phpdbg example
@@ -197,7 +195,7 @@ If your makefile build consists of independent parts that can be safely
 parallelized, you can [run multiple recipes
 simultaneously](https://www.gnu.org/software/make/manual/html_node/Parallel.html).
 See [Virtualization
-environments](/user/reference/overview/#Virtualization-environments) to determine
+environments](/user/reference/overview/#virtualization-environments) to determine
 how many CPUs an environment normally has and set the `make` job parameter to a
 similar number (or slightly higher if your build frequently waits on disk I/O).
 Note that doing this will cause concurrent recipe output to become interleaved.

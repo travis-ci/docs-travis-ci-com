@@ -83,7 +83,7 @@ Coveralls have documentation for many other [programming languages](https://cove
 - [Ruby / Rails](https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails)
 - [Swift](https://coveralls.zendesk.com/hc/en-us/articles/208113436)
 
-## Using Coveralls with [Docker builds](/user/docker)
+## Using Coveralls with Docker builds
 
 If you're using Docker in builds, ensure that the necessary environment variables are exposed to the container:
 ```sh

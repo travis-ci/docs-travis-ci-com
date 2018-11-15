@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -25,12 +24,10 @@ language: groovy
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 Groovy builds are not available on the OS X environment.
@@ -143,6 +140,11 @@ jdk:
   - openjdk7
 ```
 {: data-file=".travis.yml"}
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#using-java-10-and-later).
 
 ## Build Matrix
 

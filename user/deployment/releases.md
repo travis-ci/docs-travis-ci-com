@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
+Travis CI can automatically upload assets to git tags on your GitHub repository.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -48,16 +48,16 @@ You can also use the [Travis CI command line client](https://github.com/travis-c
 travis setup releases
 ```
 
-Or, if you're using a private repository:
+Or, if you're using a private repository or the GitHub Apps integration:
 
 ```bash
-travis setup releases --pro
+travis setup releases --com
 ```
 
 ## `on.tags` condition
 
 When working with GitHub Releases, it is important to understand how the deployment is triggered
-with [the `tags` condition](/user/deployment/#Conditional-Releases-with-on%3A).
+with [the `tags` condition](/user/deployment/#conditional-releases-with-on).
 
 
 ## Authenticating with an OAuth token
@@ -77,6 +77,8 @@ deploy:
     tags: true
 ```
 {: data-file=".travis.yml"}
+
+**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
 
 ## Authentication with a Username and Password
 
@@ -102,7 +104,7 @@ If you wish to upload assets to a GitHub Enterprise repository, you must overrid
 http(s)://"GITHUB ENTERPRISE HOSTNAME"/api/v3/
 ```
 
-You can configure this in [Repository Settings](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings) or via your `.travis.yml`:
+You can configure this in [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings) or via your `.travis.yml`:
 
 ```yaml
 env:
@@ -144,10 +146,26 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+You can use the glob pattern to recursively find the files:
+
+```yaml
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/**/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
+Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
+
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Running commands before or after release
 
@@ -166,3 +184,12 @@ after_deploy:
 ## Advanced options
 
 Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.
+
+These include:
+
+* `name`
+* `body`
+* `draft`
+* `prerelease`
+
+Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).

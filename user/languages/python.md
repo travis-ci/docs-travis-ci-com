@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -21,23 +21,18 @@ Minimal example:
   language: python
   python:
     - "3.6"
-    - "nightly"
   script:
     - pytest
 ```
 {: data-file=".travis.yml"}
-
 </aside>
-
-### What This Guide Covers
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
-Python builds are not available on the OS X environment.
-
+Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Python versions
@@ -58,13 +53,12 @@ python:
   - "3.6"
   - "3.6-dev"  # 3.6 development branch
   - "3.7-dev"  # 3.7 development branch
-  - "nightly"
 # command to install dependencies
 install:
   - pip install -r requirements.txt
 # command to run tests
 script:
-  - pytest # or py.test for Python versions 3.5 and below
+  - pytest
 ```
 {: data-file=".travis.yml"}
 
@@ -82,6 +76,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
+python: 
+  - "2.7"
+  - "3.4" 
 virtualenv:
   system_site_packages: true
 ```
@@ -92,24 +89,22 @@ virtualenv:
 
 Travis CI supports PyPy and PyPy3.
 
-To test your project against PyPy, add "pypy" or "pypy3" to the list of Pythons
+To test your project against PyPy, add "pypy3.5" to the list of Pythons
 in your `.travis.yml`:
 
 ```yaml
 language: python
 python:
-  - "2.6"
   - "2.7"
   - "3.4"
   - "3.5"
   - "3.6"
   # PyPy versions
-  - "pypy"   # PyPy2 5.8.0
-  - "pypy3"  # Pypy3 5.8.0-beta0
+  - "pypy3.5"
 # command to install dependencies
 install:
-  - pip install .
   - pip install -r requirements.txt
+  - pip install .
 # command to run tests
 script: pytest
 ```
@@ -118,13 +113,19 @@ script: pytest
 ### Nightly build support
 
 Travis CI supports a special version name `nightly`, which points to
-a recent development version of [CPython](https://bitbucket.org/mirror/cpython) build.
+a recent development version of [CPython](https://github.com/python/cpython) build.
 
 ### Development releases support
 
-From Python 3.5, Python In Development versions are available.
+From Python 3.5 and later, Python In Development versions are available.
 
-You can specify these in your builds with `3.5-dev`, `3.6-dev` or `3.7-dev`.
+You can specify these in your builds with `3.5-dev`, `3.6-dev`,
+`3.7-dev` or `3.8-dev`.
+
+{: .warning}
+> Recent Python branches [require OpenSSL 1.0.2+](https://github.com/travis-ci/travis-ci/issues/9069).
+> As this library is not available for Trusty,  `3.7`, `3.7-dev`, `3.8-dev`, and `nightly`
+> do not work (or use outdated archive).
 
 ## Default Build Script
 
@@ -135,7 +136,7 @@ For example, if your project uses pytest:
 
 ```yaml
 # command to run tests
-script: pytest  # or py.test for Python versions 3.5 and below
+script: pytest
 ```
 {: data-file=".travis.yml"}
 
@@ -149,6 +150,17 @@ script: make test
 If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
 and fails the build.
+
+## Using Tox as the Build Script
+
+Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward.
+As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
+
+If you're using tox to test your code against multiple versions of python, you have two options:
+  * use `language: generic` and manually install the python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu python versions - 2.7.6 and 3.4.3 for Trusty)
+  * use `language: python` and a build matrix that uses a different version of python for each branch (you can specify the python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload.
+
+A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
 
 ## Dependency Management
 
@@ -171,7 +183,7 @@ Please note that the `--user` option is mandatory if you are not using `language
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](/user/job-lifecycle/#customizing-the-installation-phase) guide.
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 

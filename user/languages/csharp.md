@@ -7,7 +7,7 @@ layout: en
 ### What this guide covers
 
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
-projects. Please make sure to read our [Getting started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community Supported Language
@@ -34,7 +34,7 @@ When the optional `solution` key is present, Travis will run NuGet package resto
 
 ### Script
 
-By default Travis will run `xbuild /p:Configuration=Release solution-name.sln`. Xbuild is a build tool designed to be an implementation for Microsoft's MSBuild (the tool that Visual Studio uses to build your projects).
+By default Travis will run `msbuild /p:Configuration=Release solution-name.sln`. MSBuild is a free and open-source build tool set for managed code as well as native C++ code and was part of .NET Framework.
 To override this, you can set the `script` key like this:
 
 ```yaml
@@ -136,7 +136,7 @@ The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only
 
 ### Running unit tests (NUnit, xunit, etc.)
 
-To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](http://docs.travis-ci.com/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
+To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
 The following examples show how you'd override `install` and `script` to install a test runner and pass your test assemblies to it for running the tests.
 

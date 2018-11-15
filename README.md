@@ -64,6 +64,10 @@ via POST), Puma is necessary.
 
 1. Open [localhost:9292](http://localhost:9292/) in your browser.
 
+### API V2 documentation
+
+API V2 (and 2.1) documentation is maintained in `slate/source` and updated is now generated at build time from source.
+
 ## License
 
 Distributed under the [MIT license](https://opensource.org/licenses/MIT); the same as other Travis CI projects.
