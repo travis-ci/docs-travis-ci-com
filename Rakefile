@@ -124,6 +124,10 @@ file '_data/ip_range.yml' do |t|
   define_ip_range('nat.travisci.net', t.name)
 end
 
+file '_data/ec2_ip_range.yml' do |t|
+  define_ip_range('nat.aws-us-east-1.travisci.net', t.name)
+end
+
 file '_data/gce_ip_range.yml' do |t|
   define_ip_range('nat.gce-us-central1.travisci.net', t.name)
 end
@@ -152,6 +156,7 @@ end
 
 desc 'Refresh generated files'
 task regen: (%i[clean] + %w[
+  _data/ec2_ip_range.yml
   _data/gce_ip_range.yml
   _data/ip_range.yml
   _data/linux_containers_ip_range.yml
@@ -163,6 +168,7 @@ task regen: (%i[clean] + %w[
 desc 'Remove generated files'
 task :clean do
   rm_f(%w[
+         _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
          _data/ip_range.yml
          _data/linux_containers_ip_range.yml
