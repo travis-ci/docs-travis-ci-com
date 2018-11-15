@@ -21,7 +21,7 @@ deploy:
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-In general, GitHub Releases works with git tags, and it is important that
+GitHub Releases works with git tags, so it is important that
 you understand how tags affect GitHub Releases.
 
 ## Deploying only on tagged builds
