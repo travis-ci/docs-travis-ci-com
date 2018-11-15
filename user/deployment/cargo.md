@@ -1,5 +1,5 @@
 ---
-title: cargo Releasing
+title: Cargo Releases
 layout: en
 ---
 
