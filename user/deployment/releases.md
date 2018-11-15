@@ -21,10 +21,50 @@ deploy:
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-GitHub Releases uses git tags. If the build commit does not have any tags, one will be created in the form of `untagged-*`, where `*` is a random hex string.
+In general, GitHub Releases works with git tags, and it is important that
+you understand how tags affect GitHub Releases.
 
-If this is not what you want, either set your build to deploy only when the build already has a tag using `on.tags: true` as shown in the previous example `.travis.yml`, or tag the commit with `git tag` in `before_deploy`:
+## Deploying only on tagged builds
 
+With [`on.tags: true`](/user/deployment/#conditional-releases-with-on),
+your Releases deployment will trigger if and only if the build is a tagged
+build.
+
+## Regular releases
+
+When the `draft` option is not set to `true` (more on this below), a regular
+release is created. In this case, it is a good idea to restrict your Releases
+deployment to tagged builds with `on.tags: true`, as the example at the
+beginning of this document suggests.
+
+## Draft releases with `draft: true`
+With
+```yaml
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  draft: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
+the resultant deployment is a draft Release that only repository collaborators
+can see.
+This gives you an opportunity to examine and edit the draft release.
+
+### Releases without `on.tags: true`
+
+It is desirable to use the Releases provider without `on.tags: true`,
+depending on the workflow.
+
+1. Bear in mind that GitHub Releases needs a tag at the deployment time.
+While `on.tags: true` guarantees this, you can postpone setting the tag until
+you have all the information you need.
+A natural place to do this is `before_deploy`.
+For example:
 ```yaml
     before_deploy:
       # Set up git user name and tag this commit
@@ -39,8 +79,20 @@ If this is not what you want, either set your build to deploy only when the buil
 ```
 {: data-file=".travis.yml"}
 
+1. If the tag is still not set at the time of deployment, the deployment
+provider attempts to match the current commit with a tag, and if one is found,
+uses it.
+
+If the build commit does not match any tag, GitHub creates one in the form of
+`untagged-*`, where `*` is a random hex string during the deployment.
+Notice that this tag is immediately available on GitHub, and thus will trigger
+a new Travis CI build, unless it is prevented by other means.
+
+### Overwrite existing files on the release
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
+
+### Using Travis CI client to populate initial deployment configuration
 
 You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
@@ -53,12 +105,6 @@ Or, if you're using a private repository or the GitHub Apps integration:
 ```bash
 travis setup releases --com
 ```
-
-## `on.tags` condition
-
-When working with GitHub Releases, it is important to understand how the deployment is triggered
-with [the `tags` condition](/user/deployment/#conditional-releases-with-on).
-
 
 ## Authenticating with an OAuth token
 
@@ -183,13 +229,16 @@ after_deploy:
 
 ## Advanced options
 
-Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.
+Options from `.travis.yml` are passed through to Octokit API's
+[#create_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method)
+and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods,
+so you can use any valid Octokit option,
+unless they are treated separately in this document.
 
 These include:
 
 * `name`
 * `body`
-* `draft`
-* `prerelease`
+* `prerelease` (boolean)
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
