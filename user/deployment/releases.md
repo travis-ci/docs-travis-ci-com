@@ -19,6 +19,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+This configuration will use the "GITHUB OAUTH TOKEN" to upload "FILE TO UPLOAD"
+(relative to the working directory) on tagged builds.
+
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
 GitHub Releases works with git tags, so it is important that
@@ -33,9 +36,10 @@ build.
 ## Regular releases
 
 When the `draft` option is not set to `true` (more on this below), a regular
-release is created. In this case, it is a good idea to restrict your Releases
-deployment to tagged builds with `on.tags: true`, as the example at the
-beginning of this document suggests.
+release is created.
+Regular releases require tags.
+If you set `on.tags: true` (as the initial example in this document), this
+requirement is met.
 
 ## Draft releases with `draft: true`
 With
@@ -47,8 +51,6 @@ deploy:
   file: "FILE TO UPLOAD"
   skip_cleanup: true
   draft: true
-  on:
-    tags: true
 ```
 {: data-file=".travis.yml"}
 
@@ -56,14 +58,9 @@ the resultant deployment is a draft Release that only repository collaborators
 can see.
 This gives you an opportunity to examine and edit the draft release.
 
-## Releases without `on.tags: true`
+## Setting the tag at deployment time
 
-It is desirable to use the Releases provider without `on.tags: true`,
-depending on the workflow.
-
-### Setting the tag at deployment time
-
-Bear in mind that GitHub Releases needs a tag at the deployment time.
+GitHub Releases needs a tag at the deployment time.
 While `on.tags: true` guarantees this, you can postpone setting the tag until
 you have all the information you need.
 A natural place to do this is `before_deploy`.
@@ -74,7 +71,8 @@ For example:
       # Set up git user name and tag this commit
       - git config --local user.name "YOUR GIT USER NAME"
       - git config --local user.email "YOUR GIT USER EMAIL"
-      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+      - export TRAVIS_TAG=${TRAVIS_TAG:$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+      - git tag $TRAVIS_TAG
     deploy:
       provider: releases
       api_key: "GITHUB OAUTH TOKEN"
@@ -83,18 +81,21 @@ For example:
 ```
 {: data-file=".travis.yml"}
 
+### When tag is not set at deployment time
+
 If the tag is still not set at the time of deployment, the deployment
-provider attempts to match the current commit with a tag, and if one is found,
-uses it.
+provider attempts to match the current commit with a tag from remote,
+and if one is found, uses it.
 
-### A tag is generated during deployment when none is assigned
+If the build commit does not match any tag at deployment time, GitHub creates one
+when the release is created.
+The GitHub-generated tags are of the form `untagged-*`, where `*` is a random
+hex string.
+Notice that this tag is immediately available on GitHub, and thus
+will trigger a new Travis CI build, unless it is prevented by
+[other means](/user/customizing-the-build/#skipping-a-build).
 
-If the build commit does not match any tag at deployment time, GitHub creates one 
-in the form of `untagged-*`, where `*` is a random hex string.
-Notice that this tag is immediately available on GitHub, and thus will trigger
-a new Travis CI build, unless it is prevented by other means.
-
-### Overwrite existing files on the release
+## Overwrite existing files on the release
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
