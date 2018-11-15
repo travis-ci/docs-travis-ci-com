@@ -123,7 +123,7 @@ Once the app is uploaded to the BrowserStack servers the resulting app id will b
 caps['app'] = ENV['BROWSERSTACK_APP_ID']
 ```
 
-Checkout the BrowserStack Android Sample App travis.yml [file][browserstack-android-app-travis]
+Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
 
 
 ## Additional Options
