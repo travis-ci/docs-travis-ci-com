@@ -45,7 +45,7 @@ You can also have the `travis` tool set up everything for you:
 travis setup gcs
 ```
 
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you. Additionally, note that the `file` option is not available for GCS deployment- you'll need to specify a directory via `local-dir` instead.
 
 ### GCS ACL via option
 
