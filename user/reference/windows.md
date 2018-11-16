@@ -48,30 +48,20 @@ VMs running Windows use the default file system, NTFS.
 - Go (`language: go`)
 - Bash variants (`language: shell`, `language: sh`)
 
-## Pre-installed packages
+## Pre-installed Chocolatey packages
 
-- 7zip.install
-- ant
-- chromedriver
-- cmake
-- curl
-- firefox
-- git.install
-- gradle
-- jdk10
-- jdk8
-- jq
-- lein
-- maven
-- mysql
-- phantomjs
-- postgresql
-- python
-- python2
-- ruby
-- sbt
-- visualstudio2017buildtools
-- wget
-- yarn
-
-Latest list of pre-installed packages can be found [here](https://github.com/travis-ci/packer-templates/blob/master/packer-assets/windows-server-2016-ci-onion-packages.txt).
+7zip
+cmake
+curl
+dotnet
+git
+hashdeep
+jq
+llvm
+microsoft-build-tools
+mingw
+ruby
+visualstudio2017buildtools
+wget
+winscp
+wsl
