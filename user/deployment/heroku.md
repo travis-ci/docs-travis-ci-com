@@ -18,12 +18,17 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-If you have both the [Heroku](https://toolbelt.heroku.com/) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
+If you have both the [Heroku](https://devcenter.heroku.com/articles/heroku-cli) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
 
 ```bash
 travis encrypt $(heroku auth:token) --add deploy.api_key
 ```
 
+Be careful if your Travis CI account is on [travis-ci.com](https://travis-ci.com) or [travis-ci.com](https://travis-ci.org), on [travis-ci.com](https://travis-ci.com) if your project is _public_ you may add the `--pro` tag to this command :
+
+```bash
+travis encrypt $(heroku auth:token) --add deploy.api_key --pro
+```
 You can also use the Travis CI command line setup tool `travis setup heroku`.
 
 ## Deploying Custom Application Names
