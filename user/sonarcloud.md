@@ -32,7 +32,7 @@ dist: trusty
 Before inspecting your code, you need to:
 
 1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
+2. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
 4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
@@ -70,57 +70,35 @@ script:
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
-## Activation for branches
-
-By default, the SonarCloud add-on only analyzes the master branch. Activate it on other branches by specifying them in the `branches` parameter:
-
-```yaml
-addons:
-  sonarcloud:
-    organization: "sonarcloud_organization_key"
-    token:
-      secure: *********
-    branches:
-      - master
-      - maintenance
-script:
-  - sonar-scanner
-```
-{: data-file=".travis.yml"}
-
-`branches` accepts a list of regular expressions.
-
-> Note that currently, each branch ends up being a dedicated project on SonarCloud.
-
-## Activation for internal pull requests
+## Analysis of internal pull requests
 
 SonarCloud can inspect internal pull requests of your repository and write comments on each line where issues are found.
 
 > For security reasons, this advanced feature works only for **internal** pull requests. In other words, pull requests built from forks won't be inspected.
 
-To activate analysis on pull requests, you need to follow those extra steps:
+To activate analysis on pull requests, you need to [install the SonarCloud application](https://github.com/apps/sonarcloud) on your GitHub organization(s).
 
-1. Generate a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for the GitHub user which will be used by SonarCloud to write the comments.
-  - Requirements for that token are listed on [that page](http://docs.sonarqube.org/display/PLUG/GitHub+Plugin).
-2. Encrypt this token.
-3. Add it to your `.travis.yml` file:
-
-```yaml
-addons:
-  sonarcloud:
-    organization: "sonarcloud_organization_key"
-    token:
-      secure: *********
-    github_token:
-      secure: *********
-script:
-  - sonar-scanner
-```
-{: data-file=".travis.yml"}
+Note that if you used SonarCloud before the GitHub application and therefore configured GitHub tokens on your projects, you should now delete those tokens from the "Administration > General Settings > Pull Requests" page of your projects.
 
 ## Upcoming improvements
 
 Future versions of this add-on will provide the following features:
 
-- No need to define a third-party GitHub user for pull request analysis.
 - Support for external pull requests.
+
+## Deprecated features
+
+If you are a long-time SonarCloud user, you might have the following entries in your `.travis.yml` file:
+- "branches"
+- "github_token"
+
+If this is the case, you will get warnings in the log, telling you that this behaviour will be removed soon. You should get rid of those entries in your `.travis.yml` file to benefit from the latest features of SonarCloud.
+
+## Note for SonarQube users
+
+If you are familiar with SonarQube, you can be tempted to deal with some properties relatives to [Branch Analysis](https://docs.sonarqube.org/display/SONAR/Branch+Analysis) (ex: `sonar.branch.name`) and/or [Pull Request Analysis](https://docs.sonarqube.org/display/SONAR/Pull+Request+Analysis) (ex: `sonar.pullrequest.key`).
+
+These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
+
+
+

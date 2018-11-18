@@ -4,19 +4,20 @@ layout: en
 
 ---
 
-**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 
 Before following the examples in this guide, make sure you have already
 
 - installed the Travis CI [Command Line Client](https://github.com/travis-ci/travis.rb#readme) by running `$ gem install travis`
-- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI
-  using `$ travis login` or `$ travis login --pro`
+- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI using `$ travis login --com`
 
 See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org`
 
 ## Automated Encryption
 
@@ -41,8 +42,6 @@ Please add the following to your build script (before_install stage in your .tra
 ```bash
 openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
-
-Pro Tip: You can add it automatically by running with `--add`.
 
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.

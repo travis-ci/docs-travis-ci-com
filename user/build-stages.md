@@ -4,10 +4,7 @@ title: Build Stages
 layout: en
 ---
 
-<div id="toc"></div>
 
-> Build stages are currently in BETA.
-{: .beta}
 
 ## What are Build Stages?
 
@@ -18,7 +15,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#Build-Matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#build-matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
@@ -48,7 +45,7 @@ stages as your delivery process requires.
 In the following example, we are running two jobs on the first stage, called
 test, and then run a single third job on the second stage, called deploy:
 
-![Example screencast](https://cloud.githubusercontent.com/assets/3729517/25229553/0868909c-25d1-11e7-9263-b076fdef9288.gif)
+![Example screencast](/images/stages/stages.gif)
 
 ## How to define Build Stages?
 
@@ -100,9 +97,28 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
+### Naming your Jobs within Build Stages
+
+You can also name specific jobs within build stages. We recommend unique job names, but 
+do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
+section can be given a name attribute as follows: 
+
+```yaml
+jobs:  
+  include:
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: ./unit-tests
+    - script: ./integration-tests   
+      name: "Integration Tests"     # names the second Tests stage job
+    - stage: deploy
+      name: "Deploy to GCP"
+      script: ./deploy
+```
+
 ## Build Stages and Build Matrix Expansion
 
-[Matrix expansion](/user/customizing-the-build/#Build-Matrix)
+[Matrix expansion](/user/customizing-the-build/#build-matrix)
 means that certain top level configuration keys expand into a matrix of jobs.
 
 For example:
@@ -175,7 +191,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 Travis CI does not set or overwrite any of your scripts, and most languages
-have a [default test script](/user/languages/ruby/#Default-Build-Script)
+have a [default test script](/user/languages/ruby/#default-build-script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on

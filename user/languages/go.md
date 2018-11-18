@@ -8,14 +8,13 @@ swiftypetags:
   - go
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
 | Go                                          | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `go get -t ./...`                         |
+| [Default `install`](#Dependency-Management) | `go get -t -v ./...`                         |
 | [Default `script`](#Default-Build-Script)   | `make` or `go test`                       |
 | [Matrix keys](#Build-Matrix)                | `go`, `env`                               |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
@@ -25,18 +24,18 @@ Minimal example:
 ```yaml
   language: go
   go:
-    - 1.6
+    - "1.10"
 ```
-</aside>
 
-## What This Guide Covers
+Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
+not `go: 1.10` (a float).
+Using a float results in the use of Go 1.1.
+</aside>
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
-Go builds are not available on the OS X environment.
-
 The rest of this guide covers configuring Go projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying a Go version to use
@@ -51,9 +50,9 @@ handled by [gimme](https://github.com/travis-ci/gimme).
 language: go
 
 go:
-  - 1.x
-  - 1.6
-  - 1.7.x
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
   - master
 ```
 {: data-file=".travis.yml"}
@@ -78,7 +77,7 @@ The default install step depends on the version of go:
 * if go version is greater than or equal to `1.2`
 
   ```
-  go get -t ./...
+  go get -t -v ./...
   ```
 
 * if go version is older than `1.2`
@@ -87,7 +86,7 @@ The default install step depends on the version of go:
   go get ./...
   ```
 
-*  or if any of the following files are present, the default install step is `true`:
+*  or if any of the following files are present, the default install step is `true`, so you need to specify the `install` step yourself:
 
     - `GNUMakefile`
     - `Makefile`
@@ -168,17 +167,17 @@ make
 In case there is no Makefile, it will be
 
 ```bash
-go test -v ./...
+go test
 ```
 
 instead.
 
 These default commands can be overridden as described in the [general build
-configuration](/user/customizing-the-build/) guide. For example, to omit the
+configuration](/user/customizing-the-build/) guide. For example, to add the
 `-v` flag, override the `script:` key in `.travis.yml` like this:
 
 ```yaml
-script: go test ./...
+script: go test -v ./...
 ```
 {: data-file=".travis.yml"}
 
@@ -216,15 +215,19 @@ The version of Go a job is using is available as:
 TRAVIS_GO_VERSION
 ```
 
-Please note that this will expand to the real Go version, for example `1.7.4`,
-also when `go: 1.7.x` was specified. Comparing this value in for example the
-deploy section could look like this:
+This may contain `.x` at the end, as described above.
+Use of this variable in the deployment condition should
+take this possibility into consideration.
+For example:
 
 ```yaml
+go:
+  - 1.7.x
+⋮
 deploy:
   ...
   on:
-    condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7
 ```
 {: data-file=".travis.yml"}
 

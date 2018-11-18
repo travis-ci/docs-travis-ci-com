@@ -4,15 +4,14 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
 | Scala                        | Default                                                                                                                                                                                                                 |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#Gradle-Dependency-Management), [Maven](/user/languages/java/#Maven-Dependency-Management), [Ant](/user/languages/java/#Ant-Dependency-Management)     |
-| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#Gradle-Default-Script-Command), [Maven](/user/languages/java/#Maven-Default-Script-Command), [Ant](/user/languages/java/#Ant-Default-Script-Command) |
+| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#gradle-dependency-management), [Maven](/user/languages/java/#maven-dependency-management), [Ant](/user/languages/java/#ant-dependency-management)     |
+| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#gradle-default-script-command), [Maven](/user/languages/java/#maven-default-script-command), [Ant](/user/languages/java/#ant-default-script-command) |
 | [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                               |
 
@@ -23,20 +22,18 @@ Minimal example:
 ```
 </aside>
 
-### What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 Scala builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
 Travis CI environment provides a large set of build tools for JVM languages with
-[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and
+[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview) and
 [sbt](http://www.scala-sbt.org).
 
 ## Specifying Scala versions
@@ -47,10 +44,13 @@ To specify Scala versions in your build:
 language: scala
 scala:
    - 2.9.3
-   - 2.10.4
-   - 2.11.2
+   - 2.10.6
+   - 2.11.11
+   - 2.12.2
 ```
 {: data-file=".travis.yml"}
+
+On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`.
 
 ## Projects using sbt
 
@@ -76,7 +76,7 @@ sbt ++$TRAVIS_SCALA_VERSION test
 to run your test suite.
 
 To use a different `script` command, customize the
-[build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+[build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ### Custom sbt Arguments
 
@@ -117,7 +117,12 @@ typical [Java Project](/user/languages/java).
 ## Testing Against Multiple JDKs
 
 As for any JVM language, it is also possible to [test against multiple
-JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+JDKs](/user/languages/java/#testing-against-multiple-jdks).
+
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#using-java-10-and-later).
 
 ## Build Matrix
 
