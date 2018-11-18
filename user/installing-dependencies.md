@@ -6,20 +6,39 @@ redirect_from:
   - /user/apt/
 ---
 
-<div id="toc"></div>
+
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the default [standard](/user/reference/precise/), use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
-  - sudo apt-get -qq update
   - sudo apt-get install -y libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
-> Make sure to run `apt-get update` to update the list of available packages (`-qq` for less output). Do not run `apt-get upgrade` as it downloads up to 500MB of packages and significantly extends your build time.
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-dev
+```
+{: data-file=".travis.yml"}
+
+The second way is to use the [APT addon](#installing-packages-with-the-apt-addon):
+
+```yaml
+before_install:
+  - sudo apt-get install -y libxml2-dev
+addons:
+  apt:
+    update: true
+```
+{: data-file=".travis.yml"}
+
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
 >
 > Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
 
@@ -69,9 +88,7 @@ before_install:
 
 ### Installing Packages with the APT Addon
 
-You can also use the APT addon.
-
-This addon provides declarative shortcuts to basic operations of the `apt-get` commands.
+You can also install packages and sources using the APT addon, without running `apt-get` commands in your `before_install` script.
 
 If your requirements goes beyond the normal installation, please use another method described above.
 
@@ -79,7 +96,7 @@ If your requirements goes beyond the normal installation, please use another met
 
 To add APT sources, you can use one of the following three types of entries:
 
-1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
+1. aliases defined in [source safelist](https://github.com/travis-ci/apt-source-safelist)
 2. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
 3. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
 
@@ -125,31 +142,45 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
-### Installing Snap Packages
+### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+You can install [snap](http://snapcraft.io/) packages using our Xenial images:
 
 ```yaml
-sudo: required
-dist: trusty
+dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-
-The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+The Ubuntu Snap store offers many packages directly maintained by upstream developers, often with newer versions than the ones available in the Apt archive. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
 
 ```yaml
-sudo: true
-dist: trusty
+dist: xenial
 
-install:
-  - sudo apt-get --yes install snapd
-  - sudo snap install hugo
+addons:
+  snaps:
+  - hugo
 
 script:
-  - /snap/bin/hugo new site test-site
+- hugo new site test-site
 ```
 {: data-file=".travis.yml"}
+
+If you need to install a package from a different channel, or a package that uses [classic confinement](https://blog.ubuntu.com/2017/01/09/how-to-snap-introducing-classic-confinement), you can do so with the following config:
+
+```yaml
+dist: xenial
+
+addons:
+  snaps:
+  - name: aws-cli
+    classic: true
+    channel: latest/edge
+
+script:
+- aws help
+```
+{: data-file=".travis.yml"}
+
 
 ## Installing Packages on Container Based Infrastructure
 
@@ -157,7 +188,7 @@ To install packages not included in the default [container-based-infrastructure]
 
 ### Adding APT Sources
 
-To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+To add APT sources from the [source safelist](https://github.com/travis-ci/apt-source-safelist) before your custom build steps, use the `addons.apt.sources` key:
 
 ```yaml
 addons:
@@ -170,7 +201,7 @@ addons:
 
 ### Adding APT Packages
 
-To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+To install packages from the [package safelist](https://github.com/travis-ci/apt-package-safelist)  before your custom build steps, use the `addons.apt.packages` key:
 
 ```yaml
 addons:
@@ -211,15 +242,15 @@ E: Couldn't find any package by regex 'libcxsparse3.1.2'
 To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
 
 1. Search for the pull request that added the package on GitHub. For example,
-   [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
-   results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
+   [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-safelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
+   results in [pull request 1194](https://github.com/travis-ci/apt-package-safelist/pull/1194).
 
-2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
+2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-safelist-checker/builds/80620536).
 
 3. Search the build log for the phrase "Fetching source package for …" and expand the section.
 
 4. Match that source against the `alias` name shown in
-   [the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
+   [the source list](https://github.com/travis-ci/apt-source-safelist/blob/master/ubuntu.json).
 
 In our example, the source alias is "lucid":
 
@@ -233,24 +264,117 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
+> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-safelist) at this time.
 
 ## Installing Packages on OS X
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) in your `.travis.yml`. For example, to install beanstalk:
+To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+
+For convenience, you can use Homebrew addon in your `.travis.yml`.
+For example, to install beanstalk:
 
 ```yaml
-before_install:
-  - brew update # see note below
-  - brew install beanstalk
+addons:
+  homebrew:
+    packages:
+    - beanstalk
 ```
 {: data-file=".travis.yml"}
 
-> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+By default, the Homebrew addon will not run `brew update` before installing packages. `brew update` can take a long time and slow down your builds. If you need more up-to-date versions of packages than the snapshot on the build VM has, you can add `update: true` to the addon configuration:
+
+```yaml
+addons:
+  homebrew:
+    packages:
+    - beanstalk
+    update: true
+```
+{: data-file=".travis.yml"}
+
+### Installing Casks
+
+The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
+
+[homebrew-cask]: https://github.com/Homebrew/homebrew-cask
+
+```yaml
+addons:
+  homebrew:
+    casks:
+    - dotnet-sdk
+```
+{: data-file=".travis.yml"}
+
+### Installing From Taps
+
+Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
+
+For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
+
+[homebrew-tap]: https://docs.brew.sh/Taps
+[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
+
+```yaml
+osx_image: xcode10
+addons:
+  homebrew:
+    taps: homebrew/cask-versions
+    casks: java8
+```
+{: data-file=".travis.yml"}
+
+### Using a Brewfile
+
+Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked in to your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
+
+[brewfile]: https://github.com/Homebrew/homebrew-bundle
+
+```yaml
+addons:
+  homebrew:
+    brewfile: true
+```
+{: data-file=".travis.yml"}
+
+You can also provide a path if your Brewfile is in a different location.
+
+```yaml
+addons:
+  homebrew:
+    brewfile: Brewfile.travis
+```
+{: data-file=".travis.yml"}
+
+### Using Homebrew without addon on older macOS images
+
+If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
+
+    Homebrew must be run under Ruby 2.3! You're running 2.0.0.
+
+You'll need to update to Ruby 2.3 or newer:
+
+```
+rvm use 2.3 --install --binary
+brew update
+brew install openssl
+rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
+```
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OS X, use the `$TRAVIS_OS_NAME` variable to install dependencies separately:
+If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+
+```yaml
+addons:
+  apt:
+    packages: foo
+  homebrew:
+    packages: bar
+```
+{: data-file=".travis.yml"}
+
+If you're installing packages manually, use the `$TRAVIS_OS_NAME` variable to install dependencies separately for each OS:
 
 ```yaml
 install:

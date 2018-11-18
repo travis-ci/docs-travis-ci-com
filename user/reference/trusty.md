@@ -3,14 +3,13 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
 
 ## What This Guide Covers
 
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
-
-<div id="toc"></div>
 
 ## Using Trusty
 
@@ -50,6 +49,9 @@ can install anything that's required for them to run.
 
 ## Container-based with `sudo: false`
 
+> Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures). 
+> Please use the [fully-virtualized infrastructure](#fully-virtualized-via-sudo-required) via `sudo: required` instead.
+
 When specifying `sudo: false`, Travis CI runs each build in a container on a
 shared host via Docker.  The container contents are a pristine copy of the
 Docker image, as guaranteed by Docker itself.
@@ -72,9 +74,9 @@ based on common language runtimes like `ruby`, `go`, `php`, `python`, etc.
 For our Trusty based environments, we're making a smaller set of images that
 includes:
 
-- A minimal image which contains a small subset of interpreters, as well as
+- A [minimal image](/user/languages/minimal-and-generic/#minimal) which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains roughly the same runtimes and
+- A considerably [larger image](/user/languages/minimal-and-generic/#generic) which contains roughly the same runtimes and
   services present in Precise environments.
 
 ## Routing to Trusty
@@ -100,7 +102,7 @@ sudo: false
 
 ### Version control
 
-All VM images have the following pre-installed:
+All virtual machine images have the following pre-installed:
 
 - Git 2.x
 - Mercurial
@@ -141,9 +143,10 @@ See our [Using Docker in Builds](/user/docker/) section for more details.
 ## Ruby images
 
 [rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
-the latest point releases such as:
+the latest point releases. These are the currently pre-installed Ruby versions:
 
 - `2.2.7`
+- `2.3.4`
 - `2.4.1`
 
 Other versions are dynamically installed at runtime from a local cache.
@@ -210,6 +213,8 @@ by `gimme`.
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+  - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
+  - Oracle JDK 11 (`oraclejdk11`)
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.
@@ -363,7 +368,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#Default-Environment-Variables) available
+variables](/user/environment-variables#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
@@ -399,4 +404,4 @@ secondary groups given above in `usermod`.
 ### Build system information
 
 In the build log, relevant software versions (including the available language
-versions) is show in the "Build system information".
+versions) are shown in the "Build system information" section.

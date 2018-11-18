@@ -4,7 +4,7 @@ title: IBM POWER
 layout: en
 ---
 
-<div id="toc"></div>
+
 
 > Testing on [IBM POWER](https://en.wikipedia.org/wiki/IBM_POWER_Instruction_Set_Architecture) is currently in ALPHA.
 {: .alpha}

@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Haxe](http://haxe.org/) projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -20,7 +20,7 @@ and cc @andyli @waneck @Simn.
 
 ## Choosing Haxe versions to test against
 
-Haxe workers on travis-ci.org download and install the binary of Haxe.
+Haxe workers on Travis CI download and install the binary of Haxe.
 To select one or more versions, use the `haxe:`
 key in your `.travis.yml` file, for example:
 

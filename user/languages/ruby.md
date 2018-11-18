@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -29,12 +28,10 @@ rvm:
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
@@ -135,8 +132,6 @@ Bundler installation can take a while, slowing down your build. You can tell
 On your first build, we warm the cache. On the second one, we'll pull in the
 cache, making `bundle install` only take seconds to run.
 
-Note that this feature is currently only available for private projects.
-
 #### Speeding up your build by excluding non-essential dependencies
 
 Lots of project include libraries like `ruby-debug`, `unicorn` or `newrelic_rpm`
@@ -184,6 +179,8 @@ gemfile: gemfiles/Gemfile.ci
 ```
 {: data-file=".travis.yml"}
 
+If you specify the location of your Gemfile in this way, the build will fail if the file is not found.
+
 You can pass [extra arguments](http://bundler.io/v1.3/man/bundle-install.1.html)
  to `bundle install`:
 
@@ -228,14 +225,14 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-ChefSpec is [tested against multiple Opscode Chef
-versions](https://github.com/acrmp/chefspec/blob/master/.travis.yml):
+ChefSpec is [tested against multiple Chef
+versions](https://github.com/chefspec/chefspec/blob/master/.travis.yml):
 
 ```yaml
 env:
-  - CHEF_VERSION=0.9.18
-  - CHEF_VERSION=0.10.2
-  - CHEF_VERSION=0.10.4
+  - CHEF_VERSION=14.3.37
+  - CHEF_VERSION=13.10.0
+  - CHEF_VERSION=12.22.5
 ```
 {: data-file=".travis.yml"}
 
@@ -297,6 +294,11 @@ matrix:
 For example, see
 [travis-support](https://github.com/travis-ci/travis-support/blob/master/.travis.yml).
 
+### Using Java 10 and Up
+
+For testing with OpenJDK and OracleJDK 10 and up, see
+[Java documentation](/user/languages/java/#using-java-10-and-later).
+
 ## Upgrading RubyGems
 
 The RubyGems version installed on Travis CI's Ruby environment depends on what's
@@ -328,4 +330,4 @@ downloads and installations are required.
 ## Build Matrix
 
 For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).
