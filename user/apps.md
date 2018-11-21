@@ -441,6 +441,15 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
 
+### Travis CI 🡒 Discord Webhook
+
+![TravisCI Discord Webhook](https://github.com/DiscordHooks.png){:.app}
+
+Serverless solution for sending build status from Travis CI to Discord as webhooks.<br>
+By Sankarsan Kampa
+
+- [website](https://github.com/DiscordHooks/travis-ci-discord-webhook)
+
 # Libraries
 
 ## Ruby
