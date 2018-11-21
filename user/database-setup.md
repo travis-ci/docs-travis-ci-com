@@ -58,10 +58,10 @@ and a blank password.
 Current versions of MySQL are
 
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
+|                 | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
+|:----------------|:---------------|:--------------|---------------|
+| Sudo-enabled    | 5.5.x          | 5.6.x         | 5.7.x         |
+| Container-based | -              | 5.6.x         | -             |
 
 You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
 
@@ -106,7 +106,7 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial image. On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 ```yaml
 addons:

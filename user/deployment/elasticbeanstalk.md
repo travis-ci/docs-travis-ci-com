@@ -22,7 +22,8 @@ To deploy to AWS Elastic Beanstalk add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: elasticbeanstalk
-  access_key_id: "Encrypted <access-key-id>="
+  access_key_id: 
+    secure: "Encrypted <access-key-id>="
   secret_access_key:
     secure: "Encypted <secret-access-key>="
   region: "us-east-1"  
