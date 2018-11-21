@@ -164,7 +164,7 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
     puma (3.11.4)
-    rack (1.6.10)
+    rack (1.6.11)
     rack-jekyll (0.5.0)
       jekyll (>= 1.3)
       listen (>= 1.3)
