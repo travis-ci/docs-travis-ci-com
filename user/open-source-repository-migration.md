@@ -7,7 +7,7 @@ layout: en
 
 ## Details and questions
 
-### Which information will be transferred to travis-ci.com?
+### What information will be transferred to travis-ci.com?
 
 When a repository is migrated, the following information will be transferred to travis-ci.com:
 * Environment variables (public and encrypted)
@@ -18,7 +18,7 @@ When a repository is migrated, the following information will be transferred to 
 
 At this early stage of the beta testing process, it isn't yet possible to migrate [cron jobs](https://docs.travis-ci.com/user/cron-jobs/). We are working to make this available as soon as possible.
 
-#### Which information will not be transferred to travis-ci.com?
+#### What information will not be transferred to travis-ci.com?
 
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
@@ -28,7 +28,7 @@ The following information will not be transferred to travis-ci.com when a reposi
 
 ### Are there any manual changes required?
 
-* If you're including **build badges** in your repository's README.md file or somewhere else, make sure to update the URL to reflect the new repository setup in travis-ci.com.
+* If you're including **build badges** in your repository's README.md file or somewhere else, make sure to update the URL to reflect the new repository setup in travis-ci.com. In the future, we will automatically redirect travis-ci.org badge URLs to the corresponding travis-ci.com ones.
 
 * If you're using the **"Protected Branches" feature in GitHub** to require a passing Travis CI build before merging a Pull Request, make sure to edit your required status checks to now use `Travis CI - Pull Request` and/or `Travis CI - Branch`. See: [Required status checks at GitHub](https://help.github.com/articles/about-required-status-checks/).
 
@@ -38,7 +38,7 @@ The following information will not be transferred to travis-ci.com when a reposi
 
 ### What will happen to my travis-ci.org repository?
 
-Your repository in travis-ci.org will be automatically deactivated (this is, it will no longer receive GitHub events) and will remain available in **read-only mode**.
+Your repository on travis-ci.org will be automatically deactivated (that is, it will no longer receive GitHub events) and will remain available in **read-only mode**.
 
 With this read-only mode:
 * All the previous build history will be accessible at travis-ci.org
