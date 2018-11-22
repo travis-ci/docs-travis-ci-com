@@ -28,7 +28,7 @@ The following information will not be transferred to travis-ci.com when a reposi
 
 ### Are there any manual changes required?
 
-* If you're including **build badges** in your repository's README.md file or somewhere else, make sure to update the URL to reflect the new repository setup in travis-ci.com. In the future, we will automatically redirect travis-ci.org badge URLs to the corresponding travis-ci.com ones.
+* If you're including **build badges** in your repository's README.md file or somewhere else, make sure to update the URL to reflect the new repository setup in travis-ci.com. In future, we will automatically redirect travis-ci.org badge URLs to the corresponding travis-ci.com ones.
 
 * If you're using the **"Protected Branches" feature in GitHub** to require a passing Travis CI build before merging a Pull Request, make sure to edit your required status checks to now use `Travis CI - Pull Request` and/or `Travis CI - Branch`. See: [Required status checks at GitHub](https://help.github.com/articles/about-required-status-checks/).
 
