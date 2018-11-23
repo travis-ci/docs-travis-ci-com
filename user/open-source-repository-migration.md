@@ -79,7 +79,7 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 1. Once you have granted access via GitHub Apps to the repositories you'd like to build and transfer, a new "Migrate" button will appear in your repository list:
   ![Migration repository list](/user/images/oss-migration/repos-to-migrate.png)
 
-2. Click "Migrate" for the repository you'd like to migrate. You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [Which information will not be transferred to travis-ci.com?](#which-information-will-not-be-transferred-to-travis-cicom)).
+2. Click "Migrate" for the repository you'd like to migrate. You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [What information will not be transferred to travis-ci.com?](#what-information-will-not-be-transferred-to-travis-cicom)).
   
 3. Confirm the migration. The icons next to your repository name will show the migration status ("processing", or "migrated"):
   ![Migration statuses](/user/images/oss-migration/migration-statuses.png)
