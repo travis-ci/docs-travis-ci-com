@@ -69,3 +69,7 @@ We will announce changes to this set of IP addresses with a 24 hour notice perio
 </form>
 </div>
 <!--End mc_embed_signup-->
+
+## Load balancing
+
+Due to our load balancing, connections from builders to external resources may come from different IPs from the aforementioned ranges -- even if they originate from the same build job. This may [run afoul of security checks, especially when using protocols that utilize multiple connections like FTP and VPN](https://docs.travis-ci.com/user/common-build-problems/#ftpsmtpother-protocol-does-not-work), and may require reconfiguring your servers to allow for such a scenario.
