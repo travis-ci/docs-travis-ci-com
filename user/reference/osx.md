@@ -121,8 +121,8 @@ projects that may need one of those runtimes during the build.
 
 - `CI=true`
 - `TRAVIS=true`
-- `USER=travis` (**do not depend on this value**)
-- `HOME=/Users/travis` (**do not depend on this value**)
+- `USER=travis`
+- `HOME=/Users/travis`
 
 Additionally, Travis CI sets environment variables you can use in your build,
 e.g.  to tag the build, or to run post-build deployments.
