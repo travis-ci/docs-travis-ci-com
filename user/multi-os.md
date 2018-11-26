@@ -101,7 +101,6 @@ matrix:
   include:
     - os: linux
       dist: trusty
-      sudo: required
     - os: osx
       osx_image: xcode7.2
 ```
@@ -117,11 +116,9 @@ language: python
 matrix:
     include:
         - os: linux
-          sudo: required
           python: 3.2
           env: TOXENV=py32
         - os: linux
-          sudo: required
           python: 3.3
           env: TOXENV=py33
         - os: osx
