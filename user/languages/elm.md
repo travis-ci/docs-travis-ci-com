@@ -27,6 +27,7 @@ Minimal example:
   elm:
     - "0.19.0"
 ```
+</aside>
 
 ### Community-Supported Warning
 
