@@ -27,6 +27,8 @@ Minimal example:
   elm:
     - "0.19.0"
 ```
+{: data-file=".travis.yml"}
+
 </aside>
 
 ### Community-Supported Warning
