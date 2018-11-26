@@ -37,10 +37,13 @@ Travis CI support for Elm is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI Community Forum](https://travis-ci.community/c/languages/elm).
 
-## Choosing Elm tool versions to test against
+## Choosing Elm versions to test against
 
-You can specify the Elm language version to test your project against with the
-`elm` key:
+You can specify the Elm language versions to test your project against with the
+`elm` key.
+This may be a single string value (e.g., `0.19.0`), or an array of string, in
+which case a build matrix consisting of jobs running each of the versions
+specified in the array.
 
 ```yaml
 language: elm
@@ -49,8 +52,6 @@ elm:
   - elm0.18.0
 ```
 {: data-file=".travis.yml"}
-
-This creates a separate Travis job for each Elm version.
 
 ### Support tools `elm-test` and `elm-format`
 
@@ -69,7 +70,7 @@ elm-format: 0.8.0
 {: data-file=".travis.yml"}
 
 Notice that these values are passed to `npm`.
-This means that they can be speicified as a version string (e.g., `0.19.0`)
+This means that they can be specified as a version string (e.g., `0.19.0`)
 or a tag (e.g., `elm0.19.0`).
 `elm-test` and `elm-format` default to tags with `elm` prefix, derived from the
 `elm` value.
@@ -84,6 +85,8 @@ language: elm
 node_js: '10' # latest 10.x
 ```
 {: data-file=".travis.yml"}
+
+The default Node.js version is `10.13.0`.
 
 ## Dependency Management
 
