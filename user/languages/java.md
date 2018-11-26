@@ -214,7 +214,6 @@ version.
 The following example will use the latest Oracle JDK 8:
 
 ```yaml
-sudo: false
 addons:
   apt:
     packages:

@@ -9,13 +9,13 @@ when you need them safelisted to access your internal resources. Since builds
 run in a variety of different infrastructures, the IP ranges to safelist depend
 on the infrastructure your builds are running on.
 
-| Infrastructure        | NAT hostname                                      | Current DNS                                                                            | Last recorded IPs                                                      |
-|:----------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| OS X                  | {{ site.data.macstadium_ip_range['host'] }}       | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json)       | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}`        |
-| Container-based Linux | {{ site.data.linux_containers_ip_range['host'] }} | [A recs](https://dnsjson.com/{{ site.data.linux_containers_ip_range['host'] }}/A.json) | `{{ site.data.linux_containers_ip_range['ip_range'] | join: "`, `" }}` |
-| Sudo-enabled Linux    | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
-| Windows               | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
-| (all combined)        | {{ site.data.ip_range['host'] }}                  | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)                  | (sum of all above)                                                     |
+| Infrastructure                                                                                                  | NAT hostname                                      | Current DNS                                                                            | Last recorded IPs                                                      |
+|:----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| OS X                                                                                                            | {{ site.data.macstadium_ip_range['host'] }}       | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json)       | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}`        |
+| Linux                                                                                                           | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
+| Container-based [see deprecation notice](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures) | {{ site.data.linux_containers_ip_range['host'] }} | [A recs](https://dnsjson.com/{{ site.data.linux_containers_ip_range['host'] }}/A.json) | `{{ site.data.linux_containers_ip_range['ip_range'] | join: "`, `" }}` |
+| Windows                                                                                                         | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
+| (all combined)                                                                                                  | {{ site.data.ip_range['host'] }}                  | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)                  | (sum of all above)                                                     |
 {: .ip-address-ranges}
 
 Note that these ranges can change in the future, and the best way to keep an
@@ -54,7 +54,7 @@ We will announce changes to this set of IP addresses with a 24 hour notice perio
 <div id="mc_embed_signup">
 <form action="https://travis-ci.us7.list-manage.com/subscribe/post?u=8ce724a4c9af4dace663cd39c&amp;id=8760e616bf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	
+
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address </label>
 	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
