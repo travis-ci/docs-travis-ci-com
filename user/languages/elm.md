@@ -125,7 +125,7 @@ to construct a build matrix.
 * `TRAVIS_ELM_FORMAT_VERSION` points to the `elm-format` version in use.
   If you override `elm-format`, that value is used.
   If `elm-format` is not overridden but `elm` is, that value with the `elm`
-  prefix is used. (For example, `elm: 0.18.0` chooses `elm-forma@elm0.18.0`.)
+  prefix is used. (For example, `elm: 0.18.0` chooses `elm-format@elm0.18.0`.)
   If neither `elm-format` nor `elm` is overridden, the default value, `elm0.19.0`
   is used.
 * `TRAVIS_NODE_VERSION` points to the `node_js` version in use.
