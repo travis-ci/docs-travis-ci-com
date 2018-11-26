@@ -88,7 +88,7 @@ For dependency management, Elm projects use the same logic as Node.js projects.
 See [Node.js documentation](/user/languages/javascript-with-nodejs/#dependency-management)
 for details.
 
-## Running Tests
+## Default Build Script
 
 The default command for testing Elm projects is:
 
@@ -103,6 +103,11 @@ language: elm
 script: elm-test
 ```
 {: data-file=".travis.yml"}
+
+## Build Matrix
+
+For Elm projects, `env`, `elm`, and `node_js` can be used as arrays
+to construct a build matrix.
 
 ## Environment Variables
 
