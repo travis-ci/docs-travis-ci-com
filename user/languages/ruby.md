@@ -96,7 +96,7 @@ rvm:
 
 See the [TruffleRuby releases](https://github.com/oracle/truffleruby/releases)
 page for a list of release versions.
-Please file any issue on [GitHub](https://github.com/oracle/truffleruby/issues).
+Please file any issues on [GitHub](https://github.com/oracle/truffleruby/issues).
 
 ### JRuby: C extensions are not supported
 
