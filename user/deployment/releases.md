@@ -254,3 +254,7 @@ These include:
 * `prerelease` (boolean)
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
+
+## A note on folders
+
+GitHub Releases interacts with the current directory's git configuration, rather than the repository's. Keep this in mind when deploying.
