@@ -77,34 +77,19 @@ language: php
 ```
 {: data-file=".travis.yml"}
 
-Or pick one from the [full list](/user/languages/).
-
-## Selecting infrastructure (optional)
-
-The best way to determine what infrastructure your build runs on
-is to set the `language`. If you do this your build runs on the default
-infrastructure (with a few exceptions), which is Container Based Ubuntu 14.04.
-You can explicitly select the default infrastructure by adding `sudo: false` to your `.travis.yml`.
-
-* If you need a more customizable environment running in a virtual machine, use the Sudo
-Enabled infrastructure:
-
-  ```yaml
-  sudo: enabled
-  ```
-  {: data-file=".travis.yml"}
-
-* If you have tests that need to run on macOS, or your project uses Swift or
+If you have tests that need to run on macOS, or your project uses Swift or
 Objective-C, use our OS X environment:
 
-  ```yaml
-  os: osx
-  ```
-  {: data-file=".travis.yml"}
+```yaml
+os: osx
+```
+{: data-file=".travis.yml"}
 
-  > You do *not* necessarily need to use OS X if you develop on a Mac.
-  > OS X is required only if you need Swift, Objective-C or other
-  > macOS-specific software.
+> You do *not* necessarily need to use OS X if you develop on a Mac.
+> OS X is required only if you need Swift, Objective-C or other
+> macOS-specific software.
+
+Travis CI supports many [programming languages](/user/languages/).
 
 ## More than running tests
 

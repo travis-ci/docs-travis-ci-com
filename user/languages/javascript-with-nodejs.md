@@ -215,7 +215,6 @@ is [`Qunit`](http://qunitjs.com/). The following example shows how to build and
 test against different Ember versions.
 
 ```yaml
-sudo: required
 dist: trusty
 addons:
   apt:

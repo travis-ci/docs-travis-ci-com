@@ -23,7 +23,6 @@ An example `.travis.yml` :
 
 ```yaml
 language: smalltalk
-sudo: false
 
 # Select operating system(s)
 os:
