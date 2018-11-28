@@ -24,7 +24,7 @@ If you have both the [Heroku](https://devcenter.heroku.com/articles/heroku-cli) 
 travis encrypt $(heroku auth:token) --add deploy.api_key
 ```
 
-Be careful if your Travis CI account is on [travis-ci.com](https://travis-ci.com) or [travis-ci.com](https://travis-ci.org), on [travis-ci.com](https://travis-ci.com) if your project is _public_ you may add the `--pro` tag to this command :
+`travis` command defaults to using [travis-ci.org](https://travis-ci.org) as the API endpoint. If your build runs on on [travis-ci.com](https://travis-ci.com) (even if your repository is public), add `--pro` flag to override this:
 
 ```bash
 travis encrypt $(heroku auth:token) --add deploy.api_key --pro
