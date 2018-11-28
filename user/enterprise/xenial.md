@@ -12,7 +12,7 @@ layout: en_enterprise
 
 We recommend using a machine with 8 vCPUs and 15 GiB of memory and at least 40 GiB of disk space. If you're using AWS that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
 
-In addition, _Trusty and Xenial build containers must be on different instances_. To run both Trusty and Xenial builds, at least two worker instances are required.
+> _Trusty and Xenial build containers must be on different instances_. To run both Trusty and Xenial builds, at least two worker instances are required.
 
 ## Installation with Travis CI Enterprise 2.2.6 and later
 
