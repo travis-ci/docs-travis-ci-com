@@ -351,26 +351,6 @@ By excellenteasy
 
 - [website](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp)
 
-## Mozilla Firefox
-
-### GitHub+Travis
-
-![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
-
-Display build status next to project name on GitHub<br>
-By David Burns
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/githubtravis/)
-
-### Link to Travis Lite
-
-![firefox-travis-lite](/images/apps/firefox-travis-lite.jpg){:.app}
-
-Add a links to corresponding Travis Lite page<br>
-By Nigel Babu
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/link-to-travis-lite/)
-
 ## Opera
 
 ### GitHub+Travis
