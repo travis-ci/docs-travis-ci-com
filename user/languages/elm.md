@@ -118,7 +118,7 @@ to construct a build matrix.
 ## Environment Variables
 
 * The version of Elm a job is using is available as `TRAVIS_ELM_VERSION`.
-  This defualts to `elm0.19.0`.
+  This defaults to `elm0.19.0`.
 * `TRAVIS_ELM_TEST_VERSION` points to the `elm-test` version in use.
   If you override `elm-test`, that value is used.
   If `elm-test` is not overridden but `elm` is, that value with the `elm`
