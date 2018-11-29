@@ -11,7 +11,6 @@ The Google Chrome addon allows Travis CI builds to install Google Chrome at run 
 You can install the `stable`  or the `beta` version of Chrome but you can't select a specific numeric version.
 
 ```yaml
-sudo: required
 addons:
   chrome: stable
 ```
@@ -73,7 +72,7 @@ When using [Capybara](https://github.com/teamcapybara/capybara) with Ruby, you w
 require 'capybara'
 Capybara.register_driver :chrome do |app|
 	options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
-	
+
 	Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
@@ -99,4 +98,4 @@ default:
               - "--no-sandbox"
       javascript_session: selenium2
       browser_name: chrome
-``` 
+```

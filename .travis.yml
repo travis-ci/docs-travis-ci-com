@@ -1,5 +1,4 @@
 #language: ruby
-sudo: false
 dist: trusty
 language: python
 python:

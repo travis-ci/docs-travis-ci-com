@@ -22,6 +22,7 @@ language: ruby
 rvm:
   - 2.2
   - jruby
+  - truffleruby
   - 2.0.0-p247
 ```
 {: data-file=".travis.yml"}
@@ -46,6 +47,7 @@ language: ruby
 rvm:
   - 2.2
   - jruby
+  - truffleruby
   - 2.0.0-p247
 ```
 {: data-file=".travis.yml"}
@@ -78,6 +80,23 @@ rvm:
   - rbx-3
 ```
 {: data-file=".travis.yml"}
+
+### TruffleRuby
+
+To test with [TruffleRuby](https://github.com/oracle/truffleruby), simply add
+`truffleruby` or `truffleruby-VERSION` to your `.travis.yml`:
+```yaml
+language: ruby
+rvm:
+  - truffleruby # latest release
+  # or
+  - truffleruby-1.0.0-rc9 # specific version
+```
+{: data-file=".travis.yml"}
+
+See the [TruffleRuby releases](https://github.com/oracle/truffleruby/releases)
+page for a list of release versions.
+Please file any issues on [GitHub](https://github.com/oracle/truffleruby/issues).
 
 ### JRuby: C extensions are not supported
 
