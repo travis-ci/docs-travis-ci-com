@@ -8,7 +8,7 @@ layout: en
 
 {{ site.data.snippets.cron_jobs }}
 
-Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-cron-Jobs) in the same way
+Cron job builds use the same notification settings as normal push builds, and you can [skip them](#skipping-cron-Jobs) in the same way
 
 Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 

@@ -15,7 +15,7 @@ swiftypetags:
 | Go                                          | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `go get -t -v ./...`                         |
-| [Default `script`](#Default-Build-Script)   | `make` or `go test`                       |
+| [Default `script`](#default-build-script)   | `make` or `go test`                       |
 | [Matrix keys](#Build-Matrix)                | `go`, `env`                               |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 

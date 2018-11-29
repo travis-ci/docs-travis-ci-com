@@ -11,7 +11,7 @@ layout: en
 | Python                                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
-| [Default `script`](#Default-Build-Script)   | N/A                                       |
+| [Default `script`](#default-build-script)   | N/A                                       |
 | [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 

@@ -11,7 +11,7 @@ layout: en
 | Ruby                                        | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `bundle install --jobs=3 --retry=3`       |
-| [Default `script`](#Default-Build-Script)   | `rake`                                    |
+| [Default `script`](#default-build-script)   | `rake`                                    |
 | [Matrix keys](#Build-Matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 

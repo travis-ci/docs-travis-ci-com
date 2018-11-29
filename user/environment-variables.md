@@ -10,13 +10,11 @@ A common way to customize the build process is to define environment variables, 
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#Defining-Variables-in-travisyml)
-- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#Encrypted-Variables)
-- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#Defining-Variables-in-Repository-Settings)
+- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#defining-variables-in-travisyml)
+- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#encrypted-variables)
+- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
 ## Defining public variables in .travis.yml
-
-{: #Defining-Variables-in-travisyml}
 
 Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
@@ -124,8 +122,6 @@ Encrypt environment variables with the public key attached to your repository us
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
 
 ## Defining Variables in Repository Settings
-
-{: #Defining-Variables-in-Repository-Settings}
 
 {{ site.data.snippets.environment_variables }}
 

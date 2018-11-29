@@ -11,7 +11,7 @@ layout: en
 | PHP                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
+| [Default `script`](#default-build-script)   | `phpunit`                                 |
 | [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 

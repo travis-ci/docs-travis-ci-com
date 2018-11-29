@@ -16,7 +16,7 @@ This guide covers build environment and configuration topics specific to
 | Elm                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `npm install`                             |
-| [Default `script`](#Default-Build-Script)   | `elm-format --validate . && elm-test`     |
+| [Default `script`](#default-build-script)   | `elm-format --validate . && elm-test`     |
 | [Matrix keys](#Build-Matrix)                | `elm`, `node_js`                          |
 | Support                                     | [Community Support](https://travis-ci.community/c/languages/elm) |
 

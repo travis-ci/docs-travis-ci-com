@@ -190,7 +190,7 @@ branches:
 ```
 {: data-file=".travis.yml"}
 
-> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#Using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
+> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
 
 If you use both a safelist and a blocklist, the safelist takes precedence. By default, the `gh-pages` branch is not built unless you add it to the safelist.
 

@@ -27,8 +27,8 @@ of your development process by managing deployments and notifications.
 When you run a build, Travis CI clones your GitHub repository into a brand new
 virtual environment, and carries out a series of tasks to build and test your
 code. If one or more of those tasks fails, the build is considered
-[*broken*](#Breaking-the-Build). If none of the tasks fail, the build is
-considered [*passed*](#Breaking-the-Build), and Travis CI can deploy your code
+[*broken*](#breaking-the-build). If none of the tasks fail, the build is
+considered [*passed*](#breaking-the-build), and Travis CI can deploy your code
 to a web server, or application host.
 
 CI builds can also automate other parts of your delivery workflow. This means

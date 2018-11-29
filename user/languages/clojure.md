@@ -11,7 +11,7 @@ layout: en
 | Clojure                                     | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `project.clj`                             |
-| [Default `script`](#Default-Build-Script)   | `lein test`                               |
+| [Default `script`](#default-build-script)   | `lein test`                               |
 | [Matrix keys](#Build-Matrix)                | `env`, `lein`, `jdk`                      |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 

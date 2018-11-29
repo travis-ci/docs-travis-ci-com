@@ -11,7 +11,7 @@ layout: en
 | Haskell                                     | Default                                                       |
 |:--------------------------------------------|:--------------------------------------------------------------|
 | [Default `install`](#Dependency-Management) | `cabal install --only-dependencies --enable-tests`            |
-| [Default `script`](#Default-Build-Script)   | `cabal configure --enable-tests && cabal build && cabal test` |
+| [Default `script`](#default-build-script)   | `cabal configure --enable-tests && cabal build && cabal test` |
 | [Matrix keys](#Build-Matrix)                | `env`, `ghc`                                                  |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)                     |
 
