@@ -1,5 +1,4 @@
 anynines: "/user/deployment/anynines/"
-Appfog: "/user/deployment/appfog/"
 Atlas: "/user/deployment/atlas/"
 AWS CodeDeploy: "/user/deployment/codedeploy/"
 AWS Elastic Beanstalk: "/user/deployment/elasticbeanstalk/"

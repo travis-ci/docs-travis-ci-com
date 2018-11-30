@@ -6,12 +6,12 @@ layout: en
 
 There is a wide range of tools you can use to interact with Travis CI:
 
-- **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
-- **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
-- **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
-- **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R), [Go](#Go)
+- **[Websites](#websites)**: [Full Web Clients](#full-web-clients), [Dashboards](#dashboards), [Tools](#tools)
+- **[Mobile Applications](#mobile)**: [Android](#android), [iOS](#ios), [Windows Phone](#windows-phone)
+- **[Desktop](#desktop)**: [Mac OS X](#mac-os-x), [Linux](#linux), [Cross Platform](#cross-platform)
+- **[Command Line Tools](#commandline)**: [Full Clients](#full-clients), [Build Monitoring](#build-monitoring), [Generators](#generators)
+- **[Plugins](#plugins)**: [Google Chrome](#google-chrome), [Opera](#opera), [Editors](#editors), [Other](#other)
+- **[Libraries](#libraries)**: [Ruby](#ruby), [JavaScript](#javascript), [PHP](#php), [Python](#python), [Elixir](#elixir), [R](#r), [Go](#go)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -351,26 +351,6 @@ By excellenteasy
 
 - [website](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp)
 
-## Mozilla Firefox
-
-### GitHub+Travis
-
-![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
-
-Display build status next to project name on GitHub<br>
-By David Burns
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/githubtravis/)
-
-### Link to Travis Lite
-
-![firefox-travis-lite](/images/apps/firefox-travis-lite.jpg){:.app}
-
-Add a links to corresponding Travis Lite page<br>
-By Nigel Babu
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/link-to-travis-lite/)
-
 ## Opera
 
 ### GitHub+Travis
@@ -440,6 +420,15 @@ NodeGH plugin for integrating Travis CI<br>
 By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
+
+### Travis CI 🡒 Discord Webhook
+
+![TravisCI Discord Webhook](https://github.com/DiscordHooks.png){:.app}
+
+Serverless solution for sending build status from Travis CI to Discord as webhooks.<br>
+By Sankarsan Kampa
+
+- [website](https://github.com/DiscordHooks/travis-ci-discord-webhook)
 
 # Libraries
 

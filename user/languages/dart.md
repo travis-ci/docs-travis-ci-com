@@ -42,7 +42,7 @@ dart:
 This creates a separate Travis job for each Dart version. It can be used in
 conjunction with `env` or similar fields to create a [build matrix][].
 
-[build matrix]: /user/customizing-the-build/#Build-Matrix
+[build matrix]: /user/customizing-the-build/#build-matrix
 
 ## Dependency Management
 

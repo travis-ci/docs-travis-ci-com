@@ -10,9 +10,9 @@ layout: en
 
 | JavaScript and Node.js                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `npm install`                             |
-| [Default `script`](#Default-Build-Script)   | `npm test`                                |
-| [Matrix keys](#Build-Matrix)                | `env`, `node_js`                          |
+| [Default `install`](#dependency-management) | `npm install`                             |
+| [Default `script`](#default-build-script)   | `npm test`                                |
+| [Matrix keys](#build-matrix)                | `env`, `node_js`                          |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -215,7 +215,6 @@ is [`Qunit`](http://qunitjs.com/). The following example shows how to build and
 test against different Ember versions.
 
 ```yaml
-sudo: required
 dist: trusty
 addons:
   apt:

@@ -114,4 +114,4 @@ ARTIFACTS_DEBUG=1
 ```
 
 ### Travis CI Artifact Uploader
-For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts)
+For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts) which is installed on your build VM by default. 

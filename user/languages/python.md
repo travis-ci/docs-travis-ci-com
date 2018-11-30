@@ -10,9 +10,9 @@ layout: en
 
 | Python                                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
-| [Default `script`](#Default-Build-Script)   | N/A                                       |
-| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
+| [Default `install`](#dependency-management) | `pip install -r requirements.txt`         |
+| [Default `script`](#default-build-script)   | N/A                                       |
+| [Matrix keys](#build-matrix)                | `python`, `env`                           |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:

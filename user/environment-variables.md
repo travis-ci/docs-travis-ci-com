@@ -10,13 +10,11 @@ A common way to customize the build process is to define environment variables, 
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#Defining-Variables-in-travisyml)
-- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#Encrypted-Variables)
-- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#Defining-Variables-in-Repository-Settings)
+- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
+- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
+- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
 ## Defining public variables in .travis.yml
-
-{: #Defining-Variables-in-travisyml}
 
 Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
@@ -125,8 +123,6 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 ## Defining Variables in Repository Settings
 
-{: #Defining-Variables-in-Repository-Settings}
-
 {{ site.data.snippets.environment_variables }}
 
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
@@ -162,8 +158,9 @@ The following default environment variables are available to all builds.
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-- `USER=travis` (**do not depend on this value**; do not override this value)
-- `HOME=/home/travis` (**do not depend on this value**)
+- `USER=travis`
+- `HOME` is set to `/home/travis` on Linux, `/Users/travis` on MacOS, and
+    `/c/Users/travis` on Windows.
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
 - `RAILS_ENV=test`
