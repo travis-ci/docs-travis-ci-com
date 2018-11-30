@@ -23,7 +23,7 @@ At this early stage of the beta testing process, it isn't yet possible to migrat
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
 * Cron jobs configured for the repository
-* Previous build history - your builds at travis-ci.org will stay where they are for now and they will be migrated at a later time (We're aiming for complete build histories to be migrated by January 2019)
+* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration sometime in January 2019)
 * Caches - they will be re-created automatically on the first build on travis-ci.com
 
 ### Are there any manual changes required?
