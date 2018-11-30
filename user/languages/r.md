@@ -378,4 +378,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 
 [tug]: https://www.tug.org/texlive/
 
-[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon
+[apt-addon]: /user/installing-dependencies/#installing-packages-with-the-apt-addon

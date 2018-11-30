@@ -10,9 +10,9 @@ layout: en
 
 | Haskell                                     | Default                                                       |
 |:--------------------------------------------|:--------------------------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cabal install --only-dependencies --enable-tests`            |
+| [Default `install`](#dependency-management) | `cabal install --only-dependencies --enable-tests`            |
 | [Default `script`](#default-build-script)   | `cabal configure --enable-tests && cabal build && cabal test` |
-| [Matrix keys](#Build-Matrix)                | `env`, `ghc`                                                  |
+| [Matrix keys](#build-matrix)                | `env`, `ghc`                                                  |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)                     |
 
 Minimal example:

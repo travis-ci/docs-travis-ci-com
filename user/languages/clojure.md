@@ -10,9 +10,9 @@ layout: en
 
 | Clojure                                     | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `project.clj`                             |
+| [Default `install`](#dependency-management) | `project.clj`                             |
 | [Default `script`](#default-build-script)   | `lein test`                               |
-| [Matrix keys](#Build-Matrix)                | `env`, `lein`, `jdk`                      |
+| [Matrix keys](#build-matrix)                | `env`, `lein`, `jdk`                      |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
