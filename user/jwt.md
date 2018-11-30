@@ -74,7 +74,7 @@ transmit your secret information without worrying that it is leaked.
 
 ### Troubleshooting
 
-1. Check if the third-party service is [supported](#List-of-Third-Party-Services-Integrated-with-the-JWT-Addon)
+1. Check if the third-party service is [supported](#list-of-third-party-services-integrated-with-the-jwt-addon)
 2. Contact the third-party support and provide them with the encrypted token (echo the key in your test script), and link to the Travis job.
 
 ## Third-Party Service Integration

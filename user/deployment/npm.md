@@ -127,7 +127,7 @@ See [`npm` documentation](https://docs.npmjs.com/misc/developers#keeping-files-o
 for more details.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 

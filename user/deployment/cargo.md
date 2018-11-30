@@ -22,7 +22,7 @@ deploy:
 An API token can be obtained by logging in to your [crates.io][] account, and
 generating a new token at <https://crates.io/me>.
 
-Always [encrypt](/user/encryption-keys/#Usage) your API token. Assuming you
+Always [encrypt](/user/encryption-keys/#usage) your API token. Assuming you
 have the Travis CI command line client installed, you can do it like this:
 
 ```bash

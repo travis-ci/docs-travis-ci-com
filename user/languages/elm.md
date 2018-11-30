@@ -15,9 +15,9 @@ This guide covers build environment and configuration topics specific to
 
 | Elm                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `npm install`                             |
-| [Default `script`](#Default-Build-Script)   | `elm-format --validate . && elm-test`     |
-| [Matrix keys](#Build-Matrix)                | `elm`, `node_js`                          |
+| [Default `install`](#dependency-management) | `npm install`                             |
+| [Default `script`](#default-build-script)   | `elm-format --validate . && elm-test`     |
+| [Matrix keys](#build-matrix)                | `elm`, `node_js`                          |
 | Support                                     | [Community Support](https://travis-ci.community/c/languages/elm) |
 
 Minimal example:
@@ -118,7 +118,7 @@ to construct a build matrix.
 ## Environment Variables
 
 * The version of Elm a job is using is available as `TRAVIS_ELM_VERSION`.
-  This defualts to `elm0.19.0`.
+  This defaults to `elm0.19.0`.
 * `TRAVIS_ELM_TEST_VERSION` points to the `elm-test` version in use.
   If you override `elm-test`, that value is used.
   If `elm-test` is not overridden but `elm` is, that value with the `elm`

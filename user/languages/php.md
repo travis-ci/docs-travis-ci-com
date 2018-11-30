@@ -10,9 +10,9 @@ layout: en
 
 | PHP                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
-| [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `phpunit`                                 |
+| [Matrix keys](#build-matrix)                | `env`, `php`                              |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:

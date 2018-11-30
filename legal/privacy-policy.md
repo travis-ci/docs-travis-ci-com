@@ -4,7 +4,7 @@ layout: en
 no_toc: true
 
 ---
-Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#In-short) and in a more [detailed](#in-more-detailed-form) form. For details on data security please refer <a href="https://docs.travis-ci.com/legal/privacy-policy/#viii-data-security">here</a>.
+Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#in-short) and in a more [detailed](#in-more-detailed-form) form. For details on data security please refer <a href="https://docs.travis-ci.com/legal/privacy-policy/#viii-data-security">here</a>.
 
 We take the protection of our users’ (**“User/you/your”**) personal data very seriously and strictly comply with applicable data protection laws and regulations. In our privacy policy below (**“Privacy Policy”**) we provide you with an overview of what data we collect for what purpose and how we ensure the protection of the data.
 

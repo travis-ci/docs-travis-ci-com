@@ -22,10 +22,10 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined), [changing the email
-address](#Changing-the-email-address-for-build-notifications) or
+addresses](#how-is-the-build-email-receiver-determined), [changing the email
+address](#changing-the-email-address-for-build-notifications) or
 [troubleshooting email
-notification](#Missing-build-notifications).
+notification](#missing-build-notifications).
 
 If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
@@ -54,7 +54,7 @@ This means that environment variables from the build are not available in this s
 
 There is currently no way of limiting the notification to a specific branch, but
 the payload will contain all relevant data to do so at the receiving end (see
-[Webhooks Delivery Format](#Webhooks-Delivery-Format)).
+[Webhooks Delivery Format](#webhooks-delivery-format)).
 
 ### Note on SSL/TLS Ciphers
 
@@ -103,7 +103,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Specify when you want to [get notified](#Changing-notification-frequency):
+Specify when you want to [get notified](#changing-notification-frequency):
 
 ```yaml
 notifications:
@@ -342,7 +342,7 @@ notifications:
 > travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
 > ```
 
-You can also customise the notifications, like with [IRC notifications](#Configuring-IRC-notifications):
+You can also customise the notifications, like with [IRC notifications](#configuring-irc-notifications):
 
 ```yaml
 notifications:

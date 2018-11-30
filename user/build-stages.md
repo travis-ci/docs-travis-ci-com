@@ -204,7 +204,7 @@ If your jobs need to share files (e.g., using build artifacts from the "Test" st
 subsequent "Deploy" stage), you need to use an external storage mechanism such as S3 and a remote
 `scp` server.
 
-See [the S3 example](#Sharing-files-between-jobs-via-S3) below.
+See [the S3 example](#sharing-files-between-jobs-via-s3) below.
 
 ## Examples
 

@@ -10,9 +10,9 @@ layout: en
 
 | Scala                        | Default                                                                                                                                                                                                                 |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#gradle-dependency-management), [Maven](/user/languages/java/#maven-dependency-management), [Ant](/user/languages/java/#ant-dependency-management)     |
-| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#gradle-default-script-command), [Maven](/user/languages/java/#maven-default-script-command), [Ant](/user/languages/java/#ant-default-script-command) |
-| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
+| Default `install`            | [sbt](#sbt-dependency-management), [Gradle](/user/languages/java/#gradle-dependency-management), [Maven](/user/languages/java/#maven-dependency-management), [Ant](/user/languages/java/#ant-dependency-management)     |
+| Default `script`             | [sbt](#sbt-default-script-command), [Gradle](/user/languages/java/#gradle-default-script-command), [Maven](/user/languages/java/#maven-default-script-command), [Ant](/user/languages/java/#ant-default-script-command) |
+| [Matrix keys](#build-matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                               |
 
 Minimal example:
