@@ -27,6 +27,7 @@ Assumptions:
 - You have version **1.7.0** or later of the Travis CI Command Line Client installed and set up (you are logged in)
 - You have a local copy of the repository and a terminal open where your current working directory is said copy
 - In the repository is a file, called super_secret.txt, that you need on Travis CI but you don't want to publish its content on GitHub.
+- Encrypting another file later will [overwrite](https://github.com/travis-ci/travis.rb/issues/627) the secure variable, rendering the old file unusable.
 
 The `travis encrypt-file` command will encrypt a file for you using a symmetric encryption (AES-256), and it will store the secret in a secure variable. It will output the command you can use in your build script to decrypt the file.
 
