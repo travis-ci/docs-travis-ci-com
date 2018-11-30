@@ -5,7 +5,7 @@ layout: en_enterprise
 ---
 Welcome to the Travis CI Enterprise Operations Manual! This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#Contact-Enterprise-Support).
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#contact-enterprise-support).
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
@@ -90,7 +90,7 @@ Here we're distinguishing between an AWS EC2 installation and an installation ru
 
 This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#install-travis-ci-enterprise-worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
-If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#Contact-Enterprise-Support) section below to move forward.
+If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#contact-enterprise-support) section below to move forward.
 
 #### Builds are not Starting on Enterprise Installation at Version 2.2+
 

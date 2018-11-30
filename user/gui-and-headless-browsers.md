@@ -26,7 +26,7 @@ addons:
 
 You can [encrypt your access key](/user/encryption-keys/), if you want to.
 
-Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#Starting-a-Web-Server) below for more information on how to do that.
+Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#starting-a-web-server) below for more information on how to do that.
 
 Finally, you need to configure your Selenium tests to run on Sauce Labs instead of locally. This is done using a [Remote WebDriver](https://code.google.com/p/selenium/wiki/RemoteWebDriver). The exact code depends on what tool/platform you're using, but for Python it would look like this:
 
