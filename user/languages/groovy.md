@@ -79,12 +79,6 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
-the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
-
 ## Projects Using Maven
 
 ### Maven Dependency Management
