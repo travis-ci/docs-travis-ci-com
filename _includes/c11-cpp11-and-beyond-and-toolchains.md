@@ -186,7 +186,7 @@ before_install:
 
 On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
-#### CMake
+### CMake
 
 * [Precise](/user/reference/precise) ships with CMake 2.8.7
 * [Trusty](/user/reference/trusty) ships with CMake 3.9.2
