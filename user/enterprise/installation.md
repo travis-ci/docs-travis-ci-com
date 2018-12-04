@@ -80,11 +80,11 @@ each port in the table below:
 
 Travis CI Enterprise currently supports two different build environments, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overridden. However, different versions of Enterprise treat different worker versions as default:
 
-| Travis CI Enterprise Version | Default Worker Version | Alternative Worker Versions |
-| -- | -- | -- |
-| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/) |
-| Enterprise 2.0+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | -- |
+| Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
+|:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
+| Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
+| Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           |
+| Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
 
 After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
 
