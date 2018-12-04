@@ -30,14 +30,14 @@ If you're setting up your AMI for the first time you need to create
 a Security Group. From the EC2 management console, create an entry for
 each port in the table below:
 
-| Port | Service         | Description                                                                  |
-|:-----|:----------------|:-----------------------------------------------------------------------------|
-| 8800 | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
-| 5672 | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
-| 4567 | Custom TCP Rule | For RabbitMQ SSL.                                                            |
-| 443  | HTTPS           | Web application over HTTPS access.                                           |
-| 80   | HTTP            | Web application access.                                                      |
-| 22   | SSH             | SSH access.                                                                  |
+| Port | Source                    | Service         | Description                                                                  |
+|:-----|:--------------------------|:----------------|:-----------------------------------------------------------------------------|
+| 8800 | Administrators' computers | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
+| 5672 | Worker machine(s)         | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
+| 4567 | Worker machine(s)         | Custom TCP Rule | For RabbitMQ SSL.                                                            |
+| 443  | Developers' computers     | HTTPS           | Web application over HTTPS access.                                           |
+| 80   | Developers' computers     | HTTP            | Web application access.                                                      |
+| 22   | Administrators' computers | SSH             | SSH access for machine maintenance                                           |
 
 ### Install Travis CI Enterprise Platform
 
@@ -71,9 +71,9 @@ If you're setting up your AMI for the first time you will need to create
 a Security Group. From the EC2 management console, create an entry for
 each port in the table below:
 
-| Port | Service | Description |
-|:-----|:--------|:------------|
-| 22   | SSH     | SSH access. |
+| Port | Source                    | Service | Description                         |
+|:-----|:--------------------------|:--------|:------------------------------------|
+| 22   | Administrators' computers | SSH     | SSH access for machine maintenance. |
 
 ## Install Travis CI Worker
 
@@ -85,7 +85,7 @@ Travis CI Enterprise currently supports two different build environments, Trusty
 | Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/) |
 | Enterprise 2.0+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | -- |
 
-After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version. 
+After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
 
 You can find the RabbitMQ password, which is needed in the installation, either in your Admin Dashboard --> "Settings" page, or in your own RabbitMQ installation for [high availability mode](/user/enterprise/high-availability/).
 
