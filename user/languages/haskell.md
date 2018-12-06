@@ -10,9 +10,9 @@ layout: en
 
 | Haskell                                     | Default                                                       |
 |:--------------------------------------------|:--------------------------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cabal install --only-dependencies --enable-tests`            |
-| [Default `script`](#Default-Build-Script)   | `cabal configure --enable-tests && cabal build && cabal test` |
-| [Matrix keys](#Build-Matrix)                | `env`, `ghc`                                                  |
+| [Default `install`](#dependency-management) | `cabal install --only-dependencies --enable-tests`            |
+| [Default `script`](#default-build-script)   | `cabal configure --enable-tests && cabal build && cabal test` |
+| [Matrix keys](#build-matrix)                | `env`, `ghc`                                                  |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)                     |
 
 Minimal example:
@@ -28,7 +28,7 @@ ghc:
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers configuring Haskell projects on Travis CI. If
-you're new to Travis CI please read our [Getting Started](/user/getting-started/)
+you're new to Travis CI please read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Haskell compiler versions

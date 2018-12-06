@@ -25,7 +25,7 @@ However, this would expose your PyPI password to the world. We recommend you
 travis encrypt your-password-here --add deploy.password
 ```
 
-> Note that if your PyPI password contains [special characters](/user/encryption-keys#Note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
+> Note that if your PyPI password contains [special characters](/user/encryption-keys#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 ```yaml
 deploy:
@@ -111,6 +111,24 @@ deploy:
 ```
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
+
+## Upload artifacts only once
+
+By default, Travis CI runs the deploy stage for each `python` and `environment` that you specify. Many of these will generate competing build artifacts that will fail to upload to pypi with a message something like this:
+
+```
+HTTPError: 400 Client Error: File already exists. See https://pypi.org/help/#file-name-reuse for url: https://upload.pypi.org/legacy/
+```
+
+To avoid this, use the `skip_existing` flag:
+
+```
+deploy:
+  provider: pypi
+  user: ...
+  password: ...
+  skip_existing: true
+```
 
 ## Releasing build artifacts
 

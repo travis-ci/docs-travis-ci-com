@@ -28,7 +28,7 @@ layout: en
 
 - *Embedded* - pre-defined compilation profiles for a variety of embedded
   boards.
-      
+
 [Full list](http://platformio.org/#!/boards) at PlatformIO
 
 ## .travis.yml Settings
@@ -37,15 +37,13 @@ Please read the official
 [PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PlatformIO.
 
 PlatformIO is written in Python and is recommended to be run within a [Travis CI
-Python isolated environment](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs):
+Python isolated environment](/user/languages/python/#travis-ci-uses-isolated-virtualenvs):
 
 ```yaml
 language: python
 python:
     - "2.7"
 
-# Cache PlatformIO packages using Travis CI container-based infrastructure
-sudo: false
 cache:
     directories:
         - "~/.platformio"

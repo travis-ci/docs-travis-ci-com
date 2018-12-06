@@ -4,198 +4,10 @@ layout: en
 
 redirect_from:
   - /user/build-configuration/
-  - /user/build-lifecycle/
   - /user/how-to-skip-a-build/
   - /user/repository-providers/
 ---
 
-
-
-Travis CI provides a default build environment and a default set of steps for each programming language. You can customize any step in this process in `.travis.yml`.  Travis CI uses `.travis.yml` file in the root of your repository to learn about your project and how you want your builds to be executed. `.travis.yml` can be
-very minimalistic or have a lot of customization in it. A few examples of what
-kind of information your `.travis.yml` file may have:
-
-- What programming language your project uses
-- What commands or scripts you want to be executed before each build (for example, to install or clone your project's dependencies)
-- What command is used to run your test suite
-- Emails, Campfire and IRC rooms to notify about build failures
-
-## The Build Lifecycle
-
-A build on Travis CI is made up of two steps:
-
-1. **install**: install any dependencies required
-2. **script**: run the build script
-
-You can run custom commands before the installation step (`before_install`), and before (`before_script`) or after (`after_script`) the script step.
-
-In a `before_install` step, you can install additional dependencies required by your project such as Ubuntu packages or custom services.
-
-You can perform additional steps when your build succeeds or fails using  the `after_success` (such as building documentation, or deploying to a custom server) or `after_failure` (such as uploading log files) options. In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
-
-The complete build lifecycle, including three optional deployment steps and after checking out the git repository and changing to the repository directory, is:
-
-1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
-1. OPTIONAL Install [`cache components`](/user/caching)
-1. `before_install`
-1. `install`
-1. `before_script`
-1. `script`
-1. OPTIONAL `before_cache` (for cleaning up cache)
-1. `after_success` or `after_failure`
-1. OPTIONAL `before_deploy`
-1. OPTIONAL `deploy`
-1. OPTIONAL `after_deploy`
-1. `after_script`
-
-## Customizing the Installation Step
-
-The default dependency installation commands depend on the project language. For instance, Java builds either use Maven or Gradle, depending on which build file is present in the repository. Ruby projects use Bundler when a Gemfile is present in the repository.
-
-You can specify your own script to run to install whatever dependencies your project requires in `.travis.yml`:
-
-```yaml
-install: ./install-dependencies.sh
-```
-{: data-file=".travis.yml"}
-
-> When using custom scripts they should be executable (for example, using `chmod +x`) and contain a valid shebang line such as `/usr/bin/env sh`, `/usr/bin/env ruby`, or `/usr/bin/env python`.
-
-You can also provide multiple steps, for instance to install both ruby and node dependencies:
-
-```yaml
-install:
-  - bundle install --path vendor/bundle
-  - npm install
-```
-{: data-file=".travis.yml"}
-
-When one of the steps fails, the build stops immediately and is marked as [errored](#Breaking-the-Build).
-
-### Skipping the Installation Step
-
-You can skip the installation step entirely by adding the following to your `.travis.yml`:
-
-```yaml
-install: true
-```
-{: data-file=".travis.yml"}
-
-## Customizing the Build Step
-
-The default build command depends on the project language. Ruby projects use `rake`, the common denominator for most Ruby projects.
-
-You can overwrite the default build step in `.travis.yml`:
-
-```yaml
-script: bundle exec thor build
-```
-{: data-file=".travis.yml"}
-
-You can specify multiple script commands as well:
-
-```yaml
-script:
-- bundle exec rake build
-- bundle exec rake builddoc
-```
-{: data-file=".travis.yml"}
-
-When one of the build commands returns a non-zero exit code, the Travis CI build runs the subsequent commands as well, and accumulates the build result.
-
-In the example above, if `bundle exec rake build` returns an exit code of 1, the following command `bundle exec rake builddoc` is still run, but the build will result in a failure.
-
-If your first step is to run unit tests, followed by integration tests, you may still want to see if the integration tests succeed when the unit tests fail.
-
-You can change this behavior by using a little bit of shell magic to run all commands subsequently but still have the build fail when the first command returns a non-zero exit code. Here's the snippet for your `.travis.yml`
-
-```yaml
-script: bundle exec rake build && bundle exec rake builddoc
-```
-{: data-file=".travis.yml"}
-
-This example (note the `&&`) fails immediately when `bundle exec rake build` fails.
-
-### Note on $?
-
-Each command in `script` is processed by a special bash function.
-This function manipulates `$?` to produce logs suitable for display.
-Consequently, you should not rely on the value of `$?` in `script` section to
-alter the build behavior.
-See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/3771)
-for a more technical discussion.
-
-## Breaking the Build
-
-If any of the commands in the first four stages of the build lifecycle return a non-zero exit code, the build is broken:
-
-- If `before_install`, `install` or `before_script` returns a non-zero exit code,
-  the build is **errored** and stops immediately.
-- If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
-
-The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy` and subsequent stages do not affect the build result.
-However, if one of these stages times out, the build is marked as a failure.
-
-## Deploying your Code
-
-An optional phase in the build lifecycle is deployment. This step can't be
-overridden, but is defined by using one of our continuous deployment providers
-to deploy code to Heroku, Engine Yard, or a different supported platform.
-The deploy steps are skipped if the build is broken.
-
-When deploying files to a provider, prevent Travis CI from resetting your
-working directory and deleting all changes made during the build ( `git stash
---all`) by adding `skip_cleanup` to your `.travis.yml`:
-
-```yaml
-deploy:
-  skip_cleanup: true
-```
-{: data-file=".travis.yml"}
-
-You can run steps before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
-
-If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase. Note that `after_deploy` will not affect the status of the build.
-
-Note that `before_deploy` and `after_deploy` are run before and after every deploy provider, so will run multiple times if there are multiple providers.
-
-## Specifying Runtime Versions
-
-One of the key features of Travis CI is the ease of running your test suite against multiple runtimes and versions. Specify what languages and runtimes to run your test suite against in the `.travis.yml` file:
-
-{% include languages.html %}
-
-## Installing Packages Using apt
-
-If your dependencies need native libraries to be available, you can use **passwordless sudo to install them**:
-
-```yaml
-before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq [packages list]
-```
-{: data-file=".travis.yml"}
-
-> Note that this feature is not available for builds that are running on [Container-based workers](/user/reference/overview/#Virtualization-environments).
-> Look into [using the `apt` plug-in](/user/installing-dependencies/#Installing-Packages-on-Container-Based-Infrastructure) instead.
-
-All virtual machines are snapshotted and returned to their initial state after each build.
-
-### Using 3rd-party PPAs
-
-If you need a native dependency that is not available from the official Ubuntu repositories, there might be a [3rd-party PPAs](https://launchpad.net/ubuntu/+ppas) that you can use.
-
-## Installing a Second Programming language
-
-If you need to install a second programming language in your current build environment, for example installing a more recent version of Ruby than the default version present in all build environments you can do so in the `before_install` stage of the build:
-
-```yaml
-before_install:
-- rvm install 2.1.5
-```
-{: data-file=".travis.yml"}
-
-You can also use other installation methods such as `apt-get`.
 
 ## Build Timeouts
 
@@ -213,6 +25,12 @@ Some common reasons why builds might hang:
 - Installation of native extensions that take very long time to compile
 
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
+
+## Build Lifecycle
+
+The [Build Lifecycle documentation](/user/job-lifecycle) now has its own page.
+{: #Build-Lifecycle}
+
 
 ## Limiting Concurrent Jobs
 
@@ -372,7 +190,7 @@ branches:
 ```
 {: data-file=".travis.yml"}
 
-> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#Using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
+> Note that safelisting also prevents tagged commits from being built. If you consistently tag your builds in the format `v1.3` you can safelist them all with [regular expressions](#using-regular-expressions), for example `/^v\d+\.\d+(\.\d+)?(-\S*)?$/`.
 
 If you use both a safelist and a blocklist, the safelist takes precedence. By default, the `gh-pages` branch is not built unless you add it to the safelist.
 
@@ -425,31 +243,8 @@ For example,
 
 Note that in case multiple commits are pushed together, the skip command is effective only if present in the commit message of the HEAD commit.
 
-## Build Matrix
 
-When you combine the three main configuration options of *Runtime*, *Environment* and *Exclusions/Inclusions* you have a matrix of all possible combinations.
-
-Below is an example configuration for a build matrix that expands to *56 individual (7 * 4 * 2)* jobs.
-
-```yaml
-rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.2
-  - ruby-head
-  - jruby
-  - rbx-3
-  - ree
-gemfile:
-  - gemfiles/Gemfile.rails-2.3.x
-  - gemfiles/Gemfile.rails-3.0.x
-  - gemfiles/Gemfile.rails-3.1.x
-  - gemfiles/Gemfile.rails-edge
-env:
-  - ISOLATED=true
-  - ISOLATED=false
-```
-{: data-file=".travis.yml"}
+## Build matrix
 
 You can also define exclusions to the build matrix:
 
@@ -486,7 +281,7 @@ matrix:
   - name: "pypy Unit Tests"
     python: "pypy"
     env: TEST_SUITE=suite_pypy_unit
-  script: ./test.py $TEST_SUITE
+script: ./test.py $TEST_SUITE
 ```
 
 Jobs that are generated by matrix expansion cannot be given name attributes.
@@ -740,44 +535,7 @@ Now, the build result will be determined as soon as all the required jobs finish
 
 ## Implementing Complex Build Steps
 
-If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script.
-The script can be a part of your repository and can easily be called from the `.travis.yml`.
-
-Consider a scenario where you want to run more complex test scenarios, but only for builds that aren't coming from pull requests. A shell script might be:
-
-```bash
-#!/bin/bash
-set -ev
-bundle exec rake:units
-if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-  bundle exec rake test:integration
-fi
-```
-
-Note the `set -ev` at the top. The `-e` flag causes the script to exit as soon as one command returns a non-zero exit code. This can be handy if you want whatever script you have to exit early. It also helps in complex installation scripts where one failed command wouldn't otherwise cause the installation to fail.
-
-The `-v` flag makes the shell print all lines in the script before executing them, which helps identify which steps failed.
-
-To run that script from your `.travis.yml`:
-
-1. Save it in your repository as `scripts/run-tests.sh`.
-2. Make it executable by running `chmod ugo+x scripts/run-tests.sh`.
-3. Commit it to your repository.
-4. Add it to your `.travis.yml`:
-    ```yaml
-    script: ./scripts/run-tests.sh
-    ```
-    {: data-file=".travis.yml"}
-
-### How does this work? (Or, why you should not use `exit` in build steps)
-
-The steps specified in the build lifecycle are compiled into a single bash script and executed on the worker.
-
-When overriding these steps, do not use `exit` shell built-in command.
-Doing so will run the risk of terminating the build process without giving Travis a chance to
-perform subsequent tasks.
-
-Using `exit` inside a custom script which will be invoked from during a build is fine.
+TODO: link
 
 ## Custom Hostnames
 

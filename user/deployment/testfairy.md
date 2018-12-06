@@ -24,23 +24,6 @@ Always encrypt your api-key. If you have the Travis CI command line client insta
 $ travis encrypt "YOUR API KEY" --add deploy.api-key
 ```
 
-## Android
-
-To deploy your Android application (`app-file`), add your keystore certificate file (`keystore-file`), password for the keystore (`storepass`)  and entity to be identified with the app (`alias`) to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: testfairy
-  api-key: "TESTFAIRY API KEY"
-  app-file: Path to the app file (APK/IPA)
-  keystore-file: Path to your keystore-file
-  storepass: keystore-pass
-  alias: entity-alias
-```
-{: data-file=".travis.yml"}
-
-Always [encrypt](http://docs.travis-ci.com/user/encrypting-files/) your keystore file.
-
 ## Symbols file
 
 Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
@@ -50,9 +33,6 @@ deploy:
   provider: testfairy
   api-key: "TESTFAIRY API KEY"
   app-file: Path to the app file (APK/IPA)
-  keystore-file: Path to your keystore-file
-  storepass: keystore-pass
-  alias: entity-alias
   symbols-file: Path to the symbols file
 ```
 {: data-file=".travis.yml"}
@@ -66,9 +46,6 @@ deploy:
   provider: testfairy
   api-key: "TESTFAIRY API KEY"
   app-file: Path to the app file (APK/IPA)
-  keystore-file: Path to your keystore-file
-  storepass: keystore-pass
-  alias: entity-alias
   notify: false
   testers-groups: qa-stuff,friends
 ```
@@ -83,9 +60,7 @@ deploy:
 - **video-quality**: Video quality settings, "high", "medium" or "low". Default is "high".
 - **screenshot-interval**: Seconds between video frames. Default "1" seconds.
 - **record-on-background**: If true, data will be collected while the app on background.
-- **icon-watermark**: Add a small watermark to app icon. Default is "false".
-- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](http://docs.testfairy.com/Upload_API.html).
-- **advanced-options**: Additional settings (eg shake,anonymous).
+- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](https://docs.testfairy.com/API/Upload_API.html).
 
 For example:
 
@@ -95,17 +70,12 @@ deploy:
   api-key: "TESTFAIRY API KEY"
   app-file: bin/MainActivity_release.apk
   symbols-file: bin/proguard_mapping.txt
-  keystore-file: /root/app.keystore
-  storepass: swordfish
-  alias: android
   testers-groups: qa-stuff,friends
   auto-update: true
   screenshot-interval: 2
   video: true
   video-quality: high
-  icon-watermark: true
   data-only-wifi: true
   metrics: cpu,memory,network,phone-signal,logcat,gps,battery
-  advanced-options: shake,anonymous
 ```
 {: data-file=".travis.yml"}

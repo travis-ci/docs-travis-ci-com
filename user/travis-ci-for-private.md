@@ -77,7 +77,7 @@ how to make a repository public.
 2. On [Travis CI .org](https://travis-ci.org) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
-5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
+5. If you're using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    reset the default endpoint to public:
 
    ```sh
@@ -100,7 +100,7 @@ how to make a repository private.
 2. On [Travis CI .com](https://travis-ci.com) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
-5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
+5. If you're using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    reset the default endpoint to private:
 
    ```sh

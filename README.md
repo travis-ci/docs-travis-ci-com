@@ -66,7 +66,7 @@ via POST), Puma is necessary.
 
 ### API V2 documentation
 
-API V2 (and 2.1) documentation is maintained in `slate/source` and updated is now generated at build time from source.
+API V2 (and 2.1) documentation is maintained in `slate/source` and is generated at build time from source.
 
 ## License
 

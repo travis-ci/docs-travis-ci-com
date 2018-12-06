@@ -18,7 +18,7 @@ os:
 
 The value of the `$TRAVIS_OS_NAME` variable is set to `linux` or `osx` according to the operating system a particular build is running on, so you can use it to conditionalize your build scripts.
 
-If you are already using a [build matrix](/user/customizing-the-build/#Build-Matrix) to test multiple versions, the `os` key also multiplies the matrix.
+If you are already using a [build matrix](/user/customizing-the-build/#build-matrix) to test multiple versions, the `os` key also multiplies the matrix.
 
 ## Operating System differences
 
@@ -66,7 +66,7 @@ matrix:
 
 ## Example Multi OS Build Matrix
 
-Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/customizing-the-build/#The-Build-Lifecycle) to use [Graphviz](https://graphviz.gitlab.io/) in both Linux and OS X.
+Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/job-lifecycle/) to use [Graphviz](https://graphviz.gitlab.io/) in both Linux and OS X.
 
 ```yaml
 language: c
@@ -94,14 +94,13 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty build environment](/user/reference/trusty/) and to an [OS X image using Xcode 7.2](/user/languages/objective-c#Supported-Xcode-versions):
+There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty build environment](/user/reference/trusty/) and to an [OS X image using Xcode 7.2](/user/languages/objective-c#supported-xcode-versions):
 
 ```yaml
 matrix:
   include:
     - os: linux
       dist: trusty
-      sudo: required
     - os: osx
       osx_image: xcode7.2
 ```
@@ -117,11 +116,9 @@ language: python
 matrix:
     include:
         - os: linux
-          sudo: required
           python: 3.2
           env: TOXENV=py32
         - os: linux
-          sudo: required
           python: 3.3
           env: TOXENV=py33
         - os: osx

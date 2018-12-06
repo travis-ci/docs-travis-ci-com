@@ -10,9 +10,9 @@ layout: en
 
 | Java                         | Default                                                                                                              |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
-| Default `script`             | [Gradle](#Gradle-Default-Script-Command), [Maven](#Maven-Default-Script-Command), [Ant](#Ant-Default-Script-Command) |
-| [Matrix keys](#Build-Matrix) | `jdk`, `env`                                                                                                         |
+| Default `install`            | [Gradle](#gradle-dependency-management), [Maven](#maven-dependency-management), [Ant](#ant-dependency-management )   |
+| Default `script`             | [Gradle](#gradle-default-script-command), [Maven](#maven-default-script-command), [Ant](#ant-default-script-command) |
+| [Matrix keys](#build-matrix) | `jdk`, `env`                                                                                                         |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                            |
 
 Minimal example:
@@ -25,7 +25,7 @@ Minimal example:
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Java projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
@@ -59,7 +59,7 @@ or if your project uses the `mvnw` wrapper script:
 > Note that the Travis CI build lifecycle and the Maven build lifecycle use similar
 terminology for different build phases. For example, `install` in a Travis CI
 build comes much earlier than `install` in the Maven build lifecycle. More details
-can be found about the [Travis Build Lifecycle](/user/customizing-the-build/#The-Build-Lifecycle)
+can be found about the [Travis Build Lifecycle](/user/job-lifecycle/)
 and the [Maven Build Lifecycle](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
 
 ### Maven Default Script Command
@@ -80,7 +80,7 @@ Travis CI uses that instead:
 
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ## Projects Using Gradle
 
@@ -98,7 +98,7 @@ or
 ./gradlew assemble
 ```
 
-To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
+To use a different `install` command, customize the [installation step](/user/job-lifecycle/#customizing-the-installation-phase).
 
 ### Gradle Default Script Command
 
@@ -116,7 +116,7 @@ root, Travis CI uses that wrapper instead:
 ./gradlew check
 ```
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ### Caching
 
@@ -136,12 +136,6 @@ cache:
 {: data-file=".travis.yml"}
 
 > Note that if you use Gradle with `sudo` (i.e. `sudo ./gradlew assemble`), the caching configuration above will have no effect, since the depencencies will be in `/root/.gradle` which the `travis` user account does not have write access to.
-
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html)
-by the Gradle team, the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Ant
 
@@ -165,7 +159,7 @@ If Travis CI does not detect Maven or Gradle files it runs Ant:
 ant test
 ```
 
-To use a different `script` command, customize the [build step](/user/customizing-the-build/#Customizing-the-Build-Step).
+To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
 ## Testing Against Multiple JDKs
 
@@ -181,7 +175,7 @@ jdk:
 {: data-file=".travis.yml"}
 
 > Note that testing against multiple Java versions is not supported on OS X. See
-the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
+the [OS X Build Environment](/user/reference/osx/#jdk-and-os-x) for more
 details.
 
 The list of available JVMs for different dists are at
@@ -214,7 +208,6 @@ version.
 The following example will use the latest Oracle JDK 8:
 
 ```yaml
-sudo: false
 addons:
   apt:
     packages:
@@ -224,15 +217,17 @@ addons:
 
 ## Using Java 10 and later
 
-OracleJDK 10 and later are supported on Linux, and
+> Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
+> See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html){: data-proofer-ignore=""}.
+
+OracleJDK 11 and later are supported on Linux, and
 OpenJDK 10 and later are supported on Linux and macOS using
 [`install-jdk.sh`](https://github.com/sormuras/bach#install-jdksh).
 
 ```yaml
 jdk:
   - oraclejdk8
-  - oraclejdk10
-  - oraclejdk-ea
+  - oraclejdk11
   - openjdk10
   - openjdk11
 ```

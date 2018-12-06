@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-This addon, available in build environment with `sudo` enabled,
-allows you to set the `hostname`.
+If you need to change the `hostname` you can use this addon:
 
 {% highlight yaml %}
 addons:

@@ -4,7 +4,9 @@ If your project requires tools compatible with C11, C++11, or a more recent lang
 
 ### GCC on Linux
 
-Ubuntu 12.04 ships with GCC 4.6.3 and Ubuntu 14.04 ships with GCC 4.8.2.
+* [Precise](/user/reference/precise) ships with GCC 4.6.3
+* [Trusty](/user/reference/trusty) ships with GCC 4.8.2
+* [Xenial](/user/reference/xenial) ships with GCC 5.4.0
 
 Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 4.8.1, but [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631).
 
@@ -97,7 +99,9 @@ before_install:
 
 ### Clang
 
-Ubuntu 12.04 ships with Clang 3.4 and Ubuntu 14.04 ships with Clang 3.5.0.
+* [Precise](/user/reference/precise) ships with Clang 3.4
+* [Trusty](/user/reference/trusty) ships with Clang 3.5.0
+* [Xenial](/user/reference/xenial) ships with Clang 7
 
 Note that [C++11 support is complete starting from Clang 3.3](http://clang.llvm.org/cxx_status.html).
 
@@ -184,7 +188,9 @@ On OS X, the version of `clang` is controlled by the choice of `osx_image`.
 
 #### CMake
 
-Ubuntu 12.04 ships with cmake 2.8.7 and Ubuntu 14.04 ships with cmake 3.9.2.
+* [Precise](/user/reference/precise) ships with CMake 2.8.7
+* [Trusty](/user/reference/trusty) ships with CMake 3.9.2
+* [Xenial](/user/reference/xenial) ships with CMake 3.12.4
 
 You can upgrade cmake to 3.2.3 on Precise from the `george-edison55-precise-backports` source (note that the `cmake-data` package contains dependencies which Aptitude does not automatically resolve), c.f.
 
