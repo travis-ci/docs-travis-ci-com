@@ -7,19 +7,19 @@ redirect_from:
   - /user/how-to-skip-a-build/
   - /user/repository-providers/
 ---
-
+user/customizing-the-build.md
 
 ## Build Timeouts
 
 It is very common for test suites or build scripts to hang.
 Travis CI has specific time limits for each job, and will stop the build and add an error message to the build log in the following situations:
-
+user/customizing-the-build.md
 - When a job produces no log output for 10 minutes.
 - When a job on a public repository takes longer than 50 minutes.
 - When a job on a private repository takes longer than 120 minutes.
-
+user/customizing-the-build.md
 Some common reasons why builds might hang:
-
+user/customizing-the-build.md
 - Waiting for keyboard input or other kind of human interaction
 - Concurrency issues (deadlocks, livelocks and so on)
 - Installation of native extensions that take very long time to compile
@@ -27,7 +27,7 @@ Some common reasons why builds might hang:
 > There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
 
 ## Build Lifecycle
-
+user/customizing-the-build.md
 The [Build Lifecycle documentation](/user/job-lifecycle) now has its own page.
 {: #Build-Lifecycle}
 
@@ -42,11 +42,11 @@ each repository.
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
 
 Or using the command line client:
-
+user/customizing-the-build.md
 ```bash
 $ travis settings maximum_number_of_builds --set 1
 ```
-
+user/customizing-the-build.md
 ## Building only the latest commit
 
 If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
@@ -58,14 +58,14 @@ The *Auto Cancellation Setting* is in the Settings tab of each repository, and y
 * *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
-
+user/customizing-the-build.md
 For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:
 
 ![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
 
 
 ## Git Clone Depth
-
+user/customizing-the-build.md
 Travis CI clones repositories to a depth of 50 commits, which is only really useful if you are performing git operations.
 
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
@@ -86,8 +86,8 @@ git:
 ```
 {: data-file=".travis.yml"}
 
-## Git Clone Quiet
-
+##  Clone Quiet
+user/customizing-the-build.md
 Travis CI clones repositories without the quiet flag (`-q`) by default. Enabling the quiet flag can be useful if you're trying to avoid log file size limits or even if you just don't need to include it.
 
 You can enable the [quiet flag](https://git-scm.com/docs/git-clone#git-clone---quiet) in `.travis.yml`:
@@ -101,7 +101,7 @@ git:
 ## Git Submodules
 
 Travis CI clones git submodules by default, to avoid this set:
-
+Git
 ```yaml
 git:
   submodules: false
