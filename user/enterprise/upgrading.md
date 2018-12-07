@@ -13,7 +13,7 @@ One good way to do this is to run
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
 ```
-See [restoring from backups](#Restoring-from-Backups) if you have any questions about the steps or want to do a restore.
+See [restoring from backups](#restoring-from-backups) if you have any questions about the steps or want to do a restore.
 
 ### Encryption key
 

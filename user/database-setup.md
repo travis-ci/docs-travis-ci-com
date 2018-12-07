@@ -59,7 +59,7 @@ and a blank password.
 |:------|:---------------|:--------------|:--------------|
 | MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
 
-You can also [install MySQL 5.7](#MySQL-57) on Ubuntu Trusty.
+You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 

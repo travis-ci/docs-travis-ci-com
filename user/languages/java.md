@@ -10,9 +10,9 @@ layout: en
 
 | Java                         | Default                                                                                                              |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
-| Default `script`             | [Gradle](#Gradle-Default-Script-Command), [Maven](#Maven-Default-Script-Command), [Ant](#Ant-Default-Script-Command) |
-| [Matrix keys](#Build-Matrix) | `jdk`, `env`                                                                                                         |
+| Default `install`            | [Gradle](#gradle-dependency-management), [Maven](#maven-dependency-management), [Ant](#ant-dependency-management )   |
+| Default `script`             | [Gradle](#gradle-default-script-command), [Maven](#maven-default-script-command), [Ant](#ant-default-script-command) |
+| [Matrix keys](#build-matrix) | `jdk`, `env`                                                                                                         |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                            |
 
 Minimal example:
@@ -136,12 +136,6 @@ cache:
 {: data-file=".travis.yml"}
 
 > Note that if you use Gradle with `sudo` (i.e. `sudo ./gradlew assemble`), the caching configuration above will have no effect, since the depencencies will be in `/root/.gradle` which the `travis` user account does not have write access to.
-
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html)
-by the Gradle team, the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Ant
 

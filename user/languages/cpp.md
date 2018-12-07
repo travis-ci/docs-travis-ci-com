@@ -10,9 +10,9 @@ layout: en
 
 | C++                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `./configure && make && make test`        |
-| [Matrix keys](#Build-Matrix)                | `env`, `compiler`                         |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `./configure && make && make test`        |
+| [Matrix keys](#build-matrix)                | `env`, `compiler`                         |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
