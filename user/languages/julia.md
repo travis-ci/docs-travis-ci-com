@@ -56,7 +56,7 @@ If your repository contains `JuliaProject.toml` or `Project.toml` file, and you 
 building on Julia v0.7 or later, the default build script will be:
 ```julia
 using Pkg
-Pkg.build()
+Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
 Pkg.test()
 ```
 
@@ -66,7 +66,7 @@ if VERSION >= v"0.7.0-DEV.5183"
     using Pkg
 end
 Pkg.clone(pwd())
-Pkg.build("$pkgname")
+Pkg.build("$pkgname") # Pkg.build("$pkgname"; verbose = true) for Julia 1.1 and up
 Pkg.test("$pkgname", coverage=true)
 ```
 where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
