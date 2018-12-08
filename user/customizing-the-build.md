@@ -130,9 +130,9 @@ Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth
 
 [Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty images.
 
-### Mac OS
+### macOS
 
-Installing git-lfs via brew is the recommended way to get Git LFS in [Mac OS](/user/reference/osx/).
+Installing git-lfs via brew is the recommended way to get Git LFS in [macOS](/user/reference/osx/).
 
 ```
 os: osx

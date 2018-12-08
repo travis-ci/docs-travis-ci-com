@@ -34,7 +34,7 @@ This guide covers build environment and configuration topics specific to PHP
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
-PHP builds are not available on the OS X environment.
+PHP builds are not available on the macOS environment.
 
 ## Choosing PHP versions to test against
 

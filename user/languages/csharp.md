@@ -18,7 +18,7 @@ and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](ht
 
 ### Build Environment
 
-Currently, Travis builds your C#, F#, and Visual Basic project with the either the [Mono](http://www.mono-project.com/) or the [.NET Core](https://github.com/dotnet/core) runtimes on Linux or OS X. Note that these runtimes do not implement the entire .NET framework, so Windows .NET framework programs may not be fully compatible and require porting.
+Currently, Travis builds your C#, F#, and Visual Basic project with the either the [Mono](http://www.mono-project.com/) or the [.NET Core](https://github.com/dotnet/core) runtimes on Linux or macOS. Note that these runtimes do not implement the entire .NET framework, so Windows .NET framework programs may not be fully compatible and require porting.
 
 ### Overview
 
@@ -79,13 +79,13 @@ mono:
 
 You can choose from the following Mono versions:
 
-| Version          | Installed Packages (Linux only, OS X always includes everything) |
-|:-----------------|:-----------------------------------------------------------------|
-| 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl |
-| 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                          |
-| 3.2.8            | mono-complete, mono-vbnc, fsharp                                 |
-| 2.10.8           | mono-complete, mono-vbnc                                         |
-| none             | *disables Mono (use this if you only want .NET Core, see below)* |
+| Version          | Installed Packages (Linux only, macOS always includes everything) |
+|:-----------------|:------------------------------------------------------------------|
+| 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl  |
+| 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                           |
+| 3.2.8            | mono-complete, mono-vbnc, fsharp                                  |
+| 2.10.8           | mono-complete, mono-vbnc                                          |
+| none             | *disables Mono (use this if you only want .NET Core, see below)*  |
 
 > *Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
 

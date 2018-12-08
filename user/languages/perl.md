@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Perl builds are not available on the OS X environment.
+Perl builds are not available on the macOS environment.
 
 ## Choosing Perl versions to test against
 

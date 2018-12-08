@@ -64,9 +64,9 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### GCC on OS X
+### GCC on macOS
 
-On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
 So you must set CC and CXX to specific `gcc`/`g++` versions:
 
 ```yaml
@@ -184,10 +184,10 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Clang on OS X
+### Clang on macOS
 
-On OS X, the version of `clang` is controlled by the choice of `osx_image`.
-You can find [here](/user/reference/osx/#os-x-version) the list of available `osx_image`.
+On macOS, the version of `clang` is controlled by the choice of `osx_image`.
+You can find [here](/user/reference/osx/#macos-version) the list of available `osx_image`.
 
 ```yaml
 matrix:
@@ -221,4 +221,4 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-On OS X, the version of `cmake` is controlled by the choice of `osx_image`.
+On macOS, the version of `cmake` is controlled by the choice of `osx_image`.

@@ -174,8 +174,8 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OS X. See
-the [OS X Build Environment](/user/reference/osx/#jdk-and-os-x) for more
+> Note that testing against multiple Java versions is not supported on macOS. See
+the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
 details.
 
 The list of available JVMs for different dists are at
