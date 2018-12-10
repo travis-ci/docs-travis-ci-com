@@ -1,6 +1,8 @@
 #!/usr/bin/env rake
 # frozen_string_literal: true
 
+abort('Please run this using `bundle exec rake`') unless ENV["BUNDLE_BIN_PATH"]
+
 require 'ipaddr'
 require 'json'
 require 'yaml'
@@ -60,24 +62,31 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer => [:build] do
-  HTMLProofer.check_directory(
-    './_site',
-    internal_domains: ['docs.travis-ci.com'],
-    check_external_hash: true,
-    check_html: true,
-    connecttimeout: 600,
-    allow_hash_ref: true,
-    only_4xx: true,
-    typhoeus: {
-      ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
-    },
-    url_ignore: [
-      /itunes\.apple\.com/,
-    ],
-    file_ignore: %w[
-      ./_site/api/index.html
-    ]
-  ).run
+  options = {
+      internal_domains: ['docs.travis-ci.com'],
+      check_external_hash: true,
+      check_html: true,
+      connecttimeout: 600,
+      allow_hash_ref: true,
+      only_4xx: true,
+      typhoeus: {
+        ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
+      },
+      url_ignore: [
+        /itunes\.apple\.com/,
+      ],
+      file_ignore: %w[
+        ./_site/api/index.html
+      ],
+      :cache => {
+        :timeframe => '3w'
+      }
+  }
+  begin
+    HTMLProofer.check_directory( './_site', options).run
+  rescue => msg
+    puts "#{msg}"
+  end
 end
 
 desc 'Runs the html-proofer test for internal links only'
