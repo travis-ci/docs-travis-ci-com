@@ -40,15 +40,9 @@ desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
 desc 'Builds the site (Jekyll and Slate)'
-task build: %i[remove_output_dir regen make_api] do
+task build: %i[regen make_api] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
-end
-
-desc 'Remove the output dirs'
-task :remove_output_dir do
-  rm_rf('_site')
-  rm_rf('api/*')
 end
 
 desc 'Lists files containing beta features'
@@ -60,7 +54,7 @@ task :list_beta_files do
   end
 end
 
-desc 'Runs the html-proofer test'
+desc 'Check links and validate some html'
 task :run_html_proofer => [:build] do
   options = {
       internal_domains: ['docs.travis-ci.com'],
@@ -87,23 +81,6 @@ task :run_html_proofer => [:build] do
   rescue => msg
     puts "#{msg}"
   end
-end
-
-desc 'Runs the html-proofer test for internal links only'
-task :run_html_proofer_internal => [:build] do
-  HTMLProofer.check_directory(
-    './_site',
-    disable_external: true,
-    internal_domains: ['docs.travis-ci.com'],
-    connecttimeout: 600,
-    only_4xx: true,
-    typhoeus: {
-      ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
-    },
-    file_ignore: %w[
-      ./_site/api/index.html
-    ]
-  ).run
 end
 
 file '_data/trusty-language-mapping.json' do |t|
@@ -186,6 +163,8 @@ task :clean do
          _data/trusty_language_mapping.yml
          _data/node_js_versions.yml
        ])
+  rm_rf('_site')
+  rm_rf('api/*')
 end
 
 desc 'Start Jekyll server'
