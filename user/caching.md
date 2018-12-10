@@ -427,13 +427,12 @@ they will share the same URL on the network.
 This could corrupt the cache, or the cache may contain files that are not
 usable in all jobs using it.
 In this case, we advise you to add a public environment variable
-name to each job to create a unique cache entry; e.g. add
+name to each job to create a unique cache entry:
 
 ```
 CACHE_NAME=JOB1
 ```
-
-to `.travis.yml`.
+{: data-file=".travis.yml"}
 
 Note that when considering environment variables, the values must match *exactly*,
 including spaces.
