@@ -44,16 +44,6 @@ By William Durand
 - [website](http://williamdurand.fr/TravisLight/)
 - [source code](https://github.com/willdurand/TravisLight)
 
-### TravisWall
-
-![travis-wall](/images/apps/travis-wall.jpg){:.app}
-
-Online build monitoring tool for public/private repos<br>
-By Eric Geloen
-
-- [website](http://egeloen.fr/travis-wall/)
-- [source code](https://github.com/egeloen/travis-wall)
-
 ### Team Dashboard
 
 ![travis-light](/images/apps/team-dashboard.jpg){:.app}
