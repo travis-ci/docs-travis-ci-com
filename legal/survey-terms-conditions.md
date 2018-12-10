@@ -1,6 +1,7 @@
 ---
 title: Terms & Conditions - 2018 Travis CI Community Survey
 layout: en
+permalink: /legal/2018-survey-terms-conditions/
 no_toc: true
 ---
 
