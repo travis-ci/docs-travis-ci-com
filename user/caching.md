@@ -426,8 +426,8 @@ If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.
 This could corrupt the cache, or the cache may contain files that are not
 usable in all jobs using it.
-In this case, we advise you to add a defining public environment variable
-name; e.g.,
+In this case, we advise you to add a public environment variable
+name to each job to create a unique cache entry; e.g. add
 
 ```
 CACHE_NAME=JOB1
