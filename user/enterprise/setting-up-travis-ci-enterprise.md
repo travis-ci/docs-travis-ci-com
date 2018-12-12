@@ -63,7 +63,9 @@ Ubuntu 16.04 LTS as the underlying operating system.
     | 80   | HTTP            | Web application access.                                                      |
     | 22   | SSH             | SSH access.                                                                  |
 
-2. *On your new virtual machine*, download and run the installation script:
+1. If you're using a hostname and not just an IP address, this would be a time to configure it.
+
+1. *On your new virtual machine*, download and run the installation script:
 
 
     ```
@@ -72,10 +74,14 @@ Ubuntu 16.04 LTS as the underlying operating system.
     ```
 
 3. *In your browser*, navigate to `https://<hostname>:8800` (your Enterprise
-installation's hostname, port 8800) to complete the setup.
+installation's hostname, port 8800) to complete the setup:
 
-    From here you can upload your license key, add your GitHub OAuth details, and
-optionally upload an SSL certificate and enter SMTP details.
+    a. Add a secure certificate / configure a trusted one [HTTPS Replicated page]  
+    b. Upload your license - [Validaing license file]
+    c. Configure access to the Admin Console (password / openldap)
+    d. Connect your GitHub Enterprise or GitHub.com with Travis CI enterprise -
+    e. Optionally, configure Email, Metrics, Caches
+    f. Get the *RabitMQ password* for the Worker setup
 
 
 ## 2. Setting up the Travis CI Enterprise Worker virtual machine
@@ -85,7 +91,9 @@ statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running
 Ubuntu 16.04 LTS (beta) as the underlying operating system.
 
-* From the Travis CI Enterprise Platform management UI under Settings, retrieve the RabbitMQ password and the hostname for your Travis CI Enterprise installation.
+
+
+* Make sure you have the [RabbitMQ password and the hostname](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine)
 * If this is the first time you're setting up a worker machine with Trusty build images, please enable [this feature flag](/user/enterprise/trusty#enabling-the-trusty-beta-feature-flag) on your platform machine.
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
@@ -145,64 +153,10 @@ After setting up a new instance for the worker, please follow the [Trusty (14.04
 
 ## 3. Running builds!
 
+Skip over to the Getting Started Guide and connect some repositories to your new Travis CI Setup!
 
-
-
-
-
-
-
-
-<!--
-
-
-
-1. Set up the Travis CI Enterprise platform
-   1.1.  [ON YOUR CLUSTER THINGIE] Provision the virtual machines in your private cloud: AWS, GCE or [whatevs]
-   - You want to start a new Virtual machine that has Ubuntu 16.04 or later and 16 gigs of RAM and 8 CPUs.
-   - Get this machine in your security group / local firewall (including origin restrictions?)
-   - Configure the domain name [dashboard or places] and save it (you'll use this domain name on step 1.2.)
-
-   1.2. [ON your new virtual machine (ssh in)]  
-   - Install the Travis CI Enterprise Platform component, [details here: curls and scripts]
-
-1.3. [Go to your private host 192.168.1.1 / travis-ci.enterprise.com]
-  - Add a secure certificate / configure a trusted one [HTTPS Replicated page]
-  - Upload your license - [Validaing license file]
-  - Configure access to the Admin Console (password / openldap)
-
-  - -> See the wonderous list of checks, and skip past them quickly! [click continue]
-
-
-2. Connect your GitHub Enterprise or GitHub.com with Travis CI enterprise -
- > Only users with Admin permissions can do these steps
-   https://docs.travis-ci.com/user/enterprise/prerequisites/#oauth-app
-    2.1. - Configure the GH settings and secret
-    2.2. - Optionally, configure.... Email, Metrics, Caches
-    2.3 - Get the RabitMQ password for the Worker setup
-
-[SKIP this because no workers]
-    Will restart and show the dashboard
-    -> Authorize with GH
-
-3. Set up Worker machine
-
-3.1.  [ON YOUR CLUSTER THINGIE] Provision the virtual machines in your private cloud: AWS, GCE or [whatevs], recent ubuntu
-
-3.2 [ON YOUR NEW MACHINE] curl install
-
-   -> instert rabbitmq pass and platform hostname
-
-   and done...
-
-
-4. Skip over to the Getting Started Guide and connect some repositories to your new Travis CI Setup!
-
-
-## What next?
+## 4. What next?
 
 High Availability
 Java config
 Proxies
-
--->
