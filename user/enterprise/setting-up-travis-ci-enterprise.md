@@ -40,7 +40,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 
 You can also try services like [compose.com](https://compose.com/) if you would like these services hosted outside your organization.
 
-## 1. Setting up the Travis CI Enterprise Platform virtual machine
+## 1. Setting up  Enterprise Platform virtual machine
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
@@ -84,7 +84,7 @@ installation's hostname, port 8800) to complete the setup:
     f. Get the *RabitMQ password* for the Worker setup
 
 
-## 2. Setting up the Travis CI Enterprise Worker virtual machine
+## 2. Setting up the Enterprise Worker virtual machine
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
@@ -93,7 +93,7 @@ Ubuntu 16.04 LTS (beta) as the underlying operating system.
 
 
 
-* Make sure you have the [RabbitMQ password and the hostname](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine)
+* Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 * If this is the first time you're setting up a worker machine with Trusty build images, please enable [this feature flag](/user/enterprise/trusty#enabling-the-trusty-beta-feature-flag) on your platform machine.
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
