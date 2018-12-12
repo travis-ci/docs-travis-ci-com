@@ -1,6 +1,11 @@
 ---
 title: Setting up Travis CI Enterprise
 layout: en_enterprise
+redirect_from:
+  - /user/enterprise/installation/
+  - /user/enterprise/prerequisites/
+  - /user/enterprise/install-on-xenial/
+
 ---
 
 Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
