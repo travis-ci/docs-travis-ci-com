@@ -63,10 +63,6 @@ At the moment, it's only possible to trigger migrations on repositories one by o
 
 We'll enqueue these build requests and the builds will be created in travis-ci.com as soon as the migration finishes.
 
-## What happens with the previous repository installation for travis-ci.org?
-
-
-
 ## Migrating a repository
 
 ### GitHub Apps initial setup
