@@ -96,6 +96,8 @@ This debug build will stay alive for 30 minutes.
 
 Running the `ssh` command above will drop you in on a live VM.
 
+> Jobs running in debug mode will have the `TRAVIS_DEBUG_MODE` [environment variable](https://docs.travis-ci.com/user/environment-variables#default-environment-variables) set to true.
+
 ### Security considerations
 
 At this time, there is no authentication beyond the `ssh` command displayed in
