@@ -17,14 +17,12 @@ When a repository is migrated, the following information will be transferred to 
 * Repository settings
 * Last build status - the build badge in travis-ci.com will reflect this status until new builds are triggered
 * Next build number
-
-At this early stage of the beta testing process, it isn't yet possible to migrate [cron jobs](https://docs.travis-ci.com/user/cron-jobs/). We are working to make this available as soon as possible.
+* Cron jobs
 
 ### What information will not be transferred to travis-ci.com?
 
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
-* Cron jobs configured for the repository
 * Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration sometime in January 2019)
 * Caches - they will be re-created automatically on the first build on travis-ci.com
 
@@ -64,6 +62,10 @@ At the moment, it's only possible to trigger migrations on repositories one by o
 ## What happens if someone pushes a commit to my repository while it is being migrated?
 
 We'll enqueue these build requests and the builds will be created in travis-ci.com as soon as the migration finishes.
+
+## What happens with the previous repository installation for travis-ci.org?
+
+
 
 ## Migrating a repository
 
