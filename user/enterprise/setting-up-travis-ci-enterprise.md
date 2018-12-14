@@ -41,7 +41,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 
 You can also try services like [compose.com](https://compose.com/) if you would like these services hosted outside your organization.
 
-## 1. Setting up  Enterprise Platform virtual machine
+## 1. Setting up Enterprise Platform virtual machine
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
@@ -91,7 +91,7 @@ The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
