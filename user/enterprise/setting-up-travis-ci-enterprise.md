@@ -16,8 +16,11 @@ Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
 
   * At least two virtual machines on your private cloud that meet the [system requirements](#system-requirements)
   * The `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) configured with:
-    - *Homepage URL* - `https://travis-ci.<your-domain>.com`
-    - *Authorization callback URL* - `https://travis-ci.<your-domain>.com/api`
+
+    - *Homepage URL* - `https://<your-travis-ci-enterprise-domain>`
+    - *Authorization callback URL* - `https://<your-travis-ci-enterprise-domain>/api`
+    +
+    URLs must include https or http at the beginning and cannot have trailing slashes.
 
 ### System Requirements
 
@@ -26,11 +29,9 @@ Platform* which hosts the web UI and related services, and one or more
 *Worker hosts* which run the tests/jobs in isolated containers using LXC
 and Docker.
 
-Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should
-run **Ubuntu 14.04** or **Ubuntu 16.04**, ideally using Linux 3.16 and have at least **16 gigs of
-RAM and 8 CPUs**.
+Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should run **Ubuntu 16.04**, ideally using Linux 3.16 and have at least **16 gigs of RAM and 8 CPUs**.
 
-If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 40 gigs of space to it. It is also recommended _not_ to destroy the volume on instance termination.
+If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 40 gigs of space to it.
 
 For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need:
 
@@ -46,7 +47,7 @@ The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
 installed on it's own machine instance, separate from that of the Travis CI
 Enterprise worker. We recommend using AWS' `c4.2xlarge` instance running
-Ubuntu 16.04 LTS as the underlying operating system.
+Ubuntu 16.04 LTS or later as the underlying operating system.
 
 1. *On your virtual machine management platform*, create a Travis CI Platform Security Group.
 
@@ -76,25 +77,22 @@ Ubuntu 16.04 LTS as the underlying operating system.
 3. *In your browser*, navigate to `https://<hostname>:8800` (your Enterprise
 installation's hostname, port 8800) to complete the setup:
 
-    a. Add a secure certificate / configure a trusted one [HTTPS Replicated page]  
-    b. Upload your license - [Validaing license file]
-    c. Configure access to the Admin Console (password / openldap)
-    d. Connect your GitHub Enterprise or GitHub.com with Travis CI enterprise -
-    e. Optionally, configure Email, Metrics, Caches
-    f. Get the *RabitMQ password* for the Worker setup
+   1. Add a secure certificate or configure a trusted one.
+   1. Upload your Travis CI Enterprise license.
+   1. Configure access to the Admin Console with a password or using openLDAP. This controls access to the Admin Console itself, not to the Travis CI Enterprise instance.
+   1. Connect your GitHub Enterprise or GitHub.com with Travis CI enterprise.
+   1. Optionally, configure Email, Metrics and Caches.
+   1. Copy the *RabbitMQ password* for the Worker setup.
 
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running
-Ubuntu 16.04 LTS (beta) as the underlying operating system.
+instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
-
-* Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-the-travis-ci-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
-* If this is the first time you're setting up a worker machine with Trusty build images, please enable [this feature flag](/user/enterprise/trusty#enabling-the-trusty-beta-feature-flag) on your platform machine.
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
@@ -113,21 +111,7 @@ Ubuntu 16.04 LTS (beta) as the underlying operating system.
     $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
     ```
 
-### Using Precise workers
-
-TODO: do we need this?
-
-If you need to use Precise build images, please pass in the `--travis_legacy_build_images=true` flag during installation:
-
-```
-$ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>" --travis_legacy_build_images=true
-```
-
-This installs Precise build images and also configures the queue to `builds.linux`.
-
 ### Installing workers behind a web proxy
-
-TODO: do we still need this?
 
 If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
 Then rerun the installation script.  
