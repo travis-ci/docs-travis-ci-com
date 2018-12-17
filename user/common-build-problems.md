@@ -506,60 +506,6 @@ We recommend careful use of `travis_wait`, as overusing it can extend your build
 process.
 If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
-## Troubleshooting Locally in a Docker Image
-
-If you're having trouble tracking down the exact problem in a build it often helps to run the build locally, in one of the Docker images which are configured to be exactly the same as the virtual machines your builds run in on Travis CI.
-
-### Running a Container Based Docker Image Locally
-
-1. Download and install Docker:
-
-   - [Windows](https://docs.docker.com/docker-for-windows/)
-   - [OS X](https://docs.docker.com/docker-for-mac/)
-   - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-
-1. Choose a Docker image
-  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
-    ("default" if no other name matches) using the table below:
-
-    | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
-    | {{language[0]}} | {{language[1]}}  | {% endfor %}
-
-1. Start a Docker container detached with `/sbin/init`:
-  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
-    ``` bash
-    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
-    ```
-
-1. Open a login shell in the running container
-
-    ``` bash
-    docker exec -it travis-debug bash -l
-    ```
-
-1. Switch to the `travis` user:
-
-    ``` bash
-    su - travis
-    ```
-
-1. Clone your git repository into the home directory.
-
-    ``` bash
-    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
-    ```
-
-1. (Optional) Check out the commit you want to test
-
-    ``` bash
-    git checkout 6b14763
-    ```
-
-1. Manually install dependencies, if any.
-
-1. Manually run your Travis CI build command.
-
 ## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,

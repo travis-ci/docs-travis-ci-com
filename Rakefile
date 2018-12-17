@@ -97,29 +97,6 @@ task :run_html_proofer_internal => [:build] do
   ).run
 end
 
-file '_data/trusty-language-mapping.json' do |t|
-  source = File.join(
-    'https://raw.githubusercontent.com',
-    'travis-infrastructure/terraform-config/master/aws-production-2',
-    'generated-language-mapping.json'
-  )
-
-  bytes = File.write(t.name, Faraday.get(source).body)
-
-  puts "Updated #{t.name} (#{bytes} bytes)"
-end
-
-file '_data/trusty_language_mapping.yml' => [
-  '_data/trusty-language-mapping.json'
-] do |t|
-  bytes = File.write(
-    t.name,
-    YAML.dump(JSON.parse(File.read('_data/trusty-language-mapping.json')))
-  )
-
-  puts "Updated #{t.name} (#{bytes} bytes)"
-end
-
 file '_data/ip_range.yml' do |t|
   define_ip_range('nat.travisci.net', t.name)
 end
@@ -161,7 +138,6 @@ task regen: (%i[clean] + %w[
   _data/ip_range.yml
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
-  _data/trusty_language_mapping.yml
   _data/node_js_versions.yml
 ])
 
@@ -173,8 +149,6 @@ task :clean do
          _data/ip_range.yml
          _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
-         _data/trusty-language-mapping.json
-         _data/trusty_language_mapping.yml
          _data/node_js_versions.yml
        ])
 end
