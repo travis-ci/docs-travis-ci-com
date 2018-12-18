@@ -39,7 +39,7 @@ travis encrypt SOMEVAR="secretvalue"
 Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--com` to the CLI:
 
 ```bash
-travis  --com encrypt SOMEVAR="secretvalue"
+travis encrypt --com SOMEVAR="secretvalue"
 ```
 
 This will output a string looking something like:
