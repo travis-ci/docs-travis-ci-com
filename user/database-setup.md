@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-<div id="toc"></div>
+
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -35,8 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
-> you still have to start it in a `before_install` step.
+> If you download and install a service manually, you also have to start it in a `before_install` step. The `services` key only works for services we provision.
 
 ## MySQL
 
@@ -55,15 +54,12 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
-Current versions of MySQL are
 
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
+|:------|:---------------|:--------------|:--------------|
+| MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
-
-You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
+You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 
@@ -106,7 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial image. 
+On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+
 
 ```yaml
 addons:
@@ -124,7 +122,7 @@ You'll also need to reset the root password to something other than `new_passwor
 ```yaml
 before_install:
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade
+  - sudo mysql_upgrade -u root -pnew_password
   - sudo service mysql restart
 ```
 {: data-file=".travis.yml"}
@@ -200,11 +198,14 @@ env:
 
 ### Using PostGIS
 
-All installed versions of PostgreSQL include PostGIS.
-
-You need to activate the extension in your `.travis.yml`:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```
@@ -216,7 +217,7 @@ The Travis CI build environment comes with a number of pre-installed locales, bu
 
 #### Installing Locales
 
-The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack. The `sudo` command is not available on [container based infrastructure](/user/workers/container-based-infrastructure) so you currently cannot install locales on it.
+The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack.
 
 > Note that you need to remove the PostgreSQL version from the `addons` section of your .travis.yml:
 
@@ -355,7 +356,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on OS X or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -413,12 +414,9 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
-Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - cassandra
 ```
@@ -484,7 +482,7 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
@@ -548,7 +546,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:

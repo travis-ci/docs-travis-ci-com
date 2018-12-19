@@ -6,7 +6,7 @@ redirect_from:
   - /user/build-timeouts/
 ---
 
-<div id="toc"></div>
+
 
 
 ## My tests broke but were working yesterday
@@ -60,11 +60,11 @@ possible. Dialing these numbers down should help.
 
 ## My build fails unexpectedly
 
-One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`), either *directly in* your `.travis.yml`, or `source`ing a script which does. This causes any error causing a non-zero return status in your script to stop and fail the build immediately.
 
-Note that using `set -e` in external scripts does not cause this problem.
+Note that using `set -e` in external scripts does not cause this problem, as the `errexit` is effective only in the external script.
 
-See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
@@ -192,28 +192,9 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
-Your build is running on macOS Sierra (10.12) if the following `osx_image` values are in your .travis.yml file:
+Your build is running on macOS Sierra (10.12) if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the OS X Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
 
-```yaml
-osx_image: xcode8.1
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.2
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.3
-```
-{: data-file=".travis.yml"}
-
-The following lines in your build log possibly indicate an occurence of this issue:
+The following lines in your build log possibly indicate an occurrence of this issue:
 
 **Example: Signing**
 
@@ -221,7 +202,7 @@ The following lines in your build log possibly indicate an occurence of this iss
 ▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -232,7 +213,7 @@ The build has been terminated
 ▸ Running script '[CP] Embed Pods Frameworks'
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -489,7 +470,7 @@ Most of our internal build commands are wrapped with `travis_retry` to reduce th
 impact of network timeouts.
 
 Note that `travis_retry` does not work in the `deploy` step of the build, although it
-does work in the [other steps](/user/customizing-the-build/#The-Build-Lifecycle).
+does work in the [other steps](/user/job-lifecycle/).
 
 
 ### Build times out because no output was received
@@ -525,63 +506,6 @@ We recommend careful use of `travis_wait`, as overusing it can extend your build
 process.
 If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
-## Troubleshooting Locally in a Docker Image
-
-If you're having trouble tracking down the exact problem in a build it often
-helps to run the build locally. To do this you need to be using our container
-based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
-which Docker image you are using on Travis CI.
-
-### Running a Container Based Docker Image Locally
-
-1. Download and install Docker:
-
-   - [Windows](https://docs.docker.com/docker-for-windows/)
-   - [OS X](https://docs.docker.com/docker-for-mac/)
-   - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-
-1. Choose a Docker image
-  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
-    ("default" if no other name matches) using the table below:
-
-    | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
-    | {{language[0]}} | {{language[1]}}  | {% endfor %}
-
-1. Start a Docker container detached with `/sbin/init`:
-  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
-    ``` bash
-    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
-    ```
-
-1. Open a login shell in the running container
-
-    ``` bash
-    docker exec -it travis-debug bash -l
-    ```
-
-1. Switch to the `travis` user:
-
-    ``` bash
-    su - travis
-    ```
-
-1. Clone your git repository into the home directory.
-
-    ``` bash
-    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
-    ```
-
-1. (Optional) Check out the commit you want to test
-
-    ``` bash
-    git checkout 6b14763
-    ```
-
-1. Manually install dependencies, if any.
-
-1. Manually run your Travis CI build command.
-
 ## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
@@ -609,8 +533,6 @@ also known to work, such as by using SFTP in the specific case of FTP, or a VPN
 connection for a wide variety of protocols, e.g.:
 
 ``` yaml
-sudo: required
-
 addons:
   apt:
     packages:
@@ -633,16 +555,16 @@ Whenever your build has been processed you'll see the message: **"Build created 
 If a build hasn't been triggered for your commit, these are the possible build request messages:
 
 - **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
-- **"Build skipped via commit message"**, this commit contains [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build).
+- **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#skipping-a-build).
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
-- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
+- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
 ## I'm running out of disk space in my build
 
-Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#Virtualisation-Environment-vs-Operating-System).
+Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
-If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.

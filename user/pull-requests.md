@@ -7,7 +7,7 @@ layout: en
 Pull request builds are an essential part of Travis CI.
 Whenever a pull request is opened on GitHub, Travis CI builds it and updates the status icon on the pull request page.
 
-<div id="toc"></div>
+
 
 ## How Pull Requests are Built
 
@@ -75,5 +75,5 @@ If you see two build status icons on your GitHub pull request, it means there is
 
 ## See Also
 
-* [Building only the latest commit](/user/customizing-the-build/#Building-only-the-latest-commit)
-* [Building specific branches](/user/customizing-the-build/#Building-Specific-Branches)
+* [Building only the latest commit](/user/customizing-the-build/#building-only-the-latest-commit)
+* [Building specific branches](/user/customizing-the-build/#building-specific-branches)

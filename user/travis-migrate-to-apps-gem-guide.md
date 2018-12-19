@@ -56,7 +56,7 @@ Here are the two ways you can get this token:
 
 ![Travis CI token on profile page](/images/travis-ci-token-profile-page.png)
 
-2. Via the [Travis CI client](https://github.com/travis-ci/travis.rb) by running: `travis token --pro`
+2. Via the [Travis CI client](https://github.com/travis-ci/travis.rb) by running: `travis token --com`
 
 ## 5. Run the gem
 
@@ -64,7 +64,7 @@ Here are the two ways you can get this token:
 travis_migrate_to_apps [owner_name] [travis_access_token] [github_access_token]
 ```
 
-where 
+where
 
 - `[owner_name]` is the GitHub account (user or organization) where the repositories you want to migrate are located
 - `[travis_access_token]` is the Travis CI token obtained in step #4 above

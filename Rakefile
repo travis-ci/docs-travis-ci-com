@@ -60,51 +60,30 @@ end
 
 desc 'Runs the html-proofer test'
 task :run_html_proofer => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     internal_domains: ['docs.travis-ci.com'],
+    check_external_hash: true,
+    check_html: true,
     connecttimeout: 600,
+    allow_hash_ref: true,
     only_4xx: true,
     typhoeus: {
       ssl_verifypeer: false, ssl_verifyhost: 0, followlocation: true
     },
     url_ignore: [
-      'https://www.appfog.com/',
       /itunes\.apple\.com/,
-      /coverity.com/,
-      /articles201769485/
     ],
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
 end
 
 desc 'Runs the html-proofer test for internal links only'
 task :run_html_proofer_internal => [:build] do
-  # seems like the build does not render `%3*`,
-  # so let's remove them for the check
-  url_swap = {
-    /%3A\z/ => '',
-    /%3F\z/ => '',
-    /-\.travis\.yml/ => '-travisyml'
-  }
-
   HTMLProofer.check_directory(
     './_site',
-    url_swap: url_swap,
     disable_external: true,
     internal_domains: ['docs.travis-ci.com'],
     connecttimeout: 600,
@@ -114,34 +93,8 @@ task :run_html_proofer_internal => [:build] do
     },
     file_ignore: %w[
       ./_site/api/index.html
-      ./_site/user/languages/erlang/index.html
-      ./_site/user/languages/objective-c/index.html
-      ./_site/user/reference/osx/index.html
     ]
   ).run
-end
-
-file '_data/trusty-language-mapping.json' do |t|
-  source = File.join(
-    'https://raw.githubusercontent.com',
-    'travis-infrastructure/terraform-config/master/aws-production-2',
-    'generated-language-mapping.json'
-  )
-
-  bytes = File.write(t.name, Faraday.get(source).body)
-
-  puts "Updated #{t.name} (#{bytes} bytes)"
-end
-
-file '_data/trusty_language_mapping.yml' => [
-  '_data/trusty-language-mapping.json'
-] do |t|
-  bytes = File.write(
-    t.name,
-    YAML.dump(JSON.parse(File.read('_data/trusty-language-mapping.json')))
-  )
-
-  puts "Updated #{t.name} (#{bytes} bytes)"
 end
 
 file '_data/ip_range.yml' do |t|
@@ -162,10 +115,6 @@ end
 
 file '_data/macstadium_ip_range.yml' do |t|
   define_ip_range('nat.macstadium-us-se-1.travisci.net', t.name)
-end
-
-file '_data/packet_ip_range.yml' do |t|
-  define_ip_range('nat.packet-ewr1.travisci.net', t.name)
 end
 
 file '_data/node_js_versions.yml' do |t|
@@ -189,7 +138,6 @@ task regen: (%i[clean] + %w[
   _data/ip_range.yml
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
-  _data/trusty_language_mapping.yml
   _data/node_js_versions.yml
 ])
 
@@ -201,8 +149,6 @@ task :clean do
          _data/ip_range.yml
          _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
-         _data/trusty-language-mapping.json
-         _data/trusty_language_mapping.yml
          _data/node_js_versions.yml
        ])
 end
