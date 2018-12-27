@@ -102,7 +102,7 @@ compiler:
 
 Testing against two compilers will create (at least) 2 rows in your build
 matrix. For each row, the Travis CI C++ builder will export the `CXX` and
-`CCX_FOR_BUILD` env variables to point to either `g++` or `clang++`, and
+`CXX_FOR_BUILD` env variables to point to either `g++` or `clang++`, and
 correspondingly export the `CC` and `CC_FOR_BUILD` env variables to point
 to either `gcc` or `clang`.
 
