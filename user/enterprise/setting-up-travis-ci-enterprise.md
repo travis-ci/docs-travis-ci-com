@@ -124,8 +124,6 @@ export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
 
 ### Older versions of Travis CI Enterprise
 
-TODO: do we need this?
-
 | Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
 |:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
 | Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
