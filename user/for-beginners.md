@@ -40,13 +40,13 @@ setup [notifications](/user/notifications/), prepare
 
 In the Travis CI documentation, some common words have specific meanings:
 
+* *phase* - the [sequential steps](/user/job-lifecycle/)
+  of a job. For example, the `install` phase, comes before the `script` phase,
+  which comes before the optional `deploy` phase.
 * *job* - an automated process that clones your repository into a virtual
   environment and then carries out a series of *phases* such as compiling your
   code, running tests, etc. A job fails if the return code of the `script` *phase*
   is non zero.
-* *phase* - the [sequential steps](/user/job-lifecycle/)
-  of a job. For example, the `install` phase, comes before the `script` phase,
-  which comes before the optional `deploy` phase.
 * *build* - a group of *jobs*. For example, a build might have two *jobs*, each
   of which tests a project with a different version of a programming language.
   A *build* finishes when all of its jobs are finished.
