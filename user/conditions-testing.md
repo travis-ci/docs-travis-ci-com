@@ -20,10 +20,31 @@ $ gem install travis-conditions
 ## Usage
 
 ```
-$ travis-conditions "branch = master" --data '{"branch": "master"}'
+$ travis-conditions <command>
+```
+
+The two commands available are `parse` and `eval`.
+
+### parse
+
+Check the syntax of a condition by inspecting the resulting abstract syntax
+tree.
+
+```
+$ travis-conditions parse "branch = foo"
+[:eq, [:var, :branch], [:val, "foo"]]
+
+```
+
+### eval
+
+Check conditions against a given data hash.
+
+```
+$ travis-conditions eval "branch = foo" --data '{"branch": "foo"}'
 true
 
-$ travis-conditions echo '{"branch": "master"}' | travis-conditions "branch = master"
+$ echo '{"branch": "foo"}' | travis-conditions eval "branch = foo"
 true
 ```
 
@@ -34,4 +55,13 @@ see [this page](/user/conditions-v1) for a complete list of attributes) and an
 ```
 {"env": {"foo": "bar"}}
 {"env": ["foo=bar"]}
+```
+
+For example:
+
+```
+$ travis-conditions eval "env(foo) = bar" --data '{"env": {"foo": "bar"}}'
+true
+$ travis-conditions eval "env(foo) = bar" --data '{"env": ["foo=bar"]}'
+true
 ```

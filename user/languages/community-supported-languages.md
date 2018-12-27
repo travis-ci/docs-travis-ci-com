@@ -5,8 +5,6 @@ layout: en
 swiftypetags: 'Community Supported'
 ---
 
-<div id="toc"></div>
-
 There are many programming languages out there, and Travis CI would like
 to support as many as possible.
 
@@ -22,9 +20,9 @@ respective community.
 ## How do I add a new community-supported language?
 
 1. Gather a group of 3 or more volunteers who will support the new language.
-2. Create pull requests in [travis-build](#Adding-a-new-language) and if
-   necessary [travis-web](#Adding-Matrix-support).
-3. [Test your changes](#Testing-travis-build-changes).
+2. Create pull requests in [travis-build](#adding-a-new-language) and if
+   necessary [travis-web](#adding-matrix-support).
+3. [Test your changes](#testing-travis-build-changes).
 4. Work with Travis CI team to get the PRs production-ready.
 5. Provide ongoing support for the issues involving the language.
 

@@ -8,7 +8,7 @@ When you sign in to Travis CI for the first time, we ask for permissions to acce
 some of your data on GitHub. Read the [GitHub API Scope Documentation](https://developer.github.com/v3/oauth/#scopes)
  for general information about this, or pick an explanation of what data we need and why we need it.
 
-<div id="toc"></div>
+
 
 ## Travis CI for Open Source and Private Projects
 

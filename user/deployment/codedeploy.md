@@ -6,7 +6,7 @@ layout: en
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
-<div id="toc"></div>
+
 
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 
@@ -30,7 +30,7 @@ A complete example can be found [here](https://github.com/travis-ci/cat-party/bl
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt that key.
 
-If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](https://docs.travis-ci.com/user/deployment/codedeploy#AWS-region-to-deploy-to)).
+If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](/user/deployment/codedeploy#aws-region-to-deploy-to)).
 
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
@@ -48,7 +48,7 @@ travis setup codedeploy
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-This command will also offer to set up [S3 deployment](http://docs.travis-ci.com/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
+This command will also offer to set up [S3 deployment](/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
 
 ## Branch to deploy from
 
@@ -108,13 +108,13 @@ Please note that `region` should match the instance region on which codedeploy i
 
 ## Waiting for Deployments
 
-By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait-until-deployed** option:
+By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait_until_deployed** option:
 
 ```yaml
 deploy:
   provider: codedeploy
     ⋮
-    wait-until-deployed: true
+    wait_until_deployed: true
 ```
 {: data-file=".travis.yml"}
 
@@ -122,7 +122,7 @@ Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
 ## Bundle Types
 
-The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file exension of `key` or `s3_key` set in your `.travis.yml`.
+The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file extension of `key` or `s3_key` set in your `.travis.yml`.
 
 If your `.travis.yml` contains both, and they do not match, set `bundle_type` explicitly to the correct value.
 
@@ -130,7 +130,7 @@ If your `.travis.yml` contains both, and they do not match, set `bundle_type` ex
 ## Conditional deployments
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ## Note on `.gitignore`
 
@@ -138,7 +138,7 @@ As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ## Running commands before and after deploy

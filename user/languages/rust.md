@@ -4,15 +4,15 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
 | Rust                                        | Default                                       |
 |:--------------------------------------------|:----------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cargo build --verbose`                       |
-| [Default `script`](#Default-Build-Script)   | `cargo build --verbose; cargo test --verbose` |
-| [Matrix keys](#Build-Matrix)                | `rust`, `env`                                 |
+| [Default `install`](#dependency-management) | `cargo build --verbose`                       |
+| [Default `script`](#default-build-script)   | `cargo build --verbose; cargo test --verbose` |
+| [Matrix keys](#build-matrix)                | `rust`, `env`                                 |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:
@@ -24,12 +24,10 @@ language: rust
 
 </aside>
 
-### What This Guide Covers
-
 {{ site.data.snippets.trusty_note }}
 
 The rest of this guide covers configuring Rust projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing a Rust version
@@ -97,7 +95,7 @@ Travis CI uses Cargo to run your build, the default commands are:
 cargo test --verbose
 ```
 
-You always can always configure different comands if you need to. For example,
+You can always configure different comands if you need to. For example,
 if your project is a
 [workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
 should pass `--all` to the build commands to build and test all of the member
@@ -119,4 +117,4 @@ build in the `TRAVIS_RUST_VERSION` environment variable.
 ## Build Matrix
 
 For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).
+construct a [build matrix](/user/customizing-the-build/#build-matrix).

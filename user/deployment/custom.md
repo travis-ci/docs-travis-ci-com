@@ -47,4 +47,4 @@ after_success:
 ```
 {: data-file=".travis.yml"}
 
-See ["How can I encrypt files that include sensitive data?"](/user/travis-ci-for-private/#How-can-I-encrypt-files-that-include-sensitive-data%3F) if you don't want to commit the private key unencrypted to your repository.
+See ["How can I encrypt files that include sensitive data?"](/user/travis-ci-for-private/#how-can-i-encrypt-files-that-include-sensitive-data) if you don't want to commit the private key unencrypted to your repository.

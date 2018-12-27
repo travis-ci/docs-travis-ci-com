@@ -5,7 +5,7 @@ layout: en
 
 This page lists settings that are only available in the Travis CI .com and .org web user interface.
 
-<div id="toc"></div>
+
 
 ## Limit concurrent jobs
 
@@ -13,13 +13,13 @@ This page lists settings that are only available in the Travis CI .com and .org 
 
 ## Build pushed branches
 
-If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml`.
+If *ON*, builds will be run on branches that are not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml`.
 
 If *OFF*, builds won't run on pushed commits on branches.
 
 ## Build pushed pull requests
 
-If *ON*, builds will be run new [pull requests](/user/pull-requests/).
+If *ON*, builds will be run on new [pull requests](/user/pull-requests/).
 
 ## Auto cancel branch builds
 
@@ -33,7 +33,7 @@ If *ON*, builds will be run new [pull requests](/user/pull-requests/).
 
 {{ site.data.snippets.environment_variables }}
 
-More information on  [environment variables](/user/environment-variables/#Defining-Variables-in-Repository-Settings).
+More information on  [environment variables](/user/environment-variables/#defining-variables-in-repository-settings).
 
 ## Cron jobs
 
@@ -43,7 +43,7 @@ Check the full cron jobs docs for more information on [skipping and detecting cr
 
 ## Caches
 
-More information on [caching](https://docs.travis-ci.com/user/caching).
+More information on [caching](/user/caching).
 
 ## Trigger a custom build
 
