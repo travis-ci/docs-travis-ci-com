@@ -17,7 +17,11 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Xenial 16.04](/user/reference/xenial/), [Ubuntu Trusty 14.04](/user/reference/trusty/), or [Ubuntu Precise 12.04](/user/reference/precise/)
+A sudo enabled, full virtual machine per build, that runs Linux, one of
+
+* [Ubuntu Xenial 16.04](/user/reference/xenial/)
+* [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
+* [Ubuntu Precise 12.04](/user/reference/precise/)
 
 ### OS X
 
@@ -36,7 +40,7 @@ The following table summarizes the differences across virtual environments and o
 | Name                 | Ubuntu                                                                                                                    | OS X                         | Windows                            |
 | Status               | Current                                                                                                                   | Current                      | Early release                      |
 | Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                    | `os: windows`                      |
+| `.travis.yml`        | `dist: xenial/trusty/precise`                                                                                             | `os: osx`                    | `os: windows`                      |
 | Allows `sudo`        | Yes                                                                                                                       | Yes                          | No                                 |
 | Approx boot time     | 20-50s                                                                                                                    | 60-90s                       | 60-120s                            |
 | File system          | EXT4                                                                                                                      | HFS+                         | NTFS                               |
