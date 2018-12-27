@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-### What this guide covers
+### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
@@ -61,7 +61,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-### Choosing runtime and version to test against
+### Choosing Runtime and Version to Test Against
 
 #### Mono
 
@@ -98,7 +98,7 @@ By default, Travis CI does not test against .NET Core. To test against .NET Core
 ```yml
 language: csharp
 mono: none
-dotnet: 1.1.5
+dotnet: 2.1.502
 script:
  - dotnet restore
 ...
@@ -110,7 +110,7 @@ The version numbers of the SDK can be found on the [.NET Core website](https://d
 
 ### Testing Against Mono and .NET Core
 
-You can test against both Mono and .NET Core by using `matrix.include`. This example tests against both the latest mono and .NET Core
+You can test against both Mono and .NET Core by using `matrix.include`. This example tests against both the latest mono and .NET Core:
 
 ```yaml
 language: csharp
@@ -118,9 +118,9 @@ solution: travis-mono-test.sln
 
 matrix:
   include:
-    - dotnet: 1.1.5
+    - dotnet: 2.1.502
       mono: none
-      env: DOTNETCORE=1  # optional, can be used to take different code paths in your script
+      env: DOTNETCORE=2  # optional, can be used to take different code paths in your script
     - mono: latest
 ...
 ```
@@ -133,8 +133,8 @@ For C#, F#, and Visual Basic projects, `mono` and `dotnet` can be given as an ar
 ### Addons
 
 The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
-
-### Running unit tests (NUnit, xunit, etc.)
+ 
+### Running Unit Tests (NUnit, xunit, etc.)
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
@@ -147,10 +147,10 @@ language: csharp
 solution: solution-name.sln
 install:
   - nuget restore solution-name.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+  - msbuild /p:Configuration=Release solution-name.sln
+  - mono ./testrunner/NUnit.Runners.3.9.0/tools/nunit-console3.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 {: data-file=".travis.yml"}
 
@@ -163,16 +163,16 @@ install:
   - nuget restore solution-name.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
+  - msbuild /p:Configuration=Release solution-name.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 {: data-file=".travis.yml"}
 
 > *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
-#### Using solution-level NuGet package
+#### Using Solution-Level NuGet Packages
 
-Another way is to add the console testrunner of your choice as a solution-level nuget package.
+Another way is to add the console testrunner of your choice as a solution-level NuGet package.
 
 For many .NET projects this will be the file found at `./.nuget/packages.config`.
 
@@ -182,13 +182,29 @@ For many .NET projects this will be the file found at `./.nuget/packages.config`
 language: csharp
 solution: solution-name.sln
 script:
-  - xbuild /p:Configuration=Release solution-name.sln
+  - msbuild /p:Configuration=Release solution-name.sln
   - mono ./packages/xunit.runners.*/tools/xunit.console.clr4.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 {: data-file=".travis.yml"}
 
 Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 
-#### Other test frameworks
+### MSTest
 
-If you're using other test frameworks the process is similar. Please note that the MSTest framework is not supported, as it only works on Windows/Visual Studio.
+The [MSTest framework](https://www.nuget.org/packages/MSTest.TestFramework/) is supported when testing against .NET Core. Example:
+
+```yaml
+language: csharp
+mono: none
+dotnet: 2.1.502
+solution: solution-name.sln
+script:
+  - dotnet restore
+  - dotnet test
+...
+```
+{: data-file=".travis.yml"}
+
+#### Other Test Frameworks
+
+If you're using other test frameworks the process is similar.
