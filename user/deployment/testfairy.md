@@ -39,7 +39,7 @@ deploy:
 
 ## Invite testers automatically
 
-To automatically invite testers upon build upload, specify a comma-seperated list of groups in the `testers-groups` key. Set the `notify` key to `true` if you want to notify them via email:
+To automatically invite testers upon build upload, specify a comma-separated list of groups in the `testers-groups` key. Set the `notify` key to `true` if you want to notify them via email:
 
 ```yaml
 deploy:
