@@ -137,7 +137,7 @@ After setting up a new instance for the worker, please follow the [Trusty (14.04
 
 ## 3. Running builds!
 
-Skip over to the Getting Started Guide and connect some repositories to your new Travis CI Setup!
+ Skip over to the [Getting Started Guide](https://docs.travis-ci.com/user/tutorial/) and connect some repositories to your new Travis CI Setup!
 
 ## 4. What next?
 
