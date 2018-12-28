@@ -125,7 +125,7 @@ before_script:
 
 Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
 
-If your project is built with Ant or any other build tool that does not automatically handle dependences, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+If your project is built with Ant or any other build tool that does not automatically handle dependencies, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
 ```yaml
 language: android
