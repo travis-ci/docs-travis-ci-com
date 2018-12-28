@@ -189,7 +189,7 @@ script:
 
 Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 
-### MSTest
+#### MSTest
 
 The [MSTest framework](https://www.nuget.org/packages/MSTest.TestFramework/) is supported when testing against .NET Core. Example:
 
