@@ -6,7 +6,7 @@ layout: en_enterprise
 
 Travis CI Enterprise typically runs as a single container instance communicating with one or multiple workers, but we also offer a High Availability configuration so you can run your installation with redundancy. Particularly for customers with large-volume licenses, High Availability Mode is a helpful way to have additional stability.
 
-If you're interested, or might be interested, in running Travis CI Enterprise in High Availability mode, please let [us](mailto:enterprise@travis-cicom?subject:HA%20Mode) know and we can discuss options and help you get started.
+If you're interested, or might be interested, in running Travis CI Enterprise in High Availability mode, please email us at [enterprise@travis-ci.com](mailto:enterprise@travis-cicom?subject:HA%20Mode) and we can discuss options and help you get started.
 
 ## Overview of Installation
 
