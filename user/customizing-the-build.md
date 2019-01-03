@@ -24,7 +24,7 @@ Some common reasons why builds might hang:
 - Concurrency issues (deadlocks, livelocks and so on)
 - Installation of native extensions that take very long time to compile
 
-> There is no timeout for a build; a build will run as long as all the jobs do as long as each job does not timeout.
+> There is no timeout for a build; a build will run as long as needed to complete all the jobs, but will stop immediately if any job hits a timeout limit.
 
 ## Build Lifecycle
 
@@ -49,13 +49,12 @@ $ travis settings maximum_number_of_builds --set 1
 
 ## Building Only the Latest Commit
 
-If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*.
+If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*. Existing builds will be allowed to finish.
 
-The *Auto Cancellation Setting* is in the Settings tab of each repository, and you can enable it separately for:
+The *Auto Cancellation Setting* is in the *Settings* tab of each repository, and you can enable it separately to:
+* *Auto cancel branch builds* - cancels queued builds in your branch and appears in the *Build History* tab of your repository.
 
-* *Auto cancel branch builds* - which build your branch and appear in the *Build History* tab of your repository.
-
-* *Auto cancel pull request builds* - which build the future merge result of your feature branch against its target and appear in the *Pull Requests* tab of your repository.
+* *Auto cancel pull request builds* - cancels queued builds for pull requests (the future merge result of your change/feature branch against its target) and appears in the *Pull Requests* tab of your repository.
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
@@ -66,11 +65,11 @@ For example, in the following screenshot, we pushed commit `ca31c2b` to the bran
 
 ## Git Clone Depth
 
-Travis CI clones repositories to a depth of 50 commits, which is only really useful if you are performing git operations.
+Travis CI can clone repositories to a maximum depth of 50 commits, which is only really useful if you are performing git operations.
 
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
-You can set the [clone depth](http://git-scm.com/docs/git-clone) in `.travis.yml`:
+You can set the [clone depth](https://git-scm.com/docs/git-clone#git-clone---depthltdepthgt) in `.travis.yml`:
 
 ```yaml
 git:
@@ -113,7 +112,8 @@ git:
 
 ### Authentication
 
-We recommend using a read-only GitHub OAuth token to authenticate when using Git LFS:
+
+We recommend using a read-only GitHub OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
 
 ```
 before_install:
@@ -218,7 +218,7 @@ branches:
 ```
 {: data-file=".travis.yml"}
 
-Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain any quantifiers, anchors or character classes supported by [Ruby regular expressions](http://www.ruby-doc.org/core-1.9.3/Regexp.html).
+Any name surrounded with `/` in the list of branches is treated as a regular expression and can contain any quantifiers, anchors or character classes supported by [Ruby regular expressions](http://www.ruby-doc.org/core/Regexp.html).
 
 Options that are specified after the last `/` (e.g., `i` for case insensitive matching) are not supported but can be given inline instead.  For example, `/^(?i:deploy)-.*$/` matches `Deploy-2014-06-01` and other
 branches and tags that start with `deploy-` in any combination of cases.
@@ -405,7 +405,7 @@ This adds a particular job to the build matrix which has already been populated.
 This is useful if you want to only test the latest version of a dependency together with the latest version of the runtime.
 
 You can use this method to create a build matrix containing only specific combinations.
-For example,
+For example, the following creates a build matrix with 3 jobs, which runs a test suite for each version of Python:
 
 ```yaml
 language: python
@@ -421,10 +421,7 @@ script: ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-creates a build matrix with 3 jobs, which runs test suite for each version
-of Python.
-
-#### Explicitly Included Jobs Inherit the First Value In the Array
+#### Explicitly included jobs inherit the first value in the array
 
 The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
