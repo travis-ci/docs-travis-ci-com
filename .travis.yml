@@ -39,6 +39,7 @@ notifications:
 before_install:
   - gem update --system
   - gem install bundler -v '< 2'
+  - bundle update --bundler
 install:
   - rvm use 2.4.3 --install
   - bundle install --deployment
