@@ -38,7 +38,7 @@ easily customizable, which can then be deployed for use by your team.
 * **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud
 or on-premises environment of your choice. This includes AWS, Google Compute
 Engine, VMware, OpenStack and Azure.
-* **Scales to your needs:** Your team has the flexibility to spin up as much build
+* **Scales to your needs:** Your team has the flexibility to add as much build
 capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their
 hearts content.
@@ -65,7 +65,7 @@ team looks forward to hearing from you!
 
 {{ site.data.snippets.contact_enterprise_support }}
 
-## Further Reading  
-  * [System Prerequisites](/user/enterprise/prerequisites)  
+## Further Reading
+  * [System Prerequisites](/user/enterprise/prerequisites)
   * [Travis CI Enterprise Installation](/user/enterprise/installation)
   * [Customizing Build Images](/user/enterprise/build-images)

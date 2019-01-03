@@ -14,9 +14,9 @@ swiftypetags:
 
 | Go                                          | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `go get -t ./...`                         |
-| [Default `script`](#Default-Build-Script)   | `make` or `go test`                       |
-| [Matrix keys](#Build-Matrix)                | `go`, `env`                               |
+| [Default `install`](#dependency-management) | `go get -t -v ./...`                         |
+| [Default `script`](#default-build-script)   | `make` or `go test`                       |
+| [Matrix keys](#build-matrix)                | `go`, `env`                               |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -77,7 +77,7 @@ The default install step depends on the version of go:
 * if go version is greater than or equal to `1.2`
 
   ```
-  go get -t ./...
+  go get -t -v ./...
   ```
 
 * if go version is older than `1.2`
@@ -167,17 +167,17 @@ make
 In case there is no Makefile, it will be
 
 ```bash
-go test -v ./...
+go test
 ```
 
 instead.
 
 These default commands can be overridden as described in the [general build
-configuration](/user/customizing-the-build/) guide. For example, to omit the
+configuration](/user/customizing-the-build/) guide. For example, to add the
 `-v` flag, override the `script:` key in `.travis.yml` like this:
 
 ```yaml
-script: go test ./...
+script: go test -v ./...
 ```
 {: data-file=".travis.yml"}
 
@@ -215,15 +215,19 @@ The version of Go a job is using is available as:
 TRAVIS_GO_VERSION
 ```
 
-Please note that this will expand to the real Go version, for example `1.7.4`,
-also when `go: 1.7.x` was specified. Comparing this value in for example the
-deploy section could look like this:
+This may contain `.x` at the end, as described above.
+Use of this variable in the deployment condition should
+take this possibility into consideration.
+For example:
 
 ```yaml
+go:
+  - 1.7.x
+⋮
 deploy:
   ...
   on:
-    condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7
 ```
 {: data-file=".travis.yml"}
 

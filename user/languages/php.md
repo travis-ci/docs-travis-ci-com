@@ -10,9 +10,9 @@ layout: en
 
 | PHP                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
-| [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `phpunit`                                 |
+| [Matrix keys](#build-matrix)                | `env`, `php`                              |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -69,7 +69,7 @@ php:
 
 ### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
 
-We do not suppport these versions on Trusty.
+We do not support these versions on Trusty.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 

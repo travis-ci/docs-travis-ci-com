@@ -71,7 +71,7 @@ for more details.
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
 
-If the specified OTP Release version (implicity or explicitly)
+If the specified OTP Release version (implicitly or explicitly)
 does not meet this requirement, Travis CI will choose one
 for you.
 

@@ -10,9 +10,9 @@ layout: en
 
 | Rust                                        | Default                                       |
 |:--------------------------------------------|:----------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cargo build --verbose`                       |
-| [Default `script`](#Default-Build-Script)   | `cargo build --verbose; cargo test --verbose` |
-| [Matrix keys](#Build-Matrix)                | `rust`, `env`                                 |
+| [Default `install`](#dependency-management) | `cargo build --verbose`                       |
+| [Default `script`](#default-build-script)   | `cargo build --verbose; cargo test --verbose` |
+| [Matrix keys](#build-matrix)                | `rust`, `env`                                 |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:

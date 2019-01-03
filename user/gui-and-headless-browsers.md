@@ -26,7 +26,7 @@ addons:
 
 You can [encrypt your access key](/user/encryption-keys/), if you want to.
 
-Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#Starting-a-Web-Server) below for more information on how to do that.
+Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#starting-a-web-server) below for more information on how to do that.
 
 Finally, you need to configure your Selenium tests to run on Sauce Labs instead of locally. This is done using a [Remote WebDriver](https://code.google.com/p/selenium/wiki/RemoteWebDriver). The exact code depends on what tool/platform you're using, but for Python it would look like this:
 
@@ -40,7 +40,7 @@ driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="h
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
 
-This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available environment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
@@ -275,4 +275,4 @@ In that case, you should increase the browser inactivity timeout to a higher val
 browserNoActivityTimeout: 30000,
 ```
 
-For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.
+For more information, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.

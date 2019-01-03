@@ -42,7 +42,7 @@ dart:
 This creates a separate Travis job for each Dart version. It can be used in
 conjunction with `env` or similar fields to create a [build matrix][].
 
-[build matrix]: /user/customizing-the-build/#Build-Matrix
+[build matrix]: /user/customizing-the-build/#build-matrix
 
 ## Dependency Management
 
@@ -56,7 +56,7 @@ run by default. This typically only runs tests on the Dart VM, but you can
 [configure it][] to run on additional platforms by default.
 
 [test]: https://pub.dartlang.org/packages/test
-[configure it]: https://github.com/dart-lang/test/blob/master/doc/configuration.md#platforms
+[configure it]: https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md#platforms
 
 You can also customize the arguments Travis passes to the test runner using the
 `dart_task` field in `.travis.yml`.

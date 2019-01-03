@@ -24,10 +24,22 @@ the gem:
 gem install travis
 ```
 
+If you are using [travis-ci.com](https://travis-ci.com) instead of [travis-ci.org](https://travis-ci.org), you need to login first:
+
+```bash
+travis login --pro
+```
+
 Then, you can use `encrypt` command to encrypt data (This example assumes you are running the command in your project directory. If not, add `-r owner/project`):
 
 ```bash
 travis encrypt SOMEVAR="secretvalue"
+```
+
+Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--com` to the CLI:
+
+```bash
+travis encrypt --com SOMEVAR="secretvalue"
 ```
 
 This will output a string looking something like:

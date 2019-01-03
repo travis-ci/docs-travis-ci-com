@@ -30,7 +30,7 @@ Please sign up at [travis-ci.com], regardless of whether you plan to test open s
 
 ## Existing User Accounts
 
-Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#New-Repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com] when you want to activate a new repository, please sign up there first.
+Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#new-repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com] when you want to activate a new repository, please sign up there first.
 
 ## New Repositories
 
@@ -56,7 +56,7 @@ There will be no changes to your private repositories. Private projects will con
 
 ## Contact Support
 
-If you have an questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
+If you have any questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
 
 
 [travis-ci.com]: https://www.travis-ci.com

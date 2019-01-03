@@ -35,8 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
-> you still have to start it in a `before_install` step.
+> If you download and install a service manually, you also have to start it in a `before_install` step. The `services` key only works for services we provision.
 
 ## MySQL
 
@@ -55,15 +54,12 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
-Current versions of MySQL are
 
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
+|:------|:---------------|:--------------|:--------------|
+| MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
-
-You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
+You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 
@@ -106,7 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial image. 
+On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+
 
 ```yaml
 addons:
@@ -219,7 +217,7 @@ The Travis CI build environment comes with a number of pre-installed locales, bu
 
 #### Installing Locales
 
-The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack. The `sudo` command is not available on [container based infrastructure](/user/workers/container-based-infrastructure) so you currently cannot install locales on it.
+The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack.
 
 > Note that you need to remove the PostgreSQL version from the `addons` section of your .travis.yml:
 
@@ -358,7 +356,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on OS X or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -416,12 +414,9 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
-Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - cassandra
 ```
