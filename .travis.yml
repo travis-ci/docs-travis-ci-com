@@ -36,6 +36,8 @@ notifications:
     on_success: never
   webhooks:
     https://docs.travis-ci.com/update_webhook_payload_doc
+before_install:
+  - gem install bundler -v '< 2'
 install:
   - rvm use 2.4.3 --install
   - bundle install --deployment
