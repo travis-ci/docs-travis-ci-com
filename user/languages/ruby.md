@@ -157,7 +157,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
     ```
     {: data-file=".travis.yml"}
 
-* If you’re using Ruby 2.3 or higher, upgrade to Bundler 2.0 by adding following to your `.travis.yml`:
+* If you’re using Ruby 2.3 or higher, upgrade to Bundler 2.0 by adding the following to your `.travis.yml`:
 
     ```yaml
     before_install:
