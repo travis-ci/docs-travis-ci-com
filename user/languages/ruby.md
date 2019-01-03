@@ -143,6 +143,30 @@ install: gem install rails
 By default, gems are installed into vendor/bundle in your project's root
 directory.
 
+#### Bundler 2.0
+
+On January 3rd 2019 the Bundler team released [Bundler 2.0](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html) which dropped support for Ruby versions 2.2 and older, and added a new dependency on RubyGems 3.0.0.
+
+If you find your builds are failing due to “bundler not installed” errors, try one of the following solutions:
+
+* If you are using a Ruby version lower than 2.3, add the following to your `.travis.yml`:
+
+    ```yaml
+    before_install:
+       - gem install bundler -v ‘< 2’
+    ```
+    {: data-file=".travis.yml"}
+
+* If you’re using Ruby 2.3 or higher, upgrade to Bundler 2.0 by adding the following to your `.travis.yml`:
+
+    ```yaml
+    before_install:
+      - gem update --system
+      - gem install bundler
+    ```
+    {: data-file=".travis.yml"}
+
+
 #### Caching Bundler
 
 Bundler installation can take a while, slowing down your build. You can tell
