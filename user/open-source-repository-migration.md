@@ -92,6 +92,34 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 
 4. That's it! Your open source repository has been migrated to travis-ci.com!
 
+### Migrating repositories via API
+
+If you'd like to automate your migration process, it's also possible to migrate a repository by directly making a request to the `/repo/:id/migrate` or `/repo/:slug/migrate` endpoints of the Travis CI API:
+
+* Using the repository slug:
+
+```bash
+ curl -s -X POST \
+   -H "Content-Type: application/json" \
+   -H "Accept: application/json" \
+   -H "Travis-API-Version: 3" \
+   -H "Authorization: token {API_TOKEN}" \
+   --data '' \ 
+   https://api.travis-ci.com/repo/{REPO_OWNER}%2F{REPO_NAME}/migrate
+```
+
+* Using the repository ID:
+
+```bash
+ curl -s -X POST \
+   -H "Content-Type: application/json" \
+   -H "Accept: application/json" \
+   -H "Travis-API-Version: 3" \
+   -H "Authorization: token {API_TOKEN}" \
+   --data '' \
+   https://api.travis-ci.com/repo/{REPO_ID}/migrate
+```
+
 ## Interacting with a migrated repository
 
 Travis CI will now start receiving the GitHub events for migrated open source repository in travis-ci.com. Any new builds and requests will start appearing in the travis-ci.com site.
