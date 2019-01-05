@@ -4,9 +4,11 @@ layout: en
 
 ---
 
+### What This Guide Covers
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                       |
+| Erlang            | Default                                       |
 |:------------------|:----------------------------------------------|
 | Typical `install` | `rebar get-deps`                              |
 | Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
@@ -25,13 +27,11 @@ otp_release:
 
 </aside>
 
-### What This Guide Covers
-
 {{ site.data.snippets.trusty_note_no_osx }}
 
 The rest of this guide covers build environment and configuration topics
 specific to Erlang projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 Erlang builds are not available on the OS X environment.

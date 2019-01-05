@@ -12,7 +12,7 @@ maintainers:
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Perl 6 projects. Please make sure to read our [Getting Started](/user/getting-started/)
+Perl 6 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 Perl 6 builds are not available on the OS X environment.

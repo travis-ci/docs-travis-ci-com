@@ -4,7 +4,7 @@ layout: en
 swiftypetags: 'skip_cleanup'
 ---
 
-<div id="toc"></div>
+
 
 ## Supported Providers
 
@@ -114,6 +114,21 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^staging|production$
+```
+{: data-file=".travis.yml"}
+
+The next example deploys using custom scripts `deploy_production.sh` and `deploy_staging.sh` depending on the branch that triggered the job.
+
+```yaml
+deploy:
+  - provider: script
+    script: deploy_production.sh
+    on:
+      branch: production
+  - provider: script
+    script: deploy_staging.sh
+    on:
+      branch: staging
 ```
 {: data-file=".travis.yml"}
 

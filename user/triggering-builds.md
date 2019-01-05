@@ -4,19 +4,18 @@ title: Triggering builds with API V3
 layout: en
 ---
 
-<div id="toc"></div>
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page, and make requests to https://api.travis-ci.org.
 
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
-1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these
-   API requests.
+1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these API requests.
 
    You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    to get your API token:
 
    ```
-   travis login --pro
-   travis token --pro
+   travis login --com
+   travis token --com
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
@@ -110,7 +109,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    }
    ```
 
-5. Visit the [API V3 explorer](http://developer.travis-ci.com/) for more information
+5. Visit the [API V3 explorer](https://developer.travis-ci.com/) for more information
    about what endpoints are available and what you can do with them.
 
 {{ site.data.snippets.ghlimit }}

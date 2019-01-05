@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-<div id="toc"></div>
+
 
 ## Credentials for Connecting to the Platform
 
@@ -149,7 +149,7 @@ export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ## Mounting volumes across worker jobs on Enterprise
 
 You can use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
-when the worker launches the container of a job. This let's you share files or directories 
+when the worker launches the container of a job. This lets you share files or directories
 across all jobs ran by a worker. Multiple binds can be provided
 as _space separated_ strings.
 
@@ -162,6 +162,60 @@ export TRAVIS_WORKER_DOCKER_BINDS="/tmp:/tmp:rw /var/log"
 
 A full list of options and mount modes is listed in the official
  [Docker documentation](https://docs.docker.com/storage/bind-mounts/).
+
+## Worker behind an HTTP(S) Proxy
+
+If you're using Travis CI Enterprise behind an HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
+
+### How do I find out if I have the correct travis-worker version installed?
+
+#### Ubuntu 16.04+
+
+Connect to your worker machine via ssh and run:
+
+```
+$ sudo docker images | grep worker
+travisci/worker        v4.6.1                      ef7a3419050c        17 hours ago        44.7MB
+```
+
+#### Ubuntu 14.04
+
+Connect to your worker machine via ssh and run:
+
+```
+$ travis-worker -v
+travis-worker v=v4.6.1 rev=73392421d0ca807b83d4d459ad3dd484820fd181 d=2018-10-30T16:13:39+0000 go=go1.11.1
+```
+
+#### Upgrade travis-worker
+
+If you need to install a newer version of travis-worker, please follow the instructions in our [Updating your Travis CI Worker docs](/user/enterprise/upgrading/#updating-your-travis-ci-enterprise-worker).
+
+### Configuring an HTTP Proxy
+
+On the worker machine, please open `/etc/default/travis-worker` in your editor and add the two lines from the example below. The value for `TRAVIS_WORKER_DOCKER_API_VERSION` depends on the installed Docker version.
+
+```
+export TRAVIS_WORKER_DOCKER_HTTP_PROXY="<YOUR PROXY URL>"
+export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
+```
+
+In this example we've used Docker-CE 17.12. According to the [API mismatch table](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) we need to choose `1.35` for `TRAVIS_WORKER_DOCKER_API_VERSION`.
+
+Below you find the full list of available environment variables and how they're accessible during the build:
+
+Environment variable | Available as:
+`TRAVIS_WORKER_DOCKER_HTTP_PROXY` | `HTTP_PROXY`, `http_proxy`
+`TRAVIS_WORKER_DOCKER_HTTPS_PROXY` | `HTTPS_PROXY`, `https_proxy`
+`TRAVIS_WORKER_DOCKER_NO_PROXY` | `NO_PROXY`, `no_proxy`
+`TRAVIS_WORKER_DOCKER_FTP_PROXY` | `FTP_PROXY`, `ftp_proxy`
+
+Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If you don't want this to happen, please whitelist your apt package mirror by adding it to TRAVIS_WORKER_DOCKER_NO_PROXY` like this:
+
+```
+export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'
+```
+
 
 ## Contact Enterprise Support
 

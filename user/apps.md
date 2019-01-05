@@ -6,12 +6,12 @@ layout: en
 
 There is a wide range of tools you can use to interact with Travis CI:
 
-- **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
-- **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
-- **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
-- **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir)
+- **[Websites](#websites)**: [Full Web Clients](#full-web-clients), [Dashboards](#dashboards), [Tools](#tools)
+- **[Mobile Applications](#mobile)**: [Android](#android), [iOS](#ios), [Windows Phone](#windows-phone)
+- **[Desktop](#desktop)**: [Mac OS X](#mac-os-x), [Linux](#linux), [Cross Platform](#cross-platform)
+- **[Command Line Tools](#commandline)**: [Full Clients](#full-clients), [Build Monitoring](#build-monitoring), [Generators](#generators)
+- **[Plugins](#plugins)**: [Google Chrome](#google-chrome), [Opera](#opera), [Editors](#editors), [Other](#other)
+- **[Libraries](#libraries)**: [Ruby](#ruby), [JavaScript](#javascript), [PHP](#php), [Python](#python), [Elixir](#elixir), [R](#r), [Go](#go)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
@@ -44,16 +44,6 @@ By William Durand
 - [website](http://williamdurand.fr/TravisLight/)
 - [source code](https://github.com/willdurand/TravisLight)
 
-### TravisWall
-
-![travis-wall](/images/apps/travis-wall.jpg){:.app}
-
-Online build monitoring tool for public/private repos<br>
-By Eric Geloen
-
-- [website](http://egeloen.fr/travis-wall/)
-- [source code](https://github.com/egeloen/travis-wall)
-
 ### Team Dashboard
 
 ![travis-light](/images/apps/team-dashboard.jpg){:.app}
@@ -71,7 +61,6 @@ By Frederik Dietz
 Travis CI dashboard<br>
 By Piwik.
 
-- [website](https://ci-status.com/)
 - [source code](https://github.com/piwik/ci-status)
 
 ### node-build-monitor
@@ -96,15 +85,6 @@ By Ahmed El-Sayed
 
 ## Tools
 
-### Travis Cron
-
-![travis-cron](/images/apps/cron.jpg){:.app}
-
-Trigger builds on a regular schedule<br>
-By Filippo Valsorda
-
-- [source code](https://github.com/FiloSottile/travis-cron)
-
 ### Travis Web Encrypter
 
 ![travis-encrypt](/images/apps/travis-encrypt.jpg){:.app}
@@ -115,30 +95,11 @@ By Konstantin Haase
 - [website](http://rkh.github.io/travis-encrypt/public/index.html)
 - [source code](https://github.com/rkh/travis-encrypt)
 
-### Tron CI
-
-![travis-cron](/images/apps/tron.png){:.app}
-
-Cron jobs for your Travis CI projects<br>
-By Fabio Menegazzo
-
-- [website](https://tron-ci.herokuapp.com/)
-- [source code](https://github.com/menegazzo/tron-ci)
-
 <a name='mobile'></a>
 
 # Mobile Applications
 
 ## Android
-
-### Comrade Travis
-
-![Comrade Travis](/images/apps/comradetravis.jpg){:.app}
-
-Follow your project builds anywhere<br>
-By Christian S. Perone
-
-- [play store](https://play.google.com/store/apps/details?id=com.perone.comradetravis)
 
 ### Siren of Shame (Android)
 
@@ -148,7 +109,7 @@ Gamification for your builds<br>
 By Automated Architecture
 
 - [website](http://sirenofshame.com/)
-- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame&feature=nav_result#?t=W251bGwsMSwyLDNd)
+- [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
 ## iOS
 
@@ -192,8 +153,6 @@ A Windows Phone client for Travis CI<br>
 By Tim Felgentreff
 
 - [website](http://travis7.codeplex.com/)
-
-<a name='desktop'></a>
 
 # Desktop
 
@@ -259,6 +218,12 @@ By catlight.io
 Feature complete command line client
 
 - [website](https://github.com/travis-ci/travis#readme)
+
+### PSTravis
+
+Command line client for PowerShell
+
+- [website](https://github.com/felixfbecker/PSTravis#readme)
 
 ## Build Monitoring
 
@@ -345,8 +310,6 @@ By James Halliday
 
 - [website](https://github.com/substack/travisify)
 
-<a name='plugins'></a>
-
 # Plugins
 
 ## Google Chrome
@@ -377,26 +340,6 @@ Display build status next to project name on GitHub<br>
 By excellenteasy
 
 - [website](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp)
-
-## Mozilla Firefox
-
-### GitHub+Travis
-
-![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
-
-Display build status next to project name on GitHub<br>
-By David Burns
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/githubtravis/)
-
-### Link to Travis Lite
-
-![firefox-travis-lite](/images/apps/firefox-travis-lite.jpg){:.app}
-
-Add a links to corresponding Travis Lite page<br>
-By Nigel Babu
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/link-to-travis-lite/)
 
 ## Opera
 
@@ -433,7 +376,7 @@ By Cas du Plessis
 
 ![emacs](/images/apps/emacs.jpg){:.app}
 
-Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+Travis CI integration for [Emacs](https://www.gnu.org/software/emacs/)<br>
 By Skye Shaw
 
 - [website](https://github.com/sshaw/build-status)
@@ -468,7 +411,14 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
 
-<a name='libraries'></a>
+### Travis CI 🡒 Discord Webhook
+
+![TravisCI Discord Webhook](https://github.com/DiscordHooks.png){:.app}
+
+Serverless solution for sending build status from Travis CI to Discord as webhooks.<br>
+By Sankarsan Kampa
+
+- [website](https://github.com/DiscordHooks/travis-ci-discord-webhook)
 
 # Libraries
 
@@ -497,6 +447,17 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
 
+## PowerShell
+
+- [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
+
 ## Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
+
+## R
+
+- [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
+
+## Go
+- [go-travis](https://github.com/shuheiktgw/go-travis) by Shuhei Kitagawa
