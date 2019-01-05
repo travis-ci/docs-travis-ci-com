@@ -1,7 +1,7 @@
 ---
 title: Using Docker in Builds
 layout: en
-permalink: /user/docker/
+
 ---
 
 <div id="toc"></div>
@@ -11,40 +11,44 @@ Docker repositories or other remote storage.
 
 To use Docker add the following settings to your `.travis.yml`:
 
-```
+```yaml
 sudo: required
 
 services:
   - docker
 ```
+{: data-file=".travis.yml"}
 
 Then you can add `- docker` commands to your build as shown in the following
 examples.
+
+> Travis CI automatically routes builds to run on Trusty `sudo: required` when `services: docker` is configured.
+> We do not currently support use of Docker on OS X.
 
 ### Using a Docker Image from a Repository in a Build
 
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
 Docker containers built from the same image:
 
-* a Sinatra application
-* the Sinatra application test suite
+- a Sinatra application
+- the Sinatra application test suite
 
 After specifying in the `.travis.yml` that the worker is using the Docker
 enabled environment (with `sudo: required` AND `services: - docker`) and is
 using ruby, the `before_install` build step pulls a Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) then runs
 
-```
+```bash
 cd /root/sinatra; bundle exec foreman start;
 ```
 
 in a container built from that image after mapping some ports and paths. Read
-the [Docker User Guide](https://docs.docker.com/userguide/) if you need a
-refresher on how to user Docker.
+the [Docker User Guide](https://docs.docker.com/) if you need a
+refresher on how to use Docker.
 
 The full `.travis.yml` looks like this
 
-```
+```yaml
 sudo: required
 
 language: ruby
@@ -61,6 +65,7 @@ before_install:
 script:
 - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 and produces the following [build
 output](https://travis-ci.org/travis-ci/docker-sinatra):
@@ -93,13 +98,13 @@ respository](https://github.com/travis-ci/docker-sinatra/blob/master/Dockerfile)
 To build the Dockerfile in the current directory, and give it the same
 `carlad/sinatra` label, change the `docker pull` line to:
 
-``` bash
+```bash
 docker build -t carlad/sinatra .
 ```
 
 The full `.travis.yml` looks like this
 
-``` yaml
+```yaml
 sudo: required
 
 language: ruby
@@ -116,6 +121,7 @@ before_install:
 script:
   - bundle exec rake test
 ```
+{: data-file=".travis.yml"}
 
 ### Pushing a Docker Image to a Registry
 
@@ -124,8 +130,7 @@ login`.  The email, username, and password used for login should be stored in
 the repository settings environment variables, which may be set up through the
 web or locally via the Travis CLI, e.g.:
 
-``` bash
-travis env set DOCKER_EMAIL me@example.com
+```bash
 travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
@@ -133,28 +138,43 @@ travis env set DOCKER_PASSWORD secretsecret
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 `docker pull` of a private image, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 ```
+
+#### Branch Based Registry Pushes
+
+To push a particular branch of your repository to a remote registry,
+use the `after_success` section of your `.travis.yml`:
+
+```yaml
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push USER/REPO;
+    fi
+```
+{: data-file=".travis.yml"}
 
 #### Private Registry Login
 
 When pushing to a private registry, be sure to specify the hostname in the
 `docker login` command, e.g.:
 
-``` bash
-docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
+```bash
+docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.example.com
 ```
 
 ### Using Docker Compose
 
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/trusty-ci-environment/#Docker).
+The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#Docker).
 
-If needed, you can easily replace this preinstalled version of `docker-compose` by adding the following `before_install` step to your `.travis.yml`:
+If needed, you can easily replace this preinstalled version of `docker-compose`
+by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
-  DOCKER_COMPOSE_VERSION: 1.4.2
+  - DOCKER_COMPOSE_VERSION=1.4.2
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -162,8 +182,34 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 ```
+{: data-file=".travis.yml"}
+
+### Installing a newer Docker version
+
+You can upgrade to the latest version and use any new Docker features by manually
+updating it in the `before_install` step of your `.travis.yml`:
+
+**Updating from apt.dockerproject.org**
+```yaml
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+```
+{: data-file=".travis.yml"}
+
+**Updating from download.docker.com**
+```yaml
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y install docker-ce
+```
+{: data-file=".travis.yml"}
+
+> Check what version of Docker you're running with `docker --version`
 
 #### Examples
 
-* [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
-* [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker postgres container)
+- [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
+- [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)

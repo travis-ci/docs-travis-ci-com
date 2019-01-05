@@ -1,29 +1,72 @@
 ---
 title: Script deployment
 layout: en
-permalink: /user/deployment/script/
+
 ---
 
-You can deploy your application using a custom script.
+If your deployment needs more customization than the `after_success` method allows,
+use a custom script.
 
-This provides a more streamlined custom deployment strategy than
-using the `after_success`.
+The following example runs `scripts/deploy.sh` on the `develop` branch of your repository if the build is successful.
 
-{% highlight yaml %}
+```yaml
 deploy:
   provider: script
   script: scripts/deploy.sh
   on:
-  	branch: develop
-{% endhighlight %}
+    branch: develop
+```
+{: data-file=".travis.yml"}
 
-This example executes `scripts/deploy.sh` on the `develop` branch
-if the tests pass.
-
-`script` must be a scalar pointing to an executable command.
-If you need to execute multiple commands, write a wrapper script
-that does all the work for you.
-Be sure to make the script executable.
+If you need to run multiple commands, write a executable wrapper script that runs them all.
 
 If the script returns a nonzero status, deployment is considered
 a failure, and the build will be marked as "errored".
+
+## Passing Arguments to the Script
+
+It is possible to pass arguments to a script deployment.
+
+```yaml
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: scripts/deploy.sh staging
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: script
+    script: scripts/deploy.sh production
+    on:
+      branch: master
+```
+{: data-file=".travis.yml"}
+
+The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
+
+```yaml
+deploy:
+  provider: script
+  script: scripts/deploy.sh production $TRAVIS_TAG
+  on:
+    tags: true
+    all_branches: true
+```
+{: data-file=".travis.yml"}
+
+## Ruby version
+
+To ensure that deployments run consistently, we use the version of Ruby that is
+pre-installed on all of our build images, which may change when images are updated.
+
+* The `travis_internal_ruby` function prints the exact pre-installed Ruby version
+
+If you need to run a command that requires a different Ruby version than the
+pre-installed default, you need to set it explicitly:
+
+```yaml
+deploy:
+  provider: script
+  script: rvm use $TRAVIS_RUBY_VERSION do script.rb
+```
+{: data-file=".travis.yml"}

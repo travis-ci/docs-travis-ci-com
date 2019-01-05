@@ -1,16 +1,1 @@
-language: ruby
-sudo: false
-rvm:
-  - 2.0.0
-branches:
-  only:
-      - default
-cache: bundler
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: "KrB62KDduVKkz64gBaAgfoxBHPDq3xAob+S5xnV2ehts2Bfj7gtClXBTaFaEtLVA6XpBn/0S1welZwJRaJe97KPfIl07rynGhsP4BTb10W3itfEvqZIq1NrWh0gL1mEtxxQTi1dqMbTb8kUwZPdPmTFR010zLORVyXbUA/YGJMo="
-  app: 'docs-travis-ci-com'
-  on:
-    branch: 'default'
+https://github.com/googlecorporation/master/

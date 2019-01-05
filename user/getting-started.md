@@ -1,268 +1,138 @@
 ---
 title: Getting started
 layout: en
-permalink: /user/getting-started/
+
 ---
 
-The very short guide to using Travis CI with your GitHub hosted code repository. Totally new to all this? Try reading [Travis CI for Complete Beginners](/user/for-beginners) instead. 
+This is a very short guide to using Travis CI with your GitHub hosted code repository.
+If you're new to continuous integration or would like some more information on
+what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
+instead.
 
-Or if you want a more complete guide to a particular language, pick one of these: 
+<div id="toc"></div>
 
-{% include languages.html %}
+## Prerequisites
 
-<!-- 
-[C](/user/languages/c) | [C++](/user/languages/cpp) | [Clojure](/user/languages/clojure) | [C#](/user/languages/csharp/) | [D](/user/languages/d) | [Erlang](/user/languages/erlang) | [F#](/user/languages/csharp/) | [Go](/user/languages/go) | [Groovy](/user/languages/groovy) | [Haskell](/user/languages/haskell) | [Java](/user/languages/java) | [JavaScript (with Node.js)](/user/languages/javascript-with-nodejs) | [Julia](/user/languages/julia) | [Objective-C](/user/languages/objective-c) | [Perl](/user/languages/perl) | [PHP](/user/languages/php) | [Python](/user/languages/python) | [Ruby](/user/languages/ruby) | [Rust](/user/languages/rust) | [Scala](/user/languages/scala) | [Visual Basic](/user/languages/csharp/).
--->
+To start using Travis CI, make sure you have *all* of the following:
 
-### To get started with Travis CI:
+ * [GitHub](https://github.com/) login
+ * Project [hosted as a repository](https://help.github.com/categories/importing-your-projects-to-github/) on GitHub
+ * Working code in your project
+ * Working build or test script
 
-1. [Sign in to Travis CI](https://travis-ci.org/auth) with your GitHub account, accepting the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+## To get started with Travis CI
 
-2. Once you're signed in, and we've synchronized your repositories from GitHub, go to your [profile page](https://travis-ci.org/profile) and enable Travis CI for the repository you want to build.
+1. Using your GitHub account, sign in to either
 
-	> Note: You can only enable Travis CI builds for repositories you have admin access to.  
+   * [Travis CI .org](https://travis-ci.org/auth) for public repositories
+   * [Travis CI .com](https://travis-ci.com/auth) for private repositories
 
-2. Add a `.travis.yml` file to your repository to tell Travis CI what to build:
+   and accept the GitHub [access permissions confirmation](/user/github-oauth-scopes).
+
+2. Once you're signed in to Travis CI, and we've synchronized your GitHub
+   repositories, go to your profile page and enable the repository
+   you want to build: ![enable button](/images/enable.png "enable button")
+
+3. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+
+   The following example tells Travis CI that this is a Ruby project that should
+   be built with Ruby 2.2, and the latest versions of JRuby and Rubinius 2.X.
 
    ```yaml
    language: ruby
    rvm:
-    - "1.8.7"
-    - "1.9.2"
-    - "1.9.3"
-    - rbx
-   # uncomment this line if your project needs to run something other than `rake`:
-   # script: bundle exec rspec spec
+    - 2.2
+    - jruby
+    - rbx-2
    ```
-   
-   This example tells Travis CI that this is a project written in Ruby and built with `rake`. Travis CI tests this project against three versions of Ruby and the latest version of Rubinius.
+   {: data-file=".travis.yml"}
 
-2. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
+   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/customizing-the-build/#Customizing-the-Installation-Step),
+   and `rake` to build the project.
 
-	> Note: Travis only runs a build on the commits you push after adding the repository to Travis.
-	> Note: If your project already has a `.travis.yml` file, you need to push another commit to trigger a build.
+4. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
 
-2. Check the [build status](https://travis-ci.org/repositories) page to see if your build passes or fails.
+   > Travis only runs builds on the commits you push *after* you've enabled the repository in Travis CI.
 
-You probably need to [customize your build](/user/customizing-the-build) by [installing dependencies](/user/installing-dependencies) or [setting up a Database](/user/database-setup/). Or maybe you just want more information about the [test environment](/user/ci-environment/)?
+5. Check the build status page to see if your build [passes or fails](/user/customizing-the-build/#Breaking-the-Build), according to the return status of the build command:
 
-<!--
+   * [Travis CI .org build status](https://travis-ci.org/auth) for public repositories
+   * [Travis CI .com build status](https://travis-ci.com/auth) for private repositories
 
-### Some basic **.travis.yml** examples:
 
+## Selecting a different programming language
 
-#### C
+Use one of these common languages:
 
-    language: c
-    compiler:
-      - gcc
-      - clang
-    # Change this to your needs
-    script: ./configure && make
+```yaml
+language: ruby
+```
+{: data-file=".travis.yml"}
 
-Learn more about [.travis.yml options for C projects](/user/languages/c/)
+```yaml
+language: java
+```
+{: data-file=".travis.yml"}
 
+```yaml
+language: node_js
+```
+{: data-file=".travis.yml"}
 
-#### C++
+```yaml
+language: python
+```
+{: data-file=".travis.yml"}
 
-    language: cpp
-    compiler:
-      - gcc
-      - clang
-    # Change this to your needs
-    script: ./configure && make
+```yaml
+language: php
+```
+{: data-file=".travis.yml"}
 
-Learn more about [.travis.yml options for C++ projects](/user/languages/cpp/)
+Or pick one from the [full list](/user/languages/).
 
+## Selecting infrastructure (optional)
 
-#### Clojure
+The best way to determine what infrastructure your build runs on
+is to set the `language`. If you do this your build runs on the default
+infrastructure (with a few exceptions), which is Container Based Ubuntu 14.04.
+You can explicitly select the default infrastructure by adding `sudo: false` to your `.travis.yml`.
 
-For projects using Leiningen 1:
+* If you need a more customizable environment running in a virtual machine, use the Sudo
+Enabled infrastructure:
 
-    language: clojure
-    jdk:
-      - oraclejdk7
-      - openjdk7
-      - openjdk6
+  ```yaml
+  sudo: enabled
+  ```
+  {: data-file=".travis.yml"}
 
-For projects using Leiningen 2:
+* If you have tests that need to run on macOS, or your project uses Swift or
+Objective-C, use our OS X environment:
 
-    language: clojure
-    lein: lein2
-    jdk:
-      - openjdk7
-      - openjdk6
+  ```yaml
+  os: osx
+  ```
+  {: data-file=".travis.yml"}
 
+  > You do *not* necessarily need to use OS X if you develop on a Mac, only if
+  > you need Swift, Objective-C or other macOS-specific software.
 
-Learn more about [.travis.yml options for Clojure projects](/user/languages/clojure/)
+## More than running tests
 
-#### C#, F#, and Visual Basic
+Travis CI isn't just for running tests, there are many others things you can do with your code:
 
-    language: csharp
-    solution: solution-name.sln
+* deploy to [GitHub pages](/user/deployment/pages/)
+* run apps on [Heroku](/user/deployment/heroku/)
+* upload [RubyGems](/user/deployment/rubygems/)
+* send [notifications](/user/notifications/)
 
-Learn more about [.travis.yml options for C# projects](/user/languages/csharp/)
+## Further Reading
 
-#### Dart
+Read more about
 
-    language: dart
-    dart:
-      - stable
-      - dev
-      - "1.8.0"
-
-Learn more about [.travis.yml options for Dart projects](/user/languages/dart/)
-
-#### Erlang
-
-    language: erlang
-    otp_release:
-      - R15B02
-      - R15B01
-      - R14B04
-      - R14B03
-
-Learn more about [.travis.yml options for Erlang projects](/user/languages/erlang/)
-
-#### Haskell
-
-    language: haskell
-
-Learn more about [.travis.yml options for Haskell projects](/user/languages/haskell/)
-
-
-#### Go
-
-    language: go
-
-Learn more about [.travis.yml options for Go projects](/user/languages/go/)
-
-
-
-#### Groovy
-
-    language: groovy
-    jdk:
-      - oraclejdk7
-      - openjdk7
-      - openjdk6
-
-
-Learn more about [.travis.yml options for Groovy projects](/user/languages/groovy/)
-
-#### Haxe
-
-    language: haxe
-    haxe:
-      - "3.2.1"
-      - development
-
-Learn more about [.travis.yml options for Haxe projects](/user/languages/haxe/)
-
-#### Java
-
-    language: java
-    jdk:
-      - oraclejdk8
-      - oraclejdk7
-      - openjdk7
-      - openjdk6
-
-
-Learn more about [.travis.yml options for Java projects](/user/languages/java/)
-
-#### Julia
-
-    language: julia
-    julia:
-      - release
-      - nightly
-
-Learn more about [.travis.yml options for Julia projects](/user/languages/julia/)
-
-#### Node.js
-
-     language: node_js
-     node_js:
-       - "0.10"
-       - "0.8"
-       - "0.6"
-
-Learn more about [.travis.yml options for Node.js projects](/user/languages/javascript-with-nodejs/)
-
-#### Objective-C
-
-     language: objective-c
-
-Learn more about [.travis.yml options for Objective-C projects](/user/languages/objective-c/)
-
-#### Perl
-
-    language: perl
-    perl:
-      - "5.16"
-      - "5.14"
-      - "5.12"
-
-Learn more about [.travis.yml options for Perl projects](/user/languages/perl/)
-
-#### PHP
-
-    language: php
-    php:
-      - "5.5"
-      - "5.4"
-      - "5.3"
-
-Learn more about [.travis.yml options for PHP projects](/user/languages/php/)
-
-#### Python
-
-    language: python
-    python:
-      - "3.3"
-      - "2.7"
-      - "2.6"
-    # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-    install: PLEASE CHANGE ME
-    # command to run tests, e.g. python setup.py test
-    script:  PLEASE CHANGE ME
-
-Learn more about [.travis.yml options for Python projects](/user/languages/python/)
-
-#### R
-
-    language: r
-
-Learn more about [.travis.yml options for R projects](/user/languages/r/)
-
-#### Ruby
-
-    language: ruby
-    rvm:
-      - "1.8.7"
-      - "1.9.2"
-      - "1.9.3"
-      - jruby-18mode # JRuby in 1.8 mode
-      - jruby-19mode # JRuby in 1.9 mode
-      - rbx
-    # uncomment this line if your project needs to run something other than `rake`:
-    # script: bundle exec rspec spec
-
-Learn more about [.travis.yml options for Ruby projects](/user/languages/ruby/)
-
-#### Scala
-
-     language: scala
-     scala:
-       - "2.9.2"
-       - "2.8.2"
-     jdk:
-       - oraclejdk7
-       - openjdk7
-       - openjdk6
-
-
-Learn more about [.travis.yml options for Scala projects](/user/languages/scala/)
-
--->
+* [customizing your build](/user/customizing-the-build)
+* [security best practices](/user/best-practices-security/)
+* [build stages](/user/build-stages/)
+* [build matrixes](/user/customizing-the-build/#Build-Matrix)
+* [installing dependencies](/user/installing-dependencies)
+* [setting up databases](/user/database-setup/)

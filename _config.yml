@@ -1,7 +1,10 @@
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor]
+title: "Travis CI Documentation"
+email: "support@travis-ci.com"
+url: "https://docs.travis-ci.com"
+docs_github: "https://github.com/travis-ci/docs-travis-ci-com/"
+exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor, '*.erb']
 markdown: kramdown
-permalink: :title
-safe: true
+permalink: :/title/
 syntax-highlighting:
   enabled: true
 kramdown:

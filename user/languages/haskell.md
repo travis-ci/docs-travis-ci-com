@@ -1,79 +1,73 @@
 ---
 title: Building a Haskell Project
 layout: en
-permalink: /user/languages/haskell/
+
 ---
 
-### What This Guide Covers
+<div id="toc">
+</div>
 
-This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
 
-Haskell builds are not available on the OSX environment.
+| Haskell                                     | Default                                                       |
+|:--------------------------------------------|:--------------------------------------------------------------|
+| [Default `install`](#Dependency-Management) | `cabal install --only-dependencies --enable-tests`            |
+| [Default `script`](#Default-Build-Script)   | `cabal configure --enable-tests && cabal build && cabal test` |
+| [Matrix keys](#Build-Matrix)                | `env`, `ghc`                                                  |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com)                     |
 
-## Overview
+Minimal example:
 
-The Haskell VM has recent versions of GHC pre-installed.
-
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
-
-For full up-to-date list of provided tools, see
-our [CI environment guide](/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
-defaults that use `cabal`. It is possible to override them to use `make` or any other build tool and dependency management tool.
-
-## Specifying the GHC version
-
-You can specify one or more GHC versions:
-
+```yaml
+ghc:
+  - 7.8
 ```
-ghc: 7.4
-```
+{: data-file=".travis.yml"}
 
-Multiple versions:
+</aside>
 
-```
+## What This Guide Covers
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+The rest of this guide covers configuring Haskell projects on Travis CI. If
+you're new to Travis CI please read our [Getting Started](/user/getting-started/)
+and [build configuration](/user/customizing-the-build/) guides first.
+
+## Specifying Haskell compiler versions
+
+The Haskell environment on Travis CI has recent versions of GHC (Glasgow Haskell
+Compiler) pre-installed. For a detailed list of pre-installed versions, please
+consult "Build system information" in the build log.
+
+You can specify one or more GHC versions using `major.minor` notation. Patch
+level versions (`7.6.2` for eample) may change any time:
+
+```yaml
 ghc:
   - 7.8
   - 7.6
   - 7.4
 ```
+{: data-file=".travis.yml"}
 
-It is recommended that you only use the major and minor versions to specify the version to use, as we may update the patchlevel releases at any time.
+## Default Build Script
 
-## Default Test Script
+The default Haskell build script is:
 
-Default test script Travis CI Haskell builder will use is
-
-    cabal configure --enable-tests && cabal build && cabal test
-
-It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide, for example:
-
-    script:
-      - cabal configure --enable-tests -fFOO && cabal build && cabal test
-
+```bash
+cabal configure --enable-tests && cabal build && cabal test
+```
 
 ## Dependency Management
 
-### Travis CI uses cabal
+By default Travis CI uses `cabal` to manage your project's dependencies:
 
-By default Travis CI use `cabal` to manage your project's dependencies.
-
-The exact default command is
-
-    cabal install --only-dependencies --enable-tests
-
-It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide,
-for example:
-
-    install:
-      - cabal install QuickCheck
-
+```bash
+cabal install --only-dependencies --enable-tests
+```
 
 ## Build Matrix
 
 For Haskell projects, `env` and `ghc` can be given as arrays
 to construct a build matrix.
-
-## Examples
-
-* [spockz/TravisHSTest](https://github.com/spockz/TravisHSTest/blob/master/.travis.yml)
-* [ZeusWPI/12Urenloop](https://github.com/ZeusWPI/12Urenloop/blob/master/.travis.yml)

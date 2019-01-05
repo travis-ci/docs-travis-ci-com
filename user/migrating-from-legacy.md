@@ -1,13 +1,17 @@
 ---
 title: Migrating from legacy to container-based infrastructure
 layout: en
-permalink: /user/migrating-from-legacy/
+
 ---
 
 <div id="toc">
 </div>
 
-## tl;dr ##
+## Outdated
+
+This document is from a switch in our default infrastructure in 2015 and may contain outdated information.
+
+## tl;dr
 
 Not using sudo? Containers sound cool? Add `sudo: false` to `.travis.yml` and you're set.
 
@@ -19,13 +23,9 @@ For more details check out the awesome information below.
 
 Your builds start in less than 10 seconds. The new infrastructure makes it much easier for us to scale CPU capacity which means your builds start in seconds.
 
-### Faster builds
-
-Most projects see an improvement in build times. We'd love to hear from you if you don't.
-
 ### More available resources
 
-The new containers have 2 dedicated cores and 4GB of memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed, which means less impact from 'noisy neighbors' on the same host machine and more consistent build times throughout the day.
+The new containers have 2 dedicated cores and 4GB maximum of shared memory, vs 1.5 cores and 3GB on our legacy infrastructure. CPU resources are now guaranteed, which means less impact from 'noisy neighbors' on the same host machine and more consistent build times throughout the day.
 
 ### Better network capacity, availability and throughput
 
@@ -39,11 +39,14 @@ For Ruby projects, it's as simple as adding `cache: bundler` to your .travis.yml
 
 ## How can I use container-based infrastructure?
 
-If you see `This job is running on container-based infrastructure` in your build log it means you are already running builds on our new container-based infrastructure.
+Container-based infrastructure is the default for new repositories, but if you
+want to set it explicitly or have an older repository, add the following line to
+your `.travis.yml`:
 
-If you don't, to use the new infrastructure add the following line to your .travis.yml:
-
-`sudo: false`
+```yaml
+sudo: false
+```
+{: data-file=".travis.yml"}
 
 ### What are the restrictions?
 
@@ -65,28 +68,30 @@ As you can't use sudo on the new container-based infrastructure, you need to use
 
 To add APT sources before your custom build steps, use the `addons.apt.sources` key, e.g.:
 
-``` yaml
+```yaml
 addons:
   apt:
     sources:
     - deadsnakes
     - ubuntu-toolchain-r-test
 ```
+{: data-file=".travis.yml"}
 
 The aliases for the allowed sources (such as `deadsnakes` above) are managed in a
-[whitelist](https://github.com/travis-ci/apt-source-whitelist), and any attempts to add disallowed sources will result in a log message indicating how to submit sources for approval.
+[whitelist](https://github.com/travis-ci/apt-source-whitelist). If you need additional sources you must use `sudo: required`.
 
 ### Adding APT Packages
 
 To install packages before your custom build steps, use the `addons.apt.packages` key, e.g.:
 
-``` yaml
+```yaml
 addons:
   apt:
     packages:
     - cmake
     - time
 ```
+{: data-file=".travis.yml"}
 
 The allowed packages are managed in a [whitelist](https://github.com/travis-ci/apt-package-whitelist), and any attempts to install disallowed packages will result in a log message detailing the package approval process.
 
@@ -96,37 +101,52 @@ Some dependencies can only be installed from a source package. The build may req
 
 Install custom software by running a script to handle the installation process. Here is an example that installs CasperJS from a binary package:
 
-    before_script:
-      - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
-      - tar -xvf /tmp/casper.tar.gz
-      - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
+```yaml
+before_script:
+  - wget https://github.com/n1k0/casperjs/archive/1.0.2.tar.gz -O /tmp/casper.tar.gz
+  - tar -xvf /tmp/casper.tar.gz
+  - export PATH=$PATH:$PWD/casperjs-1.0.2/bin/
+```
+{: data-file=".travis.yml"}
 
 To install custom software from source, you can follow similar steps. Here's an example that downloads, compiles and installs the protobufs library.
 
-    install:
-      - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
-      - tar -xzvf protobuf-2.4.1.tar.gz
-      - cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+```yaml
+install:
+  - wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
+  - tar -xzvf protobuf-2.4.1.tar.gz
+  - cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+```
+{: data-file=".travis.yml"}
 
 These three commands can be extracted into a shell script, let's name it `install-protobuf.sh`:
 
-    #!/bin/sh
-    set -e
-    wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
-    tar -xzvf protobuf-2.4.1.tar.gz
-    cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+```bash
+#!/bin/sh
+set -e
+wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
+tar -xzvf protobuf-2.4.1.tar.gz
+cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install
+```
+{: data-file="install-protobuf.sh"}
 
 Note that you can't update the `$PATH` environment variable in the first example inside a shell script, as it only updates the variable for the sub-process that is running the script.
 
 Once you have added to the repository, you can run it from your `.travis.yml`:
 
-    before_install:
-      - bash install-protobuf.sh
+```yaml
+before_install:
+  - bash install-protobuf.sh
+```
+{: data-file=".travis.yml"}
 
 We can also add a `script` command to list the content of the protobuf folder to make sure it is installed:
 
-    script:
-      - ls -R $HOME/protobuf
+```yaml
+script:
+  - ls -R $HOME/protobuf
+```
+{: data-file=".travis.yml"}
 
 ### How Do I Cache Dependencies and Directories?
 
@@ -134,22 +154,28 @@ In the previous example, to avoid having to download and compile the protobuf li
 
 Add the following to your `.travis.yml`:
 
-    cache:
-      directories:
-      - $HOME/protobuf
+```yaml
+cache:
+  directories:
+  - $HOME/protobuf
+```
+{: data-file=".travis.yml"}
 
 And then change the shell script to only compile and install if the cached directory is not empty:
 
-    #!/bin/sh
-    set -e
-    # check to see if protobuf folder is empty
-    if [ ! -d "$HOME/protobuf/lib" ]; then
-      wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz;
-      tar -xzvf protobuf-2.4.1.tar.gz;
-      cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install;
-    else
-      echo 'Using cached directory.';
-    fi
+```bash
+#!/bin/sh
+set -e
+# check to see if protobuf folder is empty
+if [ ! -d "$HOME/protobuf/lib" ]; then
+  wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz;
+  tar -xzvf protobuf-2.4.1.tar.gz;
+  cd protobuf-2.4.1 && ./configure --prefix=$HOME/protobuf && make && make install;
+else
+  echo 'Using cached directory.';
+fi
+```
+{: data-file="install-protobuf.sh"}
 
 See [here](https://github.com/travis-ci/container-example) for a working example of compiling, installing, and caching protobuf.
 
