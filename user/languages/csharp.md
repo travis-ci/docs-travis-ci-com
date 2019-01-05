@@ -34,7 +34,7 @@ When the optional `solution` key is present, Travis will run NuGet package resto
 
 ### Script
 
-By default Travis will run `xbuild /p:Configuration=Release solution-name.sln`. Xbuild is a build tool designed to be an implementation for Microsoft's MSBuild (the tool that Visual Studio uses to build your projects).
+By default Travis will run `msbuild /p:Configuration=Release solution-name.sln`. MSBuild is a free and open-source build tool set for managed code as well as native C++ code and was part of .NET Framework.
 To override this, you can set the `script` key like this:
 
 ```yaml
@@ -98,18 +98,15 @@ By default, Travis CI does not test against .NET Core. To test against .NET Core
 ```yml
 language: csharp
 mono: none
-dotnet: 1.0.3
-dist: trusty
+dotnet: 1.1.5
 script:
  - dotnet restore
 ...
 ```
 
-> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime). For example, the .NET Core SDK 1.0.1 contains both the .NET Core Runtime 1.0.4 and 1.1.1.
+> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
-
-You need to specify `dist: trusty` so your build will run on Ubuntu 14.04 because .NET Core doesn't work on Ubuntu 12.04 (which is the default Linux build environment on Travis right now).
 
 ### Testing Against Mono and .NET Core
 
@@ -121,9 +118,8 @@ solution: travis-mono-test.sln
 
 matrix:
   include:
-    - dotnet: 1.0.1
+    - dotnet: 1.1.5
       mono: none
-      dist: trusty
       env: DOTNETCORE=1  # optional, can be used to take different code paths in your script
     - mono: latest
 ...

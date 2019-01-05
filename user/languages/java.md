@@ -101,6 +101,8 @@ or
 ./gradlew assemble
 ```
 
+To use a different `install` command, customize the [installation step](/user/customizing-the-build/#Customizing-the-Installation-Step).
+
 ### Gradle Default Script Command
 
 If your project contains a `build.gradle` file in the repository root, Travis CI
@@ -175,13 +177,18 @@ to test against Oracle JDKs 8 and 9, as well as OpenJDK 7:
 jdk:
   - oraclejdk8
   - oraclejdk9
-  - openjdk7
+  - openjdk8
 ```
 {: data-file=".travis.yml"}
 
 > Note that testing against multiple Java versions is not supported on OS X. See
 the [OS X Build Environment](/user/reference/osx/#JDK-and-OS-X) for more
 details.
+
+The list of available JVMs for different dists are at
+
+  * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
+  * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
 
 ### Switching JDKs Within One Job
 
@@ -192,8 +199,8 @@ If your build needs to switch JDKs during a job, you can do so with
 script:
   - jdk_switcher use oraclejdk8
   - # do stuff with Java 8
-  - jdk_switcher use openjdk7
-  - # do stuff with Java 7
+  - jdk_switcher use openjdk8
+  - # do stuff with open Java 8
 ```
 {: data-file=".travis.yml"}
 

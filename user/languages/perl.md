@@ -12,7 +12,7 @@ Perl builds are not available on the OS X environment.
 
 ## Choosing Perl versions to test against
 
-Perl workers on travis-ci.org use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
+Perl workers on Travis CI use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
 
 ```yaml
 language: perl

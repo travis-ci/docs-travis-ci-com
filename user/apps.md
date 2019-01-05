@@ -28,8 +28,7 @@ Note however that Travis CI can not take any responsibility of for third-party t
 
 Our official web interface, written in [Ember.js](http://www.emberjs.com)
 
-- [travis-ci.org](https://travis-ci.org)
-- [travis-ci.com](https://travis-ci.org)
+- [travis-ci.com](https://travis-ci.com)
 - [source code](https://github.com/travis-ci/travis-web)
 
 
@@ -96,15 +95,6 @@ By Ahmed El-Sayed
 
 
 ## Tools
-
-### Travis WebLint
-
-![weblint](/images/apps/weblint.jpg){:.app}{:.official}
-
-Validates your .travis.yml
-
-- [lint.travis-ci.org](http://lint.travis-ci.org/)
-- [source code](https://github.com/travis-ci/travis-yaml)
 
 ### Travis Cron
 
@@ -321,6 +311,15 @@ By Gleb Bahmutov
 
 - [website](https://github.com/bahmutov/status-gravatar)
 
+### Chroma Feedback
+
+![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
+
+Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+By Henry Ruhs
+
+- [website](https://github.com/redaxmedia/chroma-feedback)
+
 ## Generators
 
 ### travis-encrypt
@@ -442,6 +441,16 @@ Travis CI integration for [Brackets](http://brackets.io/)<br>
 By Cas du Plessis
 
 - [website](https://github.com/AgileAce/Brackets-TravisCI)
+
+### Emacs Package
+
+![emacs](/images/apps/emacs.jpg){:.app}
+
+Travis CI integration for [Emacs](http://https://www.gnu.org/software/emacs/)<br>
+By Skye Shaw
+
+- [website](https://github.com/sshaw/build-status)
+
 
 ### Vim Plugin
 

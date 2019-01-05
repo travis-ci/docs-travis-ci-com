@@ -4,7 +4,9 @@ layout: en
 
 ---
 
-Welcome to Travis CI! This page provides some context and terminology used
+<div id="toc"></div>
+
+Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful if you are new
 here or new to Continuous Integration (CI).
 
@@ -50,14 +52,6 @@ In the Travis CI documentation, some common words have specific meanings:
   A *build* finishes when all of its jobs are finished.
 * *stage* - a group of *jobs* that run in parallel as part of sequential build
   process composed of multiple [stages](/user/build-stages/).
-
-## travis-ci.org vs travis-ci.com
-
-Travis CI was originally developed for open-source projects before being
-expanded to support closed-source projects at a later date. As a result:
-
-* open-source projects are hosted on [travis-ci.org](https://travis-ci.org/).
-* closed-source projects are hosted on [travis-ci.com](https://travis-ci.com/), also known as [Travis Pro](/user/travis-pro/).
 
 ## Breaking the Build
 

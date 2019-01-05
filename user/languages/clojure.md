@@ -117,7 +117,7 @@ project.clj:
 
 For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-### Using Speclj on travis-ci.org
+### Using Speclj on Travis CI
 
 If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is
 listed in your development dependencies in `project.clj`, and include this
@@ -185,7 +185,7 @@ Leiningen has an excellent plugin called [lein-multi](https://github.com/maravil
 Clojure (for example, 1.3, 1.4 and alphas/betas/snapshots of the most recent development version). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
 there is no need for runtime switchers (like RVM) for Clojure.
 
-To use lein-multi on travis-ci.org, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
+To use lein-multi on Travis CI, add it to `:plugins` in project.clj (note, this feature is only available starting with Leiningen 1.7.0) and
 override `script:` to run `lein multi test` instead of default `lein test`:
 
 ```yaml
@@ -235,7 +235,6 @@ to construct a build matrix.
 
 ## Examples
 
-- [leiningen's .travis.yml](https://github.com/technomancy/leiningen/blob/stable/.travis.yml)
 - [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/master/.travis.yml)
 - [welle's .travis.yml](https://github.com/michaelklishin/welle/blob/master/.travis.yml)
 - [langohr's .travis.yml](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)

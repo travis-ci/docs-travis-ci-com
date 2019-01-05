@@ -6,8 +6,6 @@ layout: en
 
 Travis CI can automatically upload assets from your [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#Default-Environment-Variables) to git tags on your GitHub repository.
 
-**Please note that deploying GitHub Releases works only for tags, not for branches.**
-
 For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
@@ -23,7 +21,24 @@ deploy:
 
 > Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
 
-The `on: tags: true` section at the end of the `.travis.yml` above is required to make sure that your tags get deployed.
+GitHub Releases uses git tags. If the build commit does not have any tags, one will be created in the form of `untagged-*`, where `*` is a random hex string.
+
+If this is not what you want, either set your build to deploy only when the build already has a tag using `on.tags: true` as shown in the previous example `.travis.yml`, or tag the commit with `git tag` in `before_deploy`:
+
+```yaml
+    before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "YOUR GIT USER NAME"
+      - git config --local user.email "YOUR GIT USER EMAIL"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+    deploy:
+      provider: releases
+      api_key: "GITHUB OAUTH TOKEN"
+      file: "FILE TO UPLOAD"
+      skip_cleanup: true
+```
+{: data-file=".travis.yml"}
+
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
@@ -33,11 +48,17 @@ You can also use the [Travis CI command line client](https://github.com/travis-c
 travis setup releases
 ```
 
-Or, if you're using a private repository:
+Or, if you're using a private repository or the GitHub Apps integration:
 
 ```bash
 travis setup releases --pro
 ```
+
+## `on.tags` condition
+
+When working with GitHub Releases, it is important to understand how the deployment is triggered
+with [the `tags` condition](/user/deployment/#Conditional-Releases-with-on%3A).
+
 
 ## Authenticating with an OAuth token
 
@@ -114,9 +135,23 @@ includes all files in a given directory.
 ```yaml
 deploy:
   provider: releases
-  api-key: "GITHUB OAUTH TOKEN"
+  api_key: "GITHUB OAUTH TOKEN"
   file_glob: true
   file: directory/*
+  skip_cleanup: true
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
+
+You can use the glob pattern to recursively find the files:
+
+```yaml
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: directory/**/*
   skip_cleanup: true
   on:
     tags: true
@@ -142,11 +177,15 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Pushing a specific directory
-
-* `local_dir`: Directory to push to GitHub Releases, defaults to the current
-    directory
-
 ## Advanced options
 
 Options from `.travis.yml` are passed through to [Octokit API](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method), so you can use any valid Octokit option.
+
+These include:
+
+* `name`
+* `body`
+* `draft`
+* `prerelease`
+
+Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).

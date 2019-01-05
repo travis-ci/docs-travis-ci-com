@@ -32,15 +32,21 @@ The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
 The following command line tools are available in the Nix environment:
 
-- nix-env
+- nix
 - nix-build
+- nix-channel
+- nix-collect-garbage
+- nix-copy-closure
+- nix-daemon
+- nix-env
+- nix-instantiate
+- nix-prefetch-url
 - nix-shell
 - nix-store
-- nix-channel
 
 ## Default Nix Version
 
-Currently, only version "1.11.2" of Nix is provided. In the future, it may be possible to configure different versions with `.travis.yml`.
+This installs the current version of Nix using https://nixos.org/nix/install. In the future, it may be possible to configure different versions with `.travis.yml`.
 
 ## Default Target
 
@@ -57,7 +63,3 @@ The above configuration will attempt to build the attribute "tarball" from the N
 ## Nix manual
 
 More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
-
-## Examples
-
-- [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)

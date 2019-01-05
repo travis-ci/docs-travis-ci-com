@@ -20,7 +20,7 @@ Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.11.6 (and Xcode 7.3.1) by default. You can use another
+Travis CI uses OS X 10.12.6 (and Xcode 8.3.3) by default. You can use another
 version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
 the following table:
 
@@ -30,7 +30,7 @@ the following table:
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
-  <td><a href="/user/reference/osx/#Xcode-{{image.xcode  | remove: "."}}">Xcode {{ image.xcode }}</a></td>
+  <td><a href="/user/reference/osx/#Xcode-{{image.xcode}}">Xcode {{ image.xcode }}</a></td>
   <td>OS X {{ image.osx_version}}
   </td></tr>
 {% endfor %}
@@ -38,11 +38,6 @@ the following table:
 
 > Detailed iOS SDK versions are available in the [OS X CI environment
 > reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
-
-At this time we are unable to provide pre-release versions of Xcode due to the
-NDA imposed on them. We do test them internally, and our goal is to make new
-versions available the same day they come out. If you have any further questions
-about Xcode pre-release availability, send us an email at support@travis-ci.com.
 
 ## Default Test Script
 

@@ -20,7 +20,7 @@ and cc @tkelman @ninjin @staticfloat @simonbyrne.
 
 ## Choosing Julia versions to test against
 
-Julia workers on travis-ci.org download and install a binary of Julia.
+Julia workers on Travis CI download and install a binary of Julia.
 You can select the most recent release version, the latest nightly build
 (downloaded from <https://status.julialang.org>), or a specific version number
 (downloaded from <https://s3.amazonaws.com/julialang>). To select one or more
@@ -47,7 +47,7 @@ the most recent release.
 ## Default Test Script
 
 If your repository follows the structure of a Julia package created by
-`Pkg.generate("$name")`, then the following default script will be run:
+`PkgDev.generate("$name", "$license")`, then the following default script will be run:
 
 ```bash
 julia -e 'Pkg.clone(pwd())'
