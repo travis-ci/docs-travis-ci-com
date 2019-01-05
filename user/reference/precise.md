@@ -12,8 +12,6 @@ redirect_from:
 This guide explain what packages, tools and settings are available in the Travis
 CI environment (often referred to as "CI environment").
 
-<div id="toc"></div>
-
 ## Overview
 
 Travis CI runs builds in isolated virtual machines that offer a vanilla build
@@ -123,7 +121,7 @@ Please note that the addon only works in 64-bit Linux environments.
 
 ### Environment variables
 
-There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment.
+There is a [list of default environment variables](/user/environment-variables#default-environment-variables) available in each build environment.
 
 ### Libraries
 

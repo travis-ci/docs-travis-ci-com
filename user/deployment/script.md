@@ -5,7 +5,7 @@ layout: en
 ---
 
 If your deployment needs more customization than the `after_success` method allows,
-use a custom script. Do note that custom scripts are still considered an experimental feature.
+use a custom script.
 
 The following example runs `scripts/deploy.sh` on the `develop` branch of your repository if the build is successful.
 
@@ -42,7 +42,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
+The script has access to all the usual [environment variables](/user/environment-variables/#default-environment-variables).
 
 ```yaml
 deploy:

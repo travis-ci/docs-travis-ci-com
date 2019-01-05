@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Dart](https://www.dartlang.org/) projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -42,7 +42,7 @@ dart:
 This creates a separate Travis job for each Dart version. It can be used in
 conjunction with `env` or similar fields to create a [build matrix][].
 
-[build matrix]: /user/customizing-the-build/#Build-Matrix
+[build matrix]: /user/customizing-the-build/#build-matrix
 
 ## Dependency Management
 
@@ -56,7 +56,7 @@ run by default. This typically only runs tests on the Dart VM, but you can
 [configure it][] to run on additional platforms by default.
 
 [test]: https://pub.dartlang.org/packages/test
-[configure it]: https://github.com/dart-lang/test/blob/master/doc/configuration.md#platforms
+[configure it]: https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md#platforms
 
 You can also customize the arguments Travis passes to the test runner using the
 `dart_task` field in `.travis.yml`.
@@ -75,11 +75,9 @@ Each task creates a separate Travis job. It can be used in conjunction with
 ### Available Browsers
 
 Travis comes with Firefox and Chrome installed by default on Linux, and Safari
-on OS X. However, if you want to run your tests on [Dartium][], you'll need to
+on OS X. However, if you want to run your tests on Dartium, you'll need to
 install it by adding `install_dartium: true` either at the top level or for a
 particular task.
-
-[Dartium]: https://webdev.dartlang.org/tools/dartium
 
 ```yaml
 language: dart

@@ -5,7 +5,7 @@ layout: en_enterprise
 ---
 Welcome to the Travis CI Enterprise Operations Manual! This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. If you have questions about a specific situation, please get in touch with us via [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
 
-This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#Contact-Enterprise-Support).
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise instance. Each topic contains a common problem, and a suggested solution. If the solution does not work, please [contact support](#contact-enterprise-support).
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
@@ -13,8 +13,6 @@ Throughout this document we'll be using the following terms to refer to the two 
 - `Worker machine`: The worker machine(s) run your builds.
 
 > Please note that this guide is geared towards non-High Availability (HA) setups right now.
-
-<div id='toc'></div>
 
 ## Backups
 
@@ -86,19 +84,19 @@ $ sudo restart travis-worker
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#Create-a-Travis-CI-Platform-Security-Group) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#create-a-travis-ci-platform-security-group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#create-a-travis-ci-platform-security-group) are open in your firewall.
 
 #### Docker Versions Mismatched
 
-This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#Install-Travis-CI-Enterprise-Worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#install-travis-ci-enterprise-worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
-If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#Contact-Enterprise-Support) section below to move forward.
+If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#contact-enterprise-support) section below to move forward.
 
 #### Builds are not Starting on Enterprise Installation at Version 2.2+
 
 If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either:
 
-1. Install a Trusty worker on a fresh vm instance: [Trusty installation guide](/user/enterprise/trusty-build-containers/)
+1. Install a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
 1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
 
 ## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
@@ -109,7 +107,7 @@ After a fresh installation or configuration change the Travis CI Enterprise cont
 
 #### GitHub OAuth app configuration
 
-The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](https://docs.travis-ci.com/user/enterprise/prerequisites/#OAuth-App). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/prerequisites/#oauth-app). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
 
 #### Hostname does not match license's hostname
 
@@ -130,6 +128,45 @@ One possible reason that travis-worker is not running is that `systemctl` cannot
 $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
 ```
+
+## Builds fail with curl certificate errors
+
+A build fails with a long `curl` error message similar to:
+
+```
+curl: (60) SSL certificate problem: unable to get local issuer certificate
+```
+
+This can have various causes, including an automatic nvm update or a caching error.
+
+### Strategy
+
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
+
+## User accounts are stuck in syncing state
+
+One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
+
+```sql
+travis_production=> select count(*) from users where is_syncing=true;
+ count
+-------
+  1027
+(1 row)
+```
+
+### Strategy
+
+Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Reset the `is_syncing` flag for user accounts that are stuck by running:
+
+```bash
+$ travis console
+>> User.where(is_syncing: true).count
+>> ActiveRecord::Base.connection.execute('set statement_timeout to 60000')
+>> User.update_all(is_syncing: false)
+```
+
+It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
 
 ## Contact Enterprise Support
 

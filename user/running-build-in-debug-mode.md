@@ -4,17 +4,26 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in debug mode
 to get shell access to the virtual machine or container.
 
+## Enabling debug mode
+
+Private repositories have debug mode enabled by default, and no changes need to be made.
+To limit access to debug, grant users only *read access* to the repo, and use a fork + PR workflow.
+For public repositories, we have to enable it on a repository basis.  
+To enable debug for your public repositories, please email us at
+support@travis-ci.com and let us know which repositories you want activated.
+
 ## Restarting a job in debug mode
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
-the build and job pages.
+the build and job pages for private repositories. For open source repositories,
+this button is not available and you will need to use an API call instead.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
 
@@ -25,8 +34,7 @@ This request needs to be authenticated by adding your [Travis CI API token](/use
 to the `Authorization` header. You can find your API token in your Travis CI Profile page
 for [public projects](https://travis-ci.com/profile).
 
-As public repositories do not show the Debug button, this is the only way to restart builds
-in the debug mode for public repositories.
+(Note the literal word `token` must be present before the actual authorization token.)
 
 ```sh-session
 $ curl -s -X POST \
@@ -38,7 +46,27 @@ $ curl -s -X POST \
   https://api.travis-ci.com/job/${id}/debug
 ```
 
-(Note the literal word `token` must be present before the actual authorization token.)
+As public repositories do not show the Debug button, this is the only way to restart builds
+in the debug mode for public repositories.
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `https://api.travis-ci.org/job/${id}/debug` in the previous command.
+
+
+#### Legacy repositories
+
+Public repositories which have not been migrated to
+travis-ci.com require you to make your API request as follows (where the asterisks should be
+replaced by a token from travis-ci.org):
+
+```sh-session
+$ curl -s -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Travis-API-Version: 3" \
+  -H "Authorization: token ********************" \
+  -d "{\"quiet\": true}" \
+  https://api.travis-ci.org/job/${id}/debug
+```
 
 #### Finding the job ID
 
@@ -67,6 +95,8 @@ This debug build will stay alive for 30 minutes.
 ```
 
 Running the `ssh` command above will drop you in on a live VM.
+
+> Jobs running in debug mode will have the `TRAVIS_DEBUG_MODE` [environment variable](https://docs.travis-ci.com/user/environment-variables#default-environment-variables) set to `true`.
 
 ### Security considerations
 
@@ -177,3 +207,15 @@ Press `q` to exit the log scroll mode.
 Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
 No more phases (`before_install`, `install`, etc.) will be executed.
+
+## Known issues
+
+### In a Node.js debug session, the `node` and `npm` versions differ from what is defined in the configuration
+
+To set up the debug environment in the same ways as the Node.js job,
+run the following command when you log in to your debug session before
+executing any other command:
+
+```
+nvm install $TRAVIS_NODE_VERSION
+```

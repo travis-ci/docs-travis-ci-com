@@ -10,11 +10,11 @@ recommends steps geared toward this provider, but you can certainly modify it to
 use your provider of choice.
 
 **Before getting started:** please check our [system prerequisites](/user/enterprise/prerequisites/) for
-[expected system specs](/user/enterprise/prerequisites/#Host-Machine-Specs),
-notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#OAuth-App),
-and information on obtaining a [license](/user/enterprise/prerequisites/#License).
+[expected system specs](/user/enterprise/prerequisites/#host-machine-specs),
+notes on setting up the required [OAuth app](/user/enterprise/prerequisites/#oauth-app),
+and information on obtaining a [license](/user/enterprise/prerequisites/#license).
 
-<div id="toc"></div>
+
 
 ## Setting up the Travis CI Enterprise Platform
 
@@ -77,15 +77,17 @@ each port in the table below:
 
 ## Install Travis CI Worker
 
-Travis CI Enterprise currently supports two different build environments, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overriden. However, different versions of Enterprise treat different worker versions as default:
+Travis CI Enterprise currently supports two different build environments, Trusty (Ubuntu 14.04) and Precise (Legacy, Ubuntu 12.04). Each version of Travis CI Enterprise expects a default version of `travis-worker`. Travis CI Enterprise will direct jobs to the default worker type, unless the behavior is overridden. However, different versions of Enterprise treat different worker versions as default:
 
 | Travis CI Enterprise Version | Default Worker Version | Alternative Worker Versions |
 | -- | -- | -- |
-| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty-build-containers/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty-build-containers/) |
+| Enterprise 2.2+ | [Trusty (14.04)](/user/enterprise/trusty/) | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
+| Enterprise 2.1.9+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/) |
 | Enterprise 2.0+ | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | -- |
 
-After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty-build-containers/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
+After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version. 
+
+You can find the RabbitMQ password, which is needed in the installation, either in your Admin Dashboard --> "Settings" page, or in your own RabbitMQ installation for [high availability mode](/user/enterprise/high-availability/).
 
 ### Worker Installation Behind Web Proxies
 
