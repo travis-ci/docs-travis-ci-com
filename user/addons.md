@@ -1,13 +1,15 @@
 ---
 title: Build Addons
 layout: en
-permalink: addons/
+
 ---
 
 This page is deprecated. The integrations previously listed here have been
 moved:
 
-* [Sauce Connect](/user/sauce-connect)
-* [Custom Host Names](/user/hosts/)
-* [PostgreSQL](/user/using-postgresql/)
-* [Firefox](/user/firefox/)
+- [Sauce Connect](/user/sauce-connect/)
+- [Custom Host Names](/user/hosts/)
+- [MariaDB](/user/database-setup/#mariadb)
+- [PostgreSQL](/user/database-setup/#postgresql)
+- [RethinkDB](/user/database-setup/#rethinkdb)
+- [Firefox](/user/firefox/)

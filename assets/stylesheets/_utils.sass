@@ -1,0 +1,165 @@
+.button
+  position: relative
+  display: inline-block
+  margin: 0
+  padding: 5px 10px
+  overflow: visible
+  border: none
+  border-radius: 4px
+  background-clip: padding-box
+  background-color: #696867
+  color: $white
+  font-family: 'Source Sans Pro'
+  font-size: $font-size-s
+  font-weight: normal
+  text-decoration: none
+  text-align: center
+  white-space: nowrap
+  cursor: pointer
+  outline: none
+  &:hover,
+  &:active
+    color: $white
+    background-color: lighten(#696867, 10)
+  &:focus
+    color: $white
+    background-color: #696867
+
+.button--green
+  background-color: $turf-green
+  &:focus,
+  &:active,
+  &:hover
+    background-color: rgba($turf-green, 0.8)
+
+.button--teal
+  @extend .button
+  background-color: $teal-dark
+  &:focus,
+  &:active,
+  &:hover
+    background-color: $teal-light
+
+.list-language
+  @extend %ul-styles
+  -moz-columns: 2
+  -webkit-columns: 2
+  columns: 2
+  text-transform: uppercase
+
+  small
+    color: #888
+
+.list--blank
+  @extend %ul-styles
+  text-transform: uppercase
+
+.list--links
+  @extend %ul-styles
+  +linkStyle
+
+.toc
+  margin: 3em 0
+  ul
+    @extend %ul-styles
+  li:before
+    content: ""
+    width: 5px
+    height: 5px
+    display: inline-block
+    background-color: $teal-light
+    border-radius: 50%
+    vertical-align: middle
+    margin-right: 0.4em
+  a
+    color: $teal-light
+    &:hover
+      text-decoration: underline
+
+.toc-list
+  @extend %ul-styles
+
+img.app
+  @media #{$medium-up}
+    float: left
+    margin-right: 2em
+    max-width: 190px
+
+.alpha
+  font-style: normal
+  background: $cream-light
+  color: $quartz-red
+  border: 1px solid $quartz-red
+  p
+    color: $brick-red
+    &:before
+      content: ""
+      display: inline-block
+      width: 1.7em
+      height: 1.7em
+      border-radius: 50%
+      margin-right: 0.8em
+      vertical-align: middle
+      background:
+        image: url(/images/ui/icon-flag.svg)
+        color: $brick-red
+        repeat: no-repeat
+        size: 70%
+        position: 72% center
+
+.beta
+  font-style: normal
+  background: $haze-yellow
+  color: $dozer-yellow
+  border: 1px solid $canary-yellow
+  p
+    color: $dozer-yellow
+    &:before
+      content: ""
+      display: inline-block
+      width: 1.7em
+      height: 1.7em
+      border-radius: 50%
+      margin-right: 0.8em
+      vertical-align: middle
+      background:
+        image: url(/images/ui/icon-flag.svg)
+        color: $dozer-yellow
+        repeat: no-repeat
+        size: 70%
+        position: 72% center
+
+.column-2
+  column-count: 2
+
+.column-3
+  column-count: 3
+
+.button-pen
+  display: inline-block
+  padding: .3em .5em
+  border: solid 1px $cement-grey
+  color: $cement-grey
+  border-radius: 2px
+  text-decoration: none
+  &:before
+    content: ""
+    display: inline-block
+    width: 1em
+    height: 1.2em
+    margin-right: .3em
+    vertical-align: middle
+    background-repeat: no-repeat
+    background-size: 100%
+    background-image: url(data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiAgICAgIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ljg3NCAxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTQuODc0IDE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+ICAgIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiM2NjY3NjY7fS5zdDF7ZmlsbDpub25lO3N0cm9rZTojNjY2NzY2O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9ICAgIDwvc3R5bGU+ICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zLjIyNiwxLjQxNGw4LjY4NCw4LjY4NGMwLjI3NSwwLjI3NSwwLjY0NSwwLjg4NSwwLjc2MiwxLjI1NWwwLjY0NSwyLjA0MWwtMS45NDQtMC42ODIgICAgICAgICBjLTAuMzc1LTAuMTMxLTAuOTk0LTAuNTIxLTEuMjc1LTAuODAyTDEuNDE0LDMuMjI2bDEuODA5LTEuODFjMCwwLDAuMDAxLDAsMC4wMDMsMEwzLjIyNiwxLjQxNCBNMy4yMjYsMC40MTUgICAgICAgICBjLTAuMjU2LDAtMC41MTMsMC4wOTctMC43MDcsMC4yOTJMMC43MDcsMi41MTljLTAuMzg5LDAuMzg5LTAuMzg5LDEuMDI1LDAsMS40MTRsOC42ODQsOC42ODRjMC4zODksMC4zODksMS4xMzIsMC44NTYsMS42NTEsMS4wMzggICAgICAgICBsMi44ODksMS4wMTRjMC4xMDcsMC4wMzgsMC4yMDUsMC4wNTYsMC4yOTEsMC4wNTZjMC4zMjgsMCwwLjQ4My0wLjI2MiwwLjM1MS0wLjY3OGwtMC45NDctMi45OTUgICAgICAgICBjLTAuMTY2LTAuNTI0LTAuNjItMS4yNzItMS4wMDktMS42NjFMMy45MzMsMC43MDdDMy43MzgsMC41MTMsMy40ODIsMC40MTUsMy4yMjYsMC40MTVMMy4yMjYsMC40MTV6Ii8+ICAgIDxsaW5lIGNsYXNzPSJzdDEiIHgxPSIxMy4wMDciIHkxPSIxMy43MTciIHgyPSIxMy42NzciIHkyPSIxMy4wNTgiLz4gICAgPGxpbmUgY2xhc3M9InN0MSIgeDE9IjIuMDkiIHkxPSI0LjUwMiIgeDI9IjQuNDk2IiB5Mj0iMi4wOTYiLz4gICAgPGxpbmUgY2xhc3M9InN0MSIgeDE9IjEwLjE5NiIgeTE9IjEyLjQ0OCIgeDI9IjEyLjE5NiIgeTI9IjEwLjQ0OCIvPjwvc3ZnPg==)
+  &:active,
+  &:hover,
+  &:focus
+    border-color: $oxide-blue
+    color: $oxide-blue
+    &:before
+      background-image: url(data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiAgICAgIHk9IjBweCIgdmlld0JveD0iMCAwIDE0Ljg3NCAxNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTQuODc0IDE1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+ICAgIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiMzZWFhYWY7fS5zdDF7ZmlsbDpub25lO3N0cm9rZTojM2VhYWFmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9ICAgIDwvc3R5bGU+ICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zLjIyNiwxLjQxNGw4LjY4NCw4LjY4NGMwLjI3NSwwLjI3NSwwLjY0NSwwLjg4NSwwLjc2MiwxLjI1NWwwLjY0NSwyLjA0MWwtMS45NDQtMC42ODIgICAgICAgICBjLTAuMzc1LTAuMTMxLTAuOTk0LTAuNTIxLTEuMjc1LTAuODAyTDEuNDE0LDMuMjI2bDEuODA5LTEuODFjMCwwLDAuMDAxLDAsMC4wMDMsMEwzLjIyNiwxLjQxNCBNMy4yMjYsMC40MTUgICAgICAgICBjLTAuMjU2LDAtMC41MTMsMC4wOTctMC43MDcsMC4yOTJMMC43MDcsMi41MTljLTAuMzg5LDAuMzg5LTAuMzg5LDEuMDI1LDAsMS40MTRsOC42ODQsOC42ODRjMC4zODksMC4zODksMS4xMzIsMC44NTYsMS42NTEsMS4wMzggICAgICAgICBsMi44ODksMS4wMTRjMC4xMDcsMC4wMzgsMC4yMDUsMC4wNTYsMC4yOTEsMC4wNTZjMC4zMjgsMCwwLjQ4My0wLjI2MiwwLjM1MS0wLjY3OGwtMC45NDctMi45OTUgICAgICAgICBjLTAuMTY2LTAuNTI0LTAuNjItMS4yNzItMS4wMDktMS42NjFMMy45MzMsMC43MDdDMy43MzgsMC41MTMsMy40ODIsMC40MTUsMy4yMjYsMC40MTVMMy4yMjYsMC40MTV6Ii8+ICAgIDxsaW5lIGNsYXNzPSJzdDEiIHgxPSIxMy4wMDciIHkxPSIxMy43MTciIHgyPSIxMy42NzciIHkyPSIxMy4wNTgiLz4gICAgPGxpbmUgY2xhc3M9InN0MSIgeDE9IjIuMDkiIHkxPSI0LjUwMiIgeDI9IjQuNDk2IiB5Mj0iMi4wOTYiLz4gICAgPGxpbmUgY2xhc3M9InN0MSIgeDE9IjEwLjE5NiIgeTE9IjEyLjQ0OCIgeDI9IjEyLjE5NiIgeTI9IjEwLjQ0OCIvPjwvc3ZnPg==)
+
+.ip-address-ranges
+  tbody td:nth-child(2)
+    min-width: 18em

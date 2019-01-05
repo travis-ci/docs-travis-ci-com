@@ -1,0 +1,101 @@
+// These are copied from styleguide 😐
+$styleguide-color-grey-dark: #666666
+$styleguide-color-grey-light: #f1f1f1
+$styleguide-color-black: #333333
+
+$styleguide-font-weight-light: 300
+$styleguide-font-weight-normal: 400
+$styleguide-font-weight-bold: 600
+
+$styleguide-font-size-smaller: 12px
+$styleguide-font-size-small: 14px
+$styleguide-font-size-title: 20px
+
+$styleguide-layout-gutter: 2rem
+// Except this one, which is 1024
+$styleguide-layout-max-width: 1200px
+
+$styleguide-small: 420px
+$styleguide-medium: 800px
+
+.footer
+  position: relative
+  background: white
+  box-shadow: 0 -2px 3px $styleguide-color-grey-light
+  @media (max-width: $styleguide-medium)
+    padding: 0 0 $styleguide-layout-gutter
+  @media (min-width: $styleguide-medium)
+    padding: $styleguide-layout-gutter / 2 0
+  svg
+    opacity: 0.8
+    margin-top: 0.9rem
+    width: 142px
+  ul,
+  address
+    padding: 0
+    margin: 0
+    list-style: none
+    font-size: $styleguide-font-size-smaller
+    font-style: normal
+    color: $styleguide-color-black
+    line-height: $styleguide-font-size-title
+  address
+    line-height: $styleguide-font-size-title + 1px
+  a
+    display: inline-block
+    vertical-align: middle
+    text-decoration: none
+    &:hover,
+    &:active
+      text-decoration: underline
+    &:focus
+      text-decoration: underline dotted
+  .layout-inner
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+    align-items: flex-start
+    max-width: $styleguide-layout-max-width
+    margin: auto
+    padding: 0 $styleguide-layout-gutter / 2
+
+.footer-elem
+  @media (max-width: $styleguide-small)
+    flex: 0 0 100%
+  @media (min-width: $styleguide-small) and (max-width: $styleguide-medium)
+    flex: 1 0 50%
+    margin-top: 1.5rem
+  @media (min-width: $styleguide-medium)
+    flex: 0 1 (100% - 2% * 6) * 1 / 6
+    padding-right: 2%
+    &:last-of-type
+      padding-right: 0
+
+.footer-title
+  margin: 0 0 0.7rem
+  padding-top: 0.5rem
+  font-size: $styleguide-font-size-small
+  font-weight: $styleguide-font-weight-bold
+  text-transform: uppercase
+  color: $styleguide-color-grey-dark
+
+.status-circle
+  display: inline-block
+  height: 11px
+  width: 11px
+  text-indent: -9999px
+  margin-right: 2px
+  border-radius: 100px
+  vertical-align: middle
+  &.none
+    background: $turf-green
+  &.unknown
+    background: $cement-grey
+  &.maintenance
+    background: $dozer-yellow
+  &.degraded
+    background: $dozer-yellow
+  &.minor
+    background: mix($brick-red, $dozer-yellow)
+  &.major
+    background: $brick-red

@@ -1,238 +1,33 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Travis CI: {{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,800' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/site.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="alternate" type="application/atom+xml" href="/blog.xml">
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-24868285-6']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+    {% include head.html %}
   </head>
   <body>
-    <div id="navigation">
-      <div class="wrapper">
-        {% include logo.html %}
-        <ul>
-          <li><a href="http://blog.travis-ci.com">Blog</a></li>
-          <li><a href="http://docs.travis-ci.com">Documentation</a></li>
-        </ul>
-      </div>
-    </div>
+    <div class="wrapper">
 
-    <div id="content">
-      <div class="wrapper">
-        <div class="pad">
-          <div id="main">
-            <h2 class="title">{{ page.title }}</h2>
-            {{ content }}
-          </div><!-- /#main -->
-          <div id="sidebar">
-            <h2>Search</h2>
-            <div id="mc_embed_signup" style="margin-left: 1.5em; margin-top: 0.5em;">
-              <form>
-                <input type="text" id="st-search-input" class="st-search-input" />
-              </form>
-              <script type="text/javascript">
-              var Swiftype = window.Swiftype || {};
-                (function() {
-                  Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+      <div id="content" class="row">
 
-                  /** DO NOT EDIT BELOW THIS LINE **/
-                  var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-                  script.src = "//swiftype.com/embed.js";
-                  var entry = document.getElementsByTagName('script')[0];
-                  document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
-                }());
-              </script>
+        {% include sidebar.html %}
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          {% unless page.no_header %}
+            <aside class="improve-page" data-swiftype-index='false'><a href="{{ site.docs_github }}edit/master/{{ page.path }}" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">{{ page.title }}</h1>
+          {% endunless %}
+
+          {% unless page.no_toc %}
+            <div id="toc" class="toc">
+              {% include toc.html h_min=2 h_max=2 class="list-language" santize=true  html=content %}
             </div>
+          {% endunless%}
 
-            <h2>Newsletter</h2>
-            <div id="mc_embed_signup" style="margin-left: 1.5em; margin-top: 0.5em;">
-              <form
-                 action="http://travis-ci.us7.list-manage.com/subscribe/post?u=8ce724a4c9af4dace663cd39c&amp;id=44f8dff14c"
-                 method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                 target="_blank" novalidate>
-                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required/>
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-              </form>
-            </div>
+          {% include anchor_headings.html html=content anchorClass="toc-anchor" anchorBody="#" %}
 
-            <h2><a href="http://travis-ci.com/?utm_source=docs.travis-ci.org&utm_medium=referral&utm_content=textlink&utm_campaign=docsite_sidebar">Travis CI for Private Repositories</a></h2>
-            <h2>Guides</h2>
-            <ul>
-              <li><a href="/user/getting-started/">Getting started</a></li>
-              <li><a href="/user/travis-lint/">Validate your .travis.yml</a></li>
-              <li><a href="/user/database-setup/">Services &amp; Database setup</a></li>
-              <li><a href="/user/gui-and-headless-browsers/">Headless Testing with Browsers</a></li>
-              <li><a href="/user/how-to-skip-a-build/">Skipping a Build</a></li>
-              <li><a href="/user/speeding-up-the-build/">Speeding up the build</a></li>
-            </ul>
+        </main>
+      </div><!-- /#content -->
 
-           <h2>Reference</h2>
-            <ul>
-              <li><a href="/user/customizing-the-build/">Customizing Your Build</a></li>
-              <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
-              <li><a href="/user/build-lifecycle/">The Lifecycle of a Build</a></li>
-              <li><a href="/user/build-configuration/">Build configuration</a></li>
-              <li><a href="/user/notifications/">Notifications</a></li>
-              <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
-              <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
-              <li><a href="/user/environment-variables/">Environment Variables</a></li>
-              <li><a href="/user/status-images/">Build Status Images</a></li>
-              <li><a href="/user/ci-environment/">The CI Environment</a></li>
-              <li><a href="/user/osx-ci-environment/">The OS X CI environment</a></li>
-              <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
-              <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
-              <li><a href="/user/github-oauth-scopes/">GitHub Permissions used
-                  by Travis CI</a>
-              <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
-              <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
-              <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
-              <li><a href="/user/git-options/">Specifying Git options</a></li>
-            </ul>
-
-           <h2>Travis Pro</h2>
-            <ul>
-              <li><a href="/user/travis-pro/">Frequently Asked Questions</a></li>
-              <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
-              <li><a href="/user/caching/">Caching Dependencies</a></li>
-            </ul>
-
-            <h2>Services and Databases</h2>
-            <ul>
-              <li><a href="/user/using-postgresql/">Using PostgreSQL</a></li>
-              <li><a href="/user/firefox/">Firefox</a></li>
-              <li><a href="/user/hosts/">Custom Host Names</a></li>
-            </ul>
-
-            <h2>Integrations</h2>
-            <ul>
-              <li><a href="/user/code-climate/">Code Climate</a></li>
-              <li><a href="/user/sauce-connect/">Sauce Labs</a></li>
-              <li><a href="/user/build-feeds/">Atom Feeds</a></li>
-              <li><a href="/user/cc-menu">CCMenu / CCTray Feeds</a></li>
-            </ul>
-
-            <h2>Language-specific Guides</h2>
-            <ul>
-              <li><a href="/user/languages/android/">Android</a></li>
-              <li><a href="/user/languages/c/">C</a></li>
-              <li><a href="/user/languages/cpp/">C++</a></li>
-              <li><a href="/user/languages/clojure/">Clojure</a></li>
-              <li><a href="/user/languages/erlang/">Erlang</a></li>
-              <li><a href="/user/languages/go/">Go</a></li>
-              <li><a href="/user/languages/groovy/">Groovy</a></li>
-              <li><a href="/user/languages/haskell/">Haskell</a></li>
-              <li><a href="/user/languages/java/">Java</a></li>
-              <li><a href="/user/languages/javascript-with-nodejs/">JavaScript (with Node.js)</a></li>
-              <li><a href="/user/languages/objective-c/">Objective-C</a></li>
-              <li><a href="/user/languages/perl/">Perl</a></li>
-              <li><a href="/user/languages/php/">PHP</a></li>
-              <li><a href="/user/languages/python/">Python</a></li>
-              <li><a href="/user/languages/ruby/">Ruby</a></li>
-              <li><a href="/user/languages/scala/">Scala</a></li>
-            </ul>
-
-            <h2>Deployment</h2>
-            <ul>
-              <li><a href="/user/deployment/">Overview</a></li>
-              <li><a href="/user/deployment/appfog/">Appfog</a></li>
-              <li><a href="/user/deployment/cloud66/">Cloud 66</a></li>
-              <li><a href="/user/deployment/heroku/">Heroku</a></li>
-              <li><a href="/user/deployment/modulus/">Modulus</a></li>
-              <li><a href="/user/deployment/nodejitsu/">Nodejitsu</a></li>
-              <li><a href="/user/deployment/engineyard/">Engine Yard</a></li>
-              <li><a href="/user/deployment/openshift/">OpenShift</a></li>
-              <li><a href="/user/deployment/cloudcontrol/">cloudControl</a></li>
-              <li><a href="/user/deployment/rubygems/">RubyGems</a></li>
-              <li><a href="/user/deployment/opsworks/">OpsWorks</a></li>
-              <li><a href="/user/deployment/pypi/">PyPI</a></li>
-              <li><a href="/user/deployment/npm/">npm</a></li>
-              <li><a href="/user/deployment/s3/">S3</a></li>
-              <li><a href="/user/deployment/ninefold">Ninefold</a></li>
-              <li><a href="/user/deployment/divshot/">Divshot</a></li>
-              <li><a href="/user/deployment/cloudfiles">Rackspace Cloud Files</a></li>
-              <li><a href="/user/deployment/releases">GitHub Releases</a></li>
-              <li><a href="/user/deployment/deis">Deis</a></li>
-              <li><a href="/user/deployment/hackage">Hackage</a></li>
-              <li><a href="/user/deployment/gcs">Google Cloud Storage</a></li>
-              <li><a href="/user/deployment/custom/">Custom Script</a></li>
-              <li><a href="/user/deployment/#Other-Providers">Other Providers</a></li>
-            </ul>
-
-            <h2>Developer Guides</h2>
-            <ul>
-              <li><a href="/api">The API</a></li>
-              <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
-            </ul>
-
-            <h2>3rd Party Tools and Resources</h2>
-            <ul>
-              <li><a href="/user/apps/">Apps, Clients and Tools</a></li>
-              <li><a href="/user/resources/">Links &amp; Resources</a></li>
-              <li><a href="https://scan.coverity.com/travis_ci">Coverity Scan</a></li>
-            </ul>
-
-            <h2>Contact</h2>
-            <ul>
-              <li><a href="https://twitter.com/travisci">Twitter</a></li>
-              <li><a href="irc://chat.freenode.net/%23travis">IRC</a></li>
-              <li><a href="http://groups.google.com/group/travis-ci">Mailing list</a></li>
-              <li><a href="http://github.com/travis-ci">GitHub</a></li>
-              <li><a href="http://blog.travis-ci.com/blog.xml">Blog Feed</a></li>
-            </ul>
-
-            <h2>Contributing</h2>
-            <p>This documentation site is open source.
-              The README in our <a href="https://github.com/travis-ci/docs-travis-ci-com">Git repository</a> explains how to contribute.</p>
-            <h2>Legal</h2>
-            <ul>
-              <li><a href="/imprint.html">Imprint</a></li>
-            </ul>
-          </div><!-- /#sidebar -->
-        </div><!-- /.pad -->
-      </div><!-- /.wrapper -->
-    </div><!-- /#content -->
-
-
-
-    <footer>
-      <div class="wrapper">
-        <div class="large-6 columns left">
-          <div id="travis-logo">
-            <img src="/images/travis-mascot-200px.png" id="travis-mascot">
-          </div>
-          <div id="travis-address">
-            <p>&copy; 2014 Travis CI GmbH,<br> Prinzessinnenstr. 20, 10969 Berlin, Germany</p>
-          </div>
-        </div>
-
-        <div class="large-6 columns right">
-          <div id="footer-nav">
-            <ul class="left">
-              <li><a href="mailto:contact@travis-ci.com">Email</a></li>
-              <li><a href="http://chat.travis-ci.com">Live Chat</a></li>
-              <li><a href="http://docs.travis-ci.com">Docs</a></li>
-              <li><a href="http://status.travis-ci.com">Status</a></li>
-            </ul>
-          </div>
-          <div id="berlin-sticker">
-            <img src="/images/made-in-berlin-badge.png" id="made-in-berlin">
-          </div>
-        </div>
-      </div>
-    </footer>
+      {% include footer.html %}
+    </div><!-- /.wrapper -->
   </body>
 </html>

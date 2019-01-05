@@ -1,0 +1,62 @@
+<footer class="footer">
+  <div class="layout-inner">
+    <div class="footer-elem">
+      <svg width="142px" height="45.381px" viewBox="0 0 142 45.381" enable-background="new 0 0 142 45.381" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink">
+        <title>Travis CI Mascot</title>
+        <image xlink:href="https://styleguide.travis-ci.com/images/logos/travis-footer-logo-new.svg" x="0" y="0" width="142px" height="45.381px" />
+      </svg>
+    </div>
+
+    <div class="footer-elem"></div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">©Travis CI, GmbH</h3>
+      <address>Rigaer Straße 8<br>10247 Berlin, Germany</address>
+      <ul>
+        <li><a href="https://travisci.workable.com/" title="Jobs at Travis CI">Work with Travis CI</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Help</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com" title="Travis CI Docs">Documentation</a></li>
+        <li><a href="https://changelog.travis-ci.com/">Changelog</a></li>
+        <li><a href="https://blog.travis-ci.com/" title="Travis CI Blog">Blog</a></li>
+        <li><a href="mailto:support@travis-ci.com" title="Email Travis CI support">Email</a></li>
+        <li><a href="https://twitter.com/travisci" title="Travis CI on Twitter">Twitter</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Legal</h3>
+      <ul>
+        <li><a href="https://docs.travis-ci.com/imprint.html" title="Imprint">Imprint</a></li>
+        <li><a href="https://docs.travis-ci.com/legal/terms-of-service/">Terms of Service</a></li>
+        <li><a href="https://docs.travis-ci.com/legal/refund-policy/">Refund Policy</a></li>
+        <li><a href="https://docs.travis-ci.com/legal/data-processing-agreement">Data Processing Agreement</a></li>
+        <li><a href="https://docs.travis-ci.com/legal/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="https://docs.travis-ci.com/legal/security/">Security Statement</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-elem">
+      <h3 class="footer-title">Travis CI Status</h3>
+      <ul>
+        <li><div class="status-circle status">Status:</div>
+          <a href="http://www.traviscistatus.com/">Travis CI Status</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+ fetch('https://pnpcptp8xh9k.statuspage.io/api/v2/status.json').then(function(response) {
+   return response.json();
+ }).then(function(data) {
+   if (data.status && data.status.indicator) {
+     document.querySelector('.status-circle').classList.add(data.status.indicator);
+   }
+ });
+</script>

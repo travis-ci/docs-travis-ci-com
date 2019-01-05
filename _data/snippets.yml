@@ -1,0 +1,79 @@
+conditional_deploy: |
+  ### Conditional Deploys
+
+  You can deploy only when certain conditions are met.
+  See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+before_and_after: |
+  ### Running commands before and after deploy
+
+  Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+  ```yaml
+  before_deploy: "echo 'ready?'"
+  deploy:
+    ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
+  ```
+ghlimit: |
+  > If your API or cron triggered builds run on the *same commit
+  > or branch* over and over again, you will notice GitHub have a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > *per commit*, which causes the Travis CI build status displayed on GitHub
+  > to be incorrect.
+  > Avoid this problem by specifying a regularly updated branch for your automated builds.
+trusty_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [OS X](/user/reference/osx/)
+trusty_note_no_osx: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+concurrent_jobs: |
+  The maximum number of concurrent jobs depends on the total system load, but
+  one situation in which you might want to set a particular limit is:
+
+  - if your build depends on an external resource and might run into a race
+    condition with concurrent jobs.
+auto_cancellation: |
+  If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are not yet running.
+cron_jobs: |
+  Travis CI cron jobs work similarly to the cron utilty, they run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. Cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and you cannot set them to run at a specific time.
+environment_variables: |
+  Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
+
+  Define variables in the Repository Settings that:
+
+  - differ per repository.
+  - contain sensitive data, such as third-party credentials.
+contact_enterprise_support: |
+  To get in touch with us, please write a message to 
+  [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). If possible, 
+  please include as much of the following as you can:
+   
+  - Description of the problem - what are you observing?
+  - Which steps did you try already?
+  - A support bundle (You can get it from `https://yourdomain:8800/support`)
+  - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
+  - If a build failed or errored, a text file of the build log
+  
+  Have you made any customizations to your setup? While we may be able to see some 
+  information (such as hostname, IaaS provider, and license expiration), there 
+  are many other things we can't see which could lead to something not working. 
+  Therefore , we'd like to ask you to also answer the questions below in your 
+  support request (if applicable):
+  
+  - How many machines are you using?
+  - Do you use configuration management tools (Chef, Puppet)?
+  - Which other services do interface with Travis CI Enterprise?
+  - Do you use Travis CI Enterprise together with github.com or GitHub Enterprise?
+  - If you're using GitHub Enterprise, which version of it?
+  
+  We're looking forward to helping!

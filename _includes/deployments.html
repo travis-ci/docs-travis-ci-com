@@ -1,0 +1,5 @@
+<ul class="list-language">
+{% for depl in site.data.deployments %}
+  <li><a href="{{depl[1]}}">{{depl[0]}}</a></li>
+{% endfor %}
+</ul>

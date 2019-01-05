@@ -1,43 +1,67 @@
 ---
-title: Travis CI Documentation
+title: Travis CI User Documentation
 layout: en
 permalink: /
+no_header: true
+no_toc: true
+short_title: true
 ---
 
-<div class="get-started-box">
-  <div class="big-text">New to Travis CI?</div>
+<section class="index-intro">
+  <figure>
+    <img src="images/ui/docs-desktop.svg" alt="Image of desktop">
+  </figure>
+  <h1>New around here? Let's get you going.</h1>
+  <p><a class="get-started-button" href="/user/tutorial/">Travis CI Tutorial</a></p>
+</section>
 
-  <div><a class="get-started-button" href="/user/getting-started">Get Started</a></div>
+<div class="row index-main">
+  <div class="columns large-6">
+    <section>
+      <h2>Already know the basics?</h2>
+      <ul>
+        <li><a href="/user/customizing-the-build">Customizing your build</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Migrate to GitHub Apps</h2>
+      <ul>
+      <li><a href="/user/legacy-services-to-github-apps-migration-guide/">Private accounts with less than 50 repos</a></li>
+      <li><a href="/user/travis-migrate-to-apps-gem-guide/">Private accounts with more than 50 repos</a></li>
+      <li><a href="/user/open-source-on-travis-ci-com/">Open source accounts</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deployment Guides</h2>
+      <p>Learn how to deploy to your hosting provider using Travis CI.</p>
+      <ul>
+        <li><a href="/user/deployment/heroku/">Heroku</a></li>
+        <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+        <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+        <li><a href="/user/deployment">more deployment guides</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Common Questions</h2>
+      <ul>
+        <li><a href="/user/customizing-the-build/#what-repository-providers-or-version-control-systems-can-i-use">What repository providers can I use?</a></li>
+        <li><a href="/user/reference/xenial/">Can I use Ubuntu Xenial for my builds?</a><li>
+        <li><a href="/user/notifications/#changing-the-email-address-for-build-notifications">How do I change the notification email address?</a><li>
+        <li><a href="/user/ip-addresses/">What IP addresses do the builds use?</a></li>
+      </ul>
+    </section>
+  </div>
+  <div class="columns large-6">
+    <section>
+      <h2>Language-specific Guides</h2>
+      <p>Learn about using Travis CI with your favourite programming language.</p>
+      <div class="language-docs" >
+
+      {% include languages.html %}
+
+      </div>
+    </section>
+  </div>
 </div>
-
-<div class="big-text">Looking for language-specific documentation?</div>
-
-<div class="language-docs">
-  <a href="/user/languages/android/">Android</a></li>
-  <a href="/user/languages/c">C</a>
-  <a href="/user/languages/cpp">C++</a>
-  <a href="/user/languages/clojure">Clojure</a>
-  <a href="/user/languages/erlang">Erlang</a>
-  <a href="/user/languages/go">Go</a>
-  <a href="/user/languages/groovy">Groovy</a>
-  <a href="/user/languages/haskell">Haskell</a>
-  <a href="/user/languages/java">Java</a>
-  <a href="/user/languages/javascript-with-nodejs">JavaScript (with Node.js)</a>
-  <a href="/user/languages/objective-c">Objective-C</a>
-  <a href="/user/languages/perl">Perl</a>
-  <a href="/user/languages/php">PHP</a>
-  <a href="/user/languages/python">Python</a>
-  <a href="/user/languages/ruby">Ruby</a>
-  <a href="/user/languages/rust">Rust</a>
-  <a href="/user/languages/scala">Scala</a>
-</div>
-
-<div class="big-text">Common Questions and Answers</div>
-<ul class="intro-links">
-  <li><a href="/user/using-postgresql">How do I choose a PostgreSQL version?</a></li>
-  <li><a href="/user/using-postgresql/#Using-PostGIS">How do I configure PostGIS for my tests?</a></li>
-  <li><a href="/user/speeding-up-the-build">How can I make my build faster?</a></li>
-  <li><a href="/user/caching">Can I cache my dependencies (Bundler, PIP, etc.)?</a></li>
-  <li><a href="/user/pull-requests">How are pull requests tested?</a></li>
-  <li><a href="/user/build-timeouts">My builds are timing out, what can I do?</a></li>
-</ul>

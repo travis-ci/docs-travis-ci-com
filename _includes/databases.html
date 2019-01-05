@@ -1,0 +1,5 @@
+<ul class="list-language">
+{% for db in site.data.databases %}
+  <li><a href="{{db[1]}}">{{db[0]}}</a></li>
+{% endfor %}
+</ul>

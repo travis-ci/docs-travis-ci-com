@@ -1,32 +1,37 @@
 ---
 title: Travis CI's use of GitHub API Scopes
 layout: en
-permalink: github-oauth-scopes/
+
 ---
-When you sign in on Travis CI, we ask for a few permissions to access your data.
 
-This page provides an overview of which we ask for and why.
+When you sign in to Travis CI for the first time, we ask for permissions to access
+some of your data on GitHub. Read the [GitHub API Scope Documentation](https://developer.github.com/v3/oauth/#scopes)
+ for general information about this, or pick an explanation of what data we need and why we need it.
 
-### Travis CI for Open Source
 
-On <https://travis-ci.org> we currently ask for the following permissions.
 
-Note that for open source projects, we don't have any write access to your
-source code or your profile.
+## Travis CI for Open Source and Private Projects
 
-Make sure to check with [GitHub API's documentation](/user/github-oauth-scopes/)
-for additional details on the scopes we use.
+On <https://travis-ci.com>, via our GitHub Apps integration, we ask for the following permissions:
 
-* `user:email`
+- Read access to code
+- Read access to metadata and pull requests
+- Read and write access to administration, checks, commit statuses, and deployments
 
-    We synchronize your email addresses for the purpose of emailing you build
-    notifications. They're currently not being used for any other means.
+## Legacy WebHooks
 
-    We ask for this permission, because without it, we may have no means of
-    sending you the build notifications. Your email address can be hidden from
-    the GitHub profile, which in turns hides it from us as well.
+Before GitHub Apps, we used scoped OAuth tokens to integrate with GitHub. As of May 2018, OAuth-based integration is considered our "Legacy" integration.
 
-* `read:org`
+### Travis CI for Private Projects
+
+- `user:email` (read-only)
+
+    We synchronize your email addresses so we can email you build
+    notifications.
+
+    Your email address can be hidden from the GitHub profile, which also hides it from us.
+
+- `read:org` (read-only)
 
     When you're logged in on Travis CI, we show you all of your repositories,
     including the ones from any organization you're part of.
@@ -35,27 +40,60 @@ for additional details on the scopes we use.
     this scope. So to make sure we show you all of your repositories, we require
     this scope.
 
-    Note that this scope allows access to the basic information on both private
-    and public repositories, but not on any of the data and code stored in them.
+    Note that this scope allows access to the basic information about both private
+    and public repositories, but not on any of the data or code stored in them.
 
-* `repo_deployment`
+- `repo`
 
-    Gives us access to the [upcoming deployments
-    API](http://developer.github.com/v3/repos/deployments/), currently in preview mode.
+    Grants read and write access to code, commit statuses, collaborators, and
+    deployment statuses for public and private repositories and organizations.
 
-    This scope currently isn't actively used, but will be in the future.
+    We need this level of access because GitHub does not provide the `read:org` (read-only) scope for private repositories.
 
-* `repo:status`
+### Travis CI for Open Source Projects
 
-    After every build, we update the status of its commit, which is most
-    relevant for testing pull request. This scope gives us the permission to
-    update the commit status as the build starts and finishes.
+On <https://travis-ci.org> we ask for the following permissions:
 
-* `write:repo_hook`
+  - `user:email` (read-only)
 
-    Building a new repository on Travis CI is as easy as enabling it in your
-    profile and pushing a new commit.
+      We synchronize your email addresses so we can email you build
+        notifications.
 
-    Updating the webhook required for us to be notified from GitHub on new
-    commits or pull requests requires this API scope. Additionally, your user
-    needs to have admin access to the repository you want to enable.
+      Your email address can be hidden from the GitHub profile, which also hides it from us.
+
+  - `read:org` (read-only)
+
+      When you're logged in on Travis CI, we show you all of your repositories,
+      including the ones from any organization you're part of.
+
+      The GitHub API hides any organizations you're a private member of without
+      this scope. So to make sure we show you all of your repositories, we require
+      this scope.
+
+      Note that this scope allows access to the basic information about both private
+      and public repositories, but not on any of the data or code stored in them.
+
+  - `repo_deployment`
+
+      Gives us access to the [upcoming deployments
+      API](http://developer.github.com/v3/repos/deployments/), currently in preview mode.
+
+      This scope currently isn't actively used, but will be in the future.
+
+  - `repo:status`
+
+      After every build, we update the status of its commit, which is most
+      relevant for testing pull request. This scope gives us the permission to
+      update the commit status as the build starts and finishes.
+
+  - `write:repo_hook`
+
+      Building a new repository on Travis CI is as easy as enabling it in your
+      profile and pushing a new commit.
+
+      Updating the webhook required for us to be notified from GitHub on new
+      commits or pull requests requires this API scope. Additionally, your user
+      needs to have admin access to the repository you want to enable.
+
+    Note that for open source projects, we don't have any write access to your source
+    code or your profile.

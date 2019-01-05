@@ -1,70 +1,131 @@
 ---
 title: Building a Go Project
 layout: en
-permalink: go/
+
+swiftypetags:
+  - golang
+  - go lang
+  - go
 ---
 
-### What This Guide Covers
+## What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Go projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/build-configuration/) guides first.
+<aside markdown="block" class="ataglance">
 
-## CI environment for Go Projects
+| Go                                          | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#dependency-management) | `go get -t -v ./...`                         |
+| [Default `script`](#default-build-script)   | `make` or `go test`                       |
+| [Matrix keys](#build-matrix)                | `go`, `env`                               |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
-Travis CI VMs are 64 bit and currently provide
+Minimal example:
 
- * any tagged version of Go (via gvm)
- * core GNU build toolchain (autotools, make), cmake, scons
+```yaml
+  language: go
+  go:
+    - "1.10"
+```
 
-Go projects on travis-ci.org assume you use Make or straight Go build tool by default.
+Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
+not `go: 1.10` (a float).
+Using a float results in the use of Go 1.1.
+</aside>
+
+{{ site.data.snippets.trusty_note_no_osx }}
+
+The rest of this guide covers configuring Go projects in Travis CI. If you're
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying a Go version to use
 
-Travis CI uses gvm, so you can use any tagged version of Go or use `tip` to get the latest version.
+You can use any tagged version of Go, a version with `x` in place of the minor
+or patch level to use the latest for a given major or minor version, or use
+`master` to get the latest version from source. All go version management is
+handled by [gimme](https://github.com/travis-ci/gimme).
 
-    language: go
 
-    go:
-      - 1.0
-      - 1.1
-      - 1.2
-      - 1.3
-      - tip
+```yaml
+language: go
+
+go:
+  - "1.x"
+  - "1.8"
+  - "1.10.x"
+  - master
+```
+{: data-file=".travis.yml"}
+
+
+## Go Import Path
+
+The project source code will be placed in `GOPATH/src/github.com/user/repo` by
+default, but if [vanity imports](https://golang.org/cmd/go/#hdr-Remote_import_paths)
+are necessary (especially for [`internal` package imports](https://golang.org/cmd/go/#hdr-Internal_Directories)),
+`go_import_path:` may be specified at the top level of the config, e.g.:
+
+```yaml
+go_import_path: example.org/pkg/foo
+```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
-Because there is no dominant [convention in the community about dependency management](https://groups.google.com/forum/?fromgroups#!topic/golang-nuts/t01qsI40ms4), Travis CI uses
+The default install step depends on the version of go:
 
-    go get -d -v ./... && go build -v ./...
+* if go version is greater than or equal to `1.2`
 
-to build Go project's dependencies by default.
+  ```
+  go get -t -v ./...
+  ```
 
-If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
+* if go version is older than `1.2`
 
-    install: make get-deps
+  ```
+  go get ./...
+  ```
 
-It is also possible to specify a list of operations, for example, to `go get` remote dependencies:
+*  or if any of the following files are present, the default install step is `true`, so you need to specify the `install` step yourself:
 
-    install:
-      - go get github.com/bmizerany/assert
-      - go get github.com/mrb/hob
+    - `GNUMakefile`
+    - `Makefile`
+    - `BSDmakefile`
+    - `makefile`
 
-See [general build configuration guide](/user/build-configuration/) to learn more.
+### godep support
+
+There is support included for [godep](https://github.com/tools/godep) when used
+with vendored dependencies such that the `GOPATH` will be prefixed with
+`${TRAVIS_BUILD_DIR}/Godeps/_workspace` and `PATH` will be prefixed with
+`${TRAVIS_BUILD_DIR}/Godeps/_workspace/bin`. Additionally, if the
+`Godeps/_workspace/src` directory does not exist,`godep` will be installed and
+a `godep restore` will be run.
+
+It is important to note that using the older style `Godeps.json` at the top
+level is not supported.
+
+All of the `godep` integration steps are performed prior to the separate
+`go get` and makefile steps listed above.
+
+Note that the `godep` support is only activated if a custom `install` step is
+not specified.
 
 ### Installing Private Dependencies
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
 requires a different workaround from our [recommended way of handling private
-dependencies](/user/travis-pro/#How-can-I-configure-Travis-Pro-to-use-private-GitHub-repositories-as-dependencies%3F).
+dependencies](/user/private-dependencies).
 
-When cloning via HTTPS, git uses curl under the covers, which in turn allows you
-to specify a [.netrc](http://linux.die.net/man/5/netrc) file, where you can
-store custom authentication credentials for specific domains, github.com for
-instance.
+When cloning via HTTPS, git uses curl under the covers, which in turn allows
+you to specify a [.netrc](http://manpages.ubuntu.com/manpages/precise/man5/netrc.5.html)
+file, where you can store custom authentication credentials for specific
+domains, github.com for instance.
 
-Go to your [GitHub account](https://github.com/settings/applications) and create
-a personal access token.
+Go to your [GitHub account](https://github.com/settings/applications) and
+create a personal access token.
 
-![](/images/personal-token.jpg)
+![Screenshot of GitHub personal token](/images/personal-token.jpg)
 
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
@@ -75,44 +136,71 @@ account with access to only the repositories you need for a particular project.
 Copy the token and store it in a .netrc in your repository, with the following
 data:
 
-    machine github.com
-      login <username>
-      password <token>
+```
+machine github.com
+  login <username>
+  password <token>
+```
 
 Add this to your repository and add the following steps to your .travis.yml:
 
-    before_install:
-      - cp .netrc ~
-      - chmod 600 .netrc
+```yaml
+before_install:
+  - cp .netrc ~
+  - chmod 600 .netrc
+```
+{: data-file=".travis.yml"}
 
 You can leave out the second step if your .netrc already has access permissions
 set only for the owner. That's a requirement for it to be read from curl.
 
-## Default Test Script
+## Default Build Script
 
-Go projects on travis-ci.org assume that either Make or Go build tool are used by default. In case there is a Makefile in the repository root,
-the default command Travis CI will use to run your project test suite is
+Go projects assume that either Make or Go build tool are used by default. In
+case there is a Makefile in the repository root, the default command Travis CI
+will use to run your project test suite is
 
-    make
+```bash
+make
+```
 
 In case there is no Makefile, it will be
 
-    go test -v ./...
+```bash
+go test
+```
 
 instead.
 
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
+These default commands can be overridden as described in the [general build
+configuration](/user/customizing-the-build/) guide. For example, to add the
+`-v` flag, override the `script:` key in `.travis.yml` like this:
 
-    language: go
+```yaml
+script: go test -v ./...
+```
+{: data-file=".travis.yml"}
 
-This can be overridden as described in the [general build configuration](/user/build-configuration/) guide. For example, to omit the `-v` flag,
-override the `script:` key in `.travis.yml` like this:
+The arguments passed to the default `go test` command may be overridden by
+specifying `gobuild_args:` at the top level of the config, e.g.:
 
-    script: go test ./...
+```yaml
+gobuild_args: -x -ldflags "-X main.VersionString v1.2.3"
+```
+{: data-file=".travis.yml"}
+
+which will result in the script step being:
+
+```bash
+go test -x -ldflags "-X main.VersionString v1.2.3" ./...
+```
 
 To build by running Scons without arguments, use this:
 
-    script: scons
+```yaml
+script: scons
+```
+{: data-file=".travis.yml"}
 
 ## Build Matrix
 
@@ -123,10 +211,28 @@ to construct a build matrix.
 
 The version of Go a job is using is available as:
 
-    TRAVIS_GO_VERSION
+```
+TRAVIS_GO_VERSION
+```
+
+This may contain `.x` at the end, as described above.
+Use of this variable in the deployment condition should
+take this possibility into consideration.
+For example:
+
+```yaml
+go:
+  - 1.7.x
+⋮
+deploy:
+  ...
+  on:
+    condition: $TRAVIS_GO_VERSION =~ ^1\.7
+```
+{: data-file=".travis.yml"}
 
 ## Examples
 
- * [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
- * [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
- * [tsuru/tsuru](https://github.com/tsuru/tsuru/blob/master/.travis.yml)
+- [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
+- [mrb/hob](https://github.com/mrb/hob/blob/master/.travis.yml)
+- [tsuru/tsuru](https://github.com/tsuru/tsuru/blob/master/.travis.yml)

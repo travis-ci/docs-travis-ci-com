@@ -1,0 +1,23 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Travis CI Build Environment Updates</title>
+		<description>Travis CI Build Environment Updates</description>
+		<link>https://travis-ci.com</link>
+		<atom:link href="https://docs.travis-ci.com/feed.build-env-updates.xml" rel="self" type="application/rss+xml" />
+		{% for page in site.pages %}
+		{% if page.category == "mac_build_env_updates" or page.category == "linux_build_env_updates" %}
+			<item>
+				<title>{{ page.title | xml_escape }}</title>
+				<description>{{ page.content | xml_escape }}</description>
+				<pubDate>{{ page.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+				<link>{{ site.url}}{{ page.url }}</link>
+				<guid isPermaLink="true">{{ site.url }}{{ page.url }}</guid>
+			</item>
+		{% endif %}
+		{% endfor %}
+	</channel>
+</rss>

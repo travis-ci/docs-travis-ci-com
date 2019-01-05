@@ -1,35 +1,44 @@
 ---
 title: Atom Build Feeds
 layout: en
-permalink: build-feeds/
----
-One of the means to get updates on builds are Atom feeds.
 
-You can read them in your favorite RSS reader, or programmatically consume them
+---
+
+One way to get updates on your builds is an Atom feed.
+
+You can read it in your favorite RSS reader, or programmatically consume it
 with scripts.
 
 ### Atom Feeds
 
-Every repository on Travis CI has its own Atom feed, including all builds that
-were run on it, with both pull requests and normal commits.
+Every repository on Travis CI has its own Atom feed, which includes all builds that were run on it, with both pull requests and normal commits.
 
-The feeds are fetched directly from our [API](https://api.travis-ci.org). The
-canonical URL to fetch a repository's builds is
-`https://api.travis-ci.org/repos/travis-ci/travis-ci/builds`.  This returns a
-JSON representation by default, but you can get the Atom feed by adding the
-`.atom` suffix.
+The feeds are fetched directly from our API at `https://api.travis-ci.org`.
 
-For the repository above, the URL would then be
-`https://api.travis-ci.org/repos/travis-ci/travis-ci/builds.atom`
+The canonical URL for a repository's builds is:
 
-On Travis CI Pro, for private repositories, you'll need a token to subscribe to
-the feed. The [API endpoint](https://api.travis-ci.com) is different too.
+```
+https://api.travis-ci.org/repos/travis-ci/travis-ci/builds
+```
 
-The token must be appended to the URL as the `token` parameter. You can find the
-token in [your profile](https://magnum.travis-ci.com/profile/) under the
-"Profile" tab.
+This URL returns a JSON representation by default, but you can get the Atom feed by adding the `.atom` suffix:
 
-![](/images/token.jpg)
+```
+https://api.travis-ci.org/repos/travis-ci/travis-ci/builds.atom
+```
 
-An example URL would be
-`https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>`
+### Private Repositories
+
+For private repositories you need a token to subscribe to
+the feed. The API endpoint is different too: `https://api.travis-ci.com`
+
+1. The token is the same as is used to fetch a build status image, which can be
+   found on the repository page. See the related
+   [documentation](/user/cc-menu/#using-the-cc-feed-with-repositories)
+   for more details on how to access the token.
+
+2. Once you have the token, append it as the `token` parameter to the URL:
+
+   ```
+   https://api.travis-ci.com/repos/travis-ci/billing/builds.atom?token=<token>
+   ```
