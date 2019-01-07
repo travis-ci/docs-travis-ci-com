@@ -153,7 +153,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
 
     ```yaml
     before_install:
-       - gem install bundler -v ‘< 2’
+       - gem install bundler -v '< 2'
     ```
     {: data-file=".travis.yml"}
 
