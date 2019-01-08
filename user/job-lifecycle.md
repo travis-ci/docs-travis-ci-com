@@ -5,7 +5,7 @@ redirect_from:
   - /user/build-lifecycle/
 ---
 
-Travis CI provides a default build environment and a default set of phases for each programming language. You can customize any phase in this process in your `.travis.yml`.
+Travis CI provides a default build environment and a default set of phases for each programming language. After setting up the build environment for your job, your repository is cloned and after that, you can customize any phase in this process in your `.travis.yml`.
 
 ## The job lifecycle
 
