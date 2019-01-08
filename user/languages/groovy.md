@@ -30,7 +30,7 @@ The rest of this guide covers configuring Groovy projects on Travis CI. If you'r
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-Groovy builds are not available on the OS X environment.
+Groovy builds are not available on the macOS environment.
 
 ## Overview
 

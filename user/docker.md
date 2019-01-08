@@ -20,7 +20,7 @@ services:
 Then you can add `- docker` commands to your build as shown in the following
 examples.
 
-> We do not currently support use of Docker on OS X.
+> We do not currently support use of Docker on macOS.
 
 > For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
 

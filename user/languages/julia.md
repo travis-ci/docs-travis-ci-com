@@ -39,7 +39,7 @@ of Julia.
  - `X.Y.Z` will test against that exact version.
 
 The oldest versions for which binaries are available is 0.3.1 for Linux,
-or 0.2.0 for [OS X](/user/multi-os/).
+or 0.2.0 for [macOS](/user/multi-os/).
 
 ## Coverage
 
