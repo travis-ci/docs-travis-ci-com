@@ -39,16 +39,20 @@ of Julia.
  - `X.Y.Z` will test against that exact version.
 
 The oldest versions for which binaries are available is 0.3.1 for Linux,
-or 0.2.0 for [OS X](/user/multi-os/).
+or 0.2.0 for [macOS](/user/multi-os/).
 
 ## Coverage
 
-Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://coveralls.io) provide summaries and analytics of the coverage of the test suite. After enabling the respective services for the repositories, the `codecov` and `coveralls` options can be used, e.g.
+Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://coveralls.io)
+provide summaries and analytics of the coverage of the test suite.
+After enabling the respective services for the repositories, the `codecov` and `coveralls`
+options can be used as follows, placing them at the top level of the YAML document:
 ```yaml
 codecov: true
 coveralls: true
 ```
-which will then upload the coverage statistics upon successful completion of the tets.
+This will then upload the coverage statistics upon successful completion of the tests to
+the specified services.
 
 ## Default Build and Test Script
 
@@ -57,7 +61,7 @@ building on Julia v0.7 or later, the default build script will be:
 ```julia
 using Pkg
 Pkg.build()
-Pkg.test()
+Pkg.test(coverage=true)
 ```
 
 Otherwise it will use the older form:
@@ -70,6 +74,10 @@ Pkg.build("$pkgname")
 Pkg.test("$pkgname", coverage=true)
 ```
 where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
+
+Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage information
+about the tests it ran; it does not submit this information to any services.
+To submit coverage information, see the coverage section above.
 
 ## Dependency Management
 

@@ -181,9 +181,9 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-## Installing Packages on OS X
+## Installing Packages on macOS
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
 
 For convenience, you can use Homebrew addon in your `.travis.yml`.
 For example, to install beanstalk:
@@ -278,7 +278,7 @@ rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you n
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
 
 ```yaml
 addons:

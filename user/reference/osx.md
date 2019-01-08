@@ -1,5 +1,5 @@
 ---
-title: The OS X Build Environment
+title: The macOS Build Environment
 layout: en
 redirect_from:
   - /user/osx-ci-environment/
@@ -9,7 +9,7 @@ redirect_from:
 ### What This Guide Covers
 
 This guide explains what packages, tools and settings are available in the
-Travis OS X CI environment (often referred to as the “CI environment”).
+Travis macOS CI environment (often referred to as the “CI environment”).
 
 
 
@@ -28,28 +28,28 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
-## Using OS X
+## Using macOS
 
-To use our OS X build infrastructure, add the following to your `.travis.yml`:
+To use our macOS build infrastructure, add the following to your `.travis.yml`:
 
 ```yaml
 os: osx
 ```
 {: data-file=".travis.yml"}
 
-## OS X Version
+## macOS Version
 
-Travis CI uses OS X 10.13 and Xcode 9.4.1 by default. You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses macOS 10.13 and Xcode 9.4.1 by default. You can use another version of macOS (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>macOS version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>{{ image.xcode_build_version}}</td>
-  <td>OS X {{ image.osx_version}}</td>
+  <td>macOS {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
 {% endfor %}
@@ -59,7 +59,7 @@ Travis CI uses OS X 10.13 and Xcode 9.4.1 by default. You can use another versio
 
 Homebrew is installed and updated every time the virtual machines are updated.
 
-> The [Travis Homebrew addon](/user/installing-dependencies/#installing-packages-on-os-x) is the simplest, fastest and most reliable way to install dependencies.
+> The [Travis Homebrew addon](/user/installing-dependencies/#installing-packages-on-macos) is the simplest, fastest and most reliable way to install dependencies.
 
 The Homebrew addon correctly handles up-to-date, outdated, and missing packages. Manual Homebrew dependency scripts are error-prone, and we recommend against using them.
 
@@ -67,26 +67,26 @@ The Homebrew addon uses the Homebrew database on the build image by default, but
 
 ## File System
 
-VMs running OS X use the default file system, HFS+.
+VMs running macOS use the default file system, HFS+.
 This file system is case-insensitive, and returns entities within a
 directory alphabetically.
 
-## JDK and OS X
+## JDK and macOS
 
 Note the pre-installed JDK version (OracleJDK) for each image in the table below.
 While Mac jobs can test against multiple JDK versions using the [`jdk` key](/user/languages/java/#testing-against-multiple-jdks),
-OS X images up to `xcode9.3` can only switch up to Java 8, and images `xcode9.4` and later can switch to Java 10 (if pre-installed) and later.
+macOS images up to `xcode9.3` can only switch up to Java 8, and images `xcode9.4` and later can switch to Java 10 (if pre-installed) and later.
 In practical terms, if your Mac build requires Java 8 and below, use `xcode9.3` (or below); if your build requires Java 10
 and later, use `xcode9.4` (or later).
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>macOS version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
-  <td>OS X {{ image.osx_version}}</td>
+  <td>macOS {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
 {% endfor %}
@@ -156,7 +156,7 @@ Stock Apache Maven 3.5.3
 
 ## Ruby versions/implementations
 
-- system (depends on OS X version) -- You need to use `sudo` to install gems with this ruby
+- system (depends on macOS version) -- You need to use `sudo` to install gems with this ruby
 
 - ruby-1.9.3-p551
 - ruby-2.0.0-p643

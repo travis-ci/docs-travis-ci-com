@@ -117,6 +117,21 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+The next example deploys using custom scripts `deploy_production.sh` and `deploy_staging.sh` depending on the branch that triggered the job.
+
+```yaml
+deploy:
+  - provider: script
+    script: deploy_production.sh
+    on:
+      branch: production
+  - provider: script
+    script: deploy_staging.sh
+    on:
+      branch: staging
+```
+{: data-file=".travis.yml"}
+
 The next example deploys to S3 only when `$CC` is set to `gcc`.
 
 ```yaml

@@ -23,9 +23,9 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of
 * [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
-### OS X
+### macOS
 
-An [OS X](/user/reference/osx/) environment for Objective-C and other OS X specific projects
+A [macOS](/user/reference/osx/) environment for Objective-C and other macOS specific projects
 
 ### Windows
 
@@ -35,21 +35,21 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux ([Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [OS X](/user/reference/osx/) | [Windows](/user/reference/windows) |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------------------------------|
-| Name                 | Ubuntu                                                                                                                    | OS X                         | Windows                            |
-| Status               | Current                                                                                                                   | Current                      | Early release                      |
-| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine              | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: xenial/trusty/precise`                                                                                             | `os: osx`                    | `os: windows`                      |
-| Allows `sudo`        | Yes                                                                                                                       | Yes                          | No                                 |
-| Approx boot time     | 20-50s                                                                                                                    | 60-90s                       | 60-120s                            |
-| File system          | EXT4                                                                                                                      | HFS+                         | NTFS                               |
-| Operating system     | Ubuntu Linux                                                                                                              | OS X                         | Windows Server 2016                |
-| Memory               | 7.5 GB                                                                                                                    | 4 GB                         | 8 GB                               |
-| Cores                | 2                                                                                                                         | 2                            | 2                                  |
-| IPv4 network         | IPv4 is available                                                                                                         | IPv4 is available            | IPv4 is available                  |
-| IPv6 network         | IPv6 is not available                                                                                                     | IPv6 is not available        | IPv6 is not available              |
-| Available disk space | approx 18GB                                                                                                               | approx 41GB                  | approx 19 GB                       |
+|                      | Ubuntu Linux ([Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|
+| Name                 | Ubuntu                                                                                                                    | macOS                         | Windows                            |
+| Status               | Current                                                                                                                   | Current                       | Early release                      |
+| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             |
+| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`                      |
+| Allows `sudo`        | Yes                                                                                                                       | Yes                           | No                                 |
+| Approx boot time     | 20-50s                                                                                                                    | 60-90s                        | 60-120s                            |
+| File system          | EXT4                                                                                                                      | HFS+                          | NTFS                               |
+| Operating system     | Ubuntu Linux                                                                                                              | macOS                         | Windows Server 2016                |
+| Memory               | 7.5 GB                                                                                                                    | 4 GB                          | 8 GB                               |
+| Cores                | 2                                                                                                                         | 2                             | 2                                  |
+| IPv4 network         | IPv4 is available                                                                                                         | IPv4 is available             | IPv4 is available                  |
+| IPv6 network         | IPv6 is not available                                                                                                     | IPv6 is not available         | IPv6 is not available              |
+| Available disk space | approx 18GB                                                                                                               | approx 41GB                   | approx 19 GB                       |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.

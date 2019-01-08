@@ -33,7 +33,7 @@ specific to Elixir projects. Please make sure to read our
 [Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-Elixir builds are not available on the OS X environment.
+Elixir builds are not available on the macOS environment.
 
 ## CI Environment for Elixir Projects
 
