@@ -85,6 +85,8 @@ git:
 ```
 {: data-file=".travis.yml"}
 
+> Some operations on the repository, such as common automated code review scripts (e.g. Pronto for Ruby), may fail due to the limited git clone depth, not being able to access all the objects in the repository. Removing the depth flag, or running `git fetch --unshallow` might solve the issue.
+
 ## Git Clone Quiet
 
 Travis CI clones repositories without the quiet flag (`-q`) by default. Enabling the quiet flag can be useful if you're trying to avoid log file size limits or even if you just don't need to include it.
