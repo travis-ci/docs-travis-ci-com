@@ -17,7 +17,11 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-A sudo enabled, full virtual machine per build, that runs Linux, either [Ubuntu Xenial 16.04](/user/reference/xenial/), [Ubuntu Trusty 14.04](/user/reference/trusty/), or [Ubuntu Precise 12.04](/user/reference/precise/)
+A sudo enabled, full virtual machine per build, that runs Linux, one of
+
+* [Ubuntu Xenial 16.04](/user/reference/xenial/)
+* [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
+* [Ubuntu Precise 12.04](/user/reference/precise/)
 
 ### macOS
 
