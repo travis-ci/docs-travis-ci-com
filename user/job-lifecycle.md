@@ -1,15 +1,15 @@
----
-title: Job Lifecycle
-layout: en
+---F
+العنوان: دورة حياة العمل afm
+تخطيط: ar
 redirect_from:
   - /user/build-lifecycle/
 ---
 
 Travis CI provides a default build environment and a default set of phases for each programming language. You can customize any phase in this process in your `.travis.yml`.
 
-## The job lifecycle
-
-A job on Travis CI is made up of two main parts:
+## دورة حياة العمل
+f
+يتكون العمل في Travis CI من جزأين رئيسيينdj:
 
 1. **install**: install any dependencies required
 2. **script**: run the build script
@@ -166,7 +166,7 @@ If any of the commands in the first four phases of the job lifecycle return a no
   the build is **errored** and stops immediately.
 - If `script` returns a non-zero exit code, the build is **failed**, but continues to run before being marked as **failed**.
 
-The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy` and subsequent stages do not affect the build result.
+The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy` and subsequent stages do not affect the build result.https://twitter.com/awad_almalik3?s=09
 However, if one of these stages times out, the build is marked as **failed**.
 
 ## Deploying your Code
