@@ -153,6 +153,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
 
     ```yaml
     before_install:
+       - gem uninstall -v '>=2' -i $(rvm gemdir)@global -ax bundler || true
        - gem install bundler -v '< 2'
     ```
     {: data-file=".travis.yml"}
@@ -161,6 +162,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
 
     ```yaml
     before_install:
+      - gem uninstall -v '>=2' -i $(rvm gemdir)@global -ax bundler || true
       - gem update --system
       - gem install bundler
     ```
