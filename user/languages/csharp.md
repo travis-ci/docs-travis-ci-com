@@ -150,7 +150,7 @@ install:
   - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.3.9.0/tools/nunit-console3.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 {: data-file=".travis.yml"}
 
