@@ -1,7 +1,7 @@
 ---
-title: Building a C++ Project
-layout: en
-
+tiêu đề
+bố trí: vic
+Hay nói, là một tài tài của, qua, qua, qua một khác, qua giữ, qua một tài khá
 ---
 
 ## What This Guide Covers
