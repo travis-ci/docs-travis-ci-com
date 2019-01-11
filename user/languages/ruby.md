@@ -192,7 +192,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
   We ignore the failure from that command, because the failure most likely
   means that there was no matching Bundler version to uninstall.
 
-In your build configuration may require a combination of these workarounds.
+Your build configuration may require a combination of these workarounds.
 
 #### Caching Bundler
 
