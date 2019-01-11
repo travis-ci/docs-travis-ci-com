@@ -11,6 +11,8 @@ Travis CI can automatically upload and release your app to the [Snap Store](http
 To upload your snap, add the following to your `.travis.yml`:
 
 ```yaml
+dist: xenial
+
 deploy:
   provider: snap
   snap: my.snap

@@ -16,23 +16,23 @@ Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.13 (and Xcode 9.4.1) by default. You can use another
-version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
+Travis CI uses macOS 10.13 (and Xcode 9.4.1) by default. You can use another
+version of Xcode (and macOS) by specifying the corresponding `osx_image` key from
 the following table:
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>macOS version</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="/user/reference/osx/#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
-  <td>OS X {{ image.osx_version}}
+  <td>macOS {{ image.osx_version}}
   </td></tr>
 {% endfor %}
 </table>
 
-> Detailed iOS SDK versions are available in the [OS X CI environment
+> Detailed iOS SDK versions are available in the [macOS CI environment
 > reference](/user/reference/osx/#xcode-version)
 
 ## Default Test Script
@@ -173,4 +173,4 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).

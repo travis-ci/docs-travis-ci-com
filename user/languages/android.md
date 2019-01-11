@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OS X environment.
+Android builds are not available on the macOS environment.
 
 
 

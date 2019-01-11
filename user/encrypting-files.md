@@ -89,7 +89,7 @@ before_install:
 
 ### Caveat
 
-There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or OS X machine.
+There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or macOS machine.
 
 ## Manual Encryption
 
