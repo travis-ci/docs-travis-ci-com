@@ -24,7 +24,7 @@ Minimal example:
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
-Scala builds are not available on the OS X environment.
+Scala builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
