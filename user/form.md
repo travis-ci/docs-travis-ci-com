@@ -4,7 +4,11 @@ layout: en
 
 ---
 
-<form name="was_it_helpful" method="POST" data-netlify="true">
+<form name="was_it_helpful" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recapture="false">
+
+<p class="hidden">
+    <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+  </p>
 
 <div>
   <input type="radio" id="yes" name="helpful" value="yes">
@@ -16,7 +20,7 @@ layout: en
   <label for="no">No</label>
 </div>
 
-<input type="hidden" value="{{page.path}}" />
+<input type="hidden" name="path" value="{{page.path}}" />
 
   <p>
     <label>Message: <textarea name="message"></textarea></label>
