@@ -79,8 +79,8 @@ The following versions of Docker, version control software and compilers are pre
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.19.1` |
-| git-lfs | `2.6.0`  |
+| git     | `2.20.1` |
+| git-lfs | `2.6.1`  |
 | hg      | `4.8`    |
 | svn     | `1.9.3`  |
 {: style="width: 30%" }
@@ -91,8 +91,8 @@ The following versions of Docker, version control software and compilers are pre
 * cmake 3.12.4
 * gcc 5.4.0
 * ccache 3.2.4
-* shellcheck 0.5.0
-* shfmt 2.4.0
+* shellcheck 0.6.0
+* shfmt 2.6.2
 
 ### Docker
 
