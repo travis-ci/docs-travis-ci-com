@@ -74,7 +74,7 @@ If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
 
-### HHVM versions
+### HHVM versions are available on Trusty only
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
