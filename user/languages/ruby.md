@@ -68,7 +68,7 @@ one is available.
 
 <!-- distro exception -->
 
-If you're using OS X or Trusty environments, you can also use
+If you're using macOS or Trusty environments, you can also use
 [Rubinius](http://rubini.us). To test with Rubinius, add `rbx-X` or `rbx-X.Y.Z`
 to your `.travis.yml`, where X.Y.Z specifies a Rubinius release listed on
 [http://rubies.travis-ci.org/rubinius](http://rubies.travis-ci.org/rubinius) .
