@@ -4,19 +4,20 @@ layout: en
 
 ---
 
-<form name="contact" method="POST" data-netlify="true">
-  <p>
-    <label>Your Name: <input type="text" name="name" /></label>   
-  </p>
-  <p>
-    <label>Your Email: <input type="email" name="email" /></label>
-  </p>
-  <p>
-    <label>Your Role: <select name="role[]" multiple>
-      <option value="leader">Leader</option>
-      <option value="follower">Follower</option>
-    </select></label>
-  </p>
+<form name="was_it_helpful" method="POST" data-netlify="true">
+
+<div>
+  <input type="radio" id="yes" name="helpful" value="yes">
+  <label for="yes">Yes</label>
+</div>
+
+<div>
+  <input type="radio" id="no" name="helpful" value="yes">
+  <label for="no">No</label>
+</div>
+
+<input type="hidden" value="{{page.path}}" />
+
   <p>
     <label>Message: <textarea name="message"></textarea></label>
   </p>
