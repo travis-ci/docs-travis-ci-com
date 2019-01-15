@@ -157,15 +157,6 @@ due to the unsatisfied requirements.
 
 If you find your builds are failing due to “bundler not installed” errors, try one of the following solutions:
 
-* If you are using a Ruby version lower than 2.3, add the following to your `.travis.yml`
-  to install the latest Bundler 1.x:
-
-    ```yaml
-    before_install:
-       - gem install bundler -v '< 2'
-    ```
-    {: data-file=".travis.yml"}
-
 * If you’re using Ruby 2.3 or higher, and you wish to upgrade to Bundler 2.0,
   use the following in your `.travis.yml` to update RubyGems:
 
