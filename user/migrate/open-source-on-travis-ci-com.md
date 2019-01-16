@@ -2,11 +2,11 @@
 title: "Open Source on travis-ci.com"
 layout: en
 
+redirect_from:
+  - /user/open-source-on-travis-ci-com/
 ---
 
 On <time datetime="2018-05-02">May 2nd, 2018</time> Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
-
-
 
 This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 
@@ -40,11 +40,11 @@ New repositories should be activated on [travis-ci.com] for both open source and
 
 Open source projects and their build history will continue to run on `travis-ci.org` for now.
 
-However, open source repositories will be migrated to travis-ci.com gradually. The migration was planned to start at the end of Q2 2018, but has been pushed back. We will announce a new date as soon as we are able. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
+However, open source repositories will be migrated to travis-ci.com gradually. The migration was planned to start at the end of Q2 2018, but has been pushed back. We will announce a new date as soon as we are able. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`.
 
 Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
 
-Repositories may also be migrated without their build history or build settings (including environment variables) immediately. 
+Repositories may also be migrated without their build history or build settings (including environment variables) immediately.
 
 Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration). In your email, please include:
 * "Repository Migration" somewhere in the subject line, and
