@@ -3,9 +3,11 @@ title: Migrating Multiple Repositories to GitHub Apps Guide
 layout: en
 ---
 
-If your organization has more than **50 active repositories** to migrate to our new GitHub Apps integration, you can use [the travis_migrate_to_apps gem](https://github.com/travis-ci/travis_migrate_to_apps) to migrate them in one sweep rather than having to add them manually one by one in the GitHub UI.
+If your organization has more than **50 active repositories** to migrate to our new GitHub Apps integration, you can use [the travis_migrate_to_apps gem](https://github.com/travis-ci/travis_migrate_to_apps) to migrate them in one sweep rather than adding them manually one by one in the GitHub UI.
 
-Here are the steps:
+> Note that you can also choose "Activate all repositories" on GitHub to select all current and future repositories, so that you can activate them at Travis CI by adding a `.travis.yml` file.
+
+The following steps describe how to first authorize your account through GitHub Apps, get the required authentication tokens and use the [the travis_migrate_to_apps gem](https://github.com/travis-ci/travis_migrate_to_apps) to activate via GitHub Apps your private repositories:
 
 ## 1. Install the gem
 ```

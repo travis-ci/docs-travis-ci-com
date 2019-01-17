@@ -56,7 +56,7 @@ There will be no changes to your private repositories. Private projects will con
 
 However, we'd recommend you activating your private repositories via GitHub Apps to start getting the most of this new integration.
 
-Keep reading at [user/migrate/legacy-services-to-github-apps]
+Keep reading at [the legacy services to GitHub Apps guide for private repositories](/user/migrate/legacy-services-to-github-apps-migration-guide)
 
 ## Contact Support
 
