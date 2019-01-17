@@ -84,11 +84,11 @@ $ sudo restart travis-worker
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/installation/#create-a-travis-ci-platform-security-group). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/installation/#create-a-travis-ci-platform-security-group) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine). If you're not using AWS EC2, please make sure that the ports listed [in the docs](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) are open in your firewall.
 
 #### Docker Versions Mismatched
 
-This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/installation/#install-travis-ci-enterprise-worker) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+This issue sometimes occurs after maintenance on workers installed before November 2017 or systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file contains a line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing worker from scratch](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#contact-enterprise-support) section below to move forward.
 
@@ -107,7 +107,7 @@ After a fresh installation or configuration change the Travis CI Enterprise cont
 
 #### GitHub OAuth app configuration
 
-The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/prerequisites/#oauth-app). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
 
 #### Hostname does not match license's hostname
 

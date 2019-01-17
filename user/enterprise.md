@@ -66,6 +66,5 @@ team looks forward to hearing from you!
 {{ site.data.snippets.contact_enterprise_support }}
 
 ## Further Reading
-  * [System Prerequisites](/user/enterprise/prerequisites)
-  * [Travis CI Enterprise Installation](/user/enterprise/installation)
+  * [Setting up Travis CI Enterprise](/user/enterprise/setting-up-travis-ci-enterprise)
   * [Customizing Build Images](/user/enterprise/build-images)
