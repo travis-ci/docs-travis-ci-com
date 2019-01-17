@@ -104,7 +104,7 @@ If you'd like to automate your migration process, it's also possible to migrate 
    -H "Accept: application/json" \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token {API_TOKEN}" \
-   --data '' \ 
+   --data '' \
    https://api.travis-ci.com/repo/{REPO_OWNER}%2F{REPO_NAME}/migrate
 ```
 
