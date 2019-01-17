@@ -4,7 +4,7 @@ layout: en
 redirect_from: user/travis-migrate-to-apps-gem-guide/
 ---
 
-As of May 2, 2018 we are moving toward having repositories integrated via a GitHub App instead of GitHub Services which [will no longer be supported by GitHub as of January 31st, 2018](https://developer.github.com/v3/guides/replacing-github-services/#deprecation-timeline).
+As of May 2, 2018 we are moving toward having repositories integrated via a GitHub App instead of GitHub Services which [will no longer be supported by GitHub as of January 31st, 2019](https://developer.github.com/v3/guides/replacing-github-services/#deprecation-timeline).
 
 The following guide shows you how to migrate your private repository to the Travis CI GitHub App.
 
