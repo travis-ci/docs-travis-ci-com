@@ -47,8 +47,7 @@ However, you can be included  in the closed beta testing to start migrating your
 
  1. Send us an email to [support@travis-ci.com with the subject "Open Source Migration Beta Testing"](mailto:support@travis-ci.com?subject=Open%20Source%20Migration%20Beta%20Testing)
 
-If you'd like more details of what the beta testing includes, please check out this [open source to travis-ci.com migration guide](/user/migrate/open-source-repository-migration).
-
+ 1. Check out what the beta testing includes on this [open source to travis-ci.com migration guide](/user/migrate/open-source-repository-migration).
 
 ## Existing Private Repositories on `travis-ci.com`
 
@@ -56,7 +55,7 @@ There will be no changes to your private repositories. Private projects will con
 
 However, we'd recommend you activating your private repositories via GitHub Apps to start getting the most of this new integration.
 
-Keep reading at [the legacy services to GitHub Apps guide for private repositories](/user/migrate/legacy-services-to-github-apps-migration-guide)
+Keep reading at [the legacy services to GitHub Apps guide for private repositories](/user/migrate/legacy-services-to-github-apps-migration-guide).
 
 ## Contact Support
 
