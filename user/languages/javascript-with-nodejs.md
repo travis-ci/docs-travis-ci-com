@@ -186,12 +186,13 @@ before_install:
 
 #### Caching with `yarn`
 
-You can cache `$HOME/.cache/yarn` with:
-
 ```yaml
 cache: yarn
 ```
 {: data-file=".travis.yml"}
+
+will add `yarn`'s default caching directory (which varies depending on the OS),
+as indicated by [`yarn cache dir`](https://yarnpkg.com/en/docs/cli/cache#toc-yarn-cache-dir).
 
 If your caching needs to include other directives, you can use:
 
