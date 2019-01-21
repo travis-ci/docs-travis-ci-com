@@ -22,7 +22,7 @@ You will be redirected on the Travis CI GitHub App page on GitHub, with the repo
 
 ![Travis CI GitHub App page](/images/migrate/github-app-page.png)
 
-If you'd like to activate all your current and future repositories, choose **"All repositories"** so that your projects start building as soon as they're configured with a `.travis.yml file."
+If you'd like to activate all your current and future repositories, choose **"All repositories"** so that your projects start building as soon as they're configured with a `.travis.yml` file."
 
 After that, click the **"Approve & Install"** button.
 
