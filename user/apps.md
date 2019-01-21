@@ -8,7 +8,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 
 - **[Websites](#websites)**: [Full Web Clients](#full-web-clients), [Dashboards](#dashboards), [Tools](#tools)
 - **[Mobile Applications](#mobile)**: [Android](#android), [iOS](#ios), [Windows Phone](#windows-phone)
-- **[Desktop](#desktop)**: [Mac OS X](#mac-os-x), [Linux](#linux), [Cross Platform](#cross-platform)
+- **[Desktop](#desktop)**: [macOS](#macos), [Linux](#linux), [Cross Platform](#cross-platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#full-clients), [Build Monitoring](#build-monitoring), [Generators](#generators)
 - **[Plugins](#plugins)**: [Google Chrome](#google-chrome), [Opera](#opera), [Editors](#editors), [Other](#other)
 - **[Libraries](#libraries)**: [Ruby](#ruby), [JavaScript](#javascript), [PHP](#php), [Python](#python), [Elixir](#elixir), [R](#r), [Go](#go)
@@ -43,16 +43,6 @@ By William Durand
 
 - [website](http://williamdurand.fr/TravisLight/)
 - [source code](https://github.com/willdurand/TravisLight)
-
-### TravisWall
-
-![travis-wall](/images/apps/travis-wall.jpg){:.app}
-
-Online build monitoring tool for public/private repos<br>
-By Eric Geloen
-
-- [website](http://egeloen.fr/travis-wall/)
-- [source code](https://github.com/egeloen/travis-wall)
 
 ### Team Dashboard
 
@@ -168,13 +158,13 @@ By Tim Felgentreff
 
 If you are looking for **desktop notifications**, our command line client [supports them](https://github.com/travis-ci/travis.rb#monitor).
 
-## Mac OS X
+## macOS
 
 ### CCMenu
 
 ![CCMenu](/images/apps/ccmenu.jpg){:.app}
 
-OS X status bar app<br>
+macOS status bar app<br>
 By ThoughtWorks Inc.
 
 - [website](http://ccmenu.org/)

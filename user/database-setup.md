@@ -356,7 +356,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on OS X or Ubuntu Trusty infrastructure.
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on macOS or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 

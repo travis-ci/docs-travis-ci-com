@@ -167,7 +167,7 @@ RSpec.configure do |c|
 end
 ```
 
-## Mac: OS X Mavericks (10.9) Code Signing Errors
+## Mac: macOS Mavericks (10.9) Code Signing Errors
 
 With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
 
@@ -192,7 +192,7 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
-Your build is running on macOS Sierra (10.12) if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the OS X Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
+Your build is running on macOS Sierra (10.12) if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the macOS Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
 
 The following lines in your build log possibly indicate an occurrence of this issue:
 

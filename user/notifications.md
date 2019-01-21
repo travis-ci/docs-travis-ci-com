@@ -331,7 +331,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-- *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit '<https://your-subdomain.campfirenow.com'>)
+- *subdomain*: is your campfire subdomain (i.e. `your-subdomain` if you visit `https://your-subdomain.campfirenow.com`)
 - *api token*: is the token of the user you want to use to post the notifications.
 - *room id*: this is the room id, not the name.
 

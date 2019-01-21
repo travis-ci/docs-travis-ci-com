@@ -329,7 +329,7 @@ $ travis bash
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 ```
 
-If you need to boot more worker machines, please see our docs about [installing new worker machines](/user/enterprise/installation/#install-travis-ci-worker).
+If you need to boot more worker machines, please see our docs about [installing new worker machines](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine).
 
 ## Integrate Travis CI Enterprise into your monitoring
 

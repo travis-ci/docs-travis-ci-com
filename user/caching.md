@@ -191,9 +191,9 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OS X
+#### ccache on macOS
 
-ccache is not installed on OS X environments but you can install it by adding
+ccache is not installed on macOS environments but you can install it by adding
 
 ```yaml
 install:
@@ -417,7 +417,7 @@ These factors are:
 
 1. OS name (currently, `linux` or `osx`)
 2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
-3. OS X image name (e.g., `xcode7.2`)
+3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 5. Language runtime version (for the language specified in the `language` key) if applicable
 6. For Bundler-aware jobs, the name of the `Gemfile` used
