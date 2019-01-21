@@ -1,7 +1,9 @@
 ---
 title: Legacy GitHub Services to GitHub Apps Migration Guide
 layout: en
-redirect_from: user/travis-migrate-to-apps-gem-guide/
+redirect_from:
+  - user/travis-migrate-to-apps-gem-guide/
+  - user/legacy-services-to-github-apps-migration-guide/
 ---
 
 As of May 2, 2018 we are moving toward having repositories integrated via a GitHub App instead of GitHub Services which [will no longer be supported by GitHub as of January 31st, 2018](https://developer.github.com/v3/guides/replacing-github-services/#deprecation-timeline).
@@ -20,7 +22,7 @@ You will be redirected on the Travis CI GitHub App page on GitHub, with the repo
 
 ![Travis CI GitHub App page](/images/migrate/github-app-page.png)
 
-If you'd like to activate all your current and future repositories, choose **"All repositories"** so that your projects start building as soon as they're configured with a `.travis.yml` file.
+If you'd like to activate all your current and future repositories, choose **"All repositories"** so that your projects start building as soon as they're configured with a `.travis.yml file."
 
 After that, click the **"Approve & Install"** button.
 
