@@ -8,6 +8,8 @@ redirect_from:
 
 As of May 2, 2018 we are moving toward having repositories integrated via a GitHub App instead of GitHub Services which [will no longer be supported by GitHub as of January 31st, 2018](https://developer.github.com/v3/guides/replacing-github-services/#deprecation-timeline).
 
+*Note:* While this process is ongoing, we have been migrating from GitHub services to webhooks on the https://travis-ci.org enabled repositories. The closure of GitHub services *will not affect your repositories even if you are currently on .org*.
+
 The following guide shows you how to migrate your private repository to the Travis CI GitHub App.
 
 ## How to migrate a private repository to GitHub Apps
