@@ -62,6 +62,15 @@ script:
 ```
 {: data-file=".travis.yml"}
 
+You can also specify the stable release of Python 3.7 on our Xenial build images:
+
+```yaml
+dist: xenial
+language: python
+python: 3.7
+```
+{: data-file=".travis.yml"}
+
 
 ### Travis CI Uses Isolated virtualenvs
 
