@@ -41,7 +41,7 @@ New repositories should be activated on [travis-ci.com] for both open source and
 
 Open source projects and their build history will continue to run on `travis-ci.org` at this time.
 
-However, you can be included  in the closed beta testing to start migrating your open source repositories.
+However, you can be included  in the closed beta testing to start migrating your open source repositories to `travis-ci.com`.
 
  1. To have any public repository migrated over, it must be first activated on [travis-ci.com] using GitHub Apps.
 

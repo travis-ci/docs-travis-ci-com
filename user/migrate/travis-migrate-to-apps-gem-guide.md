@@ -34,7 +34,7 @@ Take care of copying the newly generated token and save it for later usage.
 
 ### 3. Activate the Travis CI GitHub Apps integration with 1 repo
 
-Go to your account Repositories page on Travis CI: [https://travis-ci.com/account/repositories](https://travis-ci.com/account/repositories)
+Go to your repositories page on travis-ci.com: [https://travis-ci.com/account/repositories](https://travis-ci.com/account/repositories)
 
 Click the "Activate GitHub Apps Integration" button highlighted below:
 
