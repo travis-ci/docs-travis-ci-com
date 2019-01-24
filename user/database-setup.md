@@ -422,7 +422,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Cassandra is provided by [Datastax Community Edition](http://www.datastax.com/products/community) and uses the default configuration. It is available on 127.0.0.1.
+Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
 
 ### Installing older versions of Cassandra
 
