@@ -12,7 +12,7 @@ As of May 2, 2018 we are moving toward having repositories integrated via a GitH
 
 The following guide shows you how to migrate your private repository to the Travis CI GitHub App.
 
-## How to migrate a private repository to GitHub Apps
+## Migrating private repositories to GitHub Apps
 
 Go to your repositories page on travis-ci.com: [https://travis-ci.com/account/repositories](https://travis-ci.com/account/repositories).
 
@@ -32,12 +32,10 @@ You'll be redirected to your Travis CI profile page and the migrated repositorie
 
 ![travis-ci.com profile page with GitHub App integration](/images/migrate/github-app-repo.png)
 
-## More options
+### Migrating more than 50 private repositories
 
-### All repositories
+If your organization has more than **50 active repositories** to migrate to the GitHub Apps integration, check how to use the [travis_migrate_to_apps gem](/user/migrate/travis-migrate-to-apps-gem-guide/).
 
-If your organization would like to activate all current and future repositories to use GitHub Apps, please go to GitHub to [Install the Travis CI GitHub App here](https://github.com/apps/travis-ci/installations/new), choose your organization and then, select **All repositories**.
+## Migrating and activating all repositories
 
-### More than 50 private repositories to migrate
-
-If your organization has more than **50 active repositories** to migrate to the GitHub Apps integration, [check how to use the travis_migrate_to_apps gem](/user/migrate/travis-migrate-to-apps-gem-guide/).
+If your organization would like to migrate all current repositories using webhooks and setup future repositories to use GitHub Apps, please go to GitHub to [Install the Travis CI GitHub App here](https://github.com/apps/travis-ci/installations/new), choose your organization and then, select **All repositories**.
