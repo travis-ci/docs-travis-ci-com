@@ -1,6 +1,7 @@
 ---
 title: Beta - Migrating repositories to travis-ci.com
 layout: en
+redirect_from: user/open-source-repository-migration/
 ---
 
 On May 2nd, 2018 Travis CI announced that open source projects will be [joining private projects on travis-ci.com](/user/open-source-on-travis-ci-com)!
@@ -102,7 +103,7 @@ If you'd like to automate your migration process, it's also possible to migrate 
    -H "Accept: application/json" \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token {API_TOKEN}" \
-   --data '' \ 
+   --data '' \
    https://api.travis-ci.com/repo/{REPO_OWNER}%2F{REPO_NAME}/migrate
 ```
 
