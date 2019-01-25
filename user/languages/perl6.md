@@ -19,7 +19,7 @@ Perl 6 builds are not available on the macOS environment.
 
 ### Community-Supported Warning
 
-Travis CI support forPerl 6 is contributed by the community and may be removed or
+Travis CI support for Perl 6 is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:perl6)
 and cc {% for m in page.maintainers %}<a href="https://github.com/{{m}}">@{{m}}</a> {% endfor %}.
