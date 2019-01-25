@@ -11,6 +11,24 @@ maintainers:
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| Perl 6                                      | Default                                    |
+|:--------------------------------------------|:-------------------------------------------|
+| [Default `install`](#dependency-management) | N/A                                        |
+| [Default `script`](#default-build-script)   | `PERL6LIB=lib prove -v -r --exec=perl6 t/` |
+| [Matrix keys](#build-matrix)                | `env`, `perl6`                             |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/perl6) |
+
+Minimal example:
+
+```yaml
+language: perl6
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to
 Perl 6 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
@@ -59,14 +77,6 @@ backend.  Future support for the
 If you leave the `perl6` key out of your `.travis.yml`, Travis CI will build
 Rakudo Perl 6 from the latest commit from the project's `master` branch.
 
-## Default Test Script
-
-By default, the following command will be used to run the project's tests:
-
-```
-PERL6LIB=lib prove -v -r --exec=perl6 t/
-```
-
 ## Dependency Management
 
 ### There is currently no automated dependency management
@@ -97,11 +107,6 @@ commands, do not use sudo.  Travis CI Environment has Perl 6 versions
 installed via rakudobrew in a non-privileged user `$HOME` directory. Using
 sudo will result in dependencies being installed in unexpected (for the
 Travis CI Perl 6 builder) locations and they won't load.
-
-## Build Matrix
-
-For Perl 6 projects, `env` and `perl6` can be given as arrays to construct a
-build matrix. (As yet untested).
 
 ## Environment Variable
 
