@@ -103,12 +103,6 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-
-## Build Matrix
-
-For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
-to construct a build matrix.
-
 ## Default commands
 
 By default, the install command is

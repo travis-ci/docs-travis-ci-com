@@ -65,11 +65,6 @@ By default Travis CI uses `cabal` to manage your project's dependencies:
 cabal install --only-dependencies --enable-tests
 ```
 
-## Build Matrix
-
-For Haskell projects, `env` and `ghc` can be given as arrays
-to construct a build matrix.
-
 ### Multiple Packages in Subdirectories
 
 If you have multiple packages in subdirectories (each containing a `.cabal` file,

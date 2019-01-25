@@ -15,7 +15,7 @@ This guide covers build environment and configuration topics specific to Nix pro
 Travis CI support for Nix is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:nix)
-and cc @domenkozar @garbas @matthewbauer and @grahamc.
+and cc [@domenkozar](https://github.com/domenkozar), [@garbas](https://github.com/garbas), [@matthewbauer](https://github.com/matthewbauer), and [@grahamc](https://github.com/grahamc).
 
 ## Overview
 

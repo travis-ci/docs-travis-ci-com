@@ -109,11 +109,6 @@ to either `gcc` or `clang`.
 On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
 Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
-## Build Matrix
-
-For C++ projects, `env` and `compiler` can be given as arrays
-to construct a build matrix.
-
 ## Examples
 
 - [Rubinius](https://github.com/rubinius/rubinius/blob/master/.travis.yml)

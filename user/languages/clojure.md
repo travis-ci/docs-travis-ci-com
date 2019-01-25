@@ -225,11 +225,6 @@ and move on to install your project's dependencies.
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
-## Build Matrix
-
-For Clojure projects, `env`, `lein`, and `jdk` can be given as arrays
-to construct a build matrix.
-
 ## Examples
 
 - [monger's .travis.yml](https://github.com/michaelklishin/monger/blob/master/.travis.yml)

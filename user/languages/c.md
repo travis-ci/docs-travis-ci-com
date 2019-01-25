@@ -106,11 +106,6 @@ point to either `gcc` or `clang`.
 
 On macOS, `gcc` is an alias for `clang`. Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
-## Build Matrix
-
-For C projects, `env` and `compiler` can be given as arrays
-to construct a build matrix.
-
 ## OpenMP projects
 
 OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a

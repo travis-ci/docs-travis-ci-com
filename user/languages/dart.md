@@ -6,6 +6,24 @@ layout: en
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| Dart                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#dependency-management) | `pub get`                                 |
+| [Default `script`](#default-build-script)   | `pub run test`                            |
+| [Matrix keys](#build-matrix)                | `dart`, `dart_task`, `env`                |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/dart) |
+
+Minimal example:
+
+```yaml
+language: dart
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to
 [Dart](https://www.dartlang.org/) projects. Please make sure to read our
 [Tutorial](/user/tutorial/) and
@@ -16,7 +34,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Dart is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:dart)
-and cc `@nex3` and `@a14n`.
+and cc [@nex3](https://github.com/nex3) and [@a14n](https://github.com/a14n).
 
 ## Choosing Dart versions to test against
 
@@ -39,15 +57,7 @@ dart:
 ```
 {: data-file=".travis.yml"}
 
-This creates a separate Travis job for each Dart version. It can be used in
-conjunction with `env` or similar fields to create a [build matrix][].
-
 [build matrix]: /user/customizing-the-build/#build-matrix
-
-## Dependency Management
-
-If your Dart package has a `pubspec.yaml` file, then `pub get` will be run
-before your tests to install any dependencies of the package.
 
 ## Running Tests
 
@@ -68,9 +78,6 @@ dart_task:
 - test: --platform chrome
 ```
 {: data-file=".travis.yml"}
-
-Each task creates a separate Travis job. It can be used in conjunction with
-`env`, `dart`, or similar fields to create a [build matrix][].
 
 ### Available Browsers
 

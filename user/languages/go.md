@@ -202,11 +202,6 @@ script: scons
 ```
 {: data-file=".travis.yml"}
 
-## Build Matrix
-
-For Go projects, `env` and `go` can be given as arrays
-to construct a build matrix.
-
 ## Environment Variable
 
 The version of Go a job is using is available as:

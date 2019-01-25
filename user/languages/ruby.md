@@ -387,8 +387,3 @@ before_install:
 
 Note that this will impact your overall test time, as additional network
 downloads and installations are required.
-
-## Build Matrix
-
-For Ruby projects, `env`, `rvm`, `gemfile`, and `jdk` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#build-matrix).
