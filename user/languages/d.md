@@ -33,9 +33,9 @@ sure to read our [Tutorial](/user/tutorial/) and
 D is a community-supported language in Travis CI. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
 [@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach).
-Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org), or
+Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org),
 [LDC's issue tracker](https://github.com/ldc-developers/ldc/issues), or
-[GDC's issue tracker](https://bugzilla.gdcproject.org)
+[GDC's issue tracker](https://bugzilla.gdcproject.org).
 [DUB](https://github.com/dlang/dub) related problems should be reported to [DUB's issue tracker](https://github.com/dlang/dub/issues).
 
 ## Choosing compilers to test against
