@@ -94,22 +94,6 @@ For dependency management, Elm projects use the same logic as Node.js projects.
 See [Node.js documentation](/user/languages/javascript-with-nodejs/#dependency-management)
 for details.
 
-## Default Build Script
-
-The default command for testing Elm projects is:
-
-```bash
-elm-format --validate . && elm-test
-```
-
-You may override this with `script`:
-
-```yaml
-language: elm
-script: elm-test
-```
-{: data-file=".travis.yml"}
-
 ## Environment Variables
 
 * The version of Elm a job is using is available as `TRAVIS_ELM_VERSION`.

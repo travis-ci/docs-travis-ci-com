@@ -56,30 +56,6 @@ install: make get-deps
 
 See [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build command is:
-
-
-```bash
-./configure && make && make test
-```
-
-Projects that find this sufficient can use a very minimalistic `.travis.yml` file:
-
-```yaml
-language: cpp
-```
-{: data-file=".travis.yml"}
-
-You can change the build script as described in the [build
-configuration](/user/customizing-the-build/) guide:
-
-```yaml
-script: scons
-```
-{: data-file=".travis.yml"}
-
 ## Choosing compilers to test against
 
 You can test projects against either GCC or Clang, or both. To do so,

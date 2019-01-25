@@ -58,21 +58,7 @@ install: lein protobuf install
 
 See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build script is:
-
-```bash
-lein test
-```
-{: data-file=".travis.yml"}
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
-
-```yaml
-language: clojure
-```
-{: data-file=".travis.yml"}
+## Build Script
 
 ### Using Midje
 
