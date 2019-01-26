@@ -59,16 +59,10 @@ d:
 ```
 
 ```yml
-# latest dmd and ldc-0.15.1
-d:
-  - dmd
-  - ldc-0.15.1
-```
-
-```yml
-# dmd nightlies and beta of dmd, ldc
+# nightlies and betas of dmd, ldc
 d:
   - dmd-nightly
+  - ldc-latest-ci
   - dmd-beta
   - ldc-beta
 ```
