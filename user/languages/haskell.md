@@ -18,6 +18,7 @@ layout: en
 Minimal example:
 
 ```yaml
+language: haskell
 ghc:
   - "7.8"
 ```
@@ -41,6 +42,7 @@ You can specify one or more GHC versions using `major.minor` notation. Patch
 level versions (`7.6.2` for example) may change any time:
 
 ```yaml
+language: haskell
 ghc:
   - "7.10"
   - "7.8"
@@ -63,6 +65,7 @@ If you have multiple packages in subdirectories (each containing a `.cabal` file
 you can specify those directories in an environment variable:
 
 ```yaml
+language: haskell
 ghc:
   - "7.10"
   - "7.8"
