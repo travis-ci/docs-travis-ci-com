@@ -388,11 +388,6 @@ virtual host as usual, the important part for php-fpm is this:
 </VirtualHost>
 ```
 
-## Build Matrix
-
-For PHP projects, `env` and `php` can be given as arrays
-to construct a build matrix.
-
 ## Examples
 
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)

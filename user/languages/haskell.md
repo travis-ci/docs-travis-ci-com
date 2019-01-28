@@ -51,14 +51,6 @@ ghc:
 ```
 {: data-file=".travis.yml"}
 
-## Default Build Script
-
-The default Haskell build script is:
-
-```bash
-cabal configure --enable-tests && cabal build && cabal test
-```
-
 ## Dependency Management
 
 By default Travis CI uses `cabal` to manage your project's dependencies:
@@ -66,11 +58,6 @@ By default Travis CI uses `cabal` to manage your project's dependencies:
 ```bash
 cabal install --only-dependencies --enable-tests
 ```
-
-## Build Matrix
-
-For Haskell projects, `env` and `ghc` can be given as arrays
-to construct a build matrix.
 
 ### Multiple Packages in Subdirectories
 

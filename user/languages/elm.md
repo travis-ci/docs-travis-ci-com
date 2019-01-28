@@ -17,7 +17,7 @@ This guide covers build environment and configuration topics specific to
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#dependency-management) | `npm install`                             |
 | [Default `script`](#default-build-script)   | `elm-format --validate . && elm-test`     |
-| [Matrix keys](#build-matrix)                | `elm`, `node_js`                          |
+| [Matrix keys](#build-matrix)                | `elm`, `env`, `node_js`                   |
 | Support                                     | [Community Support](https://travis-ci.community/c/languages/elm) |
 
 Minimal example:
@@ -93,27 +93,6 @@ The default Node.js version is `10.13.0`.
 For dependency management, Elm projects use the same logic as Node.js projects.
 See [Node.js documentation](/user/languages/javascript-with-nodejs/#dependency-management)
 for details.
-
-## Default Build Script
-
-The default command for testing Elm projects is:
-
-```bash
-elm-format --validate . && elm-test
-```
-
-You may override this with `script`:
-
-```yaml
-language: elm
-script: elm-test
-```
-{: data-file=".travis.yml"}
-
-## Build Matrix
-
-For Elm projects, `env`, `elm`, and `node_js` can be used as arrays
-to construct a build matrix.
 
 ## Environment Variables
 

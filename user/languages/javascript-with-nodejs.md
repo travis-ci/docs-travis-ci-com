@@ -298,11 +298,6 @@ before_script:
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
 
-## Build Matrix
-
-For JavaScript/Node.js projects, `env` and `node_js` can be used as arrays
-to construct a build matrix.
-
 ## Node.js v4 (or io.js v3) compiler requirements
 
 To compile native modules for io.js v3 or Node.js v4 or later, a [C++11

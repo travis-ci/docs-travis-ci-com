@@ -6,6 +6,24 @@ layout: en
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| C#                                          | Default                                              |
+|:--------------------------------------------|:-----------------------------------------------------|
+| [Default `install`](#dependency-management) | `nuget restore solution-name.sln`                    |
+| [Default `script`](#default-build-script)   | `msbuild /p:Configuration=Release solution-name.sln` |
+| [Matrix keys](#build-matrix)                | `dotnet`, `env`, `mono`, `solution`                  |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/37-category) |
+
+Minimal example:
+
+```yaml
+language: csharp
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
@@ -30,36 +48,7 @@ solution: solution-name.sln
 ```
 {: data-file=".travis.yml"}
 
-When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
-
-## Script
-
-By default Travis will run `msbuild /p:Configuration=Release solution-name.sln`. MSBuild is a free and open-source build tool set for managed code as well as native C++ code and was part of .NET Framework.
-To override this, you can set the `script` key like this:
-
-```yaml
-language: csharp
-solution: solution-name.sln
-script:    # the following commands are just examples, use whatever your build process requires
-  - ./build.sh
-  - ./test.sh
-  - grep "Test Results" build.log
-```
-{: data-file=".travis.yml"}
-
-## NuGet
-
-By default, Travis will run `nuget restore solution-name.sln` in the `install` step, which restores all NuGet packages from your solution file.
-To override this (e.g. if you want to install additional packages), you can set the `install` attribute like this:
-
-```yaml
-language: csharp
-solution: solution-name.sln
-install:
-  - sudo apt-get install -y gtk-sharp2
-  - nuget restore solution-name.sln
-```
-{: data-file=".travis.yml"}
+When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution.
 
 ## Choosing Runtime and Version to Test Against
 
@@ -125,10 +114,6 @@ matrix:
 ...
 ```
 {: data-file=".travis.yml"}
-
-## Build Matrix
-
-For C#, F#, and Visual Basic projects, `mono` and `dotnet` can be given as an array to construct a build matrix.
 
 ## Addons
 
