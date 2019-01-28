@@ -14,7 +14,7 @@ swiftypetags:
 
 | Go                                          | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#dependency-management) | `go get -t -v ./...`                         |
+| [Default `install`](#dependency-management) | `go get -t -v ./...`                      |
 | [Default `script`](#default-build-script)   | `make` or `go test`                       |
 | [Matrix keys](#build-matrix)                | `go`, `env`                               |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
@@ -26,6 +26,7 @@ Minimal example:
   go:
     - "1.10"
 ```
+{: data-file=".travis.yml"}
 
 Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string),
 not `go: 1.10` (a float).

@@ -20,7 +20,7 @@ Minimal example:
 ```yaml
 language: cpp
 ```
-
+{: data-file=".travis.yml"}
 </aside>
 
 {{ site.data.snippets.trusty_note }}

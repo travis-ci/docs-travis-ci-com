@@ -8,12 +8,12 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-| Elixir            | Default                                   |
-|:------------------|:------------------------------------------|
+| Elixir            | Default                                                        |
+|:------------------|:---------------------------------------------------------------|
 | Typical `install` | `mix local.rebar --force; mix local.hex --force; mix deps.get` |
-| Typical `script`  | `mix test`                                |
-| Matrix keys       | `env`, `elixir`, `otp_release`            |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Typical `script`  | `mix test`                                                     |
+| Matrix keys       | `env`, `elixir`, `otp_release`                                 |
+| Support           | [Travis CI](mailto:support@travis-ci.com)                      |
 
 Minimal example:
 
