@@ -168,7 +168,7 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 ## Configuring IRC notifications
 
 You can also send notifications to an IRC channel.
-Notifications are sent from `travis-ci`, which auto-authenticates on most servers.
+Notifications are sent from `travis-ci`, which auto-authenticates on Freenode.
 
 ```yaml
 notifications:
