@@ -5,7 +5,7 @@ layout: en
 ---
 
 Travis CI can automatically upload your build artifacts to Amazon S3 at the
-end of the job, after the [`after script`](/user/job-lifecycle/) phase.
+end of the job, after the [`after_script`](/user/job-lifecycle/) phase.
 
 > Note that the artifacts addon is not available for pull request builds.
 
