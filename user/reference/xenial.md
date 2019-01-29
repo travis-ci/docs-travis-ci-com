@@ -44,17 +44,17 @@ addons:
 
 If you depend on these repositories in your build, you can use the following `source` line to get them back:
 
-| package       | source                       |
-|:--------------|:-----------------------------|
-| couchdb       | `ppa:couchdb/stable`         |
-| docker        | `docker-xenial`              |
-| google_chrome | `google-chrome`              |
-| git-lfs       | `github-git-lfs-xenial`      |
-| git-ppa       | `ppa:git-core/ppa`           |
-| haskell       | `ppa:hvr/ghc`                |
-| mongodb       | `mongodb-4.0-xenial`         |
-| pollinate     | `ppa:pollinate/ppa`          |
-| redis         | `ppa:chris-lea/redis-server` |
+| package              | source                       |
+|:---------------------|:-----------------------------|
+| couchdb              | `ppa:couchdb/stable`         |
+| docker               | `docker-xenial`              |
+| google-chrome-stable | `google-chrome`              |
+| git-lfs              | `github-git-lfs-xenial`      |
+| git-ppa              | `ppa:git-core/ppa`           |
+| haskell              | `ppa:hvr/ghc`                |
+| mongodb              | `mongodb-4.0-xenial`         |
+| pollinate            | `ppa:pollinate/ppa`          |
+| redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
 
 ### Services disabled by default
