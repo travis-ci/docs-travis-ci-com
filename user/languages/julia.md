@@ -16,7 +16,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc `@ararslan @staticfloat @StefanKarpinski`.
+and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
 ## Choosing Julia versions to test against
 
@@ -60,7 +60,7 @@ If your repository contains `JuliaProject.toml` or `Project.toml` file, and you 
 building on Julia v0.7 or later, the default build script will be:
 ```julia
 using Pkg
-Pkg.build()
+Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
 Pkg.test(coverage=true)
 ```
 
@@ -70,7 +70,7 @@ if VERSION >= v"0.7.0-DEV.5183"
     using Pkg
 end
 Pkg.clone(pwd())
-Pkg.build("$pkgname")
+Pkg.build("$pkgname") # Pkg.build("$pkgname"; verbose = true) for Julia 1.1 and up
 Pkg.test("$pkgname", coverage=true)
 ```
 where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.

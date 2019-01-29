@@ -186,12 +186,13 @@ before_install:
 
 #### Caching with `yarn`
 
-You can cache `$HOME/.cache/yarn` with:
-
 ```yaml
 cache: yarn
 ```
 {: data-file=".travis.yml"}
+
+will add `yarn`'s default caching directory (which varies depending on the OS),
+as indicated by [`yarn cache dir`](https://yarnpkg.com/en/docs/cli/cache#toc-yarn-cache-dir).
 
 If your caching needs to include other directives, you can use:
 
@@ -296,11 +297,6 @@ before_script:
 {: data-file=".travis.yml"}
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
-
-## Build Matrix
-
-For JavaScript/Node.js projects, `env` and `node_js` can be used as arrays
-to construct a build matrix.
 
 ## Node.js v4 (or io.js v3) compiler requirements
 

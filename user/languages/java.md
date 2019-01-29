@@ -249,11 +249,6 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-## Build Matrix
-
-For Java projects, `env` and `jdk` can be given as arrays
-to construct a build matrix.
-
 ## Examples
 
 - [JRuby](https://github.com/jruby/jruby/blob/master/.travis.yml)

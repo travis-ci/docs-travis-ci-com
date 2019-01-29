@@ -18,7 +18,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-If you need to run multiple commands, write a executable wrapper script that runs them all.
+If you need to run multiple commands, write a executable wrapper script that runs them all. The argument to `script:` in the script deployment provider needs to be a single command.
 
 If the script returns a nonzero status, deployment is considered
 a failure, and the build will be marked as "errored".

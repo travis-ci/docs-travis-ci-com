@@ -103,28 +103,6 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-
-## Build Matrix
-
-For elixir projects, `env`, `elixir` and `otp_release` can be given as arrays
-to construct a build matrix.
-
-## Default commands
-
-By default, the install command is
-
-```bash
-mix local.rebar --force # for Elixir 1.3.0 and up
-mix local.hex --force
-mix deps.get
-```
-
-and the script command is
-
-```bash
-mix test
-```
-
 ## Environment Variables
 
 The version of Elixir a job is using is available as:

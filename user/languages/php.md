@@ -74,7 +74,7 @@ If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
 
-### HHVM versions
+### HHVM versions are available on Trusty only
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
@@ -387,11 +387,6 @@ virtual host as usual, the important part for php-fpm is this:
   # [...]
 </VirtualHost>
 ```
-
-## Build Matrix
-
-For PHP projects, `env` and `php` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

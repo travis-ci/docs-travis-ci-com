@@ -124,11 +124,6 @@ JDKs](/user/languages/java/#testing-against-multiple-jdks).
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
 
-## Build Matrix
-
-For Scala projects, `env`, `scala`, and `jdk` can be given as arrays
-to construct a build matrix.
-
 ## Environment Variable
 
 The version of Scala a job is using is available as:

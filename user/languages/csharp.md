@@ -6,6 +6,24 @@ layout: en
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| C#                                          | Default                                              |
+|:--------------------------------------------|:-----------------------------------------------------|
+| [Default `install`](#dependency-management) | `nuget restore solution-name.sln`                    |
+| [Default `script`](#default-build-script)   | `msbuild /p:Configuration=Release solution-name.sln` |
+| [Matrix keys](#build-matrix)                | `dotnet`, `env`, `mono`, `solution`                  |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/37-category) |
+
+Minimal example:
+
+```yaml
+language: csharp
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
@@ -30,40 +48,11 @@ solution: solution-name.sln
 ```
 {: data-file=".travis.yml"}
 
-When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution. You can also specify your own scripts, as shown in the next section.
+When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution.
 
-### Script
+## Choosing Runtime and Version to Test Against
 
-By default Travis will run `msbuild /p:Configuration=Release solution-name.sln`. MSBuild is a free and open-source build tool set for managed code as well as native C++ code and was part of .NET Framework.
-To override this, you can set the `script` key like this:
-
-```yaml
-language: csharp
-solution: solution-name.sln
-script:    # the following commands are just examples, use whatever your build process requires
-  - ./build.sh
-  - ./test.sh
-  - grep "Test Results" build.log
-```
-{: data-file=".travis.yml"}
-
-### NuGet
-
-By default, Travis will run `nuget restore solution-name.sln` in the `install` step, which restores all NuGet packages from your solution file.
-To override this (e.g. if you want to install additional packages), you can set the `install` attribute like this:
-
-```yaml
-language: csharp
-solution: solution-name.sln
-install:
-  - sudo apt-get install -y gtk-sharp2
-  - nuget restore solution-name.sln
-```
-{: data-file=".travis.yml"}
-
-### Choosing Runtime and Version to Test Against
-
-#### Mono
+### Mono
 
 By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against latest, 3.12.0 and 3.10.0:
 
@@ -91,7 +80,7 @@ You can choose from the following Mono versions:
 
 **Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
-#### .NET Core
+### .NET Core
 
 By default, Travis CI does not test against .NET Core. To test against .NET Core, add the following to your `.travis.yml`. Note that at least one `script` `<command>` is required in order to build. Using `dotnet restore` is a good default.
 
@@ -108,7 +97,7 @@ script:
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
 
-### Testing Against Mono and .NET Core
+## Testing Against Mono and .NET Core
 
 You can test against both Mono and .NET Core by using `matrix.include`. This example tests against both the latest mono and .NET Core:
 
@@ -126,21 +115,17 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-### Build Matrix
-
-For C#, F#, and Visual Basic projects, `mono` and `dotnet` can be given as an array to construct a build matrix.
-
-### Addons
+## Addons
 
 The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
  
-### Running Unit Tests (NUnit, xunit, etc.)
+## Running Unit Tests (NUnit, xUnit, etc.)
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
 The following examples show how you'd override `install` and `script` to install a test runner and pass your test assemblies to it for running the tests.
 
-#### NUnit
+### NUnit
 
 ```yaml
 language: csharp
@@ -150,11 +135,11 @@ install:
   - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release solution-name.sln
-  - mono ./testrunner/NUnit.Runners.3.9.0/tools/nunit-console3.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./MyProject.Tests/bin/Release/MyProject.Tests.dll
 ```
 {: data-file=".travis.yml"}
 
-#### xunit
+### xUnit
 
 ```yaml
 language: csharp
@@ -168,9 +153,9 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-> *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xunit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
+> *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xUnit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
-#### Using Solution-Level NuGet Packages
+### Using Solution-Level NuGet Packages
 
 Another way is to add the console testrunner of your choice as a solution-level NuGet package.
 
@@ -189,7 +174,7 @@ script:
 
 Notice the use of filename expansion (the `*`) in order to avoid having to hard code the version of the test runner.
 
-#### MSTest
+### MSTest
 
 The [MSTest framework](https://www.nuget.org/packages/MSTest.TestFramework/) is supported when testing against .NET Core. Example:
 
@@ -205,6 +190,3 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-#### Other Test Frameworks
-
-If you're using other test frameworks the process is similar.
