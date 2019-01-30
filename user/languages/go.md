@@ -42,7 +42,7 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 
 You can use any tagged version of Go, a version with `x` in place of the minor
 or patch level to use the latest for a given major or minor version, or use
-`master` to get the latest version from source. To use the latest stable release 
+`master` to get the latest version from source. To use the latest stable release,  
 use `stable`. All go version management is handled by [gimme](https://github.com/travis-ci/gimme).
 
 *Please note*: When using `master`, this performs a git checkout installation because 
