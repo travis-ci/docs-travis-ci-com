@@ -13,11 +13,11 @@ maintainers:
 
 <aside markdown="block" class="ataglance">
 
-| Perl 6                                      | Default                                    |
-|:--------------------------------------------|:-------------------------------------------|
-| [Default `install`](#dependency-management) | N/A                                        |
-| [Default `script`](#default-build-script)   | `PERL6LIB=lib prove -v -r --exec=perl6 t/` |
-| [Matrix keys](#build-matrix)                | `env`, `perl6`                             |
+| Perl 6                                      | Default                                                            |
+|:--------------------------------------------|:-------------------------------------------------------------------|
+| [Default `install`](#dependency-management) | N/A                                                                |
+| [Default `script`](#default-build-script)   | `PERL6LIB=lib prove --ext .t --ext .t6 -v -r --exec=perl6 t/`      |
+| [Matrix keys](#build-matrix)                | `env`, `perl6`                                                     |
 | Support                                     | [Community Support](https://travis-ci.community/c/languages/perl6) |
 
 Minimal example:
@@ -157,6 +157,6 @@ library code under `lib/` and the tests under `t/`.
 language: perl6
 
 script:
-    - PERL6LIB=src prove -v -r --exec=perl6 tests/
+    - PERL6LIB=src prove --ext .t --ext .t6 -v -r --exec=perl6 tests/
 ```
 {: data-file=".travis.yml"}
