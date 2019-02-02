@@ -189,6 +189,26 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+If you're using `docker-compose` to integrate with externals tools, like coveralls, make sure you repass the required environment variables.
+
+```yaml
+  test:
+    command: busted -c
+    environment:
+      - TRAVIS=true
+      - CI=true
+      - TRAVIS_JOB_ID=${TRAVIS_JOB_ID}
+      - TRAVIS_BRANCH=${TRAVIS_BRANCH}
+      - TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG}
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - ".:/lua/"
+    working_dir: "/lua"
+```
+
+
 ## Installing a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
@@ -219,3 +239,4 @@ addons:
 
 - [heroku/logplex](https://github.com/heroku/logplex/blob/master/.travis.yml) (Heroku log router)
 - [kartorza/docker-pg-backup](https://github.com/kartoza/docker-pg-backup/blob/master/.travis.yml) (A cron job that will back up databases running in a docker PostgreSQL container)
+
