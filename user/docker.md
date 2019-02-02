@@ -189,7 +189,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-If you're using `docker-compose` to integrate with externals tools, like coveralls, make sure you repass the required environment variables.
+If you're using `docker-compose` to integrate with externals tools, like coveralls, make sure you repass the required environment variables, here's a simple example of a docker-compose.yml file.
 
 ```yaml
   test:
