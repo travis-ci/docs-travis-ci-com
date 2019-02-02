@@ -253,7 +253,52 @@ $ sudo certbot renew
 $ replicatedctl app start
 ```
 
-In general: These certificate renewals should be automated with a cron job.
+Automate renewal with a cron job
+
+Create a file such as `/home/ubuntu/renew-certs.sh` with the following in it:
+
+```
+#!/bin/bash
+
+set -u
+
+function usage() {
+  echo
+  echo "Usage: $(basename $0)"
+  echo
+  echo "Simple script to renew certs, should be used via a cron. Assumes that certs are already set up."
+  echo
+  echo "See https://docs.travis-ci.com/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate for initial setup info."
+  echo
+
+  exit 1
+}
+
+if [[ $# -ne 0 ]]; then
+  usage
+fi
+
+replicatedctl app stop
+sudo certbot renew
+replicatedctl app start
+```
+
+You'll then want to create a cronjob by using your favorite text editor, for example:
+
+```
+nano /etc/crontab
+```
+
+Then add the below to the file that you've just opened in your text editor. Make sure to replay the `Year-Month-Day` with the ones that apply to the certificate you are creating.
+
+```
+# Renews certs every 90 days. Certs were regenerated on Year-Month-Day so the next renewal should be Year-Month-Day.
+0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
+```
+
+**Note: Be aware that this process will also introduce downtime.**
+
+Make sure to plan to communicate with your users every time this downtime will happen so they are aware that their builds will temporarily be stopped until the certificate gets renewed and your Travis CI Enterprise installation comes back online.
 
 ## Uninstall Travis CI Enterprise
 
