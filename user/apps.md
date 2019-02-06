@@ -425,6 +425,7 @@ By Sankarsan Kampa
 ## Ruby
 
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
+- [trav3](https://github.com/danielpclark/trav3) by Daniel P. Clark
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
 - [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
