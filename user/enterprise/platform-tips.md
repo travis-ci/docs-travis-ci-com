@@ -290,10 +290,11 @@ You'll then want to create a cronjob by using your favorite text editor, for exa
 nano /etc/crontab
 ```
 
-Then add the below to the file that you've just opened in your text editor. Make sure to replay the `Year-Month-Day` with the ones that apply to the certificate you are creating.
+Then append the below to the file that you've just opened in your text editor. Make sure adjust the configuration with values that apply to the certificate you are creating.
 
 ```
-# Renews certs every 90 days. Certs were regenerated on Year-Month-Day so the next renewal should be Year-Month-Day.
+# Renews certs at 2am on the 1st of February, May, August, and November.
+# Please change the configuration that applies to the certificate you are creating.
 0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
 ```
 
