@@ -124,7 +124,7 @@ repository settings web page or locally via the Travis CLI, e.g.:
 
 ```bash
 travis env set DOCKER_USERNAME myusername
-travis env set DOCKER_PASSWORD secretsecret
+travis env set DOCKER_PASSWORD 'secretsecret'
 ```
 
 Be sure to [encrypt environment variables](/user/environment-variables#encrypting-environment-variables)
