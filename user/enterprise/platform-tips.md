@@ -257,32 +257,32 @@ $ replicatedctl app start
 
 1. Create `/home/ubuntu/renew-certs.sh` containing the following script:
 
-```sh
-#!/bin/bash
+    ```sh
+    #!/bin/bash
 
-set -u
+    set -u
 
-function usage() {
-  echo
-  echo "Usage: $(basename $0)"
-  echo
-  echo "Simple script to renew certs, should be used via a cron. Assumes that certs are already set up."
-  echo
-  echo "See https://docs.travis-ci.com/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate for initial setup info."
-  echo
+    function usage() {
+      echo
+      echo "Usage: $(basename $0)"
+      echo
+      echo "Simple script to renew certs, should be used via a cron. Assumes that certs are already set up."
+      echo
+      echo "See https://docs.travis-ci.com/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate for initial setup info."
+      echo
 
-  exit 1
-}
+      exit 1
+    }
 
-if [[ $# -ne 0 ]]; then
-  usage
-fi
+    if [[ $# -ne 0 ]]; then
+      usage
+    fi
 
-replicatedctl app stop
-sudo certbot renew
-replicatedctl app start
-```
-{: data-file="./home/ubuntu/renew-certs.sh"}
+    replicatedctl app stop
+    sudo certbot renew
+    replicatedctl app start
+    ```
+    {: data-file="/home/ubuntu/renew-certs.sh"}
 
 2. Make the script executable:
 
