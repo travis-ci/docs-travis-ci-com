@@ -255,9 +255,9 @@ $ replicatedctl app start
 
 ### Automate renewal of your Let's Encrypt SSL Certificate with a cron job
 
-Create a file such as `/home/ubuntu/renew-certs.sh` with the following in it:
+1. Create `/home/ubuntu/renew-certs.sh` containing the following script:
 
-```
+```sh
 #!/bin/bash
 
 set -u
@@ -282,25 +282,28 @@ replicatedctl app stop
 sudo certbot renew
 replicatedctl app start
 ```
-Set the executable permissions you'll need by doing `chmod +x /home/ubuntu/renew-certs.sh`.
+{: data-file="./home/ubuntu/renew-certs.sh"}
 
-You'll then want to create a cronjob by using your favorite text editor, for example:
+2. Make the script executable:
 
-```
-nano /etc/crontab
-```
+    ```sh
+    $ chmod +x /home/ubuntu/renew-certs.sh
+    ```
 
-Then append the below to the file that you've just opened in your text editor. Make sure to adjust the configuration with values that apply to the certificate you are creating.
+3. Create a cronjob by editing `/etc/crontab` and appending the following:
 
-```
-# Renews certs at 2am on the 1st of February, May, August, and November.
-# Please change the configuration that applies to the certificate you are creating.
-0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
-```
 
-**Note: Be aware that this process will also introduce downtime.**
+    ```
+    # Renews certs at 2am on the 1st of February, May, August, and November.
+    # Please change the configuration that applies to the certificate you are creating.
+    0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
+    ```
 
-Make sure to plan to communicate with your users every time this downtime will happen so they are aware that their builds will temporarily be stopped until the certificate gets renewed and your Travis CI Enterprise installation comes back online.
+    Make sure to adjust the configuration with values that apply to the certificate you are creating.
+
+> This process will introduce a small amount of downtime while the certificates are renewed.
+
+Make sure to communicate with your users before each renewal so they are aware that their builds will temporarily be stopped until the certificate gets renewed.
 
 ## Uninstall Travis CI Enterprise
 
