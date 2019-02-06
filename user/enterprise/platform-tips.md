@@ -253,7 +253,7 @@ $ sudo certbot renew
 $ replicatedctl app start
 ```
 
-Automate renewal with a cron job
+### Automate renewal of your Let's Encrypt SSL Certificate with a cron job
 
 Create a file such as `/home/ubuntu/renew-certs.sh` with the following in it:
 
@@ -282,6 +282,7 @@ replicatedctl app stop
 sudo certbot renew
 replicatedctl app start
 ```
+Set the executable permissions you'll need by doing `chmod +x /home/ubuntu/renew-certs.sh`.
 
 You'll then want to create a cronjob by using your favorite text editor, for example:
 
