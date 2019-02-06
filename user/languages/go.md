@@ -60,17 +60,14 @@ go:
 
 ## Go Modules
 
-If Go 1.11+ is specified and either `GO111MODULE=on` is set or a `go.mod` file
-is present, then it is assumed that [Go
-modules](https://github.com/golang/go/wiki/Modules) are in use and no further
-actions are taken with regard to `GOPATH` or the working directory.
+Any value set for `GO111MODULE` via `.travis.yml` or repository settings is left
+as-is. If absent, a default value of `GO111MODULE=auto` is set.
 
 ## Go Import Path
 
-Assuming that the conditions described above for Go modules are not met, the
-project source code will be placed in `GOPATH/src/{repo-source}`, but if [vanity
-imports](https://golang.org/cmd/go/#hdr-Remote_import_paths) are necessary
-(especially for [`internal` package
+The project source code will be placed in `GOPATH/src/{repo-source}`, but if
+[vanity imports](https://golang.org/cmd/go/#hdr-Remote_import_paths) are
+necessary (especially for [`internal` package
 imports](https://golang.org/cmd/go/#hdr-Internal_Directories)),
 `go_import_path:` may be specified at the top level of the config, e.g.:
 
@@ -84,10 +81,6 @@ go_import_path: example.org/pkg/foo
 The default `install` step of `travis_install_go_dependencies <go-version>
 [gobuild-args]` will behave differently depending on the Go version specified,
 as well as the presence of certain environment variables and file paths.
-
-If the Go version and environment are detected to support Go 1.11+ Modules or Go
-1.5+ vendoring, then we skip to Makefile detection. In all other cases, file
-paths are checked for use of [godep](https://github.com/tools/godep) (see below).
 
 If a Makefile is present by any of the following names, then no further actions
 are taken in the `install` step:
