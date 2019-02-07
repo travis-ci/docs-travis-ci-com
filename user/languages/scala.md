@@ -20,6 +20,7 @@ Minimal example:
 ```yaml
   language: scala
 ```
+{: data-file=".travis.yml"}
 </aside>
 
 {{ site.data.snippets.trusty_note_no_osx }}
