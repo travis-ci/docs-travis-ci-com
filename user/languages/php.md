@@ -98,7 +98,7 @@ before_script:
 
 Travis CI can test your PHP applications with a nightly
 [PHP](https://github.com/php/php-src/) build, which includes PHPUnit and
-Composer:
+Composer, but does not include third-party PHP extensions:
 
 ```yaml
 language: php
