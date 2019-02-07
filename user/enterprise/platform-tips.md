@@ -298,6 +298,7 @@ $ replicatedctl app start
     # Please change the configuration that applies to the certificate you are creating.
     0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
     ```
+    {: data-file="/etc/crontab"}
 
     Make sure to adjust the configuration with values that apply to the certificate you are creating.
 
