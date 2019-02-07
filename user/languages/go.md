@@ -27,6 +27,7 @@ go:
 - 1.11.x
 - "1.10"
 ```
+{: data-file=".travis.yml"}
 
 Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string), not
 `go: 1.10` (a float).  Using a float results in the use of Go 1.1.
