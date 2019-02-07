@@ -25,7 +25,7 @@ php:
   - hhvm # on Trusty only
   - nightly
 ```
-
+{: data-file=".travis.yml"}
 </aside>
 
 {{ site.data.snippets.trusty_note_no_osx }}
