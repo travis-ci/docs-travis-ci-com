@@ -19,11 +19,6 @@ Minimal example:
 
 ```yaml
 language: php
-php:
-  - '5.6'
-  - '7.1'
-  - hhvm # on Trusty only
-  - nightly
 ```
 {: data-file=".travis.yml"}
 </aside>

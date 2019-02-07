@@ -19,8 +19,6 @@ Minimal example:
 
 ```yaml
 language: elixir
-elixir: '1.5.2'
-otp_release: '19.0'
 ```
 {: data-file=".travis.yml"}
 

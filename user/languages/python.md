@@ -19,8 +19,6 @@ Minimal example:
 
 ```yaml
   language: python
-  python:
-    - "3.6"
   script:
     - pytest
 ```
