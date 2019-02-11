@@ -19,11 +19,6 @@ Minimal example:
 
 ```yaml
 language: ruby
-rvm:
-  - 2.2
-  - jruby
-  - truffleruby
-  - 2.0.0-p247
 ```
 {: data-file=".travis.yml"}
 
