@@ -49,15 +49,17 @@ In the Travis CI Web UI you see none of the builds are starting. They're either 
 
 There are a few different potential approaches which may help get builds running again. Please try each one in order.
 
-#### Connection to RabbitMQ got lost
+#### Connection to RabbitMQ was lost
 
-We're using RabbitMQ to schedule builds for the worker machine(s). Sometimes the worker machine(s) lose the connection to RabbitMQ and therefore don't run any new builds anymore. This is a known problem on our side and we're working on resolving this. To get everything back to normal, restart the machines by connecting via `ssh` and running the following command:
+The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working to deliver a permanent solution.
+
+In the meantime, to return everything back to a normal working state you can manually restart the worker machine(s). This can be done by connecting to the worker(s) via `ssh` and running the following command:
 
 ```bash
 $ sudo shutdown -r 0
 ```
 
-This will immediately restart the machine. `travis-worker`, the program which actually runs the builds, is configured to start automatically on system startup.
+This will immediately restart the machine. The program that processes worker builds (`travis-worker`) is configured to start automatically on system startup and should reestablish its connection to RabbitMQ.
 
 #### Configuration
 
@@ -84,7 +86,7 @@ $ sudo restart travis-worker
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
-Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine). If you're not using AWS EC2, please make sure that the ports listed [in the docs](http://localhost:4000/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) are open in your firewall.
+Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) are open in your firewall.
 
 #### Docker Versions Mismatched
 
@@ -92,16 +94,24 @@ This issue sometimes occurs after maintenance on workers installed before Novemb
 
 If none of the steps above lead to results for you, please follow the steps in the [Contact Enterprise Support](#contact-enterprise-support) section below to move forward.
 
-#### Builds are not Starting on Enterprise Installation at Version 2.2+
+#### You are running Enterprise v2.2 or higher
 
-If you are running version 2.2+ on your Platform, Travis CI will try to route builds to the `builds.trusty` queue by default. To address this, either:
+By default the Enterprise Platform v2.2 or higher will attempt to route builds to the `builds.trusty` queue. This could lead to build issues if you are not running a Trusty worker or if you intended to target a different worker version.
 
-1. Install a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
-1. Override the default queuing behavior: Go to Admin Dashboard at `https://your-domain.tld:8800/settings#override_default_dist_enable`, and toggle the the "Override Default Build Environment" button
+To address this, either:
 
-## Enterprise container start fails with `Ready state command canceled: context deadline exceeded`
+- Ensure that you have installed a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
+- Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the the "Override Default Build Environment" button. This will allow you to specify the new default based on your needs and the workers that you have available.
 
-After a fresh installation or configuration change the Travis CI Enterprise container doesn't start and fails with the error `Ready state command canceled: context deadline exceeded` in the admin dashboard (`https://travis.example.com:8800/dashboard`).
+## Enterprise container fails to start due to 'context deadline exceeded' error
+
+### The problem
+
+After a fresh installation or configuration change the Enterprise container doesn't start and the following error is visible in the admin dashboard found at `https://<your-travis-ci-enterprise-domain>:8800/dashboard`:
+
+```
+Ready state command canceled: context deadline exceeded
+```
 
 ### Strategies
 
@@ -116,9 +126,15 @@ Your Travis CI Enterprise license has a hostname field which contains the hostna
 
 ## travis-worker on Ubuntu 16.04 does not start
 
-travis-worker got installed on a fresh installation of Ubuntu 16.04 (Xenial). `sudo systemctl status travis-worker` shows that it is not running.
+### The problem
 
-Either `sudo journalctl -u travis-worker` or `sudo systemctl status travis-worker` report `/usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory`.
+`travis-worker` was installed on a fresh installation of Ubuntu 16.04 (Xenial) seemingly without issues. However, the command `sudo systemctl status travis-worker` shows that it is not running.
+
+In addition, the command `sudo journalctl -u travis-worker` contains the following error:
+
+```
+/usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory
+```
 
 ### Strategy
 
@@ -131,6 +147,8 @@ $ chown -R travis:travis /var/tmp/travis-run.d/
 
 ## Builds fail with curl certificate errors
 
+### The problem
+
 A build fails with a long `curl` error message similar to:
 
 ```
@@ -141,9 +159,11 @@ This can have various causes, including an automatic nvm update or a caching err
 
 ### Strategy
 
-This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server got provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server was originally provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent and sufficient way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
 ## User accounts are stuck in syncing state
+
+### The problem
 
 One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
 
@@ -157,7 +177,7 @@ travis_production=> select count(*) from users where is_syncing=true;
 
 ### Strategy
 
-Log into the platform machine via ssh. Then execute `travis console` to get into Travis' Ruby console. Reset the `is_syncing` flag for user accounts that are stuck by running:
+Log into the platform machine via ssh. You can reset the `is_syncing` flag for user accounts that are stuck by running:
 
 ```bash
 $ travis console
