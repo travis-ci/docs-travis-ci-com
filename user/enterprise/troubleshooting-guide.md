@@ -1,8 +1,10 @@
 ---
 title: Travis CI Enterprise Troubleshooting Guide
 layout: en_enterprise
-
+redirect_from:
+  - /user/enterprise/operations-manual/
 ---
+
 This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered then please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
