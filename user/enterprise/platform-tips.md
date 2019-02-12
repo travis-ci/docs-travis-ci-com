@@ -395,8 +395,8 @@ If everything is up and running, it answers with a `HTTP 200 OK`, or in case of 
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
 
-- The encryption key
-- The data directories
+- [The encryption key](#encryption-key)
+- [The data directories](#create-a-backup-of-the-data-directories)
 
 ### Encryption key
 
@@ -406,13 +406,14 @@ Without the encryption key you cannot access the information in your production 
 
 To make a backup, please follow these steps:
 
-1. open a ssh connection to the platform machine
-2. Open a bash session  with `root` privileges on the Travis CI container by running `travis bash`.
-3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+1. Open a ssh connection to the platform machine.
+2. Open a bash session with `root` privileges on the Travis CI container by running `travis bash`.
+3. Run the following command to obtain the key: `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`.
+4. Create a backup of the value returned by the previous command by either writing it down on a piece of paper or storing it on a different computer.
 
 ### Create a backup of the data directories
 
-The data directories are located on the platform machine and get mounted into the Travis container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis and also log files from the applications inside the container.
+The data directories are located on the platform machine and are mounted into the Travis CI container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis, and also log files from the various applications inside the container.
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
