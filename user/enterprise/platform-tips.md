@@ -8,8 +8,6 @@ This page collects FAQs and day-to-day Enterprise Platform maintenance scripts
 and tools. Please connect to your Platform machine via SSH before getting
 started.
 
-
-
 ## Inspecting logs and running services
 
 ### Platform logs
@@ -391,6 +389,32 @@ $ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
 ```
 
 If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
+
+
+## Configuring Backups
+
+This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
+
+- The encryption key
+- The data directories
+
+### Encryption key
+
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+
+> Without the encryption key the information in the database is not recoverable.
+
+To make a backup, please follow these steps:
+
+1. open a ssh connection to the platform machine
+2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
+3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+
+### Create a backup of the data directories
+
+The data directories are located on the platform machine and get mounted into the Travis container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis and also log files from the applications inside the container.
+
+The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
 
 ## Contact Enterprise Support
