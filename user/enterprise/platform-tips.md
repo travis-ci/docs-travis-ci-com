@@ -407,7 +407,7 @@ Without the encryption key you cannot access the information in your production 
 To make a backup, please follow these steps:
 
 1. open a ssh connection to the platform machine
-2. run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
+2. Open a bash session  with `root` privileges on the Travis CI container by running `travis bash`.
 3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
 
 ### Create a backup of the data directories
