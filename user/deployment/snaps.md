@@ -4,7 +4,7 @@ layout: en
 permalink: /user/deployment/snaps/
 ---
 
-Travis CI can automatically upload and release your app to the [Snap Store](https://snapcraft.io) after a successful build.
+Travis CI can automatically upload and release your app to the [Snap Store](https://snapcraft.io) after a successful build. It is also possible to install snaps from Snap Store into build environment with [snaps addon](https://docs.travis-ci.com/user/installing-dependencies#installing-snap-packages-with-the-snaps-addon).
 
 [Snapcraft](https://snapcraft.io/) lets you distribute to all Ubuntu releases and a [growing set of Linux distributions](https://docs.snapcraft.io/core/install) with a single artefact. You publish and update at your pace while still reaching everyone; you're not locked to the release cycle of Ubuntu or any other distribution. The updates apply automatically and roll back if anything goes wrong. They're secure; each update is cryptographically signed and is tamper-proof once installed. The applications are locked down using the same container primitives found in Docker and LXD.
 
