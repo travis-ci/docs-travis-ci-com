@@ -84,6 +84,7 @@ installation's hostname, port 8800) to complete the setup:
    1. Optionally, configure Email, Metrics and Caches.
    1. Copy the *RabbitMQ password* for the Worker setup.
 
+> If you have decided to use a self-signed certificate then please be aware that there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
