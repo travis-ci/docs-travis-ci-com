@@ -19,9 +19,6 @@ Minimal example:
 
 ```yaml
 language: node_js
-node_js:
-  - "iojs"
-  - "7"
 ```
 {: data-file=".travis.yml"}
 
