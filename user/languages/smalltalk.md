@@ -1,16 +1,15 @@
 ---
 title: Building a Smalltalk Project
 layout: en
-permalink: /user/languages/smalltalk/
+
 ---
 
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Smalltalk
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
-
 
 ### Community-Supported Warning
 
@@ -22,14 +21,18 @@ To set up continuous integration for your Smalltalk project, you need a `.travis
 
 An example `.travis.yml` :
 
-````yaml
+```yaml
 language: smalltalk
-sudo: false
 
 # Select operating system(s)
 os:
   - linux
   - osx
+
+# Select virtual machine(s)
+smalltalk_vm:
+  - Squeak-5.0
+  - Pharo-5.0
 
 # Select compatible Smalltalk image(s)
 smalltalk:
@@ -47,11 +50,12 @@ smalltalk:
   - GemStone-3.3.0
   - GemStone-3.2.12
   - GemStone-3.1.0.6
-````
+```
+{: data-file=".travis.yml"}
 
 This is a minimal `.smalltalk.ston` that uses  [Metacello](https://github.com/dalehenrich/metacello-work) to test on all supported platforms:
 
-````javascript
+```javascript
 SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
@@ -61,7 +65,7 @@ SmalltalkCISpec {
     }
   ]
 }
-````
+```
 
 ## Configuration
 

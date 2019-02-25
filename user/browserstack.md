@@ -1,8 +1,9 @@
 ---
 title: Using BrowserStack with Travis CI
 layout: en
-permalink: /user/browserstack/
+
 ---
+
 Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
@@ -15,12 +16,20 @@ Once the secure connection is setup, all URLs work out of the box, including you
 URLs with HTTPS.
 
 [local-testing]: https://www.browserstack.com/local-testing
+
 [local-binary]: https://www.browserstack.com/local-testing#command-line
+
 [open-source-browserstack]: https://www.browserstack.com/pricing
+
 [account-settings]: https://www.browserstack.com/accounts/settings
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+
+[encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
+
 [browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
-[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
+
+[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
+
+[browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
 ## Setting up BrowserStack
 
@@ -31,7 +40,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](http://docs.travis-ci.com/user/pull-requests/#Security-Restrictions-when-testing-Pull-Requests).
+For more information see the [pull requests page](/user/pull-requests/#pull-requests-and-security-restrictions).
 
 ### Encrypted Access Key
 
@@ -46,6 +55,7 @@ addons:
     access_key:
       secure: "The secure string output of `travis encrypt`"
 ```
+{: data-file=".travis.yml"}
 
 ### Plain Text Access Key
 
@@ -57,6 +67,7 @@ addons:
     username: "Your BrowserStack username"
     access_key: "Your BrowserStack access key"
 ```
+{: data-file=".travis.yml"}
 
 We **strongly** recommend storing your BrowserStack access keys in encrypted format, since other users that have access to your repository
 can read and use your plain text access keys to test on BrowserStack.
@@ -90,6 +101,31 @@ Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel
 gets the right requests.  
 
+### App Upload
+
+Upload your App to the BrowserStack servers after building it. The app should be built in the install step and the test script must be run in the script step. To upload the app, configure the path to your app in the .travis.yml file:
+
+```yaml
+install:
+  - "Build script for the app"
+script:
+  - "Test script"
+addons:
+  browserstack:
+    username: "Your BrowserStack username"
+    access_key: "Your BrowserStack access key"
+    app_path: "path to your app file"
+```
+{: data-file=".travis.yml"}
+Once the app is uploaded to the BrowserStack servers the resulting app id will be set in the environment variable `BROWSERSTACK_APP_ID`. You can use it to set the Appium capability in your test.
+
+```ruby
+caps['app'] = ENV['BROWSERSTACK_APP_ID']
+```
+
+Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
+
+
 ## Additional Options
 
 ### Proxy
@@ -108,6 +144,7 @@ addons:
     proxyUser: "User to use when accessing proxy server"
     proxyPass: "Password to use when accessing proxy server"
 ```
+{: data-file=".travis.yml"}
 
 ### More Options
 
@@ -127,5 +164,6 @@ addons:
     forcelocal: true
     only: dev.example.com,80,0,*.example.org,80,0
 ```
+{: data-file=".travis.yml"}
 
 The format for the **only** flag is, "Host pattern,Host Port,Flag for SSL True(1)/False(0)" and repeat.

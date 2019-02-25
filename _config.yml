@@ -1,18 +1,17 @@
 title: "Travis CI Documentation"
 email: "support@travis-ci.com"
 url: "https://docs.travis-ci.com"
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor]
+docs_github: "https://github.com/travis-ci/docs-travis-ci-com/"
+exclude: [bin, CNAME, Gemfile, Gemfile.lock, README.md, slate, vendor, '*.erb', 'config.rb']
 markdown: kramdown
-permalink: :title
+permalink: :/title/
 syntax-highlighting:
   enabled: true
 kramdown:
   hard_wrap: false
   input: GFM
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
-gems:
-  - jekyll-redirect-from
-whitelist:
+plugins:
   - jekyll-redirect-from
 sass:
   sass_dir: assets/stylesheets

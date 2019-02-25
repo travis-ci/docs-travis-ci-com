@@ -1,46 +1,47 @@
 ---
 title: CloudFoundry Deployment
 layout: en
-permalink: /user/deployment/cloudfoundry/
+
 ---
 
-You now have the amazing ability to deploy directly to [CloudFoundry](https://run.pivotal.io/) after a successful build on Travis CI
-
-## Getting on the Edge
-
-Proper CloudFoundry support is currently included only in the edge version of Travis.  See how to enable it via the `.travis.yml` below.
+You now have the amazing ability to deploy directly to [CloudFoundry](https://run.pivotal.io/) after a successful build on Travis CI.
 
 ## The Easy Way
 
-Go Grab the Travis gem from [GitHub](https://github.com/travis-ci/travis.rb) and run this command:
+Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
 `travis setup cloudfoundry`
 
-You will be asked to answer a few simple questions about your CloudFoundry setup and Travis will take care of the rest!
-
-
-Open up your newly created `.travis.yml` and add `edge: true` to enable the deploy tool.  See yml below for an example of how to do this.
+You will be asked to answer a few simple questions about your CloudFoundry setup, and Travis will take care of the rest!
 
 ## The Slightly Harder Way
 
-So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running
+So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running:
 
-     deploy:
-       edge: true
-       provider: cloudfoundry
-       username: hulk_hogan@example.com
-       password: supersecretpassword
-       api: https://api.run.pivotal.io
-       organization: myawesomeorganization
-       space: staging
+```yaml
+ deploy:
+   provider: cloudfoundry
+   username: hulk_hogan@example.com
+   password: supersecretpassword
+   api: https://api.run.pivotal.io
+   organization: myawesomeorganization
+   space: staging
+   manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
+   app_name: My app name                # (optional)
+```
+{: data-file=".travis.yml"}
 
-**_Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub._**
+***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
 
-This can be easily accomplished using the Travis gem above and running:
+You can do this using the Travis gem above and running:
 
-    travis encrypt --add deploy.password
+```bash
+travis encrypt --add deploy.password
+```
+
+If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#note-on-escaping-certain-symbols).
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

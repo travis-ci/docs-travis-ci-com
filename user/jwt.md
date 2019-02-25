@@ -1,15 +1,18 @@
 ---
 title: JWT addon
 layout: en
-permalink: /user/jwt/
+
 ---
 
+{: .warning}
+>  The JWT addon is deprecated and will be
+>  [discontinued on April 17, 2018](https://blog.travis-ci.com/2018-01-23-jwt-addon-is-deprecated).
+
 Integration between Travis-CI and third-party services like Sauce Labs relies
-on [encrypted variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables)
+on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
 which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
 so builds of pull requests do not have access to third party integrations.
-
 
 The JWT addon replaces encrypted variables with a time-limited authentication
 token, which is exposed to pull requests without security consequences.
@@ -20,7 +23,6 @@ token-based authentication.
 
 <img src="/user/images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
 
-
 ### .travis.yml
 
 Add the encrypted key to the `jwt` section of the `.travis.yml` file.
@@ -28,7 +30,9 @@ This can be done manually or using the `travis encrypt` command
 
 Travis Encrypt:
 
-`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key`
+```bash
+travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key
+```
 
 Manually:
 
@@ -37,10 +41,13 @@ addons:
   jwt:
      secure: <SAUCE_ACCESS_KEY ENCRYPTED>
 ```
+{: data-file=".travis.yml"}
 
 This can also support several services:
 
-`travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key THIRDPARTY_SHARED_SECRET=another-key`
+```bash
+travis encrypt --add addons.jwt SAUCE_ACCESS_KEY=your-access-key THIRDPARTY_SHARED_SECRET=another-key
+```
 
 Manually:
 
@@ -50,6 +57,7 @@ addons:
     - secure: <SAUCE_ACCESS_KEY ENCRYPTED>
     - secure: <THIRDPARTY_SHARED_SECRET ENCRYPTED>
 ```
+{: data-file=".travis.yml"}
 
 ### Use the Encrypted Key
 
@@ -66,7 +74,7 @@ transmit your secret information without worrying that it is leaked.
 
 ### Troubleshooting
 
-1. Check if the third-party service is [supported](#List-of-Third-Party-Services-Integrated-with-the-JWT-Addon)
+1. Check if the third-party service is [supported](#list-of-third-party-services-integrated-with-the-jwt-addon)
 2. Contact the third-party support and provide them with the encrypted token (echo the key in your test script), and link to the Travis job.
 
 ## Third-Party Service Integration
@@ -81,7 +89,7 @@ Third-party service needs to implement a new authentication method on the server
 
 An example payload used to generate the JWT token:
 
-```javascript
+```json
 {
   "iss": "Travis CI, GmbH",
   "slug": "saucelabs-sample-test-frameworks/Java-TestNG-Selenium",
@@ -93,10 +101,10 @@ An example payload used to generate the JWT token:
 
 Where:
 
- * `slug` will be the travis link slug
- * `pull-request` will be empty(`""`) or the pull request integer
- * `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
- * `iat` is the issued at time (now)
+- `slug` will be the travis link slug
+- `pull-request` will be empty(`""`) or the pull request integer
+- `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
+- `iat` is the issued at time (now)
 
 ### Third Party Service Provider Code Sample
 
@@ -160,4 +168,4 @@ addons:
   jwt:
     secure: <SAUCE_ACCESS_KEY ENCRYPTED>
 ```
-
+{: data-file=".travis.yml"}

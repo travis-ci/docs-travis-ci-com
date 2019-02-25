@@ -1,81 +1,95 @@
 ---
 title: Building a Haskell Project
 layout: en
-permalink: /user/languages/haskell/
+
 ---
 
-### What This Guide Covers
+## What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Haskell projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
 
-Haskell builds are not available on the OSX environment.
+| Haskell                                     | Default                                                       |
+|:--------------------------------------------|:--------------------------------------------------------------|
+| [Default `install`](#dependency-management) | `cabal install --only-dependencies --enable-tests`            |
+| [Default `script`](#default-build-script)   | `cabal configure --enable-tests && cabal build && cabal test` |
+| [Matrix keys](#build-matrix)                | `env`, `ghc`                                                  |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com)                     |
 
-## Overview
+Minimal example:
 
-The Haskell VM has recent versions of GHC pre-installed.
-
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
-
-For full up-to-date list of provided tools, see
-our [CI environment guide](/user/ci-environment/). Key build lifecycle commands (dependency installation, running tests) have
-defaults that use `cabal`. It is possible to override them to use `make` or any other build tool and dependency management tool.
-
-## Specifying the GHC version
-
-You can specify one or more GHC versions:
-
-```
-ghc: 7.4
-```
-
-Multiple versions:
-
-```
+```yaml
 ghc:
-  - 7.8
-  - 7.6
-  - 7.4
+  - "7.8"
 ```
+{: data-file=".travis.yml"}
 
-It is recommended that you only use the major and minor versions to specify the version to use, as we may update the patchlevel releases at any time.
+</aside>
 
-## Default Test Script
+{{ site.data.snippets.trusty_note_no_osx }}
 
-Default test script Travis CI Haskell builder will use is
+The rest of this guide covers configuring Haskell projects on Travis CI. If
+you're new to Travis CI please read our [Tutorial](/user/tutorial/)
+and [build configuration](/user/customizing-the-build/) guides first.
 
-    cabal configure --enable-tests && cabal build && cabal test
+## Specifying Haskell compiler versions
 
-It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide, for example:
+The Haskell environment on Travis CI has recent versions of GHC (Glasgow Haskell
+Compiler) pre-installed. For a detailed list of pre-installed versions, please
+consult "Build system information" in the build log.
 
-    script:
-      - cabal configure --enable-tests -fFOO && cabal build && cabal test
+You can specify one or more GHC versions using `major.minor` notation. Patch
+level versions (`7.6.2` for example) may change any time:
 
+```yaml
+ghc:
+  - "7.10"
+  - "7.8"
+  - "7.6"
+  - "8.4.1"
+```
+{: data-file=".travis.yml"}
+
+## Default Build Script
+
+The default Haskell build script is:
+
+```bash
+cabal configure --enable-tests && cabal build && cabal test
+```
 
 ## Dependency Management
 
-### Travis CI uses cabal
+By default Travis CI uses `cabal` to manage your project's dependencies:
 
-By default Travis CI use `cabal` to manage your project's dependencies.
-
-The exact default command is
-
-    cabal install --only-dependencies --enable-tests
-
-It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide,
-for example:
-
-    install:
-      - cabal install QuickCheck
-
+```bash
+cabal install --only-dependencies --enable-tests
+```
 
 ## Build Matrix
 
 For Haskell projects, `env` and `ghc` can be given as arrays
 to construct a build matrix.
 
-## Examples
+### Multiple Packages in Subdirectories
 
-* [jgm/pandoc](https://github.com/jgm/pandoc/blob/master/.travis.yml)
-* [hspec/hspec](https://github.com/hspec/hspec/blob/master/.travis.yml)
-* [commercialhaskell/stack](https://github.com/commercialhaskell/stack/blob/master/.travis.yml)
-* [lwm/es-api](https://github.com/lwm/es-api/blob/master/.travis.yml)
+If you have multiple packages in subdirectories (each containing a `.cabal` file,
+you can specify those directories in an environment variable:
+
+```yaml
+ghc:
+  - "7.10"
+  - "7.8"
+  - "7.6"
+env:
+  - PACKAGEDIR="some-package"
+  - PACKAGEDIR="some-other-package"
+before_install: cd ${PACKAGEDIR}
+```
+{: data-file=".travis.yml"}
+
+The build matrix is then constructed such that each package is compiled with each version of GHC.
+
+## Hackage Deployment
+
+Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
+See [Hackage Deployment](/user/deployment/hackage/).

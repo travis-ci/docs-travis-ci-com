@@ -1,7 +1,7 @@
 ---
 title: Deis Deployment
 layout: en
-permalink: /user/deployment/deis/
+
 ---
 
 Travis CI supports uploading to [Deis](http://deis.io/).
@@ -15,7 +15,9 @@ deploy:
   username: "Deis User Name"
   password: "Deis Password"
   app: App_name
+  cli_version: vX.Y.Z  # e.g. v2.7.0 being the latest at this time
 ```
+{: data-file=".travis.yml"}
 
 It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
@@ -37,7 +39,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### Note on `.gitignore`
 
@@ -45,7 +47,7 @@ As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ### Running commands before and after deploy
@@ -60,3 +62,4 @@ Sometimes you want to run commands before or after triggering a deployment. You 
       - ./after_deploy_1.sh
       - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}

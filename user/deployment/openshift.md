@@ -1,7 +1,7 @@
 ---
 title: OpenShift Deployment
 layout: en
-permalink: /user/deployment/openshift/
+
 ---
 
 Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) application after a successful build.
@@ -15,12 +15,15 @@ deploy:
   password: "YOUR PASSWORD" # can be encrypted
   domain: "YOUR OPENSHIFT DOMAIN"
 ```
+{: data-file=".travis.yml"}
 
 Currently it is not possible to use a token instead of the password, as these tokens expire too quickly. We are working with the OpenShift team on a solution.
 
 You can also have the `travis` tool set up everything for you:
 
-    $ travis setup openshift
+```bash
+travis setup openshift
+```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
@@ -38,6 +41,7 @@ deploy:
   ...
   app: my-app-123
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to deploy different branches to different applications:
 
@@ -49,6 +53,7 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 If these apps belong to different OpenShift domains, you will have to do the same for the domain:
 
@@ -63,10 +68,11 @@ deploy:
     master: my-app-staging
     production: my-app-production
 ```
+{: data-file=".travis.yml"}
 
 ### Branch to deploy from
 
-If you have branch specific options, as [shown above](#Application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
+If you have branch specific options, as [shown above](#application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
@@ -76,6 +82,7 @@ deploy:
   ...
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -86,6 +93,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
@@ -101,11 +109,12 @@ deploy:
   ...
   skip_cleanup: true
 ```
+{: data-file=".travis.yml"}
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### Note on `.gitignore`
 
@@ -113,7 +122,7 @@ As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ### Running commands before and after deploy
@@ -128,6 +137,7 @@ after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 ```
+{: data-file=".travis.yml"}
 
 ### Deployment branch
 
@@ -141,3 +151,4 @@ deploy:
   ...
   deployment_branch: mybranch
 ```
+{: data-file=".travis.yml"}

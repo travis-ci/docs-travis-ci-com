@@ -10,16 +10,12 @@ p
   line-height: 1.5em
   @include linkStyle
 
-
 %code-styles
-  border: 1px solid $cement-grey
-  border-radius: 4px
   font-family: monaco, monospace
   font-size: $font-size-xs
   color: #000
   font-style: normal
   background: $pebble-grey
-
 
 address
   font-style: normal
@@ -27,12 +23,12 @@ address
 code
   @extend %code-styles
   display: inline-block
-  margin: 0 0 0 .3em
   padding: 0em 0.4em
   line-height: 1.7
 
 pre
   @extend %code-styles
+  border-radius: 3px
   margin-top: 1em
   padding: 1em 1.5em
   line-height: 1.5em
@@ -50,24 +46,32 @@ blockquote
   font-style: italic
   background-color: rgba($agate-blue, 0.3)
   color: $asphalt-grey
+  overflow: auto
   strong
     text-transform: uppercase
     font-style: normal
   code
     color: $oxide-blue
     border-color: $oxide-blue
-    background-color: $white
+    background-color: transparent
 
 ol
   padding: 0 0 0 1.3em
+  ol, ul
+    margin: 1em 0
+  ol
+    list-style: lower-roman
+  li
+    margin-bottom: 0.8em
 
 ul
-  padding: 0
-  list-style-position: inside
+  padding: 0 0 0 1.3em
 
 li ul
   padding-left: 2.5em
-  list-style-position: outside
+
+li > p
+  display: inline
 
 table
   width: 100%
@@ -78,7 +82,7 @@ table
   tr
     border-bottom: 1px solid $cream-dark
 
-.header-row 
+.header-row
   thead
     background-color: $cream-light
     color: $grey-dark
@@ -95,3 +99,6 @@ table
         color: $grey-dark
         border-right: 1px $cream-dark solid
 
+.warning
+  color: $grey-light
+  background-color: $red-light
