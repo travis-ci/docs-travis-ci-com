@@ -201,7 +201,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
+  Values are currently `linux`, `osx` and `windows` (beta), to be extended in the future.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
   it is empty.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
