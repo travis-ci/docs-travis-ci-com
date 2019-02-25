@@ -19,8 +19,6 @@ Minimal example:
 
 ```yaml
 language: haskell
-ghc:
-  - "7.8"
 ```
 {: data-file=".travis.yml"}
 
