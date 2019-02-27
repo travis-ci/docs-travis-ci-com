@@ -107,7 +107,7 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Python support
 
-* Pre-installed Python versions: `2.7.15`, `3.6.5`, and `3.7.1`.
+* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
 
 * Python `2.7.15` will be used when no language version is explicitly set.
 

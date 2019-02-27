@@ -9,12 +9,12 @@ when you need them safelisted to access your internal resources. Since builds
 run in a variety of different infrastructures, the IP ranges to safelist depend
 on the infrastructure your builds are running on.
 
-| Infrastructure                                                                                                  | NAT hostname                                      | Current DNS                                                                            | Last recorded IPs                                                      |
-|:----------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
-| OS X                                                                                                            | {{ site.data.macstadium_ip_range['host'] }}       | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json)       | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}`        |
-| Linux                                                                                                           | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
-| Windows                                                                                                         | {{ site.data.gce_ip_range['host'] }}              | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)              | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`              |
-| (all combined)                                                                                                  | {{ site.data.ip_range['host'] }}                  | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)                  | (sum of all above)                                                     |
+| Infrastructure | NAT hostname                                | Current DNS                                                                      | Last recorded IPs                                               |
+|:---------------|:--------------------------------------------|:---------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| OS X           | {{ site.data.macstadium_ip_range['host'] }} | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json) | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}` |
+| Linux          | {{ site.data.gce_ip_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)        | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`       |
+| Windows        | {{ site.data.gce_ip_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)        | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`       |
+| (all combined) | {{ site.data.ip_range['host'] }}            | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)            | (sum of all above)                                              |
 {: .ip-address-ranges}
 
 Note that these ranges can change in the future, and the best way to keep an
@@ -38,6 +38,12 @@ different.
 More details about our different infrastructures are available on the
 [virtualization environments
 page](/user/reference/overview/#virtualization-environments).
+
+## Load balancing
+
+Due to load balancing, connections from build machines to external resources are not guaranteed to come from the same IP address, even when sent from the same job.
+This may cause them to [trigger security checks](https://docs.travis-ci.com/user/common-build-problems/#ftpsmtpother-protocol-does-not-work), especially when using protocols that utilize multiple connections like FTP and VPN.
+If this occurs, reconfigure your servers to allow for connections from multiple IP addresses.
 
 ## Notification
 
