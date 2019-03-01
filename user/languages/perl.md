@@ -8,7 +8,6 @@ layout: en
 
 <aside markdown="block" class="ataglance">
 
-
 | Perl                                        | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#Dependency-Management) | `cpanm --quiet --installdeps --notest .`  |
@@ -48,7 +47,6 @@ perl:
   - "5.26"
   - "5.24"
   - "5.22"
-  - "5.20"
 ```
 {: data-file=".travis.yml"}
 

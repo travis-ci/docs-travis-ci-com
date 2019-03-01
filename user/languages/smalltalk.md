@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Smalltalk
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -23,12 +23,16 @@ An example `.travis.yml` :
 
 ```yaml
 language: smalltalk
-sudo: false
 
 # Select operating system(s)
 os:
   - linux
   - osx
+
+# Select virtual machine(s)
+smalltalk_vm:
+  - Squeak-5.0
+  - Pharo-5.0
 
 # Select compatible Smalltalk image(s)
 smalltalk:

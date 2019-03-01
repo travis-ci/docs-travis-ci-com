@@ -12,14 +12,13 @@ This example has 2 build stages:
 Here's what the `.travis.yml` config could look like:
 
 ```yaml
-sudo: true
 dist: trusty
 
 jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - docker build -t travis-ci-build-stages-demo .
       - docker images
       - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/travis-ci-build-stages-demo

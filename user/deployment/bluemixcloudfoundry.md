@@ -29,8 +29,9 @@ You can also directly edit your `.travis.yml`. Insert the following to get up an
    organization: myawesomeorganization
    space: staging
    manifest: manifest-prod.yml          # (optional)  Defaults to manifest.yml.
+   app_name: My app name                # (optional)
    region: eu-gb                        # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
-   api: https://api.ng.bluemix.net      # (optional)  Overrides region setting if specifed for Bluemix local installations.
+   api: https://api.ng.bluemix.net      # (optional)  Overrides region setting if specified for Bluemix local installations.
 ```
 {: data-file=".travis.yml"}
 
@@ -42,9 +43,9 @@ You can do this using the Travis gem by running:
 travis encrypt --add deploy.password
 ```
 
-If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#Note-on-escaping-certain-symbols).
+If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#note-on-escaping-certain-symbols).
 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).

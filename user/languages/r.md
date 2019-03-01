@@ -7,15 +7,14 @@ layout: en
 ### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
-projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
-configuration](/user/customizing-the-build/) guides first.
+projects.
+Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@craigcitro][github 2]
+[Travis CI issue tracker][github] and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
 ## Basic configuration
@@ -30,25 +29,6 @@ language: r
 ```
 {: data-file=".travis.yml"}
 
-Using the package cache to store R package dependencies can significantly speed
-up build times and is recommended for most builds.
-
-```yaml
-language: r
-cache: packages
-```
-{: data-file=".travis.yml"}
-
-If you do *not* see
-
-```
-This job is running on container-based infrastructure, which does not allow use of
-'sudo', setuid and setguid executables.
-```
-
-You will need to set `sudo: false` in order to use the container based builds
-and package caching.
-
 The R environment comes with [LaTeX][tug] and [pandoc][johnmacfarlane]
 pre-installed, making it easier to use packages like [RMarkdown][rstudio] or
 [knitr](https://yihui.name/knitr/){: data-proofer-ignore=""}
@@ -59,12 +39,11 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.1.3` and above on Linux Precise
-builds.  Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In
-addition the name `oldrel` is aliased to `3.2.5` and release is aliased to
-`3.3.0`. `devel` is built off of the [R git
-mirror](https://travis-ci.org/wch/r-source) of the R SVN trunk (updated
-hourly).
+Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
+Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
+name `oldrel` is aliased to the previous major release and `release` is aliased to the
+latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
+of the R SVN trunk (updated hourly).
 
 Matrix builds *are* supported for R builds, however both instances of `r` must
 be in *lowercase*.
@@ -80,6 +59,8 @@ r:
 
 As new minor versions are released, aliases will float and point to the most
 current minor release.
+
+You can access the above "channel" *string* (i.e. `release`) as opposed to the concrete version number (i.e `3.2.1`) with the environmental variable `TRAVIS_R_VERSION_STRING`.
 
 The exact R version used for each build is included in the 'R session information'
 fold within the build log.
@@ -97,8 +78,8 @@ your `.travis.yml`.
 
 ### LaTeX/TexLive Packages
 
-The included TexLive distribution contains only a [limited set of default
-packages][github 6]. If your vignettes require additional TexLive packages you
+The included TexLive distribution contains only a limited set of default
+packages. If your vignettes require additional TexLive packages you
 can install them using `tlmgr install` in the `before_install` step.
 
 ```yaml
@@ -118,13 +99,13 @@ If you don't need LaTeX, tell Travis CI not to install it using `latex: false`.
 
 ### Pandoc
 
-The default pandoc version installed is `1.15.2`. Alternative [pandoc
+The default pandoc version installed is `2.2`. Alternative [pandoc
 releases][github 7] can be installed by setting the `pandoc_version` to the
 desired version.
 
 ```yaml
 language: r
-pandoc_version: 1.16
+pandoc_version: 1.19.2.1
 ```
 {: data-file=".travis.yml"}
 
@@ -132,9 +113,7 @@ If you don't need Pandoc, tell Travis CI not to install it using `pandoc: false`
 
 ### APT packages
 
-Use the [APT addon][apt-addon]
-to install APT packages on both container-based (`sudo: false`)
-and standard (`sudo: required`) infrastructures.
+Use the [APT addon][apt-addon] to install APT packages.
 The snippet below installs a prerequisite for the R package `xml2`:
 
 ```yaml
@@ -145,12 +124,9 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-Note that the APT package needs to be white-listed for this to work
-on container-based infrastructure.
 This option is ignored on non-Linux builds.
 
-An alternative that works only on standard infrastructure (`sudo: required`) is
-the `apt_packages` field:
+An alternative is the `apt_packages` key:
 
 ```yaml
 apt_packages:
@@ -204,6 +180,7 @@ rather than the default behaviour of downloading your package dependencies from 
 ```yaml
 install:
   - R -e "0" --args --bootstrap-packrat
+  - R -e "packrat::restore(restart = FALSE)"
 ```
 {: data-file=".travis.yml"}
 
@@ -235,13 +212,13 @@ repos:
 {: data-file=".travis.yml"}
 
 - `disable_homebrew`: if `true` this removes the preinstalled homebrew
-  installation on OS X. Useful to test if the package builds on a vanilla OS X
+  installation on macOS. Useful to test if the package builds on a vanilla macOS
   machine, such as the CRAN mac builder.
 
 ### Environment Variables
 
 R-Travis sets the following additional environment variables from the [Travis
-defaults](/user/environment-variables/#Default-Environment-Variables).
+defaults](/user/environment-variables/#default-environment-variables).
 
 - `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
 - `R_LIBS_USER=~/R/Library`
@@ -249,6 +226,8 @@ defaults](/user/environment-variables/#Default-Environment-Variables).
 - `_R_CHECK_CRAN_INCOMING_=false`
 - `NOT_CRAN=true`
 - `R_PROFILE=~/.Rprofile.site`
+- `TRAVIS_R_VERSION_STRING` set to the *string* provided *to* `r:`, i.e. `release`, `oldrel` or `devel`.
+   Useful, for example, to deploy only from `release` via `on: condition: "$TRAVIS_R_VERSION_STRING = release"`.
 
 ### Additional Dependency Fields
 
@@ -264,15 +243,14 @@ processed in order, so entries can depend on dependencies in a previous list.
 - `apt_packages`: See above
 
 - `brew_packages`: A list of packages to install via `brew`. This option is
-  ignored on non-OS X builds.
+  ignored on non-macOS builds.
 
 - `r_binary_packages`: A list of R packages to install as binary packages on
   linux builds, via Michael Rutter's
   [cran2deb4ubuntu PPA][launchpad].
   These installs will be faster than source installs, but may not always be
   the most recent version. Specify the name just as you would when installing
-  from CRAN. On OS X builds and builds without `sudo: required`, these packages
-  are installed from source.
+  from CRAN. On macOS builds these packages are installed from source.
 
 - `r_packages`: A list of R packages to install via `install.packages`.
 
@@ -307,19 +285,9 @@ If you'd like to see the full details, see
 
 ## Examples
 
-If you are using the [container based builds][container] you can take advantage
-of the package cache to speed up subsequent build times. For most projects
-these two lines are sufficient.
-
-```yaml
-language: r
-cache: packages
-```
-{: data-file=".travis.yml"}
-
 ### Package in a subdirectory
 
-If your package is in a subdirectory of the repository you simply need to
+If your package is in a subdirectory of the repository you need to
 change to the subdirectory prior to running the `install` or `script` steps.
 
 ```yaml
@@ -344,10 +312,10 @@ An alternative is to add the following line to your `DESCRIPTION` file:
 Imports: pkg-name-of-repo
 Remotes: user/repo
 ```
-{: data-file=".travis.yml"}
+{: data-file="DESCRIPTION"}
 
 Remember that `Remotes:` specifies the *source* of a development package, so the package still needs to be listed in `Imports:`, `Suggests:` `Depends:` or `LinkingTo:`.
-In the rare case where *repo* and *package* name differ, `Remotes:` expects the *reposistory* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
+In the rare case where *repo* and *package* name differ, `Remotes:` expects the *repository* name and `Imports:` expects the *package* name (as per the `DESCRIPTION` of that imported package).
 
 
 ### Remote package in a subdirectory
@@ -364,7 +332,7 @@ An alternative is to add the following line to your `DESCRIPTION` file:
 ```yaml
 Remotes: user/repo/folder
 ```
-{: data-file=".travis.yml"}
+{: data-file="DESCRIPTION"}
 
 ## Converting from r-travis
 
@@ -380,19 +348,15 @@ moving from r-travis to native support, see the [porting guide][github 9].
 
 [bioconductor]: https://www.bioconductor.org/
 
-[container]: /user/workers/container-based-infrastructure/
-
 [ctan]: https://www.ctan.org/
 
 [github]: https://github.com/travis-ci/travis-ci/issues/new?labels=community:r
 
-[github 2]: https://github.com/craigcitro
+[github 2]: https://github.com/jeroen
 
 [github 4]: https://github.com/jimhester
 
 [github 5]: https://github.com/hadley/devtools/blob/master/vignettes/dependencies.Rmd#package-remotes
-
-[github 6]: https://github.com/yihui/ubuntu-bin/blob/master/TeXLive.pkgs
 
 [github 7]: https://github.com/jgm/pandoc/releases
 
@@ -414,4 +378,4 @@ moving from r-travis to native support, see the [porting guide][github 9].
 
 [tug]: https://www.tug.org/texlive/
 
-[apt-addon]: /user/installing-dependencies/#Installing-Packages-with-the-APT-Addon
+[apt-addon]: /user/installing-dependencies/#installing-packages-with-the-apt-addon

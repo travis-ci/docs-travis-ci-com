@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page.
 
 Travis CI can notify you about your build results through email, IRC, chat or custom webhooks.
 
@@ -22,10 +22,10 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined%3F), [changing the email
-address](#Changing-the-email-address-for-build-notifications) or
+addresses](#how-is-the-build-email-receiver-determined), [changing the email
+address](#changing-the-email-address-for-build-notifications) or
 [troubleshooting email
-notification](#Missing-build-notifications).
+notification](#missing-build-notifications).
 
 If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
@@ -54,7 +54,7 @@ This means that environment variables from the build are not available in this s
 
 There is currently no way of limiting the notification to a specific branch, but
 the payload will contain all relevant data to do so at the receiving end (see
-[Webhooks Delivery Format](#Webhooks-Delivery-Format)).
+[Webhooks Delivery Format](#webhooks-delivery-format)).
 
 ### Note on SSL/TLS Ciphers
 
@@ -103,7 +103,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Specify when you want to [get notified](#Changing-notification-frequency):
+Specify when you want to [get notified](#changing-notification-frequency):
 
 ```yaml
 notifications:
@@ -167,7 +167,8 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 
 ## Configuring IRC notifications
 
-You can also specify notifications sent to an IRC channel:
+You can also send notifications to an IRC channel.
+Notifications are sent from `travis-ci`, which auto-authenticates on Freenode.
 
 ```yaml
 notifications:
@@ -331,7 +332,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-- *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit '<https://your-subdomain.campfirenow.com'>)
+- *subdomain*: is your campfire subdomain (i.e. `your-subdomain` if you visit `https://your-subdomain.campfirenow.com`)
 - *api token*: is the token of the user you want to use to post the notifications.
 - *room id*: this is the room id, not the name.
 
@@ -342,7 +343,7 @@ notifications:
 > travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
 > ```
 
-You can also customise the notifications, like with [IRC notifications](#Configuring-IRC-notifications):
+You can also customise the notifications, like with [IRC notifications](#configuring-irc-notifications):
 
 ```yaml
 notifications:
@@ -521,17 +522,15 @@ Other flags, such as `on_success` and `on_failure` also work like the IRC notifi
 
 Pull Request builds do not trigger Pushover notifications.
 
-## Configuring slack notifications
+## Configuring Slack notifications
 
-Travis CI can send notifications to your [Slack](http://slack.com) channels
+Travis CI can send notifications to your [Slack](https://slack.com) channels
 about build results.
 
 On Slack, set up a [new Travis CI
 integration](https://my.slack.com/services/new/travis).
 
-<figure>
-  <img alt="Screenshot of adding Slack integration" src="http://s3itch.paperplanes.de/slackintegration_20140313_075147.jpg"/>
-</figure>
+![Screenshot of adding Slack integration](/images/notifications/slack-integration.png "Screenshot of adding Slack integration")
 
 Copy and paste the settings, which already include the proper token, into
 your `.travis.yml`, and you're good to go.
@@ -597,17 +596,11 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Once everything's setup, push a new commit and you should see something like the
-screenshot below:
-
-
-<figure>
-  <img alt="Screenshot of sample Slack integration" src="http://s3itch.paperplanes.de/slackmessage_20140313_180150.jpg">
-</figure>
+Once everything's set up, push a new commit and you'll get a message in the slack channel.
 
 ### Notifications of PR builds
 
-Turn pull request notifcations off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
+Turn pull request notifications off by adding `on_pull_requests: false` to the `slack` section of your `.travis.yml`:
 
 ```yaml
 notifications:
@@ -649,7 +642,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-
+You can also use Slack-style markup using ```` ``` ````, `` ` ``, `_`, `*`, `~`.
 See [Slack documentation](https://api.slack.com/docs/message-formatting)
 for more information on message formatting.
 
@@ -734,7 +727,7 @@ payload.
 3. Obtain the public key corresponding to the private key that signed
    the payload. This is available at the `/config` endpoint's
    `config.notifications.webhook.public_key` on the relevant API server.
-   (e.g., <https://api.travis-ci.org/config>)
+   (e.g., <https://api.travis-ci.com/config>)
 4. Verify the signature using the public key and SHA1 digest.
 
 #### Examples
@@ -750,11 +743,33 @@ See [the code](https://github.com/travis-ci/docs-travis-ci-com/tree/master/_plug
 is an example Django view which implements this in Python.
 
 1. [Travis Golang Hooks Verification](https://gist.github.com/theshapguy/7d10ea4fa39fab7db393021af959048e)
-is a small webapp in Go which verifies the the hook.
+is a small webapp in Go which verifies the hook.
 
 1. [travis-webhook-verification-nodejs](https://github.com/Brodan/travis-webhook-verification-nodejs)
 contains two examples for verifying webhooks in Node.js using [express](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/express.js)
 and [hapi.js](https://github.com/Brodan/travis-webhook-verification-nodejs/blob/master/hapi.js)
+
+## Configuring OpsGenie notifications
+By using [OpsGenie Travis CI Integration](https://docs.opsgenie.com/v1.0/docs/travisci-integration), you can forward Travis CI alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls and iPhone & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
+
+### Functionality of the integration
+- When the status of a project is failing, broken or errored on Travis CI, an alert is created in OpsGenie automatically through the integration.
+- When the status is passed or fixed on Travis CI, the alert is closed in OpsGenie.
+
+### Add Travis CI Integration in OpsGenie
+1. Please create an OpsGenie account if you haven't already
+2. Go to OpsGenie Travis CI Integration page,
+3. Specify who should be notified for Travis CI alerts using the "Teams" field. Auto-complete suggestions will be provided as you type.
+4. Copy the Webhook URL by clicking on the copy button or selecting.
+5. Click on "Save Integration".
+
+### Configuration in Travis CI
+1. Activate your Github repositories that you want to monitor by enabling the service hook for Travis CI on Github.
+2. Add .travis.yml file to your repository.
+3. Add the following configuration to your .travis.yml file.
+_notifications:_
+_webhooks: <webhook-url>_
+4. Commit the _.travis.yml_ file to the root of your repository.
 
 ## For the truly curious
 
