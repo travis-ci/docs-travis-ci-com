@@ -41,7 +41,7 @@ Your NPM Auth Token can be obtained by:
     1. For NPM v2+, use the `authToken` value.
     1. For NPM ~1, use the `auth` value.
 
-Always [encrypt](/user/encryption-keys/#Usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
+Always [encrypt](/user/encryption-keys/#usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
 $ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
@@ -127,7 +127,7 @@ See [`npm` documentation](https://docs.npmjs.com/misc/developers#keeping-files-o
 for more details.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 

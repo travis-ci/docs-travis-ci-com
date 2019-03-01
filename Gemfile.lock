@@ -20,7 +20,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.10)
+    activesupport (4.2.11)
       i18n (~> 0.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
@@ -60,7 +60,7 @@ GEM
     hike (1.2.3)
     hooks (0.4.1)
       uber (~> 0.0.14)
-    html-proofer (3.9.1)
+    html-proofer (3.9.3)
       activesupport (>= 4.2, < 6.0)
       addressable (~> 2.3)
       colorize (~> 0.8)
@@ -72,7 +72,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jaro_winkler (1.5.1)
-    jekyll (3.8.3)
+    jekyll (3.8.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -145,7 +145,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     multipart-post (2.0.0)
-    nokogiri (1.8.3)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     padrino-helpers (0.12.9)
       i18n (~> 0.6, >= 0.6.7)
@@ -162,9 +162,9 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     puma (3.11.4)
-    rack (1.6.10)
+    rack (1.6.11)
     rack-jekyll (0.5.0)
       jekyll (>= 1.3)
       listen (>= 1.3)
@@ -212,7 +212,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (1.4.1)
-    typhoeus (1.3.0)
+    typhoeus (1.3.1)
       ethon (>= 0.9.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -254,4 +254,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.2
+   1.17.3

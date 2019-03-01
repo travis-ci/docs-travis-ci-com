@@ -28,12 +28,14 @@ trusty_note: |
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
-  >  * [OS X](/user/reference/osx/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [macOS](/user/reference/osx/)
 trusty_note_no_osx: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but
   one situation in which you might want to set a particular limit is:

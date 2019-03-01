@@ -8,8 +8,6 @@ This page collects FAQs and day-to-day Enterprise Platform maintenance scripts
 and tools. Please connect to your Platform machine via SSH before getting
 started.
 
-
-
 ## Inspecting logs and running services
 
 ### Platform logs
@@ -253,7 +251,58 @@ $ sudo certbot renew
 $ replicatedctl app start
 ```
 
-In general: These certificate renewals should be automated with a cron job.
+### Automate renewal of your Let's Encrypt SSL Certificate with a cron job
+
+1. Create `/home/ubuntu/renew-certs.sh` containing the following script:
+
+    ```sh
+    #!/bin/bash
+
+    set -u
+
+    function usage() {
+      echo
+      echo "Usage: $(basename $0)"
+      echo
+      echo "Simple script to renew certs, should be used via a cron. Assumes that certs are already set up."
+      echo
+      echo "See https://docs.travis-ci.com/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate for initial setup info."
+      echo
+
+      exit 1
+    }
+
+    if [[ $# -ne 0 ]]; then
+      usage
+    fi
+
+    replicatedctl app stop
+    sudo certbot renew
+    replicatedctl app start
+    ```
+    {: data-file="/home/ubuntu/renew-certs.sh"}
+
+2. Make the script executable:
+
+    ```sh
+    $ chmod +x /home/ubuntu/renew-certs.sh
+    ```
+
+3. Create a cronjob by editing `/etc/crontab` and appending the following:
+
+
+    ```
+    # Renews certs at 2am on the 1st of February, May, August, and November.
+    # Please change the configuration that applies to the certificate you are creating.
+    0 2 1 2,5,8,11 * /home/ubuntu/renew-certs.sh
+    ```
+    {: data-file="/etc/crontab"}
+
+    Make sure to adjust the configuration with values that apply to the certificate you are creating.
+
+> This process will introduce a small amount of downtime while the certificates are renewed.
+
+Make sure to communicate with your users before each renewal so they are aware that their builds will temporarily be stopped until the certificate gets renewed.
 
 ## Uninstall Travis CI Enterprise
 
@@ -308,6 +357,66 @@ Additionally, please the following command to clean up all Docker build images:
 ```
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
+
+## Find out maximum available concurrency
+
+To find out how much concurrency is available in your Travis CI Enterprise setup, connect to your platform machine via ssh and run:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
+```
+
+The number that's returned here is equal to the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
+
+## Find out how many worker machines are connected
+
+If you wish to find out how many worker machines are currently connected, please connect to your platform machine via ssh and follow these steps:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
+```
+
+If you need to boot more worker machines, please see our docs about [installing new worker machines](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine).
+
+## Integrate Travis CI Enterprise into your monitoring
+
+To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
+
+```
+$ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
+```
+
+If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
+
+
+## Configuring Backups
+
+This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
+
+- [The encryption key](#encryption-key)
+- [The data directories](#create-a-backup-of-the-data-directories)
+
+### Encryption key
+
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+
+> Without the encryption key the information in the database is not recoverable.
+
+To make a backup, please follow these steps:
+
+1. Open a ssh connection to the platform machine.
+2. Open a bash session with `root` privileges on the Travis CI container by running `travis bash`.
+3. Run the following command to obtain the key: `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`.
+4. Create a backup of the value returned by the previous command by either writing it down on a piece of paper or storing it on a different computer.
+
+### Create a backup of the data directories
+
+The data directories are located on the platform machine and are mounted into the Travis CI container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis, and also log files from the various applications inside the container.
+
+The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
+
 
 ## Contact Enterprise Support
 

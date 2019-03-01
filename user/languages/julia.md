@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Julia](http://julialang.org) projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -16,7 +16,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
-and cc [`@travis-ci/julia-maintainers`](https://github.com/orgs/travis-ci/teams/julia-maintainers).
+and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
 ## Choosing Julia versions to test against
 
@@ -39,7 +39,20 @@ of Julia.
  - `X.Y.Z` will test against that exact version.
 
 The oldest versions for which binaries are available is 0.3.1 for Linux,
-or 0.2.0 for [OS X](/user/multi-os/).
+or 0.2.0 for [macOS](/user/multi-os/).
+
+## Coverage
+
+Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://coveralls.io)
+provide summaries and analytics of the coverage of the test suite.
+After enabling the respective services for the repositories, the `codecov` and `coveralls`
+options can be used as follows, placing them at the top level of the YAML document:
+```yaml
+codecov: true
+coveralls: true
+```
+This will then upload the coverage statistics upon successful completion of the tests to
+the specified services.
 
 ## Default Build and Test Script
 
@@ -47,8 +60,8 @@ If your repository contains `JuliaProject.toml` or `Project.toml` file, and you 
 building on Julia v0.7 or later, the default build script will be:
 ```julia
 using Pkg
-Pkg.build()
-Pkg.test()
+Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
+Pkg.test(coverage=true)
 ```
 
 Otherwise it will use the older form:
@@ -57,10 +70,14 @@ if VERSION >= v"0.7.0-DEV.5183"
     using Pkg
 end
 Pkg.clone(pwd())
-Pkg.build("$pkgname")
+Pkg.build("$pkgname") # Pkg.build("$pkgname"; verbose = true) for Julia 1.1 and up
 Pkg.test("$pkgname", coverage=true)
 ```
 where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
+
+Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage information
+about the tests it ran; it does not submit this information to any services.
+To submit coverage information, see the coverage section above.
 
 ## Dependency Management
 
@@ -78,7 +95,6 @@ to construct a build matrix.
 ## Environment Variable
 
 The version of Julia a job is using is available as:
-
 ```
 TRAVIS_JULIA_VERSION
 ```

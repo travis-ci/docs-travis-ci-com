@@ -10,17 +10,15 @@ layout: en
 
 | Python                                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
-| [Default `script`](#Default-Build-Script)   | N/A                                       |
-| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
+| [Default `install`](#dependency-management) | `pip install -r requirements.txt`         |
+| [Default `script`](#default-build-script)   | N/A                                       |
+| [Matrix keys](#build-matrix)                | `python`, `env`                           |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
 ```yaml
   language: python
-  python:
-    - "3.6"
   script:
     - pytest
 ```
@@ -32,7 +30,7 @@ Minimal example:
 Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Python versions
@@ -59,6 +57,15 @@ install:
 # command to run tests
 script:
   - pytest
+```
+{: data-file=".travis.yml"}
+
+You can also specify the stable release of Python 3.7 on our Xenial build images:
+
+```yaml
+dist: xenial
+language: python
+python: 3.7
 ```
 {: data-file=".travis.yml"}
 
@@ -154,7 +161,7 @@ and fails the build.
 ## Using Tox as the Build Script
 
 Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward.
-As described [above](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
+As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
 
 If you're using tox to test your code against multiple versions of python, you have two options:
   * use `language: generic` and manually install the python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu python versions - 2.7.6 and 3.4.3 for Trusty)
@@ -183,7 +190,7 @@ Please note that the `--user` option is mandatory if you are not using `language
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](/user/job-lifecycle/#customizing-the-installation-phase) guide.
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
@@ -213,11 +220,6 @@ install:
 The same technique is often used to test projects against multiple databases and so on.
 
 For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
-
-## Build Matrix
-
-For Python projects, `env` and `python` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

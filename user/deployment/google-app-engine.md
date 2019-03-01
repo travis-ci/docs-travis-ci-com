@@ -33,7 +33,7 @@ The `--add` flag automatically adds the decryption step to the .travis file.
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-More detailed instructions for encrypting keys using Travis can be found [here](http://docs.travis-ci.com/user/encrypting-files/).
+More detailed instructions for encrypting keys using Travis can be found [here](/user/encrypting-files/).
 
 ### Project to deploy
 
@@ -133,5 +133,5 @@ without using this provider.
 - **config**: Path to your module configuration file. Defaults to `"app.yaml"`. This file is runtime dependent ([Go](https://cloud.google.com/appengine/docs/go/config/appconfig), [Java](https://cloud.google.com/appengine/docs/java/config/appconfig), [PHP](https://cloud.google.com/appengine/docs/php/config/appconfig), [Python](https://cloud.google.com/appengine/docs/python/config/appconfig))
 - **version**: The version of the app that will be created or replaced by this deployment. If you do not specify a version, one will be generated for you. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
 - **default**: Flag to set the deployed version to be the default serving version. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
-- **verbosity**: Let's you adjust the verbosity when invoking `"gcloud"`. Defaults to `"warning"`. See [`gcloud`](https://cloud.google.com/sdk/gcloud/reference/).
-- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](http://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.
+- **verbosity**: Lets you adjust the verbosity when invoking `"gcloud"`. Defaults to `"warning"`. See [`gcloud`](https://cloud.google.com/sdk/gcloud/reference/).
+- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](https://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.

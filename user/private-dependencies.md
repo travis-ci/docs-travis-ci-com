@@ -14,7 +14,7 @@ or a dependency management tool like [Bundler](http://bundler.io/) or
 [Composer](https://getcomposer.org/).
 
 Git submodules must be cloned early on in the build process, and so must use
-either the [Deploy Key](#Deploy-Key) or [User Key](#User-Key) method.
+either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on GitHub, there are four different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
@@ -23,10 +23,10 @@ to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
 |:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
-| **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
-| **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
-| **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
-| **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
+| **[Deploy Key](#deploy-key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
+| **[User Key](#user-key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
+| **[Password](#password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
+| **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
@@ -34,7 +34,7 @@ of repositories, and make sure that access is read only.
 
 ## Deploy Key
 
-GitHub allows to set up SSH keys for a repository. These deploy keys have some great advantages:
+GitHub allows you to set up SSH keys for a repository. These deploy keys have some great advantages:
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
@@ -42,7 +42,7 @@ GitHub allows to set up SSH keys for a repository. These deploy keys have some g
 
 However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#User-Key) instead.
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#user-key) instead.
 
 ## User Key
 
@@ -234,9 +234,9 @@ Assumptions:
 - The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 - You know the credentials for a user account that has at least read access to all three repositories.
 
-This approach works just like the [password](#Password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
+This approach works just like the [password](#password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
 
-Under the GitHub account settings for the user you want to use, navigate to [Applications](https://github.com/settings/applications) and generate a "personal access tokens". Make sure the token has the "repo" scope.
+Under the GitHub account settings for the user you want to use, navigate to [Settings > Developer settings](https://github.com/settings/developers), and then generate a "Personal access tokens". Make sure the token has the "repo" scope.
 
 Your `~/.netrc` should look like this:
 
