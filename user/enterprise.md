@@ -8,8 +8,6 @@ master, Travis CI Enterprise supports your way of shipping code. Travis CIs’
 integration with GitHub gives your team the highest confidence with every change
 made.
 
-<div id='toc'></div>
-
 Travis CI Enterprise is built to integrate with GitHub Enterprise. Using OAuth
 for authentication, we sync your users permissions to make sure they only have
 access to the repositories you want them to have access to. This allows you to
@@ -40,7 +38,7 @@ easily customizable, which can then be deployed for use by your team.
 * **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud
 or on-premises environment of your choice. This includes AWS, Google Compute
 Engine, VMware, OpenStack and Azure.
-* **Scales to your needs:** Your team has the flexibility to spin up as much build
+* **Scales to your needs:** Your team has the flexibility to add as much build
 capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their
 hearts content.
@@ -60,11 +58,13 @@ ci.com](https://enterprise.travis-ci.com/). Your trial license will be fully-
 featured so you can get a good picture of how Enterprise will work for your
 team.
 
-If you'd like to talk more about licensing, support, and onboarding, please
-email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
+If you're interested in getting started, let us know at [sales@travis-ci.com](mailto:sales@travis-ci.com). We'd love to figure out Travis CI Enterprise can support
+your development workflow best. Or, if you'd like to talk more about support, and onboarding,
+please email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our
 team looks forward to hearing from you!
 
-## Further Reading  
-  * [System Prerequisites](/user/enterprise/prerequisites)  
-  * [Travis CI Enterprise Installation](/user/enterprise/installation)
+{{ site.data.snippets.contact_enterprise_support }}
+
+## Further Reading
+  * [Setting up Travis CI Enterprise](/user/enterprise/setting-up-travis-ci-enterprise)
   * [Customizing Build Images](/user/enterprise/build-images)

@@ -6,9 +6,27 @@ layout: en
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| Crystal                                     | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#dependency-management) | `shards install`                          |
+| [Default `script`](#default-build-script)   | `crystal spec`                            |
+| [Matrix keys](#build-matrix)                | `crystal`, `env`                          |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/crystal) |
+
+Minimal example:
+
+```yaml
+language: crystal
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to [Crystal](http://crystal-lang.org)
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -19,19 +37,7 @@ altered at any time. If you run into any problems, please report them in the
 and cc [@asterite](https://github.com/asterite),
 [@jhass](https://github.com/jhass),
 [@waj](https://github.com/waj), and
-[@will](https://github.com/will) in the issue.
-
-## Basic configuration
-
-If your Crystal project doesn't need any dependencies beyond those specified in
-your `shard.yml`, your `.travis.yml` can simply be
-
-```yaml
-language: crystal
-```
-{: data-file=".travis.yml"}
-
-This will run `crystal deps` to install dependencies and then `crystal spec` to test your project.
+[@will](https://github.com/will).
 
 ## Configuration options
 

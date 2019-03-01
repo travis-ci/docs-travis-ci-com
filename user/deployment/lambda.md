@@ -16,12 +16,12 @@ deploy:
   role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
   runtime: "nodejs4.3"
   handler_name: "handler"
-  access_key_id: "AWS ACCESS KEY ID"
-  secret_access_key: "AWS SECRET ACCESS KEY"
 ```
 {: data-file=".travis.yml"}
 
-It is recommended that you encrypt your password.
+AWS credentials can be passed in via the `access_key_id` and `secret_access_key` parameters.
+If these are not set, Travis will fall back on the standard `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+If you choose to provide parameters, it is recommended that you encrypt your secret access key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
@@ -38,7 +38,7 @@ configuration parameters
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#Conditional-Releases-with-on%3A).
+See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
 ### AWS permissions
 

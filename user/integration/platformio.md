@@ -4,13 +4,13 @@ layout: en
 
 ---
 
-<div id="toc"></div>
+
 
 ## Overview
 
 [PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can compile your code on multiple platforms, frameworks and boards. Unit testing requires a [monthly subscription](http://platformio.org/pricing).
 
-- *Platforms* - pre-built different development platforms for the most popular host OS (Mac OS X, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
+- *Platforms* - pre-built different development platforms for the most popular host OS (macOS, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
   includes compiler, debugger, uploader, etc:
 
   - Atmel AVR
@@ -28,7 +28,7 @@ layout: en
 
 - *Embedded* - pre-defined compilation profiles for a variety of embedded
   boards.
-      
+
 [Full list](http://platformio.org/#!/boards) at PlatformIO
 
 ## .travis.yml Settings
@@ -37,15 +37,13 @@ Please read the official
 [PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PlatformIO.
 
 PlatformIO is written in Python and is recommended to be run within a [Travis CI
-Python isolated environment](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs):
+Python isolated environment](/user/languages/python/#travis-ci-uses-isolated-virtualenvs):
 
 ```yaml
 language: python
 python:
     - "2.7"
 
-# Cache PlatformIO packages using Travis CI container-based infrastructure
-sudo: false
 cache:
     directories:
         - "~/.platformio"
