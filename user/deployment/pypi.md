@@ -18,8 +18,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-However, this would expose your PyPI password to the world. We recommend you
-[encrypt](/user/encryption-keys/) your password using the Travis CI command line client. This command will generate an encrypted password and directly add it to your `.travis.yml`:
+However, this would expose your PyPI password to the world.
+We recommend you [encrypt](/user/encryption-keys/) your password and add it to your .travis.yml by running:
 
 ```bash
 travis encrypt --add deploy.password
