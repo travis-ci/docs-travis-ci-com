@@ -15,7 +15,7 @@ We strongly recommend that you use a valid certificate from a trusted certificat
 
 > In all cases of using self-signed certificates you must [disable SSL certificate validation](#disabling-ssl-verification) in your settings. This can be done after installation is complete.
 
-> If you decide at a later time to upload a certificate then this can be done at any time via the [admin dashboard](#how-to-add-or-update-certificates-after-installation).
+> After installation you can upload a certificate at any time via the [admin dashboard](#how-to-add-or-update-certificates-after-installation).
 
 #### Using a trial license
 
