@@ -73,11 +73,11 @@ It is possible that there are SSL verification errors occuring when Github is at
 
 To verify that webhook payloads are being successfully delivered by Github:
 
-- Go to the repository in Github from which you expected a build to be triggered.
-- Click on 'Settings' in the top menu.
-- To view webhooks set up for this repository click on 'Hooks'.
-- Find the webhook created for your Travis CI Enterprise domain and click 'Edit'
-- Scroll to the bottom of the page to the section labeled 'Recent Deliveries'
+1. Go to the repository in Github from which you expected a build to be triggered.
+2. Click on 'Settings' in the top menu.
+3. To view webhooks set up for this repository click on 'Hooks'.
+4. Find the webhook created for your Travis CI Enterprise domain and click 'Edit'
+5. Scroll to the bottom of the page to the section labeled 'Recent Deliveries'
 
 All recent payload attempts to Travis CI Enterprise should be present. If any have failed with a message such as 'Peer certificate cannot be authenticated with given CA certificates' then the root cause is most likely your SSL Certificate setup on your installation.
 
