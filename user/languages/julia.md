@@ -98,3 +98,4 @@ The version of Julia a job is using is available as:
 ```
 TRAVIS_JULIA_VERSION
 ```
+In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used the home project/environment.
