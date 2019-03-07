@@ -242,6 +242,26 @@ The data directories are located on the platform machine and are mounted into th
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
+## Migrating from GitHub services to webhooks
+
+Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
+
+Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise. Older repositories that were activated prior to Travis CI Enterprise v2.2.5 may still need to be updated.
+
+Starting with [Travis CI Enterprise v2.2.8](FIXME: add link to public release notes) we provide a migration tool to automatically update any repositories still using the older method to instead use webhooks.
+
+To perform an automatic migration please follow these steps:
+
+1. Open a ssh connection to the platform machine.
+2. Run the following command:
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks <optional-year>"
+```
+
+This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead. You can also provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year. This is recommended if you have a large number of repositories activated on your Travis CI Enterprise installation.
+
+You should see no behavior change with your repositories after the migration is complete.
 
 ## Contact Enterprise Support
 
