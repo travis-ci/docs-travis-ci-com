@@ -23,9 +23,6 @@ Minimal example:
 
 ```yaml
 language: go
-go:
-- 1.11.x
-- "1.10"
 ```
 {: data-file=".travis.yml"}
 
