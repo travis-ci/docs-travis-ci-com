@@ -111,7 +111,7 @@ The following versions of Docker, version control software and compilers are pre
 
 * Python `2.7.15` will be used when no language version is explicitly set.
 
-* PyPy can be installed via `pypy2.7-6.0` resp. `pypy3.5-6.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
 
 ## JavaScript and Node.js support
 
