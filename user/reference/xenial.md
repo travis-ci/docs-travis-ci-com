@@ -111,6 +111,8 @@ The following versions of Docker, version control software and compilers are pre
 
 * Python `2.7.15` will be used when no language version is explicitly set.
 
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+
 ## JavaScript and Node.js support
 
 * For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
