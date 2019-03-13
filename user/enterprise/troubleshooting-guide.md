@@ -67,6 +67,22 @@ A source for the problem could be that the worker machine is not able to communi
 
 Here we're distinguishing between an AWS EC2 installation and an installation running on other hardware. For the former, security groups need to be configured per machine. To do so, please follow our installation instructions [here](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine). If you're not using AWS EC2, please make sure that the ports listed [in the docs](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) are open in your firewall.
 
+#### SSL Verification Issues
+
+It is possible that there are SSL verification errors occuring when Github is attempting to trigger new builds with Travis CI Enterprise.
+
+To verify that webhook payloads are being successfully delivered by Github:
+
+1. Go to the repository in Github from which you expected a build to be triggered.
+2. Click on 'Settings' in the top menu.
+3. To view webhooks set up for this repository click on 'Hooks'.
+4. Find the webhook created for your Travis CI Enterprise domain and click 'Edit'
+5. Scroll to the bottom of the page to the section labeled 'Recent Deliveries'
+
+All recent payload attempts to Travis CI Enterprise should be present. If any have failed with a message such as 'Peer certificate cannot be authenticated with given CA certificates' then the root cause is most likely your SSL Certificate setup on your installation.
+
+Depending on your configuration there may be multiple ways to solve this problem. Our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) contains instructions for the various setups available in Travis CI Enterprise.
+
 #### Docker Version Mismatch
 
 This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
@@ -132,7 +148,7 @@ This can have various causes, including an automatic nvm update or a caching err
 
 ### Strategy
 
-This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server was originally provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [Platform Administration Tips](/user/enterprise/platform-tips/#use-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
+This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server was originally provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [SSL Certificate Management](/user/enterprise/ssl-certificate-management/#using-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
 ## User accounts are stuck in syncing state
 
