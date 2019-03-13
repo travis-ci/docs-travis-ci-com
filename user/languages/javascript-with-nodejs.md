@@ -36,7 +36,6 @@ The easiest way to specify Node.js versions is to use one or more of the latest
 releases in your `.travis.yml`:
 
 - `node` latest stable Node.js release
-- `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
 {% for vers in site.data.node_js_versions %}
 - `{{vers}}` latest {{vers}}.x release
@@ -45,7 +44,6 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "iojs"
   - "7"
 ```
 {: data-file=".travis.yml"}
