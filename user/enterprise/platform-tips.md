@@ -248,7 +248,7 @@ Travis CI Enterprise initially used GitHub Services to connect your repositories
 
 Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise. Older repositories that were activated prior to Travis CI Enterprise v2.2.5 may still need to be updated.
 
-Starting with [Travis CI Enterprise v2.2.8](FIXME: add link to public release notes) we provide a migration tool to automatically update any repositories still using the older method to instead use webhooks.
+Starting with Travis CI Enterprise v2.2.8 we provide a migration tool to automatically update any repositories still using the older method to instead use webhooks.
 
 To perform an automatic migration please follow these steps:
 
