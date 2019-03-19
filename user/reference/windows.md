@@ -7,7 +7,7 @@ layout: en
 
 This guide explains what packages, tools and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
 
-> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or OS X/macOS is currently supported.
+> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or macOS is currently supported.
 
 ## Support
 

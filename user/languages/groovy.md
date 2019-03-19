@@ -30,7 +30,7 @@ The rest of this guide covers configuring Groovy projects on Travis CI. If you'r
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-Groovy builds are not available on the OS X environment.
+Groovy builds are not available on the macOS environment.
 
 ## Overview
 
@@ -139,8 +139,3 @@ jdk:
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
-
-## Build Matrix
-
-For Groovy projects, `env` and `jdk` can be given as arrays
-to construct a build matrix.

@@ -1,6 +1,7 @@
 ---
 title: Beta - Migrating repositories to travis-ci.com
 layout: en
+redirect_from: user/open-source-repository-migration/
 ---
 
 On May 2nd, 2018 Travis CI announced that open source projects will be [joining private projects on travis-ci.com](/user/open-source-on-travis-ci-com)!
@@ -15,17 +16,15 @@ When a repository is migrated, the following information will be transferred to 
 * Environment variables (public and encrypted)
 * Repository SSH keys (default or custom)
 * Repository settings
+* Cron jobs configured for the repository
 * Last build status - the build badge in travis-ci.com will reflect this status until new builds are triggered
 * Next build number
-
-At this early stage of the beta testing process, it isn't yet possible to migrate [cron jobs](https://docs.travis-ci.com/user/cron-jobs/). We are working to make this available as soon as possible.
 
 ### What information will not be transferred to travis-ci.com?
 
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
-* Cron jobs configured for the repository
-* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration sometime in January 2019)
+* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration (sometime in January 2019)
 * Caches - they will be re-created automatically on the first build on travis-ci.com
 
 ## Do I need to make any other changes?
@@ -104,7 +103,7 @@ If you'd like to automate your migration process, it's also possible to migrate 
    -H "Accept: application/json" \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token {API_TOKEN}" \
-   --data '' \ 
+   --data '' \
    https://api.travis-ci.com/repo/{REPO_OWNER}%2F{REPO_NAME}/migrate
 ```
 

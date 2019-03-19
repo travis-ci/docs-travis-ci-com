@@ -56,7 +56,17 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
+
+### Using services: xvfb
+The following will start xvfb and set the right values for the `DISPLAY`
+environment variable:
+
+```yaml
+services:
+  - xvfb
+```
+{: data-file=".travis.yml"}
 
 ### Using the xvfb-run wrapper
 
@@ -66,12 +76,14 @@ less fuss:
 ```yaml
 script: xvfb-run make test
 ```
+{: data-file=".travis.yml"}
 
 To set the screen resolution:
 
 ```yaml
 script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 ```
+{: data-file=".travis.yml"}
 
 ### Using xvfb directly
 
@@ -132,10 +144,10 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 
 ### Using the [Chrome addon](/user/chrome) in the headless mode
 
-Starting with version 57 for Linux Trusty and version 59 on OS X, Google Chrome can be used in "headless"
+Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
 mode, which is suitable for driving browser-based tests using Selenium and other tools.
 
-> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on OS X builds.
+> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on macOS builds.
 
 For example, on Linux
 
@@ -150,7 +162,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-On OS X:
+On macOS:
 
 ```yaml
 language: objective-c
