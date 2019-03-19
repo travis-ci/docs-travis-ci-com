@@ -261,7 +261,17 @@ To perform an automatic migration please follow these steps:
 travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks <optional-year>"
 ```
 
-This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead. You can also provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year. This is recommended if you have a large number of repositories activated on your Travis CI Enterprise installation.
+This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead.
+
+You can provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year. 
+
+If you have a large number of repositories activated on your Travis CI Enterprise installation, please run the migration several times, breaking it down per year. For example: 
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2019"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2018"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2017"
+```
 
 You should see no behavior change with your repositories after the migration is complete.
 
