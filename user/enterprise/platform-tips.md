@@ -246,7 +246,9 @@ The files are located at `/var/travis` on the platform machine. Please run `sudo
 
 Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
 
-Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise. Older repositories that were activated prior to Travis CI Enterprise v2.2.5 may still need to be updated.
+Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise.
+
+Repositories that were activated prior to Travis CI Enterprise v2.2.5 may need to be updated.
 
 Starting with Travis CI Enterprise v2.2.8 we provide a migration tool to automatically update any repositories still using the older method to instead use webhooks.
 
