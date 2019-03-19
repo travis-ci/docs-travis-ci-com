@@ -568,3 +568,11 @@ Approximate available disk space is listed in the [build environment overview](/
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+
+## Uploading Artifacts to Sonatype
+
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as described [here](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+
+## Travis CLI does not recognize my valid Github Token
+
+When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as explained [here](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
