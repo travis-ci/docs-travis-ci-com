@@ -31,7 +31,7 @@ staging, run smoke tests and only then deploy to production.
 The concept of build stages is powerful and flexible, yet simple and
 approachable:
 
-Stages group jobs that run in parallel, while their stages run sequentially.
+Stages group jobs that run in parallel and different stages run sequentially.
 
 A stage is a group of jobs that are allowed to run in parallel. However, each
 one of the stages runs one after another, and will only proceed if all jobs in
