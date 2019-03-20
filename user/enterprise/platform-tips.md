@@ -250,7 +250,7 @@ Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-
 
 Repositories that were activated prior to Travis CI Enterprise v2.2.5 may need to be updated.
 
-Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update the repositories connected using the deprecated GitHub services to instead use webhooks.
+Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update repositories that are using the deprecated GitHub services to instead use webhooks.
 
 To perform an automatic migration please follow these steps:
 
