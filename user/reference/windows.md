@@ -52,18 +52,35 @@ VMs running Windows use the default file system, NTFS.
 
 ## Pre-installed Chocolatey packages
 
-- 7zip
-- cmake
-- curl
-- dotnet
-- git
-- hashdeep
-- jq
-- llvm
-- microsoft-build-tools
-- mingw
-- ruby
-- visualstudio2017buildtools
-- wget
-- winscp
-- wsl
+- 7zip.install 18.5.0.20180730
+- chocolatey 0.10.11
+- chocolatey-core.extension 1.3.3
+- chocolatey-fastanswers.extension 0.0.1
+- chocolatey-visualstudio.extension 1.7.0
+- chocolatey-windowsupdate.extension 1.0.3
+- cmake.install 3.12.3
+- curl 7.62.0
+- dotnet4.6.2 4.6.01590.20170129
+- git.install 2.19.1
+- hashdeep 4.4
+- jq 1.5
+- KB2919355 1.0.20160915
+- KB2919442 1.0.20160915
+- KB2999226 1.0.20181019
+- KB3033929 1.0.4
+- KB3035131 1.0.2
+- llvm 7.0.0
+- microsoft-build-tools 15.0.26320.2
+- mingw 8.1.0
+- ruby 2.5.3.1
+- vcredist140 14.15.26706
+- vcredist2017 14.15.26706
+- visualstudio2017buildtools 15.8.9.0
+- visualstudio2017-installer 1.0.2
+- visualstudio2017-workload-netcorebuildtools 1.1.0
+- visualstudio2017-workload-vctools 1.3.0
+- visualstudio2017-workload-webbuildtools 1.3.0
+- wget 1.19.4
+- winscp 5.13.4
+- winscp.install 5.13.4
+- wsl 1.0.1
