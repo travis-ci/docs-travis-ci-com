@@ -571,7 +571,7 @@ If you need a bit more space in your Ubuntu builds, we recommend using `language
 
 ## Uploading Artifacts to Sonatype
 
-When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as described [here](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a [`stagingProfileId`](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
 
 ## Travis CLI does not recognize my valid Github Token
 
