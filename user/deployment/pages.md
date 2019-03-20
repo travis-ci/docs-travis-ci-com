@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh-pages`. It is *possible* to disable this "force push" behavior by setting `keep-history` option to `true`.
+> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh_pages`. It is *possible* to disable this "force push" behavior by setting `keep_history` option to `true`.
 
 Travis CI can deploy your static files to [GitHub
 Pages](https://pages.github.com/) after a successful build.
@@ -26,7 +26,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-> Make sure you have `skip-cleanup` set to `true`, otherwise Travis CI will delete
+> Make sure you have `skip_cleanup` set to `true`, otherwise Travis CI will delete
 > all the files created during the build, which will probably delete what you are
 > trying to upload.
 
@@ -43,20 +43,20 @@ or via [encrypted variables in
 
 ## Further configuration
 
-* `local-dir`: Directory to push to GitHub Pages, defaults to current directory.
+* `local_dir`: Directory to push to GitHub Pages, defaults to current directory.
   Can be specified as an absolute path or a relative path from the current directory.
 * `repo`: Repo slug, defaults to current repo.
-* `target-branch`: Branch to (force, see: `keep-history`) push `local-dir`
-  contents to, defaults to `gh-pages`.
-* `keep-history`: Optional, create incremental commit instead of doing push
+* `target_branch`: Branch to (force, see: `keep_history`) push `local_dir`
+  contents to, defaults to `gh_pages`.
+* `keep_history`: Optional, create incremental commit instead of doing push
   force, defaults to `false`.
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
-* `project-name`: Defaults to value of `fqdn` or repo slug, used for metadata.
+* `project_name`: Defaults to value of `fqdn` or repo slug, used for metadata.
 * `email`: Optional, committer info, defaults to `deploy@travis-ci.org`.
 * `name`: Optional, committer, defaults to `Deployment Bot`.
-* `committer-from-gh`: Optional, defaults to `false`. Allows you to use the token's owner name and email for commit. Overrides `email` and `name` options.
-* `allow-empty-commit`: Optional, defaults to `false`. Enabled if only
-  `keep-history` is `true`.
-* `github-url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
+* `committer_from_gh`: Optional, defaults to `false`. Allows you to use the token's owner name and email for commit. Overrides `email` and `name` options.
+* `allow_empty_commit`: Optional, defaults to `false`. Enabled if only
+  `keep_history` is `true`.
+* `github_url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
 * `verbose`: Optional, be verbose about internal steps, defaults to `false`.
-* `deployment-file`: Optional, defaults to `false`, enables creation of deployment-info files.
+* `deployment_file`: Optional, defaults to `false`, enables creation of deployment-info files.
