@@ -623,7 +623,8 @@ except:
 bundler:
   - TODO
 cargo:
-  - TODO
+  - https://docs.travis-ci.com/user/caching#r-package-cache
+  - https://docs.travis-ci.com/user/deployment/cargo/
 ccache:
   - TODO
 cocoapods:
@@ -633,12 +634,12 @@ npm:
 pip:
   - TODO
 directories:
-  - TODO
+  - https://docs.travis-ci.com/user/caching#arbitrary-directories
 quiet:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build#git-clone-quiet
 depth:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build#git-clone-depth
 submodules:
-  - TODO
+  - https://docs.travis-ci.com/user/customizing-the-build#sts=Git%20Submodules%20#
 submodules_depth:
   - TODO
