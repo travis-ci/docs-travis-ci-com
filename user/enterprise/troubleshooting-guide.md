@@ -176,3 +176,21 @@ $ travis console
 ```
 
 It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
+
+## GitHub validation errors and ` response_status=422 maximum_number_of_statuses` messages observed in logs
+
+### The Problem
+
+On every commit made when a build runs, a commit status is created for a given SHA. Due to GitHub’s limitations at 1,000 statuses per SHA and context within a repository, if more than 1000 status are created this leads to a validation error.
+This issue should no longer be present in GitHub Apps integrations but will be possible in Webhooks integrations.
+
+### Strategy
+
+Following the reports observed, the current workaround would be to have the user re-sync the account with GitHub to generate a new token and overcome the GitHub limitation. There are two options to do so in Enterprise:
+
+1) A user can sync via Web UI in profile page and clicking on  `Sync account`
+
+2) A user can ssh into platform instance and run the command:
+`travis sync_users  —logins=<GITHUB-LOGIN>`
+
+**Please note** if `—logins=<GITHUB-LOGIN>    ` is not provided this could trigger a sync on every user. 
