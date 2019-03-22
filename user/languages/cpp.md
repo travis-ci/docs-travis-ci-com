@@ -23,7 +23,7 @@ language: cpp
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C++
 projects. Please make sure to read our [Tutorial](/user/tutorial/)

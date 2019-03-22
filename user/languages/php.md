@@ -23,7 +23,7 @@ language: php
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to PHP
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
