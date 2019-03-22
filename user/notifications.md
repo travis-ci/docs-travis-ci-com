@@ -167,7 +167,8 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 
 ## Configuring IRC notifications
 
-You can also specify notifications sent to an IRC channel:
+You can also send notifications to an IRC channel.
+Notifications are sent from `travis-ci`, which auto-authenticates on Freenode.
 
 ```yaml
 notifications:
@@ -331,7 +332,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-- *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit '<https://your-subdomain.campfirenow.com'>)
+- *subdomain*: is your campfire subdomain (i.e. `your-subdomain` if you visit `https://your-subdomain.campfirenow.com`)
 - *api token*: is the token of the user you want to use to post the notifications.
 - *room id*: this is the room id, not the name.
 

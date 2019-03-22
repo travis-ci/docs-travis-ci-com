@@ -19,7 +19,7 @@ We recommend using a machine with 8 vCPUs and 15 GiB of memory and at least 40 G
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
+curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -46,7 +46,7 @@ The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
+curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \

@@ -198,6 +198,19 @@ thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
 alternative. `sbt` can dynamically detect and install the sbt version required
 by your Scala projects.
 
+## Perl images
+
+Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
+The default version of Perl is 5.14.
+
+### Perl runtimes with threading support
+
+{{ site.data.language-details.perl.threading }}
+
+### Pre-installed modules
+
+{{ site.data.language-details.perl.modules }}
+
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
@@ -271,7 +284,6 @@ For PHP versions up to 5.6, the following extensions are available:
 
 Please note that these extensions are not enabled by default with the exception
 of xdebug.
-
 
 ## Other software
 

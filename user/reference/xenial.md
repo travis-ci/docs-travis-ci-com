@@ -44,17 +44,17 @@ addons:
 
 If you depend on these repositories in your build, you can use the following `source` line to get them back:
 
-| package       | source                       |
-|:--------------|:-----------------------------|
-| couchdb       | `ppa:couchdb/stable`         |
-| docker        | `docker-xenial`              |
-| google_chrome | `google-chrome`              |
-| git-lfs       | `github-git-lfs-xenial`      |
-| git-ppa       | `ppa:git-core/ppa`           |
-| haskell       | `ppa:hvr/ghc`                |
-| mongodb       | `mongodb-4.0-xenial`         |
-| pollinate     | `ppa:pollinate/ppa`          |
-| redis         | `ppa:chris-lea/redis-server` |
+| package              | source                       |
+|:---------------------|:-----------------------------|
+| couchdb              | `ppa:couchdb/stable`         |
+| docker               | `docker-xenial`              |
+| google-chrome-stable | `google-chrome`              |
+| git-lfs              | `github-git-lfs-xenial`      |
+| git-ppa              | `ppa:git-core/ppa`           |
+| haskell              | `ppa:hvr/ghc`                |
+| mongodb              | `mongodb-4.0-xenial`         |
+| pollinate            | `ppa:pollinate/ppa`          |
+| redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
 
 ### Services disabled by default
@@ -79,8 +79,8 @@ The following versions of Docker, version control software and compilers are pre
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.19.1` |
-| git-lfs | `2.6.0`  |
+| git     | `2.20.1` |
+| git-lfs | `2.6.1`  |
 | hg      | `4.8`    |
 | svn     | `1.9.3`  |
 {: style="width: 30%" }
@@ -91,8 +91,8 @@ The following versions of Docker, version control software and compilers are pre
 * cmake 3.12.4
 * gcc 5.4.0
 * ccache 3.2.4
-* shellcheck 0.5.0
-* shfmt 2.4.0
+* shellcheck 0.6.0
+* shfmt 2.6.2
 
 ### Docker
 
@@ -107,9 +107,11 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Python support
 
-* Pre-installed Python versions: `2.7.15`, `3.6.5`, and `3.7.1`.
+* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
 
 * Python `2.7.15` will be used when no language version is explicitly set.
+
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
 
 ## JavaScript and Node.js support
 

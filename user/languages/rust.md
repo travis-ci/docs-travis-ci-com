@@ -113,8 +113,3 @@ script:
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
-
-## Build Matrix
-
-For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#build-matrix).

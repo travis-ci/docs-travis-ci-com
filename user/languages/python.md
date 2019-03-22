@@ -19,8 +19,6 @@ Minimal example:
 
 ```yaml
   language: python
-  python:
-    - "3.6"
   script:
     - pytest
 ```
@@ -59,6 +57,15 @@ install:
 # command to run tests
 script:
   - pytest
+```
+{: data-file=".travis.yml"}
+
+You can also specify the stable release of Python 3.7 on our Xenial build images:
+
+```yaml
+dist: xenial
+language: python
+python: 3.7
 ```
 {: data-file=".travis.yml"}
 
@@ -213,11 +220,6 @@ install:
 The same technique is often used to test projects against multiple databases and so on.
 
 For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
-
-## Build Matrix
-
-For Python projects, `env` and `python` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

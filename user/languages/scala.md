@@ -20,11 +20,12 @@ Minimal example:
 ```yaml
   language: scala
 ```
+{: data-file=".travis.yml"}
 </aside>
 
 {{ site.data.snippets.trusty_note_no_osx }}
 
-Scala builds are not available on the OS X environment.
+Scala builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -123,11 +124,6 @@ JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
-
-## Build Matrix
-
-For Scala projects, `env`, `scala`, and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Environment Variable
 
