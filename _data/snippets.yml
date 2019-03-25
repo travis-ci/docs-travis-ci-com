@@ -23,19 +23,34 @@ ghlimit: |
   > *per commit*, which causes the Travis CI build status displayed on GitHub
   > to be incorrect.
   > Avoid this problem by specifying a regularly updated branch for your automated builds.
-trusty_note: |
+all_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [macOS](/user/reference/osx/)
-trusty_note_no_osx: |
+  >  * [Windows](/user/reference/windows/)
+unix_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [macOS](/user/reference/osx/)
+linux_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+linux_windows_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Windows](/user/reference/windows/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but
   one situation in which you might want to set a particular limit is:
