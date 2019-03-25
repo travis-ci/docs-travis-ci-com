@@ -5,14 +5,19 @@ no_toc: true
 ---
 
 ## Upgrades, Downgrades, Plan Changes
-- All plan changes are automatically pro-rated and taken into account.
+- All plan changes are automatically pro-rated and adjusted:
+
+  - Plan upgrades are pro-rated and billed within 24 hours of the plan being changed
+
     - **Upgrade example:**
 You're on the 5-job plan. In the middle of your billing period, you upgrade to the 10-job plan. We will charge the rest of the month on the 10-job plan rate. We will also credit you the unused time on the 5-job plan, generating a dedicated invoice for the upgrade during the billing period.
+
+  - Plan downgrades are pro-rated and adjusted automatically in the next invoice
+
     - **Downgrade example:**
 You’re on the 10-job plan. In the middle of your billing period, you downgrade to the 5-job plan. We will charge the rest of the month on the 5-job plan rate. We will also credit you the unused time on the 10-job plan.
 
-- Plan upgrades are pro-rated and billed within 24 hours of the plan being changed
-- Plan downgrades are pro-rated and adjusted automatically in the next invoice
+
 
 ## Billing Schedule
 For monthly or yearly payment plans, the Service is billed in advance on a monthly or yearly basis respectively.
