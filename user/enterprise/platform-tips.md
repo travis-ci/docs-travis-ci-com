@@ -242,6 +242,38 @@ The data directories are located on the platform machine and are mounted into th
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
+## Migrating from GitHub services to webhooks
+
+Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
+
+Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise.
+
+Repositories that were activated prior to Travis CI Enterprise v2.2.5 may need to be updated.
+
+Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update repositories that are using the deprecated GitHub services to instead use webhooks.
+
+To perform an automatic migration please follow these steps:
+
+1. Open a ssh connection to the platform machine.
+2. Run the following command:
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks <optional-year>"
+```
+
+This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead.
+
+You can provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year. 
+
+If you have a large number of repositories activated on your Travis CI Enterprise installation, please run the migration several times, breaking it down per year. For example: 
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2019"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2018"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2017"
+```
+
+You should see no behavior change with your repositories after the migration is complete.
 
 ## Contact Enterprise Support
 
