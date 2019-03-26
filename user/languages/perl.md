@@ -28,7 +28,7 @@ perl:
 
 ## What This Guide Covers
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 Perl builds are not available on the OS X environment.
 

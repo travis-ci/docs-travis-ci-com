@@ -25,7 +25,7 @@ Minimal example:
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 Python builds are not available on the macOS environment.
 

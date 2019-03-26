@@ -24,7 +24,7 @@ language: erlang
 
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 The rest of this guide covers build environment and configuration topics
 specific to Erlang projects. Please make sure to read our
