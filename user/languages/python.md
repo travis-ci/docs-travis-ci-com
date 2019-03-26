@@ -50,7 +50,6 @@ python:
   - "3.5-dev"  # 3.5 development branch
   - "3.6"
   - "3.6-dev"  # 3.6 development branch
-  - "3.7-dev"  # 3.7 development branch
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -63,9 +62,13 @@ script:
 You can also specify the stable release of Python 3.7 on our Xenial build images:
 
 ```yaml
-dist: xenial
+dist: xenial   # required for Python >= 3.7
 language: python
-python: 3.7
+python:
+  - "3.7"
+  - "3.7-dev"  # 3.7 development branch
+  - "3.8-dev"  # 3.8 development branch
+  - "nightly"  # nightly build
 ```
 {: data-file=".travis.yml"}
 
