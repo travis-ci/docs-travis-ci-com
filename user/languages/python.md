@@ -103,7 +103,6 @@ in your `.travis.yml`:
 language: python
 python:
   - "2.7"
-  - "3.4"
   - "3.5"
   - "3.6"
   # PyPy versions
