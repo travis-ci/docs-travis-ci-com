@@ -88,12 +88,12 @@ Upon restart you can then verify whether SSL verification is now working. If you
 
 ## Using a Let's Encrypt SSL Certificate
 
-You can use a certificate from [Let's Encrypt](https://letsencrypt.org/) instead of a self-signed certificate or a certificate purchased from a trusted certificate authority. Certificates from Let's Encrypt are free and behave the same as those purchased from a trusted certificate authority. More information about Let's Encrypt can be found [here](https://letsencrypt.org/about/).
+You can use a certificate from [Let's Encrypt](https://letsencrypt.org/) instead of a self-signed certificate or a certificate purchased from a trusted certificate authority. Certificates from Let's Encrypt are free and behave the same as those purchased from a trusted certificate authority.
 
 What you will need:
 
-1. An email address (Let's Encrypt will send notifications regarding urgent renewal and security issues).
-2. A domain name under which your installation is available (we're using `travis.example.com` in this guide).
+- An email address (Let's Encrypt will send notifications regarding urgent renewal and security issues).
+- A domain name under which your installation is available.
 
 > The following steps require downtime for your Travis CI Enterprise instance. For this reason we recommend that you perform these steps during a maintenance window.
 
@@ -102,7 +102,7 @@ What you will need:
 We will be using [certbot](https://certbot.eff.org/#ubuntutrusty-other) to obtain a SSL certificate from Let's Encrypt. To install certbot:
 
 1. Open a ssh connection to the platform machine.
-2. Add the certbot PPA:
+2. Add the certbot personal package archive:
   ```bash
   sudo add-apt-repository ppa:certbot/certbot
   ```
@@ -201,7 +201,7 @@ Your certificate is now generated and saved on your Travis CI Enterprise platfor
 To use your generated certificate in your Travis CI Enterprise instance:
 
 1. Log into your dashboard at `https://<your-travis-ci-enterprise-domain>:8800`.
-2. Click the gear icon on the rightmost side of the top menu and select 'Console Settings' from the dropdown.
+2. On the rightmost side of the top menu click the gear icon and select 'Console Settings' from the dropdown.
 3. Click 'TLS Key & Cert' in the left menu (or scroll down).
 4. Select the 'Server path' option.
 5. Enter the paths to your certificate that were provided in the certbot output above. Example:
