@@ -24,7 +24,7 @@ language: groovy
 
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
