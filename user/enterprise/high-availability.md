@@ -23,7 +23,7 @@ HA is configured entirely on the Enterprise platform instance, but installing an
 
 1. Contact [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=HA%20Installation) to have your Enterprise license configured for HA mode.
 1. Setup your [platform instance per the standard installation steps](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine)
-1. Sign into your Admin Dashboard (at `your-domain.tld:8800`)
+1. Sign into your Admin Dashboard (at `https://<your-travis-ci-enterprise-domain>:8800`)
    1. Go to "Settings" and click "Enable HA"
    1. Paste in the urls where you have [Postgres](https://www.postgresql.org/), [Redis](https://redis.io/), and [RabbitMQ](https://www.rabbitmq.com/) hosted. The connection strings should be in the format of:
    ```
@@ -40,7 +40,7 @@ Once your first platform instance is fulling configured, you should be able to s
 
 We recommend at least two Platform containers for HA mode, and you can install more Enterprise containers in the same way you [installed](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) the first.
 
-Once your second platform is installed, it will also need its HA settings configured. Go to the Admin Dashboard for your new platform container at `secondIP:8800` or `second-platform-public-dns.tld:8800` to complete this the same way as [the first platform installation](#installing-the-platform-in-high-availability-mode)
+Once your second platform is installed, it will also need its HA settings configured. Go to the Admin Dashboard for your new platform container at `https://<your-second-travis-ci-enterprise-domain>:8800` to complete this the same way as [the first platform installation](#installing-the-platform-in-high-availability-mode)
 
 ## Installing the Worker in High Availability Mode
 

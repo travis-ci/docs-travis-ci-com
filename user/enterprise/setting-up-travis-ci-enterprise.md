@@ -74,7 +74,7 @@ Ubuntu 16.04 LTS or later as the underlying operating system.
     sudo bash /tmp/installer.sh
     ```
 
-3. *In your browser*, navigate to `https://<hostname>:8800` (your Enterprise
+3. *In your browser*, navigate to `https://<your-travis-ci-enterprise-domain>:8800` (your Enterprise
 installation's hostname, port 8800) to complete the setup:
 
    1. Add a secure certificate or configure a trusted one.

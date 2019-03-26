@@ -173,15 +173,15 @@ To generate your certificate:
 8. Provide your domain name:
   ```bash
   Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-  to cancel): travis.example.com
+  to cancel): <your-travis-ci-enterprise-domain>
   ```
 9. Upon successful completion you should see a message similar to the following:
   ```bash
   IMPORTANT NOTES:
      Congratulations! Your certificate and chain have been saved at:
-     /etc/letsencrypt/live/travis.example.com/fullchain.pem
+     /etc/letsencrypt/live/<your-travis-ci-enterprise-domain>/fullchain.pem
      Your key file has been saved at:
-     /etc/letsencrypt/live/travis.example.com/privkey.pem
+     /etc/letsencrypt/live/<your-travis-ci-enterprise-domain>/privkey.pem
      Your cert will expire on 2018-02-07. To obtain a new or tweaked
      version of this certificate in the future, simply run certbot
      again. To non-interactively renew *all* of your certificates, run
@@ -206,8 +206,8 @@ To use your generated certificate in your Travis CI Enterprise instance:
 4. Select the 'Server path' option.
 5. Enter the paths to your certificate that were provided in the certbot output above. Example:
   ```
-  - SSL Private Key Filename: `/etc/letsencrypt/live/travis.example.com/privkey.pem`
-  - SSL Certificate Filename: `/etc/letsencrypt/live/travis.example.com/fullchain.pem`
+  - SSL Private Key Filename: `/etc/letsencrypt/live/<your-travis-ci-enterprise-domain>/privkey.pem`
+  - SSL Certificate Filename: `/etc/letsencrypt/live/<your-travis-ci-enterprise-domain>/fullchain.pem`
   ```
 6. Click 'Save' at the bottom of the page.
 7. Open a ssh connection to the platform machine.
