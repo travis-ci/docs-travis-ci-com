@@ -24,7 +24,7 @@ language: rust
 
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 The rest of this guide covers configuring Rust projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
