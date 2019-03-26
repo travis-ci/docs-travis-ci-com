@@ -79,7 +79,7 @@ The following versions of Docker, version control software and compilers are pre
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.20.1` |
+| git     | `2.21.0` |
 | git-lfs | `2.6.1`  |
 | hg      | `4.8`    |
 | svn     | `1.9.3`  |
@@ -92,7 +92,7 @@ The following versions of Docker, version control software and compilers are pre
 * gcc 5.4.0
 * ccache 3.2.4
 * shellcheck 0.6.0
-* shfmt 2.6.2
+* shfmt 2.6.3
 
 ### Docker
 
@@ -135,7 +135,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 | package | version |
 |:--------|:--------|
 | gradle  | 4.10.2  |
-| maven   | 3.5.4   |
+| maven   | 3.6.0   |
 {: style="width: 30%" }
 
 ## PHP support
@@ -143,12 +143,12 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 * For dynamic runtime selection, `phpenv` is available.
 * The following PHP versions are preinstalled:
 
-  | alias | version |
-  |:----- |:------- |
-  | 5.6   | 5.6.36  |
-  | 7.1   | 7.1.19  |
-  | 7.2   | 7.2.7   |
-  {: style="width: 30%" }
+| alias  | version  |
+| :----- | :------- |
+| 5.6    | 5.6.40   |
+| 7.1    | 7.1.27   |
+| 7.2    | 7.2.15   |
+{: style="width: 30%" }
 
 ## Databases and services
 
