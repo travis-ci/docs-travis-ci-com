@@ -75,7 +75,7 @@ contact_enterprise_support: |
    
   - Description of the problem - what are you observing?
   - Which steps did you try already?
-  - A support bundle (You can get it from `https://yourdomain:8800/support`)
+  - A support bundle (You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support`)
   - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
   - If a build failed or errored, a text file of the build log
   

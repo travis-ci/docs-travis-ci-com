@@ -210,7 +210,7 @@ If you need to boot more worker machines, please see our docs about [installing 
 To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
 
 ```
-$ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
+$ curl -H "Authorization: token XXXXX" https://<your-travis-ci-enterprise-domain>/api/uptime
 ```
 
 If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
