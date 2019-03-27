@@ -186,7 +186,7 @@ This issue should no longer be present in GitHub Apps integrations but will be p
 
 ### Strategy
 
-Following the reports observed, the current workaround would be to have the user re-sync the account with GitHub to generate a new token and overcome the GitHub limitation. There are two options to do so in Enterprise:
+Following the reports observed, the current workaround is to have the user re-sync the account with GitHub to generate a new token and overcome the GitHub limitation. There are two options to do so in Enterprise:
 
 1) A user can sync via Web UI in profile page and clicking on  `Sync account`
 
