@@ -193,4 +193,4 @@ Following the reports observed, the current workaround would be to have the user
 2) A user can ssh into platform instance and run the command:
 `travis sync_users  —logins=<GITHUB-LOGIN>`
 
-**Please note** if `—logins=<GITHUB-LOGIN>    ` is not provided this could trigger a sync on every user. 
+**Please note** if `—logins=<GITHUB-LOGIN>    ` is not provided this triggers a sync on every user. Depending on the number of total users on your instance this can take a while and impact production operations
