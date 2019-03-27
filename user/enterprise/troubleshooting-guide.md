@@ -48,12 +48,12 @@ Here is an example:
 # them to take effect.
 
 export TRAVIS_ENTERPRISE_BUILD_ENDPOINT="__build__"
-export TRAVIS_ENTERPRISE_HOST="travisci.example.com"
+export TRAVIS_ENTERPRISE_HOST="<your-travis-ci-enterprise-domain>"
 export TRAVIS_ENTERPRISE_SECURITY_TOKEN="abc12345"
 # export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```
 
-The relevant variables are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain your primary domain you use to access the Travis CI Enterprise Web UI. The `travis-worker` process uses this domain to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` on `https://your-travis-ci-enterprise-domain:8800/settings`.
+The relevant variables are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain your primary domain you use to access the Travis CI Enterprise Web UI. The `travis-worker` process uses this domain to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` found at `https://<your-travis-ci-enterprise-domain>:8800/settings`.
 
 If you have made changes to this file, please run the following so they take effect:
 

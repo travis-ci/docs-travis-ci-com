@@ -29,13 +29,9 @@ To make a backup, please follow these steps:
 
 ## Updating your Travis CI Enterprise Platform
 
-You can check for new releases by going to the management interface
-dashboard `https://:8800` and clicking on the 'Check Now' button. If an
-update is available you will be able to read the release notes and
-install the update.
+You can check for new releases by going to the management interface dashboard `https://<your-travis-ci-enterprise-domain>:8800` and clicking on the 'Check Now' button. If an update is available you will be able to read the release notes and install the update.
 
-**Please note that this will cause downtime for the platform, because
-Replicated services get restarted during the update.**
+> There will be a small amount of downtime while an update is installed. For this reason we recommend that you perform each update during a maintenance window.
 
 ## Updating Replicated on the Platform
 
