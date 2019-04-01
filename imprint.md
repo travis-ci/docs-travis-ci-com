@@ -13,7 +13,7 @@ no_toc: true
     Germany
   </address>
   <h4>Vertreten durch</h4>
-  <p>Konstantin Haase, Fritz Thielemann</p>
+  <p>Randy Jacops</p>
   <h4>Kontakt (Contact)</h4>
   <p>
     Email contact@travis-ci.org <br>
