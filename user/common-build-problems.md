@@ -579,7 +579,7 @@ When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) 
 
 ## Duplicate/Unknown Job shows up in my build
 
-When specifying stages, users often unknowingly add an implicit Job to the list of Jobs in a Stage due to a syntactically correct YAML entry. For example:
+When specifying stages, users often unknowingly add an implicit Job to the list of Jobs in a Stage using YAML that is otherwise syntactically correct.
 
 ``` yaml
 language: c
