@@ -23,19 +23,34 @@ ghlimit: |
   > *per commit*, which causes the Travis CI build status displayed on GitHub
   > to be incorrect.
   > Avoid this problem by specifying a regularly updated branch for your automated builds.
-trusty_note: |
+all_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [macOS](/user/reference/osx/)
-trusty_note_no_osx: |
+  >  * [Windows](/user/reference/windows/)
+unix_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [macOS](/user/reference/osx/)
+linux_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+linux_windows_note: |
+  > Language versions and other build-environment specific
+  > information are in our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Windows](/user/reference/windows/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but
   one situation in which you might want to set a particular limit is:
@@ -60,7 +75,7 @@ contact_enterprise_support: |
    
   - Description of the problem - what are you observing?
   - Which steps did you try already?
-  - A support bundle (You can get it from `https://yourdomain:8800/support`)
+  - A support bundle (You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support`)
   - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
   - If a build failed or errored, a text file of the build log
   

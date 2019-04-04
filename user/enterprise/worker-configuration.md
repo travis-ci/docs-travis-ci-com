@@ -15,7 +15,7 @@ If you need to change the hostname the Worker should connect to, or the
 RabbitMQ password, you can do so by updating:
 
 ```sh
-export AMQP_URI="amqp://travis:<rabbitmq password>@<Travis CI Enterprise platform hostname>/travis"
+export AMQP_URI="amqp://travis:<rabbitmq password>@<your-travis-ci-enterprise-domain>/travis"
 ```
 
 ### With Ubuntu 14.04 as host operating system
@@ -28,7 +28,7 @@ If you need to change the hostname the Worker should connect to, or the
 RabbitMQ password, you can do so by updating:
 
 ```sh
-export TRAVIS_ENTERPRISE_HOST="enterprise.hostname.corp"
+export TRAVIS_ENTERPRISE_HOST="<your-travis-ci-enterprise-domain>"
 export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
 ```
 
