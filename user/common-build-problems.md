@@ -576,3 +576,36 @@ When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository,
 ## Travis CLI does not recognize my valid Github Token
 
 When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as [explained in this document](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+## Duplicate/Unknown Job shows up in my build
+
+When specifying stages, users often unknowingly add an implicit _Job_ to the list of _Jobs_ in a _Stage_ due to a syntactically correct YAML entry. For example:
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast Stage
+  - name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+```
+{: data-file=".travis.yml"}
+
+The above definition, creates a _stage_ called **Breakfast Stage** and _2 jobs_. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](https://docs.travis-ci.com/user/languages/c/#what-this-guide-covers) will be used while the second _job_ is the _Peanut Butter and Bread_, which you have explicitly defined.
+
+To remove this _implicit job_, you would edit the above to look like:
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast Stage
+    name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+``` 
+{: data-file=".travis.yml"}
+
+This creates only one _job_,  _Peanut Butter and Bread_ under the _stage_ named _Breakfast Stage_ as you have defined. Please see [How to define Build Stages](https://docs.travis-ci.com/user/build-stages/#how-to-define-build-stages) for more information. 
