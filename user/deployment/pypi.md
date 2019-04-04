@@ -90,10 +90,10 @@ To release to a different PyPI index:
 
 ```yaml
 deploy:
-      provider: pypi
-      user: ...
-      password: ...
-      server: https://mypackageindex.com/index
+  provider: pypi
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
 ```
 {: data-file=".travis.yml"}
 
