@@ -579,33 +579,34 @@ When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) 
 
 ## Duplicate/Unknown Job shows up in my build
 
-When specifying stages, users often unknowingly add an implicit _Job_ to the list of _Jobs_ in a _Stage_ due to a syntactically correct YAML entry. For example:
+When specifying stages, users often unknowingly add an implicit Job to the list of Jobs in a Stage due to a syntactically correct YAML entry. For example:
 
 ``` yaml
 language: c
 ...
 jobs:
   include:
-  - stage: Breakfast Stage
+  - stage: Breakfast
   - name: Peanut Butter and Bread
     script: ./brew_hot_coffee.sh
 ```
 {: data-file=".travis.yml"}
 
-The above definition, creates a _stage_ called **Breakfast Stage** and _2 jobs_. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](https://docs.travis-ci.com/user/languages/c/#what-this-guide-covers) will be used while the second _job_ is the _Peanut Butter and Bread_, which you have explicitly defined.
+The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](https://docs.travis-ci.com/user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
 
-To remove this _implicit job_, you would edit the above to look like:
+To remove this _implicit_ job, you would edit the above to look like:
 
 ``` yaml
 language: c
 ...
 jobs:
   include:
-  - stage: Breakfast Stage
+  - stage: Breakfast
     name: Peanut Butter and Bread
     script: ./brew_hot_coffee.sh
 
 ``` 
 {: data-file=".travis.yml"}
 
-This creates only one _job_,  _Peanut Butter and Bread_ under the _stage_ named _Breakfast Stage_ as you have defined. Please see [How to define Build Stages](https://docs.travis-ci.com/user/build-stages/#how-to-define-build-stages) for more information. 
+
+This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](https://docs.travis-ci.com/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
