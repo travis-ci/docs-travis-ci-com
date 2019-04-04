@@ -592,7 +592,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](https://docs.travis-ci.com/user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
+The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
 
 To remove this _implicit_ job, you would edit the above to look like:
 
@@ -609,4 +609,4 @@ jobs:
 {: data-file=".travis.yml"}
 
 
-This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](https://docs.travis-ci.com/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
+This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
