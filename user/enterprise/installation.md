@@ -32,9 +32,9 @@ each port in the table below:
 
 | Port | Source / Origin           | Service         | Description                                                                  |
 |:-----|:--------------------------|:----------------|:-----------------------------------------------------------------------------|
-| 8800 | Administrators' computers | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
-| 5672 | Worker machine(s)         | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
-| 4567 | Worker machine(s)         | Custom TCP Rule | For RabbitMQ SSL.                                                            |
+| 8800 | Administrators' computers | Custom TCP Rule | Enterprise Admin Dashboard. |
+| 5672 | Worker machine(s)         | Custom TCP Rule | RabbitMQ Non-SSL.                                                        |
+| 4567 | Worker machine(s)         | Custom TCP Rule | RabbitMQ SSL.                                                            |
 | 443  | Platform machine          | HTTPS           | The platform machine needs to be able to talk to itself                      |
 | 443  | Developers' computers     | HTTPS           | Web application over HTTPS access.                                           |
 | 80   | Developers' computers     | HTTP            | Web application access.                                                      |
