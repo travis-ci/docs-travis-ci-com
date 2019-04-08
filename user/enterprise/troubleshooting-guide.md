@@ -186,7 +186,9 @@ This issue should no longer be present in GitHub Apps integrations but will be p
 
 ### Strategy
 
-Following the reports observed, the current workaround is to have the user re-sync the account with GitHub to generate a new token and overcome the GitHub limitation. There are two options to do so in Enterprise:
+The workaround for this issue is to manually re-sync the user account with GitHub. This will generate a fresh token for the user account that has not reached any GitHub API limits.
+
+There are two options listed below to initiate a sync between your Travis CI Enterprise instance and GitHub instance.
 
 1) A user can sync via Web UI in profile page and clicking on  `Sync account`
 
