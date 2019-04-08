@@ -190,7 +190,13 @@ The workaround for this issue is to manually re-sync the user account with GitHu
 
 There are two options listed below to initiate a sync between your Travis CI Enterprise instance and GitHub instance.
 
-1) A user can sync via Web UI in profile page and clicking on  `Sync account`
+#### User initiates a sync via their profile in web UI
+
+A user can sync their account with your GitHub instance via the web UI:
+
+1. User accesses the web UI by going to `https://<your-travis-ci-enterprise-domain>` in their browser.
+2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
+3. In the upper right corner of the profile page click on 'Sync account'.
 
 2) A user can ssh into platform instance and run the command:
 `travis sync_users  —logins=<GITHUB-LOGIN>`
