@@ -177,7 +177,7 @@ $ travis console
 
 It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
 
-## GitHub validation errors and ` response_status=422 maximum_number_of_statuses` messages observed in logs
+## Logs contain many GitHub API 422 errors
 
 ### The Problem
 
