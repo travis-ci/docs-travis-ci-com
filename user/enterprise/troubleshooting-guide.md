@@ -198,7 +198,12 @@ A user can sync their account with your GitHub instance via the web UI:
 2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
 3. In the upper right corner of the profile page click on 'Sync account'.
 
-2) A user can ssh into platform instance and run the command:
+####  Administrator initiates sync via CLI
+
+An administrator can also initiate a sync on behalf of a user via the `travis` CLI tool on the platform machine:
+
+1. Open a ssh connection to the platform machine.
+2. Initiate a sync by running `travis sync_users —logins=<GITHUB-LOGIN>`
 `travis sync_users  —logins=<GITHUB-LOGIN>`
 
 > If `—logins=<GITHUB-LOGIN>` is not provided then this command will trigger a sync on every user. This could result in long runtimes and may impact production operations if you have a large number of total users on your Travis CI Enterprise instance.
