@@ -182,7 +182,7 @@ It can happen that organizations are also stuck in the syncing state. Since an o
 ### The Problem
 
 On every commit made when a build runs, a commit status is created for a given SHA. Due to GitHub’s limitations at 1,000 statuses per SHA and context within a repository, if more than 1,000 statuses are created this leads to a validation error.
-This issue should no longer be present in GitHub Apps integrations but will be possible in Webhooks integrations.
+This issue should no longer be present in GitHub Apps integrations but will be present in Webhooks integrations.
 
 ### Strategy
 
