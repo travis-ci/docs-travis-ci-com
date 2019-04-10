@@ -7,7 +7,7 @@ layout: en
 Pull request builds are an essential part of Travis CI.
 Whenever a pull request is opened on GitHub, Travis CI builds it and updates the status icon on the pull request page.
 
-> Please note, [Draft Pull Requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/) are not currently supported on Travis CI
+> Please note, [Draft Pull Requests](https://github.blog/2019-02-14-introducing-draft-pull-requests/) are not currently supported on Travis CI.
 
 ## How Pull Requests are Built
 
