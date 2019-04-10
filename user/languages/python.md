@@ -173,7 +173,7 @@ A good example of a `travis.yml` that runs tox using a Travis build matrix is [t
 
 ## Running Python tests on multiple Operating Systems
 
-### Testing with Python 3.7 on Linux, macOS, and Windows
+Sometimes it is necessary to ensure that software works the same across multiple Operating Systems.  This following `.travis.yml` file will execute parallel test runs on Linux, macOS, and Windows.
 
 ```yaml
 language: python            # this works for Linux but is an error on macOS or Windows
