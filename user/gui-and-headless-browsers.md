@@ -58,11 +58,15 @@ Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
 or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
 
-### Using services: xvfb
+### Using `services:`
+
+> This only works on Ubuntu 16.04 (Xenial) i.e. with `dist: xenial`
+
 The following will start xvfb and set the right values for the `DISPLAY`
 environment variable:
 
 ```yaml
+dist: xenial
 services:
   - xvfb
 ```
@@ -86,6 +90,8 @@ script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 {: data-file=".travis.yml"}
 
 ### Using xvfb directly
+
+> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`.
 
 To use `xvfb` itself, start it in the `before_script` section of your
 `.travis.yml`:
