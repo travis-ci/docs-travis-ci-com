@@ -534,11 +534,10 @@ Now, the build result will be determined as soon as all the required jobs finish
 
 ## Installing a Second Programming Language	
 
- If you need to install a second programming language in your current build environment, you can do so in the `before_install` stage of the build.
+If you need to install a second programming language in your current build environment, you can do so in the `before_install` stage of the build.
  
- For example, you can use the following recipe to install a custom version of Ruby in a Python build:
-
- ```yaml
+For example, you can use the following recipe to install a custom version of Ruby in a Python build:
+```yaml
 language: python
 
 before_install:	
@@ -547,7 +546,6 @@ before_install:
 {: data-file=".travis.yml"}
 
 You can also insall a custom PHP version in a Node.js build like this:
-
 ```yaml
 language: node_js
 
