@@ -72,6 +72,14 @@ services:
 ```
 {: data-file=".travis.yml"}
 
+> Sometimes it may be necessary to explicitly set the DISPLAY on Travis CI Enterprise. You can achieve this with the following snippet:
+
+```yaml
+before_script:
+  - "export DISPLAY=:99.0"
+```
+{: data-file=".travis.yml"}
+
 ### Using the xvfb-run wrapper
 
 `xvfb-run` is a wrapper for invoking `xvfb` so that `xvfb` can be used with
