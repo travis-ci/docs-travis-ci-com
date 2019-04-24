@@ -328,7 +328,7 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 
 ```yaml
 notifications:
-  campfire: [subdomain]:[api token]@[room id]
+  campfire: "[subdomain]:[api token]@[room id]"
 ```
 {: data-file=".travis.yml"}
 
@@ -349,7 +349,7 @@ You can also customise the notifications, like with [IRC notifications](#configu
 notifications:
   campfire:
     rooms:
-      - [subdomain]:[api token]@[room id]
+      - "[subdomain]:[api token]@[room id]"
     template:
       - "%{repository_slug} (%{commit}) : %{message} %{foo} "
       - "Build details: %{build_url}"
@@ -366,7 +366,7 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 ```yaml
 notifications:
-  flowdock: [api token]
+  flowdock: "[api token]"
 ```
 {: data-file=".travis.yml"}
 
@@ -387,7 +387,7 @@ Send notifications to your HipChat rooms using the following key in your
 
 ```yaml
 notifications:
-  hipchat: [api token]@[room id or name]
+  hipchat: "[api token]@[room id or name]"
 ```
 {: data-file=".travis.yml"}
 
@@ -408,7 +408,7 @@ If you are running HipChat Server, specify the hostname like this instead:
 
 ```yaml
 notifications:
-  hipchat: [api token]@[hostname]/[room id or name]
+  hipchat: "[api token]@[hostname]/[room id or name]"
 ```
 {: data-file=".travis.yml"}
 
@@ -418,9 +418,9 @@ HipChat notifications support templates too, so you can customize the appearance
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
 ```
 {: data-file=".travis.yml"}
 
@@ -431,9 +431,9 @@ If you want to send HTML notifications you need to add `format: html` like this
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href='%{build_url}'>Details</a>/<a href='%{compare_url}'>Change view</a>)"
     format: html
 ```
 {: data-file=".travis.yml"}
@@ -444,9 +444,9 @@ With the V2 API, you can trigger a user notification by setting `notify: true`:
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
     notify: true
 ```
 {: data-file=".travis.yml"}
