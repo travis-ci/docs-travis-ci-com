@@ -486,9 +486,9 @@ Notifications can also be sent via [Pushover](https://pushover.net/) via the fol
 ```yaml
 notifications:
   pushover:
-    api_key: [api token]
+    api_key: "[api token]"
     users:
-      - [user key]
+      - "[user key]"
 ```
 {: data-file=".travis.yml"}
 
@@ -509,12 +509,12 @@ You can also customise the notifications, like with IRC notifications:
 
 ```yaml
 notifications:
-pushover:
-  api_key: [api token]
-  users:
-    - [user key]
-    - [user key]
-  template: "%{repository_slug} (%{commit}) : %{message} - Build details: %{build_url}"
+  pushover:
+    api_key: "[api token]"
+    users:
+      - "[user key]"
+      - "[user key]"
+    template: "%{repository_slug} (%{commit}) : %{message} - Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
 
@@ -676,9 +676,9 @@ notifications:
       - http://hooks.mydomain.com/events
     on_success: change # default: always
     on_failure: always # default: always
-    on_start: change   # default: never
-    on_cancel: always # default: always
-    on_error: always # default: always
+    on_start:   change # default: never
+    on_cancel:  always # default: always
+    on_error:   always # default: always
 ```
 {: data-file=".travis.yml"}
 
