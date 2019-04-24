@@ -68,8 +68,10 @@ Use the following options to configure conditional deployment:
 * `repo`: in the form `owner_name/repo_name`. Deploy only when the build occurs on a particular repository. For example
 
    ```yaml
-   on:
-     repo: travis-ci/dpl
+   deploy:
+     provider: s3
+     on:
+       repo: travis-ci/dpl
    ```
 
 * `branch`: name of the branch.
@@ -95,13 +97,14 @@ Use the following options to configure conditional deployment:
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
 ```yaml
+language: node_js
 deploy:
   provider: appfog
   user: ...
   api_key: ...
   on:
     branch: staging
-    node: '0.11' # this should be quoted; otherwise, 0.10 would not work
+    node_js: '0.11' # this should be quoted; otherwise, 0.10 would not work
 ```
 {: data-file=".travis.yml"}
 
