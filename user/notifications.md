@@ -210,7 +210,7 @@ notifications:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -351,7 +351,7 @@ notifications:
     rooms:
       - "[subdomain]:[api token]@[room id]"
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -514,7 +514,7 @@ pushover:
   users:
     - [user key]
     - [user key]
-  template: "%{repository_slug} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+  template: "%{repository_slug} (%{commit}) : %{message} - Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
 
@@ -617,7 +617,7 @@ Customize the notification message by editing the template, as in this example:
 notifications:
   slack:
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
