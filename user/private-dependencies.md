@@ -217,11 +217,10 @@ gem 'lib2', github: "myorg/lib2"
 > update --init recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
 > submodules, update the credentials and add an explicit step to update the submodules:
-
+>
 > ```yaml
 > git:
->   submodules:
->     false
+>   submodules: false
 > before_install:
 >   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
@@ -286,8 +285,7 @@ gem 'lib2', github: "myorg/lib2"
 >
 > ```yaml
 > git:
->   submodules:
->     false
+>   submodules: false
 > before_install:
 >   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
