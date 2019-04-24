@@ -6,25 +6,24 @@ layout: en
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
-
-
 For a minimal configuration with S3, add the following to your `.travis.yml`:
 
 ```yaml
-    deploy:
-      - provider: s3
-        ⋮ # rest of S3 deployment for MyApp.zip
-      - provider: codedeploy
-        access_key_id: "YOUR AWS ACCESS KEY"
-        secret_access_key: "YOUR AWS SECRET KEY"
-        bucket: "S3 Bucket"
-        key: latest/MyApp.zip
-        application: MyApp
-        deployment_group: MyDeploymentGroup
+deploy:
+  - provider: s3
+    # rest of S3 deployment for MyApp.zip
+    # ⋮
+  - provider: codedeploy
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    bucket: "S3 Bucket"
+    key: latest/MyApp.zip
+    application: MyApp
+    deployment_group: MyDeploymentGroup
 ```
 {: data-file=".travis.yml"}
 
-Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.  
+Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.
 
 A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
@@ -55,34 +54,34 @@ This command will also offer to set up [S3 deployment](/user/deployment/s3/), if
 You can explicitly specify the branch to deploy from with the **on** option:
 
 ```yaml
-    deploy:
-      provider: codedeploy
-      access_key_id: "YOUR AWS ACCESS KEY"
-      secret_access_key: "YOUR AWS SECRET KEY"
-      bucket: "S3 Bucket"
-      key: latest/MyApp.zip
-      bundle_type: zip
-      application: MyApp
-      deployment_group: MyDeploymentGroup
-      on:
-        branch: production
+deploy:
+  provider: codedeploy
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  key: latest/MyApp.zip
+  bundle_type: zip
+  application: MyApp
+  deployment_group: MyDeploymentGroup
+  on:
+    branch: production
 ```
 {: data-file=".travis.yml"}
 
 Alternatively, you can also configure Travis CI to deploy from all branches:
 
 ```yaml
-    deploy:
-      provider: codedeploy
-      access_key_id: "YOUR AWS ACCESS KEY"
-      secret_access_key: "YOUR AWS SECRET KEY"
-      bucket: "S3 Bucket"
-      key: latest/MyApp.zip
-      bundle_type: zip
-      application: MyApp
-      deployment_group: MyDeploymentGroup
-      on:
-        all_branches: true
+deploy:
+  provider: codedeploy
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  key: latest/MyApp.zip
+  bundle_type: zip
+  application: MyApp
+  deployment_group: MyDeploymentGroup
+  on:
+    all_branches: true
 ```
 {: data-file=".travis.yml"}
 
@@ -93,14 +92,14 @@ Builds triggered from Pull Requests will never trigger a release.
 For a minimal configuration with GitHub, add the following to your `.travis.yml`:
 
 ```yaml
-    deploy:
-      - provider: codedeploy
-        revision_type: github
-        access_key_id: "YOUR AWS ACCESS KEY"
-        secret_access_key: "YOUR AWS SECRET KEY"
-        application: "Your Codedeploy application"
-        deployment_group: "The Deployment group associated with the codedeploy application"
-        region: "Region in which your ec2 instance is."
+deploy:
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: "YOUR AWS ACCESS KEY"
+    secret_access_key: "YOUR AWS SECRET KEY"
+    application: "Your Codedeploy application"
+    deployment_group: "The Deployment group associated with the codedeploy application"
+    region: "Region in which your ec2 instance is."
 ```
 {: data-file=".travis.yml"}
 
@@ -113,8 +112,8 @@ By default, the build will continue immediately after triggering a CodeDeploy de
 ```yaml
 deploy:
   provider: codedeploy
-    ⋮
-    wait_until_deployed: true
+  wait_until_deployed: true
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -148,7 +147,7 @@ Sometimes you want to run commands before or after deploying. You can use the `b
 ```yaml
 before_deploy: "echo 'ready?'"
 deploy:
-  ..
+  # ⋮
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
@@ -160,15 +159,15 @@ after_deploy:
 You can explicitly specify the AWS region to deploy to with the **region** option:
 
 ```yaml
-    deploy:
-      provider: codedeploy
-      access_key_id: "YOUR AWS ACCESS KEY"
-      secret_access_key: "YOUR AWS SECRET KEY"
-      bucket: "S3 Bucket"
-      key: latest/MyApp.zip
-      bundle_type: zip
-      application: MyApp
-      deployment_group: MyDeploymentGroup
-      region: us-west-1
+deploy:
+  provider: codedeploy
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  key: latest/MyApp.zip
+  bundle_type: zip
+  application: MyApp
+  deployment_group: MyDeploymentGroup
+  region: us-west-1
 ```
 {: data-file=".travis.yml"}
