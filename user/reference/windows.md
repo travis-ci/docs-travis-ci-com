@@ -43,8 +43,8 @@ Powershell can be used by calling `powershell` in your .travis.yml file for now.
 VMs running Windows use the default file system, NTFS.
 
 ## Supported languages
-- c with `language: c`
-- cpp with `language: cpp`
+- C with `language: c`
+- C++ with `language: cpp`
 - Node.js with `language: node_js`
 - Rust with `language: rust`
 - Go with `language: go`
