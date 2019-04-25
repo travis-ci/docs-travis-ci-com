@@ -505,7 +505,6 @@ language: php
 php:
 - 5.6
 - 7.0
-env: # important!
 matrix:
   include:
   - php: 7.0
@@ -532,17 +531,17 @@ matrix:
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
-## Installing a Second Programming Language	
+## Installing a Second Programming Language
 
 If you need to install a second programming language in your current build environment, you can do so in the `before_install` stage of the build.
- 
+
 For example, you can use the following recipe to install a custom version of Ruby in a Python build:
 ```yaml
 language: python
 
-before_install:	
-- rvm install 2.1.5	
-```	
+before_install:
+- rvm install 2.1.5
+```
 {: data-file=".travis.yml"}
 
 You can also insall a custom PHP version in a Node.js build like this:
@@ -551,8 +550,8 @@ language: node_js
 
 before_install:
 - phpenv global 7.0
-```	
-{: data-file=".travis.yml"}	
+```
+{: data-file=".travis.yml"}
 
 It's also possible to use other language installation methods such as `apt-get`, `pyenv` for Python, `nvm` for Node.js, etc.
 

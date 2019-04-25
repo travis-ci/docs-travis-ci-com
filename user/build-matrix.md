@@ -271,7 +271,6 @@ language: php
 php:
 - 5.6
 - 7.0
-env: # important!
 matrix:
   include:
   - php: 7.0
