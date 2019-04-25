@@ -27,7 +27,8 @@ Minimal example:
 
 {{ site.data.snippets.linux_note }}
 
-Python builds are not available on the macOS environment.
+{: .warning}
+> Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -59,7 +60,11 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-You can also specify the stable release of Python 3.7 on our Xenial build images:
+### Python 3.7 and higher
+
+You'll need to add `dist: xenial` to your `.travis.yml` file to use Python 3.7 and higher.
+
+For example:
 
 ```yaml
 dist: xenial   # required for Python >= 3.7
