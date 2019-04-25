@@ -45,3 +45,4 @@ deploy:
   on:
     condition: $TRAVIS_HASKELL_VERSION = 8.2.2
 ```
+{: data-file=".travis.yml"}

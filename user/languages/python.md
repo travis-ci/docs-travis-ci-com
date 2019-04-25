@@ -90,9 +90,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
-python: 
+python:
   - "2.7"
-  - "3.4" 
+  - "3.4"
 virtualenv:
   system_site_packages: true
 ```
@@ -200,6 +200,7 @@ install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script: python3 my_app.py || python my_app.py
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 

@@ -4,8 +4,7 @@ layout: en
 
 ---
 
-*Some of the features described here are currently **only available for private
-*repositories on [travis-ci.com](https://travis-ci.com)**.*
+*Some of the features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
 
 When testing a private repository, you might need to pull in other private
 repositories as dependencies via [git
@@ -225,6 +224,7 @@ gem 'lib2', github: "myorg/lib2"
 >   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
+> {: data-file=".travis.yml"}
 
 ## API Token
 
@@ -290,6 +290,7 @@ gem 'lib2', github: "myorg/lib2"
 >   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
+> {: data-file=".travis.yml"}
 
 ## Dedicated User Account
 

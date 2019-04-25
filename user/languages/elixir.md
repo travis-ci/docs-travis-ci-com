@@ -51,12 +51,14 @@ For example,
 ```yaml
 elixir: '1.5.2'
 ```
+{: data-file=".travis.yml"}
 
 or
 
 ```yaml
 elixir: '1.5'
 ```
+{: data-file=".travis.yml"}
 
 The former points to the specific release indicated, while
 the latter points to the latest development branch build which

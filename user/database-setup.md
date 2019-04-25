@@ -102,7 +102,7 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial image. 
+MySQL 5.7 is the default on the Xenial image.
 On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 
@@ -245,6 +245,7 @@ addons:
     packages:
       - postgresql-server-dev-9.4
 ```
+{: data-file=".travis.yml"}
 
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
 

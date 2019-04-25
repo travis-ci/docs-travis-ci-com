@@ -162,6 +162,7 @@ by `gimme`.
           - openjdk-6-jdk
     jdk: openjdk6
     ```
+    {: data-file=".travis.yml"}
 - We install the latest Oracle JDK versions from Oracle:
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)

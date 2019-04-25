@@ -47,6 +47,7 @@ This will output a string looking something like:
 ```yaml
 secure: ".... encrypted data ...."
 ```
+{: data-file=".travis.yml"}
 
 Now you can place it in the `.travis.yml` file.
 

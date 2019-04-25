@@ -73,6 +73,7 @@ Use the following options to configure conditional deployment:
      on:
        repo: travis-ci/dpl
    ```
+   {: data-file=".travis.yml"}
 
 * `branch`: name of the branch.
    If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify

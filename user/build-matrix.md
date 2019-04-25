@@ -127,6 +127,7 @@ matrix:
     - rvm: 1.9.3
       env: DB=mongodb
 ```
+{: data-file=".travis.yml"}
 
 defines a 3×4 matrix, because the `env` value does not match with
 any job defined in the matrix.
@@ -151,6 +152,7 @@ matrix:
     - rvm: 1.9.3
       env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
 ```
+{: data-file=".travis.yml"}
 
 ## Explicitly Including Jobs
 
