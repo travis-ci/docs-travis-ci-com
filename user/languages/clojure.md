@@ -24,13 +24,13 @@ language: clojure
 
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to Clojure
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-Clojure builds are not available on the OS X environment.
+Clojure builds are not available on the macOS environment.
 
 ## CI Environment for Clojure Projects
 
@@ -58,21 +58,7 @@ install: lein protobuf install
 
 See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build script is:
-
-```bash
-lein test
-```
-{: data-file=".travis.yml"}
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
-
-```yaml
-language: clojure
-```
-{: data-file=".travis.yml"}
+## Build Script
 
 ### Using Midje
 
@@ -224,11 +210,6 @@ and move on to install your project's dependencies.
 ### Example
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
-
-## Build Matrix
-
-For Clojure projects, `env`, `lein`, and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

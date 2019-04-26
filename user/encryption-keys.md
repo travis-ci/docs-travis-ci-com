@@ -73,7 +73,10 @@ contains portions of your sensitive data.
 
 Thus, you need to escape [special characters](http://www.tldp.org/LDP/abs/html/special-chars.html)
 such as braces, parentheses, backslashes, and pipe symbols.
-For example, when you want to assign the string `6&a(5!1Ab\` to `FOO`, you need to execute:
+
+For example, you would type `ma&w!doc` as `ma\&w\!doc`.
+
+And to assign the string `6&a(5!1Ab\` to `FOO`:
 
 ```bash
 travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"

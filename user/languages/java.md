@@ -20,9 +20,10 @@ Minimal example:
 ```yaml
   language: java
 ```
+{: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.unix_note }}
 
 The rest of this guide covers configuring Java projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -174,8 +175,8 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OS X. See
-the [OS X Build Environment](/user/reference/osx/#jdk-and-os-x) for more
+> Note that testing against multiple Java versions is not supported on macOS. See
+the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
 details.
 
 The list of available JVMs for different dists are at
@@ -248,11 +249,6 @@ script:
   - # do stuff with open OpenJDK 11
 ```
 {: data-file=".travis.yml"}
-
-## Build Matrix
-
-For Java projects, `env` and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

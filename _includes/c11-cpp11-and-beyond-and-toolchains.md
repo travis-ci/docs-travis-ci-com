@@ -8,7 +8,7 @@ If your project requires tools compatible with C11, C++11, or a more recent lang
 * [Trusty](/user/reference/trusty) ships with GCC 4.8.2
 * [Xenial](/user/reference/xenial) ships with GCC 5.4.0
 
-Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 4.8.1, but [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631).
+Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 5.1 (the C++ language support was feature-complete in 4.8.1 but the standard library didn't support all C++11 features until [later](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx), in particular [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631)).
 
 To upgrade GCC to a more recent version, you will have to install the appropriate version from the `ubuntu-toolchain-r-test` source; see below for examples:
 
@@ -64,9 +64,9 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### GCC on OS X
+### GCC on macOS
 
-On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
+On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
 So you must set CC and CXX to specific `gcc`/`g++` versions:
 
 ```yaml
@@ -184,10 +184,10 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Clang on OS X
+### Clang on macOS
 
-On OS X, the version of `clang` is controlled by the choice of `osx_image`.
-You can find [here](/user/reference/osx/#os-x-version) the list of available `osx_image`.
+On macOS, the version of `clang` is controlled by the choice of `osx_image`.
+You can find [here](/user/reference/osx/#macos-version) the list of available `osx_image`.
 
 ```yaml
 matrix:
@@ -221,4 +221,4 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-On OS X, the version of `cmake` is controlled by the choice of `osx_image`.
+On macOS, the version of `cmake` is controlled by the choice of `osx_image`.

@@ -40,8 +40,8 @@ Your build is routed to this infrastructure automatically, you don't need make a
 
 ## Container-based infrastructure
 
-> Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
-> Please remove any `sudo: false` keys in your `.travis.yml` file to use the default fully-virtualized [Linux infrastructure](#linux-infrastructure) instead. 
+> Container-based infrastructure has been fully [deprecated](https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
+> Please remove any `sudo: false` keys in your `.travis.yml` file to use the fully-virtualized [Linux infrastructure](#linux-infrastructure). 
 
 ## Image differences from Precise
 
@@ -198,6 +198,19 @@ thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
 alternative. `sbt` can dynamically detect and install the sbt version required
 by your Scala projects.
 
+## Perl images
+
+Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
+The default version of Perl is 5.14.
+
+### Perl runtimes with threading support
+
+{{ site.data.language-details.perl.threading }}
+
+### Pre-installed modules
+
+{{ site.data.language-details.perl.modules }}
+
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
@@ -271,7 +284,6 @@ For PHP versions up to 5.6, the following extensions are available:
 
 Please note that these extensions are not enabled by default with the exception
 of xdebug.
-
 
 ## Other software
 

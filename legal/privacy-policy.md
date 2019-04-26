@@ -231,7 +231,7 @@ A list of such data processing and third party providers that process personal d
 
 ### VI. Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
 
-We will transfer your Personal Data to a third party only within the scope of legal provisions, i.e. if we are obliged to transfer the data due to a government or court order, or if applicable legal provisions authorize the transfer. If we us third party providers who process data outside the EU such third party providers guarantee to comply with EU data protection standards as set forth in this privacy policy.
+We will transfer your Personal Data to a third party only within the scope of legal provisions, i.e. if we are obliged to transfer the data due to a government or court order, or if applicable legal provisions authorize the transfer. If we use third party providers who process data outside the EU such third party providers guarantee to comply with EU data protection standards as set forth in this privacy policy.
 
 For details of data processing by third party providers in/outside the EU when using the Website please also refer to III <a href="https://docs.travis-ci.com/legal/privacy-policy/#iii-what-kind-of-cookies-web-tools-or-third-party-providers-does-the-website-use-and-how" >above</a>.
 

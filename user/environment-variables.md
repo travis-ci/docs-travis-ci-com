@@ -10,7 +10,7 @@ A common way to customize the build process is to define environment variables, 
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
+- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#defining-public-variables-in-travisyml)
 - if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
 - if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
@@ -201,7 +201,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
+  Values are currently `linux`, `osx` and `windows` (beta), to be extended in the future.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
   it is empty.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
