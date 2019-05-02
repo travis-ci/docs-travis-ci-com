@@ -1,5 +1,5 @@
 ---
-title: Setting up Databases
+title: Setting up Databases and Services
 layout: en
 
 redirect_from:
@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
