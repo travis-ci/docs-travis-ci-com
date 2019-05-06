@@ -48,7 +48,7 @@ VMs running Windows use the default file system, NTFS.
 - Node.js with `language: node_js`
 - Rust with `language: rust`
 - Go with `language: go`
-- Bash variants with `language: shell` or `language: sh`
+- Bash `language: bash` or `language: shell`
 
 ## Pre-installed Chocolatey packages
 

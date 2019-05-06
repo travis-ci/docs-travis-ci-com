@@ -43,7 +43,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
@@ -61,7 +61,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
