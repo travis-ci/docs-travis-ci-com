@@ -99,22 +99,23 @@ jobs:
 
 ### Naming your Jobs within Build Stages
 
-You can also name specific jobs within build stages. We recommend unique job names, but 
+You can also name specific jobs within build stages. We recommend unique job names, but
 do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
-section can be given a name attribute as follows: 
+section can be given a name attribute as follows:
 
 ```yaml
-jobs:  
+jobs:
   include:
     - stage: "Tests"                # naming the Tests stage
       name: "Unit Tests"            # names the first Tests stage job
       script: ./unit-tests
-    - script: ./integration-tests   
+    - script: ./integration-tests
       name: "Integration Tests"     # names the second Tests stage job
     - stage: deploy
       name: "Deploy to GCP"
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 ## Build Stages and Build Matrix Expansion
 
@@ -156,6 +157,7 @@ stages:
   - test
   - deploy
 ```
+{: data-file=".travis.yml"}
 
 This is mostly useful in order to "prepend" a stage to the `test` stage that
 jobs resulting from the matrix expansion will be assigned to.
@@ -169,6 +171,7 @@ stages:
   - name: deploy
     if: branch = master
 ```
+{: data-file=".travis.yml"}
 
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/) for more details on specifying conditions.
 

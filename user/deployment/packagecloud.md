@@ -46,10 +46,9 @@ You can explicitly specify the branch to release from with the **on** option:
 ```yaml
 deploy:
   provider: packagecloud
-  username: ...
-  token: ...
   on:
     branch: production
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -58,10 +57,9 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   provider: packagecloud
-  username: ...
-  token: ...
   on:
     all_branches: true
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -78,9 +76,8 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 ```yaml
 deploy:
   provider: packagecloud
-  username: ...
-  token: ...
   skip_cleanup: true
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -92,9 +89,8 @@ You can specify which directory to scan from with the `local-dir` option. This e
 ```yaml
 deploy:
   provider: packagecloud
-  username: ...
-  token: ...
   local-dir: build
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -103,9 +99,8 @@ Alternately, you may wish to specify the `package_glob` argument to restrict whi
 ```yaml
 deploy:
   provider: packagecloud
-  username: ...
-  token: ...
-  package_glob: *.gem
+  package_glob: "*.gem"
+  # ⋮
 ```
 {: data-file=".travis.yml"}
 
@@ -126,7 +121,7 @@ Sometimes you want to run commands before or after releasing a package. You can 
 ```yaml
 before_deploy: "echo 'ready?'"
 deploy:
-  ..
+  # ⋮
 after_deploy:
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh

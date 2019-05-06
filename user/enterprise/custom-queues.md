@@ -45,6 +45,7 @@ production:
     selector: different_value
     selector: something_else
 ```
+{: data-file="config/travis.yml"}
 
 See the [example](#advanced-configuration-yaml-example) for details on syntax. Click "Save" on the Management Console Settings when you are ready. Travis CI Enterprise will restart, with your new queue settings.
 
@@ -70,6 +71,7 @@ production:
   - queue: docs
     slug: 'travis-ci/docs-travis-ci-com'
 ```
+{: data-file="config/travis.yml"}
 
 For this example, to build an `enterprise`, Ruby project owned by the `travis-ci` organization, a `.travis.yml` would need to look as follows:
 

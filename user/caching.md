@@ -90,6 +90,7 @@ For these cases installing a version of ruby with `rvm install 2.3.1` may take m
     directories:
      - /home/travis/.rvm/
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods
 
@@ -444,6 +445,7 @@ env:
   - FOO=1  BAR=2
   - BAR=2 FOO=1
 ```
+{: data-file=".travis.yml"}
 
 each of the three jobs will use its own cache.
 
