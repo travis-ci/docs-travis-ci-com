@@ -1,5 +1,5 @@
 ---
-title: Setting up Databases
+title: Setting up Databases and Services
 layout: en
 
 redirect_from:
@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -377,6 +377,8 @@ You can set up more vhosts and roles in the `before_script` section of your `.tr
 
 ## Riak
 
+> Riak is only available in the [Ubuntu Trusty environment](/user/reference/trusty/).
+
 Start Riak in your `.travis.yml`:
 
 ```yaml
@@ -385,9 +387,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Riak uses the default configuration apart from the storage backend, which is LevelDB.
+Riak uses the default configuration with Bitcask as storage backend.
 
-Riak Search is enabled.
+Riak Search is deactivated by default.
 
 ## Memcached
 
