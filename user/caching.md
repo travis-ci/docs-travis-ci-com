@@ -416,7 +416,7 @@ jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux` or `osx`)
+1. OS name (currently, `linux`, `osx`, or `windows`)
 2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
 3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
