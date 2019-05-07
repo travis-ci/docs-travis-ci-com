@@ -34,6 +34,7 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
    space: staging
    app_name: My app name                # (optional)
 ```
+{: data-file=".travis.yml"}
 
 ***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
 

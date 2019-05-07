@@ -2,9 +2,9 @@ osx_images:
   - image: xcode10.2
     xcode: "10.2"
     osx_version: "10.14"
-    xcode_full_version: "10.2"
-    xcode_build_version: "10E125"
-    image_publish_date: 2019-03-29
+    xcode_full_version: "10.2.1"
+    xcode_build_version: "10E1001"
+    image_publish_date: 2019-04-18
     sdks:
       - macosx10.14
       - iphoneos12.2
