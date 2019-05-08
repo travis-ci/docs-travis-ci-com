@@ -92,6 +92,17 @@ to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
 in the [general build configuration](/user/customizing-the-build/) guide.
 
+In a rare case, you may need to clone a private repo if it is a depenedancy of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below to see how that is done: 
+
+```
+script:
+ #- ls #Optional command.  Just here to confirm the Dependency is in the folder you think it is. 
+ #- pwd #Optional command. Just here so you can see where you are in the file system to make sure the path is correct below. 
+ - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.develop(PackageSpec(path="/home/travis/build/path_to_private_Dependency")); Pkg.instantiate()'
+ - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.instantiate(); Pkg.build();'
+ ```
+Note: you will neeed to have the 'project.toml' file in your repo for these commands above to work. This can be found in your '~/.julia/enviroments/' folder. 
+
 ## Build Matrix
 
 For Julia projects, `env` and `julia` can be given as arrays
