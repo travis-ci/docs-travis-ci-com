@@ -197,7 +197,6 @@ matrix:
       before_install:
         - choco install python
         - python -m pip install --upgrade pip
-        - python3 --version ; pip3 --version ; sw_vers
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
