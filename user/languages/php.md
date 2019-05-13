@@ -74,7 +74,7 @@ See [this page](/user/reference/trusty#php-images) for more information.
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
 ```yaml
-php
+php:
   - hhvm-3.18
   - hhvm-nightly
 ```

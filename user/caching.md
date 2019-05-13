@@ -90,6 +90,7 @@ For these cases installing a version of ruby with `rvm install 2.3.1` may take m
     directories:
      - /home/travis/.rvm/
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods
 
@@ -415,7 +416,7 @@ jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux` or `osx`)
+1. OS name (currently, `linux`, `osx`, or `windows`)
 2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
 3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
@@ -444,6 +445,7 @@ env:
   - FOO=1  BAR=2
   - BAR=2 FOO=1
 ```
+{: data-file=".travis.yml"}
 
 each of the three jobs will use its own cache.
 

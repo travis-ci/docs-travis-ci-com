@@ -47,6 +47,7 @@ This will output a string looking something like:
 ```yaml
 secure: ".... encrypted data ...."
 ```
+{: data-file=".travis.yml"}
 
 Now you can place it in the `.travis.yml` file.
 
@@ -99,7 +100,7 @@ The entry should be in this format:
 ```yaml
 notifications:
   campfire:
-    rooms: [subdomain]:[api token]@[room id]
+    rooms: "[subdomain]:[api token]@[room id]"
 ```
 {: data-file=".travis.yml"}
 
