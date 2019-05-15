@@ -72,8 +72,8 @@ If you have any questions about our handling of your personal data under Privacy
 about our privacy practices generally, please contact us at compliance@idera.com or at our
 mailing address below. We will work with you to address your inquiry in a timely manner.
 
-Idera Inc. </br>
-Attn: Legal Department </br>
-2950 North Loop Freeway West </br>
-Suite 700 </br>
-Houston, Texas 77092 </br>
+Idera Inc. <br /> 
+Attn: Legal Department <br />
+2950 North Loop Freeway West <br />
+Suite 700 <br />
+Houston, Texas 77092 <br />
