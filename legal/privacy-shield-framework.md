@@ -1,7 +1,5 @@
 ---
-title: Idera Notice of Certification Under the
-EU-US Privacy Shield Framework and Swiss-US Privacy Shield
-Framework
+title: Idera Notice of Certification Under the EU-US Privacy Shield Framework and Swiss-US Privacy Shield Framework
 layout: en
 no_toc: true
 
