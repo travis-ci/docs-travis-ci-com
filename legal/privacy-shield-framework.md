@@ -20,7 +20,7 @@ European Union member countries and Switzerland to the United States, respective
 certified with the Department of Commerce that it adheres to the Privacy Shield Principles. If
 there is any conflict between the terms in this privacy policy and the Privacy Shield Principles,
 the Privacy Shield Principles shall govern. To learn more about the Privacy Shield principles,
-please visit https://www.privacyshield.gov/welcome.
+please visit [https://www.privacyshield.gov/welcome](https://www.privacyshield.gov/welcome).
 
 In compliance with the EU-US and Swiss-US Privacy Shield Principles, Idera commits to
 resolve complaints about your privacy and our collection or use of your personal information.
@@ -31,10 +31,10 @@ Idera has further committed to refer unresolved privacy complaints covering non-
 Resource data under the Privacy Shield Principles to an independent dispute resolution
 mechanism, the BBB EU Privacy Shield. If you do not receive timely acknowledgment of your
 complaint, or if your complaint is not satisfactorily addressed, please visit
-https://www.bbb.org/EU-privacy-shield/for-eu-consumers/ for more information and to file a
+[https://www.bbb.org/EU-privacy-shield/for-eu-consumers/](https://www.bbb.org/EU-privacy-shield/for-eu-consumers/) for more information and to file a
 complaint. If your concern continues to be unresolved, you may pursue binding arbitration
 through the Privacy Shield Arbitration Panel. To learn more about the Privacy Shield Panel,
-please visit https://www.privacyshield.gov/article?id=F-The-Arbitration-Panel.
+please visit [https://www.privacyshield.gov/article?id=F-The-Arbitration-Panel](https://www.privacyshield.gov/article?id=F-The-Arbitration-Panel).
 
 Please note that Idera also receives some data via other compliance mechanisms, including data
 processing agreements based on the EU Standard Contractual Clauses
@@ -72,7 +72,7 @@ If you have any questions about our handling of your personal data under Privacy
 about our privacy practices generally, please contact us at compliance@idera.com or at our
 mailing address below. We will work with you to address your inquiry in a timely manner.
 
-Idera Inc. <br /> 
+Idera Inc. <br />
 Attn: Legal Department <br />
 2950 North Loop Freeway West <br />
 Suite 700 <br />
