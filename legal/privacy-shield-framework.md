@@ -72,7 +72,7 @@ If you have any questions about our handling of your personal data under Privacy
 about our privacy practices generally, please contact us at compliance@idera.com or at our
 mailing address below. We will work with you to address your inquiry in a timely manner.
 
-<pre>
+<address>
 
 Idera Inc.
 Attn: Legal Department
@@ -80,4 +80,4 @@ Attn: Legal Department
 Suite 700
 Houston, Texas 77092
 
-</pre>
+</address> 
