@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh_pages`. It is *possible* to disable this "force push" behavior by setting `keep_history` option to `true`.
+> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh-pages`. It is *possible* to disable this "force push" behavior by setting `keep_history` option to `true`.
 
 Travis CI can deploy your static files to [GitHub
 Pages](https://pages.github.com/) after a successful build.
@@ -47,7 +47,7 @@ or via [encrypted variables in
   Can be specified as an absolute path or a relative path from the current directory.
 * `repo`: Repo slug, defaults to current repo.
 * `target_branch`: Branch to (force, see: `keep_history`) push `local_dir`
-  contents to, defaults to `gh_pages`.
+  contents to, defaults to `gh-pages`.
 * `keep_history`: Optional, create incremental commit instead of doing push
   force, defaults to `false`.
 * `fqdn`: Optional, sets a custom domain for your website, defaults to no custom domain support.
