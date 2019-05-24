@@ -46,9 +46,9 @@ resources data transferred from the European Union and Switzerland, as applicabl
 of the employment relationship. For more information about Idera Human Resource data and the
 Idera EU-U.S. Privacy Shield Notice
 v.040119Human Resource Privacy Policy, please contact humanresources@idera.com. As an employee,
-you can always review Idera Human Resource Privacy Policy here.
+you can always review Idera Human Resource [Privacy Policy here](https://www.idera.com/legal/privacystatement).
 
-As explained in our Privacy Statement we sometimes provide personal information (such as
+As explained in our [Privacy Statement](https://www.idera.com/legal/privacystatement) we sometimes provide personal information (such as
 name, email address, purchases, and billing information) to third parties to perform services on
 our behalf, or in response to contractual requirements. If we transfer personal information
 received under the Privacy Shield to a third party, the third party’s access, use, and disclosure of
