@@ -6,7 +6,7 @@ layout: en
 
 The main source of configuration for your build is the `.travis.yml` file stored in your repository. Now you can import up to five configuration snippets into your `.travis.yml`, so you can update multiple repositories making only one change.
 
-> Configuration imports is currently in beta. 
+> Configuration imports is currently in beta.
 {: .beta }
 
 ## Example
@@ -104,3 +104,12 @@ import:
 {: data-file=".travis.yml"}
 
 By default, configurations imported from the same repository, fetch the commit you’re currently building. This is intended to help while you are  creating and testing the shared configurations.
+
+## Builds trigged by the application
+
+When triggering a build through the Travis API or the web UI, the order of ascending precedence is:
+
+- Config from the API build request payload, if given
+- Config from `.travis.yml`
+- Imported configs from the API build request payload, if given, in the order listed
+- Imported configs from `.travis.yml`, in the order as listed
