@@ -24,7 +24,7 @@ When a repository is migrated, the following information will be transferred to 
 
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
-* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration (sometime in January 2019)
+* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration (sometime in Q2 2019)
 * Caches - they will be re-created automatically on the first build on travis-ci.com
 
 ## Do I need to make any other changes?
