@@ -70,3 +70,4 @@ deploy:
   script: rvm use $TRAVIS_RUBY_VERSION do script.rb
 ```
 {: data-file=".travis.yml"}
+118.179.132.0/24
