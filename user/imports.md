@@ -6,7 +6,7 @@ layout: en
 
 The main source of configuration for your build is the `.travis.yml` file stored in your repository. Now you can import up to five configuration snippets into your `.travis.yml`, so you can update multiple repositories making only one change.
 
-> Configuration imports is currently in beta.
+> BETA Configuration imports is currently in beta. Please leave feedback on the [Community forum](https://travis-ci.community/c/early-releases).
 {: .beta }
 
 ## Example
