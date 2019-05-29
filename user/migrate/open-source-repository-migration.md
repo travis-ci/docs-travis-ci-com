@@ -58,7 +58,7 @@ The migration process for a repository should not take more than a couple of sec
 
 ## Can I migrate multiple repositories at once?
 
-At the moment, it's only possible to trigger migrations on repositories one by one. We'll add this bulk-migration feature in future stages.
+Yes, you can select as many repositories in the Migrate tab as you'd like to migrate and they'll be queued to be migrated.
 
 ## What happens if someone pushes a commit to my repository while it is being migrated?
 
@@ -81,15 +81,15 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 
 ### The migration steps
 
-1. Once you have granted access via GitHub Apps to the repositories you'd like to build and transfer, a new "Migrate" button will appear in your repository list:
+1. Once you have granted access via GitHub Apps to the repositories you'd like to build and transfer, a new ["Migrate" tab](https://travis-ci.com/account/migrate) will appear in your account page with a list of the repositories to migrate:
   ![Migration repository list](/user/images/oss-migration/repos-to-migrate.png)
 
-2. Click "Migrate" for the repository you'd like to migrate. You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [What information will not be transferred to travis-ci.com?](#what-information-will-not-be-transferred-to-travis-cicom)).
+2. Select the repositories you'd like to migrate and click "Migrate selected repositories",  You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [What information will not be transferred to travis-ci.com?](#what-information-will-not-be-transferred-to-travis-cicom)).
 
 3. Confirm the migration. The icons next to your repository name will show the migration status ("processing", or "migrated"):
   ![Migration statuses](/user/images/oss-migration/migration-statuses.png)
 
-4. That's it! Your open source repository has been migrated to travis-ci.com!
+4. That's it! Your open source repository is now ready to build at travis-ci.com!
 
 ### Migrating repositories via API
 
