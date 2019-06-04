@@ -38,7 +38,7 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 
 Specify python versions using the `python` key. As we update the Python build
 images, aliases like `3.6` will point to different exact versions or patch
-levels.
+levels.Please note, python version `2.6` is not supported on Xenial. 
 
 ```yaml
 language: python
