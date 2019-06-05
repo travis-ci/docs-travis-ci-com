@@ -42,7 +42,7 @@ script: bundle exec rake
 
 You can import up to 5 YAML sources/snippets into one `.travis.yml`, and you can of course reuse those snippets in multiple repositories.
 
-The format of the `import` source is `<account>/<repository>/<path>@<ref>` in whic `<ref>` can be any valid Git reference, such as a commit sha, branch name, or tag name. If you do not specify `<ref>`, Travis CI will fetch the latest version of the master branch in the repository.
+The format of the `import` source is `<account>/<repository>/<path>@<ref>` in whic `<ref>` can be any valid Git reference, such as a commit sha, branch name, or tag name. If you do not specify `<ref>`, Travis CI will fetch the latest version of the default branch in the repository.
 
 > Public repositories can import sources from public repositories, but not private repositories. Private repositories can import sources from both public and private repositories.
 
