@@ -44,7 +44,7 @@ You can import up to 5 YAML sources/snippets into one `.travis.yml`, and you can
 
 The format of the `import` source is `<account>/<repository>/<path>@<ref>` in whic `<ref>` can be any valid Git reference, such as a commit sha, branch name, or tag name. If you do not specify `<ref>`, Travis CI will fetch the latest version of the default branch in the repository.
 
-> Public repositories can import sources from public repositories, but not private repositories. Private repositories can import sources from both public and private repositories.
+> Public repositories can import sources from public repositories, but not private repositories. Private repositories can import sources from both public and private repositories. See [private repositories](#private-repositories) for more information.
 
 Import a single snippet:
 
@@ -105,6 +105,10 @@ import:
 
 By default, configurations imported from the same repository, fetch the commit you’re currently building. This is intended to help while you are  creating and testing the shared configurations.
 You can override this value by specifying a valid Git reference.
+
+## Private repositories
+
+Before sharing configurations **from** a public repository you need to toggle the *Allow importing config files from this repository.* setting in *More options* > *Settings* > *Config Import*. Only repositories owned by the same organisation will be able to access the configuration snippets.
 
 ## Builds trigged by the application
 
