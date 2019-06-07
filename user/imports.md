@@ -104,6 +104,7 @@ import:
 {: data-file=".travis.yml"}
 
 By default, configurations imported from the same repository, fetch the commit you’re currently building. This is intended to help while you are  creating and testing the shared configurations.
+You can override this value by specifying a valid Git reference.
 
 ## Builds trigged by the application
 
