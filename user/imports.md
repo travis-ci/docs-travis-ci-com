@@ -4,7 +4,7 @@ title: Importing shared build configuration
 layout: en
 ---
 
-The main source of configuration for your build is the `.travis.yml` file stored in your repository. Now you can import up to five configuration snippets into your `.travis.yml`, so you can update multiple repositories making only one change.
+The main source of configuration for your build is the `.travis.yml` file stored in your repository. You can import up to five configuration snippets into your `.travis.yml`, so you can update multiple repositories making only one change.
 
 > BETA Configuration imports is currently in beta. Please leave feedback on the [Community forum](https://travis-ci.community/c/early-releases).
 {: .beta }
@@ -72,11 +72,9 @@ The default merge `mode` is `merge` which performs a shallow merge.
 This means that root level sections (keys) defined in your `.travis.yml` will be overwritten by root level sections (keys) that are also present in the imported yaml file.
 Merge modes are specific to each source.
 
-You can also use `deep_merge` and `replace`:
+You can also use `deep_merge`:
 
-* `deep_merge` merges sections (keys) that hold maps recursively.
-
-* `replace` is used only in API requests. TODO:
+* `deep_merge` recursively merges sections (keys) that hold maps.
 
 ```yaml
 
@@ -93,7 +91,7 @@ You can also use `deep_merge` and `replace`:
 
 ## Importing configurations from the same repository
 
-When importing configurations stored in the same repository as your `travis.yml`, you can ommit the `<account>/<repository>` and use only the path:
+When importing configurations stored in the same repository as your `travis.yml`, you can ommit the `<account>/<repository>` and use only the path preceeded by `./`:
 
 ```yaml
 # local imports fetch the same git commit ref
@@ -110,7 +108,7 @@ You can override this value by specifying a valid Git reference.
 
 Before sharing configurations **from** a public repository you need to toggle the *Allow importing config files from this repository.* setting in *More options* > *Settings* > *Config Import*. Only repositories owned by the same organisation will be able to access the configuration snippets.
 
-## Builds trigged by the application
+## Include precedence 
 
 When triggering a build through the Travis API or the web UI, the order of ascending precedence is:
 
