@@ -177,7 +177,8 @@ where `skip-worktree-map-file` is a path to the existing file in the current rep
 
 ## Disabling git clone
 
-In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip `git clone` altogether instead of using a low git clone depth.
+In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip the automatic `git clone` step.
+
 You can do this by adding:  
 
 ```yaml
