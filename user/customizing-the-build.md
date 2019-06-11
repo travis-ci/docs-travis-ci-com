@@ -174,6 +174,19 @@ git:
 
 where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
+
+## Disabling git clone
+
+In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip `git clone` altogether instead of using a low git clone depth.
+You can do this by adding:  
+
+```yaml
+git:
+  clone: false
+```
+
+> Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the Git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
