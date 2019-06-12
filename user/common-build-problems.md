@@ -60,9 +60,9 @@ possible. Dialing these numbers down should help.
 
 ## My build fails unexpectedly
 
-One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`), either *directly in* your `.travis.yml`, or `source`ing a script which does. This causes any error causing a non-zero return status in your script to stop and fail the build immediately.
 
-Note that using `set -e` in external scripts does not cause this problem.
+Note that using `set -e` in external scripts does not cause this problem, as the `errexit` is effective only in the external script.
 
 See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
@@ -167,7 +167,7 @@ RSpec.configure do |c|
 end
 ```
 
-## Mac: OS X Mavericks (10.9) Code Signing Errors
+## Mac: macOS Mavericks (10.9) Code Signing Errors
 
 With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
 
@@ -192,28 +192,9 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
-Your build is running on macOS Sierra (10.12) if the following `osx_image` values are in your .travis.yml file:
+Your build is running on macOS Sierra (10.12) if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the macOS Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
 
-```yaml
-osx_image: xcode8.1
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.2
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.3
-```
-{: data-file=".travis.yml"}
-
-The following lines in your build log possibly indicate an occurence of this issue:
+The following lines in your build log possibly indicate an occurrence of this issue:
 
 **Example: Signing**
 
@@ -525,63 +506,6 @@ We recommend careful use of `travis_wait`, as overusing it can extend your build
 process.
 If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
-## Troubleshooting Locally in a Docker Image
-
-If you're having trouble tracking down the exact problem in a build it often
-helps to run the build locally. To do this you need to be using our container
-based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
-which Docker image you are using on Travis CI.
-
-### Running a Container Based Docker Image Locally
-
-1. Download and install Docker:
-
-   - [Windows](https://docs.docker.com/docker-for-windows/)
-   - [OS X](https://docs.docker.com/docker-for-mac/)
-   - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-
-1. Choose a Docker image
-  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
-    ("default" if no other name matches) using the table below:
-
-    | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
-    | {{language[0]}} | {{language[1]}}  | {% endfor %}
-
-1. Start a Docker container detached with `/sbin/init`:
-  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
-    ``` bash
-    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
-    ```
-
-1. Open a login shell in the running container
-
-    ``` bash
-    docker exec -it travis-debug bash -l
-    ```
-
-1. Switch to the `travis` user:
-
-    ``` bash
-    su - travis
-    ```
-
-1. Clone your git repository into the home directory.
-
-    ``` bash
-    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
-    ```
-
-1. (Optional) Check out the commit you want to test
-
-    ``` bash
-    git checkout 6b14763
-    ```
-
-1. Manually install dependencies, if any.
-
-1. Manually run your Travis CI build command.
-
 ## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
@@ -609,8 +533,6 @@ also known to work, such as by using SFTP in the specific case of FTP, or a VPN
 connection for a wide variety of protocols, e.g.:
 
 ``` yaml
-sudo: required
-
 addons:
   apt:
     packages:
@@ -645,4 +567,46 @@ If a build hasn't been triggered for your commit, these are the possible build r
 Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
-If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+
+## Uploading Artifacts to Sonatype
+
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+
+## Travis CLI does not recognize my valid Github Token
+
+When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as [explained in this document](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+## Duplicate/Unknown Job shows up in my build
+
+When specifying stages, users often unknowingly add an implicit Job to the list of Jobs in a Stage using YAML that is otherwise syntactically correct.
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+  - name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+```
+{: data-file=".travis.yml"}
+
+The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
+
+To remove this _implicit_ job, you would edit the above to look like:
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+    name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+``` 
+{: data-file=".travis.yml"}
+
+
+This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).

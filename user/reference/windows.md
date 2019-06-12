@@ -7,7 +7,7 @@ layout: en
 
 This guide explains what packages, tools and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
 
-> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or OS X/macOS is currently supported.
+> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or macOS is currently supported.
 
 ## Support
 
@@ -24,7 +24,7 @@ os: windows
 
 ## Windows Version
 
-Only **Windows Server 2016** is currently supported.
+Only **Windows Server, version 1803** is currently supported.
 
 ## Chocolatey
 
@@ -43,35 +43,44 @@ Powershell can be used by calling `powershell` in your .travis.yml file for now.
 VMs running Windows use the default file system, NTFS.
 
 ## Supported languages
-- Node.js (`language: node_js`)
-- Rust (`language: rust`)
-- Go (`language: go`)
-- Bash variants (`language: shell`, `language: sh`)
+- C with `language: c`
+- C++ with `language: cpp`
+- Node.js with `language: node_js`
+- Rust with `language: rust`
+- Go with `language: go`
+- Bash `language: bash` or `language: shell`
 
-## Pre-installed packages
+## Pre-installed Chocolatey packages
 
-- 7zip.install
-- ant
-- chromedriver
-- cmake
-- curl
-- firefox
-- git.install
-- gradle
-- jdk10
-- jdk8
-- jq
-- lein
-- maven
-- mysql
-- phantomjs
-- postgresql
-- python
-- python2
-- ruby
-- sbt
-- visualstudio2017buildtools
-- wget
-- yarn
-
-Latest list of pre-installed packages can be found [here](https://github.com/travis-ci/packer-templates/blob/master/packer-assets/windows-server-2016-ci-onion-packages.txt).
+- 7zip.install 18.5.0.20180730
+- chocolatey 0.10.11
+- chocolatey-core.extension 1.3.3
+- chocolatey-fastanswers.extension 0.0.1
+- chocolatey-visualstudio.extension 1.7.0
+- chocolatey-windowsupdate.extension 1.0.3
+- cmake.install 3.12.3
+- curl 7.62.0
+- dotnet4.6.2 4.6.01590.20170129
+- git.install 2.19.1
+- hashdeep 4.4
+- jq 1.5
+- KB2919355 1.0.20160915
+- KB2919442 1.0.20160915
+- KB2999226 1.0.20181019
+- KB3033929 1.0.4
+- KB3035131 1.0.2
+- llvm 7.0.0
+- microsoft-build-tools 15.0.26320.2
+- mingw 8.1.0
+- ruby 2.5.3.1
+- vcredist140 14.15.26706
+- vcredist2017 14.15.26706
+- visualstudio2017buildtools 15.8.9.0
+- visualstudio2017-installer 1.0.2
+- visualstudio2017-workload-netcorebuildtools 1.1.0
+- visualstudio2017-workload-vctools 1.3.0
+- visualstudio2017-workload-webbuildtools 1.3.0
+- wget 1.19.4
+- winscp 5.13.4
+- winscp.install 5.13.4
+- wsl 1.0.1

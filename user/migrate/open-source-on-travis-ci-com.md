@@ -2,11 +2,11 @@
 title: "Open Source on travis-ci.com"
 layout: en
 
+redirect_from:
+  - /user/open-source-on-travis-ci-com/
 ---
 
 On <time datetime="2018-05-02">May 2nd, 2018</time> Travis CI announced that open source projects will be joining private projects on **travis-ci.com**!
-
-
 
 This means you can manage public and private repositories from one domain, allocate additional concurrency to either open source or private projects, and have a more consistent experience between types of projects.
 
@@ -19,6 +19,7 @@ This is a significant development for Travis CI, and will mean some changes to h
 ## Features of the GitHub Apps Integration
 
 GitHub-Apps based integration introduces a number of benefits as over our Legacy Webhooks integration:
+
  * We will no longer add deploy keys to repositories when they are activated on Travis CI
  * Projects will be cloned with a shorter-lived OAuth token
  * Our GitHub App requires far less permissions than our OAuth application
@@ -30,7 +31,7 @@ Please sign up at [travis-ci.com], regardless of whether you plan to test open s
 
 ## Existing User Accounts
 
-Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#New-Repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com] when you want to activate a new repository, please sign up there first.
+Current users will keep both their `travis-ci.com` and `travis-ci.org` accounts at first. We recommend users of `travis-ci.org` activate any [new repositories](#new-repositories) on `travis-ci.com`. If you have not signed up on [travis-ci.com] when you want to activate a new repository, please sign up there first.
 
 ## New Repositories
 
@@ -38,25 +39,27 @@ New repositories should be activated on [travis-ci.com] for both open source and
 
 ## Existing Open Source Repositories on travis-ci.org
 
-Open source projects and their build history will continue to run on `travis-ci.org` for now.
+Open source projects and their build history will continue to run on `travis-ci.org` at this time.
 
-However, open source repositories will be migrated to travis-ci.com gradually. The migration was planned to start at the end of Q2 2018, but has been pushed back. We will announce a new date as soon as we are able. You will receive an email when the migration for a repository is complete. This is an opt-in process: to have a repository migrated over, it must first be activated on `travis-ci.com`. 
+However, you can be included  in the closed beta testing to start migrating your open source repositories to `travis-ci.com`.
 
-Currently, open source repositories that were private in any time in their history may be added to `travis-ci.com`. The option to migrate to `travis-ci.com` for active open source repositories that were always open source will come soon.
+ 1. To have any public repository migrated over, it must be first activated on [travis-ci.com] using GitHub Apps.
 
-Repositories may also be migrated without their build history or build settings (including environment variables) immediately. 
+ 1. Send us an email to [support@travis-ci.com with the subject "Open Source Migration Beta Testing"](mailto:support@travis-ci.com?subject=Open%20Source%20Migration%20Beta%20Testing)
 
-Please contact support [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com%20-%20Repository%20Migration). In your email, please include:
-* "Repository Migration" somewhere in the subject line, and
-* the repository’s name in your email
+ 1. Check out what the beta testing includes on this [open source to travis-ci.com migration guide](/user/migrate/open-source-repository-migration).
 
 ## Existing Private Repositories on `travis-ci.com`
 
 There will be no changes to your private repositories. Private projects will continue to run on `travis-ci.com` as before.
 
+However, we'd recommend you activating your private repositories via GitHub Apps to start getting the most of this new integration.
+
+Keep reading at [the legacy services to GitHub Apps guide for private repositories](/user/migrate/legacy-services-to-github-apps-migration-guide).
+
 ## Contact Support
 
-If you have an questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
+If you have any questions, please email please contact [support@travis-ci.com](mailto:support@travis-ci.com?Subject=Open%20Source%20on%20travis-ci.com). We're looking forward to helping!
 
 
 [travis-ci.com]: https://www.travis-ci.com

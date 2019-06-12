@@ -18,8 +18,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-However, this would expose your PyPI password to the world. We recommend you
-[encrypt](/user/encryption-keys/) your password using the Travis CI command line client:
+However, this would expose your PyPI password to the world.
+We recommend you [encrypt](/user/encryption-keys/) your password and add it to your .travis.yml by running:
 
 ```bash
 travis encrypt your-password-here --add deploy.password
@@ -90,10 +90,10 @@ To release to a different PyPI index:
 
 ```yaml
 deploy:
-      provider: pypi
-      user: ...
-      password: ...
-      server: https://mypackageindex.com/index
+  provider: pypi
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
 ```
 {: data-file=".travis.yml"}
 
@@ -111,6 +111,24 @@ deploy:
 ```
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
+
+## Upload artifacts only once
+
+By default, Travis CI runs the deploy stage for each `python` and `environment` that you specify. Many of these will generate competing build artifacts that will fail to upload to pypi with a message something like this:
+
+```
+HTTPError: 400 Client Error: File already exists. See https://pypi.org/help/#file-name-reuse for url: https://upload.pypi.org/legacy/
+```
+
+To avoid this, use the `skip_existing` flag:
+
+```
+deploy:
+  provider: pypi
+  user: ...
+  password: ...
+  skip_existing: true
+```
 
 ## Releasing build artifacts
 

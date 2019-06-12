@@ -10,9 +10,9 @@ layout: en
 
 | Java                         | Default                                                                                                              |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management)    |
-| Default `script`             | [Gradle](#Gradle-Default-Script-Command), [Maven](#Maven-Default-Script-Command), [Ant](#Ant-Default-Script-Command) |
-| [Matrix keys](#Build-Matrix) | `jdk`, `env`                                                                                                         |
+| Default `install`            | [Gradle](#gradle-dependency-management), [Maven](#maven-dependency-management), [Ant](#ant-dependency-management )   |
+| Default `script`             | [Gradle](#gradle-default-script-command), [Maven](#maven-default-script-command), [Ant](#ant-default-script-command) |
+| [Matrix keys](#build-matrix) | `jdk`, `env`                                                                                                         |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                            |
 
 Minimal example:
@@ -20,9 +20,10 @@ Minimal example:
 ```yaml
   language: java
 ```
+{: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.unix_note }}
 
 The rest of this guide covers configuring Java projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -137,12 +138,6 @@ cache:
 
 > Note that if you use Gradle with `sudo` (i.e. `sudo ./gradlew assemble`), the caching configuration above will have no effect, since the depencencies will be in `/root/.gradle` which the `travis` user account does not have write access to.
 
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html)
-by the Gradle team, the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
-
 ## Projects Using Ant
 
 ### Ant Dependency Management
@@ -180,8 +175,8 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on OS X. See
-the [OS X Build Environment](/user/reference/osx/#jdk-and-os-x) for more
+> Note that testing against multiple Java versions is not supported on macOS. See
+the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
 details.
 
 The list of available JVMs for different dists are at
@@ -214,7 +209,6 @@ version.
 The following example will use the latest Oracle JDK 8:
 
 ```yaml
-sudo: false
 addons:
   apt:
     packages:
@@ -225,7 +219,7 @@ addons:
 ## Using Java 10 and later
 
 > Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
-> See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html).
+> See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html){: data-proofer-ignore=""}.
 
 OracleJDK 11 and later are supported on Linux, and
 OpenJDK 10 and later are supported on Linux and macOS using
@@ -255,11 +249,6 @@ script:
   - # do stuff with open OpenJDK 11
 ```
 {: data-file=".travis.yml"}
-
-## Build Matrix
-
-For Java projects, `env` and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

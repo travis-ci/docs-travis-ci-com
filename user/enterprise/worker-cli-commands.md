@@ -52,7 +52,7 @@ wait until some or all jobs are being worked off successfully, you can
 issue a `SIGINT` instead. This together with a `sleep` ensures that
 either at least some or all active jobs can finish (depending on how
 long your queue is). After `sleep` finished the worker has to be
-shutdown via `sudo stop travis-worker`.\
+shutdown via `sudo stop travis-worker`.
 
 ## Example Worker Stop and Start
 

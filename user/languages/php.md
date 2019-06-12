@@ -10,31 +10,26 @@ layout: en
 
 | PHP                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
-| [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `phpunit`                                 |
+| [Matrix keys](#build-matrix)                | `env`, `php`                              |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
 ```yaml
 language: php
-php:
-  - '5.6'
-  - '7.1'
-  - hhvm # on Trusty only
-  - nightly
 ```
-
+{: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to PHP
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [build configuration](/user/customizing-the-build/) guides first.
 
-PHP builds are not available on the OS X environment.
+PHP builds are not available on the macOS environment.
 
 ## Choosing PHP versions to test against
 
@@ -69,17 +64,17 @@ php:
 
 ### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
 
-We do not suppport these versions on Trusty.
+We do not support these versions on Trusty.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
 
-### HHVM versions
+### HHVM versions are available on Trusty only
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
 ```yaml
-php
+php:
   - hhvm-3.18
   - hhvm-nightly
 ```
@@ -98,7 +93,7 @@ before_script:
 
 Travis CI can test your PHP applications with a nightly
 [PHP](https://github.com/php/php-src/) build, which includes PHPUnit and
-Composer:
+Composer, but does not include third-party PHP extensions:
 
 ```yaml
 language: php
@@ -387,11 +382,6 @@ virtual host as usual, the important part for php-fpm is this:
   # [...]
 </VirtualHost>
 ```
-
-## Build Matrix
-
-For PHP projects, `env` and `php` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

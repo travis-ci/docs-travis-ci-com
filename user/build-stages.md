@@ -31,7 +31,7 @@ staging, run smoke tests and only then deploy to production.
 The concept of build stages is powerful and flexible, yet simple and
 approachable:
 
-Stages group jobs that run in parallel, while their stages run sequentially.
+Stages group jobs that run in parallel and different stages run sequentially.
 
 A stage is a group of jobs that are allowed to run in parallel. However, each
 one of the stages runs one after another, and will only proceed if all jobs in
@@ -99,22 +99,23 @@ jobs:
 
 ### Naming your Jobs within Build Stages
 
-You can also name specific jobs within build stages. We recommend unique job names, but 
+You can also name specific jobs within build stages. We recommend unique job names, but
 do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
-section can be given a name attribute as follows: 
+section can be given a name attribute as follows:
 
 ```yaml
-jobs:  
+jobs:
   include:
     - stage: "Tests"                # naming the Tests stage
       name: "Unit Tests"            # names the first Tests stage job
       script: ./unit-tests
-    - script: ./integration-tests   
+    - script: ./integration-tests
       name: "Integration Tests"     # names the second Tests stage job
     - stage: deploy
       name: "Deploy to GCP"
       script: ./deploy
 ```
+{: data-file=".travis.yml"}
 
 ## Build Stages and Build Matrix Expansion
 
@@ -156,6 +157,7 @@ stages:
   - test
   - deploy
 ```
+{: data-file=".travis.yml"}
 
 This is mostly useful in order to "prepend" a stage to the `test` stage that
 jobs resulting from the matrix expansion will be assigned to.
@@ -169,6 +171,7 @@ stages:
   - name: deploy
     if: branch = master
 ```
+{: data-file=".travis.yml"}
 
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/) for more details on specifying conditions.
 
@@ -204,7 +207,7 @@ If your jobs need to share files (e.g., using build artifacts from the "Test" st
 subsequent "Deploy" stage), you need to use an external storage mechanism such as S3 and a remote
 `scp` server.
 
-See [the S3 example](#Sharing-files-between-jobs-via-S3) below.
+See [the S3 example](#sharing-files-between-jobs-via-s3) below.
 
 ## Examples
 

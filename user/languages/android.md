@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OS X environment.
+Android builds are not available on the macOS environment.
 
 
 
@@ -22,15 +22,19 @@ By setting
 
 ```yaml
 language: android
+dist: trusty
 ```
 {: data-file=".travis.yml"}
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 26.0.2 (April 2017).
+in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
+
+> Android builds are only supported on our Trusty image at this time hence you'll need to explicitely specify `dist: trusty` in your .travis.yml file.
 
 Here is an example `.travis.yml` for an Android project:
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     # Uncomment the lines below if you want to
@@ -48,11 +52,10 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - addon-google_apis-google-26
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-armeabi-v7a-android-26
+    - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
 ```
 {: data-file=".travis.yml"}
@@ -63,6 +66,7 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
@@ -71,39 +75,7 @@ android:
 ```
 {: data-file=".travis.yml"}
 
-The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `android list sdk --no-ui --all --extended` (preferably in your local development machine).
-
-### Installing a newer SDK Platform Tools revision
-
-To build your project with the SDK Platform Tools revision 24 or above, you need to define the following components in your `.travis.yml`:
-
-```yaml
-android:
-  components:
-    - tools
-    - platform-tools
-    - tools
-```
-{: data-file=".travis.yml"}
-
-> Note that the tools section appears twice on purpose as it's required to get the newest Android SDK tools.
-
-You can compile your project for Android 26 as shown in the following example:
-
-```yaml
-android:
-  components:
-    - tools
-    - platform-tools
-    - tools
-
-    # The BuildTools version used by your project
-    - build-tools-26.0.2
-
-    # The SDK version used to compile your project
-    - android-26
-```
-{: data-file=".travis.yml"}
+The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
 
 #### Dealing with Licenses
 
@@ -111,11 +83,11 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
     - android-26
-    - sys-img-armeabi-v7a-android-tv-l
     - add-on
     - extra
   licenses:
@@ -131,26 +103,10 @@ For more flexibility, the licenses can also be referenced with regular expressio
 
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
+- tools
 - platform-tools
-- build-tools-22.0.1
-- android-22
-- sys-img-armeabi-v7a-android-22
-- android-21
-- sys-img-armeabi-v7a-android-21
-- android-20
-- sys-img-armeabi-v7a-android-wear-20
-- android-19
-- sys-img-armeabi-v7a-android-19
-- android-18
-- sys-img-armeabi-v7a-android-18
-- android-17
-- sys-img-armeabi-v7a-android-17
-- android-16
-- sys-img-armeabi-v7a-android-16
-- android-15
-- sys-img-armeabi-v7a-android-15
-- android-10
-- extra-android-support
+- build-tools-25.0.2
+- android-25
 - extra-google-google_play_services
 - extra-google-m2repository
 - extra-android-m2repository
@@ -164,7 +120,7 @@ If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-fo
 ```yaml
 # Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 100M
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
@@ -175,10 +131,11 @@ before_script:
 
 Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
 
-If your project is built with Ant or any other build tool that does not automatically handle dependences, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+If your project is built with Ant or any other build tool that does not automatically handle dependencies, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
 ```yaml
 language: android
+dist: trusty
 install: ant deps
 ```
 {: data-file=".travis.yml"}
@@ -224,12 +181,6 @@ cache:
     - $HOME/.android/build-cache
 ```
 {: data-file=".travis.yml"}
-
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
-the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Default Test Command
 

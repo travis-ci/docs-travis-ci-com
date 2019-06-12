@@ -10,9 +10,9 @@ layout: en
 
 | Rust                                        | Default                                       |
 |:--------------------------------------------|:----------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cargo build --verbose`                       |
-| [Default `script`](#Default-Build-Script)   | `cargo build --verbose; cargo test --verbose` |
-| [Matrix keys](#Build-Matrix)                | `rust`, `env`                                 |
+| [Default `install`](#dependency-management) | `cargo build --verbose`                       |
+| [Default `script`](#default-build-script)   | `cargo build --verbose; cargo test --verbose` |
+| [Matrix keys](#build-matrix)                | `rust`, `env`                                 |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:
@@ -24,7 +24,7 @@ language: rust
 
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 The rest of this guide covers configuring Rust projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -113,8 +113,3 @@ script:
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
-
-## Build Matrix
-
-For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#build-matrix).

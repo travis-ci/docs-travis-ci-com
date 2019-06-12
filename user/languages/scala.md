@@ -10,9 +10,9 @@ layout: en
 
 | Scala                        | Default                                                                                                                                                                                                                 |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [sbt](#sbt-Dependency-Management), [Gradle](/user/languages/java/#gradle-dependency-management), [Maven](/user/languages/java/#maven-dependency-management), [Ant](/user/languages/java/#ant-dependency-management)     |
-| Default `script`             | [sbt](#sbt-Default-Script-Command), [Gradle](/user/languages/java/#gradle-default-script-command), [Maven](/user/languages/java/#maven-default-script-command), [Ant](/user/languages/java/#ant-default-script-command) |
-| [Matrix keys](#Build-Matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
+| Default `install`            | [sbt](#sbt-dependency-management), [Gradle](/user/languages/java/#gradle-dependency-management), [Maven](/user/languages/java/#maven-dependency-management), [Ant](/user/languages/java/#ant-dependency-management)     |
+| Default `script`             | [sbt](#sbt-default-script-command), [Gradle](/user/languages/java/#gradle-default-script-command), [Maven](/user/languages/java/#maven-default-script-command), [Ant](/user/languages/java/#ant-default-script-command) |
+| [Matrix keys](#build-matrix) | `scala`,`jdk`, `env`                                                                                                                                                                                                    |
 | Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                                                                                                                               |
 
 Minimal example:
@@ -20,11 +20,12 @@ Minimal example:
 ```yaml
   language: scala
 ```
+{: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
-Scala builds are not available on the OS X environment.
+Scala builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
 new to Travis CI please read our [Tutorial](/user/tutorial/) and
@@ -123,11 +124,6 @@ JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
-
-## Build Matrix
-
-For Scala projects, `env`, `scala`, and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Environment Variable
 
