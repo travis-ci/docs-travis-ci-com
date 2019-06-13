@@ -99,7 +99,7 @@ script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 
 ### Using xvfb directly
 
-> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`.
+> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`. For `dist: xenial`, use the `services` keyword described [above](/user/gui-and-headless-browsers/#using-services).
 
 To use `xvfb` itself, start it in the `before_script` section of your
 `.travis.yml`:
