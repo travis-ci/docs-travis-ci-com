@@ -26,14 +26,17 @@ If the name of the snap file is not known ahead of time, you can use a shell glo
 in the example above.
 
 ## Providing credentials to upload the snap
+To upload snaps from Travis CI, export a Snap Store login token, and provide it as an environment variable
+`$SNAP_TOKEN`.
 
-To upload snaps from Travis CI, export a Snap Store login token. You can do this with the snapcraft command-line tool, once you have [enabled snap support](https://docs.snapcraft.io/core/install) on your system.
+If you have not done so already, [enable snap support](https://docs.snapcraft.io/core/install) on your system.
 
 ```bash
 sudo snap install snapcraft --classic
 ```
 
-Login tokens can specify how, when, and where they can be used, thus minimising damage from compromise. For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
+Login tokens can specify how, when, and where they can be used, thus minimising damage from compromise.
+For Travis CI, export a token that can only upload this snap to the channel you specified above (in this example, `edge`):
 
 ```bash
 snapcraft export-login --snaps my-snap-name --channels edge -
@@ -41,19 +44,22 @@ snapcraft export-login --snaps my-snap-name --channels edge -
 
 _Note: The final `-` requests the login be exported to stdout instead of a file. It is required._
 
-The token will be printed out. Copy and put it into the Travis CI environment variable `$SNAP_TOKEN`.
+The token will be printed out. 
 
-You can do this with our [CLI client](https://github.com/travis-ci/travis.rb#readme)
+_Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
+
+### Using the CLI cleint
+Using our [CLI client](https://github.com/travis-ci/travis.rb#readme), define `$SNAP_TOKEN`:
 
 ```bash
 # in the repository root
 travis env set SNAP_TOKEN "<token>"
 ```
 
-or on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings).
+### Using Settings page
+Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings).
 
-_Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
-
+## Using uploaded Snap
 Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
 
 ```bash
