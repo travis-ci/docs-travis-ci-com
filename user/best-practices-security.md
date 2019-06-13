@@ -11,6 +11,8 @@ To prevent leaks made by these components, we automatically filter secure enviro
 
 Please make sure your secret is never related to the repository or branch name, or any other guessable string. Ideally use a password generation tool such as `mkpasswd` instead of choosing a secret yourself.
 
+> Note: Since Windows support is still on beta, this functionality is currently working only on our MacOS and Linux environments. 
+
 ## Recommendations on how to avoid leaking secrets to build logs
 Despite our best efforts, there are however many ways in which secure information can accidentally be exposed. These vary according to what tools you are using and what settings you have enabled. Some things to look out for are:
 
