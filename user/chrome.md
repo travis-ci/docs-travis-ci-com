@@ -16,6 +16,8 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
+> Take note that the underlying Chrome version can change from one build to another when Google updates the `stable` or `beta` version.
+
 ## Headless mode
 
 You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#using-the-chrome-addon-in-the-headless-mode).
