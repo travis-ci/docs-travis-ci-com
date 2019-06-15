@@ -1,5 +1,5 @@
 ---
-title: The OS X Build Environment
+title: The macOS Build Environment
 layout: en
 redirect_from:
   - /user/osx-ci-environment/
@@ -9,7 +9,7 @@ redirect_from:
 ### What This Guide Covers
 
 This guide explains what packages, tools and settings are available in the
-Travis OS X CI environment (often referred to as the “CI environment”).
+Travis macOS CI environment (often referred to as the “CI environment”).
 
 
 
@@ -28,28 +28,28 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
-## Using OS X
+## Using macOS
 
-To use our OS X build infrastructure, add the following to your `.travis.yml`:
+To use our macOS build infrastructure, add the following to your `.travis.yml`:
 
 ```yaml
 os: osx
 ```
 {: data-file=".travis.yml"}
 
-## OS X Version
+## macOS Version
 
-Travis CI uses OS X 10.13 and Xcode 9.4.1 by default . You can use another version of OS X (and Xcode) by specifying the corresponding `osx_image` key from the following table:
+Travis CI uses macOS 10.13 and Xcode 9.4.1 by default. You can use another version of macOS (and Xcode) by specifying the corresponding `osx_image` key from the following table:
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>Xcode build version</th><th>macOS version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
   <td>{{ image.xcode_build_version}}</td>
-  <td>OS X {{ image.osx_version}}</td>
+  <td>macOS {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
 {% endfor %}
@@ -59,82 +59,34 @@ Travis CI uses OS X 10.13 and Xcode 9.4.1 by default . You can use another versi
 
 Homebrew is installed and updated every time the virtual machines are updated.
 
-> To speed up your build, try installing your packages *without* running `brew update` first, to see if the Homebrew database on the build image already has what you need.
+> The [Travis Homebrew addon](/user/installing-dependencies/#installing-packages-on-macos) is the simplest, fastest and most reliable way to install dependencies.
 
-### A note on upgrading packages
+The Homebrew addon correctly handles up-to-date, outdated, and missing packages. Manual Homebrew dependency scripts are error-prone, and we recommend against using them.
 
-When upgrading a package with `brew upgrade`, the command will fail if the most up-to-date version of the package is already installed (so an upgrade didn't occur).
-
-Depending on how you are upgrading the package, it could cause the build to error:
-
-```
-$ brew upgrade xctool
-Error: xctool-0.1.16 already installed
-The command "brew upgrade xctool" failed and exited with 1 during .
-
-Your build has been stopped.
-```
-
-Or it can result in the command not found:
-
-```
-xctool: command not found
-```
-
-This is intended behaviour from Homebrew's side, but you can get around it by using [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) or by first checking if the command needs an upgrade with `brew outdated`
-
-#### `brew bundle`
-
-[`brew bundle`](https://github.com/Homebrew/homebrew-bundle) uses a `Brewfile`, similar to to a Ruby `Gemfile` to install multiple dependencies. By creating a `Brewfile`:
-
-```
-brew 'xctool'
-```
-{: data-file="Brewfile"}
-
-You can then update and/or install all of the dependencies with the following command (which will not error if the package is already installed and up to date):
-```yaml
-before_install:
-  - brew update && brew bundle
-```
-{: data-file=".travis.yml"}
-
-#### `brew outdated`
-
-```yaml
-before_install:
-  - brew update
-  - brew outdated <package-name> || brew upgrade <package-name>
-```
-{: data-file=".travis.yml"}
-
-For example, if you always want the latest version of xctool, you can run this:
-
-```yaml
-before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-```
-{: data-file=".travis.yml"}
+The Homebrew addon uses the Homebrew database on the build image by default, but can be configured to run `brew update` if needed.
 
 ## File System
 
-VMs running OS X use the default file system, HFS+.
+VMs running macOS use the default file system, HFS+.
 This file system is case-insensitive, and returns entities within a
 directory alphabetically.
 
-## JDK and OS X
+## JDK and macOS
 
-The JDK available in the OS X environment is tied to the Xcode version selected for your build, it is not set independently. To use a particular JDK for your build, be sure to select an [OS X image](#OS-X-Version) which includes the version of Java that you need.
+Note the pre-installed JDK version (OracleJDK) for each image in the table below.
+While Mac jobs can test against multiple JDK versions using the [`jdk` key](/user/languages/java/#testing-against-multiple-jdks),
+macOS images up to `xcode9.3` can only switch up to Java 8, and images `xcode9.4` and later can switch to Java 10 (if pre-installed) and later.
+In practical terms, if your Mac build requires Java 8 and below, use `xcode9.3` (or below); if your build requires Java 10
+and later, use `xcode9.4` (or later).
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th><th>JDK</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>macOS version</th><th>JDK</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
-  <td>OS X {{ image.osx_version}}</td>
+  <td>macOS {{ image.osx_version}}</td>
   <td>{{image.jdk}}</td>
   </tr>
 {% endfor %}
@@ -169,8 +121,8 @@ projects that may need one of those runtimes during the build.
 
 - `CI=true`
 - `TRAVIS=true`
-- `USER=travis` (**do not depend on this value**)
-- `HOME=/Users/travis` (**do not depend on this value**)
+- `USER=travis`
+- `HOME=/Users/travis`
 
 Additionally, Travis CI sets environment variables you can use in your build,
 e.g.  to tag the build, or to run post-build deployments.
@@ -204,7 +156,7 @@ Stock Apache Maven 3.5.3
 
 ## Ruby versions/implementations
 
-- system (depends on OS X version) -- You need to use `sudo` to install gems with this ruby
+- system (depends on macOS version) -- You need to use `sudo` to install gems with this ruby
 
 - ruby-1.9.3-p551
 - ruby-2.0.0-p643

@@ -8,8 +8,6 @@ This page collects FAQs and day-to-day Enterprise Platform maintenance scripts
 and tools. Please connect to your Platform machine via SSH before getting
 started.
 
-
-
 ## Inspecting logs and running services
 
 ### Platform logs
@@ -131,130 +129,6 @@ insight about it helps to get some basics statistics in the Ruby console:
       "user_sync"=>0}
 ```
 
-## Use a Let's Encrypt SSL Certificate
-
-Travis CI Enterprise works well together with a Let's Encrypt SSL Certificate. To obtain one for your domain, please follow the steps below.
-
-What you need:
-
-1. An email address Let's Encrypt can send emails to. This will be used to notify about urgent renewal and security notices.
-2. A domain name under which your installation is available (we're using `travis.example.com` in this guide).
-
-**Please note: This change will cause downtime for your system,for this reason, we recommend to perform this process in a maintenance window.**
-
-To obtain an SSL certificate we'll be using [certbot](https://certbot.eff.org/#ubuntutrusty-other). Certbot is available as an Ubuntu package.
-
-Please login to your platform machine via SSH and run the following steps to install certbot:
-
-```
-$ sudo apt-get update
-$ sudo apt-get install software-properties-common
-$ sudo add-apt-repository ppa:certbot/certbot
-$ sudo apt-get update
-$ sudo apt-get install certbot
-```
-
-`certbot` offers multiple ways to obtain a certificate. We'll pick the `temporary webserver` option since it doesn't require any additional configuration. The only prerequisite though is that the Travis CI Enterprise container has to be stopped so that webserver can bind to port 443 properly.
-
-***To start***, please stop Travis CI Enterprise:
-
-```
-$ replicatedctl app stop
-```
-
-***Now***, run the following to start the interactive process to obtain the SSL certificate:
-
-```
-$ sudo certbot certonly
-```
-
-It'll first ask you ***to pick the authentication method:***
-
-```
-How would you like to authenticate with the ACME CA?
--------------------------------------------------------------------------------
-1: Spin up a temporary webserver (standalone)
-2: Place files in webroot directory (webroot)
--------------------------------------------------------------------------------
-Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
-```
-
-Here, ***pick `1` and press return.***
-
-
-Then, ***fill in the aforementioned email address:***
-
-```
-Enter email address (used for urgent renewal and security notices) (Enter 'c' to
-cancel): ops@example.com
-```
-
-Then, ***accept the Terms of Services*** and decide if you'd like to share your email address with the EFF:
-
-```
--------------------------------------------------------------------------------
-Please read the Terms of Service at
-https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf. You must agree
-in order to register with the ACME server at
-https://acme-v01.api.letsencrypt.org/directory
--------------------------------------------------------------------------------
-(A)gree/(C)ancel: A
-
--------------------------------------------------------------------------------
-Would you be willing to share your email address with the Electronic Frontier
-Foundation, a founding partner of the Let's Encrypt project and the non-profit
-organization that develops Certbot? We'd like to send you email about EFF and
-our work to encrypt the web, protect its users and defend digital rights.
--------------------------------------------------------------------------------
-(Y)es/(N)o: N
-```
-
-In the last step you're ***providing your domain name:***
-
-```
-Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-to cancel): travis.example.com
-```
-
-After that ***finished successfully,*** you'll see a message similar to the one below:
-
-```
-IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/travis.example.com/fullchain.pem
-   Your key file has been saved at:
-   /etc/letsencrypt/live/travis.example.com/privkey.pem
-   Your cert will expire on 2018-02-07. To obtain a new or tweaked
-   version of this certificate in the future, simply run certbot
-   again. To non-interactively renew *all* of your certificates, run
-   "certbot renew"
-```
-
-Your certificate has been generated and is now saved on the machine. Please head over to `https://travis.example.com:8800/console/settings`.
-
-There, in the ***TLS Key & Cert*** section, select ***Server path*** and fill in the following:
-
-- SSL Private Key Filename: `/etc/letsencrypt/live/travis.example.com/privkey.pem`
-- SSL Certificate Filename: `/etc/letsencrypt/live/travis.example.com/fullchain.pem`
-
-After that, **scroll down and click "Save"**. After your changes have been saved, you can restart Travis CI Enterprise via:
-
-```
-$ replicatedctl app start
-```
-
-Let's Encrypt certificates are short-lived, this means ***they expire after 90 days.*** This means that you'll have to renew them on a regular basis. Thankfully this can be done with `certbot` as well. Run the following commands in order to renew your certificate.
-
-**Note: Be aware that this process will also introduce downtime.**
-
-```
-$ replicatedctl app stop
-$ sudo certbot renew
-$ replicatedctl app start
-```
-
-In general: These certificate renewals should be automated with a cron job.
-
 ## Uninstall Travis CI Enterprise
 
 If you wish to uninstall Travis CI Enterprise from your platform and worker
@@ -309,15 +183,97 @@ Additionally, please the following command to clean up all Docker build images:
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
+## Find out maximum available concurrency
+
+To find out how much concurrency is available in your Travis CI Enterprise setup, connect to your platform machine via ssh and run:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
+```
+
+The number that's returned here is equal to the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
+
+## Find out how many worker machines are connected
+
+If you wish to find out how many worker machines are currently connected, please connect to your platform machine via ssh and follow these steps:
+
+```
+$ travis bash
+root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
+```
+
+If you need to boot more worker machines, please see our docs about [installing new worker machines](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine).
+
 ## Integrate Travis CI Enterprise into your monitoring
 
 To check if your Travis CI Enterprise installation is up and running, query the `/api/uptime` endpoint of your instance.
 
 ```
-$ curl -H "Authorization: token XXXXX" https://travis.example.com/api/uptime
+$ curl -H "Authorization: token XXXXX" https://<your-travis-ci-enterprise-domain>/api/uptime
 ```
 
 If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with a `HTTP 500 Internal Server Error`.
+
+
+## Configuring Backups
+
+This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
+
+- [The encryption key](#encryption-key)
+- [The data directories](#create-a-backup-of-the-data-directories)
+
+### Encryption key
+
+Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+
+> Without the encryption key the information in the database is not recoverable.
+
+To make a backup, please follow these steps:
+
+1. Open a ssh connection to the platform machine.
+2. Open a bash session with `root` privileges on the Travis CI container by running `travis bash`.
+3. Run the following command to obtain the key: `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`.
+4. Create a backup of the value returned by the previous command by either writing it down on a piece of paper or storing it on a different computer.
+
+### Create a backup of the data directories
+
+The data directories are located on the platform machine and are mounted into the Travis CI container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis, and also log files from the various applications inside the container.
+
+The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
+
+## Migrating from GitHub services to webhooks
+
+Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
+
+Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988) all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise.
+
+Repositories that were activated prior to Travis CI Enterprise v2.2.5 may need to be updated.
+
+Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update repositories that are using the deprecated GitHub services to instead use webhooks.
+
+To perform an automatic migration please follow these steps:
+
+1. Open a ssh connection to the platform machine.
+2. Run the following command:
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks <optional-year>"
+```
+
+This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead.
+
+You can provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year. 
+
+If you have a large number of repositories activated on your Travis CI Enterprise installation, please run the migration several times, breaking it down per year. For example: 
+
+```
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2019"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2018"
+travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2017"
+```
+
+You should see no behavior change with your repositories after the migration is complete.
 
 ## Contact Enterprise Support
 
