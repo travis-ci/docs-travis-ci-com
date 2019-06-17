@@ -36,8 +36,9 @@ altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:crystal)
 and cc [@asterite](https://github.com/asterite),
 [@jhass](https://github.com/jhass),
-[@waj](https://github.com/waj), and
-[@will](https://github.com/will).
+[@waj](https://github.com/waj),
+[@will](https://github.com/will), and
+[@bcardiff](https://github.com/bcardiff).
 
 ## Configuration options
 
@@ -47,9 +48,12 @@ to test projects against the nightly build of Crystal. To do so, set the
 the latest release:
 
 ```yaml
+dist: xenial
 language: crystal
 crystal:
   - latest
   - nightly
 ```
 {: data-file=".travis.yml"}
+
+Note that the nightly build will only be avaible on Xenial and later releases 
