@@ -37,7 +37,7 @@ altered at any time. If you run into any problems, please report them in the
 and cc [@asterite](https://github.com/asterite),
 [@jhass](https://github.com/jhass),
 [@waj](https://github.com/waj),
-[@will](https://github.com/will),
+[@will](https://github.com/will), and
 [@bcardiff](https://github.com/bcardiff).
 
 ## Configuration options
