@@ -48,7 +48,7 @@ The token will be printed out.
 
 _Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
 
-### Using the CLI cleint
+### Using the CLI client
 Using our [CLI client](https://github.com/travis-ci/travis.rb#readme), define `$SNAP_TOKEN`:
 
 ```bash
@@ -57,7 +57,7 @@ travis env set SNAP_TOKEN "<token>"
 ```
 
 ### Using Settings page
-Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings).
+Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) of your repository at Travis CI.
 
 ## Using uploaded Snap
 Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
