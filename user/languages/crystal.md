@@ -56,4 +56,4 @@ crystal:
 ```
 {: data-file=".travis.yml"}
 
-Note that the nightly build will only be avaible on Xenial and later releases 
+Note that the nightly build will only be available on Xenial and later releases 
