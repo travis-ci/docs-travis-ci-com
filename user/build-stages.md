@@ -144,7 +144,7 @@ the test stage has completed successfully.
 
 > Each job included in `jobs.include` inherits the first value of the array
 that defines a matrix dimension.
-> In the example above, without explicitly setting `rvm: 2.4`, the `include`d job inherits
+> In the example above, without explicitly setting `rvm: 2.4`, the `include` deploy job inherits
 `rvm: 2.3`.
 
 ## Specifying Stage Order and Conditions
