@@ -61,7 +61,7 @@ If you depend on these repositories in your build, you can use the following `so
 ### Services disabled by default
 
 On the Ubuntu 18.04 based environment, to speed up boot time and improve performance we've disabled all services by default.
-Add any services that you want to start by default to your `.travis.yml`:
+Add any services that you want to start to your `.travis.yml`:
 
 
 ```yaml
