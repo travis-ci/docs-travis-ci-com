@@ -16,7 +16,7 @@ dist: bionic
 ```
 {: data-file=".travis.yml"}
 
-Please note that Bionic is available on our hosted fully virtualized
+> Please note that Bionic is available at travis-ci.com and travis-ci.org, on the fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Bionic) to see how you can use the Bionic Docker images.
 
