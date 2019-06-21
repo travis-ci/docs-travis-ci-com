@@ -73,7 +73,7 @@ services:
 
 ## Environment common to all Ubuntu 18.04 images
 
-The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
+The following versions of Docker, version control software and compilers are present on all Ubuntu 18.04 builds, along with more language specific software described in more detail in each language section.
 
 
 ### Version control
