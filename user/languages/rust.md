@@ -88,6 +88,7 @@ cache: cargo
 
 This adds the following directories to the cache:
 
+- `$TRAVIS_HOME/.cache/sccache`
 - `$TRAVIS_HOME/.cargo/`
 - `$TRAVIS_HOME/.rustup/`
 - `target`
