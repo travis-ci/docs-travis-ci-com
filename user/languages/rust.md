@@ -98,7 +98,13 @@ phase of the job in order to reduce cache size:
 
     rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 
-If you override `before_cache`, we recommend adding the above.
+This means that, if you override the `before_cache` step for another reason, you should add the step above in order to reduce the cache size:
+
+```yaml
+before_cache:
+  - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+  ⋮ # rest of your existing "before_cache"
+```
 
 ## Default Build Script
 
