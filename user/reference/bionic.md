@@ -7,7 +7,7 @@ layout: en
 
 This guide provides an overview of the packages, tools and settings available in the Bionic environment.
 
-## Using Bionic
+## Using Ubuntu 18.04 (Bionic Beaver)
 
 To route your builds to Ubuntu 18.04 LTS, add the following to your `.travis.yml`:
 
