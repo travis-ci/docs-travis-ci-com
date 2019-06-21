@@ -22,7 +22,7 @@ to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%
 
 ## Differences from the previous release images
 
-Travis CI Ubuntu 18.04 includes the following changes and improvements:
+Travis CI Ubuntu 18.04, Bionic, includes the following changes and improvements:
 
 ### Third party apt-repositories removed
 
