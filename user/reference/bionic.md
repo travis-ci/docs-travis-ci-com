@@ -20,7 +20,7 @@ Please note that Bionic is available on our hosted fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Bionic) to see how you can use the Bionic Docker images.
 
-## Differences from the previous relealse images
+## Differences from the previous release images
 
 Travis CI Ubuntu 18.04 includes the following changes and improvements:
 
