@@ -15,7 +15,7 @@ instead.
 To start using Travis CI, make sure you have:
 
  * A [GitHub](https://github.com/) account.
- * Owner permissions for a project [hosted on GitHub](https://help.github.com/categories/importing-your-projects-to-github/).
+ * Owner permissions for a project [hosted on GitHub](https://github.com/travis-ci/docs-travis-ci-com/blob/master/user/for-beginners/).
 
 ## To get started with Travis CI
 
