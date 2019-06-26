@@ -7,6 +7,7 @@ If your project requires tools compatible with C11, C++11, or a more recent lang
 * [Precise](/user/reference/precise) ships with GCC 4.6.3
 * [Trusty](/user/reference/trusty) ships with GCC 4.8.2
 * [Xenial](/user/reference/xenial) ships with GCC 5.4.0
+* [Bionic](/user/reference/bionic) ships with GCC 7.4.0
 
 Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 5.1 (the C++ language support was feature-complete in 4.8.1 but the standard library didn't support all C++11 features until [later](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx), in particular [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631)).
 
@@ -102,6 +103,7 @@ before_install:
 * [Precise](/user/reference/precise) ships with Clang 3.4
 * [Trusty](/user/reference/trusty) ships with Clang 3.5.0
 * [Xenial](/user/reference/xenial) ships with Clang 7
+* [Bionic](/user/reference/bionic) ships with Clang 7
 
 Note that [C++11 support is complete starting from Clang 3.3](http://clang.llvm.org/cxx_status.html).
 
@@ -207,6 +209,7 @@ You can find the `clang` version shipped by Xcode [here](https://trac.macports.o
 * [Precise](/user/reference/precise) ships with CMake 2.8.7
 * [Trusty](/user/reference/trusty) ships with CMake 3.9.2
 * [Xenial](/user/reference/xenial) ships with CMake 3.12.4
+* [Bionic](/user/reference/bionic) ships with CMake 3.12.4
 
 You can upgrade cmake to 3.2.3 on Precise from the `george-edison55-precise-backports` source (note that the `cmake-data` package contains dependencies which Aptitude does not automatically resolve), c.f.
 

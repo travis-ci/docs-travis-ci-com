@@ -60,7 +60,7 @@ or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
 
 ### Using `services:`
 
-> This only works on Ubuntu 16.04 (Xenial) i.e. with `dist: xenial`
+> This only works on Ubuntu 16.04 (Xenial) and later on releases i.e. with `dist: xenial` or `dist: bionic`
 
 The following will start xvfb and set the right values for the `DISPLAY`
 environment variable:
