@@ -15,10 +15,11 @@ dist: xenial
 
 env:
   global:
-    # Use Python 3.7 for awscli
-    - PATH=/opt/python/3.7.1/bin:$PATH
+    # include $HOME/.local/bin for `aws`
+    - PATH=$HOME/.local/bin:$PATH
 
 before_install:
+  - pyenv global 3.7.1
   - pip install -U pip
   - pip install awscli
   - mkdir -p ~/$TRAVIS_BUILD_NUMBER
