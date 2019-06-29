@@ -45,7 +45,11 @@ However, you can be included  in the closed beta testing to start migrating your
 
  1. To have any public repository migrated over, it must be first activated on [travis-ci.com] using GitHub Apps.
 
- 1. Send us an email to [support@travis-ci.com with the subject "Open Source Migration Beta Testing"](mailto:support@travis-ci.com?subject=Open%20Source%20Migration%20Beta%20Testing)
+ 1. Head over to [travis-ci.org] and in [your account page](https://travis-ci.org/account/repositories), subscribe to be part of the beta to migrate your Open Source repositories.
+
+ ![Select "Sign up for the beta" in your account page and add organizations](/images/migrate/sign-up-for-the-beta-to-migrate.png)
+
+ 1. Once your account is ready to migrate, you'll receive a confirmation email.
 
  1. Check out what the beta testing includes on this [open source to travis-ci.com migration guide](/user/migrate/open-source-repository-migration).
 
@@ -63,3 +67,4 @@ If you have any questions, please email please contact [support@travis-ci.com](m
 
 
 [travis-ci.com]: https://www.travis-ci.com
+[travis-ci.org]: https://www.travis-ci.org
