@@ -12,7 +12,7 @@ We'll be using a subset (TBD) of the full [list of checks][checks].
 
 [checks]: https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst#settings "MarkdownBear checks"
 
-We use Kramdown, with GFM codeblocks, and a few Kramdown related exceptions introduced with `{: }` such as class names for specific formatting of columns and notes.
+We use Kramdown, with [GFM](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) codeblocks, and a few Kramdown related exceptions introduced with `{: }` such as class names for specific formatting of columns and notes.
 
 ### Headings
 
