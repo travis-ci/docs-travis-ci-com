@@ -135,7 +135,16 @@ podfile: path/to/Podfile
 
 ### npm cache
 
-For caching with `npm`, use:
+> Please note that npm is now cached by default on Travis CI
+
+To disable npm caching, use:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache `npm`, use:
 
 ```yaml
 language: node_js
