@@ -107,11 +107,20 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.4` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `2.7.15` will be used when no language version is explicitly set.
+Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
+All the following relates to `language: python` images.
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+* Preinstalled custom Python versions: `2.7.15`, `3.6.7`, and `3.7.1`, manageable with `pyenv`.
+* For the version selected with `python:`, a `virtualenv` is activated.
+* The following versions can be selected. `3.6.7` is the default.
+    * `2.7` (2.7.15) , `2.7.13` - `2.7.16`
+    * `3.4` (3.4.8), `3.4.5` - `3.4.8`
+    * `3.5` (3.5.6) , `3.5.2` - `3.5.3`, `3.5.5` - `3.5.7`
+    * `3.6` (3.6.7), `3.6.1` - `3.6.8`
+    * `3.7` (3.7.1), `3.7.0` - `3.7.3`
+    * `pypy` (2.7-7.1.1), `pypy2.7-5.9.0`, `pypy2.7-5.10.0`, `pypy2.7-6.0`, `pypy2.7-6.0.0`, `pypy2.7-7.0.0`, `pypy2.7-7.1.1`
+    * `pypy3.5` (3.5-5.10.1), `pypy3.5-5.9.0`, `pypy3.5-5.10.0`, `pypy3.5-5.10.1`, `pypy3.5-6.0`, `pypy3.5-6.0.0`, `pypy3.5-7.0`, `pypy3.5-7.0.0`
+    * `pypy3` (3.6-7.1.1), `pypy3.6-7.0.0`, `pypy3.6-7.1.1`
 
 ## JavaScript and Node.js support
 

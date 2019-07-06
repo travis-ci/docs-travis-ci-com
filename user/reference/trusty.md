@@ -106,20 +106,47 @@ Other versions are dynamically installed at runtime from a local cache.
 
 ## Python images
 
-We pre-install at least two of the latest releases of CPython in the `2.x` and
-`3.x` series such as `2.7.13` and `3.6.1`, and at least one version of PyPy.
-Any versions that are not pre-installed will be dynamically installed at runtime
-from a local cache.
+All images have Python 2 and 3 installations provided by the distribution.
+Python 2 has distribution-provided Pip installed, `pip3` is not pre-installed.
 
-[pyenv](https://github.com/yyuu/pyenv#simple-python-version-management-pyenv) is
-also installed.
+`language: python` images have the following additional features.
 
-### Default Python Version
+[pyenv](https://github.com/pyenv/pyenv#readme) is installed in `/opt/pyenv`.
+All custom Python installations we provide are laid out in a way
+manageable by it.
 
-If you leave the `python` key out of your `.travis.yml`, Travis CI will use
-Python 2.7.
+Any versions that are not pre-installed will be dynamically installed at runtime.
+ 
+For the selected version, a `virtualenv` is activated.
 
+### Available versions
+
+The following versions can be selected with `python:`.
+
+`2.7.14` and `3.6.3` are preinstalled. `3.6.3` is the default.
+
+* `2.6`, `2.6.9`
+* `2.7` (2.7.14), `2.7.3`, `2.7.6`, `2.7.9` - `2.7.15`
+* `3.3` (3.3.6) , `3.3.3`, `3.3.5`, `3.3.6`
+* `3.4` (3.4.6), `3.4.1` - `3.4.8`
+* `3.5` (3.5.6), `3.5.0` - `3.5.6`
+* `3.6` (3.6.3), `3.6.0` - `3.6.7`
+* `pypy-2.6.1`, `pypy-4.0`, `pypy-4.0.1`,
+  `pypy-5.0.0`, `pypy-5.0.1`,
+  `pypy-5.1`, `pypy-5.1.1`,
+  `pypy-5.3`, `pypy-5.3.1`,
+  `pypy-5.4`, `pypy-5.4.1`,
+  `pypy-5.6`, `pypy-5.6.0`,
+  `pypy-5.7`, `pypy-5.7.1`
+* `pypy` (2.7-5.8.0), `pypy2.7` (2.7-5.10.0), `pypy2.7-5.8.0`, `pypy2.7-5.9.0`, `pypy2.7-5.10`, `pypy2.7-5.10.0`
+* `pypy3-2.4`, `pypy3-2.4.0`
+* `pypy3` (3.5-5.8.0), `pypy3.5` (5.10.1), `pypy3.5-5.8.0`, `pypy3.5-5.9.0`, `pypy3.5-5.10`, `pypy3.5-5.10.0`, `pypy3.5-5.10.1`
+
+ 
 ### Pre-installed pip packages
+
+All custom Python installations include `pip`
+(also available as `pip2`/`pip3` depending on the major version).
 
 Travis CI installs the following packages by default in each virtualenv:
 
