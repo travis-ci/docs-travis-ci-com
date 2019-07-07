@@ -108,9 +108,12 @@ The following versions of Docker, version control software and compilers are pre
 ## Python support
 
 Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
-All the following applies to `language: python` images.
 
-* (Also applies to `language: generic` images) Preinstalled custom Python versions: `2.7.15`, `3.6.7`, and `3.7.1`, manageable with `pyenv`.
+For `language:`: `c` (`cpp`), `clojure`, `node_js` (`elm`), `go`, `generic`, `java` (`groovy`), `php`, `python`, `ruby` --
+additional Python versions are preinstalled: `2.7.15`, `3.6.7`, and `3.7.1` -- manageable with `pyenv`.
+
+With `language: python`, additionally:
+
 * For the version selected with `python:`, a `virtualenv` is activated.
 * The following versions can be selected. `3.6.7` is the default.
     * `2.7` (2.7.15) , `2.7.13` - `2.7.16`
