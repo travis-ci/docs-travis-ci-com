@@ -109,21 +109,20 @@ Other versions are dynamically installed at runtime from a local cache.
 All images have Python 2 and 3 installations provided by the distribution.
 Python 2 has distribution-provided Pip installed, `pip3` is not pre-installed.
 
-`language: python` images have the following additional features.
-
-[pyenv](https://github.com/pyenv/pyenv#readme) is installed in `/opt/pyenv`.
+In `language: generic` and `language: python` images, additionally,
+[pyenv](https://github.com/pyenv/pyenv#readme) is installed
+and Python `2.7.14` and `3.6.3` installations.
 All custom Python installations we provide are laid out in a way
-manageable by it.
+manageable with `pyenv`.
+
+In `language: python` images, the version selected with `python:`
+is also installed and a `virtualenv` is activated for it.
 
 Any versions that are not pre-installed will be dynamically installed at runtime.
  
-For the selected version, a `virtualenv` is activated.
-
 ### Available versions
 
-The following versions can be selected with `python:`.
-
-`2.7.14` and `3.6.3` are preinstalled. `3.6.3` is the default.
+The following versions can be selected with `python:`. `3.6.3` is the default.
 
 * `2.6`, `2.6.9`
 * `2.7` (2.7.14), `2.7.3`, `2.7.6`, `2.7.9` - `2.7.15`
