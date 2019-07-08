@@ -45,7 +45,7 @@ or via [encrypted variables in
 
 * `local_dir`: Directory to push to GitHub Pages, defaults to current directory.
   Can be specified as an absolute path or a relative path from the current directory.
-* `repo`: Repo slug, defaults to current repo.
+* `repo`: Repo slug, defaults to current repo. **Note:** The slug consists of username and repo name and is formatted like `user/repo-name`.
 * `target_branch`: Branch to (force, see: `keep_history`) push `local_dir`
   contents to, defaults to `gh-pages`.
 * `keep_history`: Optional, create incremental commit instead of doing push
