@@ -68,7 +68,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-2 important informations:
+> Please note the following:
 - the "coverage" profile activates the generation of the JaCoCo XML report
 - "sonar.projectKey" can also be set as a property on the main POM file. Its value can be found on the right side of the project homepage on SonarCloud
 
