@@ -180,7 +180,6 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdiscount (2.2.0.1)
-    redcarpet (3.4.0)
     ref (2.0.0)
     rouge (2.2.1)
     rubocop (0.57.2)
@@ -237,7 +236,7 @@ DEPENDENCIES
   jekyll-redirect-from
   middleman
   middleman-gh-pages
-  middleman-livereload (~> 3.3.0)
+  middleman-livereload
   middleman-syntax
   pry
   puma
@@ -245,13 +244,12 @@ DEPENDENCIES
   rack-ssl-enforcer
   rake
   rdiscount (>= 2.2.0.1)
-  redcarpet
   rubocop
   ruby18_source_location
   therubyracer
 
 RUBY VERSION
-   ruby 2.4.3p205
+   ruby 2.6.3p62
 
 BUNDLED WITH
    1.17.3

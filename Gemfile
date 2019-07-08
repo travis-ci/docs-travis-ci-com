@@ -27,9 +27,7 @@ gem "middleman-syntax"
 gem 'middleman-gh-pages'
 
 # Live-reloading plugin
-gem "middleman-livereload", "~> 3.3.0"
-
-gem 'redcarpet'
+gem "middleman-livereload"
 
 # Cross-templating language block fix for Ruby 1.8
 platforms :mri_18 do
