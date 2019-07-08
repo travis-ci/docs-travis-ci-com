@@ -200,7 +200,7 @@ A user can sync their account with your GitHub instance via the web UI:
 
 ####  Administrator initiates sync via CLI
 
-An administrator can also initiate a sync on behalf of a user via the `travis` CLI tool on the platform machine:
+An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
 
 > If `—logins=<GITHUB-LOGIN>` is not provided then this command will trigger a sync on every user. This could result in long runtimes and may impact production operations if you have a large number of total users on your Travis CI Enterprise instance.
 
