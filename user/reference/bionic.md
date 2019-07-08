@@ -13,12 +13,11 @@ To route your builds to Ubuntu 18.04 LTS, Bionic, add the following to your `.tr
 
 ```yaml
 dist: bionic
+group: dev
 ```
 {: data-file=".travis.yml"}
 
-> Please note that Bionic is available at travis-ci.com and travis-ci.org, on the fully virtualized
-infrastructure. If you are running an Enterprise installation, please reach out
-to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Bionic) to see how you can use the Bionic Docker images.
+> Please note that Bionic support is newly being built, to use it, **dev** is needed. 
 
 ## Differences from the previous release images
 
