@@ -18,8 +18,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-However, this would expose your PyPI password to the world. We recommend you
-[encrypt](/user/encryption-keys/) your password using the Travis CI command line client:
+However, this would expose your PyPI password to the world.
+We recommend you [encrypt](/user/encryption-keys/) your password and add it to your .travis.yml by running:
 
 ```bash
 travis encrypt your-password-here --add deploy.password
@@ -90,10 +90,10 @@ To release to a different PyPI index:
 
 ```yaml
 deploy:
-      provider: pypi
-      user: ...
-      password: ...
-      server: https://mypackageindex.com/index
+  provider: pypi
+  user: ...
+  password: ...
+  server: https://mypackageindex.com/index
 ```
 {: data-file=".travis.yml"}
 

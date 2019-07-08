@@ -1,5 +1,5 @@
 ---
-title: Setting up Databases
+title: Setting up Databases and Services
 layout: en
 
 redirect_from:
@@ -8,7 +8,7 @@ redirect_from:
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -102,7 +102,7 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial image. 
+MySQL 5.7 is the default on the Xenial image.
 On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 
@@ -245,6 +245,7 @@ addons:
     packages:
       - postgresql-server-dev-9.4
 ```
+{: data-file=".travis.yml"}
 
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
 
@@ -356,7 +357,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on OS X or Ubuntu Trusty infrastructure.
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on macOS or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -376,6 +377,8 @@ You can set up more vhosts and roles in the `before_script` section of your `.tr
 
 ## Riak
 
+> Riak is only available in the [Ubuntu Trusty environment](/user/reference/trusty/).
+
 Start Riak in your `.travis.yml`:
 
 ```yaml
@@ -384,9 +387,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Riak uses the default configuration apart from the storage backend, which is LevelDB.
+Riak uses the default configuration with Bitcask as storage backend.
 
-Riak Search is enabled.
+Riak Search is deactivated by default.
 
 ## Memcached
 
@@ -422,7 +425,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Cassandra is provided by [Datastax Community Edition](http://www.datastax.com/products/community) and uses the default configuration. It is available on 127.0.0.1.
+Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
 
 ### Installing older versions of Cassandra
 

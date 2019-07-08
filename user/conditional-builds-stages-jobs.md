@@ -15,6 +15,7 @@ Configure Travis CI to only trigger builds when certain conditions are met, such
 # require the branch name to be master (note for PRs this is the base branch name)
 if: branch = master
 ```
+{: data-file=".travis.yml"}
 
 Build requests that do not match the condition will not generate a build, but will be listed on the Requests tab.
 
@@ -28,6 +29,7 @@ stages:
     # require the branch name to be master (note for PRs this is the base branch name)
     if: branch = master
 ```
+{: data-file=".travis.yml"}
 
 Stages that do not match the condition will be skipped silently.
 
@@ -42,6 +44,7 @@ jobs:
       if: branch = master
       env: FOO=foo
 ```
+{: data-file=".travis.yml"}
 
 Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#build-matrix) currently cannot have conditions.
 

@@ -43,7 +43,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
@@ -61,7 +61,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
@@ -85,6 +85,15 @@ Note that if you used SonarCloud before the GitHub application and therefore con
 Future versions of this add-on will provide the following features:
 
 - Support for external pull requests.
+
+## Accessing full SCM history
+
+Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-build/#git-clone-depth) to speed up build times, but a truncated SCM history may cause issues when SonarCloud computes blame data. To avoid this, you can access the full SCM history with:
+
+```yaml
+git:
+  depth: false
+```
 
 ## Deprecated features
 
