@@ -22,15 +22,19 @@ By setting
 
 ```yaml
 language: android
+dist: trusty
 ```
 {: data-file=".travis.yml"}
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
 
+> Android builds are only supported on our Trusty image at this time hence you'll need to explicitely specify `dist: trusty` in your .travis.yml file.
+
 Here is an example `.travis.yml` for an Android project:
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     # Uncomment the lines below if you want to
@@ -62,6 +66,7 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
@@ -78,6 +83,7 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
@@ -129,6 +135,7 @@ If your project is built with Ant or any other build tool that does not automati
 
 ```yaml
 language: android
+dist: trusty
 install: ant deps
 ```
 {: data-file=".travis.yml"}
