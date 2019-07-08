@@ -37,7 +37,7 @@ notifications:
   webhooks:
     https://docs.travis-ci.com/update_webhook_payload_doc
 install:
-  - rvm use 2.4.3 --install
+  - rvm use 2.6.3 --install
   - gem install bundler -v '< 2'
   - bundle install --deployment
   - sudo apt-get install libcurl4-openssl-dev # required to avoid SSL errors
