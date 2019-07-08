@@ -29,6 +29,9 @@ gem 'middleman-gh-pages'
 # Live-reloading plugin
 gem "middleman-livereload"
 
+# Needed for Slate / middleman
+gem 'redcarpet'
+
 # Cross-templating language block fix for Ruby 1.8
 platforms :mri_18 do
   gem "ruby18_source_location"
