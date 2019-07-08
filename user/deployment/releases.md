@@ -255,3 +255,8 @@ These include:
 * `prerelease` (boolean)
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
+
+## Troubleshooting Git Submodules
+
+GitHub Releases executes a number of git commands during deployment. For this reason, it is important that the working directory is set to the one for which the release will be created, which generally isn't a problem, but if you clone another repository during the build or use submodules, it is worth double checking.
+
