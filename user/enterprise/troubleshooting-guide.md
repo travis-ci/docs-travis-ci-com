@@ -198,7 +198,7 @@ A user can sync their account with your GitHub instance via the web UI:
 2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
 3. In the upper right corner of the profile page click on 'Sync account'.
 
-####  Administrator initiates sync via CLI
+####  Sync from the CLI with administrator privileges```
 
 An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
 
