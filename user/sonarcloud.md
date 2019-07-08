@@ -90,6 +90,15 @@ Future versions of this add-on will provide the following features:
 
 - Support for external pull requests.
 
+## Accessing full SCM history
+
+Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-build/#git-clone-depth) to speed up build times, but a truncated SCM history may cause issues when SonarCloud computes blame data. To avoid this, you can access the full SCM history with:
+
+```yaml
+git:
+  depth: false
+```
+
 ## Deprecated features
 
 If you are a long-time SonarCloud user, you might have the following entries in your `.travis.yml` file:

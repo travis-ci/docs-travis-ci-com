@@ -60,8 +60,12 @@ This gives you an opportunity to examine and edit the draft release.
 
 ## Setting the tag at deployment time
 
-GitHub Releases needs a tag at the deployment time.
-While `on.tags: true` guarantees this, you can postpone setting the tag until
+GitHub Releases needs the present commit to be tagged at the deployment time.
+If you set `on.tags: true`, the commit is guaranteed to have a tag. 
+
+Depending on the workflow, however, this is not desirable.
+
+In such cases, it is possible to postpone setting the tag until
 you have all the information you need.
 A natural place to do this is `before_deploy`.
 For example:
@@ -137,7 +141,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
 
 ## Authentication with a Username and Password
 
