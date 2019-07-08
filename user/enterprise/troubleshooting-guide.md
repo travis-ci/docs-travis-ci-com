@@ -194,7 +194,7 @@ There are two options listed below to initiate a sync between your Travis CI Ent
 
 A user can sync their account with your GitHub instance via the web UI:
 
-1. User accesses the web UI by going to `https://<your-travis-ci-enterprise-domain>` in their browser.
+1. Open `https://<your-travis-ci-enterprise-domain>`.
 2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
 3. In the upper right corner of the profile page click on 'Sync account'.
 
