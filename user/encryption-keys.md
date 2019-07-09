@@ -36,10 +36,10 @@ Then, you can use `encrypt` command to encrypt data (This example assumes you ar
 travis encrypt SOMEVAR="secretvalue"
 ```
 
-Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--com` to the CLI:
+Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--pro` to the CLI:
 
 ```bash
-travis encrypt --com SOMEVAR="secretvalue"
+travis encrypt --pro SOMEVAR="secretvalue"
 ```
 
 This will output a string looking something like:

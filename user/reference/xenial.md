@@ -126,7 +126,8 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
+is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -134,8 +135,9 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 | package | version |
 |:--------|:--------|
-| gradle  | 4.10.2  |
+| gradle  | 5.1.1   |
 | maven   | 3.6.0   |
+| groovy  | 2.4.5   |
 {: style="width: 30%" }
 
 ## PHP support
