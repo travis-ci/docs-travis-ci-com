@@ -194,7 +194,9 @@ matrix:
     - name: "Python 3.7.3 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
-      before_install: choco install python
+      before_install:
+        - choco install python
+        - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
