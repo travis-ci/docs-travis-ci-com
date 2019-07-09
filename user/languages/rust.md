@@ -86,6 +86,25 @@ cache: cargo
 ```
 {: data-file=".travis.yml"}
 
+This adds the following directories to the cache:
+
+- `$TRAVIS_HOME/.cache/sccache`
+- `$TRAVIS_HOME/.cargo/`
+- `$TRAVIS_HOME/.rustup/`
+- `target`
+
+In addition, it adds the following command to the `before_cache`
+phase of the job in order to reduce cache size:
+
+    rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+
+This means that, if you override the `before_cache` step for another reason, you should add the step above in order to reduce the cache size:
+
+```yaml
+before_cache:
+  - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+  ⋮ # rest of your existing "before_cache"
+```
 
 ## Default Build Script
 
