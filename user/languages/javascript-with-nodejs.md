@@ -135,14 +135,14 @@ as specified in your lock file.
 
 #### Caching with `npm`
 
-`npm` is now cached by default, in case you want to disbale it, please add the following to your `.travis.yml`:
+`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
 
 ```yaml
 cache:
   npm: false
 ```
 
-To explicitly cache your dependecies:
+To explicitly cache your dependencies:
 
 ```yaml
 cache: npm
