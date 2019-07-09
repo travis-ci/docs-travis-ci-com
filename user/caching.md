@@ -135,7 +135,7 @@ podfile: path/to/Podfile
 
 ### npm cache
 
-> Please note that npm is now cached by default on Travis CI
+> Please note that as of July 2019, npm is cached by default on Travis CI
 
 To disable npm caching, use:
 
