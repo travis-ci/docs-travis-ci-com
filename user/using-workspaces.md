@@ -11,7 +11,7 @@ layout: en
 
 Workspaces allow jobs _within_ a build to share files.
 They are useful when you want to use build artifacts from a previous job;
-for example, you might create a cache that can be used in multiple jobs later.
+for example, you create a cache that can be used in multiple jobs later.
 
 While any build can theoretically use workspaces, they are most useful when
 there is a clear timeline of when they are used.
