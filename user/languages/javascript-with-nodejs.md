@@ -10,10 +10,12 @@ layout: en
 
 | JavaScript and Node.js                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#dependency-management) | `npm install`                             |
+| [Default `install`](#dependency-management) | `npm install` or `npm ci`                 |
 | [Default `script`](#default-build-script)   | `npm test`                                |
 | [Matrix keys](#build-matrix)                | `env`, `node_js`                          |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+(If `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version supports it, Travis CI will use `npm ci` instead of `npm install`.)
 
 Minimal example:
 
@@ -135,7 +137,14 @@ as specified in your lock file.
 
 #### Caching with `npm`
 
-You can cache your dependencies with
+`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache your dependencies:
 
 ```yaml
 cache: npm
