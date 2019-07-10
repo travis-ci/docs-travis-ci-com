@@ -18,7 +18,7 @@ there is a clear timeline of when they are used.
 For this reason, we recommend using workspaces when you use
 [build stages](/user/build-stages).
 
-Roughly speaking, you create a workspace in one stage, then use it in
+> Note that it is best to create a workspace in one stage and then use it in
 subsequent stages.
 
 ## Configuration
