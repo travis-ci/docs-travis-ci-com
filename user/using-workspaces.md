@@ -137,7 +137,7 @@ even if the consumer is running on a Linux VM.
 ## How workspaces differ from caches
 
 It is worth reiterating that the workspaces are meant for sharing files
-within a build.
+within the same build.
 For files you want to share across builds, use
 [caches](/user/caching).
 
