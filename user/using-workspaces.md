@@ -13,10 +13,7 @@ Workspaces allow jobs _within_ a build to share files.
 They are useful when you want to use build artifacts from a previous job;
 for example, you create a cache that can be used in multiple jobs later.
 
-While any build can theoretically use workspaces, they are most useful when
-there is a clear timeline of when they are used.
-For this reason, we recommend using workspaces when you use
-[build stages](/user/build-stages).
+So you can clearly see when a workspace is created and used, we recommend using workspaces with [build stages](/user/build-stages), as shown in the following [examples](user/using-workspaces#Workspace examples).
 
 > Note that it is best to create a workspace in one stage and then use it in
 subsequent stages.
@@ -53,9 +50,9 @@ In the example above, the workspace named `ws1` is created by the only
 job in the `warm_cache` stage.
 The workspace is subsequently consumed in the `use_cache` stage.
 
-## Example configurations
+## Workspace examples
 
-### Using multiple workspaces in a build
+### Multiple workspaces example
 
 You can use multiple workspaces in a build.
 
@@ -145,8 +142,4 @@ For files you want to share across builds, use
 
 It is possible to include a single file in the cache and workspaces.
 
-## How restarting a portion of a build affects workspaces
-Note that workspaces are built and consumed by jobs in a build.
-If you restart parts of the build in some arbitrary order, workspaces may
-interfere in subtle and unexpected ways.
-If you suspect such interference, we advise you to restart the entire build.
+> If you restart some builds within a job, and your workspace isn't working like you expect it to, try restarting the the entire build.
