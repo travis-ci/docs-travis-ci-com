@@ -117,7 +117,7 @@ deploy:
   script: deploy.sh
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^staging|production$
+    condition: $TRAVIS_BRANCH =~ ^(staging|production)$
 ```
 {: data-file=".travis.yml"}
 
