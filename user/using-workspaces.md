@@ -146,7 +146,7 @@ For files you want to share across builds, use
 It is possible to include a single file in the cache and workspaces.
 
 ## How restarting a portion of a build affects workspaces
-Note that workspaces are built and consumed by jobs in a builld.
+Note that workspaces are built and consumed by jobs in a build.
 If you restart parts of the build in some arbitrary order, workspaces may
 interfere in subtle and unexpected ways.
 If you suspect such interference, we advise you to restart the entire build.
