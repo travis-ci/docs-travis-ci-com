@@ -98,7 +98,7 @@ In this example:
      using a custom script.
 
 ## Workspaces and concurrency
-Note that workspaces work best if there is not race condition in
+Note that workspaces work best if there is no race condition set while
 uploading them.
 Since there is no guarantee in the execution order of jobs within a build
 stage, it is a good idea to assign different workspace names to jobs within
