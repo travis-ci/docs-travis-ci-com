@@ -17,7 +17,7 @@ group: dev
 ```
 {: data-file=".travis.yml"}
 
-> Please note that tag **dev** is needed to use the image. 
+> Please note that tag `dev` is needed to use the image. 
 
 ## Differences from the previous release images
 
