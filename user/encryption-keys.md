@@ -13,35 +13,75 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 ## Encryption scheme
 
 Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair.
-
-### Obtaining the public key
-
 Travis CI keeps the private key private, but makes the repository's public key available to those who have access to the repository.
 
-#### Repositories on travis-ci.org using older API
+Once the public key is available, anyone (including those without push access to
+your repository) can encrypt data which can only be decrypted by Travis CI,
+using the corresponding private key.
 
-For all repositories on [travis-ci.org](https://travis-ci.org), you can obtain the public key anonymously using the older API at `https://api.travis-ci.org/repos/foo/bar/key`.
+### Obtaining the public keys
 
-Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (not even the encrypter, or "owner" of the `foo/bar` repository!).
+The method to obtain the public key depends on where the target repository
+exists, and the API version you are using.
 
-#### Repositories on travis-ci.com and travis-ci.org using API V3
+Furthermore, the request may require authorization via the `Authorization: token`
+header depending on the repository's location and visibility, as well as
+the API version used.
 
-Repositories (both public and private) on [travis-ci.com](https://travis-ci.com) require an authorized user's API token to obtain the public key.
+<table>
+  <caption><tt>Authorization</tt> header requirement</caption>
+  <tr>
+    <th rowspan="2">repository visibility and location</th>
+    <th rowspan="2">API server</th>
+    <th>API v1</th>
+    <th>API v3</th>
+  </tr>
+  <tr>
+    <td><tt>/repos/OWNER/REPO/key</tt></td>
+    <td><tt>/v3/repo/OWNER%2fREPO/key_pair/generated</tt></td>
+  </tr>
+  <tr>
+    <td>.org</td>
+    <td><a href="https://api.travis-ci.org">https://api.travis-ci.org</a></td>
+    <td>no</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <td>public on .com</td>
+    <td><a href="https://api.travis-ci.com">https://api.travis-ci.com</a></td>
+    <td>yes<br></td>
+    <td>yes<br></td>
+  </tr>
+  <tr>
+    <td>private on .com</td>
+    <td><a href="https://api.travis-ci.com">https://api.travis-ci.com</a></td>
+    <td>yes<br></td>
+    <td>yes</td>
+  </tr>
+</table>
 
-   1. The travis-ci.com API token is found on your [account page](https://travis-ci.com/account/preferences).
-   1. Send a `GET` request to https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated along with the authorization header.
+> Notice that API v3 endpoints above show the repository name with `%2f`.
 
-          curl -H "Authorization: token **TOKEN**" \
-            https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
+If the `Authorization: token` header is required, you can obtain the token by
+visiting the account page:
+- [travis-ci.org](https://travis-ci.org/account/preferences)
+- [travis-ci.com](https://travis-ci.com/account/preferences)
 
-      > Note that the repository name above is URL-encoded with `%2f`.
+### Examples
 
-This method also works for repositories on [travis-ci.org](https://travis-ci.org).
-Obtain the API key from the [account page on travis-ci.org](https://travis-ci.org/account/preferences), and send
-the request to `api.travis-ci.org`:
+Here are some examples of `curl` commands to obtain the public key.
 
-    curl -H "Authorization: token **TOKEN**" \
-      https://api.travis-ci.org/v3/repo/OWNER%2fREPO/key_pair/generated
+1. A public repository on travis-ci.org using API v1
+
+       curl https://api.travis-ci.org/repos/travis-ci/travis-build/key
+
+1. A public repository on travis-ci.org using API v3
+
+       curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
+
+1. A private repository on travis-ci.com using API v3
+
+       curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
 
 ## Usage
 
