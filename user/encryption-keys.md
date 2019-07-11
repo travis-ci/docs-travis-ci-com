@@ -12,16 +12,16 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 ## Encryption scheme
 
-Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair. 
+Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair.
 
 ### Obtaining the public key
 
-Travis CI keeps the private key private, but makes the repository's public key available to those who have access to the repository. 
+Travis CI keeps the private key private, but makes the repository's public key available to those who have access to the repository.
 
 #### Repositories on travis-ci.org using older API
 
 For all repositories on [travis-ci.org](https://travis-ci.org), you can obtain the public key anonymously using the older API at `https://api.travis-ci.org/repos/foo/bar/key`.
-   
+
 Anyone can run `travis encrypt` for any repository, which encrypts the arguments using the repository's public key. Therefore, `foo/bar`'s encrypted values can be decrypted by Travis CI, using `foo/bar`'s private key, but the values cannot be decrypted by anyone else (not even the encrypter, or "owner" of the `foo/bar` repository!).
 
 #### Repositories on travis-ci.com and travis-ci.org using API V3
@@ -30,24 +30,18 @@ Repositories (both public and private) on [travis-ci.com](https://travis-ci.com)
 
    1. The travis-ci.com API token is found on your [account page](https://travis-ci.com/account/preferences).
    1. Send a `GET` request to https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated along with the authorization header.
-   
-          ```curl
+
           curl -H "Authorization: token **TOKEN**" \
             https://api.travis-ci.com/v3/repo/OWNER%2fREPO/key_pair/generated
-            ```
 
-     ```markdown
-     > Note that the repository name above is URL-encoded with `%2f`.
-     ```
-         
+      > Note that the repository name above is URL-encoded with `%2f`.
+
 This method also works for repositories on [travis-ci.org](https://travis-ci.org).
 Obtain the API key from the [account page on travis-ci.org](https://travis-ci.org/account/preferences), and send
 the request to `api.travis-ci.org`:
 
-    ```curl
     curl -H "Authorization: token **TOKEN**" \
       https://api.travis-ci.org/v3/repo/OWNER%2fREPO/key_pair/generated
-      ```
 
 ## Usage
 
