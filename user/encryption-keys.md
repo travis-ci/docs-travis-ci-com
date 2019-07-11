@@ -31,7 +31,7 @@ the API version used.
 <table>
   <caption><tt>Authorization</tt> header requirement</caption>
   <tr>
-    <th rowspan="2">repository visibility and location</th>
+    <th rowspan="2">Repository visibility and location</th>
     <th rowspan="2">API server</th>
     <th>API v1</th>
     <th>API v3</th>
