@@ -1,0 +1,1 @@
+install: make get-deps
