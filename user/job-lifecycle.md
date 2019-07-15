@@ -70,7 +70,7 @@ You can also use `apt-get` or `snap` to [install dependencies](/user/installing-
 Skip the installation step entirely by adding the following to your `.travis.yml`:
 
 ```yaml
-install: true
+install: skip
 ```
 {: data-file=".travis.yml"}
 
