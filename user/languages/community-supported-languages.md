@@ -5,8 +5,6 @@ layout: en
 swiftypetags: 'Community Supported'
 ---
 
-
-
 There are many programming languages out there, and Travis CI would like
 to support as many as possible.
 

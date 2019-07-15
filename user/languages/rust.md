@@ -10,9 +10,9 @@ layout: en
 
 | Rust                                        | Default                                       |
 |:--------------------------------------------|:----------------------------------------------|
-| [Default `install`](#Dependency-Management) | `cargo build --verbose`                       |
-| [Default `script`](#Default-Build-Script)   | `cargo build --verbose; cargo test --verbose` |
-| [Matrix keys](#Build-Matrix)                | `rust`, `env`                                 |
+| [Default `install`](#dependency-management) | `cargo build --verbose`                       |
+| [Default `script`](#default-build-script)   | `cargo build --verbose; cargo test --verbose` |
+| [Matrix keys](#build-matrix)                | `rust`, `env`                                 |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:
@@ -24,10 +24,10 @@ language: rust
 
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 The rest of this guide covers configuring Rust projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Choosing a Rust version
@@ -86,6 +86,25 @@ cache: cargo
 ```
 {: data-file=".travis.yml"}
 
+This adds the following directories to the cache:
+
+- `$TRAVIS_HOME/.cache/sccache`
+- `$TRAVIS_HOME/.cargo/`
+- `$TRAVIS_HOME/.rustup/`
+- `target`
+
+In addition, it adds the following command to the `before_cache`
+phase of the job in order to reduce cache size:
+
+    rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+
+This means that, if you override the `before_cache` step for another reason, you should add the step above in order to reduce the cache size:
+
+```yaml
+before_cache:
+  - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
+  ⋮ # rest of your existing "before_cache"
+```
 
 ## Default Build Script
 
@@ -113,8 +132,3 @@ script:
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
-
-## Build Matrix
-
-For Rust projects, `env` and `rust` can be given as arrays to
-construct a [build matrix](/user/customizing-the-build/#Build-Matrix).

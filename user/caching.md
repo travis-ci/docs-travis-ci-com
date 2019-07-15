@@ -25,7 +25,7 @@ Travis CI can cache content that does not often change, to speed up your build p
 Caches lets Travis CI store directories between builds, which is useful for storing
 dependencies that take longer to compile or download.
 
-Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#Bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
+Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
 ### Build phases
 
@@ -54,7 +54,7 @@ Whenever you update your bundle, Travis CI will also update the cache.
 
 Travis CI tries its best at determining the path bundler uses for storing dependencies.
 
-If you have [custom Bundler arguments](/user/languages/ruby/#Custom-Bundler-arguments-and-Gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
+If you have [custom Bundler arguments](/user/languages/ruby/#custom-bundler-arguments-and-gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
 
 Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
@@ -90,6 +90,7 @@ For these cases installing a version of ruby with `rvm install 2.3.1` may take m
     directories:
      - /home/travis/.rvm/
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods
 
@@ -132,6 +133,33 @@ podfile: path/to/Podfile
 ```
 {: data-file=".travis.yml"}
 
+### npm cache
+
+> Please note that as of July 2019, npm is cached by default on Travis CI
+
+To disable npm caching, use:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache `npm`, use:
+
+```yaml
+language: node_js
+
+node_js: '6' # or another
+
+cache: npm
+```
+{: data-file=".travis.yml"}
+
+This caches `$HOME/.npm` or `node_modules`, depending on the repository's
+structure.
+See [Node.js documentation](/user/languages/javascript-with-nodejs/#caching-with-npm)
+for more details.
+
 ### yarn cache
 
 For caching with `yarn`, use:
@@ -173,9 +201,9 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OS X
+#### ccache on macOS
 
-ccache is not installed on OS X environments but you can install it by adding
+ccache is not installed on macOS environments but you can install it by adding
 
 ```yaml
 install:
@@ -250,7 +278,7 @@ Docker images are not cached, because we provision a brand new virtual machine f
 ## Fetching and storing caches
 
 - Travis CI fetches the cache for every build, including branches and pull requests.
-- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc.
+- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc. See [Caches and build matrices](#caches-and-build-matrices) for details.
 - If a branch does not have its own cache, Travis CI fetches the default branch cache.
 - Only modifications made to the cached directories from normal pushes are stored.
 
@@ -391,15 +419,15 @@ cache:
 
 ## Caches and build matrices
 
-When you have multiple jobs in a [build matrix](/user/customizing-the-build/#Build-Matrix),
+When you have multiple jobs in a [build matrix](/user/customizing-the-build/#build-matrix),
 some characteristics of each job are used to identify the cache each of the
 jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux` or `osx`)
-2. OS distribution (for Linux, `precise` or `trusty`)
-3. OS X image name (e.g., `xcode7.2`)
+1. OS name (currently, `linux`, `osx`, or `windows`)
+2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
+3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 5. Language runtime version (for the language specified in the `language` key) if applicable
 6. For Bundler-aware jobs, the name of the `Gemfile` used
@@ -408,14 +436,13 @@ If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.
 This could corrupt the cache, or the cache may contain files that are not
 usable in all jobs using it.
-In this case, we advise you to add a defining public environment variable
-name; e.g.,
+In this case, we advise you to add a public environment variable
+name to each job to create a unique cache entry:
 
 ```
 CACHE_NAME=JOB1
 ```
-
-to `.travis.yml`.
+{: data-file=".travis.yml"}
 
 Note that when considering environment variables, the values must match *exactly*,
 including spaces.
@@ -427,6 +454,7 @@ env:
   - FOO=1  BAR=2
   - BAR=2 FOO=1
 ```
+{: data-file=".travis.yml"}
 
 each of the three jobs will use its own cache.
 
