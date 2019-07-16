@@ -113,8 +113,8 @@ them both:
 ```yaml
 language: objective-c
 cache:
-  - bundler
-  - cocoapods
+  bundler: true
+  cocoapods: true
 ```
 {: data-file=".travis.yml"}
 
