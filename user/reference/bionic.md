@@ -13,11 +13,9 @@ To route your builds to Ubuntu 18.04 LTS, Bionic, add the following to your `.tr
 
 ```yaml
 dist: bionic
-group: dev
 ```
 {: data-file=".travis.yml"}
 
-> Please note that tag `dev` is needed to use the image. 
 
 ## Differences from the previous release images
 
@@ -31,7 +29,6 @@ To specify a third party apt-repository, you can [add the source with the apt ad
 
 ```yaml
 dist: bionic
-group: dev
 addons:
   apt:
     sources:
