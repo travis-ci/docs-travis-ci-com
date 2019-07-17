@@ -32,7 +32,7 @@ dist: trusty
 Before inspecting your code, you need to:
 
 1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#Usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#Defining-Variables-in-Repository-Settings)
+2. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
 4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
@@ -43,7 +43,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
@@ -61,12 +61,16 @@ addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token:
-      secure: ********* # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
 ```
 {: data-file=".travis.yml"}
+
+> Please note the following:
+- the "coverage" profile activates the generation of the JaCoCo XML report
+- "sonar.projectKey" can also be set as a property on the main POM file. Its value can be found on the right side of the project homepage on SonarCloud
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
@@ -76,24 +80,24 @@ SonarCloud can inspect internal pull requests of your repository and write comme
 
 > For security reasons, this advanced feature works only for **internal** pull requests. In other words, pull requests built from forks won't be inspected.
 
-To activate analysis on pull requests, you need to follow those extra steps:
+To activate analysis on pull requests, you need to [install the SonarCloud application](https://github.com/apps/sonarcloud) on your GitHub organization(s).
 
-1. Generate a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) for the GitHub user which will be used by SonarCloud to write the comments.
-  - This GitHub user should not be one of the developers, but rather a technical account which has write access to the repository and which will act as a bot
-  - The token must have the following scopes:
-    -  "repo:status" and "public_repo" for public repositories
-    -  all of "repo" scope for private repositories
-2. Go to the "Administration > General Settings > Pull Requests" page of your project on SonarCloud
-  - Enter this token in the "GitHub > Authentication token" section 
-
-> When specifying the token in SonarCloud, make sure that you click twice on "Save"! To be sure that your token was saved, reload the administration page and make sure that you see a "Change" button on the "Authentication token" section.
+Note that if you used SonarCloud before the GitHub application and therefore configured GitHub tokens on your projects, you should now delete those tokens from the "Administration > General Settings > Pull Requests" page of your projects.
 
 ## Upcoming improvements
 
 Future versions of this add-on will provide the following features:
 
-- No need to define a third-party GitHub user for pull request analysis. SonarCloud will use its own identity.
 - Support for external pull requests.
+
+## Accessing full SCM history
+
+Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-build/#git-clone-depth) to speed up build times, but a truncated SCM history may cause issues when SonarCloud computes blame data. To avoid this, you can access the full SCM history with:
+
+```yaml
+git:
+  depth: false
+```
 
 ## Deprecated features
 
@@ -102,3 +106,12 @@ If you are a long-time SonarCloud user, you might have the following entries in 
 - "github_token"
 
 If this is the case, you will get warnings in the log, telling you that this behaviour will be removed soon. You should get rid of those entries in your `.travis.yml` file to benefit from the latest features of SonarCloud.
+
+## Note for SonarQube users
+
+If you are familiar with SonarQube, you can be tempted to deal with some properties relatives to [Branch Analysis](https://docs.sonarqube.org/display/SONAR/Branch+Analysis) (ex: `sonar.branch.name`) and/or [Pull Request Analysis](https://docs.sonarqube.org/display/SONAR/Pull+Request+Analysis) (ex: `sonar.pullrequest.key`).
+
+These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
+
+
+

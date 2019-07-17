@@ -31,7 +31,7 @@ Check the syntax of a condition by inspecting the resulting abstract syntax
 tree.
 
 ```
-$ travis-conditions eval "branch = foo"
+$ travis-conditions parse "branch = foo"
 [:eq, [:var, :branch], [:val, "foo"]]
 
 ```
