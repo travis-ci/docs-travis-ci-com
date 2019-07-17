@@ -74,6 +74,11 @@ does *not* specify a nodejs version. When the `.nvmrc` file is read,
 documentation](https://github.com/creationix/nvm#usage) for more information on
 `.nvmrc`.
 
+## Default Node.js version
+
+If the Node.js version is not defined by the `node_js` key, and `.nvmrc` does not
+exist, Travis CI uses the latest [Long Term Support](https://nodejs.org/en/download/) version.
+
 ## Default Build Script
 
 The default build script for projects using nodejs is:
