@@ -107,9 +107,9 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Python support
 
+* Supported Python versions: `2.7`, `3.4` or higher.
 * Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-
-* Python `2.7.15` will be used when no language version is explicitly set.
+* Python `3.6.7` will be used when no language version is explicitly set.
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
 
@@ -126,7 +126,8 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
+is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -134,8 +135,9 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 | package | version |
 |:--------|:--------|
-| gradle  | 4.10.2  |
+| gradle  | 5.1.1   |
 | maven   | 3.6.0   |
+| groovy  | 2.4.5   |
 {: style="width: 30%" }
 
 ## PHP support

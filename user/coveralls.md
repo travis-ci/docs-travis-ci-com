@@ -68,6 +68,7 @@ Coveralls have documentation for many other programming languages:
 - [C / C++](https://docs.coveralls.io/c)
 - [D](https://docs.coveralls.io/d)
 - [Elixir](https://docs.coveralls.io/elixir)
+- [Erlang](https://docs.coveralls.io/erlang)
 - [Fortran](https://docs.coveralls.io/fortran)
 - [Go](https://docs.coveralls.io/go)
 - [Haskell](https://docs.coveralls.io/haskell)

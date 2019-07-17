@@ -7,7 +7,7 @@ layout: en
 Pull request builds are an essential part of Travis CI.
 Whenever a pull request is opened on GitHub, Travis CI builds it and updates the status icon on the pull request page.
 
-
+You can identify if a pull request was built while it was considered draft by the contributor by looking at the `DRAFT` tag in the web UI. Check how [draft pull request events](https://github.blog/2019-02-14-introducing-draft-pull-requests/) work on GitHub.
 
 ## How Pull Requests are Built
 
@@ -22,6 +22,8 @@ Travis CI builds a pull request when it is first opened, and whenever commits ar
 Rather than build the commits that have been pushed to the branch the pull request is from, we build the merge between the source branch and the upstream branch.
 
 To only build on push events not on pull requests, disable **Build on Pull Requests** in your repository settings.
+
+To only build pull requests targeting specific branches you can use [the `branches: only:` key](/user/customizing-the-build/#building-specific-branches), which will also restrict the branches that trigger builds.
 
 ## Pull Requests and Security Restrictions
 

@@ -571,8 +571,42 @@ If you need a bit more space in your Ubuntu builds, we recommend using `language
 
 ## Uploading Artifacts to Sonatype
 
-When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as described [here](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
 
 ## Travis CLI does not recognize my valid Github Token
 
-When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as explained [here](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as [explained in this document](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+## Duplicate/Unknown Job shows up in my build
+
+When specifying stages, users often unknowingly add an implicit Job to the list of Jobs in a Stage using YAML that is otherwise syntactically correct.
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+  - name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+```
+{: data-file=".travis.yml"}
+
+The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
+
+To remove this _implicit_ job, you would edit the above to look like:
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+    name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+``` 
+{: data-file=".travis.yml"}
+
+
+This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).

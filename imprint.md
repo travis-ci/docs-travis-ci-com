@@ -13,7 +13,7 @@ no_toc: true
     Germany
   </address>
   <h4>Vertreten durch</h4>
-  <p>Konstantin Haase, Fritz Thielemann</p>
+  <p>Randy Jacops</p>
   <h4>Kontakt (Contact)</h4>
   <p>
     Email contact@travis-ci.org <br>
@@ -25,7 +25,7 @@ no_toc: true
   <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
   <address>
     Travis CI GmbH<br>
-    Konstantin Haase, Fritz Thielemann<br>
+    Randy Jacops<br>
     Rigaer Straße 8<br>
     10247 Berlin<br>
     Germany

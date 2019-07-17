@@ -376,7 +376,7 @@ Do not build on forks:
 fork = false
 ```
 
-Build only when the commit message matches against the given regular expression:
+Build only when the commit message doesn't match against the given regular expression:
 
 ```
 commit_message !~ /(no-deploy|wip)/

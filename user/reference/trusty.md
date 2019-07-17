@@ -40,8 +40,8 @@ Your build is routed to this infrastructure automatically, you don't need make a
 
 ## Container-based infrastructure
 
-> Container-based infrastructure is currently being [deprecated](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures).
-> Please remove any `sudo: false` keys in your `.travis.yml` file to use the default fully-virtualized [Linux infrastructure](#linux-infrastructure) instead. 
+> Container-based infrastructure has been fully [deprecated](https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
+> Please remove any `sudo: false` keys in your `.travis.yml` file to use the fully-virtualized [Linux infrastructure](#linux-infrastructure).
 
 ## Image differences from Precise
 
@@ -162,6 +162,7 @@ by `gimme`.
           - openjdk-6-jdk
     jdk: openjdk6
     ```
+    {: data-file=".travis.yml"}
 - We install the latest Oracle JDK versions from Oracle:
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)
@@ -224,6 +225,7 @@ Specifying it will result in build failure.
 If you need to test with these versions, use Precise.*
 
 ```yaml
+language: php
 matrix:
   include:
     - php: 5.2
@@ -343,7 +345,7 @@ using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means
 ### Group membership
 
 The user executing the build (`$USER`) belongs to one primary group derived from
-that user.  
+that user.
 
 If you need to modify group membership follow these steps:
 
