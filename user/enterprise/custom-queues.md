@@ -18,9 +18,9 @@ Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_fo
 
 The new settings will take effect immediately, but job routing will remain the same until new queues are defined.
 
-## Define Custom Queues in the Management Console  
+## Define Custom Queues in the Management Console
 
-After enabling the feature flags for custom queues, configure the job routing in the management console. This is defined in yaml, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g. `https://<your-domain>:8800/settings`.  
+After enabling the feature flags for custom queues, configure the job routing in the management console. This is defined in yaml, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g. `https://<your-travis-ci-enterprise-domain>:8800/settings`.
 
 There are a number of options/selectors used to define routing to a custom queue. Repos that match _all_ of the selectors for a custom queue will be built on that custom queue. We recommend using the following selectors:
 
@@ -35,6 +35,7 @@ There are a number of options/selectors used to define routing to a custom queue
 > Note: We do not recommend using `dist` and `os` for these selectors. These two have some of their own routing processes built-in and may not entirely behave as intended.
 
 Define selectors in "Advanced Configuration YAML" in the following format:
+
 ```yaml
 production:
   queues:
@@ -44,7 +45,9 @@ production:
     selector: different_value
     selector: something_else
 ```
-see the [example](#advanced-configuration-yaml-example) for details on syntax. Click "Save" on the Management Console Settings when you are ready. Travis CI Enterprise will restart, with your new queue settings.
+{: data-file="config/travis.yml"}
+
+See the [example](#advanced-configuration-yaml-example) for details on syntax. Click "Save" on the Management Console Settings when you are ready. Travis CI Enterprise will restart, with your new queue settings.
 
 ### Advanced Configuration YAML Example
 
@@ -68,6 +71,7 @@ production:
   - queue: docs
     slug: 'travis-ci/docs-travis-ci-com'
 ```
+{: data-file="config/travis.yml"}
 
 For this example, to build an `enterprise`, Ruby project owned by the `travis-ci` organization, a `.travis.yml` would need to look as follows:
 

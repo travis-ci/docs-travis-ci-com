@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-Android builds are not available on the OS X environment.
+Android builds are not available on the macOS environment.
 
 
 
@@ -22,15 +22,19 @@ By setting
 
 ```yaml
 language: android
+dist: trusty
 ```
 {: data-file=".travis.yml"}
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
 
+> Android builds are only supported on our Trusty image at this time hence you'll need to explicitely specify `dist: trusty` in your .travis.yml file.
+
 Here is an example `.travis.yml` for an Android project:
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     # Uncomment the lines below if you want to
@@ -62,6 +66,7 @@ In your `.travis.yml` you can define the list of SDK components to be installed,
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
@@ -78,6 +83,7 @@ By default, Travis CI will accept all the requested licenses, but it is also pos
 
 ```yaml
 language: android
+dist: trusty
 android:
   components:
     - build-tools-26.0.2
@@ -114,7 +120,7 @@ If you feel adventurous, you may use the script [`/usr/local/bin/android-wait-fo
 ```yaml
 # Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 100M
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
@@ -125,10 +131,11 @@ before_script:
 
 Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
 
-If your project is built with Ant or any other build tool that does not automatically handle dependences, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+If your project is built with Ant or any other build tool that does not automatically handle dependencies, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
 
 ```yaml
 language: android
+dist: trusty
 install: ant deps
 ```
 {: data-file=".travis.yml"}

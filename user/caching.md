@@ -90,6 +90,7 @@ For these cases installing a version of ruby with `rvm install 2.3.1` may take m
     directories:
      - /home/travis/.rvm/
 ```
+{: data-file=".travis.yml"}
 
 ### CocoaPods
 
@@ -112,8 +113,8 @@ them both:
 ```yaml
 language: objective-c
 cache:
-  - bundler
-  - cocoapods
+  bundler: true
+  cocoapods: true
 ```
 {: data-file=".travis.yml"}
 
@@ -134,7 +135,16 @@ podfile: path/to/Podfile
 
 ### npm cache
 
-For caching with `npm`, use:
+> Please note that as of July 2019, npm is cached by default on Travis CI
+
+To disable npm caching, use:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache `npm`, use:
 
 ```yaml
 language: node_js
@@ -191,9 +201,9 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on OS X
+#### ccache on macOS
 
-ccache is not installed on OS X environments but you can install it by adding
+ccache is not installed on macOS environments but you can install it by adding
 
 ```yaml
 install:
@@ -415,9 +425,9 @@ jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux` or `osx`)
+1. OS name (currently, `linux`, `osx`, or `windows`)
 2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
-3. OS X image name (e.g., `xcode7.2`)
+3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 5. Language runtime version (for the language specified in the `language` key) if applicable
 6. For Bundler-aware jobs, the name of the `Gemfile` used
@@ -426,14 +436,13 @@ If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.
 This could corrupt the cache, or the cache may contain files that are not
 usable in all jobs using it.
-In this case, we advise you to add a defining public environment variable
-name; e.g.,
+In this case, we advise you to add a public environment variable
+name to each job to create a unique cache entry:
 
 ```
 CACHE_NAME=JOB1
 ```
-
-to `.travis.yml`.
+{: data-file=".travis.yml"}
 
 Note that when considering environment variables, the values must match *exactly*,
 including spaces.
@@ -445,6 +454,7 @@ env:
   - FOO=1  BAR=2
   - BAR=2 FOO=1
 ```
+{: data-file=".travis.yml"}
 
 each of the three jobs will use its own cache.
 

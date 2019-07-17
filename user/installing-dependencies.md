@@ -151,39 +151,56 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-The Ubuntu Snap store offers many packages directly maintained by upstream developers, often with newer versions than the ones available in the Apt archive. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+The Ubuntu Snap store offers many packages directly maintained by upstream
+developers, often with newer versions than the ones available in the Apt archive.
 
-```yaml
-dist: xenial
+You can specify snaps as an array of snap specifications, each of which is
+of the two possible forms:
 
-addons:
-  snaps:
-  - hugo
+1. The name of the snap, which will be passed on to the `snap install` without
+  additional flags. For example,
 
-script:
-- hugo new site test-site
-```
-{: data-file=".travis.yml"}
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - hugo
+      ```
+      {: data-file=".travis.yml"}
 
-If you need to install a package from a different channel, or a package that uses [classic confinement](https://blog.ubuntu.com/2017/01/09/how-to-snap-introducing-classic-confinement), you can do so with the following config:
+    This results in:
 
-```yaml
-dist: xenial
+      ```
+      $ sudo snaps install hugo
+      ```
 
-addons:
-  snaps:
-  - name: aws-cli
-    classic: true
-    channel: latest/edge
+1. The map specifying how the snap should be installed. Possible keys are:
+   `name`, `confinement`, and `channel`.
+   The `confinement` key will be used to add `--classic` or `--devmode` flag,
+   and `channel` will be passed to `--channel` flag.
+   For example,
 
-script:
-- aws help
-```
-{: data-file=".travis.yml"}
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - name: aws-cli
+            confinement: classic # or devmode
+            channel: latest/edge # will be passed to --channel flag
+      ```
+      {: data-file:".travis.yml"}
 
-## Installing Packages on OS X
+    This results in:
 
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+      ```
+      $ sudo snaps install aws-cli --classic --channel=latest/edge
+      ```
+
+    `confinement` and `channel` are optional.
+
+## Installing Packages on macOS
+
+To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
 
 For convenience, you can use Homebrew addon in your `.travis.yml`.
 For example, to install beanstalk:
@@ -278,7 +295,7 @@ rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you n
 
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
 
 ```yaml
 addons:

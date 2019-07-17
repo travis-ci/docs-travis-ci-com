@@ -10,24 +10,23 @@ layout: en
 
 | JavaScript and Node.js                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#dependency-management) | `npm install`                             |
+| [Default `install`](#dependency-management) | `npm install` or `npm ci`                 |
 | [Default `script`](#default-build-script)   | `npm test`                                |
 | [Matrix keys](#build-matrix)                | `env`, `node_js`                          |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+(If `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version supports it, Travis CI will use `npm ci` instead of `npm install`.)
 
 Minimal example:
 
 ```yaml
 language: node_js
-node_js:
-  - "iojs"
-  - "7"
 ```
 {: data-file=".travis.yml"}
 
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
 projects. Please make sure to read our [Tutorial](/user/tutorial/)
@@ -39,7 +38,6 @@ The easiest way to specify Node.js versions is to use one or more of the latest
 releases in your `.travis.yml`:
 
 - `node` latest stable Node.js release
-- `iojs` latest stable io.js release
 - `lts/*` latest LTS Node.js release
 {% for vers in site.data.node_js_versions %}
 - `{{vers}}` latest {{vers}}.x release
@@ -48,7 +46,6 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "iojs"
   - "7"
 ```
 {: data-file=".travis.yml"}
@@ -140,7 +137,14 @@ as specified in your lock file.
 
 #### Caching with `npm`
 
-You can cache your dependencies with
+`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache your dependencies:
 
 ```yaml
 cache: npm
@@ -186,12 +190,13 @@ before_install:
 
 #### Caching with `yarn`
 
-You can cache `$HOME/.cache/yarn` with:
-
 ```yaml
 cache: yarn
 ```
 {: data-file=".travis.yml"}
+
+will add `yarn`'s default caching directory (which varies depending on the OS),
+as indicated by [`yarn cache dir`](https://yarnpkg.com/en/docs/cli/cache#toc-yarn-cache-dir).
 
 If your caching needs to include other directives, you can use:
 
@@ -296,11 +301,6 @@ before_script:
 {: data-file=".travis.yml"}
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
-
-## Build Matrix
-
-For JavaScript/Node.js projects, `env` and `node_js` can be used as arrays
-to construct a build matrix.
 
 ## Node.js v4 (or io.js v3) compiler requirements
 
