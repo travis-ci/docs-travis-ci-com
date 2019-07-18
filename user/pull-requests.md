@@ -7,7 +7,7 @@ layout: en
 Pull request builds are an essential part of Travis CI.
 Whenever a pull request is opened on GitHub, Travis CI builds it and updates the status icon on the pull request page.
 
-
+You can identify if a pull request was built while it was considered draft by the contributor by looking at the `DRAFT` tag in the web UI. Check how [draft pull request events](https://github.blog/2019-02-14-introducing-draft-pull-requests/) work on GitHub.
 
 ## How Pull Requests are Built
 
@@ -23,6 +23,8 @@ Rather than build the commits that have been pushed to the branch the pull reque
 
 To only build on push events not on pull requests, disable **Build on Pull Requests** in your repository settings.
 
+To only build pull requests targeting specific branches you can use [the `branches: only:` key](/user/customizing-the-build/#building-specific-branches), which will also restrict the branches that trigger builds.
+
 ## Pull Requests and Security Restrictions
 
 The most important restriction for pull requests is about secure environment variables and encrypted data.
@@ -32,7 +34,7 @@ The upstream repository's maintainer would have no protection against this attac
 
 Travis CI makes encrypted variables and data available only to pull requests coming from the same repository. These are considered trustworthy, as only members with write access to the repository can send them.
 
-Pull requests sent from forked repositories do not have access to encrypted variables or data.
+Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project.
 
 If your build relies on encrypted variables to run, for instance to run Selenium tests with [BrowserStack](https://www.browserstack.com) or Sauce Labs, your build needs to take this into account. You won't be able to run
 these tests for pull requests from external contributors.
@@ -75,5 +77,5 @@ If you see two build status icons on your GitHub pull request, it means there is
 
 ## See Also
 
-* [Building only the latest commit](/user/customizing-the-build/#Building-only-the-latest-commit)
-* [Building specific branches](/user/customizing-the-build/#Building-Specific-Branches)
+* [Building only the latest commit](/user/customizing-the-build/#building-only-the-latest-commit)
+* [Building specific branches](/user/customizing-the-build/#building-specific-branches)

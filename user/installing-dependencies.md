@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/) or [trusty](/user/reference/trusty/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -96,7 +96,7 @@ If your requirements goes beyond the normal installation, please use another met
 
 To add APT sources, you can use one of the following three types of entries:
 
-1. aliases defined in [source whitelist](https://github.com/travis-ci/apt-source-whitelist)
+1. aliases defined in [source safelist](https://github.com/travis-ci/apt-source-safelist)
 2. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
 3. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
 
@@ -142,119 +142,68 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
-### Installing Snap Packages
+### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages in the sudo enabled infrastructure using the Trusty dist:
+You can install [snap](http://snapcraft.io/) packages using our Xenial images:
 
 ```yaml
-sudo: required
-dist: trusty
+dist: xenial
 ```
 {: data-file=".travis.yml"}
 
+The Ubuntu Snap store offers many packages directly maintained by upstream
+developers, often with newer versions than the ones available in the Apt archive.
 
-The Ubuntu snap store offers many packages directly maintained by upstream developers, with newer versions than the ones available in the Trusty archive, or even packages that didn't exist when Trusty was released. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+You can specify snaps as an array of snap specifications, each of which is
+of the two possible forms:
 
-```yaml
-sudo: true
-dist: trusty
+1. The name of the snap, which will be passed on to the `snap install` without
+  additional flags. For example,
 
-install:
-  - sudo apt-get --yes install snapd
-  - sudo snap install hugo
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - hugo
+      ```
+      {: data-file=".travis.yml"}
 
-script:
-  - /snap/bin/hugo new site test-site
-```
-{: data-file=".travis.yml"}
+    This results in:
 
-## Installing Packages on Container Based Infrastructure
+      ```
+      $ sudo snaps install hugo
+      ```
 
-To install packages not included in the default [container-based-infrastructure](/user/reference/overview/#virtualization-environments) you need to use the APT addon, as `sudo apt-get` is not available.
+1. The map specifying how the snap should be installed. Possible keys are:
+   `name`, `confinement`, and `channel`.
+   The `confinement` key will be used to add `--classic` or `--devmode` flag,
+   and `channel` will be passed to `--channel` flag.
+   For example,
 
-### Adding APT Sources
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - name: aws-cli
+            confinement: classic # or devmode
+            channel: latest/edge # will be passed to --channel flag
+      ```
+      {: data-file:".travis.yml"}
 
-To add APT sources from the [source whitelist](https://github.com/travis-ci/apt-source-whitelist) before your custom build steps, use the `addons.apt.sources` key:
+    This results in:
 
-```yaml
-addons:
-  apt:
-    sources:
-    - deadsnakes
-    - ubuntu-toolchain-r-test
-```
-{: data-file=".travis.yml"}
+      ```
+      $ sudo snaps install aws-cli --classic --channel=latest/edge
+      ```
 
-### Adding APT Packages
+    `confinement` and `channel` are optional.
 
-To install packages from the [package whitelist](https://github.com/travis-ci/apt-package-whitelist)  before your custom build steps, use the `addons.apt.packages` key:
+## Installing Packages on macOS
 
-```yaml
-addons:
-  apt:
-    packages:
-    - cmake
-    - time
-```
-{: data-file=".travis.yml"}
+To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
 
-> Note: When using APT sources and packages together, you need to make
-> sure they are under the same key space in the YAML file. e.g.
-
-```yaml
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - g++-4.8
-```
-{: data-file=".travis.yml"}
-
-> Note: If `apt-get install` fails, the build is marked an error.
-
-#### Identifying the source for a missing package
-
-If you add a package to the APT addon key in your `.travis.yml` but the package is not found, you see a message in the Travis CI build log like this:
-
-```
-Installing APT Packages
-⋮
-E: Unable to locate package libcxsparse3.1.2
-E: Couldn't find any package by regex 'libcxsparse3.1.2'
-```
-
-To install the package, identify APT source and specify it in the addon key of your `.travis.yml`:
-
-1. Search for the pull request that added the package on GitHub. For example,
-   [searching for "libcxsparse3.1.2" ](https://github.com/travis-ci/apt-package-whitelist/search?q=libcxsparse3.1.2&type=Issues&utf8=%E2%9C%93)
-   results in [pull request 1194](https://github.com/travis-ci/apt-package-whitelist/pull/1194).
-
-2. Open the pull request, and click the link to the test in the pull request comment. Continuing the example above, [Travis CI Build 80620536 ](https://travis-ci.org/travis-ci/apt-whitelist-checker/builds/80620536).
-
-3. Search the build log for the phrase "Fetching source package for …" and expand the section.
-
-4. Match that source against the `alias` name shown in
-   [the source list](https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json).
-
-In our example, the source alias is "lucid":
-
-```yaml
-addons:
-  apt:
-    sources:
-    - lucid
-    packages:
-    - libcxsparse3.1.2
-```
-{: data-file=".travis.yml"}
-
-> If you require additional package sources, please use `sudo: required` in your `.travis.yml` file and install them manually. Unfortunately, we are unable to process [APT sources requests](https://github.com/travis-ci/apt-source-whitelist) at this time.
-
-## Installing Packages on OS X
-
-To install packages that are not included in the [default OS X environment](/user/reference/osx/#Compilers-and-Build-toolchain) use [Homebrew](http://brew.sh) and our Homebrew addon in your `.travis.yml`. For example, to install beanstalk:
+For convenience, you can use Homebrew addon in your `.travis.yml`.
+For example, to install beanstalk:
 
 ```yaml
 addons:
@@ -329,9 +278,24 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
+### Using Homebrew without addon on older macOS images
+
+If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
+
+    Homebrew must be run under Ruby 2.3! You're running 2.0.0.
+
+You'll need to update to Ruby 2.3 or newer:
+
+```
+rvm use 2.3 --install --binary
+brew update
+brew install openssl
+rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
+```
+
 ## Installing Dependencies on Multiple Operating Systems
 
-If you're testing on both Linux and OS X, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
+If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
 
 ```yaml
 addons:

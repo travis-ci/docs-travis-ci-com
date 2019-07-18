@@ -3,6 +3,7 @@
 .jekyll-metadata
 .rvmrc
 .sass-cache
+*.sw[op]
 # These files in _data are generated 
 _data/*ip_range.yml
 _data/trusty*language*mapping*

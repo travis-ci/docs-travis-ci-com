@@ -4,19 +4,16 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
-| Groovy                       | Default                                                                                                           |
-|:-----------------------------|:------------------------------------------------------------------------------------------------------------------|
-| Default `install`            | [Gradle](#Gradle-Dependency-Management), [Maven](#Maven-Dependency-Management), [Ant](#Ant-Dependency-Management) |
-| Default `script`             | [Gradle](#Gradle-Default-Test-Command), [Maven](#Maven-Default-Test-Command), [Ant](#Ant-Default-Test-Command)    |
-| [Matrix keys](#Build-Matrix) | `env`,`jdk`                                                                                                       |
-| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                         |
+| Groovy                       | Default                                                                                                            |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------|
+| Default `install`            | [Gradle](#gradle-dependency-management), [Maven](#maven-dependency-management), [Ant](#ant-dependency-management ) |
+| Default `script`             | [Gradle](#gradle-default-test-command), [Maven](#maven-default-test-command), [Ant](#ant-default-test-command)     |
+| [Matrix keys](#build-matrix) | `env`,`jdk`                                                                                                        |
+| Support                      | [Travis CI](mailto:support@travis-ci.com)                                                                          |
 
 Minimal example:
 
@@ -27,13 +24,13 @@ language: groovy
 
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
-Groovy builds are not available on the OS X environment.
+Groovy builds are not available on the macOS environment.
 
 ## Overview
 
@@ -81,12 +78,6 @@ cache:
     - $HOME/.gradle/wrapper/
 ```
 {: data-file=".travis.yml"}
-
-### Gradle daemon is disabled by default
-
-[As recommended](https://docs.gradle.org/current/userguide/gradle_daemon.html) by the Gradle team,
-the Gradle daemon is disabled by default.
-If you would like to run `gradle` with daemon, add `--daemon` to the invocation.
 
 ## Projects Using Maven
 
@@ -147,9 +138,4 @@ jdk:
 ### Using Java 10 and Up
 
 For testing with OpenJDK and OracleJDK 10 and up, see
-[Java documentation](/user/languages/java/#Using-Java-10-and-later).
-
-## Build Matrix
-
-For Groovy projects, `env` and `jdk` can be given as arrays
-to construct a build matrix.
+[Java documentation](/user/languages/java/#using-java-10-and-later).
