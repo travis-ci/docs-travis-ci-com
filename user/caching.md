@@ -113,8 +113,8 @@ them both:
 ```yaml
 language: objective-c
 cache:
-  - bundler
-  - cocoapods
+  bundler: true
+  cocoapods: true
 ```
 {: data-file=".travis.yml"}
 
@@ -135,7 +135,16 @@ podfile: path/to/Podfile
 
 ### npm cache
 
-For caching with `npm`, use:
+> Please note that as of July 2019, npm is cached by default on Travis CI
+
+To disable npm caching, use:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache `npm`, use:
 
 ```yaml
 language: node_js

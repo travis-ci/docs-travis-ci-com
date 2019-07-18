@@ -6,9 +6,7 @@ no_toc: true
 ---
 
 
-## Effective for Idera, Inc. and its subsidiaries on April 23, 2018.
-
-Modified and Effective on April 1, 2019
+## Modified and Effective for Idera, Inc. and its subsidiaries on April 1, 2019
 
 Idera, Inc. together with its United States subsidiaries, Assembla, Inc., AquaFold, Inc., CodeGear
 LLC, Embarcadero Technologies, Inc., Lansa, Inc., Precise Software Solutions, Inc., Ranorex,
@@ -45,10 +43,9 @@ Commissioner, as applicable and comply with the advice given by them with regard
 resources data transferred from the European Union and Switzerland, as applicable in the context
 of the employment relationship. For more information about Idera Human Resource data and the
 Idera EU-U.S. Privacy Shield Notice
-v.040119Human Resource Privacy Policy, please contact humanresources@idera.com. As an employee,
-you can always review Idera Human Resource [Privacy Policy here](https://www.idera.com/legal/privacystatement).
+v.040119Human Resource Privacy Policy, please contact humanresources@idera.com.
 
-As explained in our [Privacy Statement](https://www.idera.com/legal/privacystatement) we sometimes provide personal information (such as
+As explained in our [Privacy Statement](/legal/privacy-statement/) we sometimes provide personal information (such as
 name, email address, purchases, and billing information) to third parties to perform services on
 our behalf, or in response to contractual requirements. If we transfer personal information
 received under the Privacy Shield to a third party, the third party’s access, use, and disclosure of
