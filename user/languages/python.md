@@ -62,7 +62,7 @@ script:
 
 ### Python 3.7 and higher
 
-You'll need to add `dist: xenial` to your `.travis.yml` file to use Python 3.7 and higher.
+You'll need to add `dist: xenial` or `dist: bionic` to your `.travis.yml` file to use Python 3.7 and higher.
 
 For example:
 

@@ -131,7 +131,7 @@ Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty and Xenial images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty,  Xenial and Bionic images.
 
 ### macOS
 
