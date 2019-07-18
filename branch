@@ -1,0 +1,3 @@
+git checkout master
+git merge --no-ff travis-ci-master
+git push origin master
