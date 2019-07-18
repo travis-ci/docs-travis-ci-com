@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -144,42 +144,65 @@ addons:
 
 ### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages using our Xenial images:
+You can install [snap](http://snapcraft.io/) packages using our Xenial or
+Bionic images:
 
 ```yaml
 dist: xenial
 ```
-{: data-file=".travis.yml"}
-
-The Ubuntu Snap store offers many packages directly maintained by upstream developers, often with newer versions than the ones available in the Apt archive. For example, you can install and run the latest version of [hugo](http://gohugo.io/):
+or 
 
 ```yaml
-dist: xenial
-
-addons:
-  snaps:
-  - hugo
-
-script:
-- hugo new site test-site
+dist: bionic
 ```
 {: data-file=".travis.yml"}
 
-If you need to install a package from a different channel, or a package that uses [classic confinement](https://blog.ubuntu.com/2017/01/09/how-to-snap-introducing-classic-confinement), you can do so with the following config:
+The Ubuntu Snap store offers many packages directly maintained by upstream
+developers, often with newer versions than the ones available in the Apt archive.
 
-```yaml
-dist: xenial
+You can specify snaps as an array of snap specifications, each of which is
+of the two possible forms:
 
-addons:
-  snaps:
-  - name: aws-cli
-    classic: true
-    channel: latest/edge
+1. The name of the snap, which will be passed on to the `snap install` without
+  additional flags. For example,
 
-script:
-- aws help
-```
-{: data-file=".travis.yml"}
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - hugo
+      ```
+      {: data-file=".travis.yml"}
+
+    This results in:
+
+      ```
+      $ sudo snaps install hugo
+      ```
+
+1. The map specifying how the snap should be installed. Possible keys are:
+   `name`, `confinement`, and `channel`.
+   The `confinement` key will be used to add `--classic` or `--devmode` flag,
+   and `channel` will be passed to `--channel` flag.
+   For example,
+
+      ```yaml
+      dist: xenial
+      addons:
+        snaps:
+          - name: aws-cli
+            confinement: classic # or devmode
+            channel: latest/edge # will be passed to --channel flag
+      ```
+      {: data-file:".travis.yml"}
+
+    This results in:
+
+      ```
+      $ sudo snaps install aws-cli --classic --channel=latest/edge
+      ```
+
+    `confinement` and `channel` are optional.
 
 ## Installing Packages on macOS
 

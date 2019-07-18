@@ -237,7 +237,7 @@ DEPENDENCIES
   jekyll-redirect-from
   middleman
   middleman-gh-pages
-  middleman-livereload (~> 3.3.0)
+  middleman-livereload
   middleman-syntax
   pry
   puma
@@ -251,7 +251,7 @@ DEPENDENCIES
   therubyracer
 
 RUBY VERSION
-   ruby 2.4.3p205
+   ruby 2.6.3p62
 
 BUNDLED WITH
    1.17.3

@@ -1,14 +1,14 @@
 ---
-title: Setting up Databases
+title: Setting up Databases and Services
 layout: en
 
 redirect_from:
-  - /user/using-postgresql/
+   - /user/using-postgresql/
 ---
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -55,9 +55,9 @@ and a blank password.
 > `root` user does.
 
 
-|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
-|:------|:---------------|:--------------|:--------------|
-| MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic |
+|:------|:---------------|:--------------|:--------------|:--------------|
+|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         |
 
 You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
@@ -102,7 +102,7 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial image. 
+MySQL 5.7 is the default on the Xenial and Bionic image.
 On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 
@@ -245,6 +245,7 @@ addons:
     packages:
       - postgresql-server-dev-9.4
 ```
+{: data-file=".travis.yml"}
 
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
 
@@ -356,7 +357,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on macOS or Ubuntu Trusty infrastructure.
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ as a service on macOS or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -373,6 +374,14 @@ RabbitMQ uses the default configuration:
 - password: `guest`
 
 You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
+
+RabbitMQ [can be launched](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) on Ubuntu Xenial using the APT addon in `.travis.yml`:
+```yaml
+addons:
+  apt:
+    packages:
+    - rabbitmq-server 
+```
 
 ## Riak
 

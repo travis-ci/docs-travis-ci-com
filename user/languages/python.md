@@ -62,7 +62,7 @@ script:
 
 ### Python 3.7 and higher
 
-You'll need to add `dist: xenial` to your `.travis.yml` file to use Python 3.7 and higher.
+You'll need to add `dist: xenial` or `dist: bionic` to your `.travis.yml` file to use Python 3.7 and higher.
 
 For example:
 
@@ -91,9 +91,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
-python: 
+python:
   - "2.7"
-  - "3.4" 
+  - "3.4"
 virtualenv:
   system_site_packages: true
 ```
@@ -194,13 +194,16 @@ matrix:
     - name: "Python 3.7.3 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
-      before_install: choco install python
+      before_install:
+        - choco install python
+        - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script: python3 my_app.py || python my_app.py
 ```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 

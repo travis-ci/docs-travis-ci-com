@@ -20,7 +20,7 @@ Minimal example:
 ```yaml
 language: perl
 perl:
-  - "5.26"
+  - "5.28"
 ```
 {: data-file=".travis.yml"}
 
@@ -44,9 +44,9 @@ you can test your projects against:
 ```yaml
 language: perl
 perl:
+  - "5.30"
+  - "5.28"
   - "5.26"
-  - "5.24"
-  - "5.22"
 ```
 {: data-file=".travis.yml"}
 

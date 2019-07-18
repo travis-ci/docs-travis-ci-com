@@ -8,7 +8,7 @@ On May 2nd, 2018 Travis CI announced that open source projects will be [joining 
 
 This document explains how to migrate your repositories, and answers some common questions about the migration.
 
-> Hi there! If you'd like to become a beta tester, send us an email to [support@travis-ci.com with the subject "Open Source Migration Beta Testing"](mailto:support@travis-ci.com?subject=Open%20Source%20Migration%20Beta%20Testing) - we'll be there to send you further details!
+> Hi there! If you'd like to become a beta tester, please sign in at [travis-ci.org] and in [your account page](https://travis-ci.org/account/repositories), sign up to migrate your Open Source repositories.
 
 ## What information will be transferred to travis-ci.com?
 
@@ -24,7 +24,7 @@ When a repository is migrated, the following information will be transferred to 
 
 The following information will not be transferred to travis-ci.com when a repository is migrated.
 
-* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration (sometime in January 2019)
+* Previous build history - your builds from before the migration to travis-ci.com will remain on travis-ci.org until the  complete build- history migration (sometime in early Q3 2019)
 * Caches - they will be re-created automatically on the first build on travis-ci.com
 
 ## Do I need to make any other changes?
@@ -58,7 +58,7 @@ The migration process for a repository should not take more than a couple of sec
 
 ## Can I migrate multiple repositories at once?
 
-At the moment, it's only possible to trigger migrations on repositories one by one. We'll add this bulk-migration feature in future stages.
+Yes, you can select as many repositories in the Migrate tab as you'd like to migrate and they'll be queued to be migrated.
 
 ## What happens if someone pushes a commit to my repository while it is being migrated?
 
@@ -70,7 +70,7 @@ We'll enqueue these build requests and the builds will be created in travis-ci.c
 
 If you are already using GitHub Apps for your account in travis-ci.com, you need to access your installation settings and grant access to the repositories you'd like to migrate. Otherwise:
 
-1. Log in to [https://travis-ci.com](https://travis-ci.com) and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile)
+1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile)
 
 2. If you aren't using the new GitHub Apps integration already, activate it for your account
   ![Activate GitHub Apps](/user/images/oss-migration/gapps-activate.png)
@@ -81,15 +81,15 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 
 ### The migration steps
 
-1. Once you have granted access via GitHub Apps to the repositories you'd like to build and transfer, a new "Migrate" button will appear in your repository list:
+1. Once you have granted access via GitHub Apps to the repositories you'd like to build and transfer, a new ["Migrate" tab](https://travis-ci.com/account/migrate) will appear in your account page with a list of the repositories to migrate:
   ![Migration repository list](/user/images/oss-migration/repos-to-migrate.png)
 
-2. Click "Migrate" for the repository you'd like to migrate. You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [What information will not be transferred to travis-ci.com?](#what-information-will-not-be-transferred-to-travis-cicom)).
+2. Select the repositories you'd like to migrate and click "Migrate selected repositories",  You'll be asked for a final confirmation - please remember that your build history will not be migrated at this time (See: [What information will not be transferred to travis-ci.com?](#what-information-will-not-be-transferred-to-travis-cicom)).
 
 3. Confirm the migration. The icons next to your repository name will show the migration status ("processing", or "migrated"):
   ![Migration statuses](/user/images/oss-migration/migration-statuses.png)
 
-4. That's it! Your open source repository has been migrated to travis-ci.com!
+4. That's it! Your open source repository is now ready to build at travis-ci.com!
 
 ### Migrating repositories via API
 
@@ -123,11 +123,7 @@ If you'd like to automate your migration process, it's also possible to migrate 
 
 Travis CI will now start receiving the GitHub events for migrated open source repository in travis-ci.com. Any new builds and requests will start appearing in the travis-ci.com site.
 
-The project page of a migrated repository in travis-ci.com will start showing the following message:
-
-  ![Note for migrated repository](/user/images/oss-migration/migrated-warning.png)
-
-Then, when going back to travis-ci.org, the migrated repository will still appear in your repository list with a direct link to access the project in travis-ci.com:
+The project page of a migrated repository in travis-ci.org will start showing that it has been migrated and then, the migrated repository will still appear in your repository list with a direct link to access the project in travis-ci.com:
 
 ![Migrated repository in travis-ci.org](/user/images/oss-migration/migrated-repo-org.png)
 
@@ -138,3 +134,7 @@ Since the repository in travis-ci.org is now in read-only mode, the settings pag
 ## Support and feedback
 
 If you have any further questions or comments on our Beta migration process or need help, please let us know at [support@travis-ci.com](mailto:support@travis-ci.com?subject=Migration%20Beta%20Testing%20Feedback). We have a dedicated team working on this project that will be glad to assist you.
+
+
+[travis-ci.com]: https://www.travis-ci.com
+[travis-ci.org]: https://www.travis-ci.org

@@ -37,7 +37,7 @@ To keep the access rights up to date, we sync every user account approximately o
 
 Access rights to the Travis CI [billing page](https://billing.travis-ci.com) can be one of the following:
 
-- **Open (default)**: anyone with admin access to at least one repository belonging to the organization in GitHub has access to the billing information in Travis CI.
+- **Open (default)**: anyone with admin access to at least one private repository belonging to the organization in GitHub has access to the billing information in Travis CI.
 - **Restricted**: access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their [documentation about the _Permission levels for an organization_](https://help.github.com/articles/permission-levels-for-an-organization/)).
 
 You can change the access rights of an organization to **Restricted** (or back to **Open**) under the organization's tab on [our billing page](https://billing.travis-ci.com) as shown below:

@@ -27,8 +27,8 @@ the Julia versions to test in the `julia:` key in your `.travis.yml` file. For e
 language: julia
 julia:
   - nightly
-  - 0.7
-  - 0.6.4
+  - 1.1
+  - 1.0.3
 ```
 {: data-file=".travis.yml"}
 
@@ -47,10 +47,12 @@ Services such as [codecov.io](https://codecov.io) and [coveralls.io](https://cov
 provide summaries and analytics of the coverage of the test suite.
 After enabling the respective services for the repositories, the `codecov` and `coveralls`
 options can be used as follows, placing them at the top level of the YAML document:
+
 ```yaml
 codecov: true
 coveralls: true
 ```
+
 This will then upload the coverage statistics upon successful completion of the tests to
 the specified services.
 
@@ -58,6 +60,7 @@ the specified services.
 
 If your repository contains `JuliaProject.toml` or `Project.toml` file, and you are
 building on Julia v0.7 or later, the default build script will be:
+
 ```julia
 using Pkg
 Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
@@ -65,6 +68,7 @@ Pkg.test(coverage=true)
 ```
 
 Otherwise it will use the older form:
+
 ```julia
 if VERSION >= v"0.7.0-DEV.5183"
     using Pkg
@@ -73,6 +77,7 @@ Pkg.clone(pwd())
 Pkg.build("$pkgname") # Pkg.build("$pkgname"; verbose = true) for Julia 1.1 and up
 Pkg.test("$pkgname", coverage=true)
 ```
+
 where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
 
 Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage information
@@ -87,6 +92,17 @@ to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
 in the [general build configuration](/user/customizing-the-build/) guide.
 
+In a rare case, you may need to clone a private repo if it is a depenedancy of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below to see how that is done: 
+
+```
+script:
+ #- ls #Optional command.  Just here to confirm the Dependency is in the folder you think it is. 
+ #- pwd #Optional command. Just here so you can see where you are in the file system to make sure the path is correct below. 
+ - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.develop(PackageSpec(path="/home/travis/build/path_to_private_Dependency")); Pkg.instantiate()'
+ - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.instantiate(); Pkg.build();'
+ ```
+Note: you will neeed to have the 'project.toml' file in your repo for these commands above to work. This can be found in your '~/.julia/enviroments/' folder. 
+
 ## Build Matrix
 
 For Julia projects, `env` and `julia` can be given as arrays
@@ -95,7 +111,9 @@ to construct a build matrix.
 ## Environment Variable
 
 The version of Julia a job is using is available as:
+
 ```
 TRAVIS_JULIA_VERSION
 ```
+
 In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used the home project/environment.

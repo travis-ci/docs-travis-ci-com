@@ -26,7 +26,7 @@ There are a few different potential approaches which may help get builds running
 
 #### Connection to RabbitMQ was lost
 
-The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working to deliver a permanent solution.
+The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working to deliver a permanent solution.
 
 In the meantime, to return everything back to a normal working state you can manually restart the worker machine(s). This can be done by connecting to the worker(s) via `ssh` and running the following command:
 
@@ -94,7 +94,7 @@ By default the Enterprise Platform v2.2 or higher will attempt to route builds t
 To address this, either:
 
 - Ensure that you have installed a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
-- Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the the "Override Default Build Environment" button. This will allow you to specify the new default based on your needs and the workers that you have available.
+- Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the "Override Default Build Environment" button. This will allow you to specify the new default based on your needs and the workers that you have available.
 
 ## Enterprise container fails to start due to 'context deadline exceeded' error
 
@@ -176,3 +176,33 @@ $ travis console
 ```
 
 It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
+
+## Logs contain many GitHub API 422 errors
+
+### The Problem
+
+On every commit made when a build runs, a commit status is created for a given SHA. Due to GitHub’s limitations at 1,000 statuses per SHA and context within a repository, if more than 1,000 statuses are created this leads to a validation error.
+This issue should no longer be present in GitHub Apps integrations but will be present in Webhooks integrations.
+
+### Strategy
+
+The workaround for this issue is to manually re-sync the user account with GitHub. This will generate a fresh token for the user account that has not reached any GitHub API limits.
+
+There are two options listed below to initiate a sync between your Travis CI Enterprise instance and GitHub instance.
+
+#### Sync account from Travis CI web interface
+
+To sync your account with your GitHub instance:
+
+1. Open `https://<your-travis-ci-enterprise-domain>`.
+2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
+3. In the upper right corner of the profile page click on 'Sync account'.
+
+####  Sync from the CLI with administrator privileges```
+
+An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
+
+> If `—logins=<GITHUB-LOGIN>` is not provided then this command will trigger a sync on every user. This could result in long runtimes and may impact production operations if you have a large number of total users on your Travis CI Enterprise instance.
+
+1. Open a SSH connection to the platform machine.
+2. Initiate a sync by running `travis sync_users —logins=<GITHUB-LOGIN>`
