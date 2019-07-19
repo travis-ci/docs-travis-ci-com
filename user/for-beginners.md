@@ -73,7 +73,8 @@ Travis CI offers a few different infrastructure environments, so you can select
 the setup that suits your project best:
 
 * *Ubuntu Linux* - these Linux Ubuntu environments run inside full virtual machines, provide plenty of computational resources, and support the use of `sudo`, `setuid`, and `setgid`.
-* *macOS* - uses one of several versions of the macOS operating system. This environment is useful for building projects that require the macOS software, such as projects written in Swift. It is not a requirement to use the macOS environment, if you develop on a macOS machine.
+* *macOS* - uses one of several versions of the macOS operating system. This environment is useful for building projects that require the macOS software, such as projects written in Swift. It is not a requirement to use the macOS environment, if you develop on a macOS machine. Here you can find more details on the [macOS Build Environment](/user/reference/osx/).
+* *Windows* - currently only Windows Server version 1803 is supported. If you want to know more about it, see the [Windows Build Environment](/user/reference/windows/).
 
 More details on our environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
