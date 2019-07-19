@@ -17,8 +17,9 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-A sudo enabled, full virtual machine per build, that runs Linux, one of
+A sudo enabled, full virtual machine per build, that runs Linux, one of:
 
+* [Ubuntu Bionic 18.04](/user/reference/bionic/)
 * [Ubuntu Xenial 16.04](/user/reference/xenial/)
 * [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
 * [Ubuntu Precise 12.04](/user/reference/precise/)
@@ -35,12 +36,12 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux ([Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) |
+|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|
 | Name                 | Ubuntu                                                                                                                    | macOS                         | Windows                            |
 | Status               | Current                                                                                                                   | Current                       | Early release                      |
 | Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             |
-| `.travis.yml`        | `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`                      |
+| `.travis.yml`        |`dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`                      |
 | Allows `sudo`        | Yes                                                                                                                       | Yes                           | No                                 |
 | Approx boot time     | 20-50s                                                                                                                    | 60-90s                        | 60-120s                            |
 | File system          | EXT4                                                                                                                      | HFS+                          | NTFS                               |

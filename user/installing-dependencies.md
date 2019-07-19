@@ -10,7 +10,7 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -144,10 +144,16 @@ addons:
 
 ### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages using our Xenial images:
+You can install [snap](http://snapcraft.io/) packages using our Xenial or
+Bionic images:
 
 ```yaml
 dist: xenial
+```
+or 
+
+```yaml
+dist: bionic
 ```
 {: data-file=".travis.yml"}
 

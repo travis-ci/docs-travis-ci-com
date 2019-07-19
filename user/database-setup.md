@@ -3,7 +3,7 @@ title: Setting up Databases and Services
 layout: en
 
 redirect_from:
-  - /user/using-postgresql/
+   - /user/using-postgresql/
 ---
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
@@ -55,9 +55,9 @@ and a blank password.
 > `root` user does.
 
 
-|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial |
-|:------|:---------------|:--------------|:--------------|
-| MySQL | 5.5.x          | 5.6.x         | 5.7.x         |
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic |
+|:------|:---------------|:--------------|:--------------|:--------------|
+|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         |
 
 You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
@@ -102,7 +102,7 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial image.
+MySQL 5.7 is the default on the Xenial and Bionic image.
 On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
 
 
@@ -357,7 +357,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on macOS or Ubuntu Trusty infrastructure.
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ as a service on macOS or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -374,6 +374,14 @@ RabbitMQ uses the default configuration:
 - password: `guest`
 
 You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
+
+RabbitMQ [can be launched](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) on Ubuntu Xenial using the APT addon in `.travis.yml`:
+```yaml
+addons:
+  apt:
+    packages:
+    - rabbitmq-server 
+```
 
 ## Riak
 
