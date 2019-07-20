@@ -93,9 +93,27 @@ script:
 ...
 ```
 
-> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
+> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime), these version numbers can be found in the [.NET Core website](https://dotnet.microsoft.com/download/dotnet-core) after picking a Major version.
 
-The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
+#### Support for .NET Core 2.2.*
+
+In order to build projects which target SDK 2.2 and higher you might need to specify a specific Linux distro. Distros `bionic` and `xenial` are know to work with versions higher than 2.2.
+
+To specify a distro, change your yml file to contain a `dist` element:
+
+```yml
+
+language: csharp
+
+dist: bionic
+
+mono: none
+dotnet: 2.2.301
+script:
+  - dotnet restore ...
+  - dotnet build -c Release ...
+...
+```
 
 ## Testing Against Mono and .NET Core
 
