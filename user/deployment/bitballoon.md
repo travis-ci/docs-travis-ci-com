@@ -4,12 +4,12 @@ layout: en
 
 ---
 
-
+[//]: # someone needs to check all 'bitballon' entries, if they still work or have to be replaced by netlify drop
 
 Travis CI can automatically deploy files to
-[BitBalloon](https://www.bitballoon.com/) after a successful build.
+[Netlify Drop](https://app.netlify.com/drop) after a successful build.
 
-To deploy the current directory to BitBalloon, add your encrypted BitBalloon `site-id` and `access-token` to your `.travis.yml`:
+To deploy the current directory to Netlify Drop, add your encrypted Netlify Drop `site-id` and `access-token` to your `.travis.yml`:
 
 ```yaml
 deploy:
@@ -21,7 +21,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying a specific directory
+
+
+## Deploying a Specific Directory
 
 To deploy a specific directory to BitBalloon, use the `local-dir` key:
 
@@ -36,11 +38,11 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands before and after deploy
+## Running Commands Before and After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
-triggered if Travis CI is actually deploying.
+triggered, if Travis CI is actually deploying.
 
 ```yaml
 before_deploy: "echo 'ready?'"
