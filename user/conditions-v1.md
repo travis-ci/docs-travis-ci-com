@@ -115,8 +115,8 @@ Boolean operators:
 ```
 branch = master AND env(FOO) = foo
 branch = master OR env(FOO) = foo
-branch = master AND env(FOO) = foo OR tag = true
-branch = master AND (env(FOO) = foo OR tag = true)
+branch = master AND env(FOO) = foo OR tag = bar
+branch = master AND (env(FOO) = foo OR tag = bar)
 NOT branch = master
 ```
 
@@ -142,8 +142,8 @@ The following boolean operators are supported:
 the following expressions are the same:
 
 ```
-branch = master AND os = linux OR tag = true
-(branch = master AND os = linux) OR tag = true
+branch = master AND os = linux OR tag = bar
+(branch = master AND os = linux) OR tag = bar
 
 NOT branch = master AND os = linux
 NOT (branch = master) AND os = linux
@@ -376,7 +376,7 @@ Do not build on forks:
 fork = false
 ```
 
-Build only when the commit message matches against the given regular expression:
+Build only when the commit message doesn't match against the given regular expression:
 
 ```
 commit_message !~ /(no-deploy|wip)/

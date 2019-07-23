@@ -22,10 +22,10 @@ Emails are sent when, on the given branch:
 - a previously broken build was just fixed.
 
 For more information, please read [default email
-addresses](#How-is-the-build-email-receiver-determined), [changing the email
-address](#Changing-the-email-address-for-build-notifications) or
+addresses](#how-is-the-build-email-receiver-determined), [changing the email
+address](#changing-the-email-address-for-build-notifications) or
 [troubleshooting email
-notification](#Missing-build-notifications).
+notification](#missing-build-notifications).
 
 If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
@@ -54,7 +54,7 @@ This means that environment variables from the build are not available in this s
 
 There is currently no way of limiting the notification to a specific branch, but
 the payload will contain all relevant data to do so at the receiving end (see
-[Webhooks Delivery Format](#Webhooks-Delivery-Format)).
+[Webhooks Delivery Format](#webhooks-delivery-format)).
 
 ### Note on SSL/TLS Ciphers
 
@@ -103,7 +103,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Specify when you want to [get notified](#Changing-notification-frequency):
+Specify when you want to [get notified](#changing-notification-frequency):
 
 ```yaml
 notifications:
@@ -167,7 +167,8 @@ to [your verified email addresses](https://github.com/settings/emails) on GitHub
 
 ## Configuring IRC notifications
 
-You can also specify notifications sent to an IRC channel:
+You can also send notifications to an IRC channel.
+Notifications are sent from `travis-ci`, which auto-authenticates on Freenode.
 
 ```yaml
 notifications:
@@ -209,7 +210,7 @@ notifications:
       - "chat.freenode.net#my-channel"
       - "chat.freenode.net#some-other-channel"
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -327,11 +328,11 @@ Notifications can also be sent to Campfire chat rooms, using the following forma
 
 ```yaml
 notifications:
-  campfire: [subdomain]:[api token]@[room id]
+  campfire: "[subdomain]:[api token]@[room id]"
 ```
 {: data-file=".travis.yml"}
 
-- *subdomain*: is your campfire subdomain (i.e. 'your-subdomain' if you visit '<https://your-subdomain.campfirenow.com'>)
+- *subdomain*: is your campfire subdomain (i.e. `your-subdomain` if you visit `https://your-subdomain.campfirenow.com`)
 - *api token*: is the token of the user you want to use to post the notifications.
 - *room id*: this is the room id, not the name.
 
@@ -342,15 +343,15 @@ notifications:
 > travis encrypt subdomain:api_token@room_id --add notifications.campfire.rooms
 > ```
 
-You can also customise the notifications, like with [IRC notifications](#Configuring-IRC-notifications):
+You can also customise the notifications, like with [IRC notifications](#configuring-irc-notifications):
 
 ```yaml
 notifications:
   campfire:
     rooms:
-      - [subdomain]:[api token]@[room id]
+      - "[subdomain]:[api token]@[room id]"
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -365,7 +366,7 @@ Notifications can be sent to your Flowdock Team Inbox using the following format
 
 ```yaml
 notifications:
-  flowdock: [api token]
+  flowdock: "[api token]"
 ```
 {: data-file=".travis.yml"}
 
@@ -386,7 +387,7 @@ Send notifications to your HipChat rooms using the following key in your
 
 ```yaml
 notifications:
-  hipchat: [api token]@[room id or name]
+  hipchat: "[api token]@[room id or name]"
 ```
 {: data-file=".travis.yml"}
 
@@ -407,7 +408,7 @@ If you are running HipChat Server, specify the hostname like this instead:
 
 ```yaml
 notifications:
-  hipchat: [api token]@[hostname]/[room id or name]
+  hipchat: "[api token]@[hostname]/[room id or name]"
 ```
 {: data-file=".travis.yml"}
 
@@ -417,9 +418,9 @@ HipChat notifications support templates too, so you can customize the appearance
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
 ```
 {: data-file=".travis.yml"}
 
@@ -430,9 +431,9 @@ If you want to send HTML notifications you need to add `format: html` like this
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href='%{build_url}'>Details</a>/<a href='%{compare_url}'>Change view</a>)"
     format: html
 ```
 {: data-file=".travis.yml"}
@@ -443,9 +444,9 @@ With the V2 API, you can trigger a user notification by setting `notify: true`:
 notifications:
   hipchat:
     rooms:
-      - [api token]@[room id or name]
+      - "[api token]@[room id or name]"
     template:
-      - '%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+      - "%{repository_slug}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
     notify: true
 ```
 {: data-file=".travis.yml"}
@@ -485,9 +486,9 @@ Notifications can also be sent via [Pushover](https://pushover.net/) via the fol
 ```yaml
 notifications:
   pushover:
-    api_key: [api token]
+    api_key: "[api token]"
     users:
-      - [user key]
+      - "[user key]"
 ```
 {: data-file=".travis.yml"}
 
@@ -508,12 +509,12 @@ You can also customise the notifications, like with IRC notifications:
 
 ```yaml
 notifications:
-pushover:
-  api_key: [api token]
-  users:
-    - [user key]
-    - [user key]
-  template: "%{repository_slug} (%{commit}) : %{message} %{foo} - Build details: %{build_url}"
+  pushover:
+    api_key: "[api token]"
+    users:
+      - "[user key]"
+      - "[user key]"
+    template: "%{repository_slug} (%{commit}) : %{message} - Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
 
@@ -616,7 +617,7 @@ Customize the notification message by editing the template, as in this example:
 notifications:
   slack:
     template:
-      - "%{repository_slug} (%{commit}) : %{message} %{foo} "
+      - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
@@ -641,7 +642,7 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-
+You can also use Slack-style markup using ```` ``` ````, `` ` ``, `_`, `*`, `~`.
 See [Slack documentation](https://api.slack.com/docs/message-formatting)
 for more information on message formatting.
 
@@ -675,9 +676,9 @@ notifications:
       - http://hooks.mydomain.com/events
     on_success: change # default: always
     on_failure: always # default: always
-    on_start: change   # default: never
-    on_cancel: always # default: always
-    on_error: always # default: always
+    on_start:   change # default: never
+    on_cancel:  always # default: always
+    on_error:   always # default: always
 ```
 {: data-file=".travis.yml"}
 

@@ -1,14 +1,14 @@
 ---
-title: Setting up Databases
+title: Setting up Databases and Services
 layout: en
 
 redirect_from:
-  - /user/using-postgresql/
+   - /user/using-postgresql/
 ---
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
@@ -35,8 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
-> you still have to start it in a `before_install` step.
+> If you download and install a service manually, you also have to start it in a `before_install` step. The `services` key only works for services we provision.
 
 ## MySQL
 
@@ -55,15 +54,12 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
-Current versions of MySQL are
 
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic |
+|:------|:---------------|:--------------|:--------------|:--------------|
+|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         |
 
-|                 | Ubuntu Precise | Ubuntu Trusty |
-|:----------------|:---------------|:--------------|
-| Sudo-enabled    | 5.5.x          | 5.6.x         |
-| Container-based | -              | 5.6.x         |
-
-You can also [install MySQL 5.7](#MySQL-57) on sudo-enabled Ubuntu Trusty.
+You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
 ### Using MySQL with ActiveRecord
 
@@ -106,7 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-On *sudo-enabled* Trusty Linux, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial and Bionic image.
+On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+
 
 ```yaml
 addons:
@@ -219,7 +217,7 @@ The Travis CI build environment comes with a number of pre-installed locales, bu
 
 #### Installing Locales
 
-The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack. The `sudo` command is not available on [container based infrastructure](/user/workers/container-based-infrastructure) so you currently cannot install locales on it.
+The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack.
 
 > Note that you need to remove the PostgreSQL version from the `addons` section of your .travis.yml:
 
@@ -247,6 +245,7 @@ addons:
     packages:
       - postgresql-server-dev-9.4
 ```
+{: data-file=".travis.yml"}
 
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
 
@@ -358,7 +357,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ as a service on macOS or Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -376,7 +375,17 @@ RabbitMQ uses the default configuration:
 
 You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
 
+RabbitMQ [can be launched](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) on Ubuntu Xenial using the APT addon in `.travis.yml`:
+```yaml
+addons:
+  apt:
+    packages:
+    - rabbitmq-server 
+```
+
 ## Riak
+
+> Riak is only available in the [Ubuntu Trusty environment](/user/reference/trusty/).
 
 Start Riak in your `.travis.yml`:
 
@@ -386,9 +395,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Riak uses the default configuration apart from the storage backend, which is LevelDB.
+Riak uses the default configuration with Bitcask as storage backend.
 
-Riak Search is enabled.
+Riak Search is deactivated by default.
 
 ## Memcached
 
@@ -416,18 +425,15 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
-Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - cassandra
 ```
 {: data-file=".travis.yml"}
 
-Cassandra is provided by [Datastax Community Edition](http://www.datastax.com/products/community) and uses the default configuration. It is available on 127.0.0.1.
+Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
 
 ### Installing older versions of Cassandra
 
@@ -487,7 +493,7 @@ before_install:
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
 
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
+> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#virtualization-environments).
 
 ### Installing ElasticSearch on trusty container-based infrastructure
 
@@ -551,7 +557,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:
