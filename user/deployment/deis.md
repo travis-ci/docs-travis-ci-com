@@ -10,10 +10,10 @@ A minimal configuration is:
 
 ```yaml
 deploy:
-  provider: deis
-  controller: deis.deisapps.com
-  username: "Deis User Name"
-  password: "Deis Password"
+  provider: hephy
+  controller: hephy.hephyapps.com
+  username: "Hephy User Name"
+  password: "Hephy Password"
   app: App_name
   cli_version: vX.Y.Z  # e.g. v2.7.0 being the latest at this time
 ```
@@ -23,7 +23,7 @@ It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
-$ travis encrypt "YOUR DEIS PASSWORD" --add deploy.password
+$ travis encrypt "YOUR HEPHY PASSWORD" --add deploy.password
 ```
 
 You will be prompted to enter your api key on the command line.
@@ -31,7 +31,7 @@ You will be prompted to enter your api key on the command line.
 You can also have the `travis` tool set up everything for you:
 
 ```bash
-$ travis setup deis
+$ travis setup hephy
 ```
 
 > Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
