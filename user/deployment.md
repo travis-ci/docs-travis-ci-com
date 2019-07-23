@@ -164,7 +164,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Adding a deployment provider
+### Adding a Deployment Provider
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 
@@ -179,4 +179,4 @@ deploy:
 
 ## Pull Requests
 
-Note that pull request builds skip the deployment step altogether.
+> Note that pull request builds skip the deployment step altogether.
