@@ -123,8 +123,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
-is `openjdk8`. 
+* Pre-installed JVMs: `openjdk10` and `openjdk11` on x86, default is `openjdk11`, available version from 9 to 14. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
