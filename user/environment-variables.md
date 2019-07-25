@@ -7,12 +7,11 @@ layout: en
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
 
 
-
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#defining-public-variables-in-travisyml)
-- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
-- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
+- if it does *not* contain sensitive information and should be available to forks -- [add it to your .travis.yml](#defining-public-variables-in-travisyml)
+- if it *does* contain sensitive information, and might be different for different branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
+- if it *does* contain sensitive information, and is the same for all branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
 
 ## Defining public variables in .travis.yml
 
