@@ -15,4 +15,4 @@ You can choose one of the following distributions:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
-
+Travis CI also supports the [Windows Build Environment](/user/reference/windows/) and [macOS Build Environment](/user/reference/osx/).
