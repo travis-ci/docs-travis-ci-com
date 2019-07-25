@@ -25,6 +25,12 @@ We recommend you [encrypt](/user/encryption-keys/) your password and add it to y
 travis encrypt your-password-here --add deploy.password
 ```
 
+If you are using travis-ci.com and not travis-ci.org, you need to add the `--com` argument to switch the Travis API endpoint:
+
+```bash
+travis encrypt your-password-here --add deploy.password --com
+```
+
 > Note that if your PyPI password contains [special characters](/user/encryption-keys#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 ```yaml
