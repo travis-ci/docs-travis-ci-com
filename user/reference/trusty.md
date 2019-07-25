@@ -110,8 +110,8 @@ All images have Python 2 and 3 installations provided by the distribution.
 Python 2 has distribution-provided Pip installed, `pip3` is not pre-installed.
 
 In images for `language:`:
-`c` (`cpp`), `clojure`, `node_js` (`elm`), `go`, `generic`,
-`java` (`groovy`), `php`, `python`, `ruby`, additionally,
+`c` (`cpp`), `node_js` (`elm`), `go`, `generic`,
+`java` (`groovy`, `clojure`), `php`, `python`, `ruby`, additionally,
 [pyenv](https://github.com/pyenv/pyenv#readme) is installed
 and Python `2.7.14` and `3.6.3`.
 All custom Python installations we provide are laid out in a way
