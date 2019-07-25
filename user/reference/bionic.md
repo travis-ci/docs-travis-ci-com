@@ -114,8 +114,10 @@ With `language: python`, additionally:
 * For the version selected with `python:`, a `virtualenv` is activated.
 * The following versions can be selected. `3.6.7` is the default.
     * `2.7` (2.7.15) , `2.7.15` - `2.7.16`
-    * `3.6` (3.6.7), `3.6.1` - `3.6.8`
-    * `3.7` (3.7.1), `3.7.0` - `3.7.3`
+    * `3.5-dev`
+    * `3.6` (3.6.7), `3.6.1` - `3.6.8`, `3.6-dev`
+    * `3.7` (3.7.1), `3.7.0` - `3.7.3`, `3.7-dev`
+    * `3.8-dev`
 
 ## JavaScript and Node.js support
 
