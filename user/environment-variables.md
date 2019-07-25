@@ -124,7 +124,7 @@ The encryption scheme is explained in more detail in [Encryption keys](/user/enc
 
 {{ site.data.snippets.environment_variables }}
 
-To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the "More options" menu, and click on "Add new variable" in the "Environment Variables" section. Restrict the environment variable to a specific branch by a
+To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the "More options" menu, and click on "Add new variable" in the "Environment Variables" section. Restrict the environment variable to a specific branch by selecting which branch it should be available to.
 
 <figure>
   <img alt="Screenshot of environment variables in settings" src="{{ "/images/2019-07-settings-env-vars.png" | prepend: site.baseurl }}">
