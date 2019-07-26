@@ -102,9 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
-
 MySQL 5.7 is the default on the Xenial (`dist: xenial`) and Bionic (`dist: bionic`) images.
+
+> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
 
 ## PostgreSQL
 
