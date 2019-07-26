@@ -102,30 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial and Bionic image.
-On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
 
-
-```yaml
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
-```
-{: data-file=".travis.yml"}
-
-You'll also need to reset the root password to something other than `new_password`:
-
-```yaml
-before_install:
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u root -pnew_password
-  - sudo service mysql restart
-```
-{: data-file=".travis.yml"}
+MySQL 5.7 is the default on the Xenial (`dist: xenial`) and Bionic (`dist: bionic`) images.
 
 ## PostgreSQL
 
