@@ -11,7 +11,7 @@ There are two [feature flags](#enable-queues-on-the-platform) required for custo
 
 ## Enable Queues on the Platform
 
-To allow your Travis CI Enterprise platform instance to route jobs to customized queues, set the `template_selection` and `multi_os` feature flags. To do this, SSH into your platform server, then run `travis console`. Run the following command to enable the required feature flags:
+To allow your Travis CI Enterprise platform instance to route jobs to customized queues, set the `template_selection` and `multi_os` feature flags. To do this, ssh into your platform server, then run `travis console`. Run the following command to enable the required feature flags:
 ```
 Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os); exit
 ```
