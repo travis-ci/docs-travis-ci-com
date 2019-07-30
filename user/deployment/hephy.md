@@ -1,19 +1,19 @@
 ---
-title: Deis Deployment
+title: Hephy Deployment
 layout: en
 
 ---
 
-Travis CI supports uploading to [Deis](http://deis.io/).
+Travis CI supports uploading to Hephy.
 
 A minimal configuration is:
 
 ```yaml
 deploy:
-  provider: deis
-  controller: deis.deisapps.com
-  username: "Deis User Name"
-  password: "Deis Password"
+  provider: hephy
+  controller: hephy.hephyapps.com
+  username: "Hephy User Name"
+  password: "Hephy Password"
   app: App_name
   cli_version: vX.Y.Z  # e.g. v2.7.0 being the latest at this time
 ```
@@ -23,7 +23,7 @@ It is recommended that you encrypt your password.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
-$ travis encrypt "YOUR DEIS PASSWORD" --add deploy.password
+$ travis encrypt "YOUR HEPHY PASSWORD" --add deploy.password
 ```
 
 You will be prompted to enter your api key on the command line.
@@ -31,12 +31,12 @@ You will be prompted to enter your api key on the command line.
 You can also have the `travis` tool set up everything for you:
 
 ```bash
-$ travis setup deis
+$ travis setup hephy
 ```
 
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+> Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Conditional releases
+### Conditional Releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
@@ -50,7 +50,7 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deploy
+### Running Commands Before and After Deploy
 
 Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
