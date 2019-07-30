@@ -57,6 +57,18 @@ By default Travis CI uses `cabal` to manage your project's dependencies:
 cabal install --only-dependencies --enable-tests
 ```
 
+### Specifying cabal-install verison
+
+You can specify the version of `cabal` used:
+
+```yaml
+language: haskell
+cabal: "2.4"
+ghc:
+  - "8.6.4"
+```
+{: data-file=".travis.yml"}
+
 ### Multiple Packages in Subdirectories
 
 If you have multiple packages in subdirectories (each containing a `.cabal` file,

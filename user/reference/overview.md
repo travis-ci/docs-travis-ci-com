@@ -17,7 +17,7 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-A sudo enabled, full virtual machine per build, that runs Linux, one of
+A sudo enabled, full virtual machine per build, that runs Linux, one of:
 
 * [Ubuntu Bionic 18.04](/user/reference/bionic/)
 * [Ubuntu Xenial 16.04](/user/reference/xenial/)

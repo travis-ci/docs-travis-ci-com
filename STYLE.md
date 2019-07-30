@@ -12,6 +12,8 @@ We'll be using a subset (TBD) of the full [list of checks][checks].
 
 [checks]: https://github.com/coala/bear-docs/blob/master/docs/MarkdownBear.rst#settings "MarkdownBear checks"
 
+We use Kramdown, with [GFM](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) codeblocks, and a few Kramdown related exceptions introduced with `{: }` such as class names for specific formatting of columns and notes.
+
 ### Headings
 
 For historical reasons, the top level heading in Jekyll markdown files is level 2 (##) not level 1 (#).
@@ -49,7 +51,11 @@ All pages have tables of contents generated automatically from H2 and H3
 
 To remove the TOC from a page add `no_toc: true` to the frontmatter.
 
-### Beta features
+### Note, warnings and blocks
+
+We use the blockquote symbol `>` for general purpose notes and warnings.
+
+#### Beta features
 
 Mark all beta features with a specially formatted note. Both the `> BETA` and
 the `{: .beta}` are required.
@@ -57,7 +63,7 @@ the `{: .beta}` are required.
 > BETA Awesome new feature that might not be enabled and is subject to change.
 {: .beta}
 
-### Alpha features
+#### Alpha features
 
 Mark all alpha features with a specially formatted note. Both the `> ALPHA` and
 the `{: alpha}` are required.

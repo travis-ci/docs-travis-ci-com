@@ -25,7 +25,7 @@ Define variables in `.travis.yml` that:
 - differ per job.
 
 Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`).
-One build will triggered for each line in the `env` array.
+One build will be triggered for each line in the `env` array.
 
 ```yaml
 env:
@@ -194,7 +194,9 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
+- `TRAVIS_COMPILER`: Indicates the compiler used by the current job (e.g., `clang`, `gcc`).
 - `TRAVIS_DEBUG_MODE`: Set to `true` if the job is running in [debug mode](https://docs.travis-ci.com/user/running-build-in-debug-mode/)
+- `TRAVIS_DIST`: Indicates the distribution the current job is running on.
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.
 - `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
 - `TRAVIS_JOB_NAME`: The [job name](https://docs.travis-ci.com/user/build-stages/#naming-your-jobs-within-build-stages) if it was specified, or `""`.

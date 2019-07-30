@@ -568,7 +568,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-You can also insall a custom PHP version in a Node.js build like this:
+You can also install a custom PHP version in a Node.js build like this:
 ```yaml
 language: node_js
 
