@@ -172,7 +172,7 @@ language: java
 addons:
   apt:
     packages:
-      ant
+      - ant
 ```
 {: data-file=".travis.yml"}
 
