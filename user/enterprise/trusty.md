@@ -10,7 +10,7 @@ layout: en_enterprise
 
 **Worker Requirements**:
 
-We recommend using a machine with 8 vCPUs and 15 GiB of memory and at least 40 GiB of disk space. If you're using AWS that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
+We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB of disk space. If you're using AWS, this will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
 
 > _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
 
@@ -35,11 +35,11 @@ The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/
 
 ### Enabling the Trusty Beta Feature Flag
 
-1. SSH into the platform machine
-2. Run `travis console`
+1. SSH into the platform machine.
+2. Run `travis console`.
 3. Then run `Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os)`
-4. Type in `exit` to leave the console
-5. Disconnect from the Travis Enterprise platform machine
+4. Type in `exit` to leave the console.
+5. Disconnect from the Travis Enterprise platform machine.
 
 ### Installation (Travis CI Enterprise 2.1.9+)
 
@@ -57,7 +57,7 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 ### Running builds on Trusty on Travis CI Enterprise 2.1.9+
 
-To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the default (Precise) build environments instead.
+To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will be routed to the default (Precise) build environments instead.
 
 ## Restarting `travis-worker`
 
