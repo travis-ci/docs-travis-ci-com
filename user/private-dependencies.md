@@ -53,7 +53,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 ### Using an existing key
 
-[ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png){:.small}{:.right}
+[ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}
 
 Assumptions:
 

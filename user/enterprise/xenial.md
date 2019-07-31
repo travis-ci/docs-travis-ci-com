@@ -10,7 +10,7 @@ layout: en_enterprise
 
 **Worker Requirements**:
 
-We recommend using a machine with 8 vCPUs and 15 GiB of memory and at least 40 GiB of disk space. If you're using AWS that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
+We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB of disk space. If you're using AWS, that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
 
 > _Trusty and Xenial build containers must be on different instances_. To run both Trusty and Xenial builds, at least two worker instances are required.
 
@@ -37,7 +37,7 @@ $ sudo systemctl restart travis-worker
 
 Worker configuration changes are applied on start.
 
-## Running builds in the Xenial build environment
+## Running Builds in the Xenial Build Environment
 
 To run a project's builds in the new Xenial build environment, please add a `dist: xenial` to your `.travis.yml` file.
 
