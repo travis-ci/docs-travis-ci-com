@@ -19,7 +19,7 @@ various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-b
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
-Of course, there are a lot more and a lot more complicated use cases than this
+Of course, there are a lot more and a lot more elaborated use cases than this
 one. You can, for example, also use build stages to warm up dependency caches
 in a single job on a first stage, then use the cache on several jobs on a
 second stage. Or, you could generate a Docker image and push it first, then
