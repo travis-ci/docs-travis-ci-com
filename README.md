@@ -1,6 +1,6 @@
 # About this repository [![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=master)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
 
-This is the documentation site for Travis CI! (<https://docs.travis-ci.com/>)
+This is a test!
 
 ## How to contribute
 
