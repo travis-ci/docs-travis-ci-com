@@ -208,6 +208,21 @@ Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
 No more phases (`before_install`, `install`, etc.) will be executed.
 
+## If the debug VM crashes when running one of the `travis_run_*` functions
+
+If your debug build crashes when running any of the specified commands, we suggest narrowing down 
+the issue as follows:
+
+1- First establish which `travis_run_*` command is failing.
+    e.g. `travis_run_before_install` crashes the debug VM
+
+2- Run commands one by one within the phase, e.g. `travis_run_before_install` to find the command 
+   that crashes the debug VM
+
+3- Make appropriate changes to the command  that crashes the debug VM
+
+If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
+
 ## Known issues
 
 ### In a Node.js debug session, the `node` and `npm` versions differ from what is defined in the configuration
