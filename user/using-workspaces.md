@@ -13,7 +13,7 @@ Workspaces allow jobs _within_ a build to share files.
 They are useful when you want to use build artifacts from a previous job;
 for example, you create a cache that can be used in multiple jobs later.
 
-So you can clearly see when a workspace is created and used, we recommend using workspaces with [build stages](/user/build-stages), as shown in the following [examples](user/using-workspaces#Workspace examples).
+So you can clearly see when a workspace is created and used, we recommend using workspaces with [build stages](/user/build-stages), as shown in the following [examples](#workspace-examples).
 
 > Note that it is best to create a workspace in one stage and then use it in
 subsequent stages.

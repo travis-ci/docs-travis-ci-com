@@ -29,6 +29,7 @@ all_note: |
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
 unix_note: |
@@ -37,6 +38,7 @@ unix_note: |
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
   >  * [macOS](/user/reference/osx/)
 linux_note: |
   > Language versions and other build-environment specific
@@ -44,12 +46,14 @@ linux_note: |
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
 linux_windows_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
   >  * [Windows](/user/reference/windows/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but

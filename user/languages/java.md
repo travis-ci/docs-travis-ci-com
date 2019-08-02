@@ -162,6 +162,20 @@ ant test
 
 To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
+### Using Ant on Ubuntu Xenial (16.04)
+
+Unfortunately, `ant` currently doesn't come pre-installed on our Xenial image. You'll need to install it manually by adding the following recipe to your .travis.yml file:
+
+```yaml
+dist: xenial
+language: java
+addons:
+  apt:
+    packages:
+      - ant
+```
+{: data-file=".travis.yml"}
+
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
@@ -181,6 +195,7 @@ details.
 
 The list of available JVMs for different dists are at
 
+  * [JDKs installed for **Bionic**](/user/reference/bionic/#jvm-clojure-groovy-java-scala-images)
   * [JDKs installed for **Xenial**](/user/reference/xenial/#jvm-clojure-groovy-java-scala-images)
   * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
   * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)

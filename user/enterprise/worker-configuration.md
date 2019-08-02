@@ -37,14 +37,14 @@ export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
 The following options can be customized in `/etc/default/travis-worker`.
 It is recommended to have all Workers use the same config.
 
-By default Jobs can run for a maximum of 50 minutes. You can increase or
+By default, jobs can run for a maximum of 50 minutes. You can increase or
 decrease this using the following setting:
 
 ```sh
 export TRAVIS_WORKER_HARD_TIMEOUT="50m"
 ```
 
-If no log output has been received over 10mins the job is cancelled as
+If no log output has been received for more than 10mins, the job is cancelled as
 it is assumed the job stalled. You can customize this timeout using the
 following setting:
 
@@ -58,7 +58,7 @@ The number of concurrent jobs run by the worker and the number of CPUs
 allowed for a job to use are configured with the
 `TRAVIS_WORKER_POOL_SIZE` and `TRAVIS_WORKER_DOCKER_CPUS` environment
 variables, respectively. Each Job requires a minimum of 2 CPUs, and by
-default, each Worker runs 2 Jobs. The product of
+default, each Worker runs 2 jobs. The product of
 `TRAVIS_WORKER_POOL_SIZE * TRAVIS_WORKER_POOL_SIZE` cannot exceed the
 number of CPUs the worker machine has, otherwise jobs will error and
 requeue.
@@ -78,7 +78,7 @@ following setting:
 export TRAVIS_WORKER_DOCKER_CPUS=2
 ```
 
-To completely disable this setting have the value set to 0. Then
+To completely disable this setting, set the value to 0. Then
 resources will be used as needed, which means a single job can for
 example use all CPU cores.
 
@@ -100,7 +100,7 @@ export TRAVIS_WORKER_HOSTNAME=""
 
 ## Disable SSL Verification Messages
 
-The Platform comes setup with a self signed SSL certificate, this option
+The Platform comes set up with a self-signed SSL certificate. This option
 allows the Worker to talk to the Platform via SSL but ignore the
 verification warnings.
 
@@ -110,7 +110,7 @@ export TRAVIS_WORKER_BUILD_API_INSECURE_SKIP_VERIFY="false"
 
 ## Enabling S3 Dependency Caching
 
-If you would like to setup S3 dependency caching for your builds, you
+If you would like to set up S3 dependency caching for your builds, you
 can use the following example config:
 
 ```sh
@@ -127,8 +127,8 @@ export TRAVIS_WORKER_BUILD_CACHE_TYPE="s3"
 ## Configuring Jobs' Allowed Memory Usage
 
 The Worker comes configured with the RAM defaulted to 4G. If you want to
-change it you can add the following. To completely disable it have the
-value set to 0.
+change it, you can add the following. To completely disable it, set the
+value to 0.
 
 ```sh
 export TRAVIS_WORKER_DOCKER_MEMORY=4G
@@ -146,7 +146,7 @@ is 4.5MB. The setting is measured in bytes, so to get 40MB you need
 export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ```
 
-## Mounting volumes across worker jobs on Enterprise
+## Mounting Volumes across Worker Jobs on Enterprise
 
 You can use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
 when the worker launches the container of a job. This lets you share files or directories
@@ -171,7 +171,7 @@ If you're using Travis CI Enterprise behind an HTTP(S) proxy, we've got you cove
 
 #### Ubuntu 16.04+
 
-Connect to your worker machine via ssh and run:
+Connect to your worker machine via SSH and run:
 
 ```
 $ sudo docker images | grep worker
@@ -180,7 +180,7 @@ travisci/worker        v4.6.1                      ef7a3419050c        17 hours 
 
 #### Ubuntu 14.04
 
-Connect to your worker machine via ssh and run:
+Connect to your worker machine via SSH and run:
 
 ```
 $ travis-worker -v
@@ -210,7 +210,7 @@ Environment variable | Available as:
 `TRAVIS_WORKER_DOCKER_NO_PROXY` | `NO_PROXY`, `no_proxy`
 `TRAVIS_WORKER_DOCKER_FTP_PROXY` | `FTP_PROXY`, `ftp_proxy`
 
-Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If you don't want this to happen, please whitelist your apt package mirror by adding it to TRAVIS_WORKER_DOCKER_NO_PROXY` like this:
+> Please note, that all `apt-get` commands by default respect `TRAVIS_WORKER_DOCKER_HTTP_PROXY` and `TRAVIS_WORKER_DOCKER_HTTPS_PROXY` which means that all package installs will go via the HTTP Proxy as well. If you don't want this to happen, please whitelist your apt package mirror by adding it to TRAVIS_WORKER_DOCKER_NO_PROXY` like this:
 
 ```
 export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'

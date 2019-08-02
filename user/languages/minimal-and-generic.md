@@ -6,7 +6,8 @@ layout: en
 
 ## What This Guide Covers
 
-Travis CI supports many popular programming languages, but can never hope to support them all. `language: minimal` and `language: generic` are images available in Ubuntu Xenial `dist: xenial`and Ubuntu Trusty `dist:trusty`, that are not tailored to any particular programming language. As their names suggest, one is optimized to be faster and use less disk space, the other to have more languages and services available.
+
+Travis CI supports many popular programming languages, but can never hope to support them all. `language: minimal` and `language: generic` are images available in Ubuntu Bionic `dist: bionic`,  Ubuntu Xenial `dist: xenial`and Ubuntu Trusty `dist:trusty`, that are not tailored to any particular programming language. As their names suggest, `language: minimal` is optimized be faster and use less disk space, and `language: generic` to have more languages and services available.
 
 > Note that `language: minimal` is not the same as omitting the `language` key, if you do that the default language is set to Ruby.
 

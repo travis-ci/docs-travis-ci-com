@@ -62,12 +62,17 @@ php:
 ```
 {: data-file=".travis.yml"}
 
-### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
+### PHP 5.2(.x) - 5.3(.x) support is available on Precise only
 
-We do not support these versions on Trusty.
+We do not support these versions on Trusty or Xenial.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
+### PHP 5.4(.x) - 5.5(.x) support is available on Precise and Trusty only
+
+We do not support these versions on Xenial.
+If you need to test them, please use Precise or Trusty.
+See [this page](/user/reference/xenial#php-images) for more information.
 
 ### HHVM versions are available on Trusty only
 

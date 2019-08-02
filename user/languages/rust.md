@@ -49,7 +49,7 @@ rust:
 Travis CI also supports all three Rust [release channels][channels]: `stable`,
 `beta`, and `nightly`.
 
-[channels]: https://doc.rust-lang.org/book/first-edition/release-channels.html
+[channels]: https://doc.rust-lang.org/book/appendix-07-nightly-rust.html#choo-choo-release-channels-and-riding-the-trains
 
 The Rust team appreciates testing against the `beta` and `nightly` channels,
 even if you are only targeting `stable`. A full configuration looks like this:
