@@ -1,15 +1,15 @@
 ---
-title: Conditional Builds, Stages, and Jobs
+title: Conditional Builds, Stages and Jobs
 layout: en
 ---
 
 
 
-You can filter out, and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
+You can filter out and reject builds, stages and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
 
 ## Conditional Builds
 
-Configure Travis CI to only trigger builds when certain conditions are met, such as only building the master branch. Any potential builds that do not meet these conditions are listed in the Requests tab of your repository, even though the actual build is not generated.
+Configure Travis CI to only trigger builds when certain conditions are met, such as only building the master branch. Any potential builds that do not meet these conditions are listed in the *Requests* tab of your repository, even though the actual build is not generated.
 
 ```yaml
 # require the branch name to be master (note for PRs this is the base branch name)
@@ -17,7 +17,7 @@ if: branch = master
 ```
 {: data-file=".travis.yml"}
 
-Build requests that do not match the condition will not generate a build, but will be listed on the Requests tab.
+Build requests that do not match the condition will not generate a build, but will be listed on the *Requests* tab.
 
 ## Conditional Stages
 
