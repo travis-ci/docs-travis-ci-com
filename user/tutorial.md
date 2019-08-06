@@ -41,11 +41,11 @@ To start using Travis CI, make sure you have:
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push, to trigger a Travis CI build:
+5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build), according to the return status of the build command by visiting the [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
 
 
 ## Selecting a different programming language
@@ -77,7 +77,7 @@ language: php
 ```
 {: data-file=".travis.yml"}
 
-If you have tests that need to run on macOS, or your project uses Swift or
+If you have tests that need to run on macOS or your project uses Swift or
 Objective-C, use our macOS environment:
 
 ```yaml
@@ -85,8 +85,8 @@ os: osx
 ```
 {: data-file=".travis.yml"}
 
-> You do *not* necessarily need to use macOS if you develop on a Mac.
-> macOS is required only if you need Swift, Objective-C or other
+> You do *not* necessarily need to use macOS, if you develop on a Mac.
+> macOS is required only, if you need Swift, Objective-C or other
 > macOS-specific software.
 
 Travis CI supports many [programming languages](/user/languages/).
