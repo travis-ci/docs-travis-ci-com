@@ -1,13 +1,12 @@
 ---
-title: Deployment
+title: Deployment (v2)
 layout: en
-swiftypetags: 'skip_cleanup'
 ---
 
-> This page documents deployments using dpl v1 which currently still is the
-> default version. The next major version dpl v2 will be released soon. Please
-> see our blog post on details about the release process. Documentation for dpl
-> v2 can be found [here](/user/deployments-v2).
+> This page documents deployments using the next major version dpl v2 which
+> currently is in a preview release phase. Please see our blog post on details
+> about the release process. Documentation for dpl v1, the current default
+> version, can be found [here](/user/deployments).
 
 ## Supported Providers
 
@@ -18,15 +17,38 @@ Continuous Deployment to the following providers is supported:
 To deploy to a custom or unsupported provider, use the [after-success build
 stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
-## Uploading Files and skip_cleanup
+## Maturity Levels
 
-When deploying files to a provider, prevent Travis CI from resetting your
-working directory and deleting all changes made during the build ( `git stash
---all`) by adding `skip_cleanup` to your `.travis.yml`:
+In order to communicate the current development status and maturity of dpl's
+support for a particular service the respective provider is marked with one of
+the following maturity levels, according to the given criteria:
+
+* `dev` - the provider is in development (initial level)
+* `alpha` - the provider is fully tested
+* `beta` - the provider has been in alpha for at least a month, and successful real-world production deployments have been observed
+* `stable` - the provider has been in beta for at least two months, and there are no open issues that qualify as critical (such as deployments failing, documented functionality broken, etc)
+
+Dpl v2 represents a major rewrite, so support for all providers has been
+reset to `dev` or `alpha`, depending on the test status.
+
+For all levels except `stable` a message will be printed to your build log
+that informs you about the current status.
+
+## Cleaning up the Git working directory
+
+The previous version of dpl, our deployment integration tooling, used to
+reset your working directory, and delete all changes made during the build
+using `git stash --all`. In order to keep changes one had to opt out using
+`skip_cleanup: true`. This default turned out to be useful only for very few
+providers, and has been changed in dpl v2.
+
+If you do need to clean up the working directory from any changes made during
+the build process, please opt in to cleanup by adding the following to your
+`.travis.yml` file:
 
 ```yaml
 deploy:
-  skip_cleanup: true
+  cleanup: true
 ```
 {: data-file=".travis.yml"}
 
