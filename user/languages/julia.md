@@ -94,7 +94,7 @@ to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
 in the [general build configuration](/user/customizing-the-build/) guide.
 
-In a rare case, you may need to clone a private repo if it is a depenedancy of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below to see how that is done: 
+In a rare case, you may need to clone a private repo if it is a depenedancy of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below for __Linux__ to see how that is done: 
 
 ```
 script:
