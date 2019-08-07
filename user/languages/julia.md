@@ -15,10 +15,10 @@ This guide covers build environment and configuration topics specific to
 
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
+[Travis CI Julia Community Forums](https://travis-ci.community/c/languages/julia)
 and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
-Support for Julia on TravisCI can be found on [Travis Community](https://travis-ci.community/c/languages/julia) or on the [Julia Lang Slack Channel](https://julialang.slack.com) under the __#testing__ channel.
+General support for Julia on Travis CI can be found on [Travis Community](https://travis-ci.community/c/languages/julia) or on the [Julia Lang Slack Channel](https://julialang.slack.com) under the __#testing__ channel.
 
 ## Choosing Julia versions to test against
 
