@@ -18,7 +18,7 @@ or altered at any time. If you run into any problems, please report them in the
 [Travis CI Julia Community Forums](https://travis-ci.community/c/languages/julia)
 and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
-General support for Julia on Travis CI can be found on [Travis Community](https://travis-ci.community/c/languages/julia) or on the [Julia Lang Slack Channel](https://julialang.slack.com) under the __#testing__ channel.
+For general Julia support on Travis CI go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.slack.com) in the __#testing__ channel.
 
 ## Choosing Julia versions to test against
 
