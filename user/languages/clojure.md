@@ -4,18 +4,15 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
-
 ## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
 | Clojure                                     | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `project.clj`                             |
-| [Default `script`](#Default-Build-Script)   | `lein test`                               |
-| [Matrix keys](#Build-Matrix)                | `env`, `lein`, `jdk`                      |
+| [Default `install`](#dependency-management) | `project.clj`                             |
+| [Default `script`](#default-build-script)   | `lein test`                               |
+| [Matrix keys](#build-matrix)                | `env`, `lein`, `jdk`                      |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -27,18 +24,18 @@ language: clojure
 
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to Clojure
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
-Clojure builds are not available on the OS X environment.
+Clojure builds are not available on the macOS environment.
 
 ## CI Environment for Clojure Projects
 
 Travis CI environment provides a large set of build tools for JVM languages with
-[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#Overview) and both
+[multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview) and both
 [Leiningen](http://leiningen.org) 1.7.x and 2.4.x (default).
 
 ## Dependency Management
@@ -61,21 +58,7 @@ install: lein protobuf install
 
 See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build script is:
-
-```bash
-lein test
-```
-{: data-file=".travis.yml"}
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
-
-```yaml
-language: clojure
-```
-{: data-file=".travis.yml"}
+## Build Script
 
 ### Using Midje
 
@@ -168,7 +151,7 @@ script: lein1 do javac, test
 
 ## Testing Against Multiple JDKs
 
-As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#Testing-Against-Multiple-JDKs).
+As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
 ### Examples
 
@@ -227,11 +210,6 @@ and move on to install your project's dependencies.
 ### Example
 
 For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
-
-## Build Matrix
-
-For Clojure projects, `env`, `lein`, and `jdk` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

@@ -23,11 +23,13 @@ URLs with HTTPS.
 
 [account-settings]: https://www.browserstack.com/accounts/settings
 
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+[encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
 
 [browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
 
-[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
+[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
+
+[browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
 ## Setting up BrowserStack
 
@@ -38,7 +40,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](/user/pull-requests/#Pull-Requests-and-Security-Restrictions).
+For more information see the [pull requests page](/user/pull-requests/#pull-requests-and-security-restrictions).
 
 ### Encrypted Access Key
 
@@ -98,6 +100,31 @@ driver = Selenium::WebDriver.for(:remote,
 Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since matrix builds in travis can be run on
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel
 gets the right requests.  
+
+### App Upload
+
+Upload your App to the BrowserStack servers after building it. The app should be built in the install step and the test script must be run in the script step. To upload the app, configure the path to your app in the .travis.yml file:
+
+```yaml
+install:
+  - "Build script for the app"
+script:
+  - "Test script"
+addons:
+  browserstack:
+    username: "Your BrowserStack username"
+    access_key: "Your BrowserStack access key"
+    app_path: "path to your app file"
+```
+{: data-file=".travis.yml"}
+Once the app is uploaded to the BrowserStack servers the resulting app id will be set in the environment variable `BROWSERSTACK_APP_ID`. You can use it to set the Appium capability in your test.
+
+```ruby
+caps['app'] = ENV['BROWSERSTACK_APP_ID']
+```
+
+Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
+
 
 ## Additional Options
 

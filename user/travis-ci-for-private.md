@@ -7,14 +7,12 @@ redirect_from:
   - /user/travis-pro/
 ---
 
-
-
-Learn more about [Travis CI for private repositories](http://travis-ci.com), our hosted
+Learn more about [Travis CI for private repositories](https://travis-ci.com), our hosted
 continuous integration solution for private repositories.
 
 ## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](http://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
 When you're ready to start using Travis CI, head over to the [billing page](https://billing.travis-ci.com/) to add your billing details and end your trial.
 
@@ -22,7 +20,7 @@ When you're ready to start using Travis CI, head over to the [billing page](http
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
 the [blog
-post](http://blog.travis-ci.com/announcing-pull-request-support/)
+post](https://blog.travis-ci.com/announcing-pull-request-support/)
 accompanying the launch of pull requests for Travis CI.
 
 ## Who has access to the builds?
@@ -39,7 +37,7 @@ To keep the access rights up to date, we sync every user account approximately o
 
 Access rights to the Travis CI [billing page](https://billing.travis-ci.com) can be one of the following:
 
-- **Open (default)**: anyone with admin access to at least one repository belonging to the organization in GitHub has access to the billing information in Travis CI.
+- **Open (default)**: anyone with admin access to at least one private repository belonging to the organization in GitHub has access to the billing information in Travis CI.
 - **Restricted**: access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their [documentation about the _Permission levels for an organization_](https://help.github.com/articles/permission-levels-for-an-organization/)).
 
 You can change the access rights of an organization to **Restricted** (or back to **Open**) under the organization's tab on [our billing page](https://billing.travis-ci.com) as shown below:
@@ -56,7 +54,7 @@ You can find more information on this topic in our [Security Statement](https://
 
 You can follow our guide for [encrypting files](/user/encrypting-files/).
 
-## Why can't I find information on pricing on [travis-ci.org](https://travis-ci.org)?
+## Why can't I find information on pricing on travis-ci.org?
 
 Travis CI is, and always will be, free for open source projects.
 
@@ -79,7 +77,7 @@ how to make a repository public.
 2. On [Travis CI .org](https://travis-ci.org) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
-5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
+5. If you're using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    reset the default endpoint to public:
 
    ```sh
@@ -102,7 +100,7 @@ how to make a repository private.
 2. On [Travis CI .com](https://travis-ci.com) go to *Profile*, click *Sync
    Account*, then toggle the repository to *ON*.
 
-5. If you're using the Travis CI [commmand line client](https://github.com/travis-ci/travis.rb#readme)
+5. If you're using the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    reset the default endpoint to private:
 
    ```sh

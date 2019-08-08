@@ -10,29 +10,28 @@ layout: en
 
 | Python                                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | `pip install -r requirements.txt`         |
-| [Default `script`](#Default-Build-Script)   | N/A                                       |
-| [Matrix keys](#Build-Matrix)                | `python`, `env`                           |
+| [Default `install`](#dependency-management) | `pip install -r requirements.txt`         |
+| [Default `script`](#default-build-script)   | N/A                                       |
+| [Matrix keys](#build-matrix)                | `python`, `env`                           |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
 ```yaml
   language: python
-  python:
-    - "3.6"
   script:
     - pytest
 ```
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
-Python builds are not available on the macOS environment.
+{: .warning}
+> Python builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
+new to Travis CI please read our [Tutorial](/user/tutorial/) and
 [build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Python versions
@@ -52,13 +51,29 @@ python:
   - "3.5-dev"  # 3.5 development branch
   - "3.6"
   - "3.6-dev"  # 3.6 development branch
-  - "3.7-dev"  # 3.7 development branch
 # command to install dependencies
 install:
   - pip install -r requirements.txt
 # command to run tests
 script:
   - pytest
+```
+{: data-file=".travis.yml"}
+
+### Python 3.7 and higher
+
+You'll need to add `dist: xenial` or `dist: bionic` to your `.travis.yml` file to use Python 3.7 and higher.
+
+For example:
+
+```yaml
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.7"
+  - "3.7-dev"  # 3.7 development branch
+  - "3.8-dev"  # 3.8 development branch
+  - "nightly"  # nightly build
 ```
 {: data-file=".travis.yml"}
 
@@ -76,9 +91,9 @@ To do this, include the following in your `.travis.yml`:
 
 ```yaml
 language: python
-python: 
+python:
   - "2.7"
-  - "3.4" 
+  - "3.4"
 virtualenv:
   system_site_packages: true
 ```
@@ -96,7 +111,6 @@ in your `.travis.yml`:
 language: python
 python:
   - "2.7"
-  - "3.4"
   - "3.5"
   - "3.6"
   # PyPy versions
@@ -154,13 +168,42 @@ and fails the build.
 ## Using Tox as the Build Script
 
 Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward.
-As described [above](/user/languages/python/#Travis-CI-Uses-Isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
+As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
 
 If you're using tox to test your code against multiple versions of python, you have two options:
   * use `language: generic` and manually install the python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu python versions - 2.7.6 and 3.4.3 for Trusty)
   * use `language: python` and a build matrix that uses a different version of python for each branch (you can specify the python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload.
 
 A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
+
+## Running Python tests on multiple Operating Systems
+
+Sometimes it is necessary to ensure that software works the same across multiple Operating Systems.  This following `.travis.yml` file will execute parallel test runs on Linux, macOS, and Windows.
+
+```yaml
+language: python            # this works for Linux but is an error on macOS or Windows
+matrix:
+  include:
+    - name: "Python 3.7.1 on Xenial Linux"
+      python: 3.7           # this works for Linux but is ignored on macOS or Windows
+      dist: xenial          # required for Python >= 3.7
+    - name: "Python 3.7.2 on macOS"
+      os: osx
+      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
+    - name: "Python 3.7.3 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
+# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
+# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
+script: python3 my_app.py || python my_app.py
+```
+{: data-file=".travis.yml"}
 
 ## Dependency Management
 
@@ -183,7 +226,7 @@ Please note that the `--user` option is mandatory if you are not using `language
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
-configuration](/user/customizing-the-build/#Customizing-the-Installation-Step) guide.
+configuration](/user/job-lifecycle/#customizing-the-installation-phase) guide.
 
 ### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
 
@@ -213,11 +256,6 @@ install:
 The same technique is often used to test projects against multiple databases and so on.
 
 For a real world example, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
-
-## Build Matrix
-
-For Python projects, `env` and `python` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 

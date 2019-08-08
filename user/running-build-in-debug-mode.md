@@ -96,6 +96,8 @@ This debug build will stay alive for 30 minutes.
 
 Running the `ssh` command above will drop you in on a live VM.
 
+> Jobs running in debug mode will have the `TRAVIS_DEBUG_MODE` [environment variable](https://docs.travis-ci.com/user/environment-variables#default-environment-variables) set to `true`.
+
 ### Security considerations
 
 At this time, there is no authentication beyond the `ssh` command displayed in
@@ -205,3 +207,15 @@ Press `q` to exit the log scroll mode.
 Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
 No more phases (`before_install`, `install`, etc.) will be executed.
+
+## Known issues
+
+### In a Node.js debug session, the `node` and `npm` versions differ from what is defined in the configuration
+
+To set up the debug environment in the same ways as the Node.js job,
+run the following command when you log in to your debug session before
+executing any other command:
+
+```
+nvm install $TRAVIS_NODE_VERSION
+```

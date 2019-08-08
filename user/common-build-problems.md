@@ -14,34 +14,35 @@ redirect_from:
 A very common cause when a test is suddenly breaking without any major code
 changes involved is a change in upstream dependencies.
 
-This can be a Ubuntu package or any of your project's language dependencies,
+This can be an Ubuntu package or any of your project's language dependencies,
 like RubyGems, NPM packages, Pip, Composer, etc.
 
-To find out if this is the case, restart a build that used to be green, the last
-known working one, for instance. If that build suddenly fails too, there's a
-good chance, that a dependency was updated and is causing the breakage.
+To find out if this is the case:
+* Restart a build that used to be green, the last known working one, for instance. 
+If that build suddenly fails too, there's a good chance, that a dependency was 
+updated and is causing the breakage.
 
-Make sure to check the list of dependencies in the build log, usually output
-including versions, and see if there's anything that's changed.
+* Check the list of dependencies in the build log, usually output
+including versions and see, if there's anything that's changed.
 
 Sometimes, this can also be caused by an indirect dependency that was updated.
 
-After figuring out which dependency was updated, lock it to the last known
+* After figuring out which dependency was updated, lock it to the last known
 version.
 
-Additionally, we update our build environment regularly, which brings in newer
+* Additionally, we update our build environment regularly, which brings in newer
 versions of languages and the running services.
 
 ## My build script is killed without any error
 
-Sometimes, you'll see a build script being causing an error, and the message in
+Sometimes, you'll see a build script causing an error and the message in
 the log will be something like `Killed`.
 
 This is usually caused by the script or one of the programs it runs exhausting
 the memory available in the build sandbox, which is currently 3GB. Plus, there
 are two cores available, bursted.
 
-Depending on the tool in use, this can be cause by a few things:
+Depending on the tool in use, this can be caused by a few things:
 
 - Ruby test suite consuming too much memory
 - Tests running in parallel using too many processes or threads (e.g. using the
@@ -49,9 +50,13 @@ Depending on the tool in use, this can be cause by a few things:
 - g++ needing too much memory to compile files, for instance with a lot of
   templates included.
 
+### Parallel processes
+
 For parallel processes running at the same time, try to reduce the number. More
 than two to four processes should be fine, beyond that, resources are likely to
 be exhausted.
+
+### Ruby processes
 
 With Ruby processes, check the memory consumption on your local machine, it's
 likely to show similar causes. It can be caused by memory leaks or by custom
@@ -60,19 +65,21 @@ possible. Dialing these numbers down should help.
 
 ## My build fails unexpectedly
 
-One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`) *directly in* your `.travis.yml`. This causes any error causing a non-zero return status in your script to stop and fail the build.
+One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`), either *directly in* your `.travis.yml`, or `source`ing a script which does. This causes any error causing a non-zero return status in your script to stop and fail the build immediately.
 
-Note that using `set -e` in external scripts does not cause this problem.
+> Note that using `set -e` in external scripts does not cause this problem, as the `errexit` is effective only in the external script.
 
-See also [Complex Build Steps](/user/customizing-the-build/#Implementing-Complex-Build-Steps).
+See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
 
-Fix the problem by clearing the cache or removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
+Fix the problem by 
+* clearing the cache or 
+* removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
 
-## Ruby: RSpec returns 0 even though the build failed
+## **Ruby**: RSpec returns 0 even though the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
 returns 0 even though the build failed. This is commonly due to some RubyGem
@@ -98,9 +105,9 @@ end
 
 If your project is using the [Code Climate integration](/user/code-climate/) or
 Simplecov, this issue can also come up with the 0.8 branch of Simplecov. The fix
-is downgrade to the last 0.7 release until the issue is fixed.
+is to downgrade to the last 0.7 release until the issue is fixed.
 
-## Capybara: I'm getting errors about elements not being found
+## **Capybara**: I'm getting errors about elements not being found
 
 In scenarios that involve JavaScript, you can occasionally see errors that
 indicate that an element is missing, a button, a link, or some other resource
@@ -128,7 +135,7 @@ If you're still seeing timeouts after increasing it initially, set it to
 something much higher for one test run. Should the error still persist, there's
 possibly a deeper issue on the page, for instance compiling the assets.
 
-## Ruby: Installing the debugger_ruby-core-source library fails
+## **Ruby**: Installing the debugger_ruby-core-source library fails
 
 This Ruby library unfortunately has a history of breaking with even patchlevel
 releases of Ruby. It's commonly a dependency of libraries like linecache or
@@ -151,7 +158,7 @@ end
 bundler_args: --without development debug
 ```
 
-## Ruby: tests frozen and cancelled after 10 minute log silence
+## **Ruby**: Tests frozen and cancelled after 10 minute log silence
 
 In some cases, the use of the `timecop` gem can result in seemingly sporadic
 "freezing" due to issues with ordering calls of `Timecop.return`,
@@ -167,11 +174,11 @@ RSpec.configure do |c|
 end
 ```
 
-## Mac: OS X Mavericks (10.9) Code Signing Errors
+## **Mac**: macOS Mavericks (10.9) Code Signing Errors
 
-With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
+With Mavericks quite a lot has changed in terms of code signing and the keychain application.
 
-Signs of issues can be errors messages stating that an identity can't be found and that "User
+Signs of issues can be error messages stating that an identity can't be found and that "User
 interaction is not allowed."
 
 The keychain must be marked as the default keychain, must be unlocked explicitly and the build needs to make sure that the keychain isn't locked before the critical point in the build is reached. The following set of commands takes care
@@ -188,32 +195,13 @@ security unlock-keychain -p travis $KEY_CHAIN
 security set-keychain-settings -t 3600 -u $KEY_CHAIN
 ```
 
-## Mac: macOS Sierra (10.12) Code Signing Errors
+## **Mac**: macOS Sierra (10.12) Code Signing Errors
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
-Your build is running on macOS Sierra (10.12) if the following `osx_image` values are in your .travis.yml file:
+Your build is running on macOS Sierra (10.12), if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the macOS Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
 
-```yaml
-osx_image: xcode8.1
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.2
-```
-{: data-file=".travis.yml"}
-
-or
-
-```yaml
-osx_image: xcode8.3
-```
-{: data-file=".travis.yml"}
-
-The following lines in your build log possibly indicate an occurence of this issue:
+The following lines in your build log possibly indicate an occurrence of this issue:
 
 **Example: Signing**
 
@@ -221,7 +209,7 @@ The following lines in your build log possibly indicate an occurence of this iss
 ▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -232,7 +220,7 @@ The build has been terminated
 ▸ Running script '[CP] Embed Pods Frameworks'
 
 No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#Build-times-out-because-no-output-was-received
+Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
 
 The build has been terminated
 ```
@@ -318,7 +306,7 @@ import_certificate(
 You can also have more details in [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791) starting at [this comment](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904).
 
 
-## Mac: Errors running CocoaPods
+## **Mac**: Errors running CocoaPods
 
 CocoaPods usage can fail for a few reasons currently.
 
@@ -359,7 +347,7 @@ rvm: 1.9.3
 ```
 {: data-file=".travis.yml"}
 
-## System: Required language pack isn't installed
+## **System**: Required language pack isn't installed
 
 The Travis CI build environments currently have only the en_US language pack
 installed. If you get an error similar to : "Error: unsupported locale
@@ -374,10 +362,10 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-The above addition will reinstall the en_US language pack, as well as the de_DE
+The above addition will reinstall the en_US language pack as well as the de_DE
 language pack.
 
-If you are running on the container-base infrastructure and don't have access
+If you are running on the container-based infrastructure and don't have access
 to the `sudo` command, install locales [using the APT addon](/user/installing-dependencies/#installing-packages-with-the-apt-addon):
 
 ```yaml
@@ -389,7 +377,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## Linux: apt fails to install package with 404 error
+## **Linux**: apt fails to install package with 404 error
 
 This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
 
@@ -399,19 +387,19 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-## Travis CI does not Preserve State Between Builds
+## Travis CI does not preserve the state between builds
 
 Travis CI uses virtual machine snapshotting to make sure no state is preserved between
-builds. If you modify CI environment by writing something to a data store, creating
+builds. If you modify the CI environment by writing something to a data store, creating
 files or installing a package via apt, it does not affect subsequent builds.
 
 ## SSH is not working as expected
 
 Travis CI runs all commands over SSH in isolated virtual machines. Commands that
-modify SSH session state are "sticky" and persist throughout the build. For example,
+modify SSH session states are "sticky" and persist throughout the build. For example,
 if you `cd` into a directory, all subsequent commands are run from that directory.
 
-## Git Submodules are not updated correctly
+## Git submodules are not updated correctly
 
 Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository.
 
@@ -423,7 +411,7 @@ git:
 ```
 {: data-file=".travis.yml"}
 
-If your project requires specific options for your Git submodules which Travis CI
+If your project requires specific options for your Git submodules, which Travis CI
 does not support out of the box, turn off the automatic integration and use the
 `before_install` hook to initializes and update them.
 
@@ -453,7 +441,7 @@ Otherwise, Travis CI builders won't be able to clone your project because they d
 
 ## My builds are timing out
 
-Builds can unfortunately time out, either during installation of dependencies, or during the build itself, for instance because of a command that's taking a longer amount of time to run while not producing any output.
+Builds can unfortunately time out, either during installation of dependencies or during the build itself, for instance because of a command that's taking a longer amount of time to run while not producing any output.
 
 Our builds have a global timeout and a timeout that's based on the output. If no output is received from a build for 10 minutes, it's assumed to have stalled for unknown reasons and is subsequently killed.
 
@@ -478,8 +466,8 @@ bundler_args: --retry 5
 
 #### travis_retry
 
-For commands which do not have a built in retry feature, use the `travis_retry`
-function to retry it up three times if the return code is non-zero:
+For commands which do not have a built-in retry feature, use the `travis_retry`
+function to retry it up to three times, if the return code is non-zero:
 
 ```bash
 install: travis_retry pip install myawesomepackage
@@ -488,8 +476,8 @@ install: travis_retry pip install myawesomepackage
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
 
-Note that `travis_retry` does not work in the `deploy` step of the build, although it
-does work in the [other steps](/user/customizing-the-build/#The-Build-Lifecycle).
+> Note that `travis_retry` does not work in the `deploy` step of the build, although it
+does work in the [other steps](/user/job-lifecycle/).
 
 
 ### Build times out because no output was received
@@ -508,16 +496,16 @@ If you have a command that doesn't produce output for more than 10 minutes, you 
 spawns a process running `mvn install`.
 `travis_wait` then writes a short line to the build log every minute for 20 minutes, extending the amount of time your command has to finish.
 
-If you expect the command to take more than 20 minutes, prefix the command with `travis_wait n` where `n` is the number of minutes extend the waiting time by.
+If you expect the command to take more than 20 minutes, prefix the command with `travis_wait n` where `n` is the number of minutes by which the waiting time is extended.
 
-Continuing the example above, to extend the wait time to 30 minutes:
+Continuing the example above to extend the waiting time to 30 minutes:
 
 ```yaml
     install: travis_wait 30 mvn install
 ```
 {: data-file=".travis.yml"}
 
-We recommend careful use of `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
+> We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
 #### Limitations of `travis_wait`
 
@@ -525,74 +513,17 @@ We recommend careful use of `travis_wait`, as overusing it can extend your build
 process.
 If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
-## Troubleshooting Locally in a Docker Image
-
-If you're having trouble tracking down the exact problem in a build it often
-helps to run the build locally. To do this you need to be using our container
-based infrastructure (ie, have `sudo: false` in your `.travis.yml`), and to know
-which Docker image you are using on Travis CI.
-
-### Running a Container Based Docker Image Locally
-
-1. Download and install Docker:
-
-   - [Windows](https://docs.docker.com/docker-for-windows/)
-   - [OS X](https://docs.docker.com/docker-for-mac/)
-   - [Ubuntu Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
-
-1. Choose a Docker image
-  * Select an image [on Docker Hub](https://hub.docker.com/u/travisci/) for the language
-    ("default" if no other name matches) using the table below:
-
-    | language        | Docker Hub image |
-    |:----------------|:-----------------| {% for language in site.data.trusty_language_mapping %}
-    | {{language[0]}} | {{language[1]}}  | {% endfor %}
-
-1. Start a Docker container detached with `/sbin/init`:
-  * [ci-garnet](https://hub.docker.com/r/travisci/ci-garnet/) image on Trusty
-    ``` bash
-    docker run --name travis-debug -dit travisci/ci-garnet:packer-1490989530 /sbin/init
-    ```
-
-1. Open a login shell in the running container
-
-    ``` bash
-    docker exec -it travis-debug bash -l
-    ```
-
-1. Switch to the `travis` user:
-
-    ``` bash
-    su - travis
-    ```
-
-1. Clone your git repository into the home directory.
-
-    ``` bash
-    git clone --depth=50 --branch=master https://github.com/travis-ci/travis-build.git
-    ```
-
-1. (Optional) Check out the commit you want to test
-
-    ``` bash
-    git checkout 6b14763
-    ```
-
-1. Manually install dependencies, if any.
-
-1. Manually run your Travis CI build command.
-
 ## Running builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
-it is possible to run builds and jobs in the debug mode.
+it is possible to run builds and jobs in debug mode.
 Using this feature, you can interact with the live VM where your builds run.
 
 For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
 
-## Log Length exceeded
+## Log length exceeded
 
-The log for each build is limited to approximately 4 Megabytes. When it reaches that length the build is terminated and you'll see the following message at the end of your build log:
+The log for each build is limited to approximately 4 MB. When it reaches that length, the build is terminated and you'll see the following message at the end of your build log:
 
 ```
 The log length has exceeded the limit of 4 Megabytes (this usually means that test suite is raising the same exception over and over).
@@ -600,17 +531,15 @@ The log length has exceeded the limit of 4 Megabytes (this usually means that te
 The build has been terminated.
 ```
 
-## FTP/SMTP/other protocol does not work
+## FTP/SMTP/other protocol do not work
 
 Some protocols such as FTP and SMTP are not directly supported due to the
-infrastructure requirements in place for security and fair usage.  Using
+infrastructure requirements in place for security and fair usage. Using
 alternate <q>stateless</q> protocols such as HTTPS is best, but tunneling is
 also known to work, such as by using SFTP in the specific case of FTP, or a VPN
 connection for a wide variety of protocols, e.g.:
 
 ``` yaml
-sudo: required
-
 addons:
   apt:
     packages:
@@ -628,21 +557,63 @@ The build request events that Travis CI receives are listed in your repository's
 
 ![More Options dropdown menu, choosing Requests](/images/common-build-problems/repository-requests-page.png)
 
-Whenever your build has been processed you'll see the message: **"Build created successfully"**.
+Whenever your build has been processed, you'll see the message: **"Build created successfully"**.
 
 If a build hasn't been triggered for your commit, these are the possible build request messages:
 
 - **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
-- **"Build skipped via commit message"**, this commit contains [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build).
+- **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#skipping-a-build).
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
-- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#Safelisting-or-blocklisting-branches) in your `.travis.yml` file.
+- **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
 ## I'm running out of disk space in my build
 
-Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#Virtualisation-Environment-vs-Operating-System).
+Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
-If you need a bit more space in your Ubuntu builds, we recommend using `sudo: required` *and* `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
+
+## Uploading artifacts to sonatype
+
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+
+## Travis CLI does not recognize my valid Github token
+
+When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as [explained in this document](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+
+## Duplicate/Unknown job shows up in my build
+
+When specifying stages, users often unknowingly add an implicit job to the list of jobs in a stage using YAML that is otherwise syntactically correct.
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+  - name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+```
+{: data-file=".travis.yml"}
+
+The above definition, creates a stage called **Breakfast** and 2 jobs. The first job is an _implicit_ job that inherits all the default values for the programming language specified. In the example above, the [default values for `C`](user/languages/c/#what-this-guide-covers) will be used while the second job is the _Peanut Butter and Bread_, which you have explicitly defined.
+
+To remove this _implicit_ job, you would edit the above to look like:
+
+``` yaml
+language: c
+...
+jobs:
+  include:
+  - stage: Breakfast
+    name: Peanut Butter and Bread
+    script: ./brew_hot_coffee.sh
+
+``` 
+{: data-file=".travis.yml"}
+
+
+This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
