@@ -20,13 +20,13 @@ stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
 ## Maturity Levels
 
 In order to communicate the current development status and maturity of dpl's
-support for a particular service the respective provider is marked with one of
+support for a particular service, the respective provider is marked with one of
 the following maturity levels, according to the given criteria:
 
 * `dev` - the provider is in development (initial level)
 * `alpha` - the provider is fully tested
-* `beta` - the provider has been in alpha for at least a month, and successful real-world production deployments have been observed
-* `stable` - the provider has been in beta for at least two months, and there are no open issues that qualify as critical (such as deployments failing, documented functionality broken, etc)
+* `beta` - the provider has been in alpha for at least a month and successful real-world production deployments have been observed
+* `stable` - the provider has been in beta for at least two months and there are no open issues that qualify as critical (such as deployments failing, documented functionality broken, etc.)
 
 Dpl v2 represents a major rewrite, so support for all providers has been
 reset to `dev` or `alpha`, depending on the test status.
@@ -34,13 +34,13 @@ reset to `dev` or `alpha`, depending on the test status.
 For all levels except `stable` a message will be printed to your build log
 that informs you about the current status.
 
-## Cleaning up the Git working directory
+## Cleaning up the Git Working Directory
 
-The previous version of dpl, our deployment integration tooling, used to
-reset your working directory, and delete all changes made during the build
+The previous version of dpl - our deployment integration tooling - used to
+reset your working directory and delete all changes made during the build
 using `git stash --all`. In order to keep changes one had to opt out using
 `skip_cleanup: true`. This default turned out to be useful only for very few
-providers, and has been changed in dpl v2.
+providers and has been changed in dpl v2.
 
 If you do need to clean up the working directory from any changes made during
 the build process, please opt in to cleanup by adding the following to your
@@ -101,13 +101,13 @@ Use the following options to configure conditional deployment:
    {: data-file=".travis.yml"}
 
 * `branch`: name of the branch.
-   If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
+   If omitted, this defaults to the `app`-specific branch or `master`. If the branch name is not known ahead of time, you can specify
    `all_branches: true` *instead of* `branch: ` and use other conditions to control your deployment.
 
-* `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: for    language runtimes that support multiple versions,
+* `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: for language runtimes that support multiple versions,
    you can limit the deployment to happen only on the job that matches a specific version.
 
-* `condition`: deploy when *a single* bash condition evaluates to `true`. This must be a string value, and is equivalent to `if [[ <condition> ]]; then <deploy>; fi`. For example, `$CC = gcc`.
+* `condition`: deploy when *a single* bash condition evaluates to `true`. This must be a string value and is equivalent to `if [[ <condition> ]]; then <deploy>; fi`. For example, `$CC = gcc`.
 
 * `tags` can be `true`, `false` or any other string:
 
@@ -193,7 +193,7 @@ deploy:
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 
-If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl) make sure you use the edge version from GitHub:
+If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl), make sure you use the edge version from GitHub:
 
 ```yaml
 deploy:
@@ -204,4 +204,4 @@ deploy:
 
 ## Pull Requests
 
-Note that pull request builds skip the deployment step altogether.
+> Note that pull request builds skip the deployment step altogether.
