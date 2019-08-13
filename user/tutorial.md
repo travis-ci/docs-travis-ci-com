@@ -41,6 +41,9 @@ To start using Travis CI, make sure you have:
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
+    * NB: If you want to use a YAML header line, make it `%YAML 1.1`.
+      Travis cannot currently parse newer versions of YAML.
+
 5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
