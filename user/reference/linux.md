@@ -23,7 +23,7 @@ To use our Ubuntu Linux build infrastructure, you can choose between the distrib
 
 We use Ubuntu Xenial 16.04 as default. You find more about packages, tools and settings in [Ubuntu Xenial 16.04](/user/reference/xenial/).
 
-## Using Xenial
+### Using Xenial
 
 To use Ubuntu Xenial, add the following to your `.travis.yml`.
 
