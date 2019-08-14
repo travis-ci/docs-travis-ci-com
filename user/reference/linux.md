@@ -21,15 +21,19 @@ To use our Ubuntu Linux build infrastructure, you can choose between the distrib
 
 ## Default 
 
-We use Ubuntu Trusty 14.04 as default. You find more about packages, tools and settings in [Ubuntu Trusty 14.04](/user/reference/trusty/).
+We use Ubuntu Xenial 16.04 as default. You find more about packages, tools and settings in [Ubuntu Xenial 16.04](/user/reference/xenial/).
 
-## Using Trusty
+## Using Xenial
 
-To use Ubuntu Trusty, add the following to your `.travis.yml`.
+To use Ubuntu Xenial, add the following to your `.travis.yml`.
 
 ```yaml
-dist: trusty
+dist: xenial
 ```
 {: data-file=".travis.yml"}
 
 Travis CI also supports the [Windows Build Environment](/user/reference/windows/) and [macOS Build Environment](/user/reference/osx/).
+
+## Migration Guides
+
+As Precise and Trusty are EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/trusty-to-xenial-migration-guide).
