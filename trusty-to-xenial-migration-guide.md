@@ -56,7 +56,7 @@ services:
 
 ## To recap!
 
-The default build environment will gradually start changing on April, 23rd 2019. You can identify if your repository is now running on Xenial by checking your build log, under Operating System Details like:
+The default build environment is Ubuntu Xenial 16.04. You can identify if your repository is now running on Xenial by checking your build log, under Operating System Details like:
 
 ![OS details](/images/2019-04-15-xenial-build-log.png)
 
