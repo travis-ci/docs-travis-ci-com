@@ -6,6 +6,8 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
+> Trusty is EOL by Canonical, try updating to a newer image and see our [Trusty to Xenial Migration Guide](/trusty-to-xenial-migration-guide).
+
 ## What This Guide Covers
 
 This guide provides a general overview of which packages, tools and settings are
@@ -20,8 +22,6 @@ To use Ubuntu Trusty, add the following to your
 dist: trusty
 ```
 {: data-file=".travis.yml"}
-
-> Trusty is EOL by Canonical, try update to a newer image and see our [Trusty to Xenial Migration Guide](/trusty-to-xenial-migration-guide).
 
 If you'd like to know more about the pros, cons, and current state of using
 Trusty, read on.
