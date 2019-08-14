@@ -68,4 +68,4 @@ You can find the specific versions of what’s pre-installed in the Xenial Refer
 
 ## Need Help?
 
-Please feel free to contact us via our [support](mailto:support@travis-ci.com?subject=Issues%20migrating%20my%20build%20to%20Trusty) email address, or create a [GitHub issue](https://github.com/travis-ci/travis-ci/issues/new).
+Please feel free to contact us via our [support](mailto:support@travis-ci.com?subject=Issues%20migrating%20my%20build%20to%20Xenial) email address, or create a [forum topic](https://travis-ci.community/c/environments/xenial).
