@@ -338,7 +338,9 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 ### Caches expiration
 
-Cache archives are currently set to expire after 28 days for open source projects and 45 days for private projects. This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
+Cache archives are currently set to expire after 28 days for repositories on https://travis-ci.org and
+45 days for those on https://travis-ci.com. 
+This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
 
 ## Configuration
 
