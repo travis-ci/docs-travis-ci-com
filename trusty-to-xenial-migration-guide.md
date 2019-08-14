@@ -32,7 +32,7 @@ Sources from third-party APT repositories have been removed. During the Xenial i
 
 For example, to update the `git-lfs` version, you’d need to explicitly specify the source in your config:
 
-You can find the full list of sources and packages that have been used and to install and then removed [here](https://docs.travis-ci.com/user/reference/xenial#third-party-apt-repositories-removed).
+You can find the full list of sources that have been used and to install packages and then were removed [here](https://docs.travis-ci.com/user/reference/xenial#third-party-apt-repositories-removed).
 
 ```
 addons:
