@@ -61,7 +61,7 @@ The default build environment is Ubuntu Xenial 16.04. You can identify if your r
 ![OS details](/images/2019-04-15-xenial-build-log.png)
 
 Jobs run on Xenial, display Operating System Details, Description: Ubuntu 16.04.5 LTS
-You can find the specific versions of what’s pre-installed in the Xenial Reference docs.
+You can find the specific versions of what’s pre-installed in the [Xenial Reference docs](/user/reference/xenial/).
 
 > If your build depends on  a different Ubuntu distribution like Ubuntu Trusty 14.04, you can explicitly specify `dist: trusty` to ensure your build will use it.
 
