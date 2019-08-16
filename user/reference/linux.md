@@ -36,4 +36,4 @@ Travis CI also supports the [Windows Build Environment](/user/reference/windows/
 
 ## Migration Guides
 
-As Precise and Trusty are EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/trusty-to-xenial-migration-guide).
+As Precise and Trusty are EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
