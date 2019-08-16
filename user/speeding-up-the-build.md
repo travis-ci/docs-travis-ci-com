@@ -9,8 +9,7 @@ like in memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
 
-
-## Parallelizing your builds across virtual machines
+## Parallelizing your Builds across Virtual Machines
 
 To speed up a test suite, you can break it up into several parts using
 Travis CI's [build
@@ -45,7 +44,7 @@ The neat part about this setup is that the unit test suite is usually going to
 be done before the integration test suite, giving you a faster visual feedback
 on the basic test coverage.
 
-Depending on the size and complexity of your test suite you can split it up even
+Depending on the size and complexity of your test suite, you can split it up even
 further. You could separate different concerns for integration tests into
 different subfolders and run them in separate stages of a build matrix.
 
@@ -66,27 +65,27 @@ script: "bundle exec rspec $TESTFOLDER"
 {: data-file=".travis.yml"}
 
 For instance, the Rails project uses the build matrix feature to create separate
-jobs for every database to test against, and also to split up the tests by
+jobs for every database to test against and also to split up the tests by
 concern. One set runs tests only for the railties, another one for actionpack,
-actionmailer, activesupport, and a whole bunch of sets runs the activerecord
+actionmailer, activesupport and a whole bunch of sets run the activerecord
 tests against multiple databases. See their [.travis.yml
 file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
 
-## Parallelizing your build on one virtual machine
+## Parallelizing your Build on One Virtual Machine
 
 Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
 - For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
-- For Java, use the built in feature [to run tests in parallel
+- For Java, use the built-in feature [to run tests in parallel
   using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
-To give you an idea of the speedup are we talking about, I've tried running tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
+To give you an idea of the speedup we are talking about, I've tried to run tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
 
-## Parallelizing RSpec, Cucumber and Minitest on multiple VMs
+## Parallelizing RSpec, Cucumber and Minitest on Multiple VMs
 
-If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to get faster feedback from CI then you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
+If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to get faster feedback from CI, you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run a comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
 
-### RSpec parallelization example
+### RSpec Parallelization example
 
 ```yaml
 script: "bundle exec rake knapsack:rspec"
@@ -100,14 +99,14 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-Such configuration will generate matrix with 2 following ENV rows:
+Such configuration will generate a matrix with the 2 following ENV rows:
 
 ```
 MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
 MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
 ```
 
-### Cucumber parallelization example
+### Cucumber Parallelization example
 
 ```yaml
 script: "bundle exec rake knapsack:cucumber"
@@ -120,7 +119,7 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-### Minitest parallelization example
+### Minitest Parallelization example
 
 ```yaml
 script: "bundle exec rake knapsack:minitest"
@@ -133,9 +132,9 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-### RSpec, Cucumber and Minitest parallelization example
+### RSpec, Cucumber and Minitest Parallelization example
 
-If you want to parallelize test suite for RSpec, Cucumber and Minitest at the same time then define script in `.travis.yml` this way:
+If you want to parallelize a test suite for RSpec, Cucumber and Minitest at the same time, define script in `.travis.yml` as follows:
 
 ```yaml
 script:
@@ -147,7 +146,7 @@ script:
 
 You can find more examples in [knapsack docs](https://github.com/ArturT/knapsack#info-for-travis-users).
 
-## Caching the dependencies
+## Caching the Dependencies
 
 Installing the dependencies for a project can take quite some time for bigger projects. In
 order to make it faster, you may try caching the dependencies.
@@ -156,16 +155,16 @@ You can either use our [built-in caching](/user/caching/) or roll your own on S3
 want to roll your own and you use Ruby with Bundler, check out [the great WAD project](https://github.com/Fingertips/WAD).
 For other languages, you can use s3 tools directly to upload and download the dependencies.
 
-## Environment-specific ways to speed up your build
+## Environment-Specific Ways to Speed up your Build
 
 In addition to the optimizations implemented by Travis, there are also
-several environment-specific ways you may consider increasing the speed of
+several environment-specific ways you may consider to increase the speed of
 your tests.
 
 ### PHP optimizations
 
 PHP VM images on Travis CI provide several PHP versions which include
-XDebug. The XDebug extension is useful if you wish to generate code coverage
+XDebug. The XDebug extension is useful, if you wish to generate code coverage
 reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
 
@@ -198,7 +197,8 @@ See [Virtualization
 environments](/user/reference/overview/#virtualization-environments) to determine
 how many CPUs an environment normally has and set the `make` job parameter to a
 similar number (or slightly higher if your build frequently waits on disk I/O).
-Note that doing this will cause concurrent recipe output to become interleaved.
+
+> Note that doing this will cause concurrent recipe output to become interleaved.
 
 #### Makefile parallelization example
 

@@ -148,7 +148,7 @@ env:
 matrix:
   exclude:
     - rvm: 1.9.3
-      env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
+      env: DB=mongodb SUITE=all # not 'env: DB=mongodb' or 'env: SUITE=all DB=mongodb'
     - rvm: 1.9.3
       env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
 ```

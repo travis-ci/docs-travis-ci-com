@@ -20,8 +20,8 @@ Each build runs in one of the following virtual environments.
 A sudo enabled, full virtual machine per build, that runs Linux, one of:
 
 * [Ubuntu Bionic 18.04](/user/reference/bionic/)
-* [Ubuntu Xenial 16.04](/user/reference/xenial/)
-* [Ubuntu Trusty 14.04](/user/reference/trusty/) **default**
+* [Ubuntu Xenial 16.04](/user/reference/xenial/) **default**
+* [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
 ### macOS

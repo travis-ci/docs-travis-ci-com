@@ -54,7 +54,8 @@ By default, Travis CI will only deploy from your `master` branch. You can specif
 ```yaml
 deploy:
   ...
-  on: myProductionBranch
+  on:
+    branch: myProductionBranch
 ```
 {: data-file=".travis.yml"}
 
