@@ -6,7 +6,7 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
-> Trusty is EOL by Canonical, try updating to a newer image and see our [Trusty to Xenial Migration Guide](/trusty-to-xenial-migration-guide).
+> Trusty is EOL by Canonical, try updating to a newer image and see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
 
 ## What This Guide Covers
 
