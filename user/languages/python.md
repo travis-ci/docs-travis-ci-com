@@ -165,7 +165,7 @@ matrix:
       python: 3.7           # this works for Linux but is ignored on macOS or Windows
     - name: "Python 3.7.4 on macOS"
       os: osx
-      osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.3
+      osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.4
       language: shell       # 'language: python' is an error on Travis CI macOS
     - name: "Python 3.7.4 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
