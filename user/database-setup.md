@@ -116,6 +116,14 @@ services:
 ```
 {: data-file=".travis.yml"}
 
+In Ubuntu Bionic, you also need to specify the version like so:
+
+```yaml
+addons:
+  postgresql: 10
+```
+{: data-file=".travis.yml"}
+
 ### Using PostgreSQL in your Builds
 
 The default user for accessing the local PostgreSQL server is `postgres` with a blank password.
