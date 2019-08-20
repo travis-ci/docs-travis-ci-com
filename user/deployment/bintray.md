@@ -130,7 +130,7 @@ The descriptor is in JSON file format in three sections:
     "files":
         [
         {"includePattern": "build/bin(.*)*/(.*\\.gem)", "excludePattern": ".*/do-not-deploy/.*", "uploadPattern": "gems/$2"},
-        {"includePattern": "build/docs/(.*)", "uploadPattern": "docs/$1"}
+        {"includePattern": "build/docs/(.*)", "uploadPattern": "docs/$1", "listInDownloads": true}
         ],
     "publish": true
 }
@@ -161,10 +161,12 @@ You can define one or more groups of patterns. Each group contains three pattern
 - `excludePattern`: Optional. Pattern in the form of Ruby regular expression, indicating the path of files to be removed from the list of files specified by the includePattern.
 - `uploadPattern`: Upload path on Bintray. The path can contain symbols in the form of $1, $2,... that are replaced with capturing groups defined in the include pattern.
 
+If `listInDownloads` is set to `true` matching artifact will appear in the 'Download list' or 'Direct Downloads'. This can be done only on published version, so publish should be set to true to be taken into account. 
+
 In the example above, the following files are uploaded:
 
 - All gem files located under `build/bin/` (including sub directories), except for   files under a `do-not-deploy` directory.  The files will be uploaded to Bintray under the `gems` folder.
-- All files under `build/docs`. The files will be uploaded to Bintray under the `docs` folder.
+- All files under `build/docs`. The files will be uploaded to Bintray under the `docs` folder and will appear in the downloads list of the project overview.
 
 **Note:** Regular expressions defined as part of the `includePattern` and `excludePattern` properties must be wrapped with brackets.
 
