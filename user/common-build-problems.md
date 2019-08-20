@@ -387,6 +387,11 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+## **Windows**: common build problems and known issues
+
+For a list of common builds problems and known issues, please visit our community forum [here](https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
+Our forum helps give better visibility on the issues customers are running into.
+
 ## Travis CI does not preserve the state between builds
 
 Travis CI uses virtual machine snapshotting to make sure no state is preserved between
