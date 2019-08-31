@@ -119,3 +119,16 @@ TRAVIS_JULIA_VERSION
 ```
 
 In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used the home project/environment.
+
+## Example Projects
+
+Below are a list of open source Julia projects utalizing Travis CI in different ways: 
+
+1) [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
+2) [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
+3) [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
+4) [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
+5) [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
+6) [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
+
+As a bonus, check out the `.travis.yml` file for Base Julia [here](https://github.com/JuliaLang/julia/blob/master/.travis.yml).
