@@ -1,13 +1,13 @@
 ---
-title: Travis CI Tutorial
-layout: en
+title: Travis CI Tutorial 27.09.19
+layout: english
 redirect_from:
   - /user/getting-started/
 ---
 
 This is a very short guide to using Travis CI with your GitHub hosted code repository.
 If you're new to continuous integration or would like some more information on
-what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
+what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)g
 instead.
 
 ## Prerequisites
