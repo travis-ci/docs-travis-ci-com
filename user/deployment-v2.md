@@ -3,10 +3,10 @@ title: Deployment (v2)
 layout: en
 ---
 
-> This page documents deployments using the next major version dpl v2 which
-> currently is in a preview release phase. Please see our blog post on details
+> ALPHA This page documents deployments using the next major version dpl v2 which
+> currently is in a preview release phase. Please see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details
 > about the release process. Documentation for dpl v1, the current default
-> version, can be found [here](/user/deployments).
+> version, can be found [here](/user/deployments). {: alpha}
 
 ## Supported Providers
 
@@ -15,7 +15,7 @@ Continuous Deployment to the following providers is supported:
 {% include deployments.html %}
 
 To deploy to a custom or unsupported provider, use the [after-success build
-stage](/user/deployment/custom/) or [script provider](/user/deployment/script).
+step](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
 ## Maturity Levels
 
@@ -90,7 +90,7 @@ When *all* conditions specified in the `on:` section are met, your build will de
 
 Use the following options to configure conditional deployment:
 
-* `repo`: in the form `owner_name/repo_name`. Deploy only when the build occurs on a particular repository. For example
+* `repo`: in the form `owner_name/repo_name`. Deploy only when the build occurs on a particular repository. For example:
 
    ```yaml
    deploy:
@@ -191,7 +191,7 @@ deploy:
 
 ### Adding a deployment provider
 
-We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
+We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com?subject:New%20deployment%20provider%20proposal).
 
 If you contribute to or experiment with the [deploy tool](https://github.com/travis-ci/dpl), make sure you use the edge version from GitHub:
 
