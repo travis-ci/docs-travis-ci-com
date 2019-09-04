@@ -82,7 +82,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 
 ### Deploying build artifacts
 
-After your tests run and before the deploy stage, Travis CI will clean up any additional files and changes you made.
+After your tests run and before the deploy step, Travis CI will clean up any additional files and changes you made.
 
 Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
 

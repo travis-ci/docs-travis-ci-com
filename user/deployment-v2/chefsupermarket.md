@@ -17,7 +17,7 @@ your `.travis.yml`:
 deploy:
   provider: chef-supermarket
   user_id: "<your chef username>"
-  # the encrypted client key file is decrypted in the before_install stage of the build when you add it using the instructions above
+  # the encrypted client key file is decrypted in the before_install step of the build when you add it using the instructions above
   cookbook_category: "Others"
 ```
 {: data-file=".travis.yml"}
