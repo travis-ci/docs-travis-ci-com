@@ -1,6 +1,7 @@
 ---
 title: Hephy Deployment
 layout: en
+deploy: v1
 
 ---
 
