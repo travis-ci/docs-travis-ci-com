@@ -6,8 +6,7 @@ swiftypetags: 'skip_cleanup'
 
 > This page documents deployments using dpl v1 which is the
 > default version. The next major version dpl v2 will be released soon. Please
-> see our blog post on details about the release process. [Documentation for dpl
-> v2 can be found here](/user/deployment-v2).
+> see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2).
 
 ## Supported Providers
 
