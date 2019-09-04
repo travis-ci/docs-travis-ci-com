@@ -3,10 +3,7 @@ title: Deployment (v2)
 layout: en
 ---
 
-> ALPHA This page documents deployments using the next major version dpl v2 which
-> currently is in a preview release phase. Please see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details
-> about the release process. Documentation for dpl v1, the current default
-> version, can be found [here](/user/deployments). {: alpha}
+> ALPHA This page documents deployments using the next major version dpl v2 which currently is in a preview release phase. Please see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. Documentation for dpl v1, the current default version, can be found [here](/user/deployments). {: alpha}
 
 ## Supported Providers
 
