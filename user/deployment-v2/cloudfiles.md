@@ -146,7 +146,7 @@ See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with
 
 ### Running commands before and after release
 
-Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually pushing a release.
 
 ```yaml
 before_deploy: "echo 'ready?'"
