@@ -2,16 +2,13 @@
 title: npm Releasing
 layout: en
 deploy: v2
+provider: npm
 ---
 
 Travis CI can automatically release your npm package to [npmjs.com][npmjs]
 or another npm-like registry after a successful build. By default Travis CI
 publishes to npmjs.com, however if you have a `publishConfig.registry` key in your
 `package.json` then Travis CI publishes to that registry instead.
-
-
-
-
 
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
 
@@ -100,13 +97,6 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Conditional releases
-
-[A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
-reported when multiple attempts are made.
-We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
 ## Tagging releases
 
 You can automatically add [npm distribution tags](https://docs.npmjs.com/getting-started/using-tags) with the `tag` option:
@@ -132,20 +122,6 @@ If your `.gitignore` file matches something that your build creates, use
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 
-## Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
-
 ## Troubleshooting "npm ERR! You need a paid account to perform this action."
 
 npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are
@@ -158,4 +134,4 @@ and avoid this error by adding the following to your `package.json` file:
   },
 ```
 
-[npmjs]: https://npmjs.com/
+{% include deploy/shared.md %}

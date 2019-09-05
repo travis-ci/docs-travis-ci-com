@@ -2,7 +2,7 @@
 title: Bluemix CloudFoundry Deployment
 layout: en
 deploy: v2
-
+provider: bluemixcloudfoundry
 ---
 
 You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/) after a successful build on Travis CI.
@@ -46,7 +46,4 @@ travis encrypt --add deploy.password
 
 If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#note-on-escaping-certain-symbols).
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+{% include deploy/shared.md %}

@@ -2,10 +2,8 @@
 title: Heroku Deployment
 layout: en
 deploy: v2
-
+provider: heroku
 ---
-
-
 
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
 
@@ -72,33 +70,6 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying Specific Branches
-
-If you have branch specific options, as [shown above](#deploying-custom-application-names), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
-
-You can also explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key: ...
-  on: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure it to deploy from all branches:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key: ...
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a deploy.
-
 ## Running Commands
 
 In some setups, you might want to run a command on Heroku after a successful deploy. You can do this with the **run** option:
@@ -148,22 +119,6 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying build artifacts
-
-After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
-
-Maybe that is not what you want, as you might generate some artifacts (think asset compilation) that are supposed to be deployed, too. There is now an option to skip the clean up:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key: ...
-  skip_cleanup: true
-```
-{: data-file=".travis.yml"}
-
-{% include conditional_deploy.html provider="heroku" %}
-
 ### Deploy Strategy
 
 Travis CI supports different mechanisms for deploying to Heroku:
@@ -190,16 +145,4 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

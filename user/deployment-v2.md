@@ -10,7 +10,11 @@ layout: en
 
 Continuous Deployment to the following providers is supported:
 
-{% include deployments.html %}
+<ul class="list-language">
+{% for provider in site.data.deploy_providers_v2 %}
+  <li><a href="{{provider[1]}}">{{provider[0]}}</a></li>
+{% endfor %}
+</ul>
 
 To deploy to a custom or unsupported provider, use the [after-success build
 step](/user/deployment/custom/) or [script provider](/user/deployment/script).

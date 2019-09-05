@@ -2,7 +2,7 @@
 title: AWS OpsWorks Deployment
 layout: en
 deploy: v2
-
+provider: opsworks
 ---
 
 Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build.
@@ -48,37 +48,6 @@ deploy:
   migrate: true
 ```
 {: data-file=".travis.yml"}
-
-### Branch to deploy from
-
-By default, Travis CI will only deploy from your **master** branch.
-
-You can explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  provider: opsworks
-  access-key-id: ACCESS-KEY-ID
-  secret-access-key: SECRET-ACCESS-KEY
-  app-id: APP-ID
-  on: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure it to deploy from all branches:
-
-```yaml
-deploy:
-  provider: opsworks
-  access-key-id: ACCESS-KEY-ID
-  secret-access-key: SECRET-ACCESS-KEY
-  app-id: APP-ID
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a deploy.
 
 ### Deploying build artifacts
 
@@ -132,21 +101,4 @@ deploy:
 
 Travis CI will wait until the deployment returns successful and only then update the revision in App Settings.
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-### Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

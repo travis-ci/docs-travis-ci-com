@@ -2,7 +2,7 @@
 title: Bintray Deployment
 layout: en
 deploy: v2
-
+provider: bintray
 ---
 
 Travis CI can automatically deploy your build artifacts to [Bintray](https://bintray.com/).
@@ -33,64 +33,6 @@ Example:
 ```bash
 $ travis encrypt ab012cd345678901234e456fa7bc89def01a23b4 --add deploy.key
 ```
-
-
-
-### Branch to deploy from
-
-By default, Travis CI will only deploy from your **master** branch.
-
-You can explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  ..
-  on: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure it to deploy from all branches:
-
-```yaml
-deploy:
-  ..
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a deploy.
-
-### Conditional Deploys
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-### Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
-
-### `dry_run` option
-
-For testing deployment configuration, you can add `dry_run: true` to prevent connecting
-to the Bintray server:
-
-```yaml
-deploy:
-  ..
-  dry_run: true
-```
-{: data-file=".travis.yml"}
 
 ### Descriptor file example
 
@@ -147,7 +89,6 @@ Bintray package information. The following information is mandatory on open sour
 - `vcs_url` is the Bintray version control system url, such as a github repository url
 - `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
 
-
 #### Version Section
 
 Package version information. In case the version already exists on Bintray, only the name field is mandatory.
@@ -198,3 +139,5 @@ If an artifact by a given name already exists in the Bintray repository, then by
     }
 ]
 ```
+
+{% include deploy/shared.md %}

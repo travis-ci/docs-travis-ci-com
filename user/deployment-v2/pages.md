@@ -2,10 +2,13 @@
 title: GitHub Pages Deployment
 layout: en
 deploy: v2
-
+provider: pages
 ---
 
-> Deploying to GitHub Pages uses `git push --force` to overwrite the history on the *target* branch, so make sure you only deploy to a branch used for that specific purpose, such as `gh-pages`. It is *possible* to disable this "force push" behavior by setting `keep_history` option to `true`.
+> Deploying to GitHub Pages uses `git push --force` to overwrite the history on
+> the *target* branch, so make sure you only deploy to a branch used for that
+> specific purpose, such as `gh-pages`. It is *possible* to disable this "force
+> push" behavior by setting `keep_history` option to `true`.
 
 Travis CI can deploy your static files to [GitHub
 Pages](https://pages.github.com/) after a successful build.
@@ -61,3 +64,5 @@ or via [encrypted variables in
 * `github_url`: Optional, the URL of the self-hosted GitHub enterprise, defaults to `github.com`.
 * `verbose`: Optional, be verbose about internal steps, defaults to `false`.
 * `deployment_file`: Optional, defaults to `false`, enables creation of deployment-info files.
+
+{% include deploy/shared.md %}

@@ -2,7 +2,7 @@
 title: Script deployment
 layout: en
 deploy: v2
-
+provider: script
 ---
 
 If your deployment needs more customization than the `after_success` method allows,
@@ -71,3 +71,5 @@ deploy:
   script: rvm use $TRAVIS_RUBY_VERSION do script.rb
 ```
 {: data-file=".travis.yml"}
+
+{% include deploy/shared.md %}

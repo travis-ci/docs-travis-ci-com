@@ -2,7 +2,7 @@
 title: TestFairy deployment
 layout: en
 deploy: v2
-
+provider: testfairy
 ---
 
 Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
@@ -80,3 +80,5 @@ deploy:
   metrics: cpu,memory,network,phone-signal,logcat,gps,battery
 ```
 {: data-file=".travis.yml"}
+
+{% include deploy/shared.md %}

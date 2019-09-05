@@ -2,19 +2,15 @@
 title: AWS Elastic Beanstalk Deployment
 layout: en
 deploy: v2
-
+provider: elasticbeanstalk
 ---
 
-
-
-Travis CI can automatically deploy your application to [Elastic
-Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a
-successful build.
+Travis CI can automatically deploy your application to [Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a successful build.
 
 To deploy to AWS Elastic Beanstalk add the following to your `.travis.yml`:
 
-* `access-key-id`: [Encrypted](/user/encryption-keys#usage) AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
-* `secret-access-key`: [Encrypted](/user/encryption-keys#usage) AWS Secret Key, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
+* `access_key_id`: [Encrypted](/user/encryption-keys#usage) AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
+* `secret_access_key`: [Encrypted](/user/encryption-keys#usage) AWS Secret Key, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
 * `region`: **must** be the region the Elastic Beanstalk application is running on, for example `us-east-1`.
 * `app`: Application name.
 * `env`: Elastic Beanstalk environment the application will be deployed to.
@@ -24,13 +20,13 @@ To deploy to AWS Elastic Beanstalk add the following to your `.travis.yml`:
 deploy:
   provider: elasticbeanstalk
   access_key_id:
-    secure: "Encrypted <access-key-id>="
+    secure: "Encrypted access_key_id=<access_key_id>"
   secret_access_key:
-    secure: "Encypted <secret-access-key>="
+    secure: "Encypted secret_access_key=<secret_access_key>"
   region: "us-east-1"
-  app: "example-app-name"
-  env: "example-app-environment"
-  bucket_name: "the-target-S3-bucket"
+  app: "your-app-name"
+  env: "your-app-environment"
+  bucket_name: "your-S3-bucket"
 ```
 {: data-file=".travis.yml"}
 
@@ -51,20 +47,6 @@ The following environment variables are available:
 
 * `ELASTIC_BEANSTALK_ENV`: Used if the `env` key is not set in your `.travis.yml`.
 * `ELASTIC_BEANSTALK_LABEL`: Label name of the new version.
-* `ELASTIC_BEANSTALK_DESCRIPTION`: Description of the new version.      Defaults to the last commit message.
+* `ELASTIC_BEANSTALK_DESCRIPTION`: Description of the new version. Defaults to the last commit message.
 
-## Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use
-the `before_deploy` and `after_deploy` steps for this. These will only be
-triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

@@ -2,7 +2,7 @@
 title: Google App Engine Deployment
 layout: en
 deploy: v2
-
+provider: gae
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
@@ -109,24 +109,6 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Skipping Cleanup
-
-Many App Engine apps use [pip](https://pip.pypa.io/en/latest/installing.html) to vendor library requirements into the directory, and sometimes you need build artifacts or other
-credentials to deploy. If so, you want to avoid the Travis cleanup step that will clean you working directory before the deploy.
-
-```yaml
-deploy:
-    provider: gae
-    skip_cleanup: true
-```
-{: data-file=".travis.yml"}
-
-### Example Repo
-
-See [this link](https://github.com/googlecloudplatform/continuous-deployment-demo/tree/appengine_travis_deploy) for an example
-App Engine app with a Travis deployment configured. See the other branches in the project for Managed VMs examples, and examples
-without using this provider.
-
 ### Other Available Configuration Options
 
 - **project**: [Project ID](https://developers.google.com/console/help/new/#projectnumber) used to identify the project on Google Cloud.
@@ -136,3 +118,11 @@ without using this provider.
 - **default**: Flag to set the deployed version to be the default serving version. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
 - **verbosity**: Lets you adjust the verbosity when invoking `"gcloud"`. Defaults to `"warning"`. See [`gcloud`](https://cloud.google.com/sdk/gcloud/reference/).
 - **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](https://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.
+
+### Example Repo
+
+See [this link](https://github.com/googlecloudplatform/continuous-deployment-demo/tree/appengine_travis_deploy) for an example
+App Engine app with a Travis deployment configured. See the other branches in the project for Managed VMs examples, and examples
+without using this provider.
+
+{% include deploy/shared.md %}

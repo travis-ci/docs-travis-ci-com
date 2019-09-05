@@ -2,7 +2,7 @@
 title: Boxfuse Deployment
 layout: en
 deploy: v2
-
+provider: boxfuse
 ---
 
 Travis CI can automatically deploy your [Boxfuse](https://boxfuse.com/) application after a successful build.
@@ -12,9 +12,9 @@ For a minimal configuration, all you need to do is add the following to your `.t
 ```yaml
 deploy:
   provider: boxfuse
-  user: "YOUR BOXFUSE CLIENT USER"
-  secret: "YOUR BOXFUSE CLIENT SECRET"
-  payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
+  user: "your boxfuse client user"
+  secret: "your boxfuse client secret"
+  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
 ```
 {: data-file=".travis.yml"}
 
@@ -36,10 +36,10 @@ By default Boxfuse will detect the app and the version automatically from the na
 ```yaml
 deploy:
   provider: boxfuse
-  user: "YOUR BOXFUSE CLIENT USER"
-  secret: "YOUR BOXFUSE CLIENT SECRET"
-  payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
-  image: "YOUR BOXFUSE APP AND VERSION (ex.: myapp:1.23)"
+  user: "your boxfuse client user"
+  secret: "your boxfuse client secret"
+  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
+  image: "your boxfuse app and version (ex.: myapp:1.23)"
 ```
 {: data-file=".travis.yml"}
 
@@ -52,10 +52,10 @@ By default Boxfuse will deploy to your `test` environment. You can override this
 ```yaml
 deploy:
   provider: boxfuse
-  user: "YOUR BOXFUSE CLIENT USER"
-  secret: "YOUR BOXFUSE CLIENT SECRET"
-  payload: "YOUR APPLICATION ARTIFACT (typically a jar, war, tar.gz or zip file)"
-  env: "YOUR BOXFUSE ENVIRONMENT (default: test)"
+  user: "your boxfuse client user"
+  secret: "your boxfuse client secret"
+  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
+  env: "your boxfuse environment (default: test)"
 ```
 {: data-file=".travis.yml"}
 
@@ -66,7 +66,7 @@ You can also fully configure Boxfuse by placing a `boxfuse.conf` file in the roo
 ```yaml
 deploy:
   provider: boxfuse
-  configfile: "YOUR BOXFUSE CONFIGURATION FILE"
+  configfile: "your boxfuse configuration file"
 ```
 {: data-file=".travis.yml"}
 
@@ -77,10 +77,12 @@ If the [Boxfuse Client](https://boxfuse.com/docs/commandline) functionality you 
 ```yaml
 deploy:
   provider: boxfuse
-  extra_args: "YOUR EXTRA ARGS (ex.: -X)"
+  extra_args: "extra args (ex.: -X)"
 ```
 {: data-file=".travis.yml"}
 
 ### Further information
 
 Go to the [Boxfuse website](https://boxfuse.com) to learn more about Boxfuse and how to configure it.
+
+{% include deploy/shared.md %}

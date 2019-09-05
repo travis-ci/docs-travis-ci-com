@@ -2,7 +2,7 @@
 title: Google Cloud Storage (GCS) Deployment
 layout: en
 deploy: v2
-
+provider: gcs
 ---
 
 Travis CI supports uploading to Google Cloud Storage (GCS).
@@ -66,7 +66,7 @@ deploy:
 Valid ACL values are: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`. The ACL defaults to `private`.
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
 
-### Deploying specific folder
+### Deploying a specific folder
 
 You can set specific directory to be uploaded using `local-dir` option like this:
 
@@ -84,30 +84,6 @@ deploy:
 
 If the `directory-name` is generated during build process, it will be deleted (cleaned up) before deploying, unless `skip_cleanup` is set to true.
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-### Setting `Content-Encoding` header
-
-GCS uploads can optionally set HTTP header `Content-Encoding`.
-This header allows files to be sent compressed while retaining file extensions and
-the associated MIME types.
-
-To enable this feature, add:
-
-```yaml
-deploy:
-  provider: gcs
-  ...
-  detect_encoding: true # <== default is false
-```
-{: data-file=".travis.yml"}
-
-If the file is compressed with `gzip` or `compress`, it will be uploaded with
-the appropriate header.
-
 ### HTTP cache control
 
 GCS uploads can optionally set the `Cache-Control` HTTP header.
@@ -123,3 +99,5 @@ deploy:
 {: data-file=".travis.yml"}
 
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#cachecontrol).
+
+{% include deploy/shared.md %}

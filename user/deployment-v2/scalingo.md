@@ -2,21 +2,15 @@
 title: Scalingo deployment
 layout: en
 deploy: v2
-
+provider: scalingo
 ---
 
-
-
-Travis CI can automatically deploy your application to
-[Scalingo](https://scalingo.com/) application after a successful build.
+Travis CI can automatically deploy your application to [Scalingo](https://scalingo.com/) application after a successful build.
 
 Chose one of two ways to connect to your Scalingo account:
 
 * Using a [username and password](/user/deployment/scalingo/#connecting-using-a-username-and-password).
 * Using an [api key](/user/deployment/scalingo/#connecting-using-an-api-key).
-
-<!-- I'm not 100% sure if you need to connect to scalingo manually using the cli
-tool the first time -->
 
 ## Connecting using a username and password
 
@@ -55,18 +49,4 @@ deploy:
   remote. Specifying the `app` will add a remote to your local repository: `git
   remote add <remote> git@scalingo.com:<app>.git`
 
-### Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use
-the `before_deploy` and `after_deploy` steps for this. These will only be
-triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

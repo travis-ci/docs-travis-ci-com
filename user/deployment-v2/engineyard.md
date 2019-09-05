@@ -2,7 +2,7 @@
 title: Engine Yard Deployment
 layout: en
 deploy: v2
-
+provider: engineyard
 ---
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.
@@ -12,7 +12,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 ```yaml
 deploy:
   provider: engineyard
-  api_key: "YOUR API KEY"
+  api_key: your-api-key
 ```
 {: data-file=".travis.yml"}
 
@@ -47,7 +47,7 @@ It is also possible to deploy different branches to different applications:
 ```yaml
 deploy:
   provider: engineyard
-  api_key: ...
+  api_key: your-api-key
   app:
     master: my-app
     foo: my-foo
@@ -59,39 +59,12 @@ This branch specific settings are possible for all options (except `on`) and can
 ```yaml
 deploy:
   provider: engineyard
-  api_key: ...
+  api_key: your-api-key
   environment:
     master: staging
     production: production
 ```
 {: data-file=".travis.yml"}
-
-### Branch to deploy from
-
-If you have branch specific options, as [shown above](#application-or-environment-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
-
-You can also explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  provider: engineyard
-  api_key: ...
-  on: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure it to deploy from all branches:
-
-```yaml
-deploy:
-  provider: engineyard
-  api_key: ...
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a deploy.
 
 ### Running migrations
 
@@ -100,12 +73,9 @@ You can trigger migrations by using the migrate option:
 ```yaml
 deploy:
   provider: engineyard
-  api_key: ...
+  api_key: your-api-key
   migrate: "rake db:migrate"
 ```
 {: data-file=".travis.yml"}
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+{% include deploy/shared.md %}

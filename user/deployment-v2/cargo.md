@@ -2,6 +2,7 @@
 title: Cargo Releases
 layout: en
 deploy: v2
+provider: cargo
 ---
 
 Travis CI can automatically release your Rust crate to [crates.io][]
@@ -78,20 +79,4 @@ This is necessary because Cargo will refuse to publish crates from a dirty
 working directory (an option to allow this may be added to this provider in the
 future).
 
-## Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the
-`before_deploy` and `after_deploy` steps for this. These will only be triggered
-if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
-
-[crates.io]: https://crates.io/
+{% include deploy/shared.md %}

@@ -2,6 +2,7 @@
 title: Snap Store
 layout: en
 deploy: v2
+provider: snap
 permalink: /user/deployment/snaps/
 ---
 
@@ -27,6 +28,7 @@ If the name of the snap file is not known ahead of time, you can use a shell glo
 in the example above.
 
 ## Providing credentials to upload the snap
+
 To upload snaps from Travis CI, export a Snap Store login token, and provide it as an environment variable
 `$SNAP_TOKEN`.
 
@@ -50,6 +52,7 @@ The token will be printed out.
 _Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
 
 ### Using the CLI client
+
 Using our [CLI client](https://github.com/travis-ci/travis.rb#readme), define `$SNAP_TOKEN`:
 
 ```bash
@@ -58,9 +61,11 @@ travis env set SNAP_TOKEN "<token>"
 ```
 
 ### Using Settings page
+
 Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) of your repository at Travis CI.
 
 ## Using uploaded Snap
+
 Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
 
 ```bash
@@ -72,3 +77,5 @@ Each upload gets a monotonically increasing integer. When you're ready, you can 
 ```bash
 snapcraft release my-snap-name 1 stable
 ```
+
+{% include deploy/shared.md %}

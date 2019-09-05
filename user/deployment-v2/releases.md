@@ -2,7 +2,7 @@
 title: GitHub Releases Uploading
 layout: en
 deploy: v2
-
+provider: releases
 ---
 
 Travis CI can automatically upload assets to git tags on your GitHub repository.
@@ -82,7 +82,6 @@ For example:
       provider: releases
       api_key: "GITHUB OAUTH TOKEN"
       file: "FILE TO UPLOAD"
-      skip_cleanup: true
 ```
 {: data-file=".travis.yml"}
 
@@ -226,25 +225,6 @@ deploy:
 
 Please note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-## Running commands before or after release
-
-Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually pushing a release.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
-
 ## Advanced options
 
 Options from `.travis.yml` are passed through to Octokit API's
@@ -265,3 +245,4 @@ Note that formatting in `body` is [not preserved](https://github.com/travis-ci/d
 
 GitHub Releases executes a number of git commands during deployment. For this reason, it is important that the working directory is set to the one for which the release will be created, which generally isn't a problem, but if you clone another repository during the build or use submodules, it is worth double checking.
 
+{% include deploy/shared.md %}

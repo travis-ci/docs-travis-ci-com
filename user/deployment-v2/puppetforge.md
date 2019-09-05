@@ -2,10 +2,8 @@
 title: Puppet Forge Deployment
 layout: en
 deploy: v2
-
+provider: puppetforge
 ---
-
-
 
 Travis CI can automatically deploy your modules to [Puppet Forge ](https://forge.puppet.com/) or to your own Forge instance after a successful build.
 
@@ -38,18 +36,4 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use
-the `before_deploy` and `after_deploy` steps for this. These will only be
-triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

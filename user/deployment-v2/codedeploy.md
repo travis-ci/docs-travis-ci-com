@@ -2,7 +2,7 @@
 title: AWS CodeDeploy
 layout: en
 deploy: v2
-
+provider: codedeploy
 ---
 
 Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
@@ -50,44 +50,6 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 This command will also offer to set up [S3 deployment](/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
 
-## Branch to deploy from
-
-You can explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  provider: codedeploy
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  bucket: "S3 Bucket"
-  key: latest/MyApp.zip
-  bundle_type: zip
-  application: MyApp
-  deployment_group: MyDeploymentGroup
-  on:
-    branch: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure Travis CI to deploy from all branches:
-
-```yaml
-deploy:
-  provider: codedeploy
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  bucket: "S3 Bucket"
-  key: latest/MyApp.zip
-  bundle_type: zip
-  application: MyApp
-  deployment_group: MyDeploymentGroup
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a release.
-
 ## S3 deployment or GitHub deployment
 
 For a minimal configuration with GitHub, add the following to your `.travis.yml`:
@@ -126,35 +88,6 @@ The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S
 
 If your `.travis.yml` contains both, and they do not match, set `bundle_type` explicitly to the correct value.
 
-
-## Conditional deployments
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-## Note on `.gitignore`
-
-As this deployment strategy relies on `git`, be mindful that the deployment will
-honor `.gitignore`.
-
-If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#running-commands-before-and-after-deploy) to change
-its content.
-
-## Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  # ⋮
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
-
 ## AWS region to deploy to
 
 You can explicitly specify the AWS region to deploy to with the **region** option:
@@ -172,3 +105,5 @@ deploy:
   region: us-west-1
 ```
 {: data-file=".travis.yml"}
+
+{% include deploy/shared.md %}

@@ -2,7 +2,7 @@
 title: packagecloud Deployment
 layout: en
 deploy: v2
-
+provider: packagecloud
 ---
 
 Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build
@@ -39,34 +39,6 @@ travis setup packagecloud
 ```
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Branch to release from
-
-You can explicitly specify the branch to release from with the **on** option:
-
-```yaml
-deploy:
-  provider: packagecloud
-  on:
-    branch: production
-  # ⋮
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure Travis CI to release from all branches:
-
-```yaml
-deploy:
-  provider: packagecloud
-  on:
-    all_branches: true
-  # ⋮
-```
-{: data-file=".travis.yml"}
-
-By default, Travis CI will only release from the **master** branch.
-
-Builds triggered from Pull Requests will never trigger a release.
 
 ### Releasing build artifacts
 
@@ -110,21 +82,4 @@ deploy:
 If the packagecloud provider finds any `.dsc` files, it will scan it and try to locate it's contents within
 the `local-dir` directory. Ensure the source package and it's contents are output to the same directory for it to work.
 
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-### Running commands before and after release
-
-Sometimes you want to run commands before or after releasing a package. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually pushing a release.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  # ⋮
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
-```
-{: data-file=".travis.yml"}
+{% include deploy/shared.md %}

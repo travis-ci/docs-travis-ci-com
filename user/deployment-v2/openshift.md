@@ -2,7 +2,7 @@
 title: OpenShift Deployment
 layout: en
 deploy: v2
-
+provider: openshift
 ---
 
 Travis CI can automatically deploy your [OpenShift](https://www.openshift.com/) application after a successful build.
@@ -71,33 +71,6 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch to deploy from
-
-If you have branch specific options, as [shown above](#application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
-
-You can also explicitly specify the branch to deploy from with the **on** option:
-
-```yaml
-deploy:
-  provider: openshift
-  ...
-  on: production
-```
-{: data-file=".travis.yml"}
-
-Alternatively, you can also configure it to deploy from all branches:
-
-```yaml
-deploy:
-  provider: openshift
-  ...
-  on:
-    all_branches: true
-```
-{: data-file=".travis.yml"}
-
-Builds triggered from Pull Requests will never trigger a deploy.
-
 ### Deploying build artifacts
 
 After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
@@ -109,34 +82,6 @@ deploy:
   provider: openshift
   ...
   skip_cleanup: true
-```
-{: data-file=".travis.yml"}
-
-### Conditional releases
-
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
-
-### Note on `.gitignore`
-
-As this deployment strategy relies on `git`, be mindful that the deployment will
-honor `.gitignore`.
-
-If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#running-commands-before-and-after-deploy) to change
-its content.
-
-### Running commands before and after deploy
-
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` steps for this. These will only be triggered if Travis CI is actually deploying.
-
-```yaml
-before_deploy: "echo 'ready?'"
-deploy:
-  ..
-after_deploy:
-  - ./after_deploy_1.sh
-  - ./after_deploy_2.sh
 ```
 {: data-file=".travis.yml"}
 
@@ -153,3 +98,5 @@ deploy:
   deployment_branch: mybranch
 ```
 {: data-file=".travis.yml"}
+
+{% include deploy/shared.md %}

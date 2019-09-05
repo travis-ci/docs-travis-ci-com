@@ -2,7 +2,7 @@
 title: Launchpad deployment
 layout: en
 deploy: v2
-
+provider: launchpad
 ---
 
 Travis CI can get [Launchpad](https://launchpad.net/) to automatically import your code from GitHub after a successful build, which is useful if you are building and hosting Debian packages.
@@ -51,3 +51,5 @@ deploy:
     secure: jAglFtDjncy4E3upL/RF0ZOcmJ2UMrqHFCLQwU8PBdurhTMBeTw+IO6cXx5z\nU5zqvPYo/ghZ8mMuUhvHiGDM6m6OlMP7+l10VTxH1CoVew2NcQvRdfK3P+4S\nZJ43Hyh/ZLCjft+JK0tBwoa3VbH2+ZTzkRZQjdg54bE16C7Mf1A=
 ```
 {: data-file=".travis.yml"}
+
+{% include deploy/shared.md %}
