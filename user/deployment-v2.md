@@ -19,17 +19,4 @@ Continuous Deployment to the following providers is supported:
 To deploy to a custom or unsupported provider, use the [after-success build
 step](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
-### Contributing to dpl
-
-If you contribute to or experiment with [dpl](https://github.com/travis-ci/dpl), our deployment tooling, make sure you use the edge version from GitHub:
-
-```yaml
-deploy:
-  provider: <your-provider>
-  edge:
-    branch: master
-    source: <GitHub handle>/dpl # only needed for forks of travis-ci/dpl
-```
-{: data-file=".travis.yml"}
-
-You can find more information about contributing to dpl [here](https://github.com/travis-ci/dpl#contributing-to-dpl).
+{% include deploy/overview.md %}

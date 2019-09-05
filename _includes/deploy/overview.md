@@ -6,3 +6,5 @@
 
 {% include deploy/conditional.md %}
 
+{% include deploy/contributing.md %}
+

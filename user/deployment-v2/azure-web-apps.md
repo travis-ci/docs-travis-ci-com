@@ -62,7 +62,4 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-
-{% include deploy/branch.md %}
-
-{% include deploy/before_after_deploy.md %}
+{% include deploy/shared.md %}
