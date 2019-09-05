@@ -38,7 +38,5 @@ This can be easily accomplished using the Travis gem above and running:
 travis encrypt --add deploy.password
 ```
 
-### Conditional releases
+{% include deploy/shared.md %}
 
-You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
