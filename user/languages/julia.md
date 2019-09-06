@@ -130,5 +130,3 @@ Below are a list of open source Julia projects utalizing Travis CI in different 
 4) [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
 5) [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
 6) [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
-
-As a bonus, check out the `.travis.yml` file for Base Julia [here](https://github.com/JuliaLang/julia/blob/master/.travis.yml).
