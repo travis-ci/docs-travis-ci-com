@@ -46,7 +46,7 @@ python:
   - "2.7"
   - "3.4"
   - "3.5"
-  - "3.6"      # current detault Python on Travis CI
+  - "3.6"      # current default Python on Travis CI
   - "3.7"
   - "3.7-dev"  # 3.7 development branch
   - "3.8-dev"  # 3.8 development branch

@@ -1,6 +1,7 @@
 ---
 title: PyPI deployment
 layout: en
+deploy: v1
 
 ---
 
