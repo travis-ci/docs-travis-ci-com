@@ -389,7 +389,7 @@ before_install:
 
 ## **Windows**: common build problems and known issues
 
-For a list of common builds problems and known issues, please visit our community forum [here](https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
+For a list of common build problems on Windows, known issues and workarounds, please visit the [Travis CI community forum].(https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
 Our forum helps give better visibility on the issues customers are running into.
 
 ## Travis CI does not preserve the state between builds
