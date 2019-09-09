@@ -29,7 +29,7 @@ By default, Travis CI will only deploy from your `master` branch. You can specif
 
 ```yaml
 deploy:
-  ...
+  # ⋮
   on: myProductionBranch
 ```
 {: data-file=".travis.yml"}
@@ -38,7 +38,7 @@ To deploy from all branches set the deploy->on option `all_branches` to `true`
 
 ```yaml
 deploy:
-  ...
+  # ⋮
   on:
     all_branches: true
 ```

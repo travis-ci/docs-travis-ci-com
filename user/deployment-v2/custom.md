@@ -2,7 +2,6 @@
 title: Custom Deployment
 layout: en
 deploy: v2
-
 ---
 
 You can deploy to your own server the way you would deploy from your local
@@ -22,9 +21,9 @@ env:
 after_success:
 - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
 - curl --ftp-create-dirs
-       -T filename
-       --key /tmp/sftp_rsa
-       sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
+     -T filename
+     --key /tmp/sftp_rsa
+     sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
 ```
 {: data-file=".travis.yml"}
 

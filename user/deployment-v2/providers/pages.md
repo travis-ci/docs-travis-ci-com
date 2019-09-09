@@ -18,7 +18,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-{% include deploy/providers/pages.md %}
+{% include deploy/providers/pages_git.md %}
 
 You can use a [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
 with the `public_repo` or `repo` scope (`repo` is required for private

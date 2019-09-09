@@ -1,19 +1,21 @@
-- rewrite openshift
-- bitballoon -> netlify drop
-- pages: fix keep_history
+x bitballoon -> netlify drop
+x rewrite openshift
+x normalize and extract talking about secrets and settings
+x normalize dasherized options to underscored options
+x normalize placeholder values to <username> or <encrypted password>
+x pages: fix keep_history
+
+- generate "Shared Options"
+
+- consider removing `run` from all providers except Heroku and Engine Yard
+
+- add cleanup=true to the include on providers where this is relevant
+- for package/registry providers restore the note that they'll probably want to use tags
 
 - check: Cargo will refuse to publish crates from a dirty working directory
 - check: Deploy to a S3 hosted website
 - check: Custom Heroku commands do not affect the Travis CI build status
 
-- generate "Shared Options"
-- consider removing `run` from all providers except Heroku and Engine Yard
-- add a shared note about --cleanup
-- normalize and extract talking about secrets and settings
-- normalize dasherized options to underscored options
-- normalize placeholder values to <username> or <encrypted password>
-
-- for package/registry providers restore the note that they'll probably want to use tags
 - discuss what to do with the "easy way" travis.rb setup
 
 - add AWS CloudFormation

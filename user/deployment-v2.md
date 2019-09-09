@@ -4,9 +4,6 @@ layout: en
 deploy: v2
 ---
 
->ALPHA This page documents deployments using the next major version dpl v2 which is in a preview release phase. Please see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. Documentation for dpl v1, the current default version, can be found [here](/user/deployment).
-{: .alpha}
-
 ## Supported Providers
 
 Continuous Deployment to the following providers is supported:
@@ -18,6 +15,13 @@ Continuous Deployment to the following providers is supported:
 </ul>
 
 To deploy to a custom or unsupported provider, use the [after-success build
-step](/user/deployment/custom/) or [script provider](/user/deployment/script).
+step](/user/deployment/custom/) or [script provider](/user/deployment/providers/script).
 
-{% include deploy/overview.md %}
+{% include deploy/pull_requests.md %}
+{% include deploy/maturity_levels.md %}
+{% include deploy/conditional.md %}
+{% include deploy/cleanup.md %}
+{% include deploy/before_after_deploy.md %}
+{% include deploy/multiple_targets.md %}
+{% include deploy/secrets.md name="password" env_name="<PROVIDER_NAME>_PASSWORD" %}
+{% include deploy/edge.md %}
