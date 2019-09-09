@@ -1,6 +1,7 @@
 ---
 title: Chef Supermarket deployment
 layout: en
+deploy: v1
 
 ---
 

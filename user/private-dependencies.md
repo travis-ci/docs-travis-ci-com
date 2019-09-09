@@ -279,7 +279,7 @@ gem 'lib2', github: "myorg/lib2"
 ```
 
 > In case of private git submodules, be aware that the `git submodule
-> update --init recursive` command runs before the `~/.netrc` credentials
+> update --init --recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
 > submodules, update the credentials and add an explicit step to update the submodules:
 >

@@ -1,6 +1,7 @@
 ---
 title: Bluemix CloudFoundry Deployment
 layout: en
+deploy: v1
 
 ---
 
