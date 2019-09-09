@@ -8,7 +8,6 @@ module Dpl
 
     def write
       providers.each do |cmd|
-        # next unless cmd.registry_key == :s3
         Provider.new(cmd).write
       end
     end

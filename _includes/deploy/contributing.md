@@ -1,4 +1,4 @@
-## Contributing to dpl
+## Running an edge version
 
 If you contribute to or experiment with [dpl](https://github.com/travis-ci/dpl), our deployment tooling, make sure you use the edge version from GitHub:
 
