@@ -1,11 +1,11 @@
 ---
-title: npm Releasing
+title: NPM Releases
 layout: en
 deploy: v2
 provider: npm
 ---
 
-Travis CI can automatically release your npm package to [npmjs.com][npmjs]
+Travis CI can automatically release to [NPM](https://www.npmjs.com)
 or another npm-like registry after a successful build.
 
 For a minimal configuration, add the following to your `.travis.yml` (using NPM
@@ -14,14 +14,14 @@ version 2+):
 ```yaml
 deploy:
   provider: npm
-  email: "YOUR_EMAIL_ADDRESS"
-  api_key: "YOUR_AUTH_TOKEN"
+  email: <email>
+  api_token: <api_token>
 ```
 {: data-file=".travis.yml"}
 
 ## NPM auth token
 
-Your NPM Auth Token can be obtained the following ways:
+Your NPM Auth token can be obtained the following ways:
 
 Log in to your NPM account, and generate a new token at `https://www.npmjs.com/settings/<user>/tokens`,
 where `<user>` is the name of your user account.

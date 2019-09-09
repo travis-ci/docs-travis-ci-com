@@ -1,11 +1,11 @@
 ---
-title: CloudFoundry Deployment
+title: Cloud Foundry Deployment
 layout: en
 deploy: v2
 provider: cloudfoundry
 ---
 
-Travis CI can automatically upload your build to [CloudFoundry](https://run.pivotal.io/) after a successful build.
+Travis CI can automatically upload your build to [Cloud Foundry](https://run.pivotal.io/) after a successful build.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
