@@ -30,10 +30,16 @@ module Dpl
       end
 
       def content
-        parts = [opts.to_s]
+        parts = []
+        parts << maturity
+        parts << opts.to_s
         parts << env.to_s
         parts << secrets if secrets?
         parts.join("\n")
+      end
+
+      def maturity
+        "## Status\n\n#{Maturity.new(cmd).to_s}"
       end
 
       def opts
@@ -50,6 +56,39 @@ module Dpl
 
       def secrets?
         !!env.opt
+      end
+    end
+
+    class Maturity < Struct.new(:cmd)
+      STATUS = %i(dev alpha beta stable deprecated)
+
+      MSG = {
+        dev:        'Support for deployments to %s is in **development**',
+        alpha:      'Support for deployments to %s is in **alpha**',
+        beta:       'Support for deployments to %s is in **beta**',
+        stable:     'Support for deployments to %s is *stable**',
+        deprecated: 'Support for deployments to %s is *deprecated**',
+        pre_stable: 'Please see [Maturity Levels](%s) for details.'
+      }
+
+      URL = '/user/deployment-v2#maturity-levels'
+
+      def to_s
+        msg = "#{MSG[status] % name}"
+        msg << ". #{MSG[:pre_stable] % URL}" if pre_stable?
+        msg
+      end
+
+      def pre_stable?
+        STATUS.index(status) < STATUS.index(:stable)
+      end
+
+      def name
+        cmd.full_name
+      end
+
+      def status
+        cmd.status.status
       end
     end
 

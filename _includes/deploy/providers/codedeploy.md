@@ -1,3 +1,6 @@
+## Status
+
+Support for deployments to AWS Code Deploy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment:

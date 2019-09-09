@@ -16,8 +16,6 @@
 - for package/registry providers restore the note that they'll probably want to use tags
 - discuss what to do with the "easy way" travis.rb setup
 
-
-- add Cloud Files
 - add AWS CloudFormation
 - add Convox
 - add Gleis
