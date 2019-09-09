@@ -7,65 +7,63 @@ provider: cloudfiles
 
 Travis CI can automatically upload your build to [Rackspace Cloud Files](https://www.rackspace.com/cloud/files/) after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: cloudfiles
-  username: "RACKSPACE USERNAME"
-  api_key: "RACKSPACE API KEY"
-  region: "CLOUDFILE REGION"
-  container: "CLOUDFILES CONTAINER NAME"
+  username: <username>
+  api_key: <api_key>
+  region: <region>
+  container: <container>
 ```
 {: data-file=".travis.yml"}
 
-It is recommended that you encrypt your Rackspace api key. Assuming you have the Travis CI command line client installed, you can do it like this:
+{% include deploy/providers/cloudfiles.md %}
 
-```bash
-travis encrypt --add deploy.api-key
-```
+      opt '--glob GLOB',      'Paths to upload', default: '**/*'
+      opt '--dot_match',      'Upload hidden files starting a dot'
 
-You will be prompted to enter your api key on the command line.
+## Specifying files to upload
 
-You can also have the `travis` tool set up everything for you:
+Often, you don't want to upload your entire project to Cloud Files.
 
-```bash
-travis setup cloudfiles
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Deploy To Only One Folder
-
-Often, you don't want to upload your entire project to Cloud Files. You can tell Travis CI to only upload a single folder to Cloud Files. This example uploads the build directory of your project to Cloud Files:
+You can specify a glob to only include specific directories or files to the upload:
 
 ```yaml
-before_deploy: "cd build"
 deploy:
   provider: cloudfiles
-  username: "RACKSPACE USERNAME"
-  api_key: "RACKSPACE API KEY"
-  region: "CLOUDFILE REGION"
-  container: "CLOUDFILES CONTAINER NAME"
+  # ⋮
+  glob: build/*
 ```
 {: data-file=".travis.yml"}
 
-### Deploy to Multiple Containers:
+By default, filenames starting with a dot are excluded. Add the option
+`dot_match` to make your `glob` match these, too:
 
-If you want to upload to multiple containers, you can do this:
+```yaml
+deploy:
+  provider: cloudfiles
+  # ⋮
+  glob: build/*
+  dot_match: true
+```
+{: data-file=".travis.yml"}
+
+## Deploying to multiple regions or containers:
+
+If you want to upload to multiple regions or containers, you can do this:
 
 ```yaml
 deploy:
   - provider: cloudfiles
-    username: "RACKSPACE USERNAME"
-    api_key: "RACKSPACE API KEY"
-    region: "CLOUDFILE REGION"
-    container: "CLOUDFILES CONTAINER NAME"
+    # ⋮
+    region: <region-1>
+    container: <container-1>
   - provider: cloudfiles
-    username: "RACKSPACE USERNAME"
-    api_key: "RACKSPACE API KEY"
-    region: "CLOUDFILE REGION"
-    container: "CLOUDFILES CONTAINER NAME"
+    # ⋮
+    region: <region-2>
+    container: <container-2>
 ```
 {: data-file=".travis.yml"}
 

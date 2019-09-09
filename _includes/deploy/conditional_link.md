@@ -1,4 +1,4 @@
-### Conditional Deploys
+## Conditional Deploys
 
 You can deploy only when certain conditions are met.
 

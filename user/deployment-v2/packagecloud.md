@@ -8,78 +8,64 @@ provider: packagecloud
 Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build
 artifacts to [packagecloud.io](https://packagecloud.io/) after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: packagecloud
-  repository: "YOUR REPO"
-  username: "YOUR USERNAME"
-  token: "YOUR TOKEN"
-  dist: "YOUR DIST" # like 'ubuntu/precise', or 'centos/5', if pushing deb or rpms
+  repository: <repository>
+  username: <username>
+  token: <token>
+  dist: <dist> # required for debian, rpm, and node.js packages, e.g. 'centos/5'
 ```
 {: data-file=".travis.yml"}
 
-Take note that your repository name should not have a forward slash in it. For example if your repository appears as `username / repo` on packagecloud.io, you should only put `repo` in the `repository:` option and put `username` in the `username:` option.
+{% include deploy/providers/packagecloud.md %}
 
-You can retrieve your api token by logging in and visiting the [API Token](https://packagecloud.io/api_token) page under Account Settings.
+Note that your repository name should not have a forward slash in it: For
+example if your repository appears as `username/repo` on packagecloud.io, the
+`repository` option is `repo` and the `username` option is `username`.
 
-This is the list of [supported distributions](https://packagecloud.io/docs#os_distro_version) for the 'dist' option.
+You can retrieve your api token by logging in and visiting the [API Token](https://packagecloud.io/api_token)
+page under Account Settings.
 
-It is recommended to encrypt your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
+The list of supported distributions for the `dist` option can be found
+[here](https://packagecloud.io/docs#os_distro_version).
 
-```bash
-travis encrypt THE-API-TOKEN --add deploy.token
-```
+### Specifying a package folder
 
-You can also have the `travis` tool set up everything for you:
+By default, the packagecloud provider will scan the current directory and push
+all supported packages.
 
-```bash
-travis setup packagecloud
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-### Releasing build artifacts
-
-After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
-
-Maybe that is not what you want, as you might generate some artifacts that are supposed to be released, too. There is now an option to skip the clean up:
+You can specify which directory to scan from with the `local_dir` option. This
+example scans from `./build` directory.
 
 ```yaml
 deploy:
   provider: packagecloud
-  skip_cleanup: true
   # ⋮
+  local_dir: build
 ```
 {: data-file=".travis.yml"}
 
-### Specify package folder
+Alternately, you can specify the `package_glob` argument to restrict
+which files to scan. It defaults to `**/*` (recursively finding all package
+files) but this may pick up other artifacts you don't want to release.
 
-By default, the packagecloud provider will scan the current directory and push all supported packages.
-You can specify which directory to scan from with the `local-dir` option. This example scans from `build` directory of your project.
+For example, if you only want to push gems in the top level directory:
 
 ```yaml
 deploy:
   provider: packagecloud
-  local-dir: build
   # ⋮
-```
-{: data-file=".travis.yml"}
-
-Alternately, you may wish to specify the `package_glob` argument to restrict which files to scan. It defaults to `**/*` (recursively finding all package files) but this may pick up other artifacts you don't want to release. For example, if you only want to push gems in the top level directory:
-
-```yaml
-deploy:
-  provider: packagecloud
   package_glob: "*.gem"
-  # ⋮
 ```
 {: data-file=".travis.yml"}
 
 ### A note about Debian source packages
 
-If the packagecloud provider finds any `.dsc` files, it will scan it and try to locate it's contents within
-the `local-dir` directory. Ensure the source package and it's contents are output to the same directory for it to work.
+If the packagecloud provider finds any `.dsc` files, it will scan it and try to
+locate it's contents within the `local_dir` directory. Ensure the source
+package and it's contents are output to the same directory for it to work.
 
 {% include deploy/shared.md %}

@@ -5,80 +5,44 @@ deploy: v2
 provider: heroku
 ---
 
-Travis CI can automatically deploy your [Heroku](https://www.heroku.com/) application after a successful build.
+Travis CI can automatically deploy your [Heroku](https://www.heroku.com/)
+application after a successful build.
 
-To use the default configuration, add your encrypted Heroku api key to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: heroku
-  api_key:
-    secure: "YOUR ENCRYPTED API KEY"
+  api_key: <api_key>
 ```
 {: data-file=".travis.yml"}
 
-If you have both the [Heroku](https://devcenter.heroku.com/articles/heroku-cli) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
+{% include deploy/providers/heroku_git.md %}
 
-```bash
-travis encrypt $(heroku auth:token) --add deploy.api_key
-```
+## Specifying the application name
 
-`travis` command defaults to using [travis-ci.org](https://travis-ci.org) as the API endpoint. If your build runs on [travis-ci.com](https://travis-ci.com) (even if your repository is public), add `--pro` flag to override this:
+By default, your repository name will be used as the application name.
 
-```bash
-travis encrypt $(heroku auth:token) --add deploy.api_key --pro
-```
-You can also use the Travis CI command line setup tool `travis setup heroku`.
-
-## Deploying Custom Application Names
-
-By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Heroku app named *travis-chat*.
-
-You can explicitly set the name via the **app** option:
+You can set a different application name using the `app` option:
 
 ```yaml
 deploy:
   provider: heroku
-  api_key: ...
-  app: my-app-123
+  # ⋮
+  app: <app_name>
 ```
 {: data-file=".travis.yml"}
 
-It is also possible to deploy different branches to different applications:
+## Running commands
+
+In some setups, you might want to run a command on Heroku after a successful
+deploy. You can do this with the **run** option:
 
 ```yaml
 deploy:
   provider: heroku
-  api_key: ...
-  app:
-    master: my-app-staging
-    production: my-app-production
-```
-{: data-file=".travis.yml"}
-
-If these apps belong to different Heroku accounts, you will have to do the same for the API key:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key:
-    master: ...
-    production: ...
-  app:
-    master: my-app-staging
-    production: my-app-production
-```
-{: data-file=".travis.yml"}
-
-## Running Commands
-
-In some setups, you might want to run a command on Heroku after a successful deploy. You can do this with the **run** option:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key: ...
-  run: "rake db:migrate"
+  # ⋮
+  run: rake db:migrate
 ```
 {: data-file=".travis.yml"}
 
@@ -87,18 +51,58 @@ It also accepts a list of commands:
 ```yaml
 deploy:
   provider: heroku
-  api_key: ...
+  # ⋮
   run:
-    - "rake db:migrate"
-    - "rake cleanup"
+    - rake db:migrate
+    - rake cleanup
 ```
 {: data-file=".travis.yml"}
 
-> Take note that Heroku app might not be completely deployed and ready to serve requests when we run your commands. To mitigate this situation, you can add a `sleep` statement to add a delay before your commands.
+> Take note that Heroku app might not be completely deployed and ready to serve
+> requests when we run your commands. To mitigate this situation, you can add a
+> `sleep` statement to add a delay before your commands.
+
+### Deploying branches to different apps
+
+In order to choose apps based on the current branch use separate deploy
+configurations:
+
+```yaml
+deploy:
+  - provider: heroku
+    # ⋮
+    app: app-production
+    on:
+      branch: master
+  - provider: heroku
+    # ⋮
+    app: app-staging
+    on:
+      branch: staging
+```
+{: data-file=".travis.yml"}
+
+Or using YAML references:
+
+```yaml
+deploy:
+  - &deploy
+    provider: heroku
+    # ⋮
+    app: app-production
+    on:
+      branch: master
+  - <<: *deploy
+    app: app-staging
+    on:
+      branch: staging
+```
+{: data-file=".travis.yml"}
 
 ### Error Logs for Custom Commands
 
-Custom Heroku commands do not affect the Travis CI build status or trigger Travis CI notifications.
+Custom Heroku commands do not affect the Travis CI build status or trigger
+Travis CI notifications.
 
 Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail){: data-proofer-ignore=""} or [Logentries](https://elements.heroku.com/addons/logentries){: data-proofer-ignore=""} to get notifications for `rake db:migrate` or other commands.
 
@@ -106,16 +110,17 @@ These add-ons have email notification systems that can be triggered when certain
 
 ### Restarting Applications
 
-Sometimes you want to restart your Heroku application between or after commands. You can easily do so by adding a "restart" command:
+Sometimes you want to restart your Heroku application between or after
+commands. You can easily do so by adding a "restart" command:
 
 ```yaml
 deploy:
   provider: heroku
-  api_key: ...
+  # ⋮
   run:
-    - "rake db:migrate"
+    - rake db:migrate
     - restart
-    - "rake cleanup"
+    - rake cleanup
 ```
 {: data-file=".travis.yml"}
 
@@ -131,12 +136,12 @@ It defaults to **api**, but you can change that via the **strategy** option:
 ```yaml
 deploy:
   provider: heroku
-  api_key: ...
+  # ⋮
   strategy: git
 ```
 {: data-file=".travis.yml"}
 
-#### Using `.gitignore` on `git` strategy
+#### Using .gitignore on the Git strategy
 
 When you use any of the `git` strategies, be mindful that the deployment will
 honor `.gitignore`.

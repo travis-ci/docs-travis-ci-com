@@ -5,34 +5,18 @@ deploy: v2
 provider: hackage
 ---
 
-Travis CI supports uploading to [Hackage](https://hackage.haskell.org/).
+Travis CI can automatically upload to [Hackage](https://hackage.haskell.org/) after a successful build.
 
-A minimal configuration is:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: hackage
-  username: "Hackage User Name"
-  password: "Hackage Password"
+  username: <user>
+  password: <password>
 ```
 {: data-file=".travis.yml"}
 
-It is recommended to encrypt the password.
-
-Assuming you have the Travis CI command line client installed, you can do it like this:
-
-```bash
-$ travis encrypt --add deploy.password
-```
-
-You will be prompted to enter your api key on the command line.
-
-You can also have the `travis` tool set up everything for you:
-
-```bash
-$ travis setup hackage
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+{% include deploy/providers/hackage.md %}
 
 {% include deploy/shared.md %}

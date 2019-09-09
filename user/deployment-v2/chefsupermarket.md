@@ -5,21 +5,30 @@ deploy: v2
 provider: chef_supermarket
 ---
 
-Travis CI can automatically deploy your cookbook to [Chef
-Supermarket](https://supermarket.chef.io/) after a successful build.
+Travis CI can automatically deploy your cookbook to [Chef Supermarket](https://supermarket.chef.io/)
+after a successful build.
 
-To deploy to Chef Supermarket add your Chef Supermarket `user_id`, your
-[encrypted](/user/encrypting-files) Chef Supermarket client key and the
-cookbook [`category`](https://docs.getchef.com/knife_cookbook_site.html#id12)
-to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: chef_supermarket
-  user_id: <your chef username>
-  # the encrypted client key file is decrypted in the before_install step of the build when you add it using the instructions above
-  category: Others
+  user_id: <username>
+  category: <category>
 ```
 {: data-file=".travis.yml"}
+
+Encrypt your client key by running the following command and add it to your
+`.travis.yml` file:
+
+```bash
+travis encrypt-file client.pem
+```
+
+See [Encrypting Files](http://localhost:4000/user/encrypting-files/) for
+detailed instructions on how to add encrypted files to your repository and
+`.travis.yml` file.
+
+{% include deploy/providers/chef_supermarket.md %}
 
 {% include deploy/shared.md %}

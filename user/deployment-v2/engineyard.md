@@ -7,62 +7,65 @@ provider: engineyard
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: engineyard
-  api_key: your-api-key
+  api_key: <api_key> # or username and password
 ```
 {: data-file=".travis.yml"}
 
-You can also use `email` and `password` instead of `api_key`. It is recommended to encrypt the key/password.
-
-Optional settings include: `app`, `account`, `environment` and `migrate`.
-
-You can also have the `travis` tool set up everything for you:
-
-```bash
-$ travis setup engineyard
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
+{% include deploy/providers/engineyard.md %}
 
 ### Application or Environment to deploy
 
-By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Engine Yard app named *travis-chat*.
+By default, the application name will be inferred from your repository name.
 
 You can explicitly set the name via the **app** option:
 
 ```yaml
 deploy:
   provider: engineyard
-  api_key: ...
-  app: my-app-123
+  # ⋮
+  app: <app-name>
 ```
 {: data-file=".travis.yml"}
 
-It is also possible to deploy different branches to different applications:
+### Deploying branches to different apps or environments
+
+In order to choose apps or environments based on the current branch use
+separate deploy configurations:
 
 ```yaml
 deploy:
-  provider: engineyard
-  api_key: your-api-key
-  app:
-    master: my-app
-    foo: my-foo
+  - provider: engineyard
+    # ⋮
+    environment: production
+    on:
+      branch: master
+  - provider: engineyard
+    # ⋮
+    environment: staging
+    on:
+      branch: staging
 ```
 {: data-file=".travis.yml"}
 
-This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
+Or using YAML references:
 
 ```yaml
 deploy:
-  provider: engineyard
-  api_key: your-api-key
-  environment:
-    master: staging
-    production: production
+  - &deploy
+    provider: engineyard
+    # ⋮
+    environment: production
+    on:
+      branch: master
+  - <<: *deploy
+    environment: staging
+    on:
+      branch: staging
 ```
 {: data-file=".travis.yml"}
 
@@ -73,8 +76,8 @@ You can trigger migrations by using the migrate option:
 ```yaml
 deploy:
   provider: engineyard
-  api_key: your-api-key
-  migrate: "rake db:migrate"
+  # ⋮
+  migrate: rake db:migrate
 ```
 {: data-file=".travis.yml"}
 

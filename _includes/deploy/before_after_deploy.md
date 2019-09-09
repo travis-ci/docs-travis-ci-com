@@ -1,4 +1,4 @@
-### Running commands before and after deploy
+## Running commands before and after deploy
 
 Sometimes you want to run commands before or after deploying. You can use the
 `before_deploy` and `after_deploy` steps for this. These will only be triggered

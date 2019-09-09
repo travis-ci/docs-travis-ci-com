@@ -34,7 +34,7 @@ The env variables `SFTP_USER` and `SFTP_PASSWORD` can also be
 See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to
 use cURL as an SFTP client.
 
-### Git
+### ⋮
 
 This should also work with services you can deploy to via git.
 

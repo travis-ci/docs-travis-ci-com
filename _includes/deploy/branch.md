@@ -1,4 +1,4 @@
-### Branch to deploy from
+## Branch to deploy from
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -23,7 +23,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Branches
+## Branches
 
 By default, Travis CI will only deploy from your `master` branch. You can specify what branch to deploy from with the deploy option `on`:
 

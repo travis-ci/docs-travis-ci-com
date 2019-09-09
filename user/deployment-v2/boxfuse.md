@@ -7,82 +7,86 @@ provider: boxfuse
 
 Travis CI can automatically deploy your [Boxfuse](https://boxfuse.com/) application after a successful build.
 
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: boxfuse
-  user: "your boxfuse client user"
-  secret: "your boxfuse client secret"
-  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
+  user: <user>
+  secret: <secret>
+  payload: <path/to/artifact> # typically a jar, war, tar.gz or zip file
 ```
 {: data-file=".travis.yml"}
 
-We recommended that you encrypt your Boxfuse user and secret. Assuming you have the Travis CI command line client installed, you can do it like this (you will be prompted for values on the command line):
+{% include deploy/providers/boxfuse.md %}
 
-```bash
-travis encrypt --add deploy.user
-travis encrypt --add deploy.secret
-```
+Finally you can also configure Boxfuse by placing a `boxfuse.conf` file in the
+root of your repository. More info about configuration in the
+[Boxfuse Command-line Client documentation](https://boxfuse.com/docs/commandline/).
 
-Alternatively you can pass in your credentials using Travis CI [encrypted environment variables](/user/environment-variables/#encrypting-environment-variables) called `BOXFUSE_USER` and `BOXFUSE_SECRET`. You can define these variables either using the Travis CI command line client or directly in the Travis CI repository settings UI.
+### Specifying the app and image version
 
-Finally you can also fully configure Boxfuse by placing a `boxfuse.conf` file in the root of your repository. More info about configuration in the [Boxfuse Command-line Client documentation](https://boxfuse.com/docs/commandline/).
+By default Boxfuse will detect the app and the version automatically from the
+name of your payload file.
 
-### Specifying the Boxfuse app and image version
-
-By default Boxfuse will detect the app and the version automatically from the name of your payload file. You can override this like this:
+You can override this using the following:
 
 ```yaml
 deploy:
   provider: boxfuse
-  user: "your boxfuse client user"
-  secret: "your boxfuse client secret"
-  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
-  image: "your boxfuse app and version (ex.: myapp:1.23)"
+  # ⋮
+  image: <image> # boxfuse app and version (e.g. myapp:1.23)
 ```
 {: data-file=".travis.yml"}
 
-You can also use Travis CI [environment variables](/user/environment-variables) like `TRAVIS_BUILD_NUMBER` to assign a version to the image. Ex.: `image: "myapp:$TRAVIS_BUILD_NUMBER"`
+You can also use Travis CI [environment variables](/user/environment-variables)
+like `TRAVIS_BUILD_NUMBER` to assign a version to the image, e.g.
+`image: "myapp:$TRAVIS_BUILD_NUMBER"`.
 
-### Specifying the Boxfuse environment
+### Specifying the environment
 
-By default Boxfuse will deploy to your `test` environment. You can override this like this:
+By default Boxfuse will deploy to your `test` environment.
+
+You can override this using the following:
 
 ```yaml
 deploy:
   provider: boxfuse
-  user: "your boxfuse client user"
-  secret: "your boxfuse client secret"
-  payload: "your application artifact (typically a jar, war, tar.gz or zip file)"
-  env: "your boxfuse environment (default: test)"
+  # ⋮
+  env: <env>
 ```
 {: data-file=".travis.yml"}
 
-### Using alternative configuration files
+### Specifying a configuration file
 
-You can also fully configure Boxfuse by placing a `boxfuse.conf` file in the root of your repository. You can specify an alternative configuration file like this:
+You can also fully configure Boxfuse by placing a `boxfuse.conf` file in the
+root of your repository. You can specify an alternative configuration file like
+this:
 
 ```yaml
 deploy:
   provider: boxfuse
-  configfile: "your boxfuse configuration file"
+  # ⋮
+  config_file: ./boxfuse-alt.conf
 ```
 {: data-file=".travis.yml"}
 
 ### Specifying custom arguments
 
-If the [Boxfuse Client](https://boxfuse.com/docs/commandline) functionality you need is not included here, you can pass additional arguments to the Boxfuse executable by using the `extra_args` parameter:
+If the [Boxfuse Client](https://boxfuse.com/docs/commandline) functionality you
+need is not included here, you can pass additional arguments to the Boxfuse
+executable by using the `extra_args` parameter:
 
 ```yaml
 deploy:
   provider: boxfuse
-  extra_args: "extra args (ex.: -X)"
+  extra_args: <extra_args> # e.g. -X
 ```
 {: data-file=".travis.yml"}
 
 ### Further information
 
-Go to the [Boxfuse website](https://boxfuse.com) to learn more about Boxfuse and how to configure it.
+Go to the [Boxfuse website](https://boxfuse.com) to learn more about Boxfuse
+and how to configure it.
 
 {% include deploy/shared.md %}

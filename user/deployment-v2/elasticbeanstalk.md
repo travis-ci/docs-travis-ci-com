@@ -5,48 +5,34 @@ deploy: v2
 provider: elasticbeanstalk
 ---
 
-Travis CI can automatically deploy your application to [Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/) after a successful build.
+Travis CI can automatically deploy your application to [Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/)
+after a successful build.
 
-To deploy to AWS Elastic Beanstalk add the following to your `.travis.yml`:
-
-* `access_key_id`: [Encrypted](/user/encryption-keys#usage) AWS Access Key ID, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
-* `secret_access_key`: [Encrypted](/user/encryption-keys#usage) AWS Secret Key, obtained from your [AWS Console](https://console.aws.amazon.com/iam/home?#security_credential).
-* `region`: **must** be the region the Elastic Beanstalk application is running on, for example `us-east-1`.
-* `app`: Application name.
-* `env`: Elastic Beanstalk environment the application will be deployed to.
-* `bucket_name`: Bucket name to upload the code of your app to. Elastic Beanstalk will create and deploy an application version from the source bundle in this Amazon S3 bucket.
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: "Encrypted access_key_id=<access_key_id>"
-  secret_access_key:
-    secure: "Encypted secret_access_key=<secret_access_key>"
-  region: "us-east-1"
-  app: "your-app-name"
-  env: "your-app-environment"
-  bucket_name: "your-S3-bucket"
+  access_key_id: <access_key_id>
+  secret_access_key: <secret_access_key>
+  region: <region>
+  env: <env>
+  bucket: <bucket>
 ```
 {: data-file=".travis.yml"}
 
-Alternatively, use the Travis CI command line setup tool to add the deployment `travis setup elasticbeanstalk`.
+{% include deploy/providers/elasticbeanstalk.md %}
 
 ## Creating an application without deploying it
 
-To create an application without deploying it, add `only_create_app_version: "true"` to your `.travis.yml`.
+To create an application without deploying it, use `only_create_app_version`:
 
-## Optional settings
-
-* `zip_file`: The zip file to deploy. You also need to set `skip_cleanup` to prevent Travis CI deleting the zip file at the end of the build. If this is left unspecified, a zip file will be created from all the files that are part of the repository under test (determined with `git ls-files`).
-* `bucket_path`: Location within Bucket to upload app to.
-
-## Environment variables
-
-The following environment variables are available:
-
-* `ELASTIC_BEANSTALK_ENV`: Used if the `env` key is not set in your `.travis.yml`.
-* `ELASTIC_BEANSTALK_LABEL`: Label name of the new version.
-* `ELASTIC_BEANSTALK_DESCRIPTION`: Description of the new version. Defaults to the last commit message.
+```yaml
+deploy:
+  provider: elasticbeanstalk
+  # ⋮
+  only_create_app_version: true
+```
+{: data-file=".travis.yml"}
 
 {% include deploy/shared.md %}

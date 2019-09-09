@@ -5,78 +5,42 @@ deploy: v2
 provider: codedeploy
 ---
 
-Travis CI can automatically trigger a new Deployment on [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
+Travis CI can automatically upload your build to [AWS CodeDeploy](http://aws.amazon.com/documentation/codedeploy/) after a successful build.
 
-For a minimal configuration with S3, add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
   - provider: s3
-    # rest of S3 deployment for MyApp.zip
+    # rest of S3 deployment for <app>.zip
     # ⋮
   - provider: codedeploy
-    access_key_id: "YOUR AWS ACCESS KEY"
-    secret_access_key: "YOUR AWS SECRET KEY"
-    bucket: "S3 Bucket"
-    key: latest/MyApp.zip
-    application: MyApp
-    deployment_group: MyDeploymentGroup
+    access_key_id: <access_key_id>
+    secret_access_key: <secret_access_key>
+    bucket: <bucket>
+    key: path/to/<app>.zip
+    application: <app>
+    deployment_group: <deployment_group>
 ```
 {: data-file=".travis.yml"}
 
-Note that in this example, Travis CI will attempt to deploy to an existing CodeDeploy Application called MyApp in AWS Region `us-east-1`.
+Note that in this example, Travis CI will attempt to deploy to an existing
+CodeDeploy Application called `<app>` in AWS Region `us-east-1`. A complete
+example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
-A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
-
-You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt that key.
-
-If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](/user/deployment/codedeploy#aws-region-to-deploy-to)).
-
-Assuming you have the Travis CI command line client installed, you can do it like this:
-
-```bash
-travis encrypt --add deploy.secret_access_key
-```
-
-You will be prompted to enter your api key on the command line.
-
-You can also have the `travis` tool set up everything for you:
-
-```bash
-travis setup codedeploy
-```
-
-Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
-
-This command will also offer to set up [S3 deployment](/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
-
-## S3 deployment or GitHub deployment
-
-For a minimal configuration with GitHub, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  - provider: codedeploy
-    revision_type: github
-    access_key_id: "YOUR AWS ACCESS KEY"
-    secret_access_key: "YOUR AWS SECRET KEY"
-    application: "Your Codedeploy application"
-    deployment_group: "The Deployment group associated with the codedeploy application"
-    region: "Region in which your ec2 instance is."
-```
-{: data-file=".travis.yml"}
-
-Please note that `region` should match the instance region on which codedeploy is configured.
+{% include deploy/providers/codedeploy.md %}
 
 ## Waiting for Deployments
 
-By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait_until_deployed** option:
+By default, the build will continue immediately after triggering a CodeDeploy
+deploy. To wait for the deploy to complete, use the `wait_until_deployed`
+option:
 
 ```yaml
 deploy:
   provider: codedeploy
-  wait_until_deployed: true
   # ⋮
+  wait_until_deployed: true
 ```
 {: data-file=".travis.yml"}
 
@@ -84,24 +48,21 @@ Travis CI will wait for the deploy to complete, and log whether it succeeded.
 
 ## Bundle Types
 
-The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType) of your application is inferred from the file extension of `key` or `s3_key` set in your `.travis.yml`.
+The [bundleType](http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_S3Location.html#CodeDeploy-Type-S3Location-bundleType)
+of your application is inferred from the file extension of `key` set in your
+`.travis.yml`.
 
-If your `.travis.yml` contains both, and they do not match, set `bundle_type` explicitly to the correct value.
+If your `.travis.yml` contains both, and they do not match, set `bundle_type`
+explicitly to the correct value.
 
-## AWS region to deploy to
+## Specifying the AWS region
 
-You can explicitly specify the AWS region to deploy to with the **region** option:
+You can explicitly specify the AWS region to deploy to with the `region` option:
 
 ```yaml
 deploy:
   provider: codedeploy
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  bucket: "S3 Bucket"
-  key: latest/MyApp.zip
-  bundle_type: zip
-  application: MyApp
-  deployment_group: MyDeploymentGroup
+  # ⋮
   region: us-west-1
 ```
 {: data-file=".travis.yml"}
