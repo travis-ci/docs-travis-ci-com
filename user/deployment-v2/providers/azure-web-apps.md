@@ -8,8 +8,7 @@ provider: azure_web_apps
 Travis CI can automatically deploy your [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/)
 after a successful build.
 
-For a minimal configuration, all you need to do is enable [Local Git Deployment](https://azure.microsoft.com/en-us/documentation/articles/app-service-deploy-local-git/)
-and add the following to your `.travis.yml`:
+For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:

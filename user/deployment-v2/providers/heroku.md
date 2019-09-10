@@ -102,11 +102,17 @@ deploy:
 ### Error Logs for Custom Commands
 
 Custom Heroku commands do not affect the Travis CI build status or trigger
-Travis CI notifications.
+Travis CI notifications, because Heroku's CLI [always exits](https://github.com/heroku/cli/issues/1319)
+with `0`, even if the command failed.
 
-Use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail){: data-proofer-ignore=""} or [Logentries](https://elements.heroku.com/addons/logentries){: data-proofer-ignore=""} to get notifications for `rake db:migrate` or other commands.
+As an alternative, you can use an addon such as [Papertrail](https://elements.heroku.com/addons/papertrail){: data-proofer-ignore=""}
+or [Logentries](https://elements.heroku.com/addons/logentries){: data-proofer-ignore=""}
+to get notifications for `rake db:migrate` or other commands.
 
-These add-ons have email notification systems that can be triggered when certain string matches occur in your Heroku logs. For example you could trigger an e-mail notification if the log contains "this and all later migrations canceled".
+These add-ons have email notification systems that can be triggered when
+certain string matches occur in your Heroku logs. For example you could trigger
+an e-mail notification if the log contains "this and all later migrations
+canceled" or similar messages.
 
 ### Restarting Applications
 
