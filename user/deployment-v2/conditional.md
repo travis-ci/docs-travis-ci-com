@@ -4,7 +4,8 @@ layout: en
 deploy: v2
 ---
 
-Set your build to deploy only in specific circumstances by configuring the `on:` key for any deployment provider.
+Set your build to deploy only in specific circumstances by using the `on`
+option for any deployment provider.
 
 ```yaml
 deploy:
@@ -15,59 +16,96 @@ deploy:
   skip_cleanup: true
   on:
     branch: release
-    condition: $MY_ENV = super_awesome
+    condition: $MY_ENV = value
 ```
 {: data-file=".travis.yml"}
 
-When *all* conditions specified in the `on:` section are met, your build will deploy.
+If *all* conditions specified in the `on` section are met, your build will deploy.
 
-Use the following options to configure conditional deployment:
+The following conditions are available:
 
-* `repo`: in the form `owner_name/repo_name`. Deploy only when the build occurs on a particular repository. For example:
+### Repo
 
-   ```yaml
-   deploy:
-     provider: s3
-     on:
-       repo: travis-ci/dpl
-   ```
-   {: data-file=".travis.yml"}
+To deploy only when the build occurs on a particular repository, add `repo` in the form `owner_name/repo_name`:
 
-* `branch`: name of the branch.
-   If omitted, this defaults to the `app`-specific branch or `master`. If the branch name is not known ahead of time, you can specify
-   `all_branches: true` *instead of* `branch: ` and use other conditions to control your deployment.
+```yaml
+deploy:
+  provider: s3
+  on:
+    repo: travis-ci/dpl
+```
+{: data-file=".travis.yml"}
 
-* `jdk`, `node`, `perl`, `php`, `python`, `ruby`, `scala`, `go`: for language runtimes that support multiple versions,
-   you can limit the deployment to happen only on the job that matches a specific version.
+### Branch
 
-* `condition`: deploy when *a single* bash condition evaluates to `true`. This must be a string value and is equivalent to `if [[ <condition> ]]; then <deploy>; fi`. For example, `$CC = gcc`.
+By default, deployments will only happen on the `master` branch. You can overwrite this by using the `branch` and `all_branches` options.
+
+For example, to deploy on the `production` branch only use:
+
+ ```yaml
+ deploy:
+   provider: s3
+   on:
+     branch: production
+ ```
+ {: data-file=".travis.yml"}
+
+In order to deploy from all branches:
+
+```yaml
+deploy:
+  provider: s3
+  on:
+    all_branch: true
+```
+{: data-file=".travis.yml"}
+
+### Condition
+
+You can specify a single Bash `condition` that needs to evaluate to `true` in
+order for the deployment to happen.
+
+This must be a string value and is going to be wrapped into `if [[ <condition> ]]; then <deploy>; fi`.
+
+For example, in order to only deploy if `$CC` is `gcc` use:
+
+```yaml
+deploy:
+  provider: s3
+  on:
+    condition: $CC = gcc
+```
+{: data-file=".travis.yml"}
+
+### Tag
+
+You can specify whether or not to deploy on tag builds using the option `tags`.
+If set to to `true` the deployment will only happen on tag builds, if set to
+`false` it will not happen on tag builds.
+
+For example, in order to deploy on tag builds only:
+
+```yaml
+deploy:
+  provider: s3
+  on:
+    tags: true
+```
+{: data-file=".travis.yml"}
 
 * `tags` can be `true`, `false` or any other string:
 
-    * `tags: true`: deployment is triggered if and only if `$TRAVIS_TAG` is set.
-       Depending on your workflow, you may set `$TRAVIS_TAG` explicitly, even if this is
-       a non-tag build when it was initiated. This causes the `branch` condition to be ignored.
-    * `tags: false`: deployment is triggered if and only if `$TRAVIS_TAG` is empty.
-       This also causes the `branch` condition to be ignored.
-    * When `tags` is not set, or set to any other value, `$TRAVIS_TAG` is ignored, and the `branch` condition is considered, if it is set.
+This will check if the environment variable `$TRAVIS_TAG` is set. Depending on
+your workflow, you may set `$TRAVIS_TAG` explicitly, even if this is a non-tag
+build when it was initiated.
 
-### Examples of Conditional Deployment
+Setting `tags` to `true` causes the `branch` condition to be ignored, otherwise
+`$TRAVIS_TAG` is ignored, and the `branch` condition is considered.
 
-This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
+### Examples for conditional deployments
 
-```yaml
-language: node_js
-deploy:
-  provider: appfog
-  user: ...
-  api_key: ...
-  on:
-    branch: staging
-    node_js: '0.11' # this should be quoted; otherwise, 0.10 would not work
-```
-{: data-file=".travis.yml"}
-
-The next example deploys using a custom script `deploy.sh`, only for builds on the branches `staging` and `production`.
+This deploys using a custom script `deploy.sh`, only for builds on the branches
+`staging` and `production`.
 
 ```yaml
 deploy:
@@ -79,7 +117,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-The next example deploys using custom scripts `deploy_production.sh` and `deploy_staging.sh` depending on the branch that triggered the job.
+This deploys using custom scripts `deploy_production.sh` and
+`deploy_staging.sh` depending on the branch that triggered the job.
 
 ```yaml
 deploy:
@@ -94,32 +133,15 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-The next example deploys to S3 only when `$CC` is set to `gcc`.
+This deploys to S3 only when `$CC` is set to `gcc`.
 
 ```yaml
 deploy:
   provider: s3
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  skip_cleanup: true
-  bucket: "S3 Bucket"
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
+  bucket: <bucket>
   on:
-    condition: "$CC = gcc"
+    condition: $CC = gcc
 ```
 {: data-file=".travis.yml"}
-
-This example deploys to GitHub Releases when a tag is set and the Ruby version is 2.0.0.
-
-```yaml
-deploy:
-  provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
-  file: "FILE TO UPLOAD"
-  skip_cleanup: true
-  on:
-    tags: true
-    rvm: 2.0.0
-```
-{: data-file=".travis.yml"}
-
-
