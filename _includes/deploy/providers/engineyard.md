@@ -27,7 +27,7 @@ deploy:
 Support for deployments to Engineyard is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment. Either `api_key` or `email` and `password` are required.
 
 | `api_key` | Engine Yard API key &mdash; **secret**, type: string |
 | `email` | Engine Yard account email &mdash; type: string |

@@ -27,7 +27,7 @@ deploy:
 Support for deployments to Rubygems is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment. Either `api_key` or `username` and `password` are required.
 
 | `api_key` | Rubygems api key &mdash; **secret**, type: string |
 | `username` | Rubygems user name &mdash; type: string, alias: `user` |

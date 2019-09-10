@@ -18,7 +18,7 @@ deploy:
 Support for deployments to Firebase is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `token` | Firebase CI access token (generate with firebase login:ci) &mdash; **required**, **secret**, type: string |
 | `project` | Firebase project to deploy to (defaults to the one specified in your firebase.json) &mdash; type: string |

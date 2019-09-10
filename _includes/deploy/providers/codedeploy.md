@@ -20,7 +20,7 @@ deploy:
 Support for deployments to AWS Code Deploy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `access_key_id` | AWS access key &mdash; **required**, **secret**, type: string |
 | `secret_access_key` | AWS secret access key &mdash; **required**, **secret**, type: string |

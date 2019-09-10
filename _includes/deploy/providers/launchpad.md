@@ -18,7 +18,7 @@ deploy:
 Support for deployments to Launchpad is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `oauth_token` | Launchpad OAuth token &mdash; **secret**, type: string |
 | `oauth_token_secret` | Launchpad OAuth token secret &mdash; **secret**, type: string |

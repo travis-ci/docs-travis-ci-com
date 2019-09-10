@@ -18,7 +18,7 @@ deploy:
 Support for deployments to npm is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `email` | npm account email &mdash; type: string |
 | `api_token` | npm api token &mdash; **required**, **secret**, type: string, alias: `api_key`, note: can be retrieved from your local ~/.npmrc file, see: [https://docs.npmjs.com/creating-and-viewing-authentication-tokens](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) |

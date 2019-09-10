@@ -21,7 +21,7 @@ deploy:
 Support for deployments to Bluemix Cloud Foundry is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `username` | Bluemix username &mdash; **required**, type: string |
 | `password` | Bluemix password &mdash; **required**, **secret**, type: string |

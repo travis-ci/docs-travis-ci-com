@@ -27,7 +27,7 @@ deploy:
 Support for deployments to Heroku Git is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment. Either `api_key` or `username` and `password` are required.
 
 | `api_key` | Heroku API key &mdash; **secret**, type: string |
 | `username` | Heroku username &mdash; type: string, alias: `user` |

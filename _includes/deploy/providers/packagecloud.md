@@ -20,7 +20,7 @@ deploy:
 Support for deployments to Packagecloud is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `username` | The packagecloud.io username. &mdash; **required**, type: string |
 | `token` | The packagecloud.io api token. &mdash; **required**, **secret**, type: string |

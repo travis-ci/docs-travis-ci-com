@@ -18,7 +18,7 @@ deploy:
 Support for deployments to Cargo is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `token` | Cargo registry API token &mdash; **required**, **secret**, type: string |
 | `allow_dirty` | Allow cargo to publish from a dirty git working directory &mdash; type: boolean |

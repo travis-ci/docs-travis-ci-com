@@ -19,7 +19,7 @@ deploy:
 Support for deployments to TestFairy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `api_key` | TestFairy API key &mdash; **required**, **secret**, type: string |
 | `app_file` | Path to the app file that will be generated after the build (APK/IPA) &mdash; **required**, type: string |

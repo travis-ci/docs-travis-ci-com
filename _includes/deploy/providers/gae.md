@@ -18,7 +18,7 @@ deploy:
 Support for deployments to Google App Engine is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `project` | Project ID used to identify the project on Google Cloud &mdash; **required**, type: string |
 | `keyfile` | Path to the JSON file containing your Service Account credentials in JSON Web Token format. To be obtained via the Google Developers Console. Should be handled with care as it contains authorization keys. &mdash; type: string, default: `service-account.json` |

@@ -26,7 +26,7 @@ deploy:
 Support for deployments to GitHub Pages is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.
 
 | `repo` | Repo slug &mdash; type: string, default: `repo slug` |
 | `token` | GitHub oauth token with repo permission &mdash; **secret**, type: string, alias: `github_token` |

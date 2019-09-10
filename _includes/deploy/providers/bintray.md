@@ -20,7 +20,7 @@ deploy:
 Support for deployments to Bintray is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `user` | Bintray user &mdash; **required**, type: string |
 | `key` | Bintray API key &mdash; **required**, **secret**, type: string |

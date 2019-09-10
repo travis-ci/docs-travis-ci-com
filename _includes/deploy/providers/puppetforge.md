@@ -19,7 +19,7 @@ deploy:
 Support for deployments to Puppet Forge is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `username` | Puppet Forge user name &mdash; **required**, type: string, alias: `user` |
 | `password` | Puppet Forge password &mdash; **required**, **secret**, type: string |

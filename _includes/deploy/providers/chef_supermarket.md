@@ -19,7 +19,7 @@ deploy:
 Support for deployments to Chef Supermarket is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `user_id` | Chef Supermarket user name &mdash; **required**, type: string |
 | `name` | Cookbook name &mdash; type: string, alias: `cookbook_name` (deprecated, please use `name`), note: defaults to the name given in metadata.json or metadata.rb |

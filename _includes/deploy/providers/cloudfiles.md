@@ -21,7 +21,7 @@ deploy:
 Support for deployments to Cloud Files is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `username` | Rackspace username &mdash; **required**, type: string |
 | `api_key` | Rackspace API key &mdash; **required**, **secret**, type: string |

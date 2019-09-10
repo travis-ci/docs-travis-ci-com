@@ -27,7 +27,7 @@ deploy:
 Support for deployments to Transifex is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment. Either `api_token` or `username` and `password` are required.
 
 | `api_token` | Transifex API token &mdash; **secret**, type: string |
 | `username` | Transifex username &mdash; type: string |

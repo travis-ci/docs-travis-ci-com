@@ -19,7 +19,7 @@ deploy:
 Support for deployments to Gleis is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `app` | Gleis application to upload to &mdash; type: string, default: `repo name` |
 | `username` | Gleis username &mdash; **required**, type: string |

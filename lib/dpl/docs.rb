@@ -185,7 +185,7 @@ module Dpl
       KNOWN = <<~str
         ## Known options
 
-        Use the following options to further configure the deployment:
+        Use the following options to further configure the deployment. %s
 
         %s
       str
@@ -193,7 +193,7 @@ module Dpl
       SHARED = <<~str
         ### Shared options
 
-        %s
+        %s%s
       str
 
 
@@ -204,7 +204,16 @@ module Dpl
         opts = opts.reject { |opt| SKIP.include?(opt.name) }
         opts = opts.map { |opt| "| #{format_opt(opt)} |" }
         str = shared? ? SHARED : KNOWN
-        str % opts.join("\n")
+        str = str % [requireds, opts.join("\n")]
+        str.gsub(/ +$/, '')
+      end
+
+      def requireds
+        return if shared?
+        opts = cmd.required.map do |opts|
+          opts = opts.map { |opts| sentence(quote(*opts), 'and') }
+          "Either #{sentence(opts, 'or')} are required."
+        end.join(' ')
       end
 
       def opts
@@ -228,6 +237,15 @@ module Dpl
 
       def format_opt(opt)
         ["`#{opt.name}`", Obj.new(opt).format].join(' | ')
+      end
+
+      def quote(*strs)
+        strs.map { |str| "`#{str}`" }
+      end
+
+      def sentence(strs, sep = 'or')
+        return strs.join if strs.size == 1
+        [strs[0..-2].join(', '), strs[-1]].join(" #{sep} ")
       end
     end
 

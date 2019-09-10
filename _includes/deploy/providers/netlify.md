@@ -19,7 +19,7 @@ deploy:
 Support for deployments to Netlify is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `site` | A site ID to deploy to &mdash; **required**, type: string |
 | `auth` | An auth token to log in with &mdash; **required**, **secret**, type: string |

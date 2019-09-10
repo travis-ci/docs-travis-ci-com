@@ -20,7 +20,7 @@ deploy:
 Support for deployments to Google Cloud Store is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `access_key_id` | GCS Interoperable Access Key ID &mdash; **required**, **secret**, type: string |
 | `secret_access_key` | GCS Interoperable Access Secret &mdash; **required**, **secret**, type: string |

@@ -19,7 +19,7 @@ deploy:
 Support for deployments to Surge is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `login` | Surge login (the email address you use with Surge) &mdash; **required**, type: string |
 | `token` | Surge login token (can be retrieved with `surge token`) &mdash; **required**, **secret**, type: string |

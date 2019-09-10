@@ -18,7 +18,7 @@ deploy:
 Support for deployments to Heroku API is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `api_key` | Heroku API key &mdash; **required**, **secret**, type: string |
 

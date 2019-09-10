@@ -20,7 +20,7 @@ deploy:
 Support for deployments to Convox is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment:
+Use the following options to further configure the deployment.
 
 | `host` | type: string, default: `console.convox.com` |
 | `app` | **required**, type: string |
