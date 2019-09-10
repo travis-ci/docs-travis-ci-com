@@ -7,22 +7,14 @@ provider: pypi
 
 Travis CI can automatically release your Python package to [PyPI](https://pypi.python.org/) after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  > Note that if your PyPI password contains [special > characters](/user/encryption-keys#note-on-escaping-certain-symbols)
+  > you need to escape them before encrypting your password. Some people have [reported
+  > difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI
+  > with passwords containing anything except alphanumeric characters.
+{% endcapture %}
 
-```yaml
-deploy:
-  provider: pypi
-  username: <username>
-  password: <encrypted password>
-```
-{: data-file=".travis.yml"}
-
-{% include deploy/providers/pypi.md %}
-
-> Note that if your PyPI password contains [special > characters](/user/encryption-keys#note-on-escaping-certain-symbols)
-> you need to escape them before encrypting your password. Some people have [reported
-> difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI
-> with passwords containing anything except alphanumeric characters.
+{% include deploy/providers/pypi.md capture=capture %}
 
 ## Releasing to a self hosted PyPI
 

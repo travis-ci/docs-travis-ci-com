@@ -12,23 +12,24 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   - provider: s3
-    # rest of S3 deployment for <app>.zip
+    # rest of S3 deployment for your app
     # ⋮
   - provider: codedeploy
     access_key_id: <encrypted access_key_id>
     secret_access_key: <encrypted secret_access_key>
     bucket: <bucket>
-    key: path/to/<app>.zip
+    key: <bucket_key>
     application: <app>
     deployment_group: <deployment_group>
 ```
 {: data-file=".travis.yml"}
 
 Note that in this example, Travis CI will attempt to deploy to an existing
-CodeDeploy Application called `<app>` in AWS Region `us-east-1`. A complete
-example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
+CodeDeploy Application called `<app>` in AWS Region `us-east-1`.
 
-{% include deploy/providers/codedeploy.md %}
+A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
+
+{% include deploy/providers/codedeploy.md minimal=false %}
 
 ## Waiting for Deployments
 

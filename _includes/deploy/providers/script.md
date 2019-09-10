@@ -1,3 +1,18 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: script
+  script: <script>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Script is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.

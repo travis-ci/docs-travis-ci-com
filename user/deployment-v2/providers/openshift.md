@@ -7,17 +7,6 @@ provider: openshift
 
 Travis CI can automatically deploy to [OpenShift](https://www.openshift.com/) after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: openshift
-  server: <server>
-  token: <encrypted token>
-  project: <project>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/openshift.md %}
 
 ## Specifying the application name

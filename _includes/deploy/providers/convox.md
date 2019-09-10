@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: convox
+  app: <app>
+  rack: <rack>
+  password: <password>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Convox is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.

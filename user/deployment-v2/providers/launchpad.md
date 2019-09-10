@@ -12,25 +12,14 @@ To automatically trigger an import:
 * [Register](https://launchpad.net/projects/+new) a project on Launchpad and then [import](https://code.launchpad.net/+code-imports/+new) your GitHub project there.
 * [Generate](https://help.launchpad.net/API/SigningRequests) an API **access token** that we can use to trigger a new code import. Please make sure that the `oauth_consumer_key` is set to `Travis Deploy`.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  The `slug` contains user or team name, project name, and branch name, and is
+  formatted like `~user-name/project-name/branch-name`. If your project's code is
+  a git repository, the form is `~user-name/project-name/+git/repository-name`.
+  You can find your project's slug in the header (and the url) of its
+  `code.launchpad.net` page.
+{% endcapture %}
 
-```yaml
-deploy:
-  provider: launchpad
-  slug: <project slug>
-  oauth_token: <encrypted oauth_token>
-  oauth_token_secret: <encrypted oauth_token_secret>
-```
-{: data-file=".travis.yml"}
-
-The `slug` contains user or team name, project name, and branch name, and is
-formatted like `~user-name/project-name/branch-name`. If your project's code is
-a git repository, the form is `~user-name/project-name/+git/repository-name`.
-You can find your project's slug in the header (and the url) of its
-`code.launchpad.net` page.
-
-<figure><img alt="Launchpad slug" src="/images/launchpad-slug.png"/></figure>
-
-{% include deploy/providers/launchpad.md %}
+{% include deploy/providers/launchpad.md content=content %}
 
 {% include deploy/shared.md %}

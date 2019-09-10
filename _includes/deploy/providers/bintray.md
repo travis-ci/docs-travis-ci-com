@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: bintray
+  user: <user>
+  key: <encrypted key>
+  file: <file>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Bintray is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -20,5 +37,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `BINTRAY_`.
 
 For example, `key` can be given as `BINTRAY_KEY=<key>`.
-
 {% include deploy/secrets.md name="key" env_name="BINTRAY_KEY" %}

@@ -8,15 +8,6 @@ provider: heroku
 Travis CI can automatically deploy your [Heroku](https://www.heroku.com/)
 application after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: heroku
-  api_key: <encrypted api_key>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/heroku_git.md %}
 
 ## Specifying the application name

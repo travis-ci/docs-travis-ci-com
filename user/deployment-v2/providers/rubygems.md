@@ -7,15 +7,6 @@ provider: rubygems
 
 Travis CI can automatically release your Ruby gem to [RubyGems](https://rubygems.org/) after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: rubygems
-  api_key: <encrypted api_key>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/rubygems.md %}
 
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api).

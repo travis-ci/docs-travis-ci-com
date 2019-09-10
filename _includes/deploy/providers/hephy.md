@@ -1,3 +1,21 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: hephy
+  controller: <controller>
+  username: <username>
+  password: <encrypted password>
+  app: <app>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Hephy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -22,5 +40,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `HEPHY_`.
 
 For example, `password` can be given as `HEPHY_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="HEPHY_PASSWORD" %}

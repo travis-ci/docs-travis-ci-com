@@ -7,16 +7,6 @@ provider: puppetforge
 
 Travis CI can automatically deploy your modules to [Puppet Forge ](https://forge.puppet.com/) or to your own Forge instance after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: puppetforge
-  user: <user>
-  password: <encrypted password>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/puppetforge.md %}
 
 ## Deploying to a custom Forge

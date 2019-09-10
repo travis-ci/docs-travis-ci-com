@@ -1,3 +1,19 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: surge
+  login: <login>
+  token: <encrypted token>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Surge is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -20,5 +36,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `SURGE_`.
 
 For example, `token` can be given as `SURGE_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="SURGE_TOKEN" %}

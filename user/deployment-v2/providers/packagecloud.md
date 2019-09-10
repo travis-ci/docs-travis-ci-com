@@ -8,29 +8,29 @@ provider: packagecloud
 Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package build
 artifacts to [packagecloud.io](https://packagecloud.io/) after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  Note that your repository name should not have a forward slash in it: For
+  example if your repository appears as `username/repo` on packagecloud.io, the
+  `repository` option is `repo` and the `username` option is `username`.
 
-```yaml
-deploy:
-  provider: packagecloud
-  repository: <repository>
-  username: <username>
-  token: <encrypted token>
-  dist: <dist> # required for debian, rpm, and node.js packages, e.g. 'centos/5'
-```
-{: data-file=".travis.yml"}
+  You can retrieve your api token by logging in and visiting the [API Token](https://packagecloud.io/api_token)
+  page under Account Settings.
 
-{% include deploy/providers/packagecloud.md %}
+  Additionally, for Debian, RPM, and Node.js packages the `dist` option is required:
 
-Note that your repository name should not have a forward slash in it: For
-example if your repository appears as `username/repo` on packagecloud.io, the
-`repository` option is `repo` and the `username` option is `username`.
+  ```yaml
+  deploy:
+    provider: packagecloud
+    # ⋮
+    dist: <dist> # required for , e.g. 'centos/5'
+  ```
+  {: data-file=".travis.yml"}
 
-You can retrieve your api token by logging in and visiting the [API Token](https://packagecloud.io/api_token)
-page under Account Settings.
+  The list of supported distributions for the `dist` option can be found
+  [here](https://packagecloud.io/docs#os_distro_version).
+{% endcapture %}
 
-The list of supported distributions for the `dist` option can be found
-[here](https://packagecloud.io/docs#os_distro_version).
+{% include deploy/providers/packagecloud.md content=content %}
 
 ### Specifying a package folder
 

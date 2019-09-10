@@ -8,16 +8,6 @@ provider: bitballoon
 Travis CI can automatically deploy files to [Netlify Drop](https://app.netlify.com/drop)
 after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: netlify
-  site: <site>
-  auth: <encrypted auth>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/netlify.md %}
 
 ## Deploying a specific directory

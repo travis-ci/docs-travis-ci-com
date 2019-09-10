@@ -1,3 +1,18 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: gae
+  project: <project>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Google App Engine is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.

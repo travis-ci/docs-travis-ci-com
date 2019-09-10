@@ -19,9 +19,9 @@ step](/user/deployment/custom/) or [script provider](/user/deployment/providers/
 
 {% include deploy/pull_requests.md %}
 {% include deploy/maturity_levels.md %}
+{% include deploy/secrets.md name="password" env_name="<PROVIDER_NAME>_PASSWORD" %}
 {% include deploy/conditional.md %}
 {% include deploy/cleanup.md %}
 {% include deploy/before_after_deploy.md %}
 {% include deploy/multiple_targets.md %}
-{% include deploy/secrets.md name="password" env_name="<PROVIDER_NAME>_PASSWORD" %}
 {% include deploy/edge.md %}

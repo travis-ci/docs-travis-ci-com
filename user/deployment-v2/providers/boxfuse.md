@@ -7,18 +7,24 @@ provider: boxfuse
 
 Travis CI can automatically deploy your [Boxfuse](https://boxfuse.com/) application after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  You also might want to also specify the `payload` option:
 
-```yaml
-deploy:
-  provider: boxfuse
-  user: <user>
-  secret: <encrypted secret>
-  payload: <path/to/artifact> # typically a jar, war, tar.gz or zip file
-```
-{: data-file=".travis.yml"}
+  ```yaml
+  deploy:
+    provider: boxfuse
+    # ⋮
+    payload: <path/to/artifact> # typically a jar, war, tar.gz or zip file
+  ```
+  {: data-file=".travis.yml"}
 
-{% include deploy/providers/boxfuse.md %}
+  If no `payload` is specified, Boxfuse will automatically search for a
+  compatible payload to fuse within the current directory. If the command is
+  executed at the root of a Maven, Gradle or SBT project, the output directory of
+  that project will be automatically scanned as well.
+{% endcapture %}
+
+{% include deploy/providers/boxfuse.md content=content %}
 
 Finally you can also configure Boxfuse by placing a `boxfuse.conf` file in the
 root of your repository. More info about configuration in the

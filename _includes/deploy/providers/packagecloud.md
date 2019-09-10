@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: packagecloud
+  username: <username>
+  token: <encrypted token>
+  repository: <repository>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Packagecloud is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -26,5 +43,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `PACKAGECLOUD_`.
 
 For example, `token` can be given as `PACKAGECLOUD_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="PACKAGECLOUD_TOKEN" %}

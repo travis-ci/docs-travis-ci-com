@@ -1,3 +1,21 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: anynines
+  username: <username>
+  password: <encrypted password>
+  organization: <organization>
+  space: <space>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Anynines is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -10,7 +28,7 @@ Use the following options to further configure the deployment:
 | `organization` | anynines organization &mdash; **required**, type: string |
 | `space` | anynines space &mdash; **required**, type: string |
 | `app_name` | Application name &mdash; type: string |
-| `buildpack` | Custom buildpack name or Git URL &mdash; type: string |
+| `buildpack` | Buildpack name or Git URL &mdash; type: string |
 | `manifest` | Path to the manifest &mdash; type: string |
 
 ### Shared options
@@ -23,5 +41,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `ANYNINES_`.
 
 For example, `password` can be given as `ANYNINES_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="ANYNINES_PASSWORD" %}

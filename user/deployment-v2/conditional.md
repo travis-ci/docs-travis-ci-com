@@ -9,11 +9,8 @@ option for any deployment provider.
 
 ```yaml
 deploy:
-  provider: s3
-  access_key_id: "YOUR AWS ACCESS KEY"
-  secret_access_key: "YOUR AWS SECRET KEY"
-  bucket: "S3 Bucket"
-  skip_cleanup: true
+  provider: <provider>
+  # ⋮
   on:
     branch: release
     condition: $MY_ENV = value
@@ -30,7 +27,8 @@ To deploy only when the build occurs on a particular repository, add `repo` in t
 
 ```yaml
 deploy:
-  provider: s3
+  provider: <provider>
+  # ⋮
   on:
     repo: travis-ci/dpl
 ```
@@ -42,19 +40,21 @@ By default, deployments will only happen on the `master` branch. You can overwri
 
 For example, to deploy on the `production` branch only use:
 
- ```yaml
- deploy:
-   provider: s3
-   on:
-     branch: production
- ```
- {: data-file=".travis.yml"}
+```yaml
+deploy:
+  provider: <provider>
+  # ⋮
+  on:
+    branch: production
+```
+{: data-file=".travis.yml"}
 
 In order to deploy from all branches:
 
 ```yaml
 deploy:
-  provider: s3
+  provider: <provider>
+  # ⋮
   on:
     all_branch: true
 ```
@@ -65,13 +65,14 @@ deploy:
 You can specify a single Bash `condition` that needs to evaluate to `true` in
 order for the deployment to happen.
 
-This must be a string value and is going to be wrapped into `if [[ <condition> ]]; then <deploy>; fi`.
+This must be a string value that will be wrapped into `if [[ <condition> ]]; then <deploy>; fi`.
 
 For example, in order to only deploy if `$CC` is `gcc` use:
 
 ```yaml
 deploy:
   provider: s3
+  # ⋮
   on:
     condition: $CC = gcc
 ```
@@ -87,7 +88,8 @@ For example, in order to deploy on tag builds only:
 
 ```yaml
 deploy:
-  provider: s3
+  provider: <provider>
+  # ⋮
   on:
     tags: true
 ```

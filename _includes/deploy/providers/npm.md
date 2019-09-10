@@ -1,3 +1,18 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: npm
+  api_token: <encrypted api_token>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to npm is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -23,5 +38,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `NPM_`.
 
 For example, `api_token` can be given as `NPM_API_TOKEN=<api_token>`.
-
 {% include deploy/secrets.md name="api_token" env_name="NPM_API_TOKEN" %}

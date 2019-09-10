@@ -1,3 +1,27 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: releases
+  token: <encrypted token>
+```
+{: data-file=".travis.yml"}
+
+Alternatively, you can use `username` and `password`:
+
+```yaml
+deploy:
+  provider: releases
+  username: <username>
+  password: <encrypted password>
+```
+{: data-file=".travis.yml"}
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to GitHub Releases is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -30,6 +54,8 @@ Use the following options to further configure the deployment:
 
 All options can be given as environment variables if prefixed with `GITHUB_` or `RELEASES_`.
 
-For example, `token` can be given as `GITHUB_TOKEN=<token>` or `RELEASES_TOKEN=<token>`.
+For example, `token` can be given as 
 
+* `GITHUB_TOKEN=<token>` or 
+* `RELEASES_TOKEN=<token>`
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

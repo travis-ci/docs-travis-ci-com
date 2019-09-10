@@ -1,3 +1,21 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: bluemixcloudfoundry
+  username: <username>
+  password: <encrypted password>
+  organization: <organization>
+  space: <space>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Bluemix Cloud Foundry is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -12,7 +30,7 @@ Use the following options to further configure the deployment:
 | `region` | Bluemix region &mdash; type: string, default: `ng`, known values: `ng`, `eu-gb`, `eu-de`, `au-syd` |
 | `api` | Bluemix api URL &mdash; type: string |
 | `app_name` | Application name &mdash; type: string |
-| `buildpack` | Custom buildpack name or Git URL &mdash; type: string |
+| `buildpack` | Buildpack name or Git URL &mdash; type: string |
 | `manifest` | Path to the manifest &mdash; type: string |
 | `skip_ssl_validation` | Skip SSL validation &mdash; type: boolean |
 
@@ -26,5 +44,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `CLOUDFOUNDRY_`.
 
 For example, `password` can be given as `CLOUDFOUNDRY_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="CLOUDFOUNDRY_PASSWORD" %}

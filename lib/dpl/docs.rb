@@ -30,12 +30,17 @@ module Dpl
 
       def content
         parts = []
+        parts << minimal.to_s
         parts << maturity
         parts << opts.to_s
         parts << shared.to_s
         parts << env.to_s
         parts << secrets if secrets?
         parts.join("\n")
+      end
+
+      def minimal
+        Minimal.new(cmd)
       end
 
       def maturity
@@ -60,6 +65,86 @@ module Dpl
 
       def secrets?
         !!env.opt
+      end
+    end
+
+    class Minimal < Struct.new(:cmd)
+      STR = <<~str
+        {# unless include.minimal == false #}
+        For a minimal configuration, add the following to your `.travis.yml`:
+
+        ```yaml
+        deploy:
+          provider: %s
+        %s
+        ```
+        {: data-file=".travis.yml"}
+
+        %s
+
+        {{ include.content }}
+        {# endunless #}
+      str
+
+      ALT = <<~str
+        Alternatively, you can use %s:
+
+        ```yaml
+        deploy:
+          provider: %s
+        %s
+        ```
+        {: data-file=".travis.yml"}
+      str
+
+      def to_s
+        str = STR % [cmd.registry_key, format(opts), alt]
+        str.gsub('#', '%')
+      end
+
+      def alt
+        ALT % [alt_names, cmd.registry_key, format(alts)] if alts
+      end
+
+      def opts
+        return required unless cmd.required.any?
+        opts = Array(cmd.required.first.first)
+        opts = opts.map { |name| cmd.opts[name] }
+        opts + required
+      end
+
+      def alts
+        return unless cmd.required.any?
+        opts = Array(cmd.required.first.last)
+        opts = opts.map { |name| cmd.opts[name] }
+        opts + required
+      end
+
+      def alt_names
+        strs = alts.map { |opt| "`#{opt.name}`" }
+        sentence(strs, 'and')
+      end
+
+      def required
+        cmd.opts.select(&:required?)
+      end
+
+      def format(opts)
+        opts = opts.map { |opt| [opt.name, value(opt)].join(': ') }.join("\n")
+        opts = indent(opts, 2)
+      end
+
+      def value(opt)
+        "<#{'encrypted ' if opt.secret?}#{opt.name}>"
+      end
+
+      def indent(str, width)
+        str.split("\n").map { |str| "#{" " * width}#{str}" }.join("\n")
+      end
+
+      def sentence(strs, sep = 'or')
+        return strs.join if strs.size == 1
+        [strs[0..-2].join(', '), strs[-1]].join(" #{sep} ")
       end
     end
 
@@ -152,7 +237,7 @@ module Dpl
 
         All options can be given as environment variables if prefixed with %s.
 
-        For example, `%s` can be given as %s.
+        For example, `%s` can be given as %s
       str
 
       def opt
@@ -160,7 +245,8 @@ module Dpl
       end
 
       def to_s
-        opt ? STR % [pattern, opt.name, example] : nil
+        str = opt ? STR % [pattern, opt.name, example] : nil
+        str.strip if str
       end
 
       def pattern
@@ -173,7 +259,7 @@ module Dpl
       def example
         strs = env.strs.map { |str| format(opt, str, '_') }
         strs += env.strs.map { |str| format(opt, str) } if env.opts[:allow_skip_underscore]
-        sentence(strs)
+        bullets(strs)
       end
 
       def example_name
@@ -184,7 +270,12 @@ module Dpl
         "`#{str}#{sep}#{opt.name.upcase}=<#{opt.name}>`"
       end
 
-      def sentence(strs)
+      def bullets(strs)
+        return "#{strs.join}." if strs.size == 1
+        "\n\n#{strs.map { |str| "* #{str}" }.join(" or \n")}\n"
+      end
+
+      def sentence(strs, sep = ' or ')
         return strs.join if strs.size == 1
         [strs[0..-2].join(', '), strs[-1]].join(' or ')
       end

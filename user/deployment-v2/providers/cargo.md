@@ -8,19 +8,10 @@ provider: cargo
 Travis CI can automatically release your Rust crate to [crates.io](https://crates.io)
 after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  The API token can be obtained by logging in to your [crates.io](https://crates.io)
+  account, and generating a new token at <https://crates.io/me>.
+{% endcapture %}
 
-```yaml
-language: rust
-deploy:
-  provider: cargo
-  token: <encrypted token>
-```
-{: data-file=".travis.yml"}
-
-The API token can be obtained by logging in to your [crates.io](https://crates.io)
-account, and generating a new token at <https://crates.io/me>.
-
-{% include deploy/providers/cargo.md %}
-
+{% include deploy/providers/cargo.md content=content %}
 {% include deploy/shared.md tags=true %}

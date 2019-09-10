@@ -23,7 +23,7 @@ Then go to the [Google Cloud Console Dashboard](http://console.developers.google
 
 Add this file as an [encrypted file](/user/encrypting-files/) to your repository and `.travis.yml` file.
 
-{% include deploy/providers/gae.md %}
+{% include deploy/providers/gae.md minimal=false %}
 
 ### Project to deploy
 

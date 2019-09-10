@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: openshift
+  server: <server>
+  token: <encrypted token>
+  project: <project>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to OpenShift is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -20,5 +37,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `OPENSHIFT_`.
 
 For example, `token` can be given as `OPENSHIFT_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="OPENSHIFT_TOKEN" %}

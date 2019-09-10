@@ -1,3 +1,18 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: snap
+  token: <encrypted token>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Snap is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -19,5 +34,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `SNAP_`.
 
 For example, `token` can be given as `SNAP_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="SNAP_TOKEN" %}

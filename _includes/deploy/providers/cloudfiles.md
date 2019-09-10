@@ -1,3 +1,21 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: cloudfiles
+  username: <username>
+  api_key: <encrypted api_key>
+  region: <region>
+  container: <container>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Cloud Files is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -22,5 +40,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `CLOUDFILES_`.
 
 For example, `api_key` can be given as `CLOUDFILES_API_KEY=<api_key>`.
-
 {% include deploy/secrets.md name="api_key" env_name="CLOUDFILES_API_KEY" %}

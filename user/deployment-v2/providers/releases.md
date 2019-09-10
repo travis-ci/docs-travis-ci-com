@@ -22,7 +22,7 @@ deploy:
 This configuration will use the given GitHub OAuth token to upload the
 specified file (relative to the working directory) on tagged builds.
 
-{% include deploy/providers/releases.md %}
+{% include deploy/providers/releases.md minimal=false %}
 
 ## Authenticating with an OAuth token
 

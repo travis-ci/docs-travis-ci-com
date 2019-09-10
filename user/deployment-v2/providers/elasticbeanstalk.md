@@ -8,19 +8,6 @@ provider: elasticbeanstalk
 Travis CI can automatically deploy your application to [Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/)
 after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: elasticbeanstalk
-  access_key_id: <encrypted access_key_id>
-  secret_access_key: <encrypted secret_access_key>
-  region: <region>
-  env: <env>
-  bucket: <bucket>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/elasticbeanstalk.md %}
 
 ## Creating an application without deploying it

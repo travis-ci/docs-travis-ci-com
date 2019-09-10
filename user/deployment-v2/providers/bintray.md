@@ -8,17 +8,6 @@ provider: bintray
 Travis CI can automatically upload build artifacts to [Bintray](https://bintray.com/)
 after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: bintray
-  file: <descriptor_file>
-  user: <user>
-  key: <encrypted key>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/bintray.md %}
 
 ## Descriptor file

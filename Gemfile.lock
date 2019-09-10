@@ -17,9 +17,8 @@ GIT
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
 
-GIT
-  remote: https://github.com/travis-ci/dpl
-  revision: 7be003d29fb804ca599a3a993ec700eb13118091
+PATH
+  remote: ../dpl
   specs:
     dpl (2.0.0.alpha.4)
       cl (~> 1.0)

@@ -1,3 +1,19 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: netlify
+  site: <site>
+  auth: <encrypted auth>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Netlify is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -22,5 +38,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `NETLIFY_`.
 
 For example, `auth` can be given as `NETLIFY_AUTH=<auth>`.
-
 {% include deploy/secrets.md name="auth" env_name="NETLIFY_AUTH" %}

@@ -1,3 +1,19 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: chef_supermarket
+  user_id: <user_id>
+  category: <category>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Chef Supermarket is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.

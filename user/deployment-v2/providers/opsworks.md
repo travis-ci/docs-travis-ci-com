@@ -7,25 +7,15 @@ provider: opsworks
 
 Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en/opsworks/) application after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  You can obtain your AWS Access Key Id and your AWS Secret Access Key from
+  [here](https://console.aws.amazon.com/iam/home?#security_credential).
 
-```yaml
-deploy:
-  provider: opsworks
-  access_key_id: <encrypted access_key_id>
-  secret_access_key: <encrypted secret_access_key>
-  app_id: <app_id>
-```
-{: data-file=".travis.yml"}
+  `region` defaults to `us-east-1`. If your application is located in a different
+  region you will see an error `Unable to find app`.
+{% endcapture %}
 
-You can obtain your AWS Access Key Id and your AWS Secret Access Key from
-[here](https://console.aws.amazon.com/iam/home?#security_credential).
-
-{% include deploy/providers/opsworks.md %}
-
-`region` defaults to `us-east-1`. If your application is located in a different
-region you will get an error like "OpsWorks service error: Unable to find app
-with ID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+{% include deploy/providers/opsworks.md content=content %}
 
 ### Migrate the Database
 

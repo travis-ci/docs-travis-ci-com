@@ -7,16 +7,6 @@ provider: testfairy
 
 Travis CI can automatically deploy your Android and iOS Apps to [TestFairy](https://www.testfairy.com/).
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: testfairy
-  api_key: <encrypted api_key>
-  app_file: <app_file> # APK/IPA
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/testfairy.md %}
 
 You can find your API key on [TestFairy settings page](https://app.testfairy.com/settings/).

@@ -1,3 +1,18 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: cloud66
+  redeployment_hook: <encrypted redeployment_hook>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Cloud66 is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -17,5 +32,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `CLOUD66_`.
 
 For example, `redeployment_hook` can be given as `CLOUD66_REDEPLOYMENT_HOOK=<redeployment_hook>`.
-
 {% include deploy/secrets.md name="redeployment_hook" env_name="CLOUD66_REDEPLOYMENT_HOOK" %}

@@ -7,20 +7,11 @@ provider: gcs
 
 Travis CI supports uploading to Google Cloud Storage (GCS).
 
-A minimal configuration is:
+{% capture content %}
+  You can find your GCS Interoperable Access Keys [here](https://developers.google.com/storage/docs/migrating).
+{% endcapture %}
 
-```yaml
-deploy:
-  provider: gcs
-  access_key_id: <encrypted access_key_id>
-  secret_access_key: <encrypted secret_access_key>
-  bucket: "GCS Bucket"
-```
-{: data-file=".travis.yml"}
-
-You can find your GCS Interoperable Access Keys [here](https://developers.google.com/storage/docs/migrating).
-
-{% include deploy/providers/gcs.md %}
+{% include deploy/providers/gcs.md content=content %}
 
 ### Deploying a specific folder
 

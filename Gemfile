@@ -45,6 +45,7 @@ git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-f
 end
 
 group :dpl do
-  gem 'dpl', git: 'https://github.com/travis-ci/dpl'
+  # gem 'dpl', git: 'https://github.com/travis-ci/dpl'
+  gem 'dpl', path: '../dpl'
   gem 'cl'
 end

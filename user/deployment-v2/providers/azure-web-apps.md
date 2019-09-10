@@ -8,17 +8,6 @@ provider: azure_web_apps
 Travis CI can automatically deploy your [Azure Web App](https://azure.microsoft.com/en-us/services/app-service/web/)
 after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: azure_web_apps
-  username: <username>
-  password: <encrypted password>
-  site: <site>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/azure_web_apps.md %}
 
 ## Fetching Deployment Progress and Logs

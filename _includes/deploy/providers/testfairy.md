@@ -1,3 +1,19 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: testfairy
+  api_key: <encrypted api_key>
+  app_file: <app_file>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to TestFairy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -23,5 +39,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `TESTFAIRY_`.
 
 For example, `api_key` can be given as `TESTFAIRY_API_KEY=<api_key>`.
-
 {% include deploy/secrets.md name="api_key" env_name="TESTFAIRY_API_KEY" %}

@@ -8,16 +8,7 @@ provider: npm
 Travis CI can automatically release to [NPM](https://www.npmjs.com)
 or another npm-like registry after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml` (using NPM
-version 2+):
-
-```yaml
-deploy:
-  provider: npm
-  email: <email>
-  api_token: <encrypted api_token>
-```
-{: data-file=".travis.yml"}
+{% include deploy/providers/npm.md %}
 
 ## NPM auth token
 
@@ -31,8 +22,6 @@ to create a user, then open the `~/.npmrc` file:
 
 * For NPM v2+, use the `authToken` value.
 * For NPM ~1, use the `auth` value.
-
-{% include deploy/providers/npm.md %}
 
 ## Tagging releases
 

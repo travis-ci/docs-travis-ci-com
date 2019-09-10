@@ -11,20 +11,13 @@ Travis CI can automatically upload and release your app to the [Snap Store](http
 and a [growing set of Linux distributions](https://docs.snapcraft.io/core/install)
 with a single artefact.
 
-For a minimal configuration, add the following to your `.travis.yml`:
+{% capture content %}
+  The `snap` value should be a string that matches exactly one file when the
+  deployment starts. If the name of the snap file is not known ahead of time,
+  you can use a shell glob pattern, e.g. `*.snap`.
+{% endcapture %}
 
-```yaml
-deploy:
-  provider: snap
-  token: <encrypted token>
-```
-{: data-file=".travis.yml"}
-
-The `snap` value should be a string that matches exactly one file when the
-deployment starts. If the name of the snap file is not known ahead of time,
-you can use a shell glob pattern, e.g. `*.snap`.
-
-{% include deploy/providers/snap.md %}
+{% include deploy/providers/snap.md content=content %}
 
 ## Obtaining credentials
 

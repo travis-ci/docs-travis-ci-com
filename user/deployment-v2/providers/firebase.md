@@ -5,17 +5,8 @@ deploy: v2
 provider: firebase
 ---
 
-Travis CI can automatically deploy your application to [Firebase](https://firebase.google.com/)
+Travis CI can automatically deploy to [Firebase](https://firebase.google.com/)
 after a successful build.
-
-For a minimal configuration, all you need to do is add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: firebase
-  token: <encrypted token>
-```
-{: data-file=".travis.yml"}
 
 {% include deploy/providers/firebase.md %}
 

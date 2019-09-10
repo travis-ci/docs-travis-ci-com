@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: gcs
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
+  bucket: <bucket>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Google Cloud Store is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -25,5 +42,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `GCS_`.
 
 For example, `access_key_id` can be given as `GCS_ACCESS_KEY_ID=<access_key_id>`.
-
 {% include deploy/secrets.md name="access_key_id" env_name="GCS_ACCESS_KEY_ID" %}

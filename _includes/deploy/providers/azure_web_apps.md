@@ -1,3 +1,20 @@
+{% unless include.minimal == false %}
+For a minimal configuration, add the following to your `.travis.yml`:
+
+```yaml
+deploy:
+  provider: azure_web_apps
+  username: <username>
+  password: <encrypted password>
+  site: <site>
+```
+{: data-file=".travis.yml"}
+
+
+
+{{ include.content }}
+{% endunless %}
+
 ## Status
 
 Support for deployments to Azure Web Apps is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
@@ -21,5 +38,4 @@ Use the following options to further configure the deployment:
 All options can be given as environment variables if prefixed with `AZURE_WA_`.
 
 For example, `password` can be given as `AZURE_WA_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="AZURE_WA_PASSWORD" %}

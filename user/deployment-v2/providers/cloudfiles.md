@@ -7,22 +7,7 @@ provider: cloudfiles
 
 Travis CI can automatically upload your build to [Rackspace Cloud Files](https://www.rackspace.com/cloud/files/) after a successful build.
 
-For a minimal configuration, add the following to your `.travis.yml`:
-
-```yaml
-deploy:
-  provider: cloudfiles
-  username: <username>
-  api_key: <encrypted api_key>
-  region: <region>
-  container: <container>
-```
-{: data-file=".travis.yml"}
-
 {% include deploy/providers/cloudfiles.md %}
-
-      opt '--glob GLOB',      'Paths to upload', default: '**/*'
-      opt '--dot_match',      'Upload hidden files starting a dot'
 
 ## Specifying files to upload
 
