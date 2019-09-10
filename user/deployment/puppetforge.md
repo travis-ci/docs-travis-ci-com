@@ -1,6 +1,7 @@
 ---
 title: Puppet Forge Deployment
 layout: en
+deploy: v1
 
 ---
 

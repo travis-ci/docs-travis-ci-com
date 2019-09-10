@@ -1,6 +1,7 @@
 ---
 title: Azure Web App Deployment
 layout: en
+deploy: v1
 
 ---
 

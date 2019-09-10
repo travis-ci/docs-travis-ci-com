@@ -1,6 +1,7 @@
 ---
 title: npm Releasing
 layout: en
+deploy: v1
 ---
 
 Travis CI can automatically release your npm package to [npmjs.com][npmjs]

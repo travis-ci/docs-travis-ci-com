@@ -1,6 +1,7 @@
 ---
 title: Rackspace Cloud Files Deployment
 layout: en
+deploy: v1
 
 ---
 

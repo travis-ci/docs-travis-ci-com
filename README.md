@@ -9,7 +9,7 @@ Once you're done with your changes send a pull request. Thanks!
 
 ## How to check your edit before sending PR
 
-You can inspect how your edits will be reflected by the documentation site.
+You can inspect how your edits will be reflected by the documentation site. Either by clicking on the Netlify preview link in your Pull Request or building the docs locally.
 
 ### Install dependencies
 

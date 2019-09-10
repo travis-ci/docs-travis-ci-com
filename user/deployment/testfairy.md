@@ -1,6 +1,7 @@
 ---
 title: TestFairy deployment
 layout: en
+deploy: v1
 
 ---
 
