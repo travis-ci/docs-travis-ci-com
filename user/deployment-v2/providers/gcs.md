@@ -12,8 +12,8 @@ A minimal configuration is:
 ```yaml
 deploy:
   provider: gcs
-  access_key_id: <access_key_id>
-  secret_access_key: <secret_access_key>
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
   bucket: "GCS Bucket"
 ```
 {: data-file=".travis.yml"}

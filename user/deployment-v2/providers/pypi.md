@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: pypi
   username: <username>
-  password: <password>
+  password: <encrypted password>
 ```
 {: data-file=".travis.yml"}
 

@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
  deploy:
    provider: anynines
    username: <username>
-   password: <password>
+   password: <encrypted password>
    organization: <organziation>
    space: <space>
 ```

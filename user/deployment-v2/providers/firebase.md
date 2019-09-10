@@ -13,7 +13,7 @@ For a minimal configuration, all you need to do is add the following to your `.t
 ```yaml
 deploy:
   provider: firebase
-  token: <token>
+  token: <encrypted token>
 ```
 {: data-file=".travis.yml"}
 

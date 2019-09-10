@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: pages
-  token: <token>
+  token: <encrypted token>
   on:
     branch: master
 ```

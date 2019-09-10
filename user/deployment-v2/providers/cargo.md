@@ -14,7 +14,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 language: rust
 deploy:
   provider: cargo
-  token: <token>
+  token: <encrypted token>
 ```
 {: data-file=".travis.yml"}
 

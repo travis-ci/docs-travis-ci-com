@@ -15,7 +15,7 @@ deploy:
   provider: bintray
   file: <descriptor_file>
   user: <user>
-  key: <key>
+  key: <encrypted key>
 ```
 {: data-file=".travis.yml"}
 

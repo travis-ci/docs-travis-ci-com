@@ -14,7 +14,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: netlify
   site: <site>
-  auth: <auth>
+  auth: <encrypted auth>
 ```
 {: data-file=".travis.yml"}
 

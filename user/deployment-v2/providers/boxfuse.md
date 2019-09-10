@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: boxfuse
   user: <user>
-  secret: <secret>
+  secret: <encrypted secret>
   payload: <path/to/artifact> # typically a jar, war, tar.gz or zip file
 ```
 {: data-file=".travis.yml"}

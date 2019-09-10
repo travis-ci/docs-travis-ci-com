@@ -12,6 +12,8 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: lambda
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
   function_name: <function>
   handler_name: <hander>
   role: <role_arn>

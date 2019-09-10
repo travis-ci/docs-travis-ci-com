@@ -15,7 +15,7 @@ and add the following to your `.travis.yml`:
 deploy:
   provider: azure_web_apps
   username: <username>
-  password: <password>
+  password: <encrypted password>
   site: <site>
 ```
 {: data-file=".travis.yml"}

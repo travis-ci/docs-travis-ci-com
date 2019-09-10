@@ -18,8 +18,8 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: launchpad
   slug: <project slug>
-  oauth_token: <oauth_token>
-  oauth_token_secret: <oauth_token_secret>
+  oauth_token: <encrypted oauth_token>
+  oauth_token_secret: <encrypted oauth_token_secret>
 ```
 {: data-file=".travis.yml"}
 

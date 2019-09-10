@@ -13,8 +13,8 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: elasticbeanstalk
-  access_key_id: <access_key_id>
-  secret_access_key: <secret_access_key>
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
   region: <region>
   env: <env>
   bucket: <bucket>

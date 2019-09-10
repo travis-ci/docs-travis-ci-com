@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: cloud66
-  redeployment_hook: <url>
+  redeployment_hook: <encrypted url>
 ```
 {: data-file=".travis.yml"}
 

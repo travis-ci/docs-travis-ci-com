@@ -14,7 +14,7 @@ deploy:
   provider: hephy
   controller: <controller>
   username: <username>
-  password: <password>
+  password: <encrypted password>
   app: <app>
 ```
 {: data-file=".travis.yml"}

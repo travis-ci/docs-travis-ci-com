@@ -15,7 +15,7 @@ deploy:
   provider: packagecloud
   repository: <repository>
   username: <username>
-  token: <token>
+  token: <encrypted token>
   dist: <dist> # required for debian, rpm, and node.js packages, e.g. 'centos/5'
 ```
 {: data-file=".travis.yml"}

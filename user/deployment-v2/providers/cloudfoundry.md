@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
  deploy:
    provider: cloudfoundry
    username: <username>
-   password: <pasword>
+   password: <encrypted password>
    api: https://api.run.pivotal.io
    organization: <organization>
    space: <space>

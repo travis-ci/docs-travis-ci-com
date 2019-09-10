@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: rubygems
-  api_key: "YOUR API KEY"
+  api_key: <encrypted api_key>
 ```
 {: data-file=".travis.yml"}
 

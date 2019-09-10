@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: testfairy
-  api_key: <api_key>
+  api_key: <encrypted api_key>
   app_file: <app_file> # APK/IPA
 ```
 {: data-file=".travis.yml"}

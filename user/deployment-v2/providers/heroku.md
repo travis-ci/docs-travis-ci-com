@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: heroku
-  api_key: <api_key>
+  api_key: <encrypted api_key>
 ```
 {: data-file=".travis.yml"}
 

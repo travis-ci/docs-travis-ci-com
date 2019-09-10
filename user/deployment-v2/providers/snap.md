@@ -16,7 +16,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: snap
-  token: <token>
+  token: <encrypted token>
 ```
 {: data-file=".travis.yml"}
 

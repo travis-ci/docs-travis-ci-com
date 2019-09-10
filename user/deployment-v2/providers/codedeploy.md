@@ -15,8 +15,8 @@ deploy:
     # rest of S3 deployment for <app>.zip
     # ⋮
   - provider: codedeploy
-    access_key_id: <access_key_id>
-    secret_access_key: <secret_access_key>
+    access_key_id: <encrypted access_key_id>
+    secret_access_key: <encrypted secret_access_key>
     bucket: <bucket>
     key: path/to/<app>.zip
     application: <app>

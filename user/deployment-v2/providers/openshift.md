@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: openshift
   server: <server>
-  token: <token>
+  token: <encrypted token>
   project: <project>
 ```
 {: data-file=".travis.yml"}

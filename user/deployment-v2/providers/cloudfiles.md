@@ -13,7 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: cloudfiles
   username: <username>
-  api_key: <api_key>
+  api_key: <encrypted api_key>
   region: <region>
   container: <container>
 ```

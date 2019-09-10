@@ -15,7 +15,7 @@ version 2+):
 deploy:
   provider: npm
   email: <email>
-  api_token: <api_token>
+  api_token: <encrypted api_token>
 ```
 {: data-file=".travis.yml"}
 

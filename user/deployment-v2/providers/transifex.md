@@ -14,7 +14,7 @@ deploy:
   provider: transifex
   controller: <controller>
   username: <username>
-  password: <password>
+  password: <encrypted password>
   app: <app_name>
 ```
 {: data-file=".travis.yml"}

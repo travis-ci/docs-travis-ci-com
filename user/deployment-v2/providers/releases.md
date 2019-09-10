@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: releases
-  token: <token>
+  token: <encrypted token>
   file: <file>
   on:
     tags: true

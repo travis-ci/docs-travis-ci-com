@@ -12,7 +12,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: engineyard
-  api_key: <api_key> # or username and password
+  api_key: <encrypted api_key> # or username and password
 ```
 {: data-file=".travis.yml"}
 
