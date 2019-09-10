@@ -1,5 +1,6 @@
+{% if include.tags %}{% include deploy/tags.md %}{% endif %}
 {% include deploy/pull_requests.md %}
-{% if cleanup %}{% include deploy/cleanup.md %}{% endif %}
+{% if include.cleanup %}{% include deploy/cleanup.md %}{% endif %}
 
 ## See also
 

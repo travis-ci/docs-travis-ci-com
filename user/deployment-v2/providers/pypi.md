@@ -41,12 +41,13 @@ deploy:
 By default, only a source distribution ('sdist') will be uploaded to PyPI.
 If you would like to upload different distributions, specify them using the `distributions` option, like this:
 
-```
+```yaml
 deploy:
   provider: pypi
   # ⋮
   distributions: "sdist bdist_wheel" # Your distributions here
 ```
+{: data-file=".travis.yml"}
 
 If you specify `bdist_wheel` in the distributions, the `wheel` package will automatically be installed.
 
@@ -62,11 +63,13 @@ HTTPError: 400 Client Error: File already exists.
 
 To avoid this, use the `skip_existing` flag:
 
-```
+```yaml
 deploy:
   provider: pypi
   # ⋮
   skip_existing: true
 ```
+{: data-file=".travis.yml"}
 
-{% include deploy/shared.md %}
+{% include deploy/shared.md tags=true %}
+

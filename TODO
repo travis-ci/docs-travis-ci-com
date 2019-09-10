@@ -4,13 +4,14 @@ x normalize and extract talking about secrets and settings
 x normalize dasherized options to underscored options
 x normalize placeholder values to <username> or <encrypted password>
 x pages: fix keep_history
-
-- generate "Shared Options"
+x for package/registry providers restore the note that they'll probably want to use tags
+x generate "Shared Options"
 
 - consider removing `run` from all providers except Heroku and Engine Yard
 
 - add cleanup=true to the include on providers where this is relevant
-- for package/registry providers restore the note that they'll probably want to use tags
+
+- merge various conditions/branches sections into the conditions page
 
 - check: Cargo will refuse to publish crates from a dirty working directory
 - check: Deploy to a S3 hosted website

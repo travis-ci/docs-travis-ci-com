@@ -72,4 +72,5 @@ and avoid this error by adding the following to your `package.json` file:
   },
 ```
 
-{% include deploy/shared.md %}
+{% include deploy/shared.md tags=true %}
+

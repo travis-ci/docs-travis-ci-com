@@ -19,4 +19,4 @@ deploy:
 
 {% include deploy/providers/hackage.md %}
 
-{% include deploy/shared.md %}
+{% include deploy/shared.md tags=true %}

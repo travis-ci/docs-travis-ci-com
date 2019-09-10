@@ -16,6 +16,11 @@ Use the following options to further configure the deployment:
 | `update_on_success` | When wait-until-deployed and updated-on-success are both not given, application source is updated to the current SHA. Ignored when wait-until-deployed is not given. &mdash; type: boolean, alias: `update_app_on_success` |
 | `custom_json` | Custom json options override (overwrites default configuration) &mdash; type: string |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `AWS_` or `OPSWORKS_`.

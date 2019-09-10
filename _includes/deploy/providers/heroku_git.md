@@ -10,6 +10,13 @@ Use the following options to further configure the deployment:
 | `password` | Heroku password &mdash; **secret**, type: string |
 | `git` | Heroku Git remote URL &mdash; type: string |
 
+### Shared options
+
+| `strategy` | Heroku deployment strategy &mdash; type: string, default: `api`, known values: `api`, `git` |
+| `app` | Heroku app name &mdash; type: string, default: `repo name` |
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `HEROKU_`.

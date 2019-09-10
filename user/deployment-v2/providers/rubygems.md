@@ -98,4 +98,5 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-{% include deploy/shared.md %}
+{% include deploy/shared.md tags=true %}
+

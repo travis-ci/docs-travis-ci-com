@@ -11,3 +11,8 @@ Use the following options to further configure the deployment:
 | `client_key` | Client API key file name &mdash; type: string, default: `client.pem` |
 | `dir` | Directory containing the cookbook &mdash; type: string, default: `.` |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+

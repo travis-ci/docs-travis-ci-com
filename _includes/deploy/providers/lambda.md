@@ -28,6 +28,11 @@ Use the following options to further configure the deployment:
 | `zip` | Path to a packaged Lambda, a directory to package, or a single file to package &mdash; type: string, default: `.` |
 | `dot_match` | Include hidden .* files to the zipped archive &mdash; type: boolean |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `AWS_` or `LAMBDA_`.

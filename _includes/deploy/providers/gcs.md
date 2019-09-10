@@ -15,6 +15,11 @@ Use the following options to further configure the deployment:
 | `detect_encoding` | HTTP header Content-Encoding to set for files compressed with gzip and compress utilities. &mdash; type: boolean |
 | `cache_control` | HTTP header Cache-Control to suggest that the browser cache the file. &mdash; type: string, see: [https://cloud.google.com/storage/docs/xml-api/reference-headers#cachecontrol](https://cloud.google.com/storage/docs/xml-api/reference-headers#cachecontrol) |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `GCS_`.

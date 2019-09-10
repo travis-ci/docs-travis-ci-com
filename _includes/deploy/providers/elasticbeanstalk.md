@@ -18,6 +18,11 @@ Use the following options to further configure the deployment:
 | `only_create_app_version` | Only create the app version, do not actually deploy it &mdash; type: boolean |
 | `wait_until_deployed` | Wait until the deployment has finished &mdash; type: boolean |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `AWS_` or `ELASTIC_BEANSTALK_`.

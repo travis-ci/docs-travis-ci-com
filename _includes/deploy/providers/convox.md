@@ -18,3 +18,8 @@ Use the following options to further configure the deployment:
 | `description` | type: string |
 | `generation` | type: integer, default: `2` |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+

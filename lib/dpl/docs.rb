@@ -32,6 +32,7 @@ module Dpl
         parts = []
         parts << maturity
         parts << opts.to_s
+        parts << shared.to_s
         parts << env.to_s
         parts << secrets if secrets?
         parts.join("\n")
@@ -43,6 +44,10 @@ module Dpl
 
       def opts
         Opts.new(cmd)
+      end
+
+      def shared
+        Opts.new(cmd, true)
       end
 
       def env
@@ -91,8 +96,8 @@ module Dpl
       end
     end
 
-    class Opts < Struct.new(:cmd)
-      STR = <<~str
+    class Opts < Struct.new(:cmd, :shared?)
+      KNOWN = <<~str
         ## Known options
 
         Use the following options to further configure the deployment:
@@ -100,12 +105,40 @@ module Dpl
         %s
       str
 
+      SHARED = <<~str
+        ### Shared options
+
+        %s
+      str
+
+
+      SKIP = %i(help)
+
       def to_s
-        opts = cmd.opts
-        opts = opts.reject(&:internal?)
-        opts = opts - cmd.superclass.opts.to_a
+        opts = self.opts.reject(&:internal?)
+        opts = opts.reject { |opt| SKIP.include?(opt.name) }
         opts = opts.map { |opt| "| #{format_opt(opt)} |" }
-        STR % opts.join("\n")
+        str = shared? ? SHARED : KNOWN
+        str % opts.join("\n")
+      end
+
+      def opts
+        shared? ? shared : cmd.opts.to_a - shared
+      end
+
+      def shared
+        opts = []
+        const = cmd
+        until const == Cl::Cmd
+          opts.append(*opts_from(const.superclass))
+          const = const.superclass
+        end
+        opts
+      end
+
+      def opts_from(const)
+        return [] unless const.respond_to?(:opts)
+        const.opts.to_a - opts_from(const.superclass)
       end
 
       def format_opt(opt)

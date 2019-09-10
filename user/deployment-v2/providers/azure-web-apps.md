@@ -33,6 +33,7 @@ if you provide a correct user/password combination).
 ```yaml
 deploy:
   provider: azure_web_apps
+  # ⋮
   verbose: true
 ```
 {: data-file=".travis.yml"}
@@ -58,10 +59,15 @@ Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-stag
 ```yaml
 deploy:
 - provider: azure_web_apps
+  # ⋮
   slot: myapp-staging
+  on:
+    branch: master
 - provider: azure_web_apps
+  # ⋮
   slot: myapp-dev
-  on: dev
+  on:
+    branch: dev
 ```
 {: data-file=".travis.yml"}
 

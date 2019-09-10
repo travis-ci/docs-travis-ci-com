@@ -14,3 +14,8 @@ Use the following options to further configure the deployment:
 | `stop_previous_version` | Prevent the deployment from stopping a previously promoted version &mdash; type: boolean, default: `true` |
 | `install_sdk` | Do not install the Google Cloud SDK &mdash; type: boolean, default: `true` |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+

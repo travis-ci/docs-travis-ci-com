@@ -9,6 +9,11 @@ Use the following options to further configure the deployment:
 | `oauth_token_secret` | Launchpad OAuth token secret &mdash; **secret**, type: string |
 | `slug` | Launchpad project slug &mdash; type: string, format: `/^~[^\/]+\/[^\/]+\/[^\/]+$/`, e.g.: ~user-name/project-name/branch-name |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `LAUNCHPAD_`.

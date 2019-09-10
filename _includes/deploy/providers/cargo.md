@@ -7,6 +7,11 @@ Use the following options to further configure the deployment:
 
 | `token` | Cargo registry API token &mdash; **required**, **secret**, type: string |
 
+### Shared options
+
+| `cleanup` | Clean up build artifacts from the Git working directory before the deployment &mdash; type: boolean |
+| `run` | Commands to execute after the deployment finished successfully &mdash; type: string or array of strings |
+
 ## Environment variables
 
 All options can be given as environment variables if prefixed with `CARGO_`.

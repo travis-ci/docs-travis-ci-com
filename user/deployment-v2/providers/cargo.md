@@ -23,4 +23,4 @@ account, and generating a new token at <https://crates.io/me>.
 
 {% include deploy/providers/cargo.md %}
 
-{% include deploy/shared.md %}
+{% include deploy/shared.md tags=true %}

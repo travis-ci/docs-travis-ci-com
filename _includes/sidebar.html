@@ -71,6 +71,7 @@
       <ul>
         <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
         {% if page.deploy == 'v2' %}
+          <li><a href="/user/deployment-v2/conditional">Conditional Deployments</a></li>
           {% assign deployments = site.data.deployments_v2 %}
         {% else %}
           {% assign deployments = site.data.deployments %}
