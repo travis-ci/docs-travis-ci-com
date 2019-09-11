@@ -32,12 +32,12 @@ separate deploy configurations:
 deploy:
   - provider: engineyard
     # ⋮
-    environment: production
+    env: production
     on:
       branch: master
   - provider: engineyard
     # ⋮
-    environment: staging
+    env: staging
     on:
       branch: staging
 ```
@@ -50,11 +50,11 @@ deploy:
   - &deploy
     provider: engineyard
     # ⋮
-    environment: production
+    env: production
     on:
       branch: master
   - <<: *deploy
-    environment: staging
+    env: staging
     on:
       branch: staging
 ```
