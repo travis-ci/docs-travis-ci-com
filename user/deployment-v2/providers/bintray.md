@@ -56,7 +56,8 @@ The descriptor is in JSON file format in three sections:
     },
     {
       "includePattern": "build/docs/(.*)",
-      "uploadPattern": "docs/$1"
+      "uploadPattern": "docs/$1",
+      "listInDownloads": true
     }
   ],
   "publish": true
@@ -93,13 +94,17 @@ You can define one or more groups of patterns. Each group contains three pattern
   form of $1, $2,... that are replaced with capturing groups defined in the
   include pattern.
 
+If `listInDownloads` is set to `true` matching artifacts will appear in the
+"Download list" or "Direct downloads". This can be done only on published
+versions, so `publish` should be set to `true`.
+
 In the example above, the following files are uploaded:
 
 * All gem files located under `build/bin/` (including sub directories), except
   for files under a `do-not-deploy` directory. The files will be uploaded to
   Bintray under the `gems` folder.
 * All files under `build/docs`. The files will be uploaded to Bintray under the
-  `docs` folder.
+  `docs` folder, and will appear in the downloads list of the project overview.
 
 **Note:** Regular expressions defined as part of the `includePattern` and
 `excludePattern` properties must be wrapped with brackets.
