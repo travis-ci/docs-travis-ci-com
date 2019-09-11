@@ -622,3 +622,7 @@ jobs:
 
 
 This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
+
+## **Node**: Script execution before dependency installation causes build failures
+
+When adding custom setup instructions to a NodeJS build, care should be taken not to add these before _dependencies are installed_. The safest place to add custom setup scripts is in the `before_script` phase. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency. 
