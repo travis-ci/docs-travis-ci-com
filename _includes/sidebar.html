@@ -69,11 +69,12 @@
 
       <h3>Deployments and Uploads</h3>
       <ul>
-        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
         {% if page.deploy == 'v2' %}
+          <li class="is-overview"><a href="/user/deployment-v2/">Overview</a></li>
           <li><a href="/user/deployment-v2/conditional">Conditional Deployments</a></li>
           {% assign deployments = site.data.deployments_v2 %}
         {% else %}
+          <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
           {% assign deployments = site.data.deployments %}
         {% endif %}
         {% for deployment in deployments %}
