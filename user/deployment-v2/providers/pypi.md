@@ -1,5 +1,5 @@
 ---
-title: PyPI deployment
+title: PyPI Deployment
 layout: en
 deploy: v2
 provider: pypi

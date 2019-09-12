@@ -106,7 +106,7 @@ In the example above, the following files are uploaded:
 * All files under `build/docs`. The files will be uploaded to Bintray under the
   `docs` folder, and will appear in the downloads list of the project overview.
 
-**Note:** Regular expressions defined as part of the `includePattern` and
+> Regular expressions defined as part of the `includePattern` and
 `excludePattern` properties must be wrapped with brackets.
 
 ### Debian Upload

@@ -1,5 +1,5 @@
 ---
-title: Script deployment
+title: Script Deployment
 layout: en
 deploy: v2
 provider: script

@@ -6,7 +6,7 @@ step, so it might contain left over artifacts from previous steps.
 For many providers and deployment targets this is not an issue or even intended.
 
 If you do need to clean up the working directory from any changes made during
-the build process you can add the following to your `.travis.yml` file:
+the build process, you can add the following to your `.travis.yml` file:
 
 ```yaml
 deploy:

@@ -1,5 +1,5 @@
 ---
-title: TestFairy deployment
+title: TestFairy Deployment
 layout: en
 deploy: v2
 provider: testfairy

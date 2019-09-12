@@ -1,5 +1,5 @@
 ---
-title: Chef Supermarket deployment
+title: Chef Supermarket Deployment
 layout: en
 deploy: v2
 provider: chef_supermarket

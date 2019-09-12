@@ -36,7 +36,7 @@ GitHub releases. The suggested workaround is to create a [machine
 user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users)
 — a GitHub account that is granted write access on a per repository basis.
 
-## Authentication with a Username and Password
+## Authentication with a user name and password
 
 You can also authenticate with your GitHub username and password using the
 `user` and `password` options.

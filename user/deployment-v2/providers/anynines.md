@@ -1,5 +1,5 @@
 ---
-title: anynines Deployment
+title: Anynines Deployment
 layout: en
 deploy: v2
 provider: anynines

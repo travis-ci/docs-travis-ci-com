@@ -1,5 +1,5 @@
 ---
-title: Launchpad deployment
+title: Launchpad Deployment
 layout: en
 deploy: v2
 provider: launchpad

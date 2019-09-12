@@ -1,5 +1,5 @@
 ---
-title: Scalingo deployment
+title: Scalingo Deployment
 layout: en
 deploy: v2
 provider: scalingo
