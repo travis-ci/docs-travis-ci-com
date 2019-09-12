@@ -5,6 +5,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: script
   script: <script>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

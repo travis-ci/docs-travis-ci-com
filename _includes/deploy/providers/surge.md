@@ -6,6 +6,7 @@ deploy:
   provider: surge
   login: <login>
   token: <encrypted token>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

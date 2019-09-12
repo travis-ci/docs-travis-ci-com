@@ -70,20 +70,21 @@ module Dpl
 
     class Minimal < Struct.new(:cmd)
       STR = <<~str
-        {# unless include.minimal == false #}
+        {### unless include.minimal == false ###}
         For a minimal configuration, add the following to your `.travis.yml`:
 
         ```yaml
         deploy:
           provider: %s
         %s
+          edge: true # opt in to dpl v2
         ```
         {: data-file=".travis.yml"}
 
         %s
 
         {{ include.content }}
-        {# endunless #}
+        {### endunless ###}
       str
 
       ALT = <<~str
@@ -99,7 +100,7 @@ module Dpl
 
       def to_s
         str = STR % [cmd.registry_key, format(opts), alt]
-        str.gsub('#', '%')
+        str.gsub('###', '%')
       end
 
       def alt

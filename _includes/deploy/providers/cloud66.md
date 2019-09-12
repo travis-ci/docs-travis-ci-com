@@ -5,6 +5,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: cloud66
   redeployment_hook: <encrypted redeployment_hook>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 
