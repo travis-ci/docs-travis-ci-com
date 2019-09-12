@@ -4,6 +4,8 @@ layout: en
 deploy: v2
 ---
 
+{% include deploy/opt_in.md %}
+
 ## Supported Providers
 
 Continuous Deployment to the following providers is supported:

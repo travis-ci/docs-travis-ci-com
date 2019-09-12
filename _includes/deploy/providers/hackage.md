@@ -6,6 +6,7 @@ deploy:
   provider: hackage
   username: <username>
   password: <encrypted password>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

@@ -8,6 +8,7 @@ deploy:
   api_key: <encrypted api_key>
   region: <region>
   container: <container>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

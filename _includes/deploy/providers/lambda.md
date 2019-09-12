@@ -7,6 +7,7 @@ deploy:
   access_key_id: <encrypted access_key_id>
   secret_access_key: <encrypted secret_access_key>
   function_name: <function_name>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

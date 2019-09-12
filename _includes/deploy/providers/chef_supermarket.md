@@ -6,6 +6,7 @@ deploy:
   provider: chef_supermarket
   user_id: <user_id>
   category: <category>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

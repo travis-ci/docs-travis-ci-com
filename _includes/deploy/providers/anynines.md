@@ -8,6 +8,7 @@ deploy:
   password: <encrypted password>
   organization: <organization>
   space: <space>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

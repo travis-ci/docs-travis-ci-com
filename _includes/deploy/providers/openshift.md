@@ -7,6 +7,7 @@ deploy:
   server: <server>
   token: <encrypted token>
   project: <project>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

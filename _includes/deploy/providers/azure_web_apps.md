@@ -7,6 +7,7 @@ deploy:
   username: <username>
   password: <encrypted password>
   site: <site>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

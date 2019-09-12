@@ -10,5 +10,3 @@ after a successful build.
 
 {% include deploy/providers/cloudformation.md %}
 {% include deploy/shared.md %}
-
-

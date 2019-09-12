@@ -6,6 +6,7 @@ deploy:
   provider: netlify
   site: <site>
   auth: <encrypted auth>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

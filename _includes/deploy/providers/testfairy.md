@@ -6,6 +6,7 @@ deploy:
   provider: testfairy
   api_key: <encrypted api_key>
   app_file: <app_file>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

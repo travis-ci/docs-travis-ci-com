@@ -8,6 +8,7 @@ deploy:
   secret_access_key: <encrypted secret_access_key>
   env: <env>
   bucket: <bucket>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 
