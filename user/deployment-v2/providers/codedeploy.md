@@ -24,8 +24,8 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Note that in this example, Travis CI will attempt to deploy to an existing
-CodeDeploy Application called `<app>` in AWS Region `us-east-1`.
+In this example, your code will be deployed to an existing CodeDeploy
+application called `<app>` in AWS Region `us-east-1`.
 
 A complete example can be found [here](https://github.com/travis-ci/cat-party/blob/master/.travis.yml).
 
