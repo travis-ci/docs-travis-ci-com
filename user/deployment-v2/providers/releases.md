@@ -178,7 +178,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
+> Note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
 
 ## Troubleshooting Git Submodules
 
