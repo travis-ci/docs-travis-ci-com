@@ -15,7 +15,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Please note that the previous version of dpl, our deployment integration
+> Please note that the previous version of dpl, our deployment integration
 tooling, used to reset your working directory and delete all changes made
 during the build using `git stash --all`. In order to keep changes one had to
 opt out using `skip_cleanup: true`. This default turned out to be useful only

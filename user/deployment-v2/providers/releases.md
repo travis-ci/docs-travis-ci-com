@@ -117,7 +117,7 @@ one when the release is created.
 The GitHub-generated tags are of the form `untagged-*`, where `*` is a random
 hex string.
 
-Notice that this tag is immediately available on GitHub, and thus will trigger
+> Notice that this tag is immediately available on GitHub, and thus will trigger
 a new Travis CI build, unless it is prevented by other means; for instance, by
 [blocklisting `/^untagged/`](/user/customizing-the-build/#safelisting-or-blocklisting-branches).
 

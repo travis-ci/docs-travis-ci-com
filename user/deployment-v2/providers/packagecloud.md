@@ -9,7 +9,7 @@ Travis CI can automatically push your RPM, Deb, Deb source, or RubyGem package b
 artifacts to [packagecloud.io](https://packagecloud.io/) after a successful build.
 
 {% capture content %}
-  Note that your repository name should not have a forward slash in it: For
+ >  Note that your repository name should not have a forward slash in it: For
   example if your repository appears as `username/repo` on packagecloud.io, the
   `repository` option is `repo` and the `username` option is `username`.
 
