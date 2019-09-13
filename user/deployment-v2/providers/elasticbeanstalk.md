@@ -24,7 +24,7 @@ deploy:
 
 ## Controlling which files are included in the zip archive
 
-You can control which files are included in the zip archive you upload with
+You can control which files are included in the `.zip` archive you upload with
 `.ebignore` and `.gitignore`, as described in the [AWS CLI documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html).
 
 {% include deploy/shared.md %}
