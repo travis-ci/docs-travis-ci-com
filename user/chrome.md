@@ -6,7 +6,7 @@ layout: en
 
 The Google Chrome addon allows Travis CI builds to install Google Chrome at runtime.
 
-This addon supports both the Linux and [macOS](/user/reference/osx/) [build environment](https://docs.travis-ci.com/user/reference/overview/). For Linux, you must be running on [Ubuntu Xenial 16.04](https://docs.travis-ci.com/user/reference/xenial/) or later build environments.
+This addon supports both, Linux and [macOS](/user/reference/osx/) [build environments](https://docs.travis-ci.com/user/reference/overview/). For Linux, you must be running on [Ubuntu Xenial 16.04](https://docs.travis-ci.com/user/reference/xenial/) or later build environments.
 
 ## Selecting a Chrome version
 
