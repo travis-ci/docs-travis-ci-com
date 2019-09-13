@@ -30,7 +30,7 @@ Support for deployments to Engineyard is in **alpha**. Please see [Maturity Leve
 
 Use the following options to further configure the deployment. Either `api_key` or `email` and `password` are required.
 
-| `api_key` | Engine Yard API key &mdash; **secret**, type: string |
+| `api_key` | Engine Yard API key &mdash; **secret**, type: string, note: can be obtained at https://cloud.engineyard.com/cli |
 | `email` | Engine Yard account email &mdash; type: string |
 | `password` | Engine Yard password &mdash; **secret**, type: string |
 | `app` | Engine Yard application name &mdash; type: string, default: `repo name` |

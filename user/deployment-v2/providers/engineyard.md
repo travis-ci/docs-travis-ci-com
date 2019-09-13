@@ -7,7 +7,11 @@ provider: engineyard
 
 Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com/) application after a successful build.
 
-{% include deploy/providers/engineyard.md %}
+{% capture content %}
+  The Engine Yard API token can be obtained [here](https://cloud.engineyard.com/cli).
+{% endcapture %}
+
+{% include deploy/providers/engineyard.md content=content %}
 
 ### Application or Environment to deploy
 
