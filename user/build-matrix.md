@@ -311,14 +311,12 @@ php:
 matrix:
   include:
     - language: python
-      python:
-      - 3.6
+      python: 3.6
       script:
       - python -c "print('Hi from Python!')"
 
     - language: node_js
-      node_js:
-      - 9
+      node_js: 9
       script:
       - node -e "console.log('Hi from NodeJS!')"
 
