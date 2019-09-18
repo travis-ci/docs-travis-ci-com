@@ -8,7 +8,9 @@ provider: gcs
 Travis CI supports uploading to Google Cloud Storage (GCS).
 
 {% capture content %}
-  You can find your GCS Interoperable Access Keys [here](https://developers.google.com/storage/docs/migrating).
+  It is recommended to use a [service account key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
+  for authentication, and add it as an [encrypted file](/user/encrypting-files/) to your repository.
+  Alternatively, you can find per-user GCS Interoperable Access Keys [here](https://developers.google.com/storage/docs/migrating).
 {% endcapture %}
 
 {% include deploy/providers/gcs.md content=content %}
