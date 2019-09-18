@@ -9,16 +9,15 @@ Travis CI can automatically deploy your cookbook to [Chef Supermarket](https://s
 after a successful build.
 
 {% capture content %}
-Encrypt your client key by running the following command and add it to your
-`.travis.yml` file:
+  Encrypt your client key by running the following command and add it to your
+  `.travis.yml` file:
 
-```bash
-travis encrypt-file client.pem
-```
+  ```bash
+  travis encrypt-file client.pem
+  ```
 
-See [Encrypting Files](http://localhost:4000/user/encrypting-files/) for
-detailed instructions on how to add encrypted files to your repository and
-`.travis.yml` file.
+  See [Encrypting Files](/user/encrypting-files/) for instructions on adding
+  encrypted files to your repository and `.travis.yml` file.
 {% endcapture %}
 
 {% include deploy/providers/chef_supermarket.md content=content %}
