@@ -17,6 +17,7 @@ deploy:
   provider: gcs
   access_key_id: <encrypted access_key_id>
   secret_access_key: <encrypted secret_access_key>
+  bucket: <bucket>
 ```
 {: data-file=".travis.yml"}
 

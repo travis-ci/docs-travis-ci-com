@@ -104,7 +104,7 @@ module Dpl
       end
 
       def alt
-        ALT % [alt_names, cmd.registry_key, format(alts)] if alts
+        ALT % [alt_names, cmd.registry_key, format(alts + required)] if alts
       end
 
       def opts
