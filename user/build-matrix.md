@@ -328,6 +328,6 @@ matrix:
 {: data-file=".travis.yml"}
 This creates a build with 3 jobs as follows:
 
-* A PHP 5.6 + Python 3.6 job
-* A PHP 5.6 + NodeJS 9 job
-* A PHP 5.6 + Java8 job
+* A Python 3.6 job
+* A NodeJS 9 job
+* A Java8 job
