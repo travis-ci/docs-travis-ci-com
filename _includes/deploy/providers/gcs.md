@@ -4,13 +4,21 @@ For a minimal configuration, add the following to your `.travis.yml`:
 ```yaml
 deploy:
   provider: gcs
-  access_key_id: <encrypted access_key_id>
-  secret_access_key: <encrypted secret_access_key>
+  key_file: <key_file>
   bucket: <bucket>
   edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 
+Alternatively, you can use `access_key_id` and `secret_access_key`:
+
+```yaml
+deploy:
+  provider: gcs
+  access_key_id: <encrypted access_key_id>
+  secret_access_key: <encrypted secret_access_key>
+```
+{: data-file=".travis.yml"}
 
 
 {{ include.content }}
@@ -21,10 +29,11 @@ deploy:
 Support for deployments to Google Cloud Store is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment.
+Use the following options to further configure the deployment. Either `key_file` or `access_key_id` and `secret_access_key` are required.
 
-| `access_key_id` | GCS Interoperable Access Key ID &mdash; **required**, **secret**, type: string |
-| `secret_access_key` | GCS Interoperable Access Secret &mdash; **required**, **secret**, type: string |
+| `key_file` | Path to a GCS service account key JSON file &mdash; type: string |
+| `access_key_id` | GCS Interoperable Access Key ID &mdash; **secret**, type: string |
+| `secret_access_key` | GCS Interoperable Access Secret &mdash; **secret**, type: string |
 | `bucket` | GCS Bucket &mdash; **required**, type: string |
 | `local_dir` | Local directory to upload from &mdash; type: string, default: `.` |
 | `upload_dir` | GCS directory to upload to &mdash; type: string |

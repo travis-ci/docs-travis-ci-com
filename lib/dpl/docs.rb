@@ -117,8 +117,7 @@ module Dpl
       def alts
         return unless cmd.required.any?
         opts = Array(cmd.required.first.last)
-        opts = opts.map { |name| cmd.opts[name] }
-        opts + required
+        opts.map { |name| cmd.opts[name] }
       end
 
       def alt_names
