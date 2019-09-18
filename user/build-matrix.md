@@ -329,5 +329,5 @@ matrix:
 This creates a build with 3 jobs as follows:
 
 * A Python 3.6 job
-* A NodeJS 9 job
+* A  Node.js 9 job
 * A Java8 job
