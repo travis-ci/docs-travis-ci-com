@@ -153,12 +153,14 @@ If you're using tox to test your code against multiple versions of python, you h
 
 A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
 
+{% if site.data.language-details.python-versions.size > 0 %}
 ## Python versions
 
 {: #python-versions-table}
 | Release | Arch | Name |
 | :------------- | :------------- | :------- |{% for file in site.data.language-details.python-versions %}
 | {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
 
 ## Running Python tests on multiple Operating Systems
 
