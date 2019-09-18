@@ -330,4 +330,4 @@ This creates a build with 3 jobs as follows:
 
 * A Python 3.6 job
 * A  Node.js 9 job
-* A Java8 job
+* A Java OpenJDK 8 job
