@@ -323,7 +323,7 @@ matrix:
     - language: java
       jdk: openjdk8
       script:
-      - javac --help
+      - javac -help
 ```
 {: data-file=".travis.yml"}
 This creates a build with 3 jobs as follows:
