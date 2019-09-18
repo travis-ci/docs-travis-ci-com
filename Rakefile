@@ -164,8 +164,8 @@ task :update_lang_vers => [:write_netrc] do
   definitions.each do |lang, defs|
     sh "curl", "-f", "--netrc",
       "-H \"Accept: application/x-yaml\"",
-      "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}" \
-        " > _data/language-details/#{lang}-versions.yml"
+      "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
+      :out => "_data/language-details/#{lang}-versions.yml"
   end
 end
 
