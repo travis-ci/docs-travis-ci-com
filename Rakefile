@@ -6,6 +6,7 @@ abort('Please run this using `bundle exec rake`') unless ENV["BUNDLE_BIN_PATH"]
 require 'ipaddr'
 require 'json'
 require 'yaml'
+require 'netrc'
 
 require 'faraday'
 require 'html-proofer'
@@ -40,7 +41,7 @@ desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
 desc 'Builds the site (Jekyll and Slate)'
-task build: %i[regen make_api] do
+task build: %i[regen make_api update_lang_vers] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -153,4 +154,24 @@ end
 desc 'make API docs'
 task :make_api do
   sh 'bundle exec middleman build --clean'
+end
+
+LANG_ARCHIVE_HOST='travis-ci-nightly-builder.herokuapp.com'
+
+desc 'update language archive versions'
+task :update_lang_vers => [:write_netrc] do
+  definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
+  definitions.each do |lang, defs|
+    sh "curl", "-s", "--netrc",
+      "-H \"Accept: application/x-yaml\"",
+      "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}" \
+        " > _data/language-details/#{lang}-versions.yml"
+  end
+end
+
+desc 'Write lang archive credentials'
+task :write_netrc do
+  n = Netrc.read
+  n[LANG_ARCHIVE_HOST] = ENV.fetch("ARCHIVE_USER"), ENV.fetch("ARCHIVE_PASSWORD")
+  n.save
 end

@@ -4,10 +4,11 @@
 .rvmrc
 .sass-cache
 *.sw[op]
-# These files in _data are generated 
+# These files in _data are generated
 _data/*ip_range.yml
 _data/trusty*language*mapping*
 _data/node_js_versions.yml
+_data/language-details/*-versions.yml
 _site
 bin
 node_modules

@@ -95,7 +95,7 @@ python:
   - "2.7"
   - "3.7"
   # PyPy versions
-  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1 
+  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
   - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
 # command to install dependencies
 install:
@@ -152,6 +152,13 @@ If you're using tox to test your code against multiple versions of python, you h
   * use `language: python` and a build matrix that uses a different version of python for each branch (you can specify the python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload.
 
 A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
+
+## Python versions
+
+{: #python-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.python-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
 
 ## Running Python tests on multiple Operating Systems
 
@@ -241,3 +248,19 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 - [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 - [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+
+<script>
+var tf = new TableFilter(document.querySelector('#python-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
