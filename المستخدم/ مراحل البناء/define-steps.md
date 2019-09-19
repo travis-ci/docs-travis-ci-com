@@ -31,8 +31,8 @@ This is how the build matrix might look:
 
 ![image](https://cloud.githubusercontent.com/assets/2208/25947006/db306676-364d-11e7-89f7-81299ba8e630.png)
 
-You can find the code for this example on our [demo repository](https://github.com/travis-ci/build-stages-demo):
-
-* [Branch define-steps](https://github.com/travis-ci/build-stages-demo/tree/define-steps/)
+يمكنك العثور على رمز هذا المثال في [مستودع التجريبي] (https://github.com/travis-ci/build-stages-demo) :
+5
+* [تعريف الفرع - الخطوات] (https://github.com/travis-ci/build-stages-demo/tree/define-steps/)
 * [.travis.yml file](https://github.com/travis-ci/build-stages-demo/blob/define-steps/.travis.yml)
 * [Build on Travis CI](https://travis-ci.org/travis-ci/build-stages-demo/builds/231120401)
