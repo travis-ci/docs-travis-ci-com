@@ -46,7 +46,7 @@ the `addons.artifacts.paths` key like so:
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     paths:
     - $(git ls-files -o | tr "\n" ":")
     - $(ls /var/log/*.log | tr "\n" ":")
@@ -72,7 +72,7 @@ If you'd like to upload file from a specific directory, you can change your work
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     working_dir: out
 ```
 {: data-file=".travis.yml"}
@@ -101,7 +101,7 @@ on debug logging.
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     debug: true
 ```
 {: data-file=".travis.yml"}
