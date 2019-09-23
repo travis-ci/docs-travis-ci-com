@@ -29,8 +29,8 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
     - rvm: 2.5
       gemfile: gemfiles/Gemfile.rails-3.2.x
       env: ISOLATED=false
-    - rvm: 2.5
-      gemfile: gemfiles/Gemfile.rails-3.2.x
+    - rvm: 2.2
+      gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=true
   ```
   {: data-file=".travis.yml"}
