@@ -161,6 +161,27 @@ travis_run_after_success
 travis_run_after_failure
 travis_run_after_script
 ```
+### See what commands actually run
+
+You can get further insight on what these commands do.
+E.g.:
+```
+$ type travis_run_script
+travis_run_script is a function
+travis_run_script ()
+{
+    travis_cmd wget\ https://github.com/sormuras/bach/raw/master/install-jdk.sh --echo --timing;
+    travis_result $?;
+    travis_cmd which\ install-jdk.sh --echo --timing;
+    travis_result $?;
+    travis_cmd set\ -x --echo --timing;
+    travis_result $?;
+    travis_cmd source\ install-jdk.sh --echo --timing;
+    travis_result $?;
+    :
+}
+```
+`travis_cmd` basically executes the string argument (with escaped white spaces in the example above) and adds some decorations so that the output looks nice. In the debug sessions, you can run the string argument (unescaped) instead.
 
 ### Basic `tmate` features
 
@@ -232,3 +253,31 @@ executing any other command:
 ```
 nvm install $TRAVIS_NODE_VERSION
 ```
+### If the debug VM crashes when running one of the `travis_run_*` functions
+
+If your debug build crashes when running any of the specified commands, we suggest narrowing down 
+the issue as follows:
+
+1- First establish which `travis_run_*` command is failing e.g. `travis_run_before_install` crashes the debug VM.
+
+2- Run commands one by one within the phase to find the command that crashes the debug VM e.g. if `travis_run_before_install` crashes, run the commands from in the `before_install:` phase one by one.
+
+3- Make appropriate changes to the command that crashes the debug VM.
+
+4- Check `bash` options. Another common cause of unexpected debug session termination is that at some point 
+the [errexit](https://www.tldp.org/LDP/abs/html/options.html#OPTIONSREF) option is set (set -e or set -o errexit).
+ 
+You can confirm this with `echo $-` and check for `e` in the output:
+
+```
+$ echo $-
+himBH
+$ set -e
+$ echo $-
+ehimBH
+```
+With this option set, any command that exits with nonzero status will terminate the build (and the debug session, 
+If it's running). You can clear this option with set +e; this may allow debug sessions to continue.
+
+If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
+
