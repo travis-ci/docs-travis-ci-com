@@ -46,7 +46,7 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - 7
 ```
 {: data-file=".travis.yml"}
 

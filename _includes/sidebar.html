@@ -69,8 +69,15 @@
 
       <h3>Deployments and Uploads</h3>
       <ul>
-        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
-        {% for deployment in site.data.deployments %}
+        {% if page.deploy == 'v2' %}
+          <li class="is-overview"><a href="/user/deployment-v2/">Overview</a></li>
+          <li><a href="/user/deployment-v2/conditional">Conditional Deployments</a></li>
+          {% assign deployments = site.data.deployments_v2 %}
+        {% else %}
+          <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+          {% assign deployments = site.data.deployments %}
+        {% endif %}
+        {% for deployment in deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
         {% endfor %}
         <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
@@ -84,7 +91,7 @@
       <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
       <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
       <li><a href="/user/environment-variables/">Environment Variables</a></li>
-      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
+      <li><a href="/user/trusty-to-xenial-migration-guide/">Trusty to Xenial Migration Guide</a></li>
       <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
       <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
       </ul>

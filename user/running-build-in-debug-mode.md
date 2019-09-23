@@ -188,6 +188,19 @@ ctrl-b 0
 This switches your session's focus to the window with the index 0.
 You can substitute `0` with any valid index to switch to that window.
 
+```
+ctrl-b n
+```
+
+Switch to the next window.
+
+```
+ctrl-b p
+```
+
+Switch to the previous window.
+
+
 Switching between windows can be helpful if you want to run long-running process in
 one window while looking at the debug VM in another.
 
