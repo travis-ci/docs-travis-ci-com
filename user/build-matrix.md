@@ -298,3 +298,36 @@ matrix:
 {: data-file=".travis.yml"}
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
+
+## Using Different Programming Languages per Job
+You can also use the `matrix.include` feature to have different languages for each job in your build. For example,
+
+```yaml
+dist: xenial
+language: php
+php:
+  - '5.6'
+
+matrix:
+  include:
+    - language: python
+      python: 3.6
+      script:
+      - python -c "print('Hi from Python!')"
+
+    - language: node_js
+      node_js: 9
+      script:
+      - node -e "console.log('Hi from NodeJS!')"
+
+    - language: java
+      jdk: openjdk8
+      script:
+      - javac -help
+```
+{: data-file=".travis.yml"}
+This creates a build with 3 jobs as follows:
+
+* A Python 3.6 job
+* A  Node.js 9 job
+* A Java OpenJDK 8 job
