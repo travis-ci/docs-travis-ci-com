@@ -122,7 +122,7 @@ In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search throu
 
 ## Example Projects
 
-Below are a list of open source Julia projects utilizing Travis CI in different ways: 
+Here's a list of open-source Julia projects utilizing Travis CI in different ways: 
 
 1) [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
 2) [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
