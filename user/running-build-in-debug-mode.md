@@ -161,6 +161,27 @@ travis_run_after_success
 travis_run_after_failure
 travis_run_after_script
 ```
+### See what commands actually run
+
+You can get further insight on what these commands do.
+E.g.:
+```
+$ type travis_run_script
+travis_run_script is a function
+travis_run_script ()
+{
+    travis_cmd wget\ https://github.com/sormuras/bach/raw/master/install-jdk.sh --echo --timing;
+    travis_result $?;
+    travis_cmd which\ install-jdk.sh --echo --timing;
+    travis_result $?;
+    travis_cmd set\ -x --echo --timing;
+    travis_result $?;
+    travis_cmd source\ install-jdk.sh --echo --timing;
+    travis_result $?;
+    :
+}
+```
+`travis_cmd` basically executes the string argument (with escaped white spaces in the example above) and adds some decorations so that the output looks nice. In the debug sessions, you can run the string argument (unescaped) instead.
 
 ### Basic `tmate` features
 
@@ -243,4 +264,20 @@ the issue as follows:
 
 3- Make appropriate changes to the command that crashes the debug VM.
 
+4- Check `bash` options. Another common cause of unexpected debug session termination is that at some point 
+the [errexit](https://www.tldp.org/LDP/abs/html/options.html#OPTIONSREF) option is set (set -e or set -o errexit).
+ 
+You can confirm this with `echo $-` and check for `e` in the output:
+
+```
+$ echo $-
+himBH
+$ set -e
+$ echo $-
+ehimBH
+```
+With this option set, any command that exits with nonzero status will terminate the build (and the debug session, 
+If it's running). You can clear this option with set +e; this may allow debug sessions to continue.
+
 If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
+
