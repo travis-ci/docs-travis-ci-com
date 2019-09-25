@@ -24,7 +24,7 @@ $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/tra
 $ sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
 --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" \
---travis_beta_build_images=true
+--travis_build_images=xenial
 ```
 
 ## Restarting `travis-worker`
