@@ -773,7 +773,8 @@ _webhooks: <webhook-url>_
 
 ## Configuring multiple notifications with different trigger conditions
 
-Each of the notifiers described above can also take an array of hashes as configurations.
+Each of the notifiers described above can also take an array of hashes as configurations,
+each element being a configuration of that notifier as described above.
 This is useful when you want different notification behaviors based on build results.
 
 For example, you might have separate Slack channels for notifying successful builds and failing builds:
@@ -792,8 +793,8 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-If the event behavior is identical, it is more convenient to put the notification targets in a single place,
-though it is not necessary.
+Note that, if the event behavior is identical, it is more convenient to put the notification targets in a single place,
+if the notifier supports such a configuration.
 For example, the following three configurations are functionally equivalent.
 
 ```yaml
