@@ -86,6 +86,10 @@ Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage in
 about the tests it ran; it does not submit this information to any services.
 To submit coverage information, see the coverage section above.
 
+There are two scripts that describe the defualt behavior for using Julia with Travis CI:
+ [julia.rb](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/julia.rb)
+ and [julia_spec.rb](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/julia_spec.rb).
+
 ## Dependency Management
 
 If your Julia package has a `deps/build.jl` file, then `Pkg.build("$name")`
