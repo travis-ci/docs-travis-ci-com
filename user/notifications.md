@@ -771,6 +771,60 @@ _notifications:_
 _webhooks: <webhook-url>_
 4. Commit the _.travis.yml_ file to the root of your repository.
 
-## For the truly curious
+## Configuring multiple notifications with different trigger conditions
 
-Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks).
+Each of the notifiers described above can also take an array of hashes as configurations.
+This is useful when you want different notification behaviors based on build results.
+
+For example, you might have separate Slack channels for notifying successful builds and failing builds:
+
+```yaml
+notifications:
+  slack:
+    - rooms:
+        - <account>:<token>#failures
+      on_success: never
+      on_failure: always
+    - rooms:
+        - <account>:<token>#successes
+      on_success: always
+      on_failure: never
+```
+{: data-file=".travis.yml"}
+
+If the event behavior is identical, it is more convenient to put the notification targets in a single place,
+though it is not necessary.
+For example, the following three configurations are functionally equivalent.
+
+```yaml
+notifications:
+  # webhook targets in a single array
+  webhooks:
+    - http://your-domain.com/notifications
+    - http://another-domain.com/notifications
+```
+{: data-file=".travis.yml"}
+
+```yaml
+notifications:
+  # webhook targets in an array under the `urls` key
+  webhooks:
+    urls:
+      - http://your-domain.com/notifications
+      - http://another-domain.com/notifications
+```
+{: data-file=".travis.yml"}
+
+```yaml
+notifications:
+  # webhook targets in an array of hashes, each having the `urls` key
+  webhooks:
+    - urls: http://your-domain.com/notifications
+    - urls: http://another-domain.com/notifications
+```
+{: data-file=".travis.yml"}
+
+## How are the notifications delivered?
+
+Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks/tree/master/lib/travis/addons/).
+You can find the internal details of the notification delivery there.
