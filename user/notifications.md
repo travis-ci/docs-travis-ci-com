@@ -793,38 +793,6 @@ notifications:
 ```
 {: data-file=".travis.yml"}
 
-Note that, if the event behavior is identical, it is more convenient to put the notification targets in a single place,
-if the notifier supports such a configuration.
-For example, the following three configurations are functionally equivalent.
-
-```yaml
-notifications:
-  # webhook targets in a single array
-  webhooks:
-    - http://your-domain.com/notifications
-    - http://another-domain.com/notifications
-```
-{: data-file=".travis.yml"}
-
-```yaml
-notifications:
-  # webhook targets in an array under the `urls` key
-  webhooks:
-    urls:
-      - http://your-domain.com/notifications
-      - http://another-domain.com/notifications
-```
-{: data-file=".travis.yml"}
-
-```yaml
-notifications:
-  # webhook targets in an array of hashes, each having the `urls` key
-  webhooks:
-    - urls: http://your-domain.com/notifications
-    - urls: http://another-domain.com/notifications
-```
-{: data-file=".travis.yml"}
-
 ## How are the notifications delivered?
 
 Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks/tree/master/lib/travis/addons/).
