@@ -771,13 +771,13 @@ _notifications:_
 _webhooks: <webhook-url>_
 4. Commit the _.travis.yml_ file to the root of your repository.
 
-## Configuring multiple notifications with different trigger conditions
+## Configuring multiple notification targets with different configurations
 
 Each of the notifiers described above can also take an array of hashes as configurations,
 each element being a configuration of that notifier as described above.
 This is useful when you want different notification behaviors based on build results.
 
-For example, you might have separate Slack channels for notifying successful builds and failing builds:
+For example, you might have separate Slack channels for notifying successful builds and failing builds, using non-default templates:
 
 ```yaml
 notifications:
@@ -786,14 +786,15 @@ notifications:
         - <account>:<token>#failures
       on_success: never
       on_failure: always
+      template:
+        - "%{repository_slug} (%{commit}) : %{message}"
+        - "Build details: %{build_url}"
     - rooms:
         - <account>:<token>#successes
       on_success: always
       on_failure: never
+      template:
+        - "%{repository_slug} (%{commit}) : %{message}"
+        - "Build details: %{build_url}"
 ```
 {: data-file=".travis.yml"}
-
-## How are the notifications delivered?
-
-Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks/tree/master/lib/travis/addons/).
-You can find the internal details of the notification delivery there.
