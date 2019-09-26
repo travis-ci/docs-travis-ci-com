@@ -158,7 +158,7 @@ task :make_api do
   sh 'bundle exec middleman build --clean'
 end
 
-LANG_ARCHIVE_HOST='language-archive.travis-ci.com'
+LANG_ARCHIVE_HOST='language-archives.travis-ci.com'
 TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js'
 
 desc 'update language archive versions'
