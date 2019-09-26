@@ -34,11 +34,13 @@ default is to send a notification on every build.
 
 You can filter out and reject notifications by specifying a condition in your build configuration (your `.travis.yml` file) using `if`.
 
-For example, this will send notifications only on builds on the `master` branch:
+For example, this will send [Slack notifications](#configuring-slack-notifications) only on builds on the `master` branch:
 
 ```yaml
 # require the branch name to be master (note for PRs this is the base branch name)
-if: branch = master
+notifications:
+  slack:
+    if: branch = master
 ```
 {: data-file=".travis.yml"}
 
