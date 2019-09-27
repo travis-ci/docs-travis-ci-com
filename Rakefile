@@ -163,6 +163,10 @@ TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefi
 
 desc 'update language archive versions'
 task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
+  unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
+    puts "No credentials given. Not updating language versions data."
+    return
+  end
   definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
   definitions.each do |lang, defs|
     sh "curl", "-sSf", "--netrc",
@@ -175,7 +179,7 @@ end
 desc 'Write lang archive credentials'
 task :write_netrc do
   n = Netrc.read
-  n[LANG_ARCHIVE_HOST] = ENV.fetch("ARCHIVE_USER"), ENV.fetch("ARCHIVE_PASSWORD")
+  n[LANG_ARCHIVE_HOST] = ENV.["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
   n.save
 end
 
