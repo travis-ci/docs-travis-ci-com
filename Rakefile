@@ -179,7 +179,7 @@ end
 desc 'Write lang archive credentials'
 task :write_netrc do
   n = Netrc.read
-  n[LANG_ARCHIVE_HOST] = ENV.["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
+  n[LANG_ARCHIVE_HOST] = ENV["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
   n.save
 end
 
