@@ -113,7 +113,7 @@ Encrypt environment variables with the public key attached to your repository us
    * If you are using https://travis-ci.org, run:
 
        ```bash
-       travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
+       travis encrypt MY_SECRET_ENV=super_secret --add env.global
        ```
        
    * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys#usage).
