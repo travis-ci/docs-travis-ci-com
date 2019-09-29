@@ -108,11 +108,15 @@ Encrypt environment variables with the public key attached to your repository us
 
 1. If you do not have the `travis` gem installed, run `gem install travis`.
 
-2. In your repository directory, run:
+2. In your repository directory:
 
-   ```bash
-   travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
-   ```
+   * If you are using https://travis-ci.org, run:
+
+       ```bash
+       travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
+       ```
+       
+   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys#usage).
 
 3. Commit the changes to your `.travis.yml`.
 
