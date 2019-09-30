@@ -15,8 +15,10 @@ This guide covers build environment and configuration topics specific to
 
 Travis CI support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=julia)
+[Travis CI Julia Community Forums](https://travis-ci.community/c/languages/julia)
 and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
+
+For general Julia support on Travis CI go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.slack.com) in the __#testing__ channel.
 
 ## Choosing Julia versions to test against
 
@@ -92,7 +94,7 @@ to manually install any dependencies that are not handled by `deps/build.jl`,
 it is possible to specify a custom dependency installation command as described
 in the [general build configuration](/user/customizing-the-build/) guide.
 
-In a rare case, you may need to clone a private repo if it is a depenedancy of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below to see how that is done: 
+In a rare case, you may need to clone a private repo if it is a dependency of the repo you are trying to test. To add a private repo, check out the link here: [Private Dependencies](/user/private-dependencies/).  Once you have the repo added, you will need to copy it to your julia folder and then run the default build script.  Check out the script below for __Linux__ to see how that is done: 
 
 ```
 script:
@@ -116,4 +118,15 @@ The version of Julia a job is using is available as:
 TRAVIS_JULIA_VERSION
 ```
 
-In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used the home project/environment.
+In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used in the home project/environment.
+
+## Example Projects
+
+Here's a list of open-source Julia projects utilizing Travis CI in different ways: 
+
+1) [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
+2) [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
+3) [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
+4) [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
+5) [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
+6) [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)

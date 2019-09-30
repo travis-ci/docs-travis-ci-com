@@ -14,7 +14,7 @@ Please make sure to read our [Tutorial](/user/tutorial/) and [build configuratio
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@jeroen][github 2]
+[R section of our forums](https://travis-ci.community/c/languages/r) and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
 ## Basic configuration
@@ -39,7 +39,7 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
+Travis CI supports R versions `3.0.3` and above on Ubuntu Precise, Ubuntu Trusty and macOS.
 Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
 name `oldrel` is aliased to the previous major release and `release` is aliased to the
 latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)

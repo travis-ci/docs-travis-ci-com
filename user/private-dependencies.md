@@ -53,7 +53,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 ### Using an existing key
 
-[ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png){:.small}{:.right}
+[ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}
 
 Assumptions:
 
@@ -279,7 +279,7 @@ gem 'lib2', github: "myorg/lib2"
 ```
 
 > In case of private git submodules, be aware that the `git submodule
-> update --init recursive` command runs before the `~/.netrc` credentials
+> update --init --recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
 > submodules, update the credentials and add an explicit step to update the submodules:
 >

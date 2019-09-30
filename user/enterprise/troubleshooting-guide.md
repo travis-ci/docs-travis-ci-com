@@ -5,7 +5,7 @@ redirect_from:
   - /user/enterprise/operations-manual/
 ---
 
-This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered then please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
+This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered, please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
 
@@ -14,7 +14,7 @@ Throughout this document we'll be using the following terms to refer to the two 
 
 > Please note that this guide is geared towards non-High Availability (HA) setups. Please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) if you require support for your HA setup.
 
-## Builds are not starting
+## Builds Are not Starting
 
 ### The problem
 
@@ -22,13 +22,13 @@ In the Travis CI Web UI you see no builds are starting. The builds either have n
 
 ### Strategies
 
-There are a few different potential approaches which may help get builds running again. Please try each one in order.
+There are a few different potential approaches which may help to get builds running again. Please try each one in order.
 
 #### Connection to RabbitMQ was lost
 
-The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working to deliver a permanent solution.
+The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working on it to deliver a permanent solution.
 
-In the meantime, to return everything back to a normal working state you can manually restart the worker machine(s). This can be done by connecting to the worker(s) via `ssh` and running the following command:
+In the meantime, to return everything back to a normal working state, you can restart the worker machine(s) manually. This can be done by connecting to the worker(s) via `ssh` and running the following command:
 
 ```bash
 $ sudo shutdown -r 0
@@ -38,7 +38,7 @@ This will immediately restart the machine. The program that processes worker bui
 
 #### Configuration Issues
 
-Please check if the worker machine has all relevant configuration in order. To do so, please use ssh to login to the worker machine(s) and open `/etc/default/travis-enterprise`. This is the main configuration file `travis-worker` uses to connect to the platform machine.
+Please check if the worker machine has all relevant configurations in order. To do so, please use SSH to log into the worker machine(s) and open `/etc/default/travis-enterprise`. This is the main configuration file `travis-worker` uses to connect to the platform machine.
 
 Here is an example:
 
@@ -53,7 +53,7 @@ export TRAVIS_ENTERPRISE_SECURITY_TOKEN="abc12345"
 # export TRAVIS_WORKER_DOCKER_PRIVILEGED="true"
 ```
 
-The relevant variables are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain your primary domain you use to access the Travis CI Enterprise Web UI. The `travis-worker` process uses this domain to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` found at `https://<your-travis-ci-enterprise-domain>:8800/settings`.
+The relevant variables are `TRAVIS_ENTERPRISE_HOST` and `TRAVIS_ENTERPRISE_SECURITY_TOKEN`. The former needs to contain the primary domain you use to access the Travis CI Enterprise Web UI. The `travis-worker` process uses this domain to reach the platform machine. The value of the latter needs to match the `RabbitMQ Password` found at `https://<your-travis-ci-enterprise-domain>:8800/settings`.
 
 If you have made changes to this file, please run the following so they take effect:
 
@@ -75,32 +75,34 @@ To verify that webhook payloads are being successfully delivered by Github:
 
 1. Go to the repository in Github from which you expected a build to be triggered.
 2. Click on 'Settings' in the top menu.
-3. To view webhooks set up for this repository click on 'Hooks'.
-4. Find the webhook created for your Travis CI Enterprise domain and click 'Edit'
-5. Scroll to the bottom of the page to the section labeled 'Recent Deliveries'
+3. To view webhooks set up for this repository, click on 'Hooks'.
+4. Find the webhook created for your Travis CI Enterprise domain and click 'Edit'.
+5. Scroll to the bottom of the page to the section labeled 'Recent Deliveries'.
 
-All recent payload attempts to Travis CI Enterprise should be present. If any have failed with a message such as 'Peer certificate cannot be authenticated with given CA certificates' then the root cause is most likely your SSL Certificate setup on your installation.
+All recent payload attempts to Travis CI Enterprise should be present. If any have failed with a message such as 'Peer certificate cannot be authenticated with given CA certificates', the root cause is most likely your SSL Certificate setup on your installation.
 
-Depending on your configuration there may be multiple ways to solve this problem. Our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) contains instructions for the various setups available in Travis CI Enterprise.
+Depending on your configuration, there may be multiple ways to solve this problem. Our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) contains instructions for the various setups available in Travis CI Enterprise.
 
 #### Docker Version Mismatch
 
-This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) on a fresh instance. Please note: the default build environment images will be pulled and you may need to apply customizations again as well.
+This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) on a fresh instance.
+
+> Please note that the default build environment images will be pulled and you may need to apply customizations again as well.
 
 #### You are running Enterprise v2.2 or higher
 
-By default the Enterprise Platform v2.2 or higher will attempt to route builds to the `builds.trusty` queue. This could lead to build issues if you are not running a Trusty worker to process those builds or if you are targeting a different distribution (e.g. `xenial`).
+By default, the Enterprise Platform v2.2 or higher will attempt to route builds to the `builds.trusty` queue. This could lead to build issues, if you are not running a Trusty worker to process those builds or if you are targeting a different distribution (e.g. `xenial`).
 
 To address this, either:
 
 - Ensure that you have installed a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
-- Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the "Override Default Build Environment" button. This will allow you to specify the new default based on your needs and the workers that you have available.
+- Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the 'Override Default Build Environment' button. This will allow you to specify the new default based on your needs and the workers that you have available.
 
-## Enterprise container fails to start due to 'context deadline exceeded' error
+## Enterprise Container Fails to Start due to 'context deadline exceeded' Error
 
 ### The problem
 
-After a fresh installation or configuration change the Enterprise container doesn't start and the following error is visible in the admin dashboard found at `https://<your-travis-ci-enterprise-domain>:8800/dashboard`:
+After a fresh installation or configuration change the Enterprise container doesn't start and the following error is visible in the Admin Dashboard found at `https://<your-travis-ci-enterprise-domain>:8800/dashboard`:
 
 ```
 Ready state command canceled: context deadline exceeded
@@ -110,10 +112,10 @@ Ready state command canceled: context deadline exceeded
 
 #### GitHub OAuth app configuration
 
-The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the admin dashboard.
+The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the Admin Dashboard.
 
 
-## travis-worker on Ubuntu 16.04 does not start
+## travis-worker on Ubuntu 16.04 Does not Start
 
 ### The problem
 
@@ -134,7 +136,7 @@ $ mkdir -p /var/tmp/travis-run.d/
 $ chown -R travis:travis /var/tmp/travis-run.d/
 ```
 
-## Builds fail with curl certificate errors
+## Builds Fail with Curl Certificate Errors
 
 ### The problem
 
@@ -150,7 +152,7 @@ This can have various causes, including an automatic nvm update or a caching err
 
 This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server was originally provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [SSL Certificate Management](/user/enterprise/ssl-certificate-management/#using-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
-## User accounts are stuck in syncing state
+## User Accounts are Stuck in Syncing State
 
 ### The problem
 
@@ -166,7 +168,7 @@ travis_production=> select count(*) from users where is_syncing=true;
 
 ### Strategy
 
-Log into the platform machine via ssh. You can reset the `is_syncing` flag for user accounts that are stuck by running:
+Log into the platform machine via SSH. You can reset the `is_syncing` flag for user accounts that are stuck by running:
 
 ```bash
 $ travis console
@@ -192,13 +194,13 @@ There are two options listed below to initiate a sync between your Travis CI Ent
 
 #### Sync account from Travis CI web interface
 
-To sync your account with your GitHub instance:
+Ask the owner of **the affected account** (usually printed in the logs) to sync it with your GitHub instance. To do so they should:
 
 1. Open `https://<your-travis-ci-enterprise-domain>`.
-2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
-3. In the upper right corner of the profile page click on 'Sync account'.
+2. In the upper right corner of the page, hover over the user icon and select 'Profile' from the dropdown menu.
+3. In the upper right corner of the profile page, click on 'Sync account'.
 
-####  Sync from the CLI with administrator privileges```
+####  Sync account from the CLI with administrator privileges```
 
 An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
 

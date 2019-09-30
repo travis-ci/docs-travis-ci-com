@@ -132,8 +132,8 @@ With `language: python`, additionally:
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
-is `openjdk8`. 
+* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
+is `openjdk11`. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -170,3 +170,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | redis      | 5.5            |
 | postgresql | 9.3 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

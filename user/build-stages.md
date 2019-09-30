@@ -6,7 +6,7 @@ layout: en
 
 
 
-## What are Build Stages?
+## What Are Build Stages?
 
 Build stages is a way to group jobs, and run jobs in each stage in parallel,
 but run one stage after another sequentially.
@@ -19,14 +19,14 @@ various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-b
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 
-Of course, there are a lot more, and a lot more complicated use cases than this
+Of course, there are a lot more and a lot more elaborated use cases than this
 one. You can, for example, also use build stages to warm up dependency caches
 in a single job on a first stage, then use the cache on several jobs on a
 second stage. Or, you could generate a Docker image and push it first, then
 test it on several jobs in parallel. Or, you could run unit tests, deploy to
 staging, run smoke tests and only then deploy to production.
 
-## How do Build Stages work?
+## How Do Build Stages Work?
 
 The concept of build stages is powerful and flexible, yet simple and
 approachable:
@@ -34,22 +34,22 @@ approachable:
 Stages group jobs that run in parallel and different stages run sequentially.
 
 A stage is a group of jobs that are allowed to run in parallel. However, each
-one of the stages runs one after another, and will only proceed if all jobs in
+one of the stages runs one after another and will only proceed, if all jobs in
 the previous stage have passed successfully. If one job fails in one stage, all
 other jobs on the same stage will still complete, but all jobs in subsequent
-stages will be canceled, and the build fails.
+stages will be canceled and the build fails.
 
-You can configure as many jobs per stage as you need, and you can have as many
+You can configure as many jobs per stage as you need and you can have as many
 stages as your delivery process requires.
 
-In the following example, we are running two jobs on the first stage, called
-test, and then run a single third job on the second stage, called deploy:
+In the following example, we are running two jobs on the first stage called
+test, and then run a single third job on the second stage called deploy:
 
 ![Example screencast](/images/stages/stages.gif)
 
-## How to define Build Stages?
+## How to Define Build Stages?
 
-Here’s how you’d set up the build configuration for this in your .travis.yml
+Here’s how you’d set up the build configuration for this in your `.travis.yml`
 file:
 
 ```yaml
@@ -64,12 +64,12 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-This configuration creates the build from the screencast above. I.e. it creates
+This configuration creates the build from the screencast above. I.e., it creates
 a build with three jobs, two of which start in parallel in the first stage
 (named `test`), while the third job on the second stage (named `deploy`) starts
 only after the test stage completes successfully.
 
-## Naming your Build Stages
+## Naming Your Build Stages
 
 Stages are identified by their names, which are composed of names and emojis.
 The first letter of a stage name is automatically capitalized for
@@ -78,13 +78,13 @@ aesthetical reasons, so you don't have to deal with uppercase strings in your
 
 Also, you do not have to specify the name on every single job (as shown in the
 example above). The default stage is `test`. Jobs that do not have a stage
-name are assigned to the previous stage name if one exists, or the default
-stage name if there is no previous stage name. This means that if you set the
+name are assigned to the previous stage name, if one exists or the default
+stage name, if there is no previous stage name. This means that if you set the
 stage name on the first job of each stage, the build will work as expected.
 
-For example the following config is equivalent to the one above, but also adds a
+For example, the following config is equivalent to the one above, but also adds a
 second deploy job to the `deploy` stage that deploys to a different target. As
-you can see you only need to specify the stage name once:
+you can see, you only need to specify the stage name once:
 
 ```yaml
 jobs:
@@ -97,7 +97,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Naming your Jobs within Build Stages
+### Naming Your Jobs within Build Stages
 
 You can also name specific jobs within build stages. We recommend unique job names, but
 do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
@@ -138,7 +138,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-This will run two jobs on Ruby 2.3 and 2.4 respectively first, and assign these
+This will run two jobs on Ruby 2.3 and 2.4 respectively first and assign these
 to the default stage test. The third job on the deploy stage starts only after
 the test stage has completed successfully.
 
@@ -189,20 +189,20 @@ jobs:
       script: skip     # usually you do not want to rerun any tests
       deploy: &heroku
         provider: heroku
-        # ...
+        # ⋮
 ```
 {: data-file=".travis.yml"}
 
-Travis CI does not set or overwrite any of your scripts, and most languages
+Travis CI does not set or overwrite any of your scripts and most languages
 have a [default test script](/user/languages/ruby/#default-build-script)
 defined. So in many use cases you might want to overwrite the `script` step by
 specifying the keyword `skip` or `ignore`, in other cases you might want to
 overwrite other steps, such as the `install` step that runs by default on
 several languages.
 
-## Data persistence between stages and jobs
+## Data Persistence between Stages and Jobs
 
-It is important to note that jobs do not share storage, as each job runs in a fresh VM or container.
+> It is important to note that jobs do not share storage, as each job runs in a fresh VM or container.
 If your jobs need to share files (e.g., using build artifacts from the "Test" stage for deployment in the
 subsequent "Deploy" stage), you need to use an external storage mechanism such as S3 and a remote
 `scp` server.
@@ -301,6 +301,6 @@ This example uses YAML aliases to define steps. It has 3 build stages:
 
 * Two jobs that run tests against Ruby 2.2 and 2.3
 * One job that deploys to staging
-* Three jobs that runs test against staging
+* Three jobs that run test against staging
 
 You can find more [details here](/user/build-stages/using-yaml-aliases/).
