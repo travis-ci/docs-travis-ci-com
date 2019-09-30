@@ -7,7 +7,7 @@ layout: en
 > This is an alpha stage of this feature and we are eager to hear back from you. The relevant keys structure in .travis.yml may be further adapted on short notice.
 {: .alpha}
 
-> ARM-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available of ARM-based jobs is limited during the alpha period. For any commercial queries with regards to multi-arch builds before they are available, please contact [us](support@travis-ci.com).
+> `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available of `Arm`-based jobs is limited during the alpha period. For any commercial queries with regards to multi-arch builds before they are available, please contact [us](support@travis-ci.com).
 
 If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64 and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
 
