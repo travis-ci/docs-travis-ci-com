@@ -30,6 +30,23 @@ notification](#missing-build-notifications).
 If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
 
+## Conditional notifications
+
+You can filter out and reject notifications by specifying a condition in your build configuration (your `.travis.yml` file) using `if`.
+
+For example, this will send [Slack notifications](#configuring-slack-notifications) only on builds on the `master` branch:
+
+```yaml
+# require the branch name to be master (note for PRs this is the base branch name)
+notifications:
+  slack:
+    if: branch = master
+```
+{: data-file=".travis.yml"}
+
+See [Conditions](/user/conditions-v1) for details on specifying conditions.
+
+
 ## Changing notification frequency
 
 You can change the conditions for any notification channels by setting the

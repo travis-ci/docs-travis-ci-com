@@ -6,9 +6,10 @@ layout: en
 > This page documents conditions v1 which is now the default version. The
 > documentation for v0 can be found [here](/user/conditions-v0).
 
-Conditions can be used to filter out, and reject builds, stages, and jobs by
-specifying conditions in your build configuration (your `.travis.yml` file).
-See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+Conditions can be used to filter out, and reject builds, stages, jobs, and
+notifications by specifying conditions in your build configuration (your
+`.travis.yml` file). See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+and [Conditional Notifications](/user/notifications/#conditional-notifications)
 for details.
 
 Conditions can be tested using the `travis-conditions` command. See
