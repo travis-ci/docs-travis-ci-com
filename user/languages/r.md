@@ -14,7 +14,7 @@ Please make sure to read our [Tutorial](/user/tutorial/) and [build configuratio
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@jeroen][github 2]
+[R section of our forums](https://travis-ci.community/c/languages/r) and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
 ## Basic configuration

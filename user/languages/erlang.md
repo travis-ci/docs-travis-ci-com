@@ -93,6 +93,17 @@ The version of OTP release a job is using is available as:
 TRAVIS_OTP_RELEASE
 ```
 
+{% if site.data.language-details.erlang-versions.size > 0 %}
+## OTP/Release versions
+
+These archives are available for on-demand installation.
+
+{: #erlang-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.erlang-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
 ## Examples
 
 - [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
@@ -103,3 +114,19 @@ TRAVIS_OTP_RELEASE
 
 - [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 - [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
+
+<script>
+var tf = new TableFilter(document.querySelector('#erlang-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
