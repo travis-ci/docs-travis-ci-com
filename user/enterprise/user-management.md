@@ -27,7 +27,7 @@ Suspend or unsuspend users. Builds triggered by suspended users are blocked by `
 **Please note**: Using the `suspend` command does not restrict access to the Enterprise platform.
 It removes a seat restriction for an archived user. If a *suspended* user logs into the platform, the seat restriction would be imposed once more.
 
-## What determines an active, inactive, and suspended user
+## Difference between Active, Inactive, and Suspended Users
 
 * Active User: Is a user with a GitHub OAuth token and has not been marked as suspended.
 * Inactive User: Is a user without a GitHub OAuth token and has not been marked as suspended.
