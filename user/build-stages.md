@@ -189,7 +189,7 @@ jobs:
       script: skip     # usually you do not want to rerun any tests
       deploy: &heroku
         provider: heroku
-        # ...
+        # ⋮
 ```
 {: data-file=".travis.yml"}
 
