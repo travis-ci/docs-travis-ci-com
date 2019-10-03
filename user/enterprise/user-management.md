@@ -33,7 +33,7 @@ It removes a seat restriction for an archived user. If a *suspended* user logs i
 * Inactive User: User without a GitHub OAuth token and not marked as suspended.
 * Suspended User: Is a user that has been marked as suspended. They may or may not have a GitHub OAuth token.
 
-## Sync a User
+## Syncing a User
 
 To sync a user (not technically part of User Management, but a related task):
 
