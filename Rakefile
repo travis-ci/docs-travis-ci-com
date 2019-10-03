@@ -165,7 +165,7 @@ desc 'update language archive versions'
 task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
   unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
     puts "No credentials given. Not updating language versions data."
-    return
+    next
   end
   definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
   definitions.each do |lang, defs|
