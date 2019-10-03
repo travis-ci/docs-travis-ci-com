@@ -14,6 +14,12 @@ We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB
 
 > _Trusty and Xenial build containers must be on different instances_. To run both Trusty and Xenial builds, at least two worker instances are required.
 
+## Differences from the Trusty Build Environment
+
+[Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
+
+[Services disabled by default](https://docs.travis-ci.com/user/reference/xenial/#services-disabled-by-default) to speed up boot time and improve performance.
+
 ## Installation with Travis CI Enterprise 2.2.6 and later
 
 On a new server, please run the commands below to install the Xenial build environment:
@@ -24,7 +30,7 @@ $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/tra
 $ sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
 --travis_enterprise_security_token="[RabbitMQ Password/Enterprise Security Token]" \
---travis_beta_build_images=true
+--travis_build_images=xenial
 ```
 
 ## Restarting `travis-worker`
