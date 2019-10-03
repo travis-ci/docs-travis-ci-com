@@ -29,7 +29,7 @@ It removes a seat restriction for an archived user. If a *suspended* user logs i
 
 ## Difference between Active, Inactive, and Suspended Users
 
-* Active User: Is a user with a GitHub OAuth token and has not been marked as suspended.
+* Active User: User with a GitHub OAuth token and not marked as suspended.
 * Inactive User: User without a GitHub OAuth token and not marked as suspended.
 * Suspended User: Is a user that has been marked as suspended. They may or may not have a GitHub OAuth token.
 
