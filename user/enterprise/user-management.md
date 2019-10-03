@@ -25,7 +25,7 @@ Suspend or unsuspend users. Builds triggered by suspended users are blocked by `
 `travis unsuspend <login>` - unsuspend a user where `<login>` is the user's GitHub login.
 
 **Please note**: Using the `suspend` command does not restrict access to the Enterprise platform.
-It removes a seat restriction for an archived user. If a *suspended* user were to log in to the platform, the seat restriction would be imposed once more.
+It removes a seat restriction for an archived user. If a *suspended* user logs into the platform, the seat restriction would be imposed once more.
 
 ## What determines an active, inactive, and suspended user
 
