@@ -24,6 +24,8 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
+LXD compliant OS images for arm64 are run in [Packet Cloud](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu) for more information.
+
 ### macOS
 
 A [macOS](/user/reference/osx/) environment for Objective-C and other macOS specific projects
