@@ -81,7 +81,7 @@ if it contains:
 
 ### For a particular .travis.yml configuration
 
-* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch:  amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
+* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
@@ -97,4 +97,4 @@ Historically, Travis CI has provided the following virtualization environments.
 - **Precise Container-based environment**: was available between [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) and [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
 - **Legacy Linux environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
 
-If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
+If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you remove them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
