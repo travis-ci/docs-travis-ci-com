@@ -18,7 +18,7 @@ To enable testing on multiple CPU architectures add the `arch` key to your `.tra
 arch:
   - amd64
   - arm64
-os: linux
+os: linux  # different CPU architectures are only supported on Linux
 ```
 {: data-file=".travis.yml"}
 
