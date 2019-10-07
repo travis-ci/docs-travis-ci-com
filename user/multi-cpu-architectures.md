@@ -49,7 +49,7 @@ script:
 
 The `.travis.yml` file above creates a 2x2 [build matrix](/user/customizing-the-build/#build-matrix): compilers x each architecture.
 
-There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the arm64 and amd64 architecture queues:
+There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the arm64 and amd64 architecture environments:
 
 ```yaml
 matrix:
