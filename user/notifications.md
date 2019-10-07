@@ -30,6 +30,23 @@ notification](#missing-build-notifications).
 If you add another notification channel, e.g. HipChat or Slack, the
 default is to send a notification on every build.
 
+## Conditional notifications
+
+You can filter out and reject notifications by specifying a condition in your build configuration (your `.travis.yml` file) using `if`.
+
+For example, this will send [Slack notifications](#configuring-slack-notifications) only on builds on the `master` branch:
+
+```yaml
+# require the branch name to be master (note for PRs this is the base branch name)
+notifications:
+  slack:
+    if: branch = master
+```
+{: data-file=".travis.yml"}
+
+See [Conditions](/user/conditions-v1) for details on specifying conditions.
+
+
 ## Changing notification frequency
 
 You can change the conditions for any notification channels by setting the
@@ -771,6 +788,30 @@ _notifications:_
 _webhooks: <webhook-url>_
 4. Commit the _.travis.yml_ file to the root of your repository.
 
-## For the truly curious
+## Configuring multiple notification targets with different configurations
 
-Notification webhooks are delivered by [travis-ci/travis-tasks](https://github.com/travis-ci/travis-tasks).
+Each of the notifiers described above can also take an array of hashes as configurations,
+each element being a configuration of that notifier as described above.
+This is useful when you want different notification behaviors based on build results.
+
+For example, you might have separate Slack channels for notifying successful builds and failing builds, using non-default templates:
+
+```yaml
+notifications:
+  slack:
+    - rooms:
+        - <account>:<token>#failures
+      on_success: never
+      on_failure: always
+      template:
+        - "%{repository_slug} (%{commit}) : %{message}"
+        - "Build details: %{build_url}"
+    - rooms:
+        - <account>:<token>#successes
+      on_success: always
+      on_failure: never
+      template:
+        - "%{repository_slug} (%{commit}) : %{message}"
+        - "Build details: %{build_url}"
+```
+{: data-file=".travis.yml"}

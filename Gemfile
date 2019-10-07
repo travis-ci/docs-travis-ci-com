@@ -48,3 +48,5 @@ group :dpl do
   gem 'dpl', git: 'https://github.com/travis-ci/dpl'
   gem 'cl'
 end
+
+gem 'netrc'
