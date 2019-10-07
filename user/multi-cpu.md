@@ -68,12 +68,12 @@ arch:
 matrix:
   include:
    - os: linux
-     dist: bionic
+     env: LIB_PATH="/usr/bin/shared/x86_64/v1"
    - os: linux
-     dist: xenial
+     env: LIB_PATH="/usr/bin/shared/x86_64/v2"
 ```
 
-Would results in Bionic and Xenial jobs being run only on `amd64` architecture.
+Would result in runninng both jobs with environmental variable LIB_PATH assigned different values being run only on `amd64` architecture.
 
 The arm64 CPU architecture build job is run in an LXD compliant Linux OS image.
 The amd64 CPU architecture build job currently runs as a regular VM and will be transitioned to an LXD compliant Linux OS image usage over time.
