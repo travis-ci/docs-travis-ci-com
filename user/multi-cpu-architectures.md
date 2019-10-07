@@ -4,7 +4,7 @@ layout: en
 permalink: /user/multi-cpu-architectures/
 ---
 
-> This is an alpha stage of this feature and we are [eager to hear back from you](https://travis-ci.community/t/about-the-arm-cpu-architecture-category/5336). The relevant keys structure in .travis.yml may be further adapted on short notice.
+> This is an alpha stage of this feature and we are [eager to hear back from you](https://travis-ci.community/t/about-the-arm-cpu-architecture-category/5336). The definition keys used in the `.travis.yml` file may be further adapted on short notice.
 {: .alpha}
 
 > `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for `Arm`-based jobs is limited during the alpha period. 
