@@ -26,7 +26,7 @@ If you are already using a [build matrix](/user/customizing-the-build/#build-mat
 
 ## Example Multi Architecture Build Matrix
 
-Here’s an example of a `.travis.yml` file using the `arch` key to compile against both `amd64` and `arm64` under Linux.
+Here’s an example of a `.travis.yml` file using the `arch` key to compile against both `amd64` and `arm64` under Linux and using C as the programming language.
 
 ```yaml
 language: c
