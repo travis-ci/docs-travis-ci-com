@@ -39,21 +39,21 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 The following table summarizes the differences across virtual environments and operating systems:
 
 |                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD ([Bionic](/user/reference/bionic/)) |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-----------------------------------|
-| Name                 | Ubuntu                                                                                                                    | macOS                         | Windows                            | Ubuntu                             |
-| Status               | Current                                                                                                                   | Current                       | Early release                      | Early release                       |
-| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             | LXD container on Packet            |
-| CPU architecture     | amd64      |   amd64   | amd64                              | arm64 (armv8)                      |         
-| `.travis.yml`        |`dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`     | `os: linux arch: arm64`              |
-| Allows `sudo`        | Yes                                                                                                                       | Yes                           | No                                 | Yes                                 |
-| Approx boot time     | 20-50s                                                                                                                    | 60-90s                        | 60-120s                            | <10s                               |
-| File system          | EXT4                                                                                                                      | HFS+                          | NTFS                               | EXT4                               |
-| Operating system     | Ubuntu Linux                                                                                                              | macOS                         | Windows Server 2016                | Ubuntu Linux                       |
-| Memory               | 7.5 GB                                                                                                                    | 4 GB                          | 8 GB                               | ~4 GB                                   |
-| Cores                | 2                                                                                                                         | 2                             | 2                                  | 2                                   |
-| IPv4 network         | IPv4 is available                                                                                                         | IPv4 is available             | IPv4 is available                  | IPv4 is available                   |
-| IPv6 network         | IPv6 is not available                                                                                                     | IPv6 is not available         | IPv6 is not available              | IPv6 is available                   |
-| Available disk space | approx 18GB                                                                                                               | approx 41GB                   | approx 19 GB                       | approx 10GB                         |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
+| Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
+| Status               | Current                                                                                                                                                       | Current                       | Early release                      | Early release                                          |
+| Infrastructure       | Virtual machine on GCE                                                                                                                                        | Virtual machine               | Virtual machine on GCE             | LXD container on Packet                                |
+| CPU architecture     | amd64                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)                                          |
+| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64`                                |
+| Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
+| Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
+| File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
+| Operating system     | Ubuntu Linux                                                                                                                                                  | macOS                         | Windows Server 2016                | Ubuntu Linux                                           |
+| Memory               | 7.5 GB                                                                                                                                                        | 4 GB                          | 8 GB                               | ~4 GB                                                  |
+| Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
+| IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
+| IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
+| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 10GB                                            |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -81,16 +81,13 @@ if it contains:
 
 ### For a particular .travis.yml configuration
 
-* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
+* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch:  amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
 * Using `os: windows` routes your build to Windows infrastructure.
 
-> Between middle of October 2018 and end December 2018 the default infrastructure
-> your builds runs on will depend on a [few different
-> factors](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
-> while we consolidate everything onto virtual machines running on Google Compute Engine.
+* Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
 ## Deprecated Virtualization Environments
 
