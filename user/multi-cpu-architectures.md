@@ -12,7 +12,7 @@ permalink: /user/multi-cpu-architectures/
 
 If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64 and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
 
-To enable testing on multiple operating systems add the `os` key to your `.travis.yml`:
+To enable testing on multiple CPU architectures add the `arch` key to your `.travis.yml`:
 
 ```yaml
 arch:
