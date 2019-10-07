@@ -9,7 +9,7 @@ layout: en
 
 > `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available of `Arm`-based jobs is limited during the alpha period. An attempt to run `Arm`-based build for a e.g. private repository will result in a build run on standard, non-`Arm` infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please contact [us](support@travis-ci.com).
 
-If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64 and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
+If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64 and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux. 
 
 To enable testing on multiple operating systems add the `os` key to your `.travis.yml`:
 
@@ -75,5 +75,6 @@ matrix:
 
 Would result in runninng both jobs with environmental variable LIB_PATH assigned different values being run only on `amd64` architecture.
 
-The arm64 CPU architecture build job is run in an LXD compliant Linux OS image.
+The arm64 CPU architecture build job is run in an LXD compliant Linux OS image. The default image supported by Travis CI is Ubuntu Bionic 18.04 .
+
 The amd64 CPU architecture build job currently runs as a regular VM and will be transitioned to an LXD compliant Linux OS image usage over time.
