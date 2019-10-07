@@ -24,7 +24,7 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
-LXD compliant OS images for arm64 are run in [Packet Cloud](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu) for more information.
+LXD compliant OS images for arm64 are run in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu) for more information.
 
 ### macOS
 
@@ -42,7 +42,7 @@ The following table summarizes the differences across virtual environments and o
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-----------------------------------|
 | Name                 | Ubuntu                                                                                                                    | macOS                         | Windows                            | Ubuntu                             |
 | Status               | Current                                                                                                                   | Current                       | Early release                      | Early release                       |
-| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             | LXD container on Packet Cloud      |
+| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             | LXD container on Packet            |
 | CPU architecture     | amd64      |      | amd64                              | arm64 (armv8)                      |         
 | `.travis.yml`        |`dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`     | os: linux arch: arm64              |
 | Allows `sudo`        | Yes                                                                                                                       | Yes                           | No                                 | Yes                                 |
