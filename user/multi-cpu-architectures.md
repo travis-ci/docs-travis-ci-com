@@ -60,7 +60,7 @@ matrix:
      arch: arm64
 ```
 
-> Please note, that explicitly included builds inherit the first value in an array, i.e.
+> Please note, that explicitly included builds inherit the first value in an array, for example:
 
 ```yaml
 arch:
