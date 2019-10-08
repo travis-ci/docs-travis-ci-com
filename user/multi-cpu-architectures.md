@@ -63,6 +63,7 @@ matrix:
    - os: linux
      arch: arm64
 ```
+{: data-file=".travis.yml"}
 
 Please note, that explicitly included builds inherit the first value in an array:
 
@@ -77,5 +78,36 @@ matrix:
    - os: linux
      env: LIB_PATH="/usr/bin/shared/x86_64/v2"
 ```
+{: data-file=".travis.yml"}
 
 For example, the above `.travis.yml`, would result in running both jobs with the environmental variable LIB_PATH assigned different values being run only on `amd64` architecture.
+
+## Using docker in `Arm` based builds within LXD container
+
+It is possible to use Docker in `Arm` based builds within a LXD container. You may need an arm64v8 docker image as a base or ensure arm64 libraries required by your build are added to your Dockerfile. In order to use docker in `Arm` based build within LXD container, docker commands must be run with `sudo`. 
+
+An example of building  docker image from Dockerfile adjusted to arm64:
+
+```yaml
+arch: arm64
+language: c
+compiler: gcc
+services:
+  - docker
+sudo: true
+script: sudo docker build -t my/test -f Dockerfile.arm64 . 
+```
+{: data-file=".travis.yml"}
+
+An example of running docker image:
+
+```yaml
+arch: arm64
+services:
+  - docker
+sudo: true
+script: sudo docker run my/test #assuming docker image my/test is arm64v8 ready
+```
+{: data-file=".travis.yml"}
+
+Please see also [Using Docker in Builds](user/docker/)
