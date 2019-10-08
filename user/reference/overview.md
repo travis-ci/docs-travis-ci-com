@@ -24,7 +24,7 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
-LXD compliant OS images for arm64 are run in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu) for more information.
+LXD compliant OS images for arm64 are run in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
 
 ### macOS
 
