@@ -84,7 +84,7 @@ For example, the above `.travis.yml`, would result in running both jobs with the
 
 ## Using Docker in `Arm`-Based Builds within LXD Containers
 
-It is possible to use Docker in `Arm` based builds within a LXD container. You may need an arm64v8 docker image as a base or ensure arm64 libraries required by your build are added to your Dockerfile. In order to use docker in `Arm` based build within LXD container, docker commands must be run with `sudo`. 
+It is possible to use Docker in `Arm`-based builds within an LXD container. You may need an arm64v8 docker image as a base or ensure arm64 libraries required by your build are added to your Dockerfile. In order to use docker in `Arm`-based build within an LXD container, docker commands must be run with `sudo`. 
 
 An example of building  docker image from Dockerfile adjusted to arm64:
 
