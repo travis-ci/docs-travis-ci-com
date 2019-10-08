@@ -45,7 +45,7 @@ on the respective build's "View Config" tab in the Travis CI UI.
 This gives you direct insights into how your build config has been processed,
 what issues Travis CI might have found, and how to resolve them.
 
-The have 4 severity levels:
+The messages have 4 severity levels:
 
 * `alert` - The build config might be leaking secrets. You should pay special attention to these messages.
 * `error` - The build config contains severe errors that our system cannot recover from, so it will ignore the respective config sections.
