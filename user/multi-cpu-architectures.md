@@ -110,4 +110,4 @@ script: sudo docker run my/test #assuming docker image my/test is arm64v8 ready
 ```
 {: data-file=".travis.yml"}
 
-Please see also [Using Docker in Builds](user/docker/)
+You can also have a look at [Using Docker in Builds](user/docker/).
