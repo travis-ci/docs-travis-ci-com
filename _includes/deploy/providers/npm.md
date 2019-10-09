@@ -27,6 +27,7 @@ Use the following options to further configure the deployment.
 | `registry` | npm registry url &mdash; type: string |
 | `src` | directory or tarball to publish &mdash; type: string, default: `.` |
 | `tag` | distribution tags to add &mdash; type: string |
+| `dry_run` | performs test run without uploading to registry &mdash; type: boolean |
 | `auth_method` | Authentication method &mdash; type: boolean, known values: `auth` |
 
 ### Shared options
