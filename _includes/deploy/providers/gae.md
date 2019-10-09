@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Google App Engine is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Google App Engine is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -26,9 +26,9 @@ Use the following options to further configure the deployment.
 | `config` | Path to your service configuration file &mdash; type: string or array of strings, default: `app.yaml` |
 | `version` | The version of the app that will be created or replaced by this deployment. If you do not specify a version, one will be generated for you &mdash; type: string |
 | `verbosity` | Adjust the log verbosity &mdash; type: string, default: `warning` |
-| `promote` | Do not promote the deployed version &mdash; type: boolean, default: `true` |
+| `promote` | Whether to promote the deployed version &mdash; type: boolean, default: `true` |
 | `stop_previous_version` | Prevent the deployment from stopping a previously promoted version &mdash; type: boolean, default: `true` |
-| `install_sdk` | Do not install the Google Cloud SDK &mdash; type: boolean, default: `true` |
+| `install_sdk` | Whether to install the Google Cloud SDK &mdash; type: boolean, default: `true` |
 
 ### Shared options
 
