@@ -218,7 +218,7 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 
 ### Explicitly included jobs with only one element in the build matrix
 
-As a special case, if your build matrix has only one element _and_ you specified
+As a special case, if your build matrix has only one element _and_ you have
 explicitly included jobs, matrix expansion is not done and the explicit jobs
 _completely_ define your build. For example:
 
