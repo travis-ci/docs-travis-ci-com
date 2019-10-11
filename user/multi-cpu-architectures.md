@@ -94,8 +94,7 @@ language: c
 compiler: gcc
 services:
   - docker
-sudo: true
-script: sudo docker build -t my/test -f Dockerfile.arm64 . 
+script: docker build -t my/test -f Dockerfile.arm64 . 
 ```
 {: data-file=".travis.yml"}
 
@@ -105,8 +104,7 @@ An example of running docker image:
 arch: arm64
 services:
   - docker
-sudo: true
-script: sudo docker run my/test #assuming docker image my/test is arm64v8 ready
+script: docker run my/test #assuming docker image my/test is arm64v8 ready
 ```
 {: data-file=".travis.yml"}
 
