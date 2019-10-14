@@ -6,6 +6,7 @@ abort('Please run this using `bundle exec rake`') unless ENV["BUNDLE_BIN_PATH"]
 require 'ipaddr'
 require 'json'
 require 'yaml'
+require 'netrc'
 
 require 'faraday'
 require 'html-proofer'
@@ -40,7 +41,7 @@ desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
 desc 'Builds the site (Jekyll and Slate)'
-task build: %i[regen make_api] do
+task build: %i[regen make_api update_lang_vers] do
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -125,7 +126,7 @@ task regen: (%i[clean] + %w[
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
   _data/node_js_versions.yml
-])
+] + %i[update_lang_vers])
 
 desc 'Remove generated files'
 task :clean do
@@ -136,7 +137,9 @@ task :clean do
          _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
          _data/node_js_versions.yml
+         _data/language-details/*-versions.yml
        ])
+  rm_rf('assets/javascripts/tablefilter')
   rm_rf('_site')
   rm_rf('api/*')
 end
@@ -153,4 +156,34 @@ end
 desc 'make API docs'
 task :make_api do
   sh 'bundle exec middleman build --clean'
+end
+
+LANG_ARCHIVE_HOST='language-archives.travis-ci.com'
+TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js'
+
+desc 'update language archive versions'
+task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
+  unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
+    puts "No credentials given. Not updating language versions data."
+    next
+  end
+  definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
+  definitions.each do |lang, defs|
+    sh "curl", "-sSf", "--netrc",
+      "-H \"Accept: application/x-yaml\"",
+      "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
+      :out => "_data/language-details/#{lang}-versions.yml"
+  end
+end
+
+desc 'Write lang archive credentials'
+task :write_netrc do
+  n = Netrc.read
+  n[LANG_ARCHIVE_HOST] = ENV["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
+  n.save
+end
+
+desc "Add TableFilter"
+file TABLEFILTER_SOURCE_PATH do
+  sh "git", "clone", "--depth=1", "https://github.com/koalyptus/TableFilter.git", "assets/javascripts/tablefilter"
 end
