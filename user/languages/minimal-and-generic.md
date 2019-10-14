@@ -45,7 +45,7 @@ The `minimal` image contains:
 
 * [version control tools](/user/reference/trusty/#version-control)
 * [essential build tools such as gcc and make](/user/reference/trusty/#compilers--build-toolchain)
-* [network tools such as curl and essential](/user/reference/trusty/#networking-tools)
+* [network tools such as curl](/user/reference/trusty/#networking-tools)
 * [Docker](/user/reference/trusty/#docker)
 * [python](/user/reference/trusty/#python-images)
 
