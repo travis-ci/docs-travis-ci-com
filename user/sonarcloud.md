@@ -69,19 +69,10 @@ script:
 {: data-file=".travis.yml"}
 
 > Please note the following:
-- the "coverage" profile (defined in your POM file) activates the generation of the JaCoCo XML report
+- the "coverage" profile activates the generation of the JaCoCo XML report
 - "sonar.projectKey" can also be set as a property on the main POM file. Its value can be found on the right side of the project homepage on SonarCloud
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
-
-Without POM update, or if you are [Testing Against Multiple JDKs](languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
-
-```yaml
-script:
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
-- if [ "$JAVA_HOME" = "/usr/lib/jvm/java-1.8.0-openjdk-amd64" ]; then mvn sonar:sonar; fi
-```
-{: data-file=".travis.yml"}
 
 ## Analysis of internal pull requests
 
