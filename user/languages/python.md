@@ -166,7 +166,7 @@ Sometimes it is necessary to ensure that software works the same across multiple
 
 ```yaml
 language: python            # this works for Linux but is an error on macOS or Windows
-matrix:
+jobs:
   include:
     - name: "Python 3.7.1 on Xenial Linux"
       python: 3.7           # this works for Linux but is ignored on macOS or Windows
