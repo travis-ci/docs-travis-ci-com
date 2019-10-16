@@ -56,7 +56,7 @@ The `.travis.yml` file above creates a 2x2 [build matrix](/user/customizing-the-
 There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the arm64 and amd64 architecture environments:
 
 ```yaml
-matrix:
+jobs:
   include:
    - os: linux
      arch: amd64
@@ -71,7 +71,7 @@ Please note, that explicitly included builds inherit the first value in an array
 arch:
   - amd64
   - arm64
-matrix:
+jobs:
   include:
    - os: linux
      env: LIB_PATH="/usr/bin/shared/x86_64/v1"
@@ -84,7 +84,7 @@ For example, the above `.travis.yml`, would result in running both jobs with the
 
 ## Using Docker in `Arm`-Based Builds within LXD Containers
 
-It is possible to use Docker in `Arm`-based builds within an LXD container. You may need an arm64v8 docker image as a base or ensure arm64 libraries required by your build are added to your Dockerfile. In order to use docker in `Arm`-based build within an LXD container, docker commands must be run with `sudo`. 
+It is possible to use Docker in `Arm`-based builds within an LXD container. You may need an arm64v8 docker image as a base or ensure arm64 libraries required by your build are added to your Dockerfile. In order to use docker in `Arm`-based build within an LXD container, docker commands must be run with `sudo`.
 
 An example of building a docker image from a Dockerfile adjusted to arm64:
 
@@ -94,7 +94,7 @@ language: c
 compiler: gcc
 services:
   - docker
-script: docker build -t my/test -f Dockerfile.arm64 . 
+script: docker build -t my/test -f Dockerfile.arm64 .
 ```
 {: data-file=".travis.yml"}
 
