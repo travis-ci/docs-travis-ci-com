@@ -60,7 +60,7 @@ rust:
   - stable
   - beta
   - nightly
-matrix:
+jobs:
   allow_failures:
     - rust: nightly
   fast_finish: true
@@ -125,7 +125,7 @@ language: rust
 script:
   - cargo build --verbose --all
   - cargo test --verbose --all
-```  
+```
 {: data-file=".travis.yml"}
 
 ## Environment variables

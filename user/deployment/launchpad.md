@@ -1,6 +1,7 @@
 ---
 title: Launchpad deployment
 layout: en
+deploy: v1
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Transifex Deployment
 layout: en
+deploy: v1
 
 ---
 

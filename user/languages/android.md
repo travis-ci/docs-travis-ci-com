@@ -28,7 +28,7 @@ dist: trusty
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
 
-> Android builds are only supported on our Trusty image at this time hence you'll need to explicitely specify `dist: trusty` in your .travis.yml file.
+> Android builds are only supported on our Trusty image at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
 
 Here is an example `.travis.yml` for an Android project:
 

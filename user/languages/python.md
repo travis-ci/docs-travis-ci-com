@@ -46,7 +46,7 @@ python:
   - "2.7"
   - "3.4"
   - "3.5"
-  - "3.6"      # current detault Python on Travis CI
+  - "3.6"      # current default Python on Travis CI
   - "3.7"
   - "3.7-dev"  # 3.7 development branch
   - "3.8-dev"  # 3.8 development branch
@@ -60,6 +60,13 @@ script:
 ```
 {: data-file=".travis.yml"}
 
+{% if site.data.language-details.python-versions.size > 0 %}
+If the specified version of Python is not available on the present build image,
+the job will attempt to download the suitable remote archive and make it
+available.
+You can find the list of such versions in [the table below](#python-versions).
+
+{% endif %}
 ### Travis CI Uses Isolated virtualenvs
 
 The CI Environment uses separate virtualenv instances for each Python
@@ -95,7 +102,7 @@ python:
   - "2.7"
   - "3.7"
   # PyPy versions
-  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1 
+  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
   - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
 # command to install dependencies
 install:
@@ -159,7 +166,7 @@ Sometimes it is necessary to ensure that software works the same across multiple
 
 ```yaml
 language: python            # this works for Linux but is an error on macOS or Windows
-matrix:
+jobs:
   include:
     - name: "Python 3.7.1 on Xenial Linux"
       python: 3.7           # this works for Linux but is ignored on macOS or Windows
@@ -171,7 +178,7 @@ matrix:
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
-        - choco install python
+        - choco install python --version 3.7.4
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
@@ -241,3 +248,30 @@ For a real world example, see [getsentry/sentry](https://github.com/getsentry/se
 - [dstufft/slumber](https://github.com/dstufft/slumber/blob/master/.travis.yml)
 - [dreid/cotools](https://github.com/dreid/cotools/blob/master/.travis.yml)
 - [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
+
+{% if site.data.language-details.python-versions.size > 0 %}
+## Python versions
+
+These archives are available for on-demand installation.
+
+{: #python-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.python-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
+<script>
+var tf = new TableFilter(document.querySelector('#python-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
