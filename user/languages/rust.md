@@ -33,8 +33,13 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 ## Choosing a Rust version
 
 By default, we download and install the latest stable Rust release at the start
-of the build, along with appropriate language tools including `cargo`, `rustc`,
-`rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
+of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
+and includes the following language tools `cargo`, `rustc`, and `rustup`.
+
+[profiles]: https://blog.rust-lang.org/2019/10/15/Rustup-1.20.0.html#profiles
+
+If you want additional language tools like `rustfmt` or `clippy`, please
+install them in `before_install`.
 
 To test against specific Rust releases:
 
