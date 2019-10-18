@@ -109,3 +109,17 @@ script: docker run my/test #assuming docker image my/test is arm64v8 ready
 {: data-file=".travis.yml"}
 
 You can also have a look at [Using Docker in Builds](user/docker/).
+
+## Security and LXD Container
+
+> Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
+
+As a result, for instance a command in `.travis.yaml` like:
+```yaml
+sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
+```
+{: data-file=".travis.yml"}
+
+would result in an error.
+
+Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
