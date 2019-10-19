@@ -147,11 +147,12 @@ lowered the required RubyGems version to 2.5.0, which is available by default on
 
 Therefore, *there is no need to update RubyGems* for Bundler 2.
 
-Under many configurations, Travis CI installs the Ruby runtime on the fly.
-This means installing the latest Bundler at run time, which may cause problems
-due to the unsatisfied requirements.
+TravisCI uses Bundler 1 by default.
+If your `Gemfile.lock` has a `BUNDLED WITH 1.x` section (or no such section),
+the default behavior should be enough and require no changes.
 
-If you find your builds are failing due to “bundler not installed” errors, try one of the following solutions:
+If you find your builds are failing due to “bundler not installed” errors or
+want to use Bundler 2.0, try one of the following solutions:
 
 * If you’re using Ruby 2.3 or higher, and you wish to upgrade to Bundler 2.0,
   use the following in your `.travis.yml`:
@@ -162,7 +163,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
     ```
     {: data-file=".travis.yml"}
 
-* If you are using Ruby 2.3.x but wish to stay on Bundler 1.x (e.g., for dependency
+* If you are using Ruby 2.3.x but wish to explicitly stay on Bundler 1.x (e.g., for dependency
   reasons such as Rails 4.2.x), write:
 
     ```yaml
@@ -173,7 +174,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
     {: data-file=".travis.yml"}
 
   The `gem uninstall` command above removes any Bundler 2.x installed in
-  RVM's "global" gemset during the Ruby run time installation, which would be
+  RVM's "global" gemset during the Ruby installation by RVM, which would be
   selected as the default `bundle` command.
   We ignore the failure from that command, because the failure most likely
   means that there was no matching Bundler version to uninstall.
