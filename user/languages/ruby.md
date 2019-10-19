@@ -40,10 +40,10 @@ To specify them, use the `rvm:` key in your `.travis.yml` file:
 ```yaml
 language: ruby
 rvm:
-  - 2.2
+  - 2.5
+  - 2.6
   - jruby
   - truffleruby
-  - 2.0.0-p247
 ```
 {: data-file=".travis.yml"}
 
@@ -85,7 +85,7 @@ language: ruby
 rvm:
   - truffleruby # latest release
   # or
-  - truffleruby-1.0.0-rc9 # specific version
+  - truffleruby-19.2.0 # specific version
 ```
 {: data-file=".travis.yml"}
 
