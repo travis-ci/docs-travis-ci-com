@@ -141,10 +141,11 @@ directory.
 #### Bundler 2.0
 
 On January 3rd 2019 the Bundler team released [Bundler 2.0](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html)
-which dropped support for Ruby versions 2.2 and older, and added a new dependency
-on RubyGems 3.0.0.
-A subsequent release, [2.0.1](https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html),
-requires RubyGems 2.5.0.
+which requires Ruby 2.3+.
+A subsequent [2.0.1](https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html) release
+lowered the required RubyGems version to 2.5.0, which is available by default on Ruby 2.3+.
+
+Therefore, *there is no need to update RubyGems* for Bundler 2.
 
 Under many configurations, Travis CI installs the Ruby runtime on the fly.
 This means installing the latest Bundler at run time, which may cause problems
@@ -153,11 +154,10 @@ due to the unsatisfied requirements.
 If you find your builds are failing due to “bundler not installed” errors, try one of the following solutions:
 
 * If you’re using Ruby 2.3 or higher, and you wish to upgrade to Bundler 2.0,
-  use the following in your `.travis.yml` to update RubyGems:
+  use the following in your `.travis.yml`:
 
     ```yaml
     before_install:
-      - gem update --system
       - gem install bundler
     ```
     {: data-file=".travis.yml"}
