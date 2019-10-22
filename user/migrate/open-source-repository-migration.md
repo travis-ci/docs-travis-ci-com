@@ -47,7 +47,7 @@ With this read-only mode:
 * It won't be possible to restart a previous job that ran in travis-ci.org
 * The Settings page for your repository will become inactive - the transferred repository settings will now be available in travis-ci.com instead.
 
-In the future, we will provide redirections from all API/web requests going to travis-ci.org to travis-ci.com.
+In the future, we will provide redirections from all API/web requests going from travis-ci.org to travis-ci.com.
 
 ## How long does the migration process take?
 
