@@ -78,6 +78,7 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
+* `lxd-arm64` → the build ran within LXD container on Arm64-based infrastructure (currently delivered by Packet)
 
 ### For a particular .travis.yml configuration
 
