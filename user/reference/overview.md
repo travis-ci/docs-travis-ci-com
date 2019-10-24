@@ -24,6 +24,8 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
+LXD compliant OS images for arm64 are run in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
+
 ### macOS
 
 A [macOS](/user/reference/osx/) environment for Objective-C and other macOS specific projects
@@ -36,21 +38,22 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|
-| Name                 | Ubuntu                                                                                                                    | macOS                         | Windows                            |
-| Status               | Current                                                                                                                   | Current                       | Early release                      |
-| Infrastructure       | Virtual machine on GCE                                                                                                    | Virtual machine               | Virtual machine on GCE             |
-| `.travis.yml`        |`dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                       | `os: osx`                     | `os: windows`                      |
-| Allows `sudo`        | Yes                                                                                                                       | Yes                           | No                                 |
-| Approx boot time     | 20-50s                                                                                                                    | 60-90s                        | 60-120s                            |
-| File system          | EXT4                                                                                                                      | HFS+                          | NTFS                               |
-| Operating system     | Ubuntu Linux                                                                                                              | macOS                         | Windows Server 2016                |
-| Memory               | 7.5 GB                                                                                                                    | 4 GB                          | 8 GB                               |
-| Cores                | 2                                                                                                                         | 2                             | 2                                  |
-| IPv4 network         | IPv4 is available                                                                                                         | IPv4 is available             | IPv4 is available                  |
-| IPv6 network         | IPv6 is not available                                                                                                     | IPv6 is not available         | IPv6 is not available              |
-| Available disk space | approx 18GB                                                                                                               | approx 41GB                   | approx 19 GB                       |
+|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD container with ([Bionic](/user/reference/bionic/)), [Xenial](/user/reference/xenial/) |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
+| Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
+| Status               | Current                                                                                                                                                       | Current                       | Early release                      | Early release                                          |
+| Infrastructure       | Virtual machine on GCE                                                                                                                                        | Virtual machine               | Virtual machine on GCE             | LXD container on Packet                                |
+| CPU architecture     | amd64                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)                                          |
+| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64 dist: bionic` or `os: linux arch: arm64 dist: xenial`                                |
+| Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
+| Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
+| File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
+| Operating system     | Ubuntu Linux                                                                                                                                                  | macOS                         | Windows Server 2016                | Ubuntu Linux                                           |
+| Memory               | 7.5 GB                                                                                                                                                        | 4 GB                          | 8 GB                               | ~4 GB                                                  |
+| Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
+| IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
+| IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
+| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 18GB (Arm)                                           |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -75,19 +78,17 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
+* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
 
 ### For a particular .travis.yml configuration
 
-* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
+* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
 * Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
 
 * Using `os: windows` routes your build to Windows infrastructure.
 
-> Between middle of October 2018 and end December 2018 the default infrastructure
-> your builds runs on will depend on a [few different
-> factors](https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures)
-> while we consolidate everything onto virtual machines running on Google Compute Engine.
+* Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
 ## Deprecated Virtualization Environments
 
@@ -97,4 +98,4 @@ Historically, Travis CI has provided the following virtualization environments.
 - **Precise Container-based environment**: was available between [December, 2014](https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/) and [September, 2017](https://blog.travis-ci.com/2017-08-31-trusty-as-default-status).
 - **Legacy Linux environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
 
-If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
+If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you remove them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).

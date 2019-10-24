@@ -105,7 +105,7 @@ You can test against both Mono and .NET Core by using `matrix.include`. This exa
 language: csharp
 solution: travis-mono-test.sln
 
-matrix:
+jobs:
   include:
     - dotnet: 2.1.502
       mono: none
@@ -118,7 +118,7 @@ matrix:
 ## Addons
 
 The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
- 
+
 ## Running Unit Tests (NUnit, xUnit, etc.)
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
