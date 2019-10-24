@@ -235,7 +235,7 @@ env:
     - EMBER_VERSION=release
     - EMBER_VERSION=beta
     - EMBER_VERSION=canary
-matrix:
+jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release

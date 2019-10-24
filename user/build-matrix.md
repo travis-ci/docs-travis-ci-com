@@ -24,7 +24,7 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
 * specify the exact combination of configurations you want in `matrix.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
 
   ```yaml
-  matrix:
+  jobs:
     include:
     - rvm: 2.5
       gemfile: gemfiles/Gemfile.rails-3.2.x
@@ -42,7 +42,7 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
 You can also define exclusions to the build matrix:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 1.9.3
     gemfile: gemfiles/Gemfile.rails-2.3.x
@@ -80,7 +80,7 @@ This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` val
 `gemfile` value `Gemfile`, you can write:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -90,7 +90,7 @@ matrix:
 Which is equivalent to:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -122,7 +122,7 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
       env: DB=mongodb
@@ -145,7 +145,7 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
       env: DB=mongodb SUITE=all # not 'env: DB=mongodb' or 'env: SUITE=all DB=mongodb'
@@ -159,7 +159,7 @@ matrix:
 It is also possible to include entries into the matrix with `matrix.include`:
 
 ```yaml
-matrix:
+jobs:
   include:
   - rvm: ruby-head
     gemfile: gemfiles/Gemfile.rails-3.2.x
@@ -176,7 +176,7 @@ For example,
 
 ```yaml
 language: python
-matrix:
+jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
@@ -206,7 +206,7 @@ python:
   - '3.5'
   - '3.4'
   - '2.7'
-matrix:
+jobs:
   include:
     - python: '3.5' # this is not strictly necessary
       env: EXTRA_TESTS=true
@@ -264,7 +264,7 @@ ready to officially support.
 Define allowed failures in the build matrix as key/value pairs:
 
 ```yaml
-matrix:
+jobs:
   allow_failures:
   - rvm: 1.9.3
 ```
@@ -291,10 +291,10 @@ rvm:
 env:
   global:
   - SECRET_VAR1=SECRET1
-  matrix:
+  jobs:
   - SECRET_VAR2=SECRET2
 
-matrix:
+jobs:
   allow_failures:
     - env: SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2
 ```
@@ -310,7 +310,7 @@ language: php
 php:
 - 5.6
 - 7.0
-matrix:
+jobs:
   include:
   - php: 7.0
     env: KEY=VALUE
@@ -329,7 +329,7 @@ If some rows in the build matrix are allowed to fail, the build won't be marked 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
 ```yaml
-matrix:
+jobs:
   fast_finish: true
 ```
 {: data-file=".travis.yml"}
@@ -345,7 +345,7 @@ language: php
 php:
   - '5.6'
 
-matrix:
+jobs:
   include:
     - language: python
       python: 3.6
