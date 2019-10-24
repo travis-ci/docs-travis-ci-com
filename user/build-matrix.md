@@ -216,6 +216,43 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
+### Explicitly included jobs with only one element in the build matrix
+
+As a special case, if your build matrix has only one element _and_ you have
+explicitly included jobs, matrix expansion is not done and the explicit jobs
+_completely_ define your build. For example:
+
+```yaml
+language: python
+python:
+  - '3.5'
+matrix:
+  include:
+    - env: EXTRA_TESTS=true
+# only defines one job with `python: 3.5` and `env: EXTRA_TESTS=true`
+```
+{: data-file=".travis.yml"}
+
+If you need the (sole) job from the matrix in such a case, too,
+add a blank job entry to the explicit list (as it would
+[inherit all values from the matrix](#explicitly-included-jobs-inherit-the-first-value-in-the-array)
+with no changes):
+
+```yaml
+language: python
+python:
+  - '3.5'
+matrix:
+  include:
+    -
+    - env: EXTRA_TESTS=true
+# defines two jobs:
+#   - python: 3.5
+#   - python: 3.5
+#     env: EXTRA_TESTS=true
+```
+{: data-file=".travis.yml"}
+
 ## Rows that are Allowed to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
