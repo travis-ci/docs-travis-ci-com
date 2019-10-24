@@ -38,13 +38,13 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD ([Bionic](/user/reference/bionic/)) |
+|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD container with ([Bionic](/user/reference/bionic/)), [Xenial](/user/reference/xenial/) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Early release                                          |
 | Infrastructure       | Virtual machine on GCE                                                                                                                                        | Virtual machine               | Virtual machine on GCE             | LXD container on Packet                                |
 | CPU architecture     | amd64                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)                                          |
-| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64`                                |
+| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64 dist: bionic` or `os: linux arch: arm64 dist: xenial`                                |
 | Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
 | Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
 | File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
@@ -53,7 +53,7 @@ The following table summarizes the differences across virtual environments and o
 | Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
 | IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
 | IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
-| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 10GB                                            |
+| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 18GB (Arm)                                           |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -78,6 +78,7 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
+* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
 
 ### For a particular .travis.yml configuration
 
