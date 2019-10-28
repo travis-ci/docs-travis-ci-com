@@ -37,6 +37,7 @@ julia:
 Acceptable formats are:
  - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
 of Julia.
+ - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
  - `X.Y.Z` will test against that exact version.
 
