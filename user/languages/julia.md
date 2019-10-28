@@ -37,6 +37,7 @@ julia:
 Acceptable formats are:
  - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
 of Julia.
+ - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
  - `X.Y.Z` will test against that exact version.
 
@@ -85,6 +86,10 @@ where the package name `$pkgname` is the repository name, with any trailing `.jl
 Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage information
 about the tests it ran; it does not submit this information to any services.
 To submit coverage information, see the coverage section above.
+
+There are two scripts that describe the defualt behavior for using Julia with Travis CI:
+ [julia.rb](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/julia.rb)
+ and [julia_spec.rb](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/julia_spec.rb).
 
 ## Dependency Management
 
