@@ -336,7 +336,7 @@ jdk:
   - openjdk6
   - openjdk7
   - oraclejdk7
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.2
       jdk: openjdk6

@@ -1,6 +1,7 @@
 ---
 title: Hackage Deployment
 layout: en
+deploy: v1
 
 ---
 

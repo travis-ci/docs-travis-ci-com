@@ -1,6 +1,7 @@
 ---
 title: Boxfuse Deployment
 layout: en
+deploy: v1
 
 ---
 

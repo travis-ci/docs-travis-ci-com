@@ -85,8 +85,8 @@ os: osx
 ```
 {: data-file=".travis.yml"}
 
-> You do *not* necessarily need to use macOS, if you develop on a Mac.
-> macOS is required only, if you need Swift, Objective-C or other
+> You do *not* necessarily need to use macOS if you develop on a Mac.
+> macOS is required only if you need Swift, Objective-C, or other
 > macOS-specific software.
 
 Travis CI supports many [programming languages](/user/languages/).
