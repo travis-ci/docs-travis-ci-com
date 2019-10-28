@@ -93,7 +93,7 @@ env:
   global:
     - MY_GLOBAL_VAR=123
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
@@ -113,7 +113,7 @@ script: "bundle exec rake knapsack:cucumber"
 env:
   global:
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
@@ -126,7 +126,7 @@ script: "bundle exec rake knapsack:minitest"
 env:
   global:
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```

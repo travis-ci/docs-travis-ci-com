@@ -46,7 +46,7 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - 7
 ```
 {: data-file=".travis.yml"}
 
@@ -235,7 +235,7 @@ env:
     - EMBER_VERSION=release
     - EMBER_VERSION=beta
     - EMBER_VERSION=canary
-matrix:
+jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release

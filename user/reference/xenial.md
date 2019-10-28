@@ -140,6 +140,10 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 | groovy  | 2.4.5   |
 {: style="width: 30%" }
 
+## Perl support
+* Default version on Xenial is `5.22`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+
 ## PHP support
 
 * For dynamic runtime selection, `phpenv` is available.
@@ -164,3 +168,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | redis      | 5.5            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

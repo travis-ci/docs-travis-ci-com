@@ -1,6 +1,7 @@
 ---
 title: GitHub Releases Uploading
 layout: en
+deploy: v1
 
 ---
 
@@ -61,7 +62,7 @@ This gives you an opportunity to examine and edit the draft release.
 ## Setting the tag at deployment time
 
 GitHub Releases needs the present commit to be tagged at the deployment time.
-If you set `on.tags: true`, the commit is guaranteed to have a tag. 
+If you set `on.tags: true`, the commit is guaranteed to have a tag.
 
 Depending on the workflow, however, this is not desirable.
 
@@ -102,7 +103,7 @@ The GitHub-generated tags are of the form `untagged-*`, where `*` is a random
 hex string.
 Notice that this tag is immediately available on GitHub, and thus
 will trigger a new Travis CI build, unless it is prevented by
-other means; for instance, by 
+other means; for instance, by
 [blocklisting `/^untagged/`](/user/customizing-the-build/#safelisting-or-blocklisting-branches).
 
 ## Overwrite existing files on the release
