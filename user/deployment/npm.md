@@ -18,7 +18,7 @@ A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with 
 ```yaml
 language: node_js
 node_js:
-  - "11.13"
+  - "12.13"
 
 deploy:
   provider: npm
