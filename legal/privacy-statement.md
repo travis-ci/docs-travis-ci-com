@@ -161,7 +161,7 @@ We do not make automated decisions using your Data in our Websites or in our Ser
 #### _Right to lodge a complaint with a supervisory authority._ 
 If you consider that the processing of your personal data infringes your privacy rights according to the General Data Protection Regulation, you have the right to lodge a complaint with a supervisory authority, in the member state of your habitual residence, place of work, or place of the alleged infringement. Contact details for the EU data protection authorities can be found at https://ec.europa.eu/justice/article-29/structure/data-protection-authorities/index_en.htm.
 
-### 10.	10.	For EU, UK and Swiss Individuals: Privacy Shield Notice for Personal Data Transfers to the United States
+### 10. For EU, UK and Swiss Individuals: Privacy Shield Notice for Personal Data Transfers to the United States
 
 The Company’s Services comply with the EU-US Privacy Shield Framework and the Swiss-US Privacy Shield Framework as set forth by the U.S. Department of Commerce regarding the collection, use, and retention of personal information transferred from the European Union, the United Kingdom and Switzerland to the United States in reliance on Privacy Shield. The Company has certified to the Department of Commerce that the Services adheres to the Privacy Shield Principles with respect to such information. If there is any conflict between the terms in this privacy policy and the Privacy Shield Principles, the Privacy Shield Principles shall govern. To learn more about the Privacy Shield principles, please visit https://www.privacyshield.gov/.
 
