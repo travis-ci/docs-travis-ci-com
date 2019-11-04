@@ -40,10 +40,10 @@ To specify them, use the `rvm:` key in your `.travis.yml` file:
 ```yaml
 language: ruby
 rvm:
-  - 2.2
+  - 2.5
+  - 2.6
   - jruby
   - truffleruby
-  - 2.0.0-p247
 ```
 {: data-file=".travis.yml"}
 
@@ -85,7 +85,7 @@ language: ruby
 rvm:
   - truffleruby # latest release
   # or
-  - truffleruby-1.0.0-rc9 # specific version
+  - truffleruby-19.2.0 # specific version
 ```
 {: data-file=".travis.yml"}
 
@@ -141,28 +141,29 @@ directory.
 #### Bundler 2.0
 
 On January 3rd 2019 the Bundler team released [Bundler 2.0](https://bundler.io/blog/2019/01/03/announcing-bundler-2.html)
-which dropped support for Ruby versions 2.2 and older, and added a new dependency
-on RubyGems 3.0.0.
-A subsequent release, [2.0.1](https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html),
-requires RubyGems 2.5.0.
+which requires Ruby 2.3+.
+A subsequent [2.0.1](https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html) release
+lowered the required RubyGems version to 2.5.0, which is available by default on Ruby 2.3+.
 
-Under many configurations, Travis CI installs the Ruby runtime on the fly.
-This means installing the latest Bundler at run time, which may cause problems
-due to the unsatisfied requirements.
+Therefore, *there is no need to update RubyGems* for Bundler 2.
 
-If you find your builds are failing due to “bundler not installed” errors, try one of the following solutions:
+TravisCI uses Bundler 1 by default.
+If your `Gemfile.lock` has a `BUNDLED WITH 1.x` section (or no such section),
+the default behavior should be enough and require no changes.
+
+If you find your builds are failing due to “bundler not installed” errors or
+want to use Bundler 2.0, try one of the following solutions:
 
 * If you’re using Ruby 2.3 or higher, and you wish to upgrade to Bundler 2.0,
-  use the following in your `.travis.yml` to update RubyGems:
+  use the following in your `.travis.yml`:
 
     ```yaml
     before_install:
-      - gem update --system
       - gem install bundler
     ```
     {: data-file=".travis.yml"}
 
-* If you are using Ruby 2.3.x but wish to stay on Bundler 1.x (e.g., for dependency
+* If you are using Ruby 2.3.x but wish to explicitly stay on Bundler 1.x (e.g., for dependency
   reasons such as Rails 4.2.x), write:
 
     ```yaml
@@ -173,7 +174,7 @@ If you find your builds are failing due to “bundler not installed” errors, t
     {: data-file=".travis.yml"}
 
   The `gem uninstall` command above removes any Bundler 2.x installed in
-  RVM's "global" gemset during the Ruby run time installation, which would be
+  RVM's "global" gemset during the Ruby installation by RVM, which would be
   selected as the default `bundle` command.
   We ignore the failure from that command, because the failure most likely
   means that there was no matching Bundler version to uninstall.
