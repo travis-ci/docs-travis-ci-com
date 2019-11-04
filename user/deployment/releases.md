@@ -242,7 +242,7 @@ after_deploy:
 
 ## Advanced options
 
-The following ptions from `.travis.yml` are passed through to Octokit API's
+The following options from `.travis.yml` are passed through to Octokit API's
 [#create_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method)
 and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods.
 
