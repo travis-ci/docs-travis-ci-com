@@ -260,6 +260,7 @@ These archives are available for on-demand installation.
 | {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
 {% endif %}
 
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
 <script>
 var tf = new TableFilter(document.querySelector('#python-versions-table'), {
     base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
