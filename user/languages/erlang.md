@@ -115,6 +115,7 @@ These archives are available for on-demand installation.
 - [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 - [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
 
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
 <script>
 var tf = new TableFilter(document.querySelector('#erlang-versions-table'), {
     base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
