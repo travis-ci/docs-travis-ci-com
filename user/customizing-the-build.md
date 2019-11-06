@@ -175,6 +175,22 @@ git:
 where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 
+## Git End of Line Conversion Control
+
+Travis CI clones repositories with platform-dependent [core.autocrlf](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf) behavior.
+This behavior can be modified via the autocrlf attribute in `.travis.yml`. Valid values are `true`, `false` and `input`.
+
+To clone your repository without end of line conversion, add:
+
+```yaml
+git:
+  autocrlf: input
+```
+{: data-file=".travis.yml"}
+
+This is equivalent to [`git config --global core.autocrlf input`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf) prior to cloning the repository.
+
+
 ## Disabling git clone
 
 In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip the automatic `git clone` step.
