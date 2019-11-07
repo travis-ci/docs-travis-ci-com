@@ -117,9 +117,9 @@ jobs:
 
 For example, the above `.travis.yml`, would result in running both jobs with the environmental variable LIB_PATH assigned different values being run only on `amd64` architecture.
 
-## Using Docker in Multi CPU Architecture-Based Builds within LXD Containers
+## Using Docker in Multiple CPU Architecture-Based Builds within LXD Containers
 
-It is possible to use Docker in Multi CPU Architecture-based builds within an LXD container. You may need an specific CPU architecture compliant docker image as a base or ensure relevant libraries required by your build are added to your Dockerfile.
+It is possible to use Docker in multiple CPU architecture-based builds within an LXD container. You may need a specific CPU architecture compliant docker image as a base or ensure relevant libraries required by your build are added to your Dockerfile.
 
 An example of building a docker image from a Dockerfile adjusted to arm64:
 
@@ -143,7 +143,7 @@ script: docker run my/test #assuming docker image my/test is arm64v8 ready
 ```
 {: data-file=".travis.yml"}
 
-You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based docker builds, assuming all dependencies and/or CPU architecture compliant base docker image is used.
+You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based docker builds, assuming all dependencies and/or a CPU architecture compliant base docker image are used.
 
 You can also have a look at [Using Docker in Builds](user/docker/).
 
@@ -163,15 +163,15 @@ would result in an error.
 
 Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
 
-### System calls interception
+### System Calls Interception
 
 
-If you run into message like:
+If you run into a message like:
 
 > System doesn't support syscall interception
 
 It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
 
-## Hugepages support from within LXD Container
+## Hugepages Support from within LXD Container
 
-Build job can’t enable hugepages within LXD container - this is something that may change in the future, yet it depends on potential Linux kernel changes, which is something that needs to be reviewed and developed.
+A build job can’t enable hugepages within an LXD container - this is something that may change in the future, yet it depends on potential Linux kernel changes, which is something that needs to be reviewed and developed.
