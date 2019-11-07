@@ -21,7 +21,7 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
   ```
   {: data-file=".travis.yml"}
 
-* specify the exact combination of configurations you want in `matrix.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
+* specify the exact combination of configurations you want in `job.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
 
   ```yaml
   jobs:
@@ -156,7 +156,7 @@ jobs:
 
 ## Explicitly Including Jobs
 
-It is also possible to include entries into the matrix with `matrix.include`:
+It is also possible to include entries into the matrix with `jobs.include`:
 
 ```yaml
 jobs:
@@ -180,8 +180,8 @@ jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -196,21 +196,21 @@ of Python.
 The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
-In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
+In this example with a 3-job Python build matrix, each job in `jobs.include`
+has the `python` value set to `'3.8'`.
 You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
 jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
@@ -225,11 +225,11 @@ _completely_ define your build. For example:
 ```yaml
 language: python
 python:
-  - '3.5'
-matrix:
+  - '3.8'
+jobs:
   include:
     - env: EXTRA_TESTS=true
-# only defines one job with `python: 3.5` and `env: EXTRA_TESTS=true`
+# only defines one job with `python: 3.8` and `env: EXTRA_TESTS=true`
 ```
 {: data-file=".travis.yml"}
 
@@ -241,14 +241,14 @@ with no changes):
 ```yaml
 language: python
 python:
-  - '3.5'
-matrix:
+  - '3.8'
+jobs:
   include:
     -
     - env: EXTRA_TESTS=true
 # defines two jobs:
-#   - python: 3.5
-#   - python: 3.5
+#   - python: 3.8
+#   - python: 3.8
 #     env: EXTRA_TESTS=true
 ```
 {: data-file=".travis.yml"}
@@ -275,7 +275,7 @@ jobs:
 When matching jobs against the definitions given in `allow_failures`, _all_
 conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
-top level of the build matrix (i.e., not in `matrix.include`).
+top level of the build matrix (i.e., not in `jobs.include`).
 
 #### `allow_failures` Examples
 
@@ -326,7 +326,7 @@ Without the top-level `env`, no job will be allowed to fail.
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
-To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
+To mark the build as finished as soon as possible, add `fast_finish: true` to the `jobs` section of your `.travis.yml` like this:
 
 ```yaml
 jobs:
@@ -337,7 +337,7 @@ jobs:
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
 ## Using Different Programming Languages per Job
-You can also use the `matrix.include` feature to have different languages for each job in your build. For example,
+You can also use the `jobs.include` feature to have different languages for each job in your build. For example,
 
 ```yaml
 dist: xenial
@@ -348,12 +348,12 @@ php:
 jobs:
   include:
     - language: python
-      python: 3.6
+      python: 3.8
       script:
       - python -c "print('Hi from Python!')"
 
     - language: node_js
-      node_js: 9
+      node_js: 12
       script:
       - node -e "console.log('Hi from NodeJS!')"
 
@@ -365,6 +365,6 @@ jobs:
 {: data-file=".travis.yml"}
 This creates a build with 3 jobs as follows:
 
-* A Python 3.6 job
-* A  Node.js 9 job
+* A Python 3.8 job
+* A  Node.js 12 job
 * A Java OpenJDK 8 job
