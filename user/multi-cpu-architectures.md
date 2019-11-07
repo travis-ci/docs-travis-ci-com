@@ -44,7 +44,7 @@ If you are already using a [build matrix](/user/customizing-the-build/#build-mat
 
 - The ppc64le (IBM Power) and s390x (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
 - The arm64 CPU architecture build job is run in an LXD compliant Linux OS image.
-- The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` one can select different supported LXD image. See [CI Environment Overview - Virtualisation Envionment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) doc. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
+- The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` you can select different supported LXD images. Also see our [CI Environment Overview - Virtualisation Environment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) documentation. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
 - The amd64 CPU architecture build job currently runs as a regular VM and will be transitioned to an LXD compliant Linux OS image usage over time.
 
 ## Example Multi Architecture Build Matrix
