@@ -42,9 +42,9 @@ The following table summarizes the differences across virtual environments and o
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Early release                                          |
-| Infrastructure       | Virtual machine on GCE                                                                                                                                        | Virtual machine               | Virtual machine on GCE             | LXD container on Packet                                |
-| CPU architecture     | amd64                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)                                          |
-| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64 dist: bionic` or `os: linux arch: arm64 dist: xenial`                                |
+| Infrastructure       | Virtual machine on GCE                                                                                                                                        | Virtual machine               | Virtual machine on GCE             | ARM: LXD container on Packet<br />IBM Power: LXD container on IBM Cloud<br />IBM Z: LXD container on IBM zCloud                             |
+| CPU architecture     | amd64                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)<br />ppc64le (IBM Power)<br />s390x (IBM Z)                                          |
+| `.travis.yml`        | `dist: bionic` or `dist: xenial` or `dist: trusty` or `dist: precise`                                                                                         | `os: osx`                     | `os: windows`                      | `os: linux arch: arm64 dist: bionic` or `os: linux arch: arm64 dist: xenial`or `os: linux arch: ppc64le dist: bionic` or `os: linux arch: ppc64le dist: xenial` or `os: linux arch: s390x dist: bionic` or `os: linux arch: s390x dist: xenial`                              |
 | Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
 | Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
 | File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
@@ -53,7 +53,7 @@ The following table summarizes the differences across virtual environments and o
 | Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
 | IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
 | IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
-| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 18GB (Arm)                                           |
+| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -79,6 +79,8 @@ if it contains:
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
 * `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
+* `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
+* `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
 
 ### For a particular .travis.yml configuration
 
@@ -89,6 +91,10 @@ if it contains:
 * Using `os: windows` routes your build to Windows infrastructure.
 
 * Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+
+* Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+
+* Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
 ## Deprecated Virtualization Environments
 
