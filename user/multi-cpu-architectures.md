@@ -86,7 +86,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-Similarly, this matrix would route builds to the ppc64le (IBM Power) and s390x (IBM Z) architecture environments:
+Similarly, this matrix would route builds to the `ppc64le` (IBM Power) and `s390x` (IBM Z) architecture environments:
 
 ```yaml
 jobs:
