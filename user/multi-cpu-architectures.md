@@ -149,7 +149,7 @@ You can also have a look at [Using Docker in Builds](user/docker/).
 
 ## Security and LXD Container
 
-### Access to priviliged fs/features (Apparmor)
+### Access to Privileged fs/Features (Apparmor)
 
 > Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
 
