@@ -26,7 +26,7 @@ You can identify for which CPU architecture a build job is run via
 - A default environmental variable printed out during your build job: `$TRAVIS_CPU_ARCH` (for a complete list of available default environmental variables please see our [Environment Variables - Default Environment Variables](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables) documentation. 
 
 
-## Enable testing on multiple CPU architectures
+## Testing on Multiple CPU Architectures
 
 To enable testing on multiple CPU architectures add the `arch` key to your `.travis.yml`:
 
