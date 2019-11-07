@@ -12,7 +12,7 @@ permalink: /user/multi-cpu-architectures/
 
 If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64, ppc64le (IBM Power CPUs), s390x (IBM Z CPUs) and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
 
-## Default CPU architecture
+## Default CPU Architecture
 
 The default CPU architecture used in Travis CI builds is `amd64`. It is used when no `arch` key is present. 
 
