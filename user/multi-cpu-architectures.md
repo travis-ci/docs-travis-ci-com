@@ -16,7 +16,7 @@ If your code is used on multiple CPU architectures it probably should be tested 
 
 The default CPU architecture used in Travis CI builds is `amd64`. It is used when no `arch` key is present. 
 
-## Identifying CPU architecture of build jobs
+## Identifying CPU Architecture of Build Jobs
 
 You can identify for which CPU architecture a build job is run via
 
