@@ -7,7 +7,7 @@ permalink: /user/multi-cpu-architectures/
 > This is an alpha stage of this feature and we are eager to hear back from you, both for [`Arm`-based feedback](https://travis-ci.community/t/about-the-arm-cpu-architecture-category/5336) and [`IBM`-based feedback](link TBD). The definition keys used in the `.travis.yml` file may be further adapted on short notice.
 {: .alpha}
 
-> `IBM Power`, `IBM Z` and `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multi cpu arch-based jobs is limited during the alpha period.
+> `IBM Power`, `IBM Z` and `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the alpha period.
 > An attempt to run `IBM Power`, `IBM Z` and `Arm`-based build for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
 
 If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64, ppc64le (IBM Power CPUs), s390x (IBM Z CPUs) and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
