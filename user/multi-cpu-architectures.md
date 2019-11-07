@@ -23,7 +23,7 @@ You can identify for which CPU architecture a build job is run via
 - GUI
   - in the build job list, there's a specific label and architecture name based on `arch` tag value
   - in the build job view, the same specific label is displayed near the operating system identifier
-- A default environmental variable printed out during your build job: `$TRAVIS_CPU_ARCH` (for complete list of available default environmental variables please see [Environment Variables - Default Environment Variables](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables) documentation). 
+- A default environmental variable printed out during your build job: `$TRAVIS_CPU_ARCH` (for a complete list of available default environmental variables please see our [Environment Variables - Default Environment Variables](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables) documentation. 
 
 
 ## Enable testing on multiple CPU architectures
