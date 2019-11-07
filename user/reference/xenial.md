@@ -165,7 +165,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 |:-----------|:---------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
-| redis      | 5.5            |
+| redis      | 5.0            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 
