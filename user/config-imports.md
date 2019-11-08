@@ -1,5 +1,5 @@
 ---
-title: Importing shared build configuration
+title: Importing Shared Build Configuration
 
 layout: en
 ---
@@ -7,7 +7,7 @@ layout: en
 The main source of configuration for your build is the `.travis.yml` file
 stored in your repository. You can import shared configuration snippets into
 your `.travis.yml` or [API build request payload](https://docs.travis-ci.com/user/triggering-builds/),
-so you can update your build configuration in multiple repositories making only
+to update your build configuration in multiple repositories making only
 one change.
 
 Imported configs can themselves include other configs, making this feature very
@@ -15,7 +15,7 @@ composable (cyclic imports will be skipped). You can import up to 25 build
 configuration snippets in total.
 
 
-> BETA Configuration imports is currently in beta. Please leave feedback on the [Community forum](https://travis-ci.community/c/early-releases).
+> BETA The Configuration Imports feature is currently in beta. You can leave your feedback on the [Community forum](https://travis-ci.community/c/early-releases).
 {: .beta }
 
 ## Example
@@ -95,7 +95,7 @@ are overwritten with the last configuration imported. But you can also specify
 ## Importing configs from the same repository
 
 When importing configurations stored in the same repository as your
-`travis.yml`, you can ommit the `<account>/<repository>` part:
+`travis.yml`, you can commit the `<account>/<repository>` part:
 
 ```yaml
 # local imports fetch the same git commit ref
@@ -142,7 +142,7 @@ There are these merge modes:
 
 The default merge mode is `deep_merge_append` when using the beta feature
 [build config validation](/user/build-config-validation) that will be rolled
-out to all users over the next couple months, we encourage you to enable it.
+out to all users over the next couple of months, we encourage you to enable it.
 With this feature not being enabled the default merge mode is `merge`.
 
 ### Merge
@@ -162,7 +162,7 @@ import:
 ### Deep merge
 
 The merge mode `deep_merge` recursively merges sections (keys) that hold maps (hashes),
-but ovewrites sequences (arrays).
+but overwrites sequences (arrays).
 
 ```yaml
 import:
@@ -188,7 +188,7 @@ import:
 ## Private repositories
 
 Before sharing configurations **from** a private repository you need to toggle
-the *Allow importing config files from this repository.* setting in *More
+the *Allow importing config files from this repository* setting in *More
 options* > *Settings* > *Config Import*. Only repositories owned by the same
 organisation will be able to access configuration snippets from private
 repositories.
