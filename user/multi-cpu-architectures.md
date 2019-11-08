@@ -4,7 +4,7 @@ layout: en
 permalink: /user/multi-cpu-architectures/
 ---
 
-> This is an alpha stage of this feature and we are eager to hear back from you, both for [`Arm`-based feedback](https://travis-ci.community/t/about-the-arm-cpu-architecture-category/5336) and [`IBM`-based feedback](link TBD). The definition keys used in the `.travis.yml` file may be further adapted on short notice.
+> This is an alpha stage of this feature and we are eager to hear back from you, both for `Arm`-based feedback and `IBM`-based feedback in our [Community Forum](https://travis-ci.community/c/environments/multi-cpu-arch). The definition keys used in the `.travis.yml` file may be further adapted on short notice.
 {: .alpha}
 
 > `IBM Power`, `IBM Z` and `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the alpha period.
