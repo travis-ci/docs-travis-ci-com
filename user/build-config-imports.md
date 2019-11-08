@@ -118,10 +118,10 @@ The path is relative to the repository's root.
 
 ## Importing specific versions of configs
 
-For configurations imported from a different repository the fetch the latest
-version of the default branch in the repository will be used by default.
+For configurations imported from a different repository the latest version of
+the default branch in the repository will be used by default.
 
-For configurations imported from the same repository fetch the commit you are
+For configurations imported from the same repository the commit you are
 currently building will be used by default. This is intended to help while you
 are creating and testing the shared configurations.
 
