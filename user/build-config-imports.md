@@ -98,7 +98,7 @@ import:
 {: data-file=".travis.yml"}
 
 By default, if the same keys are present in multiple imported snippets, they
-are overwritten with the last configuration imported. But you can also specify
+are overwritten with the last imported configuration, but you can also specify
 [deep_merge](#merge-mode).
 
 ## Importing configs from the same repository
@@ -141,10 +141,10 @@ In order to share configurations **from** a private repository this needs to
 be allowed on that repository, by enabling the *Allow importing config files from this repository*
 setting in `More options > Settings > Config Import`.
 
-Only private repositories owned by the same organisation or user account will
-be able to import configuration snippets from private repositories. Configs
-from private repositories cannot be imported to configs from public
-repositories.
+> Only private repositories owned by the same organization or user account will
+> be able to import configuration snippets from private repositories. Configs
+> from private repositories cannot be imported to configs from public
+> repositories.
 
 ## Sharing encrypted secrets
 
