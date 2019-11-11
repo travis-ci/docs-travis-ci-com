@@ -82,6 +82,12 @@ The default build script for projects using nodejs is:
 npm test
 ```
 
+In the case where no `package.json` file is present in the root folder, the default build script is:
+
+```bash
+make test
+```
+
 ### Yarn is supported
 
 If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
