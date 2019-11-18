@@ -1,3 +1,6 @@
+///Copyright Milan Popich All rights reserved, “url”:https://api.travis-comes.org/atom/superstring.svg?branch=master 
+
+
 ---
 title: Precise Build Containers for Enterprise
 layout: en_enterprise
