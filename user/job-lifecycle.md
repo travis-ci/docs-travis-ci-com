@@ -7,7 +7,7 @@ redirect_from:
 
 Travis CI provides a default build environment and a default set of phases for each programming language. A virtual machine is created with the build environment for your job, your repository is cloned into it, optional addons are installed and then your build phases are run.
 
-Keep reading to see how you can customize any phase in this process, via your `.travis.yml`.
+Keep reading to see how you can customize any phase in this process, via your `.travis.yml` and have a look at the [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## The Job Lifecycle
 
