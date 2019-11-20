@@ -1,10 +1,10 @@
 osx_images:
   - image: xcode11.2
-    xcode: "11.2"
+    xcode: "11.2.1"
     osx_version: "10.14"
-    xcode_full_version: "11.2"
-    xcode_build_version: "11B41"
-    image_publish_date: 2019-10-07
+    xcode_full_version: "11.2.1"
+    xcode_build_version: "11B500"
+    image_publish_date: 2019-11-20
     sdks:
       - iphoneos13.2
       - iphonesimulator13.2
@@ -43,7 +43,7 @@ osx_images:
       - watchOS 5.1
       - watchOS 6.0
       - watchOS 6.1
-    jdk: "13"
+    jdk: "13.0.1"
   - image: xcode11.1
     xcode: "11.1"
     osx_version: "10.14"
