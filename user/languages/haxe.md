@@ -85,3 +85,8 @@ The versions of Haxe and Neko a job is using are available as:
 TRAVIS_HAXE_VERSION
 TRAVIS_NEKO_VERSION
 ```
+
+## Build Config Reference
+
+Have a look at the [Haxe](https://config.travis-ci.com/ref/language/haskell) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
