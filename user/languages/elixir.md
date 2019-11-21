@@ -116,3 +116,7 @@ As with the Erlang VM, the version of OTP release a job is using is available as
 ```
 TRAVIS_OTP_RELEASE
 ```
+
+## Build Config Reference
+
+Have a look at the [Elixir](https://config.travis-ci.com/ref/language/elixir) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
