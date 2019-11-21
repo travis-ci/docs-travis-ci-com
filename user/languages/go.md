@@ -220,6 +220,10 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
+## Build Config Reference
+
+Have a look at the [Go](https://config.travis-ci.com/ref/language/go) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [Go AMQP client](https://github.com/streadway/amqp/blob/master/.travis.yml)
