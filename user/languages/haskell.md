@@ -93,3 +93,7 @@ The build matrix is then constructed such that each package is compiled with eac
 
 Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
 See [Hackage Deployment](/user/deployment/hackage/).
+
+## Build Config Reference
+
+Have a look at the [Haskell](https://docs.travis-ci.com/user/languages/haskell/) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
