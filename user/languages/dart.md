@@ -165,3 +165,8 @@ dart_task:
 * `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
 * `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
 * `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.
+
+## Build Config Reference
+
+Have a look at the [Dart](https://config.travis-ci.com/ref/language/dart) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
