@@ -69,6 +69,10 @@ script: nix-build -A tarball release.nix
 
 The above configuration will attempt to build the attribute "tarball" from the Nix expression in release.nix.
 
-## Nix manual
+## Nix Manual
 
 More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
+
+## Build Config Reference
+
+Have a look at the [Nix](https://config.travis-ci.com/ref/language/nix) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
