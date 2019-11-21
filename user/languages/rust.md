@@ -137,3 +137,8 @@ script:
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
+
+## Build Config Reference
+
+Have a look at the [Rust](https://config.travis-ci.com/ref/language/rust) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
