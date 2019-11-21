@@ -240,6 +240,10 @@ The same technique is often used to test projects against multiple databases and
 
 For real world examples, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
+## Build Config Reference
+
+Have a look at the [Python](https://config.travis-ci.com/ref/language/python) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
