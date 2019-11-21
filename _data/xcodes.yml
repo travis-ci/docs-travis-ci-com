@@ -22,8 +22,8 @@ osx_images:
       - iOS 11.4
       - iOS 12.0
       - iOS 12.1
-      - iOS 13.0
-      - iOS 13.1
+      - iOS 12.2
+      - iOS 12.4
       - iOS 13.2
       - tvOS 10.2 
       - tvOS 11.0
@@ -33,7 +33,8 @@ osx_images:
       - tvOS 11.4
       - tvOS 12.0
       - tvOS 12.1
-      - tvOS 13.0
+      - tvOS 12.2
+      - tvOS 12.4
       - tvOS 13.2
       - watchOS 3.2
       - watchOS 4.0
@@ -41,7 +42,8 @@ osx_images:
       - watchOS 4.2
       - watchOS 5.0 
       - watchOS 5.1
-      - watchOS 6.0
+      - watchOS 5.2
+      - watchOS 5.3
       - watchOS 6.1
     jdk: "13.0.1"
   - image: xcode11.1
