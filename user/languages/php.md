@@ -388,6 +388,10 @@ virtual host as usual, the important part for php-fpm is this:
 </VirtualHost>
 ```
 
+## Build Config Reference
+
+Have a look at the [PHP](https://config.travis-ci.com/ref/language/php) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
