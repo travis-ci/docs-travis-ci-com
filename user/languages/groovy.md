@@ -139,3 +139,8 @@ jdk:
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
+
+## Build Config Reference
+
+Have a look at the [Groovy](https://config.travis-ci.com/ref/language/groovy) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
