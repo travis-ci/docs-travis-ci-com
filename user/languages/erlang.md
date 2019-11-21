@@ -94,6 +94,12 @@ TRAVIS_OTP_RELEASE
 ```
 
 {% if site.data.language-details.erlang-versions.size > 0 %}
+
+## Build Config Reference
+
+Have a look at the [Erlang](https://config.travis-ci.com/ref/language/erlang) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+
 ## OTP/Release versions
 
 These archives are available for on-demand installation.
