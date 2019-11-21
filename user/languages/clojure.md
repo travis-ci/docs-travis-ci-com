@@ -142,6 +142,10 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+## Build Config Reference
+
+Have a look at the [Clojure](https://config.travis-ci.com/ref/language/clojure) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 Task chaining requires using the `do` task:
 
 ```yaml
