@@ -105,3 +105,8 @@ Historically, Travis CI has provided the following virtualization environments.
 - **Legacy Linux environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
 
 If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you remove them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
+
+## Build Config Reference
+
+Have a look at the [Operating Systems](https://config.travis-ci.com/ref/os) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
