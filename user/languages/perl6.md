@@ -160,3 +160,8 @@ script:
     - PERL6LIB=src prove --ext .t --ext .t6 -v -r --exec=perl6 tests/
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+Have a look at the [Perl6](https://config.travis-ci.com/ref/language/perl6) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
