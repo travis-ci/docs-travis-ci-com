@@ -329,3 +329,8 @@ addons:
       - g++-4.8
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+Have a look at the [Javascript](https://config.travis-ci.com/ref/language/node_js) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
