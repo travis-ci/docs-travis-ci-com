@@ -283,6 +283,11 @@ script:
 If you'd like to see the full details, see
 [the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
 
+## Build Config Reference
+
+Have a look at the [R](https://config.travis-ci.com/ref/language/r) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+
 ## Examples
 
 ### Package in a subdirectory
