@@ -109,3 +109,7 @@ for details.
   If neither `elm-format` nor `elm` is overridden, the default value, `elm0.19.0`
   is used.
 * `TRAVIS_NODE_VERSION` points to the `node_js` version in use.
+
+## Build Config Reference
+
+Have a look at the [Elm](https://config.travis-ci.com/ref/language/elm) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
