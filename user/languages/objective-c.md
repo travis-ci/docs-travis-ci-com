@@ -175,6 +175,10 @@ install: make get-deps
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
 
+## Build Config Reference
+
+Have a look at the [Objective-C](https://config.travis-ci.com/ref/language/objective-c) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Simulators
 
 A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).
