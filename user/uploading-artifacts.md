@@ -114,3 +114,8 @@ ARTIFACTS_DEBUG=1
 
 ### Travis CI Artifact Uploader
 For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts) which is installed on your build VM by default. 
+
+### Build Config Reference
+
+Have a look at the [Artifacts](https://config.travis-ci.com/ref/job/addons/artifacts) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
