@@ -63,7 +63,7 @@ Homebrew is installed and updated every time the virtual machines are updated.
 
 The Homebrew addon correctly handles up-to-date, outdated, and missing packages. Manual Homebrew dependency scripts are error-prone, and we recommend against using them.
 
-The Homebrew addon uses the Homebrew database on the build image by default, but can be configured to run `brew update` if needed.
+The Homebrew addon uses the Homebrew database on the build image by default, but can be configured to run `brew update` if needed. Note that the default macOS version is [too old](https://github.com/Homebrew/homebrew-bundle/issues/540#issuecomment-518301382) and requires `brew update`; switch to xcode11 or newer to skip the need for the update step.
 
 ## File System
 
