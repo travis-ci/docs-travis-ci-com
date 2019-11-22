@@ -301,6 +301,8 @@ brew install openssl
 rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
 ```
 
+> You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Installing Dependencies on Multiple Operating Systems
 
 If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
