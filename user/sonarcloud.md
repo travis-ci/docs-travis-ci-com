@@ -122,5 +122,8 @@ If you are familiar with SonarQube, you can be tempted to deal with some propert
 
 These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
 
+## Build Config Reference
+
+Have a look at the [SonarCloud](https://config.travis-ci.com/ref/job/addons/sonarcloud) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 
