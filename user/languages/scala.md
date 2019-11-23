@@ -44,10 +44,10 @@ To specify Scala versions in your build:
 ```yaml
 language: scala
 scala:
-   - 2.9.3
-   - 2.10.6
-   - 2.11.11
-   - 2.12.2
+  - 2.9.3
+  - 2.10.6
+  - 2.11.11
+  - 2.12.2
 ```
 {: data-file=".travis.yml"}
 

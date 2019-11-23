@@ -14,7 +14,7 @@ To install Ubuntu packages that are not included in the standard [precise](/user
 
 ```yaml
 before_install:
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
@@ -23,7 +23,7 @@ By default, `apt-get update` does not get run automatically. If you want to upda
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
@@ -31,16 +31,16 @@ The second way is to use the [APT addon](#installing-packages-with-the-apt-addon
 
 ```yaml
 before_install:
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 addons:
   apt:
     update: true
 ```
 {: data-file=".travis.yml"}
 
-> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time. Additionally, some packages may fail to update, which will lead to a failed build.
 >
-> Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
+> Use the `-y` parameter with apt-get to assume yes to all queries by the apt tools.
 
 ### Installing Packages from a custom APT repository
 
@@ -50,9 +50,9 @@ For example, to install gcc from the ubuntu-toolchain ppa
 
 ```yaml
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 -y
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -q update
+  - sudo apt-get -y install gcc-4.8
 ```
 {: data-file=".travis.yml"}
 
@@ -66,8 +66,8 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
 before_script:
   - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
   - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
-  - sudo apt-get update -qq
-  - sudo apt-get install varnish -y
+  - sudo apt-get -qq update
+  - sudo apt-get -y install varnish
 ```
 {: data-file=".travis.yml"}
 

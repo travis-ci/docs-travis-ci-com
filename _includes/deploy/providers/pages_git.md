@@ -24,7 +24,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Pages is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to GitHub Pages is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.

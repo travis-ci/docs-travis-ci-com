@@ -96,7 +96,7 @@ elixir:
   - '1.0.5'
 otp_release: '17.4'
 
-matrix:
+jobs:
   include:
     - elixir: '1.2'
       otp_release: '18.0'

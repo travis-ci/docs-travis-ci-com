@@ -256,7 +256,7 @@ If you need to test with these versions, use Precise.*
 
 ```yaml
 language: php
-matrix:
+jobs:
   include:
     - php: 5.2
       dist: precise

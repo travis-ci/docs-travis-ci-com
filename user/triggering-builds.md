@@ -60,7 +60,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     "branch":"master",
     "config": {
       "env": {
-        "matrix": ["TEST=unit"]
+        "jobs": ["TEST=unit"]
       },
       "script": "echo FOO"
      }

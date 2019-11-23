@@ -33,11 +33,11 @@ We've released an update to the Travis CI API V2, which is API V2.1. This update
 
 > If you are building both Open Source and Private projects on travis-ci.com, please use API V2.1.
 
-For users of Travis CI using the deprecated platform for Open Source projects at travis-ci.org, built at api-travis-ci.org, there is no change in API.
+For users of Travis CI using the deprecated platform for Open Source projects at travis-ci.org, built at api.travis-ci.org, there is no change in API.
 
 API V2.1 is identical to API V2 **except for the following breaking changes**:
 
-* For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo cahces or settings.
+* For public repositories, unauthenticated requests receive an HTTP 200 or an HTTP 404 error in some cases like for repo caches or settings.
 * For private repositories, unauthenticated requests receive an HTTP 401 or 404 error.
 * For private repositories, authenticated requests by users that do not have permission to view the repository receive an HTTP 400 error or HTTP 200 for empty responses.
 

@@ -27,7 +27,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Google Cloud Store is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Google Cloud Store is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment. Either `key_file` or `access_key_id` and `secret_access_key` are required.
@@ -42,6 +42,7 @@ Use the following options to further configure the deployment. Either `key_file`
 | `acl` | Access control to set for uploaded objects &mdash; type: string, default: `private`, known values: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, see: [https://cloud.google.com/storage/docs/reference-headers#xgoogacl](https://cloud.google.com/storage/docs/reference-headers#xgoogacl) |
 | `detect_encoding` | HTTP header Content-Encoding to set for files compressed with gzip and compress utilities. &mdash; type: boolean |
 | `cache_control` | HTTP header Cache-Control to suggest that the browser cache the file. &mdash; type: string, see: [https://cloud.google.com/storage/docs/xml-api/reference-headers#cachecontrol](https://cloud.google.com/storage/docs/xml-api/reference-headers#cachecontrol) |
+| `glob` | type: string, default: `**/*` |
 
 ### Shared options
 

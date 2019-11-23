@@ -33,8 +33,13 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 ## Choosing a Rust version
 
 By default, we download and install the latest stable Rust release at the start
-of the build, along with appropriate language tools including `cargo`, `rustc`,
-`rustdoc`, `rust-gdb`, `rust-lldb`, and `rustup`.
+of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
+and includes the following language tools `cargo`, `rustc`, and `rustup`.
+
+[profiles]: https://github.com/rust-lang/rustup.rs#profiles
+
+If you want additional language tools like `rustfmt` or `clippy`, please
+install them in `before_install`.
 
 To test against specific Rust releases:
 
@@ -60,7 +65,7 @@ rust:
   - stable
   - beta
   - nightly
-matrix:
+jobs:
   allow_failures:
     - rust: nightly
   fast_finish: true
@@ -125,7 +130,7 @@ language: rust
 script:
   - cargo build --verbose --all
   - cargo test --verbose --all
-```  
+```
 {: data-file=".travis.yml"}
 
 ## Environment variables
