@@ -107,44 +107,19 @@ Other versions are dynamically installed at runtime from a local cache.
 
 ## Python images
 
-All images have Python 2 and 3 installations provided by the distribution.
-Python 2 has distribution-provided Pip installed, `pip3` is not pre-installed.
+### All languages not specified below
 
-In images for `language:`:
-`c` (`cpp`), `node_js` (`elm`), `go`, `generic`,
-`java` (`groovy`, `clojure`), `php`, `python`, `ruby`, additionally,
-[pyenv](https://github.com/pyenv/pyenv#readme) is installed
-and Python `2.7.14` and `3.6.3`.
-All custom Python installations we provide are laid out in a way
-manageable with `pyenv`.
+Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
 
-In `language: python` images, the version selected with `python:`
-is also installed and a `virtualenv` is activated for it.
+### Languages: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
 
-Any versions that are not pre-installed will be dynamically installed at runtime.
- 
-### Available versions
+In addition to the above, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.14` and `3.6.3`.
 
-The following versions can be selected with `python:`. `3.6.3` is the default.
+### Language: `python`
 
-* `2.6`, `2.6.9`
-* `2.7` (2.7.14), `2.7.3`, `2.7.6`, `2.7.9` - `2.7.15`
-* `3.3` (3.3.6) , `3.3.3`, `3.3.5`, `3.3.6`
-* `3.4` (3.4.6), `3.4.1` - `3.4.8`
-* `3.5` (3.5.6), `3.5.0` - `3.5.6`, `3.5-dev`
-* `3.6` (3.6.3), `3.6.0` - `3.6.7`, `3.6-dev`
-* `3.7-dev`
-* `pypy-2.6.1`, `pypy-4.0`, `pypy-4.0.1`,
-  `pypy-5.0.0`, `pypy-5.0.1`,
-  `pypy-5.1`, `pypy-5.1.1`,
-  `pypy-5.3`, `pypy-5.3.1`,
-  `pypy-5.4`, `pypy-5.4.1`,
-  `pypy-5.6`, `pypy-5.6.0`,
-  `pypy-5.7`, `pypy-5.7.1`
-* `pypy` (2.7-5.8.0), `pypy2.7` (2.7-5.10.0), `pypy2.7-5.8.0`, `pypy2.7-5.9.0`, `pypy2.7-5.10`, `pypy2.7-5.10.0`
-* `pypy3-2.4`, `pypy3-2.4.0`
-* `pypy3` (3.5-5.8.0), `pypy3.5` (5.10.1), `pypy3.5-5.8.0`, `pypy3.5-5.9.0`, `pypy3.5-5.10`, `pypy3.5-5.10.0`, `pypy3.5-5.10.1`
+In addition to the above, the version selected with `python:` is installed and a `virtualenv` is activated for it. `3.6.3` is the default.
 
+See [Python versions table](/user/languages/python/#python-versions) for a full list of available versions.
  
 ### Pre-installed pip packages
 
