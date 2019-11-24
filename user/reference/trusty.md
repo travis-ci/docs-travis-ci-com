@@ -107,19 +107,12 @@ Other versions are dynamically installed at runtime from a local cache.
 
 ## Python images
 
-### All languages not specified below
-
-Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
-
-### Languages: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
-
-In addition to the above, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.14` and `3.6.3`.
-
-### Language: `python`
-
-In addition to the above, the version selected with `python:` is installed and a `virtualenv` is activated for it. `3.6.3` is the default.
-
-See [Python versions table](/user/languages/python/#python-versions) for a full list of available versions.
+* Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
+* For `language:`: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
+    * Additionally, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.14` and `3.6.3`.
+* For `language: python`
+    * The version selected with `python:` is also installed and a `virtualenv` is activated for it. `3.6.3` is the default.
+    * See [Python versions table](/user/languages/python/#python-versions) for a full list of versions available for selection.
  
 ### Pre-installed pip packages
 
