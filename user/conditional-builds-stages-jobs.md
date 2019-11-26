@@ -35,7 +35,7 @@ Stages that do not match the condition will be skipped silently.
 
 ## Conditional Jobs
 
-You can configure Travis CI to only include jobs when certain conditions are met. For example, this includes the listed job only to builds on the `master` branch:
+You can configure Travis CI to only include jobs when certain conditions are met. For example, this includes the listed job only to build on the `master` branch:
 
 ```yaml
 jobs:
@@ -48,7 +48,7 @@ jobs:
 
 Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#build-matrix) currently cannot have conditions, but they can be conditionally excluded (see [below](/#conditionally-excluding-jobs)).
 
-Jobs that do not match the condition will be skipped silently.
+> Jobs that do not match the condition will be skipped silently.
 
 ## Conditionally Excluding Jobs
 
@@ -65,7 +65,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-## Conditionally Allowing Jobs To Fail
+## Conditionally Allowing Jobs to Fail
 
 You can configure Travis CI to allow jobs to fail only when certain conditions are met. For example, this will allow the job with the env var `TWO=two` to fail when the build runs on the branch `dev`:
 
@@ -82,7 +82,7 @@ jobs:
 
 ## Specifying Conditions
 
-Please see [Conditions](/user/conditions-v1) for examples, and a specification of the conditions syntax.
+Please see [Conditions](/user/conditions-v1) for examples and a specification of the conditions syntax.
 
 ## Testing Conditions
 
