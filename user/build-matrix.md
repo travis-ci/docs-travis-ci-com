@@ -21,7 +21,7 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
   ```
   {: data-file=".travis.yml"}
 
-* specify the exact combination of configurations you want in `job.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
+* specify the exact combination of configurations you want in `jobs.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
 
   ```yaml
   jobs:
