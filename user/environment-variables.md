@@ -106,7 +106,7 @@ env:
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
-1. If you do not have the `travis` gem installed, run `gem install travis`.
+1. If you do not have the `travis` gem installed, run `gem install travis` (or `brew install travis` on macOS).
 
 2. In your repository directory:
 
