@@ -124,6 +124,5 @@ These properties are completely useless, the SonarCloud add-on manages them for 
 
 ## Build Config Reference
 
-Have a look at the [SonarCloud](https://config.travis-ci.com/ref/job/addons/sonarcloud) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [SonarCloud](https://config.travis-ci.com/ref/job/addons/sonarcloud) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
