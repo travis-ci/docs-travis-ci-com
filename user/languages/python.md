@@ -242,7 +242,7 @@ For real world examples, see [getsentry/sentry](https://github.com/getsentry/sen
 
 ## Build Config Reference
 
-Have a look at the [Python](https://config.travis-ci.com/ref/language/python) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Python](https://config.travis-ci.com/ref/language/python) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
