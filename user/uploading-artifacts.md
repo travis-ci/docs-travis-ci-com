@@ -117,5 +117,4 @@ For more complicated artifact uploads, you can use the [Artifact Uploader Tool](
 
 ### Build Config Reference
 
-Have a look at the [Artifacts](https://config.travis-ci.com/ref/job/addons/artifacts) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Artifacts](https://config.travis-ci.com/ref/job/addons/artifacts) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
