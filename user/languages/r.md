@@ -285,8 +285,7 @@ If you'd like to see the full details, see
 
 ## Build Config Reference
 
-Have a look at the [R](https://config.travis-ci.com/ref/language/r) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [R](https://config.travis-ci.com/ref/language/r) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
