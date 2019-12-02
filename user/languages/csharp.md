@@ -192,5 +192,4 @@ script:
 
 ## Build Config Reference
 
-Have a look at the [C#](https://config.travis-ci.com/ref/language/csharp) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [C#](https://config.travis-ci.com/ref/language/csharp) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
