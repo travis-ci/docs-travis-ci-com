@@ -75,4 +75,4 @@ More information on writing Nix expressions and how each of the above tools work
 
 ## Build Config Reference
 
-Have a look at the [Nix](https://config.travis-ci.com/ref/language/nix) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Nix](https://config.travis-ci.com/ref/language/nix) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
