@@ -170,5 +170,4 @@ The format for the **only** flag is, "Host pattern,Host Port,Flag for SSL True(1
 
 ## Build Config Reference
 
-Have a look at the [Browserstack](https://config.travis-ci.com/ref/job/addons/browserstack) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Browserstack](https://config.travis-ci.com/ref/job/addons/browserstack) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
