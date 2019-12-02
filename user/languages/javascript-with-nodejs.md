@@ -332,5 +332,4 @@ addons:
 
 ## Build Config Reference
 
-Have a look at the [Javascript](https://config.travis-ci.com/ref/language/node_js) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Javascript](https://config.travis-ci.com/ref/language/node_js) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
