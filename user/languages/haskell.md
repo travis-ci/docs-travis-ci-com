@@ -96,4 +96,4 @@ See [Hackage Deployment](/user/deployment/hackage/).
 
 ## Build Config Reference
 
-Have a look at the [Haskell](https://docs.travis-ci.com/user/languages/haskell/) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Haskell](https://docs.travis-ci.com/user/languages/haskell/) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
