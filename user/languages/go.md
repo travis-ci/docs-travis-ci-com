@@ -222,7 +222,7 @@ deploy:
 
 ## Build Config Reference
 
-Have a look at the [Go](https://config.travis-ci.com/ref/language/go) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Go](https://config.travis-ci.com/ref/language/go) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
