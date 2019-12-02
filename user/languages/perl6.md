@@ -163,5 +163,4 @@ script:
 
 ## Build Config Reference
 
-Have a look at the [Perl6](https://config.travis-ci.com/ref/language/perl6) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Perl6](https://config.travis-ci.com/ref/language/perl6) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
