@@ -108,7 +108,7 @@ The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
 
 ## Build Config Reference
 
-Have a look at the [Perl](https://config.travis-ci.com/ref/language/perl) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Perl](https://config.travis-ci.com/ref/language/perl) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
