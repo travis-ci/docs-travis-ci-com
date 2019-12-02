@@ -177,7 +177,7 @@ For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 
 ## Build Config Reference
 
-Have a look at the [Objective-C](https://config.travis-ci.com/ref/language/objective-c) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Objective-C](https://config.travis-ci.com/ref/language/objective-c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Simulators
 
