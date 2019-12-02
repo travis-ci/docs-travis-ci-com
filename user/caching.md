@@ -342,6 +342,10 @@ Cache archives are currently set to expire after 28 days for repositories on htt
 45 days for those on https://travis-ci.com. 
 This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Caching](https://config.travis-ci.com/ref/job/cache) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Configuration
 
 ### Enabling multiple caching features
