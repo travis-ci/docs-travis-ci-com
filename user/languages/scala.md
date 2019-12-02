@@ -135,7 +135,7 @@ TRAVIS_SCALA_VERSION
 
 ## Build Config Reference
 
-Have a look at the [Scala](https://config.travis-ci.com/ref/language/scala) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Scala](https://config.travis-ci.com/ref/language/scala) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
