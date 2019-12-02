@@ -390,7 +390,7 @@ virtual host as usual, the important part for php-fpm is this:
 
 ## Build Config Reference
 
-Have a look at the [PHP](https://config.travis-ci.com/ref/language/php) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [PHP](https://config.travis-ci.com/ref/language/php) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
