@@ -138,5 +138,4 @@ Here's a list of open-source Julia projects utilizing Travis CI in different way
 
 ## Build Config Reference
 
-Have a look at the [Julia](https://config.travis-ci.com/ref/language/julia) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Julia](https://config.travis-ci.com/ref/language/julia) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
