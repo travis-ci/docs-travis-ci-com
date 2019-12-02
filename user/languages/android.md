@@ -211,4 +211,4 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 
 ## Build Config Reference
 
-Have a look at the [Android](https://config.travis-ci.com/ref/language/android) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Android](https://config.travis-ci.com/ref/language/android) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
