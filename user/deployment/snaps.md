@@ -74,4 +74,4 @@ snapcraft release my-snap-name 1 stable
 ```
 ## Build Config Reference
 
-Have a look at the [Snaps](https://config.travis-ci.com/ref/job/addons/snaps) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Snaps](https://config.travis-ci.com/ref/job/addons/snaps) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
