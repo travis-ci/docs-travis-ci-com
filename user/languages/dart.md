@@ -168,5 +168,4 @@ dart_task:
 
 ## Build Config Reference
 
-Have a look at the [Dart](https://config.travis-ci.com/ref/language/dart) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Dart](https://config.travis-ci.com/ref/language/dart) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
