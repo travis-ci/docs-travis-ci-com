@@ -108,5 +108,4 @@ If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.ym
 
 ## Build Config Reference
 
-Have a look at the [Operating Systems](https://config.travis-ci.com/ref/os) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Operating Systems](https://config.travis-ci.com/ref/os) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
