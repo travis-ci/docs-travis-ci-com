@@ -97,8 +97,7 @@ TRAVIS_OTP_RELEASE
 
 ## Build Config Reference
 
-Have a look at the [Erlang](https://config.travis-ci.com/ref/language/erlang) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Erlang](https://config.travis-ci.com/ref/language/erlang) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## OTP/Release versions
 
