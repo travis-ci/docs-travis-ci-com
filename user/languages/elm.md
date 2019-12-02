@@ -112,4 +112,4 @@ for details.
 
 ## Build Config Reference
 
-Have a look at the [Elm](https://config.travis-ci.com/ref/language/elm) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Elm](https://config.travis-ci.com/ref/language/elm) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
