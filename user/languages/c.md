@@ -104,4 +104,4 @@ before_install:
 
 ## Build Config Reference
 
-Have a look at the [C](https://config.travis-ci.com/ref/language/c) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [C](https://config.travis-ci.com/ref/language/c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
