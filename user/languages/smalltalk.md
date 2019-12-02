@@ -73,5 +73,4 @@ This documentation is just a minimal example and not as exhaustive as [Smalltalk
 
 ## Build Config Reference
 
-Have a look at the [Smalltalk](https://config.travis-ci.com/ref/language/smalltalk) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
-
+You can find more information on the build config format for [Smalltalk](https://config.travis-ci.com/ref/language/smalltalk) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
