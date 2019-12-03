@@ -43,7 +43,7 @@ From all entrants who successfully completed the survey in compliance with these
 
 The winner will be informed and their name will be published by Travis CI on social media channels on the 14th January, 2020.
 
-Prizes will be shipped within 15 working days of getting in contact withTravis CI via e-mail to
+Prizes will be shipped within 15 working days of getting in contact with Travis CI via e-mail to
 communicate the correct address. 
 
 The prize is non-transferable and cannot be substituted for a cash payment. The prize is not exchangeable.
