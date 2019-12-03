@@ -88,4 +88,4 @@ TRAVIS_NEKO_VERSION
 
 ## Build Config Reference
 
-You can find more information on the build config format for [Haxe](https://config.travis-ci.com/ref/language/haskell) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+You can find more information on the build config format for [Haxe](https://config.travis-ci.com/ref/language/haxe) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
