@@ -7,6 +7,8 @@ layout: en
 
 You can filter out and reject builds, stages and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
 
+You can find more information on the build config format in our [Travis CI Build Config Reference](https://config.travis-ci.com/ref/job/if/condition).
+
 ## Conditional Builds
 
 Configure Travis CI to only trigger builds when certain conditions are met, such as only building the master branch. Any potential builds that do not meet these conditions are listed in the *Requests* tab of your repository, even though the actual build is not generated.
