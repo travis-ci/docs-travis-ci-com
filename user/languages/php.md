@@ -74,6 +74,10 @@ We do not support these versions on Xenial.
 If you need to test them, please use Precise or Trusty.
 See [this page](/user/reference/xenial#php-images) for more information.
 
+### PHP 7.4 support is available on Xenial and Bionic
+We do not support this version on Precise and Trusty.
+If you need to test it, please use Xenial and Bionic.
+
 ### HHVM versions are available on Trusty only
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
