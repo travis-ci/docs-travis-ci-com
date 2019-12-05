@@ -144,6 +144,10 @@ As an alternative to the web interface, you can also use the CLI's [`env`](https
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Convenience Variables
 
 To make using encrypted environment variables easier, the following environment variables are available:
