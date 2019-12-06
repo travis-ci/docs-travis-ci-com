@@ -22,8 +22,8 @@ https://docs.travis-ci.com/legal/privacy-policy
 
 The competition is being held during a limited period of time:
 
-Opening of survey: 10 December 2018
-Deadline for submissions: 6 January 2019, 11:59 pm, time zone Europe: Berlin.
+Opening of survey: 5 December 2019
+Deadline for submissions: 6 January 2020, 11:59 pm, time zone Europe: Berlin.
 
 ### 4. Eligibility criteria
 
