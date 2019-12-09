@@ -119,7 +119,7 @@ Travis CI uses Cargo to run your build, the default commands are:
 cargo test --verbose
 ```
 
-You can always configure different comands if you need to. For example,
+You can always configure different commands if you need to. For example,
 if your project is a
 [workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
 should pass `--all` to the build commands to build and test all of the member
