@@ -23,7 +23,7 @@ To start using Travis CI, make sure you have:
 
 2. Accept the Authorization of Travis CI. You'll be redirected to GitHub.
 
-3. Click the green *Activate* button, and select the repositories you want to use with Travis CI.
+3. Click on your profile picture in the top right of your Travis Dashboard, click the green *Activate* button, and select the repositories you want to use with Travis CI.
 
 4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 

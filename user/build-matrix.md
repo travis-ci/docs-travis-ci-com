@@ -37,6 +37,8 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
+> You can also have a look at the [Language](https://config.travis-ci.com/ref/language) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Excluding Jobs
 
 You can also define exclusions to the build matrix:

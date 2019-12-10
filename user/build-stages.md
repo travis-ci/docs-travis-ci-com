@@ -69,6 +69,10 @@ a build with three jobs, two of which start in parallel in the first stage
 (named `test`), while the third job on the second stage (named `deploy`) starts
 only after the test stage completes successfully.
 
+## Build Config Reference
+
+You can find more information on the build config format for [build stages](https://config.travis-ci.com/ref/stages) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Naming Your Build Stages
 
 Stages are identified by their names, which are composed of names and emojis.
