@@ -64,15 +64,26 @@ php:
 
 ### PHP 5.2(.x) - 5.3(.x) support is available on Precise only
 
-We do not support these versions on Trusty or Xenial.
+We do not support these versions on Trusty or Xenial or Bionic.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
 ### PHP 5.4(.x) - 5.5(.x) support is available on Precise and Trusty only
 
-We do not support these versions on Xenial.
+We do not support these versions on Xenial or Bionic.
 If you need to test them, please use Precise or Trusty.
 See [this page](/user/reference/xenial#php-images) for more information.
+
+### PHP 5.6(.x) - 7.0(.x) support is available on Precise, Trusty and Xenial only
+
+We do not support these versions on Bionic.
+If you need to test them, please use Precise or Trusty or Xenial.
+See [this page](/user/reference/bionic#php-support) for more information.
+
+### PHP 7.4(.x) onwards support is available on Trusty, Xenial and Bionic only
+
+We do not support these versions on Precise.
+If you need to test them, please use Trusty, Xenial, or Bionic.
 
 ### HHVM versions are available on Trusty only
 
