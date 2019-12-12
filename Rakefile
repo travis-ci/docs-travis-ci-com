@@ -126,6 +126,7 @@ desc 'Refresh generated files'
 task regen: (%i[clean] + %w[
   _data/ec2_ip_range.yml
   _data/gce_ip_range.yml
+  _data/gce_ip_ue1_range.yml
   _data/ip_range.yml
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
@@ -137,6 +138,7 @@ task :clean do
   rm_f(%w[
          _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
+         _data/gce_ip_ue1_range.yml
          _data/ip_range.yml
          _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
