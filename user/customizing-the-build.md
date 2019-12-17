@@ -204,6 +204,10 @@ git:
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Git](https://config.travis-ci.com/ref/job/git) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the Git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.

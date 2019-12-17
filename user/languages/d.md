@@ -71,3 +71,7 @@ All valid versions from the [D's official install script](https://dlang.org/inst
 Testing against multiple compilers will create one row in your build matrix for each compiler. The
 Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` or `gdc` and the
 `DMD` env variable to point to `dmd`, `ldmd2` or `gdmd`.
+
+> You can also have a look at the [D](https://config.travis-ci.com/ref/language/d) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+

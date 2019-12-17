@@ -144,6 +144,10 @@ As an alternative to the web interface, you can also use the CLI's [`env`](https
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Convenience Variables
 
 To make using encrypted environment variables easier, the following environment variables are available:
@@ -227,7 +231,7 @@ to tag the build, or to run post-build deployments.
   + set to `false` if no encrypted environment variables are available.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
-- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
+- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name, otherwise it is empty (`""`).
 - `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalized form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
 
 Language-specific builds expose additional environment variables representing
