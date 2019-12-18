@@ -142,6 +142,8 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+> You can also have a look at the [Apt](https://config.travis-ci.com/ref/job/addons/apt) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ### Installing Snap Packages with the Snaps Addon
 
 You can install [snap](http://snapcraft.io/) packages using our Xenial or
@@ -299,6 +301,8 @@ brew install openssl
 rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
 ```
 
+> You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Installing Dependencies on Multiple Operating Systems
 
 If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
@@ -336,7 +340,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
+> Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
 
 To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
 

@@ -112,6 +112,10 @@ alternatives (like JDBC-based drivers for MySQL, PostgreSQL and so on).
 On Ruby projects the default build script is `rake`. Add `rake` to the `:test`
 group of your Gemfile.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Ruby](https://config.travis-ci.com/ref/language/ruby) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Dependency Management
 
 ### Bundler
