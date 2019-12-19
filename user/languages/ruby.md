@@ -167,6 +167,26 @@ want to use Bundler 2.0, try one of the following solutions:
     ```
     {: data-file=".travis.yml"}
 
+
+* If you're using a version of Ruby lower than 2.6 and want to use Bundler 2.x,
+  make sure to upgrade to a newer version of RubyGems.
+  On the default version of RubyGems shipped with older versions of Ruby, the
+  Bundler version in `Gemfile.lock` must match exactly the version being used,
+  or it will error.
+  It's fixed in more recent RubyGems releases.
+
+    ```yaml
+    before_install:
+    - yes | gem update --system --force`
+    - gem install bundler
+    ```
+    {: data-file=".travis.yml"}
+
+  It's necessary to pipe `yes` into the `gem update --system` command because
+  of a separate issue involving older versions of RubyGems shipping with a bad
+  binstub, which prompts interactive confirmation from the user.
+
+
 * If you are using Ruby 2.3.x but wish to explicitly stay on Bundler 1.x (e.g., for dependency
   reasons such as Rails 4.2.x), write:
 
