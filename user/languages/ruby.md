@@ -168,12 +168,12 @@ want to use Bundler 2.0, try one of the following solutions:
     {: data-file=".travis.yml"}
 
 
-* If you're using a version of Ruby before 2.6 and want to use Bundler 2.x,
-  you'll also want to make sure to upgrade to a newer version of RubyGems.
+* If you're using a version of Ruby lower than 2.6 and want to use Bundler 2.x,
+  make sure to upgrade to a newer version of RubyGems.
   On the default version of RubyGems shipped with older versions of Ruby, the
   Bundler version in `Gemfile.lock` must match exactly the version being used,
-  or it will error. This would cause when a new version of Bundler comes out,
-  but it's fixed in more recent RubyGems releaeses.
+  or it will error.
+  It's fixed in more recent RubyGems releases.
 
     ```yaml
     before_install:
