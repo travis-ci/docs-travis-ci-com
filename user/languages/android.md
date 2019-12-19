@@ -208,3 +208,7 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 - [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
 - [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
 - [Ionic Cordova Example Project](https://github.com/samlsso/Calc/blob/master/.travis.yml)
+
+## Build Config Reference
+
+You can find more information on the build config format for [Android](https://config.travis-ci.com/ref/language/android) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

@@ -26,6 +26,8 @@ os: windows
 
 Only **Windows Server, version 1803** is currently supported.
 
+> Note that this is a [Semi-Annual Channel](https://en.wikipedia.org/wiki/Windows_Server#Semi-Annual_Channel_(SAC)) release that does not contain GUI and multimedia components. Follow [this Community topic](https://travis-ci.community/t/1557) if you run into this limitation.
+
 ## Chocolatey
 
 [Chocolatey](https://chocolatey.org/), the package manager for Windows, is installed and can be used to install Windows packages.

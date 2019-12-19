@@ -98,8 +98,8 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.3.8`, `2.4.5`, `2.5.3` and `2.6.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
+* The default ruby is `2.6.5p114`.
 * Other ruby versions can be installed during build time.
 
 ## Python support

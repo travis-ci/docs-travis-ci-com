@@ -196,6 +196,7 @@ Each of the top level sections have been replaced with the ones from
 
 ### Merge mode: deep_merge
 
+> This merge mode currently only affects key-value maps, not lists. Lists will be replaced instead of merged.  Additional merge modes that work with lists are available as part of the [enhanced build config validation beta](https://docs.travis-ci.com/user/build-config-validation).
 With the `merge_mode` set to `deep_merge`, the resulting build configuration is:
 
 ```json
