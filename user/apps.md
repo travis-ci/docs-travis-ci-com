@@ -282,6 +282,14 @@ By Henry Ruhs
 
 - [website](https://github.com/redaxmedia/chroma-feedback)
 
+### citop
+
+![citop](/images/apps/citop.jpg){:.app}
+
+Monitor CI pipelines from the command line
+
+- [website](https://github.com/nbedos/citop)
+
 ## Generators
 
 ### travis-encrypt
