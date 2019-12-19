@@ -48,13 +48,13 @@ language: java
 Before running the build, Travis CI installs dependencies:
 
 ```bash
-mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+mvn --show-version --batch dependency:go-offline
 ```
 
 or if your project uses the `mvnw` wrapper script:
 
 ```bash
-./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+./mvnw --show-version --batch dependency:go-offline
 ```
 
 > Note that the Travis CI build lifecycle and the Maven build lifecycle use similar
@@ -69,14 +69,14 @@ If your project has `pom.xml` file in the repository root but no `build.gradle`,
 Travis CI builds your project with Maven 3:
 
 ```bash
-mvn test -B
+mvn --show-version --batch verify
 ```
 
 If your project also includes the `mvnw` wrapper script in the repository root,
 Travis CI uses that instead:
 
 ```bash
-./mvnw test -B
+./mvnw --show-version --batch verify
 ```
 
 > The default command does not generate JavaDoc (`-Dmaven.javadoc.skip=true`).
