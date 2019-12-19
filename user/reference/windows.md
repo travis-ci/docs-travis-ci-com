@@ -86,3 +86,52 @@ VMs running Windows use the default file system, NTFS.
 - winscp 5.13.4
 - winscp.install 5.13.4
 - wsl 1.0.1
+
+## How do I use MSYS2?
+
+[MSYS2](https://www.msys2.org/) is a popular development environment for building GCC-based projects with Unix-style build systems. While it isn't included in the Windows image, it is fairly easy to install via [the Chocolatey package](https://chocolatey.org/packages/msys2) using the following additions to the sections of your `.travis.yml`:
+
+```yaml
+before_install:
+- |-
+    case $TRAVIS_OS_NAME in
+      windows)
+        [[ ! -f C:/tools/msys64/msys2_shell.cmd ]] && rm -rf C:/tools/msys64
+        choco uninstall -y mingw
+        choco upgrade --no-progress -y msys2
+        export msys2='cmd //C RefreshEnv.cmd '
+        export msys2+='& set MSYS=winsymlinks:nativestrict '
+        export msys2+='& C:\\tools\\msys64\\msys2_shell.cmd -defterm -no-start'
+        export mingw64="$msys2 -mingw64 -full-path -here -c \$\* --"
+        export msys2+=" -msys2 -c \$\* --"
+        $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-toolchain
+        ## Install more MSYS2 packages from https://packages.msys2.org/base here
+        taskkill //IM gpg-agent.exe //F  # https://travis-ci.community/t/4967
+        export PATH=/C/tools/msys64/mingw64/bin:$PATH
+        export MAKE=mingw32-make  # so that Autotools can find it
+        ;;
+    esac
+
+before_cache:
+- |-
+    case $TRAVIS_OS_NAME in
+      windows)
+        # https://unix.stackexchange.com/a/137322/107554
+        $msys2 pacman --sync --clean --noconfirm
+        ;;
+    esac
+
+cache:
+    directories:
+    - $HOME/AppData/Local/Temp/chocolatey
+    - /C/tools/msys64
+```
+{: data-file=".travis.yml"}
+
+This will download and install MSYS2 the first time, and store both the downloaded initial archive and the MSYS2 installation in your [build cache](/user/caching/#arbitrary-directories). Subsequent builds will avoid re-downloading the initial archive and will update the cached installation before use, and cache the updated installation upon success.
+
+MSYS2 contains two noteworthy [subsystems](https://github.com/msys2/msys2/wiki/MSYS2-introduction#subsystems): "msys2" and "mingw64". The code above prepares the `$msys2` and `$mingw64` prefixes for entering the corresponding shells. As an example, the `$msys2` prefix is used to run `pacman` appropriately. Your build commands should use the `$mingw64` prefix to build native Windows programs, and the `$msys2` prefix to build POSIX-based programs requiring the MSYS2 DLL.
+
+A point of caution: the pre-installed "mingw" Chocolatey package should **not** be used within any MSYS2 subsystem. (In fact, the above snippet uninstalls the "mingw" Chocolatey package to be safe.) Note that the [MSYS2 wiki](https://github.com/msys2/msys2/wiki/MSYS2-introduction#path) says:
+
+>Beware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.
