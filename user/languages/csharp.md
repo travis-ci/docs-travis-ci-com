@@ -99,7 +99,7 @@ script:
 
 In order to build projects which target SDK 2.2 and higher you might need to specify a specific Linux distro. Distros `bionic` and `xenial` are known to work with versions higher than 2.2.
 
-To specify a distro, change your yml file to contain a `dist` element:
+To specify a distro, change your .yml file to contain a `dist` element:
 
 ```yml
 
