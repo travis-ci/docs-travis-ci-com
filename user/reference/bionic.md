@@ -98,8 +98,8 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.3.8`, `2.4.5`, `2.5.3` and `2.6.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
+* The default ruby is `2.6.5p114`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
@@ -123,8 +123,8 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
-is `openjdk8`. 
+* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
+is `openjdk11`. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -161,3 +161,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | redis      | 5.5            |
 | postgresql | 9.3 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

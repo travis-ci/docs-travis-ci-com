@@ -1,6 +1,7 @@
 ---
 title: TestFairy deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -48,34 +49,5 @@ deploy:
   app-file: Path to the app file (APK/IPA)
   notify: false
   testers-groups: qa-stuff,friends
-```
-{: data-file=".travis.yml"}
-
-## More Options
-
-- **auto-update**: Upgrade previous installations to this version automatically.
-- **max-duration**: Maximum session recording length, eg "60m". Default is "10m".
-- **data-only-wifi**: Record video and metrics only when connected to wifi network.
-- **video**: If true, Video recording settings "true", "false". Default is "true".
-- **video-quality**: Video quality settings, "high", "medium" or "low". Default is "high".
-- **screenshot-interval**: Seconds between video frames. Default "1" seconds.
-- **record-on-background**: If true, data will be collected while the app on background.
-- **metrics**: Comma-separated list of metrics to record. View list on [TestFairy Docs](https://docs.testfairy.com/API/Upload_API.html).
-
-For example:
-
-```yaml
-deploy:
-  provider: testfairy
-  api-key: "TESTFAIRY API KEY"
-  app-file: bin/MainActivity_release.apk
-  symbols-file: bin/proguard_mapping.txt
-  testers-groups: qa-stuff,friends
-  auto-update: true
-  screenshot-interval: 2
-  video: true
-  video-quality: high
-  data-only-wifi: true
-  metrics: cpu,memory,network,phone-signal,logcat,gps,battery
 ```
 {: data-file=".travis.yml"}

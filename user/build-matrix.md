@@ -21,28 +21,30 @@ There are two ways to specify multiple parallel jobs (what we call the build mat
   ```
   {: data-file=".travis.yml"}
 
-* specify the exact combination of configurations you want in `matrix.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
+* specify the exact combination of configurations you want in `jobs.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
 
   ```yaml
-  matrix:
+  jobs:
     include:
     - rvm: 2.5
       gemfile: gemfiles/Gemfile.rails-3.2.x
       env: ISOLATED=false
-    - rvm: 2.5
-      gemfile: gemfiles/Gemfile.rails-3.2.x
+    - rvm: 2.2
+      gemfile: gemfiles/Gemfile.rails-3.0.x
       env: ISOLATED=true
   ```
   {: data-file=".travis.yml"}
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
+> You can also have a look at the [Language](https://config.travis-ci.com/ref/language) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Excluding Jobs
 
 You can also define exclusions to the build matrix:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 1.9.3
     gemfile: gemfiles/Gemfile.rails-2.3.x
@@ -80,7 +82,7 @@ This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` val
 `gemfile` value `Gemfile`, you can write:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -90,7 +92,7 @@ matrix:
 Which is equivalent to:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -122,7 +124,7 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
       env: DB=mongodb
@@ -145,10 +147,10 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
-      env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
+      env: DB=mongodb SUITE=all # not 'env: DB=mongodb' or 'env: SUITE=all DB=mongodb'
     - rvm: 1.9.3
       env: DB=mongodb SUITE=compact # not 'env: SUITE=compact DB=mongodb'
 ```
@@ -156,10 +158,10 @@ matrix:
 
 ## Explicitly Including Jobs
 
-It is also possible to include entries into the matrix with `matrix.include`:
+It is also possible to include entries into the matrix with `jobs.include`:
 
 ```yaml
-matrix:
+jobs:
   include:
   - rvm: ruby-head
     gemfile: gemfiles/Gemfile.rails-3.2.x
@@ -176,12 +178,12 @@ For example,
 
 ```yaml
 language: python
-matrix:
+jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -196,23 +198,60 @@ of Python.
 The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
-In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
+In this example with a 3-job Python build matrix, each job in `jobs.include`
+has the `python` value set to `'3.8'`.
 You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
-matrix:
+jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
+```
+{: data-file=".travis.yml"}
+
+### Explicitly included jobs with only one element in the build matrix
+
+As a special case, if your build matrix has only one element _and_ you have
+explicitly included jobs, matrix expansion is not done and the explicit jobs
+_completely_ define your build. For example:
+
+```yaml
+language: python
+python:
+  - '3.8'
+jobs:
+  include:
+    - env: EXTRA_TESTS=true
+# only defines one job with `python: 3.8` and `env: EXTRA_TESTS=true`
+```
+{: data-file=".travis.yml"}
+
+If you need the (sole) job from the matrix in such a case, too,
+add a blank job entry to the explicit list (as it would
+[inherit all values from the matrix](#explicitly-included-jobs-inherit-the-first-value-in-the-array)
+with no changes):
+
+```yaml
+language: python
+python:
+  - '3.8'
+jobs:
+  include:
+    -
+    - env: EXTRA_TESTS=true
+# defines two jobs:
+#   - python: 3.8
+#   - python: 3.8
+#     env: EXTRA_TESTS=true
 ```
 {: data-file=".travis.yml"}
 
@@ -227,7 +266,7 @@ ready to officially support.
 Define allowed failures in the build matrix as key/value pairs:
 
 ```yaml
-matrix:
+jobs:
   allow_failures:
   - rvm: 1.9.3
 ```
@@ -238,7 +277,7 @@ matrix:
 When matching jobs against the definitions given in `allow_failures`, _all_
 conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
-top level of the build matrix (i.e., not in `matrix.include`).
+top level of the build matrix (i.e., not in `jobs.include`).
 
 #### `allow_failures` Examples
 
@@ -254,10 +293,10 @@ rvm:
 env:
   global:
   - SECRET_VAR1=SECRET1
-  matrix:
+  jobs:
   - SECRET_VAR2=SECRET2
 
-matrix:
+jobs:
   allow_failures:
     - env: SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2
 ```
@@ -273,7 +312,7 @@ language: php
 php:
 - 5.6
 - 7.0
-matrix:
+jobs:
   include:
   - php: 7.0
     env: KEY=VALUE
@@ -289,12 +328,45 @@ Without the top-level `env`, no job will be allowed to fail.
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
-To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
+To mark the build as finished as soon as possible, add `fast_finish: true` to the `jobs` section of your `.travis.yml` like this:
 
 ```yaml
-matrix:
+jobs:
   fast_finish: true
 ```
 {: data-file=".travis.yml"}
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
+
+## Using Different Programming Languages per Job
+You can also use the `jobs.include` feature to have different languages for each job in your build. For example,
+
+```yaml
+dist: xenial
+language: php
+php:
+  - '5.6'
+
+jobs:
+  include:
+    - language: python
+      python: 3.8
+      script:
+      - python -c "print('Hi from Python!')"
+
+    - language: node_js
+      node_js: 12
+      script:
+      - node -e "console.log('Hi from NodeJS!')"
+
+    - language: java
+      jdk: openjdk8
+      script:
+      - javac -help
+```
+{: data-file=".travis.yml"}
+This creates a build with 3 jobs as follows:
+
+* A Python 3.8 job
+* A  Node.js 12 job
+* A Java OpenJDK 8 job

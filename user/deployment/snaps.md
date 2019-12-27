@@ -1,6 +1,7 @@
 ---
 title: Snap Store
 layout: en
+deploy: v1
 permalink: /user/deployment/snaps/
 ---
 
@@ -44,7 +45,7 @@ snapcraft export-login --snaps my-snap-name --channels edge -
 
 _Note: The final `-` requests the login be exported to stdout instead of a file. It is required._
 
-The token will be printed out. 
+The token will be printed out.
 
 _Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
 
@@ -71,3 +72,6 @@ Each upload gets a monotonically increasing integer. When you're ready, you can 
 ```bash
 snapcraft release my-snap-name 1 stable
 ```
+## Build Config Reference
+
+You can find more information on the build config format for [Snaps](https://config.travis-ci.com/ref/job/addons/snaps) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

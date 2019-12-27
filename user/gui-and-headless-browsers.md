@@ -195,7 +195,8 @@ Headless mode can be enabled using the `MOZ_HEADLESS`
 
 ```yaml
 env:
-  - MOZ_HEADLESS=1
+  global:
+    - MOZ_HEADLESS=1
 addons:
   firefox: latest
 ```

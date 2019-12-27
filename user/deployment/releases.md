@@ -1,6 +1,7 @@
 ---
 title: GitHub Releases Uploading
 layout: en
+deploy: v1
 
 ---
 
@@ -61,7 +62,7 @@ This gives you an opportunity to examine and edit the draft release.
 ## Setting the tag at deployment time
 
 GitHub Releases needs the present commit to be tagged at the deployment time.
-If you set `on.tags: true`, the commit is guaranteed to have a tag. 
+If you set `on.tags: true`, the commit is guaranteed to have a tag.
 
 Depending on the workflow, however, this is not desirable.
 
@@ -102,7 +103,7 @@ The GitHub-generated tags are of the form `untagged-*`, where `*` is a random
 hex string.
 Notice that this tag is immediately available on GitHub, and thus
 will trigger a new Travis CI build, unless it is prevented by
-other means; for instance, by 
+other means; for instance, by
 [blocklisting `/^untagged/`](/user/customizing-the-build/#safelisting-or-blocklisting-branches).
 
 ## Overwrite existing files on the release
@@ -246,16 +247,15 @@ after_deploy:
 
 ## Advanced options
 
-Options from `.travis.yml` are passed through to Octokit API's
+The following options from `.travis.yml` are passed through to Octokit API's
 [#create_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method)
-and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods,
-so you can use any valid Octokit option,
-unless they are treated separately in this document.
+and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods.
 
-These include:
-
+* `tag_name`
+* `target_commitish`
 * `name`
 * `body`
+* `draft` (boolean)
 * `prerelease` (boolean)
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).

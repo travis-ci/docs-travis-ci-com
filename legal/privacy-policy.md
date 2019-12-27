@@ -8,7 +8,7 @@ Below is an overview of what data we collect for what purpose and how we ensure 
 
 We take the protection of our users’ (**“User/you/your”**) personal data very seriously and strictly comply with applicable data protection laws and regulations. In our privacy policy below (**“Privacy Policy”**) we provide you with an overview of what data we collect for what purpose and how we ensure the protection of the data.
 
-The controller is Travis CI GmbH, Rigaer Straße 8, 10247 Berlin/Germany, registered at the local court (Amtsgericht) of Charlottenburg under HRB 40133 B, represented by the managing directors Fritz Thielemann and Konstantin Haase (“we/us/our”). We offer websites at travis-ci.org and travis-ci.com (each and jointly the “Website”) which provide customers (“Customer(s)”) with certain services related to our Travis CI Software as defined in our Terms and Conditions in their applicable form (the “TC”) (“Travis CI Software”). Customer will create an admin account via our Website and make the services of the Travis CI Software also available to other Users.
+The controller is Travis CI GmbH, Rigaer Straße 8, 10247 Berlin/Germany, registered at the local court (Amtsgericht) of Charlottenburg under HRB 40133 B, represented by the managing director Randy Jacops (“we/us/our”). We offer websites at travis-ci.org and travis-ci.com (each and jointly the “Website”) which provide customers (“Customer(s)”) with certain services related to our Travis CI Software as defined in our Terms and Conditions in their applicable form (the “TC”) (“Travis CI Software”). Customer will create an admin account via our Website and make the services of the Travis CI Software also available to other Users.
 
 Please read the following information regarding the privacy policy carefully. In case you have further questions, please do not hesitate to contact us at any time at data@travis-ci.com.
 
@@ -19,7 +19,7 @@ Please read the following information regarding the privacy policy carefully. In
 Travis CI GmbH
 Rigaer Straße 8, 10247 Berlin/Germany,
 registered at the local court (Amtsgericht) of Charlottenburg under HRB 40133 B,
-represented by the managing directors Fritz Thielemann and Konstantin Haase
+represented by the managing director Randy Jacops
 email: data@travis-ci.com
 
 We have appointed a data protection officer who may be reached via data@travis-ci.com.

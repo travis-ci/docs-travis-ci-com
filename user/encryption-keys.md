@@ -157,7 +157,7 @@ travis encrypt "FOO=6\\&a\\(5\\!1Ab\\\\"
 Equivalently, you can do
 
 ```bash
-travis encrypt 'FOO=6\&a\(5\!1AB\\'
+travis encrypt 'FOO=6\&a\(5\!1Ab\\'
 ```
 
 ### Notifications Example

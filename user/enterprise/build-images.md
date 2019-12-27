@@ -9,7 +9,7 @@ development process and improve the build environment and performance.
 
 
 
-## Customizing build images
+## Customizing Build Images
 
 After pulling the build images from
 [quay.io](https://quay.io/organization/travisci) either through
@@ -17,12 +17,12 @@ After pulling the build images from
 they've been re-tagged to `travis:[language]`. Once this configuration is in
 place, you can fully customize these images according to your needs.
 
-**Note**: you'll need to re-apply your customizations after
+> Note that you'll need to re-apply your customizations after
 upgrading build images from [quay.io](https://quay.io/organization/travisci).
 
 ### Ubuntu Trusty build environments
 
-For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration we will pick the corresponding image to run the build.
+For Ubuntu Trusty build environments we ship three Docker images in total. Depending on the user's `.travis.yml` configuration, we will pick the corresponding image to run the build.
 
 We're shipping the same Docker build images as we use on travis-ci.com. The base image, `connie` contains all databases and frameworks preinstalled, such as postgresql, mysql, memcached, pyenv, rvm, gimme. Though there are no interpreters available. Based on `connie` there is `garnet`, which adds the following programming languages:
 
@@ -81,7 +81,9 @@ We accomplish this by adding another configuration option to `/etc/default/travi
 export TRAVIS_WORKER_DOCKER_BINDS='/var/run/docker.sock:/var/run/docker.sock'
 ```
 
-With this option we tell `travis-worker` to make the host's Docker socket available inside the build containers. Please restart travis-worker after you have saved the configuration file.
+With this option we tell `travis-worker` to make the host's Docker socket available inside the build containers.
+
+> Please restart travis-worker after you have saved the configuration file.
 
 
 #### Restart travis-worker
@@ -92,10 +94,12 @@ To restart travis-worker, you can find the instructions [here](/user/enterprise/
 
 #### Trusty build containers
 
-Once the worker machine is [configured properly](/user/enterprise/build-images/#worker-machine-configuration), you can use Docker as usual in your build. Please note that on an Enterprise installation you don't need to add `services: docker` to the `.travis.yml`.
+Once the worker machine is [configured properly](/user/enterprise/build-images/#worker-machine-configuration), you can use Docker as usual in your build.
+
+> Please note that on an Enterprise installation you don't need to add `services: docker` to the `.travis.yml`.
 
 Since you're using the host's Docker daemon, all images and containers used in your build are stored on the host machine. To free up disk space, we recommend using the `--rm` flag when you use Docker run in your build.
-To avoid race conditions when multiple builds start to remove containers and images at the same time we recommend to clean them up manually on the machine directly while no build is running.
+To avoid race conditions when multiple builds start to remove containers and images at the same time, we recommend to clean them up manually on the machine directly while no build is running.
 
 #### Precise build containers (legacy)
 

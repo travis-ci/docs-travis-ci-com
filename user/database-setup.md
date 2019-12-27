@@ -102,30 +102,9 @@ before_install:
 
 ### MySQL 5.7
 
-MySQL 5.7 is the default on the Xenial and Bionic image.
-On Trusty, you can install MySQL 5.7 by adding the following lines to your `.travis.yml`:
+MySQL 5.7 is the default on the Xenial (`dist: xenial`) and Bionic (`dist: bionic`) images.
 
-
-```yaml
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
-```
-{: data-file=".travis.yml"}
-
-You'll also need to reset the root password to something other than `new_password`:
-
-```yaml
-before_install:
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('new_password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u root -pnew_password
-  - sudo service mysql restart
-```
-{: data-file=".travis.yml"}
+> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
 
 ## PostgreSQL
 
@@ -459,8 +438,6 @@ services:
 
 Neo4j Server uses default configuration and binds to localhost on port 7474.
 
-> Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
-
 ## ElasticSearch
 
 Start ElasticSearch in your `.travis.yml`:
@@ -492,25 +469,6 @@ before_install:
 {: data-file=".travis.yml"}
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
-
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#virtualization-environments).
-
-### Installing ElasticSearch on trusty container-based infrastructure
-
-ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/reference/trusty/)
-but you can install it by adding the following steps to your `.travis.yml`.
-
-```yaml
-env:
-  - ES_VERSION=5.1.1 ES_DOWNLOAD_URL=https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz
-install:
-  - wget ${ES_DOWNLOAD_URL}
-  - tar -xzf elasticsearch-${ES_VERSION}.tar.gz
-  - ./elasticsearch-${ES_VERSION}/bin/elasticsearch &
-script:
-  - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
-```
-{: data-file=".travis.yml"}
 
 ### Truncated Output in the Build Log
 

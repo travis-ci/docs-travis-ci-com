@@ -46,7 +46,7 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - 7
 ```
 {: data-file=".travis.yml"}
 
@@ -235,7 +235,7 @@ env:
     - EMBER_VERSION=release
     - EMBER_VERSION=beta
     - EMBER_VERSION=canary
-matrix:
+jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
@@ -329,3 +329,7 @@ addons:
       - g++-4.8
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Javascript](https://config.travis-ci.com/ref/language/node_js) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
