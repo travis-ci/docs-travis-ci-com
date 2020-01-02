@@ -146,4 +146,4 @@ MSYS2 contains two noteworthy [subsystems](https://github.com/msys2/msys2/wiki/M
 
 A point of caution: the pre-installed "mingw" Chocolatey package should **not** be used within any MSYS2 subsystem. (In fact, the above snippet uninstalls the "mingw" Chocolatey package to be safe.) Note that the [MSYS2 wiki](https://github.com/msys2/msys2/wiki/MSYS2-introduction#path) says:
 
->Beware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.
+> Be aware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.
