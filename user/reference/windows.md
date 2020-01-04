@@ -108,8 +108,7 @@ before_install:
         ## Install more MSYS2 packages from https://packages.msys2.org/base here
         taskkill //IM gpg-agent.exe //F  # https://travis-ci.community/t/4967
         export PATH=/C/tools/msys64/mingw64/bin:$PATH
-        # Uncomment if necessary (e.g. for Autotools)
-        # export MAKE=mingw32-make
+        export MAKE=mingw32-make  # so that Autotools can find it
         ;;
     esac
 
