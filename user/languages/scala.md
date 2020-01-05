@@ -133,6 +133,10 @@ The version of Scala a job is using is available as:
 TRAVIS_SCALA_VERSION
 ```
 
+## Build Config Reference
+
+You can find more information on the build config format for [Scala](https://config.travis-ci.com/ref/language/scala) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [twitter/scalding](https://github.com/twitter/scalding/blob/master/.travis.yml)

@@ -13,6 +13,7 @@ on the infrastructure your builds are running on.
 |:---------------|:--------------------------------------------|:---------------------------------------------------------------------------------|:----------------------------------------------------------------|
 | OS X           | {{ site.data.macstadium_ip_range['host'] }} | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json) | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}` |
 | Linux          | {{ site.data.gce_ip_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)        | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`       |
+| Linux          | {{ site.data.gce_ip_ue1_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_ue1_range['host'] }}/A.json)        | `{{ site.data.gce_ip_ue1_range['ip_range'] | join: "`, `" }}`       |
 | Windows        | {{ site.data.gce_ip_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)        | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`       |
 | (all combined) | {{ site.data.ip_range['host'] }}            | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)            | (sum of all above)                                              |
 {: .ip-address-ranges}

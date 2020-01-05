@@ -72,3 +72,6 @@ Each upload gets a monotonically increasing integer. When you're ready, you can 
 ```bash
 snapcraft release my-snap-name 1 stable
 ```
+## Build Config Reference
+
+You can find more information on the build config format for [Snaps](https://config.travis-ci.com/ref/job/addons/snaps) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
