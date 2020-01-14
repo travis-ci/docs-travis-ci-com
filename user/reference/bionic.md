@@ -49,7 +49,7 @@ If you depend on these repositories in your build, you can use the following `so
 | git-lfs              | `github-git-lfs-bionic`      |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-binoic`         |
+| mongodb              | `mongodb-4.0-bionic`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
@@ -98,8 +98,8 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.3.8`, `2.4.5`, `2.5.3` and `2.6.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
+* The default ruby is `2.6.5p114`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
@@ -144,9 +144,10 @@ is `openjdk11`.
 
 | alias  | version  |
 | :----- | :------- |
-| 7.1    | 7.1.30   |
-| 7.2    | 7.2.10   |
-| 7.3    | 7.3.6    |
+| 7.1    | 7.1.33   |
+| 7.2    | 7.2.25   |
+| 7.3    | 7.3.12   |
+| 7.4    | 7.4.0    |
 {: style="width: 30%" }
 
 ## Databases and services
