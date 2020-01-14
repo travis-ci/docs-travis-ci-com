@@ -36,7 +36,7 @@ By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
 and includes the following language tools `cargo`, `rustc`, and `rustup`.
 
-[profiles]: https://blog.rust-lang.org/2019/10/15/Rustup-1.20.0.html#profiles
+[profiles]: https://github.com/rust-lang/rustup.rs#profiles
 
 If you want additional language tools like `rustfmt` or `clippy`, please
 install them in `before_install`.
@@ -119,7 +119,7 @@ Travis CI uses Cargo to run your build, the default commands are:
 cargo test --verbose
 ```
 
-You can always configure different comands if you need to. For example,
+You can always configure different commands if you need to. For example,
 if your project is a
 [workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
 should pass `--all` to the build commands to build and test all of the member
@@ -137,3 +137,7 @@ script:
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Rust](https://config.travis-ci.com/ref/language/rust) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

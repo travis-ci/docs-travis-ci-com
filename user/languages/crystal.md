@@ -56,4 +56,6 @@ crystal:
 ```
 {: data-file=".travis.yml"}
 
-Note that the nightly build will only be available on Xenial and later releases 
+> Note that the nightly build will only be available on Xenial and later releases 
+
+> You can also have a look at the [Crystal](https://config.travis-ci.com/ref/language/crystal) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

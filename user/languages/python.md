@@ -174,7 +174,7 @@ jobs:
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
       language: shell       # 'language: python' is an error on Travis CI macOS
-    - name: "Python 3.7.4 on Windows"
+    - name: "Python 3.8.0 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
@@ -240,6 +240,10 @@ The same technique is often used to test projects against multiple databases and
 
 For real world examples, see [getsentry/sentry](https://github.com/getsentry/sentry/blob/master/.travis.yml) and [jpvanhal/flask-split](https://github.com/jpvanhal/flask-split/blob/master/.travis.yml).
 
+## Build Config Reference
+
+You can find more information on the build config format for [Python](https://config.travis-ci.com/ref/language/python) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [tornadoweb/tornado](https://github.com/tornadoweb/tornado/blob/master/.travis.yml)
@@ -260,6 +264,7 @@ These archives are available for on-demand installation.
 | {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
 {% endif %}
 
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
 <script>
 var tf = new TableFilter(document.querySelector('#python-versions-table'), {
     base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',

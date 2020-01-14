@@ -106,7 +106,7 @@ env:
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
-1. If you do not have the `travis` gem installed, run `gem install travis`.
+1. If you do not have the `travis` gem installed, run `gem install travis` (or `brew install travis` on macOS).
 
 2. In your repository directory:
 
@@ -143,6 +143,10 @@ Similarly, we do not provide these values to untrusted builds, triggered by pull
 As an alternative to the web interface, you can also use the CLI's [`env`](https://github.com/travis-ci/travis.rb#env) command.
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Convenience Variables
 
@@ -206,6 +210,8 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
   Values are currently `linux`, `osx` and `windows` (beta), to be extended in the future.
+- `TRAVIS_CPU_ARCH`: On [multi-arch](https://docs.travis-ci.com/user/multi-cpu-architectures/) builds, this value indicates the CPU architecture the job is running on.
+  Values are currently `amd64`, `arm64`, `ppc64le` and `s390x`.
 - `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
   it is empty.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
@@ -225,7 +231,7 @@ to tag the build, or to run post-build deployments.
   + set to `false` if no encrypted environment variables are available.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
-- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
+- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name, otherwise it is empty (`""`).
 - `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalized form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
 
 Language-specific builds expose additional environment variables representing

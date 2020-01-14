@@ -37,6 +37,7 @@ julia:
 Acceptable formats are:
  - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
 of Julia.
+ - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
  - `X.Y.Z` will test against that exact version.
 
@@ -134,3 +135,7 @@ Here's a list of open-source Julia projects utilizing Travis CI in different way
 4) [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
 5) [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
 6) [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
+
+## Build Config Reference
+
+You can find more information on the build config format for [Julia](https://config.travis-ci.com/ref/language/julia) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
