@@ -54,38 +54,50 @@ VMs running Windows use the default file system, NTFS.
 
 ## Pre-installed Chocolatey packages
 
-- 7zip.install 18.5.0.20180730
-- chocolatey 0.10.11
-- chocolatey-core.extension 1.3.3
-- chocolatey-fastanswers.extension 0.0.1
-- chocolatey-visualstudio.extension 1.7.0
-- chocolatey-windowsupdate.extension 1.0.3
-- cmake.install 3.12.3
-- curl 7.62.0
-- dotnet4.6.2 4.6.01590.20170129
-- git.install 2.19.1
-- hashdeep 4.4
-- jq 1.5
-- KB2919355 1.0.20160915
-- KB2919442 1.0.20160915
-- KB2999226 1.0.20181019
-- KB3033929 1.0.4
-- KB3035131 1.0.2
-- llvm 7.0.0
-- microsoft-build-tools 15.0.26320.2
-- mingw 8.1.0
-- ruby 2.5.3.1
-- vcredist140 14.15.26706
-- vcredist2017 14.15.26706
-- visualstudio2017buildtools 15.8.9.0
-- visualstudio2017-installer 1.0.2
-- visualstudio2017-workload-netcorebuildtools 1.1.0
-- visualstudio2017-workload-vctools 1.3.0
-- visualstudio2017-workload-webbuildtools 1.3.0
-- wget 1.19.4
-- winscp 5.13.4
-- winscp.install 5.13.4
-- wsl 1.0.1
+- 7zip.install v19.0
+- chocolatey v0.10.15 
+- chocolatey-core.extension v1.3.3
+- chocolatey-dotnetfx.extension v1.0.1
+- chocolatey-fastanswers.extension v0.0.2
+- chocolatey-visualstudio.extension v1.8.1
+- chocolatey-windowsupdate.extension v1.0.4
+- cmake.install v3.15.3
+- curl v7.66.0.20190926
+- DotNet4.5.2 v4.5.2.20140902
+- DotNet4.6 v4.6.00081.20150925
+- DotNet4.6-TargetPack v4.6.00081.20150925
+- DotNet4.6.1 v4.6.01055.20170308
+- dotnetfx v4.8.0.20190930
+- git.install v2.23.0
+- hashdeep v4.4
+- jq v1.6
+- KB2919355 v1.0.20160915
+- KB2919442 v1.0.20160915
+- KB2999226 v1.0.20181019
+- KB3033929 v1.0.5
+- KB3035131 v1.0.3
+- llvm v9.0.0
+- microsoft-build-tools v15.0.26320.2
+- mingw v8.1.0
+- netfx-4.5.1-devpack v4.5.50932
+- netfx-4.5.2-devpack v4.5.5165101.20180721
+- netfx-4.6.1-devpack v4.6.01055.00
+- rsync v5.5.0.20190204
+- ruby v2.6.4.1
+- vcredist140 v14.23.27820
+- vcredist2017 v14.16.27033
+- visualstudio-installer v2.0.1
+- visualstudio2017-workload-netcorebuildtools v1.1.2
+- visualstudio2017-workload-vctools v1.3.2
+- visualstudio2017-workload-webbuildtools v1.3.2
+- visualstudio2017buildtools v15.9.16.0
+- Wget v1.20.3.20190531
+- windows-sdk-10.1 v10.1.18362.1
+- winscp v5.15.4
+- winscp.install v5.15.4
+- wsl v1.0.1
+
+> A basic Python 2.7.9 interpreter is also included: `/C/ProgramData/chocolatey/bin/python.exe`
 
 ## How do I use MSYS2?
 
@@ -134,4 +146,4 @@ MSYS2 contains two noteworthy [subsystems](https://github.com/msys2/msys2/wiki/M
 
 A point of caution: the pre-installed "mingw" Chocolatey package should **not** be used within any MSYS2 subsystem. (In fact, the above snippet uninstalls the "mingw" Chocolatey package to be safe.) Note that the [MSYS2 wiki](https://github.com/msys2/msys2/wiki/MSYS2-introduction#path) says:
 
->Beware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.
+> Be aware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.
