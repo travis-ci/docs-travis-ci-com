@@ -30,9 +30,8 @@ sure to read our [Tutorial](/user/tutorial/) and
 
 ### Community Supported Language
 
-D is a community-supported language in Travis CI. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
-[@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach).
+D is a community-supported language in Travis CI, maintained by [@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach). If you run into any problems, please report them in the
+[Travis CI community forum](https://travis-ci.community/c/languages/d).
 Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org),
 [LDC's issue tracker](https://github.com/ldc-developers/ldc/issues), or
 [GDC's issue tracker](https://bugzilla.gdcproject.org).
@@ -47,7 +46,7 @@ so, specify the compiler using the `d:` key in `.travis.yml`.
 Examples:
 
 ```yml
-d: dmd-2.066.1
+d: dmd-2.089.1
 ```
 
 ```yml
