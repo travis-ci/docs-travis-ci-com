@@ -116,7 +116,7 @@ The following versions of Docker, version control software and compilers are pre
 | 3.8    | 3.8.0    |
 {: style="width: 30%" }
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
 
 ## JavaScript and Node.js support
 
