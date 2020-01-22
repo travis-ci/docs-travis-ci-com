@@ -10,7 +10,7 @@
         (function() {
           Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
 
-      Swiftype.searchSearchFields = {
+          Swiftype.searchSearchFields = {
             "page": ["title, body, tags"]
           };
           Swiftype.autocompleteSearchFields = {
@@ -40,6 +40,8 @@
         <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
         <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+        <li><a href="/user/build-config-imports/">Build Config Imports</a></li>
+        <li><a href="/user/build-config-validation/">Build Config Validation</a></li>
       </ul>
 
       <h3>Jobs, Builds, Matrices and Stages</h3>
@@ -69,8 +71,15 @@
 
       <h3>Deployments and Uploads</h3>
       <ul>
-        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
-        {% for deployment in site.data.deployments %}
+        {% if page.deploy == 'v2' %}
+          <li class="is-overview"><a href="/user/deployment-v2/">Overview</a></li>
+          <li><a href="/user/deployment-v2/conditional">Conditional Deployments</a></li>
+          {% assign deployments = site.data.deployments_v2 %}
+        {% else %}
+          <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+          {% assign deployments = site.data.deployments %}
+        {% endif %}
+        {% for deployment in deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
         {% endfor %}
         <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
@@ -78,17 +87,15 @@
 
       <h3>CI Environment Reference</h3>
       <ul>
-      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
-      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
-      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
-      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
-      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
-      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
-      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
-      <li><a href="/user/environment-variables/">Environment Variables</a></li>
-      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
-      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
-      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+        <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+        <li><a href="/user/reference/linux/">Ubuntu Linux CI Environment References</a></li>
+        <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+        <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+        <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+        <li><a href="/user/multi-cpu-architectures/">Building on Multiple CPU Architectures</a></li>
+        <li><a href="/user/environment-variables/">Environment Variables</a></li>
+        <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+        <li><a href="/user/ip-addresses/">Build Machines IP Addresses</a></li>
       </ul>
 
       <h3>Encrypting Files and Data</h3>
@@ -115,7 +122,6 @@
         <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
         <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
         <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
-
       </ul>
 
       <h3>Developer Program</h3>
@@ -125,6 +131,7 @@
         <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
         <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
       </ul>
+
       <h3>Travis CI Enterprise</h3>
       <ul>
         <li><a href="/user/enterprise/">Enterprise Docs</a></li>

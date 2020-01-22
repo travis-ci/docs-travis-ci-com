@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.3'
+ruby '2.6.3'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
@@ -27,8 +27,9 @@ gem "middleman-syntax"
 gem 'middleman-gh-pages'
 
 # Live-reloading plugin
-gem "middleman-livereload", "~> 3.3.0"
+gem "middleman-livereload"
 
+# Needed for Slate / middleman
 gem 'redcarpet'
 
 # Cross-templating language block fix for Ruby 1.8
@@ -42,3 +43,10 @@ gem 'therubyracer', :platforms => :ruby
 git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix', ref: '3861c9d' do
   gem 'compass-core'
 end
+
+group :dpl do
+  gem 'dpl', git: 'https://github.com/travis-ci/dpl'
+  gem 'cl'
+end
+
+gem 'netrc'

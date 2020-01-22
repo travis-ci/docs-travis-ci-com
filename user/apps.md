@@ -82,6 +82,16 @@ By Ahmed El-Sayed
 
 - [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
 
+### buildmonitor.io
+
+![buildmonitor.io](/images/apps/buildmonitor.png){:.app}
+
+Extensible and plugin-based build monitor.<br>
+By CyanCor
+
+- [website](https://buildmonitor.io/)
+- [source code](https://gitlab.com/BuildMonitor/TravisConnector)
+
 
 ## Tools
 

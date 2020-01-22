@@ -109,7 +109,7 @@ The following versions of Docker, version control software and compilers are pre
 
 * Supported Python versions: `2.7`, `3.4` or higher.
 * Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `2.7.15` will be used when no language version is explicitly set.
+* Python `3.6.7` will be used when no language version is explicitly set.
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
 
@@ -140,6 +140,10 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 | groovy  | 2.4.5   |
 {: style="width: 30%" }
 
+## Perl support
+* Default version on Xenial is `5.22`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+
 ## PHP support
 
 * For dynamic runtime selection, `phpenv` is available.
@@ -161,6 +165,10 @@ To use one in your build, add it to the services key in your `travis.yml` :
 |:-----------|:---------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
-| redis      | 5.5            |
+| redis      | 5.0            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

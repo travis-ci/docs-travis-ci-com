@@ -7,6 +7,8 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
+> Precise is EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
+
 ### What This Guide Covers
 
 This guide explain what packages, tools and settings are available in the Travis
@@ -387,3 +389,7 @@ Recent 1.7.x version (usually the most recent)
 
 - bundler
 - rake
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

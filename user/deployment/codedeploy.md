@@ -1,6 +1,7 @@
 ---
 title: AWS CodeDeploy
 layout: en
+deploy: v1
 
 ---
 
