@@ -510,7 +510,7 @@ Continuing the example above to extend the waiting time to 30 minutes:
 ```
 {: data-file=".travis.yml"}
 
-> We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
+> We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
 #### Limitations of `travis_wait`
 

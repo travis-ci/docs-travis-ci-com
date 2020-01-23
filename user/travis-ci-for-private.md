@@ -48,7 +48,7 @@ You can change the access rights of an organization to **Restricted** (or back t
 
 Security is our major concern when it comes to your source code. At Travis CI, we make sure our infrastructure is protected and secure so that your most valuable asset is safe and protected from unauthorized access.
 
-You can find more information on this topic in our [Security Statement](https://billing.travis-ci.com/pages/security).
+You can find more information on this topic in our [Security Statement](https://docs.travis-ci.com/legal/security/).
 
 ## How can I encrypt files that include sensitive data?
 
