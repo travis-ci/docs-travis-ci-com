@@ -29,8 +29,8 @@ the Julia versions to test in the `julia:` key in your `.travis.yml` file. For e
 language: julia
 julia:
   - nightly
-  - 1.1
-  - 1.0.3
+  - 1.0.5
+  - 1.3.1
 ```
 {: data-file=".travis.yml"}
 
