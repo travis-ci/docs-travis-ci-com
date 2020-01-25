@@ -128,13 +128,12 @@ In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search throu
 ## Example Projects
 
 Here's a list of open-source Julia projects utilizing Travis CI in different ways: 
-
-1) [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
-2) [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
-3) [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
-4) [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
-5) [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
-6) [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
+- [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
+- [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
+- [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
+- [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
+- [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
+- [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
 
 ## Build Config Reference
 
