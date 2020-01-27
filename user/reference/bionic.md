@@ -49,7 +49,7 @@ If you depend on these repositories in your build, you can use the following `so
 | git-lfs              | `github-git-lfs-bionic`      |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-binoic`         |
+| mongodb              | `mongodb-4.0-bionic`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
@@ -79,8 +79,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.22.0` |
-| git-lfs | `2.7.2`  |
+| git     | `2.24.1` |
+| git-lfs | `2.9.2`  |
 | hg      | `4.8`    |
 | svn     | `1.9.7`  |
 {: style="width: 30%" }
@@ -101,22 +101,30 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.3.8`, `2.4.5`, `2.5.3` and `2.6.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
+* The default ruby is `2.6.5p114`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
 * Supported Python versions: `2.7`, `3.6` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `2.7.15` will be used when no language version is explicitly set.
+* Python `2.7.17` will be used when no language version is explicitly set.
+* The following Python versions are preinstalled:
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+| alias  | version  |
+| :----- | :------- |
+| 2.7    | 2.7.17   |
+| 3.6    | 3.6.9    |
+| 3.7    | 3.7.5    |
+| 3.8    | 3.8.0    |
+{: style="width: 30%" }
+
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
-* The following NodeJS versions are preinstalled: `11.0.0` and `8.12.0`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.10.48.
+* The following NodeJS versions are preinstalled: `12.13.1`, `11.15.0`, `10.16.0`, and `8.16.2`.
 
 ## Go support
 
@@ -127,7 +135,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 ## JVM (Clojure, Groovy, Java, Scala) support
 
 * Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
-is `openjdk11`. 
+is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -147,9 +155,10 @@ is `openjdk11`.
 
 | alias  | version  |
 | :----- | :------- |
-| 7.1    | 7.1.30   |
-| 7.2    | 7.2.10   |
-| 7.3    | 7.3.6    |
+| 7.1    | 7.1.33   |
+| 7.2    | 7.2.25   |
+| 7.3    | 7.3.12   |
+| 7.4    | 7.4.0    |
 {: style="width: 30%" }
 
 ## Databases and services
