@@ -71,6 +71,9 @@ services:
 
 The following versions of Docker, version control software and compilers are present on all Ubuntu 18.04 builds, along with more language specific software described in more detail in each language section.
 
+All preinstalled software not provided by distro is installed from an official release --
+either a prebuilt binary if available, or a source release built with default options.
+For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
 ### Version control
 
