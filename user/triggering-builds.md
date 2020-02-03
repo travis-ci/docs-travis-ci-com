@@ -59,8 +59,11 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     "message": "Override the commit message: this is an api request",
     "branch":"master",
     "config": {
+      "merge_mode": "deep_merge",
       "env": {
-        "jobs": ["TEST=unit"]
+        "jobs": [
+          "TEST=unit"
+        ]
       },
       "script": "echo FOO"
      }
@@ -103,6 +106,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
        "message": null,
        "branch": "master",
        "config": {
+         ...
        }
      },
      "resource_type": "request"
@@ -123,91 +127,192 @@ body='{
   "request": {
     "branch":"master",
     "message": "Override the commit message: this is an api request"
+    ...
   }
 }'
 ```
 
-## Customizing the build configuration
+## Merge modes
 
-You can also customize the build configuration.
+The merge mode controls how the build config in your `.travis.yml` is merged
+(combined) into the build config sent with your POST request.
 
-Choose one of the following merge modes to determine how the original build configuration (in the `.travis.yml` file), and the configuration specified in your API request are combined:
+There are the following merge modes:
 
-* `replace` replaces the full, original build configuration with the configuration in the API request body
-* `merge` (*default*) replaces sections in the original configuration with the configuration in the API request body
-* `deep_merge` merges the configuration in the API request body into the build configuration
+* `deep_merge_append`
+* `deep_merge_prepend`
+* `deep_merge`
+* `merge`
+* `replace`
 
-For example, given that the `.travis.yml` file contains the following configuration:
+The default merge mode is `deep_merge_append` with [Build Config Validation](/user/build-config-validation)
+enabled. With Build Config Validation disabled the default is `deep_merge`,
+which will be discontinued soon.
+
+We recommend to specify the merge mode with your API requests explicitly.
+
+Consider these examples:
+
+```json
+# build config sent via API
+{
+  "env": [
+    "API=true"
+  ],
+  "cache": {
+    "directories": [
+      "./one"
+    ]
+  },
+  "addons": {
+    "snap": "snap"
+  }
+}
+```
 
 ```yaml
-language: ruby
+# build config in your .travis.yml file
 env:
-  FOO: foo_from_travis_yaml
+- TRAVIS_YML=true
+cache:
+  apt: true
+addons:
+  apt:
+    packages:
+    - cmake
 ```
-{: data-file=".travis.yml"}
 
-And given we send the following configuration as an API request:
+### Deep merge append/prepend
 
-```bash
-body='{
-  "request": {
-    "config": {
-      "merge_mode": [...],
-      "env": {
-        "BAZ": "baz_from_api_request"
-      },
-      "script": "echo FOO"
+The merge modes `deep_merge_append` and `deep_merge_prepend` recursively merge
+sections (keys) that hold maps (hashes), and concatenates sequences (arrays) by
+either appending or prepending to the sequence in the importing config.
+
+Given the merge mode `deep_merge_append`, with the example build configs above
+the result will be:
+
+```json
+{
+  "env": [
+    "TRAVIS_YML=true",
+    "API=true"
+  ],
+  "cache": {
+    "apt": true,
+    "directories": [
+      "./one"
+    ]
+  },
+  "addons": {
+    "snap": "snap",
+    "apt": {
+      "packages": [
+        "cmake"
+      ]
     }
   }
-}'
-```
-
-### Merge mode: replace
-
-With the `merge_mode` set to `replace` the resulting combined build configuration is:
-
-```json
-{
-  "env": {
-    "BAZ": "baz_from_api_request"
-  },
-  "script": "echo FOO"
 }
 ```
 
-The full configuration has been replaced by the configuration from the API request.
-
-### Merge mode: merge (default)
-
-With the `merge_mode` set to `merge`, or not given a `merge_mode` (default), the resulting build configuration is:
+Given the merge mode `deep_merge_prepend`, with the example build configs above
+the result will be:
 
 ```json
 {
-  "language": "ruby"
-  "env": {
-    "BAZ": "baz_from_api_request"
+  "env": [
+    "API=true",
+    "TRAVIS_YML=true"
+  ],
+  "cache": {
+    "apt": true,
+    "directories": [
+      "./one"
+    ]
   },
-  "script": "echo FOO"
+  "addons": {
+    "snap": "snap",
+    "apt": {
+      "packages": [
+        "cmake"
+      ]
+    }
+  }
 }
 ```
 
-Each of the top level sections have been replaced with the ones from
- the API request. Other top level sections remain the same.
+### Deep merge
 
-### Merge mode: deep_merge
+The merge mode `deep_merge` recursively merges sections (keys) that hold maps (hashes),
+but overwrites sequences (arrays).
 
-> This merge mode currently only affects key-value maps, not lists. Lists will be replaced instead of merged.  Additional merge modes that work with lists are available as part of the [enhanced build config validation beta](https://docs.travis-ci.com/user/build-config-validation).
-With the `merge_mode` set to `deep_merge`, the resulting build configuration is:
+Given the merge mode `deep_merge`, with the example build configs above
+the result will be:
 
 ```json
 {
-  "language": "ruby"
-  "env": {
-    "FOO": "foo_from_travis_yaml",
-    "BAZ": "baz_from_api_request"
+  "env": [
+    "API=true"
+  ],
+  "cache": {
+    "apt": true,
+    "directories": [
+      "./one"
+    ]
   },
-  "script": "echo FOO"
+  "addons": {
+    "snap": "snap",
+    "apt": {
+      "packages": [
+        "cmake"
+      ]
+    }
+  }
 }
 ```
 
-The `env` section from the API request has been merged into the existing `env` section.
+### Merge
+
+The merge mode `merge` performs a shallow merge.
+
+This means that root level sections (keys) defined in your `.travis.yml` will
+overwrite root level sections (keys) that are also present in the imported
+file.
+
+Given the merge mode `merge`, with the example build configs above the result
+will be the following. The top level keys `cache` and `addons` replace the ones
+in `.travis.yml`:
+
+```json
+{
+  "env": [
+    "API=true"
+  ],
+  "cache": {
+    "apt": true
+  },
+  "addons": {
+    "snap": "snap"
+  }
+}
+```
+### Replace
+
+The merge mode `replace` instructs Travis CI to simply replace the build config
+in your `.travis.yml` file with the config sent with your API request.
+
+```json
+{
+  "env": [
+    "API=true"
+  ],
+  "cache": {
+    "directories": [
+      "./one"
+    ]
+  },
+  "addons": {
+    "snap": "snap"
+  }
+}
+```
+
