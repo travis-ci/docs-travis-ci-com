@@ -68,6 +68,7 @@ as of 05/2018
 2. Invoices will be issued via email. Payments shall become due immediately upon issuance of the invoice. Payment must be made using the payment methods provided by Travis CI from time to time and chosen by the Customer in his Account settings.
 3. All prices in the price list are net-price. Value Added Tax will be added in the invoice if applicable.
 4. Travis CI may alter the current price list and/or the structuring of prices with at least one month notice to the end of each quarter. Travis CI will inform the Customer via email about the price change. If the Customer does not expressly disagree in writing within a month from the notification of change this is deemed to be his acceptance of the change. The Customer will be informed about this circumstance in the notification of change.
+5. The customer authorizes Travis CI to send instructions to the financial institution that issued their card to take payments from the card account in accordance with the terms of agreement.
 
 ### Free Services
 
