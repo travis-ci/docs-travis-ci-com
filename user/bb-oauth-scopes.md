@@ -32,6 +32,45 @@ Gives the app write (not admin) access to all the repositories the authorizing u
 No distinction is made between public or private repos. This scope implies repository, which does not need to be requested separately. 
 This scope alone does not give access to the pull requests API.
 
+### repository:admin
+Gives the app admin access to all the repositories the authorizing user has access to. No distinction is made between public or private repos. This scope does not imply repository or repository:write. It gives access to the admin features of a repo only, not direct access to its contents. Of course it can be (mis)used to grant read access to another user account who can then clone the repo, but repos that need to read of write source code would also request explicit read or write.
+
+### snippet
+Gives the app read access to all the snippets the authorizing user has access to. No distinction is made between public and private snippets (public snippets are accessible without any form of authentication).
+
+### snippet:write
+Gives the app write access to all the snippets the authorizing user can edit. No distinction is made between public and private snippets (public snippets are accessible without any form of authentication). This implies the Snippet Read scope which does not need to be requested separately.
+
+### issue
+Ability to interact with issue trackers the way non-repo members can. This scope does not imply any other scopes and does not give implicit access to the repository the issue is attached to.
+
+### issue:write
+This implies issue, but adds the ability to transition and delete issues. This scope does not imply any other scopes and does not give implicit access to the repository the issue is attached to.
+
+### wiki
+Gives access to wikis. No distinction is made between read and write as wikis are always editable by anyone. This scope does not imply any other scopes and does not give implicit access to the repository the wiki is attached to.
+
+### pullrequest
+Gives the app read access to pull requests and collaborate on them. This scope implies repository, giving read access to the pull request's destination repository.
+
+### pullrequest:write
+Implies pullrequest but adds the ability to create, merge, and decline pull requests. This scope implies repository:write, giving write access to the pull request's destination repository. This is necessary to facilitate merging.
+
+### email
+Ability to see the user's primary email address. This should make it easier to use Bitbucket Cloud as a login provider to apps or external applications.
+
+### account
+Ability to see all the user's account information. Note that this does not include any ability to mutate any of the data.
+
+### account:write
+Ability to change properties on the user's account.
+
+### team
+The ability to find out what teams the current user is part of. This is covered by the teams endpoint.
+
+### team:write
+Implies team, but adds the ability to manage the teams that the authorizing user is an admin of.
+
 ### webhook
 Gives access to webhooks. This scope is required for any webhook related operation.
 
