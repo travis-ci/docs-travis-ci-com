@@ -85,6 +85,15 @@ To start using Travis CI, make sure you have:
 
 6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
 
+## Switching accounts
+
+You can easily switch between you cloud platform provider accounts:
+
+1. Click on your account icon in the top right corner on [Travis-ci.com](https://travis-ci.com).
+
+2. Select the desired account and have fun using Travis CI.
+
+
 ## Selecting a different programming language
 
 Use one of these common languages:
