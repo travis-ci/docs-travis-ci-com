@@ -60,7 +60,7 @@ Travis CI is, and always will be, free for open source projects.
 For a list of plans and prices for private repositories, look at
 [travis-ci.com/plans](https://travis-ci.com/plans).
 
-## How can I make a private repository public?
+## How can I make a private repository public on GitHub?
 
 If you have a private repository that you'd like to make public, follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-private-repository-public/).
@@ -72,7 +72,7 @@ If you're using the Travis CI [command line client](https://github.com/travis-ci
    travis endpoint --org --set-default
    ```
 
-## How can I make a public repository private?
+## How can I make a public repository private on GitHub?
 
 If you have a public repository that you'd like to make private, follow the [instructions on
 GitHub](https://help.github.com/articles/making-a-public-repository-private/).
@@ -83,3 +83,8 @@ If you're using the Travis CI [command line client](https://github.com/travis-ci
    ```sh
    travis endpoint --com --set-default
    ```
+   
+## How can I set the repository privacy status on Bitbucket?
+
+If you want to set the privacy status for a Bitbucket repository, follow the [instructions on
+Bitbucket](https://confluence.atlassian.com/bitbucket/make-a-repo-private-or-public-221449724.html).
