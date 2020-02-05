@@ -39,7 +39,7 @@ Access rights to the Travis CI [billing page](https://travis-ci.com/account/subs
 - **Restricted**: for GitHub users access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their [documentation about the _Permission levels for an organization_](https://help.github.com/articles/permission-levels-for-an-organization/)).
 - **Restricted**: for Bitbucket users access is limited to members of the team having read and write permissions in Bitbucket (see their [documentation about _Grant repository access to users and groups_](https://confluence.atlassian.com/bitbucket/grant-repository-access-to-users-and-groups-221449716.html)).
 
-You can change the access rights of an organization to **Restricted** (or back to **Open**) under the organization's tab on [our billing page](https://travis-ci.com/account/subscription) as shown below:
+You can change the access rights to **Restricted** (or back to **Open**) under the *Organizations* tab on [our Subscription page](https://travis-ci.com/account/subscription) as shown below:
 
 ![Billing access toggle](/images/admin_only_toggle.png "Billing access toggle")
 
