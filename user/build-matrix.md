@@ -3,45 +3,78 @@ title: Build Matrix
 layout: en
 ---
 
-There are two ways to specify multiple parallel jobs (what we call the build matrix) with a single `.travis.yml` configuration file:
+A build matrix is made up by several multiple jobs that run in parallel.
 
-* combine a language-and-environment dependent set of configuration options to automatically create a matrix of all possible combinations. This is called matrix expansion.
-  For example, the following configuration produces a build matrix that expands to *8 individual (2 * 2 * 2)* jobs.
+This can be useful in many cases, but the two primary reasons to use a build matrix are:
 
-  ```yaml
-  rvm:
-    - 2.5
-    - 2.2
-  gemfile:
-    - gemfiles/Gemfile.rails-3.2.x
-    - gemfiles/Gemfile.rails-3.0.x
-  env:
-    - ISOLATED=true
-    - ISOLATED=false
-  ```
-  {: data-file=".travis.yml"}
+* [Reducing the overall build execution time](/user/speeding-up-the-build)
+* Running tests against different versions of runtimes or dependencies
 
-* specify the exact combination of configurations you want in `jobs.include`. For example, if not all of those combinations are interesting, you can specify just the combinations you want:
+The examples on this page focus on the latter use case.
 
-  ```yaml
-  jobs:
-    include:
-    - rvm: 2.5
-      gemfile: gemfiles/Gemfile.rails-3.2.x
-      env: ISOLATED=false
-    - rvm: 2.2
-      gemfile: gemfiles/Gemfile.rails-3.0.x
-      env: ISOLATED=true
-  ```
-  {: data-file=".travis.yml"}
+There are two ways to define a matrix in the `.travis.yml` file:
 
-> All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
+* Using the Matrix Expansion feature
+* Listing individual job configs
+
+Both features can be combined.
+
+## Matrix Expansion
+
+Certain keys are defined as matrix expansion keys that take arrays of values,
+creating an additional job per value. If several matrix expansion keys are
+given, this multiplies the number of jobs created.
+
+For example, the following configuration produces a build matrix that expands
+to *8 individual (2 * 2 * 2)* jobs, combining each value from the three
+matrix expansion keys `rvm`, `gemfile`, and `env`.
+
+```yaml
+rvm:
+- 2.5
+- 2.2
+gemfile:
+- gemfiles/Gemfile.rails-3.2.x
+- gemfiles/Gemfile.rails-3.0.x
+env:
+- ISOLATED=true
+- ISOLATED=false
+```
+{: data-file=".travis.yml"}
+
+## Listing individual jobs
+
+In addition, jobs can be specified by adding entries to the key `jobs.include`.
+
+For example, if not all of those combinations of the matrix expansion above are
+relevant, jobs can be specified individually like so:
+
+```yaml
+jobs:
+  include:
+  - rvm: 2.5
+    gemfile: gemfiles/Gemfile.rails-3.2.x
+    env: ISOLATED=false
+  - rvm: 2.2
+    gemfile: gemfiles/Gemfile.rails-3.0.x
+    env: ISOLATED=true
+```
+{: data-file=".travis.yml"}
+
+> Build matrixes are currently limited to a maximum of **200 jobs** for both
+> private and public repositories. If you are on an open-source plan, please
+> remember that Travis CI provides this service free of charge to the
+> community. So please only specify the matrix you *actually need*.
 
 > You can also have a look at the [Language](https://config.travis-ci.com/ref/language) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Excluding Jobs
 
-You can also define exclusions to the build matrix:
+The build matrix expansion sometimes produced unwanted combinations. In that
+case it can be convenient to exclude certain combinations using the key
+`jobs.exclude`, instead of listing all jobs individually.
+
+For example, this would exclude two jobs from the build matrix:
 
 ```yaml
 jobs:
@@ -370,3 +403,49 @@ This creates a build with 3 jobs as follows:
 * A Python 3.8 job
 * A  Node.js 12 job
 * A Java OpenJDK 8 job
+
+## Job Names
+
+Jobs listed in `jobs.include` can be named by using the key `name`, like so:
+
+```yaml
+jobs:
+  include:
+  - name: Job 1
+    script: echo "Running job 1"
+
+```
+
+This name will appear on the build matrix UI and can be convinient in order to
+quickly identify jobs in a large matrix.
+
+Jobs generated through the Matrix Expansion feature cannot be named.
+
+## Job Uniqueness and Duplicate Jobs
+
+Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation)
+process.
+
+For example, this config would result in only one job, using the [YAML anchors and aliases](/user/build-config-yaml#private-keys-as-yaml-anchors-and-aliases-and-external-tooling):
+
+```yaml
+_shared_job: &shared_job
+  script: echo "shared script config"
+jobs:
+  include:
+  - <<: *shared_job
+  - <<: *shared_job
+```
+
+In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g. a job name:
+
+```yaml
+_shared_job: &shared_job
+  script: echo "shared script config"
+jobs:
+  include:
+  - name: Job 1
+    <<: *shared_job
+  - name: Job 2
+    <<: *shared_job
+```

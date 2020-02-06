@@ -8,6 +8,24 @@ redirect_from:
   - /user/repository-providers/
 ---
 
+## Travis CI Build Configuration and Settings
+
+Builds on Travis CI are configured mostly through the build configuration
+stored in the file `.travis.yml` in your repository. This allows your
+configuration to be version controlled and flexible.
+
+For advanced use cases the main build configuration file `.travis.yml` can
+import other, shared config sources using the [Build Config Imports](/user/build-config-imports)
+feature.
+
+Detailled information about Travis CI's build config format can be found in our
+[Travis CI Build Config Reference](https://config.travis-ci.com/). Additional
+information about Travis CI's use of YAML as a language to describe build
+configuration can be found [here](/user/build-config-yaml).
+
+Other features can be controlled through the repository's settings either
+through the Travis CI UI, or the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme).
+
 
 ## Build Timeouts
 
@@ -203,10 +221,6 @@ git:
 ```
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
-
-## Build Config Reference
-
-You can find more information on the build config format for [Git](https://config.travis-ci.com/ref/job/git) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Building Specific Branches
 
