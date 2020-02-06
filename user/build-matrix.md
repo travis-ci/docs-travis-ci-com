@@ -236,7 +236,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 If you need the (sole) job from the matrix in such a case, too,
-add a blank job entry to the explicit list (as it would
+add a blank job entry with curyl brakets to the explicit list (as it would
 [inherit all values from the matrix](#explicitly-included-jobs-inherit-the-first-value-in-the-array)
 with no changes):
 
@@ -246,7 +246,7 @@ python:
   - '3.8'
 jobs:
   include:
-    -
+    - {}
     - env: EXTRA_TESTS=true
 # defines two jobs:
 #   - python: 3.8
