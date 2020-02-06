@@ -236,7 +236,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 If you need the (sole) job from the matrix in such a case, too,
-add a blank job entry with curyl brakets to the explicit list (as it would
+add a blank job entry with curly brackets to the explicit list (as it would
 [inherit all values from the matrix](#explicitly-included-jobs-inherit-the-first-value-in-the-array)
 with no changes):
 
