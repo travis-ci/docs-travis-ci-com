@@ -416,7 +416,7 @@ jobs:
 
 ```
 
-This name will appear on the build matrix UI and can be convinient in order to
+This name will appear on the build matrix UI and can be convenient in order to
 quickly identify jobs in a large matrix.
 
 Jobs generated through the Matrix Expansion feature cannot be named.
@@ -426,7 +426,7 @@ Jobs generated through the Matrix Expansion feature cannot be named.
 Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation)
 process.
 
-For example, this config would result in only one job, using the [YAML anchors and aliases](/user/build-config-yaml#private-keys-as-yaml-anchors-and-aliases-and-external-tooling):
+For example, this config would result in only one job using the [YAML anchors and aliases](/user/build-config-yaml#private-keys-as-yaml-anchors-and-aliases-and-external-tooling):
 
 ```yaml
 _shared_job: &shared_job
