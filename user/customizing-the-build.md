@@ -18,7 +18,7 @@ For advanced use cases the main build configuration file `.travis.yml` can
 import other, shared config sources using the [Build Config Imports](/user/build-config-imports)
 feature.
 
-Detailled information about Travis CI's build config format can be found in our
+Detailed information about Travis CI's build config format can be found in our
 [Travis CI Build Config Reference](https://config.travis-ci.com/). Additional
 information about Travis CI's use of YAML as a language to describe build
 configuration can be found [here](/user/build-config-yaml).
