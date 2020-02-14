@@ -162,7 +162,7 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 ## Databases and services
 
 The following services and databases are preinstalled but but do not run by default.
-To use one in your build, add it to the services key in your `travis.yml` :
+To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
