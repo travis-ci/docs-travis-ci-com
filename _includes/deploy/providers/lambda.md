@@ -83,4 +83,14 @@ The following variable are availabe for interpolation on `description`:
 * `tracing_mode`
 * `zip`
 
+Interpolation uses the syntax `%{variable-name}`. For example,
+`"Current commit sha: %{git_sha}"` would result in a string with the
+current Git sha embedded.
+
+Furthermore, environment variables present in the current build
+environment can be used through standard Bash variable interpolation.
+For example: "Current build number: ${TRAVIS_BUILD_NUMBER}".
+See [here](/user/environment-variables/#default-environment-variables)
+for a list of default environment variables set.
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}

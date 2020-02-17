@@ -315,10 +315,22 @@ module Dpl
         The following variable are availabe for interpolation on %s:
 
         %s
+
+        Interpolation uses the syntax `@@{variable-name}`. For example,
+        `"Current commit sha: @@{git_sha}"` would result in a string with the
+        current Git sha embedded.
+
+        Furthermore, environment variables present in the current build
+        environment can be used through standard Bash variable interpolation.
+        For example: "Current build number: ${TRAVIS_BUILD_NUMBER}".
+        See [here](/user/environment-variables/#default-environment-variables)
+        for a list of default environment variables set.
       str
 
       def to_s
-        STR % [names, vars] if opts.any?
+        return unless opts.any?
+        str = STR % [names, vars]
+        str.gsub('@@', '%')
       end
 
       def opts
