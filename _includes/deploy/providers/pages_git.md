@@ -24,7 +24,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Pages is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to GitHub Pages is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.
@@ -60,4 +60,25 @@ For example, `token` can be given as
 
 * `GITHUB_TOKEN=<token>` or 
 * `PAGES_TOKEN=<token>`
+## Interpolation variables
+
+The following variable are availabe for interpolation on `commit_message`:
+
+* `deploy_key`
+* `email`
+* `fqdn`
+* `git_author_email`
+* `git_author_name`
+* `git_branch`
+* `git_commit_author`
+* `git_commit_msg`
+* `git_sha`
+* `git_tag`
+* `local_dir`
+* `name`
+* `project_name`
+* `repo`
+* `target_branch`
+* `url`
+
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

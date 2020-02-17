@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS Lambda is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS Lambda is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -59,4 +59,28 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `LAMBDA_ACCESS_KEY_ID=<access_key_id>`
+## Interpolation variables
+
+The following variable are availabe for interpolation on `description`:
+
+* `dead_letter_arn`
+* `function_name`
+* `git_author_email`
+* `git_author_name`
+* `git_branch`
+* `git_commit_author`
+* `git_commit_msg`
+* `git_sha`
+* `git_tag`
+* `handler_name`
+* `kms_key_arn`
+* `memory_size`
+* `module_name`
+* `region`
+* `role`
+* `runtime`
+* `timeout`
+* `tracing_mode`
+* `zip`
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}

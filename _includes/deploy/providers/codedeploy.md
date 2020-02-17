@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS Code Deploy is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS Code Deploy is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -52,4 +52,28 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `CODEDEPLOY_ACCESS_KEY_ID=<access_key_id>`
+## Interpolation variables
+
+The following variable are availabe for interpolation on `description`:
+
+* `application`
+* `bucket`
+* `bundle_type`
+* `commit_id`
+* `deployment_group`
+* `endpoint`
+* `file_exists_behavior`
+* `git_author_email`
+* `git_author_name`
+* `git_branch`
+* `git_commit_author`
+* `git_commit_msg`
+* `git_sha`
+* `git_tag`
+* `key`
+* `region`
+* `repository`
+* `revision_type`
+* `build_number`
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}

@@ -3,8 +3,8 @@ For a minimal configuration, add the following to your `.travis.yml`:
 
 ```yaml
 deploy:
-  provider: script
-  script: <script>
+  provider: flynn
+  git: <git>
   edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
@@ -16,12 +16,12 @@ deploy:
 
 ## Status
 
-Support for deployments to Script is *stable**.
+Support for deployments to Flynn is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
 
-| `script` | The script to execute &mdash; **required**, type: string |
+| `git` | Flynn Git remote URL &mdash; **required**, type: string |
 
 ### Shared options
 
