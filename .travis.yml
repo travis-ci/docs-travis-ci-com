@@ -6,6 +6,7 @@ python:
 branches:
   only:
   - master
+  - sf-dpl-ci
 env:
   global:
     - PATH=$HOME/.local/user/bin:$PATH
@@ -20,6 +21,33 @@ addons:
   apt:
     packages:
       - libxml2-utils
+jobs:
+  include:
+  - name: update dpl v2 docs
+    if: type = cron || branch = sf-dpl-ci
+    language: shell
+    cache: false
+    install:
+    - rvm use 2.5.3
+    script:
+    - git clone https://github.com/travis-ci/dpl.git --branch sf-git
+    - cd dpl
+    - gem build dpl.gemspec
+    - gem install dpl-*.gem
+    - cd ..
+    - rm -rf dpl
+    - bin/dpl
+    deploy:
+    - provider: git_branch
+      edge:
+        branch: sf-git
+      token:
+        secure: "YHuTjIGKpG0A8QJ4kmdLfOW1n+62uLakXv0KjCzWExl22qLSn2frip3j8JsaeMfndsmNZBUfGoONVHvDS+PHnkbRMYf21SjgctpVfHRYZQ3pulexOViEQ6azRgCBWuPO8A+vAyxvjlV4e3UDGnt2x/0X/Tdg9iVf/zzBGjM0YX0="
+      branch: sf-dpl-ci
+      pull_request: true
+      on:
+        branch:
+        - sf-dpl-ci
 deploy:
   provider: heroku
   api_key:
@@ -29,13 +57,13 @@ deploy:
     branch:
     - master
   edge: true
-notifications:
-  slack:
-    rooms:
-      secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
-    on_success: never
-  webhooks:
-    https://docs.travis-ci.com/update_webhook_payload_doc
+# notifications:
+#   slack:
+#     rooms:
+#       secure: LPNgf0Ra6Vu6I7XuK7tcnyFWJg+becx1RfAR35feWK81sru8TyuldQIt7uAKMA8tqFTP8j1Af7iz7UDokbCCfDNCX1GxdAWgXs+UKpwhO89nsidHAsCkW2lWSEM0E3xtOJDyNFoauiHxBKGKUsApJTnf39H+EW9tWrqN5W2sZg8=
+#     on_success: never
+#   webhooks:
+#     https://docs.travis-ci.com/update_webhook_payload_doc
 install:
   - rvm use 2.6.3 --install
   - bundle install --deployment
