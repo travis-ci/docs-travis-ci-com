@@ -35,5 +35,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `SNAP_`.
 
 For example, `token` can be given as `SNAP_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="SNAP_TOKEN" %}

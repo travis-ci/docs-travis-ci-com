@@ -27,7 +27,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Google Cloud Store is *stable**.
+Support for deployments to Google Cloud Store is *stable**
 ## Known options
 
 Use the following options to further configure the deployment. Either `key_file` or `access_key_id` and `secret_access_key` are required.
@@ -54,5 +54,4 @@ Use the following options to further configure the deployment. Either `key_file`
 All options can be given as environment variables if prefixed with `GCS_`.
 
 For example, `access_key_id` can be given as `GCS_ACCESS_KEY_ID=<access_key_id>`.
-
 {% include deploy/secrets.md name="access_key_id" env_name="GCS_ACCESS_KEY_ID" %}

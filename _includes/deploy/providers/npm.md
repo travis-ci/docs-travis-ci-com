@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to npm is *stable**.
+Support for deployments to npm is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -41,5 +41,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `NPM_`.
 
 For example, `api_token` can be given as `NPM_API_TOKEN=<api_token>`.
-
 {% include deploy/secrets.md name="api_token" env_name="NPM_API_TOKEN" %}

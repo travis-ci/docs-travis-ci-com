@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Cloud Foundry is *stable**.
+Support for deployments to Cloud Foundry is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -45,5 +45,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `CLOUDFOUNDRY_`.
 
 For example, `password` can be given as `CLOUDFOUNDRY_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="CLOUDFOUNDRY_PASSWORD" %}

@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to OpenShift is *stable**.
+Support for deployments to OpenShift is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -38,5 +38,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `OPENSHIFT_`.
 
 For example, `token` can be given as `OPENSHIFT_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="OPENSHIFT_TOKEN" %}

@@ -17,7 +17,7 @@ deploy:
 
 ## Status
 
-Support for deployments to PyPI is *stable**.
+Support for deployments to PyPI is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -45,5 +45,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `PYPI_`.
 
 For example, `password` can be given as `PYPI_PASSWORD=<password>`.
-
 {% include deploy/secrets.md name="password" env_name="PYPI_PASSWORD" %}

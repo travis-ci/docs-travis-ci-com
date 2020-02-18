@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Cargo is *stable**.
+Support for deployments to Cargo is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -34,5 +34,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `CARGO_`.
 
 For example, `token` can be given as `CARGO_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="CARGO_TOKEN" %}

@@ -17,7 +17,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Netlify is *stable**.
+Support for deployments to Netlify is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -39,5 +39,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `NETLIFY_`.
 
 For example, `auth` can be given as `NETLIFY_AUTH=<auth>`.
-
 {% include deploy/secrets.md name="auth" env_name="NETLIFY_AUTH" %}

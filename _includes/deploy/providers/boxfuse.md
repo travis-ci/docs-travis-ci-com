@@ -41,5 +41,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `BOXFUSE_`.
 
 For example, `secret` can be given as `BOXFUSE_SECRET=<secret>`.
-
 {% include deploy/secrets.md name="secret" env_name="BOXFUSE_SECRET" %}

@@ -38,5 +38,4 @@ For example, `token` can be given as
 
 * `GITHUB_TOKEN=<token>` or 
 * `PAGES_TOKEN=<token>`
-
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

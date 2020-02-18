@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Firebase is *stable**.
+Support for deployments to Firebase is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -37,5 +37,4 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `FIREBASE_`.
 
 For example, `token` can be given as `FIREBASE_TOKEN=<token>`.
-
 {% include deploy/secrets.md name="token" env_name="FIREBASE_TOKEN" %}
