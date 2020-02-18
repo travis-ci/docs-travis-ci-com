@@ -46,4 +46,5 @@ Use the following options to further configure the deployment. Either `api_token
 All options can be given as environment variables if prefixed with `TRANSIFEX_`.
 
 For example, `api_token` can be given as `TRANSIFEX_API_TOKEN=<api_token>`.
+
 {% include deploy/secrets.md name="api_token" env_name="TRANSIFEX_API_TOKEN" %}

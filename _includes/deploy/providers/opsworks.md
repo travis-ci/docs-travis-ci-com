@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS OpsWorks is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS OpsWorks is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -47,4 +47,5 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `OPSWORKS_ACCESS_KEY_ID=<access_key_id>`
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}
