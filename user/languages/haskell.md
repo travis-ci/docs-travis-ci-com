@@ -100,4 +100,4 @@ You can find more information on the build config format for [Haskell](https://d
 
 ## Build with Stack
 
-Check out https://docs.haskellstack.org/en/stable/travis_ci/ if you want to use Stack to build your project.
+Check out [Travis CI on Stack](https://docs.haskellstack.org/en/stable/travis_ci/) if you want to use Stack to build your project.
