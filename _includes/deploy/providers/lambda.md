@@ -61,7 +61,7 @@ For example, `access_key_id` can be given as
 * `LAMBDA_ACCESS_KEY_ID=<access_key_id>`
 ## Interpolation variables
 
-The following variable are availabe for interpolation on `description`:
+The following variables are available for interpolation on `description`:
 
 * `dead_letter_arn`
 * `function_name`

@@ -62,7 +62,7 @@ For example, `token` can be given as
 * `PAGES_TOKEN=<token>`
 ## Interpolation variables
 
-The following variable are availabe for interpolation on `commit_message`:
+The following variables are available for interpolation on `commit_message`:
 
 * `deploy_key`
 * `email`

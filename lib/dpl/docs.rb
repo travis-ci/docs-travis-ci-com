@@ -312,7 +312,7 @@ module Dpl
       STR = <<~str
         ## Interpolation variables
 
-        The following variable are availabe for interpolation on %s:
+        The following variables are available for interpolation on %s:
 
         %s
 
