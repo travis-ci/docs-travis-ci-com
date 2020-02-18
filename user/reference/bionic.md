@@ -79,7 +79,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.24.1` |
+| git     | `2.25.0` |
 | git-lfs | `2.9.2`  |
 | hg      | `4.8`    |
 | svn     | `1.9.7`  |
@@ -114,9 +114,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | alias  | version  |
 | :----- | :------- |
 | 2.7    | 2.7.17   |
-| 3.6    | 3.6.9    |
-| 3.7    | 3.7.5    |
-| 3.8    | 3.8.0    |
+| 3.6    | 3.6.10    |
+| 3.7    | 3.7.6    |
+| 3.8    | 3.8.2    |
 {: style="width: 30%" }
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
@@ -134,7 +134,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
 is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
@@ -156,9 +156,9 @@ is `openjdk11`.
 | alias  | version  |
 | :----- | :------- |
 | 7.1    | 7.1.33   |
-| 7.2    | 7.2.25   |
-| 7.3    | 7.3.12   |
-| 7.4    | 7.4.0    |
+| 7.2    | 7.2.27   |
+| 7.3    | 7.3.14   |
+| 7.4    | 7.4.2    |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -171,7 +171,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
 | redis      | 5.5            |
-| postgresql | 9.3 9.4 9.5 9.6 10 |
+| postgresql | 9.3 9.4 9.5 9.6 10 11 |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
