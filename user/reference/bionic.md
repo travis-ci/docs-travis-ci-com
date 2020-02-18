@@ -80,7 +80,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package | version  |
 |:--------|:---------|
 | git     | `2.25.0` |
-| git-lfs | `2.9.2`  |
+| git-lfs | `2.10.0` |
 | hg      | `4.8`    |
 | svn     | `1.9.7`  |
 {: style="width: 30%" }
