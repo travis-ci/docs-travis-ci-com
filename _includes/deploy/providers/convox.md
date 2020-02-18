@@ -31,10 +31,12 @@ Use the following options to further configure the deployment.
 | `update_cli` | type: boolean |
 | `create` | type: boolean |
 | `promote` | type: boolean, default: `true` |
+| `env_names` | type: string or array of strings |
 | `env` | type: string or array of strings |
 | `env_file` | type: string |
 | `description` | type: string |
 | `generation` | type: integer, default: `2` |
+| `prepare` | Run commands with convox cli available just before deployment &mdash; type: string or array of strings |
 
 ### Shared options
 

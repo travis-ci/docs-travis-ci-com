@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Cloud Foundry is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Cloud Foundry is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.

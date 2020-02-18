@@ -17,7 +17,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Surge is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Surge is *stable**
 ## Known options
 
 Use the following options to further configure the deployment.
