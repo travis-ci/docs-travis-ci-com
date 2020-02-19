@@ -526,7 +526,7 @@ jobs:
 
 #### Conditionally Allowing Jobs to Fail
 
-Allowed failures can include a [condition](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditionally-allowing-jobs-to-fail) using the key `if`.
+Allowed failures can include a [condition](/user/conditional-builds-stages-jobs#conditionally-allowing-jobs-to-fail) using the key `if`.
 
 For example, the following would allow the job using `rvm: 1.9.3` to fail
 only on the `master` branch:
@@ -542,7 +542,7 @@ jobs:
 #### Matching Jobs with `allow_failures`
 
 When matching jobs against the definitions given in `allow_failures`, _all_
-attributes specified on a row in `allow_failures` must be met exactly, and all
+attributes specified on an entry in `allow_failures` must be met exactly, and all
 the keys in `allow_failures` element must exist in the top level of the build
 matrix (i.e., not in `matrix.include`).
 
@@ -593,7 +593,7 @@ Without the top-level `env`, no job will be allowed to fail.
 
 ### Fast Finishing
 
-If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
+If some jobs in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
