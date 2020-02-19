@@ -506,13 +506,14 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-### Rows That Are Allowed to Fail
+### Jobs That Are Allowed to Fail
 
-You can define rows that are allowed to fail in the build matrix. Allowed
-failures are items in your build matrix that are allowed to fail without causing
-the entire build to fail. This lets you add in experimental and
-preparatory builds to test against versions or configurations that you are not
-ready to officially support.
+You can define jobs that are allowed to fail in the build matrix.
+
+Allowed failures are jobs in your build matrix that are allowed to fail without
+causing the entire build to fail. This lets you add in experimental and
+preparatory builds, for example to test against runtime versions or
+configurations that you are not ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
@@ -523,12 +524,27 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
+#### Conditionally Allowing Jobs to Fail
+
+Allowed failures can include a [condition](https://docs.travis-ci.com/user/conditional-builds-stages-jobs#conditionally-allowing-jobs-to-fail) using the key `if`.
+
+For example, the following would allow the job using `rvm: 1.9.3` to fail
+only on the `master` branch:
+
+```yaml
+jobs:
+  allow_failures:
+  - rvm: 1.9.3
+    if: branch = master
+```
+{: data-file=".travis.yml"}
+
 #### Matching Jobs with `allow_failures`
 
 When matching jobs against the definitions given in `allow_failures`, _all_
-conditions in `allow_failures` must be met exactly, and
-all the keys in `allow_failures` element must exist in the
-top level of the build matrix (i.e., not in `matrix.include`).
+attributes specified on a row in `allow_failures` must be met exactly, and all
+the keys in `allow_failures` element must exist in the top level of the build
+matrix (i.e., not in `matrix.include`).
 
 ##### `allow_failures` Examples
 
