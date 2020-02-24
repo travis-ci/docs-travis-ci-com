@@ -169,8 +169,10 @@ directory, we run the following command _instead of_
 `npm install`:
 
 ```bash
-yarn
+yarn --frozen-lockfile
 ```
+
+If your Yarn version does not support `--frozen-lockfile`, we run just `yarn`.
 
 Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
