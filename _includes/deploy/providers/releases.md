@@ -25,7 +25,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Releases is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to GitHub Releases is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `username` and `password` are required.
@@ -59,4 +59,5 @@ For example, `token` can be given as
 
 * `GITHUB_TOKEN=<token>` or 
 * `RELEASES_TOKEN=<token>`
+
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

@@ -24,7 +24,7 @@ os: windows
 
 ## Windows Version
 
-Only **Windows Server, version 1803** is currently supported.
+Only **Windows Server, version 1809** is currently supported.
 
 > Note that this is a [Semi-Annual Channel](https://en.wikipedia.org/wiki/Windows_Server#Semi-Annual_Channel_(SAC)) release that does not contain GUI and multimedia components. Follow [this Community topic](https://travis-ci.community/t/1557) if you run into this limitation.
 
@@ -56,19 +56,19 @@ VMs running Windows use the default file system, NTFS.
 
 - 7zip.install v19.0
 - chocolatey v0.10.15 
-- chocolatey-core.extension v1.3.3
+- chocolatey-core.extension v1.3.5.1
 - chocolatey-dotnetfx.extension v1.0.1
 - chocolatey-fastanswers.extension v0.0.2
 - chocolatey-visualstudio.extension v1.8.1
 - chocolatey-windowsupdate.extension v1.0.4
-- cmake.install v3.15.3
-- curl v7.66.0.20190926
+- cmake.install v3.16.2
+- curl v7.68.0
 - DotNet4.5.2 v4.5.2.20140902
 - DotNet4.6 v4.6.00081.20150925
 - DotNet4.6-TargetPack v4.6.00081.20150925
 - DotNet4.6.1 v4.6.01055.20170308
 - dotnetfx v4.8.0.20190930
-- git.install v2.23.0
+- git.install v2.25.0
 - hashdeep v4.4
 - jq v1.6
 - KB2919355 v1.0.20160915
@@ -83,18 +83,18 @@ VMs running Windows use the default file system, NTFS.
 - netfx-4.5.2-devpack v4.5.5165101.20180721
 - netfx-4.6.1-devpack v4.6.01055.00
 - rsync v5.5.0.20190204
-- ruby v2.6.4.1
-- vcredist140 v14.23.27820
+- ruby v2.7.0.1
+- vcredist140 v14.24.28127.4
 - vcredist2017 v14.16.27033
 - visualstudio-installer v2.0.1
 - visualstudio2017-workload-netcorebuildtools v1.1.2
 - visualstudio2017-workload-vctools v1.3.2
 - visualstudio2017-workload-webbuildtools v1.3.2
-- visualstudio2017buildtools v15.9.16.0
+- visualstudio2017buildtools v15.9.18.0
 - Wget v1.20.3.20190531
 - windows-sdk-10.1 v10.1.18362.1
-- winscp v5.15.4
-- winscp.install v5.15.4
+- winscp v5.15.9
+- winscp.install v5.15.9
 - wsl v1.0.1
 
 > A basic Python 2.7.9 interpreter is also included: `/C/ProgramData/chocolatey/bin/python.exe`
