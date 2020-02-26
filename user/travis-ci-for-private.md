@@ -58,7 +58,9 @@ You can follow our guide for [encrypting files](/user/encrypting-files/).
 Travis CI is, and always will be, free for open source projects.
 
 For a list of plans and prices for private repositories, look at
-[travis-ci.com/plans](https://travis-ci.com/plans).
+travis-ci.com/plans for not authorized users.
+For a list of plans and prices for private repositories, look at
+travis-ci.com/account/subscription for authorized users.
 
 ## How can I make a private repository public on GitHub?
 
