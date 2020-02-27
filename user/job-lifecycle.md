@@ -157,8 +157,7 @@ When overriding these steps, do not use `exit` shell built-in command.
 Doing so will run the risk of terminating the build process without giving Travis a chance to
 perform subsequent tasks.
 
-> Using `exit` inside a custom script which will be invoked from during a build is fine.
-
+> Using `exit` inside a custom script is safe. If an error is indicated the task will be mark as failed.
 
 ## Breaking the Build
 
