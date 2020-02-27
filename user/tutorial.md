@@ -15,7 +15,7 @@ instead.
 To start using Travis CI, make sure you have:
 
  * A [GitHub](https://github.com/) or [Bitbucket](https://bitbucket.org/) account.
- * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/) or [Bitbucket](https://confluence.atlassian.com/bitbucketserver/importing-code-from-an-existing-project-776640909.html).
+ * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/) or [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html).
 
 ## To get started with Travis CI using GitHub
 
