@@ -13,6 +13,8 @@ no_toc: true
     Germany
   </address>
   <h4>Vertreten durch</h4>
+
+
   <p>Randy Jacops</p>
   <h4>Kontakt (Contact)</h4>
   <p>
