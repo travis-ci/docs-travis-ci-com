@@ -176,6 +176,7 @@ task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
   definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
   definitions.each do |lang, defs|
     sh "curl",
+      "-H \"Accept: application/x-yaml\"",
       "-H \"Content-Type: application/x-yaml\"",
       "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
       :out => "_data/language-details/#{lang}-versions.yml"
