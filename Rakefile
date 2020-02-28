@@ -168,7 +168,7 @@ LANG_ARCHIVE_HOST='language-archives.travis-ci.com'
 TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js'
 
 desc 'update language archive versions'
-task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
+task :update_lang_vers => [TABLEFILTER_SOURCE_PATH] do
   unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
     puts "No credentials given. Not updating language versions data."
     next
@@ -177,17 +177,9 @@ task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
   definitions.each do |lang, defs|
     sh "curl" \
       " -H \"Accept: application/x-yaml\"" \
-      " -H \"Content-Type: application/x-yaml\"" \
       " https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
       :out => "_data/language-details/#{lang}-versions.yml"
   end
-end
-
-desc 'Write lang archive credentials'
-task :write_netrc do
-  n = Netrc.read
-  n[LANG_ARCHIVE_HOST] = ENV["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
-  n.save
 end
 
 desc "Add TableFilter"
