@@ -172,7 +172,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
-    puma (3.12.2)
+    puma (3.12.3)
     rack (1.6.12)
     rack-jekyll (0.5.0)
       jekyll (>= 1.3)
