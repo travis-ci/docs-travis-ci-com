@@ -277,9 +277,11 @@ By Gleb Bahmutov
 
 ![chroma feedback](/images/apps/chroma-feedback.jpg){:.app}
 
-Turn your Razer keyboard, mouse or headphone into a extreme feedback device<br>
+Turn your RGB powered hardware into an build indicator for continuous integration<br>
 By Henry Ruhs
 
+- [supported producers](https://github.com/redaxmedia/chroma-feedback#producers)
+- [supported consumers](https://github.com/redaxmedia/chroma-feedback#consumers)
 - [website](https://github.com/redaxmedia/chroma-feedback)
 
 ## Generators
