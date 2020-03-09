@@ -67,7 +67,7 @@ The token is bound to permissions set on Bitbucket, so please make sure you've r
 
 We use this token in these situations, and under no other circumstances than described below.
 
-- To synchronize the repositories you have access to. We use this information to show you the available repositories on your profile page so you can enable or disable building them on Travis.
+- To synchronize the repositories and teams you have access to. We use this information to show you the available repositories on your profile page so you can enable or disable building them on Travis.
 - To configure service hooks on a repository you configure to run on Travis
 - To generate and store an SSH key on Bitbucket, which is used to access your source code on your build machines. We store this key securely and use it every time we get a build notification from Bitbucket to access your source code on our machines.
 - To update the build status of a commit.
@@ -97,6 +97,10 @@ When you push code to Bitbucket for a repository that is set up to run on Travis
 These notifications don't include any sensitive information other than commit references, names of files changed, and who authored and committed the changes.
 
 We store these build notifications for debugging purposes, and for debugging purposes only.
+
+We store user oauth token to make a call to the bitbucket api.
+
+We store active user emails to send build notification emails.
 
 ### I have more questions about security and Travis
 Send us an email, and we'll get back to you right away!
