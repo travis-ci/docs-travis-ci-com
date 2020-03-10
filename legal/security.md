@@ -98,7 +98,7 @@ These notifications don't include any sensitive information other than commit re
 
 We store these build notifications for debugging purposes, and for debugging purposes only.
 
-We store user oauth token to make a call to the bitbucket api.
+We store the user OAuth token to make a call to the bitbucket API.
 
 We store active user emails to send build notification emails.
 
