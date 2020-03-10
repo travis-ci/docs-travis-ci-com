@@ -34,9 +34,17 @@ To add more accounts:
 
 > You have to add accounts first, then you can switch between them.
 
-You can switch between accounts by using either the Sign-in page or the user menu where are available accounts are listed.
+You can switch between accounts by using either the Sign-in page or the user menu where your available accounts are listed.
+
+### Switching accounts using the user menu
 
 To switch between accounts:
 
 1. Click on your user icon in the top right corner of [Travis CI](travis-ci.com). Under *Switch accounts* all available accounts for this user are displayed.
+2. Select the desired account.
+
+### Switching accounts using the Sign-in page
+
+To switch between accounts:
+1. Sign out of [Travis CI](travis-ci.com).
 2. Select the desired account.
