@@ -28,7 +28,7 @@ Gives the app read access to all the repositories the authorizing user has acces
 > This scope does not give access to a repository's pull requests.
 
 ### repository:admin
-Gives the app admin access to all the repositories the authorizing user has access to. Permission is needed to add the access key. Travis Ci uses key to read the travis.yml conent.
+Gives the app admin access to all the repositories the authorizing user has access to. This permission is needed to add the access key. Travis CI uses the key to read the travis.yml file content.
 
 
 ### pullrequest
@@ -54,4 +54,3 @@ Likewise, existing webhook subscriptions for a repo's issue tracker can be retri
 All that is required is the webhook scope.
 
 However, to create a webhook for issue:created, the client will need to have both the webhook as well as issue scope.
-
