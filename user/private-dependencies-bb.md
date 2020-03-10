@@ -47,7 +47,7 @@ Maintaining complex dependency graphs this way can be complex and hard to mainta
 [repo key](#repo-key) instead.
 
 ## Repo Key
-Travis Ci will add new Access Key for your repository. It will allow us to read the travis.yml file content
+Travis CI will add a new access key for your repository. It will allow us to read the travis.yml file content.
 
 
 ## Password
