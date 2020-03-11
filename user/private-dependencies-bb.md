@@ -39,23 +39,15 @@ Bitbucket allows you to set up SSH keys for a repository. These deploy keys have
 - They do not give access to other, unrelated repositories.
 - The same key can be used for dependencies not stored on Bitbucket.
 
-However, using deploy keys is complicated by the fact that Bitbucket does not allow you to reuse keys. 
+However, using deploy keys is complicated by the fact that Bitbucket does not allow you to reuse keys.
 So a single private key cannot access multiple Bitbucket repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). 
-Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a 
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files).
+Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a
 [repo key](#repo-key) instead.
 
 ## Repo Key
-
-
-### Using an existing key
-
-
-### Generating a new key
-
-
-### Reusing a generated key
+Travis CI will add a new access key for your repository. It will allow us to read the travis.yml file content.
 
 
 ## Password
@@ -126,12 +118,12 @@ Assumptions:
 - The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 - You know the credentials for a user account that has at least read access to all three repositories.
 
-This approach works just like the [password](#password) approach outlined above, except instead of the username/password pair, 
+This approach works just like the [password](#password) approach outlined above, except instead of the username/password pair,
 you use a Bitbucket API token.
 
-Under the Bitbucket account settings for the user you want to use, navigate to 
+Under the Bitbucket account settings for the user you want to use, navigate to
 
-and then generate a "Personal access tokens". 
+and then generate a "Personal access tokens".
 
 Make sure the token has the "repo" scope.
 
@@ -199,5 +191,5 @@ As mentioned a few times, it might make sense to create a dedicated CI user for 
 - Less risk when it comes to leaking keys or credentials.
 - The CI user will not leave the organization for non-technical reasons and accidentally break all your builds.
 
-In order to do so, you need to register on Bitbucket as if you would be signing up for a normal user.  
+In order to do so, you need to register on Bitbucket as if you would be signing up for a normal user.
 Registering users cannot be automated, since that would violate the Bitbucket Terms of Service.
