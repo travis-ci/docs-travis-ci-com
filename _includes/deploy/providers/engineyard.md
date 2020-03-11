@@ -51,4 +51,5 @@ For example, `api_key` can be given as
 
 * `ENGINEYARD_API_KEY=<api_key>` or 
 * `EY_API_KEY=<api_key>`
+
 {% include deploy/secrets.md name="api_key" env_name="ENGINEYARD_API_KEY" %}

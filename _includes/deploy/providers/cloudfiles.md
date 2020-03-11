@@ -41,4 +41,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `CLOUDFILES_`.
 
 For example, `api_key` can be given as `CLOUDFILES_API_KEY=<api_key>`.
+
 {% include deploy/secrets.md name="api_key" env_name="CLOUDFILES_API_KEY" %}

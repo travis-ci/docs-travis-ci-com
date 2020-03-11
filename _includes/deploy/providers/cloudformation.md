@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS CloudFormation is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS CloudFormation is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -37,7 +37,6 @@ Use the following options to further configure the deployment.
 | `wait` | Wait for CloutFormation to finish the stack creation and update &mdash; type: boolean, default: `true` |
 | `wait_timeout` | How many seconds to wait for stack creation and update. &mdash; type: integer, default: `3600` |
 | `create_timeout` | How many seconds to wait before the stack status becomes CREATE_FAILED &mdash; type: integer, default: `3600`, note: valid only when creating a stack |
-| `session_token` | AWS Session Access Token if using STS assume role &mdash; type: string, note: Not recommended on CI/CD |
 | `parameters` | key=value pairs or ENV var names &mdash; type: string or array of strings |
 | `output_file` | Path to output file to store CloudFormation outputs to &mdash; type: string |
 
@@ -54,4 +53,5 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `CLOUDFORMATION_ACCESS_KEY_ID=<access_key_id>`
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}

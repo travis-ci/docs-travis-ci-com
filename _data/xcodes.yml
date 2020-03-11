@@ -1,10 +1,10 @@
 osx_images:
   - image: xcode11.3
-    xcode: "11.3"
+    xcode: "11.3.1"
     osx_version: "10.14"
-    xcode_full_version: "11.3"
-    xcode_build_version: "11C29"
-    image_publish_date: 2019-12-19
+    xcode_full_version: "11.3.1"
+    xcode_build_version: "11C505"
+    image_publish_date: 2020-02-07
     sdks:
       - iphoneos13.2
       - iphonesimulator13.2
