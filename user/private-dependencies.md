@@ -1,5 +1,5 @@
 ---
-title: Private Dependencies
+title: Private Dependencies GitHub
 layout: en
 
 ---
