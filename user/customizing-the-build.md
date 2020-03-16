@@ -130,8 +130,7 @@ git:
 ## Git LFS
 
 
-### Authentication
-
+### Authentication with GitHub
 
 We recommend using a read-only GitHub OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
 
@@ -146,10 +145,24 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
+### Authentication with Bitbucket
+
+We recommend using a read-only Bitbucket OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine bitbucket.com\n  login $BITBUCKET_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Bitbucket OAuth token to authenticate as in the example above.
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty,  Xenial and Bionic images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial and Bionic images.
 
 ### macOS
 

@@ -50,4 +50,4 @@ Once the fiscal year is closed, we are not legally allowed to issue refunds from
 
 ### How to request a refund
 Contact our support team at [support@travis-ci.com](mailto:support@travis-ci.com?subject=Refund%20policy)
-Specify the GitHub handle of the account for which you’re requesting a refund, and send us a copy of your payment and/or invoice.
+Specify the GitHub or Bitbucket handle of the account for which you’re requesting a refund, and send us a copy of your payment and/or invoice.
