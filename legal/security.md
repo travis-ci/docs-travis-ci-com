@@ -82,7 +82,7 @@ We only manually access your code when explicitly requested by you and only in e
 ### How does Travis access my source code?
 Other than reading your .travis.yml to determine the best build strategy, the only time we access your repository directly is when checking out the source code on one of our build machines.
 
-Source code is only accessed via SSH, using SSH keys for authentication. Each project setup up on Travis gets its own SSH key, you'll receive an email notification when we add it to your project. This step happens when you set up the project on Travis CI for the first time.
+Source code is only accessed via SSH, using SSH keys for authentication. Each project setup up on Travis gets its own SSH key, you'll receive an email notification when we add it to your project. This step happens when you set up the project on Travis CI for the first time. For each forked repository on each pull request to the target repository Travis checks and adds ssh key from target repository.
 
 ### What data do we store from GitHub?
 When you push code to GitHub for a repository that is set up to run on Travis, we get a push notification. The same is true for pull requests that are sent to us.
