@@ -1,6 +1,8 @@
 ---
 title: Private Dependencies Bitbucket
 layout: en
+permalink: /user/private-dependencies-bb/
+
 
 ---
 
