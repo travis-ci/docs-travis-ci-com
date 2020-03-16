@@ -1,5 +1,6 @@
 .DS_Store
 .bundle
+.history
 .jekyll-metadata
 .rvmrc
 .sass-cache
