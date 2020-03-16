@@ -1,6 +1,7 @@
 ---
 title: Multi-Platform Login
 layout: en
+permalink: /user/multi-platform-login/
 
 ---
 # Multiple Logins on Travis CI
