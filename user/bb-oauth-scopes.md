@@ -1,6 +1,7 @@
 ---
 title: Travis CI's use of Bitbucket API Scopes
 layout: en
+permalink: /user/bb-oauth-scopes/
 
 ---
 
