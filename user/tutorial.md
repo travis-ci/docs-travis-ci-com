@@ -87,7 +87,7 @@ To start using Travis CI, make sure you have:
 
 ## Switching accounts
 
-You can easily switch between you cloud platform provider accounts:
+You can easily switch between your cloud platform provider accounts:
 
 1. Click on your account icon in the top right corner on [Travis-ci.com](https://travis-ci.com).
 
