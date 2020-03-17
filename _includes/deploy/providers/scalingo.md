@@ -49,4 +49,5 @@ Use the following options to further configure the deployment. Either `api_token
 All options can be given as environment variables if prefixed with `SCALINGO_`.
 
 For example, `password` can be given as `SCALINGO_PASSWORD=<password>`.
+
 {% include deploy/secrets.md name="password" env_name="SCALINGO_PASSWORD" %}

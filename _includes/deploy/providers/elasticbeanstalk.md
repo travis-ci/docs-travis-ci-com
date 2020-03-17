@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS Elastic Beanstalk is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS Elastic Beanstalk is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -36,6 +36,7 @@ Use the following options to further configure the deployment.
 | `zip_file` | The zip file that you want to deploy &mdash; type: string |
 | `only_create_app_version` | Only create the app version, do not actually deploy it &mdash; type: boolean |
 | `wait_until_deployed` | Wait until the deployment has finished &mdash; type: boolean |
+| `wait_until_deployed_timeout` | How many seconds to wait for Elastic Beanstalk deployment update. &mdash; type: integer, default: `600` |
 
 ### Shared options
 
@@ -50,4 +51,5 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `ELASTIC_BEANSTALK_ACCESS_KEY_ID=<access_key_id>`
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}
