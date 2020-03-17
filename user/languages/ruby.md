@@ -177,7 +177,7 @@ want to use Bundler 2.0, try one of the following solutions:
 
     ```yaml
     before_install:
-    - yes | gem update --system --force`
+    - yes | gem update --system --force
     - gem install bundler
     ```
     {: data-file=".travis.yml"}
