@@ -123,6 +123,11 @@ language: php
 ```
 {: data-file=".travis.yml"}
 
+```yaml
+language: go
+```
+{: data-file=".travis.yml"}
+
 If you have tests that need to run on macOS or your project uses Swift or
 Objective-C, use our macOS environment:
 
