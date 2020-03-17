@@ -120,7 +120,7 @@ In Ubuntu Bionic, you also need to specify the version like so:
 
 ```yaml
 addons:
-  postgresql: 10
+  postgresql: 11
 ```
 {: data-file=".travis.yml"}
 
