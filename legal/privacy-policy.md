@@ -39,6 +39,7 @@ According to the Terms and Conditions between Customer and us, such Customers ar
 **Your data will be used for the purposes of using the Travis CI Software as follows:**
 
 - in order to register per an existing user account on the GitHub website https://github.com operated by GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (“GitHub”) and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
+- in order to register per an existing user account on the Bitbucket website https://bitbucket.org/ operated by Atlassian Corporation Plc, 341 George Street, Sydney, NSW, 2000 Australia (“Atlassian”) and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
 - for analysis purposes and improving the Travis CI Software based on Art. 6 (1) f. GDPR.
 
 Applicable legal provisions are in particular those of the regulation (EU) 2016/679 of the European Parliament and Council of 27 April 2016, repealing the directive 95/46/EC, on the protection of individuals with regard to the processing of personal data, on the free movement of such data (“General Data Protection Regulation”, GDPR) as well as in the Federal Data Protection Act (Bundesdatenschutzgesetz, BDSG) and the German Telemedia Act (Telemediengesetz, TMG).
@@ -93,7 +94,7 @@ III. What kind of Cookies, Web-tools or Third Party Providers does the Website u
 
 **TRAVIS CI SOFTWARE:**
 
-IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
+IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub/Bitbucket account?
 
 V. What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
 
@@ -188,9 +189,11 @@ IX. Contact
 
 ## Travis Software
 
-### IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub-Account?
+### IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? 
 
-1. **Registration; How do we access your GitHub-Account?**
+#### How do we access your cloud platform provider account?
+
+1. **Registration; How do we access your GitHub account?**
 
     In order to fully use the services of Travis CI Software, you will need to register. You may only register if you have an existing user account on the GitHub website https://github.com operated by GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (“GitHub”).
 
@@ -200,6 +203,19 @@ IX. Contact
     The User can manage these data at any time via using his GitHub account linked to the Travis CI Software.
 
     The data entered or transferred via GitHub as part of the registration process and any further data entered, will only be used via the Website and with our support to the extent that this processing is necessary for the fulfillment of a contract with us or for the implementation of pre-contractual measures, i.e. use of the Travis CI Software, as well as for the execution and processing of inquiries by the User.
+
+    The processing of data when using our Travis CI Software is generally based on your explicit consent when signing up (based on Art. 6 (1) a. GDPR) as well as the legal basis of Art. 6 (1) b. GDPR or TMG, i.e. the data will be processed, when this is necessary for the fulfillment of the contract between Customer and us or for executing any measures that take place on Customer’s/your request prior to the contract.
+
+**Registration; How do we access your Bitbucket account?**
+
+    In order to fully use the services of Travis CI Software, you will need to register. You may only register if you have an existing user account on the Bitbucket website https://bitbucket.org/ operated by Atlassian Corporation Plc, 341 George Street, Sydney, NSW, 2000 Australia (“Atlassian”).
+
+    When you sign up for using the Travis CI Software via your existing account at Bitbucket, data at Bitbucket with be accessible by us with your explicit consent only. Such data include:
+    *user profile (name, username, and email address), list of repositories you have access to, the configuration state of "service hooks" on each of those repositories*
+
+    The User can manage these data at any time via using his Bitbucket account linked to the Travis CI Software.
+
+    The data entered or transferred via Bitbucket as part of the registration process and any further data entered, will only be used via the Website and with our support to the extent that this processing is necessary for the fulfillment of a contract with us or for the implementation of pre-contractual measures, i.e. use of the Travis CI Software, as well as for the execution and processing of inquiries by the User.
 
     The processing of data when using our Travis CI Software is generally based on your explicit consent when signing up (based on Art. 6 (1) a. GDPR) as well as the legal basis of Art. 6 (1) b. GDPR or TMG, i.e. the data will be processed, when this is necessary for the fulfillment of the contract between Customer and us or for executing any measures that take place on Customer’s/your request prior to the contract.
 
@@ -297,6 +313,7 @@ We have appointed a data protection officer who may be reached via data@travis-c
 |:-------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |          Stripe           | For any processes regarding payments we use the services of Stripe, Inc., 185 Berry Street, Suite 550, San Francisco, CA 94107, USA. Regarding any processes of payments we do not receive, collect and/or store any payment data. Stripe will use such data for the purpose of managing the payments relating to our services. |       Stripe, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA.        |                                                              For further information please refer to https://stripe.com/de/privacy                                                              |
 |          GitHub           |                                           For the purpose of providing and further developing our Travis CI Software and services on the Travis CI Software we use the Travis CI Software development platform by Github Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA.                                            |       Github, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA.        | For further information please refer to Github’s privacy statement: https://help.github.com/articles/github-privacy-statement/ or use the contact form under https://github.com/contact/privacy |
+|          Atlassian           |                                           For the purpose of providing and further developing our Travis CI Software and services on the Travis CI Software we use the Travis CI Software development platform by Atlassian Corporation Plc, 341 George Street, Sydney, NSW, 2000 Australia | Atlassian Corporation Plc, 341 George Street, Sydney, NSW, 2000 Australia is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA.        | For further information please refer to Atlassian’s privacy policy: https://www.atlassian.com/legal/privacy-policy |
 | Amazon Web Services (AWS) |                                                                  We use the service by Amazon Web Services by Amazon Web Services, Inc., 410 Terry Avenue North Seattle WA 98109, USA for the purpose of hosting your data provided in the Travis CI Software.                                                                  | Amazon Web Services, Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA. |                                      https://aws.amazon.com/compliance/eu-data-protection/ and https://aws.amazon.com/compliance/germany-data-protection/                                       |
 |       Google Cloud        |                                                                                                We use the service by Google LLC, Mountain View, CA, USA for the purpose of hosting your data provided in the Travis CI Software.                                                                                                |        Google LLC is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA.         |                                                        For further information please refer to https://policies.google.com/privacy?hl=de                                                        |
 |          Heroku           |                                                          We use the service by Heroku Inc. by salesforce.com Inc., the Landmark @ One Market, Suite 300, San Francisco, California 94105 USA for the purpose of hosting your data provided in the Travis CI Software.                                                           |        Heroku Inc. is certified according to the EU-US agreement “Privacy Shield”. The “Privacy Shield” is an agreement between the European Union (EU) and the USA to ensure compliance with European data protection standards in the USA.        |                                                       For further information please refer to https://www.salesforce.com/company/privacy/                                                       |
