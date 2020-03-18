@@ -6,7 +6,7 @@ layout: en
 
 
 
-> Note that Debug builds are not currently supported on Windows O/S.
+> Note that Debug builds are not currently supported on Windows.
 
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
