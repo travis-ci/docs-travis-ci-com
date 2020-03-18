@@ -10,12 +10,14 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Alternatively, you can use `deploy_key`:
+Alternatively, you can use `deploy_key`, `name` and `email`:
 
 ```yaml
 deploy:
   provider: git_push
   deploy_key: <deploy_key>
+  name: <name>
+  email: <email>
   branch: <branch>
 ```
 {: data-file=".travis.yml"}
@@ -29,19 +31,19 @@ deploy:
 Support for deployments to Git (push) is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
 ## Known options
 
-Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.
+Use the following options to further configure the deployment. Either `token` or `deploy_key`, `name` and `email` are required.
 
 | `repo` | Repo slug &mdash; type: string, default: `repo slug` |
 | `token` | GitHub token with repo permission &mdash; **secret**, type: string, alias: `github_token` |
 | `deploy_key` | Path to a file containing a private deploy key with write access to the repository &mdash; type: string, see: [https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) |
 | `branch` | Target branch to push to &mdash; **required**, type: string |
 | `base_branch` | Base branch to branch off initially, and (optionally) create a pull request for &mdash; type: string, default: `master` |
+| `name` | Committer name &mdash; type: string, note: defaults to the GitHub name or login associated with the GitHub token |
+| `email` | Committer email &mdash; type: string, note: defaults to the GitHub email associated with the GitHub token |
 | `commit_message` | type: string, default: `Update %{base_branch}` |
 | `allow_empty_commit` | Allow an empty commit to be created &mdash; type: boolean |
 | `force` | Whether to push --force &mdash; type: boolean, default: `false` |
 | `local_dir` | Local directory to push &mdash; type: string, default: `.` |
-| `name` | Committer name &mdash; type: string, note: defaults to the current git commit author name |
-| `email` | Committer email &mdash; type: string, note: defaults to the current git commit author email |
 | `pull_request` | Whether to create a pull request for the given branch &mdash; type: boolean |
 | `allow_same_branch` | Whether to allow pushing to the same branch as the current branch &mdash; type: boolean, default: `false`, note: setting this to true risks creating infinite build loops, use conditional builds or other mechanisms to prevent build from infinitely triggering more builds |
 | `host` | type: string, default: `github.com` |
