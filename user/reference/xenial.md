@@ -74,6 +74,9 @@ services:
 
 The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
 
+All preinstalled software not provided by distro is installed from an official release --
+either a prebuilt binary if available, or a source release built with default options.
+For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
 ### Version control
 
@@ -159,13 +162,13 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 ## Databases and services
 
 The following services and databases are preinstalled but but do not run by default.
-To use one in your build, add it to the services key in your `travis.yml` :
+To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
-| redis      | 5.5            |
+| redis      | 5.0            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 

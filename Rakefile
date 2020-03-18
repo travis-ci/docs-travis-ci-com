@@ -96,6 +96,10 @@ file '_data/gce_ip_range.yml' do |t|
   define_ip_range('nat.gce-us-central1.travisci.net', t.name)
 end
 
+file '_data/gce_ip_ue1_range.yml' do |t|
+  define_ip_range('nat.gce-us-east1.travisci.net', t.name)
+end
+
 file '_data/linux_containers_ip_range.yml' do |t|
   define_ip_range('nat.linux-containers.travisci.net', t.name)
 end
@@ -122,6 +126,7 @@ desc 'Refresh generated files'
 task regen: (%i[clean] + %w[
   _data/ec2_ip_range.yml
   _data/gce_ip_range.yml
+  _data/gce_ip_ue1_range.yml
   _data/ip_range.yml
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
@@ -133,6 +138,7 @@ task :clean do
   rm_f(%w[
          _data/ec2_ip_range.yml
          _data/gce_ip_range.yml
+         _data/gce_ip_ue1_range.yml
          _data/ip_range.yml
          _data/linux_containers_ip_range.yml
          _data/macstadium_ip_range.yml
@@ -162,25 +168,18 @@ LANG_ARCHIVE_HOST='language-archives.travis-ci.com'
 TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js'
 
 desc 'update language archive versions'
-task :update_lang_vers => [:write_netrc, TABLEFILTER_SOURCE_PATH] do
+task :update_lang_vers => [TABLEFILTER_SOURCE_PATH] do
   unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
     puts "No credentials given. Not updating language versions data."
     next
   end
   definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
   definitions.each do |lang, defs|
-    sh "curl", "-sSf", "--netrc",
-      "-H \"Accept: application/x-yaml\"",
-      "https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
+    sh "curl" \
+      " -H \"Accept: application/x-yaml\"" \
+      " https://#{LANG_ARCHIVE_HOST}/builds/#{lang}/#{defs.fetch("prefix","ubuntu")}",
       :out => "_data/language-details/#{lang}-versions.yml"
   end
-end
-
-desc 'Write lang archive credentials'
-task :write_netrc do
-  n = Netrc.read
-  n[LANG_ARCHIVE_HOST] = ENV["ARCHIVE_USER"], ENV["ARCHIVE_PASSWORD"]
-  n.save
 end
 
 desc "Add TableFilter"

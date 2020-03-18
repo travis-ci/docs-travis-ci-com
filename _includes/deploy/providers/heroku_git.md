@@ -47,4 +47,5 @@ Use the following options to further configure the deployment. Either `api_key` 
 All options can be given as environment variables if prefixed with `HEROKU_`.
 
 For example, `api_key` can be given as `HEROKU_API_KEY=<api_key>`.
+
 {% include deploy/secrets.md name="api_key" env_name="HEROKU_API_KEY" %}
