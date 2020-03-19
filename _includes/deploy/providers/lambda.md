@@ -36,7 +36,7 @@ Use the following options to further configure the deployment.
 | `subnet_ids` | List of subnet IDs to be added to the function &mdash; type: string or array of strings, note: Needs the ec2:DescribeSubnets and ec2:DescribeVpcs permission for the user of the access/secret key to work |
 | `security_group_ids` | List of security group IDs to be added to the function &mdash; type: string or array of strings, note: Needs the ec2:DescribeSecurityGroups and ec2:DescribeVpcs permission for the user of the access/secret key to work |
 | `environment` | List of Environment Variables to add to the function &mdash; type: string or array of strings, alias: `environment_variables`, format: `/[\w\-]+=.+/`, note: Can be encrypted for added security |
-| `runtime` | Lambda runtime to use &mdash; type: string, default: `nodejs8.10`, known values: `java8`, `nodejs8.10`, `nodejs10.x`, `python2.7`, `python3.6`, `python3.7`, `dotnetcore2.1`, `go1.x`, `ruby2.5`, note: required when creating a new function |
+| `runtime` | Lambda runtime to use &mdash; type: string, default: `nodejs10.x`, known values: `nodejs12.x`, `nodejs10.x`, `python3.8`, `python3.7`, `python3.6`, `python2.7`, `ruby2.7`, `ruby2.5`, `java11`, `java8`, `go1.x`, `dotnetcore2.1`, note: required when creating a new function |
 | `dead_letter_arn` | ARN to an SNS or SQS resource used for the dead letter queue. &mdash; type: string |
 | `kms_key_arn` | KMS key ARN to use to encrypt environment_variables. &mdash; type: string |
 | `tracing_mode` | Tracing mode &mdash; type: string, default: `PassThrough`, known values: `Active`, `PassThrough`, note: Needs xray:PutTraceSegments xray:PutTelemetryRecords on the role |
