@@ -119,7 +119,7 @@ git:
 
 ## Git Submodules
 
-Travis CI clones Git submodules by default, to avoid this set:
+Travis CI clones Git submodules by default. To avoid this set:
 
 ```yaml
 git:
