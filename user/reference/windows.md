@@ -22,6 +22,8 @@ os: windows
 ```
 {: data-file=".travis.yml"}
 
+Travis CI also supports the [FreeBSD Environment](/user/reference/freebsd/) and [macOS Build Environment](/user/reference/osx/).
+
 ## Windows Version
 
 Only **Windows Server, version 1809** is currently supported.
