@@ -278,7 +278,6 @@ python:
 jobs:
   include:
     - {}
-    - 
     - env: EXTRA_TESTS=true
 # defines two jobs:
 #   - python: 3.8
