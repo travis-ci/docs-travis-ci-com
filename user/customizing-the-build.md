@@ -665,9 +665,9 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian Bitbucket.
 
-Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on GitLab or other version control systems such as Mercurial.
 
 ## What YAML Version Can I Use in `.travis.yml`
 
