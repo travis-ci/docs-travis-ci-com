@@ -32,6 +32,7 @@ all_note: |
   >  * [Bionic](/user/reference/bionic/)
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
+  >  * [FreeBSD](/user/reference/freebsd/)
 unix_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
@@ -40,6 +41,7 @@ unix_note: |
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
   >  * [macOS](/user/reference/osx/)
+  >  * [FreeBSD](/user/reference/freebsd/)
 linux_note: |
   > Language versions and other build-environment specific
   > information are in our reference pages:
@@ -55,6 +57,7 @@ linux_windows_note: |
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
   >  * [Windows](/user/reference/windows/)
+  >  * [FreeBSD](/user/reference/freebsd/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but
   one situation in which you might want to set a particular limit is:
