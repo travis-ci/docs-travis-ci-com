@@ -97,9 +97,10 @@ import:
 ```
 {: data-file=".travis.yml"}
 
-By default, if the same keys are present in multiple imported snippets, they
-are overwritten with the last imported configuration, but you can also specify
-[deep_merge](#merge-mode).
+By default, the merge mode `deep_merge_append` is used to combine keys that are
+present in the importing and an imported config, or in multiple imported configs.
+You can customize this by specifying the merge mode used for each import.
+See below for more information on [merge modes](#merge-modes).
 
 ## Importing configs from the same repository
 
