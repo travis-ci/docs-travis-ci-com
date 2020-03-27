@@ -106,7 +106,7 @@ Pre-install compilers and linkers:
 
 ## Julia support
 
-* Supported version TBD
+* Supported Julia versions: starting with version 0.7 and higher
 
 ## JAVA support
 
