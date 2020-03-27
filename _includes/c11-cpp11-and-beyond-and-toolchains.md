@@ -238,6 +238,8 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
+> Clang is the default compiler on FreeBSD
+
 #### CMake
 
 * [Precise](/user/reference/precise) ships with CMake 2.8.7
