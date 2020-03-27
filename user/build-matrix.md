@@ -268,10 +268,8 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-If you need the (sole) job from the matrix in such a case, too,
-add a blank job entry with curly brackets to the explicit list (as it would
-[inherit all values from the matrix](#explicitly-included-jobs-inherit-the-first-value-in-the-array)
-with no changes):
+If you need a (sole) job from the matrix in such case, add a blank job entry with curly brackets to the build instruction 
+(as that instruction would inherit all values from the matrix):
 
 ```yaml
 language: python
