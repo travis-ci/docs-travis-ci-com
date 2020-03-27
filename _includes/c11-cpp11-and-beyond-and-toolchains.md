@@ -223,6 +223,8 @@ You can find the `clang` version shipped by Xcode [here](https://trac.macports.o
 
 ### Clang on FreeBSD
 
+> Clang is the default compiler on FreeBSD
+
 FreeBSD ships with Clang 8.0.1
 
 To upgrade Clang to a more recent version, install the appropriate version from packages; see below for examples:
