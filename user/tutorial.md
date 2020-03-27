@@ -144,7 +144,7 @@ Travis CI supports many [programming languages](/user/languages/).
 
 ## More than running tests
 
-Travis CI isn't just for running tests, there are many others things you can do with your code:
+Travis CI isn't just for running tests, there are many other things you can do with your code:
 
 * deploy to [GitHub pages](/user/deployment/pages/)
 * run apps on [Heroku](/user/deployment/heroku/)
