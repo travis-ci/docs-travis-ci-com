@@ -189,7 +189,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdiscount (2.2.0.1)
-    redcarpet (3.4.0)
+    redcarpet (3.5.0)
     ref (2.0.0)
     regstry (1.0.15)
     rouge (2.2.1)
