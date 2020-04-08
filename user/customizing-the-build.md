@@ -26,6 +26,7 @@ configuration can be found [here](/user/build-config-yaml).
 Other features can be controlled through the repository's settings either
 through the Travis CI UI, or the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme).
 
+The settings for the repositories that are within an organization can only be edited by organization owners who have an administrator role.
 
 ## Build Timeouts
 
