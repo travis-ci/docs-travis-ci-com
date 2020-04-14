@@ -11,11 +11,16 @@ RUN ( \
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 RUN mkdir -p /app
+
 WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
+
 RUN gem install bundler
-RUN bundle install --binstubs
+#RUN bundler install --binstubs
+RUN bundler install --verbose --retry=3
+RUN gem install --user-install executable-hooks
+
 COPY . /app
 
 CMD bundle exec puma -p 4000
