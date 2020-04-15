@@ -70,7 +70,7 @@ env:
   global:
     - CAMPFIRE_TOKEN=abc123
     - TIMEOUT=1000
-  jobs:
+  matrix:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
@@ -139,7 +139,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
 </figure>
 
   > See [the note above](#note-format) on how to format variables' values correctly.
-  
+
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
 Similarly, we do not provide these values to untrusted builds, triggered by pull requests from another repository.
