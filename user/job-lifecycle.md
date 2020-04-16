@@ -29,7 +29,7 @@ Travis CI can run custom commands in the phases:
 
 There are three optional *deployment phases*.
 
-The complete sequence of phases (lifecycle) of a job is:
+The complete sequence of phases of a job is the lifecycle. The steps are:
 
 1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
 1. OPTIONAL Install [`cache components`](/user/caching)
