@@ -14,7 +14,7 @@ Please make sure to read our [Tutorial](/user/tutorial/) and [build configuratio
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@jeroen][github 2]
+[R section of our forums](https://travis-ci.community/c/languages/r) and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
 ## Basic configuration
@@ -282,6 +282,10 @@ script:
 
 If you'd like to see the full details, see
 [the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
+
+## Build Config Reference
+
+You can find more information on the build config format for [R](https://config.travis-ci.com/ref/language/r) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 

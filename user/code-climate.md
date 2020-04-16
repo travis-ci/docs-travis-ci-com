@@ -27,4 +27,6 @@ Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v
   tips](https://docs.codeclimate.com/v1.0/docs/test-coverage-troubleshooting-tips),
 * and a [sample .travis.yml](https://docs.codeclimate.com/docs/travis-ci-test-coverage).
 
+## Build Config Reference
 
+You can find more information on the build config format for [Code Climate](https://config.travis-ci.com/ref/job/addons/code_climate) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

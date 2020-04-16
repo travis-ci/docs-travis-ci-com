@@ -29,14 +29,15 @@ the Julia versions to test in the `julia:` key in your `.travis.yml` file. For e
 language: julia
 julia:
   - nightly
-  - 1.1
-  - 1.0.3
+  - 1.0.5
+  - 1.3.1
 ```
 {: data-file=".travis.yml"}
 
 Acceptable formats are:
  - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
 of Julia.
+ - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
  - `X.Y.Z` will test against that exact version.
 
@@ -86,6 +87,10 @@ Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage in
 about the tests it ran; it does not submit this information to any services.
 To submit coverage information, see the coverage section above.
 
+There are two scripts that describe the default behavior for using Julia with Travis CI:
+ [julia.rb](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/julia.rb)
+ and [julia_spec.rb](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/julia_spec.rb).
+
 ## Dependency Management
 
 If your Julia package has a `deps/build.jl` file, then `Pkg.build("$name")`
@@ -103,7 +108,7 @@ script:
  - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.develop(PackageSpec(path="/home/travis/build/path_to_private_Dependency")); Pkg.instantiate()'
  - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.instantiate(); Pkg.build();'
  ```
-Note: you will neeed to have the 'project.toml' file in your repo for these commands above to work. This can be found in your '~/.julia/enviroments/' folder. 
+Note: you will need to have the `project.toml` file in your repo for these commands above to work. This can be found in your `~/.julia/enviroments/` folder. 
 
 ## Build Matrix
 
@@ -118,4 +123,19 @@ The version of Julia a job is using is available as:
 TRAVIS_JULIA_VERSION
 ```
 
-In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used the home project/environment.
+In addition, `JULIA_PROJECT` is set to `@.`, which means Julia will search through parent directories until a `Project.toml` or `JuliaProject.toml` file is found; the containing directory then is used in the home project/environment.
+
+## Example Projects
+
+Here's a list of open-source Julia projects utilizing Travis CI in different ways: 
+- [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
+- [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
+- [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
+- [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
+- [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
+- [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
+
+## Build Config Reference
+
+You can find more information on the build config format for [Julia](https://config.travis-ci.com/ref/language/julia) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+

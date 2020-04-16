@@ -1,6 +1,7 @@
 ---
 title: Catalyze Deployment
 layout: en
+deploy: v1
 
 ---
 

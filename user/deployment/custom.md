@@ -1,6 +1,7 @@
 ---
 title: Custom Deployment
 layout: en
+deploy: v1
 
 ---
 

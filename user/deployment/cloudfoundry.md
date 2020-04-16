@@ -1,6 +1,7 @@
 ---
 title: CloudFoundry Deployment
 layout: en
+deploy: v1
 
 ---
 

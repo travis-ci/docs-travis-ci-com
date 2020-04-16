@@ -1,6 +1,7 @@
 ---
 title: packagecloud Deployment
 layout: en
+deploy: v1
 
 ---
 

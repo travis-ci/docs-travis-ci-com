@@ -1,6 +1,7 @@
 ---
 title: Surge.sh Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -27,7 +28,7 @@ Example:
 deploy:
   provider: surge
   project: ./static/
-  domain: example.surge.sh  
+  domain: example.surge.sh
 ```
 {: data-file=".travis.yml"}
 

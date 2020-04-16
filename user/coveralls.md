@@ -86,7 +86,7 @@ Coveralls have documentation for many other programming languages:
 
 ## Using Coveralls with Docker builds
 
-If you're using Docker in builds, ensure that the necessary environment variables are exposed to the container:
+If you're using Docker in builds, ensure that the necessary [environment variables](https://docs.travis-ci.com/user/environment-variables) are exposed to the container:
 ```sh
 docker exec -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" ...
 ```

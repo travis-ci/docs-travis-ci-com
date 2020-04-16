@@ -387,6 +387,11 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
+## **Windows**: common build problems and known issues
+
+For a list of common build problems on Windows, known issues and workarounds, please visit the [Travis CI community forum].(https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
+The [Travis CI community forum](https://travis-ci.community) provides better visibility on the issues customers are running into and how to solve them.
+
 ## Travis CI does not preserve the state between builds
 
 Travis CI uses virtual machine snapshotting to make sure no state is preserved between
@@ -505,7 +510,7 @@ Continuing the example above to extend the waiting time to 30 minutes:
 ```
 {: data-file=".travis.yml"}
 
-> We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [file a ticket](https://github.com/travis-ci/travis-ci/issues/new) or [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
+> We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
 #### Limitations of `travis_wait`
 
@@ -566,6 +571,7 @@ If a build hasn't been triggered for your commit, these are the possible build r
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
 - **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
+- **Build config did not create any jobs.**, please make sure the conditions in your `.travis.yml` file have created a job.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
@@ -617,3 +623,7 @@ jobs:
 
 
 This creates only one job,  _Peanut Butter and Bread_ under the stage named _Breakfast_ as you have defined. It is important to note that in YAML, the `-` symbol is used to create a list of items and the earlier example creates a list of 2 items, while you actually wanted 1. You can read more on [How to define Build Stages](/user/build-stages/#how-to-define-build-stages) and YAML lists syntax in the official [documentation](https://yaml.org/spec/1.2/spec.html#id2759963).
+
+## **Node**: Script execution before dependency installation causes build failures
+
+When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency. 

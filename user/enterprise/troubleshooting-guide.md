@@ -194,13 +194,13 @@ There are two options listed below to initiate a sync between your Travis CI Ent
 
 #### Sync account from Travis CI web interface
 
-To sync your account with your GitHub instance:
+Ask the owner of **the affected account** (usually printed in the logs) to sync it with your GitHub instance. To do so they should:
 
 1. Open `https://<your-travis-ci-enterprise-domain>`.
-2. In the upper right corner of the page hover over the user icon and select 'Profile' from the dropdown menu.
-3. In the upper right corner of the profile page click on 'Sync account'.
+2. In the upper right corner of the page, hover over the user icon and select 'Profile' from the dropdown menu.
+3. In the upper right corner of the profile page, click on 'Sync account'.
 
-####  Sync from the CLI with administrator privileges```
+####  Sync account from the CLI with administrator privileges```
 
 An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
 
