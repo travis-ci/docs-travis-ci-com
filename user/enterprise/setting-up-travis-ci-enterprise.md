@@ -8,7 +8,7 @@ redirect_from:
 
 ---
 
-Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
+> Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 * [RabbitMQ](https://www.rabbitmq.com/)
 * [Postgres](https://www.postgresql.org/)
 
-You can also try services like [compose.com](https://compose.com/) if you would like these services hosted outside your organization.
+You can also try services like [compose.com](https://compose.com/), if you would like these services hosted outside your organization.
 
 ## 1. Setting up Enterprise Platform virtual machine
 
@@ -51,7 +51,7 @@ Ubuntu 16.04 LTS or later as the underlying operating system.
 
 1. *On your virtual machine management platform*, create a Travis CI Platform Security Group.
 
-    If you're setting up your AMI for the first time you need to create
+    If you're setting up your AMI for the first time, you need to create
     a Security Group. From the EC2 management console, create an entry for
     each port in the table below:
 
@@ -84,7 +84,7 @@ installation's hostname, port 8800) to complete the setup:
    1. Optionally, configure Email, Metrics and Caches.
    1. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
@@ -97,7 +97,7 @@ Make sure you have already [set up the Enterprise Platform](/user/enterprise/set
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
-    If you're setting up your AMI for the first time you will need to create
+    If you're setting up your AMI for the first time, you will need to create
     a Security Group. From the EC2 management console, create an entry for
     each port in the table below:
 
@@ -112,7 +112,7 @@ Make sure you have already [set up the Enterprise Platform](/user/enterprise/set
     $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
     ```
 
-### Installing workers behind a web proxy
+### Installing Workers behind a web proxy
 
 If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
 Then rerun the installation script.  

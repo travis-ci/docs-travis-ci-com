@@ -167,3 +167,7 @@ addons:
 {: data-file=".travis.yml"}
 
 The format for the **only** flag is, "Host pattern,Host Port,Flag for SSL True(1)/False(0)" and repeat.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Browserstack](https://config.travis-ci.com/ref/job/addons/browserstack) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

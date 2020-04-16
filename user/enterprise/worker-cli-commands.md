@@ -27,7 +27,7 @@ $ sudo systemctl stop travis-worker
 ### With Ubuntu 14.04 as host operating system
 
 The Travis CI Worker is installed as an upstart service. The following
-commands can be used to check the status of the service, and to start or
+commands can be used to check the status of the service and to start or
 stop it.
 
 ```sh
@@ -45,20 +45,20 @@ $ sudo start travis-worker
 travis-worker start/running, process 16339
 ```
 
-When the worker gets stopped with `sudo stop travis-worker` it gets shut
+When the worker is stopped with `sudo stop travis-worker`, it is shut
 down with a `KILL` signal. This stops all currently running build jobs
 and will enqueue them when the worker starts again. If you'd like to
 wait until some or all jobs are being worked off successfully, you can
 issue a `SIGINT` instead. This together with a `sleep` ensures that
-either at least some or all active jobs can finish (depending on how
-long your queue is). After `sleep` finished the worker has to be
-shutdown via `sudo stop travis-worker`.
+either some or all active jobs can finish (depending on how
+long your queue is). After `sleep` finished, the worker has to be
+shut down via `sudo stop travis-worker`.
 
 ## Example Worker Stop and Start
 
-travis-worker behaves differently based on the signals it receives. For instance a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress but it doesn't accept any new ones anymore.
+travis-worker behaves differently based on the signals it receives. For instance, a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress, but it doesn't accept any new ones.
 
-`SIGKILL` on the other hand shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterwards, all previously enqueued and running jobs are re-queued again so they'll get worked off as usual.
+`SIGKILL` on the other hand shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterwards, all previously enqueued and running jobs are re-queued again so they'll be worked off as usual.
 
 ### With Ubuntu 16.04 as host operating system
 

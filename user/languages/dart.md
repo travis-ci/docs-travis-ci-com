@@ -34,7 +34,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Dart is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:dart)
-and cc [@nex3](https://github.com/nex3) and [@a14n](https://github.com/a14n).
+and cc [@athomas](https://github.com/athomas) and [@a14n](https://github.com/a14n).
 
 ## Choosing Dart versions to test against
 
@@ -165,3 +165,7 @@ dart_task:
 * `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
 * `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
 * `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Dart](https://config.travis-ci.com/ref/language/dart) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

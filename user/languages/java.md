@@ -162,6 +162,20 @@ ant test
 
 To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
+### Using Ant on Ubuntu Xenial (16.04)
+
+Unfortunately, `ant` currently doesn't come pre-installed on our Xenial image. You'll need to install it manually by adding the following recipe to your .travis.yml file:
+
+```yaml
+dist: xenial
+language: java
+addons:
+  apt:
+    packages:
+      - ant
+```
+{: data-file=".travis.yml"}
+
 ## Testing Against Multiple JDKs
 
 To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
@@ -181,6 +195,8 @@ details.
 
 The list of available JVMs for different dists are at
 
+  * [JDKs installed for **Bionic**](/user/reference/bionic/#jvm-clojure-groovy-java-scala-support)
+  * [JDKs installed for **Xenial**](/user/reference/xenial/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
   * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
 
@@ -258,3 +274,7 @@ script:
 - [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
 - [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
 - [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+
+## Build Config Reference
+
+You can find more information on the build config format for [Java](https://config.travis-ci.com/ref/language/java) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

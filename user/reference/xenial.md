@@ -74,6 +74,9 @@ services:
 
 The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
 
+All preinstalled software not provided by distro is installed from an official release --
+either a prebuilt binary if available, or a source release built with default options.
+For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
 ### Version control
 
@@ -109,7 +112,7 @@ The following versions of Docker, version control software and compilers are pre
 
 * Supported Python versions: `2.7`, `3.4` or higher.
 * Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `2.7.15` will be used when no language version is explicitly set.
+* Python `3.6.7` will be used when no language version is explicitly set.
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
 
@@ -126,7 +129,8 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
+is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le. 
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -134,9 +138,14 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 | package | version |
 |:--------|:--------|
-| gradle  | 4.10.2  |
+| gradle  | 5.1.1   |
 | maven   | 3.6.0   |
+| groovy  | 2.4.5   |
 {: style="width: 30%" }
+
+## Perl support
+* Default version on Xenial is `5.22`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
 
 ## PHP support
 
@@ -153,12 +162,16 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 ## Databases and services
 
 The following services and databases are preinstalled but but do not run by default.
-To use one in your build, add it to the services key in your `travis.yml` :
+To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
-| redis      | 5.5            |
+| redis      | 5.0            |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
