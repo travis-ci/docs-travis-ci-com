@@ -11,6 +11,8 @@ To prevent leaks made by these components, we automatically filter secure enviro
 
 Please make sure your secret is never related to the repository or branch name, or any other guessable string. Ideally use a password generation tool such as `mkpasswd` instead of choosing a secret yourself.
 
+> The beta Windows support does not obfuscate secure environment variables leaked into the build log. Please keep reading the next section, [on how to avoid leaking secrets to build logs](https://docs.travis-ci.com/user/best-practices-security/#recommendations-on-how-to-avoid-leaking-secrets-to-build-logs)
+
 ## Recommendations on how to avoid leaking secrets to build logs
 Despite our best efforts, there are however many ways in which secure information can accidentally be exposed. These vary according to what tools you are using and what settings you have enabled. Some things to look out for are:
 

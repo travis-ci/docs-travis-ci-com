@@ -1,6 +1,7 @@
 ---
 title: Surge.sh Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -27,7 +28,7 @@ Example:
 deploy:
   provider: surge
   project: ./static/
-  domain: example.surge.sh  
+  domain: example.surge.sh
 ```
 {: data-file=".travis.yml"}
 
@@ -54,7 +55,8 @@ By default, Travis CI will only deploy from your `master` branch. You can specif
 ```yaml
 deploy:
   ...
-  on: myProductionBranch
+  on:
+    branch: myProductionBranch
 ```
 {: data-file=".travis.yml"}
 

@@ -12,7 +12,7 @@ This guide covers build environment and configuration topics specific to
 Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Objective-C/Swift builds are not available on the Linux environments.
+> Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
@@ -34,6 +34,10 @@ the following table:
 
 > Detailed iOS SDK versions are available in the [macOS CI environment
 > reference](/user/reference/osx/#xcode-version)
+
+## Objective-C vs Swift
+
+Right now, `language: swift` is just an alias for `language: objective-c`. Said another way, we don't have native support for Swift projects at this time. Swift builds are just routed to our macOS image, the same as Objective-C builds.
 
 ## Default Test Script
 
@@ -170,6 +174,10 @@ install: make get-deps
 
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Objective-C](https://config.travis-ci.com/ref/language/objective-c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Simulators
 

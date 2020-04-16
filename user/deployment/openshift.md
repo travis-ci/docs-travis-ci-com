@@ -1,6 +1,7 @@
 ---
 title: OpenShift Deployment
 layout: en
+deploy: v1
 
 ---
 

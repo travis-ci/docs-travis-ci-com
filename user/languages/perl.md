@@ -20,7 +20,7 @@ Minimal example:
 ```yaml
 language: perl
 perl:
-  - "5.26"
+  - "5.28"
 ```
 {: data-file=".travis.yml"}
 
@@ -44,9 +44,9 @@ you can test your projects against:
 ```yaml
 language: perl
 perl:
+  - "5.30"
+  - "5.28"
   - "5.26"
-  - "5.24"
-  - "5.22"
 ```
 {: data-file=".travis.yml"}
 
@@ -105,6 +105,10 @@ to construct a build matrix.
 ## Environment Variables
 
 The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Perl](https://config.travis-ci.com/ref/language/perl) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
