@@ -38,4 +38,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `GLEIS_`.
 
 For example, `password` can be given as `GLEIS_PASSWORD=<password>`.
+
 {% include deploy/secrets.md name="password" env_name="GLEIS_PASSWORD" %}

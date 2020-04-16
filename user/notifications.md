@@ -46,6 +46,7 @@ notifications:
 
 See [Conditions](/user/conditions-v1) for details on specifying conditions.
 
+You can find more information on the build config format for [email notifications](https://config.travis-ci.com/ref/notifications/email) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Changing notification frequency
 
@@ -98,6 +99,10 @@ addresses are:
 ```
 54.173.229.200
 54.175.230.252
+35.227.81.20
+35.243.194.53
+34.74.236.10
+34.74.6.73
 ```
 
 ## Configuring email notifications
