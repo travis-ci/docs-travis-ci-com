@@ -11,7 +11,7 @@ Keep reading to see how you can customize any phase in this process, via your `.
 
 ## The Build
 
-The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](../for-beginners/#builds-jobs-stages-and-phases). Each *stage* consists of [jobs](../for-beginners/#builds-jobs-stages-and-phases run in parallel. 
+The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](../for-beginners/#builds-jobs-stages-and-phases). Each *stage* consists of [jobs](../for-beginners/#builds-jobs-stages-and-phases) run in parallel. 
 
 ## The Job Lifecycle
 
