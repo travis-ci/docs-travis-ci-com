@@ -53,7 +53,7 @@ The following table summarizes the differences across virtual environments and o
 | Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
 | IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
 | IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
-| Available disk space | approx 18GB                                                                                                                                                   | approx 41GB                   | approx 19 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
+| Available disk space | approx 50GB                                                                                                                                                   | approx 41GB                   | approx 40 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
@@ -105,3 +105,7 @@ Historically, Travis CI has provided the following virtualization environments.
 - **Legacy Linux environment**: was available until [December, 2015](https://blog.travis-ci.com/2015-11-27-moving-to-a-more-elastic-future).
 
 If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you remove them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Operating Systems](https://config.travis-ci.com/ref/os) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

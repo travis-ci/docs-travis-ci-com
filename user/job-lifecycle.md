@@ -7,21 +7,29 @@ redirect_from:
 
 Travis CI provides a default build environment and a default set of phases for each programming language. A virtual machine is created with the build environment for your job, your repository is cloned into it, optional addons are installed and then your build phases are run.
 
-Keep reading to see how you can customize any phase in this process, via your `.travis.yml`.
+Keep reading to see how you can customize any phase in this process, via your `.travis.yml` and have a look at the [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## The Build
+
+The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](../for-beginners/#builds-jobs-stages-and-phases). Each *stage* consists of [jobs](../for-beginners/#builds-jobs-stages-and-phases run in parallel. 
 
 ## The Job Lifecycle
 
-A job on Travis CI is made up of two main parts:
+Each *job* is a sequence of [phases](../for-beginners/#builds-jobs-stages-and-phases). The *main phases* are:
 
-1. **install**: install any dependencies required
-2. **script**: run the build script
+1. `install` - install any dependencies required
+2. `script` - run the build script
 
-You can run custom commands before the installation phase (`before_install`), and before (`before_script`) or after (`after_script`) the script phase.
+Travis CI can run custom commands in the phases:
+1. `before_install` - before the install phase
+1. `before_script` - before the script phase
+1. `after_script` - after the script phase.
+1. `after_success` - when the build *succeeds* (e.g. building documentation), the result is in `TRAVIS_TEST_RESULT` environment variable
+1. `after_failure` - when the build *fails* (e.g. uploading log files), the result is in `TRAVIS_TEST_RESULT` environment variable
 
-You can perform additional actions when your build succeeds or fails using the `after_success` (such as building documentation) or `after_failure` (such as uploading log files) phases.
-In both `after_failure` and `after_success`, you can access the build result using the `$TRAVIS_TEST_RESULT` environment variable.
+There are three optional *deployment phases*.
 
-The complete job lifecycle, including three optional deployment phases and after checking out the git repository and changing to the repository directory, is:
+The complete sequence of phases of a job is the lifecycle. The steps are:
 
 1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
 1. OPTIONAL Install [`cache components`](/user/caching)
@@ -157,8 +165,7 @@ When overriding these steps, do not use `exit` shell built-in command.
 Doing so will run the risk of terminating the build process without giving Travis a chance to
 perform subsequent tasks.
 
-> Using `exit` inside a custom script which will be invoked from during a build is fine.
-
+> Using `exit` inside a custom script is safe. If an error is indicated the task will be mark as failed.
 
 ## Breaking the Build
 

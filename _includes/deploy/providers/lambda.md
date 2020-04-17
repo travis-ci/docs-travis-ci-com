@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to AWS Lambda is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to AWS Lambda is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -36,7 +36,7 @@ Use the following options to further configure the deployment.
 | `subnet_ids` | List of subnet IDs to be added to the function &mdash; type: string or array of strings, note: Needs the ec2:DescribeSubnets and ec2:DescribeVpcs permission for the user of the access/secret key to work |
 | `security_group_ids` | List of security group IDs to be added to the function &mdash; type: string or array of strings, note: Needs the ec2:DescribeSecurityGroups and ec2:DescribeVpcs permission for the user of the access/secret key to work |
 | `environment` | List of Environment Variables to add to the function &mdash; type: string or array of strings, alias: `environment_variables`, format: `/[\w\-]+=.+/`, note: Can be encrypted for added security |
-| `runtime` | Lambda runtime to use &mdash; type: string, default: `nodejs8.10`, known values: `java8`, `nodejs8.10`, `nodejs10.x`, `python2.7`, `python3.6`, `python3.7`, `dotnetcore2.1`, `go1.x`, `ruby2.5`, note: required when creating a new function |
+| `runtime` | Lambda runtime to use &mdash; type: string, default: `nodejs10.x`, known values: `nodejs12.x`, `nodejs10.x`, `python3.8`, `python3.7`, `python3.6`, `python2.7`, `ruby2.7`, `ruby2.5`, `java11`, `java8`, `go1.x`, `dotnetcore2.1`, note: required when creating a new function |
 | `dead_letter_arn` | ARN to an SNS or SQS resource used for the dead letter queue. &mdash; type: string |
 | `kms_key_arn` | KMS key ARN to use to encrypt environment_variables. &mdash; type: string |
 | `tracing_mode` | Tracing mode &mdash; type: string, default: `PassThrough`, known values: `Active`, `PassThrough`, note: Needs xray:PutTraceSegments xray:PutTelemetryRecords on the role |
@@ -59,4 +59,38 @@ For example, `access_key_id` can be given as
 
 * `AWS_ACCESS_KEY_ID=<access_key_id>` or 
 * `LAMBDA_ACCESS_KEY_ID=<access_key_id>`
+## Interpolation variables
+
+The following variables are available for interpolation on `description`:
+
+* `dead_letter_arn`
+* `function_name`
+* `git_author_email`
+* `git_author_name`
+* `git_branch`
+* `git_commit_author`
+* `git_commit_msg`
+* `git_sha`
+* `git_tag`
+* `handler_name`
+* `kms_key_arn`
+* `memory_size`
+* `module_name`
+* `region`
+* `role`
+* `runtime`
+* `timeout`
+* `tracing_mode`
+* `zip`
+
+Interpolation uses the syntax `%{variable-name}`. For example,
+`"Current commit sha: %{git_sha}"` would result in a string with the
+current Git sha embedded.
+
+Furthermore, environment variables present in the current build
+environment can be used through standard Bash variable interpolation.
+For example: "Current build number: ${TRAVIS_BUILD_NUMBER}".
+See [here](/user/environment-variables/#default-environment-variables)
+for a list of default environment variables set.
+
 {% include deploy/secrets.md name="access_key_id" env_name="AWS_ACCESS_KEY_ID" %}

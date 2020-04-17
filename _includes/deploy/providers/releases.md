@@ -25,7 +25,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Releases is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to GitHub Releases is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `username` and `password` are required.
@@ -38,7 +38,7 @@ Use the following options to further configure the deployment. Either `token` or
 | `file_glob` | Interpret files as globs &mdash; type: boolean, default: `true` |
 | `overwrite` | Overwrite files with the same name &mdash; type: boolean |
 | `prerelease` | Identify the release as a prerelease &mdash; type: boolean |
-| `release_number` | Release number (overide automatic release detection) &mdash; type: string |
+| `release_number` | Release number (override automatic release detection) &mdash; type: string |
 | `release_notes` | Content for the release notes &mdash; type: string, alias: `body` |
 | `release_notes_file` | Path to a file containing the release notes &mdash; type: string, note: will be ignored if --release_notes is given |
 | `draft` | Identify the release as a draft &mdash; type: boolean |
@@ -59,4 +59,5 @@ For example, `token` can be given as
 
 * `GITHUB_TOKEN=<token>` or 
 * `RELEASES_TOKEN=<token>`
+
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

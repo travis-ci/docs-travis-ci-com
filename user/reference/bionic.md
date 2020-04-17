@@ -49,7 +49,6 @@ If you depend on these repositories in your build, you can use the following `so
 | git-lfs              | `github-git-lfs-bionic`      |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-binoic`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
@@ -71,13 +70,16 @@ services:
 
 The following versions of Docker, version control software and compilers are present on all Ubuntu 18.04 builds, along with more language specific software described in more detail in each language section.
 
+All preinstalled software not provided by distro is installed from an official release --
+either a prebuilt binary if available, or a source release built with default options.
+For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
 ### Version control
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.22.0` |
-| git-lfs | `2.7.2`  |
+| git     | `2.25.0` |
+| git-lfs | `2.10.0` |
 | hg      | `4.8`    |
 | svn     | `1.9.7`  |
 {: style="width: 30%" }
@@ -98,23 +100,23 @@ The following versions of Docker, version control software and compilers are pre
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.3.8`, `2.4.5`, `2.5.3` and `2.6.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
+* The default ruby is `2.6.5p114`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
+* Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one is the default and has pip preinstalled.
 * For `language:`: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
-    * Additionally, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.15`, `3.6.7` and `3.7.1`.
+    * Additionally, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.17`, `3.6.10`, `3.7.6` and `3.8.1`.
 * For `language: python`
-    * The version selected with `python:` is also installed and a `virtualenv` is activated for it. `3.6.7` is the default.
+    * The version selected with `python:` is also installed and a `virtualenv` is activated for it. `3.6.10` is the default.
     * See [Python versions table](/user/languages/python/#python-versions) for a full list of versions available for selection.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
-* The following NodeJS versions are preinstalled: `11.0.0` and `8.12.0`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.10.48.
+* The following NodeJS versions are preinstalled: `12.13.1`, `11.15.0`, `10.16.0`, and `8.16.2`.
 
 ## Go support
 
@@ -124,8 +126,8 @@ The following versions of Docker, version control software and compilers are pre
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
-is `openjdk11`. 
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
+is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -145,9 +147,10 @@ is `openjdk11`.
 
 | alias  | version  |
 | :----- | :------- |
-| 7.1    | 7.1.30   |
-| 7.2    | 7.2.10   |
-| 7.3    | 7.3.6    |
+| 7.1    | 7.1.33   |
+| 7.2    | 7.2.27   |
+| 7.3    | 7.3.14   |
+| 7.4    | 7.4.2    |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -160,7 +163,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | mongodb    | 4.0            |
 | mysql      | 5.7            |
 | redis      | 5.5            |
-| postgresql | 9.3 9.4 9.5 9.6 10 |
+| postgresql | 9.3 9.4 9.5 9.6 10 11 |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
