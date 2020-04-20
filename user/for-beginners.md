@@ -43,7 +43,7 @@ In the Travis CI documentation, some common words have specific meanings:
 * *build* - a group of *jobs* that run in sequence. For example, a build might have two *jobs*, each
   of which tests a project with a different version of a programming language.
   A *build* finishes when all of its jobs are finished.
-* *stage* - a group of *jobs* that run in parallel as part of a sequential build process composed of multiple [stages](/user/build-stages/).
+* *stage* - a group of *jobs* that run in parallel as part of a sequential *build* process composed of multiple [stages](/user/build-stages/).
 * *job* - an automated process that clones your repository into a virtual
   environment and then carries out a series of *phases* such as compiling your
   code, running tests, etc. A job fails, if the return code of the `script` *phase*
