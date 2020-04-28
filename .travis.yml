@@ -15,10 +15,6 @@ jobs:
       global:
         - PATH=$HOME/.local/user/bin:$PATH
         - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
-        - secure: "MF1jZfPfG1vCIiF6dxVDSEqVAk+S6GieoGkmQxGbYMLM7P43o4tffOHoEAXZ/B2qZoj9fp4SiGA1VymNZhoMuPN0fy/vOSPEFUvT0QmVuz3EutXFJernSVYxkIjuVno4BJ4FtB/DCQEXlxoJiKR9blAo1EGvDjVelNbkgwlLl/0="
-        - secure: "YNK2OSRdbQ8WeXQvkH6tR/WaB+07uU4+Lz1wdDXZ3+xRrwenobKfaGYj7CAXVIXbYOEcDUushgRlnYHhjy7lwxOIkyZ2aS7iSifcBd4IgRu7LveMDFMcLgR+z5ipC9ml+QIjeIKf577Qfl+Ojc/2uka9CDtSD+loNccpNnOwa2M="
-        - secure: "kN2QQur7joKgs4DRxV0Wq18pYWSiNKr75ZndxYP9d7L6/FtuYqHeA41pY9OLSrY+Vxl+kxHhYxOF6UpG53oGwF4dvkHMLiJ7uGF/skvhvCp+keFryEAy6hA/VO0Z+EzCe1KvfDlMN8thBPpzH94ukwM/BuBshbY6O+oLouOpaaw="
-        - secure: "R31quoen3lDAJWyuJ/E41dT3bOaGek+nCQ2lzOMnwiTEKjTCumuh99H/bymJLZLcfHj0k0q+bE9cgdQ5JrAvx5c1/0j5jIz15kCHDWy8P6UHFXAopPuYP+q48NnW/9gPj/bVaq6P+eNpjK8Phga8HBGtuxRQHEgFeRpj3vNAqhM="
     cache:
       pip: true
       directories:

@@ -4,7 +4,7 @@ LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 # packages required for bundle install
 RUN ( \
    apt-get update ; \
-   apt-get install -y --no-install-recommends git make gcc g++ libpq-dev libcurl4-openssl-dev \
+   apt-get install -y --no-install-recommends git make gcc g++ libpq-dev libcurl4-openssl-dev curl \
    && rm -rf /var/lib/apt/lists/* \
 )
 
