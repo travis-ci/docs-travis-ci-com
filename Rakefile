@@ -170,10 +170,6 @@ TABLEFILTER_SOURCE_PATH='assets/javascripts/tablefilter/dist/tablefilter/tablefi
 
 desc 'update language archive versions'
 task :update_lang_vers => [TABLEFILTER_SOURCE_PATH] do
-  unless ENV.key?('ARCHIVE_USER') && ENV.key?("ARCHIVE_PASSWORD")
-    puts "No credentials given. Not updating language versions data."
-    next
-  end
   definitions = YAML.load_file('_data/language-details/archive_definitions.yml')
   definitions.each do |lang, defs|
     sh "curl" \

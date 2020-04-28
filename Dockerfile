@@ -21,8 +21,6 @@ RUN bundler install --verbose --retry=3
 RUN gem install --user-install executable-hooks
 
 COPY . /app
-ENV ARCHIVE_USER $DOCS_ARCHIVE_USER
-ENV ARCHIVE_PASSWORD $DOCS_ARCHIVE_PASSWORD
 RUN bundle exec rake build
 COPY . /app
 
