@@ -22,5 +22,6 @@ RUN gem install --user-install executable-hooks
 
 COPY . /app
 RUN bundle exec rake build
+COPY . /app
 
 CMD bundle exec puma -p 4000
