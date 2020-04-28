@@ -15,6 +15,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
+COPY Rakefile     /app
 
 RUN gem install bundler
 RUN bundler install --verbose --retry=3
