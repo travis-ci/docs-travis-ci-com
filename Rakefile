@@ -109,7 +109,7 @@ file '_data/macstadium_ip_range.yml' do |t|
 end
 
 file '_data/node_js_versions.yml' do |t|
-  remote_node_versions = `bash -l -c "source $HOME/.nvm/nvm.sh; nvm ls-remote"`.split("\n").
+  remote_node_versions = `test -f $HOME/.nvm/nvm.sh || (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash); bash -l -c "source $HOME/.nvm/nvm.sh; nvm ls-remote"`.split("\n").
     map {|l| l.gsub(/.*v(0\.[0-9]*|[0-9]*)\..*$/, '\1')}.uniq.
     sort {|a,b| Gem::Version.new(b) <=> Gem::Version.new(a) }
 
