@@ -15,13 +15,12 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
-COPY Rakefile     /app
 
 RUN gem install bundler
 RUN bundler install --verbose --retry=3
 RUN gem install --user-install executable-hooks
-RUN bundle exec rake build
 
 COPY . /app
+RUN bundle exec rake build
 
 CMD bundle exec puma -p 4000
