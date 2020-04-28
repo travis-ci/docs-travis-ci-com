@@ -19,6 +19,7 @@ COPY Gemfile.lock /app
 RUN gem install bundler
 RUN bundler install --verbose --retry=3
 RUN gem install --user-install executable-hooks
+RUN bundle exec rake build
 
 COPY . /app
 
