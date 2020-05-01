@@ -130,7 +130,7 @@ GEM
       servolux
       tilt (~> 2.0.9)
       uglifier (~> 3.0)
-    middleman-gh-pages (0.3.1)
+    middleman-gh-pages (0.4.1)
       rake (> 0.9.3)
     middleman-livereload (3.4.6)
       em-websocket (~> 0.5.1)
@@ -174,7 +174,7 @@ GEM
       rack
     rack-ssl-enforcer (0.2.9)
     rainbow (3.0.0)
-    rake (12.3.3)
+    rake (13.0.1)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
