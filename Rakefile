@@ -7,6 +7,8 @@ require 'ipaddr'
 require 'json'
 require 'yaml'
 require 'netrc'
+require 'erb'
+require 'openssl'
 
 require 'faraday'
 require 'html-proofer'
@@ -132,6 +134,7 @@ task regen: (%i[clean] + %w[
   _data/linux_containers_ip_range.yml
   _data/macstadium_ip_range.yml
   _data/node_js_versions.yml
+  user/notifications.md
 ] + %i[update_lang_vers])
 
 desc 'Remove generated files'
@@ -149,6 +152,7 @@ task :clean do
   rm_rf('assets/javascripts/tablefilter')
   rm_rf('_site')
   rm_rf('api/*')
+  rm_rf('user/notifications.md')
 end
 
 desc 'Start Jekyll server'
@@ -182,4 +186,23 @@ end
 desc "Add TableFilter"
 file TABLEFILTER_SOURCE_PATH do
   sh "git", "clone", "--depth=1", "https://github.com/koalyptus/TableFilter.git", "assets/javascripts/tablefilter"
+end
+
+desc 'Update notifications ciphers'
+file 'user/notifications.md' do
+  line_length = 80
+  ciphers = OpenSSL::Cipher.ciphers.sort.map(&:upcase)
+  x = []
+  while !ciphers.empty? do
+    row = []
+    while row.join(" ").length < line_length do
+      row << ciphers.shift
+    end
+    ciphers.unshift row.pop unless ciphers.empty?
+    x << row.compact.join(" ")
+  end
+  @ciphers_list = x.join("\n")
+  renderer = ERB.new(File.read('user/notifications.md.erb'))
+  f = File.new('user/notifications.md', 'w')
+  f.write renderer.result(binding)
 end
