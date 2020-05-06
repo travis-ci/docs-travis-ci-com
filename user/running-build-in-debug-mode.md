@@ -251,7 +251,7 @@ In order to save the output, follow these steps:
    Copy the output as desired.
 1. Notice that the window is now unresponsive to your keyboard input. You can either:
      1. cancel the debug session from the web UI (this leaves the job in "Canceled" state regardless of the result of the previous execution), or
-     1. open a new window (`ctl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
+     1. open a new window (`ctrl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
  
 ### Getting out of the debug VM
 
@@ -297,4 +297,3 @@ With this option set, any command that exits with nonzero status will terminate 
 If it's running). You can clear this option with set +e; this may allow debug sessions to continue.
 
 If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
-
