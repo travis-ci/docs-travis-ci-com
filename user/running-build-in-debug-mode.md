@@ -238,6 +238,21 @@ log history.
 
 Press `q` to exit the log scroll mode.
 
+### Capturing the debug session output
+
+Before you end the debug session, you may wish to copy the output. By default, when you exit your
+`tmate` session the terminal is cleared immediately, without a chance to save it.
+
+In order to save the output, follow these steps:
+
+1. Turn on the `remain-on-exit` option on the initial window:
+      tmate set -t 0 remain-on-exit
+1. When you are finished with your debug session and exit it with `exit`, your session output remains on your terminal.
+   Copy the output as desired.
+1. Notice that the window is now unresponsive to your keyboard input. You can either:
+     1. cancel the debug session from the web UI (this leaves the job in "Canceled" state regardless of the result of the previous execution), or
+     1. open a new window (`ctl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
+ 
 ### Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
