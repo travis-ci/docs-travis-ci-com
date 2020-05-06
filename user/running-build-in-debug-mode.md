@@ -246,7 +246,8 @@ Before you end the debug session, you may wish to copy the output. By default, w
 In order to save the output, follow these steps:
 
 1. Turn on the `remain-on-exit` option on the initial window:
-      tmate set -t 0 remain-on-exit
+
+       tmate set -t 0 remain-on-exit
 1. When you are finished with your debug session and exit it with `exit`, your session output remains on your terminal.
    Copy the output as desired.
 1. Notice that the window is now unresponsive to your keyboard input. You can either:
