@@ -67,7 +67,7 @@ The Homebrew addon uses the Homebrew database on the build image by default, but
 
 ## File System
 
-VMs running macOS 10.13 use HFS+ and VMs running macOS 10.14 and older APFS
+VMs running macOS 10.13 use HFS+, VMs running macOS 10.14 and newer use APFS.
 
 
 ## JDK and macOS
