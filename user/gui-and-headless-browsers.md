@@ -148,7 +148,7 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 </div>
 
 
-### Using the [Chrome addon](/user/chrome) in the headless mode
+## Using the [Chrome addon](/user/chrome) in the headless mode
 
 Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
 mode, which is suitable for driving browser-based tests using Selenium and other tools.
@@ -186,7 +186,7 @@ before_install:
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
-### Using the [Firefox addon](/user/firefox) in headless mode
+## Using the [Firefox addon](/user/firefox) in headless mode
 
 Starting with version 56, Firefox can be used in "headless" mode, which is
 suitable for driving browser-based tests using Selenium and other tools.
