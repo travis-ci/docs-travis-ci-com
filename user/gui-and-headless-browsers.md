@@ -158,7 +158,7 @@ mode, which is suitable for driving browser-based tests using Selenium and other
 For example, on Linux
 
 ```yaml
-dist: trusty
+dist: xenial
 addons:
   chrome: stable
 before_install:
