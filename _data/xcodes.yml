@@ -1,10 +1,10 @@
 osx_images:
   - image: xcode11.4
-    xcode: "11.4"
-    osx_version: "10.14.6"
-    xcode_full_version: "11.4"
-    xcode_build_version: "11E146"
-    image_publish_date: 2020-04-06
+    xcode: "11.4.1"
+    osx_version: "10.15.4"
+    xcode_full_version: "11.4.1"
+    xcode_build_version: "11E503a"
+    image_publish_date: 2020-05-07
     sdks:
       - iphoneos13.4
       - iphonesimulator13.4
@@ -50,7 +50,7 @@ osx_images:
       - watchOS 5.3
       - watchOS 6.1
       - watchOS 6.2      
-    jdk: "14"
+    jdk: "14.0.1"
   - image: xcode11.3
     xcode: "11.3.1"
     osx_version: "10.14.6"
@@ -273,6 +273,7 @@ osx_images:
       - watchOS 5.1
       - watchOS 5.2
       - watchOS 5.3
+    jdk: "13.0.1"  
   - image: xcode10.2
     xcode: "10.2"
     osx_version: "10.14"
@@ -332,7 +333,7 @@ osx_images:
       - watchOS 5.0
       - watchOS 5.1
       - watchOS 5.2
-    jdk: "12+33"
+    jdk: "13.0.1"
   - image: xcode10.1
     xcode: "10.1"
     osx_version: "10.13"
@@ -389,7 +390,7 @@ osx_images:
       - watchOS 4.2
       - watchOS 5.0
       - watchOS 5.1
-    jdk: "11.0.1+13"
+    jdk: "13.0.1"
   - image: xcode10
     xcode: "10.0"
     osx_version: "10.13"
@@ -443,7 +444,7 @@ osx_images:
       - watchOS 4.1
       - watchOS 4.2
       - watchOS 5.0
-    jdk: "10.0.2+13"
+    jdk: "13.0.1"
   - image: xcode9.4
     xcode: "9.4"
     osx_version: "10.13"
@@ -496,7 +497,7 @@ osx_images:
       - watchOS 4.1
       - watchOS 4.2
       - watchOS 4.3
-    jdk: "10.0.1+10"
+    jdk: "13.0.1"
   - image: xcode9.3
     xcode: "9.3"
     osx_version: "10.13"
