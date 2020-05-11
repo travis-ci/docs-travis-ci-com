@@ -67,9 +67,8 @@ The Homebrew addon uses the Homebrew database on the build image by default, but
 
 ## File System
 
-VMs running macOS use the default file system, HFS+.
-This file system is case-insensitive, and returns entities within a
-directory alphabetically.
+VMs running macOS 10.13 use HFS+, VMs running macOS 10.14 and newer use APFS.
+
 
 ## JDK and macOS
 
@@ -95,26 +94,25 @@ and later, use `xcode9.4` (or later).
 
 ## Compilers and Build toolchain
 
-- automake 1.16.1
-- maven 3.5.3
-- mercurial 4.6.1
-- pkg-config 0.29.2
-- wget 1.19.5
-- xctool 0.3.4
-- cmake 3.11.3
+- automake
+- maven
+- mercurial
+- pkg-config
+- wget
+- xctool
+- cmake
 
 ## Languages
 
-- go 1.10.3
-
-## Services
-
-- postgis 2.4.4.4_1
-- postgresql 10.4
+- Go
+- Java
+- Nodejs
+- Python
+- Ruby
 
 ## Runtimes
 
-Every worker has at least one version of Ruby, Java and Python to accommodate
+Every worker has at least one version of Go, Java, Python, Ruby and NodeJS to accommodate
 projects that may need one of those runtimes during the build.
 
 ## Environment variables
@@ -150,36 +148,11 @@ e.g.  to tag the build, or to run post-build deployments.
   Values are `linux` and `osx` currently, to be extended in the future.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
-## Maven version
-
-Stock Apache Maven 3.5.3
-
 ## Ruby versions/implementations
 
-- system (depends on macOS version) -- You need to use `sudo` to install gems with this ruby
-
-- ruby-1.9.3-p551
-- ruby-2.0.0-p643
-- ruby-2.0.0-p648 (default)
-- ruby-2.1.5
-- ruby-2.1.10
-- ruby-2.2.1
-- ruby-2.2.4
-- ruby-2.2.5
-- ruby-2.3.0
-- ruby-2.3.1
-- ruby-2.4.3
-- jruby-1.7.19
-- jruby-1.7.23
-- jruby-1.7.25
-- jruby-9.0.5.0
-- jruby-9.1.0.0
+Default macOS Ruby (depends on macOS version) -- You need to use `sudo` to install gems with this Ruby and you can also use the [pre-compiled Ruby binaries](https://rubies.travis-ci.org/) we made available.
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
-
-## Bundler version
-
-Recent 1.16.2 version (usually the most recent)
 
 ## Gems in the global gem set
 

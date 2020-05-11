@@ -179,7 +179,7 @@ of the two possible forms:
     This results in:
 
       ```
-      $ sudo snaps install hugo
+      $ sudo snap install hugo
       ```
 
 1. The map specifying how the snap should be installed. Possible keys are:
@@ -201,7 +201,7 @@ of the two possible forms:
     This results in:
 
       ```
-      $ sudo snaps install aws-cli --classic --channel=latest/edge
+      $ sudo snap install aws-cli --classic --channel=latest/edge
       ```
 
     `confinement` and `channel` are optional.
