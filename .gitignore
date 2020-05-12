@@ -16,3 +16,4 @@ node_modules
 source/tmp/*
 tmp/
 api/
+user/notifications.md

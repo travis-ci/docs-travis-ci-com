@@ -32,15 +32,6 @@ jobs:
     script:
       - bundle exec rake test
       - xmllint --noout _site/feed.build-env-updates.xml
-    deploy:
-      provider: heroku
-      api_key:
-        secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
-      app: docs-travis-ci-com
-      on:
-        branch:
-        - master
-      edge: true
 
   - name: update dpl v2 docs
     if: type = cron || commit_message =~ /ci:dpl/
