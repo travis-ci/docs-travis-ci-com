@@ -235,6 +235,18 @@ git:
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
 
+## Setting symlinks option
+
+In some cases when a repository is used for both Linux and Windows, it may be desirable to set
+[core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
+
+To do this:
+
+```yaml
+git:
+  symlinks: true
+```
+
 ## Building Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the Git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
