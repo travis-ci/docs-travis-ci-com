@@ -18,7 +18,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get update` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
 
 ```yaml
 before_install:
