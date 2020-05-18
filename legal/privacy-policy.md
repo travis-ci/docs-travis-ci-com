@@ -40,6 +40,7 @@ According to the Terms and Conditions between Customer and us, such Customers ar
 
 - in order to register per an existing user account on the GitHub website https://github.com operated by GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (“GitHub”) and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
 - in order to register per an existing user account on the Bitbucket website https://bitbucket.org/ operated by Atlassian Corporation Plc, 341 George Street, Sydney, NSW, 2000 Australia (“Atlassian”) and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
+- in order to register per an existing user account on the GitLab website https://about.gitlab.com/ operated by GitLab Inc, 268 Bush Street #350, San Francisco, CA 94104, United States of America, and transfer data with your explicit consent and for providing the Travis CI Software and to ensure the technical functionality of our services fulfillment of contractual or pre-contractual obligations ((§§ 14, 15 TMG or Art. 6 (1) b. GDPR),
 - for analysis purposes and improving the Travis CI Software based on Art. 6 (1) f. GDPR.
 
 Applicable legal provisions are in particular those of the regulation (EU) 2016/679 of the European Parliament and Council of 27 April 2016, repealing the directive 95/46/EC, on the protection of individuals with regard to the processing of personal data, on the free movement of such data (“General Data Protection Regulation”, GDPR) as well as in the Federal Data Protection Act (Bundesdatenschutzgesetz, BDSG) and the German Telemedia Act (Telemediengesetz, TMG).
@@ -94,7 +95,7 @@ III. What kind of Cookies, Web-tools or Third Party Providers does the Website u
 
 **TRAVIS CI SOFTWARE:**
 
-IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub/Bitbucket account?
+IV. How are my data used when registering for the use of the Travis CI Software and using the Travis CI Software? How do we access your GitHub/Bitbucket/GitLab account?
 
 V. What Third Party Providers are processing data when using the Travis CI Software? Are my data processed outside the EU when using the Travis CI Software?
 
@@ -216,6 +217,19 @@ IX. Contact
     The User can manage these data at any time via using his Bitbucket account linked to the Travis CI Software.
 
     The data entered or transferred via Bitbucket as part of the registration process and any further data entered, will only be used via the Website and with our support to the extent that this processing is necessary for the fulfillment of a contract with us or for the implementation of pre-contractual measures, i.e. use of the Travis CI Software, as well as for the execution and processing of inquiries by the User.
+
+    The processing of data when using our Travis CI Software is generally based on your explicit consent when signing up (based on Art. 6 (1) a. GDPR) as well as the legal basis of Art. 6 (1) b. GDPR or TMG, i.e. the data will be processed, when this is necessary for the fulfillment of the contract between Customer and us or for executing any measures that take place on Customer’s/your request prior to the contract.
+
+**Registration; How do we access your GitLab account?**
+
+    In order to fully use the services of Travis CI Software, you will need to register. You may only register if you have an existing user account on the GitLab website https://about.gitlab.com/ operated by GitLab Inc, 268 Bush Street #350, San Francisco, CA 94104, United States of America.
+
+    When you sign up for using the Travis CI Software via your existing account at GitLab, data at GitLab with be accessible by us with your explicit consent only. Such data include:
+    *user profile (name, username, and email address), list of repositories you have access to, the configuration state of "service hooks" on each of those repositories*
+
+    The User can manage these data at any time via using his GitLab account linked to the Travis CI Software.
+
+    The data entered or transferred via GitLab as part of the registration process and any further data entered, will only be used via the Website and with our support to the extent that this processing is necessary for the fulfillment of a contract with us or for the implementation of pre-contractual measures, i.e. use of the Travis CI Software, as well as for the execution and processing of inquiries by the User.
 
     The processing of data when using our Travis CI Software is generally based on your explicit consent when signing up (based on Art. 6 (1) a. GDPR) as well as the legal basis of Art. 6 (1) b. GDPR or TMG, i.e. the data will be processed, when this is necessary for the fulfillment of the contract between Customer and us or for executing any measures that take place on Customer’s/your request prior to the contract.
 
