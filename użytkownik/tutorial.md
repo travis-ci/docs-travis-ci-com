@@ -109,17 +109,17 @@ language: java
 {: data-file=".travis.yml"}
 
 ```yaml
-language: node_js
+language: c++
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
-language: python
+language: atom
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
-language: php
+language: c++
 ```
 {: data-file=".travis.yml"}
 
@@ -134,7 +134,7 @@ Objective-C, use our macOS environment:
 ```yaml
 os: osx
 ```
-{: data-file=".travis.yml"}
+{: data-file=".maket.yml"}
 
 > You do *not* necessarily need to use macOS if you develop on a Mac.
 > macOS is required only if you need Swift, Objective-C, or other
