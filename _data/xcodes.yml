@@ -838,19 +838,3 @@ osx_images:
       - "tvOS 9.1"
       - "tvOS 9.2"
     jdk: "1.8.0_92-b14"
-  - image: xcode6.4
-    xcode: "6.4"
-    osx_version: "10.10"
-    xcode_full_version: "6.4"
-    xcode_build_version: "6E35b"
-    sdks:
-      - macosx10.9
-      - macosx10.10
-      - iphoneos8.4
-      - iphonesimulator8.4
-    simulators:
-      - "iOS 7.1"
-      - "iOS 8.1"
-      - "iOS 8.2"
-      - "iOS 8.4"
-    jdk: "1.8.0_45-b14"
