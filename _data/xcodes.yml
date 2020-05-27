@@ -3,8 +3,8 @@ osx_images:
     xcode: "11.5"
     osx_version: "10.15.4"
     xcode_full_version: "11.5"
-    xcode_build_version: "11N605c"
-    image_publish_date: 2020-05-14
+    xcode_build_version: "11E608c"
+    image_publish_date: 2020-05-27
     sdks:
       - iphoneos13.5
       - iphonesimulator13.5
