@@ -292,7 +292,7 @@ gem 'lib2', github: "myorg/lib2"
 > ```
 > {: data-file=".travis.yml"}
 
-> The `.netrc` file is deleted for security reasons right after having cloned the repository of which the build is executed!
+> The `.netrc` file is deleted for security reasons right after having cloned the repository of which the build and its submodules are executed!
 
 ## Dedicated User Account
 
