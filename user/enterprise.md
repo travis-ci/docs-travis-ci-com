@@ -5,10 +5,10 @@ layout: en_enterprise
 
 Whether your team uses GitHub Flow, feature branches or just commits directly to
 master, Travis CI Enterprise supports your way of shipping code. Travis CIs’
-integration with GitHub gives your team the highest confidence with every change
+integration with GitHub and Bitbucket gives your team the highest confidence with every change
 made.
 
-Travis CI Enterprise is built to integrate with GitHub Enterprise. Using OAuth
+Travis CI Enterprise is built to integrate with GitHub Enterprise and Bitbucket. Using OAuth
 for authentication, we sync your users permissions to make sure they only have
 access to the repositories you want them to have access to. This allows you to
 use LDAP or SAML to manage your users access. Travis CI Enterprise also
@@ -27,6 +27,9 @@ Enterprise-specific features include:
 installation as the authentication and authorization layer for Travis CI
 Enterprise, allowing you to leverage your existing LDAP or SAML with no
 extra configuration.
+* **Support for Bitbucket:** You can use Bitbucket for Travis CI
+Enterprise, allowing you to smoothly integrate with no
+extra configuration.
 * **Meets security and regulatory requirements:**  With your servers and hosts
 being deployed inside your firewall, you have full ownership and control of
 your data, helping to make it possible to meet the security requirements of
@@ -43,7 +46,7 @@ capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their
 hearts content.
 * **High availability:** Your continuous integration system is just as critical
- as your GitHub Enterprise. Travis CI Enterprise can run in a multi-node setup
+ as your GitHub Enterprise or Bitbucket. Travis CI Enterprise can run in a multi-node setup
  behind a load balancer, providing safety from hardware failures.
 
 Travis CI Enterprise brings both flexibility to your CI/CD process and gives
