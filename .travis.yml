@@ -10,7 +10,7 @@ jobs:
   - name: build site
     language: python
     python:
-      - "3.5.2"
+      - "3.8.3"
     env:
       global:
         - PATH=$HOME/.local/user/bin:$PATH
