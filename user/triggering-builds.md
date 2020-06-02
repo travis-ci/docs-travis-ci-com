@@ -58,8 +58,8 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     "request": {
     "message": "Override the commit message: this is an api request",
     "branch":"master",
+    "merge_mode": "deep_merge",
     "config": {
-      "merge_mode": "deep_merge",
       "env": {
         "jobs": [
           "TEST=unit"
