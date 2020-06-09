@@ -113,6 +113,8 @@ Please verify your GKE pods components are running.
 Run:
 `kubectl get pods -n [NAMESPACE]`
 
+> Now you can copy the IP address from the load balancer and register it at your DNS provider and enter the DNS name on the Config tab of your Travis Dashboard!
+
 ## 2. Setting up Enterprise Workers
 
 This installation process based on docker commands and the license id which have to be provided to the user. 
