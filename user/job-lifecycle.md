@@ -46,6 +46,8 @@ The complete sequence of phases of a job is the lifecycle. The steps are:
 
 > A *build* can be composed of many jobs.
 
+> A *before_X* or *after_X* stage requires the associated X phase must be executed first. For example, you cannot have `before_deploy` and/or `after_deploy` executed without a `deploy` stage being run. 
+
 ## Customizing the Installation Phase
 
 The default dependency installation commands depend on the project language.
