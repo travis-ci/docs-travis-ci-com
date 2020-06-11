@@ -37,16 +37,15 @@ The complete sequence of phases of a job is the lifecycle. The steps are:
 1. `install`
 1. `before_script`
 1. `script`
-1. OPTIONAL `before_cache` (for cleaning up cache)
+1. OPTIONAL `before_cache` (if and only if caching is effective)
 1. `after_success` or `after_failure`
-1. OPTIONAL `before_deploy`
+1. OPTIONAL `before_deploy` (if and only if deployment is active)
 1. OPTIONAL `deploy`
-1. OPTIONAL `after_deploy`
+1. OPTIONAL `after_deploy` (if and only if deployment is active)
 1. `after_script`
 
 > A *build* can be composed of many jobs.
 
-> A *before_X* or *after_X* stage requires the associated X phase must be executed first. For example, you cannot have `before_deploy` and/or `after_deploy` executed without a `deploy` stage being run. 
 
 ## Customizing the Installation Phase
 
