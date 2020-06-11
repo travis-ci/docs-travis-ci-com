@@ -71,6 +71,9 @@ One possible cause for builds failing unexpectedly can be calling `set -e` (also
 
 See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
+Another reason could be that the repo setting **Clone or import** is set to `OFF.` In this case, no information from the repository is shared and it is possible some builds using private dependencies between repos can break.
+If you want to avoid the situation when all of your repositories stop sharing dependencies, please go to the repository settings and explicitly set **Clone or Import** to `ON.` In this case, your builds keep running as usual. 
+
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.

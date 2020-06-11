@@ -25,7 +25,7 @@ To start using Travis CI, make sure you have:
 
 3. Click on your profile picture in the top right of your Travis Dashboard, click Settings and then the green *Activate* button, and select the repositories you want to use with Travis CI.
 
-> Or you click the *Activate all respositories using GitHub Apps* button on the getting started page to just activate all your repos
+> Or you click the *Activate all repositories using GitHub Apps* button on the getting started page to just activate all your repos
 
 4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
@@ -144,7 +144,7 @@ Travis CI supports many [programming languages](/user/languages/).
 
 ## More than running tests
 
-Travis CI isn't just for running tests, there are many others things you can do with your code:
+Travis CI isn't just for running tests, there are many other things you can do with your code:
 
 * deploy to [GitHub pages](/user/deployment/pages/)
 * run apps on [Heroku](/user/deployment/heroku/)

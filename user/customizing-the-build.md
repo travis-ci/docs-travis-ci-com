@@ -119,7 +119,7 @@ git:
 
 ## Git Submodules
 
-Travis CI clones Git submodules by default, to avoid this set:
+Travis CI clones Git submodules by default. To avoid this set:
 
 ```yaml
 git:
@@ -234,6 +234,18 @@ git:
 ```
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
+
+## Setting symlinks option
+
+In some cases when a repository is used for both Linux and Windows, it may be desirable to set
+[core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
+
+To do this:
+
+```yaml
+git:
+  symlinks: true
+```
 
 ## Building Specific Branches
 
@@ -665,9 +677,9 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian [Bitbucket](https://bitbucket.org/).
 
-Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on GitLab or other version control systems such as Mercurial.
 
 ## What YAML Version Can I Use in `.travis.yml`
 
