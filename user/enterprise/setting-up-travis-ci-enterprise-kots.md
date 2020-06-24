@@ -8,7 +8,22 @@ redirect_from:
 
 ---
 
-> Travis CI Enterprise works with your GitHub.com, GitHub Enterprise or Bitbucket setup.
+> Travis CI Enterprise works with your GitHub, Bitbucket and GitLab.
+
+|Github	|||	
+|---|---|---|---|
+|Enterprise Server	|Enterprise Cloud	 |'regular organization/regular users' on github.com|
+|Yes	|Yes	|Yes|
+
+|Bitbucket|||
+|---|---|---|---|
+|Server|	Data Center	|bitbucket.org|
+|No	|No	|Yes|
+
+|GitLab|||
+|---|---|---|---|
+|GitLab self-managed|	Gitlab.com	||
+|No	|Yes	||
 
 ## Prerequisites
 
