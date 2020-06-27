@@ -87,7 +87,7 @@ Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage in
 about the tests it ran; it does not submit this information to any services.
 To submit coverage information, see the coverage section above.
 
-There are two scripts that describe the defualt behavior for using Julia with Travis CI:
+There are two scripts that describe the default behavior for using Julia with Travis CI:
  [julia.rb](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/julia.rb)
  and [julia_spec.rb](https://github.com/travis-ci/travis-build/blob/master/spec/build/script/julia_spec.rb).
 
@@ -108,7 +108,7 @@ script:
  - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.develop(PackageSpec(path="/home/travis/build/path_to_private_Dependency")); Pkg.instantiate()'
  - julia --project --color=yes --check-bounds=yes -e 'using Pkg; Pkg.instantiate(); Pkg.build();'
  ```
-Note: you will neeed to have the 'project.toml' file in your repo for these commands above to work. This can be found in your '~/.julia/enviroments/' folder. 
+Note: you will need to have the `project.toml` file in your repo for these commands above to work. This can be found in your `~/.julia/enviroments/` folder. 
 
 ## Build Matrix
 
@@ -138,3 +138,4 @@ Here's a list of open-source Julia projects utilizing Travis CI in different way
 ## Build Config Reference
 
 You can find more information on the build config format for [Julia](https://config.travis-ci.com/ref/language/julia) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
