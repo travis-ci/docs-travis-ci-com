@@ -32,7 +32,7 @@ When you are trying to run PostgreSQL and you are facing a memory problem, i.e. 
 none            768M  768M     0 100% /var/ramfs
 ```
 
-try to add the following line of code into your `.travis.yml`
+try to add the following line of code to your `.travis.yml`:
 
 ```
 before_install: sudo mount -o remount,size=50% /var/ramfs
