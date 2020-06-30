@@ -45,12 +45,18 @@ Powershell can be used by calling `powershell` in your .travis.yml file for now.
 VMs running Windows use the default file system, NTFS.
 
 ## Supported languages
-- C with `language: c`
-- C++ with `language: cpp`
-- Node.js with `language: node_js`
-- Rust with `language: rust`
-- Go with `language: go`
-- Bash `language: bash` or `language: shell`
+- [C](/user/languages/c/)
+- [C++](/user/languages/cpp/)
+- [C#](/user/languages/csharp/)
+- [Go](/user/languages/go/)
+- [Julia](/user/languages/julia/)
+- [Node.js](/user/languages/nodejs/)
+<!-- `language: powershell` is accepted but not operational as of this writing. BCV changes it to `ruby` -->
+<!-- `language: script` is accepted but not operational as of this writing. BCV changes it to `ruby` -->
+- [Rust](/user/languages/rust/)
+<!-- `language: minimal` is accepted but not operational as of this writing so listing aliases explicitly
+     because on the link, they are listed as aliases to `minimal` rather than `generic`. BCV changes it to `shell` -->
+- [Generic environment](/user/languages/minimal-and-generic/) with aliases `language: bash`, `language: sh` and `language: shell`.
 
 ## Pre-installed Chocolatey packages
 
