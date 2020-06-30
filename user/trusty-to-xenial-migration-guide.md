@@ -26,7 +26,7 @@ Services like [MySQL or PostgreSQL](https://docs.travis-ci.com/user/database-set
     - mysql
 ```
 
-When you are trying to run PostgreSQL and you are facing a memory problem i.e. running `sudo df -h` and getting output from the mount points;
+When you are trying to run PostgreSQL and you are facing a memory problem, i.e. running `sudo df -h` and getting output from the mount points;
 
 ```
 none            768M  768M     0 100% /var/ramfs
