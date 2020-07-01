@@ -18,10 +18,10 @@ You can add more accounts to Travis CI by using either the Sign-in page or the u
 
 To add more accounts:
 
-1. Go to the Bitbucket/GitLab login site.
+1. Go to the login site of your platform provider such as GitHub, Bitbucket, GitLab or Assembla.
 2. Re-login with the desired account.
 3. Go to the Travis CI Sign-in page.
-4. Click **Sign In with Bitbucket/GitLab** on the sign-in page. Your account is stored and you can now switch between the different accounts in Travis CI.
+4. Click **Sign In with GitHub/Bitbucket/GitLab/Assembla** on the sign-in page. Your account is stored and you can now switch between the different accounts in Travis CI.
 
 ### Adding accounts using the user menu
 
