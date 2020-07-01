@@ -175,6 +175,20 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a GitLab OAuth token to authenticate as in the example above.
 
+### Authentication with Assembla
+
+We recommend using a read-only Assembla OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine assembla.com\n  login $ASSEMBLA_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Assembla OAuth token to authenticate as in the example above.
 
 ### Linux
 
@@ -693,7 +707,7 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian [Bitbucket](https://bitbucket.org/) and [GitLab](https://about.gitlab.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrates with Atlassian [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and Assembla (https://www.assembla.com/).
 
 Travis CI currently does not support git repositories hosted on other version control systems such as Mercurial.
 
