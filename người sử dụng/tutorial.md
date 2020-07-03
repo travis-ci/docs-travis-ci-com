@@ -1,6 +1,6 @@
 ---
 title: Travis CI Tutorial
-layout: en
+layout: vi
 redirect_from:
   - /user/getting-started/
 ---
