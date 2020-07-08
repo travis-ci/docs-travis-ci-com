@@ -6,7 +6,7 @@ layout: en
 
 > Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page, and make requests to https://api.travis-ci.org.
 
-Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
+Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{id}/requests`:
 
 1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these API requests.
 
@@ -19,8 +19,8 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
-   `/repo/travis-ci/travis-core/requests` to trigger a build of the most recent
-   commit of the master branch of the `travis-ci/travis-core` repository:
+   `/repo/{id}/requests` to trigger a build of the most recent
+   commit of the master branch of the repository:
 
    ```bash
    body='{
@@ -34,12 +34,8 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
       -H "Travis-API-Version: 3" \
       -H "Authorization: token xxxxxx" \
       -d "$body" \
-      https://api.travis-ci.com/repo/travis-ci%2Ftravis-core/requests
+      https://api.travis-ci.com/repo/{id}/requests
    ```
-
-   > The %2F in the request URL is required so that the owner and repository
-     name in the repository slug are interpreted as a single URL segment.
-
 
    The build uses the `.travis.yml` file in the master branch, but you can add to
    or override configuration, or change the commit message. Overriding any section
