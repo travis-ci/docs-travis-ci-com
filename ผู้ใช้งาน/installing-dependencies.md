@@ -371,3 +371,4 @@ before_install:
 {: data-file=".travis.yml"}
 
 Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.
+
