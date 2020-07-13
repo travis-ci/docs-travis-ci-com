@@ -274,3 +274,7 @@ script:
 - [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
 - [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
 - [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+
+## Build Config Reference
+
+You can find more information on the build config format for [Java](https://config.travis-ci.com/ref/language/java) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

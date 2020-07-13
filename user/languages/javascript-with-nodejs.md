@@ -82,6 +82,12 @@ The default build script for projects using nodejs is:
 npm test
 ```
 
+In the case where no `package.json` file is present in the root folder, the default build script is:
+
+```bash
+make test
+```
+
 ### Yarn is supported
 
 If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
@@ -169,8 +175,10 @@ directory, we run the following command _instead of_
 `npm install`:
 
 ```bash
-yarn
+yarn --frozen-lockfile
 ```
+
+If your Yarn version does not support `--frozen-lockfile`, we run just `yarn`.
 
 Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
@@ -235,7 +243,7 @@ env:
     - EMBER_VERSION=release
     - EMBER_VERSION=beta
     - EMBER_VERSION=canary
-matrix:
+jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
@@ -329,3 +337,7 @@ addons:
       - g++-4.8
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Javascript](https://config.travis-ci.com/ref/language/node_js) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

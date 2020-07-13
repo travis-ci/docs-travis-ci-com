@@ -46,11 +46,11 @@ The following command line tools are available in the Nix environment:
 
 ## Default Nix Version
 
-This installs Nix 2.0.4 using [https://nixos.org/releases/nix/nix-2.0.4/install](https://nixos.org/releases/nix/nix-2.0.4/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
+This installs Nix 2.3.6 using [https://nixos.org/releases/nix/nix-2.3.6/install](https://nixos.org/releases/nix/nix-2.3.6/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
 
 ```yaml
 language: nix
-nix: 2.0.4
+nix: 2.3.6
 ```
 {: data-file=".travis.yml"}
 
@@ -69,6 +69,10 @@ script: nix-build -A tarball release.nix
 
 The above configuration will attempt to build the attribute "tarball" from the Nix expression in release.nix.
 
-## Nix manual
+## Nix Manual
 
 More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Nix](https://config.travis-ci.com/ref/language/nix) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

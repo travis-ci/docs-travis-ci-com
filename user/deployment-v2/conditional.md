@@ -56,7 +56,7 @@ deploy:
   provider: <provider>
   # ⋮
   on:
-    all_branch: true
+    all_branches: true
 ```
 {: data-file=".travis.yml"}
 

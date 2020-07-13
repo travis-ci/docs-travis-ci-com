@@ -5,27 +5,20 @@ redirect_from:
   - /user/sonarqube/
 ---
 
-[SonarCloud](https://sonarcloud.io) is a cloud service offered by [SonarSource](https://sonarsource.com) and based on [SonarQube](http://www.sonarqube.org). SonarQube is a widely adopted open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages.
+[SonarCloud](https://sonarcloud.io) is the leading online service to catch Bugs and Security Vulnerabilities in your Pull Requests and throughout your code repositories. Totally free for open-source projects (paid plan for private projects), SonarCloud pairs with existing cloud-based CI/CD workflows, and provides clear resolution guidance for any Code Quality or Security issue it detects. With already more than 1 billion lines of code under analysis, SonarCloud empowers development teams of all sizes to write cleaner and safer code, across more than 20 programming languages.
 
-Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/doc/analyzing-source-code.html) for more details on how to configure different scanners.
+Please refer to the [SonarCloud documentation](https://sonarcloud.io/documentation) for more details.
 
 ## Requirements
 
-You are using one of the two following environments:
+If a Java JRE/JDK is present within the build environment, it has to be at least Java 11 or higher.
 
-* [CI Environment with JVM VM image](/user/reference/precise/) - for instance:
-
+The default Travis dist
 ```yaml
-language: java
+dist: xenial
 ```
 {: data-file=".travis.yml"}
-
-* [Trusty CI Environment](/user/reference/trusty/):
-
-```yaml
-dist: trusty
-```
-{: data-file=".travis.yml"}
+inlcudes Java 11 by default.
 
 ## Inspecting code with the SonarQube Scanner
 
@@ -69,10 +62,19 @@ script:
 {: data-file=".travis.yml"}
 
 > Please note the following:
-- the "coverage" profile activates the generation of the JaCoCo XML report
+- the "coverage" profile (defined in your POM file) activates the generation of the JaCoCo XML report
 - "sonar.projectKey" can also be set as a property on the main POM file. Its value can be found on the right side of the project homepage on SonarCloud
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
+
+Without POM update, or if you are [Testing Against Multiple JDKs](languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
+
+```yaml
+script:
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
+- if [ "$JAVA_HOME" = "/usr/lib/jvm/java-1.8.0-openjdk-amd64" ]; then mvn sonar:sonar; fi
+```
+{: data-file=".travis.yml"}
 
 ## Analysis of internal pull requests
 
@@ -113,5 +115,7 @@ If you are familiar with SonarQube, you can be tempted to deal with some propert
 
 These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
 
+## Build Config Reference
 
+You can find more information on the build config format for [SonarCloud](https://config.travis-ci.com/ref/job/addons/sonarcloud) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 

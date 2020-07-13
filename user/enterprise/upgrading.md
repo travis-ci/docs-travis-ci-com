@@ -50,6 +50,14 @@ whether you are behind a web proxy you'll want to run one of these:
   sudo bash /tmp/installer.sh http-proxy=http://:
 ```
 
+To apply an update patch for a specific release e.g you currently have version 2.9.1 and want to update to a more secure patch at 2.9.7 patch, you would execute:
+
+```
+  curl -sSL "https://get.replicated.com/docker?replicated_tag=2.9.7" | sudo bash
+```
+ 
+> Please note that for Ubuntu Bionic, you'll need to add the following flag to `installer.sh` as follows: `installer.sh --travis_build_images=bionic`
+
 ## Updating your Travis CI Enterprise Worker
 
 ### On Ubuntu 16.04 and later
