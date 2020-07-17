@@ -115,8 +115,6 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | :----- | :------- |
 | 2.7    | 2.7.17   |
 | 3.6    | 3.6.9    |
-| 3.7    | 3.7.6    |
-| 3.8    | 3.8.2    |
 {: style="width: 30%" }
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions.
