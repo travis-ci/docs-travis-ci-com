@@ -49,7 +49,6 @@ If you depend on these repositories in your build, you can use the following `so
 | git-lfs              | `github-git-lfs-bionic`      |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-bionic`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
@@ -107,19 +106,12 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.6` or higher.
-* Python `2.7.17` will be used when no language version is explicitly set.
-* The following Python versions are preinstalled:
-
-| alias  | version  |
-| :----- | :------- |
-| 2.7    | 2.7.17   |
-| 3.6    | 3.6.10    |
-| 3.7    | 3.7.6    |
-| 3.8    | 3.8.2    |
-{: style="width: 30%" }
-
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
+* Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one is the default and has pip preinstalled.
+* For `language:`: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
+    * Additionally, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.17`, `3.6.10`, `3.7.6` and `3.8.1`.
+* For `language: python`
+    * The version selected with `python:` is also installed and a `virtualenv` is activated for it. `3.6.10` is the default.
+    * See [Python versions table](/user/languages/python/#python-versions) for a full list of versions available for selection.
 
 ## JavaScript and Node.js support
 

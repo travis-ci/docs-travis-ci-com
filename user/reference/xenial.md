@@ -110,11 +110,12 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.4` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `3.6.7` will be used when no language version is explicitly set.
-
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+* Images for all languages have Python 2 and 3 installations provided by the distribution. The Python 2 one has pip preinstalled.
+* For `language:`: `c`, `cpp`, `node_js`, `elm`, `go`, `generic`, `java`, `groovy`, `clojure`, `php`, `ruby` 
+    * Additionally, extra Python versions are preinstalled, manageable with `pyenv`: `2.7.15`, `3.6.7` and `3.7.1`.
+* For `language: python`
+    * The version selected with `python:` is also installed and a `virtualenv` is activated for it. `3.6.7` is the default.
+    * See [Python versions table](/user/languages/python/#python-versions) for a full list of versions available for selection.
 
 ## JavaScript and Node.js support
 
