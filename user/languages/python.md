@@ -173,7 +173,7 @@ jobs:
     - name: "Python 3.8.x on macOS"
       os: osx
       osx_image: xcode11.6
-      language: shell
+      language: shell       # 'language: python' is an error on Travis CI macOS
       install: /usr/local/opt/python@3.8/bin/python3 -m pip install <package>
       script: /usr/local/opt/python@3.8/bin/python3 -m unittest discover
     - name: "Python 3.8.0 on Windows"
