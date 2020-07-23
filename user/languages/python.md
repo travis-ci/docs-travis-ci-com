@@ -170,10 +170,12 @@ jobs:
   include:
     - name: "Python 3.8.0 on Xenial Linux"
       python: 3.8           # this works for Linux but is ignored on macOS or Windows
-    - name: "Python 3.7.4 on macOS"
+    - name: "Python 3.8.x on macOS"
       os: osx
-      osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
-      language: shell       # 'language: python' is an error on Travis CI macOS
+      osx_image: xcode11.6
+      language: shell
+      install: /usr/local/opt/python@3.8/bin/python3 -m pip install <package>
+      script: /usr/local/opt/python@3.8/bin/python3 -m unittest discover
     - name: "Python 3.8.0 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
