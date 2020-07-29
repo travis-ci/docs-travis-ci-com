@@ -131,9 +131,9 @@ Here's a list of open-source Julia projects utilizing Travis CI in different way
 - [Plots.jl](https://github.com/JuliaPlots/Plots.jl/blob/master/.travis.yml)
 - [AbstractPlotting.jl](https://github.com/JuliaPlots/AbstractPlotting.jl/blob/master/.travis.yml)
 - [DiffEqDocs.jl](https://github.com/JuliaDiffEq/DiffEqDocs.jl/blob/master/.travis.yml)
-- [Pkj.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
+- [Pkg.jl](https://github.com/JuliaLang/Pkg.jl/blob/master/.travis.yml)
 - [NeuralVerification.jl](https://github.com/sisl/NeuralVerification.jl/blob/master/.travis.yml)
-- [POMDP's.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
+- [POMDPs.jl](https://github.com/JuliaPOMDP/POMDPs.jl/blob/master/.travis.yml)
 
 ## Build Config Reference
 
