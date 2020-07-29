@@ -669,7 +669,7 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 
 ```yaml
 addons:
-  hosts:
+  hosts:www.artcyb.xyz
   - travis.test
   - joshkalderimis.com
 ```
