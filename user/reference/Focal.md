@@ -53,7 +53,7 @@ If you depend on these repositories in your build, you can use the following `so
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
 
-### Services disabled by default - the paragraph needs to be checked and changed
+### Services disabled by default
 
 On the Ubuntu 20.04 based environment, to speed up boot time and improve performance we've disabled all services by default.
 Add any services that you want to start to your `.travis.yml`:
@@ -78,10 +78,10 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `` |
-| git-lfs | ``  |
-| hg      | ``    |
-| svn     | ``  |
+| git     | `2.28.0` |
+| git-lfs | `2.9.2`  |
+| hg      | `5.3`    |
+| svn     | `1.13.0` |
 {: style="width: 30%" }
 
 ### Compilers and Build toolchain
