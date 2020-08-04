@@ -21,9 +21,9 @@ dist: focal
 
 Travis CI Ubuntu 20.04, Focal, includes the following changes and improvements:
 
-### Third party apt-repositories removed - the paragraph needs to be checked and changed
+### Third party apt-repositories removed
 
-While third party apt-repositories are used during the image provisioning, they are all removed from the Bionic build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
+While third party apt-repositories are used during the image provisioning, they are all removed from the build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
 
 To specify a third party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
 
@@ -32,7 +32,7 @@ dist: focal
 addons:
   apt:
     sources:
-      - ppa:chris-lea/redis-server
+      - sourceline: 'ppa:chris-lea/redis-server'
     packages:
     - redis-tools
     - redis-server
@@ -43,13 +43,12 @@ If you depend on these repositories in your build, you can use the following `so
 
 | package              | source                       |
 |:---------------------|:-----------------------------|
-| couchdb              | `https://apache.bintray.com/couchdb-deb`         |
-| docker               | `docker-bionic`              |
-| google-chrome-stable | `google-chrome`              |
-| git-lfs              | `github-git-lfs-bionic`      |
+| couchdb              | `deb https://apache.bintray.com/couchdb-deb $(lsb_release -cs) main`         |
+| docker               | `deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable`              |
+| google-chrome-stable | `deb http://dl.google.com/linux/chrome/deb/ stable main`              |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-bionic`         |
+| mongodb              | `deb https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/4.4 multiverse`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
