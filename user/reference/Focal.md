@@ -87,15 +87,15 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 ### Compilers and Build toolchain
 
 * clang and llvm 7
-* cmake 3.16.3-1ubuntu1
-* gcc 7.5.0
-* ccache ???
+* cmake 3.12.4
+* gcc 9.3.0
+* ccache 3.7.7
 * shellcheck 0.7.0
-* shfmt ????
+* shfmt 2.6.3
 
 ### Docker
 
-* Docker 19.03.2 is installed???
+* Docker 19.03.8 is installed
 * docker-compose 1.21.0.???
 
 ## Ruby support
@@ -107,15 +107,12 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 ## Python support
 
 * Supported Python versions: `2.7`, `3.6` or higher.
-* Python `2.7.17` will be used when no language version is explicitly set.
+* Python `3.6` will be used when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version  |
 | :----- | :------- |
-| 2.7    | 2.7.17   |
-| 3.6    | 3.6.9    |
-| 3.7    | 3.7.5    |
-| 3.8    | 3.8.0    |
+| 3.8    | 3.8.2    |
 {: style="width: 30%" }
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
