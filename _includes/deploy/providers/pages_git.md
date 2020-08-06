@@ -24,7 +24,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Pages is *stable*.
+Support for deployments to GitHub Pages is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.
