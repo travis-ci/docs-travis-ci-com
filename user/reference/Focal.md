@@ -86,18 +86,18 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ### Compilers and Build toolchain
 
-* clang 7.0.0
-* llvm 10.0.0
-* cmake 3.12.4
-* gcc 9.3.0
-* ccache 3.7.7
-* shellcheck 0.7.0
-* shfmt 2.6.3
+* clang `7.0.0`
+* llvm `10.0.0`
+* cmake `3.12.4`
+* gcc `9.3.0`
+* ccache `3.7.7`
+* shellcheck `0.7.0`
+* shfmt `2.6.3`
 
 ### Docker
 
-* Docker 19.03.8 is installed
-* docker-compose 1.23.1
+* Docker `19.03.8` is installed
+* docker-compose `1.23.1` is also available
 
 ## Ruby support
 
@@ -113,14 +113,14 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | alias  | version  |
 | :----- | :------- |
-| 3.6    | 3.6.10    |
+| `3.6`  | `3.6.10` |
 {: style="width: 30%" }
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `PyPy3.6 v7.3.1`.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.35.3.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is `0.35.3`.
 * The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.9`, `8.17.0`, `10.16.0`, `10.22.0`, `12.7.0` and `12.18.3`.
 
 ## Go support
@@ -140,9 +140,9 @@ is `openjdk11`.
 
 | package | version |
 |:--------|:--------|
-| gradle  | 5.1.1   |
-| maven   | 3.6.3   |
-| groovy  | 2.4.5   |
+| gradle  | `5.1.1` |
+| maven   | `3.6.3` |
+| groovy  | `2.4.5` |
 {: style="width: 30%" }
 
 ## PHP support
@@ -152,7 +152,7 @@ is `openjdk11`.
 
 | alias  | version  |
 | :----- | :------- |
-| 7.4    |  7.4.6  |
+| `7.4`  |  `7.4.6` |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -162,10 +162,10 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | 3.6.9          |
-| mysql      | 8.0.21         |
-| redis      | 6.0.6          |
-| postgresql | 12.2           |
+| mongodb    | `3.6.9`        |
+| mysql      | `8.0.21`       |
+| redis      | `6.0.6`        |
+| postgresql | `12.2`         |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
