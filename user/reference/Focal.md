@@ -1,5 +1,5 @@
 ---
-title: The Ubuntu 20.04 Build Environment
+title: The Ubuntu 20.04 (Focal Fossa) Build Environment
 layout: en
 ---
 
@@ -86,7 +86,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ### Compilers and Build toolchain
 
-* clang and llvm 7
+* clang 7.0.0
+* llvm 10.0.0
 * cmake 3.12.4
 * gcc 9.3.0
 * ccache 3.7.7
@@ -96,41 +97,41 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 ### Docker
 
 * Docker 19.03.8 is installed
-* docker-compose 1.21.0.???
+* docker-compose 1.23.1
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.9?`, `2.5.3`, `2.5.7` and `2.6.5`.
-* The default ruby is `2.6.5`.
+* Pre-installed Rubies: `2.5.7`, `2.5.8`, `2.6.5`, `2.6.6`, `2.7.0` and `2.7.1`.
+* The default ruby is `2.7.1`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.6` or higher.
-* Python `3.6` will be used when no language version is explicitly set.
+* Supported Python version is: `3.6` or higher as `2.7` has been sunsetted.
+* Python `3.8.2` will be used by default when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version  |
 | :----- | :------- |
-| 3.8    | 3.8.2    |
+| 3.6    | 3.6.10    |
 {: style="width: 30%" }
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `PyPy3.6 v7.3.1`.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.10.48.
-* The following NodeJS versions are preinstalled: `12.13.1`, `11.15.0`, `10.16.0`, and `8.16.2`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.35.3.
+* The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.9`, `8.17.0`, `10.16.0`, `10.22.0`, `12.7.0` and `12.18.3`.
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`???
+* Pre-installed Go: `1.11.1`
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`,`openjdk10`???, and `openjdk11` on x86, default
+* Pre-installed JVMs: `openjdk8`,`openjdk10`, and `openjdk11` on x86, default
 is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
@@ -139,9 +140,9 @@ is `openjdk11`.
 
 | package | version |
 |:--------|:--------|
-| gradle  | 4.4.1   |
+| gradle  | 5.1.1   |
 | maven   | 3.6.3   |
-| groovy  | 2.4.16   |
+| groovy  | 2.4.5   |
 {: style="width: 30%" }
 
 ## PHP support
@@ -151,10 +152,7 @@ is `openjdk11`.
 
 | alias  | version  |
 | :----- | :------- |
-|  |   |
-|   |    |
-| 7.3    | |
-| 7.4    |    |
+| 7.4    |  7.4.6  |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -164,10 +162,10 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    |             |
-| mysql      | 8.0?           |
-| redis      |            |
-| postgresql | 12 |
+| mongodb    | 3.6.9          |
+| mysql      | 8.0.21         |
+| redis      | 6.0.6          |
+| postgresql | 12.2           |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
