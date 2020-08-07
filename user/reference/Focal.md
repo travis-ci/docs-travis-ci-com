@@ -99,8 +99,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ### Docker
 
-* Docker `19.03.8` is installed
-* docker-compose `1.23.1` is also available
+* Docker `19.03.8` is installed.
+* docker-compose `1.23.1` is also available.
 
 ## Ruby support
 
@@ -128,7 +128,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`
+* Pre-installed Go: `1.11.1`.
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
 
