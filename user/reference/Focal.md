@@ -86,13 +86,16 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ### Compilers and Build toolchain
 
-* clang `7.0.0`
-* llvm `10.0.0`
-* cmake `3.12.4`
-* gcc `9.3.0`
-* ccache `3.7.7`
-* shellcheck `0.7.0`
-* shfmt `2.6.3`
+| package | version  |
+|:--------|:---------|
+| clang      | `7.0.0`  |
+| llvm       | `10.0.0` |
+| cmake      | `3.12.4` |
+| gcc        | `9.3.0`  |
+| ccache     | `3.7.7`  |
+| shellcheck | `0.7.0`  |
+| shfmt      | `2.6.3`  |
+{: style="width: 30%" }
 
 ### Docker
 
