@@ -111,7 +111,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 ## Python support
 
 * Supported Python version is: `3.6` or higher as `2.7` has been sunsetted.
-* Python `3.8.2` will be used by default when no language version is explicitly set.
+* Python `3.6.10` will be used by default when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version  |
