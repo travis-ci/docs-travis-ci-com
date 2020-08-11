@@ -5,27 +5,20 @@ redirect_from:
   - /user/sonarqube/
 ---
 
-[SonarCloud](https://sonarcloud.io) is a cloud service offered by [SonarSource](https://sonarsource.com) and based on [SonarQube](http://www.sonarqube.org). SonarQube is a widely adopted open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages.
+[SonarCloud](https://sonarcloud.io) is the leading online service to catch Bugs and Security Vulnerabilities in your Pull Requests and throughout your code repositories. Totally free for open-source projects (paid plan for private projects), SonarCloud pairs with existing cloud-based CI/CD workflows, and provides clear resolution guidance for any Code Quality or Security issue it detects. With already more than 1 billion lines of code under analysis, SonarCloud empowers development teams of all sizes to write cleaner and safer code, across more than 20 programming languages.
 
-Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/doc/analyzing-source-code.html) for more details on how to configure different scanners.
+Please refer to the [SonarCloud documentation](https://sonarcloud.io/documentation) for more details.
 
 ## Requirements
 
-You are using one of the two following environments:
+If a Java JRE/JDK is present within the build environment, it has to be at least Java 11 or higher.
 
-* [CI Environment with JVM VM image](/user/reference/precise/) - for instance:
-
+The default Travis dist
 ```yaml
-language: java
+dist: xenial
 ```
 {: data-file=".travis.yml"}
-
-* [Trusty CI Environment](/user/reference/trusty/):
-
-```yaml
-dist: trusty
-```
-{: data-file=".travis.yml"}
+inlcudes Java 11 by default.
 
 ## Inspecting code with the SonarQube Scanner
 

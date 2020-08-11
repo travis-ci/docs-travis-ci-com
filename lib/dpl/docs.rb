@@ -35,6 +35,7 @@ module Dpl
         parts << opts.to_s
         parts << shared.to_s
         parts << env.to_s
+        parts << vars.to_s
         parts << secrets if secrets?
         parts.join("\n")
       end
@@ -57,6 +58,10 @@ module Dpl
 
       def env
         @env ||= Env.new(cmd)
+      end
+
+      def vars
+        @vars ||= Vars.new(cmd)
       end
 
       def secrets
@@ -163,8 +168,8 @@ module Dpl
       URL = '/user/deployment-v2#maturity-levels'
 
       def to_s
-        msg = "#{MSG[status] % name}"
-        msg << ". #{MSG[:pre_stable] % URL}" if pre_stable?
+        msg = "#{MSG[status] % name}."
+        msg << " #{MSG[:pre_stable] % URL}" if pre_stable?
         msg
       end
 
@@ -300,6 +305,44 @@ module Dpl
 
       def env # TODO
         cmd.instance_variable_get(:@env) || cmd.superclass.instance_variable_get(:@env)
+      end
+    end
+
+    class Vars < Struct.new(:cmd)
+      STR = <<~str
+        ## Interpolation variables
+
+        The following variables are available for interpolation on %s:
+
+        %s
+
+        Interpolation uses the syntax `@@{variable-name}`. For example,
+        `"Current commit sha: @@{git_sha}"` would result in a string with the
+        current Git sha embedded.
+
+        Furthermore, environment variables present in the current build
+        environment can be used through standard Bash variable interpolation.
+        For example: "Current build number: ${TRAVIS_BUILD_NUMBER}".
+        See [here](/user/environment-variables/#default-environment-variables)
+        for a list of default environment variables set.
+      str
+
+      def to_s
+        return unless opts.any?
+        str = STR % [names, vars]
+        str.gsub('@@', '%')
+      end
+
+      def opts
+        cmd.opts.select(&:interpolate?)
+      end
+
+      def names
+        opts.map(&:name).map { |name| "`#{name}`" }.join(', ')
+      end
+
+      def vars
+        cmd.vars.map { |var| "* `#{var}`" }.join("\n")
       end
     end
 

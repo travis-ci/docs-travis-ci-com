@@ -1,5 +1,5 @@
 ---
-title: Private Dependencies
+title: Private Dependencies GitHub
 layout: en
 
 ---
@@ -291,6 +291,8 @@ gem 'lib2', github: "myorg/lib2"
 >   - git submodule update --init --recursive
 > ```
 > {: data-file=".travis.yml"}
+
+> The `.netrc` file is deleted for security reasons right after having cloned the repository of which the build and its submodules are executed!
 
 ## Dedicated User Account
 
