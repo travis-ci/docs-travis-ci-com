@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Heroku API is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Heroku API is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -35,4 +35,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `HEROKU_`.
 
 For example, `api_key` can be given as `HEROKU_API_KEY=<api_key>`.
+
 {% include deploy/secrets.md name="api_key" env_name="HEROKU_API_KEY" %}

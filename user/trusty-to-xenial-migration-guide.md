@@ -26,6 +26,18 @@ Services like [MySQL or PostgreSQL](https://docs.travis-ci.com/user/database-set
     - mysql
 ```
 
+When you are trying to run PostgreSQL and you are facing a memory problem, i.e. running `sudo df -h` and getting output from the mount points;
+
+```
+none            768M  768M     0 100% /var/ramfs
+```
+
+try to add the following line of code to your `.travis.yml`:
+
+```
+before_install: sudo mount -o remount,size=50% /var/ramfs
+```
+
 ### 2. Third-party APT sources
 
 Sources from third-party APT repositories have been removed. During the Xenial image provision, third-party APT repositories are used to pre-install services like `redis-server`. These packages are available during build time, but to reduce the risk of sporadic `apt-get update` failures, the repositories are removed after the packages are installed.
