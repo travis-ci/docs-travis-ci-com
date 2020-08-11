@@ -119,7 +119,7 @@ git:
 
 ## Git Submodules
 
-Travis CI clones Git submodules by default, to avoid this set:
+Travis CI clones Git submodules by default. To avoid this set:
 
 ```yaml
 git:
@@ -130,8 +130,7 @@ git:
 ## Git LFS
 
 
-### Authentication
-
+### Authentication with GitHub
 
 We recommend using a read-only GitHub OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
 
@@ -146,10 +145,24 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
+### Authentication with Bitbucket
+
+We recommend using a read-only Bitbucket OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine bitbucket.com\n  login $BITBUCKET_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Bitbucket OAuth token to authenticate as in the example above.
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty,  Xenial and Bionic images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial and Bionic images.
 
 ### macOS
 
@@ -221,6 +234,18 @@ git:
 ```
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
+
+## Setting symlinks option
+
+In some cases when a repository is used for both Linux and Windows, it may be desirable to set
+[core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
+
+To do this:
+
+```yaml
+git:
+  symlinks: true
+```
 
 ## Building Specific Branches
 
@@ -473,8 +498,8 @@ jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -487,32 +512,33 @@ The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
+has the `python` value set to `'3.8'`.
 You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
 jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-### Rows That Are Allowed to Fail
+### Jobs That Are Allowed to Fail
 
-You can define rows that are allowed to fail in the build matrix. Allowed
-failures are items in your build matrix that are allowed to fail without causing
-the entire build to fail. This lets you add in experimental and
-preparatory builds to test against versions or configurations that you are not
-ready to officially support.
+You can define jobs that are allowed to fail in the build matrix.
+
+Allowed failures are jobs in your build matrix that are allowed to fail without
+causing the entire build to fail. This lets you add in experimental and
+preparatory builds, for example to test against runtime versions or
+configurations that you are not ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
@@ -523,12 +549,27 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
+#### Conditionally Allowing Jobs to Fail
+
+Allowed failures can include a [condition](/user/conditional-builds-stages-jobs#conditionally-allowing-jobs-to-fail) using the key `if`.
+
+For example, the following would allow the job using `rvm: 1.9.3` to fail
+only on the `master` branch:
+
+```yaml
+jobs:
+  allow_failures:
+  - rvm: 1.9.3
+    if: branch = master
+```
+{: data-file=".travis.yml"}
+
 #### Matching Jobs with `allow_failures`
 
 When matching jobs against the definitions given in `allow_failures`, _all_
-conditions in `allow_failures` must be met exactly, and
-all the keys in `allow_failures` element must exist in the
-top level of the build matrix (i.e., not in `matrix.include`).
+attributes specified on an entry in `allow_failures` must be met exactly, and all
+the keys in `allow_failures` element must exist in the top level of the build
+matrix (i.e., not in `matrix.include`).
 
 ##### `allow_failures` Examples
 
@@ -577,7 +618,7 @@ Without the top-level `env`, no job will be allowed to fail.
 
 ### Fast Finishing
 
-If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
+If some jobs in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
@@ -636,9 +677,9 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian [Bitbucket](https://bitbucket.org/).
 
-Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on GitLab or other version control systems such as Mercurial.
 
 ## What YAML Version Can I Use in `.travis.yml`
 

@@ -6,6 +6,8 @@ layout: en
 
 
 
+> Note that Debug builds are not currently supported on Windows.
+
 If you are having trouble resolving complex build errors, or you suspect there are
 significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in debug mode
@@ -236,6 +238,22 @@ log history.
 
 Press `q` to exit the log scroll mode.
 
+### Capturing the debug session output
+
+Before you end the debug session, you may wish to copy the output. By default, when you exit your
+`tmate` session the terminal is cleared immediately, without a chance to save it.
+
+In order to save the output, follow these steps:
+
+1. Turn on the `remain-on-exit` option on the initial window:
+
+       tmate set -t 0 remain-on-exit
+1. When you are finished with your debug session and exit it with `exit`, your session output remains on your terminal.
+   Copy the output as desired.
+1. Notice that the window is now unresponsive to your keyboard input. You can either:
+     1. cancel the debug session from the web UI (this leaves the job in "Canceled" state regardless of the result of the previous execution), or
+     1. open a new window (`ctrl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
+ 
 ### Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
@@ -280,4 +298,3 @@ With this option set, any command that exits with nonzero status will terminate 
 If it's running). You can clear this option with set +e; this may allow debug sessions to continue.
 
 If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
-
