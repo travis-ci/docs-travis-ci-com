@@ -79,8 +79,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.24.1` |
-| git-lfs | `2.9.2`  |
+| git     | `2.27.0` |
+| git-lfs | `2.11.0` |
 | hg      | `4.8`    |
 | svn     | `1.9.7`  |
 {: style="width: 30%" }
@@ -89,9 +89,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 * clang and llvm 7
 * cmake 3.12.4
-* gcc 7.4.0
+* gcc 7.5.0
 * ccache 3.4.1
-* shellcheck 0.6.0
+* shellcheck 0.7.0
 * shfmt 2.6.3
 
 ### Docker
@@ -101,8 +101,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7` and `2.6.5`.
-* The default ruby is `2.6.5p114`.
+* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7`, `2.6.5` and `2.7.0`.
+* The default ruby is `2.6.5`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
@@ -115,16 +115,14 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | :----- | :------- |
 | 2.7    | 2.7.17   |
 | 3.6    | 3.6.9    |
-| 3.7    | 3.7.5    |
-| 3.8    | 3.8.0    |
 {: style="width: 30%" }
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `pypy2.7-5.8.0` or `pypy3.5-5.8.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions.
 
 ## JavaScript and Node.js support
 
 * For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.10.48.
-* The following NodeJS versions are preinstalled: `12.13.1`, `11.15.0`, `10.16.0`, and `8.16.2`.
+* The following NodeJS versions are preinstalled: `13.3.0`, `12.18.1`, `12.13.1`, `11.15.0`, `10.21.0`, `10.16.0`, and `8.17.0`.
 
 ## Go support
 
@@ -134,7 +132,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default
+* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
 is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
@@ -144,7 +142,7 @@ is `openjdk11`.
 | package | version |
 |:--------|:--------|
 | gradle  | 5.1.1   |
-| maven   | 3.6.0   |
+| maven   | 3.6.3   |
 | groovy  | 2.4.5   |
 {: style="width: 30%" }
 
@@ -156,9 +154,9 @@ is `openjdk11`.
 | alias  | version  |
 | :----- | :------- |
 | 7.1    | 7.1.33   |
-| 7.2    | 7.2.25   |
-| 7.3    | 7.3.12   |
-| 7.4    | 7.4.0    |
+| 7.2    | 7.2.27   |
+| 7.3    | 7.3.14   |
+| 7.4    | 7.4.2    |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -168,10 +166,10 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | 4.0            |
-| mysql      | 5.7            |
-| redis      | 5.5            |
-| postgresql | 9.3 9.4 9.5 9.6 10 |
+| mongodb    | 4.19           |
+| mysql      | 5.7.30         |
+| redis      | 6.0.5          |
+| postgresql | 9.3 9.4 9.5 9.6 10 11 |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments

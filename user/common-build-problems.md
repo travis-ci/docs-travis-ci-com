@@ -71,6 +71,9 @@ One possible cause for builds failing unexpectedly can be calling `set -e` (also
 
 See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
+Another reason could be that the repo setting **Clone or import** is set to `OFF.` In this case, no information from the repository is shared and it is possible some builds using private dependencies between repos can break.
+If you want to avoid the situation when all of your repositories stop sharing dependencies, please go to the repository settings and explicitly set **Clone or Import** to `ON.` In this case, your builds keep running as usual. 
+
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
@@ -571,6 +574,7 @@ If a build hasn't been triggered for your commit, these are the possible build r
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
 - **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
 - **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
+- **Build config did not create any jobs.**, please make sure the conditions in your `.travis.yml` file have created a job.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 

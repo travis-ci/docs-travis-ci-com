@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to npm is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to npm is *stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -27,6 +27,7 @@ Use the following options to further configure the deployment.
 | `registry` | npm registry url &mdash; type: string |
 | `src` | directory or tarball to publish &mdash; type: string, default: `.` |
 | `tag` | distribution tags to add &mdash; type: string |
+| `run_script` | run the given script from package.json &mdash; type: string or array of strings, note: skips running npm publish |
 | `dry_run` | performs test run without uploading to registry &mdash; type: boolean |
 | `auth_method` | Authentication method &mdash; type: string, known values: `auth` |
 
@@ -40,4 +41,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `NPM_`.
 
 For example, `api_token` can be given as `NPM_API_TOKEN=<api_token>`.
+
 {% include deploy/secrets.md name="api_token" env_name="NPM_API_TOKEN" %}

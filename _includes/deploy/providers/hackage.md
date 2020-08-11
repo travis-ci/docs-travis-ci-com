@@ -36,4 +36,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `HACKAGE_`.
 
 For example, `password` can be given as `HACKAGE_PASSWORD=<password>`.
+
 {% include deploy/secrets.md name="password" env_name="HACKAGE_PASSWORD" %}
