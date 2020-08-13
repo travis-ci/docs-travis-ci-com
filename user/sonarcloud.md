@@ -72,7 +72,7 @@ Without POM update, or if you are [Testing Against Multiple JDKs](languages/java
 ```yaml
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
-- if [ "$JAVA_HOME" = "/usr/lib/jvm/java-1.8.0-openjdk-amd64" ]; then mvn sonar:sonar; fi
+- if [ "$JAVA_HOME" = "/usr/local/lib/jvm/openjdk11" ]; then mvn sonar:sonar; fi
 ```
 {: data-file=".travis.yml"}
 
