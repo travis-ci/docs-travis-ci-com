@@ -41,8 +41,8 @@ Ability to see the user's primary email address. This should make it easier to u
 ### account
 Ability to see all the user's account information. Note that this does not include any ability to mutate any of the data.
 
-### team
-The ability to find out what teams the current user is part of. This is covered by the teams endpoint.
+### group
+The ability to find out what groups the current user is part of. This is covered by the teams endpoint.
 
 ### webhook
 Gives access to webhooks. This scope is required for any webhook related operation.
