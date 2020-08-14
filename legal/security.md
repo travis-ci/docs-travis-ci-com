@@ -105,7 +105,7 @@ The token is bound to permissions set on Assembla, so please make sure you've re
 
 We use this token in these situations, and under no other circumstances than described below.
 
-- To synchronize the repositories and teams you have access to. We use this information to show you the available repositories on your profile page so you can enable or disable building them on Travis.
+- To synchronize the repositories and spaces you have access to. We use this information to show you the available repositories on your profile page so you can enable or disable building them on Travis.
 - To configure service hooks on a repository you configure to run on Travis
 - To generate and store an SSH key on Assembla, which is used to access your source code on your build machines. We store this key securely and use it every time we get a build notification from Assembla to access your source code on our machines.
 - To update the build status of a commit.
