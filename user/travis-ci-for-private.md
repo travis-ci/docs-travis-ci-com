@@ -29,7 +29,7 @@ Access rights on Travis CI is based on the access rights on GitHub, Bitbucket, G
 - Users that can push to a repository on GitHub, Bitbucket, GitLab or Assembla can trigger, cancel and restart builds, and change its settings.
 - Users that have admin access to a repository on GitHub, Bitbucket, GitLab or Assembla can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub, Bitbucket, GitLab or Assembla. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub, Bitbucket, GitLab or Assembla. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) ( or `travis sync --com` in the CLI to force a sync for Github).
 
 ## Who has access to the billing details?
 
