@@ -14,7 +14,7 @@ For a minimal configuration, generate [PyPI API token](https://pypi.org/help/#ap
 ```yaml
 deploy:
   provider: pypi
-  user: "__token__"
+  username: "__token__"
   password: "Your PyPI API token, including the pypi- prefix"
 ```
 {: data-file=".travis.yml"}
@@ -35,7 +35,7 @@ travis encrypt your-api-token --add deploy.password --com
 ```yaml
 deploy:
   provider: pypi
-  user: "__token__"
+  username: "__token__"
   password:
     secure: "Your encrypted token"
 ```
@@ -55,7 +55,7 @@ commits, like so:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     tags: true
@@ -71,7 +71,7 @@ You can explicitly specify the branch to release from with the **on** option:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     branch: production
@@ -83,7 +83,7 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     all_branches: true
@@ -101,7 +101,7 @@ To release to a different PyPI index:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   server: https://mypackageindex.com/index
 ```
@@ -115,7 +115,7 @@ If you would like to upload different distributions, specify them using the `dis
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   distributions: "sdist bdist_wheel" # Your distributions here
 ```
@@ -135,7 +135,7 @@ To avoid this, use the `skip_existing` flag:
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   skip_existing: true
 ```
@@ -149,7 +149,7 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   skip_cleanup: true
 ```

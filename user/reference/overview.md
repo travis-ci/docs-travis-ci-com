@@ -19,6 +19,7 @@ Each build runs in one of the following virtual environments.
 
 A sudo enabled, full virtual machine per build, that runs Linux, one of:
 
+* [Ubuntu Focal 20.04](/user/reference/focal/)
 * [Ubuntu Bionic 18.04](/user/reference/bionic/)
 * [Ubuntu Xenial 16.04](/user/reference/xenial/) **default**
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
@@ -38,7 +39,7 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD container with ([Bionic](/user/reference/bionic/)), [Xenial](/user/reference/xenial/) |
+|                      | Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD container with ([Bionic](/user/reference/bionic/)), [Xenial](/user/reference/xenial/) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Early release                                          |

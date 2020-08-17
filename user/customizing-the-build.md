@@ -528,8 +528,8 @@ jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -542,20 +542,20 @@ The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
+has the `python` value set to `'3.8'`.
 You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
 jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
