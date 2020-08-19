@@ -90,7 +90,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 |:--------|:---------|
 | clang      | `7.0.0`  |
 | llvm       | `10.0.0` |
-| cmake      | `3.12.4` |
+| cmake      | `3.16.8` |
 | gcc        | `9.3.0`  |
 | ccache     | `3.7.7`  |
 | shellcheck | `0.7.0`  |
