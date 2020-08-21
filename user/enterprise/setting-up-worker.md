@@ -6,14 +6,18 @@ layout: en_enterprise
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running Ubuntu 16.04 LTS or later as the underlying operating system.
+instance from the Platform. We recommend using **compute optimized** instance 
+with 8vCPU and 16GB RAM running under Ubuntu operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
+## Prerequisites 
+1. [Enterprise 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform) or [Enterprise 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) Platform is set up
+2. You have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
+## Setting up the Worker
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
-    If you're setting up your AMI for the first time, you will need to create
+    If you're setting up Worker image for the first time, you will need to create
     a Security Group. From the EC2 management console, create an entry for
     each port in the table below:
 
@@ -43,7 +47,6 @@ export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
 
 | Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
 |:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
-| Enterprise 3.0+              |                                                      | 
 | Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
 | Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           |
 | Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
