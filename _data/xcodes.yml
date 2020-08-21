@@ -74,10 +74,10 @@ osx_images:
     jdk: "14.0.1"
   - image: xcode11.6
     xcode: "11.6"
-    osx_version: "10.15.4"
+    osx_version: "10.15.5"
     xcode_full_version: "11.6"
-    xcode_build_version: "11N700h"
-    image_publish_date: 2020-06-16
+    xcode_build_version: "11E708"
+    image_publish_date: 2020-07-28
     sdks:
       - iphoneos13.6
       - iphonesimulator13.6
@@ -125,7 +125,7 @@ osx_images:
       - watchOS 5.3
       - watchOS 6.1
       - watchOS 6.2      
-    jdk: "14.0.1"
+    jdk: "14.0.2"
   - image: xcode11.5
     xcode: "11.5"
     osx_version: "10.15.4"
