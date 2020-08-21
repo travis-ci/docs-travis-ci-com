@@ -80,7 +80,7 @@ Make your dump files available under any `http` address visible for your target 
 
 Make sure you have provided the encryption key from existing TCIE 2.x installation in the TCIE 3.x GUI:
 
-image here
+![TCIE 3.X Install GUI: Encryption key input](/images/tcie-3.x-input-for-encryption-key.png)
 
 Once the GUI of Enterprise 3.0 KOTS installer is visible, provide these addresses in:
 
@@ -88,12 +88,12 @@ SQL Schema from 2.2 -> set to yes ->
 * Platform SQL Schema URL from 2.2
 * Log SQL Schema URL from 2.2
 
-image here
+![TCIE 3.X Install GUI: DB Dumps input](/images/tcie-3.x-input-for-db-dumps.png)
 
 Once the installer completes the work, your database should be succesfully migrated.
 
 > Important!
-Due to the fact that TCIE 3.x uses original configs `raw_configs` (as .travis.yaml) and there is no way to restore such `raw_configs` from the old normalised versions from  `[request|build|job]_configs` these will be not migrated. The drawback is that no historical configs are available in the travis-web app for the end user.
+Due to the fact that TCIE 3.x uses original configs `raw_configs` (as in `.travis.yml`) and there is no way to restore such `raw_configs` from the old normalised versions from  `[request|build|job]_configs` - these will be not migrated. The drawback is that no historical configs are available in the travis-web app for the end user.
 
 ## Summary
 - main DB from TCI E 2.X is split into two databases in TCIE 3.x: *main* and *logs*
