@@ -97,6 +97,16 @@ if it contains:
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
+* Using `arc: arm64-graviton2` routes you to the environment powered by Arm 64 Graviton2 CPUs. 
+
+* If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
+
+* Using `virt: vm` routs your build to a virtual machine, running the Ubuntu version specified in `dist:` key.
+
+* Using `virt: lxd` routs your build to LXD container, running the Ubuntu version specified in `dist:` key.
+
+* To avoid mistreated keys you can validate your `YAML` file using the [Build Config Validation](/user/build-config-validation).
+
 ## Deprecated Virtualization Environments
 
 Historically, Travis CI has provided the following virtualization environments.
