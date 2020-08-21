@@ -1,5 +1,5 @@
 ---
-title: Upgrading Travis CI Enterprise
+title: Upgrading Travis CI Enterprise 2.x
 layout: en_enterprise
 
 ---
