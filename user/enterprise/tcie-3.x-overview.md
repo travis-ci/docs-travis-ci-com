@@ -24,5 +24,5 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 
 ## Travis CI Enterprise 2.0 End of Life
 
-Travis CI Enteprise 2.x will reach End Of Life by end of first calendar quarter 2021. It means there will be no support or patches released anymore. We strongly recommend to upgrade your existing Travis CI Enterprise 2.x installation to 3.x before that time.
+Travis CI Enteprise 2.x will reach End Of Life within ca 6 months. The exact date will be confirmed soon. It means there will be no support or patches released anymore. We strongly recommend to upgrade your existing Travis CI Enterprise 2.x installation to 3.x before that time.
 
