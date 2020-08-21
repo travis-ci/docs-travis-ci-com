@@ -8,8 +8,8 @@ redirect_from:
 
 > Travis CI Enterprise works with your
 > * GitHub.com or GitHub Enterprise setup
-> * Bitbucket cloud solution
-> * GitLab cloud solution
+> * Bitbucket.org
+> * GitLab.com
 
 ## Prerequisites
 
