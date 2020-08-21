@@ -8,6 +8,8 @@ layout: en_enterprise
 
 > Before upgrading, we **strongly recommend** making a backup of PostgreSQL database, Redis and RabbitMQ data.
 
+It is recommended that your Travis CI Enterprise (TCIE) deployment recipes are automated. Thus backing up just data should be sufficient strategy to restore the TCIE 3.x installation from scratch and fill it with the data from the backup/dump files.
+
 ### Encryption Key
 
 Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
