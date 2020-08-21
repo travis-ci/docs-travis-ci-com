@@ -79,10 +79,15 @@ contact_enterprise_support: |
    
   - Description of the problem - what are you observing?
   - Which steps did you try already?
-  - A support bundle (You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support`)
+  - A support bundle (see table below on how to obtain it)
   - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
   - If a build failed or errored, a text file of the build log
   
+|   TCI Enterprise version | Support bundle |
+| ---:                     | :---: | 
+| **3.0**                  | Run `kubectl kots admin-console -n [namespace]` to access admin console on `http://localhost:8800`<br />Support bundle generation instruction is available in ‘troubleshoot’ menu or directly at: `http://localhost:8800/app/tci-enterprise-kots/troubleshoot`</br /><br />A command for generating support bundle will appear after selecting <br />*If you'd prefer, [click here]() to get a command to manually generate a support bundle.* | 
+| **2.6+**                 | You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support` |  
+
   Have you made any customizations to your setup? While we may be able to see some 
   information (such as hostname, IaaS provider, and license expiration), there 
   are many other things we can't see which could lead to something not working. 
