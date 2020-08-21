@@ -267,7 +267,7 @@ The above command assumes your namespace is ```travis```, please replace it with
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using instance running Ubuntu 16.04 LTS or later as the underlying operating system.
+instance from the Platform. We recommend using instance running Ubuntu 18.04 LTS or later as the underlying operating system.
 
 Make sure you have already [set up the Enterprise Platform](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
 
