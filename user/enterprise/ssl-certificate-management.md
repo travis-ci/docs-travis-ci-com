@@ -25,7 +25,7 @@ If you are using a trial license to evaluate Travis CI Enterprise, it might not 
 
 ##### Trial in TCIE 3.x 
 
-You may use your admin-console to [upload your self-signed SSL certificate](##adding-or-updating-certificates-in-tcie-3x) and/or you may need to [disable SSL Verification](#disabling-ssl-in-travis-ci-enteprise-3x) mechanism. 
+You may use your admin-console to [upload your self-signed SSL certificate](#adding-or-updating-certificates-in-tcie-3x) and/or you may need to [disable SSL Verification](#disabling-ssl-in-tcie-3x) mechanism. 
 
 ##### Trial in TCIE 2.x 
 
