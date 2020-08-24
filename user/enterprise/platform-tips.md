@@ -7,7 +7,7 @@ layout: en_enterprise
 This page collects FAQs and day-to-day Travis CI Enterprise (TCIE) Platform maintenance scripts
 and tools. 
 
-**TCIE 3.x**: Please use `kubectl` to access your Platform pods
+**TCIE 3.x**: Please use `kubectl` *on your local machine* to access your Platform pods
 
 **TCIE 2.x**: Please connect to your Platform machine via SSH before getting
 started.
@@ -21,7 +21,7 @@ started.
 In TCIE 3.x each service is deployed in separate pod. The service logs are
 not stored within a pod and are delivered to stdout.
 
-In order to obtain live logs from specific running pod, one can run
+In order to obtain live logs from specific running pod, one can run *on your local machine*
 
 `kubectl logs [pod-name]`
 
@@ -58,7 +58,7 @@ In order to run console commands, run console in `travis-api-pod` :
 
 `kubectl exec -it [travis-api-pod]j /app/script/console`
 
-The `travis console` in following commands can be safely replaced by above snippet.
+The `travis console` in TCIE 2.x commands can be safely replaced by above snippet.
 
 ### Container and Console access in TCIE 2.x 
 
@@ -73,9 +73,11 @@ Platform.
 Occasionally, jobs can get stuck in a `queued` state on the worker. To cancel or
 reset a large number of jobs, please execute the following steps:
 
-**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console`
+**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
 
-**TCIE 2.x**: `$ travis console`
+**TCIE 2.x**: `$ travis console` *on Platform host*
+
+Next run, regardless of TCIE version:
 
 ```
 >> stuck_jobs = Job.where(queue: 'builds.linux', state: 'queued').where('queued_at < NOW() - interval \'60 minutes\'').all
@@ -97,9 +99,11 @@ lead to decreased performance of the whole platform. The solution is to clear th
 
 To clear it, please execute the following commands:
 
-**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console`
+**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
 
-**TCIE 2.x**: `$ travis console`
+**TCIE 2.x**: `$ travis console` *on Platform host*
+
+Next run, regardless of TCIE version:
 
 ```
 >> require 'sidekiq/api'
@@ -149,9 +153,11 @@ After this, do a full reboot of the system and everything should start again pro
 
 In the past there have been reported cases where the system became unresponsive. It took quite a while until jobs where worked off or they weren't picked up at all. We found out that often full Sidekiq queues played a part in this. To get some insight, it helps to retrieve some basics statistics in the Ruby console:
 
-**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console`
+**TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
 
-**TCIE 2.x**: `$ travis console`
+**TCIE 2.x**: `$ travis console` *on Platform host*
+
+Next run, regardless of TCIE version:
 
 ```
   >> require 'sidekiq/api'
@@ -180,7 +186,7 @@ In the past there have been reported cases where the system became unresponsive.
 
 If you wish to uninstall Travis CI Enterprise 3.x from your platform machines, please execute:
 
-`kubectl delete ns [namespace]`.
+`kubectl delete ns [namespace]` *on your local machine*
 
 On the worker machine, you need to run this command to remove travis-worker and all build images:
 
@@ -245,12 +251,14 @@ $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 
 ## Finding out about the Maximum Available Concurrency
 
-To find out how much concurrency is available in your Travis CI Enterprise 2.x setup, connect to your platform machine via SSH and run:
+To find out how much concurrency is available in your Travis CI Enterprise setup:
 
 
-**TCIE 3.x**: `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash`
+**TCIE 3.x**: `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash` *on your local machine*
 
-**TCIE 2.x**: `$ travis bash`
+**TCIE 2.x**: connect to your platform machine via SSH and run `$ travis bash`
+
+Next run, regardless of TCIE version:
 
 ```
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
@@ -260,11 +268,13 @@ The number that's returned here is equal to the maximum number of concurrent job
 
 ## Finding out how Many Worker Machines are Connected
 
-If you wish to find out how many worker machines are currently connected, please connect to your platform machine via SSH and follow these steps:
+If you wish to find out how many worker machines are currently connected, please follow these steps:
 
 **TCIE 3.x**: `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash`
 
-**TCIE 2.x**: `$ travis bash`
+**TCIE 2.x**: connect to your platform machine via SSH and run: `$ travis bash`
+
+Next run, regardless of TCIE version:
 
 ```
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
@@ -345,7 +355,7 @@ kubectl cp [travis-api-pod]:/[location of [Logs DB].sql] [local_file]
 
 > In case you would like to run pg_dump straight from the DB pod: Database pods in TCIE 3.x cluster in non-HA deployment should be named `travisci-platform-platform-postgresql-0` and `travisci-platform-logs-postgresql-0`
 
-One needs to enter **Redis** and **RabbitMQ** pods in similar way and perform data dumps and teirs copy out of cluster in similar way, using tools available for these services.
+One needs to enter **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of cluster in similar way, using tools available for these services.
 
 
 #### Data backup in TCIE 2.x
