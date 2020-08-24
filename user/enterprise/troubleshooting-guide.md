@@ -237,7 +237,7 @@ An administrator can also initiate a sync on behalf of someone else:
 
 ## RabbiMQ AMQPS issue causes build jobs to never enqueue
 
-> This issue occurs only in TCIE 3.x. The TCIE 2.x does not contain any AMQPS.
+> This issue occurs only in TCIE 3.x. The TCIE 2.x Rabbit does not contain any AMQPS support.
 
 ### The problem
 
