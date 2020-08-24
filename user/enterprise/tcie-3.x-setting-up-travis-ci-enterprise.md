@@ -89,7 +89,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
    4. Optionally, configure Email, Metrics and Caches.
    5. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
 
 
 ### 1.1 Example TCIE 3.x installation for GCE on MacOSX
