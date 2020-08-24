@@ -175,7 +175,7 @@ would result in an error.
 
 Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
 
-> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please not that VMs start slow and have fixed computing power assigned compared to containers (LXD). 
+> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slow and have fixed computing power assigned compared to containers (LXD). 
 
 ### System Calls Interception
 
@@ -188,6 +188,6 @@ It most probably means a system call interception is outside of the list of the 
 
 ## Hugepages Support from within LXD Container
 
-It is now possible to allow unprivleged containers access to hugepages. Please have a look at below resources to understand what you need to address to avoid memory issues with LXD containers:
+It is now possible to allow unprivleged containers access to hugepages. To understand what you need to address in order to avoid memory issues with LXD containers, look at the resources below:
 * [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
 * [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
