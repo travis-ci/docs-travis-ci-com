@@ -99,7 +99,9 @@ You can add or update certificates via the Admin Dashboard at any time after ins
     
 ![Adding or updating SSL in TCIE 3.x](/images/tcie-3.x-ssl-1.png)
 
-> Please note, that selecting 'HTTPS disable' will disable https for whole Platform installation.
+> Please note that selecting 'HTTPS disable' will disable https for whole Platform installation.
+
+> Please note that during first installation of TCIE 3.x, when the DNS does not point yet to correct Load Balancer in k8s cluster, Let's Encrypt certificate cannot be properly generated. Therefore if you want to use it configure self-signed certificate first and after the deployment of the Platform is done re-configure to use the Let's Encrypt one.
 
 ### Adding or Updating Certificates in TCIE 2.x
 
@@ -295,7 +297,10 @@ Let's Encrypt certificates are short-lived and ***expire after 90 days.*** Becau
 
 ### Renewing your Let's Encrypt certificate for TCIE 3.x
 
-...
+At the moment, Let's Encrypt certificate is automatically refreshed every time the nginx pod is started. So in order to refresh it:
+
+1. Kill the nginx pod
+2. Deploy it again
 
 ### Renewing your Let's Encrypt  certificate for TCIE 2.x
 
