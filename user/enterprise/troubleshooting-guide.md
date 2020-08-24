@@ -245,6 +245,6 @@ When using self-signed certificate, the Rabbit MQ AMQPS will not work which will
 
 ### Startegy 
 
-Relax security contraints by explicitly marmking that self-sgined certificates are allowed.
+Relax security contraints by explicitly marking that self-sgined certificates are allowed.
 
 SSH to the worker machine. Add `export AMQP_INSECURE=true` to `/etc/default/travis-worker`. Restart the worker instance.
