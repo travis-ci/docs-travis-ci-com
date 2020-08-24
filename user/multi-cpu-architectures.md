@@ -4,13 +4,22 @@ layout: en
 permalink: /user/multi-cpu-architectures/
 ---
 
-> This is an alpha stage of this feature and we are [eager to hear back from you](https://travis-ci.community/c/environments/multi-cpu-arch), both for `Arm`-based and `IBM`-based feedback. The definition keys used in the `.travis.yml` file may be further adapted on short notice.
-{: .alpha}
+> This is a beta stage of this feature and we are [eager to hear back from you](https://travis-ci.community/c/environments/multi-cpu-arch), both for `Arm`-based and `IBM`-based feedback. The definition keys used in the `.travis.yml` file may be further adapted on short notice.
+{: .beta}
 
-> `IBM Power`, `IBM Z` and `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the alpha period.
-> An attempt to run `IBM Power`, `IBM Z` and `Arm`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+> `IBM Power` and `IBM Z`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period.
+> An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+> `Arm`-based building on `Arm64 Graviton2` CPU now supports both Open Source and commercial projects. 
 
-If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64, ppc64le (IBM Power CPUs), s390x (IBM Z CPUs) and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
+If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on `amd64`, `ppc64le` (IBM Power CPUs), `s390x` (IBM Z CPUs), `arm64` (run on ARMv8 compliant CPUs) and `arm64-graviton2` (on AWS) if the operating system is Linux. Below table gives a brief perspective about the CPU and project type combination:
+
+| Architecture  | Open Source | Commercial |
+| ------------- | ------------- | ------------- |
+| `amd64`  | Yes  | Yes |
+| `ppc64le`  | Yes  | No |
+| `s390x`  | Yes  | No |
+| `arm64` (v8) | Yes  | No |
+| `arm64-graviton2`  | Yes  | Yes |
 
 ## Default CPU Architecture
 
@@ -36,20 +45,22 @@ arch:
   - ppc64le
   - s390x
   - arm64
+  - arm64-graviton2
 os: linux  # different CPU architectures are only supported on Linux
 ```
 {: data-file=".travis.yml"}
 
 If you are already using a [build matrix](/user/customizing-the-build/#build-matrix) to test multiple versions, the `arch` key also multiplies the matrix.
 
-- The ppc64le (IBM Power) and s390x (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
-- The arm64 CPU architecture build job is run in an LXD compliant Linux OS image.
+- The `ppc64le` (IBM Power) and `s390x` (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
+- The `arm64` CPU architecture build job is run in an LXD compliant Linux OS image.
+- The `arm64-graviton2` architecture builds can be run on both LXD and VM environments. You can explicitely set target environment by using `virt: ` key. `virt: vm` routes build jobs to full virtual machine setup. `virt: lxd` routes build jobs to LXD container setup. 
 - The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` you can select different supported LXD images. Also see our [CI Environment Overview - Virtualisation Environment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) documentation. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
 - The amd64 CPU architecture build job currently runs as a regular VM and will be transitioned to an LXD compliant Linux OS image usage over time.
 
 ## Example Multi Architecture Build Matrix
 
-Here’s an example of a `.travis.yml` file using the `arch` key to compile against `amd64`, `arm64`, `ppc64le` (IBM Power), `s390x` (IBM Z) under Linux and using C as the programming language. 
+Here’s an example of a `.travis.yml` file using the `arch` key to compile against `amd64`, `arm64`, `arm64-graviton2`, `ppc64le` (IBM Power) and `s390x` (IBM Z) under Linux and using C as the programming language. 
 
 ```yaml
 language: c
@@ -57,6 +68,7 @@ language: c
 arch:
   - amd64
   - arm64
+  - arm64-graviton2
   - ppc64le
   - s390x
 
@@ -163,6 +175,8 @@ would result in an error.
 
 Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
 
+> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please not that VMs start slow and have fixed computing power assigned compared to containers (LXD). 
+
 ### System Calls Interception
 
 
@@ -174,4 +188,6 @@ It most probably means a system call interception is outside of the list of the 
 
 ## Hugepages Support from within LXD Container
 
-A build job can’t enable hugepages within an LXD container - this is something that may change in the future, yet it depends on potential Linux kernel changes, which is something that needs to be reviewed and developed.
+It is now possible to allow unprivleged containers access to hugepages. Please have a look at below resources to understand what you need to address to avoid memory issues with LXD containers:
+* [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
+* [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
