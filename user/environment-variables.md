@@ -70,7 +70,7 @@ env:
   global:
     - CAMPFIRE_TOKEN=abc123
     - TIMEOUT=1000
-  matrix:
+  jobs:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
