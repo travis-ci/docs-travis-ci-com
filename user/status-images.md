@@ -8,7 +8,7 @@ You can embed status images (also known as badges or icons) that show the
 status of your build into your README or website.
 
 For example, this badge shows the build status of the `travis-web` repository:
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
+[![Build Status](https://travis-ci.com/travis-ci/travis-web.svg?branch=master)](https://travis-ci.com/travis-ci/travis-web)
 
 The URLs for status images are shown on your Travis CI Repository page:
 

@@ -75,7 +75,7 @@ file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
 
 Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
-- For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
+- For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests) gem.
 - For Java, use the built-in feature [to run tests in parallel
   using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
@@ -93,7 +93,7 @@ env:
   global:
     - MY_GLOBAL_VAR=123
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
@@ -113,7 +113,7 @@ script: "bundle exec rake knapsack:cucumber"
 env:
   global:
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```
@@ -126,7 +126,7 @@ script: "bundle exec rake knapsack:minitest"
 env:
   global:
     - CI_NODE_TOTAL=2
-  matrix:
+  jobs:
     - CI_NODE_INDEX=0
     - CI_NODE_INDEX=1
 ```

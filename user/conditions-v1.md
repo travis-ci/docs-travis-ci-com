@@ -174,7 +174,7 @@ env(foo) = bar
 
 ### Regular expressions
 
-This matches a string using a regular expression:
+This matches a string using a [Ruby regular expression](https://ruby-doc.org/core-2.6/Regexp.html):
 
 ```
 branch =~ ^master$
