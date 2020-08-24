@@ -11,28 +11,31 @@ redirect_from:
 > * Bitbucket.org
 > * GitLab.com
 
+Travis CI Enteprise 3.x+ is ditributed in form of Kubernetes Off The Shell installation package, containing Helm chart and docker images for component services. It is meant to be installed as a Kubernetes managed cluster.
+
 ## Prerequisites
 
-  * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). The [High Availability](/user/enterprise/high-availability/) option does nott require any additional trial or production license configuration.
+Travis CI Enteprrise (TCIE) installation can be executed via [Replicated KOTS](https://kots.io/) installer (for existing environment in GCE, AWS and for OpenStack managed infrastructre) or as single virtual machine installation via [Replicated kURL](https://kurl.sh/) (installs as microk8s cluster on a single instance)
+
+  * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration.
 
   * At least two virtual machines on your private cloud that meet the [system requirements](#system-requirements) - one of these must be set up as Kubernetes/ microk8s host - or Kubernetes Cluster
   * In case of GitHub: The `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) configured with:
 
     - *Homepage URL* - `https://<your-travis-ci-enterprise-domain>`
     - *Authorization callback URL* - `https://<your-travis-ci-enterprise-domain>/api`
-    +
+
     URLs must include https or http at the beginning and cannot have trailing slashes.
     
-Travis CI Enteprrise (TCIE) installation can be executed via [Replicated KOTS](https://kots.io/) installer (for existing environment in GCE, AWS and for OpenStack managed infrastructre) or as single machine installation via Replicated https://kurl.sh/ (installs as microk8s cluster on a single instance)
 
 ### System Requirements
 
 The standard setup consists of the *Travis CI Enterprise
-Platform* which hosts Kubernetes cluster with the web UI and related services (each in its pod), and one or more
+Platform* which hosts Kubernetes cluster with each service in separate pod, and one or more
 *Worker hosts* which run the tests/jobs in isolated containers using LXC
 and Docker.
 
-Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should run **Ubuntu 18.04** and have at least **8 gigs of RAM and 4 CPUs**. If the same host is to run as Worker host, inimum requirement would be **16 gigs of RAM and 8 CPUs**.
+Each dedicated host or hypervisor (VMWare, OpenStack, or EC2) should run **Ubuntu 18.04** and have at least **8 gigs of RAM and 4 CPUs**. If the same host is to run as Worker host, inimum requirement would be **16 gigs of RAM and 8 CPUs**.
 
 If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 80 gigs of space to it.
 
