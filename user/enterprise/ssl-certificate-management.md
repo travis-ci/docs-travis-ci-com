@@ -101,7 +101,7 @@ You can add or update certificates via the Admin Dashboard at any time after ins
 
 > Please note that selecting 'HTTPS disable' will disable https for whole Platform installation.
 
-> Please note that during first installation of TCIE 3.x, when the DNS does not point yet to correct Load Balancer in k8s cluster, Let's Encrypt certificate cannot be properly generated. Therefore if you want to use it configure self-signed certificate first and after the deployment of the Platform is done re-configure to use the Let's Encrypt one.
+> Please note that during first installation of TCIE 3.x, when the DNS does not point yet to correct Load Balancer in k8s cluster, Let's Encrypt certificate cannot be properly generated. Therefore if you want to use it configure self-signed certificate first and after the deployment of the Platform and DNS setup are done re-configure to use the Let's Encrypt one.
 
 ### Adding or Updating Certificates in TCIE 2.x
 
