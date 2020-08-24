@@ -16,10 +16,7 @@ Without the encryption key you cannot access the information in your production 
 
 > Without the encryption key the information in the database is not recoverable.
 
-To make a backup, please follow these steps:
-
-1. Make sure you have appropriate access to the kubernetes cluster
-2. Run `kubectl exec -it [travis-api-pod] cat /app/config/travis.yml |grep -A 2 encryption` (using Travis API pod is recommended). Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+{{ site.data.snippets.enterprise_3_encryption_key_backup }}
 
 ## Updating your Travis CI Enterprise Platform
 
