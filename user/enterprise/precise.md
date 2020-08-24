@@ -5,7 +5,7 @@ layout: en_enterprise
 
 ## System Setup
 
-**Platform Requirements**: Precise Build Containers are supported for Travis CI Enterprise version 2.0 and higher. We recommend [Trusty Build Environments](/user/enterprise/trusty/) for Travis CI Enterprise 2.2+, as Trusty Build Environments are the default environment.
+**Platform Requirements**: Precise Build Containers are supported for Travis CI Enterprise version 2.0+ and are discountined starting from Travis CI Enterprise version 3.0. We recommend [Trusty Build Environments](/user/enterprise/trusty/) for Travis CI Enterprise 2.2+, as Trusty Build Environments are the default environment.
 
 To Legacy workers as default on Travis CI Enterprise 2.2+, override the fault behavior in the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable`
 
