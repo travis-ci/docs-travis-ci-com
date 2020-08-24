@@ -10,19 +10,19 @@ layout: en_enterprise
 
 **Worker Requirements**:
 
-We recommend using a **compute optimized* machine with 8 vCPUs and 15 GB of memory and at least 60 GB of disk space. If you're using AWS, that will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 18.04 or later. Port 22 must be open for SSH during installation and operation.
+We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory and at least 60 GB of disk space. Also, you'll want to run Ubuntu 18.04 or later. Port 22 must be open for SSH during installation and operation.
 
 > _Trusty and Bionic build containers must be on different instances_. To run both Trusty and Bionic builds, at least two worker instances are required.
 
 ## Differences from the Trusty Build Environment
 
-[Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
+[Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/bionic/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
 
-[Services disabled by default](https://docs.travis-ci.com/user/reference/xenial/#services-disabled-by-default) to speed up boot time and improve performance.
+[Services disabled by default](https://docs.travis-ci.com/user/reference/bionic/#services-disabled-by-default) to speed up boot time and improve performance.
 
 ## Installation with Travis CI Enterprise 2.2.6 and later
 
-On a new server, please run the commands below to install the Xenial build environment:
+On a new server, please run the commands below to install the Bionic build environment:
 
 ```bash
 $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
@@ -45,7 +45,7 @@ Worker configuration changes are applied on start.
 
 ## Running Builds in the Bionic Build Environment
 
-To run a project's builds in the new Xenial build environment, please add a `dist: bionic` to your `.travis.yml` file.
+To run a project's builds in the new Bionic build environment, please add a `dist: bionic` to your `.travis.yml` file.
 
 ## Contact Enterprise Support
 
