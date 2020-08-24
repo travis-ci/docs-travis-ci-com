@@ -40,11 +40,8 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
 ```yaml
 language: erlang
 otp_release:
-  - 18.2.1
-  - 18.1
-  - 18.0
-  - 17.5
-  - R16B03
+  - "23.0.2"
+  - "22.3.4"
 ```
 {: data-file=".travis.yml"}
 
