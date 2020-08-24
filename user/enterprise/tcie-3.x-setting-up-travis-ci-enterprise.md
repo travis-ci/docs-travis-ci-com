@@ -23,7 +23,7 @@ redirect_from:
     +
     URLs must include https or http at the beginning and cannot have trailing slashes.
     
-Travis CI Enteprrise (TCIE) installation can be executed via Replicated KOTS installer (for existing environment in GCE, AWS and for OpenStack managed infrastructre) or as single machine installation via Replicated https://kurl.sh/ (installs as microk8s cluster on a single instance)
+Travis CI Enteprrise (TCIE) installation can be executed via [Replicated KOTS](https://kots.io/) installer (for existing environment in GCE, AWS and for OpenStack managed infrastructre) or as single machine installation via Replicated https://kurl.sh/ (installs as microk8s cluster on a single instance)
 
 ### System Requirements
 
@@ -36,7 +36,7 @@ Each dedicated host or hypervisor (VMWare, OpenStack using KVM, or EC2) should r
 
 If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 80 gigs of space to it.
 
-For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need:
+For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need self-hosted:
 
 * [Redis](https://redis.io/),
 * [RabbitMQ](https://www.rabbitmq.com/)
@@ -46,7 +46,8 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
-installed as Kubernetes cluster or on it's own machine instance acting as microk8s host, separate from that of the Travis CI
+installed as Kubernetes cluster or on at least one machine instance acting as microk8s host 
+or multiple instances managed by Kubernetes, separate from that of the Travis CI
 Enterprise worker. We recommend **compute optimized** instance running
 Ubuntu 18.04 LTS or later as the underlying operating system.
 
@@ -54,7 +55,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
 1. *On your infrastructure management platform*, create a Travis CI Platform Security Group.
 
-    If you're setting up your instance image or Kubernetes cluster for the first time, you most probably need to create
+    If you're setting up your instance image or Kubernetes cluster for the first time, you most probably need to create some kind of
     a Security Group. Create an entry for each port in the table below:
 
     | Port | Service         | Description                                                                  |
@@ -62,22 +63,28 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
     | 8800 | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
     | 5672 | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
     | 4567 | Custom TCP Rule | For RabbitMQ SSL.                                                            |
+    | 3333 | HTTPS           | TCIE 3.x User administration Web application over HTTPS access.              |
     | 443  | HTTPS           | Web application over HTTPS access.                                           |
     | 80   | HTTP            | Web application access.                                                      |
     | 22   | SSH             | SSH access.                                                                  |
 
 2. If you're using a hostname and not just an IP address, this would be a time to configure it.
-3. Set-up your cluster/machine configuration
-4. On *your new instance*, assuming the proper connection with the cluster exists, install either Replicated KOTS or kurl.sh and install Travis CI enterprise
-5. *In your browser*, navigate to `https://<your-travis-ci-enterprise-domain>:8800` (your Enterprise
-installation's hostname, port 8800) to complete the setup:
+3. Set-up your cluster/machine instances configuration - at least 1 virtual machine is needed (in microk8s scenario) or Kubernetes cluster prepared and started
+4. On *your local machine*, assuming the proper connection with the cluster exists, install Replicated KOTS.
+5. TCIE 3.x installed on **single** virtual machine instance
+    1. On *your new virtual machine instance* run kurl.sh via 'curl https://kurl.sh/latest | sudo bash' 
+    2. Get credentials from microk8s cluster running on *your new vm instance*
+    3. Please refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Please adjust your setup and configuration according to your needs before progressing with TCIE 3.X installation
+6. TCIE 3.x installed as Kubernetes cluster in the cloud
+    1. Connect to your cluster and get it's configuration, particularly credentials
+5. Run `kubectl kots install tci-enterprise-kots` to install TCIE 3.x. Please note down administrative password and namespace used during this step.
+6. *In your browser*, navigate to `https://localhost:8800` to complete the setup. The TCIE 3.x admin console will be automatically enabled during first installation :
 
-   1. Add a secure certificate or configure a trusted one.
-   1. Upload your Travis CI Enterprise license.
-   1. Configure access to the Admin Console with a password or using openLDAP. This controls access to the Admin Console itself, not to the Travis CI Enterprise instance.
-   1. Connect your GitHub Enterprise or GitHub.com (or other VCS) with Travis CI Enterprise.
-   1. Optionally, configure Email, Metrics and Caches.
-   1. Copy the *RabbitMQ password* for the Worker setup.
+   1. Authorize with a password set during the installation process 
+   2. Upload your Travis CI Enterprise license. 
+   3. Connect your GitHub Enterprise or GitHub.com (or other VCS).
+   4. Optionally, configure Email, Metrics and Caches.
+   5. Copy the *RabbitMQ password* for the Worker setup.
 
 > If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
 
@@ -167,7 +174,7 @@ gcloud container clusters get-credentials tci-test2 --zone us-central1-b --proje
 
 #### 1.1.4 Install Travis CI Enterprise via Replicated KOTS
 
-Using cURL to install Kots via: 
+Using cURL to install Kots on *local machine* via: 
 
 ```bash
 curl https://kots.io/install | bash
