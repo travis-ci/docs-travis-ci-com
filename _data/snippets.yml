@@ -101,3 +101,16 @@ contact_enterprise_support: |
   - If you're using GitHub Enterprise, which version of it?
   
   We're looking forward to helping!
+enterprise_2_encryption_key_backup: |
+  To make a backup of encryption keys in TCIE 2.x, please follow these steps:
+
+  1. Open an SSH connection to the platform machine.
+  2. Open a bash session with `root` privileges on the Travis CI container by running `travis bash`.
+  3. Run the following command to obtain the key: `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`.
+  4. Create a backup of the value returned by the previous command by either writing it down on a piece of paper or storing it on a different computer.
+enterprise_3_encryption_key_backup: |
+  To make a backup of encryption keys in TCIE 3.x, please follow these steps:
+
+  1. Make sure you have appropriate access to the kubernetes cluster
+  2. Run `kubectl exec -it [travis-api-pod] cat /app/config/travis.yml |grep -A 2 encryption` (using Travis API pod is recommended). 
+  3. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
