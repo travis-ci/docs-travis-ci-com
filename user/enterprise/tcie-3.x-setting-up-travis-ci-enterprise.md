@@ -81,7 +81,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 6. TCIE 3.x installed as Kubernetes cluster in the cloud
     1. Connect to your cluster and get it's configuration, particularly credentials
 5. Run `kubectl kots install tci-enterprise-kots` to install TCIE 3.x. Please note down administrative password and namespace used during this step.
-6. *In your browser*, navigate to `https://localhost:8800` to complete the setup. The TCIE 3.x admin console will be automatically enabled during first installation :
+6. *In your browser*, navigate to `http://localhost:8800` to complete the setup. The TCIE 3.x admin console will be automatically enabled during first installation :
 
    1. Authorize with a password set during the installation process 
    2. Upload your Travis CI Enterprise license. 
