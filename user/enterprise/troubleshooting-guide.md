@@ -186,6 +186,7 @@ travis_production=> select count(*) from users where is_syncing=true;
 You can reset the `is_syncing` flag for user accounts that are stuck by running:
 
 **TCIE 3.x**: Run `$ kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
+
 **TCIE 2.x**: Log into the platform machine via SSH. Run `$ travis console`
 
 Next, regardless of TCIE version, run:
@@ -221,7 +222,8 @@ Ask the owner of **the affected account** (usually printed in the logs) to sync 
 
 ####  Sync account from the CLI with administrator privileges
 
-An administrator can also initiate a sync on behalf of someone else 
+An administrator can also initiate a sync on behalf of someone else: 
+
 **TCIE 3.X**: via manually forcing the github-sync to re-run synchronization
 
 `kubectl exec -it [travis-github-sync-pod] bundle exec bin/schedule users [login if single user] `
