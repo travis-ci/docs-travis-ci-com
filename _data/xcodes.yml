@@ -17,12 +17,12 @@ osx_images:
     xcode: "12"
     osx_version: "10.15.5"
     xcode_full_version: "12.0"
-    xcode_build_version: "12A6163b"
-    image_publish_date: 2020-07-13
+    xcode_build_version: "12A8189h"
+    image_publish_date: 2020-08-24
     sdks:
       - iphoneos14.0
       - iphonesimulator14.0
-      - macosx10.16
+      - macosx11.0
       - appletvos14.0
       - appletvsimulator14.0
       - watchos7
@@ -71,7 +71,7 @@ osx_images:
       - watchOS 6.1
       - watchOS 6.2
       - watchOS 7.0  
-    jdk: "14.0.1"
+    jdk: "14.0.2"
   - image: xcode11.6
     xcode: "11.6"
     osx_version: "10.15.5"
