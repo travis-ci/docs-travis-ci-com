@@ -13,7 +13,7 @@ layout: en
 |:--------------------------------------------|:------------------------------------------|
 | [Default `install`](#dependency-management) | N/A                                       |
 | [Default `script`](#default-build-script)   | `matlab -batch "results = runtests('IncludeSubfolders',true); assertSuccess(results);" `               |
-| [Matrix keys](#build-matrix)                | N/A                                       |
+| [Matrix keys](#build-matrix)                | `matlab`, `env`                                       |
 | Support                                     | [MathWorks](mailto:continuous-integration@mathworks.com) |
 
 Minimal example:
@@ -32,28 +32,28 @@ This guide covers build environment and configuration topics specific to
 [general build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
-> MATLAB builds are not available on the macOS and Windows environments.
+> MATLAB builds are not available on macOS and Windows environments.
 
 
-### Community-Supported Warning
+### Community-Supported Language
 
-Travis CI support for MATLAB is contributed by the community and may be removed
-or altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=matlab)
-and cc [@jwpereira](https://github.com/jwpereira), [@mcafaro](https://github.com/mcafaro), and [@acampbel](https://github.com/acampbel).
+The MATLAB language is maintained by MathWorks&reg;. If you have any questions or suggestions, please contact MathWorks at [continuous-integration@mathworks.com](mailto:continuous-integration@mathworks.com).
 
-## Install MATLAB and Run Tests
+## Specify MATLAB Releases and Run Tests
 
-To run MATLAB code and Simulink models as part of your pipeline, specify the value `matlab` in your `.travis.yml` file.
+Specify MATLAB releases using the `matlab` key. You can specify R2020a or a later release. If you do not specify a release, Travis CI uses the latest release of MATLAB. 
 
-```yaml
+```yaml 
 language: matlab
+matlab:
+  - latest  # Default MATLAB release on Travis CI
+  - R2020a
 ``` 
 {: data-file=".travis.yml"}
 
 When you include `language: matlab` in your `.travis.yml`:
 
-* Travis CI installs the latest release of MATLAB on a Linux&reg;-based build agent.
+* Travis CI installs the specified MATLAB release on a Linux&reg;-based build agent. If you do not specify a release, Travis CI installs the latest release of MATLAB.
 * MATLAB runs the tests in your repository and fails the build if any of the tests fails. 
 
 If your source code is organized into files and folders within a [MATLAB project](https://www.mathworks.com/help/matlab/projects.html), then MATLAB runs any test files in the project that have been labeled as `Test`. If your code does not leverage a MATLAB project, then MATLAB runs all tests in the root of your repository, including its subfolders.
@@ -63,7 +63,7 @@ You can override the default test run and generate artifacts by creating a test 
 
 ## Run Custom MATLAB Commands
 
-You can specify the `script` key in your `.travis.yml` to build on the functionality provided by`language: matlab`. To run custom MATLAB commands in your pipeline, use the [`matlab`](https://www.mathworks.com/help/matlab/ref/matlablinux.html) command with the `-batch` option. `matlab -batch` starts MATLAB noninteractively and runs the specified script, function, or statement. For example, call the `disp` function as part of your pipeline.
+You can specify the `script` key in your `.travis.yml` to build on the functionality provided by `language: matlab`. To run custom MATLAB commands in your pipeline, use the [`matlab`](https://www.mathworks.com/help/matlab/ref/matlablinux.html) command with the `-batch` option. `matlab -batch` starts MATLAB noninteractively and runs the specified script, function, or statement. For example, call the `disp` function using the latest release of MATLAB.
 
 ```yaml
 language: matlab
@@ -80,10 +80,11 @@ script: matlab -batch 'results = runtests, assertSuccess(results);'
 {: data-file=".travis.yml"}
 
 
-You can write a MATLAB script or function as part of your repository and execute this script or function. For example, run the commands in a file named `myscript.m` in the root of your repository. (To run a MATLAB script or function, do not specify the file extension.)
+You can write a MATLAB script or function as part of your repository and execute this script or function. For example, use MATLAB R2020a to run the commands in a file named `myscript.m` in the root of your repository. (To run a MATLAB script or function, do not specify the file extension.)
 
 ```yaml
 language: matlab
+matlab: R2020a
 script: matlab -batch 'myscript'
 ``` 
 {: data-file=".travis.yml"}
