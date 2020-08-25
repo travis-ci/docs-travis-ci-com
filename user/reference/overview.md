@@ -25,7 +25,14 @@ A sudo enabled, full virtual machine per build, that runs Linux, one of:
 * [Ubuntu Trusty 14.04](/user/reference/trusty/)
 * [Ubuntu Precise 12.04](/user/reference/precise/)
 
-LXD compliant OS images for arm64 are run in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
+LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
+
+> To explicitely set target virtualization environment you have to use `virt ` key. `virt: lxd` routes jobs as container-based builds and `virt: vm` routes them to virtual machines. 
+
+> Special note: `virt: ` keys can only be used if you are going to run builds on AWS environment on Arm64 CPUs, such as `arch: arm64-graviton2`. Otherwise Travis CI will route your builds to default environment:
+
+| `os: linux` | `dist: xenial` | `virt: vm` | `arch: amd64` |
+| ----------  | ----------  | ----------  | ----------  |
 
 ### macOS
 
