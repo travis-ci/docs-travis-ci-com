@@ -76,12 +76,14 @@ To see what infrastructure a finished build ran on, look at the *hostname* at th
 
 if it contains:
 
+* `aws` → the build ran on Amazon Web Services (AWS).
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
 * `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
 * `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
 * `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
+* Special note: indication of `arm64-graviton2` means that the build job ran on Arm64 Graviton2 CPU based insfrastructure hosted on AWS. `arm64-graviton2`supports both virtual machine and LXD container based builds, which you can specifiy using `virt: ` key - `virt: vm` or `virt: lxd` for virtual machine or container respectively. 
 
 ### For a particular .travis.yml configuration
 
@@ -92,6 +94,8 @@ if it contains:
 * Using `os: windows` routes your build to Windows infrastructure.
 
 * Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+
+* Using `arch: arm64-graviton2` routs your build to Arm-based infrastructure. You will need to specify target virtualization environment (virtual machine or LXD container) using `virt: ` key.
 
 * Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
