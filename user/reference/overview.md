@@ -97,7 +97,7 @@ if it contains:
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `arc: arm64-graviton2` routes you to the environment powered by Arm 64 Graviton2 CPUs. 
+* Using `arc: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. 
 
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
