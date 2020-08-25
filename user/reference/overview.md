@@ -56,6 +56,8 @@ The following table summarizes the differences across virtual environments and o
 | IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
 | Available disk space | approx 50GB                                                                                                                                                   | approx 41GB                   | approx 40 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
 
+> Special note: `arch: arm64-graviton2` support only Focal Fossa (Ubuntu 20.04 LTS) as an OS for `virt: vm` config. For `virt: lxd` this limitation is not applicable. `arm64-graviton2` can run container-based builds on Foxal, Bionic, Xenial, etc.  
+
 > Available disk space is approximate and depends on the base image and language selection of your project.
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 
