@@ -18,14 +18,14 @@ before_and_after: |
   ```
 ghlimit: |
   > If your API or cron triggered builds run on the *same commit
-  > or branch* over and over again, you will notice GitHub have a limit of
+  > or branch* over and over again, you will notice GitHub has a limit of
   > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
-  > *per commit*, which causes the Travis CI build status displayed on GitHub
-  > to be incorrect.
+  > *per commit*, which causes the Travis CI build status to display incorrectly 
+  > on GitHub.
   > Avoid this problem by specifying a regularly updated branch for your automated builds.
 all_note: |
-  > Language versions and other build-environment specific
-  > information are in our reference pages:
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
@@ -33,23 +33,23 @@ all_note: |
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
 unix_note: |
-  > Language versions and other build-environment specific
-  > information are in our reference pages:
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
   >  * [macOS](/user/reference/osx/)
 linux_note: |
-  > Language versions and other build-environment specific
-  > information are in our reference pages:
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
 linux_windows_note: |
-  > Language versions and other build-environment specific
-  > information are in our reference pages:
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
   >  * [Precise](/user/reference/precise/)
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
@@ -90,17 +90,17 @@ contact_enterprise_support: |
 
   Have you made any customizations to your setup? While we may be able to see some 
   information (such as hostname, IaaS provider, and license expiration), there 
-  are many other things we can't see which could lead to something not working. 
-  Therefore , we'd like to ask you to also answer the questions below in your 
+  are many other things we cannot see which could lead to something not working. 
+  Therefore , we would like to ask you to also answer the questions below in your 
   support request (if applicable):
   
   - How many machines are you using/what is your Kubernetes cluster set up?
   - Do you use configuration management tools (Chef, Puppet)?
   - Which other services do interface with Travis CI Enterprise?
   - Which Version Control system (VCS) do you use together with Travis CI Enterprise (e.g. github.com, GitHub Enterprise, BitBucket Cloud)?
-  - If you're using GitHub Enterprise, which version of it?
+  - If you are using GitHub Enterprise, which version of it?
   
-  We're looking forward to helping!
+  We are looking forward to helping!
 enterprise_2_encryption_key_backup: |
   To make a backup of encryption keys in TCIE 2.x, please follow these steps:
 
@@ -111,6 +111,6 @@ enterprise_2_encryption_key_backup: |
 enterprise_3_encryption_key_backup: |
   To make a backup of encryption keys in TCIE 3.x, please follow these steps:
 
-  1. Make sure you have appropriate access to the kubernetes cluster
+  1. Make sure you have appropriate access to the kubernetes cluster.
   2. Run `kubectl exec -it [travis-api-pod] cat /app/config/travis.yml |grep -A 2 encryption` (using Travis API pod is recommended). 
   3. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
