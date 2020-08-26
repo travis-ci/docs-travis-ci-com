@@ -158,6 +158,36 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a Bitbucket OAuth token to authenticate as in the example above.
 
+### Authentication with GitLab
+
+We recommend using a read-only GitLab OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine gitlab.com\n  login $GITLAB_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a GitLab OAuth token to authenticate as in the example above.
+
+### Authentication with Assembla
+
+We recommend using a read-only Assembla OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine assembla.com\n  login $ASSEMBLA_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Assembla OAuth token to authenticate as in the example above.
+
 ### Linux
 
 [Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial and Bionic images.
@@ -675,9 +705,9 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian [Bitbucket](https://bitbucket.org/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrates with Atlassian [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and Assembla (https://www.assembla.com/).
 
-Travis CI currently does not support git repositories hosted on GitLab or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on other version control systems such as Mercurial.
 
 ## What YAML Version Can I Use in `.travis.yml`
 

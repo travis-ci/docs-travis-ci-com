@@ -152,13 +152,6 @@ As an alternative to the web interface, you can also use the CLI's [`env`](https
 
 You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Convenience Variables
-
-To make using encrypted environment variables easier, the following environment variables are available:
-
-- `TRAVIS_SECURE_ENV_VARS` is set to `true` if you have defined any encrypted variables, including variables defined in the Repository Settings, and `false` if you have not.
-- `TRAVIS_PULL_REQUEST` is set to the pull request number if the current job is a pull request build, or `false` if it's not.
-
 ## Default Environment Variables
 
 The following default environment variables are available to all builds.
