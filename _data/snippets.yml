@@ -97,7 +97,7 @@ contact_enterprise_support: |
   - How many machines are you using/what is your Kubernetes cluster set up?
   - Do you use configuration management tools (Chef, Puppet)?
   - Which other services do interface with Travis CI Enterprise?
-  - Which Version Control system (VCS) do you use together with Travis CI Enterprise (e.g. github.com, GitHub Enterprise, BitBucket Cloud)?
+  - Which Version Control system (VCS) do you use together with Travis CI Enterprise (e.g. github.com, GitHub Enterprise, or BitBucket Cloud)?
   - If you are using GitHub Enterprise, which version of it?
   
   We are looking forward to helping!
