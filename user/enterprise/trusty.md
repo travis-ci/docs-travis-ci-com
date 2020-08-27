@@ -8,6 +8,8 @@ layout: en_enterprise
 
 **Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started.
 
+> Please note that starting from Travis CI Enterprise 3.0 support for Trusty build environment is discontinued.
+
 **Worker Requirements**:
 
 We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB of disk space. If you're using AWS, this will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
