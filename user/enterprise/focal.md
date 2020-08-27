@@ -9,15 +9,13 @@ layout: en_enterprise
 **Platform Requirements**: To use the Focal build containers, the Travis CI Enterprise (TCIE) installation must be at version 3.0 or higher. 
 Please be sure to [install TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise), if needed, before getting started.
 
-> It is possible to install Focal for Travis CI 2.2.6+, however Travis CI Enterprise Support Team will be not accepting any Focal build environment reports for TCIE version lower than 3.0.
-
 **Worker Requirements**:
 
 We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory and at least 60 GB of disk space. Also, you'll want to run Ubuntu 20.04 or later. Port 22 must be open for SSH during installation and operation.
 
 > _Trusty and Focal build containers must be on different instances_. To run both Trusty and Focal builds, at least two worker instances are required.
 
-## Differences from the Trusty Build Environment
+## Third party apt repositories and services disabled by default
 
 [Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/focal/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
 
