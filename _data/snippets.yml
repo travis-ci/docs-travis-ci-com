@@ -94,7 +94,7 @@ contact_enterprise_support: |
   Therefore , we would like to ask you to also answer the questions below in your 
   support request (if applicable):
   
-  - How many machines are you using/what is your Kubernetes cluster set up?
+  - How many machines are you using / what is your Kubernetes cluster setup?
   - Do you use configuration management tools (Chef, Puppet)?
   - Which other services do interface with Travis CI Enterprise?
   - Which Version Control system (VCS) do you use together with Travis CI Enterprise (e.g. github.com, GitHub Enterprise, or BitBucket Cloud)?
