@@ -14,7 +14,7 @@ Travis CI Enterprise (TCIE) 3.x typically runs in **a Kubernetes cluster** with 
 No additional installation steps are required. Please make sure to configure your [Kubernetes](https://kubernetes.io/) cluster with redundant pods for each service and ensuring appropriate resources to run it. You need to consider self-hosting of
 
 * [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/) and [Postgres](https://www.postgresql.org/) instances along with it's mirrors/redundant instances
-* common logs target location
+* Common Logs Target Location
 
 depending on your planned setup and volume of users and build jobs. See regular [installation instructions for TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#1-setting-up-enterprise-platform).
 
