@@ -7,7 +7,7 @@ layout: en_enterprise
 ## Travis CI Enterprise 3.x
 ---------------------------
 
-Travis CI Enterprise (TCIE) 3.x typically runs as **a Kubernetes cluster** with one or multiple workers. Services are split to several pods in the cluster. Thus the High Availability configuration is not separately enabled in your TCIE 3.x license anymore and depends only on your actual setup and configuration of the Platform.
+Travis CI Enterprise (TCIE) 3.x typically runs in **a Kubernetes cluster** with one or multiple workers. Services are split into several pods in the cluster. This enables a High Availability setup out of the box and you're able to customize based on your needs. 
 
 ### Installing the Platform in High Availability Mode
 
