@@ -1,5 +1,5 @@
 ---
-title: Bionic Build Containers for Enterprise (beta)
+title: Bionic Build Containers for Enterprise
 layout: en_enterprise
 
 ---
@@ -14,7 +14,7 @@ We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of me
 
 > A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine. 
 
-## Differences from the Trusty Build Environment
+## Important note
 
 [Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/bionic/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
 
