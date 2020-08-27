@@ -85,13 +85,13 @@ contact_enterprise_support: |
 
   |   TCI Enterprise version | Support bundle |
   | ---:                     | :---: | 
-  | **3.0**                  | Run `kubectl kots admin-console -n [namespace]` to access admin console on `http://localhost:8800`<br />Support bundle generation instruction is available in ‘troubleshoot’ menu or directly at: `http://localhost:8800/app/tci-enterprise-kots/troubleshoot`</br /><br />A command for generating support bundle will appear after selecting <br />*If you'd prefer, [click here]() to get a command to manually generate a support bundle.* | 
-  | **2.6+**                 | You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support` |  
+  | **3.x**                  | Run `kubectl kots admin-console -n [namespace]` to access admin console on `http://localhost:8800`<br />Support bundle generation instruction is available in ‘troubleshoot’ menu or directly at: `http://localhost:8800/app/tci-enterprise-kots/troubleshoot`</br /><br />A command for generating support bundle will appear after selecting <br />*If you'd prefer, [click here]() to get a command to manually generate a support bundle.* | 
+  | **2.x+**                 | You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support` |  
 
   Have you made any customizations to your setup? While we may be able to see some 
   information (such as hostname, IaaS provider, and license expiration), there 
   are many other things we cannot see which could lead to something not working. 
-  Therefore , we would like to ask you to also answer the questions below in your 
+  Therefore, we would like to ask you to also answer the questions below in your 
   support request (if applicable):
   
   - How many machines are you using / what is your Kubernetes cluster setup?
@@ -111,6 +111,6 @@ enterprise_2_encryption_key_backup: |
 enterprise_3_encryption_key_backup: |
   To make a backup of encryption keys in TCIE 3.x, please follow these steps:
 
-  1. Make sure you have appropriate access to the kubernetes cluster.
+  1. Make sure you have appropriate access to the kubernetes cluster: you need credentials for `kubectl` and connection to [travis-api-pod] 
   2. Run `kubectl exec -it [travis-api-pod] cat /app/config/travis.yml |grep -A 2 encryption` (using Travis API pod is recommended). 
   3. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
