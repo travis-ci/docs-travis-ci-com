@@ -73,7 +73,7 @@ Once your second platform is installed, it will also need its HA settings config
 ## Installing the Worker in High Availability Mode (all versions)
 -----------------------------------------------------------------
 
-The worker installation works the same as for non-HA installations, as do the build environment compatibility defaults per Enterprise version. Check out the docs for which version of Enterprise handle different OS's([TCIE 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) or [TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#2-setting-up-the-enterprise-worker-virtual-machine) and other information regarding installation. You will need to retrieve your RabbitMQ password from your own installation, rather than from the Travis CI Enterprise Admin Dashboard.
+The worker installation works the same as for non-HA installations, as do the build environment compatibility defaults per Enterprise version. Check out the docs for which version of Enterprise handle different OS's([TCIE 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) or [TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#2-setting-up-the-enterprise-worker-virtual-machine) and other information regarding the installation. You will need to retrieve your RabbitMQ password from your own installation, rather than from the Travis CI Enterprise Admin Dashboard.
 
 ## Contact Enterprise Support
 -----------------------------
