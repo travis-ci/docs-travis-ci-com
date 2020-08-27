@@ -13,7 +13,7 @@ Please be sure to [install TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis
 
 We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory and at least 60 GB of disk space. Also, you'll want to run Ubuntu 20.04 or later. Port 22 must be open for SSH during installation and operation.
 
-> _Trusty and Focal build containers must be on different instances_. To run both Trusty and Focal builds, at least two worker instances are required.
+> A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine. 
 
 ## Third party apt repositories and services disabled by default
 
