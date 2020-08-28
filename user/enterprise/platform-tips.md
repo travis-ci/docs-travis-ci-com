@@ -112,7 +112,7 @@ Then, please run:
 
 ## Managing RabbitMQ in TCIE 3.x
 
-RabbitMQ is now deployed in separate pod named `travisci-platform-rabbitmq-ha-0` and all rabbit related maintenance should be done there.
+RabbitMQ is now deployed in separate pod named `travisci-platform-rabbitmq-ha-0` and all Rabbit-related maintenance should be done there.
 In order to access RabbitMQ pod execute 
 
 `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash`
