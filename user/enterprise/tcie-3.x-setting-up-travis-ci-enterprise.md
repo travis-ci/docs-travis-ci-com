@@ -11,16 +11,17 @@ redirect_from:
 > * Bitbucket.org
 > * GitLab.com
 
-Travis CI Enteprise 3.x+ is ditributed in form of Kubernetes Off The Shell installation package, containing Helm chart and docker images for component services. It is meant to be installed as a Kubernetes managed cluster.
+Travis CI Enterprise 3.x+ is distributed through a "Kubernetes Off The Shelf" installation package, containing a Helm chart and docker images for component services. We recommend installing Travis CI Enterprise 3.x into a Kubernetes managed cluster.
 
 ## Prerequisites
 
-Travis CI Enteprrise (TCIE) installation can be executed via [Replicated KOTS](https://kots.io/) installer (for existing environment in GCE, AWS and for OpenStack managed infrastructre) or as single virtual machine installation via [Replicated kURL](https://kurl.sh/) (installs as microk8s cluster on a single instance)
+You can either install Travis CI Enterprise (TCIE) via [Replicated KOTS](https://kots.io/) to install it into a Kubernetes cluster on GCE, AWS, or OpenStack. 
+Alternatively, you can install it on a single machine using the [Replicated kURL](https://kurl.sh/) installer.
 
   * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration.
 
   * At least two virtual machines on your private cloud that meet the [system requirements](#system-requirements) - one of these must be set up as Kubernetes/ microk8s host - or Kubernetes Cluster
-  * In case of GitHub: The `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) configured with:
+  * When you use GitHub Cloud or GitHub Enterprise Server: The `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) configured with:
 
     - *Homepage URL* - `https://<your-travis-ci-enterprise-domain>`
     - *Authorization callback URL* - `https://<your-travis-ci-enterprise-domain>/api`
@@ -58,8 +59,8 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
 1. *On your infrastructure management platform*, create a Travis CI Platform Security Group.
 
-    If you're setting up your instance image or Kubernetes cluster for the first time, you most probably need to create some kind of
-    a Security Group. Create an entry for each port in the table below:
+    If you're setting up your instance image or Kubernetes cluster for the first time, you need to create 
+    Security Groups or Firewall Rules. Create an entry for each port in the table below:
 
     | Port | Service         | Description                                                                  |
     |:-----|:----------------|:-----------------------------------------------------------------------------|
@@ -71,9 +72,9 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
     | 80   | HTTP            | Web application access.                                                      |
     | 22   | SSH             | SSH access.                                                                  |
 
-2. If you're using a hostname and not just an IP address, this would be a time to configure it.
-3. Set-up your cluster/machine instances configuration - at least 1 virtual machine is needed (in microk8s scenario) or Kubernetes cluster prepared and started
-4. On *your local machine*, assuming the proper connection with the cluster exists, install Replicated KOTS.
+2. Please configure your hostname now. (Skip if you will access TCIE through an IP address)
+3. Set up your cluster/machine instances configuration - at least 1 virtual machine is needed (in microk8s scenario) or Kubernetes cluster prepared and started
+4. Install Replicated KOTS on *your local machine*. Please make sure that you can connect to the Kubernetes cluster.
 5. TCIE 3.x installed on **single** virtual machine instance
     1. On *your new virtual machine instance* run kurl.sh via 'curl https://kurl.sh/latest | sudo bash' 
     2. Get credentials from microk8s cluster running on *your new vm instance*
@@ -85,7 +86,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
    1. Authorize with a password set during the installation process 
    2. Upload your Travis CI Enterprise license. 
-   3. Connect your GitHub Enterprise or GitHub.com (or other VCS).
+   3. Connect your Source Control System ( GitHub Enterprise Server, GitHub.com, or Bitbucket).
    4. Optionally, configure Email, Metrics and Caches.
    5. Copy the *RabbitMQ password* for the Worker setup.
 
@@ -122,7 +123,7 @@ Install the Google Cloud SDK via:
 curl https://sdk.cloud.google.com | bash
 ```
 
-If you try to run at this point ```gcloud init``` it will not work, you must restart your shell via:
+Please restart your shell session before running `gcloud init`: 
 
 ```bash
 exec -l $SHELL
