@@ -18,12 +18,12 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
     If you're setting up Worker image for the first time, you will need to create
-    a Security Group. From the EC2 management console, create an entry for
+    a Security Group or Firewall rules. From the management console, create an entry for
     each port in the table below:
 
     | Port | Service | Description |
     |:-----|:--------|:------------|
-    | 22   | SSH     | SSH access. |
+    | 22   | SSH     | Allow inbound SSH traffic in order to access Worker Machine from your local machine. |
 
 1. *On your new virtual machine*, download and run the installation script:
 
@@ -45,10 +45,10 @@ export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
 
 ### Older versions of Travis CI Enterprise
 
-| Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
-|:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
-| Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           |
-| Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
+| Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          | Worker Status |
+|:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|:-------------:|
+| Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | Deprecated    |
+| Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           | Deprecated    |
+| Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   | Deprecated    |
 
 After setting up a new instance for the worker, please follow the respective guides for your Travis CI Enterprise version.
