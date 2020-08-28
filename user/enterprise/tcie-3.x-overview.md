@@ -17,7 +17,7 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 * Kubernetes ready!
   * Simple installation via Replicated KOTS installer (for existing environment in GCE, AWS and for OpenStack) or manage your single machine installation via Replicated https://kurl.sh/ (installs as microk8s cluster on a single instance)
 * Build environments (Ubuntu):
-  * Trusty
+  * Trusty (deprecated, available only for backwards compatibility purposes)
   * Xenial
   * Bionic
   * Focal
