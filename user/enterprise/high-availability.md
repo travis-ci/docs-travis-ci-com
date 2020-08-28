@@ -34,7 +34,7 @@ Other option is to modify configuration for aforementioned services (PostgreSQL,
 
 * Postgresql: most probably you may want to start looking at primary / standby service pods behind a service load balancing the traffic. Automatic failover switching is at your discretion.
 
-* Redis: you may want to look at setup with Redis Master, Sentinel and Replicas with Sentinel as entry point for every pod utilizing Redis
+* Redis: you may want to look at setup with Redis Master, Sentinel and Replicas with Sentinel as an entry point for every pod utilizing Redis
 
 * RabbitMQ: RabbitMQ has an extensive [guide for clustering](https://www.rabbitmq.com/clustering.html) which may help to select appropriate solution for your case.
 
