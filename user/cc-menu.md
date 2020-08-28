@@ -6,7 +6,7 @@ layout: en
 
 ![Screenshot of CC menu](/images/Backstop_Menubar_20140305_155352_20140305_155425.jpg "Screenshot of CC menu")
 
-[CCMenu](http://ccmenu.org/) is a little tool for the OS X status bar to keep track of your repositories' latest build status from the convenience of your Mac.
+[CCMenu](http://ccmenu.org/) is a little tool for the macOS status bar to keep track of your repositories' latest build status from the convenience of your Mac.
 
 [CCTray](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/) is the equivalent tool for your Windows environment, [BuildNotify](https://bitbucket.org/Anay/buildnotify/wiki/Home) for Linux systems. The general instructions apply to all of them.
 

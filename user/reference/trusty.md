@@ -3,66 +3,46 @@ title: The Trusty Build Environment
 layout: en
 redirect_from:
   - /user/trusty-ci-environment/
+  - /user/workers/standard-infrastructure/
 ---
+
+> Trusty is EOL by Canonical, try updating to a newer image and see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
 
 ## What This Guide Covers
 
 This guide provides a general overview of which packages, tools and settings are
 available in the Trusty environment.
 
-
-
 ## Using Trusty
 
-To use sudo-enabled Ubuntu Trusty, add the following to your
+To use Ubuntu Trusty, add the following to your
 `.travis.yml`.
 
 ```yaml
 dist: trusty
-sudo: required
 ```
 {: data-file=".travis.yml"}
-
-Or to route to sudo-less:
-
-```yaml
-dist: trusty
-sudo: false
-```
-{: data-file=".travis.yml"}
-
-This is enabled for both public and private repositories.
 
 If you'd like to know more about the pros, cons, and current state of using
-Trusty, including details specific to container-based, read on ...
+Trusty, read on.
 
-## Fully-virtualized via `sudo: required`
-
-When specifying `sudo: required`, Travis CI runs each build in an isolated
-[Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine
-that offer a vanilla build environment for every build.
-
-This has the advantage that no state persists between builds, offering a clean
-slate and making sure that your tests run in an environment built from scratch.
+Travis CI runs each build in an isolated [Google Compute Engine](https://cloud.google.com/compute/docs/) virtual machine that offers a vanilla build environment for every build.
 
 Builds have access to a variety of services for data storage and messaging, and
 can install anything that's required for them to run.
 
-## Container-based with `sudo: false`
+## Linux infrastructure
 
-When specifying `sudo: false`, Travis CI runs each build in a container on a
-shared host via Docker.  The container contents are a pristine copy of the
-Docker image, as guaranteed by Docker itself.
+Travis CI runs each build in an isolated Google Compute Engine virtual machine that offer a vanilla build environment for every build.
 
-The advantage of running with `sudo: false` is dramatically reduced time between
-commit push to GitHub and the start of a job on Travis CI, which works
-especially well when one's average job duration is under 3 minutes.
+This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
 
-*NOTE: The allowed list of packages that may be installed varies between Precise
-and Trusty, with the Precise list being considerably larger at the time of this
-writing.  If the packages you need are not yet available on Trusty, it is
-recommended that you either target `dist: precise` or `sudo: required` depending
-on your needs.*
+Your build is routed to this infrastructure automatically, you don't need make any modifications to your `.travis.yml`.
+
+## Container-based infrastructure
+
+> Container-based infrastructure has been fully [deprecated](https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
+> Please remove any `sudo: false` keys in your `.travis.yml` file to use the fully-virtualized [Linux infrastructure](#linux-infrastructure).
 
 ## Image differences from Precise
 
@@ -72,35 +52,16 @@ based on common language runtimes like `ruby`, `go`, `php`, `python`, etc.
 For our Trusty based environments, we're making a smaller set of images that
 includes:
 
-- A minimal image which contains a small subset of interpreters, as well as
+- A [minimal image](/user/languages/minimal-and-generic/#minimal) which contains a small subset of interpreters, as well as
   `docker` and `packer`.
-- A considerably larger image which contains roughly the same runtimes and
+- A considerably [larger image](/user/languages/minimal-and-generic/#generic) which contains roughly the same runtimes and
   services present in Precise environments.
-
-## Routing to Trusty
-
-Add the following to your `.travis.yml` file. This works for both public and
-private repositories.
-
-```yaml
-dist: trusty
-sudo: required
-```
-{: data-file=".travis.yml"}
-
-Or, if you want to route to container-based:
-
-```yaml
-dist: trusty
-sudo: false
-```
-{: data-file=".travis.yml"}
 
 ## Environment common to all Trusty images
 
 ### Version control
 
-All VM images have the following pre-installed:
+All virtual machine images have the following pre-installed:
 
 - Git 2.x
 - Mercurial
@@ -126,13 +87,8 @@ The `build-essential` metapackage is installed, as well as modern versions of:
 
 ### Docker
 
-Docker is installed.  We use the official [Docker apt
-repository](https://blog.docker.com/2015/07/new-apt-and-yum-repos/), so you can
-easily install another version with `apt` if needed.  When `sudo: required` is
-specified, Docker is installed as a service.  When `sudo: false` is specified,
-the Docker binaries are available for local use.
-
-*NOTE: When `sudo: false` is specified, the Docker daemon is not supported.*
+Docker is installed as a service.
+We use the official [Docker apt repository](https://blog.docker.com/2015/07/new-apt-and-yum-repos/), so you can easily install another version with `apt` if needed.
 
 [docker-compose](https://docs.docker.com/compose/) is also installed.
 
@@ -207,10 +163,13 @@ by `gimme`.
           - openjdk-6-jdk
     jdk: openjdk6
     ```
+    {: data-file=".travis.yml"}
 - We install the latest Oracle JDK versions from Oracle:
   - Oracle JDK 8 (`oraclejdk8`). Default.
   - Oracle JDK 9 (`oraclejdk9`)
   - Oracle JDK 7 is not provided because it reached End of Life in April 2015.
+  - Oracle JDK 10 is not provided because it reached End of Life in October 2018.
+  - Oracle JDK 11 (`oraclejdk11`)
 
 - [jdk_switcher](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is)
   is installed if you need another JDK version.
@@ -241,6 +200,19 @@ thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
 alternative. `sbt` can dynamically detect and install the sbt version required
 by your Scala projects.
 
+## Perl images
+
+Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
+The default version of Perl is 5.14.
+
+### Perl runtimes with threading support
+
+{{ site.data.language-details.perl.threading }}
+
+### Pre-installed modules
+
+{{ site.data.language-details.perl.modules }}
+
 ## PHP images
 
 [phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
@@ -254,7 +226,8 @@ Specifying it will result in build failure.
 If you need to test with these versions, use Precise.*
 
 ```yaml
-matrix:
+language: php
+jobs:
   include:
     - php: 5.2
       dist: precise
@@ -271,7 +244,6 @@ and the nightly builds are installed on-demand (as `hhvm-nightly`).
 
 ```yaml
 language: php
-sudo: required
 dist: trusty
 php:
   - hhvm-3.3
@@ -316,12 +288,10 @@ For PHP versions up to 5.6, the following extensions are available:
 Please note that these extensions are not enabled by default with the exception
 of xdebug.
 
-
 ## Other software
 
-When `sudo: required` is specified, you may install other Ubuntu packages using
-`apt-get`, or add third party PPAs or custom scripts.  For further details,
-please see the document on [installing dependencies](/user/installing-dependencies/).
+Install other Ubuntu packages using `apt-get`, or add third party PPAs or custom scripts.
+For further details, please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 
@@ -364,7 +334,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#Default-Environment-Variables) available
+variables](/user/environment-variables#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
@@ -376,8 +346,9 @@ using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means
 ### Group membership
 
 The user executing the build (`$USER`) belongs to one primary group derived from
-that user.  When `sudo: required` is specified, you may modify group membership
-by following the following steps:
+that user.
+
+If you need to modify group membership follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle
    prior to the build script execution.
@@ -401,3 +372,7 @@ secondary groups given above in `usermod`.
 
 In the build log, relevant software versions (including the available language
 versions) are shown in the "Build system information" section.
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

@@ -4,7 +4,9 @@ layout: en
 swiftypetags: 'skip_cleanup'
 ---
 
-
+> This page documents deployments using dpl v1 which is the
+> default version. The next major version dpl v2 will be released soon. Please
+> see [the announcement blog post](https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2).
 
 ## Supported Providers
 
@@ -68,9 +70,12 @@ Use the following options to configure conditional deployment:
 * `repo`: in the form `owner_name/repo_name`. Deploy only when the build occurs on a particular repository. For example
 
    ```yaml
-   on:
-     repo: travis-ci/dpl
+   deploy:
+     provider: s3
+     on:
+       repo: travis-ci/dpl
    ```
+   {: data-file=".travis.yml"}
 
 * `branch`: name of the branch.
    If omitted, this defaults to the `app`-specific branch, or `master`. If the branch name is not known ahead of time, you can specify
@@ -95,13 +100,14 @@ Use the following options to configure conditional deployment:
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
 ```yaml
+language: node_js
 deploy:
   provider: appfog
   user: ...
   api_key: ...
   on:
     branch: staging
-    node: '0.11' # this should be quoted; otherwise, 0.10 would not work
+    node_js: '0.11' # this should be quoted; otherwise, 0.10 would not work
 ```
 {: data-file=".travis.yml"}
 
@@ -113,7 +119,22 @@ deploy:
   script: deploy.sh
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^staging|production$
+    condition: $TRAVIS_BRANCH =~ ^(staging|production)$
+```
+{: data-file=".travis.yml"}
+
+The next example deploys using custom scripts `deploy_production.sh` and `deploy_staging.sh` depending on the branch that triggered the job.
+
+```yaml
+deploy:
+  - provider: script
+    script: deploy_production.sh
+    on:
+      branch: production
+  - provider: script
+    script: deploy_staging.sh
+    on:
+      branch: staging
 ```
 {: data-file=".travis.yml"}
 

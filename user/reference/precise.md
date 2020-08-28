@@ -7,12 +7,12 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
+> Precise is EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
+
 ### What This Guide Covers
 
 This guide explain what packages, tools and settings are available in the Travis
 CI environment (often referred to as "CI environment").
-
-
 
 ## Overview
 
@@ -29,7 +29,7 @@ can install anything that's required for them to run.
 ## Networking
 
 The virtual machines in the Legacy environment running the tests have IPv6 enabled. They do not have any external IPv4 address but are fully able to communicate with any external IPv4 service.
-The container-based, OS X, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
+The container-based, macOS, and GCE (both Precise and Trusty) builds do not currently have IPv6 connectivity.
 
 The IPv6 stack can have some impact on Java services in particular, where one might need to set the flag `java.net.preferIPv4Stack` to force the JVM to resort to the IPv4 stack should services show issues of not booting up or not being reachable via the network: `-Djava.net.preferIPv4Stack=true`.
 
@@ -42,7 +42,7 @@ images.
 
 For other images, see the list below:
 
-- [OS X CI Environment](/user/reference/osx)
+- [macOS CI Environment](/user/reference/osx)
 - [Trusty CI Environment](/user/reference/trusty)
 
 ### Version control
@@ -79,7 +79,7 @@ to accommodate projects that may need one of those runtimes during the build.
 
 Language-specific workers have multiple runtimes for their respective language (for example, Ruby workers have about 10 Ruby versions/implementations).
 
-### Databases
+### Data Stores
 
 - MySQL
 - PostgreSQL
@@ -95,7 +95,7 @@ Language-specific workers have multiple runtimes for their respective language (
 ### Firefox
 
 All virtual environments have recent version of Firefox installed, currently
-31.0 for Linux environments and 25.0 for OS X.
+31.0 for Linux environments and 25.0 for macOS.
 
 If you need a specific version of Firefox, use the Firefox addon to install
 it during the `before_install` stage of the build.
@@ -123,7 +123,7 @@ Please note that the addon only works in 64-bit Linux environments.
 
 ### Environment variables
 
-There is a [list of default environment variables](/user/environment-variables#Default-Environment-Variables) available in each build environment.
+There is a [list of default environment variables](/user/environment-variables#default-environment-variables) available in each build environment.
 
 ### Libraries
 
@@ -246,31 +246,18 @@ Scons
 
 ## Perl VM images
 
-### Perl versions
-
 Perl versions are installed via [Perlbrew](http://perlbrew.pl/).
-Those runtimes that end with the `-extras` suffix have been compiled with
-`-Duseshrplib` and `-Duseithreads` flags.
-These also have aliases with the `-shrplib` suffix.
+The default version of Perl is 5.14.
+
+### Perl runtimes with threading support
+
+{{ site.data.language-details.perl.threading }}
 
 ### Pre-installed modules
 
-cpanm (App::cpanminus)
-Dist::Zilla
-Dist::Zilla::Plugin::Bootstrap::lib
-ExtUtils::MakeMaker
-LWP
-Module::Install
-Moose
-Test::Exception
-Test::Kwalitee
-Test::Most
-Test::Pod
-Test::Pod::Coverage
+{{ site.data.language-details.perl.modules }}
 
 ## PHP VM images
-
-
 
 ### PHP versions
 
@@ -402,3 +389,7 @@ Recent 1.7.x version (usually the most recent)
 
 - bundler
 - rake
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.

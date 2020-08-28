@@ -1,33 +1,61 @@
 #language: ruby
-sudo: false
-dist: trusty
-language: python
-python:
-  - "3.5.2"
+dist: bionic
+
 branches:
   only:
   - master
-env:
-  global:
-    - PATH=$HOME/.local/user/bin:$PATH
-cache:
-  pip: true
-  directories:
-    - vendor/bundle
-    - node_modules
-addons:
-  apt:
-    packages:
-      - libxml2-utils
-deploy:
-  provider: heroku
-  api_key:
-    secure: "hylw2GIHMvZKOKX3uPSaLEzVrUGEA9mzGEA0s4zK37W9HJCTnvAcmgRCwOkRuC4L7R4Zshdh/CGORNnBBgh1xx5JGYwkdnqtjHuUQmWEXCusrIURu/iEBNSsZZEPK7zBuwqMHj2yRm64JfbTDJsku3xdoA5Z8XJG5AMJGKLFgUQ="
-  app: docs-travis-ci-com
-  skip_cleanup: true
-  on:
-    branch:
-    - master
+
+jobs:
+  include:
+  - name: build site
+    language: python
+    python:
+      - "3.8.3"
+    env:
+      global:
+        - PATH=$HOME/.local/user/bin:$PATH
+        - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+    cache:
+      pip: true
+      directories:
+        - vendor/bundle
+        - node_modules
+        - $TRAVIS_BUILD_DIR/tmp/.htmlproofer #https://github.com/gjtorikian/html-proofer/issues/381
+    addons:
+      apt:
+        packages:
+          - libxml2-utils
+    install:
+      - rvm use 2.6.3 --install
+      - bundle install --deployment
+      - sudo apt-get install libcurl4-openssl-dev # required to avoid SSL errors
+    script:
+      - bundle exec rake test
+      - xmllint --noout _site/feed.build-env-updates.xml
+
+  - name: update dpl v2 docs
+    if: type = cron || commit_message =~ /ci:dpl/
+    language: shell
+    cache: false
+    install:
+    - rvm use 2.5.3
+    script:
+    - git clone https://github.com/travis-ci/dpl.git
+    - cd dpl
+    - gem build dpl.gemspec
+    - gem install dpl-*.gem
+    - cd ..
+    - rm -rf dpl
+    - bin/dpl
+    deploy:
+    - provider: git_push
+      token:
+        secure: "YHuTjIGKpG0A8QJ4kmdLfOW1n+62uLakXv0KjCzWExl22qLSn2frip3j8JsaeMfndsmNZBUfGoONVHvDS+PHnkbRMYf21SjgctpVfHRYZQ3pulexOViEQ6azRgCBWuPO8A+vAyxvjlV4e3UDGnt2x/0X/Tdg9iVf/zzBGjM0YX0="
+      branch: auto-dpl-v2-update-docs
+      pull_request: true
+      edge:
+        branch: master
+
 notifications:
   slack:
     rooms:
@@ -35,9 +63,3 @@ notifications:
     on_success: never
   webhooks:
     https://docs.travis-ci.com/update_webhook_payload_doc
-install:
-  - rvm use 2.4.3 --install
-  - bundle install --deployment
-script:
-  - bundle exec rake test
-  - xmllint --noout _site/feed.build-env-updates.xml

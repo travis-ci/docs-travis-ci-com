@@ -1,6 +1,7 @@
 ---
 title: npm Releasing
 layout: en
+deploy: v1
 ---
 
 Travis CI can automatically release your npm package to [npmjs.com][npmjs]
@@ -15,6 +16,10 @@ publishes to npmjs.com, however if you have a `publishConfig.registry` key in yo
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
 
 ```yaml
+language: node_js
+node_js:
+  - "12.13"
+
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
@@ -41,7 +46,7 @@ Your NPM Auth Token can be obtained by:
     1. For NPM v2+, use the `authToken` value.
     1. For NPM ~1, use the `auth` value.
 
-Always [encrypt](/user/encryption-keys/#Usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
+Always [encrypt](/user/encryption-keys/#usage) your auth token. Assuming you have the Travis CI command line client installed, you can do it like this:
 
 ```bash
 $ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
@@ -127,7 +132,7 @@ See [`npm` documentation](https://docs.npmjs.com/misc/developers#keeping-files-o
 for more details.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 

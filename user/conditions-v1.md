@@ -6,9 +6,10 @@ layout: en
 > This page documents conditions v1 which is now the default version. The
 > documentation for v0 can be found [here](/user/conditions-v0).
 
-Conditions can be used to filter out, and reject builds, stages, and jobs by
-specifying conditions in your build configuration (your `.travis.yml` file).
-See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+Conditions can be used to filter out, and reject builds, stages, jobs, and
+notifications by specifying conditions in your build configuration (your
+`.travis.yml` file). See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+and [Conditional Notifications](/user/notifications/#conditional-notifications)
 for details.
 
 Conditions can be tested using the `travis-conditions` command. See
@@ -115,8 +116,8 @@ Boolean operators:
 ```
 branch = master AND env(FOO) = foo
 branch = master OR env(FOO) = foo
-branch = master AND env(FOO) = foo OR tag = true
-branch = master AND (env(FOO) = foo OR tag = true)
+branch = master AND env(FOO) = foo OR tag = bar
+branch = master AND (env(FOO) = foo OR tag = bar)
 NOT branch = master
 ```
 
@@ -142,8 +143,8 @@ The following boolean operators are supported:
 the following expressions are the same:
 
 ```
-branch = master AND os = linux OR tag = true
-(branch = master AND os = linux) OR tag = true
+branch = master AND os = linux OR tag = bar
+(branch = master AND os = linux) OR tag = bar
 
 NOT branch = master AND os = linux
 NOT (branch = master) AND os = linux
@@ -173,7 +174,7 @@ env(foo) = bar
 
 ### Regular expressions
 
-This matches a string using a regular expression:
+This matches a string using a [Ruby regular expression](https://ruby-doc.org/core-2.6/Regexp.html):
 
 ```
 branch =~ ^master$
@@ -376,7 +377,7 @@ Do not build on forks:
 fork = false
 ```
 
-Build only when the commit message matches against the given regular expression:
+Build only when the commit message doesn't match against the given regular expression:
 
 ```
 commit_message !~ /(no-deploy|wip)/

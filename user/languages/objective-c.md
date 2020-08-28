@@ -9,32 +9,35 @@ swiftypetags:
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Getting
-Started](/user/getting-started/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
 configuration](/user/customizing-the-build/) guides first.
 
-Objective-C/Swift builds are not available on the Linux environments.
+> Objective-C/Swift builds are not available on the Linux environments.
 
 ## Supported Xcode versions
 
-Travis CI uses OS X 10.13 (and Xcode 9.4.1) by default. You can use another
-version of Xcode (and OS X) by specifying the corresponding `osx_image` key from
+Travis CI uses macOS 10.13 (and Xcode 9.4.1) by default. You can use another
+version of Xcode (and macOS) by specifying the corresponding `osx_image` key from
 the following table:
 
 <table>
 
-<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>OS X version</th></tr>
+<tr align="left"><th>osx_image value</th><th>Xcode version</th><th>macOS version</th></tr>
 {% for image in site.data.xcodes.osx_images %}
 <tr>
   <td><code>osx_image: {{image.image}}</code>{% if image.default == true %}  <em>Default</em> {% endif %}</td>
   <td><a href="/user/reference/osx/#xcode-{{image.xcode | downcase | remove:'.' | remove: '-'}}">Xcode {{ image.xcode_full_version }}</a></td>
-  <td>OS X {{ image.osx_version}}
+  <td>macOS {{ image.osx_version}}
   </td></tr>
 {% endfor %}
 </table>
 
-> Detailed iOS SDK versions are available in the [OS X CI environment
-> reference](https://docs.travis-ci.com/user/reference/osx/#xcode-version)
+> Detailed iOS SDK versions are available in the [macOS CI environment
+> reference](/user/reference/osx/#xcode-version)
+
+## Objective-C vs Swift
+
+Right now, `language: swift` is just an alias for `language: objective-c`. Said another way, we don't have native support for Swift projects at this time. Swift builds are just routed to our macOS image, the same as Objective-C builds.
 
 ## Default Test Script
 
@@ -172,6 +175,10 @@ install: make get-deps
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Objective-C](https://config.travis-ci.com/ref/language/objective-c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [OS X environment page](/user/reference/osx#Xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).

@@ -12,7 +12,6 @@ This example has 2 build stages:
 Here's what the `.travis.yml` config could look like:
 
 ```yaml
-sudo: true
 dist: trusty
 
 jobs:

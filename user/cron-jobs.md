@@ -8,7 +8,6 @@ layout: en
 
 {{ site.data.snippets.cron_jobs }}
 
-Cron job builds use the same notification settings as normal push builds, and you can [skip them](#Skipping-cron-Jobs) in the same way
 
 Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
@@ -28,7 +27,7 @@ Confirm that the cron job is displayed in your settings tab:
 
 ## Skipping Cron Jobs
 
-Because cron jobs build the latest commit to a particular branch, if that commit message includes [`[ci skip]` or `[skip ci]`](/user/customizing-the-build/#Skipping-a-build) the cron job will skip that build.
+Please note that cron jobs will run regardless and cannot be skipped even with [ci skip] in the latest commit message.
 
 ## Deleting Cron Jobs
 
@@ -39,3 +38,7 @@ Click the small trash icon on the right hand side of the page:
 ## Detecting Builds Triggered by Cron
 
 To check whether a build was triggered by cron, examine the `TRAVIS_EVENT_TYPE` environment variable to see if it has the value `cron`.
+
+## Notifications
+
+Cron job builds use the same [notification settings](https://docs.travis-ci.com/user/notifications/) as normal push builds.

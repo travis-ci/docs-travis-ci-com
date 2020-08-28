@@ -1,6 +1,7 @@
 ---
 title: Firebase Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -9,7 +10,7 @@ layout: en
 Travis CI can automatically deploy your application to [Firebase](https://firebase.google.com/)
 after a successful build.
 
-To use the default configuration, add your [encrypted](/user/encryption-keys/#Usage) Firebase [token](/user/deployment/firebase/#Generating-your-Firebase-token) to your `.travis.yml`, all other information is read from your `firebase.json`:
+To use the default configuration, add your [encrypted](/user/encryption-keys/#usage) Firebase [token](/user/deployment/firebase/#generating-your-firebase-token) to your `.travis.yml`, all other information is read from your `firebase.json`:
 
 ```yaml
 deploy:
@@ -30,9 +31,9 @@ firebase login:ci
 travis encrypt "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add
 # This command may generate a warning ("If you tried to pass the name of the repository as the first argument, you probably won't get the results you wanted"). You can ignore it.
 ```
-When using `travis encrypt --add` you are likely to receive `WARNING: The name of the repository is now passed to the command with the -r option` (see https://github.com/travis-ci/travis-ci/issues/7869). The token will be added to your `.travis.yml`, regardless. Inspect and move the token to the `secure:` section of your `.travis.yml` if it isn't added there. 
+When using `travis encrypt --add` you are likely to receive `WARNING: The name of the repository is now passed to the command with the -r option` (see https://github.com/travis-ci/travis-ci/issues/7869). The token will be added to your `.travis.yml`, regardless. Inspect and move the token to the `secure:` section of your `.travis.yml` if it isn't added there.
 
-Remember to [encrypt](/user/encryption-keys/#Usage) the token before adding it to your `.travis.yml`
+Remember to [encrypt](/user/encryption-keys/#usage) the token before adding it to your `.travis.yml`
 
 ## Deploying to a custom project
 

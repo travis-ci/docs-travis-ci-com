@@ -116,7 +116,7 @@ The first thing you need to know is what API URL endpoint to use:
 
 When you write your own Travis CI client, please keep the following in mind:
 
-- Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on OS X 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
+- Always set the **User-Agent** header. This header is not required right now, but will be in the near future. Assuming your client is called "My Client", and its current version is 1.0.0, a good value would be `MyClient/1.0.0`. For our command line client running on macOS 10.9 on Ruby 2.1.1, it might look like this: `Travis/1.6.8 (Mac OS X 10.9.2 like Darwin; Ruby 2.1.1; RubyGems 2.0.14) Faraday/0.8.9 Typhoeus/0.6.7`.
 - Always set the **Accept** header to `application/vnd.travis-ci.2.1+json` to make sure that you get results from the V2.1 API. See also the note about [API V2.1](#API-V2-1)
 
 Client libraries will usually set these headers automatically.
@@ -391,7 +391,7 @@ Some client libraries will automate this handshake for you.
 
 You can also trigger a full OAuth handshake between Travis CI and GitHub by opening `/auth/handshake` in a web browser. The endpoint takes an optional `redirect_uri` query parameter, which takes a URL the web browser will end up on if the handshake is successful.
 
-There is an alternative version of this that will try to run the handshake in a hidden iframe and using `window.postMessage` to hand the token to the website embedding the iframe. **This endpoint will only work for whitelisted websites.**
+There is an alternative version of this that will try to run the handshake in a hidden iframe and using `window.postMessage` to hand the token to the website embedding the iframe. **This endpoint will only work for safelisted websites.**
 
 # Entities
 

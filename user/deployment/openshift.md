@@ -1,6 +1,7 @@
 ---
 title: OpenShift Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -72,7 +73,7 @@ deploy:
 
 ### Branch to deploy from
 
-If you have branch specific options, as [shown above](#Application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
+If you have branch specific options, as [shown above](#application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
@@ -122,7 +123,7 @@ As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ### Running commands before and after deploy

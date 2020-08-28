@@ -4,122 +4,111 @@ layout: en
 
 ---
 
-### What This Guide Covers
+<div id="toc"></div>
 
-This guide covers build environment and configuration topics specific to Perl projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+<aside markdown="block" class="ataglance">
+
+| Perl                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#Dependency-Management) | `cpanm --quiet --installdeps --notest .`  |
+| [Default `script`](#Default-Build-Script)   | Varies                                    |
+| [Matrix keys](#Build-Matrix)                | `perl`, `env`                             |
+| Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+Minimal example:
+
+```yaml
+language: perl
+perl:
+  - "5.28"
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
+## What This Guide Covers
+
+{{ site.data.snippets.linux_note }}
 
 Perl builds are not available on the OS X environment.
 
-## Choosing Perl versions to test against
+The rest of this guide covers configuring Perl projects in Travis CI. If you're
+new to Travis CI please read our [Getting Started](/user/getting-started/) and
+[build configuration](/user/customizing-the-build/) guides first.
 
-Perl workers on Travis CI use [Perlbrew](http://perlbrew.pl/) to provide several Perl versions your projects can be tested against. To specify them, use the `perl:` key in your `.travis.yml` file, for example:
+## Specifying Perl versions
 
-```yaml
-language: perl
-perl:
-  - "5.26"
-  - "5.24"
-  - "5.22"
-  - "5.20"
-```
-{: data-file=".travis.yml"}
-
-A more extensive example:
+Travis CI uses [Perlbrew](http://perlbrew.pl/) to provide several Perl versions
+you can test your projects against:
 
 ```yaml
 language: perl
 perl:
+  - "5.30"
+  - "5.28"
   - "5.26"
-  - "5.24"
-  - "5.22"
-  - "5.20"
-  - "5.18"
-  - "5.16"
 ```
 {: data-file=".travis.yml"}
 
-As time goes, new releases come out and we upgrade both Perlbrew and Perls, aliases like `5.14` will float and point to different exact versions, patch levels and so on.
+These versions specified by `major.minor` numbers are aliases to exact patch
+levels, which are subject to change. For precise versions pre-installed on the
+VM, please consult "Build system information" in the build log.
 
-For precise versions pre-installed on the VM, please consult "Build system information" in the build log.
+> Perl versions earlier than 5.8 are not supported.
 
-*Perl versions earlier than 5.8 are not and will not be provided. Please do not list them in `.travis.yml`.*
+### Perl runtimes with threading support
 
-### Perl runtimes with `-Duseshrplib`
+{{ site.data.language-details.perl.threading }}
 
-Additionally, some Perls have been compiled with threading support. They have
-been compiled with the additional compile flags `-Duseshrplib` and `-Duseithreads`. This are the
-versions that are available:
+## Default Build Script
 
-```yaml
-5.26-shrplib
-5.24-shrplib
-5.22-shrplib
-5.20-shrplib
-5.18-shrplib
-```
-{: data-file=".travis.yml"}
+The default build script varies according to your project:
 
+* if your repository has `Build.PL` in the root:
 
-## Default Perl Version
+  ```bash
+  perl Build.PL && ./Build test
+  ```
+* if your repository has Makefile.PL in the root:
 
-If you leave the `perl` key out of your `.travis.yml`, Travis CI will use Perl 5.14.
+  ```bash
+  perl Makefile.PL && make test
+  ```
 
-## Default Test Script
+* if neither is found:
 
-### Module::Build
-
-If your repository has Build.PL in the root, it will be used to generate the build script:
-
-```bash
-perl Build.PL && ./Build test
-```
-
-### EUMM
-
-If your repository has Makefile.PL in the root, it will be used like so
-
-```bash
-perl Makefile.PL && make test
-```
-
-If neither Module::Build nor EUMM build files are found, Travis CI will fall back to running
-
-```bash
-make test
-```
-
-It is possible to override test command as described in the [general build configuration](/user/customizing-the-build/) guide.
+  ```bash
+  make test
+  ```
 
 ## Dependency Management
 
-### Travis CI uses cpanm
-
-By default Travis CI use `cpanm` to manage your project's dependencies. It is possible to override dependency installation command as described in the [general build configuration](/user/customizing-the-build/) guide.
-
-The exact default command is
+By default Travis CI use `cpanm` to manage your project's dependencies.
 
 ```bash
 cpanm --quiet --installdeps --notest .
 ```
 
-### When Overriding Build Commands, Do Not Use sudo
+### When Overriding Build Commands, Do Not Use `sudo`
 
-When overriding `install:` key to tweak dependency installation command (for example, to run cpanm with verbosity flags), do not use sudo.
-Travis CI Environment has Perls installed via Perlbrew in non-privileged user $HOME directory. Using sudo will result in dependencies
-being installed in unexpected (for Travis CI Perl builder) locations and they won't load.
+When overriding `install:` key to tweak dependency installation command (for
+example, to run cpanm with verbosity flags), do not use `sudo`. Travis CI
+Environment has Perls installed via Perlbrew in non-privileged user's `$HOME`
+directory. Using `sudo` will result in dependencies being installed in unexpected
+(for Travis CI Perl builder) locations and they won't load.
 
 ## Build Matrix
 
 For Perl projects, `env` and `perl` can be given as arrays
 to construct a build matrix.
 
-## Environment Variable
+## Environment Variables
 
-The version of Perl a job is using is available as:
+The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
 
-```
-TRAVIS_PERL_VERSION
-```
+## Build Config Reference
+
+You can find more information on the build config format for [Perl](https://config.travis-ci.com/ref/language/perl) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
