@@ -19,5 +19,5 @@ Please refer to general [Travis CI Enterprise information](/user/enterprise/#tri
     4. Will your installation be air gapped? Y/N
     <br />The number of seats and other license parameters will be transferred from your current active license.
 2. Our Support Team will issue to you a Trial License for 60 days in order to enable your tests and database migrations.
-3. After your tests are completed and you have an environment ready to go, please contact Travis CI Support, requesting a production 4. license for Enterprise 3.0 and your existing 2.0 license will be invalidated within 24 hours.
+3. After your tests are completed and you have an environment ready to go, please contact Travis CI Support, requesting a production license for Enterprise 3.0 and your existing 2.x license will be invalidated within 24 hours.
 4. Please contact our Travis CI support in any other cases.
