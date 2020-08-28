@@ -44,7 +44,7 @@ Perform travis bash to the platform (inside the container) and run following com
 root@te-main:/# pg_dump -U travis -h 127.0.0.1 -p 5432 -C -t log_parts -t logs -d travis_production > TCI_E_2_0_db_schema_dump_logs_tables_platform_docker_20200324.sql
 root@te-main:/# pg_dump -U travis -h 127.0.0.1 -p 5432 -C -d travis_production > TCI_E_2_0_db_schema_dump_main_tables_platform_docker_20200324.sql
 ```
-Remember to use actual ports and addressess.
+The port number defaults to `5432`, or the value of the PGPORT environment variable (if set).
 
 ### Copy Database dumps to the container host
 
