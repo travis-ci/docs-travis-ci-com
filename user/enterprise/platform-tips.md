@@ -184,7 +184,7 @@ Then, please run:
 
 ## Uninstalling Travis CI Enterprise 3.x
 
-If you wish to uninstall Travis CI Enterprise 3.x from your platform machines, please execute:
+If you wish to uninstall Travis CI Enterprise 3.x from your Kubernetes cluster, please execute:
 
 `kubectl delete ns [namespace]` *on your local machine*
 
