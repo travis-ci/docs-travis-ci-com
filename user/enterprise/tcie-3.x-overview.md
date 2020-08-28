@@ -7,10 +7,10 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 
 ## Main features
 
-* Synchronized with Travis CI Hosted version - almost all new features and fixes are available in Enterprise in a relatively short timeframe!
+* Feature parity between Travis CI Enterprise 3.x and travis-ci.com - we migrate over bug fixes and features in short timeframes
 * Multiple integrations with Version Control systems: 
-  * GitHub 
-  * GitHub Enterprise
+  * GitHub Cloud
+  * GitHub Enterprise Server
   * GitLab cloud solution
   * BitBucket cloud solution
 * Database upgraded to PostgreSQL 11
@@ -24,5 +24,4 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 
 ## Travis CI Enterprise 2.0 End of Life
 
-Travis CI Enteprise 2.x will reach End Of Life within ca 6 months. The exact date will be confirmed soon. It means there will be no support or patches released anymore. We strongly recommend to upgrade your existing Travis CI Enterprise 2.x installation to 3.x before that time.
-
+Travis CI Enterprise 2.x will reach End Of Life in Q1 2021. After Q1 2021, you won't receive any patches or security patches anymore for your Enterprise 2.x installation. We strongly recommend upgrading your existing Travis CI Enterprise 2.x installation to 3.x before that time. If you need more time or have questions, please reach out to [our support team](mailto:enterprise@travis-ci.com?subject=Travis CI Enterprise 2.x Migration).
