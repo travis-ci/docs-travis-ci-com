@@ -30,7 +30,7 @@ Similar configuration options are available for self-hosted logs, Insights, Redi
 
 #### Utilizing services in Kubernetes cluster
 
-Other option is to modify configuration for aforementioned services (PostgreSQL, Redis and RabbitMQ) taking into account service specific details. These details can be found in the documentation for the tools. Since there are multiple possible variations, we suggest only general guidelines whoich can be treated as a starting point for developing your specific High Availability configuration.
+Other option is to modify configuration for aforementioned services (PostgreSQL, Redis and RabbitMQ) taking into account service specific details. These details can be found in the documentation for the tools. Since there are multiple possible variations, we suggest only general guidelines which should be treated as a starting point for developing your specific High Availability configuration.
 
 * Postgresql: most probably you may want to start looking at primary / standby service pods behind a service load balancing the traffic. Automatic failover switching is at your discretion.
 
