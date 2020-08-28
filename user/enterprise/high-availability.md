@@ -11,18 +11,34 @@ Travis CI Enterprise (TCIE) 3.x typically runs in **a Kubernetes cluster** with 
 
 ### Installing the Platform in High Availability Mode
 
-No additional installation steps are required. Please make sure to configure your [Kubernetes](https://kubernetes.io/) cluster with redundant pods for each service and ensuring appropriate resources to run it. You need to consider self-hosting of
+Please make sure to configure your [Kubernetes](https://kubernetes.io/) cluster with redundant pods for each service and secure appropriate resources and configuration (see below) to run it or choosing to self-host several services. You will need to modify several services configuration on your own to achieve High Availability adjusted to your requirements.
+
+Select one of the options depending on your planned setup, deployment and data backup policies and volume of users and build jobs. See also regular [installation instructions for TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#1-setting-up-enterprise-platform).
+
+#### Self hosting services for High Availability Mode 
+
+You may need to consider self-hosting of
 
 * [Redis](https://redis.io/), [RabbitMQ](https://www.rabbitmq.com/) and [Postgres](https://www.postgresql.org/) instances along with it's mirrors/redundant instances
 * Common Logs Target Location
-
-depending on your planned setup and volume of users and build jobs. See regular [installation instructions for TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#1-setting-up-enterprise-platform).
 
 Once TCIE 3.x is installed, go to the Dashboard, Configs and format *self-hosted* options according to your planned setup. See example of self-hosted configuration for database access in TCIE 3.x below:
 
 ![Self-hosted config example](/images/tcie-3.x-self-hosted-db.png)
 
-There are also similar configuration options for self-hosted logs, Insights, Redis and Rabbit MQ.
+Similar configuration options are available for self-hosted logs, Insights, Redis and Rabbit MQ. The self-hosted solution for these services allows you to fully deploy and configure their High Availability compliant setup as per your requirements.
+
+#### Utilizing services in Kubernetes cluster
+
+Other option is to modify configuration for aforementioned services (PostgreSQL, Redis and RabbitMQ) taking into service specific details. The configuration details can be found in relevant documentation for the tools. Since there are multiple possible variations, below mentions need to be treated only as a general guidelines and a starting point for developing your specific High Availability configuration.
+
+* Postgresql: most probably you may want to start looking at primary / standby service pods behind a service load balancing the traffic. Automatic failover switching is at your discretion.
+
+* Redis: you may want to look at setup with Redis Master, Sentinel and Replicas with Sentinel as entry point for every pod utilizing Redis
+
+* RabbitMQ: RabbitMQ has an extensive [guide for clustering](https://www.rabbitmq.com/clustering.html) which may help to select appropriate solution for your case.
+
+Please mind that in basic installation logs are put on stdout of each pod, therefore you will still need redirect them to a common logs target location and store them using a tool of your choice.
 
 
 
