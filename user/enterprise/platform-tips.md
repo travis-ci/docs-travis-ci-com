@@ -103,7 +103,7 @@ To clear it, please execute the following commands:
 
 **TCIE 2.x**: `$ travis console` *on Platform host*
 
-Next run, regardless of TCIE version:
+Then, please run:
 
 ```
 >> require 'sidekiq/api'
