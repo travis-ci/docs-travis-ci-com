@@ -80,7 +80,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
     2. Get credentials from microk8s cluster running on *your new vm instance*. Please view e.g. [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where kubectl config with credentials is created and can be used afterwards.
     3. Please refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Please adjust your setup and configuration according to your needs before progressing with TCIE 3.X installation
 6. TCIE 3.x installed as Kubernetes cluster in the cloud
-    1. Connect to your cluster and get it's configuration, particularly credentials
+    1. Connect to your cluster and generate kubectl config file. Download the kubectl config file to your *local machine*. Exact way to obtain generated credentials depends on your Kubernetes cluster provider (see GCloud example below).
 5. Run `kubectl kots install tci-enterprise-kots` to install TCIE 3.x. Please note down administrative password and namespace used during this step.
 6. *In your browser*, navigate to `http://localhost:8800` to complete the setup. The TCIE 3.x admin console will be automatically enabled during first installation :
 
