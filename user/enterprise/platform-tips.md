@@ -25,7 +25,7 @@ In order to obtain live logs from specific running pod, one can run *on your loc
 
 `kubectl logs [pod-name]`
 
-> We strongly recommend to set-up an instance grabbing live logs from pods stdout and storing them in logging storage of your choice. These stored logs can be useful when diagnosig or troubleshooting situation for pod which was killed and/or re-deployed. The size of the logs depends strictly on your usage, thus please adjust to your needs. As a rule of thumb, a 4-weeks of log storage would be recommended.
+> We strongly recommend to set up an instance grabbing live logs from pods stdout and storing them in logging storage of your choice. These stored logs can be useful when diagnosing or troubleshooting situations for pods which were killed and/or re-deployed. The size of the logs depends strictly on your usage, thus please adjust to your needs. As a rule of thumb, a 4-weeks of log storage would be recommended.
 
 
 #### Logs in TCIE 2.x
