@@ -58,7 +58,6 @@ In order to run console commands, run console in `travis-api-pod` :
 
 `kubectl exec -it [travis-api-pod] /app/script/console`
 
-The `travis console` in TCIE 2.x commands can be safely replaced by above snippet.
 
 ### Container and Console access in TCIE 2.x 
 
