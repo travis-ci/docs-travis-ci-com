@@ -355,7 +355,7 @@ kubectl cp [travis-api-pod]:/[location of [Logs DB].sql] [local_file]
 
 > In case you would like to run pg_dump straight from the DB pod: Database pods in TCIE 3.x cluster in non-HA deployment should be named `travisci-platform-platform-postgresql-0` and `travisci-platform-logs-postgresql-0`
 
-Also, you need to connect to the **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of the cluster in a similar way, using tools available for these services.
+Also, you need to connect to the **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of the cluster in a similar way, using tools available for these services. See the respective parts of [Redis documentation](https://redis.io/documentation) and [RabbitMQ Backup & Restore guide](https://www.rabbitmq.com/backup.html) for exact instructions on how to snapshot/backup current state of data.
 
 
 #### Data backup in TCIE 2.x
