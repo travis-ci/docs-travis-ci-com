@@ -60,6 +60,7 @@ If your organization's internal certificate authority does use a root certificat
 3. Find ‘Advanced settings’
 4. Disable SSL verification via markign appropriate checkbox and save settings
 5. Click 'Save Config' at the bottom of the page.
+6. New version will appear in Dashboard. Click 'Deploy'. The changes will be deployed in your Kubernetes cluster.
 
 ![Disabling SSL in TCIE 3.x](/images/tcie-3.x-ssl-2.png)
 
@@ -73,7 +74,6 @@ To disable SSL verification in Travis CI Enterprise 2.x:
 3. Click 'Advanced Settings' in the left menu (or scroll down).
 4. Check the box for 'Disable SSL cert verification'.
 5. Click 'Save' at the bottom of the page.
-6. New version will appear in Dashboard. Click 'Deploy'. The changes will be deployed in your Kubernetes cluster.
 
 > Please note that this will require a restart of Travis CI Enterprise in order to take affect and may cause brief downtime.
 
