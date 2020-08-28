@@ -1,10 +1,10 @@
 ---
-title: Migrating Travis CI Enterprise Database from 2.6+ to 3.x
+title: Migrating Travis CI Enterprise Database from 2.2.6+ to 3.x
 layout: en_enterprise
 
 ---
 
-This documents describes steps necessary for database migration from existing Travis CI Enterprise 2.6+ version to Travis CI Enterprise 3.x (TCIE 3.x). The migration is not required for clean installations of Travis CI Enterprise 3.x (with empty database).
+This document describes steps necessary for database migration from existing Travis CI Enterprise 2.2.6+ version to Travis CI Enterprise 3.x (TCIE 3.x). The migration is not required for clean installations of Travis CI Enterprise 3.x (with an empty database).
 
 ## Overview
 
@@ -48,7 +48,7 @@ Remember to use actual ports and addressess.
 
 ### Copy Database dumps to the container host
 
-On the platform of 2.2 (host of the container) copy dumps from container to host: 
+On the Enterprise 2.2 platform machine, copy dumps from container to host: 
 ```bash
 sudo docker ps
 sudo docker cp sleepy_dewdney:/TCI_E_2_0_db_schema_dump_main_tables_platform_docker_20200324.sql .
@@ -101,4 +101,3 @@ Due to the fact that TCIE 3.x uses original configs `raw_configs` (as in `.travi
 - old not used config columns from `[requests|builds|jobs]` are dropped
 - new tables are created for configs for future build runs: `[request|build|job]_configs`
 - new table for raw config is created for future build runs `request_raw_configs`
-
