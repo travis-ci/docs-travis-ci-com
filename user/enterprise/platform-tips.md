@@ -396,7 +396,7 @@ You can provide a year argument (e.g. `2017`) in the above command to only migra
 
 If you have a large number of repositories activated on your Travis CI Enterprise installation, please run the migration several times, breaking it down per year. For example:
 
-**TCIE 3.x*:
+**TCIE 3.x**:
 
 ```bash
 kubectl exec -it [travis-api-pod] bash
