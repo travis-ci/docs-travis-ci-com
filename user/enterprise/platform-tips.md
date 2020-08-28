@@ -157,7 +157,7 @@ In the past there have been reported cases where the system became unresponsive.
 
 **TCIE 2.x**: `$ travis console` *on Platform host*
 
-Next run, regardless of TCIE version:
+Then, please run:
 
 ```
   >> require 'sidekiq/api'
