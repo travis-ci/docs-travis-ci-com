@@ -56,7 +56,7 @@ On the Worker you can find the main log file at
 For TCIE 3.x, you gain access to individual pods through the `kubectl` command (The equivalent to `travis bash` in Enterprise 2.x versions)
 In order to run console commands, run console in `travis-api-pod` :
 
-`kubectl exec -it [travis-api-pod]j /app/script/console`
+`kubectl exec -it [travis-api-pod] /app/script/console`
 
 The `travis console` in TCIE 2.x commands can be safely replaced by above snippet.
 
