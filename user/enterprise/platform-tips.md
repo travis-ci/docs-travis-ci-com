@@ -119,7 +119,7 @@ In order to access RabbitMQ pod execute
 
 and perform any necessary actions.
 
-RabbitMQ management UI is available under `https://[platform-hostname]/amqp_ui`.
+The RabbitMQ management UI is available under `https://[platform-hostname]/amqp_ui`.
 
 ## Resetting the RabbitMQ Certificate in TCIE 2.x
 
