@@ -4,8 +4,7 @@ layout: en_enterprise
 
 ---
 
-## Travis CI Enterprise 3.x
----------------------------
+## Travis CI Enterprise 3.x 
 
 Travis CI Enterprise (TCIE) 3.x typically runs in **a Kubernetes cluster** with one or multiple workers. Services are split into several pods in the cluster. This enables a High Availability setup out of the box and you're able to customize based on your needs. 
 
@@ -43,7 +42,6 @@ Please mind that in basic installation logs are put on stdout of each pod, there
 
 
 ## Travis CI enterprise 2.x 
----------------------------
 
 Travis CI Enterprise 2.x typically runs as a single container instance communicating with one or multiple workers, but we also offer a High Availability configuration so you can run your installation with redundancy. Particularly for customers with large-volume licenses, High Availability Mode is a helpful way to have additional stability.
 
@@ -87,11 +85,9 @@ Once your second platform is installed, it will also need its HA settings config
 
 
 ## Installing the Worker in High Availability Mode (all versions)
------------------------------------------------------------------
 
 The worker installation works the same as for non-HA installations, as do the build environment compatibility defaults per Enterprise version. Check out the docs for which version of Enterprise handle different OS's([TCIE 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) or [TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise#2-setting-up-the-enterprise-worker-virtual-machine) and other information regarding the installation. You will need to retrieve your RabbitMQ password from your own installation, rather than from the Travis CI Enterprise Admin Dashboard.
 
 ## Contact Enterprise Support
------------------------------
 
 {{ site.data.snippets.contact_enterprise_support }}
