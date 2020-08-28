@@ -258,7 +258,7 @@ To find out how much concurrency is available in your Travis CI Enterprise setup
 
 **TCIE 2.x**: connect to your platform machine via SSH and run `$ travis bash`
 
-Next run, regardless of TCIE version:
+Then, please run:
 
 ```
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -l
@@ -274,7 +274,7 @@ If you wish to find out how many worker machines are currently connected, please
 
 **TCIE 2.x**: connect to your platform machine via SSH and run: `$ travis bash`
 
-Next run, regardless of TCIE version:
+Then, please run:
 
 ```
 root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
@@ -316,11 +316,11 @@ Without the encryption key you cannot access the information in your production 
 
 Unless you are running self-hosted instances of PostgreSQL, RabbitMQ and Redis, the respective data is held in pods hosting these services.
 
-In order to backup the PostgreSQL run in TCIE 3.x Platform pod, first identify database host and credentials by running
+In order to back up the Postgres database, you need the database credentials and connection string. On the TCIE 3.x Platform pod, please run:
 
 `kubectl exec -it [travis-api-pod] bash`
 
-and when connected to the pod grab the database configuration data:
+Once you're connected to the pod, grab the database configuration data:
 
 `root@[travis-api-pod]:/app# cat /app/config/travis.yml | grep database -A 10`
 
@@ -339,14 +339,14 @@ logs_database:
   urls: postgres://[username]:[password]@[logs db host name]:[port]/[database name]
 ```
 
-Next connect to database pod and run data dumps for each database:
+Next, connect to the database pod and perform data dumps for each database:
 
 ```bash
 root@[travis-api-pod]:/# pg_dump -U travis -h [main database pod] -p [main database port] -C -d [main db name] > [Main DB].sql
 root@[travis-api-pod]:/# pg_dump -U travis -h [logs database pod] -p [logs database port] -C -d [logs db name] > [Logs DB].sql
 ```
 
-Afterwards copy the dumped data from your cluster, running in *your local machine*:
+Afterward, copy the dumped data from your cluster, running on *your local machine*:
 
 ```bash
 kubectl cp [travis-api-pod]:/[location of [Main DB].sql] [local_file] 
@@ -355,7 +355,7 @@ kubectl cp [travis-api-pod]:/[location of [Logs DB].sql] [local_file]
 
 > In case you would like to run pg_dump straight from the DB pod: Database pods in TCIE 3.x cluster in non-HA deployment should be named `travisci-platform-platform-postgresql-0` and `travisci-platform-logs-postgresql-0`
 
-One needs to enter **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of cluster in similar way, using tools available for these services.
+Also, you need to connect to the **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of the cluster in a similar way, using tools available for these services.
 
 
 #### Data backup in TCIE 2.x
