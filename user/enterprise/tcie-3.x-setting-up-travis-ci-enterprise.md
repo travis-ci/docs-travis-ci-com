@@ -20,7 +20,7 @@ Alternatively, you can install it on a single machine using the [Replicated kURL
 
   * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration.
 
-  * At least two virtual machines on your private cloud that meet the [system requirements](#system-requirements) - one of these must be set up as Kubernetes/ microk8s host - or Kubernetes Cluster
+  * Two virtual machines on your private cloud that meet the [system requirements](#system-requirements) - one of these must be set up as Kubernetes/ microk8s host, second as Worker Machine host - or Kubernetes cluster
   * When you use GitHub Cloud or GitHub Enterprise Server: The `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) configured with:
 
     - *Homepage URL* - `https://<your-travis-ci-enterprise-domain>`
@@ -40,7 +40,7 @@ Each dedicated host or hypervisor (VMWare, OpenStack, or EC2) should run **Ubunt
 
 If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Platform** and **Worker**. We also recommend using an image that uses EBS for the root volume, as well as allocating 80 gigs of space to it.
 
-For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need self-hosted:
+For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need to configure appropriately:
 
 * [Redis](https://redis.io/),
 * [RabbitMQ](https://www.rabbitmq.com/)
@@ -64,13 +64,13 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
     | Port | Service         | Description                                                                  |
     |:-----|:----------------|:-----------------------------------------------------------------------------|
-    | 8800 | Custom TCP Rule | This port is to access the admin dashboard for your Enterprise installation. |
-    | 5672 | Custom TCP Rule | For RabbitMQ Non-SSL.                                                        |
-    | 4567 | Custom TCP Rule | For RabbitMQ SSL.                                                            |
-    | 3333 | HTTPS           | TCIE 3.x User administration Web application over HTTPS access.              |
-    | 443  | HTTPS           | Web application over HTTPS access.                                           |
-    | 80   | HTTP            | Web application access.                                                      |
-    | 22   | SSH             | SSH access.                                                                  |
+    | 8800 | Custom TCP Rule | Allow inbound access to the admin dashboard for your Enterprise installation. |
+    | 5672 | Custom TCP Rule | Allow inbound access for RabbitMQ Non-SSL connections, e.g. for client.      |
+    | 4567 | Custom TCP Rule | Allow inbound access for RabbitMQ SSL, e.g. for client.                      |
+    | 3333 | HTTPS           | Allow inbound  TCIE 3.x User administration Web application over HTTPS access. |
+    | 443  | HTTPS           | Allow inbound Web application over HTTPS access.                             |
+    | 80   | HTTP            | Allow inbound Web application access.                                        |
+    | 22   | SSH             | Allow inbound SSH traffic in order to access from your local machine.        |
 
 2. Please configure your hostname now. (Skip if you will access TCIE through an IP address)
 3. Set up your cluster/machine instances configuration - at least 1 virtual machine is needed (in microk8s scenario) or Kubernetes cluster prepared and started
