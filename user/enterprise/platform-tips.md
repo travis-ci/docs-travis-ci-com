@@ -77,7 +77,7 @@ reset a large number of jobs, please execute the following steps:
 
 **TCIE 2.x**: `$ travis console` *on Platform host*
 
-Next run, regardless of TCIE version:
+Then, please run:
 
 ```
 >> stuck_jobs = Job.where(queue: 'builds.linux', state: 'queued').where('queued_at < NOW() - interval \'60 minutes\'').all
