@@ -57,16 +57,6 @@ On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To upd
   $ sudo systemctl restart travis-worker
   ```
 
-### On Ubuntu 14.04
-
-In order to update the Worker, you can run the following on each worker
-host:
-
-```
-$ sudo apt-get update
-$ sudo apt-get install travis-worker
-```
-
 ## Restoring from Backups
 
 In the rare event something goes wrong and/or you'd like to restore from a backup, please use the following steps:
