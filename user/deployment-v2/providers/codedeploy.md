@@ -21,6 +21,7 @@ deploy:
     key: <bucket_key>
     application: <app>
     deployment_group: <deployment_group>
+    edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 
