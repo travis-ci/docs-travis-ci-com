@@ -301,7 +301,7 @@ Let's Encrypt certificates are short-lived and ***expire after 90 days.*** Becau
 At the moment, Let's Encrypt certificate is automatically refreshed every time the nginx pod is started. So in order to refresh it:
 
 1. Kill the nginx pod
-2. Deploy it again
+2. Deploy it again (e.g. scale replicas down to 0 and back to target number)
 
 ### Renewing your Let's Encrypt  certificate for TCIE 2.x
 
