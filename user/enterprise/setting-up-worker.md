@@ -1,17 +1,17 @@
 ---
-title: Setting up Travis CI Enterprise Worker
+title: Setting up Travis CI Enterprise Worker Machine
 layout: en_enterprise
 
 ---
 
-The Travis CI Enterprise Worker manages build containers and reports build
+The Travis CI Enterprise Worker machine manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using **compute optimized** instance 
-with 8vCPU and 16GB RAM running under Ubuntu operating system.
+with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 
 ## Prerequisites 
 1. [Enterprise 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform) or [Enterprise 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) Platform is set up
-2. You have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
+2. You need the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
 ## Setting up the Worker
 
@@ -52,4 +52,3 @@ export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
 | Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
 
 After setting up a new instance for the worker, please follow the respective guides for your Travis CI Enterprise version.
-
