@@ -10,7 +10,7 @@ layout: en_enterprise
 
 **Worker Requirements**:
 
-We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory and at least 60 GB of disk space. Also, you'll want to run Ubuntu 18.04 or later. Port 22 must be open for SSH during installation and operation.
+We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory, and at least 60 GB of disk space. Also, we suggest to run Ubuntu 18.04 or later. Port 22 must be open for SSH during installation and operation.
 
 > A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine. 
 
@@ -22,7 +22,7 @@ We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of me
 
 ## Installation with Travis CI Enterprise 2.2.6 and later
 
-On a new server, please run the commands below to install the Bionic build environment:
+To install the Bionic build environment on a new server, run the commands below:
 
 ```bash
 $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
