@@ -28,10 +28,10 @@ installation as the authentication and authorization layer for Travis CI
 Enterprise, allowing you to leverage your existing LDAP or SAML with no
 extra configuration.
 * **Support for multiple Version Control Systems:** Starting from Travis CI 
-Enterprise 3.x, you can use also different source code management solutions
+Enterprise 3.x, you can also use different source code management solutions
 together with Travis CI. For more details, see [Travis CI Enterprise 3.x Overview](/user/enterprise/tcie-3.x-overview/)
 * **Meets security and regulatory requirements:**  With your servers and hosts
-being deployed inside your firewall, you have full ownership and control of
+deployed inside your firewall, you have full ownership and control of
 your data, helping to make it possible to meet the security requirements of
 your company.
 * **Customizable images:**  We provide a range of build environment images,
