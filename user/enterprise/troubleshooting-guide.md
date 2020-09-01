@@ -7,7 +7,15 @@ redirect_from:
 
 This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered, please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
 
-Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise installation:
+## Travis CI Enterprise (TCIE) 3.x 
+
+The TCIE 3.x is deployed as Kubernetes cluster. Thus `travis bash` and `travis console` working previously with single Docker installation will not work anymore. They're replaced with specific `kubectl` command line commands.
+
+The term `Worker machine` still means the worker instance(s) that process and run the builds. 
+
+## Travis CI Enterprise (TCIE) 2.x 
+
+Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise 2.x installation:
 
 - `Platform machine`: The instance that runs the main Travis components, including the web frontend.
 - `Worker machine`: The worker instance(s) that process and run the builds.
@@ -85,7 +93,7 @@ Depending on your configuration, there may be multiple ways to solve this proble
 
 #### Docker Version Mismatch
 
-This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine) on a fresh instance.
+This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-worker) on a fresh instance.
 
 > Please note that the default build environment images will be pulled and you may need to apply customizations again as well.
 
@@ -98,7 +106,14 @@ To address this, either:
 - Ensure that you have installed a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
 - Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the 'Override Default Build Environment' button. This will allow you to specify the new default based on your needs and the workers that you have available.
 
+#### You are running Enterprise v3.x or higher
+
+Verify if default queue configured in Enterprise Platform 3.x routes builds to a matching, existing workers. You may choose to alter the default queue setting by running admin console UI on `http://loclahost:8800`, navigating to Configuration and altering the option 'Set Default Build Environment' by selecting one of available options. 
+
+
 ## Enterprise Container Fails to Start due to 'context deadline exceeded' Error
+
+> This issue occurs only for TCIE 2.x. The TCIE 3.x is deployed as Kubernetes/microk8s cluster.
 
 ### The problem
 
@@ -168,10 +183,15 @@ travis_production=> select count(*) from users where is_syncing=true;
 
 ### Strategy
 
-Log into the platform machine via SSH. You can reset the `is_syncing` flag for user accounts that are stuck by running:
+You can reset the `is_syncing` flag for user accounts that are stuck by running:
+
+**TCIE 3.x**: Run `$ kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
+
+**TCIE 2.x**: Log into the platform machine via SSH. Run `$ travis console`
+
+Next, regardless of TCIE version, run:
 
 ```bash
-$ travis console
 >> User.where(is_syncing: true).count
 >> ActiveRecord::Base.connection.execute('set statement_timeout to 60000')
 >> User.update_all(is_syncing: false)
@@ -200,11 +220,31 @@ Ask the owner of **the affected account** (usually printed in the logs) to sync 
 2. In the upper right corner of the page, hover over the user icon and select 'Profile' from the dropdown menu.
 3. In the upper right corner of the profile page, click on 'Sync account'.
 
-####  Sync account from the CLI with administrator privileges```
+####  Sync account from the CLI with administrator privileges
 
-An administrator can also initiate a sync on behalf of someone else via the `travis` CLI tool on the platform machine:
+An administrator can also initiate a sync on behalf of someone else: 
+
+**TCIE 3.X**: via manually forcing the github-sync to re-run synchronization
+
+`kubectl exec -it [travis-github-sync-pod] bundle exec bin/schedule users [login if single user] `
+
+**TCIE 2.x**: via the `travis` CLI tool on the platform machine:
 
 > If `—logins=<GITHUB-LOGIN>` is not provided then this command will trigger a sync on every user. This could result in long runtimes and may impact production operations if you have a large number of total users on your Travis CI Enterprise instance.
 
 1. Open a SSH connection to the platform machine.
 2. Initiate a sync by running `travis sync_users —logins=<GITHUB-LOGIN>`
+
+## RabbiMQ AMQPS issue causes build jobs to never enqueue
+
+> This issue occurs only in TCIE 3.x. The TCIE 2.x Rabbit does not contain any AMQPS support.
+
+### The problem
+
+When using self-signed certificate, the Rabbit MQ AMQPS will not work which will result in jobs queueing forever. Worker logs will indicate security issues when connecting to Rabbit using AMQPS.
+
+### Startegy 
+
+Relax security contraints by explicitly marking that self-sgined certificates are allowed.
+
+SSH to the worker machine. Add `export AMQP_INSECURE=true` to `/etc/default/travis-worker`. Restart the worker instance.
