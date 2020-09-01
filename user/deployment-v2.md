@@ -1,7 +1,7 @@
 ---
 title: Deployment (v2)
 layout: en
-deploy: v2
+deploy: v2_base
 ---
 
 {% include deploy/opt_in.md %}
