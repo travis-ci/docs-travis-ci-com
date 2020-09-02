@@ -32,7 +32,7 @@ This guide covers build environment and configuration topics specific to
 [general build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
-> Currently, MATLAB builds are available only for public projects on Linux&reg; environments.
+> Currently, MATLAB builds are available only for public projects in Linux&reg; environments.
 
 
 ### Community-Supported Language
