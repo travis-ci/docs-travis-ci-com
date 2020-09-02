@@ -11,7 +11,7 @@ permalink: /user/multi-cpu-architectures/
 > An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
 > `Arm`-based building on `Arm64 Graviton2` CPU now supports both Open Source and commercial projects. 
 
-If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on `amd64`, `ppc64le` (IBM Power CPUs), `s390x` (IBM Z CPUs), `arm64` (run on ARMv8 compliant CPUs) and `arm64-graviton2` (on AWS) if the operating system is Linux. Below table gives a brief perspective about the CPU and project type combination:
+If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on `amd64`, `ppc64le` (IBM Power CPUs), `s390x` (IBM Z CPUs), `arm64` (run on ARMv8 compliant CPUs) and `arm64-graviton2` (on AWS) if the operating system is Linux. The table below gives a brief perspective about the CPU and project type combinations:
 
 | Architecture  | Open Source | Commercial |
 | ------------- | ------------- | ------------- |
