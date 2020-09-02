@@ -251,12 +251,7 @@ Once you've grabbed your RSA key, enter it via the UI:
 
 ![RSA](/images/tcie-3.x-setting-up-RSA.png)
 
-Now that you have your RSA key, you'll see a variable of settings, including ```RabbitMQ``` and others. Set them to your liking. Once you've done that click "Continue". **To finally run the TCI Enterprise Platform, the entire process must be applied to GKE**, so this means you need to open terminal up, and run: 
-
-```bash
-kubectl apply -f rendered.yaml -n [NAMESPACE]
-```
-Note that ```[NAMESPACE]``` should be the value set in the configuration form. Now you should verify your GKE pods are running. So run:
+Now that you have your RSA key, you'll see a variable of settings, including ```RabbitMQ``` and others. Set them to your liking. Once you've done that click "Continue". Now you should verify your GKE pods are running. So run:
 
 ```bash
 kubectl get pods -n [NAMESPACE]
