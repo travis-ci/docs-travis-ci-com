@@ -251,7 +251,7 @@ Once you've grabbed your RSA key, enter it via the UI:
 
 ![RSA](/images/tcie-3.x-setting-up-RSA.png)
 
-Now that you have your RSA key, you can see the available settings, including '''RabbitMQ''' and others. Configure them to your liking, and once you are done click "Continue". Now, verify that your GKE pods are running. To do so, open the terminal and run:
+Now that you have your RSA key, you'll see a variable of settings, including ```RabbitMQ``` and others. Set them to your liking. Once you've done that click "Continue". Now you should verify your GKE pods are running. So run:
 
 ```bash
 kubectl get pods -n [NAMESPACE]
