@@ -33,6 +33,7 @@ Use the following options to further configure the deployment.
 | `buildpack` | Buildpack name or Git URL &mdash; type: string |
 | `manifest` | Path to the manifest &mdash; type: string |
 | `skip_ssl_validation` | Skip SSL validation &mdash; type: boolean |
+| `deployment_strategy` | Deployment strategy, either rolling or null &mdash; type: string |
 | `v3` | Use the v3 API version to push the application &mdash; type: boolean |
 
 ### Shared options
