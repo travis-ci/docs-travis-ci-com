@@ -2,8 +2,6 @@
 title: Setting up Travis CI Enterprise
 layout: en_enterprise
 redirect_from:
-  - /user/enterprise/installation/
-  - /user/enterprise/prerequisites/
   - /user/enterprise/install-on-xenial/
 
 ---
@@ -90,48 +88,11 @@ installation's hostname, port 8800) to complete the setup:
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running Ubuntu 16.04 LTS or later as the underlying operating system.
+instance from the Platform. We recommend using instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
 
-
-1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
-
-    If you're setting up your AMI for the first time, you will need to create
-    a Security Group. From the EC2 management console, create an entry for
-    each port in the table below:
-
-    | Port | Service | Description |
-    |:-----|:--------|:------------|
-    | 22   | SSH     | SSH access. |
-
-1. *On your new virtual machine*, download and run the installation script:
-
-    ```
-    $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
-    $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
-    ```
-
-### Installing Workers behind a web proxy
-
-If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
-Then rerun the installation script.  
-
-If you need Docker itself to use an HTTP proxy, export it before each docker command:
-
-```
-export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
-```
-
-### Older versions of Travis CI Enterprise
-
-| Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
-|:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
-| Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           |
-| Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
-
-After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
+After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker).
 
 
 ## 3. Running builds!
