@@ -23,14 +23,14 @@ Travis CI supports two virtualization types for Linux builds: ‘full VM’ and 
 
 This is sudo enabled, full virtual machine per build, that runs Linux
 
-* Spins up slower (increased build time compared to LXD container) yet without any [limitations]().
+* Spins up slower (increased build time compared to LXD container) yet without any [limitations](user/reference/overview/#linux-security-and-lxd-container).
 * It has a fixed amount of vCPUs and RAM assigned.
 
 #### LXD container
 
 This is sudo enabled LXD container build environment, closest to a virtual machine as you can get. A Linux environment is run within an unprivileged LXD container. 
 
-* Fast spin-up (decreased build time when compared to full VM) yet some [limitations]() do apply
+* Fast spin-up (decreased build time when compared to full VM) yet some [limitations](user/reference/overview/#linux-security-and-lxd-container) do apply
 * It starts with min 2 vCPUs and if there is more computing time available, the host can dynamically assign it to speed up your build
 
 #### Which one do I use?
@@ -45,7 +45,7 @@ Use full VM only if LXD is not available or you need
 Below table sums up available Ubuntu environments and virtualization type per CPU architecture:
 
 | Ubuntu version       | virtualization type    |
-| :------------------- | :---------------------:|
+| :------------------- | :--------------------- |
 | [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
 | [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
@@ -56,7 +56,7 @@ Below table sums up available Ubuntu environments and virtualization type per CP
 LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
 
 
-You can select Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See examples below summarizing [table] (/user/reference/overview/#virtualisation-environment-vs-operating-system).
+You can select Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
 
 ### macOS
 
@@ -76,7 +76,7 @@ The following table summarizes the differences across virtual environments and o
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Beta                                          |
 | Infrastructure       | Virtual machine on GCE or AWS                                                                                                                                       | Virtual machine               | Virtual machine on GCE             | ARM: LXD container on Packet or AWS<br />IBM Power: LXD container on IBM Cloud<br />IBM Z: LXD container on IBM Cloud                             |
 | CPU architecture     | amd64<br />arm64-graviton2                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)<br />arm64-graviton2<br />ppc64le (IBM Power)<br />s390x (IBM Z)                                          |
-| `.travis.yml`        | See [examples]()                                                                                         | `os: osx`                     | `os: windows`                      | See [examples]()                             |
+| `.travis.yml`        | See [examples](/user/reference/overview/#linux-travisyml-examples)                                                                                         | `os: osx`                     | `os: windows`                      | See [examples](/user/reference/overview/#linux-travisyml-examples)                             |
 | Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
 | <a name="approx-boot-time"></a>Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
 | File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
@@ -141,9 +141,9 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 > To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
 
-#### Linux: .travis.yml examples
+### Linux: .travis.yml examples
 
-##### The AMD64 builds
+#### The AMD64 builds
 
 ```yaml
 arch: amd64          # optional, this is default, routes to a full VM
@@ -152,7 +152,7 @@ dist: focal          # or bionic | xenial | trusty | precise with xenial as defa
 ```
 {: data-file=".travis.yml"}
 
-##### The Arm64 builds
+#### The Arm64 builds
 
 ```yaml
 arch: arm64           # LXD container based build for OSS only
@@ -179,7 +179,7 @@ group: edge
 ```
 {: data-file=".travis.yml"}
 
-##### The IBM Power and Z builds
+#### The IBM Power and Z builds
 ```yaml
 arch: ppc64le           # The IBM Power LXD container based build for OSS only
 os: linux
@@ -202,11 +202,11 @@ group: edge
 ```
 {: data-file=".travis.yml"}
 
-#### Linux: Security and LXD Container
+### Linux: Security and LXD Container
 
 > These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slower and have fixed computing power assigned compared to containers (LXD). 
 
-##### Access to Privileged fs/Features (Apparmor)
+#### Access to Privileged fs/Features (Apparmor)
 
 > Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
 
@@ -220,7 +220,7 @@ would result in an error.
 
 Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
 
-##### System Calls Interception
+#### System Calls Interception
 
 If you run into a message like:
 
@@ -228,7 +228,7 @@ If you run into a message like:
 
 It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
 
-##### Hugepages Support from within LXD Container
+#### Hugepages Support from within LXD Container
 
 As of now, Travis CI is not configured to allow hugepages within unprivileged containers. This may change on short notice.
 
