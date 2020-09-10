@@ -32,7 +32,7 @@ This guide covers build environment and configuration topics specific to
 [general build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
-> MATLAB builds are not available on macOS and Windows environments.
+> Currently, MATLAB builds are available only for public projects in Linux&reg; environments.
 
 
 ### Community-Supported Language
@@ -53,7 +53,7 @@ matlab:
 
 When you include `language: matlab` in your `.travis.yml`:
 
-* Travis CI installs the specified MATLAB release on a Linux&reg;-based build agent. If you do not specify a release, Travis CI installs the latest release of MATLAB.
+* Travis CI installs the specified MATLAB release on a Linux-based build agent. If you do not specify a release, Travis CI installs the latest release of MATLAB.
 * MATLAB runs the tests in your repository and fails the build if any of the tests fails. 
 
 If your source code is organized into files and folders within a [MATLAB project](https://www.mathworks.com/help/matlab/projects.html), then MATLAB runs any test files in the project that have been labeled as `Test`. If your code does not leverage a MATLAB project, then MATLAB runs all tests in the root of your repository, including its subfolders.
