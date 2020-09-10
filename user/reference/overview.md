@@ -99,15 +99,11 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `arch: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. 
+* Using `arch: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. Available Ubuntu versions depend on the virtualization type (lxd/vm). 
 
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
-* Using `virt: vm` routs your build to a virtual machine, running the Ubuntu version specified in `dist:` key.
-
-* Using `virt: lxd` routs your build to LXD container, running the Ubuntu version specified in `dist:` key.
-
-* To avoid mistreated keys you can validate your `YAML` file using the [Build Config Validation](/user/build-config-validation).
+> To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
 
 ## Deprecated Virtualization Environments
 
