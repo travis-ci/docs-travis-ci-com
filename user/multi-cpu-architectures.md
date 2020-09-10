@@ -55,8 +55,7 @@ arch:
   - amd64
   - ppc64le
   - s390x
-  - arm64
-  - arm64-graviton2
+  - arm64  # please note arm64-graviton2 requires explicit virt: [lxd|vm] tag so it's recommended for jobs.include, see below
 os: linux  # different CPU architectures are only supported on Linux
 ```
 {: data-file=".travis.yml"}
@@ -78,7 +77,7 @@ language: c
 
 arch:
   - amd64
-  - arm64
+  - arm64  # please note arm64-graviton2 requires explicit virt: [lxd|vm] tag so it's recommended for jobs.include, see below
   - ppc64le
   - s390x
 
@@ -108,6 +107,7 @@ jobs:
    - os: linux
      arch: arm64-graviton2
      virt: lxd
+     group: edge
 ```
 {: data-file=".travis.yml"}
 
