@@ -83,6 +83,8 @@ if it contains:
 * `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
 * `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
 
+If *instance*, right under the *hostname* contains `ec2` → the build ran within an LXD container or as a 'full VM' on AWS Arm64 Graviton2 infrastructure
+
 ### For a particular .travis.yml configuration
 
 * Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
@@ -97,7 +99,7 @@ if it contains:
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `arc: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. 
+* Using `arch: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. 
 
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
