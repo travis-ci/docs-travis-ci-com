@@ -27,8 +27,11 @@ Enterprise-specific features include:
 installation as the authentication and authorization layer for Travis CI
 Enterprise, allowing you to leverage your existing LDAP or SAML with no
 extra configuration.
+* **Support for multiple Version Control Systems:** Starting from Travis CI 
+Enterprise 3.x, you can also use different source code management solutions
+together with Travis CI. For more details, see [Travis CI Enterprise 3.x Overview](/user/enterprise/tcie-3.x-overview/)
 * **Meets security and regulatory requirements:**  With your servers and hosts
-being deployed inside your firewall, you have full ownership and control of
+deployed inside your firewall, you have full ownership and control of
 your data, helping to make it possible to meet the security requirements of
 your company.
 * **Customizable images:**  We provide a range of build environment images,
@@ -37,7 +40,8 @@ each community is using. If you or your team need specific changes, they are
 easily customizable, which can then be deployed for use by your team.
 * **Hosted on your infrastructure:** Travis CI Enterprise supports the cloud
 or on-premises environment of your choice. This includes AWS, Google Compute
-Engine, VMware, OpenStack and Azure.
+Engine, VMware, OpenStack and Azure. Starting from version 3.0, it can be 
+deployed in Kubernetes cluster.
 * **Scales to your needs:** Your team has the flexibility to add as much build
 capacity as needed. If it’s a busy week before a production release, all you
 need to do is to start up some more capacity and let your team test to their

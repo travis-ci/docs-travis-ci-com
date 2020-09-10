@@ -94,6 +94,8 @@ if it contains:
 * `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
 * Special note: indication of `arm64-graviton2` means that the build job ran on Arm64 Graviton2 CPU based insfrastructure hosted on AWS. `arm64-graviton2`supports both virtual machine and LXD container based builds, which you can specifiy using `virt: ` key - `virt: vm` or `virt: lxd` for virtual machine or container respectively. 
 
+If *instance*, right under the *hostname* contains `ec2` → the build ran within an LXD container or as a 'full VM' on AWS Arm64 Graviton2 infrastructure
+
 ### For a particular .travis.yml configuration
 
 * Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
@@ -109,6 +111,12 @@ if it contains:
 * Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+
+* Using `arch: arm64-graviton2` routes you to the AWS environment powered by Arm64 Graviton2 CPUs. Available Ubuntu versions depend on the virtualization type (lxd/vm). 
+
+* If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
+
+> To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
 
 ## Deprecated Virtualization Environments
 
