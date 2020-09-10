@@ -174,3 +174,7 @@ You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based dock
 
 You can also have a look at [Using Docker in Builds](user/docker/).
 
+
+## LXD related limitations
+
+Pleae have a look at [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container) for more details.
