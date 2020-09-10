@@ -172,34 +172,3 @@ You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based dock
 
 You can also have a look at [Using Docker in Builds](user/docker/).
 
-## Security and LXD Container
-
-> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slower and have fixed computing power assigned compared to containers (LXD). 
-
-### Access to Privileged fs/Features (Apparmor)
-
-> Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
-
-As a result, for instance a command in `.travis.yaml` like:
-```yaml
-sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
-```
-{: data-file=".travis.yml"}
-
-would result in an error.
-
-Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
-
-### System Calls Interception
-
-If you run into a message like:
-
-> System doesn't support syscall interception
-
-It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
-
-## Hugepages Support from within LXD Container
-
-It is now possible to allow unprivileged containers access to hugepages. To understand what you need to address in order to avoid memory issues with LXD containers, please look at the resources below:
-* [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
-* [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
