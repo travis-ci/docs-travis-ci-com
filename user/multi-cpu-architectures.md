@@ -25,7 +25,7 @@ If your code is used on multiple CPU architectures it probably should be tested 
 if the operating system is Linux. The table below gives a brief perspective about the CPU and project type combinations:
 
 | Architecture            | Open Source   | Commercial    | Available on travis-ci.* |
-| ------------------------| ------------- | ------------- |--------------|
+| :-----------------------| :------------ | :------------ | :------------|
 | `amd64`                 | Yes           | Yes           | .org & .com  |
 | `ppc64le`.              | Yes           | No            | .org & .com  |
 | `s390x`                 | Yes           | No            | .org & .com  |
