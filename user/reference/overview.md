@@ -226,7 +226,7 @@ It most probably means a system call interception is outside of the list of the 
 
 As of now, Travis CI is not configured to allow hugepages within unprivileged containers. This may change on short notice.
 
-The unprivileged containers access to hugepages is added by the great Linux community. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
+The unprivileged containers access to hugepages is added by the great Linux and LXD teams. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
 * [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
 * [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
 
