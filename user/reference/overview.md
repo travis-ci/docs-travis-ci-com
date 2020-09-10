@@ -23,14 +23,14 @@ Travis CI supports two virtualization types for Linux builds: ‘full VM’ and 
 
 This is sudo enabled, full virtual machine per build, that runs Linux
 
-* Spins up slower (increased build time compared to LXD container) yet without any [limitations](user/reference/overview/#linux-security-and-lxd-container).
+* Spins up slower (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container).
 * It has a fixed amount of vCPUs and RAM assigned.
 
 #### LXD container
 
 This is sudo enabled LXD container build environment, as close to a virtual machine as you can get in containers world. A Linux environment is run within an unprivileged LXD container. 
 
-* Fast spin-up (decreased build time when compared to full VM) yet some [limitations](user/reference/overview/#linux-security-and-lxd-container) do apply
+* Fast spin-up (decreased build time when compared to full VM) yet some [limitations](/user/reference/overview/#linux-security-and-lxd-container) do apply
 * It starts with min 2 vCPUs and if there is more computing time available, the host can dynamically assign it to speed up your build
 
 #### Which one do I use?
@@ -49,8 +49,8 @@ Below table sums up available Ubuntu environments and virtualization type per CP
 | [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
 | [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
-| [Ubuntu Trusty 14.04](/user/reference/trusty/) | `arch: amd64`: full VM only, default option  | travis-ci.org and travis-ci.com |
-| [Ubuntu Precise 12.04](/user/reference/precise/) | `arch: amd64`: full VM only, default option  | travis-ci.org and travis-ci.com |
+| [Ubuntu Trusty 14.04](/user/reference/trusty/) | `arch: amd64`: full VM only, default option  |
+| [Ubuntu Precise 12.04](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
 
 
 LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
