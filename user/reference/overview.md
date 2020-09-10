@@ -28,7 +28,7 @@ This is sudo enabled, full virtual machine per build, that runs Linux
 
 #### LXD container
 
-This is sudo enabled LXD container build environment, closest to a virtual machine as you can get. A Linux environment is run within an unprivileged LXD container. 
+This is sudo enabled LXD container build environment, as close to a virtual machine as you can get in containers world. A Linux environment is run within an unprivileged LXD container. 
 
 * Fast spin-up (decreased build time when compared to full VM) yet some [limitations](user/reference/overview/#linux-security-and-lxd-container) do apply
 * It starts with min 2 vCPUs and if there is more computing time available, the host can dynamically assign it to speed up your build
