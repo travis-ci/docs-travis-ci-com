@@ -460,11 +460,14 @@ ElasticSearch uses the default configuration and is available on 127.0.0.1.
 
 ### Installing specific versions of ElasticSearch
 
-You can overwrite the installed ElasticSearch with the version you need (e.g., 2.3.0) with the following:
+You can overwrite the installed ElasticSearch with the version you need (e.g., 7.6.2) with the following:
 
 ```yaml
 before_install:
-  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.0/elasticsearch-2.3.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.0.deb && sudo service elasticsearch restart
+  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-amd64.deb -o elasticsearch.deb
+  - sudo dpkg -i --force-confnew elasticsearch.deb
+  - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo service elasticsearch restart
 ```
 {: data-file=".travis.yml"}
 
