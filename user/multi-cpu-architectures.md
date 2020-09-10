@@ -174,6 +174,8 @@ You can also have a look at [Using Docker in Builds](user/docker/).
 
 ## Security and LXD Container
 
+> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slower and have fixed computing power assigned compared to containers (LXD). 
+
 ### Access to Privileged fs/Features (Apparmor)
 
 > Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
@@ -187,8 +189,6 @@ sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
 would result in an error.
 
 Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
-
-> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slow and have fixed computing power assigned compared to containers (LXD). 
 
 ### System Calls Interception
 
