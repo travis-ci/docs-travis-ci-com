@@ -135,7 +135,7 @@ Since the repository in travis-ci.org is now in read-only mode, the settings pag
 
 ![Locked settings page in travis-ci.org](/user/images/oss-migration/locked-settings-org.png)
 
-## Migrating within a `Grouped Account`
+## Migrating within a "Grouped Account"
 
 > Please note: Grouping accounts, very rarely done, was set only manually by Travis CI staff and was subject to assesment every time. This section concerns only a handful of accounts in Travis CI as only a couple of tens accounts were set that way in the past.
 
