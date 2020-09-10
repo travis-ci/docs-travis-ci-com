@@ -44,8 +44,8 @@ Use full VM only if LXD is not available or you need
 
 Below table sums up available Ubuntu environments and virtualization type per CPU architecture:
 
-| Ubuntu version       | virtualization type    |
-| :------------------- | :--------------------- |
+| Ubuntu version       | Linux Virtualization Type    |
+| :------------------- | :---------------------       |
 | [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
 | [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
@@ -156,7 +156,7 @@ dist: focal          # or bionic | xenial | trusty | precise with xenial as defa
 
 ```yaml
 arch: arm64           # LXD container based build for OSS only
-os: linux
+os: linux             # required for arch different than amd64
 dist: focal           # or bionic | xenial with xenial as default
 ```
 {: data-file=".travis.yml"}
@@ -164,7 +164,7 @@ dist: focal           # or bionic | xenial with xenial as default
 ```yaml
 arch: arm64-graviton2 # in AWS over Graviton2 CPU
 virt: lxd             # required, routes to an LXD container
-os: linux
+os: linux             # required for arch different than amd64
 dist: focal           # or bionic | xenial with xenial as default
 group: edge
 ```
@@ -173,34 +173,28 @@ group: edge
 ```yaml
 arch: arm64-graviton2 # in AWS over Graviton2 CPU
 virt: vm              # required, routes to a 'full VM' instance 
-os: linux
+os: linux             # required for arch different than amd64
 dist: focal
 group: edge
 ```
 {: data-file=".travis.yml"}
 
 #### The IBM Power and Z builds
-```yaml
-arch: ppc64le           # The IBM Power LXD container based build for OSS only
-os: linux
-dist: focal # or bionic | xenial with xenial as default
-```
-{: data-file=".travis.yml"}
 
 ```yaml
-arch: s390x           # The IBM Z LXD container based build for OSS only
-os: linux
+arch: ppc64le         # The IBM Power LXD container based build for OSS only
+os: linux             # required for arch different than amd64
 dist: focal           # or bionic | xenial with xenial as default
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
-arch: arm64-graviton2 # in AWS over Graviton2 CPU
-virt: vm              # routes to a 'full VM' instance 
-dist: focal
-group: edge
+arch: s390x           # The IBM Z LXD container based build for OSS only
+os: linux             # required for arch different than amd64
+dist: focal           # or bionic | xenial with xenial as default
 ```
 {: data-file=".travis.yml"}
+
 
 ### Linux: Security and LXD Container
 
@@ -228,7 +222,7 @@ If you run into a message like:
 
 It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
 
-#### Hugepages Support from within LXD Container
+### Linux: Hugepages Support from within LXD Container
 
 As of now, Travis CI is not configured to allow hugepages within unprivileged containers. This may change on short notice.
 
