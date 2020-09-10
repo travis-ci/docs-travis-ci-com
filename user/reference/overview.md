@@ -99,7 +99,7 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 * Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `arch: arm64-graviton2` routes you to the environment powered by Arm64 Graviton2 CPUs. Available Ubuntu versions depend on the virtualization type (lxd/vm). 
+* Using `arch: arm64-graviton2` routes you to the AWS environment powered by Arm64 Graviton2 CPUs. Available Ubuntu versions depend on the virtualization type (lxd/vm). 
 
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
