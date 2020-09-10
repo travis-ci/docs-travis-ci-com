@@ -137,49 +137,50 @@ Since the repository in travis-ci.org is now in read-only mode, the settings pag
 
 ## Migrating within a `Grouped Account`
 
-> Please note: Grouping accounts was very rarely done, set only manually by Travis CI staff and was subject to assesment every time. This section concerns only a handful of accounts in Travis CI as only couple of tens accounts was set that way in the past.
+> Please note: Grouping accounts, very rarely done, was set only manually by Travis CI staff and was subject to assesment every time. This section concerns only a handful of accounts in Travis CI as only a couple of tens accounts were set that way in the past.
 
-If you happen to have your account grouped with other accounts by Travis CI staff in the past in so called 'grouped account' setup, migrating your repositories from travis-ci.org to travis-ci.com and preserving this unique configuration requires Travis CI staff support.
+If your account happens to be grouped with other accounts in the so called 'grouped account' setup, migrating your repositories from travis-ci.org to travis-ci.com and preserving this unique configuration requires Travis CI staff support.
 
 
-### How do I recognize I am part grouped account?
+### How do I recognize I am part of a grouped account?
 
-* At least 2 Version Control System (VCS) accounts utilize common concurrency pool, e.g. two concurrent GitHub accounts utilize common concurrency pool
-* Your total available concurrency exceeds standard number of concurrent jobs for free builds available for single account
-* Optionally: someone in your team can confirm that you are part of specific customised grouped account configuration in Travis CI
+You are part of a grouped account if:
+* At least 2 Version Control System (VCS) accounts utilize a common concurrency pool, e.g. two concurrent GitHub accounts utilize common concurrency pool.
+* Your total available concurrency exceeds the limit number of concurrent jobs available for free builds for a single account.
+* Optionally: if someone in your team confirms that you are part of a specific customised grouped account configuration in Travis CI.
 
 All of above must be satisfied at the same time. If you only notice increased concurrency limit, that may be a subject to separate configuration and you are welcomed to contact with [our support team](/user/migrate/open-source-repository-migration#support-and-feedback) to clarify details before you migrate your repositories.
 
 ### How do I progress with the migration?
 
-If your account is a part of grouped account and you will migrate just repositories on single account, you will loose access to combined concurrency pool. Therefore all accounts must migrate their repositories to travis-ci.com and once it's done, Travis CI Staff can re-create configuration for you in travis-ci.com. 
+If your account is part of a grouped account and you will migrate just repositories on single account, then you will loose access to the combined concurrency pool. Therefore, all accounts must migrate their repositories to travis-ci.com and once done, Travis CI Staff can re-create the configuration for you in travis-ci.com. 
 
-Whole migration can be done in seconds. Re-creating grouped account configuration on travis-ci.com should be completed within a couple of hours, depending on Travis CI staff workload.
+A whole migration can be done in seconds. Re-creating a grouped account configuration on travis-ci.com should complete within a couple of hours, depending on the Travis CI staff workload.
 
-Following steps are meant to clarify the process:
+The following steps are meant to clarify the process:
 
 #### Preparing
 
 Organize & let us know ahead!
 
-* Reach out in your collaborative group and establish, when you want to migrate repositories to travis-ci.com; make sure all partaking account owners express their consent for the move and can inform contributors on the plan to migrate to travis-ci.com
-* Report to Travis CI Support team in order to confirm you are a part of `Grouped Account` on travis-ci.org, at best providing list of other partakers and up to date contacts to decision makers (and a GitHub ticket, if you have opened one on your account for that action) - contact via our Slack #embassy channel or [email address](/user/migrate/open-source-repository-migration#support-and-feedback), we will internally create a ticket for that request and follow it
-* Travis CI support will verify configuration (which accounts do belong to the group) and unless it's been already done by you - reach out to partaking account owners to confirm that migration of repositories for every partaking account is executed or planned to execute
+* Reach out to your collaborative group and establish, when to migrate the repositories to travis-ci.com; make sure all partaking account owners express their consent for the move and can inform contributors on the plan to migrate to travis-ci.com.
+* Report to the Travis CI Support team to confirm that you are part of a `Grouped Account` on travis-ci.org, at best providing a list of other partakers with up-to-date contacts to decision makers (and a GitHub ticket, if you have opened one on your account for that action) - contact us via our Slack #embassy channel or to our [email address](/user/migrate/open-source-repository-migration#support-and-feedback), and we will internally create a ticket for that request.
+* Travis CI Support will verify the configuration (which accounts belong to the group) and, reach out to the partaking account owners in order to confirm that the migration of repositories for every partaking account is executed or planned to be executed.
 
 
 #### Migrating and re-creating configuration
 
-* Every account partaking in `Grouped Account` configuration must migrate their repositories to travis-ci.com following [migration steps](/user/migrate/open-source-repository-migration#migrating-a-repository)
-    * At least one repository migrated to travis-ci.com is required, however given you will need use the travis-ci.com app it's usually convenient to move all repositories at once
-* Once all partaking accounts have migrated their repositories to travis-ci.com, **reach out to Travis CI Staff** confirming readiness to re-create configuration on travis-ci.com (all partaking accounts migrated their repositories)
-* Travis CI Staff re-creates your `Grouped Accounts` configuration and answers on the request
+* Every account partaking in a `Grouped Account` configuration must migrate their repositories to travis-ci.com following this [migration steps](/user/migrate/open-source-repository-migration#migrating-a-repository).
+    * At least one repository migrated to travis-ci.com is required, however given you will need to use the travis-ci.com app, we recommend to move all repositories at once.
+* Once all partaking accounts have migrated their repositories to travis-ci.com, **reach out to Travis CI Staff** confirming readiness to re-create the configuration on travis-ci.com (all partaking accounts migrated their repositories).
+* Travis CI Staff re-creates your `Grouped Accounts` configuration and answers on the request.
 
-The whole process can be wrapped up within a couple of hours.
+The whole process takes a couple of hours.
 
 
 ## Support and feedback
 
-If you have any further questions or comments on our Beta migration process or need help, please let us know at [support@travis-ci.com](mailto:support@travis-ci.com?subject=Migration%20Beta%20Testing%20Feedback). We have a dedicated team working on this project that will be glad to assist you.
+If you have any further questions, comments or need help on our Beta migration process, please let us know at [support@travis-ci.com](mailto:support@travis-ci.com?subject=Migration%20Beta%20Testing%20Feedback). We have a dedicated team working on this project that will be glad to assist you.
 
 
 [travis-ci.com]: https://www.travis-ci.com
