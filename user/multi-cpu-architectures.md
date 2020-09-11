@@ -8,8 +8,11 @@ permalink: /user/multi-cpu-architectures/
 {: .beta}
 
 > `IBM Power` and `IBM Z`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period.
+>
 > An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+>
 > `Arm`-based building on `Arm64` CPU  is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period. 
+>
 > `Arm`-based building on `Arm64 Graviton2` CPU now supports both Open Source and commercial projects. The total concurrency capacity is limited, but may adjusted based on the demand.
 
 ## Multi CPU availaibility
@@ -66,7 +69,7 @@ If you are already using a [build matrix](/user/customizing-the-build/#build-mat
 
 - The `ppc64le` (IBM Power) and `s390x` (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
 - The `arm64` CPU architecture build job is run in an LXD compliant Linux OS image.
-- The `arm64-graviton2` architecture builds can be run on both LXD and regular 'full VM' environments. You **need** explicitely set target environment by using `virt` key. A `virt: vm` routes build jobs to full virtual machine setup while `virt: lxd` routes build jobs to LXD container setup. 
+- The `arm64-graviton2` architecture builds can be run on both LXD and regular 'full VM' environments. You **need** to explicitely set the target environment by using `virt` key. A `virt: vm` routes build jobs to a full virtual machine setup while `virt: lxd` routes build jobs to an LXD container setup. 
 - The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` you can select different supported LXD images. Also see our [CI Environment Overview - Virtualisation Environment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) documentation. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
 - The amd64 CPU architecture build job currently runs as a regular 'full VM' and will be transitioned to an LXD compliant Linux OS image usage over time.
 
@@ -177,4 +180,4 @@ You can also have a look at [Using Docker in Builds](user/docker/).
 
 ## LXD related limitations
 
-Pleae have a look at [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container) for more details.
+For more details see [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container).
