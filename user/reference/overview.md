@@ -23,7 +23,7 @@ Travis CI supports two virtualization types for Linux builds: ‘full VM’ and 
 
 This is sudo enabled, full virtual machine per build, that runs Linux
 
-* Spins up slower (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container).
+* Slow spin-up (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container).
 * It has a fixed amount of vCPUs and RAM assigned.
 
 #### LXD container
@@ -42,7 +42,7 @@ Use full VM only if LXD is not available or you need
 * specific system call interception
 * hugepages support (subject to changes on short notice)
 
-Below table sums up available Ubuntu environments and virtualization type per CPU architecture:
+The table below sums up the available Ubuntu environments and virtualization type per CPU architecture:
 
 | Ubuntu version       | Linux Virtualization Type    |
 | :------------------- | :---------------------       |
@@ -53,8 +53,7 @@ Below table sums up available Ubuntu environments and virtualization type per CP
 | [Ubuntu Precise 12.04](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
 
 
-LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). Have a look at [Building on Multiple CPU Architectures](/user/multi-cpu-architectures) for more information.
-
+LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures).
 
 You can select Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
 
