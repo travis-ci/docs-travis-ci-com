@@ -4,6 +4,8 @@ layout: en_enterprise
 
 ---
 
+> Please note that support for Trusty build environment is discontinued for Travis CI Enterprise. This is a **legacy** document left for reference.
+
 ## System Setup
 
 **Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started.
