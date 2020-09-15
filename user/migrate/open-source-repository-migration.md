@@ -74,7 +74,7 @@ No. Unless there was something very customised in your `.travis.yml`, no changes
 
 If you are already using GitHub Apps for your account in travis-ci.com, you need to access your installation settings and grant access to the repositories you'd like to migrate. Otherwise:
 
-1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile). If there's any doubt with regards to GitHub warning for Travis CI OAuth Application, please read more details [below](/user/migrate/open-source-repository-migration#travis-ci-github-oauth-app-access-rights).
+1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile). If there's any doubt with regards to GitHub message for Travis CI Authorized OAuth App access rights, please read more details [below](/user/migrate/open-source-repository-migration#travis-ci-github-oauth-app-access-rights).
 
 2. If you aren't using the new GitHub Apps integration already, activate it for your account
   ![Activate GitHub Apps](/user/images/oss-migration/gapps-activate.png)
@@ -85,7 +85,7 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 
 #### Travis CI GitHub OAuth App access rights
 
-{{ site.data.snippets.gh_access_rights }}
+{{ site.data.snippets.github_oauth_access_rights }}
 
 ### The migration steps
 
