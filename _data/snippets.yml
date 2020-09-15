@@ -124,10 +124,13 @@ github_oauth_access_rights: |
   > This application will be able to read and write all public and private repository data.
   
   This is not how Travis CI will exactly access yout data, however we can explain it only later in the process. 
+  
   The warning is triggerred due to GitHub OAuth App permissions Travis CI uses and available granularity of permission scopes (see GtiHub [Scopes for OAuth Apps documentation](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) ).
   
   **Travis CI does not access all your repositories by default**. 
+  
   Once you acknowledge the access rights, you will see Travis CI OAuth application present in your GtiHub [Authorized OAuth Apps list](https://github.com/settings/applications), however **you need to explicitly configure which repositories Travis CI has access to** within your [travis-ci.com](https://travis-ci.com) account. The configuration is done during activation of Travis CI for your repositories. You can use either 'All repositories' option or 'Only select repositories' during the activation process.
+  
   When you're done with Travis CI activation, you will see actual Travis CI GitHub Application installed in GitHub in [Installed GitHub Apps](https://github.com/settings/installations) section.
   
   Travis CI uses OAuth permissions in a following way:
