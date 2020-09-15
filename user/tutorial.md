@@ -21,7 +21,7 @@ To start using Travis CI, make sure you have:
 
 1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with GitHub*](https://travis-ci.com/signin).
 
-2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. Shall you have questions on Travis CI Github OAuth access rights, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
+2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. Shall you have doubts on Travis CI Github Authorized OAuth App access rights message, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
 
 3. Click on your profile picture in the top right of your Travis Dashboard, click Settings and then the green *Activate* button, and select the repositories you want to use with Travis CI.
 
@@ -51,7 +51,7 @@ To start using Travis CI, make sure you have:
 
 #### Travis CI GitHub OAuth App access rights
 
-{{ site.data.snippets.gh_access_rights }}
+{{ site.data.snippets.github_oauth_access_rights }}
 
 ## To get started with Travis CI using Bitbucket
 
