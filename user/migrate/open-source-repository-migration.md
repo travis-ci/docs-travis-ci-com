@@ -76,6 +76,8 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 
 1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile)
 
+{{ site.data.snippets.gh_access_rights }}
+
 2. If you aren't using the new GitHub Apps integration already, activate it for your account
   ![Activate GitHub Apps](/user/images/oss-migration/gapps-activate.png)
 
