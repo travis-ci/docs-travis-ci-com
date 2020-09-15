@@ -125,13 +125,19 @@ github_oauth_access_rights: |
   
   This is not how Travis CI will exactly access yout data, however we can explain it only later in the process. 
   
-  The warning is triggerred due to GitHub OAuth App permissions Travis CI uses and available granularity of permission scopes (see GtiHub [Scopes for OAuth Apps documentation](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) ).
+  The warning is triggerred due to GitHub OAuth App permissions Travis CI uses and available granularity of permission scopes (see GitHub [Scopes for OAuth Apps documentation](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) ).
   
   **Travis CI does not access all your repositories by default**. 
   
-  Once you acknowledge the access rights, you will see Travis CI OAuth application present in your GtiHub [Authorized OAuth Apps list](https://github.com/settings/applications), however **you need to explicitly configure which repositories Travis CI has access to** within your [travis-ci.com](https://travis-ci.com) account. The configuration is done during activation of Travis CI for your repositories. You can use either 'All repositories' option or 'Only select repositories' during the activation process.
+  Once you acknowledge the access rights, you will see Travis CI OAuth application present in your GitHub [Authorized OAuth Apps list](https://github.com/settings/applications), however **you need to explicitly configure which repositories Travis CI has access to** within your [travis-ci.com](https://travis-ci.com) account. The configuration is done during activation of Travis CI for your repositories. You can use either 'All repositories' option or 'Only select repositories' during the activation process.
   
   When you're done with Travis CI activation, you will see actual Travis CI GitHub Application installed in GitHub in [Installed GitHub Apps](https://github.com/settings/installations) section.
   
-  Travis CI uses OAuth permissions in a following way:
+  Travis CI uses OAuth permissions in a following way:  
+
+  1) Travis CI's system synchronizes certain metadata with GitHub. This metadata is required for proper service functioning. In particular, we sync users, orgs, memberships, repos, permissions and (optionally) branches. This type of sync happens either once a day by schedule or per user's request. You can find more information and source code [in this repository](https://github.com/travis-ci/travis-github-sync#syncs)
+
+  2) In order to run builds, Travis CI's system clones a repository, for which the build is triggered, to the build environment. The build environment is an isolated virtual machine, which gets terminated as soon as build finishes. Clone happens only after build request, and therefore only for the repositories, explicitly enabled at GitHub settings.
+
+  3) Travis CI's system reports build results back to GitHub via its [Checks API](https://developer.github.com/v3/checks/)
   
