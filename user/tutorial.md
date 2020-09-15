@@ -23,6 +23,8 @@ To start using Travis CI, make sure you have:
 
 2. Accept the Authorization of Travis CI. You'll be redirected to GitHub.
 
+{{ site.data.snippets.gh_access_rights }}
+
 3. Click on your profile picture in the top right of your Travis Dashboard, click Settings and then the green *Activate* button, and select the repositories you want to use with Travis CI.
 
 > Or you click the *Activate all repositories using GitHub Apps* button on the getting started page to just activate all your repos
