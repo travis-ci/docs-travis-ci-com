@@ -139,4 +139,6 @@ github_oauth_access_rights: |
 
   2) In order to run builds, Travis CI's system clones a repository, for which the build is triggered, to the build environment. The build environment is an isolated virtual machine, which gets terminated as soon as build finishes. Clone happens only after build request, and therefore only for the repositories, explicitly enabled at GitHub settings.
 
-  3) Travis CI's system reports build results back to GitHub via its [Checks API](https://developer.github.com/v3/checks/)
+  3) To set up a build environment and prepare the build, Travis CI's system fetches and processes `.travis.yml` config file from the repository and the branch explicitly specified in the build request, triggered by GitHub.
+
+  4) Travis CI's system reports build results back to GitHub via its [Checks API](https://developer.github.com/v3/checks/)
