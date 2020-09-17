@@ -137,7 +137,7 @@ github_oauth_access_rights: |
 
   1) Travis CI's system synchronizes certain metadata with GitHub. This metadata is required for proper service functioning. In particular, we sync users, orgs, memberships, repos, permissions and (optionally) branches. This type of sync happens either once a day by schedule or per user's request. You can find more information and source code [in this repository](https://github.com/travis-ci/travis-github-sync#syncs)
 
-  2) In order to run builds, Travis CI's system clones a repository, for which the build is triggered, to the build environment. The build environment is an isolated virtual machine, which gets terminated as soon as build finishes. Clone happens only after build request, and therefore only for the repositories, explicitly enabled at GitHub settings.
+  2) In order to run builds, Travis CI's system clones a repository, for which the build is triggered, to the build environment. The build environment is an isolated virtual machine or LXD container, which gets terminated as soon as build finishes. Clone happens only after build request, and therefore only for the repositories, explicitly enabled at GitHub settings.
 
   3) To set up a build environment and prepare the build, Travis CI's system fetches and processes `.travis.yml` config file from the repository and the branch explicitly specified in the build request, triggered by GitHub.
 
