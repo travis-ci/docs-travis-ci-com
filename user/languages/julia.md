@@ -35,7 +35,7 @@ julia:
 {: data-file=".travis.yml"}
 
 Acceptable formats are:
- - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
+ - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies/)
 of Julia.
  - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
