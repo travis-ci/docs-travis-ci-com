@@ -192,6 +192,8 @@ script: python3 my_app.py || python my_app.py
 
 ### pip
 
+> As per the [PyPa](https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-2-2020) announcement, we will be shipping out `pip` version 20.3 in our build images. We advise you test the effects of this version of `pip` on your builds as advised in the linked page.
+
 By default Travis CI uses `pip` to manage Python dependencies. If you have a
 `requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
 during the `install` phase of the build.
