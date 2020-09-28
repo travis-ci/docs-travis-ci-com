@@ -199,7 +199,7 @@ during the `install` phase of the build.
 You can manually override this default `install` phase, for example:
 
 ```yaml
-install: pip install --user -r requirements.txt 
+install: pip install --user -r requirements.txt
 ```
 {: data-file=".travis.yml"}
 
