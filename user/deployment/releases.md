@@ -126,7 +126,12 @@ travis setup releases --com
 
 ## Authenticating with an OAuth token
 
-The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+The recommended way to authenticate is to use a GitHub OAuth token. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+
+If you can't use `travis setup releases`, you can set up the token manually:
+1. Create a personal access token on the Github account. It must have the `public_repo` or `repo` scope to upload assets.
+2. Encrypt the token using Travis CLI: `travis encrypt [super_secret_token]`. Note that you must _not_ give the token a name in the encrypt command, as you might for an environment variable.
+3. Add the secure encrypted token to the deploy section of your `.travis.yml`, under the `api_key`.
 
 This results in something similar to:
 
