@@ -215,7 +215,7 @@ A. As part of the shift of infrastructure from .org to .com and needing to make 
 
 #### Q. Will Travis-ci.org become unreliable?
 
-A. As part of the shift of infrastructure from .org to .com we’re making a number of changes to the travis-ci.org infrastructure to ensure the service will remain as reliable and available to you as it always has been until the 
+A. As part of the shift of infrastructure from .org to .com we’re making a number of changes to the travis-ci.org infrastructure to ensure the service will remain as reliable and available to you as it always has been until the migration is completed.
 
 
 #### Q. Will Travis CI be getting rid of free users?
