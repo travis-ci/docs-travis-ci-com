@@ -87,7 +87,7 @@ Credits are deducted from your balance each time a build job ends either with so
 | Windows              | 20          |
 | MacOS                | 50          |
 
-Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up, thus queue waiting time or spinning-up time are not costing you credits.
+Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up, thus queue waiting time or spinning-up time are not taken into the account when calculating job duration time.
 
 Additional credits can be purchased at any time. Credits are replenished by purchasing credits addon.
 
@@ -95,7 +95,7 @@ Additional credits can be purchased at any time. Credits are replenished by purc
 
 Your credits remain available until you use them or disband them. At the moment we do not discard unusued paid credits after 12 months, yet this may be a subject to change on short notice.
 
-You may disband your credits will happen when
+You may disband your credits. It will happen when
 
 * you switch from usage based plan to a Free Plan (which cancels the paid Plan)
 
