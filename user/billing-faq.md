@@ -5,6 +5,8 @@ permalink: /user/billing-faq/
 
 ---
 
+> Please see our **[Billing overview](/user/billing-overview/)** first.
+
 ## How can I get on an annual plan? 
 
 The annual based plans are available by contacting the Travis CI support team. 
