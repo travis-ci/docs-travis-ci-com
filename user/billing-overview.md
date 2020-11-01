@@ -22,7 +22,6 @@ For majority of users one of concurrency based plans should be sufficient. Howev
 
 A 'Free' Plan, assigned automatically to every new sign up, is Usage based plan with no limits on users and a trial pool of credits to be used.
 
---- 
 
 ## Concurrency based plans
 
@@ -38,13 +37,13 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
 >
-> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://travis-ci.com/account/plan)), this build will not execute. In order to overcome that, an add-on must be purchased, e.g. 25k credits. Now the build can be executed and pre-defined amount of [credits will be charged for each build minute](). 
+> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://travis-ci.com/account/plan)), this build will not execute. In order to overcome that, an add-on must be purchased, e.g. 25k credits. Now the build can be executed and pre-defined amount of [credits will be charged for each build minute](/user/billing-overview/#usage---credits). 
 
 
 ### Concurrency based Plan - Summary
 
 | Area                            | Details    |
-| ---                             | ---        |
+| :---                            | ---        |
 | **Payment**                     | The subscription is charged automatically in advance, at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and used only when you need them. Charge is applied immediately upon transaction. |
 | **Private/Public repositories** | With paid subscription you can build over both private and public repositories. |
 | **Build job limits**            | As per Plan |
@@ -57,7 +56,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 3. Enter your billing details. **Please note, that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
 4. Confirm transaction.
 
----
+
 
 ## Usage based plans
 
@@ -82,7 +81,7 @@ Thus whenever you select or are assigned an Usage based plan:
 Credits are deducted from your balance each time a build job ends either with some result or is cancelled manually by you. Each started build job minute has a credit cost associated with the environment as per table below.
 
 | OS                   | # Credits per<br />started build minute |
-|---------------------:|:-----------:|
+|:--------------------:|:-----------:|
 | Linux                | 10          |
 | Experimental FreeBSD | 10          |
 | Windows              | 20          |
@@ -126,7 +125,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 ### Usage based Plan - Summary
 
 | Area                            | Details    |
-| ---                             | ---        |
+| :---                            | ---        |
 | **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time and credits used only when you need them. Charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears, at the end of each billing period. The number of unique users trigerring a build is charged according to the license rates. |
 | **Private/Public repositories** | With Credits you can build over both private and public repositories. <BR/> With OSS Credits you can build only over public repositories. |
 | **Build job limits**            | None or very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. |
