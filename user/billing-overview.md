@@ -1,5 +1,5 @@
 ---
-title: Travis CI Hosted Billing Overview
+title: Billing Overview
 layout: en
 permalink: /user/billing-overview/
 
