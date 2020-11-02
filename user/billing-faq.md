@@ -93,6 +93,6 @@ You can buy additional add-ons any time you feel it is needed. You and your orga
 
 ## Why my credits balance is negative?
 
-Most probably your last build costed more than you had available in your credit balance. You won't be able to run anymore builds until your balance gets positive. Replenish your credits (the negative balance will be deducted upon arrival of new credits creating new balance - see our [billing overview](/user/billing-overview/#negative-credits).
+Most probably your last build costed more than you had available in your credit balance. You won't be able to run any builds until your balance gets positive. Replenish your credits (the negative balance will be deducted upon arrival of new credits creating new balance - see our [billing overview](/user/billing-overview/#negative-credits).
 
 
