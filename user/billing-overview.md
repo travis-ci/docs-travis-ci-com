@@ -101,6 +101,10 @@ You may disband your credits. It will happen when
 
 and is meant to prevent abusive usage of the system.
 
+#### Negative Credits
+
+By design, the billing system allows the build job to be finished even if the possible cost of build job expressed in credits exceeds available credits balance. After such build being finished you may notice your credit balance being negative. **This is perfectly normal.** Whenever your credits get replenished, e.g. after purchasing an addon, the negative balance will be deducted from newly arriving credit pool. What remains is your available credits balance for your builds.
+
 
 #### Credits vs. OSS Only Credits
 
