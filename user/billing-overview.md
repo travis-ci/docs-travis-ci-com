@@ -20,7 +20,9 @@ The variety of plans provides you with flexibility to choose the plan that suits
 
 For majority of users one of concurrency based plans should be sufficient. However if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for Usage based plan.
 
-A 'Free' Plan, assigned automatically to every new sign up, is Usage based plan with no limits on users and a trial pool of credits to be used.
+### Free Plan
+
+A 'Free' Plan, assigned automatically to every new sign up, is Usage based plan with no limits on users and a trial pool of credits to be used. Once these credits are used up they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of available plans.
 
 
 ## Concurrency based plans
@@ -114,6 +116,11 @@ On occassion, an allotment of OSS Only credits may be granted by Travis CI. Thes
 The OSS credits may be assigned as one time pool or renewable pool, subject to case by case assesment of Travis CI staff.
 
 The OSS credits is a pool of credits completely separate from regular credits, with separate credits balance tracking.
+
+
+#### Free Plan Credits
+
+Each new user gets automatically assigned a Free Plan upon signing up. That plan contains one time pool of Credits, not renewable. This plan is meant to let you familiarize with usage based plan as well as try out other Travis CI features and it replaced previous Trial plan.
 
 
 ### Usage - User Licenses
