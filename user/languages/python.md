@@ -207,10 +207,10 @@ Please note that the `--user` option is mandatory if you are not using `language
 
 #### New dependency resolver in `pip` 20.3
 
-As described in the [PyPa](https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-2-2020) announcement, `pip` version 20.3 will ship with a new dependency resovler.
+As described in the [PyPa](https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-2-2020) announcement, `pip` version 20.3 will ship with a new dependency resolver.
 This may have unexpected changes in your software; when we deploy new build images with this version at a future date, your builds may break due to the changes related to this version.
 
-To test the new dependency resolver's effects on your software, we advise you to test it with `pip` version 20.2. To do so, modify your build to update `pip` to version 20.2 and invoke `pip` with `--use-feature=2020-resolver` flag. For example:
+To test the new dependency resolver's effects on your software, we advise you to test it with `pip` version 20.2. To do so, modify your build to update `pip` to version 20.2 and to invoke `pip` with `--use-feature=2020-resolver` flag. For example:
 
 ```yaml
 before_install:
