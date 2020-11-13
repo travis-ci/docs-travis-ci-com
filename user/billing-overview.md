@@ -22,7 +22,7 @@ For majority of users one of concurrency based plans should be sufficient. Howev
 
 ### Free Plan
 
-A 'Free' Plan, assigned automatically to every new sign up, is Usage based plan with no limits on users and a trial pool of credits to be used. Once these credits are used up they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of available plans.
+A 'Free' Plan, assigned automatically to every new sign up, is a Usage based plan without limits on users and comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans.
 
 
 ## Concurrency based plans
@@ -120,7 +120,7 @@ The OSS credits is a pool of credits completely separate from regular credits, w
 
 #### Free Plan Credits
 
-Each new user gets automatically assigned a Free Plan upon signing up. That plan contains one time pool of Credits, not renewable. This plan is meant to let you familiarize with usage based plan as well as try out other Travis CI features and it replaced previous Trial plan.
+Each new user gets automatically assigned to the Free Plan upon signing up. The Free plan contains a one time pool of Credits, not renewable. This plan is meant to let you familiarize with our usage based plans as well as to try out other Travis CI features. 
 
 
 ### Usage - User Licenses
