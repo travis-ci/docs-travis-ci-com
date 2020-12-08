@@ -1,9 +1,9 @@
 ---
 title: Build Config Validation
-layout: en
+layout: en id
 ---
 
-<blockquote class="beta">
+<blockquote class="dev">
   <p>
     This page documents the new build config validation feature that is currently in beta.
   </p>
