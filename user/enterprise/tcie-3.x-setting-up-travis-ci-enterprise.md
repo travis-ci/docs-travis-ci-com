@@ -55,7 +55,7 @@ or multiple instances managed by Kubernetes, separate from that of the Travis CI
 Enterprise worker. We recommend **compute optimized** instance running
 Ubuntu 18.04 LTS or later as the underlying operating system.
 
-> If you are migrating from Travis CI enteprise 2.x, please make sure to read and execute the [datbase migration instructions](/user/enterprise/tcie-3.x-migrating-db-from-2.x-to-3.x./) first.
+> If you are migrating from Travis CI enteprise 2.x, please make sure to read and execute the [datbase migration instructions](/user/enterprise/tcie-3.x-migrating-db-from-2.x-to-3.x/) first.
 
 1. *On your infrastructure management platform*, create a Travis CI Platform Security Group.
 
