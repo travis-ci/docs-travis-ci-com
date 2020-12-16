@@ -53,8 +53,7 @@ Lots of Java projects build with Maven. To add a SonarCloud inspection to your M
 addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
-    token:
-      secure: "*********" # encrypted value of your token
+    token: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
