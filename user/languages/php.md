@@ -62,6 +62,13 @@ php:
 ```
 {: data-file=".travis.yml"}
 
+{% if site.data.language-details.php-versions.size > 0 %}
+### Supported PHP versions
+
+The list of PHP versions available for on-demand installation can be found in
+[the table below](#php-versions).
+
+{% else %}
 ### PHP 5.2(.x) - 5.3(.x) support is available on Precise only
 
 We do not support these versions on Trusty or Xenial or Bionic.
@@ -84,6 +91,7 @@ See [this page](/user/reference/bionic#php-support) for more information.
 
 We do not support these versions on Precise.
 If you need to test them, please use Trusty, Xenial, or Bionic.
+{% endif %}
 
 ### HHVM versions are available on Trusty only
 
@@ -406,3 +414,30 @@ You can find more information on the build config format for [PHP](https://confi
 ## Examples
 
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
+
+{% if site.data.language-details.php-versions.size > 0 %}
+## PHP versions
+These archives are available for on-demand installation.
+
+{: #php-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.php-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
+<script>
+var tf = new TableFilter(document.querySelector('#php-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
