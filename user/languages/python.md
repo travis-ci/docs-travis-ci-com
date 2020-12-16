@@ -49,7 +49,8 @@ python:
   - "3.6"      # current default Python on Travis CI
   - "3.7"
   - "3.8"
-  - "3.8-dev"  # 3.8 development branch
+  - "3.9"
+  - "3.9-dev"  # 3.9 development branch
   - "nightly"  # nightly build
 # command to install dependencies
 install:
@@ -123,7 +124,7 @@ a recent development version of [CPython](https://github.com/python/cpython) bui
 From Python 3.5 and later, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev`,
-`3.7-dev` or `3.8-dev`.
+`3.7-dev`, `3.8-dev` or `3.9-dev`.
 
 ## Default Build Script
 
@@ -157,8 +158,6 @@ As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs
 If you're using tox to test your code against multiple versions of Python, you have two options:
   * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions - 2.7.12 and 3.5.1 for Xenial)
   * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload.
-
-A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
 
 ## Running Python tests on multiple Operating Systems
 
@@ -204,6 +203,20 @@ install: pip install --user -r requirements.txt
 {: data-file=".travis.yml"}
 
 Please note that the `--user` option is mandatory if you are not using `language: python`, since no virtualenv will be created in that case.
+
+#### New dependency resolver in `pip` 20.3
+
+As described in the [PyPa](https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-2-2020) announcement, `pip` version 20.3 will ship with a new dependency resolver.
+This may have unexpected changes in your software; when we deploy new build images with this version at a future date, your builds may break due to the changes related to this version.
+
+To test the new dependency resolver's effects on your software, we advise you to test it with `pip` version 20.2. To do so, modify your build to update `pip` to version 20.2 and to invoke `pip` with `--use-feature=2020-resolver` flag. For example:
+
+```yaml
+before_install:
+  - python -m pip install --upgrade pip
+install:
+  - pip install --user -r requirements.txt --use-feature=2020-resolver
+```
 
 ### Custom Dependency Management
 

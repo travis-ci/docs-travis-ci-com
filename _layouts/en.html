@@ -27,13 +27,25 @@
                 for details. <a href="/user/deployment-v2">dpl v2 documentation can be found here</a>.
               </p>
             </blockquote>
-          {% elsif page.deploy == 'v2' %}
+          {% elsif page.deploy == 'v2_base' %}
             <blockquote class="alpha">
               <p>
-                This page documents deployments using the next major version dpl v2 which
+                This page documents deployments using the next major version dpl v2, which
                 currently is in a beta release phase. Please see <a href="https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release">our blog post</a>
                 for details. The current default version is dpl v1.
                 Check <a href="/user/deployment">dpl v1 documentation here</a>.
+              </p>
+            </blockquote>
+          {% elsif page.deploy == 'v2' %}
+            <blockquote class="alpha">
+              <p>
+                This page documents deployments using the next major version dpl v2, which
+                currently is in a beta release phase. Please see <a href="https://blog.travis-ci.com/2019-08-27-deployment-tooling-dpl-v2-preview-release">our blog post</a>
+                for details. The current default version is dpl v1.
+                Check <a href="/user/deployment">dpl v1 documentation here</a>.
+              </p>
+              <p>
+                Be sure to read the <a href="/user/deployment-v2">v2 deployment overview</a>.
               </p>
             </blockquote>
           {% endif %}
