@@ -184,6 +184,12 @@ is `openjdk11`.
 | groovy  | 2.4.5   |
 {: style="width: 30%" }
 
+## Perl support
+
+* Default version on Xenial is `5.26.1`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.30` and `5.32` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.38 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
+
 ## PHP support
 
 * For dynamic runtime selection, `phpenv` is available.
