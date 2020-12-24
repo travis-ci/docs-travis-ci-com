@@ -182,8 +182,10 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 {: style="width: 30%" }
 
 ## Perl support
-* Default version on Xenial is `5.18.4`
+
+* Default version on Xenial is `5.22.1`
 * Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
 
