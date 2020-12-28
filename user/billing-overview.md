@@ -27,7 +27,7 @@ A 'Free' Plan, assigned automatically to every new sign up, is a Usage based pla
 
 ## Concurrency based plans
 
-Concurrency based plans is much like what Travis CI has been oferring already for a long time: an ability to run a build consisting of X concurrent jobs. 
+Concurrency based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
 In Travis CI builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds at the same time or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until there is a queue capacity available for processing. 
 
 > If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 builds are processed while the remaining 3 of the builds wait in line to be processed.  
