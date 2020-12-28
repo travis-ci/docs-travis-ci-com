@@ -157,6 +157,7 @@ You can find more information on the build config format for [Environment Variab
 The following default environment variables are available to all builds.
 
 - `CI=true`
+- `TZ=UTC`
 - `TRAVIS=true`
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
