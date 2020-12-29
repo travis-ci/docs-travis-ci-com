@@ -123,7 +123,7 @@ github_oauth_access_rights: |
   
   > This application will be able to read and write all public and private repository data.
   
-  This is not how Travis CI access yout data, however we can explain it later in the process. 
+  This is not how Travis CI accesses your data, however we can explain it later in the process. 
   
   The warning is triggerred due to GitHub OAuth App permissions which Travis CI uses, and due to the available granularity of permission scopes (see GitHub [Scopes for OAuth Apps documentation](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) ).
   

@@ -92,6 +92,14 @@ By CyanCor
 - [website](https://buildmonitor.io/)
 - [source code](https://gitlab.com/BuildMonitor/TravisConnector)
 
+### Meercode CI Build Dashboard
+
+![meercode.io](/images/apps/meercodeio.png){:.app}
+
+Meercode is the ultimate monitoring dashboard for your CI/CD builds.<br>
+By Meercode.io
+
+- [website](https://meercode.io/)
 
 ## Tools
 
