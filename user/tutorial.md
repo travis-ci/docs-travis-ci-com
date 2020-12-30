@@ -97,7 +97,7 @@ To start using Travis CI, make sure you have:
   </p>
 </blockquote>
 
-1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with GitLab*](https://travis-ci.com/signin).
+1. Go to [Travis-ci.com](https://travis-ci.com) andf [*Sign up with GitLab*](https://travis-ci.com/signin).
 
 2. Accept the Authorization of Travis CI. You'll be redirected to GitLab.
 
