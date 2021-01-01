@@ -700,8 +700,8 @@ hostnames in `/etc/hosts` for both IPv4 and IPv6.
 ```yaml
 addons:
   hosts:
-  - travis.test
-  - joshkalderimis.com
+  - Th3-Guardians_Legacy.test
+  - developers.google.com
 ```
 {: data-file=".travis.yml"}
 
