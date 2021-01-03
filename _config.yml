@@ -16,4 +16,4 @@ plugins:
 sass:
   sass_dir: assets/stylesheets
 
-theme: jekyll-theme-tactile
+theme: jekyll-theme-cayman
