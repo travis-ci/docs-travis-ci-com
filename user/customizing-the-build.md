@@ -653,7 +653,7 @@ If some jobs in the build matrix are allowed to fail, the build won't be marked 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
 ```yaml
-jobs:
+matrix:
   fast_finish: true
 ```
 {: data-file=".travis.yml"}
