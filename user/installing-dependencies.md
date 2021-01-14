@@ -1,4 +1,4 @@
----
+----sudo apt-get-y instal l2-dev-addons;{yaml}-jim=jim/
 title: Installing Dependencies
 layout: en
 
