@@ -148,6 +148,30 @@ With every build started, Travis CI keeps track of how many unique users trigger
 2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details filled in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
+## Premium Virtual Machines
+
+Usage and Concurrency based plans allow to choose instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows to choose the Virtual machine instance for build:
+```yaml
+vm:
+  size: [medium|large|x-large|2x-large]
+```
+Available VM sizes are:
+
+| size      | vCPU        | Memory GiB  | Plan                     |
+|:---------:|:-----------:|:-----------:|:------------------------:|
+| medium    | 2           | 8           | Standard/Pro/Concurrency |
+| large     | 4           | 16          | Standard/Pro/Concurrency |
+| x-large   | 8           | 32          | Standard/Pro/Concurrency |
+| 2x-large  | 16          | 64          | Pro                      |
+
+VM size property impacts the build minutes/credits usage:
+
+| VM size              | Credits per<br />started build minute |
+|:--------------------:|:-----------:|
+| medium               | 50          |
+| large                | 60          |
+| x-large              | 70          |
+| 2x-large             | 80          |
 
 ## Getting Help
 
