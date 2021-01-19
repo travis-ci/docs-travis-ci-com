@@ -150,7 +150,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 ## Premium Virtual Machines
 
-Usage and Concurrency based plans allow to choose instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows to choose the Virtual machine instance for build:
+Usage and Concurrency based plans allow you to choose the instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
 ```yaml
 vm:
   size: [medium|large|x-large|2x-large]
