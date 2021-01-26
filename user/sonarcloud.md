@@ -53,8 +53,7 @@ Lots of Java projects build with Maven. To add a SonarCloud inspection to your M
 addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
-    token:
-      secure: "*********" # encrypted value of your token
+    token: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
@@ -67,7 +66,7 @@ script:
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
-Without POM update, or if you are [Testing Against Multiple JDKs](languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
+Without POM update, or if you are [Testing Against Multiple JDKs](/user/languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
 
 ```yaml
 script:

@@ -175,7 +175,7 @@ script: docker run my/test #assuming docker image my/test is arm64v8 ready
 
 You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based docker builds, assuming all dependencies and/or a CPU architecture compliant base docker image are used.
 
-You can also have a look at [Using Docker in Builds](user/docker/).
+You can also have a look at [Using Docker in Builds](/user/docker/).
 
 
 ## LXD related limitations
