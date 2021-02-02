@@ -324,7 +324,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-CouchDB binds to 127.0.0.1, uses default configuration and does not require authentication (in CouchDB terms it runs in admin party).
+CouchDB binds to 127.0.0.1, uses default configuration on `dist:xenial` and earlier Linux distributions and does not require authentication (in CouchDB terms it runs in admin party). 
+
+However for `bionic`, authentication is required with username `admin` and password `travis` e.g. `curl -X PUT http://admin:travis@localhost:5984/<db_name>`.
 
 Before using CouchDB you need to create the database as part of your build process:
 

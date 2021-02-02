@@ -17,7 +17,7 @@ Continuous Deployment to the following providers is supported:
 </ul>
 
 To deploy to a custom or unsupported provider, use the [after-success build
-step](/user/deployment/custom/) or [script provider](/user/deployment/providers/script).
+step](/user/deployment/custom/) or [script provider](/user/deployment/script).
 
 {% include deploy/pull_requests.md %}
 {% include deploy/maturity_levels.md %}
