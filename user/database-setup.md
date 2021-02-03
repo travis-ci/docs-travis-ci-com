@@ -160,7 +160,7 @@ addons:
 
 Many PostgreSQL versions have been preinstalled in our build environments, and
 others may be added and activated at build time by using a combination of the
-`postgresql` and `apt` addons along with a global env var override for `PGPORT` and `PGUSER`:
+`postgresql` and `apt` addons along with a global env var override for `PGPORT` and for `PGUSER`:
 
 ``` yaml
 addons:
