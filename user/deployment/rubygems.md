@@ -34,10 +34,6 @@ If you tag a commit locally, remember to run `git push --tags` to ensure that yo
 You can retrieve your api key by following [these instructions](http://guides.rubygems.org/rubygems-org-api). It is recommended to encrypt that key.
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
-```bash
-travis encrypt --add deploy.api_key
-```
-
 You will be prompted to enter your api key on the command line.
 
 You can also have the `travis` tool set up everything for you:
