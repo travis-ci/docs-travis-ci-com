@@ -160,20 +160,28 @@ addons:
 
 Many PostgreSQL versions have been preinstalled in our build environments, and
 others may be added and activated at build time by using a combination of the
-`postgresql` and `apt` addons along with a global env var override for `PGPORT`:
+`postgresql` and `apt` addons along with a global env var override for `PGPORT` and for `PGUSER`:
 
 ``` yaml
 addons:
-  postgresql: "10"
+  postgresql: "11"
   apt:
     packages:
-    - postgresql-10
-    - postgresql-client-10
+    - postgresql-11
+    - postgresql-client-11
 env:
   global:
   - PGPORT=5433
+  - PGUSER=travis
 ```
 {: data-file=".travis.yml"}
+
+In the Xenial images Postgres 9.4 through 9.6 just need the version specified and use the user 
+`postgres` by default and the default port of 5432. 
+
+For PostgreSQL 10 you must specify the packages
+to install it and the user is `postgres` and the port is 5432.  For PostgreSQL 11 and 12 you must
+ specify the packages, but the user is `travis` and the port is 5433 instead. So you must specify the PGPORT
 
 ### Using PostGIS
 
@@ -324,7 +332,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-CouchDB binds to 127.0.0.1, uses default configuration and does not require authentication (in CouchDB terms it runs in admin party).
+CouchDB binds to 127.0.0.1, uses default configuration on `dist:xenial` and earlier Linux distributions and does not require authentication (in CouchDB terms it runs in admin party). 
+
+However for `bionic`, authentication is required with username `admin` and password `travis` e.g. `curl -X PUT http://admin:travis@localhost:5984/<db_name>`.
 
 Before using CouchDB you need to create the database as part of your build process:
 
