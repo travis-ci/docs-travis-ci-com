@@ -233,7 +233,7 @@ Retrieve your ```Client_ID``` and your ```Secret``` from GitHub and enter them, 
 Once your ```Client_ID``` and ```Secrets``` are obtained, obtain proper values via going to:
 
 ```bash
-https://storage.googleapis.com/gatestxxx/app03.html
+https://gh-app-setup.travis-ci-enterprise.com
 ```
 
 Be sure in GitHub app section to use SSL (Secure Socket Layer) via 
