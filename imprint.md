@@ -32,4 +32,4 @@ no_toc: true
   </address>
   <h4>Datenschutzbeauftragter (Data Protection Officer) </h4>
   dpo@travis-ci.com
-</article>
+
