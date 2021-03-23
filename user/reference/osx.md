@@ -95,15 +95,19 @@ and later, use `xcode9.4` (or later).
 ## Compilers and Build toolchain
 
 - automake
+- clang
+- cmake
+- gcc
 - maven
 - mercurial
 - pkg-config
 - wget
 - xctool
-- cmake
 
 ## Languages
 
+- C
+- C++
 - Go
 - Java
 - Nodejs
