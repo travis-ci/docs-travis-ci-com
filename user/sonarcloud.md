@@ -18,16 +18,17 @@ The default Travis dist
 dist: xenial
 ```
 {: data-file=".travis.yml"}
-inlcudes Java 11 by default.
+includes Java 11 by default.
 
 ## Inspecting code with the SonarQube Scanner
 
 Before inspecting your code, you need to:
 
-1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
-3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
-4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Tutorial](https://docs.travis-ci.com/user/tutorial/).
+2. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
+3. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
+4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
+5. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
 
