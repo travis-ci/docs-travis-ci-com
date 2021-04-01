@@ -204,7 +204,7 @@ The list of available JVMs for different dists are at
 ### Switching JDKs (Java 8 and below) Within One Job
 
 If your build needs to switch JDKs (Java 8 and below) during a job, you can do so with
-`jdk_switcher use …`.
+[`jdk_switcher`](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is).
 
 ```yaml
 script:
@@ -253,16 +253,18 @@ jdk:
 
 ### Switching JDKs (to Java 10 and up) Within One Job
 
-If your build needs to switch JDKs (Java 8 and up) during a job, you can do so with
-`install-jdk.sh`.
+If your build needs to switch JDKs (Java 10 and up) during a job, you can do so with
+[`install-jdk.sh`](https://sormuras.github.io/blog/2017-12-08-install-jdk-on-travis.html).
 
 ```yaml
 jdk: openjdk10
 script:
   - jdk_switcher use openjdk10
   - # do stuff with OpenJDK 10
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+  - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
   - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
+  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - # do stuff with open OpenJDK 11
 ```
 {: data-file=".travis.yml"}
