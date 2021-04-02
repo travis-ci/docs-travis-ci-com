@@ -101,6 +101,15 @@ By Meercode.io
 
 - [website](https://meercode.io/)
 
+### BuildPulse Flaky Test Dashboard
+
+![buildpulse.io](/images/apps/buildpulse.png){:.app}
+
+Automatically detect, track, and rank flaky tests.<br>
+By Workshop 64
+
+- [website](https://buildpulse.io/)
+
 ## Tools
 
 ### Travis Web Encrypter

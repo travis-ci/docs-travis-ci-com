@@ -19,13 +19,14 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
-   `/repo/travis-ci/travis-core/requests` to trigger a build of the most recent
-   commit of the master branch of the `travis-ci/travis-core` repository:
+   `/repo/travis-ci/travis-core/requests` to trigger a build of a specific 
+   commit (omit `sha` for most recent) of the master branch of the `travis-ci/travis-core` repository:
 
    ```bash
    body='{
    "request": {
    "branch":"master"
+   "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
    }}'
 
    curl -s -X POST \

@@ -18,8 +18,8 @@ This can be an Ubuntu package or any of your project's language dependencies,
 like RubyGems, NPM packages, Pip, Composer, etc.
 
 To find out if this is the case:
-* Restart a build that used to be green, the last known working one, for instance. 
-If that build suddenly fails too, there's a good chance, that a dependency was 
+* Restart a build that used to be green, the last known working one, for instance.
+If that build suddenly fails too, there's a good chance, that a dependency was
 updated and is causing the breakage.
 
 * Check the list of dependencies in the build log, usually output
@@ -72,14 +72,14 @@ One possible cause for builds failing unexpectedly can be calling `set -e` (also
 See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex-build-steps).
 
 Another reason could be that the repo setting **Clone or import** is set to `OFF.` In this case, no information from the repository is shared and it is possible some builds using private dependencies between repos can break.
-If you want to avoid the situation when all of your repositories stop sharing dependencies, please go to the repository settings and explicitly set **Clone or Import** to `ON.` In this case, your builds keep running as usual. 
+If you want to avoid the situation when all of your repositories stop sharing dependencies, please go to the repository settings and explicitly set **Clone or Import** to `ON.` In this case, your builds keep running as usual.
 
 ## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
 
-Fix the problem by 
-* clearing the cache or 
+Fix the problem by
+* clearing the cache or
 * removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
 
 ## **Ruby**: RSpec returns 0 even though the build failed
@@ -571,10 +571,10 @@ If a build hasn't been triggered for your commit, these are the possible build r
 
 - **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
 - **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#skipping-a-build).
-- **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable.
+- **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable. You may also have unresolved conflicts in a particular branch.
 - **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
-- **Build type disabled via repository settings**, please make sure your Push and Pull Request builds are still active.
-- **Build config did not create any jobs.**, please make sure the conditions in your `.travis.yml` file have created a job.
+- **"Build type disabled via repository settings"**, please make sure your Push or Pull Request builds are still active.
+- **"Build config did not create any jobs."**, please make sure the conditions in your `.travis.yml` file are able to created a job.
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
@@ -587,7 +587,7 @@ If you need a bit more space in your Ubuntu builds, we recommend using `language
 
 ## Uploading artifacts to sonatype
 
-When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk). 
+When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://blog.travis-ci.com/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk).
 
 ## Travis CLI does not recognize my valid Github token
 
@@ -621,7 +621,7 @@ jobs:
     name: Peanut Butter and Bread
     script: ./brew_hot_coffee.sh
 
-``` 
+```
 {: data-file=".travis.yml"}
 
 
@@ -629,4 +629,4 @@ This creates only one job,  _Peanut Butter and Bread_ under the stage named _Bre
 
 ## **Node**: Script execution before dependency installation causes build failures
 
-When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency. 
+When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency.

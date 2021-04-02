@@ -119,7 +119,7 @@ github_oauth_access_rights: |
   
   > Travis CI by travis-pro wants to access your [account name] account.
   
-  and in the repositorie's section it will state: 
+  and in the repositories section it will state: 
   
   > This application will be able to read and write all public and private repository data.
   
