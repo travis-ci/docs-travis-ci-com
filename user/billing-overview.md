@@ -103,9 +103,12 @@ You may disband your credits. It will happen when
 
 and is meant to prevent abusive usage of the system.
 
+
 #### Negative Credits
 
-By design, the billing system allows the build job to be finished even if the possible cost of build job expressed in credits exceeds available credits balance. After such build being finished you may notice your credit balance being negative. **This is perfectly normal.** Whenever your credits get replenished, e.g. after purchasing an addon, the negative balance will be deducted from newly arriving credit pool. What remains is your available credits balance for your builds.
+By design, the billing system allows usually the build job to be finished even if the possible cost of build job expressed in credits exceeds available credits balance. After such build being finished you may notice your credit balance being negative. **This is perfectly normal.** Whenever your credits get replenished, e.g. after purchasing an addon, the negative balance will be deducted from newly arriving credit pool. What remains is your available credits balance for your builds.
+
+Please note: if the system decides that you can run into too high negative balance, at the moment the job can be cancelled mid-flight due to insufficient credits balance. This will be addressed in one of incoming uodates in order to allow fluent processing fo your builds.
 
 
 #### Credits vs. OSS Only Credits
@@ -121,6 +124,7 @@ The OSS credits is a pool of credits completely separate from regular credits, w
 #### Free Plan Credits
 
 Each new user gets automatically assigned to the Free Plan upon signing up. The Free plan contains a one time pool of Credits, not renewable. This plan is meant to let you familiarize with our usage based plans as well as to try out other Travis CI features. 
+
 
 
 ### Usage - User Licenses
@@ -148,30 +152,35 @@ With every build started, Travis CI keeps track of how many unique users trigger
 2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details filled in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
-## Premium Virtual Machines
 
-Usage and Concurrency based plans allow you to choose the instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+## VM Instance Sizes and Credit Cost
+
+Usage and Concurrency based plans allow you to choose the instance size, the build will run on (for the 'full vm' build job). This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
 ```yaml
 vm:
   size: [medium|large|x-large|2x-large]
 ```
-Available VM sizes are:
 
-| size      | vCPU        | Memory GiB  | Plan                     |
-|:---------:|:-----------:|:-----------:|:------------------------:|
-| medium    | 2           | 8           | Standard/Pro/Concurrency |
-| large     | 4           | 16          | Standard/Pro/Concurrency |
-| x-large   | 8           | 32          | Standard/Pro/Concurrency |
-| 2x-large  | 16          | 64          | Pro                      |
+Instance sizes are not applicable to OSX build jobs. Available VM sizes vs operating system and CPU architecture are described on our CI Overview page. 
 
-VM size property impacts the build minutes/credits usage:
+In order to use instance sizes
+
+* you need to have credits under your account, regardless of whether you use Concurrency or Usage based plan
+* you need to add aforementioned tags to your `.travis.yml`
+
+VM size property impacts the cost of build minutes/credits usage in a following way:
 
 | VM size              | Credits per<br />started build minute |
-|:--------------------:|:-----------:|
-| medium               | 50          |
-| large                | 60          |
-| x-large              | 70          |
-| 2x-large             | 80          |
+|:--------------------:|:-------------------------------------:|
+| medium               | 1 x usage credit cost of build minute |
+| large                | 2 x usage credit cost of build minute |
+| x-large              | 4 x usage credit cost of build minute |
+| 2x-large             | 8 x usage credit cost of build minute |
+
+
+
+> If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under concurrency plan, you do not need any credits, as the cost is already covered by a subscription. However, if you decide to run a Linux build using the `large` instance size, you will need in both cases 20 credits per every started build minutes (2 x 10 credits).
+
 
 ## Getting Help
 
