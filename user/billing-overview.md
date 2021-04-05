@@ -155,13 +155,14 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 ## VM Instance Sizes and Credit Cost
 
-Usage and Concurrency based plans allow you to choose the instance size, the build will run on (for the 'full vm' build job). This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+Usage and Concurrency based plans allow you to choose the instance size, the build will run on (for the 'full vm' build job). Larger instance sizes deliver more resources (namley vCPU and RAM) for your build jobs. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
 ```yaml
 vm:
-  size: [medium|large|x-large|2x-large]
+  size: [large|x-large|2x-large]
 ```
+{: data-file=".travis.yml"}
 
-Instance sizes are not applicable to OSX build jobs. Available VM sizes vs operating system and CPU architecture are described on our CI Overview page. 
+Instance sizes are not applicable to OSX build jobs. Available VM sizes vs operating system and CPU architecture are described in our [CI Evironment Overview page](/user/reference/overview#vm-instance-size). 
 
 In order to use instance sizes
 
@@ -172,7 +173,6 @@ VM size property impacts the cost of build minutes/credits usage in a following 
 
 | VM size              | Credits per<br />started build minute |
 |:--------------------:|:-------------------------------------:|
-| medium               | 1 x usage credit cost of build minute |
 | large                | 2 x usage credit cost of build minute |
 | x-large              | 4 x usage credit cost of build minute |
 | 2x-large             | 8 x usage credit cost of build minute |
