@@ -8,16 +8,16 @@ deploy:
   auth: <encrypted auth>
   edge: true # opt in to dpl v2
 ```
+
 {: data-file=".travis.yml"}
-
-
 
 {{ include.content }}
 {% endunless %}
 
 ## Status
 
-Support for deployments to Netlify is *stable**.
+Support for deployments to Netlify is **stable**.
+
 ## Known options
 
 Use the following options to further configure the deployment.

@@ -20,12 +20,14 @@ The variety of plans provides you with flexibility to choose the plan that suits
 
 For majority of users one of concurrency based plans should be sufficient. However if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for Usage based plan.
 
-A 'Free' Plan, assigned automatically to every new sign up, is Usage based plan with no limits on users and a trial pool of credits to be used.
+### Free Plan
+
+A 'Free' Plan, assigned automatically to every new sign up, is a Usage based plan without limits on users and comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans.
 
 
 ## Concurrency based plans
 
-Concurrency based plans is much like what Travis CI has been oferring already for a long time: an ability to run a build consisting of X concurrent jobs. 
+Concurrency based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
 In Travis CI builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds at the same time or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until there is a queue capacity available for processing. 
 
 > If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 builds are processed while the remaining 3 of the builds wait in line to be processed.  
@@ -116,6 +118,11 @@ The OSS credits may be assigned as one time pool or renewable pool, subject to c
 The OSS credits is a pool of credits completely separate from regular credits, with separate credits balance tracking.
 
 
+#### Free Plan Credits
+
+Each new user gets automatically assigned to the Free Plan upon signing up. The Free plan contains a one time pool of Credits, not renewable. This plan is meant to let you familiarize with our usage based plans as well as to try out other Travis CI features. 
+
+
 ### Usage - User Licenses
 
 Usage based plan charges you at the end of each month for the number of users who triggered the builds during this month.
@@ -141,6 +148,30 @@ With every build started, Travis CI keeps track of how many unique users trigger
 2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details filled in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
+## Premium Virtual Machines
+
+Usage and Concurrency based plans allow you to choose the instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+```yaml
+vm:
+  size: [medium|large|x-large|2x-large]
+```
+Available VM sizes are:
+
+| size      | vCPU        | Memory GiB  | Plan                     |
+|:---------:|:-----------:|:-----------:|:------------------------:|
+| medium    | 2           | 8           | Standard/Pro/Concurrency |
+| large     | 4           | 16          | Standard/Pro/Concurrency |
+| x-large   | 8           | 32          | Standard/Pro/Concurrency |
+| 2x-large  | 16          | 64          | Pro                      |
+
+VM size property impacts the build minutes/credits usage:
+
+| VM size              | Credits per<br />started build minute |
+|:--------------------:|:-----------:|
+| medium               | 50          |
+| large                | 60          |
+| x-large              | 70          |
+| 2x-large             | 80          |
 
 ## Getting Help
 
