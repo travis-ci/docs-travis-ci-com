@@ -15,7 +15,7 @@ The `.travis.yml` file describes the build process. A *build* in Travis CI is a 
 
 ## The Job Lifecycle
 
-Each *job* is a sequence of [phases](../for-beginners/#builds-jobs-stages-and-phases). The *main phases* are:
+Each *job* is a sequence of [phases](/user/for-beginners/#builds-jobs-stages-and-phases). The *main phases* are:
 
 1. `install` - install any dependencies required
 2. `script` - run the build script

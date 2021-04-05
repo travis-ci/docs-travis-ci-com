@@ -55,7 +55,7 @@ or multiple instances managed by Kubernetes, separate from that of the Travis CI
 Enterprise worker. We recommend **compute optimized** instance running
 Ubuntu 18.04 LTS or later as the underlying operating system.
 
-> If you are migrating from Travis CI enteprise 2.x, please make sure to read and execute the [datbase migration instructions](/user/enterprise/tcie-3.x-migrating-db-from-2.x-to-3.x./) first.
+> If you are migrating from Travis CI enteprise 2.x, please make sure to read and execute the [datbase migration instructions](/user/enterprise/tcie-3.x-migrating-db-from-2.x-to-3.x/) first.
 
 1. *On your infrastructure management platform*, create a Travis CI Platform Security Group.
 
@@ -76,7 +76,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 3. Set up your cluster/machine instances configuration - at least 1 virtual machine is needed (in microk8s scenario) or Kubernetes cluster prepared and started
 4. Install Replicated KOTS on *your local machine*. Please make sure that you can connect to the Kubernetes cluster.
 5. TCIE 3.x installed on **single** virtual machine instance
-    1. On *your new virtual machine instance* run kurl.sh via 'curl https://kurl.sh/latest | sudo bash' 
+    1. On *your new virtual machine instance* run kurl.sh via `curl https://kurl.sh/latest | sudo bash`
     2. Get credentials from microk8s cluster running on *your new vm instance*. Please view e.g. [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where kubectl config with credentials is created and can be used afterwards.
     3. Please refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Please adjust your setup and configuration according to your needs before progressing with TCIE 3.X installation
 6. TCIE 3.x installed as Kubernetes cluster in the cloud
@@ -233,7 +233,7 @@ Retrieve your ```Client_ID``` and your ```Secret``` from GitHub and enter them, 
 Once your ```Client_ID``` and ```Secrets``` are obtained, obtain proper values via going to:
 
 ```bash
-https://storage.googleapis.com/gatestxxx/app03.html
+https://gh-app-setup.travis-ci-enterprise.com
 ```
 
 Be sure in GitHub app section to use SSL (Secure Socket Layer) via 

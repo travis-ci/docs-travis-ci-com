@@ -33,8 +33,8 @@ this button is not available and you will need to use an API call instead.
 
 To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint.
 This request needs to be authenticated by adding your [Travis CI API token](/user/triggering-builds/)
-to the `Authorization` header. You can find your API token in your Travis CI Profile page
-for [public projects](https://travis-ci.com/profile).
+to the `Authorization` header. You can find your API token in your Travis CI Account Preferences page
+for [public projects](https://travis-ci.com/account/preferences).
 
 (Note the literal word `token` must be present before the actual authorization token.)
 

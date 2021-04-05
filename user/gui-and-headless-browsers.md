@@ -239,7 +239,7 @@ If you need a web server to serve the tests, see the previous section.
 
 ### Real World Projects
 
-- [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts web server programmatically)
+- [Ember.js](https://github.com/emberjs/ember-mocha/blob/master/.travis.yml) (starts web server programmatically)
 - [Sproutcore](https://github.com/sproutcore/sproutcore/blob/master/.travis.yml) (starts web server with *before_script*)
 
 ### Ruby
