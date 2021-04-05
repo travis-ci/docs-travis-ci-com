@@ -160,7 +160,6 @@ Usage and Concurrency based plans allow you to choose the instance size, the bui
 vm:
   size: [large|x-large|2x-large]
 ```
-{: data-file=".travis.yml"}
 
 Instance sizes are not applicable to OSX build jobs. Available VM sizes vs operating system and CPU architecture are described in our [CI Evironment Overview page](/user/reference/overview#vm-instance-size). 
 
