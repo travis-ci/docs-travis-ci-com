@@ -137,7 +137,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time and credits used only when you need them. Charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears, at the end of each billing period. The number of unique users trigerring a build is charged according to the license rates. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time and credits used only when you need them. Charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears, at the end of each billing period. The number of unique users trigerring a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits you can build over both private and public repositories. <BR/> With OSS Credits you can build only over public repositories. |
 | **Build job limits**            | None or very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. |
 
@@ -148,6 +148,30 @@ With every build started, Travis CI keeps track of how many unique users trigger
 2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details filled in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
+## Premium Virtual Machines
+
+Usage and Concurrency based plans allow you to choose the instance size, the build will run on. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+```yaml
+vm:
+  size: [medium|large|x-large|2x-large]
+```
+Available VM sizes are:
+
+| size      | vCPU        | Memory GiB  | Plan                     |
+|:---------:|:-----------:|:-----------:|:------------------------:|
+| medium    | 2           | 8           | Standard/Pro/Concurrency |
+| large     | 4           | 16          | Standard/Pro/Concurrency |
+| x-large   | 8           | 32          | Standard/Pro/Concurrency |
+| 2x-large  | 16          | 64          | Pro                      |
+
+VM size property impacts the build minutes/credits usage:
+
+| VM size              | Credits per<br />started build minute |
+|:--------------------:|:-----------:|
+| medium               | 50          |
+| large                | 60          |
+| x-large              | 70          |
+| 2x-large             | 80          |
 
 ## Getting Help
 
