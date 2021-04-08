@@ -126,7 +126,12 @@ travis setup releases --com
 
 ## Authenticating with an OAuth token
 
-The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+The recommended way to authenticate is to use a GitHub OAuth token. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub OAuth token with the correct scopes.
+
+If you can't use `travis setup releases`, you can set up the token manually with the following steps:
+1. Create a personal access token on the Github account. It must have the `public_repo` or `repo` scope to upload assets.
+2. Encrypt the token using Travis CLI: `travis encrypt [super_secret_token]`. Note that you must _not_ give the token a name in the encrypt command, as you might for an environment variable.
+3. Add the secure encrypted token to the deploy section of your `.travis.yml`, under the `api_key`.
 
 This results in something similar to:
 
@@ -142,7 +147,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+**Warning:** the `public_repo` and `repo` scopes for GitHub OAuth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have the write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
 
 ## Authentication with a Username and Password
 

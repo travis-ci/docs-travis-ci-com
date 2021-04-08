@@ -230,6 +230,34 @@ The unprivileged containers access to hugepages is added by the great Linux and 
 * [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
 
 
+## VM Instance Size 
+
+If you need more than the default 2vCPU and RAM, you can run a build on a larger instance size. Variable instance sizes are available only for 'full-vm' build jobs. All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+
+```yaml
+vm:
+  size: [large|x-large|2x-large]
+```
+{: data-file=".travis.yml"}
+
+Available instance sizes can be selected for following build jobs:
+
+* OS is Linux, FreeBSD or Windows
+* CPU architecture is amd64
+
+In other cases you may find your job rerouted to the default Linux queue in Google Cloud. The support for larger instances of arm64 Graviton2 is on the way.
+
+Please note, that the usage of VM instance sizes requires some credits to be available in the user's account. Read more in our [billing overview](/user/billing-overview/).
+
+Each tier of instance size delivers more vCPU and RAM resources available at your discretion. The default one is 'medium', which is mapped to any basic instance in our infrastructure providers, usually being 2vCPU and around 4 or 8 GB of RAM. One does not need to call it out explicitly, the 'medium' is assigned automatically to your build job. 
+
+| size      | vCPU        | Memory GiB  | Comment                                                 |
+|:---------:|:-----------:|:-----------:|:-------------------------------------------------------:|
+| large     | 4           | ~16         | requires credits to use                                 |
+| x-large   | 8           | ~32         | requires credits to use                                 |
+| 2x-large  | 16          | ~64         | requires credits to use; may be limited to certain Plans|
+
+
 
 ## Deprecated Virtualization Environments
 
