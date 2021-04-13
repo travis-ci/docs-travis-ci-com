@@ -18,7 +18,7 @@ or altered at any time. If you run into any problems, please report them in the
 [Travis CI Julia Community Forums](https://travis-ci.community/c/languages/julia)
 and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
-For general Julia support on Travis CI go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.slack.com) in the __#testing__ channel.
+For general Julia support on Travis CI go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.org/slack/) in the __#testing__ channel.
 
 ## Choosing Julia versions to test against
 
@@ -29,13 +29,13 @@ the Julia versions to test in the `julia:` key in your `.travis.yml` file. For e
 language: julia
 julia:
   - nightly
-  - 1.0.5
-  - 1.3.1
+  - 1.0.6
+  - 1.5.2
 ```
 {: data-file=".travis.yml"}
 
 Acceptable formats are:
- - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies.html)
+ - `nightly` will test against the latest [nightly build](https://julialang.org/downloads/nightlies/)
 of Julia.
  - `X` will test against the latest release for that major version. (Applies only to major versions 1 and later.)
  - `X.Y` will test against the latest release for that minor version.
