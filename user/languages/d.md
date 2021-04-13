@@ -1,22 +1,41 @@
 ---
 title: Building a D Project
 layout: en
-permalink: /user/languages/d/
+
 ---
 
 ### What This Guide Covers
 
+<aside markdown="block" class="ataglance">
+
+| D                                           | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `dub test --compiler=${DC}`               |
+| [Matrix keys](#build-matrix)                | `d`, `env`                                |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/d) |
+
+Minimal example:
+
+```yaml
+language: d
+```
+{: data-file=".travis.yml"}
+
+</aside>
+
 This guide covers build environment and configuration topics specific to D projects. Please make
-sure to read our [Getting Started](/user/getting-started/) and
+sure to read our [Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
-### Beta Warning
+### Community Supported Language
 
-Travis CI support for D is currently in beta and may be removed or altered at any time. It is a
-community-supported language. If you run into any problems, please report them in the
-[Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues) and cc
-[@ibuclaw](https://github.com/ibuclaw), [@klickverbot](https://github.com/klickverbot) and
-[@MartinNowak](https://github.com/MartinNowak).
+D is a community-supported language in Travis CI, maintained by [@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach). If you run into any problems, please report them in the
+[Travis CI community forum](https://travis-ci.community/c/languages/d).
+Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org),
+[LDC's issue tracker](https://github.com/ldc-developers/ldc/issues), or
+[GDC's issue tracker](https://gcc.gnu.org/bugzilla).
+[DUB](https://github.com/dlang/dub) related problems should be reported to [DUB's issue tracker](https://github.com/dlang/dub/issues).
 
 ## Choosing compilers to test against
 
@@ -27,8 +46,9 @@ so, specify the compiler using the `d:` key in `.travis.yml`.
 Examples:
 
 ```yml
-d: dmd-2.066.1
+d: dmd-2.089.1
 ```
+
 ```yml
 # latest dmd, gdc and ldc
 d:
@@ -36,44 +56,21 @@ d:
   - gdc
   - ldc
 ```
+
 ```yml
-# latest dmd and ldc-0.15.1
+# nightlies and betas of dmd, ldc
 d:
-  - dmd
-  - ldc-0.15.1
+  - dmd-nightly
+  - ldc-latest-ci
+  - dmd-beta
+  - ldc-beta
 ```
 
+All valid versions from the [D's official install script](https://dlang.org/install.html) are supported.
 Testing against multiple compilers will create one row in your build matrix for each compiler. The
 Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` or `gdc` and the
 `DMD` env variable to point to `dmd`, `ldmd2` or `gdmd`.
 
-## Default Test Script
+> You can also have a look at the [D](https://config.travis-ci.com/ref/language/d) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-Travis CI by default assumes your project is built and tested using [dub](http://code.dlang.org) and
-runs the following command using the latest released version of dub.
 
-    dub test --compiler=${DC}
-
-Projects that find this sufficient can use a very minimalistic .travis.yml file:
-
-    language: d
-
-This can be overridden as described in the [general build configuration](/user/customizing-the-build/)
-guide. For example, to build by running make, override the `script:` key in `.travis.yml` like this:
-
-    script: make test
-
-## Dependency Management
-
-Because project dependencies are already handled by dub, Travis CI skips dependency installation for
-D projects.  If you need to perform special tasks before your tests can run, override the `install:`
-key in your `.travis.yml`:
-
-    install: make get-deps
-
-See [general build configuration guide](/user/customizing-the-build/) to learn more.
-
-## Build Matrix
-
-For D projects, `env` and `d` can be given as arrays
-to construct a build matrix.

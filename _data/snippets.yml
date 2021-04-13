@@ -1,0 +1,144 @@
+conditional_deploy: |
+  ### Conditional Deploys
+
+  You can deploy only when certain conditions are met.
+  See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+before_and_after: |
+  ### Running commands before and after deploy
+
+  Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+  ```yaml
+  before_deploy: "echo 'ready?'"
+  deploy:
+    ..
+    after_deploy:
+      - ./after_deploy_1.sh
+      - ./after_deploy_2.sh
+  ```
+ghlimit: |
+  > If your API or cron triggered builds run on the *same commit
+  > or branch* over and over again, you will notice GitHub has a limit of
+  > [1000 status updates](https://developer.github.com/v3/repos/statuses/#create-a-status)
+  > *per commit*, which causes the Travis CI build status to display incorrectly 
+  > on GitHub.
+  > Avoid this problem by specifying a regularly updated branch for your automated builds.
+all_note: |
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
+  >  * [macOS](/user/reference/osx/)
+  >  * [Windows](/user/reference/windows/)
+unix_note: |
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
+  >  * [macOS](/user/reference/osx/)
+linux_note: |
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
+linux_windows_note: |
+  > For Language versions and other build-environment specific
+  > information visit our reference pages:
+  >  * [Precise](/user/reference/precise/)
+  >  * [Trusty](/user/reference/trusty/)
+  >  * [Xenial](/user/reference/xenial/)
+  >  * [Bionic](/user/reference/bionic/)
+  >  * [Windows](/user/reference/windows/)
+concurrent_jobs: |
+  The maximum number of concurrent jobs depends on the total system load, but
+  one situation in which you might want to set a particular limit is:
+
+  - if your build depends on an external resource and might run into a race
+    condition with concurrent jobs.
+auto_cancellation: |
+  If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are not yet running.
+cron_jobs: |
+  Travis CI cron jobs work similarly to the cron utility, they run builds at regular scheduled intervals independently of whether any commits were pushed to the repository. Cron jobs always fetch the most recent commit on a particular branch and build the project at that state. Cron jobs can run `daily`, `weekly` or `monthly`, which in practice means up to an hour after the selected time span, and you cannot set them to run at a specific time.
+environment_variables: |
+  Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
+
+  Define variables in the Repository Settings that:
+
+  - differ per repository.
+  - contain sensitive data, such as third-party credentials.
+contact_enterprise_support: |
+  To get in touch with us, please write a message to 
+  [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). If possible, 
+  please include as much of the following as you can:
+   
+  - Description of the problem - what are you observing?
+  - Which steps did you try already?
+  - A support bundle (see table below on how to obtain it)
+  - Log files from all workers (They can be found at `/var/log/upstart/travis-worker.log` - please include as many as you can retrieve).
+  - If a build failed or errored, a text file of the build log
+
+  |   TCI Enterprise version | Support bundle |
+  | :---                     | :---           | 
+  | **3.x**                  | Run `kubectl kots admin-console -n [namespace]` to access admin console on `http://localhost:8800`<br />Support bundle generation instruction is available in ‘troubleshoot’ menu or directly at: `http://localhost:8800/app/tci-enterprise-kots/troubleshoot`<br /><br />A command for generating support bundle will appear after selecting: <br />`If you'd prefer, [click here]() to get a command to manually generate a support bundle.` | 
+  | **2.x+**                 | You can get it from `https://<your-travis-ci-enterprise-domain>:8800/support` |  
+
+  Have you made any customizations to your setup? While we may be able to see some 
+  information (such as hostname, IaaS provider, and license expiration), there 
+  are many other things we cannot see which could lead to something not working. 
+  Therefore, we would like to ask you to also answer the questions below in your 
+  support request (if applicable):
+  
+  - How many machines are you using / what is your Kubernetes cluster setup?
+  - Do you use configuration management tools (Chef, Puppet)?
+  - Which other services do interface with Travis CI Enterprise?
+  - Which Version Control system (VCS) do you use together with Travis CI Enterprise (e.g. github.com, GitHub Enterprise, or BitBucket Cloud)?
+  - If you are using GitHub Enterprise, which version of it?
+  
+  We are looking forward to helping!
+enterprise_2_encryption_key_backup: |
+  To make a backup of encryption keys in TCIE 2.x, please follow these steps:
+
+  1. Open an SSH connection to the platform machine.
+  2. Open a bash session with `root` privileges on the Travis CI container by running `travis bash`.
+  3. Run the following command to obtain the key: `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`.
+  4. Create a backup of the value returned by the previous command by either writing it down on a piece of paper or storing it on a different computer.
+enterprise_3_encryption_key_backup: |
+  To make a backup of encryption keys in TCIE 3.x, please follow these steps:
+
+  1. Make sure you have appropriate access to the kubernetes cluster: you need credentials for `kubectl` and connection to [travis-api-pod] 
+  2. Run `kubectl exec -it [travis-api-pod] cat /app/config/travis.yml |grep -A 2 encryption` (using Travis API pod is recommended). 
+  3. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+github_oauth_access_rights: | 
+  When you sign in to [travis-ci.com](https://travis-ci.com) using GitHub for the first time, you will receive a message from GitHub saying:
+  
+  > Travis CI by travis-pro wants to access your [account name] account.
+  
+  and in the repositories section it will state: 
+  
+  > This application will be able to read and write all public and private repository data.
+  
+  This is not how Travis CI accesses your data, however we can explain it later in the process. 
+  
+  The warning is triggerred due to GitHub OAuth App permissions which Travis CI uses, and due to the available granularity of permission scopes (see GitHub [Scopes for OAuth Apps documentation](https://docs.github.com/en/developers/apps/scopes-for-oauth-apps) ).
+  
+  **Travis CI does not access all your repositories by default**. 
+  
+  Once you acknowledge the access rights, you will see Travis CI OAuth application present in your GitHub [Authorized OAuth Apps list](https://github.com/settings/applications), however **you need to explicitly configure which repositories Travis CI has access to** within your [travis-ci.com](https://travis-ci.com) account. The configuration is done during the activation of Travis CI for your repositories. You can use either the 'All repositories' option or the 'Only select repositories' option during the activation process.
+  
+  When the Travis CI activation has completed, you will see the actual Travis CI GitHub Application installed in [Installed GitHub Apps](https://github.com/settings/installations) section.
+  
+  Travis CI uses OAuth permissions in the following way:  
+
+  1) Travis CI's system synchronizes certain metadata with GitHub. This metadata is required for proper service functioning. In particular, we sync users, orgs, memberships, repos, permissions and, (optionally) branches. This type of sync happens either once a day by schedule or per the user's request. You can find more information and source code [in this repository](https://github.com/travis-ci/travis-github-sync#syncs)
+
+  2) In order to run builds, Travis CI's system clones a repository, from which the build is triggered, to the build environment. The build environment is an isolated virtual machine or an LXD container, which gets terminated as soon as the build finishes. Cloning happens only after a build request, and therefore only for the repositories explicitly enabled at GitHub settings.
+
+  3) To set up a build environment and prepare the build, Travis CI's system fetches and processes the `.travis.yml` config file from the repository and the branch explicitly specified in the build request, triggered by GitHub.
+
+  4) Travis CI's system reports build results back to GitHub via its [Checks API](https://developer.github.com/v3/checks/).

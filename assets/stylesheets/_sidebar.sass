@@ -1,0 +1,101 @@
+.sidebar
+  position: absolute
+  z-index: 99
+  padding: 0 $column-gutter/2 5em
+  background-color: $white
+  transition: transform 200ms ease
+  -webkit-transition: -webkit-transform 200ms ease
+  will-change: transform
+  -webkit-transform: translateX(-100%)
+  transform: translateX(-100%)
+  @include grid-column(10)
+  max-width: 400px
+  height: 95vh
+  overflow-y: scroll
+
+  h2, h3
+    @extend %blue-heading
+    @extend %bottom-border-grey
+    margin-top: 1em
+    margin-bottom: 0
+    padding-bottom: .1em
+
+  &.is-open
+    -webkit-transform: translateX(0)
+    transform: translateX(0)
+    -webkit-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+    box-shadow: 10px 0px 32px -12px rgba(0,0,0,0.75)
+
+  @media #{$large-up}
+    @include grid-column(3)
+    position: static
+    -webkit-transform: none
+    transform: none
+    margin-bottom: 5em
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+    max-width: auto
+    height: auto
+    overflow-y: auto
+    &.is-open
+      -webkit-transform: translateX(0)
+      transform: translateX(0)
+      -webkit-box-shadow: none
+      -moz-box-shadow: none
+      box-shadow: none
+  ul
+    @extend %ul-styles
+    font-size: 13px
+  p
+    font-size: 13px
+
+  .is-overview
+    text-transform: uppercase
+    font-weight: 600
+
+.sidebar-notice
+  margin-top: 1em
+  border-top: 2px solid $pebble-grey
+
+.sidebar-navigation
+  margin-top: 3rem
+    
+.sidebar-navigation.has-js
+  h3
+    position: relative
+    cursor: pointer
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      width: 1em
+      height: 0.8em
+      right: 0
+      top: 0.3em
+      transform: rotate(90deg)
+      background:
+        image: url(/images/ui/icon-arrowtabs.svg)
+        repeat: no-repeat
+        position: 95% 0
+
+    &.is-open
+      &:after
+        transform: rotate(-90deg)
+
+  ul
+    height: 0
+    overflow: hidden
+    padding-left: 1.2em
+    
+    &.is-open
+      height: 100%
+      transition: none
+
+  li:first-child
+    margin-top: 1em
+
+  a.is-active
+    color: $oxide-blue
+    font-weight: 600

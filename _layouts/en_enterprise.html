@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="enterprise">
+    <div class="wrapper">
+
+      {% include header.html %}
+
+      <div id="content" class="row">
+
+        {% include enterprise_sidebar.html %}
+
+        <main id="main" class="main" data-swiftype-index='true'>
+          {% unless page.no_header %}
+            <aside class="improve-page"><a href="{{ site.docs_github }}edit/master/{{ page.path }}" target="_blank" title="Edit this page on GitHub" class="button-pen" data-proofer-ignore>Improve this page on GitHub</a></aside>
+            <h1 class="title">{{ page.title }}</h1>
+          {% endunless %}
+
+          {% unless page.no_toc %}
+            <div id="toc" class="toc">
+              {% include toc.html h_min=2 h_max=2 class="list-language" santize=true  html=content %}
+            </div>
+          {% endunless%}
+
+          {% include anchor_headings.html html=content anchorClass="toc-anchor" anchorBody="#" %}
+
+        </main>
+      </div><!-- /#content -->
+
+      {% include footer.html %}
+    </div><!-- /.wrapper -->
+  </body>
+</html>

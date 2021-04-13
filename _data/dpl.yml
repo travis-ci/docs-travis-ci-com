@@ -1,0 +1,19 @@
+s3: |
+
+
+  * **access-key-id**: AWS Access Key ID. Can be obtained from [here](https://console.aws.amazon.com/iam/home?#security_credential).
+  * **secret-access-key**: AWS Secret Key. Can be obtained from [here](https://console.aws.amazon.com/iam/home?#security_credential).
+  * **bucket**: S3 Bucket.
+  * **region**: S3 Region. Defaults to us-east-1.
+  * **upload-dir**: S3 directory to upload to. Defaults to root directory.
+  * **storage-class**: S3 storage class to upload as. Defaults to "STANDARD". Other values are "STANDARD_IA" or "REDUCED_REDUNDANCY". Details can be found [here](https://aws.amazon.com/s3/storage-classes/).
+  * **server-side-encryption**: When set to `true`, use S3 Server Side Encryption (SSE-AES256). Defaults to `false`.
+  * **local-dir**: Local directory to upload from. Can be set from a global perspective (~/travis/build) or relative perspective (build) Defaults to project root.
+  * **detect-encoding**: Set HTTP header `Content-Encoding` for files compressed with `gzip` and `compress` utilities. Defaults to not set.
+  * **cache_control**: Set HTTP header `Cache-Control` to suggest that the browser cache the file. Defaults to `no-cache`. Valid options are `no-cache`, `no-store`, `max-age=<seconds>`,`s-maxage=<seconds>` `no-transform`, `public`, `private`.
+  * **expires**: This sets the date and time that the cached object is no longer cacheable. Defaults to not set. The date must be in the format `YYYY-MM-DD HH:MM:SS -ZONE`.
+  * **acl**: Sets the access control for the uploaded objects. Defaults to `private`. Valid options are `private`, `public_read`, `public_read_write`, `authenticated_read`, `bucket_owner_read`, `bucket_owner_full_control`.
+  * **dot_match**: When set to `true`, upload files starting a `.`.
+  * **index_document_suffix**: Set the index document of a S3 website.
+  * **default_text_charset**: Set the default character set to append to the content-type of text files you are uploading.
+heroku: |
