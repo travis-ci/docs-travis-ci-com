@@ -11,29 +11,34 @@ This example has 2 build stages:
 Here's what the `.travis.yml` config could look like:
 
 ```yaml
+dist: xenial
+
 env:
   global:
     # include $HOME/.local/bin for `aws`
     - PATH=$HOME/.local/bin:$PATH
 
 before_install:
-  # set up awscli packages
-  - pip install --user awscli
-  - mkdir -p ~/shared
-  - aws s3 sync s3://travis-build-stages-shared-storage-test/shared ~/shared
+  - pyenv global 3.7.1
+  - pip install -U pip
+  - pip install awscli
+  - mkdir -p ~/$TRAVIS_BUILD_NUMBER
+  - aws s3 sync s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER ~/$TRAVIS_BUILD_NUMBER
 
 jobs:
   include:
     - stage: setup files
-      script: echo one | tee > ~/shared/one
+      script: echo one | tee > ~/$TRAVIS_BUILD_NUMBER/one
     - stage: setup files
-      script: echo two | tee > ~/shared/two
+      script: echo two | tee > ~/$TRAVIS_BUILD_NUMBER/two
     - stage: use shared files
       script:
-        - cat ~/shared/*
+        - cat ~/$TRAVIS_BUILD_NUMBER/*
+      after_success:
+        - aws s3 rm --recursive s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER # clean up after ourselves
 
 after_success:
-  - aws s3 sync ~/shared s3://travis-build-stages-shared-storage-test/shared
+  - aws s3 sync ~/$TRAVIS_BUILD_NUMBER s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER
 ```
 {: data-file=".travis.yml"}
 

@@ -1,6 +1,7 @@
 ---
 title: Script deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -12,13 +13,13 @@ The following example runs `scripts/deploy.sh` on the `develop` branch of your r
 ```yaml
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: bash scripts/deploy.sh
   on:
     branch: develop
 ```
 {: data-file=".travis.yml"}
 
-If you need to run multiple commands, write a executable wrapper script that runs them all.
+If you need to run multiple commands, write a executable wrapper script that runs them all. The argument to `script:` in the script deployment provider needs to be a single command.
 
 If the script returns a nonzero status, deployment is considered
 a failure, and the build will be marked as "errored".
@@ -31,23 +32,23 @@ It is possible to pass arguments to a script deployment.
 deploy:
   # deploy develop to the staging environment
   - provider: script
-    script: scripts/deploy.sh staging
+    script: bash scripts/deploy.sh staging
     on:
       branch: develop
   # deploy master to production
   - provider: script
-    script: scripts/deploy.sh production
+    script: bash scripts/deploy.sh production
     on:
       branch: master
 ```
 {: data-file=".travis.yml"}
 
-The script has access to all the usual [environment variables](/user/environment-variables/#Default-Environment-Variables).
+The script has access to all the usual [environment variables](/user/environment-variables/#default-environment-variables).
 
 ```yaml
 deploy:
   provider: script
-  script: scripts/deploy.sh production $TRAVIS_TAG
+  script: bash scripts/deploy.sh production $TRAVIS_TAG
   on:
     tags: true
     all_branches: true
