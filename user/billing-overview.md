@@ -126,7 +126,7 @@ arch:
 
 Please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages for more details.
 
-In order to start a build in Usage based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per each started minute. At the moment of introduction of Partner Queue Solution active accounts on Usage based Plans, including Free Plan, with balance of zero or less credits were updated to hold 1 credit. Thus everybody can used sponsored infrastructure without requesting Travis CI support to grant additional credits. If you run into negative account balance after that, you still need to file an additional request.
+In order to start a build in Usage based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per each started minute. At the moment of introduction of Partner Queue Solution active accounts on Usage based Plans, including Free Plan, with balance of zero or less credits were updated to hold 1 credit. Thus everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into negative account balance after that you still need to file an additional request.
 
 In case of Concurrency based Plans, you can use above infrastructure for OSS builds without any credits in your account.
 
