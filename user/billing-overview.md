@@ -5,7 +5,7 @@ permalink: /user/billing-overview/
 
 ---
 
-> A new billing engine has been introduced on November 1st, 2020 to [https://travis-ci.com](https://travis-ci.com) 
+> A new billing engine was introduced on November 1st, 2020 to [https://travis-ci.com](https://travis-ci.com) 
 
 ## Travis CI Plan types
 
@@ -79,9 +79,9 @@ Thus whenever you select or are assigned a Usage based plan:
 * Plan has the default allotment of credits associated (default Credits addon)
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. Plan coming with 25,000 credits will result in immediate charge according to the enlisted price
 
-You can also purchase credits while on Concurrency based Plan. These will be used only in scenarios, which require credits to start a build job (e.g. building on macOS or using non-standard VM instance size).
+You can also purchase credits while on the Concurrency based Plan. These are used only in scenarios, which require credits in order to start a build job (e.g. building on macOS or using a non-standard VM instance size).
 
-Credits are deducted from your balance each time a build job has started a VM instance or LXD container and is running. Each started build job minute has a credit cost associated with the environment as per the table below. If your account runs out of credits, there's a slight margin of negative credits you are allowed to run into in order to finish the job, but if that's exceeded - jobs will be cancelled due to insufficient credits balance.
+Credits are deducted from your balance each time a build job starts a VM instance or an LXD container and is running. Each started build job minute has a credit cost associated with the environment used as shown in the table below. If your account runs out of credits, there's a slight margin of negative credits you are allowed to exceed in order to finish the job, but if that margin is passed - jobs will be cancelled due to insufficient credits balance.
 
 | OS                   | # Credits per<br />started build minute |
 |:--------------------:|:-----------:|
@@ -99,7 +99,7 @@ Additional credits can be purchased at any time. Credits are replenished by purc
 
 Your credits remain available until you use them or disband them. At the moment we do not discard unused paid credits after 12 months, yet this may be subject to change on short notice.
 
-You may disband your credits. It will happen when
+You may disband your credits. This happens when
 
 * you switch from the Usage based plan to a Free Plan (which cancels the paid Plan)
 
@@ -107,14 +107,14 @@ and is meant to prevent abusive usage of the system.
 
 #### Partner Queue Solution
 
-Partner Queue Solution is a solution for infrastructure sponsored by our Partners with OSS in mind which can be used completely for free. Currently it includes:
+Partner Queue Solution is a solution for infrastructure sponsored by our Partners with OSS in mind which can be used completely for free. Currently, it includes:
 
 - IBM CPU builds in IBM Cloud (sponsored by IBM)
 - ARM64 CPU builds in Equinix Metal (former Packet) infrastructure (sponsored by ARM)
 
-This is still available only to Open Source Software repositories.
+This is available only to Open Source Software repositories.
 
-In order to run a job using Partner Queue Solution, use following `.travis.yml` tags in your public repository:
+In order to run a job using Partner Queue Solution, use the following `.travis.yml` tags in your public repository:
 
 ```yaml
 os: linux
@@ -126,9 +126,9 @@ arch:
 
 Please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages for more details.
 
-In order to start a build in Usage based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per each started minute. At the moment of introduction of Partner Queue Solution active accounts on Usage based Plans, including Free Plan, with balance of zero or less credits were updated to hold 1 credit. Thus everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into negative account balance after that you still need to file an additional request.
+In order to start a build in the Usage based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. At the moment of introducing Partner Queue Solution active accounts on the Usage based Plans, including the Free Plan, with a balance of zero or fewer credits, balance is updated to hold 1 credit. Thus everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you still need to file an additional request.
 
-In case of Concurrency based Plans, you can use above infrastructure for OSS builds without any credits in your account.
+In the case of Concurrency based Plans, you can use the above infrastructure for OSS builds without any credits in your account.
 
 Partner Queues are available only for standard instance size.
 
