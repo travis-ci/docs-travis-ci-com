@@ -16,7 +16,7 @@ The variety of plans provides you with the flexibility to choose the plan that s
 
 | Billing Period | Concurrency based | Usage based |
 |:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />Available via [site](https://travis-ci.com/account/plan) | Very high or no concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users trigerring the builds)<br /><br />Contact Travis CI to obtain|
+|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />Available via [site](https://travis-ci.com/account/plan) | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users trigerring the builds)<br /><br />Contact Travis CI to obtain|
 
 For the majority of users, a single concurrency based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage based plan.
 
@@ -81,7 +81,7 @@ Thus whenever you select or are assigned a Usage based plan:
 
 You can also purchase credits while on Concurrency based Plan. These will be used only in scenarios, which require credits to start a build job (e.g. building on macOS or using non-standard VM instance size).
 
-Credits are deducted from your balance each time a build job ends either with some result or is canceled manually by you. Each started build job minute has a credit cost associated with the environment as per the table below.
+Credits are deducted from your balance each time a build job has started a VM instance or LXD container and is running. Each started build job minute has a credit cost associated with the environment as per the table below. If your account runs out of credits, there's a slight margin of negative credits you are allowed to run into in order to finish the job, but if that's exceeded - jobs will be cancelled due to insufficient credits balance.
 
 | OS                   | # Credits per<br />started build minute |
 |:--------------------:|:-----------:|
@@ -128,6 +128,9 @@ Please see our [Build Environment overview](/user/reference/overview/) and [Buil
 
 In order to start a build in Usage based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per each started minute. At the moment of introduction of Partner Queue Solution active accounts on Usage based Plans, including Free Plan, with balance of zero or less credits were updated to hold 1 credit. Thus everybody can used sponsored infrastructure without requesting Travis CI support to grant additional credits. If you run into negative account balance after that, you still need to file an additional request.
 
+In case of Concurrency based Plans, you can use above infrastructure for OSS builds without any credits in your account.
+
+Partner Queues are available only for standard instance size.
 
 #### Negative Credits
 
