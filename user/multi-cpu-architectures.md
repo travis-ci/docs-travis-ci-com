@@ -186,4 +186,4 @@ For more details see [Build Environment Overview](/user/reference/overview/#linu
 
 ## Partner Queue Solution
 
-With introduction of new billing system in Travis CI, the IBM and part of ARM64 infrastructure is kept to be available free of charge for OSS as a part of Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
