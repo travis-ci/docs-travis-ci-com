@@ -183,3 +183,7 @@ You can also have a look at [Using Docker in Builds](/user/docker/).
 ## LXD related limitations
 
 For more details see [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container).
+
+## Partner Queue Solution
+
+With introduction of new billing system in Travis CI, the IBM and part of ARM64 infrastructure is kept to be available free of charge for OSS as a part of Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
