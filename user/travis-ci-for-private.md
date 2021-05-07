@@ -14,7 +14,7 @@ continuous integration solution for private repositories.
 
 Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
 
-When you're ready to start using Travis CI, head over to the [billing page](https://travis-ci.com/account/subscription) to add your billing details and end your trial.
+When you're ready to start using Travis CI, head over to the [billing page](https://travis-ci.com/plans) to add your billing details and end your trial.
 
 ## Can I use pull request testing on Travis CI for private repositories?
 
@@ -23,21 +23,23 @@ the [blog post](https://blog.travis-ci.com/announcing-pull-request-support/) acc
 
 ## Who has access to the builds?
 
-Access rights on Travis CI is based on the access rights on GitHub or Bitbucket:
+Access rights on Travis CI is based on the access rights on GitHub, Bitbucket, GitLab or Assembla:
 
-- Users that can access a repository on GitHub or Bitbucket can see the build status and logs on Travis CI.
-- Users that can push to a repository on GitHub or Bitbucket can trigger, cancel and restart builds, and change its settings.
-- Users that have admin access to a repository on GitHub or Bitbucket can enable/disable it on Travis CI.
+- Users that can access a repository on GitHub, Bitbucket, GitLab or Assembla can see the build status and logs on Travis CI.
+- Users that can push to a repository on GitHub, Bitbucket, GitLab or Assembla can trigger, cancel and restart builds, and change its settings.
+- Users that have admin access to a repository on GitHub, Bitbucket, GitLab or Assembla can enable/disable it on Travis CI.
 
-To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub or Bitbucket. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) or `travis sync --com` in the CLI to force a sync.
+To keep the access rights up to date, we sync every user account approximately once every 24 hours with GitHub, Bitbucket, GitLab or Assembla. You can use the "Sync account" button on [the profile page](https://travis-ci.com/profile) ( or `travis sync --com` in the CLI to force a sync for Github).
 
 ## Who has access to the billing details?
 
 Access rights to the Travis CI [billing page](https://travis-ci.com/account/subscription) can be one of the following:
 
-- **Open (default)**: anyone with admin access to at least one private repository belonging to the organization in GitHub or team in Bitbucket has access to the billing information in Travis CI.
+- **Open (default)**: anyone with admin access to at least one private repository belonging to the organization in GitHub/GitLab/Assembla or team in Bitbucket has access to the billing information in Travis CI.
 - **Restricted**: for GitHub users access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their [documentation about the _Permission levels for an organization_](https://help.github.com/articles/permission-levels-for-an-organization/)).
 - **Restricted**: for Bitbucket users access is limited to members of the team having read and write permissions in Bitbucket (see their [documentation about _Grant repository access to users and groups_](https://confluence.atlassian.com/bitbucket/grant-repository-access-to-users-and-groups-221449716.html)).
+- **Restricted**: for GitLab users access is limited to members of the organization having read and write permissions in GitLab.
+- **Restricted**: for Assembla users access is limited to members of the organization having read and write permissions in Assembla.
 
 You can change the access rights to **Restricted** (or back to **Open**) under the *Organizations* tab on [our Subscription page](https://travis-ci.com/account/subscription) as shown below:
 
@@ -90,3 +92,15 @@ If you're using the Travis CI [command line client](https://github.com/travis-ci
 
 If you want to set the privacy status for a Bitbucket repository, follow the [instructions on
 Bitbucket](https://confluence.atlassian.com/bitbucket/make-a-repo-private-or-public-221449724.html).
+
+
+## How can I set the repository privacy status on GitLab?
+
+If you want to set the privacy status for a GitLab repository, follow the instructions on
+GitLab.
+
+## How can I set the repository privacy status on Assembla?
+
+If you want to set the privacy status for an Assembla repository, follow the instructions on
+Assembla.
+

@@ -18,7 +18,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get update` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
 
 ```yaml
 before_install:
@@ -302,6 +302,26 @@ rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you n
 ```
 
 > You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## Installing Packages on FreeBSD
+
+To install packages that are not included in the default FreeBSD environment use `pkg` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - su -m root -c 'pkg install -y curl'
+```
+{: data-file=".travis.yml"}
+
+For convenience, you can use the `pkg` addon in your `.travis.yml`. For example, to install go and curl:
+
+```yaml
+addons: 
+ pkg: 
+  - go 
+  - curl
+```
+{: data-file=".travis.yml"}
 
 ## Installing Dependencies on Multiple Operating Systems
 

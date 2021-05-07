@@ -67,7 +67,7 @@ or tag name.
 
 > Public repositories can import sources from public repositories, but not
 > private repositories. Private repositories can import sources from both
-> public and private repositories. See [private repositories](#private-repositories)
+> public and private repositories. See [private repositories](#importing-configs-from-private-repositories)
 > for more information.
 
 Import a single source:

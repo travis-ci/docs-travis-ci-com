@@ -36,7 +36,7 @@ By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
 and includes the following language tools `cargo`, `rustc`, and `rustup`.
 
-[profiles]: https://github.com/rust-lang/rustup.rs#profiles
+[profiles]: https://github.com/rust-lang/rustup/blob/master/doc/src/concepts/profiles.md
 
 If you want additional language tools like `rustfmt` or `clippy`, please
 install them in `before_install`.
@@ -122,14 +122,14 @@ cargo test --verbose
 You can always configure different commands if you need to. For example,
 if your project is a
 [workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
-should pass `--all` to the build commands to build and test all of the member
+should pass `--workspace` to the build commands to build and test all of the member
 crates:
 
 ```yaml
 language: rust
 script:
-  - cargo build --verbose --all
-  - cargo test --verbose --all
+  - cargo build --verbose --workspace
+  - cargo test --verbose --workspace
 ```
 {: data-file=".travis.yml"}
 

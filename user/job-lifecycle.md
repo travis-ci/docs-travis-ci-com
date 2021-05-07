@@ -11,11 +11,11 @@ Keep reading to see how you can customize any phase in this process, via your `.
 
 ## The Build
 
-The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](build-stages). Each *stage* consists of jobs run in parallel. 
+The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](/user/build-stages). Each *stage* consists of jobs run in parallel. 
 
 ## The Job Lifecycle
 
-Each *job* is a sequence of [phases](../for-beginners/#builds-jobs-stages-and-phases). The *main phases* are:
+Each *job* is a sequence of [phases](/user/for-beginners/#builds-jobs-stages-and-phases). The *main phases* are:
 
 1. `install` - install any dependencies required
 2. `script` - run the build script
@@ -37,14 +37,15 @@ The complete sequence of phases of a job is the lifecycle. The steps are:
 1. `install`
 1. `before_script`
 1. `script`
-1. OPTIONAL `before_cache` (for cleaning up cache)
+1. OPTIONAL `before_cache` (if and only if caching is effective)
 1. `after_success` or `after_failure`
-1. OPTIONAL `before_deploy`
+1. OPTIONAL `before_deploy` (if and only if deployment is active)
 1. OPTIONAL `deploy`
-1. OPTIONAL `after_deploy`
+1. OPTIONAL `after_deploy` (if and only if deployment is active)
 1. `after_script`
 
 > A *build* can be composed of many jobs.
+
 
 ## Customizing the Installation Phase
 

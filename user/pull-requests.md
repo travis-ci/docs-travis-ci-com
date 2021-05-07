@@ -29,10 +29,10 @@ To only build pull requests targeting specific branches you can use [the `branch
 
 The most important restriction for pull requests is about secure environment variables and encrypted data.
 
-A pull request sent from a fork of the upstream repository could be manipulated to expose environment variables.
+A pull request sent from a fork of the upstream repository (we call it an "external pull request") could be manipulated to expose environment variables.
 The upstream repository's maintainer would have no protection against this attack, as pull requests can be sent by anyone who forks the repository on GitHub.
 
-Travis CI makes encrypted variables and data available only to pull requests coming from the same repository. These are considered trustworthy, as only members with write access to the repository can send them.
+Travis CI makes encrypted variables and data available only to pull requests coming from the same repository ("internal pull requests"). These are considered trustworthy, as only members with write access to the repository can send them.
 
 Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project.
 

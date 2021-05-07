@@ -9,7 +9,7 @@ layout: en
 This page gives an overview of the different Ubuntu Linux distributions you can use as your CI environment.
 
 You can choose one of the following distributions:
-
+* [Ubuntu Focal 20.04](/user/reference/focal/)
 * [Ubuntu Bionic 18.04](/user/reference/bionic/)
 * [Ubuntu Xenial 16.04](/user/reference/xenial/) **default**
 * [Ubuntu Trusty 14.04](/user/reference/trusty/) 
@@ -32,7 +32,7 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-Travis CI also supports the [Windows Build Environment](/user/reference/windows/) and [macOS Build Environment](/user/reference/osx/).
+Travis CI also supports the [Windows Build Environment](/user/reference/windows/), [macOS Build Environment](/user/reference/osx/) and [FreeBSD Build Environment](/user/reference/freebsd/).
 
 ## Migration Guides
 
