@@ -4,7 +4,7 @@ osx_images:
     osx_version: "11.3"
     xcode_full_version: "12.5"
     xcode_build_version: "12E262"
-    image_publish_date: 2020-05-05
+    image_publish_date: 2021-05-05
     sdks:
       - iphoneos14.5
       - iphonesimulator14.5
@@ -121,7 +121,7 @@ osx_images:
     osx_version: "11.1"
     xcode_full_version: "12.3"
     xcode_build_version: "12C33"
-    image_publish_date: 2020-01-29
+    image_publish_date: 2021-01-29
     sdks:
       - iphoneos14.3
       - iphonesimulator14.3
