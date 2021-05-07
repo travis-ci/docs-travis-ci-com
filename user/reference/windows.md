@@ -71,7 +71,7 @@ VMs running Windows use the default file system, NTFS.
 - DotNet4.6-TargetPack v4.6.00081.20150925
 - DotNet4.6.1 v4.6.01055.20170308
 - dotnetfx v4.8.0.20190930
-- git.install v2.25.0
+- git.install v2.25.0[^git]
 - hashdeep v4.4
 - jq v1.6
 - KB2919355 v1.0.20160915
@@ -101,6 +101,8 @@ VMs running Windows use the default file system, NTFS.
 - wsl v1.0.1
 
 > A basic Python 2.7.9 interpreter is also included: `/C/ProgramData/chocolatey/bin/python.exe`
+
+[^git]: Travis uses the system-wide Git for Windows installation in its own machinery, so use an alternative package like [`git.portable`](https://chocolatey.org/packages/git.portable) if you need a custom version of Git.
 
 ## How do I use MSYS2?
 
