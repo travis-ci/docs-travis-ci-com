@@ -112,7 +112,7 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
-* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
+* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Equinix Metal, formerly known as Packet)
 * `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
 * `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
 
@@ -139,6 +139,10 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
 > To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
+
+### Partner Queue Solution
+
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
 
 ### Linux: .travis.yml examples
 
@@ -228,6 +232,34 @@ As of now, Travis CI is not configured to allow hugepages within unprivileged co
 The unprivileged containers access to hugepages is added by the great Linux and LXD teams. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
 * [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
 * [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
+
+
+## VM Instance Size 
+
+If you need more than the default 2vCPU and RAM, you can run a build on a larger instance size. Variable instance sizes are available only for 'full-vm' build jobs. All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+
+```yaml
+vm:
+  size: [large|x-large|2x-large]
+```
+{: data-file=".travis.yml"}
+
+Available instance sizes can be selected for following build jobs:
+
+* OS is Linux, FreeBSD or Windows
+* CPU architecture is amd64
+
+In other cases you may find your job rerouted to the default Linux queue in Google Cloud. The support for larger instances of arm64 Graviton2 is on the way.
+
+Please note, that the usage of VM instance sizes requires some credits to be available in the user's account. Read more in our [billing overview](/user/billing-overview/).
+
+Each tier of instance size delivers more vCPU and RAM resources available at your discretion. The default one is 'medium', which is mapped to any basic instance in our infrastructure providers, usually being 2vCPU and around 4 or 8 GB of RAM. One does not need to call it out explicitly, the 'medium' is assigned automatically to your build job. 
+
+| size      | vCPU        | Memory GiB  | Comment                                                 |
+|:---------:|:-----------:|:-----------:|:-------------------------------------------------------:|
+| large     | 4           | ~16         | requires credits to use                                 |
+| x-large   | 8           | ~32         | requires credits to use                                 |
+| 2x-large  | 16          | ~64         | requires credits to use; may be limited to certain Plans|
 
 
 
