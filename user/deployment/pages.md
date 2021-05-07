@@ -23,7 +23,7 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
-    branch: master
+    branch: main
 ```
 {: data-file=".travis.yml"}
 

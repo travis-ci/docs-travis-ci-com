@@ -37,6 +37,8 @@ os: osx
 ```
 {: data-file=".travis.yml"}
 
+Travis CI also supports the [Ubuntu Linux Environment](/user/reference/linux/), [Windows Environment](/user/reference/windows/) and [FreeBSD Environment](/user/reference/freebsd/).
+
 ## macOS Version
 
 Travis CI uses macOS 10.13 and Xcode 9.4.1 by default. You can use another version of macOS (and Xcode) by specifying the corresponding `osx_image` key from the following table:
@@ -95,15 +97,19 @@ and later, use `xcode9.4` (or later).
 ## Compilers and Build toolchain
 
 - automake
+- clang
+- cmake
+- gcc
 - maven
 - mercurial
 - pkg-config
 - wget
 - xctool
-- cmake
 
 ## Languages
 
+- C
+- C++
 - Go
 - Java
 - Nodejs
