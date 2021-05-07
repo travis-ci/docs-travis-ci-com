@@ -118,4 +118,4 @@ Pre-install compilers and linkers:
 
 ## Docker
 
-Currently unsupported. See [FreeBSD wiki](https://wiki.freebsd.org/Docker) for more details and https://wiki.freebsd.org/ContainerOrchestration for more native solutions.
+Currently unsupported. See [FreeBSD wiki about Docker](https://wiki.freebsd.org/Docker) for more details and [FreeBSD wiki on Container Orchestration](https://wiki.freebsd.org/ContainerOrchestration) for more native solutions.
