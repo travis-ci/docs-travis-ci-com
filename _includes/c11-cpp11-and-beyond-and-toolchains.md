@@ -100,7 +100,7 @@ before_install:
 
 ### GCC on FreeBSD
 
-FreeBSD ships with GCC 10.0.0
+Travis CI FreeBSD image ships with GCC 10.0.0 (it's not in the base system by default).
 
 To upgrade GCC to a more recent version, install the appropriate version from packages; see below for examples:
 
@@ -235,8 +235,8 @@ addons:
     pkg:
       - llvm90
     env:
-      - CC=clang
-      - CXX=clang++
+      - CC=/usr/local/bin/clang90    # llvm90 installs it to /usr/local/bin/clang90
+      - CXX=/usr/local/bin/clang++90 # llvm90 installs it to /usr/local/bin/clang++90
 ```
 {: data-file=".travis.yml"}
 
