@@ -272,11 +272,11 @@ for building R packages. The default rules roughly amount to:
 
 ```yaml
 install:
-- R -e 'devtools::install_deps(dep = T)'
+- R -e 'remotes::install_deps(dep = T)'
 
 script:
 - R CMD build .
-- R CMD check *tar.gz
+- R CMD check *tar.gz --as-cran
 ```
 {: data-file=".travis.yml"}
 
