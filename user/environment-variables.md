@@ -63,7 +63,7 @@ this configuration triggers **4 individual builds**:
 
 ### Global Variables
 
-Sometimes you may want to use environment variables that are global to the matrix, i.e. they're inserted into each matrix row. That may include keys, tokens, URIs or other data that is needed for every build. In such cases, instead of manually adding such keys to each `env` line in matrix, you can use `global` and `matrix` keys to differentiate between those two cases. For example:
+Sometimes you may want to use environment variables that are global to the matrix, i.e. they're inserted into each matrix row. That may include keys, tokens, URIs or other data that is needed for every build. In such cases, instead of manually adding such keys to each `env` line in matrix, you can use `global` and `jobs` keys to differentiate between those two cases. For example:
 
 ```yaml
 env:
@@ -139,7 +139,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
 </figure>
 
   > See [the note above](#note-format) on how to format variables' values correctly.
-  
+
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
 Similarly, we do not provide these values to untrusted builds, triggered by pull requests from another repository.
@@ -152,18 +152,12 @@ As an alternative to the web interface, you can also use the CLI's [`env`](https
 
 You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Convenience Variables
-
-To make using encrypted environment variables easier, the following environment variables are available:
-
-- `TRAVIS_SECURE_ENV_VARS` is set to `true` if you have defined any encrypted variables, including variables defined in the Repository Settings, and `false` if you have not.
-- `TRAVIS_PULL_REQUEST` is set to the pull request number if the current job is a pull request build, or `false` if it's not.
-
 ## Default Environment Variables
 
 The following default environment variables are available to all builds.
 
 - `CI=true`
+- `TZ=UTC`
 - `TRAVIS=true`
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`

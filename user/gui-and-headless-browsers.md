@@ -91,7 +91,7 @@ script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 
 ### Using xvfb directly
 
-> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`.
+> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`. For `dist: xenial`, use the `services` keyword described [above](/user/gui-and-headless-browsers/#using-services).
 
 To use `xvfb` itself, start it in the `before_script` section of your
 `.travis.yml`:
@@ -148,7 +148,7 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 </div>
 
 
-### Using the [Chrome addon](/user/chrome) in the headless mode
+## Using the [Chrome addon](/user/chrome) in the headless mode
 
 Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
 mode, which is suitable for driving browser-based tests using Selenium and other tools.
@@ -158,7 +158,7 @@ mode, which is suitable for driving browser-based tests using Selenium and other
 For example, on Linux
 
 ```yaml
-dist: trusty
+dist: xenial
 addons:
   chrome: stable
 before_install:
@@ -186,7 +186,7 @@ before_install:
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
-### Using the [Firefox addon](/user/firefox) in headless mode
+## Using the [Firefox addon](/user/firefox) in headless mode
 
 Starting with version 56, Firefox can be used in "headless" mode, which is
 suitable for driving browser-based tests using Selenium and other tools.
@@ -239,7 +239,7 @@ If you need a web server to serve the tests, see the previous section.
 
 ### Real World Projects
 
-- [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts web server programmatically)
+- [Ember.js](https://github.com/emberjs/ember-mocha/blob/master/.travis.yml) (starts web server programmatically)
 - [Sproutcore](https://github.com/sproutcore/sproutcore/blob/master/.travis.yml) (starts web server with *before_script*)
 
 ### Ruby

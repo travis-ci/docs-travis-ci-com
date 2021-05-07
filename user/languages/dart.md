@@ -25,7 +25,7 @@ language: dart
 </aside>
 
 This guide covers build environment and configuration topics specific to
-[Dart](https://www.dartlang.org/) projects. Please make sure to read our
+[Dart](https://dart.dev/) projects. Please make sure to read our
 [Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
@@ -48,12 +48,16 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
+# Install the latest beta release
+- beta
 # Install the latest dev release
 - dev
 # Install a specific stable release - 1.15.0
 - "1.15.0"
-# Install a specific dev release, using a partial download URL - 1.16.0-dev.3.0
-- "dev/release/1.16.0-dev.3.0"
+# Install a specific dev release, using a partial download URL - 2.9.0-2.0.dev
+- "dev/release/2.9.0-2.0.dev"
+# Install a specific beta release, using a partial download URL - 2.9.0-2.0.beta
+- "beta/release/2.9.0-2.0.beta"
 ```
 {: data-file=".travis.yml"}
 

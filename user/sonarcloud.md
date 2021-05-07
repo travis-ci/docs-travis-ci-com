@@ -5,36 +5,30 @@ redirect_from:
   - /user/sonarqube/
 ---
 
-[SonarCloud](https://sonarcloud.io) is a cloud service offered by [SonarSource](https://sonarsource.com) and based on [SonarQube](http://www.sonarqube.org). SonarQube is a widely adopted open source platform to inspect continuously the quality of source code and detect bugs, vulnerabilities and code smells in more than 20 different languages.
+[SonarCloud](https://sonarcloud.io) is the leading online service to catch Bugs and Security Vulnerabilities in your Pull Requests and throughout your code repositories. Totally free for open-source projects (paid plan for private projects), SonarCloud pairs with existing cloud-based CI/CD workflows, and provides clear resolution guidance for any Code Quality or Security issue it detects. With already more than 1 billion lines of code under analysis, SonarCloud empowers development teams of all sizes to write cleaner and safer code, across more than 20 programming languages.
 
-Please refer to the [SonarQube documentation](http://redirect.sonarsource.com/doc/analyzing-source-code.html) for more details on how to configure different scanners.
+Please refer to the [SonarCloud documentation](https://sonarcloud.io/documentation) for more details.
 
 ## Requirements
 
-You are using one of the two following environments:
+If a Java JRE/JDK is present within the build environment, it has to be at least Java 11 or higher.
 
-* [CI Environment with JVM VM image](/user/reference/precise/) - for instance:
-
+The default Travis dist
 ```yaml
-language: java
+dist: xenial
 ```
 {: data-file=".travis.yml"}
-
-* [Trusty CI Environment](/user/reference/trusty/):
-
-```yaml
-dist: trusty
-```
-{: data-file=".travis.yml"}
+includes Java 11 by default.
 
 ## Inspecting code with the SonarQube Scanner
 
 Before inspecting your code, you need to:
 
-1. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
-2. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
-3. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
-4. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Tutorial](https://docs.travis-ci.com/user/tutorial/).
+2. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
+3. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
+4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
+5. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
 
@@ -60,8 +54,7 @@ Lots of Java projects build with Maven. To add a SonarCloud inspection to your M
 addons:
   sonarcloud:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
-    token:
-      secure: "*********" # encrypted value of your token
+    token: "*********" # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
@@ -74,12 +67,12 @@ script:
 
 Please take a look at the [live Maven-based example project](https://github.com/SonarSource/sq-com_example_java-maven-travis) to know more about this use case.
 
-Without POM update, or if you are [Testing Against Multiple JDKs](languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
+Without POM update, or if you are [Testing Against Multiple JDKs](/user/languages/java/#testing-against-multiple-jdks) (SonarCloud analysis should be executed only once), or need multiple steps Maven commands ; execute [JaCoCo XML report generation](https://www.eclemma.org/jacoco/trunk/doc/report-mojo.html) at end of your main build. Script section would be like:
 
 ```yaml
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report
-- if [ "$JAVA_HOME" = "/usr/lib/jvm/java-1.8.0-openjdk-amd64" ]; then mvn sonar:sonar; fi
+- if [ "$JAVA_HOME" = "/usr/local/lib/jvm/openjdk11" ]; then mvn sonar:sonar; fi
 ```
 {: data-file=".travis.yml"}
 

@@ -287,10 +287,12 @@ gem 'lib2', github: "myorg/lib2"
 > git:
 >   submodules: false
 > before_install:
->   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
+>   - echo -e "\n\nmachine github.com\n login $CI_USER_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
 > {: data-file=".travis.yml"}
+
+> The `.netrc` file is deleted for security reasons right after having cloned the repository of which the build and its submodules are executed!
 
 ## Dedicated User Account
 

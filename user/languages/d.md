@@ -34,7 +34,7 @@ D is a community-supported language in Travis CI, maintained by [@MartinNowak](h
 [Travis CI community forum](https://travis-ci.community/c/languages/d).
 Please report compiler-specific issues at [DMD's issue tracker](https://issues.dlang.org),
 [LDC's issue tracker](https://github.com/ldc-developers/ldc/issues), or
-[GDC's issue tracker](https://bugzilla.gdcproject.org).
+[GDC's issue tracker](https://gcc.gnu.org/bugzilla).
 [DUB](https://github.com/dlang/dub) related problems should be reported to [DUB's issue tracker](https://github.com/dlang/dub/issues).
 
 ## Choosing compilers to test against

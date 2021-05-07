@@ -83,8 +83,6 @@ For example, in the following screenshot, we pushed commit `ca31c2b` to the bran
 
 ## Git Clone Depth
 
-Travis CI can clone repositories to a maximum depth of 50 commits, which is only really useful if you are performing git operations.
-
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
 You can set the [clone depth](https://git-scm.com/docs/git-clone#git-clone---depthltdepthgt) in `.travis.yml`:
@@ -160,6 +158,36 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a Bitbucket OAuth token to authenticate as in the example above.
 
+### Authentication with GitLab
+
+We recommend using a read-only GitLab OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine gitlab.com\n  login $GITLAB_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a GitLab OAuth token to authenticate as in the example above.
+
+### Authentication with Assembla
+
+We recommend using a read-only Assembla OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine assembla.com\n  login $ASSEMBLA_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Assembla OAuth token to authenticate as in the example above.
+
 ### Linux
 
 [Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial and Bionic images.
@@ -234,6 +262,18 @@ git:
 ```
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
+
+## Setting symlinks option
+
+In some cases when a repository is used for both Linux and Windows, it may be desirable to set
+[core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
+
+To do this:
+
+```yaml
+git:
+  symlinks: true
+```
 
 ## Building Specific Branches
 
@@ -486,8 +526,8 @@ jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -500,20 +540,20 @@ The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
+has the `python` value set to `'3.8'`.
 You can explicitly set the python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
 jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
@@ -665,9 +705,9 @@ addons:
 
 ## What Repository Providers or Version Control Systems Can I Use?
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrate with Atlassian [Bitbucket](https://bitbucket.org/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrates with Atlassian [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and Assembla (https://www.assembla.com/).
 
-Travis CI currently does not support git repositories hosted on GitLab or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on other version control systems such as Mercurial.
 
 ## What YAML Version Can I Use in `.travis.yml`
 

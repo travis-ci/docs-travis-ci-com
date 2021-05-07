@@ -82,8 +82,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.21.0` |
-| git-lfs | `2.6.1`  |
+| git     | `2.27.0` |
+| git-lfs | `2.11.0` |
 | hg      | `4.8`    |
 | svn     | `1.9.3`  |
 {: style="width: 30%" }
@@ -94,8 +94,46 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 * cmake 3.12.4
 * gcc 5.4.0
 * ccache 3.2.4
-* shellcheck 0.6.0
+* shellcheck 0.7.0
 * shfmt 2.6.3
+
+To use the IBM Advance Toolchain v12 compilers under `ppc64le` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/gcc`
+  - Command: `/opt/at12.0/bin/gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/g++`
+  - Command: `/opt/at12.0/bin/g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/gccgo`
+  - Command: `/opt/at12.0/bin/gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`.
+  - Python Interpreter Path: `/opt/python380-at12/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
+
+To use the IBM Advance Toolchain v12 compilers under `amd64` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`
+  - Python Interpreter Path: `/opt/python380-amd64/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
 
 ### Docker
 
@@ -104,22 +142,22 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.5` and `2.5.3`.
+* Pre-installed Rubies: `2.3.8`, `2.4.5` and `2.5.3`.
 * The default ruby is `2.5.3p105`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.4` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `3.6.7` will be used when no language version is explicitly set.
+* Supported Python versions: `2.7`, `3.5` or higher.
+* Pre-installed Python versions: `2.7.12`, and `3.5.2`.
+* Python `3.5.2` will be used when no language version is explicitly set.
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions.
 
 ## JavaScript and Node.js support
 
 * For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
-* The following NodeJS versions are preinstalled: `11.0.0` and `8.12.0`.
+* The following NodeJS versions are preinstalled: `12.18.2` ,`11.0.0` `10,21,0` and `8.17.0`.
 
 ## Go support
 
@@ -139,13 +177,15 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 | package | version |
 |:--------|:--------|
 | gradle  | 5.1.1   |
-| maven   | 3.6.0   |
+| maven   | 3.6.3   |
 | groovy  | 2.4.5   |
 {: style="width: 30%" }
 
 ## Perl support
-* Default version on Xenial is `5.22`
+
+* Default version on Xenial is `5.22.1`
 * Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
 
@@ -167,8 +207,8 @@ To use one in your build, add it to the services key in your `.travis.yml` :
 | service    | version        |
 |:-----------|:---------------|
 | mongodb    | 4.0            |
-| mysql      | 5.7            |
-| redis      | 5.0            |
+| mysql      | 5.7.30         |
+| redis      | 5.6.0          |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 
