@@ -36,7 +36,7 @@ By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
 and includes the following language tools `cargo`, `rustc`, and `rustup`.
 
-[profiles]: https://github.com/rust-lang/rustup.rs#profiles
+[profiles]: https://github.com/rust-lang/rustup/blob/master/doc/src/concepts/profiles.md
 
 If you want additional language tools like `rustfmt` or `clippy`, please
 install them in `before_install`.

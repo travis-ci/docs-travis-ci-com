@@ -97,6 +97,44 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 * shellcheck 0.7.0
 * shfmt 2.6.3
 
+To use the IBM Advance Toolchain v12 compilers under `ppc64le` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/gcc`
+  - Command: `/opt/at12.0/bin/gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/g++`
+  - Command: `/opt/at12.0/bin/g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/gccgo`
+  - Command: `/opt/at12.0/bin/gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`.
+  - Python Interpreter Path: `/opt/python380-at12/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
+
+To use the IBM Advance Toolchain v12 compilers under `amd64` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`
+  - Python Interpreter Path: `/opt/python380-amd64/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
+
 ### Docker
 
 * Docker 18.06.0-ce is installed
@@ -144,8 +182,10 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 {: style="width: 30%" }
 
 ## Perl support
-* Default version on Xenial is `5.18.4`
+
+* Default version on Xenial is `5.22.1`
 * Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
 

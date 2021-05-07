@@ -1,5 +1,5 @@
 ---
-title: Beta - Migrating repositories to travis-ci.com
+title: Migrating repositories to travis-ci.com
 layout: en
 redirect_from: user/open-source-repository-migration/
 ---
@@ -74,7 +74,7 @@ No. Unless there was something very customised in your `.travis.yml`, no changes
 
 If you are already using GitHub Apps for your account in travis-ci.com, you need to access your installation settings and grant access to the repositories you'd like to migrate. Otherwise:
 
-1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile)
+1. Log in to [https://travis-ci.com] and access your profile (or your organization's) at [https://travis-ci.com/profile](https://travis-ci.com/profile). For any doubts on the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/migrate/open-source-repository-migration#travis-ci-github-oauth-app-access-rights).
 
 2. If you aren't using the new GitHub Apps integration already, activate it for your account
   ![Activate GitHub Apps](/user/images/oss-migration/gapps-activate.png)
@@ -82,6 +82,10 @@ If you are already using GitHub Apps for your account in travis-ci.com, you need
 3. When activating the Travis CI GitHub App, grant access to the repositories (both public and private) that you want to build in travis-ci.com. Save the changes.
 
 4. Once back in your Travis CI profile, the selected repositories will be listed there. Those projects that were already building in travis-ci.org will appear in the Migrate tab for your account.
+
+#### Travis CI GitHub OAuth App access rights
+
+{{ site.data.snippets.github_oauth_access_rights }}
 
 ### The migration steps
 
@@ -185,3 +189,49 @@ If you have any further questions, comments or need help on our Beta migration p
 
 [travis-ci.com]: https://www.travis-ci.com
 [travis-ci.org]: https://www.travis-ci.org
+
+## Frequently asked questions
+
+#### Q. When will the migration from travis-ci.org to travis-ci.com be completed?
+
+A. In an effort to ensure that all of our users - whether you build open-source, public or private repositories - receive regular feature updates, security patches and UX/UI enhancements, we are announcing that travis-ci.org will be officially closed down completely no later than December 31st, 2020, allowing us to focus all our efforts on bringing new features and fixes to travis-ci.com and all of our awesome users like yourself on the travis-ci.com domain.
+
+
+#### Q. What will happen to travis-ci.org after December 31st, 2020?
+
+A. Travis-ci.org will be switched to a read-only platform, allowing you to see your jobs build history from all repositories previously connected to travis-ci.org.
+
+
+#### Q. Why are some of my queued jobs taking longer than usual to build?
+
+A. At peak usage times, you may see your build times are longer than they previously have been - we need to make sure all users have equal access to the .org platform until the end of the year as we move our infrastructure across to .com. You may want to consider migrating across to .com sooner rather than later, or consider scheduling builds at a quieter time of the day if remaining on .org for a while longer.
+
+
+#### Q. Why are some of my queued jobs being cancelled?
+
+A. This might happen as we move infrastructure over from .org to .com - if we see a job stuck in a queue for more than 16 hours, we will review this on a case by case basis and possibly cancel the job to ensure resources are not being reduced across the platform. You may want to consider migrating across to .com sooner rather than later, or consider building at a quieter time of the day if remaining on .org for a while longer.
+
+
+#### Q. Will there be lower concurrency for free accounts on travis-ci.org?
+
+A. As part of the shift of infrastructure from .org to .com and needing to make sure all users have equal access to resources, free and open-source .org accounts will have concurrency reduced from 5 to 4 concurrent jobs. Concurrent jobs have not changed on .com, so please consider migrating your repositories as soon as possible if this is an issue.
+
+
+#### Q. Will Travis-ci.org become unreliable?
+
+A. As part of the shift of infrastructure from .org to .com we’re making a number of changes to the travis-ci.org infrastructure to ensure the service will remain as reliable and available to you as it always has been until the migration is completed.
+
+
+#### Q. Will Travis CI be getting rid of free users?
+
+A. Travis CI will continue to offer a free tier for public or open-source repositories on travis-ci.com and will not be affected by the migration.
+
+
+#### Q. Why is travis-ci.com asking for write access to my repositories?
+
+A. We’re aware that when migrating your GitHub repositories to travis-ci.com you will be prompted to give Travis CI write access to your repositories - this is due to us currently using GitHub OAuth for user authentication and the message is due to the way the OAuth scopes are shaped. The Travis CI platform actually uses the GitHub App for actual repository-level access - it does not require write access to all of your repositories and you can configure that.
+
+We’re working hard to resolve this and use just the GitHub App for both 
+user authentication and repository-level access, but until then we will be clarifying the situation in our documentation and user interface.
+
+
