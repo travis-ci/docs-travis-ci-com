@@ -106,6 +106,8 @@ deploy:
 
 Please note that `region` should match the instance region on which codedeploy is configured.
 
+Also note that GitHub deployments target a specific commit, and any unversioned files will not be deployed. If you need to add unversioned files to your deployment, use an S3 deployment instead.
+
 ## Waiting for Deployments
 
 By default, the build will continue immediately after triggering a CodeDeploy deploy. To wait for the deploy to complete, use the **wait_until_deployed** option:
