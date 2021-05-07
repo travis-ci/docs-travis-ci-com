@@ -309,7 +309,7 @@ To install packages that are not included in the default FreeBSD environment use
 
 ```yaml
 before_install:
-  - sudo pkg install -y curl
+  - su -m root -c 'pkg install -y curl'
 ```
 {: data-file=".travis.yml"}
 
