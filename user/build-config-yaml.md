@@ -6,7 +6,7 @@ layout: en
 
 Travis CI uses YAML as the primary language for build configuration stored in
 the main `.travis.yml` build config file, as well as other config sources
-imported using the [Build Config Imports](/build-config-imports) feature.
+imported using the [Build Config Imports](/user/build-config-imports) feature.
 
 This page documents a few noteworthy pieces of information about how
 Travis CI uses YAML.

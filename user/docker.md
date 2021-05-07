@@ -6,6 +6,8 @@ layout: en
 
 
 
+> Please note that, due to the upcoming [Docker Rate Limit announcement](https://docs.docker.com/docker-hub/download-rate-limit/), users will be required to add their own authentication information to their build settings or build config as documented below. 
+
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
 
