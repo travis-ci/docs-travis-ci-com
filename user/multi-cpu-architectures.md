@@ -102,6 +102,8 @@ The `.travis.yml` file above creates a 2x4 [build matrix](/user/customizing-the-
 
 There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the arm64 and amd64 architecture environments:
 
+> Note that `group: edge` is required for `arm64-graviton2` architectures.
+
 ```yaml
 jobs:
   include:
@@ -181,3 +183,7 @@ You can also have a look at [Using Docker in Builds](/user/docker/).
 ## LXD related limitations
 
 For more details see [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container).
+
+## Partner Queue Solution
+
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
