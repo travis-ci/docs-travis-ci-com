@@ -112,7 +112,7 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
-* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Packet)
+* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Equinix Metal, formerly known as Packet)
 * `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
 * `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
 
@@ -139,6 +139,10 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key. 
 
 > To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
+
+### Partner Queue Solution
+
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
 
 ### Linux: .travis.yml examples
 

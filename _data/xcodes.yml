@@ -1,4 +1,64 @@
 osx_images:
+  - image: xcode12.5
+    xcode: "12.5"
+    osx_version: "11.3"
+    xcode_full_version: "12.5"
+    xcode_build_version: "12E262"
+    image_publish_date: 2020-05-05
+    sdks:
+      - iphoneos14.5
+      - iphonesimulator14.5
+      - macosx11.3
+      - appletvos14.5
+      - appletvsimulator14.5
+      - watchos7.4
+      - watchsimulator7.4
+    simulators:
+      - iOS 11.4
+      - iOS 12.0
+      - iOS 12.1
+      - iOS 12.2
+      - iOS 12.4
+      - iOS 13.0
+      - iOS 13.1
+      - iOS 13.2
+      - iOS 13.3
+      - iOS 13.4
+      - iOS 13.5
+      - iOS 13.6
+      - iOS 13.7
+      - iOS 14.0 
+      - iOS 14.1
+      - iOS 14.2
+      - iOS 14.3
+      - iOS 14.4
+      - iOS 14.5
+      - tvOS 11.4
+      - tvOS 12.0
+      - tvOS 12.1
+      - tvOS 12.2
+      - tvOS 12.4
+      - tvOS 13.0
+      - tvOS 13.2
+      - tvOS 13.3
+      - tvOS 13.4
+      - tvOS 14.0
+      - tvOS 14.2
+      - tvOS 14.3
+      - tvOS 14.4
+      - tvOS 14.5      
+      - watchOS 5.0 
+      - watchOS 5.1
+      - watchOS 5.2
+      - watchOS 5.3
+      - watchOS 6.0
+      - watchOS 6.1
+      - watchOS 6.2
+      - watchOS 7.0  
+      - watchOS 7.1
+      - watchOS 7.2
+      - watchOS 7.4
+    jdk: "16.0.1" 
   - image: xcode12.4
     xcode: "12.4"
     osx_version: "11.2.1"
@@ -49,10 +109,67 @@ osx_images:
       - watchOS 5.1
       - watchOS 5.2
       - watchOS 5.3
+      - watchOS 6.0
+      - watchOS 6.1
+      - watchOS 6.2
+      - watchOS 7.0
+      - watchOS 7.1
+      - watchOS 7.2
+    jdk: "15.0.1"
+  - image: xcode12.3
+    xcode: "12.3"
+    osx_version: "11.1"
+    xcode_full_version: "12.3"
+    xcode_build_version: "12C33"
+    image_publish_date: 2020-01-29
+    sdks:
+      - iphoneos14.3
+      - iphonesimulator14.3
+      - macosx11.1
+      - appletvos14.3
+      - appletvsimulator14.3
+      - watchos7.2
+      - watchsimulator7.2
+    simulators:
+      - iOS 11.4
+      - iOS 12.0
+      - iOS 12.1
+      - iOS 12.2
+      - iOS 12.4
+      - iOS 13.0
+      - iOS 13.1
+      - iOS 13.2
+      - iOS 13.3
+      - iOS 13.4
+      - iOS 13.5
+      - iOS 13.6
+      - iOS 13.7
+      - iOS 14.0 
+      - iOS 14.1
+      - iOS 14.2
+      - iOS 14.3
+      - tvOS 11.4
+      - tvOS 12.0
+      - tvOS 12.1
+      - tvOS 12.2
+      - tvOS 12.4
+      - tvOS 13.0
+      - tvOS 13.2
+      - tvOS 13.3
+      - tvOS 13.4
+      - tvOS 14.0
+      - tvOS 14.2
+      - tvOS 14.3      
+      - watchOS 5.0 
+      - watchOS 5.1
+      - watchOS 5.2
+      - watchOS 5.3
+      - watchOS 6.0
       - watchOS 6.1
       - watchOS 6.2
       - watchOS 7.0  
-      - watchOS 7.1  
+      - watchOS 7.1
+      - watchOS 7.2
     jdk: "15.0.1"
   - image: xcode12.2
     xcode: "12.2"
