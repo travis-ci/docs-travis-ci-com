@@ -232,7 +232,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> FreeBSD does not have pre-installed Oracle JDK 8. Due to the current licensing policy, Oracle JDK on FreeBSD binaries can not be distributed and you are only permitted to use them personally. For the same reason, the sources must be fetched manually. For more FreeBSD Oracle Java support information and available FreeBSD ports, see [here](https://www.freebsd.org/java/).
+> FreeBSD does not have pre-installed Oracle JDK 8. Due to the current licensing policy, Oracle JDK on FreeBSD binaries can not be distributed and you are only permitted to use them personally. For the same reason, the sources must be fetched manually. For more FreeBSD Oracle Java support information and available FreeBSD ports, see [here](https://www.freebsd.org/java/). FreeBSD uses openjdk packages.
 
 ## Using Java 10 and later
 
