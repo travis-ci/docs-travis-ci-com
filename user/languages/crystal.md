@@ -53,7 +53,7 @@ language: crystal
 crystal:
   - latest
   - nightly
-  - 0.35.1
+  - 0.35.1. # example of specific version
 ```
 {: data-file=".travis.yml"}
 
