@@ -83,8 +83,6 @@ For example, in the following screenshot, we pushed commit `ca31c2b` to the bran
 
 ## Git Clone Depth
 
-Travis CI can clone repositories to a maximum depth of 50 commits, which is only really useful if you are performing git operations.
-
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
 You can set the [clone depth](https://git-scm.com/docs/git-clone#git-clone---depthltdepthgt) in `.travis.yml`:
