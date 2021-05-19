@@ -25,7 +25,7 @@ Minimal example:
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.linux_note }}
+{{ site.data.snippets.unix_note }}
 
 {: .warning}
 > Python builds are not available on the macOS and Windows environments.
@@ -169,6 +169,9 @@ jobs:
   include:
     - name: "Python 3.8.0 on Xenial Linux"
       python: 3.8           # this works for Linux but is ignored on macOS or Windows
+    - name: "Python 3.6.10 on FreeBSD"
+      os: freebsd
+      language: python
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
