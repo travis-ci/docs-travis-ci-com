@@ -3,6 +3,7 @@ title: Travis CI Tutorial
 layout: en
 redirect_from:
   - /user/getting-started/
+  - 
 ---
 
 This is a very short guide to using Travis CI with your cloud platform hosted code repository.
