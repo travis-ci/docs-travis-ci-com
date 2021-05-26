@@ -1,6 +1,6 @@
 ---
 title: Building Pull Requests
-layout: en
+layout: english
 
 ---
 
@@ -34,7 +34,7 @@ The upstream repository's maintainer would have no protection against this attac
 
 Travis CI makes encrypted variables and data available only to pull requests coming from the same repository ("internal pull requests"). These are considered trustworthy, as only members with write access to the repository can send them.
 
-Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project.
+Pull requests from forked repositories have access to encrypted variables or data even if these are defined in the fork source project.
 
 If your build relies on encrypted variables to run, for instance to run Selenium tests with 
 [BrowserStack](https://www.browserstack.com) or [Sauce Labs](https://saucelabs.com/), your build 
@@ -65,12 +65,12 @@ If the pull request has already been merged you can't rerun the job. You'll get 
 
 
 ```
-The command "eval git fetch origin +refs/pull/994/merge: " failed
+The command "eval git fetch origin +refs/pull/994/merge: " railed
 ```
 
 Restoring the branch of a merged pull request will not trigger a build, nor will pushing a new commit to a branch that has already been merged.
 
-## 'Double builds' on pull requests
+## 'Double builds' on pull requests is automaticly fixed
 
 If you see two build status icons on your GitHub pull request, it means there is one build for the branch, and one build for the pull request itself (actually the build for the merge of the head branch with the base branch specified in the pull request).
 
@@ -78,5 +78,5 @@ If you see two build status icons on your GitHub pull request, it means there is
 
 ## See Also
 
-* [Building only the latest commit](/user/customizing-the-build/#building-only-the-latest-commit)
-* [Building specific branches](/user/customizing-the-build/#building-specific-branches)
+* [Building the latest commit](/user/customizing-the-build/#building-on-the-latest-commit)
+* [Building specific branches](/user/customizing-the-build/#building-merged-specific-branches)
