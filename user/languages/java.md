@@ -31,7 +31,7 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 
 ## Overview
 
-The Travis CI environment contains various versions of OpenJDK, Oracle JDK,
+The Travis CI environment contains various versions of OpenJDK,
 Gradle, Maven and Ant.
 
 To use the Java environment, add the following to your `.travis.yml`:
@@ -176,19 +176,6 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## Testing Against Multiple JDKs
-
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
-to test against Oracle JDKs 8 and 9, as well as OpenJDK 8:
-
-```yaml
-jdk:
-  - oraclejdk8
-  - oraclejdk9
-  - openjdk8
-```
-{: data-file=".travis.yml"}
-
 > Note that testing against multiple Java versions is not supported on macOS. See
 the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
 details.
@@ -204,12 +191,10 @@ The list of available JVMs for different dists are at
 ### Switching JDKs (Java 8 and below) Within One Job
 
 If your build needs to switch JDKs (Java 8 and below) during a job, you can do so with
-`jdk_switcher use …`.
+[`jdk_switcher`](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is).
 
 ```yaml
 script:
-  - jdk_switcher use oraclejdk8
-  - # do stuff with Java 8
   - jdk_switcher use openjdk8
   - # do stuff with open Java 8
 ```
@@ -217,52 +202,27 @@ script:
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
-### Updating Oracle JDK 8 to a recent release
-
-Your repository may require a newer release of Oracle JDK than the pre-installed
-version.
-(You can consult [the list of published Oracle JDK packages](https://launchpad.net/~webupd8team/+archive/ubuntu/java).)
-
-The following example will use the latest Oracle JDK 8:
-
-```yaml
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
-```
-{: data-file=".travis.yml"}
-
 ## Using Java 10 and later
 
 > Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
 > See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html){: data-proofer-ignore=""}.
-
-OracleJDK 11 and later are supported on Linux, and
-OpenJDK 10 and later are supported on Linux and macOS using
-[`install-jdk.sh`](https://github.com/sormuras/bach#install-jdksh).
-
-```yaml
-jdk:
-  - oraclejdk8
-  - oraclejdk11
-  - openjdk10
-  - openjdk11
-```
-{: data-file=".travis.yml"}
+>
+> `openjdk` is now the default jdk available on our VMs as `install-jdk` no longer installs `oraclejdk`. Please see this [Github Issue](https://github.com/sormuras/bach/issues/56) for context.
 
 ### Switching JDKs (to Java 10 and up) Within One Job
 
-If your build needs to switch JDKs (Java 8 and up) during a job, you can do so with
-`install-jdk.sh`.
+If your build needs to switch JDKs (Java 10 and up) during a job, you can do so with
+[`install-jdk.sh`](https://sormuras.github.io/blog/2017-12-08-install-jdk-on-travis.html).
 
 ```yaml
 jdk: openjdk10
 script:
   - jdk_switcher use openjdk10
   - # do stuff with OpenJDK 10
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+  - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
   - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
+  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - # do stuff with open OpenJDK 11
 ```
 {: data-file=".travis.yml"}

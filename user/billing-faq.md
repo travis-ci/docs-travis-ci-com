@@ -37,7 +37,10 @@ Travis CI is working on the user management functionality where you will be able
 
 ## What if I am building open source?
 
-Each of the Travis CI Plans can have an amount of special OSS credits per month assigned to run builds only on public repositories. To find out more about it please contact the Travis CI support team. 
+Each of the Travis CI Plans contains an amount of special OSS credits per month assigned to run builds only on public repositories. To find out more about it please [contact the Travis CI support team](mailto:support@travis-ci.com). In the email please include:
+
+* Your account name and your VCS provider (like travis-ci.com/github/[your account name] )
+* How many credits (build minutes) you’d like to request (should your run out of credits again you can repeat the process to request more or to discuss a renewable amount)
 
 
 ## How do I use credits?

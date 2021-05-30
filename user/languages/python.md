@@ -25,7 +25,7 @@ Minimal example:
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.linux_note }}
+{{ site.data.snippets.unix_note }}
 
 {: .warning}
 > Python builds are not available on the macOS and Windows environments.
@@ -49,7 +49,8 @@ python:
   - "3.6"      # current default Python on Travis CI
   - "3.7"
   - "3.8"
-  - "3.8-dev"  # 3.8 development branch
+  - "3.9"
+  - "3.9-dev"  # 3.9 development branch
   - "nightly"  # nightly build
 # command to install dependencies
 install:
@@ -123,7 +124,7 @@ a recent development version of [CPython](https://github.com/python/cpython) bui
 From Python 3.5 and later, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev`,
-`3.7-dev` or `3.8-dev`.
+`3.7-dev`, `3.8-dev` or `3.9-dev`.
 
 ## Default Build Script
 
@@ -168,6 +169,9 @@ jobs:
   include:
     - name: "Python 3.8.0 on Xenial Linux"
       python: 3.8           # this works for Linux but is ignored on macOS or Windows
+    - name: "Python 3.6.10 on FreeBSD"
+      os: freebsd
+      language: python
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4

@@ -157,6 +157,7 @@ You can find more information on the build config format for [Environment Variab
 The following default environment variables are available to all builds.
 
 - `CI=true`
+- `TZ=UTC`
 - `TRAVIS=true`
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
@@ -229,7 +230,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
 - `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name, otherwise it is empty (`""`).
-- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/) in capitalized form, e.g. `Test` or `Deploy`. If a build does not use build stages, this variable is empty (`""`).
+- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/). If a build does not use build stages, this variable is empty (`""`).
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
