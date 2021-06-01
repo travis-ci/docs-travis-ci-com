@@ -207,7 +207,7 @@ dist: focal           # or bionic | xenial with xenial as default
 
 > Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
 
-As a result, for instance a command in `.travis.yaml` like:
+As a result, for instance a command in `.travis.yml` like:
 ```yaml
 sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
 ```
