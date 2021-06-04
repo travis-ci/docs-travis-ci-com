@@ -138,7 +138,7 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 ### Docker
 
 * Docker `19.03.8` is installed.
-* docker-compose `1.23.1` is also available.
+* docker-compose `1.25.1` is also available.
 
 ## Ruby support
 
