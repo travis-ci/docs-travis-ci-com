@@ -46,7 +46,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | The subscription is charged automatically in advance, at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and used only when you need them. The charge is applied immediately upon transaction. |
+| **Payment**                     | The subscription is charged automatically in advance, at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and used only when you need them. The charge is applied immediately upon transaction. The price of the subscription doesn't depend on the number of unique users running builds.|
 | **Private/Public repositories** | With a paid subscription you can build over both private and public repositories. |
 | **Build job limits**            | As per Plan |
 
