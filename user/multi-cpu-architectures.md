@@ -15,7 +15,7 @@ permalink: /user/multi-cpu-architectures/
 >
 > `Arm`-based building on `Arm64 Graviton2` CPU now supports both Open Source and commercial projects. The total concurrency capacity is limited, but may adjusted based on the demand.
 
-## Multi CPU availaibility
+## Multi CPU availability
 
 If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on 
 
