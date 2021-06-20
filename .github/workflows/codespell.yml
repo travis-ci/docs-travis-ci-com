@@ -12,4 +12,6 @@ jobs:
       - uses: codespell-project/actions-codespell@master
         with:
           check_filenames: true
-          skip: ./.git
+          check_hidden: true
+          skip: ./.git,./Gemfile.lock,./assets/javascripts/prism.js,./slate/source/javascripts/jquery.tocify.js
+          ignore_words_list: rouge
