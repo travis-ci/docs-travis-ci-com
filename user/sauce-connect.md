@@ -113,3 +113,7 @@ addons:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Sauce Connect](https://config.travis-ci.com/ref/job/addons/sauce_connect) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

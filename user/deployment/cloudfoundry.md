@@ -1,6 +1,7 @@
 ---
 title: CloudFoundry Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -26,6 +27,8 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
    api: https://api.run.pivotal.io
    organization: myawesomeorganization
    space: staging
+   manifest: manifest-staging.yml       # (optional)  Defaults to manifest.yml.
+   app_name: My app name                # (optional)
 ```
 {: data-file=".travis.yml"}
 
@@ -37,7 +40,7 @@ You can do this using the Travis gem above and running:
 travis encrypt --add deploy.password
 ```
 
-If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#Note-on-escaping-certain-symbols).
+If your password includes symbols (such as braces, parentheses, backslashes, and pipe symbols), [you must escape those symbols before running `travis encrypt`](/user/encryption-keys/#note-on-escaping-certain-symbols).
 
 ### Conditional releases
 

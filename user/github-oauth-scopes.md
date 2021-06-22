@@ -22,7 +22,7 @@ On <https://travis-ci.com>, via our GitHub Apps integration, we ask for the foll
 
 Before GitHub Apps, we used scoped OAuth tokens to integrate with GitHub. As of May 2018, OAuth-based integration is considered our "Legacy" integration.
 
-### Travis CI for Private Projects
+### Repositories on https://travis-ci.com (Private and public)
 
 - `user:email` (read-only)
 
@@ -50,7 +50,7 @@ Before GitHub Apps, we used scoped OAuth tokens to integrate with GitHub. As of 
 
     We need this level of access because GitHub does not provide the `read:org` (read-only) scope for private repositories.
 
-### Travis CI for Open Source Projects
+### Repositories on https://travis-ci.org
 
 On <https://travis-ci.org> we ask for the following permissions:
 
