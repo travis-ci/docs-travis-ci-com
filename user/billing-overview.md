@@ -16,7 +16,7 @@ The variety of plans provides you with the flexibility to choose the plan that s
 
 | Billing Period | Concurrency based | Usage based |
 |:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />Available via [site](https://travis-ci.com/account/plan) | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users trigerring the builds)<br /><br />Contact Travis CI to obtain|
+|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />Available via [site](https://travis-ci.com/account/plan) | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Contact Travis CI to obtain|
 
 For the majority of users, a single concurrency based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage based plan.
 
@@ -46,7 +46,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | The subscription is charged automatically in advance, at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and used only when you need them. The charge is applied immediately upon transaction. |
+| **Payment**                     | The subscription is charged automatically in advance, at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and used only when you need them. The charge is applied immediately upon transaction. The price of the subscription doesn't depend on the number of unique users running builds.|
 | **Private/Public repositories** | With a paid subscription you can build over both private and public repositories. |
 | **Build job limits**            | As per Plan |
 
@@ -136,15 +136,15 @@ Partner Queues are available only for standard instance size.
 
 By design, the billing system usually allows the build job to finish even if the possible cost of the build job expressed in credits exceeds the available credits balance. Once the build finishes you may notice your credit balance to be negative. **This is perfectly normal.** Whenever your credits get replenished, e.g. after purchasing an addon, the negative balance will be deducted from the newly arriving credit pool. What remains is your available credit balance for your builds.
 
-Please note: Currenlty, if the system decides that the build could cause your negative balance to be too high, the job can be canceled mid-flight due to insufficient credits balance. This will be addressed in one of the incoming updates in order to allow fluent processing for your builds.
+Please note: Currently, if the system decides that the build could cause your negative balance to be too high, the job can be canceled mid-flight due to insufficient credits balance. This will be addressed in one of the incoming updates in order to allow fluent processing for your builds.
 
 
 #### Credits vs. OSS Only Credits
 
 Credits can be used to build both over private and public repositories. 
 
-On occassion, an allotment of OSS Only credits may be granted by Travis CI. These credits may be used only for builds over public repositories and are meant for open source support.
-The OSS credits may be assigned as one time pool or renewable pool, subject to case by case assesment of Travis CI staff.
+On occasion, an allotment of OSS Only credits may be granted by Travis CI. These credits may be used only for builds over public repositories and are meant for open source support.
+The OSS credits may be assigned as one time pool or renewable pool, subject to case by case assessment of Travis CI staff.
 
 The OSS credits is a pool of credits completely separate from regular credits, with separate credits balance tracking.
 
