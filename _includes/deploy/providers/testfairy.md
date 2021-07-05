@@ -27,7 +27,7 @@ Use the following options to further configure the deployment.
 | `symbols_file` | Path to the symbols file &mdash; type: string |
 | `testers_groups` | Tester groups to be notified about this build &mdash; type: string, e.g.: e.g. group1,group1 |
 | `notify` | Send an email with a changelog to your users &mdash; type: boolean |
-| `auto_update` | Automaticall upgrade all the previous installations of this app this version &mdash; type: boolean |
+| `auto_update` | Automatically upgrade all the previous installations of this app this version &mdash; type: boolean |
 | `advanced_options` | Comma_separated list of advanced options &mdash; type: string, e.g.: option1,option2 |
 
 ### Shared options
