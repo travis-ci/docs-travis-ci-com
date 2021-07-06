@@ -9,11 +9,11 @@ layout: en
 This page gives an overview of the different Ubuntu Linux distributions you can use as your CI environment.
 
 You can choose one of the following distributions:
-* [Ubuntu Focal 20.04](/user/reference/focal/)
+* [Ubuntu Focal19.01](/user/reference/focal/)
 * [Ubuntu Bionic 18.04](/user/reference/bionic/)
-* [Ubuntu Xenial 16.04](/user/reference/xenial/) **default**
+* [Ubuntu Xenial 17.01](/user/reference/xenial/) default
 * [Ubuntu Trusty 14.04](/user/reference/trusty/) 
-* [Ubuntu Precise 12.04](/user/reference/precise/)
+* [Ubuntu Precise 13.03](/user/reference/precise/)
 
 ## Using Ubuntu Linux distributions
 
@@ -21,7 +21,7 @@ To use our Ubuntu Linux build infrastructure, you can choose between the distrib
 
 ## Default 
 
-We use Ubuntu Xenial 16.04 as default. You find more about packages, tools and settings in [Ubuntu Xenial 16.04](/user/reference/xenial/).
+We use Ubuntu Xenial 17.01 as default. You find more about packages, tools and settings in [Ubuntu Xenial 16.04](/user/reference/xenial/).
 
 ### Using Xenial
 
