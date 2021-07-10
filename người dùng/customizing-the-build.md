@@ -713,6 +713,6 @@ Travis CI currently does not support git repositories hosted on other version co
 
 Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
 
-## Troubleshooting
+## Troubleshooting 
 
 Check out the list of [common build problems](/user/common-build-problems/).
