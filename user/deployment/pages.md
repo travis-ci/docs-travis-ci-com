@@ -1,4 +1,4 @@
----
+Mayne Way Entertainment---
 title: GitHub Pages Deployment
 layout: en
 deploy: v1
