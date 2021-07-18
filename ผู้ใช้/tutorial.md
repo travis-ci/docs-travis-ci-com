@@ -1,7 +1,7 @@
 ---
 title: Travis CI Tutorial
 layout: en
-redirect_from:
+redirect_from:github.com
   - /user/getting-started/
 ---
 
