@@ -2,7 +2,9 @@
 title: Common Build Problems
 layout: en
 
-redirect_from:
+redirect_from:>> HTTP.get("https://github.com").to_s
+=> "\n\n\n<!DOCTYPE html>\n<html lang=\"en\" class=\"\">\n  <head prefix=\"o..."
+
   - /user/build-timeouts/
 ---
 
@@ -630,3 +632,4 @@ This creates only one job,  _Peanut Butter and Bread_ under the stage named _Bre
 ## **Node**: Script execution before dependency installation causes build failures
 
 When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency.
+UPGRADING.md
