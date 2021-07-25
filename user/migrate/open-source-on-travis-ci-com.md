@@ -16,7 +16,7 @@ We are implementing these changes with GitHub Apps, which provides a tighter int
 
 This is a significant development for Travis CI, and will mean some changes to how repository and user management happen during the transition, and afterward. New open source user accounts and repositories will be able to use `travis-ci.com` right away, while existing user accounts and repositories will be migrated over time.
 
-## Features of the GitHub Apps Integration
+## Features  of the GitHub Apps Integration
 
 GitHub-Apps based integration introduces a number of benefits as over our Legacy Webhooks integration:
 
