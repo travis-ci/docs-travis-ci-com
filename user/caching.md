@@ -334,12 +334,10 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
 
 ### Caches expiration
 
-Cache archives are currently set to expire after 28 days for repositories on https://travis-ci.org and
-45 days for those on https://travis-ci.com. 
+Cache archives are currently set to expire after 45 days for repositories on https://travis-ci.com. 
 This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
 
 ## Build Config Reference
