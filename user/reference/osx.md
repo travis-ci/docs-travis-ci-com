@@ -37,6 +37,8 @@ os: osx
 ```
 {: data-file=".travis.yml"}
 
+Travis CI also supports the [Ubuntu Linux Environment](/user/reference/linux/), [Windows Environment](/user/reference/windows/) and [FreeBSD Environment](/user/reference/freebsd/).
+
 ## macOS Version
 
 Travis CI uses macOS 10.13 and Xcode 9.4.1 by default. You can use another version of macOS (and Xcode) by specifying the corresponding `osx_image` key from the following table:
@@ -95,15 +97,19 @@ and later, use `xcode9.4` (or later).
 ## Compilers and Build toolchain
 
 - automake
+- clang
+- cmake
+- gcc
 - maven
 - mercurial
 - pkg-config
 - wget
 - xctool
-- cmake
 
 ## Languages
 
+- C
+- C++
 - Go
 - Java
 - Nodejs
@@ -114,39 +120,6 @@ and later, use `xcode9.4` (or later).
 
 Every worker has at least one version of Go, Java, Python, Ruby and NodeJS to accommodate
 projects that may need one of those runtimes during the build.
-
-## Environment variables
-
-- `CI=true`
-- `TRAVIS=true`
-- `USER=travis`
-- `HOME=/Users/travis`
-
-Additionally, Travis CI sets environment variables you can use in your build,
-e.g.  to tag the build, or to run post-build deployments.
-
-- `TRAVIS_BRANCH`:For builds not triggered by a pull request this is the
-  name of the branch currently being built; whereas for builds triggered
-  by a pull request this is the name of the branch targeted by the pull
-  request (in many cases this will be `master`).
-- `TRAVIS_BUILD_DIR`: The absolute path to the directory where the repository
-  being built has been copied on the worker.
-- `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
-- `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
-- `TRAVIS_COMMIT`: The commit that the current build is testing.
-- `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
-  or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
-- `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
-- `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-- `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
-  request, "false" if it's not a pull request.
-- `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being
-  used. This value is either "true" or "false".
-- `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the
-  repository currently being built. (for example, "travis-ci/travis-build").
-- `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
-- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
 
 ## Ruby versions/implementations
 

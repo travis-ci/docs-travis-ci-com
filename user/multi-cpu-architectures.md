@@ -4,13 +4,38 @@ layout: en
 permalink: /user/multi-cpu-architectures/
 ---
 
-> This is an alpha stage of this feature and we are [eager to hear back from you](https://travis-ci.community/c/environments/multi-cpu-arch), both for `Arm`-based and `IBM`-based feedback. The definition keys used in the `.travis.yml` file may be further adapted on short notice.
-{: .alpha}
+> This is a beta stage of this feature and we are [eager to hear back from you](https://travis-ci.community/c/environments/multi-cpu-arch), both for `Arm`-based and `IBM`-based feedback. The definition keys used in the `.travis.yml` file may be further adapted on short notice.
+{: .beta}
 
-> `IBM Power`, `IBM Z` and `Arm`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the alpha period.
-> An attempt to run `IBM Power`, `IBM Z` and `Arm`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+> `IBM Power` and `IBM Z`-based building is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period.
+>
+> An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+>
+> `Arm`-based building on `Arm64` CPU  is only available for Open Source repositories (at both travis-ci.org and travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period. 
+>
+> `Arm`-based building on `Arm64 Graviton2` CPU now supports both Open Source and commercial projects. The total concurrency capacity is limited, but may adjusted based on the demand.
 
-If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on amd64, ppc64le (IBM Power CPUs), s390x (IBM Z CPUs) and arm64 (run on ARMv8 compliant CPUs) if the operating system is Linux.
+## Multi CPU availability
+
+If your code is used on multiple CPU architectures it probably should be tested on multiple CPU architectures. Travis CI can test on 
+
+* `amd64`, 
+* `ppc64le` (IBM Power CPUs), 
+* `s390x` (IBM Z CPUs), 
+* `arm64` (run on ARMv8 compliant CPUs) 
+* `arm64-graviton2` (new gen of ARMv8 compliant CPUs on AWS, available only on [travis-ci.com](https://travis-ci.com)) 
+
+if the operating system is Linux. The table below gives a brief perspective about the CPU and project type combinations:
+
+| Architecture            | Open Source   | Commercial    | Available on travis-ci.* |
+| :-----------------------| :------------ | :------------ | :------------|
+| `amd64`                 | Yes           | Yes           | .org & .com  |
+| `ppc64le`.              | Yes           | No            | .org & .com  |
+| `s390x`                 | Yes           | No            | .org & .com  |
+| `arm64` (v8)            | Yes           | No            | .org & .com  |
+| `arm64-graviton2` (v8)  | Yes           | Yes           | .com only    |
+
+The two `arm64` tags are used right now to distinguish between OSS-support only (`arch: arm64`) and available both for OSS & commercial (`arch: arm64-graviton2`, available only on travis-ci.com). 
 
 ## Default CPU Architecture
 
@@ -35,28 +60,29 @@ arch:
   - amd64
   - ppc64le
   - s390x
-  - arm64
+  - arm64  # please note arm64-graviton2 requires explicit virt: [lxd|vm] tag so it's recommended for jobs.include, see below
 os: linux  # different CPU architectures are only supported on Linux
 ```
 {: data-file=".travis.yml"}
 
 If you are already using a [build matrix](/user/customizing-the-build/#build-matrix) to test multiple versions, the `arch` key also multiplies the matrix.
 
-- The ppc64le (IBM Power) and s390x (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
-- The arm64 CPU architecture build job is run in an LXD compliant Linux OS image.
+- The `ppc64le` (IBM Power) and `s390x` (IBM Z) build jobs are run in an LXD compliant Linux OS image. 
+- The `arm64` CPU architecture build job is run in an LXD compliant Linux OS image.
+- The `arm64-graviton2` architecture builds can be run on both LXD and regular 'full VM' environments. You **need** to explicitly set the target environment by using `virt` key. A `virt: vm` routes build jobs to a full virtual machine setup while `virt: lxd` routes build jobs to an LXD container setup. 
 - The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` you can select different supported LXD images. Also see our [CI Environment Overview - Virtualisation Environment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) documentation. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
-- The amd64 CPU architecture build job currently runs as a regular VM and will be transitioned to an LXD compliant Linux OS image usage over time.
+- The amd64 CPU architecture build job currently runs as a regular 'full VM' and will be transitioned to an LXD compliant Linux OS image usage over time.
 
 ## Example Multi Architecture Build Matrix
 
-Here’s an example of a `.travis.yml` file using the `arch` key to compile against `amd64`, `arm64`, `ppc64le` (IBM Power), `s390x` (IBM Z) under Linux and using C as the programming language. 
+Here’s an example of a `.travis.yml` file using the `arch` key to compile against `amd64`, `arm64`, `arm64-graviton2`, `ppc64le` (IBM Power) and `s390x` (IBM Z) under Linux and using C as the programming language. 
 
 ```yaml
 language: c
 
 arch:
   - amd64
-  - arm64
+  - arm64  # please note arm64-graviton2 requires explicit virt: [lxd|vm] tag so it's recommended for jobs.include, see below
   - ppc64le
   - s390x
 
@@ -76,6 +102,8 @@ The `.travis.yml` file above creates a 2x4 [build matrix](/user/customizing-the-
 
 There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the arm64 and amd64 architecture environments:
 
+> Note that `group: edge` is required for `arm64-graviton2` architectures.
+
 ```yaml
 jobs:
   include:
@@ -83,6 +111,10 @@ jobs:
      arch: amd64
    - os: linux
      arch: arm64
+   - os: linux
+     arch: arm64-graviton2
+     virt: lxd
+     group: edge
 ```
 {: data-file=".travis.yml"}
 
@@ -145,33 +177,13 @@ script: docker run my/test #assuming docker image my/test is arm64v8 ready
 
 You can try it out also for `ppc64le` (IBM Power) and `s390x` (IBM Z) based docker builds, assuming all dependencies and/or a CPU architecture compliant base docker image are used.
 
-You can also have a look at [Using Docker in Builds](user/docker/).
-
-## Security and LXD Container
-
-### Access to Privileged fs/Features (Apparmor)
-
-> Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
-
-As a result, for instance a command in `.travis.yaml` like:
-```yaml
-sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
-```
-{: data-file=".travis.yml"}
-
-would result in an error.
-
-Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
-
-### System Calls Interception
+You can also have a look at [Using Docker in Builds](/user/docker/).
 
 
-If you run into a message like:
+## LXD related limitations
 
-> System doesn't support syscall interception
+For more details see [Build Environment Overview](/user/reference/overview/#linux-security-and-lxd-container).
 
-It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
+## Partner Queue Solution
 
-## Hugepages Support from within LXD Container
-
-A build job can’t enable hugepages within an LXD container - this is something that may change in the future, yet it depends on potential Linux kernel changes, which is something that needs to be reviewed and developed.
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
