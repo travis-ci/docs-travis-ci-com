@@ -39,3 +39,6 @@ If your organization has more than **50 active repositories** to migrate to the 
 ## Migrating and activating all repositories
 
 If your organization would like to migrate all current repositories using webhooks and setup future repositories to use GitHub Apps, please go to GitHub to [Install the Travis CI GitHub App here](https://github.com/apps/travis-ci/installations/new), choose your organization and then, select **All repositories**.
+
+
+
