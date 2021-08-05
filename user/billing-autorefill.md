@@ -1,3 +1,10 @@
+---
+title: Billing Autorefill
+layout: en
+permalink: /user/billing-autorefill/
+
+---
+
 ## Auto-Refill
 
 Currently, Travis CI sends an email notifying you when you are running low on credits to refill your credits. Now, you can choose to enable the Auto-Refill feature to ensure you don't run out of credits.
