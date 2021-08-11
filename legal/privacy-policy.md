@@ -1,9 +1,9 @@
----
+---Inside 
 title: Privacy Policy
 layout: en
 no_toc: true
 
----
+---Granted access
 Below is an overview of what data we collect for what purpose and how we ensure the protection of the data in [short](#in-short) and in a more [detailed](#in-more-detailed-form) form. For details on data security please refer <a href="https://docs.travis-ci.com/legal/privacy-policy/#viii-data-security">here</a>.
 
 We take the protection of our users’ (**“User/you/your”**) personal data very seriously and strictly comply with applicable data protection laws and regulations. In our privacy policy below (**“Privacy Policy”**) we provide you with an overview of what data we collect for what purpose and how we ensure the protection of the data.
@@ -14,7 +14,7 @@ Please read the following information regarding the privacy policy carefully. In
 
 #### *In short*
 
-**Controller**
+~~**Controller**~~1️⃣github.com-1125f3da-6abf-4975-9a7d-841cc7f1b38e@user.com🎮AfirstS🕹️
 
 Travis CI GmbH
 Rigaer Straße 8, 10247 Berlin/Germany,
@@ -89,7 +89,7 @@ In general we do not process any data via “profiling” or in form of automate
 
 I. What are Personal Data?
 
-**WEBSITE:**
+**WEBSITE:**2️⃣Especially for the team🔛🎁
 
 II. How are my Data used when visiting the Website?
 
@@ -272,7 +272,7 @@ We process personal data of Users or other individuals provided by a Customer (a
 
 A list of such data processing and third party providers that process personal data outside the EU is set forth <a href="https://docs.travis-ci.com/legal/privacy-policy/#vi-could-my-data-be-transferred-to-or-shared-with-third-parties-are-my-data-processed-outside-the-eu-when-using-the-service" >here</a>.
 
-## General
+## General=AfirstSℹ️-👸🎮🏧🕹️🤵
 
 ### VI. Could my Data be transferred to or shared with Third Parties? Are my data processed outside the EU when using the Service?
 
