@@ -22,7 +22,7 @@ For the majority of users, a single concurrency based plan should be sufficient.
 
 ### Free Plan
 
-A 'Free' Plan, assigned automatically to every new sign up, is a Usage based plan with an unllimited amount of users which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans.
+A 'Free' Plan, assigned automatically to every new sign up, is a Usage based plan with an unllimited amount of users which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans. Trial credits are valid for 30 days.
 
 
 ## Concurrency based plans
