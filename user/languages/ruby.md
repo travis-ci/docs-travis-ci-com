@@ -407,3 +407,4 @@ before_install:
 
 Note that this will impact your overall test time, as additional network
 downloads and installations are required.
+package-lock.json
