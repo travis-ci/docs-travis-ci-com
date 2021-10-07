@@ -63,16 +63,6 @@ No, the credits you purchased do not expire.
 The invoice is sent automatically by the Travis CI system after the Plan purchase or subsequent user license charge is made. 
 
 
-## Can I get a refund?
-
-Upon cancellation of your account or switching back to the Free Plan, you can request a refund under the following conditions:
-
-* You haven’t used any paid credits
-* Request made up to and including 14 days after the billing date: applicable for full refund
-
-Contact our support team at support@travis-ci.com Specify the GitHub/Bitbucket/GitLab/Assembla handle of the account for which you’re requesting a refund, and send us a copy of your payment and/or invoice.
-
-
 ## How do I cancel my paid plan?
 
 If you want to cancel your paid plan, click on your profile icon in the right upper corner of the screen =>Settings, navigate to the Plan page and  press the ‘Change Plan’ button and choose the Free Plan.
