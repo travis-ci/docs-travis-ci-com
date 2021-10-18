@@ -177,7 +177,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 ### Usage based Plan - How to obtain?
 
 1. Sign in to Travis CI with [Version Control System of your choice](/user/tutorial/).
-2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details fill-in correctly. 
+2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and make sure you have your billing and contact details fill-in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
 
