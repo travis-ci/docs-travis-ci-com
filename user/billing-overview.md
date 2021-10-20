@@ -80,7 +80,7 @@ Thus whenever you select or are assigned a Usage based plan:
 
 * Plan has the default allotment of credits associated (default Credits addon)
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. Plan coming with 25,000 credits will result in immediate charge according to the enlisted price
-* If you have the auto-refill option enabled for your credits, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon succesfull charge on your credit card
+* If you have the auto-refill option enabled for your credits, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon succesfull charge on your credit card; read more about it [here](user/billing-autorefill/)
 
 You can also purchase credits while on the Concurrency based Plan. These are used only in scenarios, which require credits in order to start a build job (e.g. building on macOS or using a non-standard VM instance size).
 
