@@ -22,9 +22,9 @@ For the majority of users, a single concurrency based plan should be sufficient.
 
 ### Free Trial Plan
 
-A 'Trial' Plan, which can be selected by any new user upon sign up, is a Usage-based plan with an unlimited amount of users, which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans. Trial credits are valid only for 30 days.
+A free 'Trial' Plan, which can be selected by any new user upon sign up, is a Usage-based plan with an unlimited amount of users, which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans. Trial credits are valid only for 30 days.
 
-Due to security reasons and as anti-abuse preventive measure, any new user will be asked to provide valid credit card details during selection of the Free Trial Plan. We will trigger an authorization transaction for $1.00 on the users card, which will be released back to the card owner after several days. This is meant only to validate legitimate user. Existing users are not affected by this procedure. 
+Due to security reasons and as anti-abuse preventive measure, any new user will be asked to provide valid credit card details during selection of the free Trial Plan. We will trigger an authorization transaction for $1.00 on the users card, which will be released back to the card owner after several days. This is meant only to validate legitimate user. Existing users are not affected by this procedure. 
 
 
 ## Concurrency based plans
