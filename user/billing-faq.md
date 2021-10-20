@@ -91,4 +91,4 @@ Most probably your last build costed more than you had available in your credit 
 
 ## Why am I asked for credit card details upon selection of free Trial Plan? 
 
-Due to continued abuse of our free service and in order to make environment more secure and with fair access to shared infrastructure, Travis CI decided to introduce credit card validation step for every new user. There will be a small fee placed on your card in order to authorize the account and it ill be returned after several days.
+Due to continued abuse of our free service and in order to make environment more secure and with fair access to shared infrastructure, Travis CI decided to introduce credit card validation step for every new user. There will be a small fee placed on your card in order to authorize the account and it will be returned after several days.
