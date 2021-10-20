@@ -9,8 +9,7 @@ permalink: /user/billing-faq/
 
 ## How can I get on an annual plan? 
 
-The annual based plans are available by contacting the Travis CI support team. 
-
+You can select one of available annual plans via [Your Account->Settings->Plan](https://app.travis-ci.com/account/plan) page. The customised annual based plans are available by contacting the Travis CI support team. 
 
 ## How can I get on the usage based plan?
 
@@ -28,12 +27,14 @@ By default Travis CI system provides the possibility to trigger a build to all m
 If the team member has not triggered the build during the billing period Travis CI will not charge you for that user.
 
 
-To check how much active users you got during the last billing cycle please contact the support.
-Travis CI is working on the user management functionality where you will be able:
+To check how much active users you got during the last billing cycle you may generate a report for selected time period on your [Plan Usage](https://app.travis-ci.com/account/plan/usage) page or contact the support.
+Travis CI also offers the user management functionality where you are able:
 
 * To see how many users has rights to trigger the build
 * To see how many was active/trigger the build during the last month
 * Select the users who are able to trigger the build 
+
+This is available under each repository settings (in the https://app.travis-ci.com/{vcs provider identifier}/{your account name}/{repository name}/settings ) as a'User Management' button.
 
 ## What if I am building open source?
 
@@ -50,33 +51,22 @@ You may have been assigned an amount of OSS credits to run builds on public repo
 
 ## How do I recharge my credits balance?
 
-You can buy additional build credits anytime you need them by clicking on your profile icon in the right upper corner of the screen =>Settings, navigate to the Plan page and  press the ‘Buy add-ons’ button.
-Please be advised that it is not possible to buy additional credits on Free Plan. 
+You can buy additional build credits anytime you need them by clicking on your profile icon in the right upper corner of the screen =>Settings, navigate to the Plan page and  press the ‘Buy add-ons’ button. You may also enable the [auto-refill](user/billing-autorefill/) feature.
+Please be advised that it is not possible to buy additional credits on free Plan. 
 
 
 ## Do credits expire?
 
-No, the credits you purchased do not expire. 
+Credits which you purchase or obtain as a part of the free Plan do have an expiry date. Please check your [Plan Usage]((https://app.travis-ci.com/account/plan/usage) page.
 
 ## Can you send me an invoice?
 
 The invoice is sent automatically by the Travis CI system after the Plan purchase or subsequent user license charge is made. 
 
-
-## Can I get a refund?
-
-Upon cancellation of your account or switching back to the Free Plan, you can request a refund under the following conditions:
-
-* You haven’t used any paid credits
-* Request made up to and including 14 days after the billing date: applicable for full refund
-
-Contact our support team at support@travis-ci.com Specify the GitHub/Bitbucket/GitLab/Assembla handle of the account for which you’re requesting a refund, and send us a copy of your payment and/or invoice.
-
-
 ## How do I cancel my paid plan?
 
-If you want to cancel your paid plan, click on your profile icon in the right upper corner of the screen =>Settings, navigate to the Plan page and  press the ‘Change Plan’ button and choose the Free Plan.
-Travis CI Free plan will provide you with 10,000 build credits to try it out for public and private repositories builds and unlimited number of users with no charge.
+If you want to cancel your paid plan, please contact our support. The self-service functionality is temporarily unavailable and will be restored soon.
+Travis CI free Trial plan will provide you with 10,000 build credits to try it out for public and private repositories builds and unlimited number of users with no charge. Once you use up all credits or they expire, simply do not select any other plan.
 If you want your account to be deleted, please contact the Travis CI support.  
 
 
@@ -87,8 +77,9 @@ No, all prices do not include tax.
 ## Can I sign up for automatic renewals for usage based plan?
 
 The per-seats licence invoice will be charged and sent automatically after each month you use the Travis CI service, based on the maximum number of unique users who triggered the build during the given month. 
-Unfortunately, right now it is not possible to configure automatic renewals for build credits. You need to manually buy credits each time you are about to run out of them. We intend to make it more convenient in the near future.
+You may manually buy credits each time you are about to run out of them or enable the [auto-refill]((user/billing-autorefill/) functionality in your Plan page, which will refill your credits every time it drops below certain threshold. We intend to make it more convenient in the near future. Concurrency-based plans are not subject to auto-refill.
 To help you track the build credit consumption Travis CI system will send the notification emails each time your credit balance is used up by 50, 75 and 100%.
+We are working on making the system more convenient.
 
 ## Are add-ons limited to a certain number of users?
 
@@ -98,4 +89,6 @@ You can buy additional add-ons any time you feel it is needed. You and your orga
 
 Most probably your last build costed more than you had available in your credit balance. You won't be able to run any builds until your balance gets positive. Replenish your credits (the negative balance will be deducted upon arrival of new credits creating new balance - see our [billing overview](/user/billing-overview/#negative-credits).
 
+## Why am I asked for credit card details upon selection of free Trial Plan? 
 
+Due to continued abuse of our free service and in order to make environment more secure and with fair access to shared infrastructure, Travis CI decided to introduce credit card validation step for every new user. There will be a small fee placed on your card in order to authorize the account and it will be returned after several days.

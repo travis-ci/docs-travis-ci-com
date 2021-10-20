@@ -20,15 +20,17 @@ The variety of plans provides you with the flexibility to choose the plan that s
 
 For the majority of users, a single concurrency based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage based plan.
 
-### Free Plan
+### Free Trial Plan
 
-A 'Free' Plan, assigned automatically to every new sign up, is a Usage based plan with an unllimited amount of users which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans.
+A free 'Trial' Plan, which can be selected by any new user upon sign up, is a Usage-based plan with an unlimited amount of users, which comes with a trial pool of credits to be used. Once these credits are used they are not replenished. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source) or please consider one of our available plans. Trial credits are valid only for 30 days.
+
+Due to security reasons and as anti-abuse preventive measure, any new user will be asked to provide valid credit card details during selection of the free Trial Plan. We will trigger an authorization transaction for $1.00 on the users card, which will be released back to the card owner after several days. This is meant only to validate legitimate user. Existing users are not affected by this procedure. 
 
 
 ## Concurrency based plans
 
-Concurrency based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
-In Travis CI builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds at the same time or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until there is a queue capacity available for processing. 
+Concurrency-based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
+In Travis CI, builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until there is a queue capacity available for processing. 
 
 > If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 builds are processed while the remaining 3 of the builds wait in line to be processed.  
 >
@@ -39,7 +41,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
 >
-> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g. 25k credits. Now the build can be executed and a pre-defined amount of [credits will be charged for each build minute](/user/billing-overview/#usage---credits). 
+> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g. 25k credits. Now the build can be executed, and a pre-defined amount of [credits will be charged for each build minute](/user/billing-overview/#usage---credits). 
 
 
 ### Concurrency based Plan - Summary
@@ -73,11 +75,12 @@ Unique users triggering builds within a billing period will constitute a number 
 
 ### Usage - Credits
 
-Credits are purchased at your discretion as an 'addon'. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
+Credits are purchased at your discretion as an 'addon' or via Auto refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
 Thus whenever you select or are assigned a Usage based plan:
 
 * Plan has the default allotment of credits associated (default Credits addon)
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. Plan coming with 25,000 credits will result in immediate charge according to the enlisted price
+* If you have the auto-refill option enabled for your credits, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon succesfull charge on your credit card; read more about it [here](user/billing-autorefill/)
 
 You can also purchase credits while on the Concurrency based Plan. These are used only in scenarios, which require credits in order to start a build job (e.g. building on macOS or using a non-standard VM instance size).
 
@@ -177,7 +180,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 ### Usage based Plan - How to obtain?
 
 1. Sign in to Travis CI with [Version Control System of your choice](/user/tutorial/).
-2. Navigate to the [Plans](https://travis-ci.com/account/plan) and make sure you have your billing and contact details fill-in correctly. 
+2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and make sure you have your billing and contact details fill-in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting Usage based Plan.
 
 
