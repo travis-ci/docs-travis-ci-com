@@ -9,7 +9,7 @@ permalink: /user/billing-faq/
 
 ## How can I get on an annual plan? 
 
-You can select one fo available annual plans via [Your Account->Settings->Plan](https://app.travis-ci.com/account/plan) page. The customised annual based plans are available by contacting the Travis CI support team. 
+You can select one of available annual plans via [Your Account->Settings->Plan](https://app.travis-ci.com/account/plan) page. The customised annual based plans are available by contacting the Travis CI support team. 
 
 ## How can I get on the usage based plan?
 
@@ -27,7 +27,7 @@ By default Travis CI system provides the possibility to trigger a build to all m
 If the team member has not triggered the build during the billing period Travis CI will not charge you for that user.
 
 
-To check how much active users you got during the last billing cycle you may generate a report for selected timeriod on your [Plan Usage](https://app.travis-ci.com/account/plan/usage) page or contact the support.
+To check how much active users you got during the last billing cycle you may generate a report for selected time period on your [Plan Usage](https://app.travis-ci.com/account/plan/usage) page or contact the support.
 Travis CI also offers the user management functionality where you are able:
 
 * To see how many users has rights to trigger the build
