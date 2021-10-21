@@ -99,9 +99,11 @@ There are many options available and using the `matrix.include` key is essential
 ```yaml
 jobs:
   include:
-    - os: linux
+    - 
+      os: linux
       dist: trusty
-    - os: osx
+    - 
+      os: osx
       osx_image: xcode7.2
 ```
 {: data-file=".travis.yml"}
