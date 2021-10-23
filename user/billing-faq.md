@@ -57,7 +57,7 @@ Please be advised that it is not possible to buy additional credits on free Plan
 
 ## Do credits expire?
 
-Credits which you purchase or obtain as a part of the free Plan do have an expiry date. Please check your [Plan Usage]((https://app.travis-ci.com/account/plan/usage) page.
+Credits which you purchase or obtain as a part of the free Plan do have an expiry date. Please check your [Plan Usage](https://app.travis-ci.com/account/plan/usage) page.
 
 ## Can you send me an invoice?
 
@@ -77,7 +77,7 @@ No, all prices do not include tax.
 ## Can I sign up for automatic renewals for usage based plan?
 
 The per-seats licence invoice will be charged and sent automatically after each month you use the Travis CI service, based on the maximum number of unique users who triggered the build during the given month. 
-You may manually buy credits each time you are about to run out of them or enable the [auto-refill]((user/billing-autorefill/) functionality in your Plan page, which will refill your credits every time it drops below certain threshold. We intend to make it more convenient in the near future. Concurrency-based plans are not subject to auto-refill.
+You may manually buy credits each time you are about to run out of them or enable the [auto-refill](user/billing-autorefill/) functionality in your Plan page, which will refill your credits every time it drops below certain threshold. We intend to make it more convenient in the near future. Concurrency-based plans are not subject to auto-refill.
 To help you track the build credit consumption Travis CI system will send the notification emails each time your credit balance is used up by 50, 75 and 100%.
 We are working on making the system more convenient.
 
