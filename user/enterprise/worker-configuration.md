@@ -223,7 +223,7 @@ After running the `lxd_install.sh` the LXD worker configuration is stored in `/v
 All parameters mentioned on this page with the exception of Docker parameters apply to LXD.
 Below you can find a list of available parameters:
 
-Parameters | Available as:
+Parameters | Definition:
 `TRAVIS_WORKER_LXD_CPUS` | defines how many CPU's can be used by LXD, the default is `2`.
 `TRAVIS_WORKER_LXD_CPUS_BURST` | defines if all CPU's can be used by LXD if not already in use, the default is `True`.
 `TRAVIS_WORKER_LXD_DISK` | LXD disk size limit, the default is `20Gb`.
