@@ -1,5 +1,5 @@
 osx_images:
-    - image: xcode13.1
+  - image: xcode13.1
     xcode: "13.1"
     osx_version: "11.6"
     xcode_full_version: "13.1"
