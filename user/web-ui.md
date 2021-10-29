@@ -3,7 +3,7 @@ title: Web Interface
 layout: en
 ---
 
-This page lists settings that are only available in the Travis CI .com and .org web user interface.
+This page lists settings that are only available in the Travis CI .com web user interface.
 
 
 
