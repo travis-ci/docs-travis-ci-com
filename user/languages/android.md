@@ -18,98 +18,70 @@ Android builds are not available on the macOS environment.
 
 Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
 
-By setting
+Here is an example `.travis.yml` for an Android project without emulator configuration:
 
 ```yaml
-language: android
-dist: trusty
-```
-{: data-file=".travis.yml"}
+dist: focal
+language: java
+jdk: openjdk11
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
+env:
+  global:
+  # Android command line tools, check for updates here https://developer.android.com/studio/#command-tools
+  - COMMAND_LINE_TOOLS_VERSION=7583922
+  - ANDROID_HOME=$HOME/android-sdk
+  # The build tools version used by your project
+  - BUILD_TOOLS_VERSION=30.0.3
+  # The target SDK version used by your project
+  - TARGET_SDK_VERSION=31
 
-> Android builds are only supported on our Trusty image at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
+before_cache:
+  # Do not cache a few Gradle files/directories (see https://docs.travis-ci.com/user/languages/java/#caching)
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
-Here is an example `.travis.yml` for an Android project:
+cache:
+  directories:
+    # Android SDK
+    - $HOME/android-cmdline-tools
+    - $HOME/android-sdk
 
-```yaml
-language: android
-dist: trusty
-android:
-  components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
+    # Gradle dependencies
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 
-    # The BuildTools version used by your project
-    - build-tools-26.0.2
+install:
+  - mkdir -p $HOME/android-cmdline-tools
+  # Download and unzip the Android command line tools (if not already there thanks to the cache mechanism)
+  - if test ! -e $HOME/android-cmdline-tools/cmdline-tools.zip ; then curl "https://dl.google.com/android/repository/commandlinetools-linux-${COMMAND_LINE_TOOLS_VERSION}_latest.zip" > $HOME/android-cmdline-tools/cmdline-tools.zip ; fi
+  - unzip -qq -n $HOME/android-cmdline-tools/cmdline-tools.zip -d $HOME/android-cmdline-tools
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platform-tools"
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "build-tools;${BUILD_TOOLS_VERSION}"
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-${TARGET_SDK_VERSION}"
 
-    # The SDK version used to compile your project
-    - android-26
-
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-x86-android-26
-    - sys-img-armeabi-v7a-android-17
+script:
+  - ./gradlew clean test assembleDebug
 ```
 {: data-file=".travis.yml"}
 
 ### How to install Android SDK components
 
-In your `.travis.yml` you can define the list of SDK components to be installed, as illustrated in the following example:
+In order to install the latest SDK components you need to use the Android command line tools. The latest SDK components are no longer preinstalled.
+In your `.travis.yml` you can define the download and unpacking in the `install` step, as illustrated in the following except:
 
 ```yaml
-language: android
-dist: trusty
-android:
-  components:
-    - build-tools-26.0.2
-    - android-26
-    - extra
+install:
+  - mkdir -p $HOME/android-cmdline-tools
+  # Download the Android command line tools (if not already there thanks to the cache mechanism)
+  - if test ! -e $HOME/android-cmdline-tools/cmdline-tools.zip ; then curl "https://dl.google.com/android/repository/commandlinetools-linux-${COMMAND_LINE_TOOLS_VERSION}_latest.zip" > $HOME/android-cmdline-tools/cmdline-tools.zip ; fi
+  # Unzip the Android command line tools
+  - unzip -qq -n $HOME/android-cmdline-tools/cmdline-tools.zip -d $HOME/android-cmdline-tools
+  # Confirm the license for each component
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platform-tools"
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "build-tools;${BUILD_TOOLS_VERSION}"
+  - echo y | $HOME/android-cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/android-sdk "platforms;android-${TARGET_SDK_VERSION}"
 ```
 {: data-file=".travis.yml"}
-
-The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
-
-#### Dealing with Licenses
-
-By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
-
-```yaml
-language: android
-dist: trusty
-android:
-  components:
-    - build-tools-26.0.2
-    - android-26
-    - add-on
-    - extra
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
-```
-{: data-file=".travis.yml"}
-
-For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
-
-### Pre-installed components
-
-While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
-
-- tools
-- platform-tools
-- build-tools-25.0.2
-- android-25
-- extra-google-google_play_services
-- extra-google-m2repository
-- extra-android-m2repository
 
 ### How to Create and Start an Emulator
 
@@ -135,7 +107,7 @@ If your project is built with Ant or any other build tool that does not automati
 
 ```yaml
 language: android
-dist: trusty
+dist: focal
 install: ant deps
 ```
 {: data-file=".travis.yml"}
@@ -176,9 +148,14 @@ before_cache:
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
+    # Android
+    - $HOME/android-cmdline-tools
+    - $HOME/android-sdk
+    - $HOME/.android/build-cache
+
+    # Gradle
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
 ```
 {: data-file=".travis.yml"}
 
@@ -202,6 +179,7 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 
 ## Examples
 
+- [EventFahrplan/EventFahrplan](https://github.com/EventFahrplan/EventFahrplan/blob/master/.travis.yml)
 - [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml) (Google Guide on Android)
 - [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml) (A platform for developing apps using JRuby on Android)
 - [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
