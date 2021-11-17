@@ -154,7 +154,7 @@ The OSS credits is a pool of credits completely separate from regular credits, w
 
 #### Free Plan Credits
 
-Each new user gets automatically assigned to the Free Plan upon signing up. The Free plan contains a one time pool of credits, not renewable. This plan is meant to let you familiarize with our usage based plans as well as to try out other Travis CI features. 
+Each new user that subscirbes to the Free Trial Plan its automatically granted 10K credits to use over a 30 day period. This one time pool of credits is not renewable. This plan is meant to let you familiarize with our usage based plans as well as to try out other Travis CI features. 
 
 
 
