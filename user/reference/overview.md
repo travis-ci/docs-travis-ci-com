@@ -240,7 +240,7 @@ If you need more than the default 2vCPU and RAM, you can run a build on a larger
 
 ```yaml
 vm:
-  size: [large|x-large|2x-large]
+  size: [medium|large|x-large|2x-large]
 ```
 {: data-file=".travis.yml"}
 
@@ -257,9 +257,10 @@ Each tier of instance size delivers more vCPU and RAM resources available at you
 
 | size      | vCPU        | Memory GiB  | Comment                                                 |
 |:---------:|:-----------:|:-----------:|:-------------------------------------------------------:|
+| medium    | 2           | ~8          | default                                                 |
 | large     | 4           | ~16         | requires credits to use                                 |
 | x-large   | 8           | ~32         | requires credits to use                                 |
-| 2x-large  | 16          | ~64         | requires credits to use; may be limited to certain Plans|
+| 2x-large  | 16          | ~64         | requires credits to use; limited to certain Plans       |
 
 
 
