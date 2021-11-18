@@ -7,7 +7,7 @@ permalink: /user/billing-autorefill/
 
 ## Auto-Refill
 
-Currently, Travis CI sends an email notifying you when you are running low on credits to refill your credits. Now, you can choose to enable the Auto-Refill feature to ensure you don't run out of credits.
+Enable the Auto-Refill feature to ensure you don’t run out of credits.
 
 The Auto-Refill feature is available to all users who provide their credit card details and register to a usage-based plan or purchase credits add-on under a concurrency plan. This feature is not available for Free Plan users. Find the Auto-refill under: [Settings -> Plan tab](https://travis-ci.com/account/plan) -> Credits section -> Credits tab.
 
@@ -15,13 +15,13 @@ If you wish to set a different refill threshold and refill amount, please contac
 
 ### How it works
 
-Activating the Auto-Refill option adds 25,000 credits to your balance each time your credit level drops below 5,000 credits. Users can switch off the Auto-Refill feature at any time.
+Activating the Auto-Refill option allows you to continue building in case your monthly or annual credits run out. Whenever your credit balance drops below a certain threshold, a set amount of credits will be purchased and upon a successful transaction added to your account.
 
-For [usage-based plans](/user/billing-overview/#usage-based-plans), whenever your credit balance, drops below a certain *threshold*, a set *amount* of credits will be purchased and upon a successful transaction added to your account.
+Enable this option to select a threshold amount and a refill amount of credits to continue building. The Plan you are on determines what selection add-ons are available for you. Press Apply to confirm the newly set Auto-refill values so whenever the account is below the set threshold, your credits replenish immediately and not at the start of your next build. 
 
-For [concurrency based plans](user/billing-overview/#concurrency-based-plans) the Auto-Refill applies only, if the account owner has purchased credits in order to use credit-based feature, like [higher instance size](/user/billing-overview/#vm-instance-sizes-and-credit-cost) or macOS builds. 
+To stop credit replenishment, simply disable the Auto-refill option
 
-Once credits are added to the account and auto-refill is enabled, going below a certain *threshold* triggers the transaction to refill your account with a set *amount* of credits.
+> **The Auto-Refill option is not available for users on manual plans.**
 
 ### Billing
 
