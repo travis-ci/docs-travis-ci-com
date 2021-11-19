@@ -33,7 +33,7 @@ Due to security reasons and as an anti-abuse preventive measure, any new user wi
 
 ## Concurrency based plans
 
-> Starting Nov. 30th, 2021, Concurrency-based plans are no longer available. Instead, purchase a new plan in [Travis CI](travis-ci.com/account/plan). 
+> **Starting Nov. 30th, 2021, Concurrency-based plans are no longer available. Instead, purchase a new plan in [Travis CI](travis-ci.com/account/plan).** 
 
 Concurrency-based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
 In Travis CI, builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until there is a queue capacity available for processing. 
@@ -162,6 +162,22 @@ If you wish to switch from your monthly subscription to another plan with a diff
 Switching monthly plans
 Switching month to a year
 Switching annual plans
+
+### Credits Calculator
+
+Travis CI introduces this new tool to help you get a proper calculation of credits. The credit calculator estimates the number of credits you need to help you choose the best plan for you.
+
+Simply input your Operating System information, your [VM size](https://docs.travis-ci.com/user/billing-overview/#vm-instance-sizes-and-credit-cost), and the number of users that will trigger builds. 
+
+#### How to use the Credits Calculator
+Use the credit calculator to estimate the credits you will need to build continuously. To find the best plan for you, use one of our pre-existing commonly used configurations or follow these easy steps:
+
+1. First, input the number of users.
+2. Next, select your Operating System (Linux, Windows, macOS).
+3. Next, specify your [VM size and configurations](https://docs.travis-ci.com/user/billing-overview/#vm-instance-sizes-and-credit-cost) (Large, X-Large, 2X-Large).
+4. Finally, input an amount of minutes for an estimated build time.  
+
+Please note that the first three users cost 25K credits, and each additional user costs an additional 25K credits. 
 
 
 ### Usage - Credits
