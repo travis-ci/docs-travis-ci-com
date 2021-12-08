@@ -93,6 +93,14 @@ the gem:
 gem install travis
 ```
 
+Or you can use a docker container:
+```bash
+git clone https://github.com/lirantal/docker-travis-cli
+cd docker-travis-cli
+docker build -t travis-cli .
+docker run -ti --entrypoint /bin/sh travis-cli
+```
+
 If you are using [travis-ci.com](https://travis-ci.com) instead of [travis-ci.org](https://travis-ci.org), you need to login first:
 
 ```bash
