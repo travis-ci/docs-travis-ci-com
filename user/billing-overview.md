@@ -16,7 +16,7 @@ The variety of plans provides you with the flexibility to choose the plan that s
 
 | Billing Period | Concurrency based | Usage-based |
 |:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />*To be discontinued soon | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Purchase(/user/account/plan) in Travis CI |
+|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />*To be discontinued soon | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />[Purchase](/user/account/plan) in Travis CI |
 |Annual      | Only grandfathered | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Purchase in Travis CI or contact support [for plans over $3,300](/user/account/plan) in Travis CI |
 
 
@@ -105,13 +105,13 @@ Subscribe to one of our monthly plans to get your credits and continue building.
 |   500K  |  $300 |   
 
 > **All plans are available for Private and Open repositories in any platform; Linux, Windows, macOS, and FreeBSD. Check the documentation to read about credits usage.**
-> **Please contact the Travis sales team(link for email) for plans larger than Enterprise ($300).** 
+> **Please contact the [Travis sales team](sales@travis-ci.com) for plans larger than Enterprise ($300).** 
 
 #### Plan Usage
 
 The new user is immediately granted the subscription´s credits to continue building at the moment of a plan’s subscription. 
 
-The number of users is counted based on the number of builds triggered; each individual who triggers a build within a month counts as a user. For any monthly plan selected, the first three users cost 25K credits, and each additional user to trigger a build within that month costs an additional 25K credits. Triggering builds are only possible if a user has a positive credit balance. To get more credits, users can enable the [Auto-refill feature](/user/billing-autorefill/) or change to a higher [credits plan] (/user/account/plan/). If the user has credits after the plan´s renewal, these carry over to the new subscription. For more information about your plan and validity dates, see the [Plans page](/user/account/plan/).
+The number of users is counted based on the number of builds triggered; each individual who triggers a build within a month counts as a user. For any monthly plan selected, the first three users cost 25K credits, and each additional user to trigger a build within that month costs an additional 25K credits. Triggering builds are only possible if a user has a positive credit balance. To get more credits, users can enable the [Auto-refill feature](/user/billing-autorefill/) or change to a higher [credits plan](/user/account/plan/). If the user has credits after the plan´s renewal, these carry over to the new subscription. For more information about your plan and validity dates, see the [Plans page](/user/account/plan/).
 
 #### Canceling my Monthly Subscription
 
