@@ -14,7 +14,7 @@ continuous integration solution for private repositories.
 
 Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 10,000 trial credits and unlimited user licenses.
 
-When you're ready to start using Travis CI, head over to the [billing page](https://docs.travis-ci.com/user/billing-overview/) to add your billing details and end your trial.
+When you're ready to start using Travis CI, head over to the [billing page](https://app.travis-ci.com/account/plan) to add your billing details and end your trial.
 
 ## Can I use pull request testing on Travis CI for private repositories?
 
