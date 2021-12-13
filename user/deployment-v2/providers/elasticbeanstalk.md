@@ -12,15 +12,7 @@ after a successful build.
 
 ## Creating an application without deploying it
 
-To create an application without deploying it, use `only_create_app_version`:
-
-```yaml
-deploy:
-  provider: elasticbeanstalk
-  # ⋮
-  only_create_app_version: true
-```
-{: data-file=".travis.yml"}
+To create an application without deploying it, simply exclude the `env` option and this will only upload the app version without deploying it to a new environment. 
 
 ## Controlling which files are included in the ZIP archive
 
