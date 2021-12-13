@@ -35,7 +35,7 @@ if the operating system is Linux. The table below gives a brief perspective abou
 | `arm64` (v8)            | Yes           | No            |
 | `arm64-graviton2` (v8)  | Yes           | Yes           |
 
-The two `arm64` tags are used right now to distinguish between OSS-support only (`arch: arm64`) and available both for OSS & commercial. 
+The two `arm64` tags are used right now to distinguish between OSS-support only (`arch: arm64`) and available both for OSS & commercial (`arch: arm64-graviton2`). 
 
 ## Default CPU Architecture
 
