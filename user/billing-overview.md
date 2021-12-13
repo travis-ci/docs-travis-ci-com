@@ -177,7 +177,7 @@ Please note that the first three users cost 25K credits, and each additional use
 
 ### Usage - Credits
 
-Credits are purchased at your discretion as an 'addon' or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
+Credits are purchased at your discretion as an 'addon' (for Standard and Pro Plan only) or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
 Thus whenever you select or are assigned a Usage-based plan:
 
 * Plan has the default allotment of credits associated (default Credits addon)
@@ -198,7 +198,7 @@ Credits are deducted from your balance each time a build job starts a VM instanc
 
 Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up. Thus, queue waiting time or spinning-up time are not taken into account when calculating job duration time.
 
-Users cam purchase additional credits at any time. Credits are replenished by purchasing credits addon.
+Users can purchase additional credits at any time. Credits are replenished by purchasing credits addon.
 
 > Automated credits purchasing is not available yet. Please follow our blog and Twitter for updates.
 
@@ -259,9 +259,10 @@ The OSS credits are a separate pool of credits from regular credits, with separa
 Each new user that subscribes to the Free Trial Plan is automatically granted 10K credits to use over a 30 day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features. 
 
 
-
 ### Usage - User Licenses
 
+> This is only available for Standard and Pro Plans
+ 
 Usage-based plan charges you at the end of each month for the number of users who triggered the builds during this month.
 
 With every build started, Travis CI keeps track of how many unique users triggered a build within a current billing period. At the end of the month, the total amount is used to calculate the user license charge.
@@ -271,6 +272,8 @@ With every build started, Travis CI keeps track of how many unique users trigger
 > By default, all users you've granted write rights to your repository are allowed to trigger a build. We are preparing a separate page in your Travis CI account page, allowing you to manage which users are allowed to trigger the build in order to give you more control. Please watch out for updates.
 
 ### Usage-based Plan - Summary
+
+> This is only available for Standard and Pro Plans
 
 | Area                            | Details    |
 | :---                            | ---        |
