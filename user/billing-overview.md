@@ -158,11 +158,6 @@ Upon cancellation, users have the remaining time of the contract plus one extra 
 
 If you wish to switch from your monthly subscription to another plan with a different amount of credits, your new plan subscription will take effect at the start of the following month. And if you still run out of credits before the end of each month, try an annual plan, where you get a yearly amount of credits for the price of 11 months.  
 
-#### Examples
-Switching monthly plans
-Switching month to a year
-Switching annual plans
-
 ### Credits Calculator
 
 Travis CI introduces this new tool to help you calculate credits correctly. The credit calculator estimates the number of credits you need to help you choose the best plan for you.
