@@ -60,7 +60,7 @@ the API version used.
 
 If the `Authorization: token` header is required, you can obtain the token by
 visiting the account page:
-- [travis-ci.com](https://travis-ci.com/account/preferences)
+- [travis-ci.com](https://app.travis-ci.com/account/preferences)
 
 ### Examples
 
@@ -88,7 +88,7 @@ the gem:
 gem install travis
 ```
 
-If you are using [travis-ci.com](https://travis-ci.com), you need to login first:
+If you are using [travis-ci.com](https://app.travis-ci.com), you need to login first:
 
 ```bash
 travis login --pro
@@ -100,7 +100,7 @@ Then, you can use `encrypt` command to encrypt data (This example assumes you ar
 travis encrypt SOMEVAR="secretvalue"
 ```
 
-Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--pro` to the CLI:
+Or, if you are using [travis-ci.com](https://app.travis-ci.com), you will need to add `--pro` to the CLI:
 
 ```bash
 travis encrypt --pro SOMEVAR="secretvalue"
