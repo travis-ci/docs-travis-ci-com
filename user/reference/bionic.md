@@ -210,7 +210,7 @@ is `openjdk11`.
 The following extensions are preinstalled for PHP 7.1 and higher builds:
 
 -   [apcu.so](http://php.net/apcu)
--   [memcached.so](http://php.net/memcached)
+-   [memcached.so](http://php.net/memcached) (Not preinstalled for > PHP8.0)
 -   [mongodb.so](https://php.net/mongodb)
 -   [amqp.so](http://php.net/amqp)
 -   [zmq.so](http://zeromq.org/bindings:php)
