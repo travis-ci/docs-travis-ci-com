@@ -258,7 +258,7 @@ Each new user that subscribes to the Free Trial Plan is automatically granted 10
 
 
 
-### Usage - User Licenses (Standard and Pro Plan)
+### Usage - User Licenses (Usage Plan w/o subscription)
 
 Usage-based plan charges you at the end of each month for the number of users who triggered the builds during this month.
 
@@ -272,7 +272,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period (Standard and Pro Plan). The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period (Usage Plan w/o subscription). The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
 | **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage based plans start from a 40 concurrent jobs limit. |
 
