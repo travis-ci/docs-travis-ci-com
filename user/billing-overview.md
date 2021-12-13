@@ -182,7 +182,7 @@ Please note that the first three users cost 25K credits, and each additional use
 
 ### Usage - Credits
 
-Credits are purchased at your discretion as an 'addon' or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
+Credits are purchased at your discretion as an 'addon' (if available in your plan) or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
 Thus whenever you select or are assigned a Usage-based plan:
 
 * Plan has the default allotment of credits associated (default Credits addon)
@@ -203,9 +203,7 @@ Credits are deducted from your balance each time a build job starts a VM instanc
 
 Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up. Thus, queue waiting time or spinning-up time are not taken into account when calculating job duration time.
 
-Users cam purchase additional credits at any time. Credits are replenished by purchasing credits addon.
-
-> Automated credits purchasing is not available yet. Please follow our blog and Twitter for updates.
+Users can purchase additional credits at any time. Credits are replenished by purchasing credits addon (if available in your plan).
 
 Your credits remain available until you use them or disband them. At the moment, we do not discard unused paid credits after 12 months, yet this may be subject to change on short notice.
 
@@ -265,7 +263,7 @@ Each new user that subscribes to the Free Trial Plan is automatically granted 10
 
 
 
-### Usage - User Licenses
+### Usage - User Licenses (Standard and Pro Plan)
 
 Usage-based plan charges you at the end of each month for the number of users who triggered the builds during this month.
 
@@ -279,7 +277,7 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period. The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period (Standard and Pro Plan). The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
 | **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage based plans start from a 40 concurrent jobs limit. |
 
