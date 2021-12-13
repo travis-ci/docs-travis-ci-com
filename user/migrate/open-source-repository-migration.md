@@ -10,6 +10,7 @@ This document explains how to migrate your repositories, and answers some common
 
 > Hi there! If you'd like to become a beta tester, please sign in at [travis-ci.org] and in [your account page](https://travis-ci.org/account/repositories), sign up to migrate your Open Source repositories.
 
+> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com.  
 
 ## What information will be transferred to travis-ci.com?
 

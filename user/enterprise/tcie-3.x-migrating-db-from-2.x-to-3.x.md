@@ -16,16 +16,19 @@ The main schema differences are:
 
 ## Preparing to the Migration
 
-1. You will need to dump existing TCIE 2.x (single docker image) PostgreSQL database into two files:
+1. First, but optional step is removing unnecessary data to make your dump lighter. You can do it using [travis-backup gem](https://rubygems.org/gems/travis-backup). We recommend running following commands after installing the gem:
+    - to remove orphaned data: `travis_backup 'postgres://your_db_url' --remove_orphans`
+    - to remove requests, builds, jobs and logs older than 6 months: `travis_backup 'postgres://your_db_url' --threshold 6`
+2. You will need to dump existing TCIE 2.x (single docker image) PostgreSQL database into two files:
    1. main database which should be a copy of current existing DB from Travis CI Enterprise 2.2.x (TCI E 2.2.x - one docker solution)
    2. logs database which should contain only two tables: logs and log_parts from the main database
-2. For both aforementioned databases you need to have following credentials which will be used during Travis CI Enterprise 3.0.x (TCI E 3.0.x - k8s solution) installation process:
+3. For both aforementioned databases you need to have following credentials which will be used during Travis CI Enterprise 3.0.x (TCI E 3.0.x - k8s solution) installation process:
     - DB name
     - DB user
     - DB password
     - DB host
     - DB port
-3. You will need encryption key which can be found in current TCI E 2.2.x installation:
+4. You will need encryption key which can be found in current TCI E 2.2.x installation:
     - ssh to platform
     - call: 
     ```bash

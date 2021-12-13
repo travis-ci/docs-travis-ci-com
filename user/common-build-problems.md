@@ -569,7 +569,7 @@ Whenever your build has been processed, you'll see the message: **"Build created
 
 If a build hasn't been triggered for your commit, these are the possible build request messages:
 
-- **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of trial builds.
+- **"Could not authorize build request"**, usually means that the account's subscription expired or that it ran out of build credits.
 - **"Build skipped via commit message"**, this commit contains [the skip command](/user/customizing-the-build/#skipping-a-build).
 - **"GitHub payload is missing a merge commit"**, please confirm your pull request is open and mergeable. You may also have unresolved conflicts in a particular branch.
 - **"Branch excluded per configuration"** or **"Branch not included per configuration"**, please make sure your branch is not [explicitly excluded](/user/customizing-the-build/#safelisting-or-blocklisting-branches) or [not included](/user/customizing-the-build/#safelisting-or-blocklisting-branches) in your `.travis.yml` file.
