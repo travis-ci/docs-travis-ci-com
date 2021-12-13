@@ -17,6 +17,7 @@ On <https://travis-ci.com>, via our GitHub Apps integration, we ask for the foll
 - Read access to code
 - Read access to metadata and pull requests
 - Read and write access to administration, checks, commit statuses, and deployments
+- synchronize user email to be able to send notifications and important informations
 
 ## Legacy WebHooks
 

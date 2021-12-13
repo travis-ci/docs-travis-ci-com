@@ -4,8 +4,6 @@ title: Triggering builds with API V3
 layout: en
 ---
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page, and make requests to https://api.travis-ci.org.
-
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
 1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these API requests.

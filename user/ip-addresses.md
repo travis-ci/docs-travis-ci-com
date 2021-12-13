@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Knowing the IP addresses of the build machines Travis CI uses can be helpful
+Knowing the IP addresses of the build machines which Travis CI uses can be helpful
 when you need them safelisted to access your internal resources. Since builds
 run in a variety of different infrastructures, the IP ranges to safelist depend
 on the infrastructure your builds are running on.
@@ -42,7 +42,7 @@ page](/user/reference/overview/#virtualization-environments).
 ## Load balancing
 
 Due to load balancing, connections from build machines to external resources are not guaranteed to come from the same IP address, even when sent from the same job.
-This may cause them to [trigger security checks](https://docs.travis-ci.com/user/common-build-problems/#ftpsmtpother-protocol-does-not-work), especially when using protocols that utilize multiple connections like FTP and VPN.
+This may cause them to [trigger security checks](https://docs.travis-ci.com/user/common-build-problems/#ftpsmtpother-protocol-do-not-work), especially when using protocols that utilize multiple connections like FTP and VPN.
 If this occurs, reconfigure your servers to allow for connections from multiple IP addresses.
 
 ## Notification

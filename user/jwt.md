@@ -141,7 +141,7 @@ def authenticate(user, access_key):
     """
     user: db object representing user retrieved based on username from HTTP BASIC AUTH
     access_key: access key or JWT token signed using access key (shared secret)
-    returns True when authenication validation passed, otherwise False
+    returns True when authentication validation passed, otherwise False
     """
     # primary auth method
     if user['access_key'] == access_key:
