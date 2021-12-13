@@ -12,9 +12,9 @@ continuous integration solution for private repositories.
 
 ## Does Travis CI for private repositories include a trial period?
 
-Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 100 trial builds for free and 2-concurrent-jobs.
+Yes, of course! No need to put in your credit card details, the trial starts whenever you trigger your first build on [Travis CI for private repositories](https://travis-ci.com). It includes 10,000 trial credits and unlimited user licenses.
 
-When you're ready to start using Travis CI, head over to the [billing page](https://travis-ci.com/plans) to add your billing details and end your trial.
+When you're ready to start using Travis CI, head over to the [billing page](https://app.travis-ci.com/account/plan) to add your billing details and end your trial.
 
 ## Can I use pull request testing on Travis CI for private repositories?
 
@@ -57,7 +57,7 @@ You can follow our guide for [encrypting files](/user/encrypting-files/).
 
 ## Why can't I find information on pricing on travis-ci.org?
 
-Travis CI is, and always will be, free for open source projects.
+Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com.
 
 For a list of plans and prices for private repositories, look at
 [travis-ci.com/plans](https://travis-ci.com/plans) for not authorized users.

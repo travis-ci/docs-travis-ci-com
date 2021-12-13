@@ -10,6 +10,8 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 **Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
 
+> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com. 
+
 ## Encryption scheme
 
 Travis CI uses asymmetric cryptography. For each registered repository, Travis CI generates an RSA keypair.
@@ -41,12 +43,6 @@ the API version used.
     <td><tt>/v3/repo/OWNER%2fREPO/key_pair/generated</tt></td>
   </tr>
   <tr>
-    <td>.org</td>
-    <td><a href="https://api.travis-ci.org">https://api.travis-ci.org</a></td>
-    <td>no</td>
-    <td>yes</td>
-  </tr>
-  <tr>
     <td>public on .com</td>
     <td><a href="https://api.travis-ci.com">https://api.travis-ci.com</a></td>
     <td>yes<br></td>
@@ -64,20 +60,19 @@ the API version used.
 
 If the `Authorization: token` header is required, you can obtain the token by
 visiting the account page:
-- [travis-ci.org](https://travis-ci.org/account/preferences)
-- [travis-ci.com](https://travis-ci.com/account/preferences)
+- [travis-ci.com](https://app.travis-ci.com/account/preferences)
 
 ### Examples
 
 Here are some examples of `curl` commands to obtain the public key.
 
-1. A public repository on travis-ci.org using API v1
+1. A public repository on travis-ci.com using API v1
 
-       curl https://api.travis-ci.org/repos/travis-ci/travis-build/key
+       curl https://api.travis-ci.com/repos/travis-ci/travis-build/key
 
-1. A public repository on travis-ci.org using API v3
+1. A public repository on travis-ci.com using API v3
 
-       curl -H "Authorization: token **TOKEN**" https://api.travis-ci.org/v3/repo/travis-ci%2ftravis-build/key_pair/generated
+       curl -H "Authorization: token **TOKEN**" https://api.travis-ci.com/v3/repo/travis-ci%2ftravis-build/key_pair/generated
 
 1. A private repository on travis-ci.com using API v3
 
@@ -93,7 +88,7 @@ the gem:
 gem install travis
 ```
 
-If you are using [travis-ci.com](https://travis-ci.com) instead of [travis-ci.org](https://travis-ci.org), you need to login first:
+If you are using [travis-ci.com](https://app.travis-ci.com), you need to login first:
 
 ```bash
 travis login --pro
@@ -105,7 +100,7 @@ Then, you can use `encrypt` command to encrypt data (This example assumes you ar
 travis encrypt SOMEVAR="secretvalue"
 ```
 
-Or, if you are using [travis-ci.com](https://travis-ci.com), you will need to add `--pro` to the CLI:
+Or, if you are using [travis-ci.com](https://app.travis-ci.com), you will need to add `--pro` to the CLI:
 
 ```bash
 travis encrypt --pro SOMEVAR="secretvalue"
@@ -266,7 +261,7 @@ You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
 `/repos/:id/key` endpoints, for example:
 
 ```
-https://api.travis-ci.org/repos/travis-ci/travis-ci/key
+https://api.travis-ci.com/repos/travis-ci/travis-ci/key
 ```
 
 You can also use the `travis` tool for retrieving said key:

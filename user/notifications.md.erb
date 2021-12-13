@@ -662,6 +662,31 @@ You can also use Slack-style markup using ```` ``` ````, `` ` ``, `_`, `*`, `~`.
 See [Slack documentation](https://api.slack.com/docs/message-formatting)
 for more information on message formatting.
 
+You can interpolate the following variables for push builds:
+
+- *repository_slug*: your GitHub repo identifier (like `svenfuchs/minimal`)
+- *repository_name*: the slug without the username
+- *repository*: same as repository_slug [Deprecated]
+- *build_number*: build number
+- *build_id*: build id
+- *branch*: branch build name
+- *commit*: shortened commit SHA
+- *author*: commit author name
+- *commit_message*: commit message of build
+- *commit_subject*: first line of the commit message
+- *result*: result of build
+- *message*: travis message to the build
+- *duration*: total duration of all builds in the matrix
+- *elapsed_time*: time between build start and finish
+- *compare_url*: commit change view URL
+- *build_url*: URL of the build detail
+
+You can interpolate the following variables for PR builds alongwith the variables available for push builds:
+
+- *pull_request*: Returns `true` for PR builds
+- *pull_request_number*: the PR number
+- *pull_request_url*: the PR URL
+
 ## Configuring webhook notifications
 
 You can define webhooks to be notified about build results:

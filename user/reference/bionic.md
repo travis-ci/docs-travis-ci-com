@@ -203,6 +203,23 @@ is `openjdk11`.
 | 7.4    | 7.4.2    |
 {: style="width: 30%" }
 
+### Extensions
+
+#### PHP 7.1 and higher
+
+The following extensions are preinstalled for PHP 7.1 and higher builds:
+
+-   [apcu.so](http://php.net/apcu)
+-   [memcached.so](http://php.net/memcached) (Not preinstalled for > PHP8.0)
+-   [mongodb.so](https://php.net/mongodb)
+-   [amqp.so](http://php.net/amqp)
+-   [zmq.so](http://zeromq.org/bindings:php)
+-   [xdebug.so](http://xdebug.org)
+-   [redis.so](http://pecl.php.net/package/redis)
+
+Please note that these extensions are not enabled by default with the exception
+of xdebug.
+
 ## Databases and services
 
 The following services and databases are preinstalled but but do not run by default.
