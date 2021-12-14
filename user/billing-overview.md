@@ -5,7 +5,7 @@ permalink: /user/billing-overview/
 
 ---
 
-> Travis CI introduces a new Pricing system, and therefore starting Nov. 30th, 2021, Concurrency-based plans are no longer available.
+> Travis CI introduces a new Pricing system, and therefore starting Dec. 13th, 2021, Concurrency-based plans are no longer available.
 
 ## Travis CI Plan types
 
@@ -33,7 +33,7 @@ Due to security reasons and an anti-abuse preventive measure, any new user will 
 
 ## Concurrency based plans
 
-> **Starting Nov. 30th, 2021, Concurrency-based plans are no longer available. Instead, purchase a new plan in [Travis CI](travis-ci.com/account/plan).** 
+> **Starting Dec. 13th, 2021, Concurrency-based plans are no longer available. Instead, purchase a new plan in [Travis CI](travis-ci.com/account/plan).** 
 
 Concurrency-based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs. 
 In Travis CI, builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until a queue capacity is available for processing. 
