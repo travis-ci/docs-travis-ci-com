@@ -1,4 +1,38 @@
 osx_images:
+  - image: xcode13.2
+    xcode: "13.2"
+    osx_version: "12.1"
+    xcode_full_version: "13.2.1"
+    xcode_build_version: "13C100"
+    image_publish_date: 2021-12-21
+    sdks:
+      - iphoneos15.2
+      - iphonesimulator15.2
+      - macosx12.1
+      - appletvos15.2
+      - appletvsimulator15.2
+      - watchos8.3
+      - watchsimulator8.3
+    simulators:
+      - iOS 14.0
+      - iOS 14.1
+      - iOS 14.2
+      - iOS 14.3
+      - iOS 14.4
+      - iOS 14.5
+      - iOS 15.0
+      - tvOS 14.0
+      - tvOS 14.2
+      - tvOS 14.3
+      - tvOS 14.4
+      - tvOS 14.5
+      - tvOS 15.0
+      - watchOS 7.0
+      - watchOS 7.1
+      - watchOS 7.2
+      - watchOS 7.4
+      - watchOS 8.0
+    jdk: "17+35-2724"  
   - image: xcode13.1
     xcode: "13.1"
     osx_version: "11.6"
