@@ -6,16 +6,16 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Getting Started](/user/getting-started/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
 
-<div id="toc"></div>
+
 
 ### Community-Supported Warning
 
 Travis CI support for Nix is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:nix)
-and cc @domenkozar @garbas and @matthewbauer .
+and cc [@garbas](https://github.com/garbas), [@matthewbauer](https://github.com/matthewbauer), and [@grahamc](https://github.com/grahamc).
 
 ## Overview
 
@@ -32,15 +32,30 @@ The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
 The following command line tools are available in the Nix environment:
 
-- nix-env
+- nix
 - nix-build
+- nix-channel
+- nix-collect-garbage
+- nix-copy-closure
+- nix-daemon
+- nix-env
+- nix-instantiate
+- nix-prefetch-url
 - nix-shell
 - nix-store
-- nix-channel
 
 ## Default Nix Version
 
-Currently, only version "1.11.2" of Nix is provided. In the future, it may be possible to configure different versions with `.travis.yml`.
+This installs Nix 2.3.6 using [https://nixos.org/releases/nix/nix-2.3.6/install](https://nixos.org/releases/nix/nix-2.3.6/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
+
+```yaml
+language: nix
+nix: 2.3.6
+```
+{: data-file=".travis.yml"}
+
+
+> Note: This option supports all Nix releases, starting with version 1.11.16.
 
 ## Default Target
 
@@ -54,10 +69,10 @@ script: nix-build -A tarball release.nix
 
 The above configuration will attempt to build the attribute "tarball" from the Nix expression in release.nix.
 
-## Nix manual
+## Nix Manual
 
 More information on writing Nix expressions and how each of the above tools works is available in the [Nix manual](https://nixos.org/nix/manual/).
 
-## Examples
+## Build Config Reference
 
-- [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/.travis.yml)
+You can find more information on the build config format for [Nix](https://config.travis-ci.com/ref/language/nix) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

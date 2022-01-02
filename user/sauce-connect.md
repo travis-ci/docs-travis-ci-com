@@ -35,11 +35,11 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-[sauce-sign-up]: https://saucelabs.com/signup/plan/free
+[sauce-sign-up]: https://signup.saucelabs.com/signup/trial
 
 [sauce-account]: https://saucelabs.com/account
 
-[open-sauce]: https://saucelabs.com/signup/plan/OSS
+[open-sauce]: https://saucelabs.com/open-source
 
 If you don't want your access key publicly available in your repository, you
 can encrypt it with `travis encrypt "your-access-key"` (see [Encryption Keys][encryption-keys]
@@ -113,3 +113,7 @@ addons:
     secure: "The secure string output by `travis encrypt SAUCE_ACCESS_KEY=Your Sauce Labs access key`"
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Sauce Connect](https://config.travis-ci.com/ref/job/addons/sauce_connect) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

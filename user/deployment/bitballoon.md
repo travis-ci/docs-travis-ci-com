@@ -1,10 +1,11 @@
 ---
 title: BitBalloon Deployment
 layout: en
+deploy: v1
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy files to
 [BitBalloon](https://www.bitballoon.com/) after a successful build.
