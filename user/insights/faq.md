@@ -4,9 +4,9 @@ layout: en_insights
 
 ---
 
-### Why the option to edit JSON queries is disabed?
+### Why is the option to edit JSON queries is disabled?
 
-Travis Insights generates sample JSON after the scan. If the scan fails JSON queries will be missing. 
+Travis Insights generates sample JSON after the scan. If the scan fails, JSON queries will be missing. 
 
 ### Why are the Default probes not generated?
 
@@ -14,16 +14,16 @@ Default probes for a specific plugin are created if there are no other related p
 
 ### What can be done with the JSON queries?
 
-With JSON queries you can create notifications 
+With JSON queries, you can create notifications. 
 
-### Why after scanning the plugin I’m not able to see JSON queries?
+### Why, after scanning the plugin, can I not see JSON queries?
 
 Check your API key rights are assigned well
 
 ### Why do scans fail?
 
-Most of the times scans fail because of wrong configurations, please before reporting check if domain, keys, plugins, or credentials are added correctly.
+Most of the time, scans fail because of wrong configurations. Before reporting, check if domain, keys, plugins, or credentials are added correctly.
 
 ### When and why do I receive email notifications?
 
-Travis Insights sends an email when a programmed or manual scan is completed.
+Travis Insights sends an email once a programmed or manual scan is complete.
