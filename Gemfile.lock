@@ -57,10 +57,12 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     eventmachine (1.2.7)
+    eventmachine (1.2.7-x64-mingw32)
     execjs (2.7.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    ffi (1.13.1-x64-mingw32)
     forwardable-extended (2.6.0)
     haml (5.1.2)
       temple (>= 0.8.0)
@@ -156,6 +158,8 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    nokogiri (1.12.5-x64-mingw32)
+      racc (~> 1.4)
     nokogumbo (2.0.2)
       nokogiri (~> 1.8, >= 1.8.4)
     padrino-helpers (0.12.9)
@@ -245,6 +249,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   cl
