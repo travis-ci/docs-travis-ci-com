@@ -4,12 +4,12 @@ layout: en_insights
 
 ---
 
-Travis Insights is designed to connect to each and every piece of your development and operations tooling to pull useful insights from every detail of the environment. In general, the more connections you make by integrating the systems you use with Travis Insights, the more valuable and meaningful the data and insights will be. 
+Travis Insights is designed to connect to every piece of your development and operations tooling to pull useful insights from every detail of the environment. In general, the more connections you make by integrating the systems you use with Travis Insights, the more valuable and meaningful the data and insights will be. 
 
 ## Best Practices
 Where possible, ensure that API keys used for Travis Insights integration only have **_read-only_** access to your systems.
 
-Integrate every tool in your environment, from source code management to production monitoring. Travis Insights needs a complete picture of your environment to effectively audit it. 
+Integrate every tool in your environment, from source code management to production monitoring. Travis Insights needs a complete picture of your environment to audit it effectively. 
 
 If the integration for your tool does not yet exist, [let us know!](mailto:feedback@srenity.io) (feedback@srenity.io)
 
