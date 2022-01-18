@@ -4,18 +4,18 @@ layout: en_insights
 
 ---
 
-While adding a probe you find the **EDIT QUERY** button in the **Query** field. The button displays a window where you can edit and test all your queries.
+While adding a probe, you find the **EDIT QUERY** button in the **Query** field. The button displays a window to edit and test all your queries.
 
 ![probeEditor](/user/images-insights/probeEditor.png) 
 
-Go to the **Plugin** drop-down menu and select the plugin you want to use, click the **LOAD** button and you will see how the Sample JSON displays.
+Go to the **Plugin** drop-down menu and select the plugin you want to use, click the **LOAD** button, and you will see how the Sample JSON displays.
 
-Add any query you want to test in the **Query** space, click the button **RUN QUERY** and you will receive an Output for the specific query. 
+Add any query you want to test in the **Query** space, click the button **RUN QUERY**, and you will receive an Output for the specific query. 
 
 ## Query Language
 
-Travis Insights uses **SREQL** as a query language, SREQL is a readable and easy scripting language based on SQL syntax that allows you to track state changes and compare to known/desired configurations. 
-The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation.
+Travis Insights uses **SREQL** as a query language. SREQL is a readable and easy scripting language based on SQL syntax that allows you to track state changes and compare them to known/desired configurations. 
+In Addition, the language lets you work with selector mechanisms, boolean logic, type system, and string concatenation.
 
 ## SREQL Data Types
 ### Simple Types
@@ -30,7 +30,7 @@ The language lets you work with selector mechanisms, boolean logic, type system,
 
 > **Info:**
 >
-> Boolean types and null are case insensitive and can be written in several ways:
+> Boolean types and null are case insensitive, and you can write them in several ways:
 >
 >     true:  t, true (or trUe),
 >     false: f or false,
@@ -56,7 +56,7 @@ SREQL define objects by:
     { atr1:val1, atr2:val2, ..., atrN:valN }
 
 ### Date/Time/DateTime Types
-Dates are handled as datetime objects. There are also **date** and **time** objects which provide support for date and time manipulation. Datetime, date, and time objects support year, month, day, hour, minute, second and microsecond attributes.
+Dates are handled as datetime objects. There are also **date** and **time** objects that support date and time manipulation. Datetime, date, and time objects support year, month, day, hour, minute, second and microsecond attributes.
 
      now().year -> 2011.
 
@@ -74,17 +74,17 @@ Other operators and tokens are precedence-neutral.
 |:------------:|:------------------------------------------------------------------------------------------------------------------:|
 | **+**        | addition (+ is also a concatenation operator for strings and arrays)                                               |    
 | **-**        | subtraction                                                                                                        | 
-| *            | multiplication (Alternative use is select all objects from array)                                                  |
-| **/**        | division (Integer division results in floating point number. Use int() function to turn it into an integer again.) |
+| *            | multiplication (Alternative use is to select all objects from array)                                                  |
+| **/**        | division (Integer division results in a floating-point number. Use int() function to turn it into an integer again.) |
 | **%**        | modulo                                                                                                             |
 
 ### Boolean Logic Operators
 
 |   Operator   |           Description                                                                                                                               |     
 |:------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------:|
-| **not**      |negation (not always casts result to boolean type)                                                                                                   |    
-| **and**      |conjunction (and evaluates the expression on the left-hand side, if negative it is returned; the expression on the right-hand side is not evaluated.)|
-| **or**       |alternation (or evaluates the expression on the left-hand side, if positive it is returned; the expression on the right-hand side is not evaluated.) |
+| **not**      |negation (not always casts result to boolean type.)                                                                                                   |    
+| **and**      |conjunction (and evaluates the expression on the left-hand side, if returned negative; then the expression on the right-hand side is not evaluated.)|
+| **or**       |alternation (or evaluates the expression on the left-hand side, if returned positive; then the expression on the right-hand side is not evaluated.) |
 
 ### Comparison Operators
 
@@ -157,7 +157,7 @@ Object concatenation is not deep. It means that only direct child elements of th
 - **now()** (gets current UTC time.)
 - **date(arg)** (arg can be array of structure [yyyy,mm,dd] or datetime object . If no arg is specified then date() defaults to current UTC date.)
 - **time(arg)** (arg can be an array of structure [hh,mm,ss,mmmmmm] where only hour is required or datetime object . If no arg is specified then time() defaults to current UTC time.)
-- **dateTime(args)** (args: if one argument is specified then it needs to be a datetime object or [yyyy, mm, dd, hh, mm, ss, mmmmmm] where year, month, day, hour and minute are required. If two arguments are specified, the first argument can be date object or [yyyy, mm, dd] array, second can be time object or [hh, mm, ss, mmmmmm] array where only hour is required)
+- **dateTime(args)** (args: if one argument is specified, then it needs to be a datetime object or [yyyy, mm, dd, hh, mm, ss, mmmmmm] where year, month, day, hour, and minute are required. If two arguments are specified, the first argument can be date object or [yyyy, mm, dd] array, second can be time object or [hh, mm, ss, mmmmmm] array where only hour is required)
 - **dateTime(STRING, STRING)** (parse string into datetime object. First args - string to parse, second arg - datetime format. 
 
   Example: 
