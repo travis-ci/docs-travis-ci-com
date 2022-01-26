@@ -15,13 +15,8 @@ Add any query you want to test in the **Query** space, click the button **RUN**,
 
 ## Query Language
 
-<<<<<<< HEAD
 Travis Insights uses the **ObjectPath** query language, objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This language works over JSON documents rather than relations. 
 The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big nested JSON documents.
-=======
-Travis Insights uses the **ObjectPath** query language; objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This language works over JSON documents rather than relations. 
-The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big-nested JSON documents.
->>>>>>> d37dd2b505d5f4a220e87d339cf21f17139bd2c5
 
 In the following table, you can find the complete syntax of ObjectPath paths: 
 

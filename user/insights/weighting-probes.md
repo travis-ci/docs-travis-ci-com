@@ -38,11 +38,7 @@ If you have a probe that ensures our MySQL security patches are up-to-date. Thes
 |  **Maintenance** |     0.75     |      0       |       0      |
 
 
-<<<<<<< HEAD
 > Probes weighted with 0 don't get counted in the average weight percentage.
-=======
-> Probes with 0 as a weighting don't get counted on the weight average percentage.
->>>>>>> d37dd2b505d5f4a220e87d339cf21f17139bd2c5
 
 When weighting a probe, to avoid “double counting”, the category that is most relevant is generally taken into account (i.e. one could suggest that security patching also has an impact on delivery and/or cost, but it is primarily a security issue). Some exceptions occur when the issues are severe. 
 
