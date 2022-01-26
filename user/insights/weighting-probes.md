@@ -4,7 +4,7 @@ layout: en_insights
 
 --- 
 
-Probes are weighted from 0 to 1 across three categories (_Security_, _Cost_, and _Delivery_) and three sub-categories (_Architecture_, _Maintenance_, and _Support_) based on how critical the information is.  For example, a probe for a severe security vulnerability will have a higher rating (closer to 1) than a probe for servers that aren't following proper naming conventions/policies.
+Probes are weighted from 0 to 1 across three categories (_Security_, _Cost_, and _Delivery_) and three sub-categories (_Architecture_, _Maintenance_, and _Support_) based on how critical the information is. So, for example, a probe for a severe security vulnerability will have a higher rating (closer to 1) than a probe for servers that aren't following proper naming conventions/policies.
 
 ![weightingProbes](/user/images-insights/weightingProbes.png) 
 
@@ -24,12 +24,12 @@ Probes are weighted from 0 to 1 across three categories (_Security_, _Cost_, and
 - **_Maintenance_**: Relates to the robustness/stability of the environment and its impact on long-term maintenance costs. 
 
 
-> This is not an exact science, your weighting may differ, you can edit the plugin weights according to your needs.
+> This is not an exact science, your weighting may differ. You can edit the plugin weights according to your needs.
 
 
 **For example:**
 
-If you have a probe which ensures our MySQL security patches are up-to-date. These could be a weightings example.
+If you have a probe that ensures our MySQL security patches are up-to-date. These could be a weightings example.
 
 |   sub-category   |   security   |     cost     |   delivery   |
 |:----------------:|:------------:|:------------:|:------------:|
@@ -38,10 +38,14 @@ If you have a probe which ensures our MySQL security patches are up-to-date. The
 |  **Maintenance** |     0.75     |      0       |       0      |
 
 
+<<<<<<< HEAD
 > Probes weighted with 0 don't get counted in the average weight percentage.
+=======
+> Probes with 0 as a weighting don't get counted on the weight average percentage.
+>>>>>>> d37dd2b505d5f4a220e87d339cf21f17139bd2c5
 
 When weighting a probe, to avoid “double counting”, the category that is most relevant is generally taken into account (i.e. one could suggest that security patching also has an impact on delivery and/or cost, but it is primarily a security issue). Some exceptions occur when the issues are severe. 
 
 When the probe weighting also includes sub-categories, Travis Insights tries to distribute the weighting evenly.
 
-As a rule of thumb, a highly impactful probe will have a total score total of 2.5+.  A probe of average importance will be weighted in the 1.5 - 2.5 range.  A probe of low importance will range between 0.5 - 1.5 in weighting.
+As a rule of thumb, a highly impactful probe will have a total score of 2.5+.  A probe of average importance will be weighted in the 1.5 - 2.5 range.  A probe of low importance will range between 0.5 - 1.5 in weighting.

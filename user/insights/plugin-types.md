@@ -5,23 +5,23 @@ layout: en_insights
 ---
 ## Plugin types
 
-Here you'll find schema information for each of our supported plugins. This data can be used when writing probes to create references to infrastructure items that you're looking to probe.
+Here you'll find schema information for each of our supported plugins. Use this data when writing probes to create references to infrastructure items that you're looking to probe.
 
-Every tool has its own methodology for creating credentials and get connected with Travis Insights. Most of the time, we just need a read-only API key.
+Every tool has its own methodology for creating credentials and connecting with Travis Insights. Most of the time, we just need a read-only API key.
 
-All tools include a set of default probes that are listed below each plugin description.
+All tools include a set of default probes, listed below each plugin description.
 
 ## Infrastructure Provider
 
 ### AWS Infrastructure
 #### Register the plugin
-To register AWS plugins you need the Public and the Private Key as access identifiers.
+To register AWS plugins, you need the Public and the Private Key as access identifiers.
 
 ![reg-AWS](/user/images-insights/aws_infrastructure.png)
 
 #### Available probes for the plugin
 - One of your autoscaling groups is using simple EC2 health checks.
-- Several of your instances are being exposed directly to the internet or you are heavily using manual elastic ips.
+- Several of your instances are being exposed directly to the internet, or you are heavily using manual elastic ips.
 - Some of your ACLs only have the default setup (disabled).
 - Some of your autoscaling configurations aren't using instance monitoring.
 - Some of your autoscaling groups are not associated with any ELBs.
@@ -34,7 +34,7 @@ To register AWS plugins you need the Public and the Private Key as access identi
 - Some of your CloudFormation stacks are not making appropriate usage of tagging.
 - Some of your CloudFront distributions are not active.
 - Some of your CloudFront distributions don't have S3 origins.
-- Some of your CloudFront distributions have no georestrictions.
+- Some of your CloudFront distributions have no geo-restrictions.
 - Some of your customer gateways are misconfigured and are unavailable for use.
 - Some of your database clusters are misconfigured and are unavailable for use.
 - Some of your database clusters are not in sync.
@@ -42,7 +42,7 @@ To register AWS plugins you need the Public and the Private Key as access identi
 - Some of your database clusters aren't enabled in multiple availability zones.
 - Some of your database clusters have short backup retention periods.
 - Some of your databases are not configured correctly and are unavailable for use.
-- Some of your databases are not configured to keep up to date with new versions automatically.
+- Some of your databases are not configured to automatically keep up to date with new versions.
 - Some of your databases are not configured to use encrypted storage.
 - Some of your databases are not configured to use multiple availability zones.
 - Some of your databases are on the publically accessible network.
@@ -69,7 +69,7 @@ To register AWS plugins you need the Public and the Private Key as access identi
 - Some of your route tables are empty.
 - Some of your route tables are misconfigured and are unavailable for use.
 - Some of your security groups have an excessive number of ingress permissions.
-- Some of your security groups have wide open egress permissions.
+- Some of your security groups have wide-open egress permissions.
 - Some of your subnets are almost full.
 - Some of your subnets are misconfigured and are unavailable for use.
 - Some of your subnets don't have route tables associated with them.
@@ -78,7 +78,7 @@ To register AWS plugins you need the Public and the Private Key as access identi
 - Some of your VPC peering connections are misconfigured and are unavailable for use.
 - Some of your VPCs are not using NAT gateways.
 - Some of your VPCs don't have route tables.
-- Some of your VPCs have no external internet access via internet gateway.
+- Some of your VPCs have no external internet access via an internet gateway.
 - Some of your VPCs only have the default ACLs.
 - Some of your VPN connections are misconfigured and are unavailable for use.
 - Some of your VPN connections are not up and are unavailable for use.
@@ -95,7 +95,7 @@ To register AWS plugins you need the Public and the Private Key as access identi
 ### Azure
 #### Register the plugin
 
-To get connected with Azure you need an Azure Service Principal Application ID, the Service Password, and an Azure Tenant ID.
+To connect with Azure, you need an Azure Service Principal Application ID, the Service Password, and an Azure Tenant ID.
 
 ![azure-reg](/user/images-insights/Azure.png) 
 
@@ -111,14 +111,14 @@ To get connected with Azure you need an Azure Service Principal Application ID, 
 - Some of your SQL databases do not email account admins on alerts.
 - Some of your SQL databases have disabled alerts.
 - Some of your SQL servers did not enable auditing.
-- Some of your SQl servers did not enable extended auditing.
+- Some of your SQL servers did not enable extended auditing.
 - Some of your SQL servers did not enable threat detection.
 - Some of your SQL servers did not enable transparent data encryption.
-- Some of your SQL servers did not set uo email addresses for alerts.
+- Some of your SQL servers did not set up email addresses for alerts.
 - Some of your SQL servers do not email account admins on alerts.
 - Some of your SQL servers do not have firewall rules.
 - Some of your SQL servers have disabled alerts.
-- Some of your vm disks are not encrypted.
+- Some of your VM disks are not encrypted.
 - You do not have any jit network access policies.
 - You do not have any network security groups.
 - You do not have any security contacts.
@@ -133,18 +133,18 @@ You need the JSON key from Google Console to connect with the GCP Infrastructure
 ![gcp-reg](/user/images-insights/gcp.png) 
 
 #### Available probes for the plugin
-- Auto create subnetwork is disabled in Some of the network.
+- The auto-create subnetwork is disabled in Some of the networks.
 - Billing is started as there are multiple no of the instance is started.
-- Default network exist in a project.
+- Default networks exist in a project.
 - Ensure that SSH access is restricted from the internet.
-- Ensure VPC Flow logs is enabled for every subnet in VPC Network.
+- Ensure the VPC Flow logs option is enabled for every subnet in VPC Network.
 - IP forwarding is enabled on Some of the Instances.
 - Legacy Authorization is set to Enabled on Kubernetes Engine Clusters.
-- Not any instances is created in your gcp.
-- One of the instance group is distributed to multiple zones.
-- One of your instance is not using healthcheck.
-- Private google access is disabled for some subnetwork in vpc network.
-- rdp access is restricted from the internet in some firewalls.
+- Not any instances are created in your gcp.
+- One of the instance groups is distributed to multiple zones.
+- One of your instances is not using healthcheck.
+- Private google access is disabled for some subnetworks in VPC network.
+- Access to rdp is restricted from the internet in some firewalls.
 - Several of your instances are exposed to external ip.
 - Some of the instances are either terminated or error.
 - Some of your firewalls are disabled.
@@ -155,16 +155,16 @@ You need the JSON key from Google Console to connect with the GCP Infrastructure
 - Some of your instances groups are not fully utilizing tagging.
 - Some of your managed zones in cloud dns don't have dnssec.
 - SSL health check is not enabled in some of your instances.
-- Stackdriver logging is set to disable on kubernetes engine clusters.
-- Stackdriver monitoring is set to disabled on kubernetes engine clusters.
-- TCP health check is inactive.
-- TCP health check is not active in some instances.
-- There are not heclth checks.
+- Stackdriver logging is set to disable on Kubernetes engine clusters.
+- Stackdriver monitoring is set to disable on Kubernetes engine clusters.
+- The TCP health check is inactive.
+- The TCP health check is not active in some instances.
+- There are no health checks.
 
 ## Infrastructure Monitoring - APM
 
 ### AWS Cloud Monitoring
-You can register this plugin with the same parameters as the [AWS infrastructure](#aws-infrastructure) and it also has the same available probes.
+You can register this plugin with the same parameters as the [AWS infrastructure](#aws-infrastructure), and it also has the same available probes.
 
 ### DataDog Monitoring
 #### Register the plugin
@@ -176,10 +176,10 @@ Register this plugin with the DataDog API Key.
 #### Available probes for the plugin
 - Some of your instances are consistently near maxing out their memory resources.
 - Some of your metrics have too long names.
-- Your CPU is being bounded by IO activities.
+- IO activities are are bounding your CPU.
 - Your CPU is being bounded by the hypervisor stealing cycles.
 - Your disk has gone above 80% full.
-- Your have used over 80% of your system's available INodes.
+- You have used over 80% of your system's available INodes.
 - Your system is consistently using only a small portion of its available memory.
 - Your system resorted to using swap memory.
 - Your system's load average has risen above 70%.
@@ -193,12 +193,12 @@ Copy the API Key to register this plugin.
 
 #### Available probes for the plugin
 - Parsing and interpreting HTML structures for some of your applications is slow.
-- Some of your applications apdex_score exceeds set threshold.
+- Some of your applications apdex_score exceed the set threshold.
 - Some of your applications are not in a healthy state.
-- Some of your applications does not have assigned alert policy.
-- Some of your applications response time is slow.
+- Some of your applications do not have an assigned alert policy.
+- Some of your application´s response time is slow.
 - Some of your applications use default naming.
-- There is no alert policies defined.
+- There are no alert policies defined.
 
 ## Cluster Monitoring
 ### Kubernetes Cluster
@@ -211,9 +211,9 @@ You have to generate a Key
 
 #### Available probes for the plugin
 - Check if there is publicly accessible LoadBalancer.
-- Ensure if all Pods have readiness Probe.
+- Ensure if all Pods have a readiness Probe.
 - Ensure if all Pods have Startup Probe.
-- Some of your Kubernetes deployments do not have limits defined.
+- Some of your Kubernetes deployments do not have defined limits.
 - Some of your Kubernetes deployments do not have requests defined.
 - Some of your pods allow privilege escalation.
 - Some of your pods are down.
@@ -223,7 +223,7 @@ You have to generate a Key
 - Some of your pods do not have a security context.
 - Some of your pods do not have a startup probe.
 - Some of your pods share host IPC.
-- Some of your pods share host network.
+- Some of your pods share host networks.
 - Some of your pods share host pids.
 - You do not have any load balancers.
 
@@ -235,7 +235,7 @@ You have to generate a Key
 ![pingdom-reg](/user/images-insights/pingdom.png) 
 
 #### Available probes for the plugin
-- Some of you alerts has caused charge on your account.
+- Some of your alerts have caused charges on your account.
 - Some of your services are down.
 - Some of your services were unavailable for too much time.
 
@@ -273,13 +273,13 @@ These probes automatically run in the application without registering any plugin
 ![bitbucket-reg](/user/images-insights/bitbucket.png)
 
 #### Available probes for the plugin
-- Some of your repositories are lacking descriptions.
+- Some of your repositories lack descriptions.
 - Some of your repositories are missing issues.
 - Some of your repositories are not updated in the last 14 days.
 - Some of your repositories are not updated in the last 30 days.
 - Some of your repositories are not updated in the last 7 days.
 - Some of your repositories are public.
-- Some of your repositories do not have wiki.
+- Some of your repositories do not have a wiki.
 - There are too many open pull requests.
 
 ### GitHub
@@ -288,9 +288,9 @@ These probes automatically run in the application without registering any plugin
 ![github-reg](/user/images-insights/github.png) 
 
 #### Available probes for the plugin
-- Some of your repositories are lacking descriptions.
+- Some of your repositories lack descriptions.
 - Some of your repositories are public.
-- You have some bugs assigned which are in open state.
+- You have some bugs assigned which are in an open state.
 - Your rate limit status for all non-search-related resources is less than 500.
 
 ### Gitlab
@@ -303,20 +303,20 @@ These probes automatically run in the application without registering any plugin
 - Some jobs are too slow.
 - Some of your deployments are failing.
 - Some of your jobs are dead.
-- Some of your jobs are failed.
+- Some of your jobs failed.
 - Some of your jobs are failing.
-- Some of your jobs in the last 10 days are too slow.
-- Some of your jobs in the last 14 days are failed.
-- Some of your jobs in the last 2 days are too slow.
-- Some of your jobs in the last 30 days are failed.
-- Some of your jobs in the last 7 days are failed.
+- Some of your jobs in the last 10 days have been too slow.
+- Some of your jobs in the last 14 days failed.
+- Some of your jobs in the last 2 days have been too slow.
+- Some of your jobs in the last 30 days failed.
+- Some of your jobs in the last 7 days failed.
 - Some of your pages domains have an expired cert.
 - Some of your pipelines are failing.
-- Some of your projects are lacking descriptions.
+- Some of your projects lack descriptions.
 - Some of your projects have disabled issues.
 - Some of your projects have disabled jobs.
 - Some of your projects have disabled merge requests.
-- Some of your projects have disabled wiki.
+- Some of your projects have a disabled wiki.
 - Some of your projects have public jobs.
 - Some of your runners are offline or paused.
 - There are too many enqueued jobs.
@@ -331,7 +331,7 @@ These probes automatically run in the application without registering any plugin
 ![circleci-reg](/user/images-insights/circleci.png) 
 
 #### Available probes for the plugin
-- Some of your builds are failed.
+- Some of your builds failed.
 - Some of your builds are failing.
 - Some of your builds in the last 5 hours are too slow.
 - Some of your builds in the last 5 minutes are too slow.
@@ -373,7 +373,7 @@ These probes automatically run in the application without registering any plugin
 - Some of your builds in the last 30 days are failing.
 - Some of your builds in the last 7 days are failing.
 - There are too many failing builds.
-- You have too many tags. Looks like some of them might be unused.
+- You have too many tags. It looks like some of them might be unused.
 
 ### Travis CI
 #### Register the plugin
@@ -381,7 +381,7 @@ These probes automatically run in the application without registering any plugin
 ![travis-reg](/user/images-insights/travis.png) 
 
 #### Available probes for the plugin
-- Some of your builds are failed.
+- Some of your builds failed.
 - Some of your builds in the last 14 days are failing.
 - Some of your builds in the last 2 hours are too slow.
 - Some of your builds in the last 30 days are failing.
@@ -428,7 +428,7 @@ These probes automatically run in the application without registering any plugin
 ![assemblareg-reg](/user/images-insights/assemblareg.png) 
 
 #### Available probes for the plugin
-- Some of your milestone are overdue.
+- Some of your milestones are overdue.
 - Some of your uncompleted milestones do not have a due date.
 - You have too many active tickets.
 - You have too many open milestones.
@@ -443,7 +443,7 @@ These probes automatically run in the application without registering any plugin
 
 #### Available probes for the plugin
 - Page view average duration is too high.
-- Requests average duration is too high.
+- Requests´ average duration is too high.
 
 ### Azure DevOps
 #### Register the plugin
@@ -451,10 +451,10 @@ These probes automatically run in the application without registering any plugin
 ![azuredevopsreg-reg](/user/images-insights/azuredevopsreg.png)
 
 #### Available probes for the plugin
-- Some of your builds are failed.
+- Some of your builds failed.
 - Some of your builds are failing.
 - Some of your deployments are failing.
-- Some of your projects are lacking a description.
+- Some of your projects lack a description.
 - Some of your projects are public.
 
 ### Cloudbees
@@ -483,10 +483,10 @@ These probes automatically run in the application without registering any plugin
 ![dynectreg-reg](/user/images-insights/dynectreg.png)
 
 #### Available probes for the plugin
-- There are some DNS services which were abused.
+- There are some DNS services that were abused.
 - There are some failed tasks.
 - There are some stalled tasks.
-- There are some tasks which block other zone changes.
+- There are some tasks that block other zone changes.
 
 ### GoDaddy
 #### Register the plugin
@@ -494,7 +494,7 @@ These probes automatically run in the application without registering any plugin
 ![godaddyreg-reg](/user/images-insights/godaddyreg.png)
 
 #### Available probes for the plugin
-- There are some subscriptions which will expire within less than 30 days.
+- There are some subscriptions that will expire within less than 30 days.
 - You have domains that will expire soon.
 
 ### Google Cloud Source Repositories
@@ -526,17 +526,17 @@ These probes automatically run in the application without registering any plugin
 ![oktareg-reg](/user/images-insights/oktareg.png)
 
 #### Available probes for the plugin
-- No trusted origins defined.
-- Some of your apps do not have label.
+- No trusted origins were defined.
+- Some of your apps do not have labels.
 - Some of your apps do not have saml auth enabled.
 - Some of your apps have accessibility issues.
 - There are some users who have never logged in.
-- There are some users who have not activated theur accounts.
+- There are some users who have not activated their accounts.
 - There are some users who have not changed their password since last year.
 - Your password length requirement violates security rules.
 - Your password lockout max attempts requirement violates security rules.
 - Your password maz age requirement violates security rules.
-- Your password requirement regarding new password violates security rules. 
+- Your password requirement regarding a new password violates security rules. 
 
 ### OneLogin
 #### Register the plugin
@@ -544,11 +544,11 @@ These probes automatically run in the application without registering any plugin
 ![oneloginreg-reg](/user/images-insights/oneloginreg.png)
 
 #### Available probes for the plugin
-- Defined refresh token expiration time is greater than a half of a year.
-- More than one of the events which take place are of high or very high risk score.
+- Defined refresh token expiration time is greater than half of a year.
+- More than one of the events which take place are of a high or very high-risk score.
 - There are no rules defined for gaining more control over the risk scoring of events.
-- There are some events with a high risk score.
-- There are some events with a medium risk score.
+- There are some events with a high-risk score.
+- There are some events with a medium-risk score.
 - There are some users who have never logged in.
 
 ### PagerDuty
@@ -557,7 +557,7 @@ These probes automatically run in the application without registering any plugin
 ![pagerdutyreg-reg](/user/images-insights/pagerdutyreg.png)
 
 #### Available probes for the plugin
-- Multiple notification rules are not applied for user.
+- Multiple notification rules are not applied to users.
 - No escalation policies are applied.
 - There are some unresolved incidents with high urgency.
 
@@ -580,15 +580,15 @@ These probes automatically run in the application without registering any plugin
 - Some of your projects are too complex. 
 - Some of your projects have a too big technical debt.
 - Some of your projects have a too high technical debt ratio.
-- Some of your projects have a too low security rating. 
+- Some of your projects have a too low-security rating. 
 - Some of your projects have too complex security classes.
 - Some of your projects have too complex functions.
 - Some of your projects have too many bugs.
 - Some of your projects have too many new violations.
 - There are too many failing tests.
-- There is not enogh coverage in your projects.
+- There is not enough coverage in your projects.
 - There is too much duplication in your projects.
-- You have too many critical isuues.
+- You have too many critical issues.
 
 ### Sysdig
 #### Register the plugin
@@ -604,9 +604,9 @@ These probes automatically run in the application without registering any plugin
 ![zendeskreg-reg](/user/images-insights/zendeskreg.png)
 
 #### Available probes for the plugin
-- Some of your groups do not have any description.
+- Some of your groups do not have any descriptions.
 - Some of your jobs have failed.
-- Some of your tickets were reopened several times and still sre not solved.
+- Some of your tickets were reopened several times and still are not solved.
 - You have too many admins.
 - You have too many groups.
 

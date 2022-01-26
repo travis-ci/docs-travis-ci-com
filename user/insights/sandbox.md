@@ -5,26 +5,31 @@ layout: en_insights
 ---
 
 # SandBox
-In the Sandbox tab you have a query editor and tester section.
+In the Sandbox tab, you have a query editor and tester section.
 
 <img src="../../assets/images/queryeditor.png">
 
-Go to the **Plugin** drop-down menu and select the plugin you want to use, click the **LOAD** button and you will see how the Sample JSON displays.
+Go to the **Plugin** drop-down menu and select the plugin you want to use. Then, click the **LOAD** button to see how the Sample JSON displays.
 
-Add any query you want to test in the **Query** space, click the button **RUN** and you will receive an Output for the specific query. 
+Add any query you want to test in the **Query** space, click the button **RUN**, and you will receive an Output for the specific query. 
 
 ## Query Language
 
+<<<<<<< HEAD
 Travis Insights uses the **ObjectPath** query language, objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This language works over JSON documents rather than relations. 
 The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big nested JSON documents.
+=======
+Travis Insights uses the **ObjectPath** query language; objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This language works over JSON documents rather than relations. 
+The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big-nested JSON documents.
+>>>>>>> d37dd2b505d5f4a220e87d339cf21f17139bd2c5
 
-In the following table you can find complete syntax of ObjectPath paths: 
+In the following table, you can find the complete syntax of ObjectPath paths: 
 
 |   Operator       |   Name                       |     Description                                                                                              |    
 |:----------------:|:----------------------------:|:------------------------------------------------------------------------------------------------------------:|
 | **$**            | root object/element          | It can be either an object or a list of objects. ObjectPath queries work for both.                           |   
 | **@**            | current object/element       | @ points to current item from the list generated from executing expression on the left side of []            |    
-| **.**            | child/property operator      | . goes one level deeper into data structure (selects child of a parent). In conjunction with property name like .name and array of objects it returns an array of values under each object's name attribute.                                                                               |  
+| **.**            | child/property operator      | . goes one level deeper into data structure (selects child of a parent). In conjunction with property name like .name and array of objects, it returns an array of values under each object's name attribute.                                                                               |  
 | **..**           | Recursive descent            | ObjectPath borrows this syntax from E4X (and JSONPath). .. finds all objects in the subtree.                 |      
 | *                | Wildcard                     | * selects all objects/elements from the array regardless of their names.                                     |
 | **[]**           | Selector operator            | [] is an advanced tool for filtering lists of objects.                                                       |
@@ -49,7 +54,7 @@ For more details, visit:
 
 All **Probes** in Travis Insights use a customized ObjectPath - SREOP. SREOP is a superset on top of the original ObjectPath that we apply to return **true** or **false** probe responses.
 
-ObjectPath by default returns objects and the use of the selectors/operators **[]** depends on their position. The first set applies the probe conditionals, the second set is used to provide the unique identifier of each item probed for us to report back.
+By default, ObjectPath returns objects, and the use of the selectors/operators **[]** depend on their position. The first set applies the probe conditionals, and the second set is used to provide the unique identifier of each item probed for us to report back.
 
 You can see the differences in the following examples:
 
@@ -69,7 +74,7 @@ _Scores what number of instances' memories are over 9000 and returns a list of i
 There can be two types of values:
 
 - List of items that match the probe conditions. It can include boolean values.
-- List of items that don’t match the probe conditions. SREOP includes an internal validator to make sure the user's queries do not contain unsupported characters.
+- List of items that don’t match the probe conditions. SREOP includes an internal validator to ensure the user's queries do not contain unsupported characters.
 
 ### Travis Insights ObjectPath Syntax
 

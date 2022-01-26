@@ -4,15 +4,15 @@ layout: en_insights
 
 ---
 
-Once you have an account, the next step is to start connecting all of your toolings via plugins. You can log in and go to the [Plugins](https://srenitydashboard.io/plugins) tab to start adding plugins.
+Once you have an account, the next step is connecting all of your toolings via plugins. After that, you can log in and go to the [Plugins](https://srenitydashboard.io/plugins) tab to start adding plugins.
 
-It is necessary to provide a name when adding a plugin because you have the option to add multiple plugins from the same tool. 
+It is necessary to provide a name when adding a plugin because you can add multiple plugins from the same tool. 
 
 ![add-plugin](/user/images-insights/addPlugin.png)
 
 Every tool has its own methodology for creating credentials and integrating with Travis Insights. Generally, Travis Insights just need a read-only API key for most types of plugins.  However, instructions for each plugin type will be populated in the right-hand navigation bar on the [Plugins](https://srenitydashboard.io/plugins) page as you add them.
 
-To add the plugin you must **Test Connection** to check if the information provided is working, if not you get a **Connection Failed** status, check if all data is correct, when all is correct you get a **Connection Succeeded!** message and you can finish registering the plugin. Once a plugin is added any of the private information (keys, tokens, etc) will be displayed, all that information keeps encrypted in Travis Insights.
+To add the plugin, you must **Test Connection** to check if the information provided is working; if not, you get a **Connection Failed** status. Next, check if all data is correct; when all is correct you get a **Connection Succeeded!** message, and you can finish registering the plugin. Once a plugin is added, any of the private information (keys, tokens, etc.) will be displayed, and all that information is kept encrypted in Travis Insights.
 
 ## Plugins Information
 
@@ -20,7 +20,7 @@ The plugins list displays registered plugins with relevant information about the
 
 ![plugin-messages](/user/images-insights/pluginMessages.png)
 
-At the top of the plugins list a drop-down list lets you decide which plugins to display, All Plugins, Active Plugins, or Inactive Plugins.
+A drop-down list at the top of the plugins list lets you decide which plugins to display, All Plugins, Active Plugins, or Inactive Plugins.
 
 The plugins list columns display the following information:
 
@@ -36,17 +36,17 @@ The plugins list columns display the following information:
   - *Error:* The system encountered an issue that didn't let Travis Insights finish the scan. 
   - *In Progress:* The probes scan is taking place.
 
-- **Scan Details:** The last scan results are listed in the link view. Review this window to check if there were some errors during the scan. You can see the logs of the notification, the plugin, and all related probes.
+- **Scan Details:** The last scan results are listed in the link view. Review this window to check if there were some errors during the scan. In addition, you can see the logs of the notification, the plugin, and all related probes.
 
     ![scanlog](/user/images-insights/scanLog.png)
 
 - **Plugin Status:** shows if it is an Active or Inactive plugin.
 
-At the top of the plugins list, you have the option to **deactivate** or **delete** any plugin, clicking the "Toggle" button deactivates selected plugins. At the top of the plugins list you will find a drop-down menu, select if you want to display _"All Plugins"_, _"Active Plugins"_, or _"Inactive Plugins"_, **Active Plugins** is selected by default.
+At the top of the plugins list, you have the option to **deactivate** or **delete** any plugin; clicking the "Toggle" button deactivates selected plugins. At the top of the plugins list, you will find a drop-down menu, select if you want to display _"All Plugins"_, _"Active Plugins"_, or _"Inactive Plugins"_. **Active Plugins** is selected by default.
 
 
 
-Travis Insights supports different technologies, it works with the following plugin types at this time: 
+Travis Insights supports different technologies, and it works with the following plugin types at this time: 
 
 - [AWS CloudWatch Monitoring](../plugin-types#aws-cloud-monitoring) 
 - [AWS Infrastructure](../plugin-types#aws-infrastructure)
