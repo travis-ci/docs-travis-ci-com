@@ -13,10 +13,10 @@ Go to the **Plugin** drop-down menu and select the plugin you want to use, click
 
 Add any query you want to test in the **Query** space, click the button **RUN** and you will receive an Output for the specific query. 
 
-## Query Languaje
+## Query Language
 
-Travis Insights uses the **ObjectPath** query languaje, objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This languaje works over JSON documents rather than relations. 
-The languaje lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big nested JSON documents.
+Travis Insights uses the **ObjectPath** query language, objectPath is an agile NoSQL query language for semi-structured data that uses embedded arithmetic calculations, comparison mechanisms, and built-in functions. This language works over JSON documents rather than relations. 
+The language lets you work with selector mechanisms, boolean logic, type system, and string concatenation. You can find data in big nested JSON documents.
 
 In the following table you can find complete syntax of ObjectPath paths: 
 

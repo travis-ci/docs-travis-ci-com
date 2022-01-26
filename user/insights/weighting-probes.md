@@ -38,8 +38,10 @@ If you have a probe which ensures our MySQL security patches are up-to-date. The
 |  **Maintenance** |     0.75     |      0       |       0      |
 
 
-> Probes with 0 as a weighting, don't get counted on the weight average percentage.
+> Probes weighted with 0 don't get counted in the average weight percentage.
 
-We generally try to avoid "double counting" on probe weightings (i.e. one could argue that security patching also has an impact on delivery and/or cost, but it is primarily a security issue) unless the issue is so severe that it warrants doing so to raise it to the top of our list.  Likewise, when the impact is spread evenly across sub-categories, we try to just split the weight evenly between them.
+When weighting a probe, to avoid “double counting”, the category that is most relevant is generally taken into account (i.e. one could suggest that security patching also has an impact on delivery and/or cost, but it is primarily a security issue). Some exceptions occur when the issues are severe. 
+
+When the probe weighting also includes sub-categories, Travis Insights tries to distribute the weighting evenly.
 
 As a rule of thumb, a highly impactful probe will have a total score total of 2.5+.  A probe of average importance will be weighted in the 1.5 - 2.5 range.  A probe of low importance will range between 0.5 - 1.5 in weighting.

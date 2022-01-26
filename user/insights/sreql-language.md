@@ -6,7 +6,7 @@ layout: en_insights
 
 While adding a probe you find the **EDIT QUERY** button in the **Query** field. The button displays a window where you can edit and test all your queries.
 
-![probeEditor](/user/images-insights/probeEditor.png) 
+![probeEditor](/user/images-insights/probeEditor1.png) 
 
 Go to the **Plugin** drop-down menu and select the plugin you want to use, click the **LOAD** button and you will see how the Sample JSON displays.
 
@@ -176,51 +176,34 @@ SREQL queries:
 
 *SREQL query:*
 
-      FROM $..standardDeviation
-      ASSERT @ IS 0.0
+      ASSERT count($.Plugins) > 1
+
+*Output:*
+
+      - Array of elements that do not match the query:
+      true
 
 #### Example 2
 
 *SREQL query:*
 
-      FROM $.Milestones
-      ASSERT COUNT < 6
+      ASSERT count($.Plugins[@.plugin_category is "source_control"]) > 0
+
+*Output:*
+
+      - Array of elements that do not match the query:
+      true
 
 #### Example 3
 
 *SREQL query:*
 
-      FROM $.Milestones
-      WHERE @.is_completed is false
-      ASSERT COUNT < 6
+      ASSERT $.Resources.core.limit - $.Resources.core.remaining > 500
 
-#### Example 4
+*Output:*
 
-*SREQL query:*
-
-      FROM $.PageViewsDuration
-      ASSERT AVG("pageViews/duration") 
-      IS NOT NULL AND AVG("pageViews/duration") < 4000
-
-#### Example 5
-
-*SREQL query:*
-
-      ASSERT AVG($.PageViewsDuration ."pageViews/duration") 
-      IS NOT NULL AND AVG($.PageViewsDuration ."pageViews/duration") < 4000
-
-#### Example 6
-
-*SREQL query:*
-
-      FROM $.Builds
-      ASSERT COUNT(@.status is "failed") / COUNT < 0.05
-
-#### Example 7
-
-*SREQL query:*
-
-      ASSERT COUNT($.Builds[@.status is "failed") / COUNT($.Builds) < 0.05
+      - Array of elements that do not match the query:
+      false
 
 
 ### Two sets results queries
@@ -231,43 +214,50 @@ SREQL queries:
 
 *SREQL query:*
 
-      SELECT application_name
-      FROM $.EmailDigests
-      ASSERT @.enabled IS true
+      SELECT full_name 
+      FROM $.Repositories 
+      ASSERT toMillis(dateTime(@.updated_on, "%Y-%m-%dT%H:%M:%S.%f%z")) > toMillis(now()) - 30*24*60*60*1000
+
+*Output:*
+
+      - Array of elements that match the query:
+
+
+      - Array of elements that do not match the query:
+      RepositoryName1
+      RepositoryName2
+      RepositoryName3
+
 
 #### Example 2
 
 *SREQL query:*
 
-      SELECT application_name
-      FROM $.EmailDigests
-      WHERE @.type IS "marketing"
-      ASSERT @.enabled IS true
+      SELECT full_name 
+      FROM $.Repositories 
+      ASSERT @.is_private is true
+
+*Output:*
+
+      - Array of elements that match the query:
+      RepositoryName1
+      RepositoryName2
+
+      - Array of elements that do not match the query:
 
 #### Example 3
 
 *SREQL query:*
 
-      SELECT space_name
-      FROM $.Milestones
-      WHERE @.is_completed IS false
-      ASSERT toMillis(dateTime(@.due_date, "%Y-%m-%d")) > toMillis(now()) - 24*60*60*1000
+      SELECT full_name 
+      FROM $.Repositories 
+      ASSERT len(@.description) < 10
 
-#### Example 4
+*Output:*
 
-*SREQL query:*
+      - Array of elements that match the query:
+      RepositoryName1
+      RepositoryName2
 
-      SELECT plan.name
-      FROM $.Builds
-      ASSERT toMillis(dateTime(@.buildCompletedTime, "%Y-%m-%dT%H:%M:%S.%fZ")) > toMillis(now()) - 7*24*60*60*1000) AND @.buildState IS NOT "Successful"
-
-#### Example 5
-
-*SREQL query:*
-
-      SELECT name
-      FROM $.SecurityContacts
-      ASSERT len(@.properties.phone) > 0
-
-
-
+      - Array of elements that do not match the query:
+      RepositoryName3
