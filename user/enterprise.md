@@ -84,7 +84,7 @@ After that, the team working on the source code in the activated repository can 
 
 Travis CI Enterprise requires a certain infrastructure for deployment. It currently works with GitHub.com and GitHub Enterprise as the version control systems and external identity providers.
 
-[picture 1]
+![Travis CI Enterprise About page](/images/TCIE-architecture1.png)
 
 ### Travis CI Enterprise consists of two major parts:
 
@@ -104,7 +104,7 @@ Travis CI Enterprise requires a certain infrastructure for deployment. It curren
 
 The amount of deployed TCI Worker and build environment OS images will determine the total concurrent capacity of Travis CI Enterprise deployment in your infrastructure.
 
-[picture 2]
+![Travis CI Enterprise About page](/images/TCIE-Architecture2.png)
 
 ### Sizing and calculations
 
