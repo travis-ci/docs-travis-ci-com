@@ -95,7 +95,7 @@ Travis CI Enterprise requires a certain infrastructure for deployment. It curren
 
 1. A PostgreSQL11 (or later) database.
 2. An infrastructure to deploy a Kubernetes cluster; it can be deployed in a server cluster or in a single machine if required
-3. Depending on your setup, you may want to deploy and configure some of the components on your own, e.g., RabbitMQ - see the [Setting up Travis CI Enterprise]((/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) for more details.
+3. Depending on your setup, you may want to deploy and configure some of the components on your own, e.g., RabbitMQ - see the [Setting up Travis CI Enterprise](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) for more details.
 
 #### TCI Worker requires the following:
 
@@ -128,12 +128,7 @@ Set up Travis CI Enterprise by heading over our [set up](/user/enterprise/tcie-3
 
 Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/) and [tutorials](/user/tutorial/).  
 
-To get in touch with us, please write a message to enterprise@travis-ci.com. If possible, please include as much of the following information:
-* Description of the problem - what are you observing?
-* Which steps did you try already?
-* A support bundle (see table below on how to obtain it).
-* Log files from all workers (They can be found at /var/log/upstart/travis-worker.log - please include as many as you can retrieve).
-* If a build failed or errored, a text file of the build log.
+## Contact
 
 {{ site.data.snippets.contact_enterprise_support }}
 
