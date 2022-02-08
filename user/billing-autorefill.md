@@ -9,7 +9,7 @@ permalink: /user/billing-autorefill/
 
 Enable the Auto-Refill feature to ensure you don’t run out of credits.
 
-The Auto-Refill feature is available to all users who provide their credit card details and register to a usage-based plan or purchase credits add-on under a concurrency plan. This feature is not available for Free Plan users. Find the Auto-refill under: [Settings -> Plan tab](https://travis-ci.com/account/plan) -> Credits section -> Credits tab.
+The Auto-Refill feature is available to all users who provide their credit card details and register to a usage-based plan or purchase credits add-on under a concurrency plan. This feature is not available for Free Plan users. Find the Auto-refill under: [Settings -> Plan tab](https://app.travis-ci.com/account/plan) -> Credits section -> Credits tab.
 
 If you wish to set a different refill threshold and refill amount, please contact support at [support@travis-ci.com](mailto:support@travis-ci.com). 
 
@@ -25,5 +25,5 @@ To stop credit replenishment, simply disable the Auto-refill option
 
 ### Billing
 
-After each refill, Travis CI sends an email notifying if the payment succeeded or if it failed. If payment fails, credits won’t replenish until payment succeeds. An invoice/receipt is issued for successful credit purchases that you can obtain via your [Settings -> Plans tab](https://travis-ci.com/account/plan).
+After each refill, Travis CI sends an email notifying if the payment succeeded or if it failed. If payment fails, credits won’t replenish until payment succeeds. An invoice/receipt is issued for successful credit purchases that you can obtain via your [Settings -> Plan tab](https://app.travis-ci.com/account/plan).
 

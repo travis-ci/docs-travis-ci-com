@@ -33,7 +33,7 @@ To keep the access rights up to date, we sync every user account approximately o
 
 ## Who has access to the billing details?
 
-Access rights to the Travis CI [billing page](https://travis-ci.com/account/subscription) can be one of the following:
+Access rights to the Travis CI [billing page](https://app.travis-ci.com/account/plan) can be one of the following:
 
 - **Open (default)**: anyone with admin access to at least one private repository belonging to the organization in GitHub/GitLab/Assembla or team in Bitbucket has access to the billing information in Travis CI.
 - **Restricted**: for GitHub users access is limited to members of the organization having the _owner_ and/or _billing manager_ permissions in GitHub (see their [documentation about the _Permission levels for an organization_](https://help.github.com/articles/permission-levels-for-an-organization/)).
@@ -41,7 +41,7 @@ Access rights to the Travis CI [billing page](https://travis-ci.com/account/subs
 - **Restricted**: for GitLab users access is limited to members of the organization having read and write permissions in GitLab.
 - **Restricted**: for Assembla users access is limited to members of the organization having read and write permissions in Assembla.
 
-You can change the access rights to **Restricted** (or back to **Open**) under the *Organizations* tab on [our Subscription page](https://travis-ci.com/account/subscription) as shown below:
+You can change the access rights to **Restricted** (or back to **Open**) under the *Organizations* tab on [our Plan page](https://app.travis-ci.com/account/plan) as shown below:
 
 ![Billing access toggle](/images/admin_only_toggle.png "Billing access toggle")
 
@@ -60,9 +60,9 @@ You can follow our guide for [encrypting files](/user/encrypting-files/).
 Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com.
 
 For a list of plans and prices for private repositories, look at
-[travis-ci.com/plans](https://travis-ci.com/plans) for not authorized users.
+[travis-ci.com/pricing](https://travis-ci.com/pricing) for not authorized users.
 For a list of plans and prices for private repositories, look at
-[travis-ci.com/subscription](https://travis-ci.com/account/subscription) for authorized users.
+[app.travis-ci.com/account/plan](https://app.travis-ci.com/account/plan) for authorized users.
 
 ## How can I make a private repository public on GitHub?
 
