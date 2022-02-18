@@ -15,7 +15,7 @@ This document describes how to set up and install Travis CI Enterprise Core Serv
 * Travis CI Enterprise 3.x Core Services (aka Travis CI Enterprise Platform)
 * At least one Travis CI Worker (the procedure is described in a separate article)
 
-![TCIE Core Services](/images/TCIE-CoreServices_graph.png)
+![TCIE Core Services](/images/tcie-3.x-core-services-graph.png)
 
 Travis CI Enterprise 3.x+ is distributed through a "Kubernetes Off The Shelf" installation package, containing a Helm chart and docker images for component services. We recommend installing Travis CI Enterprise 3.x into a Kubernetes managed cluster.
 
