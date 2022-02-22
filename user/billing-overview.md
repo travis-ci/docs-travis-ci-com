@@ -78,15 +78,6 @@ The final cost is flexible and closely related to the actual usage of the system
 > The Usage-based pricing model bills based on minutes used (via credits) and the number of users executing those builds (via user licenses). Users subscribe to a plan that allocates of credits to be used towards build minutes and pricing for a specific number of user licenses. The credits are deducted from the user's credit balance as they are used in the Travis CI service.
 Unique users triggering builds within a billing period will constitute a number of actual user licenses used and will be charged at the end of the billing period, according to the rates of their selected plan. 
 
-> **If you are running a large number of builds or users each month, please [contact Travis CI support](mailto:support@travis-ci.com) if you’d like to discuss your plan.** 
-
-The Usage-based pricing system charges users and organizations depending on the number of minutes each builds job run on Travis CI infrastructure. 
-The Usage-based pricing is a pre-paid model for credits and subscriptions for per-user-license. In other words, users and organizations can run as many build jobs as they want simultaneously, meaning that all builds are executed as soon as possible without limitations.  
-The final cost is flexible and closely related to the actual usage of the system, allowing you to downscale or upscale as per your needs.
-
-> The Usage-based pricing model bills based on minutes used (via credits) and the number of users executing those builds (via user licenses). Users subscribe to a plan that allocates credits to be used towards build minutes and pricing for a specific number of user licenses. The credits are deducted from the user's credit balance as they are used in the Travis CI service.
-Unique users triggering builds within a billing period will constitute a number of actual user licenses used. They will be charged at the end of the billing period, according to the rates of their selected plan. 
-
 ### Monthly Plans
 
 Subscribe to one of our monthly plans to get more credits and continue building. 
