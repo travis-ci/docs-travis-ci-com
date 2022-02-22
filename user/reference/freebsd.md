@@ -48,9 +48,9 @@ For example:
 ```yaml
 os: freebsd
 addons:
-pkg:
-- go
-- curl
+ pkg:
+  - go
+  - curl
 ```
 {: data-file=".travis.yml"}
 
@@ -72,8 +72,8 @@ interpreters, a standard version manager like rvm is used, if available for the 
 ```yaml
 language: ruby
 rvm:
-- 2.5 # RVM should install 2.5 for FreeBSD
-- 2.6 # should use default pre-installed 2.6.5
+ - 2.5 # RVM should install 2.5 for FreeBSD
+ - 2.6 # should use default pre-installed 2.6.5
 ```
 {: data-file=".travis.yml"}
 
