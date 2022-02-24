@@ -148,32 +148,32 @@ github_oauth_access_rights: |
 git_repository_settings_forks_general: |
   > Repository security settings for forked repositories on Git are available starting March 1st, 2022.
   
-  For Git repositories you may manage per repository how the  [environment variables](/user/environment-variables/)  and custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build is to be triggered as an effect of filing a Pull Request from a forked repository. There are two settings available specifically for this purpose, allowing you to customize your security vs. collaboration set up.
+  For Git repositories, you may manage per repository how the [environment variables](/user/environment-variables/) and the custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build triggered as an effect of filing a Pull Request from a forked repository. Two settings are available specifically for this purpose, allowing you to customize your security vs. collaboration setup.
 
   **base repository** - a Git repository, which is forked by someone else
   **fork** or **forked repository** - any Git repository forked from the **base repository**
   **PR** - Pull Request (e.g. in GitHub, BitBucket, GitLab) or Merge Request (in Assembla).
 
-  > Please note: Repositories activated in [Travis CI](https://app.travis-ci.com ) before **March 1st, 2022** will have the `Share encrypted environment variables with forks (PRs) ` setting set to OFF. Please verify your collaboration model if necessary (especially for public repositories).  The `Share SSH keys with forks (PRs)` will be set to ON for private repositories in order to not break too many collaboration set ups.
-  Repository settings will be set by default to OFF for any repository activated in [Travis CI](https://app.travis-ci.com) after **March 1st, 2022**. For repositories activated in Travis CI after **March 1st, 2022** you may want to consider changing the default settings depending on your collaboration model.
+  > Please note: Repositories activated in [Travis CI](https://app.travis-ci.com ) before **March 1st, 2022** will have the `Share encrypted environment variables with forks (PRs) ` setting set to OFF. Please verify your collaboration model if necessary (especially for public repositories). The `Share SSH keys with forks (PRs)` will be set to ON for private repositories not to break too many collaboration setups.
+  Repository settings will be set by default to OFF for any repository activated in [Travis CI](https://app.travis-ci.com) after **March 1st, 2022**. For repositories activated in Travis CI after **March 1st, 2022**, you may want to consider changing the default settings depending on your collaboration model.
 git_repository_settings_forks_encrypted_env_variables: |
   ### Share encrypted environment variables with forks (PRs) 
   
-  This setting determines if the encrypted environment variables from the base repository are going to be shared with the forked repository in a fork-to-base pull request (changes are merged from the fork repository into the base repository). 
+  This setting determines if the base repository´s encrypted environment variables will be shared with the forked repository in a fork-to-base pull request (the fork repository merges changes into the base repository). 
 
-  In the case of a base-to-base pull request (changes are merged from the **base repository** into itself), the encrypted environment variables will always be available. This allows collaborators to file Pull Requests using the repository encrypted environment variables and preserve existing checks configured e.g. in GitHub.
+  In the case of a base-to-base pull request (changes are merged from the **base repository** into itself), the encrypted environment variables will always be available. This allows collaborators to file Pull Requests using the repository encrypted environment variables and preserve existing checks configured, e.g. in GitHub.
 
-  In the case of a fork-to-fork pull request (changes are merged from the **forked repository** into itself), the encrypted environment variables from the **base repository** will never be available. One needs to replace or bypass them directly in **forked repository**.
+  In the case of a fork-to-fork pull request (changes are merged from the **forked repository** into itself), the encrypted environment variables from the **base repository** will never be available. Therefore, one needs to replace or bypass them directly in **forked repository**.
 
   In the case of a fork-to-base pull request:
-  * If this setting is ON, the encrypted environment variables will be available to the forked repository, which means that the build in the **forked repository**  will have access to the encrypted environment variables from the **base repository**. This may be a less secure approach, yet allows for a collaboration using forks and Pull Requests (PRs).
-  * If this setting is OFF and the build is relying on any encrypted environment variable, the PR from **fork** to **base repository**  will fail. This secures your **base repository** encrypted environmental variables by putting a constraint on accessing them from **forks**.
+  * If this setting is ON, the encrypted environment variables will be available to the forked repository, which means that builds in the **forked repository** will have access to the encrypted environment variables from the **base repository**. This may be a less secure approach yet allows for a collaboration using forks and Pull Requests (PRs).
+  * If this setting is OFF and the build relies on any encrypted environment variable, the PR from **fork** to **base repository** will fail. This secures your **base repository** encrypted environmental variables by putting a constraint on accessing them from **forks**.
 git_repository_settings_forks_ssh_keys: |
   ### Share SSH keys with forks (PRs)
   
-  > Please Note: The ‘Share SSH keys with forks (PRs)’  repository setting is applicables only for private repositories in the [travis-ci.com](https://app.travis-ci.com) environment. 
+  > Please Note: The ‘Share SSH keys with forks (PRs)’ repository setting is applicable only for private repositories in the [travis-ci.com](https://app.travis-ci.com) environment. 
   
-  This setting determines if the custom SSH keys from the **base repository** are going to be shared with the **forked repository** in a fork-to-base pull request (changes are merged from the fork repository into the base repository). In the case of a base-to-base pull request (changes are merged from the base repository into itself), the custom SSH keys will always be available. 
+  This setting determines if the custom SSH keys from the **base repository** will be shared with the **forked repository** in a fork-to-base pull request (changes are merged from the fork repository into the base repository). In the case of a base-to-base pull request (changes are merged from the base repository into itself), the custom SSH keys will always be available. 
   
   In the case of a fork-to-fork pull request (changes are merged from the forked repository into itself), the custom SSH keys from the base repository will never be available.
  
