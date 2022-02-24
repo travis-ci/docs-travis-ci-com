@@ -14,7 +14,7 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 {{ site.data.snippets.git_repository_settings_forks_encrypted_env_variables }}
 
-> Please Note: In the [travis-ci.com](https://app.travis-ci.com ) environment Custom SSH keys are only available for private repositories. Read more about [custom SSH keys](/user/private-dependencies/#user-key).
+> Please Note: In the [travis-ci.com](https://app.travis-ci.com) environment, Custom SSH keys are only available for private repositories. Read more about [custom SSH keys](/user/private-dependencies/#user-key).
 
 > Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com. 
 
