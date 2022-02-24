@@ -34,7 +34,7 @@ The upstream repository's maintainer would have no protection against this attac
 
 Travis CI makes encrypted variables and data available only to pull requests coming from the same repository ("internal pull requests"). These are considered trustworthy, as only members with write access to the repository can send them.
 
-Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project, unless certain repository settings in Travis CI aren't set.
+Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project unless certain repository settings in Travis CI aren't set.
 
 ### Repository settings - forks
 
