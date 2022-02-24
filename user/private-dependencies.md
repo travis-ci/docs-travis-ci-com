@@ -57,7 +57,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 {{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
 
-> Please Note: In the [travis-ci.com](https://app.travis-ci.com) secrets may be stored also in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
+> Please Note: In the [travis-ci.com](https://app.travis-ci.com), secrets may also be stored in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
 
 ### Using an existing key
 
