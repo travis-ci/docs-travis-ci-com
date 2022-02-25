@@ -8,7 +8,13 @@ layout: en
 
 A repository's `.travis.yml` file can have "encrypted values", such as [environment variables](/user/environment-variables/), notification settings, and deploy api keys. These encrypted values can be added by anyone, but are only readable by Travis CI. The repository owner does not keep any secret key material.
 
-**Please note that encrypted environment variables are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
+### Repository settings - forks
+
+{{ site.data.snippets.git_repository_settings_forks_general }}
+
+{{ site.data.snippets.git_repository_settings_forks_encrypted_env_variables }}
+
+> Please Note: In the [travis-ci.com](https://app.travis-ci.com) environment, Custom SSH keys are only available for private repositories. Read more about [custom SSH keys](/user/private-dependencies/#user-key).
 
 > Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com. 
 

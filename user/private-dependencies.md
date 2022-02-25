@@ -51,6 +51,14 @@ You can add SSH keys to user accounts on GitHub. Most users have probably alread
 
 This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
+### Repository settings - forks
+
+{{ site.data.snippets.git_repository_settings_forks_general }}
+
+{{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
+
+> Please Note: In the [travis-ci.com](https://app.travis-ci.com), secrets may also be stored in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
+
 ### Using an existing key
 
 [ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}

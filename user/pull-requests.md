@@ -34,9 +34,17 @@ The upstream repository's maintainer would have no protection against this attac
 
 Travis CI makes encrypted variables and data available only to pull requests coming from the same repository ("internal pull requests"). These are considered trustworthy, as only members with write access to the repository can send them.
 
-Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project.
+Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project unless certain repository settings in Travis CI aren't set.
 
-If your build relies on encrypted variables to run, for instance to run Selenium tests with 
+### Repository settings - forks
+
+{{ site.data.snippets.git_repository_settings_forks_general }}
+
+{{ site.data.snippets.git_repository_settings_forks_encrypted_env_variables }}
+
+{{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
+
+If you have the settings regarding sharing secrets with forks dsiabled and your build relies on encrypted variables to run, for instance to run Selenium tests with 
 [BrowserStack](https://www.browserstack.com) or [Sauce Labs](https://saucelabs.com/), your build 
 needs to take this into account. You won't be able to run these tests for pull requests from external contributors.
 
