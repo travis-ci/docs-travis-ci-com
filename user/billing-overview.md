@@ -17,7 +17,7 @@ The variety of plans provides you with the flexibility to choose the plan that s
 
 | Billing Period | Concurrency based | Usage-based |
 |:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br />*To be discontinued soon | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />[Purchase](https://app.travis-ci.com/account/plan) in Travis CI |
+|Month           | Concurrent jobs limit<br />Unlimited build minutes on Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br /><br /> | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br /> |
 |Annual      | Only grandfathered | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Purchase in Travis CI or contact support [for plans over $3,300](https://app.travis-ci.com/account/plan) in Travis CI |
 
 
