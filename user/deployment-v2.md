@@ -27,3 +27,7 @@ step](/user/deployment/custom/) or [script provider](/user/deployment/script).
 {% include deploy/before_after_deploy.md %}
 {% include deploy/multiple_targets.md %}
 {% include deploy/edge.md %}
+deploy:
+  provider: <provider>
+  # ⋮
+  edge: true
