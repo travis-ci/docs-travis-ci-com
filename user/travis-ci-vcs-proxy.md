@@ -21,7 +21,7 @@ You will need:
    - Using SVN, you will need to connect via the `svn+ssh` protocol and prepare at least one SSH key necessary to link the TCI Proxy entry to your SVN  repositories. 
    - To generate the access token for the P4 repository, access the P4 repository via the Command Line Tool.
 2. If you host your own P4/SVN server: the server must be reachable via a public network (Internet) w/o VPN connection. In addition, you need admin rights at the server to deploy post-commit hook scripts that send notifications on commits to TCI VCS Proxy. Please verify the `Supported integration` and `Authorization engine` that TCI VCS Proxy integration supports (see table above).
-3. Sign-up for closed beta [here](provide link).
+3. Sign-up for closed beta.
 4. Google Authenticator application to configure 2 Factor Authentication (2FA) within TCI Proxy.
 5. You will receive an email with subsequent instructions.
 
