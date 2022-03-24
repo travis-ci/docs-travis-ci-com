@@ -3,8 +3,14 @@ title: Travis CI VCS Proxy
 layout: en
 ---
 
+<blockquote class="beta">
+  <p>
+    This section documents the new TCI VCS Proxy option that is currently in closed beta.
+  </p>
+</blockquote>
+
 ## Travis CI VCS Proxy
-To use Travis CI with Travis CI Version Control System (VCS) Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
+To use Travis CI with Travis CI Version Control System VCS) Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
 
 Integration supported by TCI VCS Proxy
 
