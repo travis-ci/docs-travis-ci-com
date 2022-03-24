@@ -147,6 +147,6 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 > As of the closed Beta launch, we recommend using individual listener tokens for each Assembla Cloud P4 repository. Meanwhile, we are working on improving the handling of shared TCI Proxy Organization-level listener tokens for your convenience.
 
 
-![P4 SVN TCI drawing](/images/P4_SVN_TCI_drawing.png)
+![P4 SVN TCI drawing](user/images/P4_SVN_TCI_drawing.png)
 
 
