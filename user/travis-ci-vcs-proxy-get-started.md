@@ -5,15 +5,15 @@ layout: en
 
 ## Get Started with Travis CI using Travis CI Proxy (Perforce Helix Core, Apache SVN)
 
-### Closed Beta users
-
-After receiving our sign-up confirmation email, Travis CI Staff creates your Travis CI (TCI) Version Control System (VCS) Proxy account. Once the account is created, you will receive an automatic email message asking for TCI Proxy sign-up confirmation. Next, follow the link and on-screen instructions to set up your 2FA for TCI VCS Proxy.
-
 <blockquote class="beta">
   <p>
     This section documents the new TCI VCS Proxy option that is currently in closed beta.
   </p>
 </blockquote>
+
+### Closed Beta users
+
+After receiving our sign-up confirmation email, Travis CI Staff creates your Travis CI (TCI) Version Control System (VCS) Proxy account. Once the account is created, you will receive an automatic email message asking for TCI Proxy sign-up confirmation. Next, follow the link and on-screen instructions to set up your 2FA for TCI VCS Proxy.
 
 #### Prerequisites
 
@@ -22,7 +22,7 @@ To get started with Travis CI VCS Proxy, first, you will need:
 1. An organization with at least one repository assigned in TCI VCS Proxy. 
 2. To configure the repository with appropriate credentials in TCI VCS Proxy. 
 
-For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started/).
+For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-vcs-proxy/).
 
 #### Steps to geting started
 
