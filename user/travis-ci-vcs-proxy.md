@@ -31,7 +31,7 @@ Once you set the 2FA for your account, click on the upper-right profile menu and
 
 #### Set up an Organization
 
-The user creating the Organization automatically becomes the `admin` of the Organization in TCI Proxy. See [roles description in TCI Proxy]() below. To set up an Organization, click on the `Add Organization` button.
+The user creating the Organization automatically becomes the `admin` of the Organization in TCI Proxy. See [roles description in TCI Proxy](#roles-in-tci-vcs-proxy) below. To set up an Organization, click on the `Add Organization` button.
 
 1. First, fill in the name, and include a short description. 
 2. Fill in the listener token.
@@ -104,7 +104,7 @@ During the closed Beta, a TCI VCS Proxy account is automatically created for the
 
 > As of the Beta version, TCI VCS Proxy doesn’t list a list of repositories that invited users can access straight after the first login. For security reasons, each user will need to re-add the repositories to their accounts through the `Add repository` steps and provide the required credentials.
 
-Once a collaborator signs in to TCI VCS Proxy and sets their 2FA, they can navigate to the `Repositories` screen. First, every user needs to `Add Repository` as explained in the [Add repository to the Organization](#Add repository to the Organization) section.
+Once a collaborator signs in to TCI VCS Proxy and sets their 2FA, they can navigate to the `Repositories` screen. First, every user needs to `Add Repository` as explained in the [Add repository to the Organization](#add-repository-to-the-organization) section.
 
 Please note that a TCI VCS Proxy user is re-adding a Repository already linked to their account to the TCI VCS Proxy organization. If an invited, non-admin collaborator tries to add a completely new repository to the existing TCI VCS Proxy organization. Such an attempt will fail with an error.
 
@@ -133,7 +133,7 @@ Upon synchronizing of TCI VCS Proxy organization with Travis CI, a `member` beco
 
 The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, only commits performed by the TCI VCS Proxy users with correct P4/SVn credentials may trigger automatic builds in the Travis CI.
 
-#### TCI VCS Proxy listener tokens
+### TCI VCS Proxy listener tokens
 
 TCI VCS Proxy listener tokens are key to authorizing automated notifications from a P4/SVN server to TCI VCS Proxy. This occurs after a source code commit is commenced. Only authorized notifications are parsed by TCI VCS Proxy. Unauthorized P4/SVN post-commit notifications will be ignored and will not trigger builds in Travis CI.
 
@@ -147,6 +147,6 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 > As of the closed Beta launch, we recommend using individual listener tokens for each Assembla Cloud P4 repository. Meanwhile, we are working on improving the handling of shared TCI Proxy Organization-level listener tokens for your convenience.
 
 
-![P4 SVN TCI drawing](user/images/P4_SVN_TCI_drawing.png)
+![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
 
 
