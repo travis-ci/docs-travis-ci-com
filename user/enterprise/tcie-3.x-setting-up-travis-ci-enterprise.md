@@ -131,7 +131,7 @@ In each case the TCIE Core Services will be deployed as k8s cluster. Cluster mus
 
 4. Install Replicated KOTS on *your local machine*. Make sure that you can connect to the Kubernetes cluster containing Travis CI Enterprise Core Services.
      1.  Replicated KOTS [outputs after installation an url including port number](https://docs.replicated.com/vendor/tutorial-installing-without-existing-cluster#create-a-test-server-and-install-the-app-manager) under which Kotsadmin runs. You can also use `kots admin-console -n [your namespace]` to connect
-     2.  Altenratively you can just use `kubectl` to verify access to cluster. See example in [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#verify-kubectl-configuration).
+     2.  Altenratively you can just use `kubectl` to verify access to cluster (sometimes bash shell reload `bash -l` may be required). See example in [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#verify-kubectl-configuration).
 6. TCIE 3.x installed on **single** virtual machine instance
     1. On *your new VM instance* run `kurl.sh` via `curl -sSL https://k8s.kurl.sh/tci-enterprise-kots | sudo bash`
     2. Get credentials from the new cluster running on *your new VM instance*. Please view, e.g. [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where kubectl config with credentials is created and can be used afterward.
