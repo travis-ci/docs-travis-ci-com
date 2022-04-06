@@ -61,9 +61,13 @@ Alternatively, you can install it on a single machine using the [Replicated kURL
 To set up your Travis CI Enterprise 3.x, you need:
   * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). 
   >Note: The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration. GitOps and Snapshots support need to be separately enabled for each license.
-  * **Two** virtual machines on your private cloud that meet the [system requirements](#system-requirements). 
-  * Set up the first vm as a Kubernetes / kURL host. This is the Travis CI Enterprise 3 Core Services environment.
-  * Set the second vm as Worker Machine host - or configure Kubernetes cluster for dockerized Worker Images/LXD Host for lxd-based Worker Images. This is the Travis CI Enterprise Worker environment.
+  * Infrastructure:
+
+|  Infrastructure scenario  | Requirement | Comment                                   |
+| ------------------- | ---------------------- | ------------------------------------------------------- |
+| not using default k8s service at cloud provider  | **Two virtual machines**  on your private cloud that meet the [system requirements](#system-requirements)    | One vm for Core Services, one for Worker                         |
+| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | One Kubernetes (k8s) Cluster, one virtual machine that meet the [system requirements](#system-requirements) | Tke k8s cluster is meant for Core Services, the vm is meant for Worker Image |
+
   * If using a GitHub Cloud or GitHub Enterprise Server: Configure the `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) with:
 
     - *Homepage URL* - `https://<your-travis-ci-enterprise-domain>`
