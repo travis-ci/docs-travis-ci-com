@@ -125,7 +125,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 |  Infrastructure scenario                                          | How to set up TCIE Core Services           | How to Set Up TCIE Worker           |
 | ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------- |
 | not using default k8s service at cloud provider                   | Set up one vm as k8s host using Replicated kURL (see point 5 below) | [Set up vm to run Worker Image (docker or lxd)](user/enterprise/setting-up-worker/)                        |
-| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure stup you use |
+| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure setup you use |
 
 In each case the TCIE Core Services will be deployed as k8s cluster. Cluster must be prepared and started.
 
