@@ -115,7 +115,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
     | 80   | HTTP            | Allow inbound Web application access.                                        |
     | 22   | SSH             | Allow inbound SSH traffic to access from your local machine.        |
 
-2. Please configure your hostname now. (Skip this step if you will access TCIE through an IP address).
+2. Please configure your hostname now. Skip this step if you will access TCIE through an IP address. Accessing TCIE through IP address is also viable option for your setup.
 3. Set up your cluster/machine instances configuration - at least one virtual machine is needed (in kURL scenario), or Kubernetes cluster prepared and started.
 4. Install Replicated KOTS on *your local machine*. Make sure that you can connect to the Kubernetes cluster.
 5. TCIE 3.x installed on **single** virtual machine instance
