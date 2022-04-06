@@ -121,12 +121,14 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
 2. Please configure your hostname now. Skip this step if you will access TCIE through an IP address. Accessing TCIE through IP address is also viable option for your setup.
 3. Set up your cluster/machine instances configuration
-    |  Infrastructure scenario  | How to set up Core Services| How to Set Up Worker                                   |
-| ------------------- | ---------------------- | ------------------------------------------------------- |
-| not using default k8s service at cloud provider  | Set up one vm as k8s host using Replicated kURL (see point 5 below)    | [Set up vm to run Worker Image (docker or lxd)](user/enterprise/setting-up-worker/)                        |
-| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below | [Set up Worker Image](user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure stup you use |
+
+|  Infrastructure scenario                                          | How to set up TCIE Core Services           | How to Set Up TCIE Worker           |
+| ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------- |
+| not using default k8s service at cloud provider                   | Set up one vm as k8s host using Replicated kURL (see point 5 below) | [Set up vm to run Worker Image (docker or lxd)](user/enterprise/setting-up-worker/)                        |
+| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure stup you use |
 
 In each case the TCIE Core Services will be deployed as k8s cluster. Cluster must be prepared and started.
+
 4. Install Replicated KOTS on *your local machine*. Make sure that you can [connect to the Kubernetes cluster](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/) contauiniong Travis CI Enterprise Core Services.
 5. TCIE 3.x installed on **single** virtual machine instance
     1. On *your new VM instance* run `kurl.sh` via `curl -sSL https://k8s.kurl.sh/tci-enterprise-kots | sudo bash`
