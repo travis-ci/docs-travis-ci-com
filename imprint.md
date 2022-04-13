@@ -8,8 +8,8 @@ no_toc: true
 <article id="imprint">
   <address>
     Travis CI GmbH<br>
-    Rigaer Straße 8<br>
-    10247 Berlin<br>
+    Bonner Straße 12<br>
+    51379 Leverkusen<br>
     Germany
   </address>
   <h4>Vertreten durch</h4>
