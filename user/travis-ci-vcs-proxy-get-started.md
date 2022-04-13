@@ -14,6 +14,7 @@ layout: en
 ### Closed Beta users
 
 After receiving our sign-up confirmation email, Travis CI Staff creates your Travis CI (TCI) Version Control System (VCS) Proxy account. Once the account is created, you will receive an automatic email message asking for TCI Proxy sign-up confirmation. Next, follow the link and on-screen instructions to set up your 2FA for TCI VCS Proxy.
+After you sign up to Travis CI using Travis CI VCS Proxy, we will review the account and assign you a Beta Plan in Travis CI. You may use standard Trial Plan until the Beta Plan is assigned. 
 
 #### Prerequisites
 
@@ -46,7 +47,7 @@ The following example specifies a Ruby project built with Ruby 2.2 and the lates
 
 The defaults for Ruby projects are a `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase), and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
+5. Add the `.travis.yml` file to repository, commit to the repository to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
