@@ -61,6 +61,8 @@ your entire team visibility and control over the build process. And of course, i
 anyone has any questions, our Enterprise-specific support team is here to help
 you out.
 
+Please read [Travis CI Enterprise 3 Overview](/user/enterprise/tcie-3.x-overview/) for more details.
+
 ## Trials and Licensing
 
 You can get a free trial license at [enterprise.travis-
@@ -133,6 +135,7 @@ Or if you need more information on Travis CI, head back and view our [core conce
 {{ site.data.snippets.contact_enterprise_support }}
 
 ## Further Reading
+  * [Travis CI Enterprise 3 Overview](/user/enterprise/tcie-3.x-overview/)
   * [Setting up Travis CI Enterprise](/user/enterprise/setting-up-travis-ci-enterprise)
   * [Setting Up Worker](/user/enterprise/setting-up-worker/) 
   * [Customizing Build Images](/user/enterprise/build-images)
