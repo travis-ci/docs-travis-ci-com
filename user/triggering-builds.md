@@ -6,7 +6,7 @@ layout: en
 
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
-1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these API requests.
+1. Get an API token from your Travis CI [settings page](https://app.travis-ci.com/account/preferences). You'll need the token to authenticate most of these API requests.
 
    You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    to get your API token:
