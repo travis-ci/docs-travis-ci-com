@@ -11,8 +11,8 @@ This document describes steps necessary for database migration from existing Tra
 The TCIE 3.x runs over Postgresql v11 and features a bit different database schema, synchronized with Travis CI Hosted solution. Since TCIE 3.x is deployed as Kubernetes cluster, PostgreSQL is now one of the pods (TCIE 2.x had every dependency embedded in one large Docker image).
 
 The main schema differences are:
-* databases for *logs* and *main* are now separated
-* the *_configs* schema in new *main* database is a bit different and thus this part will be not migrated during the following process; that means for builds done before the migration the users won't have the `.travis.yml` contents relevant to these builds available in the web User Interface
+* In TCIE 3 databases for *logs* and *main* are now separated
+* the *_configs* schema in new TCIE 3 *main* database is a bit different from the one in TCIE 2.2 and thus this part will be not migrated during the following process; that means for builds done before the migration the users won't have the `.travis.yml` contents relevant to these builds available in the web User Interface
 
 ## Preparing to the Migration
 
