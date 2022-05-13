@@ -79,6 +79,7 @@ sed -i '' 's/OWNER TO travis/OWNER TO postgres/g' TCI_E_2_0_db_schema_dump_main_
 ```
 
 **PLEASE NOTE**: 
+1. Please reconfimr existing database owner name directly via PSQL query or command line tool. If required, unify/change it to a single user using psql tooling/queries before any further operation is executed.
 1. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to continue so: you do not have to perform above step. Just use the database owner credentials from Travis CI Enterprise 2.2 in Travis Ci Enterprsie 3.x configuration.
 2. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to cease to do so and use database delivered as a pod in Travis CI enterprsie 3.3, in above replacement change following fragments
 
@@ -86,7 +87,7 @@ sed -i '' 's/OWNER TO travis/OWNER TO postgres/g' TCI_E_2_0_db_schema_dump_main_
 
 `OWNER TO travis` to  `OWNER TO {your external tcie 2.2 database owner}`
 
-3. If you are using external database (not from the Travis CI Enterprise 2.2 release) with Travis CI Enterprise 2.2, please find out existing database owner name directly via PSQL query or command line tool and at best unify/change it to a single user before any further operation is executed.
+
 
 ### Make the Altered Dumps Available
 
