@@ -29,9 +29,9 @@ For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-v
 
 1. Open the received link to Travis CI and select the *Sign up with TCI Proxy* option.
 
-2. Accept the Travis CI´s Authorization email.
+2. Accept the Travis CI´s Authorization email. *Please note:* The Beta application and regular application are both working in the same Production environment (so once the beta is closed, you can preserve all set up if you wish to). Thus Travis CI Authorization email link may lead you to the main app.travis-ci.com. In such case please return to the Travis CI beta application url. You can find it in the Travis CI VCS Proxy welcome e-mail.
 
-3. On the top right of the Travis Dashboard, click on your profile picture and select the *Settings* option. Next, click on the ‘Sync account’ button on the left menu and toggle the repositories you want to use with Travis CI.
+3. On the top right of the Travis Dashboard, click on your profile picture and select the *Settings* option. Next, click on the ‘Sync account’ button on the left menu and toggle the repositories you want to use with Travis CI. *Please note:* If the synchronization operation doesn't refresh your Travis CI screen automatically within 1 minute, please refresh your browser window manually (Ctrl/Cmd + F5).
 
 4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
