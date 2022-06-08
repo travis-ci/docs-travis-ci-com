@@ -1,12 +1,12 @@
 ---
-title: Setting up Travis CI Enterprise
+title: Setting up Travis CI Enterprise 2.x
 layout: en_enterprise
 redirect_from:
   - /user/enterprise/install-on-xenial/
 
 ---
 
-> Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
+> Travis CI Enterprise works with your GitHub.com or GitHub Enterprise (Enterprise Server [below version 3.4](https://docs.github.com/en/enterprise-server@3.4/admin/release-notes#deprecation-of-oauth-application-api-endpoints-and-api-authentication-using-query-parameters)) setup. Please also note the Travis CI Enterprise 2.x is EOL, so we are strongly recommending an [upgrade to Travis CI Enterprise 3.x](/user/enterprise/tcie-3.x-overview/).
 
 ## Prerequisites
 

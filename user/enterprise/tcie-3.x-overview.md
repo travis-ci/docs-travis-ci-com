@@ -7,13 +7,21 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 
 ## Main features
 
-* Feature parity between Travis CI Enterprise 3.x and travis-ci.com - we migrate over bug fixes and features in short timeframes
-* Multiple integrations with Version Control systems: 
-  * GitHub Cloud
-  * GitHub Enterprise Server
-  * GitLab cloud solution
-  * BitBucket cloud solution
-* Database upgraded to PostgreSQL 11
+* High feature parity between Travis CI Enterprise 3.x and travis-ci.com, including (but not only):
+  * Updated User Interface: user profile settings and repository specific settings, incl. environmental variables, custom keys and security settings
+  * Updated User Interface notifications and build/build job information
+  * Updated build configuration service, including ability to [import shared build configuration](/user/build-config-imports) to your .travis.yml, even from other repositories
+  * [Build configuration validator](/user/build-config-validation) hinting you on what may be wrong with .travis.yml for your builds 
+  * Multiple integrations with Version Control systems: 
+    * GitHub Cloud
+    * GitHub Enterprise Server
+    * GitLab cloud solution
+    * BitBucket cloud solution
+  * Support for Multi CPU architectures builds (arm64, ppc64le, s390x) shall you wish to run it on different infrastructure
+  * Improved Admin Web User Interface
+  * We're porting the changes and bug fixes from travis-ci.com much quicker than in version 2.2
+* Database upgraded to PostgreSQL 11 or higher
+  * additional travis-backup tool to help with data retention policy 
 * Kubernetes ready!
   * Simple installation via Replicated KOTS installer (for existing environment in GCE, AWS and for OpenStack) or manage your single machine installation via Replicated https://kurl.sh/ (installs as microk8s cluster on a single instance)
 * Build environments (Ubuntu):
