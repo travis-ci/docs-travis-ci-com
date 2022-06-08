@@ -6,8 +6,8 @@ osx_images:
     xcode_build_version: "13F100"
     image_publish_date: 2021-06-08
     sdks:
-      - iphoneos15.4
-      - iphonesimulator15.4
+      - iphoneos15.5
+      - iphonesimulator15.5
       - macosx12.3
       - appletvos15.4
       - appletvsimulator15.4
