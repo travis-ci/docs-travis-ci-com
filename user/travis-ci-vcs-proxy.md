@@ -19,7 +19,7 @@ Integration supported by TCI VCS Proxy
 | Perforce Helix Core | Streams mainline and dev depots only | Ticket-based authorization only           |
 | SVN                 | Apache SVN server only | svn+ssh (implies SSH keys used) + optionally use realms |
 
-### Prerequisites
+## Prerequisites
 
 You will need:
 
@@ -31,11 +31,11 @@ You will need:
 4. Google Authenticator application to configure 2 Factor Authentication (2FA) within TCI Proxy.
 5. You will receive an email with subsequent instructions.
 
-### Setting up repositories and organization TCI Proxy
+## Setting up repositories and organization TCI Proxy
 
 Once you set the 2FA for your account, click on the upper-right profile menu and navigate to the `Repositories` option.
 
-#### Set up an Organization
+### Set up an Organization
 
 The user creating the Organization automatically becomes the `admin` of the Organization in TCI Proxy. See [roles description in TCI Proxy](#roles-in-tci-vcs-proxy) below. To set up an Organization, click on the `Add Organization` button.
 
@@ -46,20 +46,20 @@ Then the important part is the listener token, which is a key needed to successf
 
 You can read more about the [listener tokens in TCI Proxy](#tci-vcs-proxy-listener-tokens) below.
 
-#### Add repository to the Organization
+### Add repository to the Organization
 
 The next step is to add a repository to your Organization. Use the `Add Repository` button to add a repository to the TCI Proxy Organization. Depending on the repository type  - P4 or SVN - you will need specific connection data. 
 
 > In TCI VCS Proxy, a single repository (defined by URL and a repository name) can belong to only one TCI VCS Proxy organization!
 
-**Assembla - SVN repository**
+#### Assembla - SVN repository
 
-1. In Assembla:
+1. In **Assembla**:
     1. First, navigate to your selected SVN Repository, and select the `Source` option.
     2. On the right-hand menu, use the `Checkout` option, select 'SSH' and note down both the `REPO_NAME` and the `svn+ssh://` link. You will need these in TCI VS Proxy.
     3. Navigate to your SVN Repository `Settings` option, and select the `Deploy SSH keys` option - add here the key you intend to use with TCI VCS Proxy and Travis CI (or copy an already added one if you wish to).
     4. Next, navigate to your SVN Repository `Settings` option, and select `Travis VCS Proxy integration` - enter the same listener token previously defined in your TCI VCS Proxy Organization.
-2. In TCI VCS Proxy (from the `Add Repository` view):
+2. In **TCI VCS Proxy** (from the `Add Repository` view):
     1. First, select TCI VCS Proxy Organization.
     2. In the `Name` field - paste the REPO_NAME copied from Assembla.
     3. In the `URL` field - paste the svn+ssh url copied from Assembla.
@@ -70,20 +70,20 @@ The next step is to add a repository to your Organization. Use the `Add Reposito
 
 The first user adding an SVN repository to TCI VCS Proxy organization becomes an ‘admin’ for this repository. Therefore, we recommend Assembla Space owners to perform this action in TCI VCS Proxy.
 
-**Assembla - P4 repository**
+#### Assembla - P4 repository
 
-1. In Assembla:
+1. In **Assembla**:
     1. First, navigate to your selected Perforce Repository, and select the `Instructions` option. Note down the depot link, including the port number. You will need it in TCI VS Proxy.
     2. Next, navigate to your Perforce Repository `Settings` option, select `General settings` - note down the `Repo name`, you will need it in TCI VS Proxy.
     3. Next, navigate to your Perforce Repository `Settings` option, and select the `Travis VCS Proxy integration` option - enter the same listener token previously defined in your TCI VCS Proxy Organization (or, optionally, individual Repository listener token, read more on listener tokens below).
     4. Next, navigate to your Perforce Repository `Settings` option, select the `P4 Admin` option, and create a group with a long or `unlimited` login timeout. This is recommended to prevent constant updates of your credentials in the TCI VCS Proxy. Please follow your team's security policy. 
     5. Finally, assign a user to the group. For your convenience, consider creating a special CI/CD user with an `unlimited` login timeout - you may need access to the user´s password.
-2. In the local command line - where a `P4` command-line tool is present, and a connection to Assembla P4 is available and tested:
+2. In the **local command line with P4 CLI** - where a `P4` command-line tool is present, and a connection to Assembla P4 is available and tested:
     1. Use `p4 login -a -p` for the user you want to configure as repository access in the TCI VCS Proxy (e.g., dedicated CI/CD user).
     2. Note down the displayed ticket - you will need it in TCI VCS Proxy.
-3. In TCI VCS Proxy (from the `Add Repository` view):
+3. In **TCI VCS Proxy** (from the `Add Repository` view):
     1. First, select a TCI VCS Proxy Organization.
-    2. In the `Name` field - paste the `Repo name` copied from Assembla.
+    2. In the `Name` field - paste the `Repo name` copied from Assembla. If a problem appears for Assembla P4 repository (`Request failed` on screen error), try putting into `Name` value:  `depot`.
     3. In the `URL` field - paste the link copied from the `Instructions` section in Assembla.
     4. In the `PERFORCE USERNAME` field - provide your Assembla user name (as it may be a dedicated CI/CD user).
     5. In the `Server Level TICKET / TOKEN` field - paste the ticket or token corresponding to the user name, noted down after `p4 login -a -p`. 
@@ -95,7 +95,7 @@ In the TCI VCS Proxy, the user access rights to the repository are derived from 
 
 Please note down the minimum required connection details for your collaborators. Due to security reasons, the collaborators will have to repeat explicitly the `Add repository` steps (separate credentials and access rights may be in place).
 
-### Inviting collaborators to TCI VCS Proxy Organization
+## Inviting collaborators to TCI VCS Proxy Organization
 
 To allow users to trigger builds in Travis CI, first, you must add them as members of the organization in the TCI VCS Proxy. 
 Please note: Only TCI VCS Proxy users can trigger builds in Travis CI. If a user, who is not a member of the organization in the TCI VCS Proxy but has access to the P4 repository, performs a commit - then the commit will not trigger a build in TCI. Thus, to trigger the build, a subsequent commit must be done by a user recognized by TCI VCS Proxy must make a subsequent commit and synchronize it into Travis CI. Or perform a manual build trigger from the TCI user interface to trigger the build. 
@@ -116,11 +116,11 @@ Please note that a TCI VCS Proxy user is re-adding a Repository already linked t
 
 > As inconvenient as it may seem, this forces every user to provide correct access credentials to the repository. This process is a one-time action for each repository and aims to protect an individual´s token/ssh keys from being shared unconsciously with other TCI Proxy Users. We prefer a more secure approach to accessing your source code and are curious about your feedback on the subject.
 
-### Roles in TCI VCS Proxy
+## Roles in TCI VCS Proxy
 
 TCI VCS Proxy implements a very flat role model for smooth data synchronization with Travis CI (organizations, members of organizations, repositories).
 
-**Admin**
+### Admin
 A TCI VCS Proxy `admin` can:
 
 * Add, edit, or delete the TCI VCS Proxy organization.
@@ -128,7 +128,7 @@ A TCI VCS Proxy `admin` can:
 
 Upon synchronizing of TCI VCS Proxy organization with Travis CI, an `admin` becomes Travis CI organization admin. In the main Travis CI, only admins of organizations can activate/deactivate repositories and select billing plans.
 
-**Member**
+### Member
 
 A TCI VCS Proxy user invited to a TCI VCS Proxy organization can:
 
@@ -139,7 +139,7 @@ Upon synchronizing of TCI VCS Proxy organization with Travis CI, a `member` beco
 
 The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, only commits performed by the TCI VCS Proxy users with correct P4/SVn credentials may trigger automatic builds in the Travis CI.
 
-### TCI VCS Proxy listener tokens
+## TCI VCS Proxy listener tokens
 
 TCI VCS Proxy listener tokens are key to authorizing automated notifications from a P4/SVN server to TCI VCS Proxy. This occurs after a source code commit is commenced. Only authorized notifications are parsed by TCI VCS Proxy. Unauthorized P4/SVN post-commit notifications will be ignored and will not trigger builds in Travis CI.
 
