@@ -25,7 +25,7 @@ You will need:
 
 1. If you are on Assembla Cloud: you need an Assembla Cloud account with `Owner` rights to the space containing P4 or SVN repository.
    - Using SVN, you will need to connect via the `svn+ssh` protocol and prepare at least one SSH key necessary to link the TCI Proxy entry to your SVN  repositories. 
-   - To generate the access token for the P4 repository, access the P4 repository via the Command Line Tool.
+   - To generate the access token for the P4 repository, access the P4 repository via the Command Line Tool which you can grab [here](https://www.perforce.com/products/helix-core-apps/command-line-client).
 2. If you host your own P4/SVN server: the server must be reachable via a public network (Internet) w/o VPN connection. In addition, you need admin rights at the server to deploy post-commit hook scripts that send notifications on commits to TCI VCS Proxy. Please verify the `Supported integration` and `Authorization engine` that TCI VCS Proxy integration supports (see table above).
 3. Sign-up for closed beta.
 4. Google Authenticator application to configure 2 Factor Authentication (2FA) within TCI Proxy.
@@ -79,8 +79,9 @@ The first user adding an SVN repository to TCI VCS Proxy organization becomes an
     4. Next, navigate to your Perforce Repository `Settings` option, select the `P4 Admin` option, and create a group with a long or `unlimited` login timeout. This is recommended to prevent constant updates of your credentials in the TCI VCS Proxy. Please follow your team's security policy. 
     5. Finally, assign a user to the group. For your convenience, consider creating a special CI/CD user with an `unlimited` login timeout - you may need access to the user´s password.
 2. In the **local command line with P4 CLI** - where a `P4` command-line tool is present, and a connection to Assembla P4 is available and tested:
-    1. Use `p4 login -a -p` for the user you want to configure as repository access in the TCI VCS Proxy (e.g., dedicated CI/CD user).
-    2. Note down the displayed ticket - you will need it in TCI VCS Proxy.
+    1. Use `p4 login -a -p` for the user you want to configure as repository access in the TCI VCS Proxy (e.g., dedicated CI/CD user), login using your Assembla password.
+    2. You'll then want to go to Assembla and go to **Settings => Travis VCS Proxy Integration** and copy the token you got from running `p4 -a -p` there.
+    3. Note down the displayed ticket - you will need it in TCI VCS Proxy.
 3. In **TCI VCS Proxy** (from the `Add Repository` view):
     1. First, select a TCI VCS Proxy Organization.
     2. In the `Name` field - paste the `Repo name` copied from Assembla. If a problem appears for Assembla P4 repository (`Request failed` on screen error), try putting into `Name` value:  `depot`.
@@ -94,6 +95,18 @@ In the TCI VCS Proxy, the user access rights to the repository are derived from 
 > If the credentials/connection data is correct, the repository is created and visible in the `Repositories` screen.
 
 Please note down the minimum required connection details for your collaborators. Due to security reasons, the collaborators will have to repeat explicitly the `Add repository` steps (separate credentials and access rights may be in place).
+
+## P4 Environment Variables 
+
+As stated above you need to make sure your credentials/connection data is correct, so when you ser your final `P4CONFIG` file should look like this: 
+
+```bash
+P4PORT=ssl:perforce.assembla.app:xxxx # (port number will be under the "instructions" tab in Assembla)
+P4PASSWD= # This will be set later.
+P4USER=MontanaMendy # As an example. 
+P4CHARSET=utf8
+P4CLIENT=testspace_j # This is your local client name, choose anything.
+```
 
 ## Inviting collaborators to TCI VCS Proxy Organization
 
