@@ -44,7 +44,7 @@ You will go through following major steps in configuration
  
 * Travis CI VCS Proxy
   * Add an organization.
-  * Add at least one repository in the organization, using details acquired from Assembla.
+  * Add at least one repository in the organization, using details acquired e.g. from Assembla Cloud.
   * Note down Travis CI VCS Proxy listener tokens, needed for Assembla Cloud P4 or SVN repositories to report commits. That will, in the end, trigger Travis CI builds.
   * Optionally, invite collaborators to the created organization.
 
