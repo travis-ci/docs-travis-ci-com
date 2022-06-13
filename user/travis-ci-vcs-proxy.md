@@ -35,6 +35,20 @@ You will need:
 
 Once you set the 2FA for your account, click on the upper-right profile menu and navigate to the `Repositories` option.
 
+You will go through following major steps in configuration
+
+* In case of Assembla Cloud with P4 or SVN repository
+  * Note down certain configuration details from your P4 or SVN repository in Assembla Cloud 
+  * Add Travis Ci VCS Proxy listener token to the Assembla Cloud P4 or SVN repository settings
+  * For Assembla Cloud P4 repository: optionally configure a group with long login timeout (to prevent builds not running due to expired P4 tickets/tokens) 
+
+> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate interconnector for P4 and SVN servers and in the future it will allow to connect your self-hosted P4 or SVN servers.
+ 
+* Travis Ci VCS Proxy
+  * Add an organization
+  * Add at least one repository in the organization
+  * Optionally, invite collaboratore
+
 ### Set up an Organization
 
 The user creating the Organization automatically becomes the `admin` of the Organization in TCI Proxy. See [roles description in TCI Proxy](#roles-in-tci-vcs-proxy) below. To set up an Organization, click on the `Add Organization` button.
