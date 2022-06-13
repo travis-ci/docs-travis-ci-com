@@ -80,7 +80,7 @@ The first user adding an SVN repository to TCI VCS Proxy organization becomes an
     5. Finally, assign a user to the group. For your convenience, consider creating a special CI/CD user with an `unlimited` login timeout - you may need access to the user´s password.
 2. In the **local command line with P4 CLI** - where a `P4` command-line tool is present, and a connection to Assembla P4 is available and tested:
     1. Use `p4 login -a -p` for the user you want to configure as repository access in the TCI VCS Proxy (e.g., dedicated CI/CD user), login using your Assembla password.
-    2. You'll then want to go to Assembla and go to **Settings => Travis VCS Proxy Integration** and copy the token you got from running `p4 -a -p` there.
+    2. You'll then want to go to Assembla and go to **Settings => Travis VCS Proxy Integration** and copy the token you got from running `p4 login -a -p` there.
     3. Note down the displayed ticket - you will need it in TCI VCS Proxy.
 3. In **TCI VCS Proxy** (from the `Add Repository` view):
     1. First, select a TCI VCS Proxy Organization.
