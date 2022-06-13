@@ -38,16 +38,17 @@ Once you set the 2FA for your account, click on the upper-right profile menu and
 You will go through following major steps in configuration
 
 * In case of Assembla Cloud with P4 or SVN repository
-  * Note down certain configuration details from your P4 or SVN repository in Assembla Cloud 
-  * Add Travis Ci VCS Proxy listener token to the Assembla Cloud P4 or SVN repository settings
-  * For Assembla Cloud P4 repository: optionally configure a group with long login timeout (to prevent builds not running due to expired P4 tickets/tokens) 
+  * Note down certain configuration details from your P4 or SVN repository in Assembla Cloud. 
+  * Add Travis Ci VCS Proxy listener token to the Assembla Cloud P4 or SVN repository settings.
+  * For Assembla Cloud P4 repository: optionally configure a group with long login timeout (to prevent builds not running due to expired P4 tickets/tokens). 
 
-> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate interconnector for P4 and SVN servers and in the future it will allow to connect your self-hosted P4 or SVN servers.
+> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate connection layer for P4 and SVN servers, as it is meant in the future to connect also self-hosted P4 or SVN servers.
  
 * Travis Ci VCS Proxy
-  * Add an organization
-  * Add at least one repository in the organization
-  * Optionally, invite collaboratore
+  * Add an organization.
+  * Add at least one repository in the organization, using details acquired from Assembla.
+  * Note down Travis CI VCS Proxy listener tokens, needed for Assembla Cloud P4 or SVN repositories to report commits. That will, in the end, trigger Travis CI builds.
+  * Optionally, invite collaborators to the created organization.
 
 ### Set up an Organization
 
