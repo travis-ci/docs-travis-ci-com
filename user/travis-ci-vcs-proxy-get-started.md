@@ -36,7 +36,7 @@ For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-v
 > *Please note:* If the synchronization operation doesn't refresh your Travis CI screen automatically within 1 minute, please refresh your browser window manually (Ctrl/Cmd + F5).
 
 4. Please select a Trial Plan or wait for us to assign special Beta Plan to your account and/or organization(s). In Travis CI each individual User account and each Organization entity must have a separate plans assigned.
-> *Please note:* If assigning a plan doesn't remove insufficient user license/lack of credits user message your Travis CI Beta applciation screen automatically, please refresh your browser window manually (Ctrl/Cmd + F5).
+> *Please note:* If assigning a plan doesn't remove insufficient user license/lack of credits error message in your Travis CI Beta applciation screen automatically, please refresh your browser window manually (Ctrl/Cmd + F5).
 
 5. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
