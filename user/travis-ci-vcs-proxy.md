@@ -107,6 +107,7 @@ P4USER=MontanaMendy # As an example.
 P4CHARSET=utf8
 P4CLIENT=testspace_j # This is your local client name, choose anything.
 ```
+You can access your P4 environment variables by running in your terminal `cat ~/.p4enviro` and if you want to edit it run `vim ~/.p4enviro` or use and IDE/Text Editor of your choice.
 
 ## Inviting collaborators to TCI VCS Proxy Organization
 
