@@ -29,9 +29,7 @@ You will need:
 2. If you host your own P4/SVN server: the server must be reachable via a public network (Internet) w/o VPN connection. In addition, you need admin rights at the server to deploy post-commit hook scripts that send notifications on commits to TCI VCS Proxy. Please verify the `Supported integration` and `Authorization engine` that TCI VCS Proxy integration supports (see table above). Please sign up for closed beta and contact Beta Support email address for more details.
 3. Sign-up for closed beta.
 4. Google Authenticator application to configure 2-Factor Authentication (2FA) within TCI Proxy.
-5. Scan the QR Code:
-<img width="779" alt="Screen Shot 2022-06-13 at 2 58 22 PM" src="https://user-images.githubusercontent.com/20936398/173452347-2077c561-b2b2-46b2-93b7-de8c6d2d044b.png">
-6. You will receive an email with subsequent instructions.
+5. You will receive an email with subsequent instructions.
 
 ## Setting up repositories and organization TCI Proxy
 
@@ -50,8 +48,9 @@ You will go through following major steps in configuration
   * Note down Travis CI VCS Proxy listener tokens, needed for Assembla Cloud P4 or SVN repositories to report commits. That will, in the end, trigger Travis CI builds.
   * Optionally, invite collaborators to the created organization.
 
+Once you set the 2FA for your account, click on the upper-right profile menu and navigate to the `Repositories` option. You need to scan the QR code first before you enable 2FA. 
 
-Once you set the 2FA for your account, click on the upper-right profile menu and navigate to the `Repositories` option.
+<img width="779" alt="Screen Shot 2022-06-13 at 2 58 22 PM" src="https://user-images.githubusercontent.com/20936398/173452347-2077c561-b2b2-46b2-93b7-de8c6d2d044b.png">
 
 ### Set up an Organization
 
